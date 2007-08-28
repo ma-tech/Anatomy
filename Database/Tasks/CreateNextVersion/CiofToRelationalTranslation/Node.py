@@ -1,13 +1,12 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent anatomy nodes.
-
+"""
+Internal python structures to represent anatomy nodes.
+"""
 
 import sets                             #
 import AnatomyObject                    # Ties it all together
-import Ciof                             # CIOF entities and attributes
 import DbAccess
 import NodeName
 import Relationship
@@ -31,11 +30,25 @@ TABLE   = "ANA_NODE"
 CLASS_TEXT = "Node (Component)"
 
 
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_anatomyNodesByPublicId = None
+_anatomyNodesByOid = None
+_anatomyNodes = None
+
+
+
 # ------------------------------------------------------------------
 # NODE
 # ------------------------------------------------------------------
 
 class Node:
+    """
+    An antomy node based on information from a CIOF entity.
+    """
 
     def __init__(self, ciofEnt, speciesName):
         """
@@ -54,6 +67,7 @@ class Node:
         self.__name = self.__ciofEntity.getAttributeValuesJoined("Name")
         self.__description = None       # does not exist in CIOF file.
 
+        self.__canonicalParentNode = None
         ciofType = ciofEnt.getType()
         if ciofType == "AnatomicalPart":
             self.__isPrimaryNode = True
@@ -65,7 +79,14 @@ class Node:
             self.__setCanonicalParentNodeForGroup()
         else:
             Util.fatalError(["Attempt to create Node from unexpected " +
-                             "CIOF node type: " + entType])
+                             "CIOF node type: " + ciofType])
+
+        self.__relationshipWhereChild = None
+        self.__relationshipsWhereGroupParent = None
+        self.__timedNodesByStageName = None
+        self.__timedNodesInStageOrder = None
+        self.__synonyms = None
+
         self.__genRelationships()
         self.__genTimedNodes()
         self.__genSynonyms()
@@ -73,6 +94,9 @@ class Node:
         return None
 
     def assignOid(self):
+        """
+        Assign a database OID to this node.
+        """
         creationDateTime = self.getCreationDateTime()
         self.__anatomyObject = AnatomyObject.AnatomyObject(
             self, creationDateTime = creationDateTime)
@@ -81,21 +105,31 @@ class Node:
         return self.getOid()
 
     def getOid(self):
-
-        # Chicanery necessary because deleted anatomy objects won't have
-        # an OID.
+        """
+        Chicanery necessary because deleted anatomy objects won't have
+        an OID.
+        """
         if self.__anatomyObject:
             return self.__anatomyObject.getOid()
         else:
             return None
 
     def getAnatomyObject(self):
+        """
+        Get the anatomy object for this node.
+        """
         return self.__anatomyObject
 
     def getPublicId(self):
+        """
+        Return the public Id of this node (e.g. the EMAPA id.
+        """
         return self.__publicId
 
     def getSpecies(self):
+        """
+        Return the species of this node.
+        """
         return self.__speciesName
 
     def getDescription(self):
@@ -105,6 +139,11 @@ class Node:
         return self.__description
 
     def getCreationDateTime(self):
+        """
+        Get the creation data time of this node in the CIOF file.
+
+        This is unreliable.
+        """
         return self.__ciofEntity.getCreationDateTime()
 
     def getModificationDateTime(self):
@@ -114,21 +153,39 @@ class Node:
         return self.__ciofEntity.getModificationDateTime()
 
     def isPrimary(self):
+        """
+        Return True if this node is not a group node.
+        """
         return self.__isPrimaryNode
 
     def isGroup(self):
+        """
+        Return True if this node is a group node.
+        """
         return not self.isPrimary()
 
     def isDeleted(self):
+        """
+        Return True if this node is deleted.
+        """
         return self.__deleted
 
     def getSynonyms(self):
+        """
+        Return list of synonym objects for this node.
+        """
         return self.__synonyms
 
     def getDbRecord(self):
+        """
+        Return the db record for this node.
+        """
         return self.__dbRecord
 
     def isRoot(self):
+        """
+        Return true if this node is the root of the anatomy.
+        """
         if self.getCanonicalParentNode():
             isRoot = False
         else:
@@ -137,6 +194,9 @@ class Node:
 
 
     def getName(self):
+        """
+        Return the name of this anaotmy component.
+        """
         return self.__name
 
 
@@ -251,7 +311,8 @@ class Node:
                 maxStageSequence > maxParentSequence):
                 Util.warning([
                     "Child has stage range outside its parent's stage range.",
-                    "Child Node " + self.getPublicId() + ", '" + self.getName() + "'",
+                    "Child Node " + self.getPublicId() +
+                    ", '" + self.getName() + "'",
                     "has declared stage range (" +
                     minStage.getStageName() + "-" +
                     maxStage.getStageName() + ")",
@@ -384,6 +445,7 @@ class Node:
             self.__timedNodesInStageOrder.append(timedNode)
 
         def cmpStageSequence(timedNode1, timedNode2):
+            "Compare timed nodes based on their stage sequence."
             return cmp(timedNode1.getStage().getSequence(),
                        timedNode2.getStage().getSequence())
         self.__timedNodesInStageOrder.sort(cmpStageSequence)
@@ -441,7 +503,7 @@ class Node:
         ciofSyns = self.__ciofEntity.getAttributeValues("Synonym")
         for synonymText in ciofSyns:
             if synonymText in self.__synonyms:
-                util.warning([
+                Util.warning([
                     "Node '" + self.getName() +
                     "' (" + self.getPublicId() + ") has same synonym " +
                     "defined twice",
@@ -495,6 +557,7 @@ class Node:
         undeletedNodes = sets.Set()
 
         def concatPublicId(childId):
+            "Add EMAPA: to id."
             return "EMAPA:" + childId
         childIds = map(concatPublicId,
                        self.__ciofEntity.getAttributeValues("ComponentChildren"))
@@ -511,12 +574,12 @@ class Node:
                     "contains deleted child '" + node.getName() + "' " +
                     node.getPublicId()])
             else:
-                 undeletedNodes.add(node)
+                undeletedNodes.add(node)
 
         if len(undeletedNodes) == 0:
-           Util.fatalError([
-               "Group '" + self.getName() + "' (" + self.getPublicId() +
-               ") contains only deleted children"])
+            Util.fatalError([
+                "Group '" + self.getName() + "' (" + self.getPublicId() +
+                ") contains only deleted children"])
 
         # Remove redundant nodes from list of children.  A node is redundant if
         # one of its canonical ancestors is also a member of the group.
@@ -544,9 +607,9 @@ class Node:
         self.__groupChildren = undeletedNodes.difference(redundantNodes)
 
         if len(self.__groupChildren) == 1:
-           Util.warning([
-               "Group '" + self.getName() + "' (" + self.getPublicId() +
-               ") contains only one child."])
+            Util.warning([
+                "Group '" + self.getName() + "' (" + self.getPublicId() +
+                ") contains only one child."])
 
         return self.__groupChildren
 
@@ -623,12 +686,12 @@ class Node:
         about anatomy.  Also inserts any dependent timed nodes, and
         part-of relationships
         """
-        id = self.getPublicId()
-        if id in _anatomyNodesByPublicId:
+        pubId = self.getPublicId()
+        if pubId in _anatomyNodesByPublicId:
             Util.fatalError([
-                "Node with id '" + id + "' already defined."])
+                "Node with id '" + pubId + "' already defined."])
 
-        _anatomyNodesByPublicId[id] = self
+        _anatomyNodesByPublicId[pubId] = self
         _anatomyNodes.append(self)
 
         # Add relationships.
@@ -726,6 +789,7 @@ def __reportNodeNameSynonymOverlap():
             nodeSynList = nameNode.getSynonyms()
             if nodeSynList:
                 def concat(earlierSyns, nextSyn):
+                    "Add synonym to synonyms string."
                     if earlierSyns == "   (Synonyms: ":
                         return earlierSyns + "'" + nextSyn.getSynonymText() + "'"
                     else:
@@ -788,6 +852,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return next node.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -808,6 +875,9 @@ class AllUndeletedIter:
         return self
 
     def next(self):
+        """
+        Return next undeleted node.
+        """
         self.__position += 1
         while (self.__position < self.__length and
                _anatomyNodes[self.__position].isDeleted()):
@@ -896,6 +966,10 @@ def readDb():
 
 
 def getByPublicId(publId):
+    """
+    Return the node with the given public ID.  Returns None if no such
+    node exists.
+    """
     if publId in _anatomyNodesByPublicId:
         return _anatomyNodesByPublicId[publId]
     else:
@@ -904,6 +978,10 @@ def getByPublicId(publId):
 
 
 def getByOid(oid):
+    """
+    Return the node with the given OID.  Returns None if no such node
+    exists.
+    """
     if oid in _anatomyNodesByOid:
         return _anatomyNodesByOid[oid]
     else:

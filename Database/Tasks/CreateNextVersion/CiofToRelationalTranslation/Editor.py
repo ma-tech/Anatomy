@@ -1,12 +1,11 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Editors
+"""
+Internal python structures to represent Editors
+"""
 
-import AnatomyObject                    # Ties it all together
 import DbAccess
-import Util                             # Error handling
 
 
 
@@ -17,6 +16,17 @@ import Util                             # Error handling
 # DB defs.
 
 TABLE = "ANA_EDITOR"
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_editors = None
+_editorsByName = None
+_editorsByOid = None
+
 
 
 # ------------------------------------------------------------------
@@ -37,14 +47,21 @@ class Editor:
         """
         self.__oid  = dbRecord.getColumnValue("EDI_OID")
         self.__name = dbRecord.getColumnValue("EDI_NAME")
+        self.__dbRecord = None   # avoids pylint warning.
         self.__setDbRecord(dbRecord)
 
         return None
 
     def getName(self):
+        """
+        Get the name of the editor.
+        """
         return self.__name
 
     def getOid(self):
+        """
+        Get the OID of the editor.
+        """
         return self.__oid
 
 
@@ -85,6 +102,9 @@ class Editor:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Get database record for editor.
+        """
         return self.__dbRecord
 
 
@@ -99,7 +119,7 @@ class Editor:
         else:
             dbRecord.bindPythonObject(self)
         self.__dbRecord = dbRecord
-       
+
         return dbRecord
 
 
@@ -128,6 +148,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return the next editor in iterator.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -167,12 +190,16 @@ def initialise():
 
 
 def getByName(name):
-    
+    """
+    Given the name of an editor, return the editor object with that name.
+    """
     return _editorsByName[name]
 
 
 def getByOid(oid):
-    
+    """
+    Given the OID of an editor, return the editor object with that OID.
+    """
     return _editorsByOid[oid]
 
 

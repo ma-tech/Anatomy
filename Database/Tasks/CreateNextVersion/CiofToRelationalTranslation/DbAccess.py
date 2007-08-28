@@ -1,8 +1,9 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Wrapper around all access to the anatomy database in the relational DBMS.
+"""
+Wrapper around all access to the anatomy database in the relational DBMS.
+"""
 
 import datetime
 import MySQLdb
@@ -16,7 +17,6 @@ import Version
 # ------------------------------------------------------------------
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
-
 
 # Used in calls to registerClassTable to tell routine if table's OIDs are
 # in the ANA_OBJECT table.
@@ -34,6 +34,16 @@ IS_NOT_KEY = False
 _ACTION_INSERT = "inserts"
 _ACTION_UPDATE = "updates"
 _ACTION_DELETE = "deletes"
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_anatomyConn = None
+_tableInfoByTableName = None
+_tableInfoByClass = None
+_outputDir = None
 
 
 
@@ -59,7 +69,7 @@ class TableInfo:
         Parameters:
           anatomyClass:  Class of python objects that represent this table
                          in python.  This class holds the CIOF info.
-          anatomyTable:  Name of table 
+          anatomyTable:  Name of table
           inAnaObect:    One of these values:
                          IN_ANA_OBJECT:     The key of this table exists in
                                             the ANATOMY_OBJECT table.
@@ -97,60 +107,109 @@ class TableInfo:
         return None
 
     def getAnatomyClass(self):
+        """
+        Return the class of python objects that represent this table
+        in python.  This class holds the CIOF info.
+        """
         return self.__anatomyClass
 
     def getTableName(self):
+        """
+        Return the name of this database table.
+        """
         return self.__anatomyTable
 
     def getColumnNames(self):
+        """
+        Return the names of the columns in the table as a list.
+        """
         return self.__methodMappings.keys()
 
     def inAnaObject(self):
+        """
+        Return True if the table has an OID column that is a foreign
+        key to the ANA_OBJECT table.
+        """
         return self.__inAnaObject
 
     def getMethodMappings(self):
+        """
+        Return the dictionary of _columnMethodMappings for the columns in
+        this table.  The dictionary is keyed by column name.
+        """
         return self.__methodMappings
 
     def getKeyMappings(self):
+        """
+        Return the dictionary of _columnMethodMappings for the KEY columns in
+        this table.  The dictionary is keyed by column name.
+        """
         return self.__keyMappings
 
     def getNonKeyMappings(self):
+        """
+        Return the dictionary of _columnMethodMappings for the NON-KEY
+        columns in this table.  The dictionary is keyed by column name.
+        """
         return self.__nonKeyMappings
 
     def registerOrphan(self, orphanDbRecord):
+        """
+        A record in the table no longer exists in the CIOF.  Register that
+        record as an orphan.
+        """
         self.__dbOrphans.append(orphanDbRecord)
 
 
     def getDbOrphans(self):
+        """
+        Return the list of orphan records in this table.  A record is an
+        orphan if the information in it no longer appears in the CIOF.
+        """
         return self.__dbOrphans
 
     def saveInsertStatement(self, statement):
+        """
+        Add an SQL insert statement to the list of insert statements for this
+        table.  These insert statements are written out later.
+        """
         self.__inserts.append(statement + "show warnings;")
         return None
-    
+
     def saveUpdateStatement(self, statement):
+        """
+        Add an SQL update statement to the list of update statements for this
+        table.  These update statements are written out later.
+        """
         self.__updates.append(statement + "show warnings;")
         return None
-    
+
     def saveDeleteStatement(self, statement):
+        """
+        Add an SQL delete statement to the list of delete statements for this
+        table.  The delete statements are written out later.
+        """
         self.__deletes.append(statement + "show warnings;")
         return None
 
     def __writeSqlToFile(self, sqlStatements, action):
-
+        """
+        Write a list of SQL statements to a file.  All of the
+        statements share a common action (insert, update, or delete).
+        """
         fileName = _outputDir + "/" + _genSqlFileName(self, action)
-        file = open(fileName, "w")
+        sqlFile = open(fileName, "w")
 
         for stmt in sqlStatements:
-            file.write(stmt + "\n\n");
-        file.close()
+            sqlFile.write(stmt + "\n\n")
+        sqlFile.close()
 
         Util.statusMessage([
             str(len(sqlStatements)) + " " + action + " on " +
             self.getTableName()])
-        
+
         return len(sqlStatements)
-        
+
 
     def writeSql(self):
         """
@@ -193,33 +252,68 @@ class DbRecord:
         return None
 
     def __getAnatomyClass(self):
+        """
+        Get the python class associated with this type of record.
+        """
         return self.__anatomyClass
 
     def getPythonObject(self):
+        """
+        Get the object representing this record, based on data from
+        the CIOF.
+        """
         return self.__pythonObject
 
     def __getTableInfo(self):
+        """
+        Get information about the table this record is in.
+        """
         return _getTableInfoByClass(self.__getAnatomyClass())
 
     def __getTableName(self):
+        """
+        Get database table name this record is in.
+        """
         return self.__getTableInfo().getTableName()
 
     def __getColumnNames(self):
+        """
+        Get databaase column names for this record.
+        """
         return self.__getTableInfo().getColumnNames()
 
     def __inAnaObject(self):
+        """
+        Return true if this record is for a table that has
+        an OID column that is a foreign key to ANA_OBJECT.
+        """
         return self.__getTableInfo().inAnaObject()
 
     def __getMethodMappings(self):
+        """
+        Get the CIOF-based <-> Database-based method mappings
+        for every column in the record.
+        """
         return self.__getTableInfo().getMethodMappings()
 
     def __getKeyMappings(self):
+        """
+        Get the CIOF-based <-> Database-based method mappings
+        for every key column in the record.
+        """
         return self.__getTableInfo().getKeyMappings()
 
     def __getNonKeyMappings(self):
+        """
+        Get the CIOF-based <-> Database-based method mappings
+        for every non key column in the record.
+        """
         return self.__getTableInfo().getNonKeyMappings()
 
     def bindPythonObject(self, pythonObject):
+        """
+        Associate this db record with the equivalent CIOF-base object.
+        """
         self.__pythonObject = pythonObject
         anatomyClass = self.__getAnatomyClass()
         if anatomyClass:
@@ -258,7 +352,7 @@ class DbRecord:
     def getMethodValue(self, columnName):
         """
         Given the name of a column, return the value of that column from
-        a method call.  
+        a method call.
         """
         mappings = self.__getMethodMappings()
         return mappings[columnName].getMethodValue(self)
@@ -310,11 +404,11 @@ class DbRecord:
 
 
     def deleteFromAnaObject(self):
-
-        # By definition, tables that point back to ANA_OBJECT
-        # have a single column primary key that is a foreign
-        # key pointing to ANA_OBJECT
-
+        """
+        By definition, tables that point back to ANA_OBJECT
+        have a single column primary key that is a foreign
+        key pointing to ANA_OBJECT.
+        """
         keys = self.__getKeyMappings().values()
         if len(keys) != 1:
             Util.fatalError([
@@ -331,7 +425,9 @@ class DbRecord:
 
 
     def insert(self):
-
+        """
+        Generate an SQL insert statement to add this record to the database.
+        """
         newObj = self.getPythonObject()
         if self.__inAnaObject():
             anaObj = AnatomyObject.getByOid(newObj.getOid())
@@ -356,7 +452,7 @@ class DbRecord:
 
         return None
 
-      
+
 
     def historicDelete(self):
         """
@@ -379,7 +475,7 @@ class DbRecord:
 
         setList = _genSetList(self, updateMappings)
         keyList = self.__genKeyCondition()
-    
+
         query = ("update " + self.__getTableName() +
                  "  set " + setList +
                  "  where " + keyList + ";")
@@ -392,7 +488,7 @@ class DbRecord:
 
         return None
 
-    
+
     def __genKeyCondition(self):
         """
         Generate an AND separated list of column=value pairings where
@@ -415,8 +511,8 @@ class DbRecord:
             Util.fatalError([
                 "Attempt to log change to a record that does not have its",
                 "primary key in ANA_OBJECT."])
-        
-        logTable = _getTableInfoByTableName("ANA_LOG");
+
+        logTable = _getTableInfoByTableName("ANA_LOG")
         versionOid = Version.getOid()
 
         # Can't get OID of changed object from CIOF based object
@@ -424,7 +520,7 @@ class DbRecord:
         # Get the OID from the key.
         singleKey = self.__getKeyMappings().values()[0]
         changedOid = singleKey.getColumnValue(self)
-        
+
         insertHeader = (
             "insert into ANA_LOG " +
             "    ( LOG_LOGGED_OID, LOG_VERSION_FK, " +
@@ -464,20 +560,36 @@ class _ColumnMethodMapping:
 
 
     def getColumnName(self):
+        """
+        Get database column name this mapping is for.
+        """
         return self.__columnName
 
     def getColumnValue(self, dbRecord):
+        """
+        Get the value of the database column.
+        """
         return dbRecord.getColumnValue(self.__columnName)
 
     def getMethodName(self):
+        """
+        Get the name of the method to get the value from the CIOF-based
+        oject.
+        """
         return self.__methodName
 
     def getMethodValue(self, dbRecord):
+        """
+        Get the value of this column in the CIOF-based object.
+        """
         return getattr(dbRecord.getPythonObject(), self.getMethodName())()
 
     def isKey(self):
+        """
+        Returns True if this is a key column, False otherwise.
+        """
         return self.__isKey
-        
+
 
 
 # ------------------------------------------------------------------
@@ -485,23 +597,37 @@ class _ColumnMethodMapping:
 # ------------------------------------------------------------------
 
 def _getTableInfoByTableName(tableName):
+    """
+    Return the table information about the given table name.
+    """
     return _tableInfoByTableName[tableName]
 
 
 def _getTableInfoByClass(anatomyClass):
+    """
+    Given a python CIOF-based class, return the table info for the
+    table that implements that class in the database.
+    """
     return _tableInfoByClass[anatomyClass]
 
 
 def _andConcat(str1, str2):
+    """
+    Concat two strings with an AND.
+    """
     return str1 + " AND " + str2
 
 def _genCommaSeparatedColumnList(columnList):
+    """
+    Given a list of column names, return them as a comma separated
+    string.
+    """
     return reduce(Util.commaConcat, columnList)
 
 
 def _genSetList(dbRecord, updateMappings):
     """
-    Generates a comma separated list of column=value pairings where 
+    Generates a comma separated list of column=value pairings where
     values come from method calls (the CIOF file)
     """
     setList = [newVal.getColumnName() + " = " +
@@ -528,7 +654,7 @@ def _formatSqlValue(value):
         formatted = str(value)
     elif value.__class__ == str:
         # need to deal with embedded quotes.
-        doubleValue = re.sub('"','""', value)
+        doubleValue = re.sub('"', '""', value)
         formatted = '"' + doubleValue + '"'
     elif value.__class__ == datetime.datetime:
         formatted = '"' + value.isoformat(' ') + '"'
@@ -543,22 +669,28 @@ def _registerLogTable():
     Registers the ANA_LOG table, which does not have a corresponding
     anatomy class.
     """
-    
+
     registerClassTable(None, "ANA_LOG", NOT_IN_ANA_OBJECT)
     # Don't bother registering individual columns.
 
     return None
-    
+
 
 def _genSqlFileName(tableInfo, action):
+    """
+    Generate a file name for the given table and action.
+    """
     return tableInfo.getTableName() + "." + action + ".sql"
 
 
 
 def _writeSourceStatement(controlFile, tableInfo, action):
-
+    """
+    Generate a mysql 'source' statement.  This brings in another SQL file
+    and runs it.
+    """
     fileToSource = _genSqlFileName(tableInfo, action)
-    controlFile.write("select 'Running " + fileToSource + "' as '';\n") 
+    controlFile.write("select 'Running " + fileToSource + "' as '';\n")
     controlFile.write("source " + fileToSource + ";\n\n")
     return None
 
@@ -572,9 +704,15 @@ def _writeTimedNodeDeferConstraints(controlFile):
     # However, can't just drop the constraint because of a known bug.  See
     #   http://bugs.mysql.com/bug.php?id=21395
     # Have to drop the FK's that go into the index first.
-    controlFile.write("alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_1; show warnings;\n\n")
-    controlFile.write("alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_4; show warnings;\n\n")
-    controlFile.write("alter table ANA_TIMED_NODE drop key ATN_AK2_INDEX; show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_1;" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_4;" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE drop key ATN_AK2_INDEX;" +
+        "show warnings;\n\n")
     return None
 
 
@@ -585,9 +723,15 @@ def _writeTimedNodeEnableConstraints(controlFile):
     """
     # Yep, well, MySQL does not support defered constraints.
     # Therefore, have to add the constraint that was dropped earlier.
-    controlFile.write("alter table ANA_TIMED_NODE add constraint unique ATN_AK2_INDEX (ATN_NODE_FK,ATN_STAGE_FK); show warnings;\n\n")
-    controlFile.write("alter table ANA_TIMED_NODE add constraint ANA_TIMED_NODE_ibfk_1 foreign key (ATN_STAGE_FK) REFERENCES ANA_STAGE (STG_OID) ON DELETE NO ACTION ON UPDATE NO ACTION; show warnings;\n\n")
-    controlFile.write("alter table ANA_TIMED_NODE add CONSTRAINT ANA_TIMED_NODE_ibfk_4 FOREIGN KEY (ATN_NODE_FK) REFERENCES ANA_NODE (ANO_OID) ON DELETE NO ACTION ON UPDATE NO ACTION; show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE add constraint unique ATN_AK2_INDEX (ATN_NODE_FK,ATN_STAGE_FK);" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE add constraint ANA_TIMED_NODE_ibfk_1 foreign key (ATN_STAGE_FK) REFERENCES ANA_STAGE (STG_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_TIMED_NODE add CONSTRAINT ANA_TIMED_NODE_ibfk_4 FOREIGN KEY (ATN_NODE_FK) REFERENCES ANA_NODE (ANO_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
+        "show warnings;\n\n")
 
     return None
 
@@ -605,8 +749,11 @@ def _writeSynonymDeferConstraints(controlFile):
     # However, there is a later foreign key constraint that reuses the
     # created index, so you first have to drop the FK
 
-    controlFile.write("alter table ANA_SYNONYM drop foreign key ANA_SYNONYM_ibfk_2; show warnings;\n\n")
-    controlFile.write("alter table ANA_SYNONYM drop key SYN_AK_INDEX; show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_SYNONYM drop foreign key ANA_SYNONYM_ibfk_2;" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_SYNONYM drop key SYN_AK_INDEX; show warnings;\n\n")
     return None
 
 
@@ -616,22 +763,28 @@ def _writeSynonymEnableConstraints(controlFile):
     Enable the constraints on ANA_SYNONYM table that were deferred earlier.
     """
     # Yep, but its all a lie.
-    controlFile.write("alter table ANA_SYNONYM add constraint unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM); show warnings;\n\n")
-    controlFile.write("alter table ANA_SYNONYM add constraint ANA_SYNONYM_ibfk_2 FOREIGN KEY (SYN_OBJECT_FK) REFERENCES ANA_OBJECT (OBJ_OID) ON DELETE NO ACTION ON UPDATE NO ACTION; show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_SYNONYM add constraint unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM);" +
+        "show warnings;\n\n")
+    controlFile.write(
+        "alter table ANA_SYNONYM add constraint ANA_SYNONYM_ibfk_2 FOREIGN KEY (SYN_OBJECT_FK) REFERENCES ANA_OBJECT (OBJ_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
+        "show warnings;\n\n")
     return None
 
 
 
-def _printActionDebug(action, object):
-            
+def _printActionDebug(action, obj):
+    """
+    Debugging routine.
+    """
     debugPublicId = "n/a"
     debugOid = "n/a"
     try:
-        debugPublicId = object.getPublicId()
+        debugPublicId = obj.getPublicId()
     except AttributeError:
         pass                  # Not everything has a public ID
     try:
-        debugOid = str(object.getOid())
+        debugOid = str(obj.getOid())
     except AttributeError:
         pass                  # Not everything has an OID
 
@@ -656,7 +809,9 @@ def _printActionDebug(action, object):
 # ------------------------------------------------------------------
 
 def initialise(outputDir, dbHost, dbName, dbUser, dbPass):
-
+    """
+    Initialise the database connection.
+    """
     global _anatomyConn, _tableInfoByTableName, _tableInfoByClass, _outputDir
 
     # Dictionaries that maps Python anatomy classes to DB tables.
@@ -664,7 +819,7 @@ def initialise(outputDir, dbHost, dbName, dbUser, dbPass):
     _tableInfoByTableName = {}
     _tableInfoByClass = {}
 
-    _registerLogTable() 
+    _registerLogTable()
 
     _anatomyConn = MySQLdb.connect(
         user = dbUser, passwd = dbPass, host = dbHost, db = dbName)
@@ -722,7 +877,7 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
     Figure out differences between CIOF-based and Database-based data
     and generate SQL to bring them into synch with each other.
     """
-    
+
     # Matrix of actions to take
     #                                   DB State
     #                  Active            Deleted   Missing
@@ -742,18 +897,18 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
     # (2) Entity active in previous CIOF, now completely gone.
     # (3) Entity flagged as deleted in previous CIOF, but now entirely
     #     missing.
-    # (4) Could log historical deletes, and will probably have to 
+    # (4) Could log historical deletes, and will probably have to
     #     eventually
 
     # Walk through all CIOF-based data first.  This will deal with
     # The top six cases: AA, AD, AM, DA, DD, DM
 
-    for object in anatomyAllIter():
+    for obj in anatomyAllIter():
 
         action = "Unknown"              # used in debugging
-        dbRecord = object.getDbRecord()
+        dbRecord = obj.getDbRecord()
 
-        if object.isDeleted():
+        if obj.isDeleted():
             if dbRecord:
                 # DA: Active in previous version of CIOF, but is
                 #     now marked as deleted.
@@ -768,7 +923,7 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
         else:
             # deal with A* cases
             try:
-                publicId = object.getPublicId()
+                publicId = obj.getPublicId()
             except AttributeError:
                 publicId = None       # Not everything has a public ID
 
@@ -786,11 +941,11 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
             else:
                 # AM: New in this version of CIOF file
                 action = "AM"
-                dbRecord = object.setDbInfo(None)
+                dbRecord = obj.setDbInfo(None)
                 dbRecord.insert()
 
         if Util.debugging():
-            _printActionDebug(action, object)
+            _printActionDebug(action, obj)
 
     # Deal with the MA case.  WE IGNORE THE MD case.
     tableInfo = _getTableInfoByClass(anatomyClass)
@@ -798,7 +953,7 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
     for orphan in tableInfo.getDbOrphans():
         # MA: Not in CIOF at all, but DB says it's active.
         if Util.debugging():
-            _printActionDebug("MA", object)
+            _printActionDebug("MA", orphan)
         orphan.delete()
 
     if len(tableInfo.getDbOrphans()):
@@ -813,7 +968,7 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
 
     return changeCount
 
-   
+
 
 
 def publicIdIsDeleted(publicId):
@@ -830,7 +985,7 @@ def publicIdIsDeleted(publicId):
         if dpiCursor.rowcount > 1:
             Util.fatalError([
                 "Public ID " + publicId + " flagged as deleted " +
-                dpiCursors.rowcount + " times"])
+                dpiCursor.rowcount + " times"])
         return True
 
     return False
@@ -907,11 +1062,11 @@ def finalise():
     controlFile.write("select 'Replacing ANAD_PART_OF' as '';\n")
     controlFile.write("delete from ANAD_PART_OF;\n")
     _writeSourceStatement(controlFile, partOfInfo, _ACTION_INSERT)
-    
+
     controlFile.write("select 'Replacing ANAD_PART_OF_PERSPECTIVE' as '';\n")
     controlFile.write("delete from ANAD_PART_OF_PERSPECTIVE;\n")
     _writeSourceStatement(controlFile, partOfPerspectiveInfo, _ACTION_INSERT)
-    
+
     controlFile.write("select 'Replacing ANAD_RELATIONSHIP_TRANSITIVE' as '';\n")
     controlFile.write("delete from ANAD_RELATIONSHIP_TRANSITIVE;\n")
     _writeSourceStatement(controlFile, relTransInfo, _ACTION_INSERT)
@@ -995,7 +1150,7 @@ def readLatestVersion(versionClass):
 
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See Initialise above

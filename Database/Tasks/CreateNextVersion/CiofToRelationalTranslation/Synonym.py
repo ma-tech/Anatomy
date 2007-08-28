@@ -1,8 +1,9 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Synonyms
+"""
+Internal python structures to represent Synonyms
+"""
 
 import sets                             # builtin in 2.4
 
@@ -20,6 +21,14 @@ import Util                             # Error handling
 
 TABLE   = "ANA_SYNONYM"
 
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_synonyms = None
+_synonymsByText = None
+_synonymsByReducedText = None
 
 
 
@@ -46,29 +55,49 @@ class Synonym:
 
 
     def assignOid(self):
-        # Synonyms don't have explicit creation dates in the CIOF file
-        # use the creation date from the object the synonym is for.
+        """
+        Synonyms don't have explicit creation dates in the CIOF file
+        use the creation date from the object the synonym is for.
+        """
         creationDateTime = self.getObjectSynonymIsFor().getCreationDateTime()
         self.__anatomyObject = AnatomyObject.AnatomyObject(
             self, creationDateTime = creationDateTime)
         self.__anatomyObject.addToKnowledgeBase()
 
     def getOid(self):
+        """
+        Return OId of synonym.
+        """
         return self.__anatomyObject.getOid()
 
     def getSynonymText(self):
+        """
+        Return the synonym text.
+        """
         return self.__text
 
     def getSynonymReducedText(self):
+        """
+        Return the reduced text version of the synonym.
+        """
         return self.__reducedText
 
     def getObjectSynonymIsFor(self):
+        """
+        Return the object that the synonym is a synonym for.
+        """
         return self.__objectSynonymIsFor
 
     def getObjectOidSynonymIsFor(self):
+        """
+        Return OID of the object the synonym is a synonym for.
+        """
         return self.getObjectSynonymIsFor().getOid()
 
     def isDeleted(self):
+        """
+        Returns True if synonym is deleted.
+        """
         # Look up isDeleted status every time as it can change.
         return self.getObjectSynonymIsFor().isDeleted()
 
@@ -79,7 +108,7 @@ class Synonym:
         into a database, in the order the fields occur in the target
         table.  The fiels are returned as a list of strings.
         """
-        return [str(self.getOid()), 
+        return [str(self.getOid()),
                 str(self.getObjectOidSynonymIsFor()),
                 self.getSynonymText()]
 
@@ -111,12 +140,15 @@ class Synonym:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return database record for this synonym.
+        """
         return self.__dbRecord
 
 
     def setDbInfo(self, dbRecord):
         """
-        Associates a DB record with this object, and vice versa, 
+        Associates a DB record with this object, and vice versa,
         and looks up the AnatomyObject for this synonym.
 
         If no DB record is passed in, then this creates an empty DB Record.
@@ -129,7 +161,7 @@ class Synonym:
             dbRecord.bindPythonObject(self)
             oid = dbRecord.getColumnValue("SYN_OID")
             self.__anatomyObject = AnatomyObject.bindAnatomyObject(oid, self)
-        
+
         self.__dbRecord = dbRecord
 
         return dbRecord
@@ -159,6 +191,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return next synonym.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -187,6 +222,9 @@ class AllIterByReducedText:
         return self
 
     def next(self):
+        """
+        Return the next set of synonyms, grouped by reduced text.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -207,9 +245,9 @@ def initialise():
     # Define a series of data structures to hold the CIOF entities,
     # organised by their various parts.
     _synonyms = []                      # unindexed
-    _synonymsByText = {} 
-    _synonymsByReducedText = {} 
-    
+    _synonymsByText = {}
+    _synonymsByReducedText = {}
+
     tableInfo = DbAccess.registerClassTable(Synonym, TABLE,
                                             DbAccess.IN_ANA_OBJECT)
     # setup mappings betweeen Ciof values and db values
@@ -242,7 +280,7 @@ def readDb():
                 if syn.getObjectOidSynonymIsFor() == objectSynIsForOid:
                     synonym = syn
                     break
-        
+
         if synonym:
             synonym.setDbInfo(synRec)
         else:
@@ -301,10 +339,11 @@ def genReducedNameSet():
 
 def report():
     """
-    Report synonyms that might need further investiageiton 
+    Report synonyms that might need further investiageiton
     """
     reducedSyns = _synonymsByReducedText.keys()
     reducedSyns.sort()
+    prevSynText = ""
     for reducedSyn in reducedSyns:
         prevSyn = None
         prevNode = None

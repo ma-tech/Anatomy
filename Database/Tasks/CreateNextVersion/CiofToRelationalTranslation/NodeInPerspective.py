@@ -1,15 +1,15 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent the ANA_NODE_IN_PERSPECTVE
-# table which defines the nodes that occur in each perspective
-# Perspective definitions are not listed in the CIOF file.
+"""
+Internal python structures to represent the ANA_NODE_IN_PERSPECTVE
+table which defines the nodes that occur in each perspective
+Perspective definitions are not listed in the CIOF file.
+"""
 
 import DbAccess
 import Node
 import Perspective
-import Util                             # Error handling
 
 
 
@@ -20,6 +20,16 @@ import Util                             # Error handling
 # DB
 
 TABLE   = "ANA_NODE_IN_PERSPECTIVE"
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_nodesByPerspectiveName = None
+_nodesInPerspectives = None
+
 
 
 # ------------------------------------------------------------------
@@ -37,24 +47,37 @@ class NodeInPerspective:
         Create an anatomy node in perspective given a node in perspective
         record from the database.
         """
-        self.__oid             = dbRecord.getColumnValue("NIP_OID")
+        self.__oid = dbRecord.getColumnValue("NIP_OID")
         self.__perspectiveName = dbRecord.getColumnValue("NIP_PERSPECTIVE_FK")
-        self.__node            = Node.getByOid(dbRecord.getColumnValue("NIP_NODE_FK"))
+        self.__node = Node.getByOid(dbRecord.getColumnValue("NIP_NODE_FK"))
+        self.__dbRecord = None
         self.__setDbRecord(dbRecord)
 
         return None
 
 
     def getOid(self):
+        """
+        Get the OID of the record.
+        """
         return self.__oid
 
     def getPerspectiveName(self):
+        """
+        Get name of perspective the node is in.
+        """
         return self.__perspectiveName
 
     def getNode(self):
+        """
+        Return the node.
+        """
         return self.__node
 
     def getNodeOid(self):
+        """
+        Return the node OID.
+        """
         return self.__node.getOid()
 
 
@@ -95,6 +118,9 @@ class NodeInPerspective:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the database record.
+        """
         return self.__dbRecord
 
 
@@ -137,6 +163,9 @@ class PerspectiveIter:
         return self
 
     def next(self):
+        """
+        Return the next node in perspective object.
+        """
         return self.__iterator.next()
 
 
@@ -145,6 +174,9 @@ class PerspectiveIter:
 # ------------------------------------------------------------------
 
 def initialise():
+    """
+    Initialise knowledge about node in perspective objects.
+    """
 
     global _nodesByPerspectiveName, _nodesInPerspectives
 

@@ -1,17 +1,16 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent the derived part of relationship
-# information that allows us to transform the graph into a tree for display
-# purposes.
+"""
+Internal python structures to represent the derived part of relationship
+information that allows us to transform the graph into a tree for display
+purposes.
+"""
 
 import DbAccess
 import Node                             # untimed anatomy
 import Relationship
 import RelationshipType
-import Stage
-import TimedNode                        # timed anatomy
 import Util                             # Error handling
 
 
@@ -25,6 +24,14 @@ TABLE = "ANAD_PART_OF"
 ALPHABETICAL_SORT_ORDER  = "alphabetical"
 CHRONOLOGICAL_SORT_ORDER = "chronological"
 DEFINED_SORT_ORDERS = [ALPHABETICAL_SORT_ORDER, CHRONOLOGICAL_SORT_ORDER]
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_derivedPartOfs = None
 
 
 
@@ -77,52 +84,110 @@ class PartOfDerived:
         return None
 
     def getOid(self):
+        """
+        Get OID of this record.
+        """
         return self.__oid
 
     def getNode(self):
+        """
+        Get the node this line is for.
+        """
         return self.__node
 
     def getNodeOid(self):
+        """
+        Get the OID of the node tis line is for.
+        """
         return self.getNode().getOid()
 
     def getSpecies(self):
+        """
+        Get the species of the node this line is for.
+        """
         return self.getNode().getSpecies()
 
 
     def getFullName(self):
+        """
+        Return the full path to this node in the tree.
+        """
         return self.__fullName
 
     def getDisplayRank(self):
+        """
+        Return the absolute display rank of this record.
+        """
         return self.__displayRank
 
     def getDepth(self):
+        """
+        How deep in the tree is the record.
+        """
         return self.__depth
 
     def getNodeStartStage(self):
+        """
+        At what stage does this node start?
+        """
         return self.__nodeStartStage
+
     def getNodeEndStage(self):
+        """
+        At what stage does this node stop?
+        """
         return self.__nodeEndStage
 
     def getNodeStartStageOid(self):
+        """
+        Return the OID of this node's start stage.
+        """
         return self.getNodeStartStage().getOid()
+
     def getNodeEndStageOid(self):
+        """
+        Return the OID of this node's end stage.
+        """
         return self.getNodeEndStage().getOid()
 
 
     def getPathStartStage(self):
+        """
+        Return the start stage of this node in its current path.
+        This can be later than the node's start stage.
+        """
         return self.__pathStartStage
+
     def getPathEndStage(self):
+        """
+        Return the end stage of this node in its current path.
+        This can be earlier than the node's start stage.
+        """
         return self.__pathEndStage
 
     def getPathStartStageOid(self):
+        """
+        Return the OID of the start stage of this node in its current path.
+        """
         return self.getPathStartStage().getOid()
+
     def getPathEndStageOid(self):
+        """
+        Return the OID of the end stage of this node in its current path.
+        """
         return self.getPathEndStage().getOid()
 
     def isPrimaryPath(self):
+        """
+        Return True if this is the primary path to this node.  That means that
+        none of the nodes along the way to this one are groups.
+        """
         return self.__isPrimaryPath
 
     def getParentApoOid(self):
+        """
+        Return the OID of the parent record in the display tree.
+        """
         parentApoOid = None
         if self.__parentApo:
             parentApoOid = self.__parentApo.getOid()
@@ -158,8 +223,6 @@ class PartOfDerived:
         Inserts the anatomy display record into the knowledge
         base of all things we know about anatomy.
         """
-        global _derivedPartOfs
-
         _derivedPartOfs.append(self)
 
         return None
@@ -185,6 +248,9 @@ class PartOfDerived:
         return self.getDbRecord()
 
     def getDbRecord(self):
+        """
+        Return DB record for this object.
+        """
         return self.__dbRecord
 
 
@@ -214,7 +280,6 @@ def _processNode(node, parentPod, rank, depth, isPrimaryPath, sortOrder):
     # its children.
 
     childIsPrimary = isPrimaryPath and node.isPrimary()
-    id = node.getPublicId()
     allTypes = Relationship.getUndeletedByParentPublicId(node.getPublicId())
     unsorted = Relationship.filterByRelationshipType(
         allTypes,
@@ -256,7 +321,6 @@ class AllIter:
     """
 
     def __init__(self):
-        global _derivedPartOfs
         self.__length = len(_derivedPartOfs)
         self.__position = -1         # Most recent anatomy node returned
         return None
@@ -265,7 +329,9 @@ class AllIter:
         return self
 
     def next(self):
-        global _derivedPartOfs
+        """
+        Return next anatomy display record.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -337,7 +403,7 @@ def derivePartOf(abstractSortOrder):
 
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See initialise above.

@@ -1,13 +1,13 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent anatomy node names
+"""
+Internal python structures to represent anatomy node names
+"""
+
 
 import sets                             # builtin in Python 2.4
 
-import AnatomyBase                      # Ties it all together
-import Ciof                             # CIOF entities and attributes
 import Node
 import Util                             # Error handling
 
@@ -16,6 +16,13 @@ import Util                             # Error handling
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
 
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_nodeNamesByNameReduced = None
 
 
 
@@ -35,7 +42,9 @@ class NodeName:
     after the whole knowledge base has been built.
     """
     def __init__(self, anatomyNode):
-
+        """
+        Initialise a node name object given the node.
+        """
         self.__node = anatomyNode
         self.__name = anatomyNode.getName()
         self.__nameReduced = Util.reduceName(self.__name)
@@ -43,12 +52,22 @@ class NodeName:
         return None
 
     def getNode(self):
+        """
+        Return the node this node name object is for.
+        """
         return self.__node
 
     def getName(self):
+        """
+        Return the name of this node, unaltered.
+        """
         return self.__name
 
     def getNameReduced(self):
+        """
+        Return the reduced name of this node.  Reduced names are all in
+        one case and have punctuation stripped out.
+        """
         return self.__nameReduced
 
 
@@ -58,7 +77,7 @@ class NodeName:
         """
         nodeName = self.getName()
         nodeNameReduced = self.getNameReduced()
-        
+
         if nodeName in _nodeNamesByName:
             _nodeNamesByName[nodeName].append(self)
         else:
@@ -70,7 +89,7 @@ class NodeName:
             _nodeNamesByNameReduced[nodeNameReduced] = [self]
 
         _nodeNames.append(self)
-        
+
         return None
 
 
@@ -98,6 +117,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return next node name object.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -113,8 +135,6 @@ def printNodeNames():
     """
     List node names in alphabetical order
     """
-    global _nodeNamesByNameReduced
-
     reducedNames = _nodeNamesByNameReduced.keys()
     reducedNames.sort()
     for reducedName in reducedNames:
@@ -130,10 +150,8 @@ def printNodeNames():
 
 def report():
     """
-    Report node names that might need further investigation 
+    Report node names that might need further investigation
     """
-    global _nodeNamesByNameReduced
-
     reducedNames = _nodeNamesByNameReduced.keys()
     reducedNames.sort()
     for reducedName in reducedNames:
@@ -177,7 +195,6 @@ def getByReducedName(nodeReducedName):
     Return list of node names that all have the same reduced name.
     The input name is assumed to already be reduced.
     """
-    global _nodeNamesByNameReduced
     if nodeReducedName in _nodeNamesByNameReduced:
         return _nodeNamesByNameReduced[nodeReducedName]
     else:
@@ -200,6 +217,6 @@ def genReducedNameSet():
 # Run first time module is loaded.
 
 _nodeNamesByName = {}          # Indexed by name, unique
-_nodeNamesByNameReduced = {}   # Indexed by lower case, no punc name 
+_nodeNamesByNameReduced = {}   # Indexed by lower case, no punc name
 _nodeNames = []                # Unindexed
 

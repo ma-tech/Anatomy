@@ -1,17 +1,18 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-# Code to parse Relationship Sequence Files
-#
-# Relationship sequence files are produced by the anatomy tree reporting
-# scripts, using the relationship sequence that existed in the previous
-# version of the DB.  These files are then manually edited (using cut
-# and paste) to produce the ordering used in the next revision.
+"""
+Code to parse Relationship Sequence Files
+
+Relationship sequence files are produced by the anatomy tree reporting
+scripts, using the relationship sequence that existed in the previous
+version of the DB.  These files are then manually edited (using cut
+and paste) to produce the ordering used in the next revision.
+"""
 
 import datetime
 import re                               # regular expressions
-import sys                              # error reporting
-import Ciof                             # CIOF basics, Entities and attributes
+
 import Util                             # Error Handling
 
 
@@ -34,13 +35,12 @@ HEADER_LINES     = [
 GROUP_HEADER_LINE  = "^Abstract .+ Showing Only Groups\n"
 GROUP_NOTE_LINES   = [
     "Second column indicates the path's group status.\n",
-    "' ' : Term is not a group nor is it contained in a group.\n", 
+    "' ' : Term is not a group nor is it contained in a group.\n",
     "'G' : Term is a group.\n",
     "'>' : Term is directly contained in a group term.\n",
     "'~' : Term is indirectly contained in a group term.\n"
 ]
 
-#COMPONENT_LINE = "^(EMAPA:\d+) *[ G>\~] +TS\d\d-TS\d\d ([\+\~\|\\ ]*)([\w \-/]+)"
 COMPONENT_LINE = "^(EMAPA:\d+) [ G>\~] TS\d\d-TS\d\d ([\+\~\|\\\ ]*)([\w \-/]+)"
 
 
@@ -93,22 +93,36 @@ class RelationshipSequenceStream:
                     '  Actual:   "' + actualLine + '"'])
 
         self.__inPrimarySection = True
-        
+
         # All of header read in.  Next line should be a sequence line.
 
         return None
 
 
     def getVersionNumber(self):
+        """
+        Return the anatomy database version number from the file.
+        """
         return self.__versionNumber
 
     def getDateTime(self):
+        """
+        Return the anatomy database date time from the file.
+        """
         return self.__datetime
 
     def inPrimarySection(self):
+        """
+        Return True if in the primary section of the file, as opposed
+        to the separate Groups section.
+        """
         return self.__inPrimarySection
 
     def inGroupSection(self):
+        """
+        Return True if in the groups section, as opposed to the separate
+        primary section.
+        """
         return not self.__inPrimarySection
 
 
@@ -119,7 +133,7 @@ class RelationshipSequenceStream:
 
         Returns None if at EOF.
         """
-        
+
         line = self.__stream.readline()
         while line and line in ["\n", BOILERPLATE_LINE]:
             line = self.__stream.readline()
@@ -134,7 +148,7 @@ class RelationshipSequenceStream:
     def getNextComponent(self):
         """
         Reads in the next line with an anatomical component on it,
-        returns None if at EOF 
+        returns None if at EOF
 
         Each Component line consists of:
           Public ID
@@ -143,7 +157,7 @@ class RelationshipSequenceStream:
           depth indicator
           component name
           ...
-          
+
         MOVE THESE COMMENTS TO CALLING ROUTINE
         The behaviour of this method is different depending on if it has
         read in the group header or not.  Only the primary tree is listed
@@ -181,7 +195,7 @@ class RelationshipSequenceStream:
             self.__inPrimarySection = False
             for expectedLine in GROUP_NOTE_LINES:
                 line = self.getNextNonBlankLine()
-                if expectedLine <> line:
+                if expectedLine != line:
                     Util.fatalError([
                         'Group Section Header not as expected.',
                         'Expected: "' + expectedLine +'"',
@@ -216,19 +230,31 @@ class ComponentLine:
         self.__publicId = lineGroups.group(1)
         self.__depth    = len(lineGroups.group(2)) / 2
         self.__name     = lineGroups.group(3)
-        
+
         return None
 
     def getPublicId(self):
+        """
+        Return the public ID (the EMAPA id) of the component on this line.
+        """
         return self.__publicId
 
     def getDepth(self):
+        """
+        Return the depth in the tree of this line.
+        """
         return self.__depth
 
     def getName(self):
+        """
+        Return the component name on this line.
+        """
         return self.__name
 
     def getLine(self):
+        """
+        Return the whole text line.
+        """
         return self.__line
 
 

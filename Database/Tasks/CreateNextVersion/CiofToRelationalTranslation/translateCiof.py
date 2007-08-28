@@ -1,45 +1,43 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Control program that translates a EMAP CIOF file into a relational anatomy
-# database.
-#
-# For anatomy database version 4, the process of creating the database update
-# scripts became an even bigger hack than they already were.  This is because
-# we now include anatomy tree ordering information in the update process.
-#
-# This is a giant hack for a number of reasons:
-# 1. It doesn't get this information from the CIOF file, and the very
-#    name of this script/directory process implies that is all this does.
-#    Internally (i.e., in the data structures), this program makes it look
-#    like sequence information originates in the CIOF, when it does not.
-# 2. You now actually have to run this script twice to do an update.  The
-#    recipe is now:
-#    A. Run this program, without a relationship sequence file.  This
-#       generates a big batch of database update scripts, which update
-#       many things, but not relationsip sequence.
-#    B. Run those scripts against a database, producing the next version
-#       of the database.
-#    C. Run the tree reports against that database.  This will produce
-#       reports showing the tree using the sequence from the previous
-#       version of the database.
-#    D. Manually edit those tree reports, rearranging lines in the order
-#       you want them to be.
-#    E. Reload your database with the previous version.
-#    G. Rerun this script, this time providing the sequence file.
-#    This results in a set of database update scripts that reflect both
-#    the contents of the new CIOF and the preferred sequence of terms
-#    in the new version of the database.
-#
-# It's a chicken-egg problem.  It results in a scramble.  :-(
+"""
+Control program that translates a EMAP CIOF file into a relational anatomy
+database.
 
+For anatomy database version 4, the process of creating the database update
+scripts became an even bigger hack than they already were.  This is because
+we now include anatomy tree ordering information in the update process.
 
-import re                               # regular expressions
+This is a giant hack for a number of reasons:
+1. It doesn't get this information from the CIOF file, and the very
+   name of this script/directory process implies that is all this does.
+   Internally (i.e., in the data structures), this program makes it look
+   like sequence information originates in the CIOF, when it does not.
+2. You now actually have to run this script twice to do an update.  The
+   recipe is now:
+   A. Run this program, without a relationship sequence file.  This
+      generates a big batch of database update scripts, which update
+      many things, but not relationsip sequence.
+   B. Run those scripts against a database, producing the next version
+      of the database.
+   C. Run the tree reports against that database.  This will produce
+      reports showing the tree using the sequence from the previous
+      version of the database.
+   D. Manually edit those tree reports, rearranging lines in the order
+      you want them to be.
+   E. Reload your database with the previous version.
+   G. Rerun this script, this time providing the sequence file.
+   This results in a set of database update scripts that reflect both
+   the contents of the new CIOF and the preferred sequence of terms
+   in the new version of the database.
+
+It's a chicken-egg problem.  It results in a scramble.  :-(
+"""
+
 import sys                              # error reporting
 
 import AnatomyBase                      # Anatomy knowledge encode in Python
-import Ciof                             # CIOF basics: entities and attributes
 import CiofStream                       # Read ciof file
 import Util                             # debugging/error messages
 
@@ -65,6 +63,8 @@ _outputDir = None
 _ciofFile = None
 _showSynonymOverlapWarnings = False
 _debugging = False
+_sequenceFile = None
+_abstractSortOrder = None
 
 
 # ------------------------------------------------------------------
@@ -104,7 +104,7 @@ def __setConfiguration(configFilename):
             elif name == "OUTPUTDIR":
                 _outputDir = value
             elif name == "SEQUENCEFILE":
-                if value.lower() <> "none":
+                if value.lower() != "none":
                     _sequenceFile = value
                 else:
                     _sequenceFile = None
@@ -125,7 +125,8 @@ def __setConfiguration(configFilename):
                         "Unrecognised value for DEBUG parameter: " + value])
             else:
                 Util.fatalError([
-                    "Unexpected parameter in the " + configFilename + " configuration file.",
+                    "Unexpected parameter in the " + configFilename +
+                    " configuration file.",
                     "Name: '" + name + ",  Value: '" + value + "'"])
         line = configFile.readline()
 

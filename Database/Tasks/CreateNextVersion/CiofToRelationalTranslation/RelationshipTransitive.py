@@ -1,9 +1,10 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent the transitive closure on
-# anatomy relationships.
+"""
+Internal python structures to represent the transitive closure on
+anatomy relationships.
+"""
 
 import sets                             # Not part of core in 2.3
 
@@ -18,8 +19,18 @@ import Util                             # Error handling
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
 
-
 TABLE = "ANAD_RELATIONSHIP_TRANSITIVE"
+
+
+
+# ------------------------------------------------------------------
+# CONSTANTS / REFERENCE DATA
+# ------------------------------------------------------------------
+
+_artsByDescendentPublicId = None
+_artsByAncestorPublicId = None
+_artsByAncestorDescendentPublicId = None
+_arts = None
 
 
 
@@ -30,7 +41,7 @@ TABLE = "ANAD_RELATIONSHIP_TRANSITIVE"
 class RelationshipTransitive:
     """
     Defines a binary, directional (ancestor-descendent) relationship
-    """ 
+    """
     def __init__(self, ancestor, descendent, relType):
         """
         Given ancestor and descendent anatomy nodes, generate
@@ -40,29 +51,52 @@ class RelationshipTransitive:
         self.__ancestor = ancestor
         self.__descendent = descendent
         self.__dbRecord = None
-            
+
         return None
 
 
     def getOid(self):
-        return None  # doesn't have one until after loaded in DB
+        """
+        Returns None.  Doesn't have an OID until it is loaded into the
+        database.
+        """
+        return None
+
 
     def getRelationshipType(self):
+        """
+        Return the relationship type.
+        """
         return self.__relationshipType
 
     def getRelationshipTypeName(self):
+        """
+        Return the name of the relationship.
+        """
         return self.getRelationshipType().getName()
 
     def getAncestor(self):
+        """
+        Return the ancestor object in the transitive relationship.
+        """
         return self.__ancestor
 
     def getAncestorOid(self):
+        """
+        Return the OID of the ancestor object.
+        """
         return self.getAncestor().getOid()
 
     def getDescendent(self):
+        """
+        Return the descendent object.
+        """
         return self.__descendent
 
     def getDescendentOid(self):
+        """
+        Return the OID of the descendent object.
+        """
         return self.getDescendent().getOid()
 
 
@@ -100,7 +134,7 @@ class RelationshipTransitive:
         pairKey = _genHappyFamilyKey(ancestorPublicId, descendentPublicId)
 
         # Code does not detect duplicate insertions.
-        # 
+        #
         if pairKey in _artsByAncestorDescendentPublicId:
             Util.fatalError(["Attempt to create same transitive relationship twice:",
                              " Ancestor:   " + ancestorPublicId,
@@ -137,12 +171,15 @@ class RelationshipTransitive:
         if dbRecord:
             Util.warning(self.genDumpFields())
             Util.fatalError(["DbRecord passed to this routine must be None."])
-        
+
         self.__dbRecord = DbAccess.DbRecord(pythonObject = self)
 
         return self.getDbRecord()
 
     def getDbRecord(self):
+        """
+        Return the DB record for this transitive relationship.
+        """
         return self.__dbRecord
 
 
@@ -152,6 +189,9 @@ class RelationshipTransitive:
 # ------------------------------------------------------------------
 
 def _genHappyFamilyKey(ancestorPublicId, descendentPublicId):
+    """
+    This is stupid.  Use tuple instead.
+    """
     return ancestorPublicId + ":" + descendentPublicId
 
 
@@ -189,6 +229,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return next transitive relationship.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -209,7 +252,7 @@ def initialise():
 
     global _artsByDescendentPublicId, _artsByAncestorPublicId
     global _artsByAncestorDescendentPublicId, _arts
-    
+
     # Lists of all relationships
     _artsByDescendentPublicId = {}
     _artsByAncestorPublicId = {}
@@ -311,7 +354,9 @@ def deriveRelationshipsTransitive():
             child = childRel.getChild()
             if child not in beenQueued:
                 # Get all the child's parents
-                childsRelsWithParents = Relationship.getUndeletedByChildPublicId(child.getPublicId())
+                childsRelsWithParents = (
+                    Relationship.getUndeletedByChildPublicId(
+                                                     child.getPublicId()))
                 allParentsProcessed = True
                 for childsRelWithParent in childsRelsWithParents:
                     childsParent = childsRelWithParent.getParent()
@@ -320,7 +365,7 @@ def deriveRelationshipsTransitive():
                 if allParentsProcessed:
                     nodeQueue.append(child)
                     beenQueued.add(child)
-    
+
     # Add self-referential relationships
     for node in beenProcessed:
         selfRefRel = RelationshipTransitive(node, node, partOfRelType)

@@ -1,12 +1,11 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent the anatomy object table
+"""
+Internal python structures to represent the anatomy object table
+"""
 
-import AnatomyBase                      # Ties it all together
 import DbAccess
-import Util                             # Error handling
 
 
 
@@ -20,6 +19,14 @@ import Util                             # Error handling
 _TABLE   = "ANA_OBJECT"
 
 
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_lastGlobalOid = None
+_objects = None
+_objectsByOid = None
+
 
 # ------------------------------------------------------------------
 # ANATOMY OBJECT
@@ -28,7 +35,7 @@ _TABLE   = "ANA_OBJECT"
 class AnatomyObject:
     """
     Anatomy object is the common table to which all/most persistent
-    OIDs in anatomy tables point to.  
+    OIDs in anatomy tables point to.
     """
 
     def __init__(self, objectThisIsFor = None, creationDateTime = None,
@@ -40,7 +47,8 @@ class AnatomyObject:
         self.__objectThisIsFor = objectThisIsFor
         if dbRecord:
             self.__oid = dbRecord.getColumnValue("OBJ_OID")
-            self.__creationDateTime = dbRecord.getColumnValue("OBJ_CREATION_DATETIME")
+            self.__creationDateTime = dbRecord.getColumnValue(
+                                                 "OBJ_CREATION_DATETIME")
             self.__creatorOid = dbRecord.getColumnValue("OBJ_CREATOR_FK")
         else:
             self.__oid = _genNextOid()
@@ -49,24 +57,44 @@ class AnatomyObject:
                 self.__creatorOid = creator.getOid()
             else:
                 self.__creatorOid = None
+        self.__dbRecord = None   # avoids pylint warning
         self.setDbRecord(dbRecord)
 
         return None
 
 
     def getOid(self):
+        """
+        Return the OID of this object.
+        """
         return self.__oid
 
     def getObjectThisIsFor(self):
+        """
+        Return the object this anatomy object is associated with.  This may
+        return an object of any type that has an OID.
+        """
         return self.__objectThisIsFor
 
     def setObjectThisIsFor(self, objectThisIsFor):
+        """
+        Set the object that this anatomy object is for.  This can be a wide
+        variety of different object types.
+        """
         self.__objectThisIsFor = objectThisIsFor
 
     def getCreationDateTime(self):
+        """
+        Get the creation timestamp for this object.  This is not partciularly
+        reliable.
+        """
         return self.__creationDateTime
 
     def getCreatorOid(self):
+        """
+        Return the OID of the person/entity who created this object. For most
+        objects this is None.
+        """
         return self.__creatorOid
 
     def genDumpFields(self):
@@ -75,9 +103,9 @@ class AnatomyObject:
         into a database, in the order the fields occur in the target
         table.  The fiels are returned as a list of strings.
         """
-        dt = self.getCreationDateTime()
-        if dt != None:
-            dt = self.getCreationDateTime().isoformat(' ')
+        dts = self.getCreationDateTime()
+        if dts != None:
+            dts = self.getCreationDateTime().isoformat(' ')
 
         creatorOid = self.getCreatorOid()
         if creatorOid:
@@ -85,7 +113,7 @@ class AnatomyObject:
         else:
             creatorOid = None
 
-        return [str(self.getOid()), dt, creatorOid]
+        return [str(self.getOid()), dts, creatorOid]
 
 
     def addToKnowledgeBase(self):
@@ -96,7 +124,7 @@ class AnatomyObject:
         """
         _objects.append(self)
         _objectsByOid[self.getOid()] = self
-        
+
         return None
 
 
@@ -116,6 +144,9 @@ class AnatomyObject:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the database record that corresponds to this anatomy object.
+        """
         return self.__dbRecord
 
 
@@ -130,7 +161,7 @@ class AnatomyObject:
         else:
             dbRecord.bindPythonObject(self)
         self.__dbRecord = dbRecord
-       
+
         return dbRecord
 
 
@@ -139,6 +170,9 @@ class AnatomyObject:
 # ------------------------------------------------------------------
 
 def _genNextOid():
+    """
+    Return the next available OID value.
+    """
     global _lastGlobalOid
     _lastGlobalOid = _lastGlobalOid + 1
     return _lastGlobalOid
@@ -155,7 +189,6 @@ class AllIter:
     """
 
     def __init__(self):
-        global _objects
         self.__length = len(_objects)
         self.__position = -1         # Most recent anatomy node returned
         return None
@@ -164,7 +197,9 @@ class AllIter:
         return self
 
     def next(self):
-        global _objects
+        """
+        Return the next anatomy object.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -183,7 +218,7 @@ def initialise():
     Reads in every anatomy object definition in Database
     """
     global _lastGlobalOid, _objects, _objectsByOid
-    
+
     _objects = []              # unindexed
     _objectsByOid = {}
 
@@ -209,10 +244,18 @@ def initialise():
 
 
 def getByOid(oid):
+    """
+    Given an OID, return the anatomy object for that OID.  Raises exception
+    if no such anatomy ovject exists.
+    """
     return _objectsByOid[oid]
 
 
 def bindAnatomyObject(oid, objectThisIsFor):
+    """
+    Associate the object that has the given OID with the anatomy object that
+    defines the OID.
+    """
     anaObj = getByOid(oid)
     anaObj.setObjectThisIsFor(objectThisIsFor)
 

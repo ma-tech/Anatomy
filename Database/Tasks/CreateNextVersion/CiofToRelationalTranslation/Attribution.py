@@ -1,13 +1,14 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Attributions
+"""
+Internal python structures to represent Attributions
+"""
 
 import AnatomyObject                    # Ties it all together
 import DbAccess
 import Editor
-import Relationship                     # 
+import Relationship                     #
 import Source
 import TimedNode
 import Util                             # Error handling
@@ -20,6 +21,13 @@ import Util                             # Error handling
 
 TABLE = "ANA_ATTRIBUTION"
 
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_attributions = None
+_attributionsByObjectSourceEvidence = None
 
 
 # ------------------------------------------------------------------
@@ -57,7 +65,8 @@ class Attribution:
                 childPublicId + " and parent " + parentPublicId])
         self.__objectAttributionIsFor = relationships[0]
 
-        self.__source = Source.getByAlias(self.__ciofEntity.getAttributeValue("Reference"))
+        self.__source = Source.getByAlias(
+                              self.__ciofEntity.getAttributeValue("Reference"))
         self.__evidence = self.__ciofEntity.getAttributeValue("EvidenceType")
         self.__comments = self.__ciofEntity.getAttributeValuesJoined("Comments")
         childAtn  = TimedNode.getByPublicId(childPublicId)
@@ -69,6 +78,9 @@ class Attribution:
         return None
 
     def assignOid(self):
+        """
+        Assign an OID to this attribution.
+        """
         creationDateTime = self.__ciofEntity.getCreationDateTime()
         creatorName = self.__ciofEntity.getAttributeValue("Creator").strip('"')
         creator = Editor.getByName(creatorName)
@@ -80,30 +92,57 @@ class Attribution:
 
 
     def getOid(self):
+        """
+        Return this attribution's OID.
+        """
         return self.__anatomyObject.getOid()
 
     def getAnatomyObject(self):
+        """
+        Return the anatomy object (OID definition) for this attribution.
+        """
         return self.__anatomyObject
 
     def getObjectAttributionIsFor(self):
+        """
+        Return the object that this attribution is about.
+        """
         return self.__objectAttributionIsFor
 
     def getObjectOidAttributionIsFor(self):
+        """
+        Return the OID of the object that this attribution is about.
+        """
         return self.__objectAttributionIsFor.getOid()
 
     def getSource(self):
+        """
+        Get source cited by this attribution.
+        """
         return self.__source
 
     def getSourceOid(self):
+        """
+        Get OID of source that is cited by this attribution.
+        """
         return self.__source.getOid()
 
     def getEvidence(self):
+        """
+        Get evidence that supports this atribution.
+        """
         return self.__evidence
 
     def getComments(self):
+        """
+        Get comments for this attribution.
+        """
         return self.__comments
 
     def isDeleted(self):
+        """
+        Return true if this attribution is deleted, false otherwise.
+        """
         return self.__isDeletedAttribution
 
     def genDumpFields(self):
@@ -125,8 +164,6 @@ class Attribution:
         Inserts the attribution into the knowledge
         base of all things we know about anatomy.
         """
-        global _attributions, _attributionsByObjectSourceEvidence
-
         _attributions.append(self)
 
         altKey = self.getObjectAttributionIsFor(), self.getSource(), self.getEvidence()
@@ -137,7 +174,7 @@ class Attribution:
                 "Two attributions with same alternate key exist:"])
         else:
             _attributionsByObjectSourceEvidence[altKey] = self
-        
+
         return None
 
 
@@ -147,12 +184,15 @@ class Attribution:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the database record for this attribution.
+        """
         return self.__dbRecord
 
 
     def setDbInfo(self, dbRecord):
         """
-        Associates a DB record with this object, and vice versa, 
+        Associates a DB record with this object, and vice versa,
         and looks up the AnatomyObject for this attribution.
 
         If no DB record is passed in, then this creates an empty DB Record.
@@ -165,7 +205,7 @@ class Attribution:
             dbRecord.bindPythonObject(self)
             oid = dbRecord.getColumnValue("ATR_OID")
             self.__anatomyObject = AnatomyObject.bindAnatomyObject(oid, self)
-        
+
         self.__dbRecord = dbRecord
 
         return dbRecord
@@ -195,6 +235,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Get next attribution.
+        """
         self.__position = self.__position + 1
         if self.__position == self.__length:
             raise StopIteration
@@ -258,6 +301,9 @@ def readDb():
 
 
 def getByObjectSourceEvidence(objAttribIsFor, source, evidence):
+    """
+    Does what it says.
+    """
     altKey = objAttribIsFor, source, evidence
     return _attributionsByObjectSourceEvidence.get(altKey)
 

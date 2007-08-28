@@ -1,12 +1,11 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Sources
+"""
+Internal python structures to represent Sources
+"""
 
-import AnatomyObject                    # Ties it all together
 import DbAccess
-import Util                             # Error handling
 
 
 
@@ -16,6 +15,16 @@ import Util                             # Error handling
 
 TABLE   = "ANA_SOURCE"
 
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_sources = None
+_sourcesByName = None
+_sourceAliases = None
+_sourcesByOid = None
 
 
 # ------------------------------------------------------------------
@@ -43,23 +52,39 @@ class Source:
         self.__authors = dbRecord.getColumnValue("SRC_AUTHORS")
         self.__format  = dbRecord.getColumnValue("SRC_FORMAT_FK")
         self.__year    = dbRecord.getColumnValue("SRC_YEAR")
+        self.__dbRecord = None
         self.__setDbRecord(dbRecord)
 
         return None
 
     def getOid(self):
+        """
+        Get OID of the source.
+        """
         return self.__oid
 
     def getName(self):
+        """
+        Get name of the source.
+        """
         return self.__name
 
     def getAuthors(self):
+        """
+        Get authors of the source.
+        """
         return self.__authors
 
     def getFormat(self):
+        """
+        What format is the source in?
+        """
         return self.__format
 
     def getYear(self):
+        """
+        What year was the source published / sent?
+        """
         return self.__year
 
 
@@ -92,6 +117,9 @@ class Source:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return record for this source.
+        """
         return self.__dbRecord
 
 
@@ -106,7 +134,7 @@ class Source:
         else:
             dbRecord.bindPythonObject(self)
         self.__dbRecord = dbRecord
-       
+
         return dbRecord
 
 
@@ -135,6 +163,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Get next source.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -211,12 +242,15 @@ def getByAlias(alias):
 
 
 def getByOid(oid):
+    """
+    Get a source, given its OID.
+    """
     return _sourcesByOid[oid]
 
 
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See initialise above

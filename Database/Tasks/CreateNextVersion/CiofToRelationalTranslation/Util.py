@@ -1,8 +1,9 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Utility routines 
+"""
+Utility routines
+"""
 
 import re
 import sys                              # error reporting
@@ -10,6 +11,15 @@ import sys                              # error reporting
 # ------------------------------------------------------------------
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_months = None
+_debugging = None
 
 
 
@@ -24,11 +34,11 @@ import sys                              # error reporting
 
 def fatalError(messages):
     """
-    Displays error message, encoded as a list of one or more strings, 
+    Displays error message, encoded as a list of one or more strings,
     and then raises a generic exception
     """
     sys.stderr.write("ERROR:")
-    
+
     for message in messages:
         sys.stderr.write("  " + message + "\n")
 
@@ -38,11 +48,11 @@ def fatalError(messages):
 
 def warning(messages):
     """
-    Displays warning message, encoded as a list of one or more strings, 
+    Displays warning message, encoded as a list of one or more strings,
     and then returns to the caller
     """
     sys.stderr.write("WARNING:")
-    
+
     for message in messages:
         sys.stderr.write("  " + message + "\n")
     sys.stderr.write("\n")
@@ -52,11 +62,11 @@ def warning(messages):
 
 def statusMessage(messages):
     """
-    Displays status message, encoded as a list of one or more strings, 
+    Displays status message, encoded as a list of one or more strings,
     and then returns to the caller.
     """
     sys.stderr.write("STATUS:")
-    
+
     for message in messages:
         sys.stderr.write("  " + message + "\n")
     sys.stderr.write("\n")
@@ -70,6 +80,9 @@ def statusMessage(messages):
 # ------------------------------------------------------------------
 
 def debugging():
+    """
+    Return True if currently in debugging mode.
+    """
     return _debugging
 
 
@@ -80,7 +93,7 @@ def debugMessage(messages):
     """
 
     sys.stderr.write("DEBUG:")
-    
+
     for message in messages:
         sys.stderr.write("  " + message + "\n")
     sys.stderr.write("\n")
@@ -141,7 +154,9 @@ def commaConcat(str1, str2):
 # ------------------------------------------------------------------
 
 def initialise(debugging = False):
-
+    """
+    Initialise the utility module.
+    """
     global _months, _debugging
 
     _debugging = debugging

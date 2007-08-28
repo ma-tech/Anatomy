@@ -1,14 +1,14 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-# Basic Definitions related to CIOF.
-#
-# This defines attributes and entities.
+"""
+Basic Definitions related to CIOF.
+
+This defines attributes and entities.
+"""
 
 import datetime
-import re                               # regular expressions
 import Util                             # error reporting
-
 
 
 # ------------------------------------------------------------------
@@ -38,7 +38,7 @@ class CiofAttribute:
 
         # parse comma separated values list into a python list.
         blanksAreBad = lambda value: value.strip()
-        self.__values = map(blanksAreBad ,valuesString.split(","))
+        self.__values = map(blanksAreBad, valuesString.split(","))
 
         # some values are actually compound with a name and a value.
         # Not going to split them up just yet.
@@ -64,10 +64,8 @@ class CiofAttribute:
         if len(values) > 1:
             Util.fatalError([
                 "Attempt to treat a multi-valued attribute " +
-                "as a single valued attribute",
-                "EntityType: " + self.__type,
-                "EntityId:   " + self.__id,
-                "Attribute:  " + attrName])
+                "as a single valued attribute.",
+                "Attribute Name: '" + self.__attributeName + "'"])
         else:
             return values[0]
 
@@ -84,18 +82,26 @@ class CiofEntity:
     ciof streams are very clearly delineated into separate entities.
     """
 
-    def __init__(self, type, id):
-
-        self.__type = type
-        self.__id = id
+    def __init__(self, entityType, entityId):
+        """
+        Initialise a CIOF entity.
+        """
+        self.__type = entityType
+        self.__id = entityId
         self.__attributes = {}
 
         return None
 
     def getId(self):
+        """
+        Get the ID of this CIOF entity.
+        """
         return self.__id
 
     def getType(self):
+        """
+        Return the type of this CIOF entity.
+        """
         return self.__type
 
     def getAttribute(self, attrName):
@@ -141,7 +147,7 @@ class CiofEntity:
     def getAttributeValuesJoined(self, attrName):
         """
         Compensate for inconsistent usage of commas in CIOF files.
-        
+
         Sometimes they
         separate multiple values, and other times they are just a part
         of a text description.  This routine is called to return attribute
@@ -152,6 +158,7 @@ class CiofEntity:
         joined = None
         if attribute:
             def concat(part1, part2):
+                "Comma concat two values."
                 return part1 + ", " + part2
             joined = reduce(concat, attribute.getValues())
         return joined
@@ -161,13 +168,13 @@ class CiofEntity:
     def getCreationDateTime(self):
         """
         Return the creation date time of the entity, if it has one.
-        
+
         Reformat posix time (time since 1970) into python datetime.
         Returns None if entity does not have a creation date time.
         """
-        ct = self.getAttributeValue("CreationTime")
-        if ct:
-            return datetime.datetime.fromtimestamp(int(ct))
+        cdt = self.getAttributeValue("CreationTime")
+        if cdt:
+            return datetime.datetime.fromtimestamp(int(cdt))
         else:
             return None
 
@@ -175,13 +182,15 @@ class CiofEntity:
     def getModificationDateTime(self):
         """
         Return the last modification date time of the entity, if it has one.
-        
+
+        Even if it does have one, it is unreliable.
+
         Reformat posix time (time since 1970) into python datetime.
         Returns None if entity does not have a creation date time.
         """
-        mt = self.getAttributeValue("LastModificationTime")
-        if ct:
-            return datetime.datetime.fromtimestamp(int(mt))
+        mdt = self.getAttributeValue("LastModificationTime")
+        if mdt:
+            return datetime.datetime.fromtimestamp(int(mdt))
         else:
             return None
 
@@ -189,7 +198,7 @@ class CiofEntity:
     def addAttribute(self, attrName, values):
         """
         Creates a new attribute and adds it to the entity.
-        
+
         Does not do any content checking to make sure this attribute is
         valid for the entity type.
         Returns the newly created attribute.
@@ -201,12 +210,15 @@ class CiofEntity:
                 self.getId() + "'"])
 
         attrib = CiofAttribute(attrName, values)
-        self.__attributes[attrName]= attrib
+        self.__attributes[attrName] = attrib
 
         return attrib
-        
+
 
     def isDeleted(self):
+        """
+        Return True if CIOF entity is flagged as deleted, False otherwise.
+        """
         deleted = False
         if self.getAttributeValue("Deleted") == "True":
             deleted = True

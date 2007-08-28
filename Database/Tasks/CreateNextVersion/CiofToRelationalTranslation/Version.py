@@ -1,15 +1,15 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Anatomy Version.
-#
-# There are multiple versions in the database, but the only thing
-# this code does with them is determine what the most recent version
-# was.  This code deals primarily with the version that is being
-# created by this run of the program.
+"""
+Internal python structures to represent Anatomy Version.
 
-import AnatomyBase                      # Ties it all together
+There are multiple versions in the database, but the only thing
+this code does with them is determine what the most recent version
+was.  This code deals primarily with the version that is being
+created by this run of the program.
+"""
+
 import AnatomyObject
 import DbAccess
 import Util                             # Error handling
@@ -22,6 +22,15 @@ import Util                             # Error handling
 # Database related defs
 
 TABLE   = "ANA_VERSION"            # RDBMS table this class stored in
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_version = None
+
 
 
 # ------------------------------------------------------------------
@@ -40,27 +49,46 @@ class Version:
         self.__number = versionNumber
         self.__dateTime = dateTime
         self.__comments = comments
+        self.__anatomyObject = None
         self.__assignOid()
         self.__dbRecord = None
 
         return None
 
     def getOid(self):
+        """
+        Return the OID of this version.
+        """
         return self.__anatomyObject.getOid()
 
     def getVersionNumber(self):
+        """
+        Return version number.
+        """
         return self.__number
 
     def getDateTime(self):
+        """
+        Get date time stamp of this version.
+        """
         return self.__dateTime
 
     def getComments(self):
+        """
+        Get comments associated with this version.
+        """
         return self.__comments
 
     def isDeleted(self):
+        """
+        Returns True if this version is deleted.  That never happens.
+        """
         return False
 
     def __assignOid(self):
+        """
+        Assign an OID to this (new) version.
+        """
         self.__anatomyObject = AnatomyObject.AnatomyObject(
             self, creationDateTime = self.getDateTime())
 
@@ -108,6 +136,9 @@ class Version:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the DB record for this version.
+        """
         return self.__dbRecord
 
     def setDbInfo(self, dbRecord):
@@ -130,7 +161,7 @@ class Version:
             dbRecord.bindPythonObject(self)
             oid = dbRecord.getColumnValue("ANO_OID")
             self.__anatomyObject = AnatomyObject.bindAnatomyObject(oid, self)
-        
+
         self.__dbRecord = dbRecord
 
         return dbRecord
@@ -140,7 +171,7 @@ class Version:
         """
         Generate SQL to insert new version into database.
         """
-        dbRecord = self.getDbRecord().insert()
+        self.getDbRecord().insert()
 
         return None
 
@@ -168,6 +199,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return the latest version and then stop.
+        """
         if self.__called:
             raise StopIteration
         self.__called = True
@@ -188,7 +222,7 @@ def initialise(dateTime, comments):
     global _version
 
     _version = None
-    
+
     tableInfo = DbAccess.registerClassTable(Version, TABLE,
                                             DbAccess.IN_ANA_OBJECT)
 
@@ -229,7 +263,7 @@ def getOid():
     Return the OID of the version being created.
     """
     return _version.getOid()
-    
+
 
 
 def getVersion():

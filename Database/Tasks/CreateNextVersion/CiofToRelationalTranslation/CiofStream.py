@@ -1,19 +1,20 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-# Code to parse .ciof anatomy files.
-#
-# ciof files are exported from objectstore and define anatomy.  The code
-# in this file reads entries from a ciof file and returns them in a well
-# defined structure.
-#
-# This is a generic parser.  It does not care what the actual entries in
-# the ciof stream are as long as they conform to the expected syntactic
-# structure.
+"""
+Code to parse .ciof anatomy files.
+
+ciof files are exported from objectstore and define anatomy.  The code
+in this file reads entries from a ciof file and returns them in a well
+defined structure.
+
+This is a generic parser.  It does not care what the actual entries in
+the ciof stream are as long as they conform to the expected syntactic
+structure.
+"""
 
 import datetime
 import re                               # regular expressions
-import sys                              # error reporting
 import Ciof                             # CIOF basics, Entities and attributes
 import Util                             # Error Handling
 
@@ -129,9 +130,10 @@ class CiofInputStream:
 
             entity.addAttribute(attrName, values)
 
-            if lineTerminator not in ["}",","]:
+            if lineTerminator not in ["}", ","]:
                 Util.fatalError([
-                    "Line in entity defintion ends with something other than ',' or '}'",
+                    "Line in entity defintion ends with something other " +
+                    "than ',' or '}'",
                     '  Line: "' + line + '"'])
 
         return entity

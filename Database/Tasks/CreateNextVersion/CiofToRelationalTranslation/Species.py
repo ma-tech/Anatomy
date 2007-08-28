@@ -1,12 +1,11 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent Species
+"""
+Internal python structures to represent Species
+"""
 
-import AnatomyBase                      # Ties it all together
 import DbAccess
-import Util                             # Error handling
 
 
 # ------------------------------------------------------------------
@@ -18,6 +17,14 @@ import Util                             # Error handling
 MOUSE      = "mouse"
 
 TABLE   = "REF_SPECIES"
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_species = None
 
 
 
@@ -39,17 +46,25 @@ class Species:
         """
         self.__name      = dbRecord.getColumnValue("RSP_NAME")
         self.__latinName = dbRecord.getColumnValue("RSP_LATIN_NAME")
-        self.__timedNodeIdPrefix = dbRecord.getColumnValue("RSP_TIMED_NODE_ID_PREFIX")
+        self.__timedNodeIdPrefix = dbRecord.getColumnValue(
+                                               "RSP_TIMED_NODE_ID_PREFIX")
         self.__nodeIdPrefix = dbRecord.getColumnValue("RSP_NODE_ID_PREFIX")
+        self.__dbRecord = None
         self.__setDbRecord(dbRecord)
 
         return None
 
 
     def getName(self):
+        """
+        Get common name of species.
+        """
         return self.__name
 
     def getLatinName(self):
+        """
+        Get latin name of species.
+        """
         return self.__latinName
 
     def getTimedNodeIdPrefix(self):
@@ -73,8 +88,6 @@ class Species:
         Inserts the species into the knowledge
         base of all things we know about anatomy.
         """
-        global _species
-
         _species.append(self)
 
         return None
@@ -97,6 +110,9 @@ class Species:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return DB record for this species.
+        """
         return self.__dbRecord
 
 
@@ -111,7 +127,7 @@ class Species:
         else:
             dbRecord.bindPythonObject(self)
         self.__dbRecord = dbRecord
-       
+
         return dbRecord
 
 
@@ -132,16 +148,17 @@ class AllIter:
     """
 
     def __init__(self):
-        global _species
         self.__length = len(_species)
-        self.__position = -1         # Most recent anatomy node returned
+        self.__position = -1         # Most recent species returned
         return None
 
     def __iter__(self):
         return self
 
     def next(self):
-        global _species
+        """
+        Return next species
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -154,6 +171,9 @@ class AllIter:
 # ------------------------------------------------------------------
 
 def initialise():
+    """
+    Initialise this module.
+    """
 
     global _species
 
@@ -163,7 +183,7 @@ def initialise():
     _species = []              # unindexed
 
 
-    tableInfo = DbAccess.registerClassTable(Species, TABLE, 
+    tableInfo = DbAccess.registerClassTable(Species, TABLE,
                                             DbAccess.NOT_IN_ANA_OBJECT)
 
     tableInfo.addColumnMethodMapping(
@@ -188,7 +208,7 @@ def initialise():
 
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See initialise above

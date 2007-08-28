@@ -128,7 +128,6 @@ def addToKnowledge(entity):
     # There must be a better way.
 
     entityType = entity.getType()
-    entityId   = entity.getId()         # not always meaningful
 
     if entityType in ("Database", "IDRegister", "User",
                       "WM2DView", "WM2DPatch"):

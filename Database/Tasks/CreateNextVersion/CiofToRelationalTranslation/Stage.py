@@ -1,11 +1,11 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent stages.
+"""
+Internal python structures to represent stages.
+"""
 
 import AnatomyObject                    # Ties it all together
-import Ciof                             # CIOF entities and attributes
 import DbAccess
 import Species
 import Util                             # Error handling
@@ -22,12 +22,21 @@ TABLE   = "ANA_STAGE"
 
 
 # ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_stagesByName = None
+_stagesBySequence = None
+_stages = None
+
+
+# ------------------------------------------------------------------
 # STAGE
 # ------------------------------------------------------------------
 
 class Stage:
     """
-    Defines a developmental stage.  
+    Defines a developmental stage.
     """
 
     def __init__(self, name, species, sequence):
@@ -42,7 +51,7 @@ class Stage:
         #   Could derive them from the earliest creation date of any anatomy
         #   timed node that exists at that stage.  This is approximately
         #   right for everything but TS28.
-        
+
         self.__anatomyObject = None
         self.__dbRecord   = None
         self.__name       = name
@@ -52,28 +61,46 @@ class Stage:
         self.__shortExtraText = None
         self.__publicId   = None        # only used by Xenopus
         self.__isDeleted = False
-        
+
         return None
 
     def getName(self):
+        """
+        Get the name of the stage.
+        """
         return self.__name
 
     def getSpecies(self):
+        """
+        Get species stage is for.
+        """
         return self.__species
 
     def getSequence(self):
+        """
+        Get seuquence of this stage, relative to other stages in the series.
+        """
         return self.__sequence
 
     def assignOid(self):
+        """
+        Assign an OID to this (new) stage.
+        """
         self.__anatomyObject = AnatomyObject.AnatomyObject(self)
         self.__anatomyObject.addToKnowledgeBase()
 
         return self.getOid()
 
     def getOid(self):
+        """
+        Return the OID of this stage.
+        """
         return self.__anatomyObject.getOid()
 
     def getDescription(self):
+        """
+        Return the description of this stage.
+        """
         return self.__description
 
     def getShortExtraText(self):
@@ -88,6 +115,9 @@ class Stage:
 
 
     def isDeleted(self):
+        """
+        Return true if this stage is deleted.
+        """
         return self.__isDeleted
 
     def genDumpFields(self):
@@ -116,12 +146,15 @@ class Stage:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the DB record for this stage.
+        """
         return self.__dbRecord
 
 
     def setDbInfo(self, dbRecord):
         """
-        Associates a DB record with this object, and vice versa, 
+        Associates a DB record with this object, and vice versa,
         and looks up the AnatomyObject for this stage.
 
         If no DB record is passed in, then this creates an empty DB Record.
@@ -134,7 +167,7 @@ class Stage:
             dbRecord.bindPythonObject(self)
             oid = dbRecord.getColumnValue("STG_OID")
             self.__anatomyObject = AnatomyObject.bindAnatomyObject(oid, self)
-        
+
         self.__dbRecord = dbRecord
 
         return dbRecord
@@ -166,6 +199,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return the next stage.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -190,7 +226,7 @@ def initialise():
     _stagesBySequence = {}              # Indexed by stage sequence
     _stages = []                        # no index
 
-    tableInfo = DbAccess.registerClassTable(Stage, TABLE, 
+    tableInfo = DbAccess.registerClassTable(Stage, TABLE,
                                             DbAccess.IN_ANA_OBJECT)
     tableInfo.addColumnMethodMapping(
         "STG_OID", "getOid", DbAccess.IS_KEY)
@@ -258,16 +294,22 @@ def readDb():
 
 
 def getByName(stgName):
+    """
+    Return the stage with the given name.
+    """
     return _stagesByName[stgName]
 
 
-def getBySequence(stgSequeunce):
+def getBySequence(stgSequence):
+    """
+    Return the stage with the given sequence.
+    """
     return _stagesBySequence[stgSequence]
 
 
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See initialise above.

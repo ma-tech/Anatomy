@@ -1,20 +1,18 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent anatomy relationships.
-# Anatomy relationships exist between 2 anatomy nodes or between 2
-# anatomy timed nodes.
+"""
+Internal python structures to represent anatomy relationships.
+Anatomy relationships exist between 2 anatomy nodes or between 2
+anatomy timed nodes.
+"""
 
 import sets
 
 import AnatomyObject
-import Ciof                             # entities read from file
 import DbAccess
-import Node                             # untimed anatomy
 import RelationshipSequenceStream
 import RelationshipType
-import Stage
 import TimedNode                        # timed anatomy
 import Util                             # Error handling
 import Version
@@ -28,6 +26,16 @@ import Version
 
 TABLE = "ANA_RELATIONSHIP"
 
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_relationshipsByChildAndParentPublicId = None
+_undeletedRelationshipsByChildPublicId = None
+_undeletedRelationshipsByParentPublicId = None
+_relationships = None
 
 
 # ------------------------------------------------------------------
@@ -93,6 +101,9 @@ class Relationship:
         return None
 
     def assignOid(self):
+        """
+        Assign an OId to this object.
+        """
         self.__anatomyObject = AnatomyObject.AnatomyObject(
             self, creationDateTime = self.__creationDateTime)
         self.__anatomyObject.addToKnowledgeBase()
@@ -100,38 +111,69 @@ class Relationship:
         return None
 
     def getOid(self):
-        # Chicanery necessary because deleted relationships won't have
-        # an OID.
+        """
+        Chicanery necessary because deleted relationships won't have
+        an OID.
+        """
         if self.__anatomyObject:
             return self.__anatomyObject.getOid()
         else:
             return None
 
     def getAnatomyObject(self):
+        """
+        Return the anatomy object associated with this relationship.
+        """
         return self.__anatomyObject
 
     def getRelationshipType(self):
+        """
+        What type of relationship is this?
+        """
         return self.__relationshipType
 
     def getRelationshipTypeName(self):
+        """
+        Return the name of the relationship type.
+        """
         return self.__relationshipType.getName()
 
     def getChild(self):
+        """
+        Return the child object in this relationship.
+        """
         return self.__child
 
     def getChildOid(self):
+        """
+        Return the OID of the child in this relationship.
+        """
         return self.__child.getOid()
 
     def getParent(self):
+        """
+        Return the parent object in this relationship.
+        """
         return self.__parent
 
     def getParentOid(self):
+        """
+        Return the OID of the parent in this relationship.
+        """
         return self.__parent.getOid()
 
     def getSequence(self):
+        """
+        Return the sequence of the child when it is displayed relative
+        to its parent's other children.
+        """
         return self.__sequence
 
     def setSequence(self, sequence):
+        """
+        Set the sequnce that the child should be dipslayed in, relative to
+        its parent's other children.
+        """
         self.__sequence = sequence
         return self.__sequence
 
@@ -160,7 +202,9 @@ class Relationship:
 
 
     def setDeleted(self, isDeleted):
-
+        """
+        Flag this relationship as deleted.
+        """
         self.__isDeleted = isDeleted
         if isDeleted:
             # If it is now marked as deleted then drop it from undeleted lists.
@@ -242,6 +286,9 @@ class Relationship:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return the DB record for this relationship.
+        """
         return self.__dbRecord
 
     def setDbInfo(self, dbRecord):
@@ -273,6 +320,9 @@ class Relationship:
 
 
 def _makeKeyToAHappyFamily(childPublicId, parentPublicId):
+    """
+    This routine is stupid.  Just replace it with a tuple.
+    """
     return childPublicId + ":" + parentPublicId
 
 
@@ -460,6 +510,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Get the next relationship.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -560,7 +613,8 @@ def readSequenceFromFile(sequenceFile):
     """
 
     # Open file and read in header.
-    sequenceStream = RelationshipSequenceStream.RelationshipSequenceStream(sequenceFile)
+    sequenceStream = RelationshipSequenceStream.RelationshipSequenceStream(
+                                                                   sequenceFile)
 
     # make sure file is for right version.
     version = Version.getVersion()
@@ -612,7 +666,8 @@ def readSequenceFromFile(sequenceFile):
 
             if not rel:
                 Util.warning([
-                    "Cut and paste error.  Component placed under a component which is not its parent.",
+                    "Cut and paste error.  " +
+                    "Component placed under a component which is not its parent.",
                     "Parent " + parentPublicId + ", '" + parentName +"'",
                     "Child  " + publicId + ", '" + name + "'",
                     "Ignoring component."])
@@ -686,6 +741,10 @@ def getUndeletedByParentPublicId(parentId):
         return []
 
 def filterByRelationshipType(anatRelList, relType):
+    """
+    Given a list of relationships, return a list containing only relationships
+    of the given type.
+    """
     filteredList = []
     for anatRel in anatRelList:
         if anatRel.getRelationshipType() == relType:
@@ -694,7 +753,11 @@ def filterByRelationshipType(anatRelList, relType):
 
 
 def sortByChildName(anatRelList):
-
+    """
+    Given a list of relationships, all with a common parent,
+    return a list of relationships sorted in
+    alphabetical order by child name.
+    """
     anatRels = anatRelList[:]
     anatRels.sort(_childNameCompare)
 
@@ -702,28 +765,45 @@ def sortByChildName(anatRelList):
 
 
 def sortByChildStageSequenceName(anatRelList):
-
+    """
+    Given a list of relationships, all with a common parent,
+    return a list of relationships sorted in
+    child stage sequence, and then child name order.
+    """
     anatRels = anatRelList[:]
     anatRels.sort(_childStageSequenceNameCompare)
 
     return anatRels
 
 def sortByChildNameStageSequence(anatRelList):
-
+    """
+    Given a list of relationships, all with a common parent,
+    return a list of relationships sorted in
+    alphabetical order by child name, and then by child stage sequence.
+    """
     anatRels = anatRelList[:]
     anatRels.sort(_childNameStageSequenceCompare)
 
     return anatRels
 
 def sortByChildSeqNameStageSequence(anatRelList):
-
+    """
+    Given a list of relationships, all with a common parent,
+    return a list of relationships sorted in
+    child sequence, and then by child name, and finally by child stage
+    sequence order.
+    """
     anatRels = anatRelList[:]
     anatRels.sort(_childSeqNameStageSequenceCompare)
 
     return anatRels
 
 def sortByChildSeqStageSequenceName(anatRelList):
-
+    """
+    Given a list of relationships, all with a common parent,
+    return a list of relationships sorted in
+    child sequence, child stage sequence, and then child name order.
+    """
     anatRels = anatRelList[:]
     anatRels.sort(_childSeqStageSequenceNameCompare)
 

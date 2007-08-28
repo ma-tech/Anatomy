@@ -8,7 +8,6 @@ tree that belongs to a perspective.
 """
 
 import sets
-import sys
 
 import DbAccess
 import PartOfDerived
@@ -28,6 +27,14 @@ TABLE = "ANAD_PART_OF_PERSPECTIVE"
 ABOVE_START    = "ABOVE START"
 IN_PERSPECTIVE = "IN PERSPECTIVE"
 BELOW_STOP     = "BELOW STOP"
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_partOfPerspectives = None
+
 
 
 # ------------------------------------------------------------------
@@ -60,24 +67,46 @@ class PartOfPerspective:
         return None
 
     def getOid(self):
+        """
+        Return the OID of the part of perspective.  It does not have one, so
+        this always returns None.
+        """
         return None  # doesn't have one
 
     def getPerspective(self):
+        """
+        Return the perspective object this is a part of.
+        """
         return self.__perspective
 
     def getPerspectiveName(self):
+        """
+        Return the name of the perspective this is a part of.
+        """
         return self.__perspective.getName()
 
     def getPartOfDerived(self):
+        """
+        Return the part of derived object that is a part of the perspective.
+        """
         return self.__partOfDerived
 
     def getPartOfDerivedOid(self):
+        """
+        Return the OID of the part of derived record.
+        """
         return self.__partOfDerived.getOid()
 
     def getNode(self):
+        """
+        Return the node that is part of the perspective.
+        """
         return self.__partOfDerived.getNode()
 
     def getNodeOid(self):
+        """
+        Return the OID of the node that is part of the perspective.
+        """
         return self.getNode().getOid()
 
     def isAncestor(self):
@@ -103,8 +132,6 @@ class PartOfPerspective:
         Inserts the anatomy part of perspective record into the knowledge
         base of all things we know about anatomy.
         """
-        global _partOfPerspectives
-
         _partOfPerspectives.append(self)
 
         return None
@@ -130,6 +157,9 @@ class PartOfPerspective:
 
 
     def getDbRecord(self):
+        """
+        Return the DB record for this object.
+        """
         return self.__dbRecord
 
 
@@ -188,7 +218,6 @@ class AllIter:
     """
 
     def __init__(self):
-        global _partOfPerspectives
         self.__length = len(_partOfPerspectives)
         self.__position = -1         # Most recent POP returned
         return None
@@ -197,7 +226,9 @@ class AllIter:
         return self
 
     def next(self):
-        global _partOfPerspectives
+        """
+        Return the next part of perspective record.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -244,7 +275,6 @@ def derivePartOfPerspective():
     """
 
     for perspective in Perspective.AllIter():
-        print "processing Perspective", perspective.getName()
         alreadyProcessedNodes = sets.Set()
         partOfsByAncestorNode = {}
         partOfStack = []
@@ -253,7 +283,6 @@ def derivePartOfPerspective():
         stopDepth = None
 
         for partOf in PartOfDerived.AllIter():
-            print "STATE:", state, "PROCESSING partOf:", partOf.getFullName()
             node = partOf.getNode()
             depth = partOf.getDepth()
             createPop = False
@@ -261,70 +290,52 @@ def derivePartOfPerspective():
             __alterStack(partOfStack, partOf)
 
             if state == ABOVE_START:
-                if perspective.getName() == "Adult Kidney (GenePaint)": print 1
                 if isStart:  # found a start node
-                    if perspective.getName() == "Adult Kidney (GenePaint)": print 1.1
                     createPop = True
                     if not perspective.hasStopNode(node):
-                        if perspective.getName() == "Adult Kidney (GenePaint)": print 1.2
                         startDepth = depth
                         state = IN_PERSPECTIVE
 
             elif state == IN_PERSPECTIVE:
-                if perspective.getName() == "Adult Kidney (GenePaint)": print 2
                 if (depth <= startDepth and
                     not perspective.hasStartNode(node)):
-                    if perspective.getName() == "Adult Kidney (GenePaint)": print 2.1
                     # no longer under a start node
                     state = ABOVE_START
                 else: # still under a start node
-                    if perspective.getName() == "Adult Kidney (GenePaint)": print 2.2
                     createPop = True
                     if (perspective.hasStartNode(node) and
                         depth < startDepth):
-                        if perspective.getName() == "Adult Kidney (GenePaint)": print 2.3
                         # Under a new start node higher up
                         startDepth = depth
                         alreadyProcessedNodes.add(node)
                     elif perspective.hasStopNode(node):
-                        if perspective.getName() == "Adult Kidney (GenePaint)": print 2.4
                         # below both a start and stop node
                         state = BELOW_STOP
                         stopDepth = depth
 
             elif state == BELOW_STOP:
-                if perspective.getName() == "Adult Kidney (GenePaint)": print 3
                 if depth <= stopDepth:
-                    if perspective.getName() == "Adult Kidney (GenePaint)": print 3.1
                     # no longer below old stop node
                     if depth > startDepth:
-                        if perspective.getName() == "Adult Kidney (GenePaint)": print 3.2
                         # but still under same start node
                         createPop = True
                         if not perspective.hasStopNode(node):
-                            if perspective.getName() == "Adult Kidney (GenePaint)": print 3.3
                             state = IN_PERSPECTIVE
                     else:
                         # above or next to old start node
                         if (isStart):
-                            if perspective.getName() == "Adult Kidney (GenePaint)": print 3.4
                             createPop = True
                             if not perspective.hasStopNode(node):
-                                if perspective.getName() == "Adult Kidney (GenePaint)": print 3.5
                                 startDepth = depth
                                 state = IN_PERSPECTIVE
 
             if createPop:
-                if perspective.getName() == "Adult Kidney (GenePaint)": print 4
                 pop = PartOfPerspective(perspective, partOf, False)
                 pop.addToKnowledgeBase()
                 if partOf.isPrimaryPath():
-                    if perspective.getName() == "Adult Kidney (GenePaint)": print 4.1
                     alreadyProcessedNodes.add(node)
 
             if isStart:
-                if perspective.getName() == "Adult Kidney (GenePaint)": print 5
-                print "Found primary occurrence of start node", node.getName()
                 # Found primary occurrence of a start node in ANAD_PART_OF.
                 # Record all ancestor nodes for later processing.
                 for stackIdx in range(len(partOfStack)-2, -1, -1):
@@ -342,7 +353,7 @@ def derivePartOfPerspective():
     return None
 
 # ------------------------------------------------------------------
-# MAIN / GLOBALS
+# MAIN
 # ------------------------------------------------------------------
 
 # Run first time module is loaded.  See initialise above.

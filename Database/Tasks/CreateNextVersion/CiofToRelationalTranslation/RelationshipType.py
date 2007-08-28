@@ -1,9 +1,10 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent anatomy relationship types.
-# There is no list of types explicitly listed in the CIOF file.
+"""
+Internal python structures to represent anatomy relationship types.
+There is no list of types explicitly listed in the CIOF file.
+"""
 
 import DbAccess
 import Util                             # Error handling
@@ -19,9 +20,18 @@ import Util                             # Error handling
 PART_OF      = "part-of"
 DERIVES_FROM = "derives-from"
 
-# DB 
+# DB
 
 TABLE   = "ANA_RELATIONSHIP_TYPE"
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_relationshipTypes = None
+_relationshipTypesByName = None
+
 
 
 # ------------------------------------------------------------------
@@ -42,20 +52,32 @@ class RelationshipType:
         record from the database.
         """
         self.__name = dbRecord.getColumnValue("RTY_NAME")
-        self.__childToParentDisplay = dbRecord.getColumnValue("RTY_CHILD_TO_PARENT_DISPLAY")
-        self.__parentToChildDisplay = dbRecord.getColumnValue("RTY_PARENT_TO_CHILD_DISPLAY")
+        self.__childToParentDisplay = dbRecord.getColumnValue(
+                                              "RTY_CHILD_TO_PARENT_DISPLAY")
+        self.__parentToChildDisplay = dbRecord.getColumnValue(
+                                              "RTY_PARENT_TO_CHILD_DISPLAY")
+        self.__dbRecord = None
         self.__setDbRecord(dbRecord)
-        
+
         return None
 
 
     def getName(self):
+        """
+        Get the name of the relationship type.
+        """
         return self.__name
 
     def getChildToParentDisplay(self):
+        """
+        Get string to display in between the child and the parent.
+        """
         return self.__childToParentDisplay
 
     def getParentToChildDisplay(self):
+        """
+        Get string to display between parent and child.
+        """
         return self.__parentToChildDisplay
 
     def genDumpFields(self):
@@ -101,6 +123,9 @@ class RelationshipType:
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Get the DB record for this relationship type.
+        """
         return self.__dbRecord
 
 
@@ -115,7 +140,7 @@ class RelationshipType:
         else:
             dbRecord.bindPythonObject(self)
         self.__dbRecord = dbRecord
-       
+
         return dbRecord
 
 
@@ -143,6 +168,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Get next anatomy relationsip type.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -155,7 +183,9 @@ class AllIter:
 # ------------------------------------------------------------------
 
 def initialise():
-
+    """
+    Initialise this module.
+    """
     global _relationshipTypesByName, _relationshipTypes
 
     _relationshipTypesByName = {}
@@ -189,7 +219,6 @@ def getByName(relTypeName):
     """
     return relationship type with this name.
     """
-    global _relationshipTypesByName
     if relTypeName in _relationshipTypesByName:
         return _relationshipTypesByName[relTypeName]
     else:

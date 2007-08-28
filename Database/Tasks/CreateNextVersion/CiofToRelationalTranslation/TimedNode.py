@@ -1,15 +1,12 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
-#
-# Internal python structures to represent anatomy timed nodes.
-#
+"""
+Internal python structures to represent anatomy timed nodes.
+"""
 
 import AnatomyObject                    # Ties it all together
-import Ciof                             # CIOF entities and attributes
 import DbAccess
-import Relationship
-import Stage
 import Util                             # Error handling
 
 
@@ -20,6 +17,15 @@ import Util                             # Error handling
 # Database related defs:
 
 TABLE   = "ANA_TIMED_NODE"
+
+
+
+# ------------------------------------------------------------------
+# GLOBALS
+# ------------------------------------------------------------------
+
+_timedNodesByPublicId = None
+_timedNodes = None
 
 
 
@@ -62,15 +68,17 @@ class TimedNode:
         return None
 
 
-    def assignOid(self):        
-        # Anatomy Timed nodes do not have explicit creation dates in the
-        # CIOF file.  Best we can do is use the create date on the
-        # anatomy node.
+    def assignOid(self):
+        """
+        Anatomy Timed nodes do not have explicit creation dates in the
+        CIOF file.  Best we can do is use the create date on the
+        anatomy node.
+        """
         creationDateTime = self.__node.getCreationDateTime()
         self.__anatomyObject = AnatomyObject.AnatomyObject(
             self, creationDateTime = creationDateTime)
         self.__anatomyObject.addToKnowledgeBase()
-        
+
         return self.getOid()
 
 
@@ -81,9 +89,15 @@ class TimedNode:
         return self.__publicId
 
     def getOid(self):
+        """
+        Return OID of timed node.
+        """
         return self.__anatomyObject.getOid()
 
     def isDeleted(self):
+        """
+        Return True if timed node is deleted.
+        """
         return self.__isDeleted
 
     def setDeleted(self, state=True):
@@ -94,26 +108,37 @@ class TimedNode:
         return self.__isDeleted
 
 
-    def isRoot(self):
-        id = self.__getPublicId()
-        tnRelsAsChild = Relationship.getByChildPublicId(id)
-        return not tnRelsAsChild
-
     def getNode(self):
+        """
+        Returrn the node for this timed node.
+        """
         return self.__node
 
     def getNodeOid(self):
+        """
+        Return the OID of the node this timed node is for.
+        """
         return self.__node.getOid()
 
     def getStage(self):
+        """
+        Get stage this timed node is for.
+        """
         return self.__stage
 
     def getStageOid(self):
+        """
+        Get OID of stage this timed node is for.
+        """
         return self.__stage.getOid()
 
     def getStageModifier(self):
+        """
+        A small number of timed nodes have modifiers indicating when in the
+        stage the component comes into or goes out of existence.
+        """
         return self.__stageModifier
-    
+
     def addToKnowledgeBase(self):
         """
         Inserts the timed node into the knowledge base of all things we know
@@ -150,13 +175,16 @@ class TimedNode:
         """
         self.__stageModifier = tcCiofEntity.getAttributeValue("Phase")
         return self.__stageModifier
-    
+
 
     # --------------------------
     # Database Methods
     # --------------------------
 
     def getDbRecord(self):
+        """
+        Return DB record for this timed node.
+        """
         return self.__dbRecord
 
 
@@ -175,7 +203,7 @@ class TimedNode:
             dbRecord.bindPythonObject(self)
             oid = dbRecord.getColumnValue("ATN_OID")
             self.__anatomyObject = AnatomyObject.bindAnatomyObject(oid, self)
-        
+
         self.__dbRecord = dbRecord
 
         return dbRecord
@@ -200,6 +228,9 @@ class AllIter:
         return self
 
     def next(self):
+        """
+        Return next timed node.
+        """
         self.__position += 1
         if self.__position == self.__length:
             raise StopIteration
@@ -221,6 +252,9 @@ class AllUndeletedIter:
         return self
 
     def next(self):
+        """
+        Return next undeleted timed node.
+        """
         self.__position += 1
         while (self.__position < self.__length and
                _timedNodes[self.__position].isDeleted()):
@@ -258,7 +292,7 @@ def initialise():
         "ATN_STAGE_MODIFIER_FK", "getStageModifier", DbAccess.IS_NOT_KEY)
     tableInfo.addColumnMethodMapping(
         "ATN_PUBLIC_ID", "getPublicId", DbAccess.IS_NOT_KEY)
-       
+
     return None
 
 
@@ -289,10 +323,10 @@ def getByPublicId(publId):
     Return None if no such anatomy timed node exists.
     """
     try:
-        tn = _timedNodesByPublicId[publId]
+        timedNode = _timedNodesByPublicId[publId]
     except KeyError:
-        tn = None
-    return tn
+        timedNode = None
+    return timedNode
 
 
 

@@ -3,6 +3,17 @@
 #-------------------------------------------------------------------
 """
 Wrapper around all access to the anatomy database in the relational DBMS.
+
+NOTE: Don't build any more programs around this file.  This version is
+      specific to the CIOF to Relational Translator.  It has many quirks
+      and flaws.
+
+      If you need access to the anatomy database, use the AnatomyDb package
+      in the HGU Python Library:
+
+          Gmerg/Common/lib/python/hgu/anatomyDb/
+
+      It has fewer quirks and flaws.
 """
 
 import datetime
@@ -43,7 +54,7 @@ _ACTION_DELETE = "deletes"
 _anatomyConn = None
 _tableInfoByTableName = None
 _tableInfoByClass = None
-_outputDir = None
+_outputFileName = None
 
 
 
@@ -192,17 +203,27 @@ class TableInfo:
         self.__deletes.append(statement + "show warnings;")
         return None
 
-    def __writeSqlToFile(self, sqlStatements, action):
-        """
-        Write a list of SQL statements to a file.  All of the
-        statements share a common action (insert, update, or delete).
-        """
-        fileName = _outputDir + "/" + _genSqlFileName(self, action)
-        sqlFile = open(fileName, "w")
 
+    def writeSql(self, action, sqlFile):
+        """
+        Write pending SQL statements for the given action to the file.
+        """
+        # Find the requested type of statement
+        sqlStatements = None
+        if action == _ACTION_DELETE:
+            sqlStatements = self.__deletes
+        elif action == _ACTION_INSERT:
+            sqlStatements = self.__inserts
+        elif action == _ACTION_UPDATE:
+            sqlStatements = self.__updates
+        else:
+            Util.fatalError(["Unrecognised table action: " + action])
+
+        # Spew them to the file.
+        _writeDisplayText(sqlFile,
+                          "Processing " + self.getTableName() + " " + action)
         for stmt in sqlStatements:
-            sqlFile.write(stmt + "\n\n")
-        sqlFile.close()
+            sqlFile.write(stmt + "\n")
 
         Util.statusMessage([
             str(len(sqlStatements)) + " " + action + " on " +
@@ -210,17 +231,6 @@ class TableInfo:
 
         return len(sqlStatements)
 
-
-    def writeSql(self):
-        """
-        Writes all pending SQL statements to thier files.
-        """
-
-        changeCount  = self.__writeSqlToFile(self.__deletes, _ACTION_DELETE)
-        changeCount += self.__writeSqlToFile(self.__updates, _ACTION_UPDATE)
-        changeCount += self.__writeSqlToFile(self.__inserts, _ACTION_INSERT)
-
-        return changeCount
 
 
 
@@ -676,99 +686,160 @@ def _registerLogTable():
     return None
 
 
-def _genSqlFileName(tableInfo, action):
+def _writeSqlComment(ciofChangesFile, comment):
     """
-    Generate a file name for the given table and action.
+    Write an SQL comment to the output file.  This wraps the comment in
+    /* and */.  This code does not detect embedded comment stops.
     """
-    return tableInfo.getTableName() + "." + action + ".sql"
+    ciofChangesFile.write("\n/***** " + comment + " *****/\n\n")
 
-
-
-def _writeSourceStatement(controlFile, tableInfo, action):
-    """
-    Generate a mysql 'source' statement.  This brings in another SQL file
-    and runs it.
-    """
-    fileToSource = _genSqlFileName(tableInfo, action)
-    controlFile.write("select 'Running " + fileToSource + "' as '';\n")
-    controlFile.write("source " + fileToSource + ";\n\n")
     return None
 
-def _writeTimedNodeDeferConstraints(controlFile):
+
+def _writeDisplayText(ciofChangesFile, displayText):
+    """
+    Generates SQL that will display the given text when the script is
+    run.  This code does not detect or escape embedded double quotes.
+    """
+    ciofChangesFile.write('\nselect "' + displayText + '" as "";\n\n')
+
+    return None
+
+
+
+def _writeTimedNodeDeferConstraints(ciofChangesFile):
     """
     Defer some constraints on timed node table until all activity
     on it is done.
     """
-    # Yep, well, MySQL does not support defered constraints.
-    # Therefore, drop the constraint, and add it back later.
-    # However, can't just drop the constraint because of a known bug.  See
-    #   http://bugs.mysql.com/bug.php?id=21395
-    # Have to drop the FK's that go into the index first.
-    controlFile.write(
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Deferring some constraints of timed node table.
+
+        Yep, well, MySQL does not support defered constraints.
+        Therefore, drop the constraint, and add it back later.
+        However, cannot just drop the constraint because of a known bug.  See
+          http://bugs.mysql.com/bug.php?id=21395
+        Have to drop the FKs that go into the index first.
+        """)
+
+    ciofChangesFile.write(
         "alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_1;" +
         "show warnings;\n\n")
-    controlFile.write(
+    ciofChangesFile.write(
         "alter table ANA_TIMED_NODE drop foreign key ANA_TIMED_NODE_ibfk_4;" +
         "show warnings;\n\n")
-    controlFile.write(
+    ciofChangesFile.write(
         "alter table ANA_TIMED_NODE drop key ATN_AK2_INDEX;" +
         "show warnings;\n\n")
+
     return None
 
 
 
-def _writeTimedNodeEnableConstraints(controlFile):
+def _writeTimedNodeEnableConstraints(ciofChangesFile):
     """
     Enable the constraints on timed node table that were deferred earlier.
     """
-    # Yep, well, MySQL does not support defered constraints.
-    # Therefore, have to add the constraint that was dropped earlier.
-    controlFile.write(
-        "alter table ANA_TIMED_NODE add constraint unique ATN_AK2_INDEX (ATN_NODE_FK,ATN_STAGE_FK);" +
-        "show warnings;\n\n")
-    controlFile.write(
-        "alter table ANA_TIMED_NODE add constraint ANA_TIMED_NODE_ibfk_1 foreign key (ATN_STAGE_FK) REFERENCES ANA_STAGE (STG_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
-        "show warnings;\n\n")
-    controlFile.write(
-        "alter table ANA_TIMED_NODE add CONSTRAINT ANA_TIMED_NODE_ibfk_4 FOREIGN KEY (ATN_NODE_FK) REFERENCES ANA_NODE (ANO_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
-        "show warnings;\n\n")
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Enable the constraints on timed node table that were deferred earlier.
+
+        Yep, well, MySQL does not support defered constraints.  Therefore have
+        to readd the constraints that were dropped earlier.
+        """)
+
+    ciofChangesFile.write(
+        """
+        alter table ANA_TIMED_NODE
+          add constraint
+            unique ATN_AK2_INDEX (ATN_NODE_FK, ATN_STAGE_FK);
+        show warnings
+        """)
+    ciofChangesFile.write(
+        """
+        alter table ANA_TIMED_NODE
+          add constraint ANA_TIMED_NODE_ibfk_1
+            foreign key (ATN_STAGE_FK)
+              REFERENCES ANA_STAGE (STG_OID)
+              ON DELETE NO ACTION
+              ON UPDATE NO ACTION;
+        show warnings;
+        """)
+    ciofChangesFile.write(
+        """
+        alter table ANA_TIMED_NODE
+          add CONSTRAINT ANA_TIMED_NODE_ibfk_4
+            FOREIGN KEY (ATN_NODE_FK)
+              REFERENCES ANA_NODE (ANO_OID)
+              ON DELETE NO ACTION
+              ON UPDATE NO ACTION;
+        show warnings;
+        """)
 
     return None
 
 
-def _writeSynonymDeferConstraints(controlFile):
+def _writeSynonymDeferConstraints(ciofChangesFile):
     """
     Defer some constraints on ANA_SYNONYM until all activity on it is done.
     """
-    # Rant at MySQL.  Move on.
-    # Problem occurs if capitalisation of a synonym changes.  This problem
-    # is MySQL specific.
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Defer some constraints on ANA_SYNONYM until all activity on it is done.
 
-    # The constraint causing us problems is
-    #   unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM)
-    # However, there is a later foreign key constraint that reuses the
-    # created index, so you first have to drop the FK
+        Problem occurs if capitalisation of a synonym changes.  This problem
+        is MySQL specific.
 
-    controlFile.write(
+        The constraint causing us problems is
+           unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM)
+        However, there is a later foreign key constraint that reuses the
+        created index, so you first have to drop the FK.
+        """)
+
+    ciofChangesFile.write(
         "alter table ANA_SYNONYM drop foreign key ANA_SYNONYM_ibfk_2;" +
         "show warnings;\n\n")
-    controlFile.write(
+    ciofChangesFile.write(
         "alter table ANA_SYNONYM drop key SYN_AK_INDEX; show warnings;\n\n")
     return None
 
 
 
-def _writeSynonymEnableConstraints(controlFile):
+def _writeSynonymEnableConstraints(ciofChangesFile):
     """
     Enable the constraints on ANA_SYNONYM table that were deferred earlier.
     """
-    # Yep, but its all a lie.
-    controlFile.write(
-        "alter table ANA_SYNONYM add constraint unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM);" +
-        "show warnings;\n\n")
-    controlFile.write(
-        "alter table ANA_SYNONYM add constraint ANA_SYNONYM_ibfk_2 FOREIGN KEY (SYN_OBJECT_FK) REFERENCES ANA_OBJECT (OBJ_OID) ON DELETE NO ACTION ON UPDATE NO ACTION;" +
-        "show warnings;\n\n")
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Enable the constraints on ANA_SYNONYM table that were deferred earlier.
+
+        Yep, well, MySQL does not support defered constraints.  Therefore have
+        to readd the constraints that were dropped earlier.
+        """)
+
+    ciofChangesFile.write(
+        """
+        alter table ANA_SYNONYM
+          add constraint
+            unique SYN_AK_INDEX (SYN_OBJECT_FK, SYN_SYNONYM);
+        show warnings;
+        """)
+
+    ciofChangesFile.write(
+        """
+        alter table ANA_SYNONYM
+           add constraint ANA_SYNONYM_ibfk_2
+             FOREIGN KEY (SYN_OBJECT_FK)
+               REFERENCES ANA_OBJECT (OBJ_OID)
+               ON DELETE NO ACTION
+               ON UPDATE NO ACTION;
+        show warnings;
+        """)
     return None
 
 
@@ -808,11 +879,12 @@ def _printActionDebug(action, obj):
 # MODULE LEVEL ROUTINES, GENERIC
 # ------------------------------------------------------------------
 
-def initialise(outputDir, dbHost, dbName, dbUser, dbPass):
+def initialise(outputFileName, dbHost, dbName, dbUser, dbPass):
     """
     Initialise the database connection.
     """
-    global _anatomyConn, _tableInfoByTableName, _tableInfoByClass, _outputDir
+    global _anatomyConn, _tableInfoByTableName, _tableInfoByClass
+    global _outputFileName
 
     # Dictionaries that maps Python anatomy classes to DB tables.
 
@@ -825,7 +897,7 @@ def initialise(outputDir, dbHost, dbName, dbUser, dbPass):
         user = dbUser, passwd = dbPass, host = dbHost, db = dbName)
 
     # Where to write SQL scripts.
-    _outputDir = outputDir
+    _outputFileName = outputFileName
 
     return None
 
@@ -964,9 +1036,7 @@ def genClassAllSql(anatomyClass, anatomyAllIter):
             "Now completely gone from CIOF file.  " +
             "Deleting them."])
 
-    changeCount = tableInfo.writeSql()
-
-    return changeCount
+    return None
 
 
 
@@ -995,102 +1065,70 @@ def publicIdIsDeleted(publicId):
 
 def finalise():
     """
-    Finalisation tasks for database.
+    Finalisation tasks for database.  Creats SQL script that will synchronise
+    the database with the CIOF.
     """
+    ciofChangesFile = open(_outputFileName, "w")
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Starting """ + _outputFileName + """
+        This will synchronise the relational database with the CIOF file that
+        was used to generate this script.
+        """)
 
-    # Write out entries for infrastructure tables.
-    for tableName in ("ANA_LOG", "ANA_OBJECT"):
-        tableInfo = _getTableInfoByTableName(tableName)
-        tableInfo.writeSql()
+    # defer some pesky constraints until updates are done.
+    _writeTimedNodeDeferConstraints(ciofChangesFile)
+    _writeSynonymDeferConstraints(ciofChangesFile)
 
-    # Create final control script to run all the updates.  The order these
-    # are done in is vital.
+    # empty derived tables.  These are worthless once we start updating the
+    # base tables.  They will be populated by a later script.
+    _writeDisplayText(ciofChangesFile, "Emptying derived tables.")
+    ciofChangesFile.write("delete from ANAD_PART_OF_PERSPECTIVE;\n")
+    ciofChangesFile.write("delete from ANAD_PART_OF;\n")
+    ciofChangesFile.write("delete from ANAD_RELATIONSHIP_TRANSITIVE;\n\n")
+
+    # Get tableInfos for all tables we care about IN FOREIGN KEY
+    # DEPENDENCY ORDER!
     # :TODO: This introduces a bad dependency between individual tables
     # and this code.  It would be much better to have the registration
     # process determine the order things are run, rather than have it
     # hard-coded here.
+    tableInfos = []
+    tableInfos.append(_getTableInfoByTableName("ANA_OBJECT"))
+    tableInfos.append(_getTableInfoByTableName("ANA_VERSION"))
+    tableInfos.append(_getTableInfoByTableName("ANA_STAGE"))
+    tableInfos.append(_getTableInfoByTableName("ANA_NODE"))
+    tableInfos.append(_getTableInfoByTableName("ANA_TIMED_NODE"))
+    tableInfos.append(_getTableInfoByTableName("ANA_RELATIONSHIP"))
+    tableInfos.append(_getTableInfoByTableName("ANA_SYNONYM"))
+    tableInfos.append(_getTableInfoByTableName("ANA_ATTRIBUTION"))
+    tableInfos.append(_getTableInfoByTableName("ANA_LOG"))
 
-    fileName = _outputDir + "/" + "controlScript.sql"
-    controlFile = open(fileName, "w")
+    # Generates inserts, and then updates, both in FK order.
+    for action in [_ACTION_INSERT, _ACTION_UPDATE]:
+        for tableInfo in tableInfos:
+            tableInfo.writeSql(action, ciofChangesFile)
 
-    controlFile.write("begin work;\n")
-    # controlFile.write("set session foreign_key_checks = OFF;\n")
-    # controlFile.write("set session unique_checks = OFF;\n")
-
-    # Get tableInfos for all tables we care about.
-
-    versionInfo      = _getTableInfoByTableName("ANA_VERSION")
-    attributionInfo  = _getTableInfoByTableName("ANA_ATTRIBUTION")
-    logInfo          = _getTableInfoByTableName("ANA_LOG")
-    nodeInfo         = _getTableInfoByTableName("ANA_NODE")
-    objectInfo       = _getTableInfoByTableName("ANA_OBJECT")
-    relationshipInfo = _getTableInfoByTableName("ANA_RELATIONSHIP")
-    stageInfo        = _getTableInfoByTableName("ANA_STAGE")
-    synonymInfo      = _getTableInfoByTableName("ANA_SYNONYM")
-    timedNodeInfo    = _getTableInfoByTableName("ANA_TIMED_NODE")
-
-    # defer some pesky constraints until updates are done.
-    _writeTimedNodeDeferConstraints(controlFile)
-    _writeSynonymDeferConstraints(controlFile)
-
-    # empty derived tables.  These are worthless once we start updating the
-    # base tables.  They will be populated by a later script.
-    controlFile.write(
-        "select 'Emptying ANAD_PART_OF_PERSPECTIVE derived table' as '';\n")
-    controlFile.write("delete from ANAD_PART_OF_PERSPECTIVE;\n")
-
-    controlFile.write(
-        "select 'Emptying ANAD_PART_OF derived table' as '';\n")
-    controlFile.write("delete from ANAD_PART_OF;\n")
-
-    controlFile.write(
-        "select 'Emptying ANAD_RELATIONSHIP_TRANSITIVE derived table' as '';\n")
-    controlFile.write("delete from ANAD_RELATIONSHIP_TRANSITIVE;\n")
-
-    # Try inserts first, all of them may have inserts.
-    _writeSourceStatement(controlFile, objectInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, versionInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, stageInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, nodeInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, timedNodeInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, relationshipInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, synonymInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, attributionInfo, _ACTION_INSERT)
-    _writeSourceStatement(controlFile, logInfo, _ACTION_INSERT)
-
-    # Next do updates, not all will have updates in their update files.
-    _writeSourceStatement(controlFile, versionInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, objectInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, stageInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, nodeInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, timedNodeInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, relationshipInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, synonymInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, attributionInfo, _ACTION_UPDATE)
-    _writeSourceStatement(controlFile, logInfo, _ACTION_UPDATE)
-
-    # Finally do deletes, not all will have deletes in their delete files.
-    _writeSourceStatement(controlFile, logInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, attributionInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, synonymInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, relationshipInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, timedNodeInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, nodeInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, stageInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, objectInfo, _ACTION_DELETE)
-    _writeSourceStatement(controlFile, versionInfo, _ACTION_DELETE)
+    # Generate deletes, in reverse FK order.  Reverse the list in place
+    # because we are done with it.
+    tableInfos.reverse()
+    for tableInfo in tableInfos:
+        tableInfo.writeSql(_ACTION_DELETE, ciofChangesFile)
 
     # re-enable any constraints we disabled
-    _writeSynonymEnableConstraints(controlFile)
-    _writeTimedNodeEnableConstraints(controlFile)
+    _writeSynonymEnableConstraints(ciofChangesFile)
+    _writeTimedNodeEnableConstraints(ciofChangesFile)
 
+    _writeDisplayText(
+        ciofChangesFile,
+        """
+        Finished applying CIOF changes to database.
+        """)
 
-    # controlFile.write("set session foreign_key_checks = ON;\n")
-    # controlFile.write("set session unique_checks = ON;\n")
-    controlFile.write("commit work;\n")
+    ciofChangesFile.close()
 
-    # Close DB connection.
-    _anatomyConn.close()
+    _anatomyConn.close()    # Close DB connection.
 
     return None
 

@@ -8,7 +8,13 @@ The code here takes adavantage of the CIOF file being ordered in a
 very nice fashion.  That is, when you read in something, you can be
 confident that everything it references has alaredy been read in.
 
+The above paragraph, it turns out, is completely wrong.  However,
+I did not figure that out until very late in the process.  Therefore,
+much of the code is unnecessarily complicated.
+
 If this assumption changes then this code will need to be rewritten.
+
+It sure does.
 """
 
 import AnatomyObject
@@ -16,13 +22,10 @@ import Attribution
 import DbAccess                         # wrapper around DBMS
 import Editor
 import Node                             # untimed anatomy
-import PartOfDerived
-import PartOfPerspective
 import Perspective
 import PerspectiveAmbit
 import Relationship
 import RelationshipType
-import RelationshipTransitive
 import Source
 import Species
 import Stage
@@ -107,11 +110,8 @@ def initialiseKnowledge(timeStamp, versionComments, outDir,
     Perspective.initialise()
     PerspectiveAmbit.initialise()
 
-    # Initialise derived information
-    PartOfDerived.initialise()
-    RelationshipTransitive.initialise()
-    PartOfPerspective.initialise()
-
+    # Don't read in derived information.  Derived tables are emptied at the
+    # end by code in DbAccess.
 
     return None
 
@@ -195,47 +195,6 @@ def readDb():
     return None
 
 
-def readRelationshipSequence(relationshipSequenceFile):
-    """
-    Read in the sequence the tree is supposed to be displayed in.
-
-    relationshipSequenceFile: Either
-        Name of file containing sequence information.
-        None: In this case sequence information already in the database
-              will be used.
-
-    See comments at the top of translateCiof.py for what this routine is
-    about.
-    """
-
-    if relationshipSequenceFile:
-        Relationship.readSequenceFromFile(relationshipSequenceFile)
-
-    else:
-        # Use information that has already been read in from the database.
-        pass
-
-    return None
-
-
-
-def deriveKnowledge(abstractSortOrder):
-    """
-    Called after all knowledge has been read in from the CIOF file.
-    This routine derives additional information, and integrates all
-    the information together.
-    """
-    # Derive the transitive closure of the relationship graph
-    RelationshipTransitive.deriveRelationshipsTransitive()
-
-    # Derive the quick tree display
-    PartOfDerived.derivePartOf(abstractSortOrder)
-
-    # Derive the part of perspective tree for each perspective
-    PartOfPerspective.derivePartOfPerspective()
-
-    return None
-
 
 
 def exportKnowledge():
@@ -250,11 +209,6 @@ def exportKnowledge():
     DbAccess.genClassAllSql(Relationship.Relationship, Relationship.AllIter)
     DbAccess.genClassAllSql(Synonym.Synonym, Synonym.AllIter)
     DbAccess.genClassAllSql(Attribution.Attribution, Attribution.AllIter)
-    DbAccess.genClassAllSql(RelationshipTransitive.RelationshipTransitive,
-                            RelationshipTransitive.AllIter)
-    DbAccess.genClassAllSql(PartOfDerived.PartOfDerived, PartOfDerived.AllIter)
-    DbAccess.genClassAllSql(PartOfPerspective.PartOfPerspective,
-                            PartOfPerspective.AllIter)
 
     return None
 

@@ -1028,13 +1028,24 @@ def finalise():
     stageInfo        = _getTableInfoByTableName("ANA_STAGE")
     synonymInfo      = _getTableInfoByTableName("ANA_SYNONYM")
     timedNodeInfo    = _getTableInfoByTableName("ANA_TIMED_NODE")
-    partOfInfo       = _getTableInfoByTableName("ANAD_PART_OF")
-    relTransInfo     = _getTableInfoByTableName("ANAD_RELATIONSHIP_TRANSITIVE")
-    partOfPerspectiveInfo = _getTableInfoByTableName("ANAD_PART_OF_PERSPECTIVE")
 
     # defer some pesky constraints until updates are done.
     _writeTimedNodeDeferConstraints(controlFile)
     _writeSynonymDeferConstraints(controlFile)
+
+    # empty derived tables.  These are worthless once we start updating the
+    # base tables.  They will be populated by a later script.
+    controlFile.write(
+        "select 'Emptying ANAD_PART_OF_PERSPECTIVE derived table' as '';\n")
+    controlFile.write("delete from ANAD_PART_OF_PERSPECTIVE;\n")
+
+    controlFile.write(
+        "select 'Emptying ANAD_PART_OF derived table' as '';\n")
+    controlFile.write("delete from ANAD_PART_OF;\n")
+
+    controlFile.write(
+        "select 'Emptying ANAD_RELATIONSHIP_TRANSITIVE derived table' as '';\n")
+    controlFile.write("delete from ANAD_RELATIONSHIP_TRANSITIVE;\n")
 
     # Try inserts first, all of them may have inserts.
     _writeSourceStatement(controlFile, objectInfo, _ACTION_INSERT)
@@ -1057,19 +1068,6 @@ def finalise():
     _writeSourceStatement(controlFile, synonymInfo, _ACTION_UPDATE)
     _writeSourceStatement(controlFile, attributionInfo, _ACTION_UPDATE)
     _writeSourceStatement(controlFile, logInfo, _ACTION_UPDATE)
-
-    # Reload derived tables
-    controlFile.write("select 'Replacing ANAD_PART_OF' as '';\n")
-    controlFile.write("delete from ANAD_PART_OF;\n")
-    _writeSourceStatement(controlFile, partOfInfo, _ACTION_INSERT)
-
-    controlFile.write("select 'Replacing ANAD_PART_OF_PERSPECTIVE' as '';\n")
-    controlFile.write("delete from ANAD_PART_OF_PERSPECTIVE;\n")
-    _writeSourceStatement(controlFile, partOfPerspectiveInfo, _ACTION_INSERT)
-
-    controlFile.write("select 'Replacing ANAD_RELATIONSHIP_TRANSITIVE' as '';\n")
-    controlFile.write("delete from ANAD_RELATIONSHIP_TRANSITIVE;\n")
-    _writeSourceStatement(controlFile, relTransInfo, _ACTION_INSERT)
 
     # Finally do deletes, not all will have deletes in their delete files.
     _writeSourceStatement(controlFile, logInfo, _ACTION_DELETE)

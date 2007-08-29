@@ -34,7 +34,7 @@ _dbName = None
 _dbUser = None
 _dbPass = None
 _versionComments = None
-_outputDir = None
+_outputFile = None
 _ciofFile = None
 _showSynonymOverlapWarnings = False
 _debugging = False
@@ -49,7 +49,7 @@ def __setConfiguration(configFilename):
     Read configuration from configuration file.
     """
     global _dbHost, _dbName, _dbUser, _dbPass
-    global _versionComments, _outputDir, _ciofFile
+    global _versionComments, _outputFile, _ciofFile
     global _debugging
 
     print "Using Configuration:"
@@ -74,8 +74,8 @@ def __setConfiguration(configFilename):
                 _versionComments = value
             elif name == "CIOFFILE":
                 _ciofFile = value
-            elif name == "OUTPUTDIR":
-                _outputDir = value
+            elif name == "OUTPUTFILE":
+                _outputFile = value
             elif name == "NAME_SYNONYM_OVERLAP_WARNINGS":
                 if value.lower() in ["on", "true", "1"]:
                     _showSynonymOverlapWarnings = True
@@ -118,7 +118,7 @@ ciofStream = CiofStream.CiofInputStream(_ciofFile)
 
 # Read knowledge in from database, and prepare for reading in CIOF
 AnatomyBase.initialiseKnowledge(ciofStream.getDateTime(),
-                                _versionComments, _outputDir,
+                                _versionComments, _outputFile,
                                 _dbHost, _dbName, _dbUser, _dbPass)
 
 # Read the rest of the CIOF File

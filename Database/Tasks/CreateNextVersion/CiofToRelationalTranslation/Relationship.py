@@ -1,5 +1,5 @@
 #!/usr/bin/env /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
 Internal python structures to represent anatomy relationships.
@@ -7,15 +7,11 @@ Anatomy relationships exist between 2 anatomy nodes or between 2
 anatomy timed nodes.
 """
 
-import sets
-
 import AnatomyObject
 import DbAccess
-import RelationshipSequenceStream
 import RelationshipType
 import TimedNode                        # timed anatomy
 import Util                             # Error handling
-import Version
 
 
 # ------------------------------------------------------------------
@@ -599,101 +595,6 @@ def readDb():
 
     return None
 
-
-
-def readSequenceFromFile(sequenceFile):
-    """
-    Read in the sequence the tree is supposed to be displayed in.
-
-    sequenceFile: Name of file containing sequence information.  See below
-        for how this is produced.
-
-    See the comments at the top of translateCiof.py for this is a giant
-    hack for a number of reasons.
-    """
-
-    # Open file and read in header.
-    sequenceStream = RelationshipSequenceStream.RelationshipSequenceStream(
-                                                                   sequenceFile)
-
-    # make sure file is for right version.
-    version = Version.getVersion()
-    if (sequenceStream.getVersionNumber() != version.getVersionNumber() or
-        sequenceStream.getDateTime()      != version.getDateTime()):
-        Util.warning([
-            "Version program is creating and version in relationship sequence " +
-            "file disagree.",
-            "File Version: " + str(sequenceStream.getVersionNumber()) + " " +
-            str(sequenceStream.getDateTime()),
-            "Prgm Version: " + str(version.getVersionNumber()) + " " +
-            str(version.getDateTime())])
-
-    # For each depth keep track of current component stack
-    partOf = RelationshipType.getByName(RelationshipType.PART_OF)
-    componentStack = []
-    previousDepth = -1
-    processedRelationships = sets.Set()
-    parentCounts = {}
-
-    componentLine = sequenceStream.getNextComponent()
-    while componentLine:
-        depth = componentLine.getDepth()
-
-        if depth == previousDepth:
-            # new component is a sibling of previous component
-            componentStack[depth] = componentLine
-        elif depth < previousDepth:
-            # new component is a great uncle of previous component
-            componentStack = componentStack[0:depth+1]
-            componentStack[depth] = componentLine
-        elif depth == previousDepth + 1:
-            # new component is a child of previous component
-            componentStack.append(componentLine)
-        else:
-            Util.fatalError([
-                "Depth increased by more than one.  Previous depth: " +
-                str(previousDepth) + "  Current depth: " + str(depth),
-                "Previous line: ", componentStack[previousDepth].getLine(),
-                "Current line:  ", componentLine.getLine()])
-
-        if depth > 0:
-            publicId = componentLine.getPublicId()
-            name = componentLine.getName()
-            parentPublicId = componentStack[depth-1].getPublicId()
-            parentName = componentStack[depth-1].getName()
-            rel = getByTypeChildAndParentPublicIds(
-                partOf, publicId, componentStack[depth-1].getPublicId())
-
-            if not rel:
-                Util.warning([
-                    "Cut and paste error.  " +
-                    "Component placed under a component which is not its parent.",
-                    "Parent " + parentPublicId + ", '" + parentName +"'",
-                    "Child  " + publicId + ", '" + name + "'",
-                    "Ignoring component."])
-            elif rel in processedRelationships:
-                if sequenceStream.inPrimarySection():
-                    Util.warning([
-                        "Parent child relationship between ",
-                        "Parent " + parentPublicId + ", '" + parentName +"'",
-                        "Child  " + publicId + ", '" + name + "'",
-                        "occurs more than once in non-group part of "
-                        "relationship sequence file.",
-                        "Ignoring later occurrence."])
-                    # Don't report dups from group section b/c relationships
-                    # can occur many times there and we don't want to force
-                    # editors to reorder all of them, just the first one.
-            else:
-                if parentPublicId not in parentCounts:
-                    parentCounts[parentPublicId] = -1
-                parentCounts[parentPublicId] += 1
-                rel.setSequence(parentCounts[parentPublicId])
-                processedRelationships.add(rel)
-
-        previousDepth = depth
-        componentLine = sequenceStream.getNextComponent()
-
-    return None
 
 
 

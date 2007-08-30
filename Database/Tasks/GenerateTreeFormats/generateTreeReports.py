@@ -2,13 +2,18 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
-Control program for generating tree view reports of the anatomy database.
+Control program for generating anatomy database reports that present
+the anatomy as a tree (even though it is a DAG).  Tree reports are
+well-suited for presenting the anatomy as a tree.  However, they are
+poor for reasoning about the ontologies.  DAG-based formats are better
+for reasoning about the ontology.
 
 Usage:
- /generateTreeReport.py _configFile_
+  ./generateTreeReports.py _configFile_
 
-  See the _config global variable below for the parameters that need
-  to be defined in the configuration file.
+  See the config global variable below for the parameters that need
+  to be defined in the configuration file.  See example.config for
+  an explanation of each parameter.
 """
 
 import sys
@@ -30,41 +35,56 @@ import ReportFile
 # GLOBALS
 # ------------------------------------------------------------------
 
-_config = {
-    "DB_HOST":          None,
-    "DB_USER":          None,
-    "DB_DATABASE":      None,
-    "DB_PASSWORD":      None,
-    "OUTPUT_DIRECTORY": None,
-    "OUTPUT_FORMAT":    None,
-    "PERSPECTIVE":      None,
-    "STAGE_REPORT_FILES": None,
-    "DEPTH_LIMIT":      None,
-    "DEBUGGING":        None
-    }
-
 
 # ------------------------------------------------------------------
 # LOCAL SUBROUTINES
 # ------------------------------------------------------------------
 
-def __initialise(configParams):
+
+
+
+
+def __initialise(configFile, configParams):
     """
     Initialise program.  This includes establishing the database
     connection, and setting debugging.
     """
+    Util.readConfiguration(configFile, config, printConfig = True)
+
     if configParams["DEBUGGING"] == "ON":
         Util.setDebugging(True)
     else:
         Util.setDebugging(False)
 
+    # Several of the parameters can be space separated lists.
+    # Convert these to python lists in configParams.
+    configParams["OUTPUT_FORMATS"] = configParams["OUTPUT_FORMATS"].split()
+    configParams["STAGE_FILES"]    = configParams["STAGE_FILES"] .split()
+
+    if configParams["ABSTRACT_REPORTS"] == "NONE":
+        configParams["ABSTRACT_REPORTS"] = []
+    else:
+        configParams["ABSTRACT_REPORTS"] = configParams["ABSTRACT_REPORTS"].split()
+
+    if configParams["STAGE_REPORTS"] == "NONE":
+        configParams["STAGE_REPORTS"] = []
+    else:
+        configParams["STAGE_REPORTS"] = configParams["STAGE_REPORTS"].split()
+
+    if configParams["DEPTH_LIMIT"] == "NONE":
+        configParams["DEPTH_LIMIT"] = sys.maxint
+    else:
+        configParams["DEPTH_LIMIT"] = int(configParams["DEPTH_LIMIT"])
+
     # Initialise Database and read the whole thing in.
+    Util.statusMessage(["Reading in anatomy database."])
     Anatomy.initialise(
         dbHost = configParams["DB_HOST"],
         dbName = configParams["DB_DATABASE"],
         dbUser = configParams["DB_USER"],
         dbPass = configParams["DB_PASSWORD"],
         charset = "latin1")
+
 
     return None
 
@@ -74,37 +94,45 @@ def __initialise(configParams):
 # MAIN
 # ------------------------------------------------------------------
 
-# Generate reports for each stage, and then for the abstract mouse as well.
-# Each report goes in a separate file.
+config = {
+    "DB_HOST":          None,
+    "DB_USER":          None,
+    "DB_DATABASE":      None,
+    "DB_PASSWORD":      None,
+    "PERSPECTIVE":      None,
+    "OUTPUT_DIRECTORY": None,
+    "OUTPUT_FORMATS":   None,
+    "ABSTRACT_REPORTS": None,
+    "STAGE_REPORTS":    None,
+    "STAGE_FILES":      None,
+    "DEPTH_LIMIT":      None,
+    "DEBUGGING":        None
+    }
 
-Util.readConfiguration(sys.argv[1], _config, printConfig = True)
 
-__initialise(_config)
+__initialise(sys.argv[1], config)
 
-perspectiveTree = ReportTree.ReportTree(_config["PERSPECTIVE"],
-                                        int(_config["DEPTH_LIMIT"]))
+Util.statusMessage(["Generating report tree data stucture."])
 
-ReportFile.writeAbstractReport(perspectiveTree,
-                               _config["OUTPUT_DIRECTORY"],
-                               _config["OUTPUT_FORMAT"])
-ReportFile.writeAbstractGroupsSplitReport(perspectiveTree,
-                                          _config["OUTPUT_DIRECTORY"],
-                                          _config["OUTPUT_FORMAT"])
+perspectiveTree = ReportTree.ReportTree(config["PERSPECTIVE"],
+                                        config["DEPTH_LIMIT"])
 
-if _config["STAGE_REPORT_FILES"] == "MANY":
-    manyStageFiles = True
-elif _config["STAGE_REPORT_FILES"] == "ONE":
-    manyStageFiles = False
-else:
-    Util.fatalError([
-        "Unexpected value '" + _config["STAGE_REPORT_FILES"] +
-        " for configuration parameter STAGE_REPORT_FILES"])
+for format in config["OUTPUT_FORMATS"]:
+    for abstractType in config["ABSTRACT_REPORTS"]:
+        Util.statusMessage([
+            "Generating " + format + " abstract " + abstractType + " report."])
+        ReportFile.writeAbstractReport(
+            perspectiveTree, config["OUTPUT_DIRECTORY"], format, abstractType)
 
-ReportFile.writeStageGroupsSplitReports(perspectiveTree,
-                                        _config["OUTPUT_DIRECTORY"],
-                                        _config["OUTPUT_FORMAT"],
-                                        manyStageFiles)
+    for stageType in config["STAGE_REPORTS"]:
+        for togetherness in config["STAGE_FILES"]:
+            Util.statusMessage([
+                "Generating " + format + " stage " + stageType +
+                " with stages in " + togetherness + " file(s) report."])
+            ReportFile.writeStageReport(
+                perspectiveTree, config["OUTPUT_DIRECTORY"], format, stageType,
+                togetherness)
 
-print "Done"
+Util.statusMessage(["Done"])
 
 sys.exit(0)

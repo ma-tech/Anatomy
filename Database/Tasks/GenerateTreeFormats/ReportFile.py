@@ -2,11 +2,10 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
-Report file module.  Used to produce reports in different formats.
+Tree Report File module.  Maps a Report Tree object to a specific
+format in a file.
 """
 
-
-import os.path
 import PyRTF.Elements                            # Rich Text Format files
 import unicodedata
 import xml.dom.Document
@@ -24,13 +23,45 @@ import ReportTree
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
 
-# Supported formats:
 
-PLAIN_TEXT = "txt"
-RICH_TEXT = "rtf"
-XML = "xml"
+# SUPPORTED FORMATS ------------------------
 
-SUPPORTED_FORMATS = [PLAIN_TEXT, RICH_TEXT, XML]
+PLAIN_TEXT = "PLAIN_TEXT"
+RICH_TEXT  = "RICH_TEXT"
+XML        = "XML"
+
+# Define a low-budget lookup to hold facts about each format
+
+FORMAT_EXTENSION = 0
+FORMAT_SUBDIRECTORY = 1
+
+FORMATS = {
+    PLAIN_TEXT: ["txt", "Text"],
+    RICH_TEXT:  ["rtf", "RTF"],
+    XML:        ["xml", "XML"]
+    }
+
+
+
+# REPORT TYPES ------------------------------
+
+GROUPS_EMBEDDED = "GROUPS_EMBEDDED"
+GROUPS_TRAILING = "GROUPS_TRAILING"
+
+# Define a low budget lookup to hold facts about each report type
+
+REPORT_TYPE_NAME = 0
+
+REPORT_TYPES = {
+    GROUPS_EMBEDDED: ["GroupsEmbedded"],
+    GROUPS_TRAILING: ["GroupsTrailing"]
+    }
+
+
+# STAGE FILES TOGETHERNESS ------------------
+
+CONCATENATED = "CONCATENATED"
+SEPARATE     = "SEPARATE"
 
 
 # RTF Unicode Indent symbols
@@ -1053,68 +1084,52 @@ def stringToRtf(textString):
 
 
 
-def _openReportFile(filePath, reportTree):
+def _openReportFile(filePath, reportTree, format):
     """
-    Given a file name and a report tree, open a file of the correct format named
-    filePath.fileFormat.  For example /tmp/abstract.txt.
+    Given a file name, a report tree, and a format, open a file of the
+    correct format.
     """
-    fileFormat = os.path.splitext(filePath)[1][1:]
-    if fileFormat not in SUPPORTED_FORMATS:
+    if format not in FORMATS:
         Util.fatalError([
-            "Given format '" + fileFormat + "' not in list of supported formats:",
-            ", ".join(SUPPORTED_FORMATS)])
-    elif fileFormat == PLAIN_TEXT:
+            "Given format '" + format + "' not in list of supported formats:",
+            ", ".join(FORMATS)])
+    elif format == PLAIN_TEXT:
         reportFile = TxtReportFile(filePath, reportTree)
-    elif fileFormat == RICH_TEXT:
+    elif format == RICH_TEXT:
         reportFile = RtfReportFile(filePath, reportTree)
-    elif fileFormat == XML:
+    elif format == XML:
         reportFile = XmlReportFile(filePath, reportTree)
     else:
         Util.fatalError([
-            "Given format '" + fileFormat + "' in list of supported formats, " +
+            "Given format '" + format + "' in list of supported formats, " +
             "but is not handled by the code.  Update code."])
 
     return reportFile
 
 
 
-# ------------------------------------------------------------------
-# CALLABLE SUBROUTINES
-# ------------------------------------------------------------------
-
-
-def writeAbstractReport(reportTree, outputDir, outputFormat):
+def _writeAbstractGroupsEmbeddedReport(reportTree, reportFile):
     """
-    Write an abstract report.  An abstract report shows the entire anatomy,
+    Write an abstract report with groups shown in same tree as
+    primary paths.  An abstract report shows the entire anatomy,
     including the stage window for each item.
     """
-    fileName = outputDir + "/abstract." + outputFormat
-    reportFile = _openReportFile(fileName, reportTree)
-    reportFile.addReportHeader()
     reportFile.addGroupKey()
 
     # report on every line in tree.
     indentLines = reportTree.genAbstractAllList()
     reportFile.addAbstractAnatomy(indentLines)
 
-    reportFile.closeReportFile()
-
     return
 
 
 
-def writeAbstractGroupsSplitReport(reportTree, outputDir, outputFormat):
+def _writeAbstractGroupsTrailingReport(reportTree, reportFile):
     """
-    Write an abstract report (see writeAbstractReport), first showing only
+    Write an abstract report first showing only
     primary paths, and then again showing only group paths plus minimal
     context.
     """
-
-    # Generate report
-    fileName = outputDir + "/abstractGroupsSplit." + outputFormat
-    reportFile = _openReportFile(fileName, reportTree)
-    reportFile.addReportHeader()
-
     # Generate tree without groups.
     reportFile.addExcludingGroupsHeader("Abstract")
     indentLines = reportTree.genAbstractExcludingGroupsList()
@@ -1127,98 +1142,127 @@ def writeAbstractGroupsSplitReport(reportTree, outputDir, outputFormat):
     indentLines = reportTree.genAbstractOnlyGroupsList()
     reportFile.addAbstractAnatomy(indentLines)
 
+    return
+
+
+
+def _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage):
+    """
+    Write a report for the given stage in the anatomy, showing groups and
+    primary paths in the same tree.
+    """
+    reportFile.addStageHeader(stage)
+    reportFile.addGroupKey()
+
+    indentLines = reportTree.genStageAllList(stage)
+    reportFile.addStageAnatomy(stage, indentLines)
+
+    return
+
+
+def _writeStageGroupsTrailingReport(reportTree, reportFile, stage):
+    """
+    Write a report for the given stage in the anatomy, splitting it into two
+    parts, one showing everything but groups, and the second showing only
+    groups plus minimal context.
+    """
+    reportFile.addStageHeader(stage)
+
+    # Generate tree without groups.
+    reportFile.addExcludingGroupsHeader(stage.getName())
+    indentLines = reportTree.genStageExcludingGroupsList(stage)
+    reportFile.addStageAnatomy(stage, indentLines)
+
+    # Generate tree showing only groups.
+    reportFile.addPageBreak()
+    reportFile.addOnlyGroupsHeader(stage.getName())
+    reportFile.addGroupKey()
+    indentLines = reportTree.genStageOnlyGroupsList(stage)
+    reportFile.addStageAnatomy(stage, indentLines)
+
+    return
+
+
+
+# ------------------------------------------------------------------
+# MODULE ROUTINES
+# ------------------------------------------------------------------
+
+
+def writeAbstractReport(reportTree, outputDir, format, reportType):
+    """
+    Write an abstract report.  An abstract report shows the entire anatomy,
+    including the stage window for each item.
+    """
+    filePath = (outputDir + "/" +
+                FORMATS[format][FORMAT_SUBDIRECTORY] + "/Abstract/Abstract" +
+                REPORT_TYPES[reportType][REPORT_TYPE_NAME] + "." +
+                FORMATS[format][FORMAT_EXTENSION])
+
+    reportFile = _openReportFile(filePath, reportTree, format)
+    reportFile.addReportHeader()
+
+    if reportType == GROUPS_EMBEDDED:
+        _writeAbstractGroupsEmbeddedReport(reportTree, reportFile)
+    elif reportType == GROUPS_TRAILING:
+        _writeAbstractGroupsTrailingReport(reportTree, reportFile)
+
     reportFile.closeReportFile()
 
     return
 
 
 
-def writeStageReports(reportTree, outputDir, outputFormat, manyStageFiles):
+def writeStageReport(reportTree, outputDir, format, reportType,
+                     togetherness):
     """
-    Write a report for each stage in the anatomy.
+    Write stage specific reports, one for each stage.
     """
+    if format == XML and togetherness == CONCATENATED:
+        # Reject outright any request for concatenated XML stage reports.
+        # There is not enough memory on my machine to produce these.
+        Util.warning([
+            "You have requested an XML report that would include a separate",
+            "tree for each stage, all in the same XML file.  This is a",
+            "reasonable request, but past experience indicates that there",
+            "is not enough memory on most workstations to build such a large",
+            "XML file.  Therefore, THE REQUESTED REPORT WILL NOT BE GENERATED."])
+        return None
 
+    reportDir = (outputDir + "/" +
+                 FORMATS[format][FORMAT_SUBDIRECTORY] + "/ByStage/" +
+                 REPORT_TYPES[reportType][REPORT_TYPE_NAME])
     reportFile = None
 
-    # Open Report if only using one file
-    if not manyStageFiles:
-        fileName = outputDir + "/stages." + outputFormat
-        reportFile = _openReportFile(fileName, reportTree)
+    if togetherness == CONCATENATED:
+        # Open one report file.
+        fileName = (reportDir + "/AllStages" +
+                    REPORT_TYPES[reportType][REPORT_TYPE_NAME] + "." +
+                    FORMATS[format][FORMAT_EXTENSION])
+        reportFile = _openReportFile(fileName, reportTree, format)
         reportFile.addReportHeader()
 
     for stage in Stages.SequenceIterator():
 
-        # open report file if using one file per stage
-        if manyStageFiles:
-            fileName = outputDir + "/" + stage.getName() + "." + outputFormat
-            reportFile = _openReportFile(fileName, reportTree)
+        if togetherness == SEPARATE:
+            # open report file for each stage
+            fileName = (reportDir + "/" + stage.getName() +
+                        REPORT_TYPES[reportType][REPORT_TYPE_NAME] +
+                        "." + FORMATS[format][FORMAT_EXTENSION])
+            reportFile = _openReportFile(fileName, reportTree, format)
+            reportFile.addReportHeader()
 
-        reportFile.addReportHeader()
-        reportFile.addStageHeader(stage)
-        reportFile.addGroupKey()
+        if reportType == GROUPS_EMBEDDED:
+            _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage)
+        elif reportType == GROUPS_TRAILING:
+            _writeStageGroupsTrailingReport(reportTree, reportFile, stage)
 
-        indentLines = reportTree.genStageAllList(stage)
-        reportFile.addStageAnatomy(indentLines)
-
-        if manyStageFiles:
+        if togetherness == SEPARATE:
             reportFile.closeReportFile()
         else:
             reportFile.addPageBreak()
 
-    if not manyStageFiles:
+    if togetherness == CONCATENATED:
         reportFile.closeReportFile()
 
     return
-
-
-
-def writeStageGroupsSplitReports(reportTree,
-                                 outputDir,
-                                 outputFormat,
-                                 manyStageFiles):
-    """
-    Write a report for each stage in the anatomy, splitting it into two
-    parts, one showing everything but groups, and the second showing only
-    groups plus minimal context.
-    """
-
-    reportFile = None
-    # Open Report if using one file
-    if not manyStageFiles:
-        fileName = outputDir + "/stagesGroupsSplit." + outputFormat
-        reportFile = _openReportFile(fileName, reportTree)
-        reportFile.addReportHeader()
-
-    for stage in Stages.SequenceIterator():
-
-        # open report file if using one file per stage
-        if manyStageFiles:
-            fileName = (
-                outputDir + "/" + stage.getName() + "GroupsSplit." + outputFormat)
-            reportFile = _openReportFile(fileName, reportTree)
-
-        reportFile.addReportHeader()
-        reportFile.addStageHeader(stage)
-
-        # Generate tree without groups.
-        reportFile.addExcludingGroupsHeader(stage.getName())
-        indentLines = reportTree.genStageExcludingGroupsList(stage)
-        reportFile.addStageAnatomy(stage, indentLines)
-
-        # Generate tree showing only groups.
-        reportFile.addPageBreak()
-        reportFile.addOnlyGroupsHeader(stage.getName())
-        reportFile.addGroupKey()
-        indentLines = reportTree.genStageOnlyGroupsList(stage)
-        reportFile.addStageAnatomy(stage, indentLines)
-
-        if manyStageFiles:
-            reportFile.closeReportFile()
-        else:
-            reportFile.addPageBreak()
-
-    if not manyStageFiles:
-        reportFile.closeReportFile()
-
-    return
-

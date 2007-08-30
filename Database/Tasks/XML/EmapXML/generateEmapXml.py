@@ -8,9 +8,8 @@ This generates the the database in minimal format, as a directed
 acyclic graph (DAG).  This is a minimal non-redundant format that
 is good for reasoning about the database.  However, it takes some
 work to convert the DAG to a tree for display purposes.  If all you
-want to do is display the anatomy as a tree then there is another
-program in ../../../Reports/Trees/Scripts that generates an XML
-Tree format.
+want to do is display the anatomy as a tree then use one of the many
+tree based formats.
 
 This generates two types of files:
   - An abstract mouse.  This contains all information about the mouse
@@ -19,7 +18,7 @@ This generates two types of files:
     anatomy.
 
 Usage:
-  generateAnatomyXml.py _configFile_
+  ./generateEmapXml.py _configFile_
 """
 
 
@@ -66,17 +65,16 @@ _config = {
 
 # Read in the anatomy and then spew it in XML.
 
-Util.readConfiguration(sys.argv[1], _config)
+Util.readConfiguration(sys.argv[1], _config, printConfig = True)
 
-graphFile = _config["OUTPUT_DIRECTORY"] + "/" + "anatomyGraph.xml"
+graphFile = _config["OUTPUT_DIRECTORY"] + "/" + "emap.xml"
 
 Anatomy.initialise(dbHost = _config["DB_HOST"],
                    dbName = _config["DB_DATABASE"],
                    dbUser = _config["DB_USER"],
-                   dbPass = _config["DB_PASSWORD"],
-                   outputDir = _config["OUTPUT_DIRECTORY"])
+                   dbPass = _config["DB_PASSWORD"])
 
-print "Anatomy initialised."
+Util.statusMessage(["Anatomy initialised."])
 
 # Create the graph file
 graph = AnatomyGraph.AnatomyGraph()
@@ -88,14 +86,16 @@ xmlGraph.addStages()
 xmlGraph.addGraph()
 xmlGraph.close()
 
-print "Graph file", graphFile, "created."
+Util.statusMessage(["Graph file " + graphFile + " created."])
 
 # Create the perspectives file.
 
-perspectivesFile = _config["OUTPUT_DIRECTORY"] + "/" + "anatomyPerspectives.xml"
+perspectivesFile = _config["OUTPUT_DIRECTORY"] + "/" + "emapPerspectives.xml"
 xmlPerspectives = XmlPerspectivesFile.XmlPerspectivesFile(perspectivesFile)
 xmlPerspectives.addHeader()
 xmlPerspectives.addPerspectives()
 xmlPerspectives.close()
 
-print "Perspectives file", perspectivesFile, "created. Done"
+Util.statusMessage(["Perspectives file " + perspectivesFile + " created"])
+Util.statusMessage(["Done"])
+

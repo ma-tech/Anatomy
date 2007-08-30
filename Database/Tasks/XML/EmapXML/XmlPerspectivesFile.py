@@ -77,8 +77,8 @@ class XmlPerspectivesFile:
                                                     "perspective")
             perspectiveElement.setAttribute("name", perspective.getName())
             ambit = perspective.getAmbit()
-            for ambitRec in ambit:
-                node = Nodes.getByOid(ambitRec.getNodeOid())
+            for nodeOid, ambitRec in ambit.iteritems():
+                node = Nodes.getByOid(nodeOid)
                 ambitNodeElement = Util.addXmlElement(perspectiveElement,
                                                       "ambitComponent")
                 Util.addXmlElement(ambitNodeElement, "componentId",

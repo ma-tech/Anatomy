@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mouseAnatomyReport>
+  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <perspective>Whole mouse</perspective>
+  <stage>TS03</stage>
+  <groupStatusKey>
+    <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
+    <groupStatus status="isGroup">Term a group.</groupStatus>
+    <groupStatus status="isGroupDirectDescendant">Term is directly contained in a group.</groupStatus>
+    <groupStatus status="isGroupIndirectDescendant">Term is indirectly contained in a group.</groupStatus>
+  </groupStatusKey>
+  <timedComponent emapId="EMAP:25768">
+    <name>mouse</name>
+    <emapaId>EMAPA:25765</emapaId>
+    <groupPathStatus>notInGroupPath</groupPathStatus>
+    <timedComponent emapId="EMAP:8">
+      <name>4-8 cell stage</name>
+      <emapaId>EMAPA:16037</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+    <timedComponent emapId="EMAP:9">
+      <name>compacted morula</name>
+      <emapaId>EMAPA:16040</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+    <timedComponent emapId="EMAP:10">
+      <name>second polar body</name>
+      <emapaId>EMAPA:16034</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+    <timedComponent emapId="EMAP:11">
+      <name>zona pellucida</name>
+      <emapaId>EMAPA:16035</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+  </timedComponent>
+</mouseAnatomyReport>

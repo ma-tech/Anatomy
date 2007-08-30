@@ -2,8 +2,9 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
-Defines Anatomy Graph XML files.  This borrows heavily from the
-XmlReportFile class in the the tree reporting code.
+Defines EMAP Anatomy XML files.  This presents the EMAP anatomy as a
+DAG, which makes it easier to reason with than a tree presentation would be,
+but makes it harder to present.
 """
 
 import xml.dom.Document
@@ -40,7 +41,7 @@ class XmlGraphFile:
         self.__graph = graph
         self.__filePath = filePath
         self.__document = xml.dom.Document.Document(None)
-        self.__anatomy = Util.addXmlElement(self.__document, "mouseAnatomy")
+        self.__anatomy = Util.addXmlElement(self.__document, "emapAnatomy")
 
         return None
 

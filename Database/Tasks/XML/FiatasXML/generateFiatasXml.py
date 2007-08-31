@@ -23,7 +23,7 @@ Some high level details on Fiatas format is:
 
 import sets
 import sys
-import xml.dom.Document                 # Main XML 
+import xml.dom.Document                 # Main XML
 
 from hgu import Util                    # error/warnings, common routines.
 
@@ -32,7 +32,6 @@ from hgu.db import DbAccess             # Database access
 from hgu.anatomyDb.version004 import AnaNodeDb
 from hgu.anatomyDb.version004 import AnaNodeInPerspectiveDb
 from hgu.anatomyDb.version004 import AnadPartOfDb
-from hgu.anatomyDb.version004 import AnaRelationshipDb
 from hgu.anatomyDb.version004 import AnaStageDb
 from hgu.anatomyDb.version004 import AnaSynonymDb
 from hgu.anatomyDb.version004 import AnaTimedNodeDb
@@ -46,12 +45,12 @@ from hgu.anatomyDb.version004 import AnaVersionDb
 # Items to exclude from the filter.
 
 _FILTER_EXCLUDES = sets.Set([
-    'EMAPA:28506', # developing capillary loop stage 
+    'EMAPA:28506', # developing capillary loop stage
     'EMAPA:28485', # maturing nephron
     'EMAPA:28500', # early tubule
     'EMAPA:28477', # primitive collecting duct group
     'EMAPA:28445', # stage IV immature nephron
-    'EMAPA:17954'  # early nephron 
+    'EMAPA:17954'  # early nephron
     ])
 
 
@@ -66,7 +65,7 @@ _config = {
     "DB_HOST":     None,
     "DB_USER":     None,
     "DB_DATABASE": None,
-    "DB_PASSWORD": None, 
+    "DB_PASSWORD": None,
     "DEBUGGING":   None,
     "GROUPS":      None,
     "OUTPUT_DIRECTORY": None
@@ -156,7 +155,7 @@ def _addFullViewToViewXml(headerElement, stageDbRec, groupProcessing):
     rootNodeDbRec = AnaNodeDb.getRoot()
     tnChildren = AnaTimedNodeDb.getPartOfChildrenOfNodeAtStage(
         rootNodeDbRec.getOid(), stageOid)
-        
+
     for childDbRec in tnChildren:
         node = AnaNodeDb.getByOid(childDbRec.getNodeOid())
         if (node.isPrimary() or
@@ -177,7 +176,7 @@ def _addViewToViewXml(headerElement, stageDbRec, viewName, groupProcessing):
     # Add the View
     view = Util.addXmlElement(headerElement, "anatomy_view")
     Util.addXmlElement(view, "name", viewName)
-    componentList = Util.addXmlElement(view, "component_list")    
+    componentList = Util.addXmlElement(view, "component_list")
 
     # Add the timed nodes that are in the perspective definition.
     stageOid = stageDbRec.getOid()
@@ -192,13 +191,13 @@ def _addViewToViewXml(headerElement, stageDbRec, viewName, groupProcessing):
                 viewChild = Util.addXmlElement(componentList, "component")
                 Util.addXmlElement(viewChild, "emapId", timedNode.getPublicId())
                 Util.addXmlElement(viewChild, "level", "-1")
- 
+
     return componentList
 
 
 
 
-def _createMainComponent(pod, parentPod, stage, parentElement):
+def _createMainComponent(pod, stage, parentElement):
     """
     Create a component element in the Main XML document as a child of the given
     parent element.
@@ -251,7 +250,6 @@ def _createViewComponent(pod, stage, parentElement):
     parent element.
     """
     nodeOid = pod.getNodeOid()
-    node = AnaNodeDb.getByOid(nodeOid)
     timedNode = AnaTimedNodeDb.getByNodeStage(nodeOid, stage.getOid())
 
     component = Util.addXmlElement(parentElement, "component")
@@ -305,7 +303,7 @@ def _generateMainXmlFile(stage, outputDir, groupProcessing):
     for pod in podIter:
 
         if _thisPodsGroupStatusIsIncluded(pod, groupProcessing):
-            # Update the Part Of Derived stack based on depth. 
+            # Update the Part Of Derived stack based on depth.
             # if depth is shallower, then pop ancestor elements up to depth of
             # (possibly great) aunt/uncle element.
             podDepth = pod.getDepth()
@@ -313,10 +311,9 @@ def _generateMainXmlFile(stage, outputDir, groupProcessing):
                 podStack.pop()
                 xmlStack.pop()
 
-            parentPod = podStack[-1]
             podStack.append(pod)
             xmlStack.append(
-                _createMainComponent(pod, parentPod, stage, xmlStack[-1]))
+                _createMainComponent(pod, stage, xmlStack[-1]))
 
     mainXmlFileName = (outputDir + "/" + stage.getName() + ".xml")
     Util.writeXmlFile(mainXmlFileName, mainXmlDoc)
@@ -340,7 +337,7 @@ def _generateViewXmlFile(stage, outputDir, groupProcessing):
     _addFullViewToViewXml(viewHeader, stage, groupProcessing)
 
     viewXmlFileName = (outputDir + "/" + stageName + "_View.xml")
-    Util.writeXmlFile(viewXmlFileName, viewXmlDoc)        
+    Util.writeXmlFile(viewXmlFileName, viewXmlDoc)
     del viewXmlDoc
 
     return viewXmlFileName
@@ -363,7 +360,7 @@ def _generateViewXmlFile(stage, outputDir, groupProcessing):
         _createFilterComponent(pod, stage, filterHeader)
 
     filterXmlFileName = _config["OUTPUT_DIRECTORY"] + "/" + stageName + ".filter.xml"
-    Util.writeXmlFile(filterXmlFileName, filterXmlDoc)        
+    Util.writeXmlFile(filterXmlFileName, filterXmlDoc)
     del filterXmlDoc
 
     return filterXmlFileName
@@ -389,7 +386,7 @@ def __generateAndWriteXmlStageTrees(outputDir, groupProcessing):
 
     for stage in _stageBySequence:
 
-        print "**************** STAGE", stage.getName(), "*************"
+        Util.statusMessage(["Generating stage " + stage.getName()])
 
         _generateMainXmlFile(stage, outputDir, groupProcessing)
         _generateViewXmlFile(stage, outputDir, groupProcessing)
@@ -413,7 +410,8 @@ def __initialise(configParams):
         dbHost = configParams["DB_HOST"],
         dbName = configParams["DB_DATABASE"],
         dbUser = configParams["DB_USER"],
-        dbPass = configParams["DB_PASSWORD"])
+        dbPass = configParams["DB_PASSWORD"],
+        charset= "latin1")
 
 
 
@@ -456,7 +454,7 @@ Util.readConfiguration(sys.argv[1], _config)
 __initialise(_config)
 
 __generateAndWriteXmlStageTrees(_config["OUTPUT_DIRECTORY"],
-                                _config["GROUPS"]) 
+                                _config["GROUPS"])
 
 sys.exit(0)
 

@@ -1,0 +1,2650 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <component name="mouse" id="30155">
+    <stage name="TS27"/>
+    <component isPrimary="true" name="organ system" id="30154">
+      <printName>organ system</printName>
+      <abbreviation/>
+      <startEmbryoStage>11</startEmbryoStage>
+      <stopEmbryoStage>28</stopEmbryoStage>
+      <parentId>30155</parentId>
+      <component isPrimary="true" name="visceral organ" id="30153">
+        <printName>organ system.visceral organ</printName>
+        <abbreviation/>
+        <startEmbryoStage>12</startEmbryoStage>
+        <stopEmbryoStage>28</stopEmbryoStage>
+        <parentId>30154</parentId>
+        <component isPrimary="true" name="urinary system" id="30243">
+          <printName>organ system.visceral organ.urinary system</printName>
+          <abbreviation/>
+          <startEmbryoStage>19</startEmbryoStage>
+          <stopEmbryoStage>28</stopEmbryoStage>
+          <parentId>30153</parentId>
+          <component isPrimary="true" name="mesentery" id="30400">
+            <printName>organ system.visceral organ.urinary system.mesentery</printName>
+            <abbreviation/>
+            <startEmbryoStage>20</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="rest of mesentery" id="30401">
+              <printName>organ system.visceral organ.urinary system.mesentery.rest of mesentery</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30400</parentId>
+            </component>
+            <childrenId>30401</childrenId>
+            <component isPrimary="true" name="urogenital mesentery" id="30402">
+              <printName>organ system.visceral organ.urinary system.mesentery.urogenital mesentery</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30400</parentId>
+            </component>
+            <childrenId>30402</childrenId>
+          </component>
+          <childrenId>30400</childrenId>
+          <component isPrimary="true" name="metanephros" id="30247">
+            <printName>organ system.visceral organ.urinary system.metanephros</printName>
+            <abbreviation/>
+            <synonym>kidney</synonym>
+            <startEmbryoStage>19</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="renal capsule" id="30249">
+              <printName>organ system.visceral organ.urinary system.metanephros.renal capsule</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+            </component>
+            <childrenId>30249</childrenId>
+            <component isPrimary="true" name="nephrogenic zone" id="30282">
+              <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+              <component isPrimary="true" name="nephrogenic interstitium" id="30283">
+                <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone.nephrogenic interstitium</printName>
+                <abbreviation/>
+                <synonym>peripheral blastema</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30282</parentId>
+              </component>
+              <childrenId>30283</childrenId>
+              <component isPrimary="true" name="cap mesenchyme" id="30284">
+                <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone.cap mesenchyme</printName>
+                <abbreviation/>
+                <synonym>condensed mesenchyme</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30282</parentId>
+              </component>
+              <childrenId>30284</childrenId>
+              <component isPrimary="true" name="pretubular aggregate" id="30285">
+                <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone.pretubular aggregate</printName>
+                <abbreviation/>
+                <synonym>pretubular condensate</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30282</parentId>
+              </component>
+              <childrenId>30285</childrenId>
+              <component isPrimary="true" name="ureteric tip" id="30248">
+                <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone.ureteric tip</printName>
+                <abbreviation/>
+                <synonym>ureteric ampulla</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30282</parentId>
+              </component>
+              <childrenId>30248</childrenId>
+              <component isPrimary="true" name="ureteric tree terminal branch excluding tip itself" id="31052">
+                <printName>organ system.visceral organ.urinary system.metanephros.nephrogenic zone.ureteric tree terminal branch excluding tip itself</printName>
+                <abbreviation/>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30282</parentId>
+              </component>
+              <childrenId>31052</childrenId>
+            </component>
+            <childrenId>30282</childrenId>
+            <component isPrimary="true" name="renal cortex" id="30287">
+              <printName>organ system.visceral organ.urinary system.metanephros.renal cortex</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+              <component isPrimary="true" name="renal vesicle" id="30316">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal vesicle</printName>
+                <abbreviation/>
+                <synonym>epithelial vesicle</synonym>
+                <synonym>stage I nephron</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30287</parentId>
+              </component>
+              <childrenId>30316</childrenId>
+              <component isPrimary="true" name="comma-shaped body" id="30303">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.comma-shaped body</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="upper limb of comma-shaped body" id="30304">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.comma-shaped body.upper limb of comma-shaped body</printName>
+                  <abbreviation/>
+                  <synonym>distal limb of comma-shaped body</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30303</parentId>
+                </component>
+                <childrenId>30304</childrenId>
+                <component isPrimary="true" name="lower limb of comma-shaped body" id="30305">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.comma-shaped body.lower limb of comma-shaped body</printName>
+                  <abbreviation/>
+                  <synonym>proximal limb of comma-shaped body</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30303</parentId>
+                </component>
+                <childrenId>30305</childrenId>
+              </component>
+              <childrenId>30303</childrenId>
+              <component isPrimary="true" name="s-shaped body" id="30319">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body</printName>
+                <abbreviation/>
+                <synonym>stage II nephron</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="renal connecting tubule" id="30324">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.renal connecting tubule</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30319</parentId>
+                </component>
+                <childrenId>30324</childrenId>
+                <component isPrimary="true" name="distal segment of s-shaped body" id="30320">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.distal segment of s-shaped body</printName>
+                  <abbreviation/>
+                  <synonym>upper limb of s-shaped body</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30319</parentId>
+                </component>
+                <childrenId>30320</childrenId>
+                <component isPrimary="true" name="medial segment of s-shaped body" id="30325">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.medial segment of s-shaped body</printName>
+                  <abbreviation/>
+                  <synonym>mid-portion of s-shaped body</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30319</parentId>
+                </component>
+                <childrenId>30325</childrenId>
+                <component isPrimary="true" name="proximal segment of s-shaped body" id="30321">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.proximal segment of s-shaped body</printName>
+                  <abbreviation/>
+                  <synonym>lower limb of s-shaped body</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30319</parentId>
+                  <component isPrimary="true" name="visceral epithelium" id="30322">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.proximal segment of s-shaped body.visceral epithelium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30321</parentId>
+                  </component>
+                  <childrenId>30322</childrenId>
+                  <component isPrimary="true" name="parietal epithelium" id="30323">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.s-shaped body.proximal segment of s-shaped body.parietal epithelium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30321</parentId>
+                  </component>
+                  <childrenId>30323</childrenId>
+                </component>
+                <childrenId>30321</childrenId>
+              </component>
+              <childrenId>30319</childrenId>
+              <component isPrimary="true" name="capillary loop renal corpuscle" id="30307">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle</printName>
+                <abbreviation/>
+                <synonym>renal corpuscle of the stage III nephron</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="associated interstitium of renal corpuscle" id="30311">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle.associated interstitium of renal corpuscle</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30307</parentId>
+                </component>
+                <childrenId>30311</childrenId>
+                <component isPrimary="true" name="parietal epithelium" id="30312">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle.parietal epithelium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30307</parentId>
+                </component>
+                <childrenId>30312</childrenId>
+                <component isPrimary="true" name="presumptive endothelium of renal corpuscle" id="30310">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle.presumptive endothelium of renal corpuscle</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30307</parentId>
+                </component>
+                <childrenId>30310</childrenId>
+                <component isPrimary="true" name="presumptive mesangium" id="30309">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle.presumptive mesangium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30307</parentId>
+                </component>
+                <childrenId>30309</childrenId>
+                <component isPrimary="true" name="visceral epithelium" id="30308">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.capillary loop renal corpuscle.visceral epithelium</printName>
+                  <abbreviation/>
+                  <synonym>podocyte layer</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30307</parentId>
+                </component>
+                <childrenId>30308</childrenId>
+              </component>
+              <childrenId>30307</childrenId>
+              <component isPrimary="true" name="maturing renal corpuscle" id="30264">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle</printName>
+                <abbreviation/>
+                <synonym>renal corpuscle of Stage IV nephron</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="maturing glomerular tuft" id="30268">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.maturing glomerular tuft</printName>
+                  <abbreviation/>
+                  <synonym>maturing glomerulus</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30264</parentId>
+                  <component isPrimary="true" name="glomerular capillary system of maturing glomerular tuft" id="30271">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.maturing glomerular tuft.glomerular capillary system of maturing glomerular tuft</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30268</parentId>
+                  </component>
+                  <childrenId>30271</childrenId>
+                  <component isPrimary="true" name="glomerular mesangium" id="30270">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.maturing glomerular tuft.glomerular mesangium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30268</parentId>
+                  </component>
+                  <childrenId>30270</childrenId>
+                  <component isPrimary="true" name="visceral epithelium" id="30269">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.maturing glomerular tuft.visceral epithelium</printName>
+                    <abbreviation/>
+                    <synonym>podocyte layer</synonym>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30268</parentId>
+                  </component>
+                  <childrenId>30269</childrenId>
+                  <component isPrimary="true" name="glomerular basement membrane" id="30971">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.maturing glomerular tuft.glomerular basement membrane</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30268</parentId>
+                  </component>
+                  <childrenId>30971</childrenId>
+                </component>
+                <childrenId>30268</childrenId>
+                <component isPrimary="true" name="Bowman's capsule" id="30272">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.Bowman's capsule</printName>
+                  <abbreviation/>
+                  <synonym>glomerular capsule</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30264</parentId>
+                  <component isPrimary="true" name="parietal epithelium" id="30274">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.Bowman's capsule.parietal epithelium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30272</parentId>
+                  </component>
+                  <childrenId>30274</childrenId>
+                  <component isPrimary="true" name="urinary space of renal corpuscle" id="30273">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.Bowman's capsule.urinary space of renal corpuscle</printName>
+                    <abbreviation/>
+                    <synonym>Bowman's space</synonym>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30272</parentId>
+                  </component>
+                  <childrenId>30273</childrenId>
+                  <component isPrimary="true" name="glomerular mesangium of Bowman's capsule" id="30275">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.Bowman's capsule.glomerular mesangium of Bowman's capsule</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>22</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30272</parentId>
+                  </component>
+                  <childrenId>30275</childrenId>
+                </component>
+                <childrenId>30272</childrenId>
+                <component isPrimary="true" name="juxtaglomerular arteriole" id="30265">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.juxtaglomerular arteriole</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30264</parentId>
+                  <component isPrimary="true" name="afferent arteriole" id="30266">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.juxtaglomerular arteriole.afferent arteriole</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30265</parentId>
+                  </component>
+                  <childrenId>30266</childrenId>
+                  <component isPrimary="true" name="efferent arteriole" id="30267">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.maturing renal corpuscle.juxtaglomerular arteriole.efferent arteriole</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30265</parentId>
+                  </component>
+                  <childrenId>30267</childrenId>
+                </component>
+                <childrenId>30265</childrenId>
+              </component>
+              <childrenId>30264</childrenId>
+              <component isPrimary="true" name="mature renal corpuscle" id="30289">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle</printName>
+                <abbreviation/>
+                <synonym>Malpighian corpuscle</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="glomerular tuft" id="30291">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.glomerular tuft</printName>
+                  <abbreviation/>
+                  <synonym>glomerulus</synonym>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30289</parentId>
+                  <component isPrimary="true" name="glomerular capillary system" id="30294">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.glomerular tuft.glomerular capillary system</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30291</parentId>
+                  </component>
+                  <childrenId>30294</childrenId>
+                  <component isPrimary="true" name="glomerular mesangium" id="30295">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.glomerular tuft.glomerular mesangium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30291</parentId>
+                  </component>
+                  <childrenId>30295</childrenId>
+                  <component isPrimary="true" name="glomerular basement membrane" id="30293">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.glomerular tuft.glomerular basement membrane</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30291</parentId>
+                  </component>
+                  <childrenId>30293</childrenId>
+                  <component isPrimary="true" name="visceral epithelium" id="30292">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.glomerular tuft.visceral epithelium</printName>
+                    <abbreviation/>
+                    <synonym>podocyte layer</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30291</parentId>
+                  </component>
+                  <childrenId>30292</childrenId>
+                </component>
+                <childrenId>30291</childrenId>
+                <component isPrimary="true" name="Bowman's capsule" id="30300">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.Bowman's capsule</printName>
+                  <abbreviation/>
+                  <synonym>glomerular capsule</synonym>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30289</parentId>
+                  <component isPrimary="true" name="parietal epithelium" id="30301">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.Bowman's capsule.parietal epithelium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30300</parentId>
+                  </component>
+                  <childrenId>30301</childrenId>
+                  <component isPrimary="true" name="urinary space of renal corpuscle" id="30302">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.Bowman's capsule.urinary space of renal corpuscle</printName>
+                    <abbreviation/>
+                    <synonym>Bowman's space</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30300</parentId>
+                  </component>
+                  <childrenId>30302</childrenId>
+                </component>
+                <childrenId>30300</childrenId>
+                <component isPrimary="true" name="afferent arteriole" id="30296">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.afferent arteriole</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30289</parentId>
+                  <component isPrimary="true" name="part of afferent arteriole forming the juxtaglomerular complex" id="30297">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.afferent arteriole.part of afferent arteriole forming the juxtaglomerular complex</printName>
+                    <abbreviation/>
+                    <synonym>renin-producing cell</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30296</parentId>
+                  </component>
+                  <childrenId>30297</childrenId>
+                  <component isPrimary="true" name="rest of afferent arteriole" id="30298">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.afferent arteriole.rest of afferent arteriole</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30296</parentId>
+                  </component>
+                  <childrenId>30298</childrenId>
+                </component>
+                <childrenId>30296</childrenId>
+                <component isPrimary="true" name="efferent arteriole" id="30290">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.efferent arteriole</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30289</parentId>
+                </component>
+                <childrenId>30290</childrenId>
+                <component isPrimary="true" name="extraglomerular mesangium" id="30299">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.mature renal corpuscle.extraglomerular mesangium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30289</parentId>
+                </component>
+                <childrenId>30299</childrenId>
+              </component>
+              <childrenId>30289</childrenId>
+              <component isPrimary="true" name="cortical renal tubule" id="30253">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="renal proximal tubule" id="30254">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal proximal tubule</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30253</parentId>
+                  <component isPrimary="true" name="early proximal tubule" id="30255">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal proximal tubule.early proximal tubule</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30254</parentId>
+                  </component>
+                  <childrenId>30255</childrenId>
+                  <component isPrimary="true" name="renal proximal convoluted tubule" id="30256">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal proximal tubule.renal proximal convoluted tubule</printName>
+                    <abbreviation/>
+                    <synonym>first convoluted tubule</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30254</parentId>
+                  </component>
+                  <childrenId>30256</childrenId>
+                </component>
+                <childrenId>30254</childrenId>
+                <component isPrimary="true" name="anlage of loop of Henle" id="31287">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.anlage of loop of Henle</printName>
+                  <abbreviation/>
+                  <synonym>primitive loop of Henle</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30253</parentId>
+                </component>
+                <childrenId>31287</childrenId>
+                <component isPrimary="true" name="renal distal tubule" id="30257">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30253</parentId>
+                  <component isPrimary="true" name="early distal tubule" id="30261">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.early distal tubule</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30257</parentId>
+                  </component>
+                  <childrenId>30261</childrenId>
+                  <component isPrimary="true" name="distal convoluted tubule" id="30262">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.distal convoluted tubule</printName>
+                    <abbreviation/>
+                    <synonym>second convoluted tubule</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30257</parentId>
+                  </component>
+                  <childrenId>30262</childrenId>
+                  <component isPrimary="true" name="distal straight tubule" id="30258">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.distal straight tubule</printName>
+                    <abbreviation/>
+                    <synonym>thick ascending limb</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30257</parentId>
+                    <component isPrimary="true" name="premacula segment of distal straight tubule" id="31382">
+                      <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.distal straight tubule.premacula segment of distal straight tubule</printName>
+                      <abbreviation/>
+                      <startEmbryoStage>25</startEmbryoStage>
+                      <stopEmbryoStage>28</stopEmbryoStage>
+                      <parentId>30258</parentId>
+                    </component>
+                    <childrenId>31382</childrenId>
+                    <component isPrimary="true" name="macula densa" id="30260">
+                      <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.distal straight tubule.macula densa</printName>
+                      <abbreviation/>
+                      <startEmbryoStage>25</startEmbryoStage>
+                      <stopEmbryoStage>28</stopEmbryoStage>
+                      <parentId>30258</parentId>
+                    </component>
+                    <childrenId>30260</childrenId>
+                    <component isPrimary="true" name="postmacula segment" id="30259">
+                      <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal distal tubule.distal straight tubule.postmacula segment</printName>
+                      <abbreviation/>
+                      <startEmbryoStage>25</startEmbryoStage>
+                      <stopEmbryoStage>28</stopEmbryoStage>
+                      <parentId>30258</parentId>
+                    </component>
+                    <childrenId>30259</childrenId>
+                  </component>
+                  <childrenId>30258</childrenId>
+                </component>
+                <childrenId>30257</childrenId>
+                <component isPrimary="true" name="renal connecting tubule" id="30263">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical renal tubule.renal connecting tubule</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30253</parentId>
+                </component>
+                <childrenId>30263</childrenId>
+              </component>
+              <childrenId>30253</childrenId>
+              <component isPrimary="true" name="cortical collecting duct" id="30281">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.cortical collecting duct</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+              </component>
+              <childrenId>30281</childrenId>
+              <component isPrimary="true" name="renal cortical interstitium" id="30315">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical interstitium</printName>
+                <abbreviation/>
+                <synonym>cortical stroma</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="renal cortical fibroblasts" id="31294">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical interstitium.renal cortical fibroblasts</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30315</parentId>
+                </component>
+                <childrenId>31294</childrenId>
+                <component isPrimary="true" name="resident macrophages of the cortex" id="31302">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical interstitium.resident macrophages of the cortex</printName>
+                  <abbreviation/>
+                  <synonym>renal monocytes of the cortex</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30315</parentId>
+                </component>
+                <childrenId>31302</childrenId>
+                <component isPrimary="true" name="rest of renal cortical interstitium" id="31310">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical interstitium.rest of renal cortical interstitium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30315</parentId>
+                </component>
+                <childrenId>31310</childrenId>
+              </component>
+              <childrenId>30315</childrenId>
+              <component isPrimary="true" name="renal cortical vasculature" id="30326">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+                <component isPrimary="true" name="renal cortical arterial system" id="30328">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical arterial system</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30326</parentId>
+                  <component isPrimary="true" name="interlobular artery" id="30330">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical arterial system.interlobular artery</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30328</parentId>
+                  </component>
+                  <childrenId>30330</childrenId>
+                  <component isPrimary="true" name="arcuate artery" id="30329">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical arterial system.arcuate artery</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30328</parentId>
+                  </component>
+                  <childrenId>30329</childrenId>
+                </component>
+                <childrenId>30328</childrenId>
+                <component isPrimary="true" name="renal cortical venous system" id="30331">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical venous system</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30326</parentId>
+                  <component isPrimary="true" name="interlobular vein" id="30333">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical venous system.interlobular vein</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30331</parentId>
+                  </component>
+                  <childrenId>30333</childrenId>
+                  <component isPrimary="true" name="arcuate vein" id="30332">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical venous system.arcuate vein</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30331</parentId>
+                  </component>
+                  <childrenId>30332</childrenId>
+                </component>
+                <childrenId>30331</childrenId>
+                <component isPrimary="true" name="renal cortical capillary" id="30327">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical vasculature.renal cortical capillary</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30326</parentId>
+                </component>
+                <childrenId>30327</childrenId>
+              </component>
+              <childrenId>30326</childrenId>
+              <component isPrimary="true" name="renal cortical lymphatics" id="31317">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical lymphatics</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+              </component>
+              <childrenId>31317</childrenId>
+              <component isPrimary="true" name="renal cortical nerves" id="31324">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal cortex.renal cortical nerves</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30287</parentId>
+              </component>
+              <childrenId>31324</childrenId>
+            </component>
+            <childrenId>30287</childrenId>
+            <component isPrimary="true" name="renal medulla" id="30334">
+              <printName>organ system.visceral organ.urinary system.metanephros.renal medulla</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+              <component isPrimary="true" name="renal medullary interstitium" id="31459">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary interstitium</printName>
+                <abbreviation/>
+                <synonym>medullary stroma</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+                <component isPrimary="true" name="renal medullary fibroblasts" id="31331">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary interstitium.renal medullary fibroblasts</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>31459</parentId>
+                </component>
+                <childrenId>31331</childrenId>
+                <component isPrimary="true" name="resident macrophages of the medulla" id="31338">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary interstitium.resident macrophages of the medulla</printName>
+                  <abbreviation/>
+                  <synonym>renal monocytes of the medulla</synonym>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>31459</parentId>
+                </component>
+                <childrenId>31338</childrenId>
+                <component isPrimary="true" name="rest of renal medullary interstitium" id="31345">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary interstitium.rest of renal medullary interstitium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>31459</parentId>
+                </component>
+                <childrenId>31345</childrenId>
+              </component>
+              <childrenId>31459</childrenId>
+              <component isPrimary="true" name="outer medulla" id="30343">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+                <component isPrimary="true" name="loop of Henle, outer medullary portion" id="30351">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.loop of Henle, outer medullary portion</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30343</parentId>
+                  <component isPrimary="true" name="thin descending limb" id="30353">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.loop of Henle, outer medullary portion.thin descending limb</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30351</parentId>
+                  </component>
+                  <childrenId>30353</childrenId>
+                  <component isPrimary="true" name="thin ascending limb" id="30352">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.loop of Henle, outer medullary portion.thin ascending limb</printName>
+                    <abbreviation/>
+                    <synonym>ascending thin limb</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30351</parentId>
+                  </component>
+                  <childrenId>30352</childrenId>
+                  <component isPrimary="true" name="proximal straight tubule" id="30356">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.loop of Henle, outer medullary portion.proximal straight tubule</printName>
+                    <abbreviation/>
+                    <synonym>pars recta</synonym>
+                    <synonym>segment 3 of proximal tubule</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30351</parentId>
+                  </component>
+                  <childrenId>30356</childrenId>
+                  <component isPrimary="true" name="premacula segment of distal straight tubule" id="30354">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.loop of Henle, outer medullary portion.premacula segment of distal straight tubule</printName>
+                    <abbreviation/>
+                    <synonym>thick ascending limb</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30351</parentId>
+                  </component>
+                  <childrenId>30354</childrenId>
+                </component>
+                <childrenId>30351</childrenId>
+                <component isPrimary="true" name="outer medullary interstitium" id="30350">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.outer medullary interstitium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30343</parentId>
+                  <component isPrimary="true" name="outer medullary fibroblast" id="31387">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.outer medullary interstitium.outer medullary fibroblast</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30350</parentId>
+                  </component>
+                  <childrenId>31387</childrenId>
+                  <component isPrimary="true" name="resident macrophage of the outer medulla" id="31392">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.outer medullary interstitium.resident macrophage of the outer medulla</printName>
+                    <abbreviation/>
+                    <synonym>renal monocytes of the outer medulla</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30350</parentId>
+                  </component>
+                  <childrenId>31392</childrenId>
+                  <component isPrimary="true" name="rest of outer medullary interstitium" id="31397">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.outer medullary interstitium.rest of outer medullary interstitium</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30350</parentId>
+                  </component>
+                  <childrenId>31397</childrenId>
+                </component>
+                <childrenId>30350</childrenId>
+                <component isPrimary="true" name="outer medullary collecting duct" id="30349">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.outer medulla.outer medullary collecting duct</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30343</parentId>
+                </component>
+                <childrenId>30349</childrenId>
+              </component>
+              <childrenId>30343</childrenId>
+              <component isPrimary="true" name="inner medulla" id="30335">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla</printName>
+                <abbreviation/>
+                <synonym>papilla</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+                <component isPrimary="true" name="loop of Henle, inner medullary portion" id="30339">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.loop of Henle, inner medullary portion</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30335</parentId>
+                  <component isPrimary="true" name="thin descending limb" id="30341">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.loop of Henle, inner medullary portion.thin descending limb</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30339</parentId>
+                  </component>
+                  <childrenId>30341</childrenId>
+                  <component isPrimary="true" name="bend" id="30340">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.loop of Henle, inner medullary portion.bend</printName>
+                    <abbreviation/>
+                    <synonym>U-turn</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30339</parentId>
+                  </component>
+                  <childrenId>30340</childrenId>
+                  <component isPrimary="true" name="thin ascending limb" id="30342">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.loop of Henle, inner medullary portion.thin ascending limb</printName>
+                    <abbreviation/>
+                    <synonym>ascending thin limb</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30339</parentId>
+                  </component>
+                  <childrenId>30342</childrenId>
+                </component>
+                <childrenId>30339</childrenId>
+                <component isPrimary="true" name="inner medullary interstitium" id="30337">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.inner medullary interstitium</printName>
+                  <abbreviation/>
+                  <synonym>papillary interstitium</synonym>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30335</parentId>
+                  <component isPrimary="true" name="inner medullary fibroblast" id="31402">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.inner medullary interstitium.inner medullary fibroblast</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30337</parentId>
+                  </component>
+                  <childrenId>31402</childrenId>
+                  <component isPrimary="true" name="resident macrophage of the inner medulla" id="31407">
+                    <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.inner medullary interstitium.resident macrophage of the inner medulla</printName>
+                    <abbreviation/>
+                    <synonym>renal monocytes of the inner medulla</synonym>
+                    <startEmbryoStage>25</startEmbryoStage>
+                    <stopEmbryoStage>28</stopEmbryoStage>
+                    <parentId>30337</parentId>
+                  </component>
+                  <childrenId>31407</childrenId>
+                </component>
+                <childrenId>30337</childrenId>
+                <component isPrimary="true" name="inner medullary collecting duct" id="30336">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.inner medulla.inner medullary collecting duct</printName>
+                  <abbreviation/>
+                  <synonym>papillary collecting duct</synonym>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30335</parentId>
+                </component>
+                <childrenId>30336</childrenId>
+              </component>
+              <childrenId>30335</childrenId>
+              <component isPrimary="true" name="renal medullary vasculature" id="30357">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary vasculature</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+                <component isPrimary="true" name="renal medullary arterial system" id="30358">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary vasculature.renal medullary arterial system</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30357</parentId>
+                </component>
+                <childrenId>30358</childrenId>
+                <component isPrimary="true" name="renal medullary venous system" id="30360">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary vasculature.renal medullary venous system</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30357</parentId>
+                </component>
+                <childrenId>30360</childrenId>
+                <component isPrimary="true" name="renal medullary capillary" id="30359">
+                  <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary vasculature.renal medullary capillary</printName>
+                  <abbreviation/>
+                  <synonym>vasa recta</synonym>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30357</parentId>
+                </component>
+                <childrenId>30359</childrenId>
+              </component>
+              <childrenId>30357</childrenId>
+              <component isPrimary="true" name="renal medullary lymphatics" id="31352">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary lymphatics</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+              </component>
+              <childrenId>31352</childrenId>
+              <component isPrimary="true" name="renal medullary nerves" id="31359">
+                <printName>organ system.visceral organ.urinary system.metanephros.renal medulla.renal medullary nerves</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30334</parentId>
+              </component>
+              <childrenId>31359</childrenId>
+            </component>
+            <childrenId>30334</childrenId>
+            <component isPrimary="true" name="calyx" id="30250">
+              <printName>organ system.visceral organ.urinary system.metanephros.calyx</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+              <component isPrimary="true" name="major" id="30251">
+                <printName>organ system.visceral organ.urinary system.metanephros.calyx.major</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30250</parentId>
+              </component>
+              <childrenId>30251</childrenId>
+              <component isPrimary="true" name="minor" id="30252">
+                <printName>organ system.visceral organ.urinary system.metanephros.calyx.minor</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30250</parentId>
+              </component>
+              <childrenId>30252</childrenId>
+            </component>
+            <childrenId>30250</childrenId>
+            <component isPrimary="true" name="pelvis" id="30276">
+              <printName>organ system.visceral organ.urinary system.metanephros.pelvis</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30247</parentId>
+              <component isPrimary="true" name="pelvic urothelial lining" id="30278">
+                <printName>organ system.visceral organ.urinary system.metanephros.pelvis.pelvic urothelial lining</printName>
+                <abbreviation/>
+                <synonym>pelvic urothelium</synonym>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30276</parentId>
+              </component>
+              <childrenId>30278</childrenId>
+              <component isPrimary="true" name="pelvic smooth muscle" id="30277">
+                <printName>organ system.visceral organ.urinary system.metanephros.pelvis.pelvic smooth muscle</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30276</parentId>
+              </component>
+              <childrenId>30277</childrenId>
+              <component isPrimary="true" name="perihilar interstitium" id="30279">
+                <printName>organ system.visceral organ.urinary system.metanephros.pelvis.perihilar interstitium</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30276</parentId>
+                <component isPrimary="true" name="perihilar fibroblast" id="31365">
+                  <printName>organ system.visceral organ.urinary system.metanephros.pelvis.perihilar interstitium.perihilar fibroblast</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30279</parentId>
+                </component>
+                <childrenId>31365</childrenId>
+                <component isPrimary="true" name="resident macrophage of the perihilar interstitium" id="31371">
+                  <printName>organ system.visceral organ.urinary system.metanephros.pelvis.perihilar interstitium.resident macrophage of the perihilar interstitium</printName>
+                  <abbreviation/>
+                  <synonym>renal monocytes of the perihilar interstitium</synonym>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30279</parentId>
+                </component>
+                <childrenId>31371</childrenId>
+                <component isPrimary="true" name="rest of perihilar interstitium" id="31377">
+                  <printName>organ system.visceral organ.urinary system.metanephros.pelvis.perihilar interstitium.rest of perihilar interstitium</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30279</parentId>
+                </component>
+                <childrenId>31377</childrenId>
+              </component>
+              <childrenId>30279</childrenId>
+            </component>
+            <childrenId>30276</childrenId>
+          </component>
+          <childrenId>30247</childrenId>
+          <component isPrimary="true" name="renal artery" id="30244">
+            <printName>organ system.visceral organ.urinary system.renal artery</printName>
+            <abbreviation/>
+            <startEmbryoStage>21</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="endothelial layer of renal artery" id="30245">
+              <printName>organ system.visceral organ.urinary system.renal artery.endothelial layer of renal artery</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30244</parentId>
+            </component>
+            <childrenId>30245</childrenId>
+            <component isPrimary="true" name="endothelium of renal artery" id="30465">
+              <printName>organ system.visceral organ.urinary system.renal artery.endothelium of renal artery</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30244</parentId>
+            </component>
+            <childrenId>30465</childrenId>
+            <component isPrimary="true" name="smooth muscle layer of renal artery" id="30246">
+              <printName>organ system.visceral organ.urinary system.renal artery.smooth muscle layer of renal artery</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30244</parentId>
+            </component>
+            <childrenId>30246</childrenId>
+          </component>
+          <childrenId>30244</childrenId>
+          <component isPrimary="true" name="renal vein" id="30404">
+            <printName>organ system.visceral organ.urinary system.renal vein</printName>
+            <abbreviation/>
+            <startEmbryoStage>21</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="endothelial layer of renal vein" id="30405">
+              <printName>organ system.visceral organ.urinary system.renal vein.endothelial layer of renal vein</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30404</parentId>
+            </component>
+            <childrenId>30405</childrenId>
+            <component isPrimary="true" name="endothelium of renal vein" id="30466">
+              <printName>organ system.visceral organ.urinary system.renal vein.endothelium of renal vein</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30404</parentId>
+            </component>
+            <childrenId>30466</childrenId>
+            <component isPrimary="true" name="smooth muscle layer of renal vein" id="30406">
+              <printName>organ system.visceral organ.urinary system.renal vein.smooth muscle layer of renal vein</printName>
+              <abbreviation/>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30404</parentId>
+            </component>
+            <childrenId>30406</childrenId>
+          </component>
+          <childrenId>30404</childrenId>
+          <component isPrimary="true" name="ureter" id="30363">
+            <printName>organ system.visceral organ.urinary system.ureter</printName>
+            <abbreviation/>
+            <startEmbryoStage>20</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="urothelium" id="30369">
+              <printName>organ system.visceral organ.urinary system.ureter.urothelium</printName>
+              <abbreviation/>
+              <synonym>transitional epithelium</synonym>
+              <startEmbryoStage>21</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30363</parentId>
+              <component isPrimary="true" name="superficial cellular layer" id="30373">
+                <printName>organ system.visceral organ.urinary system.ureter.urothelium.superficial cellular layer</printName>
+                <abbreviation/>
+                <synonym>umbrella cell</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30369</parentId>
+              </component>
+              <childrenId>30373</childrenId>
+              <component isPrimary="true" name="deep cellular layer" id="30370">
+                <printName>organ system.visceral organ.urinary system.ureter.urothelium.deep cellular layer</printName>
+                <abbreviation/>
+                <synonym>basal urothelium</synonym>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30369</parentId>
+                <component isPrimary="true" name="intermediate cell layer" id="30371">
+                  <printName>organ system.visceral organ.urinary system.ureter.urothelium.deep cellular layer.intermediate cell layer</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30370</parentId>
+                </component>
+                <childrenId>30371</childrenId>
+                <component isPrimary="true" name="basal cell layer" id="30372">
+                  <printName>organ system.visceral organ.urinary system.ureter.urothelium.deep cellular layer.basal cell layer</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30370</parentId>
+                </component>
+                <childrenId>30372</childrenId>
+              </component>
+              <childrenId>30370</childrenId>
+            </component>
+            <childrenId>30369</childrenId>
+            <component isPrimary="true" name="lamina propria" id="30367">
+              <printName>organ system.visceral organ.urinary system.ureter.lamina propria</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30363</parentId>
+            </component>
+            <childrenId>30367</childrenId>
+            <component isPrimary="true" name="ureteral smooth muscle layer" id="30364">
+              <printName>organ system.visceral organ.urinary system.ureter.ureteral smooth muscle layer</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30363</parentId>
+              <component isPrimary="true" name="smooth muscle component" id="30365">
+                <printName>organ system.visceral organ.urinary system.ureter.ureteral smooth muscle layer.smooth muscle component</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30364</parentId>
+              </component>
+              <childrenId>30365</childrenId>
+              <component isPrimary="true" name="interstitium" id="30366">
+                <printName>organ system.visceral organ.urinary system.ureter.ureteral smooth muscle layer.interstitium</printName>
+                <abbreviation/>
+                <synonym>Cajal cell</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30364</parentId>
+              </component>
+              <childrenId>30366</childrenId>
+            </component>
+            <childrenId>30364</childrenId>
+            <component isPrimary="true" name="adventitia of ureter" id="30368">
+              <printName>organ system.visceral organ.urinary system.ureter.adventitia of ureter</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30363</parentId>
+            </component>
+            <childrenId>30368</childrenId>
+            <component isPrimary="true" name="ureteral vasculature" id="30858">
+              <printName>organ system.visceral organ.urinary system.ureter.ureteral vasculature</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30363</parentId>
+            </component>
+            <childrenId>30858</childrenId>
+          </component>
+          <childrenId>30363</childrenId>
+          <component isPrimary="true" name="bladder" id="30374">
+            <printName>organ system.visceral organ.urinary system.bladder</printName>
+            <abbreviation/>
+            <startEmbryoStage>22</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="epithelium of bladder" id="30380">
+              <printName>organ system.visceral organ.urinary system.bladder.epithelium of bladder</printName>
+              <abbreviation/>
+              <synonym>urothelium</synonym>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="epithelium of fundus" id="30382">
+                <printName>organ system.visceral organ.urinary system.bladder.epithelium of bladder.epithelium of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30380</parentId>
+              </component>
+              <childrenId>30382</childrenId>
+              <component isPrimary="true" name="epithelium of trigone" id="30381">
+                <printName>organ system.visceral organ.urinary system.bladder.epithelium of bladder.epithelium of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30380</parentId>
+              </component>
+              <childrenId>30381</childrenId>
+              <component isPrimary="true" name="epithelium of neck" id="30383">
+                <printName>organ system.visceral organ.urinary system.bladder.epithelium of bladder.epithelium of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30380</parentId>
+              </component>
+              <childrenId>30383</childrenId>
+            </component>
+            <childrenId>30380</childrenId>
+            <component isPrimary="true" name="lamina propria of the bladder" id="30396">
+              <printName>organ system.visceral organ.urinary system.bladder.lamina propria of the bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="lamina propria of fundus" id="30397">
+                <printName>organ system.visceral organ.urinary system.bladder.lamina propria of the bladder.lamina propria of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30396</parentId>
+              </component>
+              <childrenId>30397</childrenId>
+              <component isPrimary="true" name="lamina propria of trigone" id="30398">
+                <printName>organ system.visceral organ.urinary system.bladder.lamina propria of the bladder.lamina propria of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30396</parentId>
+              </component>
+              <childrenId>30398</childrenId>
+              <component isPrimary="true" name="lamina propria of neck" id="30399">
+                <printName>organ system.visceral organ.urinary system.bladder.lamina propria of the bladder.lamina propria of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30396</parentId>
+              </component>
+              <childrenId>30399</childrenId>
+            </component>
+            <childrenId>30396</childrenId>
+            <component isPrimary="true" name="muscularis mucosa of bladder" id="30388">
+              <printName>organ system.visceral organ.urinary system.bladder.muscularis mucosa of bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="muscularis mucosa of fundus" id="30390">
+                <printName>organ system.visceral organ.urinary system.bladder.muscularis mucosa of bladder.muscularis mucosa of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30388</parentId>
+              </component>
+              <childrenId>30390</childrenId>
+              <component isPrimary="true" name="muscularis mucosa of trigone" id="30389">
+                <printName>organ system.visceral organ.urinary system.bladder.muscularis mucosa of bladder.muscularis mucosa of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30388</parentId>
+              </component>
+              <childrenId>30389</childrenId>
+              <component isPrimary="true" name="muscularis mucosa of neck" id="30391">
+                <printName>organ system.visceral organ.urinary system.bladder.muscularis mucosa of bladder.muscularis mucosa of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30388</parentId>
+              </component>
+              <childrenId>30391</childrenId>
+            </component>
+            <childrenId>30388</childrenId>
+            <component isPrimary="true" name="detrusor muscle of bladder" id="30376">
+              <printName>organ system.visceral organ.urinary system.bladder.detrusor muscle of bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="detrusor muscle of fundus" id="30378">
+                <printName>organ system.visceral organ.urinary system.bladder.detrusor muscle of bladder.detrusor muscle of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30376</parentId>
+              </component>
+              <childrenId>30378</childrenId>
+              <component isPrimary="true" name="detrusor muscle of trigone" id="30377">
+                <printName>organ system.visceral organ.urinary system.bladder.detrusor muscle of bladder.detrusor muscle of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30376</parentId>
+              </component>
+              <childrenId>30377</childrenId>
+              <component isPrimary="true" name="detrusor muscle of neck" id="30379">
+                <printName>organ system.visceral organ.urinary system.bladder.detrusor muscle of bladder.detrusor muscle of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30376</parentId>
+              </component>
+              <childrenId>30379</childrenId>
+            </component>
+            <childrenId>30376</childrenId>
+            <component isPrimary="true" name="serosa of bladder" id="30392">
+              <printName>organ system.visceral organ.urinary system.bladder.serosa of bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="serosa of fundus" id="30395">
+                <printName>organ system.visceral organ.urinary system.bladder.serosa of bladder.serosa of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30392</parentId>
+              </component>
+              <childrenId>30395</childrenId>
+              <component isPrimary="true" name="serosa of trigone" id="30393">
+                <printName>organ system.visceral organ.urinary system.bladder.serosa of bladder.serosa of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30392</parentId>
+              </component>
+              <childrenId>30393</childrenId>
+              <component isPrimary="true" name="serosa of neck" id="30394">
+                <printName>organ system.visceral organ.urinary system.bladder.serosa of bladder.serosa of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>22</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30392</parentId>
+              </component>
+              <childrenId>30394</childrenId>
+            </component>
+            <childrenId>30392</childrenId>
+            <component isPrimary="true" name="adventitia of bladder" id="30384">
+              <printName>organ system.visceral organ.urinary system.bladder.adventitia of bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+              <component isPrimary="true" name="adventitia of fundus" id="30385">
+                <printName>organ system.visceral organ.urinary system.bladder.adventitia of bladder.adventitia of fundus</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30384</parentId>
+              </component>
+              <childrenId>30385</childrenId>
+              <component isPrimary="true" name="adventitia of trigone" id="30387">
+                <printName>organ system.visceral organ.urinary system.bladder.adventitia of bladder.adventitia of trigone</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30384</parentId>
+              </component>
+              <childrenId>30387</childrenId>
+              <component isPrimary="true" name="adventitia of neck" id="30386">
+                <printName>organ system.visceral organ.urinary system.bladder.adventitia of bladder.adventitia of neck</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30384</parentId>
+              </component>
+              <childrenId>30386</childrenId>
+            </component>
+            <childrenId>30384</childrenId>
+            <component isPrimary="true" name="blood vessels of bladder" id="30375">
+              <printName>organ system.visceral organ.urinary system.bladder.blood vessels of bladder</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30374</parentId>
+            </component>
+            <childrenId>30375</childrenId>
+          </component>
+          <childrenId>30374</childrenId>
+          <component isPrimary="true" name="urachus" id="30403">
+            <printName>organ system.visceral organ.urinary system.urachus</printName>
+            <abbreviation/>
+            <startEmbryoStage>22</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+          </component>
+          <childrenId>30403</childrenId>
+          <component isPrimary="true" name="urethra of female" id="30418">
+            <printName>organ system.visceral organ.urinary system.urethra of female</printName>
+            <abbreviation/>
+            <startEmbryoStage>23</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="pelvic urethra of female" id="30419">
+              <printName>organ system.visceral organ.urinary system.urethra of female.pelvic urethra of female</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30418</parentId>
+              <component isPrimary="true" name="epithelial layer of pelvic urethra of female" id="30421">
+                <printName>organ system.visceral organ.urinary system.urethra of female.pelvic urethra of female.epithelial layer of pelvic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30419</parentId>
+              </component>
+              <childrenId>30421</childrenId>
+              <component isPrimary="true" name="mesenchymal layer of pelvic urethra of female" id="30422">
+                <printName>organ system.visceral organ.urinary system.urethra of female.pelvic urethra of female.mesenchymal layer of pelvic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30419</parentId>
+              </component>
+              <childrenId>30422</childrenId>
+              <component isPrimary="true" name="muscle layer of pelvic urethra of female" id="30420">
+                <printName>organ system.visceral organ.urinary system.urethra of female.pelvic urethra of female.muscle layer of pelvic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30419</parentId>
+              </component>
+              <childrenId>30420</childrenId>
+            </component>
+            <childrenId>30419</childrenId>
+            <component isPrimary="true" name="phallic urethra of female" id="30922">
+              <printName>organ system.visceral organ.urinary system.urethra of female.phallic urethra of female</printName>
+              <abbreviation/>
+              <synonym>external urethra of female</synonym>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30418</parentId>
+              <component isPrimary="true" name="epithelial layer of phallic urethra of female" id="30933">
+                <printName>organ system.visceral organ.urinary system.urethra of female.phallic urethra of female.epithelial layer of phallic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30922</parentId>
+              </component>
+              <childrenId>30933</childrenId>
+              <component isPrimary="true" name="mesenchymal layer of phallic urethra of female" id="30937">
+                <printName>organ system.visceral organ.urinary system.urethra of female.phallic urethra of female.mesenchymal layer of phallic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30922</parentId>
+              </component>
+              <childrenId>30937</childrenId>
+              <component isPrimary="true" name="muscle layer of phallic urethra of female" id="30941">
+                <printName>organ system.visceral organ.urinary system.urethra of female.phallic urethra of female.muscle layer of phallic urethra of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30922</parentId>
+              </component>
+              <childrenId>30941</childrenId>
+            </component>
+            <childrenId>30922</childrenId>
+          </component>
+          <childrenId>30418</childrenId>
+          <component isPrimary="true" name="urethra of male" id="30407">
+            <printName>organ system.visceral organ.urinary system.urethra of male</printName>
+            <abbreviation/>
+            <startEmbryoStage>23</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+            <component isPrimary="true" name="pelvic urethra of male" id="30412">
+              <printName>organ system.visceral organ.urinary system.urethra of male.pelvic urethra of male</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30407</parentId>
+              <component isPrimary="true" name="epithelial layer of pelvic urethra of male" id="30415">
+                <printName>organ system.visceral organ.urinary system.urethra of male.pelvic urethra of male.epithelial layer of pelvic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30412</parentId>
+              </component>
+              <childrenId>30415</childrenId>
+              <component isPrimary="true" name="mesenchymal layer of pelvic urethra of male" id="30414">
+                <printName>organ system.visceral organ.urinary system.urethra of male.pelvic urethra of male.mesenchymal layer of pelvic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30412</parentId>
+              </component>
+              <childrenId>30414</childrenId>
+              <component isPrimary="true" name="muscle layer of pelvic urethra of male" id="30413">
+                <printName>organ system.visceral organ.urinary system.urethra of male.pelvic urethra of male.muscle layer of pelvic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30412</parentId>
+              </component>
+              <childrenId>30413</childrenId>
+            </component>
+            <childrenId>30412</childrenId>
+            <component isPrimary="true" name="phallic urethra of male" id="30408">
+              <printName>organ system.visceral organ.urinary system.urethra of male.phallic urethra of male</printName>
+              <abbreviation/>
+              <synonym>external urethra of male</synonym>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>27</stopEmbryoStage>
+              <parentId>30407</parentId>
+              <component isPrimary="true" name="epithelial layer of phallic urethra of male" id="30409">
+                <printName>organ system.visceral organ.urinary system.urethra of male.phallic urethra of male.epithelial layer of phallic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30408</parentId>
+              </component>
+              <childrenId>30409</childrenId>
+              <component isPrimary="true" name="mesenchymal layer of phallic urethra of male" id="30411">
+                <printName>organ system.visceral organ.urinary system.urethra of male.phallic urethra of male.mesenchymal layer of phallic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30408</parentId>
+              </component>
+              <childrenId>30411</childrenId>
+              <component isPrimary="true" name="muscle layer of phallic urethra of male" id="30410">
+                <printName>organ system.visceral organ.urinary system.urethra of male.phallic urethra of male.muscle layer of phallic urethra of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30408</parentId>
+              </component>
+              <childrenId>30410</childrenId>
+            </component>
+            <childrenId>30408</childrenId>
+          </component>
+          <childrenId>30407</childrenId>
+          <component isPrimary="true" name="urorectal septum" id="30416">
+            <printName>organ system.visceral organ.urinary system.urorectal septum</printName>
+            <abbreviation/>
+            <startEmbryoStage>19</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30243</parentId>
+          </component>
+          <childrenId>30416</childrenId>
+        </component>
+        <childrenId>30243</childrenId>
+        <component isPrimary="true" name="reproductive system" id="30156">
+          <printName>organ system.visceral organ.reproductive system</printName>
+          <abbreviation/>
+          <startEmbryoStage>19</startEmbryoStage>
+          <stopEmbryoStage>28</stopEmbryoStage>
+          <parentId>30153</parentId>
+          <component isPrimary="true" name="male reproductive system" id="30157">
+            <printName>organ system.visceral organ.reproductive system.male reproductive system</printName>
+            <abbreviation/>
+            <startEmbryoStage>20</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30156</parentId>
+            <component isPrimary="true" name="testis" id="30171">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.testis</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="rete testis" id="30185">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.rete testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>21</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+              </component>
+              <childrenId>30185</childrenId>
+              <component isPrimary="true" name="interstitium of the testis" id="30176">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.interstitium of the testis</printName>
+                <abbreviation/>
+                <synonym>interstitial tissue</synonym>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+                <component isPrimary="true" name="fetal Leydig cell" id="30178">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.interstitium of the testis.fetal Leydig cell</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>20</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30176</parentId>
+                </component>
+                <childrenId>30178</childrenId>
+                <component isPrimary="true" name="rest of interstitium of the testis" id="30177">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.interstitium of the testis.rest of interstitium of the testis</printName>
+                  <abbreviation/>
+                  <synonym>non-specific mesenchyme</synonym>
+                  <startEmbryoStage>20</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30176</parentId>
+                </component>
+                <childrenId>30177</childrenId>
+              </component>
+              <childrenId>30176</childrenId>
+              <component isPrimary="true" name="tunica vaginalis testis" id="30179">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.tunica vaginalis testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+              </component>
+              <childrenId>30179</childrenId>
+              <component isPrimary="true" name="seminiferous cord" id="30181">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.seminiferous cord</printName>
+                <abbreviation/>
+                <synonym>seminiferous tubule</synonym>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30171</parentId>
+                <component isPrimary="true" name="Sertoli cell" id="30184">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.seminiferous cord.Sertoli cell</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30181</parentId>
+                </component>
+                <childrenId>30184</childrenId>
+                <component isPrimary="true" name="germ cell of testis" id="30183">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.seminiferous cord.germ cell of testis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30181</parentId>
+                </component>
+                <childrenId>30183</childrenId>
+                <component isPrimary="true" name="peritubular myoid cell" id="30182">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.seminiferous cord.peritubular myoid cell</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>23</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30181</parentId>
+                </component>
+                <childrenId>30182</childrenId>
+              </component>
+              <childrenId>30181</childrenId>
+              <component isPrimary="true" name="mediastinum testis" id="30175">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.mediastinum testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+              </component>
+              <childrenId>30175</childrenId>
+              <component isPrimary="true" name="developing vasculature of the testis" id="30172">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.developing vasculature of the testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30171</parentId>
+                <component isPrimary="true" name="coelomic vessel" id="30173">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.developing vasculature of the testis.coelomic vessel</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>20</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30172</parentId>
+                </component>
+                <childrenId>30173</childrenId>
+                <component isPrimary="true" name="interstitial vessel" id="30174">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.developing vasculature of the testis.interstitial vessel</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>20</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30172</parentId>
+                </component>
+                <childrenId>30174</childrenId>
+              </component>
+              <childrenId>30172</childrenId>
+              <component isPrimary="true" name="tunica albuginea of testis" id="30180">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.tunica albuginea of testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+              </component>
+              <childrenId>30180</childrenId>
+              <component isPrimary="true" name="surface epithelium of testis" id="31243">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.testis.surface epithelium of testis</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30171</parentId>
+              </component>
+              <childrenId>31243</childrenId>
+            </component>
+            <childrenId>30171</childrenId>
+            <component isPrimary="true" name="cystic vesicular appendage" id="30186">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.cystic vesicular appendage</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30186</childrenId>
+            <component isPrimary="true" name="inguinal canal" id="30198">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.inguinal canal</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30198</childrenId>
+            <component isPrimary="true" name="inguinal ring" id="30165">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.inguinal ring</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="external inguinal ring" id="30167">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.inguinal ring.external inguinal ring</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30165</parentId>
+              </component>
+              <childrenId>30167</childrenId>
+              <component isPrimary="true" name="internal inguinal ring" id="30166">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.inguinal ring.internal inguinal ring</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30165</parentId>
+              </component>
+              <childrenId>30166</childrenId>
+            </component>
+            <childrenId>30165</childrenId>
+            <component isPrimary="true" name="seminal vesicle" id="30188">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.seminal vesicle</printName>
+              <abbreviation/>
+              <synonym>vesicular seminalis</synonym>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="glandular tissue of seminal vesicle" id="30189">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.seminal vesicle.glandular tissue of seminal vesicle</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30188</parentId>
+              </component>
+              <childrenId>30189</childrenId>
+              <component isPrimary="true" name="duct of the seminal vesicle" id="30190">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.seminal vesicle.duct of the seminal vesicle</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30188</parentId>
+              </component>
+              <childrenId>30190</childrenId>
+            </component>
+            <childrenId>30188</childrenId>
+            <component isPrimary="true" name="efferent duct of seminal vesicle" id="30196">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.efferent duct of seminal vesicle</printName>
+              <abbreviation/>
+              <synonym>vasa efferentia</synonym>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30196</childrenId>
+            <component isPrimary="true" name="epididymis" id="30199">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="caput epididymis" id="30200">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.caput epididymis</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30199</parentId>
+                <component isPrimary="true" name="epithelium of caput of epididymis" id="30615">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.caput epididymis.epithelium of caput of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30200</parentId>
+                </component>
+                <childrenId>30615</childrenId>
+                <component isPrimary="true" name="muscle layer of caput of epididymis" id="30619">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.caput epididymis.muscle layer of caput of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30200</parentId>
+                </component>
+                <childrenId>30619</childrenId>
+                <component isPrimary="true" name="adventitia of caput of epididymis" id="30623">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.caput epididymis.adventitia of caput of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30200</parentId>
+                </component>
+                <childrenId>30623</childrenId>
+                <component isPrimary="true" name="developing vasculature of caput epididymis" id="31208">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.caput epididymis.developing vasculature of caput epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30200</parentId>
+                </component>
+                <childrenId>31208</childrenId>
+              </component>
+              <childrenId>30200</childrenId>
+              <component isPrimary="true" name="cauda epididymis" id="30202">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.cauda epididymis</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30199</parentId>
+                <component isPrimary="true" name="epithelium of cauda of epididymis" id="30591">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.cauda epididymis.epithelium of cauda of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30202</parentId>
+                </component>
+                <childrenId>30591</childrenId>
+                <component isPrimary="true" name="muscle layer of cauda of epididymis" id="30595">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.cauda epididymis.muscle layer of cauda of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30202</parentId>
+                </component>
+                <childrenId>30595</childrenId>
+                <component isPrimary="true" name="adventitia of cauda of epididymis" id="30599">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.cauda epididymis.adventitia of cauda of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30202</parentId>
+                </component>
+                <childrenId>30599</childrenId>
+                <component isPrimary="true" name="developing vasculature of cauda epididymis" id="31198">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.cauda epididymis.developing vasculature of cauda epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30202</parentId>
+                </component>
+                <childrenId>31198</childrenId>
+              </component>
+              <childrenId>30202</childrenId>
+              <component isPrimary="true" name="corpus epididymis" id="30201">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.corpus epididymis</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30199</parentId>
+                <component isPrimary="true" name="epithelium of corpus epididymis" id="30603">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.corpus epididymis.epithelium of corpus epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30201</parentId>
+                </component>
+                <childrenId>30603</childrenId>
+                <component isPrimary="true" name="muscle layer of corpus of epididymis" id="30607">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.corpus epididymis.muscle layer of corpus of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30201</parentId>
+                </component>
+                <childrenId>30607</childrenId>
+                <component isPrimary="true" name="adventitia of corpus of epididymis" id="30611">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.corpus epididymis.adventitia of corpus of epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30201</parentId>
+                </component>
+                <childrenId>30611</childrenId>
+                <component isPrimary="true" name="developing vasculature of corpus epididymis" id="31203">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.corpus epididymis.developing vasculature of corpus epididymis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30201</parentId>
+                </component>
+                <childrenId>31203</childrenId>
+              </component>
+              <childrenId>30201</childrenId>
+              <component isPrimary="true" name="developing vasculature of epididymis" id="31187">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.epididymis.developing vasculature of epididymis</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30199</parentId>
+              </component>
+              <childrenId>31187</childrenId>
+            </component>
+            <childrenId>30199</childrenId>
+            <component isPrimary="true" name="ductus deferens" id="30168">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.ductus deferens</printName>
+              <abbreviation/>
+              <synonym>vas deferens</synonym>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="epithelium of ductus deferens" id="30170">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.ductus deferens.epithelium of ductus deferens</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30168</parentId>
+              </component>
+              <childrenId>30170</childrenId>
+              <component isPrimary="true" name="muscle layer of ductus deferens" id="30169">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.ductus deferens.muscle layer of ductus deferens</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30168</parentId>
+              </component>
+              <childrenId>30169</childrenId>
+              <component isPrimary="true" name="outer layer of ductus deferens" id="30753">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.ductus deferens.outer layer of ductus deferens</printName>
+                <abbreviation/>
+                <startEmbryoStage>26</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30168</parentId>
+              </component>
+              <childrenId>30753</childrenId>
+              <component isPrimary="true" name="developing vasculature of ductus deferens" id="31193">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.ductus deferens.developing vasculature of ductus deferens</printName>
+                <abbreviation/>
+                <startEmbryoStage>23</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30168</parentId>
+              </component>
+              <childrenId>31193</childrenId>
+            </component>
+            <childrenId>30168</childrenId>
+            <component isPrimary="true" name="appendix epididymis" id="30158">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.appendix epididymis</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30158</childrenId>
+            <component isPrimary="true" name="appendix testis" id="30195">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.appendix testis</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30195</childrenId>
+            <component isPrimary="true" name="ejaculatory duct" id="30160">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.ejaculatory duct</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30160</childrenId>
+            <component isPrimary="true" name="male accessory gland" id="30192">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.male accessory gland</printName>
+              <abbreviation/>
+              <startEmbryoStage>26</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="bulbourethral gland" id="30193">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.male accessory gland.bulbourethral gland</printName>
+                <abbreviation/>
+                <synonym>Cowper's gland</synonym>
+                <startEmbryoStage>26</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30192</parentId>
+              </component>
+              <childrenId>30193</childrenId>
+              <component isPrimary="true" name="prostate gland" id="30194">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.male accessory gland.prostate gland</printName>
+                <abbreviation/>
+                <startEmbryoStage>26</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30192</parentId>
+              </component>
+              <childrenId>30194</childrenId>
+            </component>
+            <childrenId>30192</childrenId>
+            <component isPrimary="true" name="gubernaculum" id="30187">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.gubernaculum</printName>
+              <abbreviation/>
+              <synonym>caudal suspensory ligament</synonym>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30187</childrenId>
+            <component isPrimary="true" name="mesorchium" id="30159">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.mesorchium</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+            </component>
+            <childrenId>30159</childrenId>
+            <component isPrimary="true" name="penis" id="30161">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.penis</printName>
+              <abbreviation/>
+              <synonym>genital tubercle of male</synonym>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="glans penis" id="30162">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.glans penis</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30161</parentId>
+                <component isPrimary="true" name="surface epithelium of glans penis" id="30649">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.glans penis.surface epithelium of glans penis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30162</parentId>
+                </component>
+                <childrenId>30649</childrenId>
+                <component isPrimary="true" name="mesenchyme of glans penis" id="30645">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.glans penis.mesenchyme of glans penis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30162</parentId>
+                </component>
+                <childrenId>30645</childrenId>
+              </component>
+              <childrenId>30162</childrenId>
+              <component isPrimary="true" name="crus penis" id="30164">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.crus penis</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30161</parentId>
+                <component isPrimary="true" name="surface epithelium of crus penis" id="30671">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.crus penis.surface epithelium of crus penis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30164</parentId>
+                </component>
+                <childrenId>30671</childrenId>
+                <component isPrimary="true" name="mesenchyme of crus penis" id="30667">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.crus penis.mesenchyme of crus penis</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30164</parentId>
+                </component>
+                <childrenId>30667</childrenId>
+              </component>
+              <childrenId>30164</childrenId>
+              <component isPrimary="true" name="prepuce of male" id="30163">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.prepuce of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30161</parentId>
+                <component isPrimary="true" name="prepuce surface epithelium of male" id="30658">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.prepuce of male.prepuce surface epithelium of male</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30163</parentId>
+                </component>
+                <childrenId>30658</childrenId>
+                <component isPrimary="true" name="preputial gland of male" id="30662">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.prepuce of male.preputial gland of male</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30163</parentId>
+                </component>
+                <childrenId>30662</childrenId>
+                <component isPrimary="true" name="prepuce mesenchyme of male" id="30653">
+                  <printName>organ system.visceral organ.reproductive system.male reproductive system.penis.prepuce of male.prepuce mesenchyme of male</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30163</parentId>
+                </component>
+                <childrenId>30653</childrenId>
+              </component>
+              <childrenId>30163</childrenId>
+            </component>
+            <childrenId>30161</childrenId>
+            <component isPrimary="true" name="scrotal fold" id="30736">
+              <printName>organ system.visceral organ.reproductive system.male reproductive system.scrotal fold</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>27</stopEmbryoStage>
+              <parentId>30157</parentId>
+              <component isPrimary="true" name="scrotal fold mesenchyme of male" id="30742">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.scrotal fold.scrotal fold mesenchyme of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30736</parentId>
+              </component>
+              <childrenId>30742</childrenId>
+              <component isPrimary="true" name="scrotal fold surface epithelium of male" id="30739">
+                <printName>organ system.visceral organ.reproductive system.male reproductive system.scrotal fold.scrotal fold surface epithelium of male</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30736</parentId>
+              </component>
+              <childrenId>30739</childrenId>
+            </component>
+            <childrenId>30736</childrenId>
+          </component>
+          <childrenId>30157</childrenId>
+          <component isPrimary="true" name="female reproductive system" id="30203">
+            <printName>organ system.visceral organ.reproductive system.female reproductive system</printName>
+            <abbreviation/>
+            <startEmbryoStage>20</startEmbryoStage>
+            <stopEmbryoStage>28</stopEmbryoStage>
+            <parentId>30156</parentId>
+            <component isPrimary="true" name="ovary" id="30224">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="surface epithelium of ovary" id="30232">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.surface epithelium of ovary</printName>
+                <abbreviation/>
+                <synonym>coelomic epithelium</synonym>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+              </component>
+              <childrenId>30232</childrenId>
+              <component isPrimary="true" name="tunica albuginea of ovary" id="30525">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.tunica albuginea of ovary</printName>
+                <abbreviation/>
+                <synonym>ovarian capsule</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+              </component>
+              <childrenId>30525</childrenId>
+              <component isPrimary="true" name="mesenchymal stroma of ovary" id="30227">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.mesenchymal stroma of ovary</printName>
+                <abbreviation/>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+                <component isPrimary="true" name="cortical component of mesenchymal stroma" id="30228">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.mesenchymal stroma of ovary.cortical component of mesenchymal stroma</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30227</parentId>
+                  <component isPrimary="true" name="rest of cortical component of mesenchymal stroma of ovary" id="31044">
+                    <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.mesenchymal stroma of ovary.cortical component of mesenchymal stroma.rest of cortical component of mesenchymal stroma of ovary</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>24</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30228</parentId>
+                  </component>
+                  <childrenId>31044</childrenId>
+                  <component isPrimary="true" name="pre-granulosa cell" id="31039">
+                    <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.mesenchymal stroma of ovary.cortical component of mesenchymal stroma.pre-granulosa cell</printName>
+                    <abbreviation/>
+                    <startEmbryoStage>24</startEmbryoStage>
+                    <stopEmbryoStage>27</stopEmbryoStage>
+                    <parentId>30228</parentId>
+                  </component>
+                  <childrenId>31039</childrenId>
+                </component>
+                <childrenId>30228</childrenId>
+                <component isPrimary="true" name="medullary component of mesenchymal stroma" id="30229">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.mesenchymal stroma of ovary.medullary component of mesenchymal stroma</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>22</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30227</parentId>
+                </component>
+                <childrenId>30229</childrenId>
+              </component>
+              <childrenId>30227</childrenId>
+              <component isPrimary="true" name="meiotic oocytes" id="31033">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.meiotic oocytes</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+              </component>
+              <childrenId>31033</childrenId>
+              <component isPrimary="true" name="primordial follicle" id="31245">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.primordial follicle</printName>
+                <abbreviation/>
+                <startEmbryoStage>27</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+                <component isPrimary="true" name="oocyte of primordial follicle" id="31246">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.primordial follicle.oocyte of primordial follicle</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>27</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>31245</parentId>
+                </component>
+                <childrenId>31246</childrenId>
+                <component isPrimary="true" name="follicle cell" id="31248">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.primordial follicle.follicle cell</printName>
+                  <abbreviation/>
+                  <synonym>granulosa cell</synonym>
+                  <startEmbryoStage>27</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>31245</parentId>
+                </component>
+                <childrenId>31248</childrenId>
+              </component>
+              <childrenId>31245</childrenId>
+              <component isPrimary="true" name="developing vasculature of ovary" id="30231">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.developing vasculature of ovary</printName>
+                <abbreviation/>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30224</parentId>
+              </component>
+              <childrenId>30231</childrenId>
+              <component isPrimary="true" name="rete ovarii of ovary" id="30225">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.ovary.rete ovarii of ovary</printName>
+                <abbreviation/>
+                <startEmbryoStage>20</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30224</parentId>
+              </component>
+              <childrenId>30225</childrenId>
+            </component>
+            <childrenId>30224</childrenId>
+            <component isPrimary="true" name="mesovarium" id="30208">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.mesovarium</printName>
+              <abbreviation/>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+            </component>
+            <childrenId>30208</childrenId>
+            <component isPrimary="true" name="cystic vesicular appendage" id="30219">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.cystic vesicular appendage</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+            </component>
+            <childrenId>30219</childrenId>
+            <component isPrimary="true" name="suspensory ligament of ovary" id="30218">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.suspensory ligament of ovary</printName>
+              <abbreviation/>
+              <startEmbryoStage>23</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+            </component>
+            <childrenId>30218</childrenId>
+            <component isPrimary="true" name="Müllerian tubercle" id="30209">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.Müllerian tubercle</printName>
+              <abbreviation/>
+              <startEmbryoStage>22</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+            </component>
+            <childrenId>30209</childrenId>
+            <component isPrimary="true" name="oviduct" id="30214">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.oviduct</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="epithelial layer of oviduct" id="30215">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.oviduct.epithelial layer of oviduct</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30214</parentId>
+              </component>
+              <childrenId>30215</childrenId>
+              <component isPrimary="true" name="muscle layer of oviduct" id="30216">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.oviduct.muscle layer of oviduct</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30214</parentId>
+              </component>
+              <childrenId>30216</childrenId>
+              <component isPrimary="true" name="outer layer of oviduct" id="30217">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.oviduct.outer layer of oviduct</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30214</parentId>
+              </component>
+              <childrenId>30217</childrenId>
+              <component isPrimary="true" name="developing vasculature of oviduct" id="31218">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.oviduct.developing vasculature of oviduct</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30214</parentId>
+              </component>
+              <childrenId>31218</childrenId>
+            </component>
+            <childrenId>30214</childrenId>
+            <component isPrimary="true" name="uterine horn" id="30205">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.uterine horn</printName>
+              <abbreviation/>
+              <synonym>uterus</synonym>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>27</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="epithelium" id="30207">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.uterine horn.epithelium</printName>
+                <abbreviation/>
+                <synonym>endometrium</synonym>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30205</parentId>
+              </component>
+              <childrenId>30207</childrenId>
+              <component isPrimary="true" name="muscular layer" id="30206">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.uterine horn.muscular layer</printName>
+                <abbreviation/>
+                <synonym>myometrium</synonym>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30205</parentId>
+              </component>
+              <childrenId>30206</childrenId>
+              <component isPrimary="true" name="developing vasculature of uterine horn" id="31213">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.uterine horn.developing vasculature of uterine horn</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30205</parentId>
+              </component>
+              <childrenId>31213</childrenId>
+              <component isPrimary="true" name="outer layer of uterine horn" id="30679">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.uterine horn.outer layer of uterine horn</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30205</parentId>
+              </component>
+              <childrenId>30679</childrenId>
+            </component>
+            <childrenId>30205</childrenId>
+            <component isPrimary="true" name="vagina" id="30236">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina</printName>
+              <abbreviation/>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="lower part of vagina" id="30237">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.lower part of vagina</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30236</parentId>
+                <component isPrimary="true" name="epithelial layer of lower part of vagina" id="30238">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.lower part of vagina.epithelial layer of lower part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30237</parentId>
+                </component>
+                <childrenId>30238</childrenId>
+                <component isPrimary="true" name="muscular layer of lower part of vagina" id="30239">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.lower part of vagina.muscular layer of lower part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30237</parentId>
+                </component>
+                <childrenId>30239</childrenId>
+                <component isPrimary="true" name="developing vasculature of lower part of vagina" id="31228">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.lower part of vagina.developing vasculature of lower part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30237</parentId>
+                </component>
+                <childrenId>31228</childrenId>
+              </component>
+              <childrenId>30237</childrenId>
+              <component isPrimary="true" name="upper part of vagina" id="30240">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.upper part of vagina</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30236</parentId>
+                <component isPrimary="true" name="epithelial layer of upper part of vagina" id="30241">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.upper part of vagina.epithelial layer of upper part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30240</parentId>
+                </component>
+                <childrenId>30241</childrenId>
+                <component isPrimary="true" name="muscular layer of upper part of vagina" id="30242">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.upper part of vagina.muscular layer of upper part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>28</stopEmbryoStage>
+                  <parentId>30240</parentId>
+                </component>
+                <childrenId>30242</childrenId>
+                <component isPrimary="true" name="developing vasculature of upper part of vagina" id="31223">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.vagina.upper part of vagina.developing vasculature of upper part of vagina</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>24</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30240</parentId>
+                </component>
+                <childrenId>31223</childrenId>
+              </component>
+              <childrenId>30240</childrenId>
+            </component>
+            <childrenId>30236</childrenId>
+            <component isPrimary="true" name="genital tubercle of female" id="30211">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female</printName>
+              <abbreviation/>
+              <synonym>clitoris anlage</synonym>
+              <startEmbryoStage>20</startEmbryoStage>
+              <stopEmbryoStage>27</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="glans clitoris" id="30213">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.glans clitoris</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30211</parentId>
+                <component isPrimary="true" name="surface epithelium of glans clitoris" id="30723">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.glans clitoris.surface epithelium of glans clitoris</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30213</parentId>
+                </component>
+                <childrenId>30723</childrenId>
+                <component isPrimary="true" name="mesenchyme of glans clitoris" id="30718">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.glans clitoris.mesenchyme of glans clitoris</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30213</parentId>
+                </component>
+                <childrenId>30718</childrenId>
+              </component>
+              <childrenId>30213</childrenId>
+              <component isPrimary="true" name="crus of clitoris" id="30212">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.crus of clitoris</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30211</parentId>
+                <component isPrimary="true" name="surface epithelium of crus of clitoris" id="30733">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.crus of clitoris.surface epithelium of crus of clitoris</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30212</parentId>
+                </component>
+                <childrenId>30733</childrenId>
+                <component isPrimary="true" name="mesenchyme of crus of clitoris" id="30728">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.crus of clitoris.mesenchyme of crus of clitoris</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30212</parentId>
+                </component>
+                <childrenId>30728</childrenId>
+              </component>
+              <childrenId>30212</childrenId>
+              <component isPrimary="true" name="prepuce of female" id="30702">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.prepuce of female</printName>
+                <abbreviation/>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30211</parentId>
+                <component isPrimary="true" name="prepuce surface epithelium of female" id="30710">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.prepuce of female.prepuce surface epithelium of female</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30702</parentId>
+                </component>
+                <childrenId>30710</childrenId>
+                <component isPrimary="true" name="preputial gland of female" id="30714">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.prepuce of female.preputial gland of female</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30702</parentId>
+                </component>
+                <childrenId>30714</childrenId>
+                <component isPrimary="true" name="prepuce mesenchyme of female" id="30706">
+                  <printName>organ system.visceral organ.reproductive system.female reproductive system.genital tubercle of female.prepuce of female.prepuce mesenchyme of female</printName>
+                  <abbreviation/>
+                  <startEmbryoStage>25</startEmbryoStage>
+                  <stopEmbryoStage>27</stopEmbryoStage>
+                  <parentId>30702</parentId>
+                </component>
+                <childrenId>30706</childrenId>
+              </component>
+              <childrenId>30702</childrenId>
+            </component>
+            <childrenId>30211</childrenId>
+            <component isPrimary="true" name="labial swelling" id="30204">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.labial swelling</printName>
+              <abbreviation/>
+              <synonym>labia</synonym>
+              <startEmbryoStage>24</startEmbryoStage>
+              <stopEmbryoStage>27</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="surface epithelium of labial swelling" id="30442">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.labial swelling.surface epithelium of labial swelling</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30204</parentId>
+              </component>
+              <childrenId>30442</childrenId>
+              <component isPrimary="true" name="mesenchymal layer of labial swelling" id="30437">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.labial swelling.mesenchymal layer of labial swelling</printName>
+                <abbreviation/>
+                <startEmbryoStage>24</startEmbryoStage>
+                <stopEmbryoStage>27</stopEmbryoStage>
+                <parentId>30204</parentId>
+              </component>
+              <childrenId>30437</childrenId>
+            </component>
+            <childrenId>30204</childrenId>
+            <component isPrimary="true" name="inguinal canal" id="30220">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.inguinal canal</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+            </component>
+            <childrenId>30220</childrenId>
+            <component isPrimary="true" name="inguinal ring" id="30221">
+              <printName>organ system.visceral organ.reproductive system.female reproductive system.inguinal ring</printName>
+              <abbreviation/>
+              <startEmbryoStage>25</startEmbryoStage>
+              <stopEmbryoStage>28</stopEmbryoStage>
+              <parentId>30203</parentId>
+              <component isPrimary="true" name="internal" id="30223">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.inguinal ring.internal</printName>
+                <abbreviation/>
+                <synonym>deep</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30221</parentId>
+              </component>
+              <childrenId>30223</childrenId>
+              <component isPrimary="true" name="external" id="30222">
+                <printName>organ system.visceral organ.reproductive system.female reproductive system.inguinal ring.external</printName>
+                <abbreviation/>
+                <synonym>superficial</synonym>
+                <startEmbryoStage>25</startEmbryoStage>
+                <stopEmbryoStage>28</stopEmbryoStage>
+                <parentId>30221</parentId>
+              </component>
+              <childrenId>30222</childrenId>
+            </component>
+            <childrenId>30221</childrenId>
+          </component>
+          <childrenId>30203</childrenId>
+        </component>
+        <childrenId>30156</childrenId>
+      </component>
+      <childrenId>30153</childrenId>
+    </component>
+    <childrenId>30154</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

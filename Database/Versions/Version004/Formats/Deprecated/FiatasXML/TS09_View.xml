@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <stage>TS09</stage>
+  <anatomy_view>
+    <name>Renal</name>
+    <component_list/>
+  </anatomy_view>
+  <anatomy_view>
+    <name>full</name>
+    <component_list>
+      <component>
+        <emapId>EMAP:81</emapId>
+        <level>-1</level>
+      </component>
+      <component>
+        <emapId>EMAP:84</emapId>
+        <level>-1</level>
+      </component>
+      <component>
+        <emapId>EMAP:83</emapId>
+        <level>-1</level>
+      </component>
+      <component>
+        <emapId>EMAP:87</emapId>
+        <level>-1</level>
+      </component>
+      <component>
+        <emapId>EMAP:88</emapId>
+        <level>-1</level>
+      </component>
+      <component>
+        <emapId>EMAP:89</emapId>
+        <level>-1</level>
+      </component>
+    </component_list>
+  </anatomy_view>
+</HGU_MRC_Edinburgh>

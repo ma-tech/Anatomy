@@ -1,0 +1,118 @@
+
+***** Results of validating the anatomy database. *****
+This runs a series of tests, displaying a test description, followed by any
+data that fails the test.  If all data passes then no data is displayed.
+This log file is provided to let you know where data in the database does
+not conform to expectiations.
+
+TEST: IDs from ANA_OBJECT do not exist in > 1 table
+
+TEST: IDs in ANA_OBJECT exist in another table
+
+TEST: Perspective definitions are minimal
+
+TEST: Every perspective has at least 1 node
+
+TEST: Nodes have valid public ID format
+
+TEST: Nodes have valid component name format
+
+TEST: Every node has at least one timed node
+
+TEST: Timed Nodes have valid public ID format
+
+TEST: No holes in stage windows for Nodes
+
+TEST: Stage modifiers only occur on first or last stage
+ATN OID	Public ID	Name	Modifier	Occurs on Stage	1st stage	Last stage
+113	EMAP:13	compacted morula	Early	TS04	TS03	TS04
+2638	EMAP:5291	foramen primum	Early	TS21	TS18	TS22
+4684	EMAP:870	otic placode	Early	TS14	TS12	TS14
+4698	EMAP:1279	otic pit	Early	TS15	TS14	TS15
+5391	EMAP:1293	optic vesicle	Early	TS15	TS14	TS15
+5466	EMAP:3006	lens pit	Early	TS18	TS16	TS18
+1154	EMAP:709	facial neural crest	Late	TS14	TS13	TS14
+9589	EMAP:9306	epithelium	Late	TS24	TS23	TS26
+9590	EMAP:10666	epithelium	Late	TS25	TS23	TS26
+9591	EMAP:12026	epithelium	Late	TS26	TS23	TS26
+9595	EMAP:9307	mesenchyme	Late	TS24	TS23	TS26
+9596	EMAP:10667	mesenchyme	Late	TS25	TS23	TS26
+9597	EMAP:12027	mesenchyme	Late	TS26	TS23	TS26
+18543	EMAP:672	branchial membrane	Late	TS14	TS13	TS19
+20846	EMAP:8659	plantar pads	Late	TS24	TS23	TS26
+20847	EMAP:10019	plantar pads	Late	TS25	TS23	TS26
+20848	EMAP:11379	plantar pads	Late	TS26	TS23	TS26
+
+TEST: No holes in stage sequence values
+
+TEST: Relationships are between expected record types.
+
+TEST: Every node in at least 1 part-of relationship
+
+TEST: Every group has members.
+
+TEST: Lineage relationships move forward in time by at most one stage
+
+TEST: Only one root node.
+
+TEST: Version number and date increase in synch
+
+TEST: Date on Log entry for object > object's create date.
+
+TEST: Two consecutive old values in log are not the same.
+
+TEST: Deleted Public IDs are no longer active.
+
+Creating temp table(s) for testing ANAD_PART_OF (very slow)
+
+... 1/2 done
+
+... done
+
+TEST: ANAD_PART_OF has only one root node.
+
+TEST: First record in ANAD_PART_OF is a root node.
+
+TEST: Every parent-child pair in ANAD_PART_OF has a relationship in ANA_RELATIONSHIP.
+
+TEST: Every parent-child part-of pair in ANA_RELATIONSHIP is in ANAD_PART_OF.
+
+TEST: ANAD_PART_OF node stage window reflects timed nodes.
+
+TEST: ANAD_PART_OF node stage window >= path stage window
+
+TEST: ANAD_PART_OF child stage ranges within parent's.
+
+TEST: ANAD_PART_OF sequence values are dense.
+
+TEST: ANAD_PART_OF depth increases by at most 1 (slow)
+
+TEST: ANAD_PART_OF has one and only one primary path to each node
+
+TEST: ANAD_PART_OF parent-child pairs based on depth/sequence agree with APO_PARENT_APO_FK (slow).
+
+TEST: ANAD_PART_OF parent-child pairs based on APO_PARENT_APO_FK agree with depth/sequence pairings.
+
+TEST: All ANAD_PART_OF full path agrees with parent-child pairs.
+
+TEST: ANAD_PART_OF all descendents of groups marked as not primary.
+
+Creating temp table(s) for testing ANAD_PART_OF_PERSPECTIVE (PAINFULLY slow)
+
+... 1/2 done
+
+... done
+
+TEST: First record in perspective is a root node.
+
+TEST: ANAD_PART_OF_PERSPECTIVE (POP_APO_FK, POP_NODE_FK) pair point at valid ANAD_PART_OF record.
+
+TEST: ANAD_PART_OF_PERSPECTIVE depth increases by at most 1 (slow)
+
+TEST: ANAD_PART_OF_PERSPECTIVE depth, sequence, and full path agree with relationships (PAINFULLY SLOW!)
+
+... done.
+
+TEST: ANAD_RELATIONSHIP_TRANSITIVE relationships missing from ANAD_PART_OF (slow)
+
+TEST: ANAD_PART_OF relationships missing from ANAD_RELATIONSHHIP_TRANSITIVE

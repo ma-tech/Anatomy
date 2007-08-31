@@ -5,6 +5,18 @@
  * In general the tests below should return 0 rows.
  */
 
+select "***** Results of validating the anatomy database. *****" as "";
+
+select 
+  "data that fails the test.  If all data passes then no data is displayed." as
+  "This runs a series of tests, displaying a test description, followed by any";
+
+select 
+  "not conform to expectiations." as
+  "This log file is provided to let you know where data in the database does";
+
+
+
 /* ============================================================
  * ANA_OBJECT Tests
  *
@@ -94,7 +106,7 @@ insert into temp_oids2
 
 /* report IDs that exist in more than one table */
 
-select "";
+
 select "TEST: IDs from ANA_OBJECT do not exist in > 1 table" as "";
 
 select oid as "Duplicated OID", table_name "In Tables"
@@ -109,7 +121,7 @@ select oid as "Duplicated OID", table_name "In Tables"
 
 /* Report IDs that exist in ANA_OBJECT, but not in tables */
 
-select "";
+
 select "TEST: IDs in ANA_OBJECT exist in another table" as "";
 
 select OBJ_OID as "Orphaned ANA_OBJECT", 
@@ -135,7 +147,7 @@ select OBJ_OID as "Orphaned ANA_OBJECT",
 /* SEE ALSO: ANAD_PART_OF_PERSPECTIVE tests below */
 
 
-select "";
+
 select "TEST: Perspective definitions are minimal" as "";
 
 select ances.ANO_OID as "AncesOID",
@@ -156,7 +168,7 @@ select ances.ANO_OID as "AncesOID",
 
 
 
-select "";
+
 select "TEST: Every perspective has at least 1 node" as "";
 
 select PSP_NAME "Perspective without Nodes", PSP_COMMENTS
@@ -175,7 +187,7 @@ select PSP_NAME "Perspective without Nodes", PSP_COMMENTS
 
 /* Check that every node has the correct format */
 
-select "";
+
 select "TEST: Nodes have valid public ID format" as "";
 
 select ANO_OID as "OID", ANO_SPECIES_FK as "Species", 
@@ -194,7 +206,7 @@ select ANO_OID as "OID", ANO_SPECIES_FK as "Species",
  *   comma-space pairs
  *   single spaces
  */
-select "";
+
 select "TEST: Nodes have valid component name format" as "";
 
 select ANO_OID as "OID", ANO_SPECIES_FK as "Species", 
@@ -212,7 +224,7 @@ select ANO_OID as "OID", ANO_SPECIES_FK as "Species",
 
 /* Make sure every node has at least one timed node. */
 
-select "";
+
 select "TEST: Every node has at least one timed node" as "";
 
 select ANO_OID as "OID without Timed Nodes", 
@@ -227,7 +239,7 @@ select ANO_OID as "OID without Timed Nodes",
 
 /* Check that every timed node has the correct format */
 
-select "";
+
 select "TEST: Timed Nodes have valid public ID format" as "";
 
 /*
@@ -253,7 +265,7 @@ select ATN_OID as "ATN OID",
  * NOTE: This works only as long as stage sequences are dense. 
  */
 
-select "";
+
 select "TEST: No holes in stage windows for Nodes" as "";
 
 select ANO_OID as "Node OID", 
@@ -274,7 +286,7 @@ select ANO_OID as "Node OID",
  *  LostLate: Should only occur on last stage
  */
 
-select "";
+
 select "TEST: Stage modifiers only occur on first or last stage" as "";
 
 /* Test assumptions before running test */
@@ -347,7 +359,7 @@ select atn.ATN_OID as "ATN OID",
  * if these have gaps.
  */
 
-select "";
+
 select "TEST: No holes in stage sequence values" as "";
 
 select STG_OID as "Stage OID", 
@@ -374,7 +386,7 @@ select STG_OID as "Stage OID",
  * specific types of objects.
  */
 
-select "";
+
 select "TEST: Relationships are between expected record types." as "";
 
 /* Check assumptions of test before running test */
@@ -426,7 +438,7 @@ select REL_OID as "Rel OID",
 
 /* Every node should participate in at least one part-of relationship */
 
-select "";
+
 select "TEST: Every node in at least 1 part-of relationship" as "";
 
 select ANO_OID as "Node OID",
@@ -445,7 +457,7 @@ select ANO_OID as "Node OID",
 
 /* Every group node should be a parent in at least one part-of relationship */
 
-select "";
+
 select "TEST: Every group has members." as "";
 
 select ANO_OID as "Group Node OID",
@@ -465,7 +477,7 @@ select ANO_OID as "Group Node OID",
  *  concurrent to concurrent timed nodes 
  */
 
-select "";
+
 select "TEST: Lineage relationships move forward in time by at most one stage" as "";
 
 select REL_OID as "Rel OID",
@@ -498,7 +510,7 @@ select REL_OID as "Rel OID",
 
 /* Should only be one root node */
 
-select "";
+
 select "TEST: Only one root node." as "";
 
 select one.ANO_OID as "Root Node OID",
@@ -527,7 +539,7 @@ select one.ANO_OID as "Root Node OID",
 
 /* Version number and date should increase with each other. */
 
-select "";
+
 select "TEST: Version number and date increase in synch" as "";
 
 select verX.VER_OID      as "One Version OID",
@@ -564,7 +576,7 @@ select verX.VER_OID      as "One Version OID",
  * database.
  */
 
-select "";
+
 select "TEST: Date on Log entry for object > object's create date." as "";
 
 select LOG_OID as "Log OID",
@@ -586,7 +598,7 @@ select LOG_OID as "Log OID",
  *       integers
  */
 
-select "";
+
 select "TEST: Two consecutive old values in log are not the same." as "";
 
 select logPrev.LOG_LOGGED_OID  as "Object OID",
@@ -620,7 +632,7 @@ select logPrev.LOG_LOGGED_OID  as "Object OID",
 
 /* Make sure ID is really Deleted */
 
-select "";
+
 select "TEST: Deleted Public IDs are no longer active." as "";
 
 select DPI_DELETED_PUBLIC_ID as "'Deleted' ID that still exists in DB"
@@ -641,7 +653,7 @@ select DPI_DELETED_PUBLIC_ID as "'Deleted' ID that still exists in DB"
 
 /* ***** Create temp table for reuse in several queries ***** */
 
-select "";
+
 select "Creating temp table(s) for testing ANAD_PART_OF (very slow)" as "";
 
 
@@ -693,7 +705,7 @@ select "... done" as "";
 
 /* ***** Test ANAD_PART_OF root node consistency ***** */
 
-select "";
+
 select "TEST: ANAD_PART_OF has only one root node." as "";
 
 select APO_OID       as "APO OID",
@@ -709,7 +721,7 @@ select APO_OID       as "APO OID",
   order by APO_SEQUENCE;
 
 
-select "";
+
 select "TEST: First record in ANAD_PART_OF is a root node." as "";
 
 select APO_OID       as "APO OID",
@@ -732,7 +744,7 @@ select APO_OID       as "APO OID",
  * part of relationship in ANA_RELATIONSHIP 
  */
 
-select "";
+
 select "TEST: Every parent-child pair in ANAD_PART_OF has a relationship in ANA_RELATIONSHIP." as "";
 
 select parent.APO_OID       as "PARENT APO OID",
@@ -755,7 +767,7 @@ select parent.APO_OID       as "PARENT APO OID",
 
 /* and vice versa */
 
-select "";
+
 select "TEST: Every parent-child part-of pair in ANA_RELATIONSHIP is in ANAD_PART_OF." as "";
 
 select parent.ANO_OID            as "PARENT Node OID",
@@ -781,7 +793,7 @@ select parent.ANO_OID            as "PARENT Node OID",
 
 /* Node stage window should agree with ANA_TIMED_NODE */
 
-select "";
+
 select "TEST: ANAD_PART_OF node stage window reflects timed nodes." as "";
 
 select APO_OID as "APO OID",
@@ -813,7 +825,7 @@ select APO_OID as "APO OID",
 
 /* Node stage window should be >= path stage window. */
 
-select "";
+
 select "TEST: ANAD_PART_OF node stage window >= path stage window" as "";
 
 select APO_OID               as "APO OID",
@@ -839,7 +851,7 @@ select APO_OID               as "APO OID",
 
 /* Check child path stage ranges against parent path stage ranges */
 
-select "";
+
 select "TEST: ANAD_PART_OF child stage ranges within parent's." as "";
 
 select parent.APO_SEQUENCE   as "PARENT Sequence",
@@ -887,7 +899,7 @@ select parent.APO_SEQUENCE   as "PARENT Sequence",
 
 /* Check that sequence is dense */
 
-select "";
+
 select "TEST: ANAD_PART_OF sequence values are dense." as "";
 
 select count(*) as "Expected sequence range",
@@ -899,7 +911,7 @@ select count(*) as "Expected sequence range",
 
 /* Check that depth, when it increases, only increases by one. */
 
-select "";
+
 select "TEST: ANAD_PART_OF depth increases by at most 1 (slow)" as "";
 
 select one.APO_OID       as "1st APO OID",
@@ -920,7 +932,7 @@ select one.APO_OID       as "1st APO OID",
 /* Check each node has only one primary path to it in ANAD_PART_OF.
  */
 
-select "";
+
 select "TEST: ANAD_PART_OF has one and only one primary path to each node" as "";
 
 select ANO_PUBLIC_ID            as "Public ID", 
@@ -950,7 +962,7 @@ select ANO_PUBLIC_ID            as "Public ID",
  * ANAD_PART_OF.
  */
 
-select "";
+
 select "TEST: ANAD_PART_OF parent-child pairs based on depth/sequence agree with APO_PARENT_APO_FK (slow)." as "";
 
 create temporary table parentChildApo_temp 
@@ -983,7 +995,7 @@ select parent.APO_SEQUENCE  as "PARENT Sequence",
   order by child.APO_SEQUENCE;
 
 
-select "";
+
 select "TEST: ANAD_PART_OF parent-child pairs based on APO_PARENT_APO_FK agree with depth/sequence pairings." as "";
 
 select parent.APO_SEQUENCE  as "PARENT Sequence",
@@ -1002,7 +1014,7 @@ select parent.APO_SEQUENCE  as "PARENT Sequence",
   order by child.APO_SEQUENCE;
 
 
-select "";
+
 select "TEST: All ANAD_PART_OF full path agrees with parent-child pairs." as "";
 
 select parent.APO_SEQUENCE  as "PARENT Sequence",
@@ -1022,7 +1034,7 @@ select parent.APO_SEQUENCE  as "PARENT Sequence",
 
 /* Check all descendents of groups are marked as not primary. */
 
-select "";
+
 select "TEST: ANAD_PART_OF all descendents of groups marked as not primary." as "";
 select ancesApo.APO_SEQUENCE  as "ANCESTOR Sequence",
        ancesApo.APO_DEPTH     as "Depth",
@@ -1052,7 +1064,7 @@ select ancesApo.APO_SEQUENCE  as "ANCESTOR Sequence",
  * Repeat some of ANAD_PART_OF tests for perspectives
  */
 
-select "";
+
 select "Creating temp table(s) for testing ANAD_PART_OF_PERSPECTIVE (PAINFULLY slow)" as "";
 
 /* Temp table keeps track of any APO entry in a perspective that has 
@@ -1116,7 +1128,7 @@ insert into nextParentPop_temp
 select "... done" as "";
 
 
-select "";
+
 select "TEST: First record in perspective is a root node." as "";
 
 select min(APO_SEQUENCE), POP_PERSPECTIVE_FK
@@ -1134,7 +1146,7 @@ select min(APO_SEQUENCE), POP_PERSPECTIVE_FK
  * (APO_OID,    APO_NODE_FK).
  */
 
-select "";
+
 select "TEST: ANAD_PART_OF_PERSPECTIVE (POP_APO_FK, POP_NODE_FK) pair point at valid ANAD_PART_OF record." as "";
 
 select POP_PERSPECTIVE_FK     as "Perspective",
@@ -1157,7 +1169,7 @@ select POP_PERSPECTIVE_FK     as "Perspective",
 
 /* Check that depth, when it increases, only increases by one. */
 
-select "";
+
 select "TEST: ANAD_PART_OF_PERSPECTIVE depth increases by at most 1 (slow)" as "";
 
 select apo1.APO_OID       as "1st APO OID",
@@ -1181,7 +1193,7 @@ select apo1.APO_OID       as "1st APO OID",
 
 /* This code could be sped up by using the APO_PARENT_APO_FK column */
 
-select "";
+
 select "TEST: ANAD_PART_OF_PERSPECTIVE depth, sequence, and full path agree with relationships (PAINFULLY SLOW!)" as "";
 
 
@@ -1228,7 +1240,7 @@ select "... done." as "";
  * temp tables from above
  */
 
-select "";
+
 select "TEST: ANAD_RELATIONSHIP_TRANSITIVE relationships missing from ANAD_PART_OF (slow)" as "";
 
 /* Create list of all ancestor-descendent pairings that exist in ANAD_PART_OF. 
@@ -1272,7 +1284,7 @@ select RTR_RELATIONSHIP_TYPE_FK       as "Type",
   order by ancesNode.ANO_COMPONENT_NAME, descendNode.ANO_COMPONENT_NAME;
 
 
-select "";
+
 select "TEST: ANAD_PART_OF relationships missing from ANAD_RELATIONSHHIP_TRANSITIVE" as "";
 
 select ances.APO_SEQUENCE    as "ANCESTOR Sequence",

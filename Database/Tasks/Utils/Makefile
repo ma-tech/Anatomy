@@ -1,21 +1,12 @@
 #
 # Makefile to run various scripts against the anatomy database.
 #
-USAGE = gmake DB="-u username -p -h hostname dbname" target
+USAGE1 = gmake DB="-u username -p -h hostname dbname" target
+TARGETS1 = Valid targets are:
+TARGETS2 = "  dump:     Create a dump of the database."
+TARGETS3 = "  empty:    Delete all data from all anatomy database tables."
+TARGETS4 = "  validate: Run validation script against database."
 
-
-# ===================================================================
-# VALIDATION
-# ===================================================================
-
-ifndef $(DB)
-NoDbDefined :
-	@echo
-	@echo ERROR Missing DB argument.  Usage:
-	@echo "  " '$(USAGE)'
-	@echo
-	exit -1
-endif
 
 
 # ===================================================================
@@ -53,6 +44,10 @@ TABLES = \
 
 TABLES_EMPTY = $(foreach TABLE,$(TABLES),$(TABLE).empty)
 
+DUMP_FILE = ../../Versions/Version004/Formats/Dumps/mySqlSchemaAndDataDump.sql
+VALIDATION_LOG_FILE = ../../Versions/Version004/Doc/Data/validation.log
+
+
 
 # ===================================================================
 # RULES
@@ -61,24 +56,52 @@ TABLES_EMPTY = $(foreach TABLE,$(TABLES),$(TABLE).empty)
 
 # Force the caller to provide a target
 all :
-	echo 'Please specify a target.'
-
-
+	@echo
+	@echo 'Please provide a specific target.'
+	@echo $(TARGETS1)
+	@echo $(TARGETS2)
+	@echo $(TARGETS3)
+	@echo $(TARGETS4)
+	@echo
 
 # Dump the anatomy database
 
-dump :
-	mysqldump --single-transaction --routine --add-drop-table $(DB) $(TABLES) > ../../Versions/Version004/Dumps/mySqlSchemaAndDataDump.sql
+dump : DbCheck
+	mysqldump --single-transaction --routine --add-drop-table \
+	$(DB) $(TABLES) > $(DUMP_FILE)
 
 
-validate :
-	mysql $(DB) < validation.sql
+# Check database against test battery.
 
+validate : DbCheck
+	mysql $(DB) < validation.sql > $(VALIDATION_LOG_FILE)
+	cat $(VALIDATION_LOG_FILE)
 
 # Empty all anatomy database tables.  That is, delete all records in all tables.
 
-empty : $(TABLES_EMPTY)
+empty : DbCheck $(TABLES_EMPTY)
 
 $(TABLES_EMPTY) :
-	echo 'Deleting all records in database table $(subst .empty,,$@).'
-	echo 'delete from $(subst .empty,,$@)' | mysql $(DB)
+	@echo '*** Deleting all records in database table $(subst .empty,,$@). ***'
+	echo '"delete from $(subst .empty,,$@);"' | mysql $(DB)
+	@echo
+
+
+
+
+# :BUG: Tried using ifdef/ifndef here, but it did not work.
+
+DbCheck :
+ifneq ($(DB),)
+
+else
+	@echo ERROR Missing DB argument.  Usage:
+	@echo "  " '$(USAGE1)'
+	@echo "  " $(TARGETS1)
+	@echo "  " $(TARGETS2)
+	@echo "  " $(TARGETS3)
+	@echo "  " $(TARGETS4)
+	@echo
+	exit -1
+endif
+

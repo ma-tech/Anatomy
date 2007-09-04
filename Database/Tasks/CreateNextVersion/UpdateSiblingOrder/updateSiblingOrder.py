@@ -37,8 +37,9 @@ _config = {
     "DB_USER":          None,
     "DB_DATABASE":      None,
     "DB_PASSWORD":      None,
-    "OUTPUT_DIR":       None,
-    "SIBLING_ORDER_FILE": None,
+    "OUTPUT_FILE":      None,
+    "SIBLING_ORDER_SPEC": None,
+    "EXCLUDES":         None,
     "DEBUGGING":        None
     }
 
@@ -47,15 +48,22 @@ _config = {
 # LOCAL SUBROUTINES
 # ------------------------------------------------------------------
 
-def __initialise(configParams):
+def __initialise(configFile, configParams):
     """
     Initialise program.  This includes establishing the database
     connection, and setting debugging.
     """
+    Util.readConfiguration(configFile, configParams, printConfig = True)
+
     if configParams["DEBUGGING"] == "ON":
         Util.setDebugging(True)
     else:
         Util.setDebugging(False)
+
+    # EXCLUDES parameter is a space separated list of EMAPA IDs.  Do not
+    # update the sibling ordering of these items.  Convert the space
+    # separated list to a python set.
+    configParams["EXCLUDES"] = sets.Set(configParams["EXCLUDES"].split())
 
     # Initialise Database and read the whole thing in.
     Anatomy.initialise(
@@ -63,7 +71,7 @@ def __initialise(configParams):
         dbName = configParams["DB_DATABASE"],
         dbUser = configParams["DB_USER"],
         dbPass = configParams["DB_PASSWORD"],
-        outputFilePath = configParams["OUTPUT_DIR"] + "/siblingOrder.sql",
+        outputFilePath = configParams["OUTPUT_FILE"],
         charset = "latin1")
 
     return None
@@ -104,11 +112,13 @@ def _getByParentChildPublicIdsRelType(parentPublicId, childPublicId, relType):
 
 
 
-def __readSiblingOrderFromFile(siblingOrderFile):
+def __readSiblingOrderFromFile(siblingOrderFile, excludeSet):
     """
     Read in the sequence the tree is supposed to be displayed in.
 
     siblinOrderFile: Name of file containing sequence information.
+    excludeSet: Set of EMAPA ids to ignore.  That is, the ordering for
+    these items will not be set.
     """
     # Open file and read in header.
     siblingOrderStream = SiblingOrderStream.SiblingOrderStream(siblingOrderFile)
@@ -168,6 +178,12 @@ def __readSiblingOrderFromFile(siblingOrderFile):
                     # Don't report dups from group section b/c relationships
                     # can occur many times there and we don't want to force
                     # editors to reorder all of them, just the first one.
+            elif publicId in excludeSet:
+                Util.statusMessage([
+                    "NOT setting ordering information for relationsip between",
+                    "Parent " + parentPublicId + ", '" + parentName +"'",
+                    "Child  " + publicId + ", '" + name + "'",
+                    "because child is in EXCLUDE list in configuration file."])
             else:
                 # We have an ordering for this child.
                 if parentPublicId not in parentCounts:
@@ -193,11 +209,10 @@ def __readSiblingOrderFromFile(siblingOrderFile):
 # Generate reports for each stage, and then for the abstract mouse as well.
 # Each report goes in a separate file.
 
-Util.readConfiguration(sys.argv[1], _config, printConfig = True)
+__initialise(sys.argv[1], _config)
 
-__initialise(_config)
-
-__readSiblingOrderFromFile(_config["SIBLING_ORDER_FILE"])
+__readSiblingOrderFromFile(_config["SIBLING_ORDER_SPEC"],
+                           _config["EXCLUDES"])
 
 print "Done"
 

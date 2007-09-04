@@ -756,7 +756,7 @@ def _writeTimedNodeEnableConstraints(ciofChangesFile):
         alter table ANA_TIMED_NODE
           add constraint
             unique ATN_AK2_INDEX (ATN_NODE_FK, ATN_STAGE_FK);
-        show warnings
+        show warnings;
         """)
     ciofChangesFile.write(
         """

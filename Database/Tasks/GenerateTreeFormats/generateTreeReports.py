@@ -82,8 +82,7 @@ def __initialise(configFile, configParams):
         dbHost = configParams["DB_HOST"],
         dbName = configParams["DB_DATABASE"],
         dbUser = configParams["DB_USER"],
-        dbPass = configParams["DB_PASSWORD"],
-        charset = "latin1")
+        dbPass = configParams["DB_PASSWORD"])
 
 
     return None

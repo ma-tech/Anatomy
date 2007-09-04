@@ -23,10 +23,15 @@ config = {
 
 configFile = sys.argv[1]
 Util.readConfiguration(configFile, config, printConfig=True)
+
+Util.statusMessage(["Reading in anatomy database."])
 Anatomy.initialise(dbHost = config["DB_HOST"], dbName = config["DB_DATABASE"],
                    dbUser = config["DB_USER"], dbPass = config["DB_PASSWORD"],
                    outputFilePath = config["OUTPUT_FILEPATH"])
+
+Util.statusMessage(["Generating SQL to repopulate derived tables."])
 Anatomy.generateDerivedData()
 DbAccess.finalise()
 
+Util.statusMessage(["Done. SQL script is in " + config["OUTPUT_FILEPATH"]])
 sys.exit(0)

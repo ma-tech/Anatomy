@@ -5,7 +5,8 @@ USAGE1 = gmake DB="-u username -p -h hostname dbname" target
 TARGETS1 = Valid targets are:
 TARGETS2 = "  dump:     Create a dump of the database."
 TARGETS3 = "  empty:    Delete all data from all anatomy database tables."
-TARGETS4 = "  validate: Run validation script against database."
+TARGETS4 = "  drop:     Drop all anatomy database tables."
+TARGETS5 = "  validate: Run validation script against database."
 
 
 
@@ -43,6 +44,8 @@ TABLES = \
   REF_SPECIES
 
 TABLES_EMPTY = $(foreach TABLE,$(TABLES),$(TABLE).empty)
+TABLES_DROP  = $(foreach TABLE,$(TABLES),$(TABLE).drop)
+
 
 DUMP_FILE = ../../Versions/Version004/Formats/Dumps/mySqlSchemaAndDataDump.sql
 VALIDATION_LOG_FILE = ../../Versions/Version004/Doc/Data/validation.log
@@ -62,6 +65,7 @@ all :
 	@echo $(TARGETS2)
 	@echo $(TARGETS3)
 	@echo $(TARGETS4)
+	@echo $(TARGETS5)
 	@echo
 
 # Dump the anatomy database
@@ -77,6 +81,7 @@ validate : DbCheck
 	mysql $(DB) < validation.sql > $(VALIDATION_LOG_FILE)
 	cat $(VALIDATION_LOG_FILE)
 
+
 # Empty all anatomy database tables.  That is, delete all records in all tables.
 
 empty : DbCheck $(TABLES_EMPTY)
@@ -87,7 +92,20 @@ $(TABLES_EMPTY) :
 	@echo
 
 
+# Drop all anatomy database tables.
 
+drop : DbCheck $(TABLES_DROP)
+
+$(TABLES_DROP) :
+	@echo '*** Dropping database table $(subst .drop,,$@). ***'
+	echo '"drop table $(subst .drop,,$@);"' | mysql $(DB)
+	@echo
+
+
+
+# =====================================================================
+# Makefile Parameter Checking
+# =====================================================================
 
 # :BUG: Tried using ifdef/ifndef here, but it did not work.
 
@@ -101,6 +119,7 @@ else
 	@echo "  " $(TARGETS2)
 	@echo "  " $(TARGETS3)
 	@echo "  " $(TARGETS4)
+	@echo "  " $(TARGETS5)
 	@echo
 	exit -1
 endif

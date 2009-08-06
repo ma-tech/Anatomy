@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Internal python structures to represent anatomy node names
 """
 

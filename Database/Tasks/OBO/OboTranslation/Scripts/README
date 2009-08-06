@@ -1,3 +1,13 @@
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 This directory contains an abortive attempt to convert an OBO format
 file into an anatomy database.  The OBO file that I tried to do this
 with was an early version of the Xenopus anatomy.

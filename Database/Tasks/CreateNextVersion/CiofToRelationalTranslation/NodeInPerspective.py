@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Internal python structures to represent the ANA_NODE_IN_PERSPECTVE
 table which defines the nodes that occur in each perspective
 Perspective definitions are not listed in the CIOF file.

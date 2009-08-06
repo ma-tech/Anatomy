@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Internal python structures to represent anatomy perspectives.
 Perspective definitions are not listed in the CIOF file.
 """

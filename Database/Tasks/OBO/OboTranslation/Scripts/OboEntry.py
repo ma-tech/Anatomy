@@ -1,6 +1,15 @@
 #!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-1 -*-
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
 Everything after the header in an OBO file is an OBO entry.
 This file defines them.
 """

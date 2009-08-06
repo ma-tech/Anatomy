@@ -2,6 +2,15 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
 Code to parse Sibling Order file.
 
 Sibling Order files are produced by the anatomy tree reporting

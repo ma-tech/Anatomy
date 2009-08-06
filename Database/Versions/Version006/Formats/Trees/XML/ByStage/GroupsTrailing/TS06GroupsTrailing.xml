@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mouseAnatomyReport>
+  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <perspective>Whole mouse</perspective>
+  <stage>TS06</stage>
+  <excludingGroupsTree>
+    <timedComponent emapId="EMAP:25771">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:32">
+        <name>epiblast</name>
+        <emapaId>EMAPA:16050</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <synonym>primitive ectoderm</synonym>
+      </timedComponent>
+      <timedComponent emapId="EMAP:34">
+        <name>extraembryonic component</name>
+        <emapaId>EMAPA:16042</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:35">
+          <name>cavities and their linings</name>
+          <emapaId>EMAPA:16043</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:36">
+            <name>blastocoelic cavity</name>
+            <emapaId>EMAPA:16044</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:37">
+          <name>endoderm</name>
+          <emapaId>EMAPA:16052</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:38">
+            <name>parietal endoderm</name>
+            <emapaId>EMAPA:16053</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <synonym>distal endoderm</synonym>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:39">
+          <name>trophectoderm</name>
+          <emapaId>EMAPA:16046</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:40">
+            <name>mural trophectoderm</name>
+            <emapaId>EMAPA:16047</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:41">
+            <name>polar trophectoderm</name>
+            <emapaId>EMAPA:16048</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:33">
+        <name>primitive endoderm</name>
+        <emapaId>EMAPA:16051</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <synonym>hypoblast</synonym>
+        <synonym>primary endoderm</synonym>
+        <synonym>proximal endoderm</synonym>
+        <synonym>visceral endoderm</synonym>
+      </timedComponent>
+    </timedComponent>
+  </excludingGroupsTree>
+  <onlyGroupsTree>
+    <groupStatusKey>
+      <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
+      <groupStatus status="isGroup">Term a group.</groupStatus>
+      <groupStatus status="isGroupDirectDescendant">Term is directly contained in a group.</groupStatus>
+      <groupStatus status="isGroupIndirectDescendant">Term is indirectly contained in a group.</groupStatus>
+    </groupStatusKey>
+    <timedComponent emapId="EMAP:25771">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:31">
+        <name>embryo</name>
+        <emapaId>EMAPA:16039</emapaId>
+        <groupPathStatus>isGroup</groupPathStatus>
+        <timedComponent emapId="EMAP:32">
+          <name>epiblast</name>
+          <emapaId>EMAPA:16050</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <synonym>primitive ectoderm</synonym>
+        </timedComponent>
+        <timedComponent emapId="EMAP:33">
+          <name>primitive endoderm</name>
+          <emapaId>EMAPA:16051</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <synonym>hypoblast</synonym>
+          <synonym>primary endoderm</synonym>
+          <synonym>proximal endoderm</synonym>
+          <synonym>visceral endoderm</synonym>
+        </timedComponent>
+      </timedComponent>
+    </timedComponent>
+  </onlyGroupsTree>
+</mouseAnatomyReport>

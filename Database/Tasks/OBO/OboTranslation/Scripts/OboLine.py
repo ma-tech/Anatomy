@@ -2,6 +2,15 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
 OboStreams are made up of OboEntries and they are made up of OboLines.
 OboLines have a common format.
 

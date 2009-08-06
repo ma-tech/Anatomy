@@ -24,7 +24,6 @@ public class TreeBuilder {
     private HashMap<String, Vector<DefaultMutableTreeNode[]>> treePaths; //map < id => paths >
     
     private Vector<String> vRoots;
-    
     private DefaultMutableTreeNode mothernode;
     
     private BufferedWriter printNodeText;
@@ -69,10 +68,10 @@ public class TreeBuilder {
     }
    
     public DefaultMutableTreeNode recursiveAddNode(String key, DefaultMutableTreeNode[] parent_path){
-        
         //traverse from root component
 
         Component compie = (Component) this.mapProperties.get(key);
+        //System.out.println("treebuilder adding component " + compie.getID() + " " + compie.getName());
         //check that component is not null otherwise create dummy component for node
         //note: dummy component's sole purpose = a node for tree display; not included in any component lists
         if(compie==null) {
@@ -318,7 +317,7 @@ public class TreeBuilder {
     }
    
     public boolean containsComponent(DefaultMutableTreeNode[] path, Component compie){
-        
+
         boolean contains = false;
         
         //iterate thru each node in the path
@@ -330,7 +329,9 @@ public class TreeBuilder {
                 //if currentCompie is a group node, the path is not a valid path back to the root 
                 //if ( !currentCompie.getIsPrimary() ) return false;
                 //match current component to targeted component
-                if ( compie.isSameAs(currentCompie) ) return true;
+                //if ( compie.isSameAs(currentCompie) ) return true;//MAZE:
+                //REPLACE isSamsAs with matching id, two compies can be the same but have modified properties
+                if (compie.getID().equals(currentCompie.getID())) return true;
             }
         }   
         //Vector< DefaultMutableTreeNode > vPath = new Vector( java.util.Arrays.asList( path ) );  
@@ -338,7 +339,7 @@ public class TreeBuilder {
     }
     
     public boolean containsNode(DefaultMutableTreeNode[] path, DefaultMutableTreeNode node){
-        
+
         boolean contains = false;
         Component nodeCompie = new Component();
         
@@ -355,7 +356,9 @@ public class TreeBuilder {
             if (currentNodeInfo instanceof Component){
                 Component currentCompie = (Component) currentNodeInfo;
                 
-                if ( nodeCompie.isSameAs(currentCompie) ) return true;
+                //if ( nodeCompie.isSameAs(currentCompie) ) return true;//MAZE:
+                //REPLACE isSamsAs with matching id, two compies can be the same but have modified properties
+                if ( nodeCompie.getID().equals(currentCompie.getID()) ) return true;
             }
         }    
         return contains;
@@ -363,7 +366,6 @@ public class TreeBuilder {
     
     
     public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, Component compie ){
-        
         //iterate thru each node in the path
         for ( DefaultMutableTreeNode currentNode: pathTo ){
             //check to see whether each node in the path contains a component
@@ -371,7 +373,9 @@ public class TreeBuilder {
             if ( nodeInfo instanceof Component ){
                 Component currentCompie = ( Component ) nodeInfo;
                 //if currentCompie is a group node
-                if ( !currentCompie.getIsPrimary() && !currentCompie.isSameAs(compie) ) {
+                //if ( !currentCompie.getIsPrimary() && !currentCompie.isSameAs(compie) ) {//MAZE:
+                //REPLACE isSamsAs with matching id, two compies can be the same but have modified properties
+                if ( !currentCompie.getIsPrimary() && !currentCompie.getID().equals(compie.getID()) ){
                     return true;
                 }
             }
@@ -391,8 +395,7 @@ public class TreeBuilder {
         }
         return true;
     }
-    
-    
+
     public Map getTreePaths(){
         return this.treePaths;
     }
@@ -403,9 +406,12 @@ public class TreeBuilder {
         return compie;
     }
     
-    
     public Vector<String> getTreeRoots(){
         return this.vRoots;
+    }
+
+    public Vector<String> getChildrenBasedOnParent(String parent){
+        return (Vector<String>) this.mapChildren.get(parent);
     }
 
     

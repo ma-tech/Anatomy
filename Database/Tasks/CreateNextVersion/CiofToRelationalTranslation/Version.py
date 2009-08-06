@@ -2,6 +2,15 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
 Internal python structures to represent Anatomy Version.
 
 There are multiple versions in the database, but the only thing

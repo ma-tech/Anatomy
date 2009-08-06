@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Given a CIOF file and an existing relational anatomy database, this program
 generates an SQL script that will synchronise the anatomy database with the
 CIOF file, and

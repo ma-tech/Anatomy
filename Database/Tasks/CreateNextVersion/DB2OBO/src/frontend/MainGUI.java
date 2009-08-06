@@ -14,6 +14,8 @@ package frontend;
  */
 import backend.*;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.io.File;
 import javax.swing.JFileChooser;
@@ -26,6 +28,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
@@ -43,6 +46,7 @@ public class MainGUI extends javax.swing.JFrame {
     private static final String START_URL = "jdbc:mysql://";
     private Connection connection; 
     private String species = "";
+    private String project = "";
     private ArrayList < Component > expTermList = null;
     private ArrayList < Relation > expRelationList = null;
     private Component abstractClass, stageClass, groupClass, groupTermClass, stageAnatomyClass;
@@ -86,6 +90,7 @@ public class MainGUI extends javax.swing.JFrame {
         this.stage = "TS01";
         this.rangestart = "TS01";
         this.rangeend = "TS28";
+        this.project = "GUDMAP";
         
         //make root components for classes
         this.makeRootComponents();
@@ -140,6 +145,10 @@ public class MainGUI extends javax.swing.JFrame {
         rbSelectedComponents = new javax.swing.JRadioButton();
         cboAddedRoots = new javax.swing.JComboBox();
         cmdEditList = new javax.swing.JButton();
+        jPanel27 = new javax.swing.JPanel();
+        cboProject = new javax.swing.JComboBox();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel22 = new javax.swing.JPanel();
@@ -634,31 +643,67 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder("Project"));
+
+        cboProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboProjectActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Project");
+
+        jLabel31.setText("selected for ordering");
+
+        org.jdesktop.layout.GroupLayout jPanel27Layout = new org.jdesktop.layout.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel27Layout.createSequentialGroup()
+                .add(54, 54, 54)
+                .add(jLabel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(cboProject, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 137, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jLabel31)
+                .addContainerGap(359, Short.MAX_VALUE))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel27Layout.createSequentialGroup()
+                .add(jPanel27Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel26)
+                    .add(jLabel31)
+                    .add(cboProject, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel4Layout.createSequentialGroup()
+                .add(991, 991, 991)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(197, 197, 197))
+            .add(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel4Layout.createSequentialGroup()
-                        .add(981, 981, 981)
-                        .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(197, 197, 197))
-                    .add(jPanel4Layout.createSequentialGroup()
-                        .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel37, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel27, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel37, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(7, 7, 7)
+                .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -666,7 +711,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(262, 262, 262))
+                .add(241, 241, 241))
         );
 
         jPanel5.getAccessibleContext().setAccessibleName(" OBO file generation");
@@ -805,7 +850,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jPanel21Layout.linkSize(new java.awt.Component[] {txtEndStage, txtStartStage}, org.jdesktop.layout.GroupLayout.VERTICAL);
 
-        txtCurrentFile.setText("C:\\Maze\\OBO\\OBO_files\\from Jane\\modified_currentobo36_200309.obo");
+        txtCurrentFile.setText("C:\\Maze\\OBO\\OBO_files\\from Jane\\modified_currentobo36_210409_final.obo");
         txtCurrentFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCurrentFileActionPerformed(evt);
@@ -1127,7 +1172,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel21.getAccessibleContext().setAccessibleName(null);
@@ -1185,7 +1230,7 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -1211,7 +1256,7 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel9Layout.createSequentialGroup()
-                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1244,7 +1289,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         mouseDBUserNameTF.setText("root");
 
-        mouseDBPasswordPF.setText("Blue1234");
+        mouseDBPasswordPF.setText("1234Blue");
 
         cmdReconnect.setText("Reconnect");
         cmdReconnect.addActionListener(new java.awt.event.ActionListener() {
@@ -1593,7 +1638,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mouse database", jPanel11);
@@ -1967,7 +2012,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Human database", jPanel12);
@@ -1985,7 +2030,7 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2015,7 +2060,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(exitButton)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -2045,7 +2090,7 @@ public class MainGUI extends javax.swing.JFrame {
         // 5: connect to the database and get and export data
         if ( isConnectedToDatabase() ){
             if ( this.defaultroot ){
-                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot );
+                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
                 if ( db.getIsProcessed() ) {
                     expTermList = db.getTermList();
                     expRelationList = db.getRelationList();
@@ -2060,7 +2105,7 @@ public class MainGUI extends javax.swing.JFrame {
                 else JOptionPane.showMessageDialog( null, "OBO file has not been generated! \nPlease check the database connection.", "Error - Matrix generation", JOptionPane.ERROR_MESSAGE );
                 disconnectFromDatabase();
             }else {
-                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, true );
+                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, true, project );
                 if ( db.getIsProcessed() ){
                     expTermList = db.getTermList();
                     expRelationList = db.getRelationList();
@@ -2069,7 +2114,7 @@ public class MainGUI extends javax.swing.JFrame {
                     TreeBuilder treebuilder = new TreeBuilder( mapbuilder );
 
                     //get new expTermList without components
-                    ImportDatabase emptyDB = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot );
+                    ImportDatabase emptyDB = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
                     expTermList = emptyDB.getTermList();
 
                     //set specified root components
@@ -2505,9 +2550,10 @@ private boolean loadDefaultReferenceTree(){
         //get configured roots from gui
         makeRootComponents();
         //import database
-        ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot );
+        ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
         expTermList = db.getTermList();
         expRelationList = db.getRelationList();
+        this.loadProjects( db.getProjects() );
         
         //reset CheckComponent object
         this.propCheckComponents = null;
@@ -2552,16 +2598,25 @@ private boolean loadDefaultReferenceTree(){
             //reload proposed tree to clear any deleted components added to parseNewTermList
             //File propFiley = new File( txtCurrentFile.getText() );
             //if ( propFiley.exists() ) this.loadProposedTree();
+            try {
+                //set remark text area to loaded database
+                this.remarkTA.setText("Database loaded: " + this.connection.getMetaData().getDatabaseProductName());
+            } catch (SQLException ex) {
+                Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             //reset parseOldTermList
             this.parseOldTermList = null;
             //reset tree
             DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
             model.setRoot(null);
-            JOptionPane.showMessageDialog( null, "Some components in the specified reference contain rule violations. \n" +
+            JOptionPane.showMessageDialog( null, "Loading Default Reference Tree: Some components in the specified reference contain rule violations. \n" +
                     "Please load the reference under the proposed tab to fix the problem; \n" +
                     "Alternatively, please select another reference.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
             System.out.println( checkie.getProblemTermList() );
+            Component probCompie = (Component) checkie.getProblemTermList().get(0);
+            System.out.println("no. of components with problems = " + checkie.getProblemTermList().size());
+            System.out.println("comments = " + probCompie.getCheckComments());
         }
     } else {
         //reset everything related to reference file
@@ -2695,13 +2750,19 @@ private void loadReferenceTree(){
                 if ( propFiley.exists() ) this.loadProposedTree();
                 //set refTreebuilder to current obo tree
                 this.refTreebuilder = obotree;
+                try {
+                    //set remark text area to loaded database
+                    this.remarkTA.setText("Database loaded: " + this.connection.getMetaData().getDatabaseProductName());
+                } catch (SQLException ex) {
+                    Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
                 //reset old term list
                 this.parseOldTermList = null;
                 //reset tree
                 DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
                 model.setRoot(null);
-                JOptionPane.showMessageDialog( null, "Some components in the specified reference contain rule violations. \n" +
+                JOptionPane.showMessageDialog( null, "Loading Reference Tree: Some components in the specified reference contain rule violations. \n" +
                         "Please load the reference under the proposed tab to fix the problem; \n" +
                         "Alternatively, please select another reference.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
             }
@@ -2782,7 +2843,7 @@ private void cmdGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     int proceed = 0;    
     boolean flagUpdateDB = false;
     
-    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) ){
+    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) && !this.project.equals("") ){
         if ( isConnectedToDatabase() ){            
             //allow generation of report even if there are failed components but warn user
             if ( !this.propCheckComponents.getProblemTermList().isEmpty() ){
@@ -2793,7 +2854,7 @@ private void cmdGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             //if user clicks ok generate the sql report
             if ( proceed==0 ){
                 System.out.println( this.propTreebuilder.getRootNode() );
-                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.parseOldTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass );
+                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass, this.project );
                 disconnectFromDatabase();
                 if ( genie.getIsProcessed() ){
                     JOptionPane.showMessageDialog( null, "SQL Query Report generated.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
@@ -2803,7 +2864,11 @@ private void cmdGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     JOptionPane.showMessageDialog( null, "SQL Query Report could not be saved. Check path in save file textbox." , "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
             }
         }else JOptionPane.showMessageDialog( null, "Cannot connect to databases!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    }else JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }else if( (this.parseNewTermList!=null) || (this.propCheckComponents!=null) ){
+        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }else{
+        JOptionPane.showMessageDialog( null, "Select a Project to reference!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }
 //GEN-LAST:event_cmdGenerateActionPerformed
 }                                           
 
@@ -2951,12 +3016,12 @@ private void startendRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIR
 private void cmdUpdateDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUpdateDBActionPerformed
     // TODO add your handling code here:
     
-    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) ){
+    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) && !this.project.equals("") ){
         if ( noRuleViolationsInDB() ){
             if ( isConnectedToDatabase() ){
                 System.out.println("Connected to database for obo file import!");
                 boolean flagUpdateDB = true; //change this to true!
-                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.parseOldTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass );
+                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass, this.project );
                 if ( this.genie.getIsProcessed() ){
                     JOptionPane.showMessageDialog( null, "Database update completed succesfully!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
                     this.reloadTree( treeCurrent, this.parseNewTermList, this.propTreebuilder, txtCurrentFile.getText() );
@@ -2993,7 +3058,11 @@ private void cmdUpdateDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     "Please load a reference file from the database you wish to perform the update to and try again. \n", 
                     "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
         }
-    }else JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }else if( (this.parseNewTermList!=null) || (this.propCheckComponents!=null) ) {
+        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }else{
+        JOptionPane.showMessageDialog( null, "Select a Project to reference!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }
 }//GEN-LAST:event_cmdUpdateDBActionPerformed
 
 private void cmdBrowseReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBrowseReportActionPerformed
@@ -3189,8 +3258,8 @@ private void cmdReconnectHActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 private void cmdReconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectActionPerformed
     // TODO add your handling code here:
     if ( isConnectedToDatabase() ){
-        loadDefaultReferenceTree();
-        JOptionPane.showMessageDialog( null, "Connected to database. Reference ontology reloaded.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        //boolean connected = loadDefaultReferenceTree();
+        if ( loadDefaultReferenceTree() ) JOptionPane.showMessageDialog( null, "Connected to database. Reference ontology reloaded.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
     }
     else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
 
@@ -3201,12 +3270,33 @@ private void cmdFromDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//G
     loadDefaultReferenceTree();
 }//GEN-LAST:event_cmdFromDatabaseActionPerformed
 
+private void cboProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboProjectActionPerformed
+    // TODO add your handling code here:#
+    if (cboProject.getSelectedItem()!=null){
+        this.project = cboProject.getSelectedItem().toString();
+    }
+}//GEN-LAST:event_cboProjectActionPerformed
+
 public void loadAddedRoots(Vector<String> roots){
     this.vUserRoots.clear();
     cboAddedRoots.removeAllItems();
     for (String root: roots){
         this.vUserRoots.add( root );
         cboAddedRoots.addItem( (Object) root );
+    }
+}
+
+public void loadProjects(ArrayList<String> projects){
+    cboProject.removeAllItems();
+    int currentIndex = 0;
+    for (String strProject: projects){
+        System.out.println("Adding project to combobox: " + strProject);
+        cboProject.addItem( (Object) strProject );
+        if ( strProject.equals("GUDMAP") ){
+            cboProject.setSelectedIndex(currentIndex);
+            this.project = strProject;
+        }
+        currentIndex++;
     }
 }
 
@@ -3302,6 +3392,20 @@ private boolean isConnectedToDatabase() {
                     for (int j=0; j<termList.get(i).getSynonym().size(); j++) {
                         outputFile.write("related_synonym: \"" + termList.get(i).getSynonym().get(j) + "\" []\n");
                     }
+                    // comments
+                    boolean firstComment = true;
+                    for (Iterator<String> k = termList.get(i).getUserComments().iterator(); k.hasNext();){
+                        if (firstComment){
+                            outputFile.write("comment: ");
+                            firstComment = false;
+                        } else{
+                            outputFile.write("\n");
+                        }
+                        outputFile.write(k.next());
+                        //if ( !k.hasNext() ){ //line carriage after last comment
+                        //    outputFile.write("\n");
+                        //}
+                    }
                 }
             }// for i
 
@@ -3312,7 +3416,7 @@ private boolean isConnectedToDatabase() {
                     outputFile.write("name: "+expRelationList.get(i).getName()+"\n");
                     if ( !expRelationList.get(i).getTransitive().equals("") ) outputFile.write("is_transitive: " + expRelationList.get(i).getTransitive() + "\n");
                 }
-                outputFile.write("\n");
+                outputFile.write("\\n");
 
                 outputFile.close(); // close outputFile
         }
@@ -3381,8 +3485,22 @@ private boolean isConnectedToDatabase() {
                 for (int j=0; j<expTermList.get(i).getSynonym().size(); j++) {
                     outputFile.write("related_synonym: \"" + expTermList.get(i).getSynonym().get(j) + "\" []\n");
                 }
+                //comments
+                boolean firstComment = true;
+                for (Iterator<String> k = expTermList.get(i).getUserComments().iterator(); k.hasNext();){
+                    if (firstComment){
+                            outputFile.write("comment: ");
+                            firstComment = false;
+                        } else{
+                            outputFile.write("\\n");
+                        }
+                    outputFile.write(k.next());
+                    if ( !k.hasNext() ){ //line carriage after last comment
+                        outputFile.write("\n");
+                    }
+                }
             }// for i
-            
+
             // relations
             for (int i=0; i<expRelationList.size(); i++) {
                 outputFile.write("\n[Typedef]\n");
@@ -3417,6 +3535,7 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JComboBox cboChangedNodes;
     private javax.swing.JComboBox cboEnd;
     private javax.swing.JComboBox cboProblemNodes;
+    private javax.swing.JComboBox cboProject;
     private javax.swing.JComboBox cboStage;
     private javax.swing.JComboBox cboStart;
     private javax.swing.JCheckBox chkIsPrimary;
@@ -3480,11 +3599,13 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -3541,6 +3662,7 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;

@@ -3,6 +3,18 @@
 #-------------------------------------------------------------------
 """
 Utility routines
+
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
+
 """
 
 import re

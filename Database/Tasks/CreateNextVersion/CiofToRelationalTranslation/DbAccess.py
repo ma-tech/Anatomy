@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Wrapper around all access to the anatomy database in the relational DBMS.
 
 NOTE: Don't build any more programs around this file.  This version is

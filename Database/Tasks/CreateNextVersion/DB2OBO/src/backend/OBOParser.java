@@ -86,6 +86,9 @@ public class OBOParser {
                     term.setName(node.toString());
                     term.setID(node.getID());
                     term.setNamespace(node.getNamespace().toString());
+                    //get comments
+                    term.setCheckComment( node.getComment() );
+                    term.addUserComments( node.getComment() );
                     
                     //set component synonyms (arraylist)
                     for(Iterator k = node.getSynonyms().iterator(); k.hasNext(); ){
@@ -108,31 +111,16 @@ public class OBOParser {
                             term.setIsPrimary(false);
                         }
                         else if (rel.getType().getID().equals("starts_at")){
-                            //if ( term.getIntStartsAt()==0 ) 
-                            //{
-                            //    System.out.println(term.getID() + ":" + term.getIntStartsAt());
                             term.setStartsAt(rel.getParent().getID());
-                            //}                                
-                            //else{
-                            //    System.out.println("Warning: Component " + term.getID() + " has more than one Start Stage! Alternative Start Stage = " + rel.getParent().getID() );
-                            //    term.setCheckComment("Relation: Starts At - More than one Start Stage! Alternative Start Stage = " + rel.getParent().getID());                    
-                            //}
-                            //System.out.println("Comp.startsat: " + term.getStartsAt());
                         }
                         else if (rel.getType().getID().equals("ends_at")){
-                            /*if ( term.getIntStartsAt()==0 ) term.setEndsAt(rel.getParent().getID());                                
-                            else{
-                                System.out.println("Warning: Component " + term.getID() + " has more than one End Stage! Alternative End Stage = " + rel.getParent().getID() );
-                                term.setCheckComment("Relation: Ends At - More than one End Stage! Alternative End Stage = " + rel.getParent().getID());                    
-                            }*/
-                            //System.out.println("Comp.endsat: " + term.getEndsAt());
-                            
                             term.setEndsAt(rel.getParent().getID());
                         }
                         else if (rel.getType().getID().equals("OBO_REL:is_a")){
                             term.setIsA(rel.getParent().getID());
                         }
                     }
+
                     //pass back to class properties
                     //if ( term.getID().startsWith("EMAPA") && term.getPartOf().isEmpty() ){
                     //    System.out.println(term.getID() + " has no parents");

@@ -218,7 +218,7 @@ public class GenerateEditorReport {
        
             for(Component compie: termList){
                 counter++;
-                this.printWriter.println( "  " + counter + ". " + compie.getID() + " - " + compie.getName() );                
+                this.printWriter.println( "  " + counter + ". " + compie.getNewID() + " - " + compie.getName() );
             }
             
             if ( !termList.isEmpty() ){
@@ -231,7 +231,7 @@ public class GenerateEditorReport {
                     counter++;
                     this.printWriter.println();
                     this.printWriter.println( "   New Component " + counter );
-                    this.printWriter.println( "    ID        : " + compie.getID() );
+                    this.printWriter.println( "    ID        : " + compie.getNewID() );
                     this.printWriter.println( "    Name      : " + compie.getName() );
                     this.printWriter.println( "    Starts At : " + compie.getStartsAt() );
                     this.printWriter.println( "    Ends At   : " + compie.getEndsAt() );

@@ -22,6 +22,7 @@ public class Component {
     private String name;
     private String id;
     private String dbID;
+    private String newid;
     private String namespace;
     private ArrayList < String > partOf;
     private String isA;
@@ -32,6 +33,8 @@ public class Component {
     private ArrayList < String > hasTimeComponent;
     private String timeComponentOf;
     private ArrayList < String > groupPartOf;
+    private ArrayList < String > userComments;
+    private String orderComment;
     
     //component checking variables here
     private boolean flagMissingRel;  //missing relationships, starts < end
@@ -49,6 +52,7 @@ public class Component {
         this.name = "";
         this.id = "";
         this.dbID = "";
+        this.newid = "";
         this.namespace = "";
         this.partOf = new ArrayList < String >();
         this.isA = "";
@@ -59,6 +63,8 @@ public class Component {
         this.hasTimeComponent = new ArrayList < String >();
         this.timeComponentOf = "";
         this.groupPartOf = new ArrayList < String >();
+        this.userComments = new ArrayList < String >();
+        this.orderComment = "";
         
         this.flagMissingRel = false;
         this.flagLifeTime = false;
@@ -78,6 +84,10 @@ public class Component {
     
     public void setDBID( String dbID ) {
         this.dbID = dbID;
+    }
+
+    public void setNewID(String newid){
+        this.newid = newid;
     }
 
     public void setName( String name ) {
@@ -183,6 +193,7 @@ public class Component {
     
     public void clearCheckComment(){
         this.comments.clear();
+        this.comments.addAll(this.userComments);
     }
     
     public void setIsPrimary(boolean isprimary){
@@ -210,12 +221,24 @@ public class Component {
         this.paths = paths;
     }
 
+    public void addUserComments( String s ){
+        this.userComments.add(s);
+    }
+
+    public void setOrderComment(String s){
+        this.orderComment = s;
+    }
+
     public String getID() {
         return this.id;
     }
     
     public String getDBID() {
         return this.dbID;
+    }
+
+    public String getNewID(){
+        return this.newid;
     }
 
     public String getName() {
@@ -284,6 +307,140 @@ public class Component {
 
     public Set getCheckComments(){
         return this.comments;
+    }
+
+    public ArrayList getUserComments(){
+        return this.userComments;
+    }
+
+    public String[] getOrderComments(){
+        Vector< String > vComments = new Vector<String>();
+        vComments.addAll(this.userComments);
+        String unprocessed = "";
+        int intValidString = 0;
+        this.orderComment = ""; //refresh orderComment everytime the function is called
+
+        for ( int i=0; i < vComments.size(); i++ ){
+            if ( vComments.get(i).contains("order=") ){
+                this.orderComment = this.orderComment + vComments.get(i).trim();
+            }
+        }
+
+        if ( !this.orderComment.equals("") ){
+            String[] orderArray = this.orderComment.split("order=");
+            String[] processedOrderArray = null;
+            for (int i=0; i<orderArray.length; i++){
+                unprocessed = orderArray[i];
+                unprocessed = unprocessed.replace("\n", "");
+                unprocessed = unprocessed.trim();
+                orderArray[i] = unprocessed;
+                if ( !unprocessed.equals("") ) intValidString++;
+            }
+            if (intValidString > 0){
+                int j = 0;
+                processedOrderArray = new String[intValidString];
+                for (int i=0; i<orderArray.length; i++){
+                    if ( !orderArray[i].equals("") ){
+                        processedOrderArray[j] = orderArray[i];
+                        j++;
+                    }
+                }
+            }
+            return processedOrderArray;
+        }
+
+        return null;
+    }
+
+    public String[] getOrderCommentOnParent(String parentid){
+
+        String[] ordercomments = this.getOrderComments();
+        ArrayList<String> arrBased = new ArrayList<String>();
+
+        if ( ordercomments!=null ){
+            for (int i=0; i < ordercomments.length; i++){
+                //System.out.println("going thru order comments for " + parentid + ": " + ordercomments[i]);
+                if ( ordercomments[i].contains(parentid) ){
+                    //System.out.println("found a comment that refers to order to parent");
+                    arrBased.add(ordercomments[i]);
+                }
+            }
+            if (arrBased.isEmpty()){
+                return null; //no matching comment on parent
+            }else{
+                return arrBased.toArray( new String[arrBased.size()] );
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public String getOrderComment(){
+        return this.orderComment;
+    }
+
+    public boolean hasIncorrectOrderComments(){
+
+        String[] results = new String[this.userComments.size()];
+        ArrayList<String> parents = new ArrayList<String>();
+        int intCounter = 0;
+        boolean foundIncorrect = false;
+        boolean foundParent = false;
+        int intOrder = -1;
+        String strNumber = "";
+
+        Vector< String > vComments = new Vector<String>();
+        vComments.addAll(this.userComments);
+
+        for ( int i=0; i < vComments.size(); i++ ){
+            //get all the user comments with keyword order for checking
+            if ( vComments.get(i).contains("order") ){
+                results[intCounter] = vComments.get(i).trim();
+                intCounter++;
+            }
+        }
+
+        //go through each string with 'order'
+        for (int k=0; k<results.length && results[k]!=null; k++){
+            //System.out.println("checking order comment " + results[k] + " for component " + this.id);
+            //reset for each order comment
+            foundIncorrect = false;
+            //check that string order= is in the string
+            if ( !results[k].contains("order=") ){
+                System.out.println(this.id + "Ordering: There is an order comment that does not have an = sign immediately after the term order");
+                this.setCheckComment("Ordering: There is an order comment that does not have an = sign immediately after the term order");
+                foundIncorrect = true;
+            }
+            //ir order= is in place check that immediately after that is a valid integer
+            else if (foundIncorrect==false){
+                try{
+                    strNumber = results[k];
+                    strNumber = strNumber.replaceAll("order=", "");
+                    intOrder = Integer.parseInt( strNumber.split(" ")[0] );
+                }catch(NumberFormatException nEx){
+                    System.out.println(this.id + "Ordering: There is an order comment that does not have a number immediately after order=; offending string = " + strNumber.split(" ")[0]);
+                    this.setCheckComment("Ordering: There is an order comment that does not have a number immediately after order=");
+                    foundIncorrect = true;
+                }
+            }
+            //check that parent in order comment is a valid parent
+            parents.addAll( this.getPartOf() );
+            parents.addAll( this.getGroupPartOf() );
+            for (int i=0; i<parents.size() && !foundParent; i++){
+                if ( results[k].contains(parents.get(i)) ) {
+                    foundParent = true;
+                }
+            }
+            if (!foundParent){
+                System.out.println(this.id + "Ordering: There is an order comment that does not reference a valid parent");
+                this.setCheckComment("Ordering: There is an order comment that does not reference a valid parent");
+                foundIncorrect = true;
+            }
+            
+
+        }
+
+        return foundIncorrect;
     }
     
     public boolean getIsPrimary(){
@@ -383,6 +540,8 @@ public class Component {
     
     public boolean isSameAs(Component compie){
         //EMAP id, description, start stage, end stage, parents, synonyms
+        ArrayList<String> orderdiff = null;
+        orderdiff =  this.compareOrderComments(compie, orderdiff);
 
         if (this.getID().equals(compie.getID()) && 
             this.getName().equals(compie.getName()) &&
@@ -394,15 +553,19 @@ public class Component {
             this.getSynonym().containsAll(compie.getSynonym()) && 
             compie.getSynonym().containsAll(this.getSynonym()) &&
             this.getGroupPartOf().containsAll(compie.getGroupPartOf()) &&
-            compie.getGroupPartOf().containsAll(this.getGroupPartOf()) ) 
-            return true;
-        else
-            return false;
+            compie.getGroupPartOf().containsAll(this.getGroupPartOf()) &&
+            orderdiff==null )
+            {
+                return true;
+            } else{
+                return false;
+            }
     }
     
     public ArrayList<String> getDifferenceWith(Component compie){
-        
+        //System.out.println("doing getDifferenceWith between " + compie.getID() + " and " + this.id);
         ArrayList<String> arrDifferenceWith = new ArrayList();
+        ArrayList<String> arrDiffOrder = null;
         
             if ( !this.getID().equals(compie.getID()) ) arrDifferenceWith.add( "Different ID - Referenced Component has ID [" + compie.getID() + "]" );
             if ( !this.getName().equals(compie.getName())) arrDifferenceWith.add( "Different Name - Referenced Component " + compie.getID() + " has name [" + compie.getName() + "]" );
@@ -417,8 +580,13 @@ public class Component {
             if ( !this.getIsPrimary()==compie.getIsPrimary() ) {
                 String strPrimary = ( this.getIsPrimary() ) ? "Primary" : "Group";
                 arrDifferenceWith.add( "Different Primary Status - Referenced Component was a " + strPrimary + " component." );
-            } 
-        
+            }
+            arrDiffOrder = this.compareOrderComments(compie, arrDiffOrder);
+            if ( arrDiffOrder!=null ){
+                arrDifferenceWith.addAll(arrDiffOrder);
+            }
+
+        //System.out.println("finish getDifferenceWith between " + compie.getID() + " and " + this.id);
         return arrDifferenceWith;
     }
     
@@ -456,6 +624,69 @@ public class Component {
        }
        return changedComments;
    
+   }
+
+   public ArrayList compareOrderComments(Component compie, ArrayList<String> diff){
+       //find new/additional comments
+       
+       boolean notFound = true;
+       if (this.getOrderComments()==null && compie.getOrderComments()==null){
+           return diff;
+       }
+       else if (this.getOrderComments()==null && compie.getOrderComments()!=null){
+           for (int i=0; i<compie.getOrderComments().length; i++){
+               if (diff==null){
+                    diff = new ArrayList<String>();
+               }
+               diff.add( "Different Order - This component has no order entries; Referenced Component (" + compie.getID() + ") has order entry <" + compie.getOrderComments()[i] + ">");
+           }
+           return diff;
+       }
+       else if (this.getOrderComments()!=null && compie.getOrderComments()==null){
+           for (int i=0; i<this.getOrderComments().length; i++){
+               if (diff==null){
+                    diff = new ArrayList<String>();
+               }
+               diff.add( "Different Order - Referenced Component has no order entries; This Component has order entry <" + this.getOrderComments()[i] + ">");
+           }
+           return diff;
+       }
+       else{
+
+        for ( String ordercommie: this.getOrderComments() ){
+            notFound = true; //reset notfound for each comment
+            for ( int i=0; i<compie.getOrderComments().length && notFound && !ordercommie.equals(""); i++ ){
+                if ( ordercommie.equals( compie.getOrderComments()[i] ) ){
+                    notFound = false; //found matching comment stop inner loop
+                }
+            }
+            if (notFound && !ordercommie.equals("")){ //iterated through all comments in referenced component and no matching comment found
+                if (diff==null){
+                    diff = new ArrayList<String>();
+                }
+                diff.add( "Different Order - This Component has order entry <" + ordercommie + ">");
+                //System.out.println( "2 Different Order Entry - This Component has order entry <" + ordercommie + ">");
+            }
+        }
+        //find deleted/missing comments
+        for ( String ordercommie: compie.getOrderComments() ){
+            notFound = true; //reset notfound for each comment
+            for ( int i=0; i<this.getOrderComments().length && notFound && !ordercommie.equals(""); i++ ){
+                if ( ordercommie.equals( this.getOrderComments()[i] ) ){
+                    notFound = false; //found matching comment stop inner loop
+                }
+            }
+            if (notFound && !ordercommie.equals("")){ //iterated through all comments in referenced component and no matching comment found
+                if (diff==null){
+                    diff = new ArrayList<String>();
+                }
+                diff.add( "Different Order - Referenced Component (" + compie.getID() + ") has order entry <" + ordercommie + ">");
+                //System.out.println( "1 Different Order Entry - Referenced Component has order entry <" + ordercommie + ">");
+            }
+        }
+
+       return diff;
+       }
    }
    
    public Component clone(){

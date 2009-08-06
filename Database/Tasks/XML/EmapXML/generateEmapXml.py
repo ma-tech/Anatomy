@@ -28,8 +28,8 @@ from hgu import Util                    # error/warnings, common routines.
 
 # Database access
 
-from hgu.anatomyDb.version004 import Anatomy
-from hgu.anatomyDb.version004 import AnatomyGraph
+from hgu.anatomyDb.version006 import Anatomy
+from hgu.anatomyDb.version006 import AnatomyGraph
 
 
 import XmlGraphFile
@@ -52,7 +52,8 @@ _config = {
     "DB_DATABASE": None,
     "DB_PASSWORD": None,
     "OUTPUT_DIRECTORY": None,
-    "DEBUGGING":   None
+    "DEBUGGING":   None,
+    "PROJECT":     None
     }
 
 # ------------------------------------------------------------------
@@ -67,9 +68,16 @@ _config = {
 
 Util.readConfiguration(sys.argv[1], _config, printConfig = True)
 
+# process the PROJECT flag
+if _config["PROJECT"].lower() not in ["emap", "gudmap"]:
+    Util.fatalError(["Unrecognised PROJECT parameter: " + _config["PROJECT"]])
+    
+project = _config["PROJECT"]
+
 graphFile = _config["OUTPUT_DIRECTORY"] + "/" + "emap.xml"
 
-Anatomy.initialise(dbHost = _config["DB_HOST"],
+Anatomy.initialise(sortProject = _config["PROJECT"],
+                   dbHost = _config["DB_HOST"],
                    dbName = _config["DB_DATABASE"],
                    dbUser = _config["DB_USER"],
                    dbPass = _config["DB_PASSWORD"])
@@ -79,7 +87,7 @@ Util.statusMessage(["Anatomy initialised."])
 # Create the graph file
 graph = AnatomyGraph.AnatomyGraph()
 
-xmlGraph = XmlGraphFile.XmlGraphFile(graphFile, graph)
+xmlGraph = XmlGraphFile.XmlGraphFile(graphFile, graph, project)
 
 xmlGraph.addHeader()
 xmlGraph.addStages()

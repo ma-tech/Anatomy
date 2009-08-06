@@ -13,8 +13,8 @@ import xml.dom.Document
 
 from hgu import Util
 
-from hgu.anatomyDb.version004 import AnaTimedNodeDb
-from hgu.anatomyDb.version004 import Stages
+from hgu.anatomyDb.version006 import AnaTimedNodeDb
+from hgu.anatomyDb.version006 import Stages
 
 import ReportTree
 

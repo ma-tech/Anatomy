@@ -12,14 +12,15 @@ import xml.dom.Document
 
 from hgu import Util
 
-from hgu.anatomyDb.version004 import AnatomyGraph
-from hgu.anatomyDb.version004 import Nodes
-from hgu.anatomyDb.version004 import Relationships
-from hgu.anatomyDb.version004 import Stages
-from hgu.anatomyDb.version004 import Synonyms
-from hgu.anatomyDb.version004 import TimedNodes
-from hgu.anatomyDb.version004 import Versions
+from hgu.anatomyDb.version006 import AnatomyGraph
+from hgu.anatomyDb.version006 import Nodes
+from hgu.anatomyDb.version006 import Relationships
+from hgu.anatomyDb.version006 import Stages
+from hgu.anatomyDb.version006 import Synonyms
+from hgu.anatomyDb.version006 import TimedNodes
+from hgu.anatomyDb.version006 import Versions
 
+from hgu.anatomyDb.version006 import AnaRelationshipProjectDb
 
 # ------------------------------------------------------------------
 # ANATOMY XML GRAPH FILE
@@ -31,7 +32,7 @@ class XmlGraphFile:
     XmlReportFile class in the the tree reporting code.
     """
 
-    def __init__(self, filePath, graph):
+    def __init__(self, filePath, graph, project):
         """
         Initialise an anatomy XML Graph file.
 
@@ -40,6 +41,7 @@ class XmlGraphFile:
 
         self.__graph = graph
         self.__filePath = filePath
+        self.__project = project
         self.__document = xml.dom.Document.Document(None)
         self.__anatomy = Util.addXmlElement(self.__document, "emapAnatomy")
 
@@ -111,10 +113,15 @@ class XmlGraphFile:
                                                    "partOfComponent")
                 Util.addXmlElement(partOfElement, "parentId",
                                    parent.getPublicId())
-                childSequence = rel.getSequence()
+
+                relProj = AnaRelationshipProjectDb.getByRelationShipFkAndProject(rel.getOid(), self.__project)
+                seq = relProj.getSequence()
+
+                #childSequence = rel.getSequence()
+                childSequence = relProj.getSequence()
                 if childSequence != None:
                     Util.addXmlElement(partOfElement, "childSequence",
-                                       str(rel.getSequence()))
+                                       str(relProj.getSequence()))
 
             # Add Timed Components
             for timedNode in TimedNodes.getByNodeOidInStageOrder(nodeOid):

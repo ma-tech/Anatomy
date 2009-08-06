@@ -2,6 +2,16 @@
 # -*- coding: iso-8859-15 -*-
 #-------------------------------------------------------------------
 """
+****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+
 Code to parse .ciof anatomy files.
 
 ciof files are exported from objectstore and define anatomy.  The code

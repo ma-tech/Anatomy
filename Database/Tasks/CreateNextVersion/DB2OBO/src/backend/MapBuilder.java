@@ -51,7 +51,6 @@ public class MapBuilder {
     
     public void mapTreeProperty() {
         Component compie;
-        Component duplicateCompie; 
         
         for (Iterator i = components.iterator(); i.hasNext();) {
 
@@ -213,6 +212,10 @@ public class MapBuilder {
             }
         }
         //System.out.println("The roots of this list are " + this.vRootNodes);
+    }
+    
+    public void addTreePropertyEntry(String strEMAPA, Component compie){
+        this.treeProperty.put(strEMAPA, compie);
     }
 
     public Map getChildren() {

@@ -20,7 +20,7 @@ import sys
 
 from hgu import Util
 
-from hgu.anatomyDb.version004 import Anatomy
+from hgu.anatomyDb.version006 import Anatomy
 
 import ReportTree
 import ReportFile
@@ -76,9 +76,15 @@ def __initialise(configFile, configParams):
     else:
         configParams["DEPTH_LIMIT"] = int(configParams["DEPTH_LIMIT"])
 
+    # process the PROJECT flag
+    if configParams["PROJECT"].lower() not in ["emap", "gudmap"]:
+        Util.fatalError(["Unrecognised PROJECT parameter: " + configParams["PROJECT"]])
+
+
     # Initialise Database and read the whole thing in.
     Util.statusMessage(["Reading in anatomy database."])
     Anatomy.initialise(
+        sortProject = config["PROJECT"],
         dbHost = configParams["DB_HOST"],
         dbName = configParams["DB_DATABASE"],
         dbUser = configParams["DB_USER"],
@@ -105,7 +111,8 @@ config = {
     "STAGE_REPORTS":    None,
     "STAGE_FILES":      None,
     "DEPTH_LIMIT":      None,
-    "DEBUGGING":        None
+    "DEBUGGING":        None,
+    "PROJECT":          None 
     }
 
 

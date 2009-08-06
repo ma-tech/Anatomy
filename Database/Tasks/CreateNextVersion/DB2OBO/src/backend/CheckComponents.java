@@ -88,6 +88,8 @@ public class CheckComponents {
             checkAbstractAnatomyParents( treebuilder );
             //check that component is within life time of primary parent
             checkAbstractAnatomyStages();
+            //check ordering //block temporary to process jane's old file
+            checkOrdering( treebuilder, abstractClass );
             //check for changes with referenced file - changed and new; deleted is found in validateConfigureRoots
             checkChanges( abstractClass );
         }
@@ -132,6 +134,8 @@ public class CheckComponents {
             checkAbstractAnatomyLinks();
             //check that component is within life time of primary parent
             checkAbstractAnatomyStages();
+            //check ordering //block temporarily to process jane's old file
+            checkOrdering( treebuilder, abstractClass );
             //no reference file
             //checkChanges();
         }
@@ -167,8 +171,11 @@ public class CheckComponents {
                 //is an abstract anatomy root
                 for (int j = 0; j < this.abstractRootList.size(); j++ ){
                     Component rootCompie = this.abstractRootList.get(j);
-                    if ( compie.isSameAs(rootCompie) ) 
+                    //if ( compie.isSameAs(rootCompie) ) //MAZE:
+                    //REPLACE isSamsAs with matching id, two compies can be the same but have modified properties
+                    if ( compie.getID().equals(rootCompie.getID()) ){
                         abstractAnatomyChildren.remove( compie );
+                    }
                 }
                 //is the first root, mouse - only checks name against gui
                 //if ( compie.getName().equals(species) ){
@@ -203,7 +210,7 @@ public class CheckComponents {
         String groupTermName = groupTermClass.getName();
         String rootNameSpace = "";
         String rootName = "";
-        
+
         Vector<String> roots = treebuilder.getTreeRoots();
         for(String emapID: roots){
             Component rootCompie = treebuilder.getComponent(emapID);
@@ -236,7 +243,9 @@ public class CheckComponents {
                 //don't allow to fail
                 rootCompie.setStrRuleStatus("PASSED");
                 rootCompie.setCheckComment("Component has been deleted correctly from OBO File and can be scheduled for deletion in database");
-                this.changesTermList.add(rootCompie); //<=== this is the component arraylist to generate SQL queries!!!
+                if ( this.changesTermList!=null ) {
+                    this.changesTermList.add(rootCompie);
+                } //<=== this is the component arraylist to generate SQL queries!!!
             }
             else {
                 rootCompie.setStrRuleStatus("FAILED");
@@ -345,7 +354,7 @@ public class CheckComponents {
         //    compie = this.proposedTermList.get(i);
         for (int i = 0; i < this.abstractTermList.size(); i++){
             compie = this.abstractTermList.get(i);
-                      
+            
                 //check missing ends_at stage
                 if (compie.getEndsAt().equals("")) {
                     //System.out.println(compie.getID() + ": " + "Relation: Ends At -- Missing ends_at stage!");
@@ -406,7 +415,16 @@ public class CheckComponents {
                     compie.setCheckComment("No primary path!");
                     compie.setStrRuleStatus("FAILED");
                 }
-            
+                //check whether there are any invalid order comments that can't be picked up in order validation because they are invalid
+                if ( compie.hasIncorrectOrderComments() ){
+                    if ( compie.getID().equals("EMAPA:16118") ){
+                        System.out.println("hideho");
+                    }
+                    compie.setFlagMissingRel(true);
+                    //comment already set in Component class
+                    compie.setStrRuleStatus("FAILED");
+                }
+
                 failed = compie.getStrRuleStatus().equals("FAILED"); 
                 if ( failed ) {
                     this.passRedTermList.remove(compie);
@@ -430,6 +448,7 @@ public class CheckComponents {
 
         //iterate for each component in termList
         for (Component compie: this.passRedTermList) {
+            
             DefaultMutableTreeNode[] primaryPath = compie.getPrimaryPath();
 
 
@@ -462,46 +481,136 @@ public class CheckComponents {
         }
     }
     
-/**
-* Checks whether the specified tree path is valid. Definition: A tree path is 'valid' if it does not contain any
-* group nodes.
-* @param path The tree path to be checked.
-* @return TRUE if and only if the path does not contain any group nodes.
-*/
-    /*
-private static boolean isValidPath(DefaultMutableTreeNode[] path) {
-       // this might require adjustments: can really no group be an (indirect?) child of another group?
-    
-       Component compie;
-       for(DefaultMutableTreeNode node : path) {
-           
-           if( node.getUserObject() instanceof Component ){
-                compie = (Component) node.getUserObject();
-                if ( !compie.getIsPrimary() ) return false;
-           }
-           
-           //if(node.getUserObject() instanceof Component && !((Component) node.getUserObject().getIsPrimary())) return false;
-       }
-       return true;
-}*/
 
-/**
- * @param abstractClass
- * Checks for all components which are
- * New: ie. created by editor and not found in reference termlist
- * Changed: ie. exists in reference termlist, but some of the properties don't match because have been
- *          possibly edited by the editor
- * Deleted improperly: ie. exists in reference termlist, but not found at all in proposed termlist
- *                     possibly deleted without following proper procedure leaving no record of obsolete term in obo file
- * DOES NOT DETECT
- * Deleted: ie. properly deleted terms are recorded as obsolete
- *          obsolete terms are detected by obo parser and displayed in the tree as rootnodes
- *          this is checked in validateConfigureRoots
- *          and removed from AbstractTermList therefore undetectable in checkChanges
- */
+    private void checkOrdering(TreeBuilder tree, Component abstractClass){
+        //get all children for each component
+        //check that ordering has no gaps
+
+        //get abstract anatomy node
+        String abstractID = abstractClass.getID();
+        DefaultMutableTreeNode abstractmothernode = new DefaultMutableTreeNode();
+
+        for (Enumeration<DefaultMutableTreeNode> eRootChildren = tree.getRootNode().children(); eRootChildren.hasMoreElements(); ){
+            Component rootChildCompie = (Component) eRootChildren.nextElement().getUserObject();
+            if ( rootChildCompie.getID().equals( abstractID ) ){
+                abstractmothernode = eRootChildren.nextElement();
+            }
+        }
+
+        //get all nodes in the tree, starting from root node
+        Vector< DefaultMutableTreeNode > allNodes = new Vector< DefaultMutableTreeNode >();
+        allNodes = tree.recursiveGetNodes( abstractmothernode, allNodes );
+        //initialise children container, order container, child component, max ordering number
+        Vector< Component > childrenCompie = new Vector< Component >();
+        Vector< String > childrenOrder = new Vector< String >();
+        int intMaxOrder = -1;
+        boolean failedChild = false;
+        boolean proceed = false;
+        Component childCompie = new Component();
+        //iterate all nodes
+        for (DefaultMutableTreeNode nodie: allNodes){
+            //clear children container and order container and maxseq for each parent
+            childrenCompie.clear();
+            childrenOrder.clear();
+            intMaxOrder = -1;
+            failedChild = false;
+            proceed = true;
+            //get all children
+            for (Enumeration<DefaultMutableTreeNode> eChildren = nodie.children() ; eChildren.hasMoreElements() ;) {
+                childrenCompie.add( (Component) eChildren.nextElement().getUserObject() );
+            }
+            //convert parent node to component
+            Component parentCompie = (Component) nodie.getUserObject();
+            //stop order checking if parent is a failed component anyway
+            proceed = parentCompie.getStrRuleStatus().equals("FAILED") ? false : true;
+            //stop order checking if any of the children fail
+            for (Component compie: childrenCompie){
+                failedChild = compie.getStrRuleStatus().equals("FAILED") ? true : false ;
+                if (failedChild && !parentCompie.getStrRuleStatus().equals("FAILED") ){
+                    //set fail to parent
+                    parentCompie.setCheckComment("Ordering: The ordering for this components children will be ignored because one of the child components has a rule violation.");
+                    parentCompie.setFlagMissingRel(true);
+                    parentCompie.setStrRuleStatus("FAILED");
+                    this.problemTermList.add(parentCompie);
+                    proceed = false;
+                }
+            }
+
+            //iterate through all children to check whether they have an order
+            for (int k=0; k<childrenCompie.size() && proceed; k++){
+                childCompie = childrenCompie.get(k);
+
+                //get order from child compie based on the parent
+                String[] arrOrderComments = childCompie.getOrderCommentOnParent(parentCompie.getID());
+                //if there is an order put in order vector
+                if ( arrOrderComments!=null ){
+                    for (int i=0; i<arrOrderComments.length; i++){
+                        childrenOrder.add(arrOrderComments[i]);
+                        //find max order number for this series of siblings
+                        String[] arrayFirstWord = arrOrderComments[i].split(" ");
+                        if ( Integer.parseInt(arrayFirstWord[0]) > intMaxOrder ){
+                            intMaxOrder = Integer.parseInt(arrayFirstWord[0]);
+                            //System.out.println("max seq = " + intMaxOrder);
+                        }
+                    }
+                }
+            }
+
+            //if max order+1 not == number of comments there are duplicate order sequence numbers
+            if ( !childrenOrder.isEmpty() && childrenOrder.size()!=intMaxOrder+1 ){
+                System.out.println("intMaxOrder = " + intMaxOrder + " childrenOrder.size = " + childrenOrder.size());
+                //set fail to parent
+                parentCompie.setCheckComment("Ordering: One of this component's children has a duplicate order sequence.");
+                parentCompie.setFlagMissingRel(true);
+                parentCompie.setStrRuleStatus("FAILED");
+                this.problemTermList.add(parentCompie);
+                for (Component compie: childrenCompie){
+                    compie.setCheckComment("Ordering: One of the siblings of this component or this component itself has a duplicate order sequence.");
+                    compie.setStrRuleStatus("FAILED");
+                    compie.setFlagMissingRel(true);
+                    this.problemTermList.add(compie);
+                }
+            //if order vector is not empty, there is at least one child with order
+            }else if ( !childrenOrder.isEmpty() ){
+                //check no gaps
+                boolean notMatch = true;
+                boolean flagStop = false;
+                //for order 0 to max sequence number in siblings
+                for (int i=0; i<=intMaxOrder && !flagStop; i++){
+                    notMatch = true;
+                    //find in all children
+                    for (int k=0; k<childrenOrder.size() && notMatch; k++){
+                        //an order that matches i
+                        String strOrder = childrenOrder.get(k).substring(0, Integer.toString(i).length());
+                        if ( strOrder.equals(Integer.toString(i)) ){
+                            //System.out.println("Child of " + parentCompie.getID() + " has order " + strOrder);
+                            notMatch=false;
+                        } 
+                    }
+                    //order not found for i
+                    if ( notMatch ){
+                        flagStop = true; //stop check gaps process
+                        //set fail to parent
+                        parentCompie.setCheckComment("Ordering: One of this component's children has an incorrect sequence order.");
+                        parentCompie.setFlagMissingRel(true);
+                        parentCompie.setStrRuleStatus("FAILED");
+                        this.problemTermList.add(parentCompie);
+                        for (Component compie: childrenCompie){
+                            compie.setCheckComment("Ordering: One of the siblings of this component or this component itself has an incorrect order sequence.");
+                            compie.setStrRuleStatus("FAILED");
+                            compie.setFlagMissingRel(true);
+                            this.problemTermList.add(compie);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private void checkChanges( Component abstractClass ) {
         Component proposed,  reference;
         boolean flagFound;
+        int intTest = 0;
            
         //Look for new and changed nodes 
         //For each component in newTermList

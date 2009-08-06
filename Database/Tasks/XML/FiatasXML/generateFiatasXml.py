@@ -29,13 +29,13 @@ from hgu import Util                    # error/warnings, common routines.
 
 # Database access
 from hgu.db import DbAccess             # Database access
-from hgu.anatomyDb.version004 import AnaNodeDb
-from hgu.anatomyDb.version004 import AnaNodeInPerspectiveDb
-from hgu.anatomyDb.version004 import AnadPartOfDb
-from hgu.anatomyDb.version004 import AnaStageDb
-from hgu.anatomyDb.version004 import AnaSynonymDb
-from hgu.anatomyDb.version004 import AnaTimedNodeDb
-from hgu.anatomyDb.version004 import AnaVersionDb
+from hgu.anatomyDb.version006 import AnaNodeDb
+from hgu.anatomyDb.version006 import AnaNodeInPerspectiveDb
+from hgu.anatomyDb.version006 import AnadPartOfDb
+from hgu.anatomyDb.version006 import AnaStageDb
+from hgu.anatomyDb.version006 import AnaSynonymDb
+from hgu.anatomyDb.version006 import AnaTimedNodeDb
+from hgu.anatomyDb.version006 import AnaVersionDb
 
 
 # ------------------------------------------------------------------
@@ -262,7 +262,16 @@ def _createViewComponent(pod, stage, parentElement):
 
 def _createFilterComponent(pod, stage, parentElement):
     """
-    Create a component element in the Filter XML document as a child of the given
+    Create a component element in the Filter XML ****************************************
+THIS SCRIPT IS NOW OBSOLETE
+
+REPLACED BY DB2OBO METHOD OF DATA ENTRY
+
+MNW, JULY 2009
+
+****************************************
+
+document as a child of the given
     parent element.
     """
     nodeOid = pod.getNodeOid()

@@ -328,13 +328,14 @@ public class GenerateEditorPDF {
 
             String parents = "";
             String groupparents = "";
+            String strCompieID = ( !compie.getNewID().equals("") ) ? compie.getNewID(): compie.getID();
             for ( String parent: compie.getPartOf() )
                 parents = parents + parent + "[" + treebuilder.getComponent( parent ).getName() + "] ";
             for ( String groupparent: compie.getGroupPartOf() )
                 groupparents = groupparents + groupparent + "[" + treebuilder.getComponent( groupparent ).getName() + "] ";
 
             cell = makeLabel("ID"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( compie.getID() ); cell.setColspan( 1 ); table.addCell( cell );
+            cell = makeEntry( strCompieID ); cell.setColspan( 1 ); table.addCell( cell );
             
             cell = makeLabel("Is Group Term"); cell.setColspan( 1 ); table.addCell( cell );
             cell = makeEntry( Boolean.toString(!compie.getIsPrimary()) ); cell.setColspan( 1 ); table.addCell( cell );
@@ -425,7 +426,8 @@ public class GenerateEditorPDF {
     
     private void writeTerms( ArrayList<Component> termList, String strHeader, String strSubheader,
             Color headerColor, String strTableHeader, String strStatus ){
-        int counter = 0;
+            int counter = 0;
+            String strCompieID = "";
         
         try{
             //main header
@@ -446,10 +448,13 @@ public class GenerateEditorPDF {
             //list items
             if ( !termList.isEmpty() ){
                 //component ids + names
+
                 for(Component compie: termList){
                     counter++;
+                    strCompieID = ( !compie.getNewID().equals("") ) ? compie.getNewID(): compie.getID();
+
                     Paragraph paraListItem = new Paragraph();
-                    Chunk chkListItem = new Chunk( "  " + counter + ". " + compie.getID() + " - " + compie.getName(),
+                    Chunk chkListItem = new Chunk( "  " + counter + ". " + strCompieID + " - " + compie.getName(),
                             new Font( Font.NORMAL, 10, Font.NORMAL, Color.BLACK ) );
                     
                     paraListItem.setLeading( 9 );

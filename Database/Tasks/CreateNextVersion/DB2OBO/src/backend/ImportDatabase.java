@@ -23,7 +23,7 @@ public class ImportDatabase {
     private ArrayList < Component > termList = new ArrayList < Component >();
     private ArrayList < Relation > relationList = new ArrayList < Relation >();
     
-    public ImportDatabase( Connection connection, Component abstractClass, Component stageClass, Component groupClass, Component groupTermClass, String species, String fileType, String stage, String start, String end, boolean defaultroot) {
+    public ImportDatabase( Connection connection, Component abstractClass, Component stageClass, Component groupClass, Component groupTermClass, String species, String fileType, String stage, String start, String end, boolean defaultroot, String project) {
         this.connection = connection;
         this.isProcessed = false;
       
@@ -71,22 +71,32 @@ public class ImportDatabase {
                 try {
                     String partofQuery = "";
                     if ( fileType.equals("Abstract Stage") || fileType.equals("Abstract Stage Range") )
-                        partofQuery = "SELECT ano_public_id FROM ANA_RELATIONSHIP, ANA_NODE"
+                        partofQuery = "SELECT ano_public_id, rlp_sequence"
+                        +" FROM ANA_RELATIONSHIP, ANA_NODE, ANA_RELATIONSHIP_PROJECT"
                         +" WHERE rel_child_fk = '" + term.getDBID() + "'"
                         +" AND rel_relationship_type_fk = 'part-of'"
                         +" AND rel_parent_fk = ano_oid"
+                        +" AND rel_oid = rlp_relationship_fk "
+                        +" AND rlp_project_fk = '" + project + "'"
                         +" AND ano_is_primary = 1"; //exclude group nodes because they can be start/end beyond/before selected stage and still have child nodes that are within selected stage
                         //eg. EMAPA:28445 starts and ends at TS22 but have children from TS22 - TS24
                         //eg. EMAPA:31464 starts TS25 and ends TS28 but have children TS21- TS26
-                    else partofQuery = "SELECT ano_public_id FROM ANA_RELATIONSHIP, ANA_NODE"
+                    else partofQuery = "SELECT ano_public_id, rlp_sequence"
+                        +" FROM ANA_RELATIONSHIP, ANA_NODE, ANA_RELATIONSHIP_PROJECT"
                         +" WHERE rel_child_fk = '" + term.getDBID() + "'"
                         +" AND rel_relationship_type_fk = 'part-of'"
-                        +" AND rel_parent_fk = ano_oid";
+                        +" AND rel_parent_fk = ano_oid"
+                        +" AND rel_oid = rlp_relationship_fk"
+                        +" AND rlp_project_fk = '" + project + "'";
 
                     partofRS = connection.createStatement().executeQuery( partofQuery );
                     if ( term.getIsPrimary() ){
                         while ( partofRS.next() ) {
                             term.addPartOf( partofRS.getString("ano_public_id") );
+                            //add comment for ordering nodes
+                            if ( partofRS.getString("rlp_sequence")!= null ){
+                                term.addUserComments("order=" + partofRS.getString("rlp_sequence") + " for " + partofRS.getString("ano_public_id"));
+                            }
                         } // while partofRS 
                     }
                     else {
@@ -94,6 +104,10 @@ public class ImportDatabase {
                             term.addGroupPartOf( partofRS.getString("ano_public_id") );
                             //term.setIsA("group_term");
                             term.setIsA( groupTermClass.getID() ); 
+                            //add comment for ordering nodes
+                            if ( partofRS.getString("rlp_sequence")!= null ){
+                                term.addUserComments("order=" + partofRS.getString("rlp_sequence")  + " for " + partofRS.getString("ano_public_id"));
+                            }
                         } // 
                     }
                 
@@ -359,6 +373,24 @@ public class ImportDatabase {
             rel.setTransitive("false");
             relationList.add( rel );
         }
+    }
+
+    public ArrayList < String > getProjects(){
+
+        ArrayList<String> projects = new ArrayList<String>();
+
+        try{
+            String query = "SELECT APJ_NAME FROM ANA_PROJECT";
+            ResultSet rs = this.connection.createStatement().executeQuery(query);
+            while (rs.next()){
+                projects.add( rs.getString("APJ_NAME") );
+            }
+            rs.close();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return projects;
     }
     
     public ArrayList < Component > getTermList() {

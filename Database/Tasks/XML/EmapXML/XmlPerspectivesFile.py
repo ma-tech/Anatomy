@@ -10,9 +10,9 @@ import xml.dom.Document
 
 from hgu import Util
 
-from hgu.anatomyDb.version004 import Nodes
-from hgu.anatomyDb.version004 import Perspectives
-from hgu.anatomyDb.version004 import Versions
+from hgu.anatomyDb.version006 import Nodes
+from hgu.anatomyDb.version006 import Perspectives
+from hgu.anatomyDb.version006 import Versions
 
 
 # ------------------------------------------------------------------

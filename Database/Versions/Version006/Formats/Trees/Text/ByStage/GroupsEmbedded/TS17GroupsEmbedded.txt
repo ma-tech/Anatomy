@@ -1,0 +1,1924 @@
+
+===========================================================
+===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===========================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS17
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:25782   mouse
+EMAP:2220    + organ system
+EMAP:2221    | + visceral organ
+EMAP:2571    | | + genitourinary system (syn: urogenital system)
+EMAP:27562   | | | + associated mesenchyme
+EMAP:2572    | | | + gonad (syn: gonad primordium)
+EMAP:27565   | | | | + coelomic epithelium (syn: germinal epithelium)
+EMAP:2573    | | | | + gonadal mesenchyme
+EMAP:27567   | | | | | + anterior gonadal mesenchyme (syn: rostral gonadal mesenchyme)
+EMAP:27569   | | | | | + central gonadal mesenchyme
+EMAP:27571   | | | | | \ posterior gonadal mesenchyme (syn: caudal gonadal mesenchyme)
+EMAP:2574    | | | | \ primordial germ cells
+EMAP:2576    | | | + mesonephros
+EMAP:2577    | | | | + mesonephric mesenchyme
+EMAP:2579    | | | | + mesonephric tubule
+EMAP:30563   | | | | | + cranial mesonephric tubule
+EMAP:30569   | | | | | | + mesonephric glomerulus
+EMAP:30566   | | | | | | \ rest of cranial mesonephric tubule
+EMAP:30572   | | | | | \ caudal mesonephric tubule
+EMAP:27592   | | | | \ nephric duct, mesonephric portion
+EMAP:27603   | | | + nephric duct, pronephric portion
+EMAP:27600   | | | + nephric duct, metanephric portion
+EMAP:29991   | | | + metanephric mesenchyme
+EMAP:27574   | | | + cloaca
+EMAP:27578   | | | | + cloacal epithelium (syn: distal urethral epithelium)
+EMAP:27582   | | | | \ associated mesenchyme
+EMAP:27572   | | | + urogenital membrane
+EMAP:2575    | | | + urorectal septum
+EMAP:30075   | | | + genital swelling
+EMAP:31831   | | | + developing vasculature of genitourinary system
+EMAP:2581  G | | | \ nephric duct group
+EMAP:27603 > | | |   + nephric duct, pronephric portion
+EMAP:27592 > | | |   + nephric duct, mesonephric portion
+EMAP:27600 > | | |   \ nephric duct, metanephric portion
+EMAP:2222    | | + alimentary system
+EMAP:2479    | | | + anal region
+EMAP:2480    | | | | \ cloacal membrane
+EMAP:2235    | | | + gut
+EMAP:2236    | | | | + foregut
+EMAP:2237    | | | | | + gland
+EMAP:2238    | | | | | | \ thyroid primordium
+EMAP:2239    | | | | | |   + associated mesenchyme
+EMAP:2240    | | | | | |   \ endoderm (syn: endothelium)
+EMAP:2481    | | | | | + oesophagus
+EMAP:2482    | | | | | | + associated mesenchyme
+EMAP:2483    | | | | | | + epithelium
+EMAP:6931    | | | | | | + lumen
+EMAP:2484    | | | | | | + mesentery
+EMAP:2485    | | | | | | | \ dorsal meso-oesophagus
+EMAP:2486    | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2487    | | | | | + pharynx
+EMAP:2488    | | | | | | + associated mesenchyme
+EMAP:2489    | | | | | | + epithelium
+EMAP:6939    | | | | | | + lumen
+EMAP:2490    | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2491    | | | | | + rest of foregut
+EMAP:2492    | | | | | | + associated mesenchyme
+EMAP:2493    | | | | | | + epithelium
+EMAP:7015    | | | | | | + lumen
+EMAP:2494    | | | | | | + mesentery
+EMAP:2495    | | | | | | | + dorsal mesentery
+EMAP:2496    | | | | | | | \ ventral mesentery
+EMAP:2497    | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2498    | | | | | \ stomach
+EMAP:2499    | | | | |   + associated mesenchyme
+EMAP:2500    | | | | |   + epithelium
+EMAP:6991    | | | | |   + lumen
+EMAP:2501    | | | | |   + mesentery
+EMAP:2502    | | | | |   | + dorsal mesogastrium
+EMAP:2503    | | | | |   | \ ventral mesogastrium
+EMAP:2504    | | | | |   \ vascular element (syn: artery; vein)
+EMAP:2505    | | | | + foregut-midgut junction
+EMAP:2506    | | | | | + associated mesenchyme
+EMAP:2507    | | | | | + epithelium
+EMAP:6960    | | | | | + lumen
+EMAP:2508    | | | | | + mesentery
+EMAP:2509    | | | | | | + dorsal mesentery
+EMAP:2510    | | | | | | \ ventral mesentery
+EMAP:2511    | | | | | \ vascular element (syn: artery; vein)
+EMAP:2521    | | | | + hindgut
+EMAP:2522    | | | | | + associated mesenchyme
+EMAP:2523    | | | | | + epithelium
+EMAP:6997    | | | | | + lumen
+EMAP:2524    | | | | | + mesentery
+EMAP:2525    | | | | | | \ dorsal mesentery (syn: dorsal mesocolon; dorsal mesorectum)
+EMAP:2526    | | | | | \ vascular element (syn: artery; vein)
+EMAP:2512    | | | | + hindgut diverticulum (syn: hindgut pocket)
+EMAP:2513    | | | | | + postanal component
+EMAP:2514    | | | | | | + associated mesenchyme
+EMAP:2515    | | | | | | + epithelium
+EMAP:7001    | | | | | | + lumen
+EMAP:2516    | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2517    | | | | | \ preanal component
+EMAP:2518    | | | | |   + associated mesenchyme
+EMAP:2519    | | | | |   + epithelium
+EMAP:7005    | | | | |   + lumen
+EMAP:2520    | | | | |   \ vascular element (syn: artery; vein)
+EMAP:2527    | | | | \ midgut
+EMAP:2528    | | | |   + loop
+EMAP:2529    | | | |   | + associated mesenchyme
+EMAP:2530    | | | |   | + epithelium
+EMAP:6977    | | | |   | + lumen
+EMAP:2531    | | | |   | + mesentery
+EMAP:2532    | | | |   | | \ dorsal mesentery
+EMAP:2533    | | | |   | \ vascular element (syn: artery; vein)
+EMAP:2534    | | | |   \ rest of midgut
+EMAP:2535    | | | |     + associated mesenchyme
+EMAP:2536    | | | |     + epithelium
+EMAP:6983    | | | |     + lumen
+EMAP:2537    | | | |     + mesentery
+EMAP:2538    | | | |     | \ dorsal mesentery
+EMAP:2539    | | | |     \ vascular element (syn: artery; vein)
+EMAP:2223    | | | \ oral region
+EMAP:7011    | | |   + cavity
+EMAP:2224    | | |   + gland
+EMAP:2225    | | |   | \ pituitary
+EMAP:2226    | | |   |   \ Rathke's pouch
+EMAP:14769   | | |   |     + lumen
+EMAP:14764   | | |   |     \ wall
+EMAP:2540    | | |   \ oral epithelium
+EMAP:2541    | | + liver and biliary system
+EMAP:2542    | | | + cystic duct
+EMAP:2543    | | | + gall bladder primordium (syn: gall bladder gland)
+EMAP:2544    | | | + hepatic duct
+EMAP:2545    | | | | + extrahepatic part
+EMAP:2546    | | | | \ intrahepatic part
+EMAP:2547    | | | \ liver
+EMAP:2548    | | |   \ hepatic primordium
+EMAP:2549    | | |     \ parenchyma
+EMAP:2550    | | \ respiratory system
+EMAP:2551    | |   + lung
+EMAP:2552    | |   | + left lung rudiment
+EMAP:2553    | |   | | + associated mesenchyme
+EMAP:2554    | |   | | + epithelium
+EMAP:2555    | |   | | \ vascular element (syn: artery; vein)
+EMAP:2556    | |   | \ right lung rudiment
+EMAP:2557    | |   |   + associated mesenchyme
+EMAP:2558    | |   |   + epithelium
+EMAP:2559    | |   |   \ vascular element (syn: artery; vein)
+EMAP:2560    | |   \ respiratory tract
+EMAP:2561    | |     \ lower
+EMAP:2562    | |       + laryngo-tracheal groove
+EMAP:2563    | |       + main bronchus
+EMAP:2564    | |       | + associated mesenchyme
+EMAP:2565    | |       | + epithelium
+EMAP:2566    | |       | \ vascular element (syn: artery; vein)
+EMAP:2567    | |       \ trachea
+EMAP:2568    | |         + associated mesenchyme
+EMAP:7030    | |         + carina tracheae
+EMAP:7036    | |         | + associated mesenchyme
+EMAP:7042    | |         | + epithelium
+EMAP:7048    | |         | \ vascular element
+EMAP:2569    | |         + epithelium
+EMAP:2570    | |         \ vascular element (syn: artery; vein)
+EMAP:2388    | + cardiovascular system
+EMAP:2389    | | + arterial system
+EMAP:2390    | | | + branchial arch artery (syn: aortic arch artery; pharyngeal arch artery)
+EMAP:2391    | | | | + 1st arch artery (syn: 1st aortic arch artery; 1st branchial arch artery; 1st pharyngeal arch artery)
+EMAP:2392    | | | | + 2nd arch artery (syn: 2nd aortic arch artery; 2nd branchial arch artery; 2nd pharyngeal arch artery)
+EMAP:2393    | | | | + 3rd arch artery (syn: 3rd aortic arch artery; 3rd branchial arch artery; 3rd pharyngeal arch artery)
+EMAP:2394    | | | | + 4th arch artery (syn: 4th aortic arch artery; 4th branchial arch artery; 4th pharyngeal arch artery)
+EMAP:2395    | | | | \ 6th arch artery (syn: 6th aortic arch artery; 6th branchial arch artery; 6th pharyngeal arch artery)
+EMAP:2396    | | | + dorsal aorta
+EMAP:2397    | | | | + common
+EMAP:2398    | | | | + left
+EMAP:2399    | | | | \ right
+EMAP:2400    | | | + ductus caroticus
+EMAP:2401    | | | + internal carotid artery
+EMAP:15267   | | | + intersegmental artery
+EMAP:2403    | | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:2404    | | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:2402    | | | + ophthalmic artery
+EMAP:2405    | | | + pulmonary artery
+EMAP:2406    | | | + umbilical artery
+EMAP:2407    | | | | + left
+EMAP:2408    | | | | \ right
+EMAP:2409    | | | \ vitelline artery
+EMAP:2410    | | + blood
+EMAP:2411    | | + heart
+EMAP:2412    | | | + atrio-ventricular canal (syn: ependymal canal)
+EMAP:2413    | | | + atrium
+EMAP:2414    | | | | + common atrial chamber
+EMAP:2415    | | | | | + left part
+EMAP:2416    | | | | | | + cardiac jelly
+EMAP:2421    | | | | | | + cardiac muscle (syn: myocardium)
+EMAP:2417    | | | | | | + endocardial lining
+EMAP:2418    | | | | | | \ left auricular region
+EMAP:2420    | | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2419    | | | | | |   \ endocardial lining
+EMAP:2422    | | | | | \ right part
+EMAP:2423    | | | | |   + cardiac jelly
+EMAP:2425    | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2424    | | | | |   + endocardial lining
+EMAP:2426    | | | | |   + right auricular region
+EMAP:2428    | | | | |   | + cardiac muscle (syn: myocardium)
+EMAP:2427    | | | | |   | \ endocardial lining
+EMAP:2429    | | | | |   \ valve
+EMAP:2430    | | | | |     \ venous valve
+EMAP:2431    | | | | \ interatrial septum
+EMAP:2432    | | | |   + foramen primum (syn: ostium primum)
+EMAP:2433    | | | |   \ septum primum
+EMAP:2434    | | | + bulboventricular groove (syn: bulbo-ventricular sulcus; ependymal groove; ependymal sulcus)
+EMAP:2435    | | | + bulbus cordis
+EMAP:2436    | | | | + caudal half
+EMAP:2437    | | | | | + cardiac jelly
+EMAP:2439    | | | | | + cardiac muscle (syn: myocardium)
+EMAP:2438    | | | | | \ endocardial lining
+EMAP:2440    | | | | \ rostral half (syn: conotruncus)
+EMAP:2441    | | | |   + cardiac jelly
+EMAP:2443    | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2442    | | | |   \ endocardial lining
+EMAP:2444    | | | + endocardial cushion tissue (syn: bulbar cushion)
+EMAP:2445    | | | + mesentery
+EMAP:2446    | | | | \ dorsal mesocardium (syn: dorsal mesentery of heart)
+EMAP:2447    | | | |   \ transverse pericardial sinus
+EMAP:2448    | | | + outflow tract
+EMAP:2449    | | | | + aortico-pulmonary spiral septum
+EMAP:2450    | | | | | + ascending aorta (syn: future)
+EMAP:2451    | | | | | \ pulmonary trunk (syn: future)
+EMAP:2452    | | | | + cardiac jelly
+EMAP:2453    | | | | \ endocardial tube
+EMAP:2454    | | | + primitive ventricle (syn: future left ventricle)
+EMAP:2455    | | | | + cardiac jelly
+EMAP:2457    | | | | + cardiac muscle (syn: myocardium)
+EMAP:2456    | | | | \ endocardial lining
+EMAP:2458    | | | \ sinus venosus
+EMAP:2459    | | |   + left horn
+EMAP:2460    | | |   \ right horn
+EMAP:2461    | | \ venous system
+EMAP:2462    | |   + cardinal vein
+EMAP:2463    | |   | + anterior
+EMAP:2464    | |   | + common (syn: Duct of Cuvier; future coronary sinus)
+EMAP:2465    | |   | \ posterior
+EMAP:2466    | |   + inter-subcardinal venous anastomosis
+EMAP:2467    | |   + marginal vein of forelimb
+EMAP:2468    | |   + marginal vein of hindlimb
+EMAP:2469    | |   + primary head vein
+EMAP:2470    | |   + principal vein of forelimb (syn: axial vein of limb)
+EMAP:2471    | |   + principal vein of hindlimb (syn: axial vein of limb)
+EMAP:2472    | |   + subcardinal vein
+EMAP:2473    | |   + umbilical vein
+EMAP:2474    | |   | \ left
+EMAP:2475    | |   + vitelline vein (syn: omphalomesenteric vein)
+EMAP:2476    | |   | + left
+EMAP:2477    | |   | \ right
+EMAP:2478    | |   \ vitelline venous plexus
+EMAP:2227    | + nervous system
+EMAP:2228    | | + central nervous system (syn: CNS)
+EMAP:2229    | | | + brain
+EMAP:2230    | | | | + forebrain
+EMAP:2231    | | | | | + diencephalon
+EMAP:2241    | | | | | | + 3rd ventricle (syn: diencephalic vesicle)
+EMAP:2242    | | | | | | | + diencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:2243    | | | | | | | \ optic recess (syn: lumen of optic stalk)
+EMAP:2244    | | | | | | + floor plate
+EMAP:2232    | | | | | | + gland
+EMAP:2233    | | | | | | | \ pituitary
+EMAP:2234    | | | | | | |   \ infundibular recess of 3rd ventricle (syn: future neurohypophysis)
+EMAP:2245    | | | | | | + lamina terminalis
+EMAP:2246    | | | | | | + lateral wall
+EMAP:2247    | | | | | | | + mantle layer
+EMAP:2248    | | | | | | | + marginal layer
+EMAP:2249    | | | | | | | \ ventricular layer
+EMAP:2250    | | | | | | \ roof plate
+EMAP:2251    | | | | | \ telencephalon (syn: cerebral hemisphere)
+EMAP:2252    | | | | |   + mantle layer
+EMAP:2253    | | | | |   + marginal layer
+EMAP:2255    | | | | |   + telencephalic vesicle (syn: lateral ventricle)
+EMAP:2256    | | | | |   | \ telencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:2254    | | | | |   \ ventricular layer
+EMAP:2257    | | | | + hindbrain (syn: rhombencephalon)
+EMAP:2258    | | | | | + 4th ventricle (syn: rhombencephalic vesicle)
+EMAP:2259    | | | | | + rhombomere 01
+EMAP:2260    | | | | | | + floor plate
+EMAP:2261    | | | | | | + lateral wall
+EMAP:2262    | | | | | | | + mantle layer
+EMAP:2263    | | | | | | | + marginal layer
+EMAP:2264    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2265    | | | | | | \ roof plate
+EMAP:2266    | | | | | + rhombomere 02
+EMAP:2267    | | | | | | + floor plate
+EMAP:2268    | | | | | | + lateral wall
+EMAP:2269    | | | | | | | + mantle layer
+EMAP:2270    | | | | | | | + marginal layer
+EMAP:2271    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2272    | | | | | | \ roof plate
+EMAP:2273    | | | | | + rhombomere 03
+EMAP:2274    | | | | | | + floor plate
+EMAP:2275    | | | | | | + lateral wall
+EMAP:2276    | | | | | | | + mantle layer
+EMAP:2277    | | | | | | | + marginal layer
+EMAP:2278    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2279    | | | | | | \ roof plate
+EMAP:2280    | | | | | + rhombomere 04
+EMAP:2281    | | | | | | + floor plate
+EMAP:2282    | | | | | | + lateral wall
+EMAP:2283    | | | | | | | + mantle layer
+EMAP:2284    | | | | | | | + marginal layer
+EMAP:2285    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2286    | | | | | | \ roof plate
+EMAP:2287    | | | | | + rhombomere 05
+EMAP:2288    | | | | | | + floor plate
+EMAP:2289    | | | | | | + lateral wall
+EMAP:2290    | | | | | | | + mantle layer
+EMAP:2291    | | | | | | | + marginal layer
+EMAP:2292    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2293    | | | | | | \ roof plate
+EMAP:2294    | | | | | + rhombomere 06
+EMAP:2295    | | | | | | + floor plate
+EMAP:2296    | | | | | | + lateral wall
+EMAP:2297    | | | | | | | + mantle layer
+EMAP:2298    | | | | | | | + marginal layer
+EMAP:2299    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2300    | | | | | | \ roof plate
+EMAP:2301    | | | | | + rhombomere 07
+EMAP:2302    | | | | | | + floor plate
+EMAP:2303    | | | | | | + lateral wall
+EMAP:2304    | | | | | | | + mantle layer
+EMAP:2305    | | | | | | | + marginal layer
+EMAP:2306    | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2307    | | | | | | \ roof plate
+EMAP:2308    | | | | | \ rhombomere 08
+EMAP:2309    | | | | |   + floor plate
+EMAP:2310    | | | | |   + lateral wall
+EMAP:2311    | | | | |   | + mantle layer
+EMAP:2312    | | | | |   | + marginal layer
+EMAP:2313    | | | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:2314    | | | | |   \ roof plate
+EMAP:2315    | | | | \ midbrain (syn: mesencephalon)
+EMAP:2316    | | | |   + floor plate
+EMAP:2317    | | | |   + lateral wall
+EMAP:2318    | | | |   | + mantle layer
+EMAP:2319    | | | |   | + marginal layer
+EMAP:2320    | | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:2321    | | | |   + mesencephalic vesicle (syn: cerebral aqueduct)
+EMAP:2322    | | | |   \ roof plate
+EMAP:2323    | | | + future spinal cord
+EMAP:2324    | | | | \ neural tube
+EMAP:2325    | | | |   + floor plate
+EMAP:2326    | | | |   + lateral wall
+EMAP:2327    | | | |   + neural lumen (syn: future spinal canal)
+EMAP:2328    | | | |   | \ neural luminal occlusion
+EMAP:2329    | | | |   \ roof plate
+EMAP:2330    | | | \ ganglion
+EMAP:2331    | | |   \ cranial
+EMAP:2332    | | |     + acoustic ganglion VIII
+EMAP:2333    | | |     + facial ganglion VII
+EMAP:2334    | | |     + glossopharyngeal IX
+EMAP:2335    | | |     + trigeminal V (syn: semiluminar ganglion)
+EMAP:2336    | | |     \ vagus X
+EMAP:2337    | | \ peripheral nervous system (syn: PNS)
+EMAP:2338    | |   + autonomic
+EMAP:2339    | |   | \ sympathetic
+EMAP:2340    | |   |   \ nerve trunk (syn: nerve chain)
+EMAP:2341    | |   \ spinal
+EMAP:2342    | |     + ganglion
+EMAP:2343    | |     | \ dorsal root ganglion (syn: posterior root ganglion)
+EMAP:14977   | |     |   \ C1
+EMAP:2346    | |     + nerve
+EMAP:2347    | |     | \ segmental spinal nerve
+EMAP:2344    | |     \ nerve plexus
+EMAP:2345    | |       \ brachial plexus
+EMAP:2348    | \ sensory organ
+EMAP:2349    |   + ear
+EMAP:2350    |   | + external ear
+EMAP:2351    |   | | \ 1st branchial membrane (syn: future tympanic membrane)
+EMAP:2352    |   | |   \ epithelium
+EMAP:2353    |   | + inner ear
+EMAP:2354    |   | | \ otocyst (syn: otic vesicle)
+EMAP:2355    |   | |   + endolymphatic appendage (syn: diverticulum)
+EMAP:2356    |   | |   | + associated mesenchyme
+EMAP:2357    |   | |   | \ epithelium
+EMAP:15263   |   | |   + lumen
+EMAP:2358    |   | |   \ other part
+EMAP:2359    |   | |     + associated mesenchyme
+EMAP:2360    |   | |     \ epithelium
+EMAP:2361    |   | \ middle ear
+EMAP:2362    |   |   + associated mesenchyme
+EMAP:2363    |   |   \ tubo-tympanic recess
+EMAP:2364    |   + eye
+EMAP:2365    |   | + lens pit
+EMAP:2366    |   | + mesenchyme
+EMAP:2367    |   | + optic cup
+EMAP:2368    |   | | + inner layer (syn: future neural epithelium; future neural layer)
+EMAP:2369    |   | | + intraretinal space
+EMAP:2370    |   | | \ outer layer (syn: future pigmented layer; future pigmented retinal epithelium; future PRE)
+EMAP:2371    |   | + optic stalk
+EMAP:2372    |   | \ surface ectoderm of the eye (syn: optic eminence)
+EMAP:2373    |   \ nose
+EMAP:2374    |     + naso-lacrimal groove
+EMAP:2375    |     + olfactory pit (syn: nasal pit)
+EMAP:2376    |     | \ nasal epithelium
+EMAP:2377    |     \ process
+EMAP:2378    |       \ fronto-nasal process
+EMAP:2379    |         + frontal process
+EMAP:2380    |         | + ectoderm
+EMAP:2381    |         | \ mesenchyme
+EMAP:2382    |         + latero-nasal process
+EMAP:2383    |         | + ectoderm
+EMAP:2384    |         | \ mesenchyme
+EMAP:2385    |         \ medial-nasal process
+EMAP:2386    |           + ectoderm
+EMAP:2387    |           \ mesenchyme
+EMAP:2007    + branchial arch (syn: pharyngeal arch)
+EMAP:2008    | + 1st arch
+EMAP:2009    | | + branchial groove
+EMAP:2010    | | | \ ectoderm (syn: epithelium)
+EMAP:2011    | | + branchial pouch
+EMAP:2012    | | | \ endoderm (syn: endothelium)
+EMAP:2013    | | + mandibular component
+EMAP:2014    | | | + ectoderm (syn: epithelium)
+EMAP:2015    | | | + endoderm (syn: endothelium)
+EMAP:2016    | | | \ mesenchyme
+EMAP:2017    | | |   + mesenchyme derived from head mesoderm
+EMAP:2018    | | |   \ mesenchyme derived from neural crest
+EMAP:2019    | | + maxillary component
+EMAP:2020    | | | + ectoderm (syn: epithelium)
+EMAP:2021    | | | + endoderm (syn: endothelium)
+EMAP:2022    | | | \ mesenchyme
+EMAP:2023    | | |   + mesenchyme derived from head mesoderm
+EMAP:2024    | | |   \ mesenchyme derived from neural crest
+EMAP:2025    | | \ maxillary-mandibular groove
+EMAP:2026    | |   \ ectoderm (syn: epithelium)
+EMAP:2027    | + 2nd arch
+EMAP:2028    | | + branchial groove
+EMAP:2029    | | | \ ectoderm (syn: epithelium)
+EMAP:2030    | | + branchial membrane
+EMAP:2031    | | | + ectoderm (syn: epithelium)
+EMAP:2032    | | | \ endoderm (syn: endothelium)
+EMAP:2033    | | + branchial pouch
+EMAP:2034    | | | \ endoderm (syn: endothelium)
+EMAP:15295   | | + ectoderm (syn: epithelium)
+EMAP:2035    | | + endoderm (syn: endothelium)
+EMAP:2036    | | + epithelium
+EMAP:2037    | | \ mesenchyme
+EMAP:2038    | |   + mesenchyme derived from head mesoderm
+EMAP:2039    | |   \ mesenchyme derived from neural crest
+EMAP:2040    | + 3rd arch
+EMAP:2041    | | + branchial groove
+EMAP:28869   | | | + ectoderm
+EMAP:2042    | | | \ epithelium
+EMAP:2043    | | + branchial membrane
+EMAP:2044    | | | + ectoderm
+EMAP:2045    | | | \ endoderm
+EMAP:2046    | | + branchial pouch
+EMAP:2047    | | | \ endoderm
+EMAP:2048    | | |   + dorsal
+EMAP:2049    | | |   \ ventral
+EMAP:2050    | | + ectoderm (syn: epithelium)
+EMAP:2051    | | + endoderm (syn: endothelium)
+EMAP:2052    | | \ mesenchyme
+EMAP:2053    | |   + mesenchyme derived from head mesoderm
+EMAP:2054    | |   \ mesenchyme derived from neural crest
+EMAP:2055    | \ 4th arch
+EMAP:2056    |   + branchial groove
+EMAP:2057    |   | \ ectoderm
+EMAP:2058    |   + branchial membrane
+EMAP:2059    |   | + ectoderm
+EMAP:2060    |   | \ endoderm
+EMAP:2061    |   + branchial pouch
+EMAP:2062    |   | \ endoderm
+EMAP:2063    |   + cervical sinus (syn: retro-hyoid depression)
+EMAP:2064    |   + ectoderm
+EMAP:2065    |   + endoderm
+EMAP:2066    |   \ mesenchyme
+EMAP:2067    |     + mesenchyme derived from head mesoderm
+EMAP:2068    |     \ mesenchyme derived from neural crest
+EMAP:2069    + cavities and their linings
+EMAP:2070    | \ intraembryonic coelom (syn: future pericardial component)
+EMAP:2071    |   + pericardial component
+EMAP:2072    |   | + cavity
+EMAP:2073    |   | \ mesothelium
+EMAP:2074    |   |   + parietal
+EMAP:2075    |   |   \ visceral
+EMAP:2076    |   + pericardio-peritoneal canal (syn: pericardio-peritoneal channel)
+EMAP:2077    |   | + cavity
+EMAP:2078    |   | \ mesothelium
+EMAP:2079    |   |   \ parietal
+EMAP:2080    |   + peritoneal component
+EMAP:2081    |   | + greater sac
+EMAP:2082    |   | | + cavity
+EMAP:2083    |   | | \ mesothelium
+EMAP:2084    |   | |   + parietal
+EMAP:7064    |   | |   \ visceral
+EMAP:2085    |   | \ omental bursa (syn: lesser sac)
+EMAP:2086    |   |   \ mesothelium
+EMAP:2087    |   |     \ parietal
+EMAP:2088    |   + pleural component
+EMAP:2089    |   | + cavity
+EMAP:2090    |   | \ mesothelium
+EMAP:2091    |   |   + parietal
+EMAP:2092    |   |   \ visceral
+EMAP:14735   |   \ pleuro-peritoneal canal (syn: pleuro-peritoneal channel)
+EMAP:14750   |     + cavity
+EMAP:14740   |     \ mesothelium
+EMAP:14745   |       \ parietal
+EMAP:31113 G + dermoyotome group
+EMAP:29699 > | + body dermomyotome group
+EMAP:2114  ~ | | + dermomyotome
+EMAP:2118  ~ | | + dermomyotome
+EMAP:2122  ~ | | + dermomyotome
+EMAP:2126  ~ | | + dermomyotome
+EMAP:2130  ~ | | + dermomyotome
+EMAP:2134  ~ | | + dermomyotome
+EMAP:2138  ~ | | + dermomyotome
+EMAP:2142  ~ | | + dermomyotome
+EMAP:2146  ~ | | + dermomyotome
+EMAP:2150  ~ | | + dermomyotome
+EMAP:2154  ~ | | + dermomyotome
+EMAP:2158  ~ | | + dermomyotome
+EMAP:2162  ~ | | + dermomyotome
+EMAP:2166  ~ | | + dermomyotome
+EMAP:2170  ~ | | + dermomyotome
+EMAP:2174  ~ | | + dermomyotome
+EMAP:2178  ~ | | + dermomyotome
+EMAP:2182  ~ | | + dermomyotome
+EMAP:2186  ~ | | + dermomyotome
+EMAP:2190  ~ | | + dermomyotome
+EMAP:2194  ~ | | + dermomyotome
+EMAP:2198  ~ | | + dermomyotome
+EMAP:2202  ~ | | + dermomyotome
+EMAP:2206  ~ | | + dermomyotome
+EMAP:2210  ~ | | + dermomyotome
+EMAP:2214  ~ | | \ dermomyotome
+EMAP:31107 > | \ tail dermomyotome group
+EMAP:2588  ~ |   + dermomyotome
+EMAP:2592  ~ |   + dermomyotome
+EMAP:2596  ~ |   + dermomyotome
+EMAP:2600  ~ |   + dermomyotome
+EMAP:2604  ~ |   + dermomyotome
+EMAP:2608  ~ |   + dermomyotome
+EMAP:2612  ~ |   + dermomyotome
+EMAP:2616  ~ |   + dermomyotome
+EMAP:2620  ~ |   \ dermomyotome
+EMAP:2093    + ectoderm (syn: epithelium)
+EMAP:2094    | \ surface ectoderm (syn: surface epithelium)
+EMAP:2006  G + embryo
+EMAP:2007  > | + branchial arch (syn: pharyngeal arch)
+EMAP:2008  ~ | | + 1st arch
+EMAP:2009  ~ | | | + branchial groove
+EMAP:2010  ~ | | | | \ ectoderm (syn: epithelium)
+EMAP:2011  ~ | | | + branchial pouch
+EMAP:2012  ~ | | | | \ endoderm (syn: endothelium)
+EMAP:2013  ~ | | | + mandibular component
+EMAP:2014  ~ | | | | + ectoderm (syn: epithelium)
+EMAP:2015  ~ | | | | + endoderm (syn: endothelium)
+EMAP:2016  ~ | | | | \ mesenchyme
+EMAP:2017  ~ | | | |   + mesenchyme derived from head mesoderm
+EMAP:2018  ~ | | | |   \ mesenchyme derived from neural crest
+EMAP:2019  ~ | | | + maxillary component
+EMAP:2020  ~ | | | | + ectoderm (syn: epithelium)
+EMAP:2021  ~ | | | | + endoderm (syn: endothelium)
+EMAP:2022  ~ | | | | \ mesenchyme
+EMAP:2023  ~ | | | |   + mesenchyme derived from head mesoderm
+EMAP:2024  ~ | | | |   \ mesenchyme derived from neural crest
+EMAP:2025  ~ | | | \ maxillary-mandibular groove
+EMAP:2026  ~ | | |   \ ectoderm (syn: epithelium)
+EMAP:2027  ~ | | + 2nd arch
+EMAP:2028  ~ | | | + branchial groove
+EMAP:2029  ~ | | | | \ ectoderm (syn: epithelium)
+EMAP:2030  ~ | | | + branchial membrane
+EMAP:2031  ~ | | | | + ectoderm (syn: epithelium)
+EMAP:2032  ~ | | | | \ endoderm (syn: endothelium)
+EMAP:2033  ~ | | | + branchial pouch
+EMAP:2034  ~ | | | | \ endoderm (syn: endothelium)
+EMAP:15295 ~ | | | + ectoderm (syn: epithelium)
+EMAP:2035  ~ | | | + endoderm (syn: endothelium)
+EMAP:2036  ~ | | | + epithelium
+EMAP:2037  ~ | | | \ mesenchyme
+EMAP:2038  ~ | | |   + mesenchyme derived from head mesoderm
+EMAP:2039  ~ | | |   \ mesenchyme derived from neural crest
+EMAP:2040  ~ | | + 3rd arch
+EMAP:2041  ~ | | | + branchial groove
+EMAP:28869 ~ | | | | + ectoderm
+EMAP:2042  ~ | | | | \ epithelium
+EMAP:2043  ~ | | | + branchial membrane
+EMAP:2044  ~ | | | | + ectoderm
+EMAP:2045  ~ | | | | \ endoderm
+EMAP:2046  ~ | | | + branchial pouch
+EMAP:2047  ~ | | | | \ endoderm
+EMAP:2048  ~ | | | |   + dorsal
+EMAP:2049  ~ | | | |   \ ventral
+EMAP:2050  ~ | | | + ectoderm (syn: epithelium)
+EMAP:2051  ~ | | | + endoderm (syn: endothelium)
+EMAP:2052  ~ | | | \ mesenchyme
+EMAP:2053  ~ | | |   + mesenchyme derived from head mesoderm
+EMAP:2054  ~ | | |   \ mesenchyme derived from neural crest
+EMAP:2055  ~ | | \ 4th arch
+EMAP:2056  ~ | |   + branchial groove
+EMAP:2057  ~ | |   | \ ectoderm
+EMAP:2058  ~ | |   + branchial membrane
+EMAP:2059  ~ | |   | + ectoderm
+EMAP:2060  ~ | |   | \ endoderm
+EMAP:2061  ~ | |   + branchial pouch
+EMAP:2062  ~ | |   | \ endoderm
+EMAP:2063  ~ | |   + cervical sinus (syn: retro-hyoid depression)
+EMAP:2064  ~ | |   + ectoderm
+EMAP:2065  ~ | |   + endoderm
+EMAP:2066  ~ | |   \ mesenchyme
+EMAP:2067  ~ | |     + mesenchyme derived from head mesoderm
+EMAP:2068  ~ | |     \ mesenchyme derived from neural crest
+EMAP:2069  > | + cavities and their linings
+EMAP:2070  ~ | | \ intraembryonic coelom (syn: future pericardial component)
+EMAP:2071  ~ | |   + pericardial component
+EMAP:2072  ~ | |   | + cavity
+EMAP:2073  ~ | |   | \ mesothelium
+EMAP:2074  ~ | |   |   + parietal
+EMAP:2075  ~ | |   |   \ visceral
+EMAP:2076  ~ | |   + pericardio-peritoneal canal (syn: pericardio-peritoneal channel)
+EMAP:2077  ~ | |   | + cavity
+EMAP:2078  ~ | |   | \ mesothelium
+EMAP:2079  ~ | |   |   \ parietal
+EMAP:2080  ~ | |   + peritoneal component
+EMAP:2081  ~ | |   | + greater sac
+EMAP:2082  ~ | |   | | + cavity
+EMAP:2083  ~ | |   | | \ mesothelium
+EMAP:2084  ~ | |   | |   + parietal
+EMAP:7064  ~ | |   | |   \ visceral
+EMAP:2085  ~ | |   | \ omental bursa (syn: lesser sac)
+EMAP:2086  ~ | |   |   \ mesothelium
+EMAP:2087  ~ | |   |     \ parietal
+EMAP:2088  ~ | |   + pleural component
+EMAP:2089  ~ | |   | + cavity
+EMAP:2090  ~ | |   | \ mesothelium
+EMAP:2091  ~ | |   |   + parietal
+EMAP:2092  ~ | |   |   \ visceral
+EMAP:14735 ~ | |   \ pleuro-peritoneal canal (syn: pleuro-peritoneal channel)
+EMAP:14750 ~ | |     + cavity
+EMAP:14740 ~ | |     \ mesothelium
+EMAP:14745 ~ | |       \ parietal
+EMAP:2093  > | + ectoderm (syn: epithelium)
+EMAP:2094  ~ | | \ surface ectoderm (syn: surface epithelium)
+EMAP:2095  > | + limb
+EMAP:2096  ~ | | + forelimb bud
+EMAP:2097  ~ | | | + ectoderm (syn: epithelium)
+EMAP:2098  ~ | | | | \ apical ectodermal ridge (syn: AER)
+EMAP:2099  ~ | | | \ mesenchyme
+EMAP:2100  ~ | | \ hindlimb bud
+EMAP:2101  ~ | |   + ectoderm
+EMAP:2102  ~ | |   | \ apical ectodermal ridge (syn: AER)
+EMAP:2103  ~ | |   \ mesenchyme
+EMAP:2104  > | + mesenchyme
+EMAP:2105  ~ | | + head mesenchyme
+EMAP:2106  ~ | | | + mesenchyme derived from head mesoderm
+EMAP:15252 ~ | | | | \ mesenchyme derived from somites 01-04
+EMAP:2107  ~ | | | \ mesenchyme derived from neural crest
+EMAP:2108  ~ | | \ trunk mesenchyme
+EMAP:2109  ~ | |   + body-wall mesenchyme
+EMAP:2110  ~ | |   + mesenchyme derived from neural crest
+EMAP:15243 ~ | |   | \ non-migrating cells
+EMAP:2111  ~ | |   + paraxial mesenchyme
+EMAP:2112  ~ | |   | \ somite
+EMAP:29699 ~ | |   |   + body dermomyotome group
+EMAP:2114  ~ | |   |   | + dermomyotome
+EMAP:2118  ~ | |   |   | + dermomyotome
+EMAP:2122  ~ | |   |   | + dermomyotome
+EMAP:2126  ~ | |   |   | + dermomyotome
+EMAP:2130  ~ | |   |   | + dermomyotome
+EMAP:2134  ~ | |   |   | + dermomyotome
+EMAP:2138  ~ | |   |   | + dermomyotome
+EMAP:2142  ~ | |   |   | + dermomyotome
+EMAP:2146  ~ | |   |   | + dermomyotome
+EMAP:2150  ~ | |   |   | + dermomyotome
+EMAP:2154  ~ | |   |   | + dermomyotome
+EMAP:2158  ~ | |   |   | + dermomyotome
+EMAP:2162  ~ | |   |   | + dermomyotome
+EMAP:2166  ~ | |   |   | + dermomyotome
+EMAP:2170  ~ | |   |   | + dermomyotome
+EMAP:2174  ~ | |   |   | + dermomyotome
+EMAP:2178  ~ | |   |   | + dermomyotome
+EMAP:2182  ~ | |   |   | + dermomyotome
+EMAP:2186  ~ | |   |   | + dermomyotome
+EMAP:2190  ~ | |   |   | + dermomyotome
+EMAP:2194  ~ | |   |   | + dermomyotome
+EMAP:2198  ~ | |   |   | + dermomyotome
+EMAP:2202  ~ | |   |   | + dermomyotome
+EMAP:2206  ~ | |   |   | + dermomyotome
+EMAP:2210  ~ | |   |   | + dermomyotome
+EMAP:2214  ~ | |   |   | \ dermomyotome
+EMAP:31123 ~ | |   |   + body myocoele group
+EMAP:2115  ~ | |   |   | + myocoele
+EMAP:2119  ~ | |   |   | + myocoele
+EMAP:2123  ~ | |   |   | + myocoele
+EMAP:2127  ~ | |   |   | + myocoele
+EMAP:2131  ~ | |   |   | + myocoele
+EMAP:2135  ~ | |   |   | + myocoele
+EMAP:2139  ~ | |   |   | + myocoele
+EMAP:2143  ~ | |   |   | + myocoele
+EMAP:2147  ~ | |   |   | + myocoele
+EMAP:2151  ~ | |   |   | + myocoele
+EMAP:2155  ~ | |   |   | + myocoele
+EMAP:2159  ~ | |   |   | + myocoele
+EMAP:2163  ~ | |   |   | + myocoele
+EMAP:2167  ~ | |   |   | + myocoele
+EMAP:2171  ~ | |   |   | + myocoele
+EMAP:2175  ~ | |   |   | + myocoele
+EMAP:2179  ~ | |   |   | + myocoele
+EMAP:2183  ~ | |   |   | + myocoele
+EMAP:2187  ~ | |   |   | + myocoele
+EMAP:2191  ~ | |   |   | + myocoele
+EMAP:2195  ~ | |   |   | + myocoele
+EMAP:2199  ~ | |   |   | + myocoele
+EMAP:2203  ~ | |   |   | + myocoele
+EMAP:2207  ~ | |   |   | + myocoele
+EMAP:2211  ~ | |   |   | + myocoele
+EMAP:2215  ~ | |   |   | \ myocoele
+EMAP:31148 ~ | |   |   + body sclerotome group
+EMAP:2116  ~ | |   |   | + sclerotome
+EMAP:2120  ~ | |   |   | + sclerotome
+EMAP:2124  ~ | |   |   | + sclerotome
+EMAP:2128  ~ | |   |   | + sclerotome
+EMAP:2132  ~ | |   |   | + sclerotome
+EMAP:2136  ~ | |   |   | + sclerotome
+EMAP:2140  ~ | |   |   | + sclerotome
+EMAP:2144  ~ | |   |   | + sclerotome
+EMAP:2148  ~ | |   |   | + sclerotome
+EMAP:2152  ~ | |   |   | + sclerotome
+EMAP:2156  ~ | |   |   | + sclerotome
+EMAP:2160  ~ | |   |   | + sclerotome
+EMAP:2164  ~ | |   |   | + sclerotome
+EMAP:2168  ~ | |   |   | + sclerotome
+EMAP:2172  ~ | |   |   | + sclerotome
+EMAP:2176  ~ | |   |   | + sclerotome
+EMAP:2180  ~ | |   |   | + sclerotome
+EMAP:2184  ~ | |   |   | + sclerotome
+EMAP:2188  ~ | |   |   | + sclerotome
+EMAP:2192  ~ | |   |   | + sclerotome
+EMAP:2196  ~ | |   |   | + sclerotome
+EMAP:2200  ~ | |   |   | + sclerotome
+EMAP:2204  ~ | |   |   | + sclerotome
+EMAP:2208  ~ | |   |   | + sclerotome
+EMAP:2212  ~ | |   |   | + sclerotome
+EMAP:2216  ~ | |   |   | \ sclerotome
+EMAP:2113  ~ | |   |   + somite 05
+EMAP:2114  ~ | |   |   | + dermomyotome
+EMAP:2115  ~ | |   |   | + myocoele
+EMAP:2116  ~ | |   |   | \ sclerotome
+EMAP:2117  ~ | |   |   + somite 06
+EMAP:2118  ~ | |   |   | + dermomyotome
+EMAP:2119  ~ | |   |   | + myocoele
+EMAP:2120  ~ | |   |   | \ sclerotome
+EMAP:2121  ~ | |   |   + somite 07
+EMAP:2122  ~ | |   |   | + dermomyotome
+EMAP:2123  ~ | |   |   | + myocoele
+EMAP:2124  ~ | |   |   | \ sclerotome
+EMAP:2125  ~ | |   |   + somite 08
+EMAP:2126  ~ | |   |   | + dermomyotome
+EMAP:2127  ~ | |   |   | + myocoele
+EMAP:2128  ~ | |   |   | \ sclerotome
+EMAP:2129  ~ | |   |   + somite 09
+EMAP:2130  ~ | |   |   | + dermomyotome
+EMAP:2131  ~ | |   |   | + myocoele
+EMAP:2132  ~ | |   |   | \ sclerotome
+EMAP:2133  ~ | |   |   + somite 10
+EMAP:2134  ~ | |   |   | + dermomyotome
+EMAP:2135  ~ | |   |   | + myocoele
+EMAP:2136  ~ | |   |   | \ sclerotome
+EMAP:2137  ~ | |   |   + somite 11
+EMAP:2138  ~ | |   |   | + dermomyotome
+EMAP:2139  ~ | |   |   | + myocoele
+EMAP:2140  ~ | |   |   | \ sclerotome
+EMAP:2141  ~ | |   |   + somite 12
+EMAP:2142  ~ | |   |   | + dermomyotome
+EMAP:2143  ~ | |   |   | + myocoele
+EMAP:2144  ~ | |   |   | \ sclerotome
+EMAP:2145  ~ | |   |   + somite 13
+EMAP:2146  ~ | |   |   | + dermomyotome
+EMAP:2147  ~ | |   |   | + myocoele
+EMAP:2148  ~ | |   |   | \ sclerotome
+EMAP:2149  ~ | |   |   + somite 14
+EMAP:2150  ~ | |   |   | + dermomyotome
+EMAP:2151  ~ | |   |   | + myocoele
+EMAP:2152  ~ | |   |   | \ sclerotome
+EMAP:2153  ~ | |   |   + somite 15
+EMAP:2154  ~ | |   |   | + dermomyotome
+EMAP:2155  ~ | |   |   | + myocoele
+EMAP:2156  ~ | |   |   | \ sclerotome
+EMAP:2157  ~ | |   |   + somite 16
+EMAP:2158  ~ | |   |   | + dermomyotome
+EMAP:2159  ~ | |   |   | + myocoele
+EMAP:2160  ~ | |   |   | \ sclerotome
+EMAP:2161  ~ | |   |   + somite 17
+EMAP:2162  ~ | |   |   | + dermomyotome
+EMAP:2163  ~ | |   |   | + myocoele
+EMAP:2164  ~ | |   |   | \ sclerotome
+EMAP:2165  ~ | |   |   + somite 18
+EMAP:2166  ~ | |   |   | + dermomyotome
+EMAP:2167  ~ | |   |   | + myocoele
+EMAP:2168  ~ | |   |   | \ sclerotome
+EMAP:2169  ~ | |   |   + somite 19
+EMAP:2170  ~ | |   |   | + dermomyotome
+EMAP:2171  ~ | |   |   | + myocoele
+EMAP:2172  ~ | |   |   | \ sclerotome
+EMAP:2173  ~ | |   |   + somite 20
+EMAP:2174  ~ | |   |   | + dermomyotome
+EMAP:2175  ~ | |   |   | + myocoele
+EMAP:2176  ~ | |   |   | \ sclerotome
+EMAP:2177  ~ | |   |   + somite 21
+EMAP:2178  ~ | |   |   | + dermomyotome
+EMAP:2179  ~ | |   |   | + myocoele
+EMAP:2180  ~ | |   |   | \ sclerotome
+EMAP:2181  ~ | |   |   + somite 22
+EMAP:2182  ~ | |   |   | + dermomyotome
+EMAP:2183  ~ | |   |   | + myocoele
+EMAP:2184  ~ | |   |   | \ sclerotome
+EMAP:2185  ~ | |   |   + somite 23
+EMAP:2186  ~ | |   |   | + dermomyotome
+EMAP:2187  ~ | |   |   | + myocoele
+EMAP:2188  ~ | |   |   | \ sclerotome
+EMAP:2189  ~ | |   |   + somite 24
+EMAP:2190  ~ | |   |   | + dermomyotome
+EMAP:2191  ~ | |   |   | + myocoele
+EMAP:2192  ~ | |   |   | \ sclerotome
+EMAP:2193  ~ | |   |   + somite 25
+EMAP:2194  ~ | |   |   | + dermomyotome
+EMAP:2195  ~ | |   |   | + myocoele
+EMAP:2196  ~ | |   |   | \ sclerotome
+EMAP:2197  ~ | |   |   + somite 26
+EMAP:2198  ~ | |   |   | + dermomyotome
+EMAP:2199  ~ | |   |   | + myocoele
+EMAP:2200  ~ | |   |   | \ sclerotome
+EMAP:2201  ~ | |   |   + somite 27
+EMAP:2202  ~ | |   |   | + dermomyotome
+EMAP:2203  ~ | |   |   | + myocoele
+EMAP:2204  ~ | |   |   | \ sclerotome
+EMAP:2205  ~ | |   |   + somite 28
+EMAP:2206  ~ | |   |   | + dermomyotome
+EMAP:2207  ~ | |   |   | + myocoele
+EMAP:2208  ~ | |   |   | \ sclerotome
+EMAP:2209  ~ | |   |   + somite 29
+EMAP:2210  ~ | |   |   | + dermomyotome
+EMAP:2211  ~ | |   |   | + myocoele
+EMAP:2212  ~ | |   |   | \ sclerotome
+EMAP:2213  ~ | |   |   \ somite 30
+EMAP:2214  ~ | |   |     + dermomyotome
+EMAP:2215  ~ | |   |     + myocoele
+EMAP:2216  ~ | |   |     \ sclerotome
+EMAP:2217  ~ | |   \ septum transversum
+EMAP:2218  ~ | |     \ non-hepatic component
+EMAP:14758 ~ | |       \ future central tendon
+EMAP:2219  > | + notochord
+EMAP:2220  > | + organ system
+EMAP:2221  ~ | | + visceral organ
+EMAP:2571  ~ | | | + genitourinary system (syn: urogenital system)
+EMAP:27562 ~ | | | | + associated mesenchyme
+EMAP:2572  ~ | | | | + gonad (syn: gonad primordium)
+EMAP:27565 ~ | | | | | + coelomic epithelium (syn: germinal epithelium)
+EMAP:2573  ~ | | | | | + gonadal mesenchyme
+EMAP:27567 ~ | | | | | | + anterior gonadal mesenchyme (syn: rostral gonadal mesenchyme)
+EMAP:27569 ~ | | | | | | + central gonadal mesenchyme
+EMAP:27571 ~ | | | | | | \ posterior gonadal mesenchyme (syn: caudal gonadal mesenchyme)
+EMAP:2574  ~ | | | | | \ primordial germ cells
+EMAP:2576  ~ | | | | + mesonephros
+EMAP:2577  ~ | | | | | + mesonephric mesenchyme
+EMAP:2579  ~ | | | | | + mesonephric tubule
+EMAP:30563 ~ | | | | | | + cranial mesonephric tubule
+EMAP:30569 ~ | | | | | | | + mesonephric glomerulus
+EMAP:30566 ~ | | | | | | | \ rest of cranial mesonephric tubule
+EMAP:30572 ~ | | | | | | \ caudal mesonephric tubule
+EMAP:27592 ~ | | | | | \ nephric duct, mesonephric portion
+EMAP:27603 ~ | | | | + nephric duct, pronephric portion
+EMAP:27600 ~ | | | | + nephric duct, metanephric portion
+EMAP:29991 ~ | | | | + metanephric mesenchyme
+EMAP:27574 ~ | | | | + cloaca
+EMAP:27578 ~ | | | | | + cloacal epithelium (syn: distal urethral epithelium)
+EMAP:27582 ~ | | | | | \ associated mesenchyme
+EMAP:27572 ~ | | | | + urogenital membrane
+EMAP:2575  ~ | | | | + urorectal septum
+EMAP:30075 ~ | | | | + genital swelling
+EMAP:31831 ~ | | | | + developing vasculature of genitourinary system
+EMAP:2581  ~ | | | | \ nephric duct group
+EMAP:27603 ~ | | | |   + nephric duct, pronephric portion
+EMAP:27592 ~ | | | |   + nephric duct, mesonephric portion
+EMAP:27600 ~ | | | |   \ nephric duct, metanephric portion
+EMAP:2222  ~ | | | + alimentary system
+EMAP:2479  ~ | | | | + anal region
+EMAP:2480  ~ | | | | | \ cloacal membrane
+EMAP:2235  ~ | | | | + gut
+EMAP:2236  ~ | | | | | + foregut
+EMAP:2237  ~ | | | | | | + gland
+EMAP:2238  ~ | | | | | | | \ thyroid primordium
+EMAP:2239  ~ | | | | | | |   + associated mesenchyme
+EMAP:2240  ~ | | | | | | |   \ endoderm (syn: endothelium)
+EMAP:2481  ~ | | | | | | + oesophagus
+EMAP:2482  ~ | | | | | | | + associated mesenchyme
+EMAP:2483  ~ | | | | | | | + epithelium
+EMAP:6931  ~ | | | | | | | + lumen
+EMAP:2484  ~ | | | | | | | + mesentery
+EMAP:2485  ~ | | | | | | | | \ dorsal meso-oesophagus
+EMAP:2486  ~ | | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2487  ~ | | | | | | + pharynx
+EMAP:2488  ~ | | | | | | | + associated mesenchyme
+EMAP:2489  ~ | | | | | | | + epithelium
+EMAP:6939  ~ | | | | | | | + lumen
+EMAP:2490  ~ | | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2491  ~ | | | | | | + rest of foregut
+EMAP:2492  ~ | | | | | | | + associated mesenchyme
+EMAP:2493  ~ | | | | | | | + epithelium
+EMAP:7015  ~ | | | | | | | + lumen
+EMAP:2494  ~ | | | | | | | + mesentery
+EMAP:2495  ~ | | | | | | | | + dorsal mesentery
+EMAP:2496  ~ | | | | | | | | \ ventral mesentery
+EMAP:2497  ~ | | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2498  ~ | | | | | | \ stomach
+EMAP:2499  ~ | | | | | |   + associated mesenchyme
+EMAP:2500  ~ | | | | | |   + epithelium
+EMAP:6991  ~ | | | | | |   + lumen
+EMAP:2501  ~ | | | | | |   + mesentery
+EMAP:2502  ~ | | | | | |   | + dorsal mesogastrium
+EMAP:2503  ~ | | | | | |   | \ ventral mesogastrium
+EMAP:2504  ~ | | | | | |   \ vascular element (syn: artery; vein)
+EMAP:2505  ~ | | | | | + foregut-midgut junction
+EMAP:2506  ~ | | | | | | + associated mesenchyme
+EMAP:2507  ~ | | | | | | + epithelium
+EMAP:6960  ~ | | | | | | + lumen
+EMAP:2508  ~ | | | | | | + mesentery
+EMAP:2509  ~ | | | | | | | + dorsal mesentery
+EMAP:2510  ~ | | | | | | | \ ventral mesentery
+EMAP:2511  ~ | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2521  ~ | | | | | + hindgut
+EMAP:2522  ~ | | | | | | + associated mesenchyme
+EMAP:2523  ~ | | | | | | + epithelium
+EMAP:6997  ~ | | | | | | + lumen
+EMAP:2524  ~ | | | | | | + mesentery
+EMAP:2525  ~ | | | | | | | \ dorsal mesentery (syn: dorsal mesocolon; dorsal mesorectum)
+EMAP:2526  ~ | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2512  ~ | | | | | + hindgut diverticulum (syn: hindgut pocket)
+EMAP:2513  ~ | | | | | | + postanal component
+EMAP:2514  ~ | | | | | | | + associated mesenchyme
+EMAP:2515  ~ | | | | | | | + epithelium
+EMAP:7001  ~ | | | | | | | + lumen
+EMAP:2516  ~ | | | | | | | \ vascular element (syn: artery; vein)
+EMAP:2517  ~ | | | | | | \ preanal component
+EMAP:2518  ~ | | | | | |   + associated mesenchyme
+EMAP:2519  ~ | | | | | |   + epithelium
+EMAP:7005  ~ | | | | | |   + lumen
+EMAP:2520  ~ | | | | | |   \ vascular element (syn: artery; vein)
+EMAP:2527  ~ | | | | | \ midgut
+EMAP:2528  ~ | | | | |   + loop
+EMAP:2529  ~ | | | | |   | + associated mesenchyme
+EMAP:2530  ~ | | | | |   | + epithelium
+EMAP:6977  ~ | | | | |   | + lumen
+EMAP:2531  ~ | | | | |   | + mesentery
+EMAP:2532  ~ | | | | |   | | \ dorsal mesentery
+EMAP:2533  ~ | | | | |   | \ vascular element (syn: artery; vein)
+EMAP:2534  ~ | | | | |   \ rest of midgut
+EMAP:2535  ~ | | | | |     + associated mesenchyme
+EMAP:2536  ~ | | | | |     + epithelium
+EMAP:6983  ~ | | | | |     + lumen
+EMAP:2537  ~ | | | | |     + mesentery
+EMAP:2538  ~ | | | | |     | \ dorsal mesentery
+EMAP:2539  ~ | | | | |     \ vascular element (syn: artery; vein)
+EMAP:2223  ~ | | | | \ oral region
+EMAP:7011  ~ | | | |   + cavity
+EMAP:2224  ~ | | | |   + gland
+EMAP:2225  ~ | | | |   | \ pituitary
+EMAP:2226  ~ | | | |   |   \ Rathke's pouch
+EMAP:14769 ~ | | | |   |     + lumen
+EMAP:14764 ~ | | | |   |     \ wall
+EMAP:2540  ~ | | | |   \ oral epithelium
+EMAP:2541  ~ | | | + liver and biliary system
+EMAP:2542  ~ | | | | + cystic duct
+EMAP:2543  ~ | | | | + gall bladder primordium (syn: gall bladder gland)
+EMAP:2544  ~ | | | | + hepatic duct
+EMAP:2545  ~ | | | | | + extrahepatic part
+EMAP:2546  ~ | | | | | \ intrahepatic part
+EMAP:2547  ~ | | | | \ liver
+EMAP:2548  ~ | | | |   \ hepatic primordium
+EMAP:2549  ~ | | | |     \ parenchyma
+EMAP:2550  ~ | | | \ respiratory system
+EMAP:2551  ~ | | |   + lung
+EMAP:2552  ~ | | |   | + left lung rudiment
+EMAP:2553  ~ | | |   | | + associated mesenchyme
+EMAP:2554  ~ | | |   | | + epithelium
+EMAP:2555  ~ | | |   | | \ vascular element (syn: artery; vein)
+EMAP:2556  ~ | | |   | \ right lung rudiment
+EMAP:2557  ~ | | |   |   + associated mesenchyme
+EMAP:2558  ~ | | |   |   + epithelium
+EMAP:2559  ~ | | |   |   \ vascular element (syn: artery; vein)
+EMAP:2560  ~ | | |   \ respiratory tract
+EMAP:2561  ~ | | |     \ lower
+EMAP:2562  ~ | | |       + laryngo-tracheal groove
+EMAP:2563  ~ | | |       + main bronchus
+EMAP:2564  ~ | | |       | + associated mesenchyme
+EMAP:2565  ~ | | |       | + epithelium
+EMAP:2566  ~ | | |       | \ vascular element (syn: artery; vein)
+EMAP:2567  ~ | | |       \ trachea
+EMAP:2568  ~ | | |         + associated mesenchyme
+EMAP:7030  ~ | | |         + carina tracheae
+EMAP:7036  ~ | | |         | + associated mesenchyme
+EMAP:7042  ~ | | |         | + epithelium
+EMAP:7048  ~ | | |         | \ vascular element
+EMAP:2569  ~ | | |         + epithelium
+EMAP:2570  ~ | | |         \ vascular element (syn: artery; vein)
+EMAP:2388  ~ | | + cardiovascular system
+EMAP:2389  ~ | | | + arterial system
+EMAP:2390  ~ | | | | + branchial arch artery (syn: aortic arch artery; pharyngeal arch artery)
+EMAP:2391  ~ | | | | | + 1st arch artery (syn: 1st aortic arch artery; 1st branchial arch artery; 1st pharyngeal arch artery)
+EMAP:2392  ~ | | | | | + 2nd arch artery (syn: 2nd aortic arch artery; 2nd branchial arch artery; 2nd pharyngeal arch artery)
+EMAP:2393  ~ | | | | | + 3rd arch artery (syn: 3rd aortic arch artery; 3rd branchial arch artery; 3rd pharyngeal arch artery)
+EMAP:2394  ~ | | | | | + 4th arch artery (syn: 4th aortic arch artery; 4th branchial arch artery; 4th pharyngeal arch artery)
+EMAP:2395  ~ | | | | | \ 6th arch artery (syn: 6th aortic arch artery; 6th branchial arch artery; 6th pharyngeal arch artery)
+EMAP:2396  ~ | | | | + dorsal aorta
+EMAP:2397  ~ | | | | | + common
+EMAP:2398  ~ | | | | | + left
+EMAP:2399  ~ | | | | | \ right
+EMAP:2400  ~ | | | | + ductus caroticus
+EMAP:2401  ~ | | | | + internal carotid artery
+EMAP:15267 ~ | | | | + intersegmental artery
+EMAP:2403  ~ | | | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:2404  ~ | | | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:2402  ~ | | | | + ophthalmic artery
+EMAP:2405  ~ | | | | + pulmonary artery
+EMAP:2406  ~ | | | | + umbilical artery
+EMAP:2407  ~ | | | | | + left
+EMAP:2408  ~ | | | | | \ right
+EMAP:2409  ~ | | | | \ vitelline artery
+EMAP:2410  ~ | | | + blood
+EMAP:2411  ~ | | | + heart
+EMAP:2412  ~ | | | | + atrio-ventricular canal (syn: ependymal canal)
+EMAP:2413  ~ | | | | + atrium
+EMAP:2414  ~ | | | | | + common atrial chamber
+EMAP:2415  ~ | | | | | | + left part
+EMAP:2416  ~ | | | | | | | + cardiac jelly
+EMAP:2421  ~ | | | | | | | + cardiac muscle (syn: myocardium)
+EMAP:2417  ~ | | | | | | | + endocardial lining
+EMAP:2418  ~ | | | | | | | \ left auricular region
+EMAP:2420  ~ | | | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2419  ~ | | | | | | |   \ endocardial lining
+EMAP:2422  ~ | | | | | | \ right part
+EMAP:2423  ~ | | | | | |   + cardiac jelly
+EMAP:2425  ~ | | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2424  ~ | | | | | |   + endocardial lining
+EMAP:2426  ~ | | | | | |   + right auricular region
+EMAP:2428  ~ | | | | | |   | + cardiac muscle (syn: myocardium)
+EMAP:2427  ~ | | | | | |   | \ endocardial lining
+EMAP:2429  ~ | | | | | |   \ valve
+EMAP:2430  ~ | | | | | |     \ venous valve
+EMAP:2431  ~ | | | | | \ interatrial septum
+EMAP:2432  ~ | | | | |   + foramen primum (syn: ostium primum)
+EMAP:2433  ~ | | | | |   \ septum primum
+EMAP:2434  ~ | | | | + bulboventricular groove (syn: bulbo-ventricular sulcus; ependymal groove; ependymal sulcus)
+EMAP:2435  ~ | | | | + bulbus cordis
+EMAP:2436  ~ | | | | | + caudal half
+EMAP:2437  ~ | | | | | | + cardiac jelly
+EMAP:2439  ~ | | | | | | + cardiac muscle (syn: myocardium)
+EMAP:2438  ~ | | | | | | \ endocardial lining
+EMAP:2440  ~ | | | | | \ rostral half (syn: conotruncus)
+EMAP:2441  ~ | | | | |   + cardiac jelly
+EMAP:2443  ~ | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:2442  ~ | | | | |   \ endocardial lining
+EMAP:2444  ~ | | | | + endocardial cushion tissue (syn: bulbar cushion)
+EMAP:2445  ~ | | | | + mesentery
+EMAP:2446  ~ | | | | | \ dorsal mesocardium (syn: dorsal mesentery of heart)
+EMAP:2447  ~ | | | | |   \ transverse pericardial sinus
+EMAP:2448  ~ | | | | + outflow tract
+EMAP:2449  ~ | | | | | + aortico-pulmonary spiral septum
+EMAP:2450  ~ | | | | | | + ascending aorta (syn: future)
+EMAP:2451  ~ | | | | | | \ pulmonary trunk (syn: future)
+EMAP:2452  ~ | | | | | + cardiac jelly
+EMAP:2453  ~ | | | | | \ endocardial tube
+EMAP:2454  ~ | | | | + primitive ventricle (syn: future left ventricle)
+EMAP:2455  ~ | | | | | + cardiac jelly
+EMAP:2457  ~ | | | | | + cardiac muscle (syn: myocardium)
+EMAP:2456  ~ | | | | | \ endocardial lining
+EMAP:2458  ~ | | | | \ sinus venosus
+EMAP:2459  ~ | | | |   + left horn
+EMAP:2460  ~ | | | |   \ right horn
+EMAP:2461  ~ | | | \ venous system
+EMAP:2462  ~ | | |   + cardinal vein
+EMAP:2463  ~ | | |   | + anterior
+EMAP:2464  ~ | | |   | + common (syn: Duct of Cuvier; future coronary sinus)
+EMAP:2465  ~ | | |   | \ posterior
+EMAP:2466  ~ | | |   + inter-subcardinal venous anastomosis
+EMAP:2467  ~ | | |   + marginal vein of forelimb
+EMAP:2468  ~ | | |   + marginal vein of hindlimb
+EMAP:2469  ~ | | |   + primary head vein
+EMAP:2470  ~ | | |   + principal vein of forelimb (syn: axial vein of limb)
+EMAP:2471  ~ | | |   + principal vein of hindlimb (syn: axial vein of limb)
+EMAP:2472  ~ | | |   + subcardinal vein
+EMAP:2473  ~ | | |   + umbilical vein
+EMAP:2474  ~ | | |   | \ left
+EMAP:2475  ~ | | |   + vitelline vein (syn: omphalomesenteric vein)
+EMAP:2476  ~ | | |   | + left
+EMAP:2477  ~ | | |   | \ right
+EMAP:2478  ~ | | |   \ vitelline venous plexus
+EMAP:2227  ~ | | + nervous system
+EMAP:2228  ~ | | | + central nervous system (syn: CNS)
+EMAP:2229  ~ | | | | + brain
+EMAP:2230  ~ | | | | | + forebrain
+EMAP:2231  ~ | | | | | | + diencephalon
+EMAP:2241  ~ | | | | | | | + 3rd ventricle (syn: diencephalic vesicle)
+EMAP:2242  ~ | | | | | | | | + diencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:2243  ~ | | | | | | | | \ optic recess (syn: lumen of optic stalk)
+EMAP:2244  ~ | | | | | | | + floor plate
+EMAP:2232  ~ | | | | | | | + gland
+EMAP:2233  ~ | | | | | | | | \ pituitary
+EMAP:2234  ~ | | | | | | | |   \ infundibular recess of 3rd ventricle (syn: future neurohypophysis)
+EMAP:2245  ~ | | | | | | | + lamina terminalis
+EMAP:2246  ~ | | | | | | | + lateral wall
+EMAP:2247  ~ | | | | | | | | + mantle layer
+EMAP:2248  ~ | | | | | | | | + marginal layer
+EMAP:2249  ~ | | | | | | | | \ ventricular layer
+EMAP:2250  ~ | | | | | | | \ roof plate
+EMAP:2251  ~ | | | | | | \ telencephalon (syn: cerebral hemisphere)
+EMAP:2252  ~ | | | | | |   + mantle layer
+EMAP:2253  ~ | | | | | |   + marginal layer
+EMAP:2255  ~ | | | | | |   + telencephalic vesicle (syn: lateral ventricle)
+EMAP:2256  ~ | | | | | |   | \ telencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:2254  ~ | | | | | |   \ ventricular layer
+EMAP:2257  ~ | | | | | + hindbrain (syn: rhombencephalon)
+EMAP:2258  ~ | | | | | | + 4th ventricle (syn: rhombencephalic vesicle)
+EMAP:2259  ~ | | | | | | + rhombomere 01
+EMAP:2260  ~ | | | | | | | + floor plate
+EMAP:2261  ~ | | | | | | | + lateral wall
+EMAP:2262  ~ | | | | | | | | + mantle layer
+EMAP:2263  ~ | | | | | | | | + marginal layer
+EMAP:2264  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2265  ~ | | | | | | | \ roof plate
+EMAP:2266  ~ | | | | | | + rhombomere 02
+EMAP:2267  ~ | | | | | | | + floor plate
+EMAP:2268  ~ | | | | | | | + lateral wall
+EMAP:2269  ~ | | | | | | | | + mantle layer
+EMAP:2270  ~ | | | | | | | | + marginal layer
+EMAP:2271  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2272  ~ | | | | | | | \ roof plate
+EMAP:2273  ~ | | | | | | + rhombomere 03
+EMAP:2274  ~ | | | | | | | + floor plate
+EMAP:2275  ~ | | | | | | | + lateral wall
+EMAP:2276  ~ | | | | | | | | + mantle layer
+EMAP:2277  ~ | | | | | | | | + marginal layer
+EMAP:2278  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2279  ~ | | | | | | | \ roof plate
+EMAP:2280  ~ | | | | | | + rhombomere 04
+EMAP:2281  ~ | | | | | | | + floor plate
+EMAP:2282  ~ | | | | | | | + lateral wall
+EMAP:2283  ~ | | | | | | | | + mantle layer
+EMAP:2284  ~ | | | | | | | | + marginal layer
+EMAP:2285  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2286  ~ | | | | | | | \ roof plate
+EMAP:2287  ~ | | | | | | + rhombomere 05
+EMAP:2288  ~ | | | | | | | + floor plate
+EMAP:2289  ~ | | | | | | | + lateral wall
+EMAP:2290  ~ | | | | | | | | + mantle layer
+EMAP:2291  ~ | | | | | | | | + marginal layer
+EMAP:2292  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2293  ~ | | | | | | | \ roof plate
+EMAP:2294  ~ | | | | | | + rhombomere 06
+EMAP:2295  ~ | | | | | | | + floor plate
+EMAP:2296  ~ | | | | | | | + lateral wall
+EMAP:2297  ~ | | | | | | | | + mantle layer
+EMAP:2298  ~ | | | | | | | | + marginal layer
+EMAP:2299  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2300  ~ | | | | | | | \ roof plate
+EMAP:2301  ~ | | | | | | + rhombomere 07
+EMAP:2302  ~ | | | | | | | + floor plate
+EMAP:2303  ~ | | | | | | | + lateral wall
+EMAP:2304  ~ | | | | | | | | + mantle layer
+EMAP:2305  ~ | | | | | | | | + marginal layer
+EMAP:2306  ~ | | | | | | | | \ ventricular layer (syn: ependymal layer)
+EMAP:2307  ~ | | | | | | | \ roof plate
+EMAP:2308  ~ | | | | | | \ rhombomere 08
+EMAP:2309  ~ | | | | | |   + floor plate
+EMAP:2310  ~ | | | | | |   + lateral wall
+EMAP:2311  ~ | | | | | |   | + mantle layer
+EMAP:2312  ~ | | | | | |   | + marginal layer
+EMAP:2313  ~ | | | | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:2314  ~ | | | | | |   \ roof plate
+EMAP:2315  ~ | | | | | \ midbrain (syn: mesencephalon)
+EMAP:2316  ~ | | | | |   + floor plate
+EMAP:2317  ~ | | | | |   + lateral wall
+EMAP:2318  ~ | | | | |   | + mantle layer
+EMAP:2319  ~ | | | | |   | + marginal layer
+EMAP:2320  ~ | | | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:2321  ~ | | | | |   + mesencephalic vesicle (syn: cerebral aqueduct)
+EMAP:2322  ~ | | | | |   \ roof plate
+EMAP:2323  ~ | | | | + future spinal cord
+EMAP:2324  ~ | | | | | \ neural tube
+EMAP:2325  ~ | | | | |   + floor plate
+EMAP:2326  ~ | | | | |   + lateral wall
+EMAP:2327  ~ | | | | |   + neural lumen (syn: future spinal canal)
+EMAP:2328  ~ | | | | |   | \ neural luminal occlusion
+EMAP:2329  ~ | | | | |   \ roof plate
+EMAP:2330  ~ | | | | \ ganglion
+EMAP:2331  ~ | | | |   \ cranial
+EMAP:2332  ~ | | | |     + acoustic ganglion VIII
+EMAP:2333  ~ | | | |     + facial ganglion VII
+EMAP:2334  ~ | | | |     + glossopharyngeal IX
+EMAP:2335  ~ | | | |     + trigeminal V (syn: semiluminar ganglion)
+EMAP:2336  ~ | | | |     \ vagus X
+EMAP:2337  ~ | | | \ peripheral nervous system (syn: PNS)
+EMAP:2338  ~ | | |   + autonomic
+EMAP:2339  ~ | | |   | \ sympathetic
+EMAP:2340  ~ | | |   |   \ nerve trunk (syn: nerve chain)
+EMAP:2341  ~ | | |   \ spinal
+EMAP:2342  ~ | | |     + ganglion
+EMAP:2343  ~ | | |     | \ dorsal root ganglion (syn: posterior root ganglion)
+EMAP:14977 ~ | | |     |   \ C1
+EMAP:2346  ~ | | |     + nerve
+EMAP:2347  ~ | | |     | \ segmental spinal nerve
+EMAP:2344  ~ | | |     \ nerve plexus
+EMAP:2345  ~ | | |       \ brachial plexus
+EMAP:2348  ~ | | \ sensory organ
+EMAP:2349  ~ | |   + ear
+EMAP:2350  ~ | |   | + external ear
+EMAP:2351  ~ | |   | | \ 1st branchial membrane (syn: future tympanic membrane)
+EMAP:2352  ~ | |   | |   \ epithelium
+EMAP:2353  ~ | |   | + inner ear
+EMAP:2354  ~ | |   | | \ otocyst (syn: otic vesicle)
+EMAP:2355  ~ | |   | |   + endolymphatic appendage (syn: diverticulum)
+EMAP:2356  ~ | |   | |   | + associated mesenchyme
+EMAP:2357  ~ | |   | |   | \ epithelium
+EMAP:15263 ~ | |   | |   + lumen
+EMAP:2358  ~ | |   | |   \ other part
+EMAP:2359  ~ | |   | |     + associated mesenchyme
+EMAP:2360  ~ | |   | |     \ epithelium
+EMAP:2361  ~ | |   | \ middle ear
+EMAP:2362  ~ | |   |   + associated mesenchyme
+EMAP:2363  ~ | |   |   \ tubo-tympanic recess
+EMAP:2364  ~ | |   + eye
+EMAP:2365  ~ | |   | + lens pit
+EMAP:2366  ~ | |   | + mesenchyme
+EMAP:2367  ~ | |   | + optic cup
+EMAP:2368  ~ | |   | | + inner layer (syn: future neural epithelium; future neural layer)
+EMAP:2369  ~ | |   | | + intraretinal space
+EMAP:2370  ~ | |   | | \ outer layer (syn: future pigmented layer; future pigmented retinal epithelium; future PRE)
+EMAP:2371  ~ | |   | + optic stalk
+EMAP:2372  ~ | |   | \ surface ectoderm of the eye (syn: optic eminence)
+EMAP:2373  ~ | |   \ nose
+EMAP:2374  ~ | |     + naso-lacrimal groove
+EMAP:2375  ~ | |     + olfactory pit (syn: nasal pit)
+EMAP:2376  ~ | |     | \ nasal epithelium
+EMAP:2377  ~ | |     \ process
+EMAP:2378  ~ | |       \ fronto-nasal process
+EMAP:2379  ~ | |         + frontal process
+EMAP:2380  ~ | |         | + ectoderm
+EMAP:2381  ~ | |         | \ mesenchyme
+EMAP:2382  ~ | |         + latero-nasal process
+EMAP:2383  ~ | |         | + ectoderm
+EMAP:2384  ~ | |         | \ mesenchyme
+EMAP:2385  ~ | |         \ medial-nasal process
+EMAP:2386  ~ | |           + ectoderm
+EMAP:2387  ~ | |           \ mesenchyme
+EMAP:7054  > | + physiological umbilical hernia
+EMAP:7057  ~ | | + dermis
+EMAP:7060  ~ | | \ epidermis
+EMAP:13240 > | + skeleton
+EMAP:13241 ~ | | \ axial skeleton
+EMAP:13242 ~ | |   + cervical region
+EMAP:13243 ~ | |   | + vertebral cartilage condensation
+EMAP:13244 ~ | |   | | + C1 (syn: atlas)
+EMAP:13245 ~ | |   | | + C2 (syn: axis)
+EMAP:13246 ~ | |   | | + C3
+EMAP:13247 ~ | |   | | + C4
+EMAP:13248 ~ | |   | | \ C5
+EMAP:13249 ~ | |   | \ vertebral pre-cartilage condensation
+EMAP:13250 ~ | |   |   + C6
+EMAP:13251 ~ | |   |   \ C7
+EMAP:13252 ~ | |   + lumbar region
+EMAP:13253 ~ | |   | \ vertebral pre-cartilage condensation
+EMAP:13254 ~ | |   |   \ L1
+EMAP:13255 ~ | |   \ thoracic region
+EMAP:13256 ~ | |     \ vertebral pre-cartilage condensation
+EMAP:13257 ~ | |       + T1
+EMAP:13266 ~ | |       + T10
+EMAP:13267 ~ | |       + T11
+EMAP:13268 ~ | |       + T12
+EMAP:13269 ~ | |       + T13
+EMAP:13258 ~ | |       + T2
+EMAP:13259 ~ | |       + T3
+EMAP:13260 ~ | |       + T4
+EMAP:13261 ~ | |       + T5
+EMAP:13262 ~ | |       + T6
+EMAP:13263 ~ | |       + T7
+EMAP:13264 ~ | |       + T8
+EMAP:13265 ~ | |       \ T9
+EMAP:2582  > | \ tail
+EMAP:2583  ~ |   + mesenchyme
+EMAP:2584  ~ |   | + mesenchyme derived from neural crest
+EMAP:2585  ~ |   | \ paraxial mesenchyme
+EMAP:2586  ~ |   |   + somite
+EMAP:2587  ~ |   |   | + somite 31
+EMAP:2588  ~ |   |   | | + dermomyotome
+EMAP:2589  ~ |   |   | | + myocoele
+EMAP:2590  ~ |   |   | | \ sclerotome
+EMAP:2591  ~ |   |   | + somite 32
+EMAP:2592  ~ |   |   | | + dermomyotome
+EMAP:2593  ~ |   |   | | + myocoele
+EMAP:2594  ~ |   |   | | \ sclerotome
+EMAP:2595  ~ |   |   | + somite 33
+EMAP:2596  ~ |   |   | | + dermomyotome
+EMAP:2597  ~ |   |   | | + myocoele
+EMAP:2598  ~ |   |   | | \ sclerotome
+EMAP:2599  ~ |   |   | + somite 34
+EMAP:2600  ~ |   |   | | + dermomyotome
+EMAP:2601  ~ |   |   | | + myocoele
+EMAP:2602  ~ |   |   | | \ sclerotome
+EMAP:2603  ~ |   |   | + somite 35
+EMAP:2604  ~ |   |   | | + dermomyotome
+EMAP:2605  ~ |   |   | | + myocoele
+EMAP:2606  ~ |   |   | | \ sclerotome
+EMAP:2607  ~ |   |   | + somite 36
+EMAP:2608  ~ |   |   | | + dermomyotome
+EMAP:2609  ~ |   |   | | + myocoele
+EMAP:2610  ~ |   |   | | \ sclerotome
+EMAP:2611  ~ |   |   | + somite 37
+EMAP:2612  ~ |   |   | | + dermomyotome
+EMAP:2613  ~ |   |   | | + myocoele
+EMAP:2614  ~ |   |   | | \ sclerotome
+EMAP:2615  ~ |   |   | + somite 38
+EMAP:2616  ~ |   |   | | + dermomyotome
+EMAP:2617  ~ |   |   | | + myocoele
+EMAP:2618  ~ |   |   | | \ sclerotome
+EMAP:2619  ~ |   |   | + somite 39
+EMAP:2620  ~ |   |   | | + dermomyotome
+EMAP:2621  ~ |   |   | | + myocoele
+EMAP:2622  ~ |   |   | | \ sclerotome
+EMAP:31107 ~ |   |   | + tail dermomyotome group
+EMAP:2588  ~ |   |   | | + dermomyotome
+EMAP:2592  ~ |   |   | | + dermomyotome
+EMAP:2596  ~ |   |   | | + dermomyotome
+EMAP:2600  ~ |   |   | | + dermomyotome
+EMAP:2604  ~ |   |   | | + dermomyotome
+EMAP:2608  ~ |   |   | | + dermomyotome
+EMAP:2612  ~ |   |   | | + dermomyotome
+EMAP:2616  ~ |   |   | | + dermomyotome
+EMAP:2620  ~ |   |   | | \ dermomyotome
+EMAP:31128 ~ |   |   | + tail myocoele group
+EMAP:2589  ~ |   |   | | + myocoele
+EMAP:2593  ~ |   |   | | + myocoele
+EMAP:2597  ~ |   |   | | + myocoele
+EMAP:2601  ~ |   |   | | + myocoele
+EMAP:2605  ~ |   |   | | + myocoele
+EMAP:2609  ~ |   |   | | + myocoele
+EMAP:2613  ~ |   |   | | + myocoele
+EMAP:2617  ~ |   |   | | + myocoele
+EMAP:2621  ~ |   |   | | \ myocoele
+EMAP:31153 ~ |   |   | \ tail sclerotome group
+EMAP:2590  ~ |   |   |   + sclerotome
+EMAP:2594  ~ |   |   |   + sclerotome
+EMAP:2598  ~ |   |   |   + sclerotome
+EMAP:2602  ~ |   |   |   + sclerotome
+EMAP:2606  ~ |   |   |   + sclerotome
+EMAP:2610  ~ |   |   |   + sclerotome
+EMAP:2614  ~ |   |   |   + sclerotome
+EMAP:2618  ~ |   |   |   + sclerotome
+EMAP:2622  ~ |   |   |   \ sclerotome
+EMAP:2623  ~ |   |   \ unsegmented mesenchyme (syn: presomitic mesenchyme)
+EMAP:2624  ~ |   \ nervous system
+EMAP:2625  ~ |     \ central nervous system (syn: CNS)
+EMAP:2626  ~ |       \ future spinal cord
+EMAP:2627  ~ |         \ neural tube
+EMAP:2628    + extraembryonic component
+EMAP:2629    | + cardiovascular system
+EMAP:2630    | | + arterial system
+EMAP:2631    | | | \ umbilical artery
+EMAP:2632    | | |   \ common
+EMAP:2633    | | \ venous system
+EMAP:2634    | |   \ umbilical vein
+EMAP:2635    | |     \ common
+EMAP:26117   | + umbilical cord
+EMAP:26129   | | + mesenchyme (syn: Wharton's jelly)
+EMAP:26141   | | \ vitelline duct
+EMAP:26153   | |   \ vitelline vein
+EMAP:31068   | \ yolk sac
+EMAP:31082   |   + endoderm
+EMAP:31096   |   \ mesenchyme
+EMAP:2095    + limb
+EMAP:2096    | + forelimb bud
+EMAP:2097    | | + ectoderm (syn: epithelium)
+EMAP:2098    | | | \ apical ectodermal ridge (syn: AER)
+EMAP:2099    | | \ mesenchyme
+EMAP:2100    | \ hindlimb bud
+EMAP:2101    |   + ectoderm
+EMAP:2102    |   | \ apical ectodermal ridge (syn: AER)
+EMAP:2103    |   \ mesenchyme
+EMAP:2104    + mesenchyme
+EMAP:2105    | + head mesenchyme
+EMAP:2106    | | + mesenchyme derived from head mesoderm
+EMAP:15252   | | | \ mesenchyme derived from somites 01-04
+EMAP:2107    | | \ mesenchyme derived from neural crest
+EMAP:2108    | \ trunk mesenchyme
+EMAP:2109    |   + body-wall mesenchyme
+EMAP:2110    |   + mesenchyme derived from neural crest
+EMAP:15243   |   | \ non-migrating cells
+EMAP:2111    |   + paraxial mesenchyme
+EMAP:2112    |   | \ somite
+EMAP:29699 G |   |   + body dermomyotome group
+EMAP:2114  > |   |   | + dermomyotome
+EMAP:2118  > |   |   | + dermomyotome
+EMAP:2122  > |   |   | + dermomyotome
+EMAP:2126  > |   |   | + dermomyotome
+EMAP:2130  > |   |   | + dermomyotome
+EMAP:2134  > |   |   | + dermomyotome
+EMAP:2138  > |   |   | + dermomyotome
+EMAP:2142  > |   |   | + dermomyotome
+EMAP:2146  > |   |   | + dermomyotome
+EMAP:2150  > |   |   | + dermomyotome
+EMAP:2154  > |   |   | + dermomyotome
+EMAP:2158  > |   |   | + dermomyotome
+EMAP:2162  > |   |   | + dermomyotome
+EMAP:2166  > |   |   | + dermomyotome
+EMAP:2170  > |   |   | + dermomyotome
+EMAP:2174  > |   |   | + dermomyotome
+EMAP:2178  > |   |   | + dermomyotome
+EMAP:2182  > |   |   | + dermomyotome
+EMAP:2186  > |   |   | + dermomyotome
+EMAP:2190  > |   |   | + dermomyotome
+EMAP:2194  > |   |   | + dermomyotome
+EMAP:2198  > |   |   | + dermomyotome
+EMAP:2202  > |   |   | + dermomyotome
+EMAP:2206  > |   |   | + dermomyotome
+EMAP:2210  > |   |   | + dermomyotome
+EMAP:2214  > |   |   | \ dermomyotome
+EMAP:31123 G |   |   + body myocoele group
+EMAP:2115  > |   |   | + myocoele
+EMAP:2119  > |   |   | + myocoele
+EMAP:2123  > |   |   | + myocoele
+EMAP:2127  > |   |   | + myocoele
+EMAP:2131  > |   |   | + myocoele
+EMAP:2135  > |   |   | + myocoele
+EMAP:2139  > |   |   | + myocoele
+EMAP:2143  > |   |   | + myocoele
+EMAP:2147  > |   |   | + myocoele
+EMAP:2151  > |   |   | + myocoele
+EMAP:2155  > |   |   | + myocoele
+EMAP:2159  > |   |   | + myocoele
+EMAP:2163  > |   |   | + myocoele
+EMAP:2167  > |   |   | + myocoele
+EMAP:2171  > |   |   | + myocoele
+EMAP:2175  > |   |   | + myocoele
+EMAP:2179  > |   |   | + myocoele
+EMAP:2183  > |   |   | + myocoele
+EMAP:2187  > |   |   | + myocoele
+EMAP:2191  > |   |   | + myocoele
+EMAP:2195  > |   |   | + myocoele
+EMAP:2199  > |   |   | + myocoele
+EMAP:2203  > |   |   | + myocoele
+EMAP:2207  > |   |   | + myocoele
+EMAP:2211  > |   |   | + myocoele
+EMAP:2215  > |   |   | \ myocoele
+EMAP:31148 G |   |   + body sclerotome group
+EMAP:2116  > |   |   | + sclerotome
+EMAP:2120  > |   |   | + sclerotome
+EMAP:2124  > |   |   | + sclerotome
+EMAP:2128  > |   |   | + sclerotome
+EMAP:2132  > |   |   | + sclerotome
+EMAP:2136  > |   |   | + sclerotome
+EMAP:2140  > |   |   | + sclerotome
+EMAP:2144  > |   |   | + sclerotome
+EMAP:2148  > |   |   | + sclerotome
+EMAP:2152  > |   |   | + sclerotome
+EMAP:2156  > |   |   | + sclerotome
+EMAP:2160  > |   |   | + sclerotome
+EMAP:2164  > |   |   | + sclerotome
+EMAP:2168  > |   |   | + sclerotome
+EMAP:2172  > |   |   | + sclerotome
+EMAP:2176  > |   |   | + sclerotome
+EMAP:2180  > |   |   | + sclerotome
+EMAP:2184  > |   |   | + sclerotome
+EMAP:2188  > |   |   | + sclerotome
+EMAP:2192  > |   |   | + sclerotome
+EMAP:2196  > |   |   | + sclerotome
+EMAP:2200  > |   |   | + sclerotome
+EMAP:2204  > |   |   | + sclerotome
+EMAP:2208  > |   |   | + sclerotome
+EMAP:2212  > |   |   | + sclerotome
+EMAP:2216  > |   |   | \ sclerotome
+EMAP:2113    |   |   + somite 05
+EMAP:2114    |   |   | + dermomyotome
+EMAP:2115    |   |   | + myocoele
+EMAP:2116    |   |   | \ sclerotome
+EMAP:2117    |   |   + somite 06
+EMAP:2118    |   |   | + dermomyotome
+EMAP:2119    |   |   | + myocoele
+EMAP:2120    |   |   | \ sclerotome
+EMAP:2121    |   |   + somite 07
+EMAP:2122    |   |   | + dermomyotome
+EMAP:2123    |   |   | + myocoele
+EMAP:2124    |   |   | \ sclerotome
+EMAP:2125    |   |   + somite 08
+EMAP:2126    |   |   | + dermomyotome
+EMAP:2127    |   |   | + myocoele
+EMAP:2128    |   |   | \ sclerotome
+EMAP:2129    |   |   + somite 09
+EMAP:2130    |   |   | + dermomyotome
+EMAP:2131    |   |   | + myocoele
+EMAP:2132    |   |   | \ sclerotome
+EMAP:2133    |   |   + somite 10
+EMAP:2134    |   |   | + dermomyotome
+EMAP:2135    |   |   | + myocoele
+EMAP:2136    |   |   | \ sclerotome
+EMAP:2137    |   |   + somite 11
+EMAP:2138    |   |   | + dermomyotome
+EMAP:2139    |   |   | + myocoele
+EMAP:2140    |   |   | \ sclerotome
+EMAP:2141    |   |   + somite 12
+EMAP:2142    |   |   | + dermomyotome
+EMAP:2143    |   |   | + myocoele
+EMAP:2144    |   |   | \ sclerotome
+EMAP:2145    |   |   + somite 13
+EMAP:2146    |   |   | + dermomyotome
+EMAP:2147    |   |   | + myocoele
+EMAP:2148    |   |   | \ sclerotome
+EMAP:2149    |   |   + somite 14
+EMAP:2150    |   |   | + dermomyotome
+EMAP:2151    |   |   | + myocoele
+EMAP:2152    |   |   | \ sclerotome
+EMAP:2153    |   |   + somite 15
+EMAP:2154    |   |   | + dermomyotome
+EMAP:2155    |   |   | + myocoele
+EMAP:2156    |   |   | \ sclerotome
+EMAP:2157    |   |   + somite 16
+EMAP:2158    |   |   | + dermomyotome
+EMAP:2159    |   |   | + myocoele
+EMAP:2160    |   |   | \ sclerotome
+EMAP:2161    |   |   + somite 17
+EMAP:2162    |   |   | + dermomyotome
+EMAP:2163    |   |   | + myocoele
+EMAP:2164    |   |   | \ sclerotome
+EMAP:2165    |   |   + somite 18
+EMAP:2166    |   |   | + dermomyotome
+EMAP:2167    |   |   | + myocoele
+EMAP:2168    |   |   | \ sclerotome
+EMAP:2169    |   |   + somite 19
+EMAP:2170    |   |   | + dermomyotome
+EMAP:2171    |   |   | + myocoele
+EMAP:2172    |   |   | \ sclerotome
+EMAP:2173    |   |   + somite 20
+EMAP:2174    |   |   | + dermomyotome
+EMAP:2175    |   |   | + myocoele
+EMAP:2176    |   |   | \ sclerotome
+EMAP:2177    |   |   + somite 21
+EMAP:2178    |   |   | + dermomyotome
+EMAP:2179    |   |   | + myocoele
+EMAP:2180    |   |   | \ sclerotome
+EMAP:2181    |   |   + somite 22
+EMAP:2182    |   |   | + dermomyotome
+EMAP:2183    |   |   | + myocoele
+EMAP:2184    |   |   | \ sclerotome
+EMAP:2185    |   |   + somite 23
+EMAP:2186    |   |   | + dermomyotome
+EMAP:2187    |   |   | + myocoele
+EMAP:2188    |   |   | \ sclerotome
+EMAP:2189    |   |   + somite 24
+EMAP:2190    |   |   | + dermomyotome
+EMAP:2191    |   |   | + myocoele
+EMAP:2192    |   |   | \ sclerotome
+EMAP:2193    |   |   + somite 25
+EMAP:2194    |   |   | + dermomyotome
+EMAP:2195    |   |   | + myocoele
+EMAP:2196    |   |   | \ sclerotome
+EMAP:2197    |   |   + somite 26
+EMAP:2198    |   |   | + dermomyotome
+EMAP:2199    |   |   | + myocoele
+EMAP:2200    |   |   | \ sclerotome
+EMAP:2201    |   |   + somite 27
+EMAP:2202    |   |   | + dermomyotome
+EMAP:2203    |   |   | + myocoele
+EMAP:2204    |   |   | \ sclerotome
+EMAP:2205    |   |   + somite 28
+EMAP:2206    |   |   | + dermomyotome
+EMAP:2207    |   |   | + myocoele
+EMAP:2208    |   |   | \ sclerotome
+EMAP:2209    |   |   + somite 29
+EMAP:2210    |   |   | + dermomyotome
+EMAP:2211    |   |   | + myocoele
+EMAP:2212    |   |   | \ sclerotome
+EMAP:2213    |   |   \ somite 30
+EMAP:2214    |   |     + dermomyotome
+EMAP:2215    |   |     + myocoele
+EMAP:2216    |   |     \ sclerotome
+EMAP:2217    |   \ septum transversum
+EMAP:2218    |     \ non-hepatic component
+EMAP:14758   |       \ future central tendon
+EMAP:31138 G + myocoele group
+EMAP:31123 > | + body myocoele group
+EMAP:2115  ~ | | + myocoele
+EMAP:2119  ~ | | + myocoele
+EMAP:2123  ~ | | + myocoele
+EMAP:2127  ~ | | + myocoele
+EMAP:2131  ~ | | + myocoele
+EMAP:2135  ~ | | + myocoele
+EMAP:2139  ~ | | + myocoele
+EMAP:2143  ~ | | + myocoele
+EMAP:2147  ~ | | + myocoele
+EMAP:2151  ~ | | + myocoele
+EMAP:2155  ~ | | + myocoele
+EMAP:2159  ~ | | + myocoele
+EMAP:2163  ~ | | + myocoele
+EMAP:2167  ~ | | + myocoele
+EMAP:2171  ~ | | + myocoele
+EMAP:2175  ~ | | + myocoele
+EMAP:2179  ~ | | + myocoele
+EMAP:2183  ~ | | + myocoele
+EMAP:2187  ~ | | + myocoele
+EMAP:2191  ~ | | + myocoele
+EMAP:2195  ~ | | + myocoele
+EMAP:2199  ~ | | + myocoele
+EMAP:2203  ~ | | + myocoele
+EMAP:2207  ~ | | + myocoele
+EMAP:2211  ~ | | + myocoele
+EMAP:2215  ~ | | \ myocoele
+EMAP:31128 > | \ tail myocoele group
+EMAP:2589  ~ |   + myocoele
+EMAP:2593  ~ |   + myocoele
+EMAP:2597  ~ |   + myocoele
+EMAP:2601  ~ |   + myocoele
+EMAP:2605  ~ |   + myocoele
+EMAP:2609  ~ |   + myocoele
+EMAP:2613  ~ |   + myocoele
+EMAP:2617  ~ |   + myocoele
+EMAP:2621  ~ |   \ myocoele
+EMAP:31163 G + myocoele group
+EMAP:31148 > | + body sclerotome group
+EMAP:2116  ~ | | + sclerotome
+EMAP:2120  ~ | | + sclerotome
+EMAP:2124  ~ | | + sclerotome
+EMAP:2128  ~ | | + sclerotome
+EMAP:2132  ~ | | + sclerotome
+EMAP:2136  ~ | | + sclerotome
+EMAP:2140  ~ | | + sclerotome
+EMAP:2144  ~ | | + sclerotome
+EMAP:2148  ~ | | + sclerotome
+EMAP:2152  ~ | | + sclerotome
+EMAP:2156  ~ | | + sclerotome
+EMAP:2160  ~ | | + sclerotome
+EMAP:2164  ~ | | + sclerotome
+EMAP:2168  ~ | | + sclerotome
+EMAP:2172  ~ | | + sclerotome
+EMAP:2176  ~ | | + sclerotome
+EMAP:2180  ~ | | + sclerotome
+EMAP:2184  ~ | | + sclerotome
+EMAP:2188  ~ | | + sclerotome
+EMAP:2192  ~ | | + sclerotome
+EMAP:2196  ~ | | + sclerotome
+EMAP:2200  ~ | | + sclerotome
+EMAP:2204  ~ | | + sclerotome
+EMAP:2208  ~ | | + sclerotome
+EMAP:2212  ~ | | + sclerotome
+EMAP:2216  ~ | | \ sclerotome
+EMAP:31153 > | \ tail sclerotome group
+EMAP:2590  ~ |   + sclerotome
+EMAP:2594  ~ |   + sclerotome
+EMAP:2598  ~ |   + sclerotome
+EMAP:2602  ~ |   + sclerotome
+EMAP:2606  ~ |   + sclerotome
+EMAP:2610  ~ |   + sclerotome
+EMAP:2614  ~ |   + sclerotome
+EMAP:2618  ~ |   + sclerotome
+EMAP:2622  ~ |   \ sclerotome
+EMAP:2219    + notochord
+EMAP:7054    + physiological umbilical hernia
+EMAP:7057    | + dermis
+EMAP:7060    | \ epidermis
+EMAP:13240   + skeleton
+EMAP:13241   | \ axial skeleton
+EMAP:13242   |   + cervical region
+EMAP:13243   |   | + vertebral cartilage condensation
+EMAP:13244   |   | | + C1 (syn: atlas)
+EMAP:13245   |   | | + C2 (syn: axis)
+EMAP:13246   |   | | + C3
+EMAP:13247   |   | | + C4
+EMAP:13248   |   | | \ C5
+EMAP:13249   |   | \ vertebral pre-cartilage condensation
+EMAP:13250   |   |   + C6
+EMAP:13251   |   |   \ C7
+EMAP:13252   |   + lumbar region
+EMAP:13253   |   | \ vertebral pre-cartilage condensation
+EMAP:13254   |   |   \ L1
+EMAP:13255   |   \ thoracic region
+EMAP:13256   |     \ vertebral pre-cartilage condensation
+EMAP:13257   |       + T1
+EMAP:13266   |       + T10
+EMAP:13267   |       + T11
+EMAP:13268   |       + T12
+EMAP:13269   |       + T13
+EMAP:13258   |       + T2
+EMAP:13259   |       + T3
+EMAP:13260   |       + T4
+EMAP:13261   |       + T5
+EMAP:13262   |       + T6
+EMAP:13263   |       + T7
+EMAP:13264   |       + T8
+EMAP:13265   |       \ T9
+EMAP:31175 G + somite group
+EMAP:2113  > | + somite 05
+EMAP:2114  ~ | | + dermomyotome
+EMAP:2115  ~ | | + myocoele
+EMAP:2116  ~ | | \ sclerotome
+EMAP:2117  > | + somite 06
+EMAP:2118  ~ | | + dermomyotome
+EMAP:2119  ~ | | + myocoele
+EMAP:2120  ~ | | \ sclerotome
+EMAP:2121  > | + somite 07
+EMAP:2122  ~ | | + dermomyotome
+EMAP:2123  ~ | | + myocoele
+EMAP:2124  ~ | | \ sclerotome
+EMAP:2125  > | + somite 08
+EMAP:2126  ~ | | + dermomyotome
+EMAP:2127  ~ | | + myocoele
+EMAP:2128  ~ | | \ sclerotome
+EMAP:2129  > | + somite 09
+EMAP:2130  ~ | | + dermomyotome
+EMAP:2131  ~ | | + myocoele
+EMAP:2132  ~ | | \ sclerotome
+EMAP:2133  > | + somite 10
+EMAP:2134  ~ | | + dermomyotome
+EMAP:2135  ~ | | + myocoele
+EMAP:2136  ~ | | \ sclerotome
+EMAP:2137  > | + somite 11
+EMAP:2138  ~ | | + dermomyotome
+EMAP:2139  ~ | | + myocoele
+EMAP:2140  ~ | | \ sclerotome
+EMAP:2141  > | + somite 12
+EMAP:2142  ~ | | + dermomyotome
+EMAP:2143  ~ | | + myocoele
+EMAP:2144  ~ | | \ sclerotome
+EMAP:2145  > | + somite 13
+EMAP:2146  ~ | | + dermomyotome
+EMAP:2147  ~ | | + myocoele
+EMAP:2148  ~ | | \ sclerotome
+EMAP:2149  > | + somite 14
+EMAP:2150  ~ | | + dermomyotome
+EMAP:2151  ~ | | + myocoele
+EMAP:2152  ~ | | \ sclerotome
+EMAP:2153  > | + somite 15
+EMAP:2154  ~ | | + dermomyotome
+EMAP:2155  ~ | | + myocoele
+EMAP:2156  ~ | | \ sclerotome
+EMAP:2157  > | + somite 16
+EMAP:2158  ~ | | + dermomyotome
+EMAP:2159  ~ | | + myocoele
+EMAP:2160  ~ | | \ sclerotome
+EMAP:2161  > | + somite 17
+EMAP:2162  ~ | | + dermomyotome
+EMAP:2163  ~ | | + myocoele
+EMAP:2164  ~ | | \ sclerotome
+EMAP:2165  > | + somite 18
+EMAP:2166  ~ | | + dermomyotome
+EMAP:2167  ~ | | + myocoele
+EMAP:2168  ~ | | \ sclerotome
+EMAP:2169  > | + somite 19
+EMAP:2170  ~ | | + dermomyotome
+EMAP:2171  ~ | | + myocoele
+EMAP:2172  ~ | | \ sclerotome
+EMAP:2173  > | + somite 20
+EMAP:2174  ~ | | + dermomyotome
+EMAP:2175  ~ | | + myocoele
+EMAP:2176  ~ | | \ sclerotome
+EMAP:2177  > | + somite 21
+EMAP:2178  ~ | | + dermomyotome
+EMAP:2179  ~ | | + myocoele
+EMAP:2180  ~ | | \ sclerotome
+EMAP:2181  > | + somite 22
+EMAP:2182  ~ | | + dermomyotome
+EMAP:2183  ~ | | + myocoele
+EMAP:2184  ~ | | \ sclerotome
+EMAP:2185  > | + somite 23
+EMAP:2186  ~ | | + dermomyotome
+EMAP:2187  ~ | | + myocoele
+EMAP:2188  ~ | | \ sclerotome
+EMAP:2189  > | + somite 24
+EMAP:2190  ~ | | + dermomyotome
+EMAP:2191  ~ | | + myocoele
+EMAP:2192  ~ | | \ sclerotome
+EMAP:2193  > | + somite 25
+EMAP:2194  ~ | | + dermomyotome
+EMAP:2195  ~ | | + myocoele
+EMAP:2196  ~ | | \ sclerotome
+EMAP:2197  > | + somite 26
+EMAP:2198  ~ | | + dermomyotome
+EMAP:2199  ~ | | + myocoele
+EMAP:2200  ~ | | \ sclerotome
+EMAP:2201  > | + somite 27
+EMAP:2202  ~ | | + dermomyotome
+EMAP:2203  ~ | | + myocoele
+EMAP:2204  ~ | | \ sclerotome
+EMAP:2205  > | + somite 28
+EMAP:2206  ~ | | + dermomyotome
+EMAP:2207  ~ | | + myocoele
+EMAP:2208  ~ | | \ sclerotome
+EMAP:2209  > | + somite 29
+EMAP:2210  ~ | | + dermomyotome
+EMAP:2211  ~ | | + myocoele
+EMAP:2212  ~ | | \ sclerotome
+EMAP:2213  > | + somite 30
+EMAP:2214  ~ | | + dermomyotome
+EMAP:2215  ~ | | + myocoele
+EMAP:2216  ~ | | \ sclerotome
+EMAP:2587  > | + somite 31
+EMAP:2588  ~ | | + dermomyotome
+EMAP:2589  ~ | | + myocoele
+EMAP:2590  ~ | | \ sclerotome
+EMAP:2591  > | + somite 32
+EMAP:2592  ~ | | + dermomyotome
+EMAP:2593  ~ | | + myocoele
+EMAP:2594  ~ | | \ sclerotome
+EMAP:2595  > | + somite 33
+EMAP:2596  ~ | | + dermomyotome
+EMAP:2597  ~ | | + myocoele
+EMAP:2598  ~ | | \ sclerotome
+EMAP:2599  > | + somite 34
+EMAP:2600  ~ | | + dermomyotome
+EMAP:2601  ~ | | + myocoele
+EMAP:2602  ~ | | \ sclerotome
+EMAP:2603  > | + somite 35
+EMAP:2604  ~ | | + dermomyotome
+EMAP:2605  ~ | | + myocoele
+EMAP:2606  ~ | | \ sclerotome
+EMAP:2607  > | + somite 36
+EMAP:2608  ~ | | + dermomyotome
+EMAP:2609  ~ | | + myocoele
+EMAP:2610  ~ | | \ sclerotome
+EMAP:2611  > | + somite 37
+EMAP:2612  ~ | | + dermomyotome
+EMAP:2613  ~ | | + myocoele
+EMAP:2614  ~ | | \ sclerotome
+EMAP:2615  > | + somite 38
+EMAP:2616  ~ | | + dermomyotome
+EMAP:2617  ~ | | + myocoele
+EMAP:2618  ~ | | \ sclerotome
+EMAP:2619  > | \ somite 39
+EMAP:2620  ~ |   + dermomyotome
+EMAP:2621  ~ |   + myocoele
+EMAP:2622  ~ |   \ sclerotome
+EMAP:2582    \ tail
+EMAP:2583      + mesenchyme
+EMAP:2584      | + mesenchyme derived from neural crest
+EMAP:2585      | \ paraxial mesenchyme
+EMAP:2586      |   + somite
+EMAP:2587      |   | + somite 31
+EMAP:2588      |   | | + dermomyotome
+EMAP:2589      |   | | + myocoele
+EMAP:2590      |   | | \ sclerotome
+EMAP:2591      |   | + somite 32
+EMAP:2592      |   | | + dermomyotome
+EMAP:2593      |   | | + myocoele
+EMAP:2594      |   | | \ sclerotome
+EMAP:2595      |   | + somite 33
+EMAP:2596      |   | | + dermomyotome
+EMAP:2597      |   | | + myocoele
+EMAP:2598      |   | | \ sclerotome
+EMAP:2599      |   | + somite 34
+EMAP:2600      |   | | + dermomyotome
+EMAP:2601      |   | | + myocoele
+EMAP:2602      |   | | \ sclerotome
+EMAP:2603      |   | + somite 35
+EMAP:2604      |   | | + dermomyotome
+EMAP:2605      |   | | + myocoele
+EMAP:2606      |   | | \ sclerotome
+EMAP:2607      |   | + somite 36
+EMAP:2608      |   | | + dermomyotome
+EMAP:2609      |   | | + myocoele
+EMAP:2610      |   | | \ sclerotome
+EMAP:2611      |   | + somite 37
+EMAP:2612      |   | | + dermomyotome
+EMAP:2613      |   | | + myocoele
+EMAP:2614      |   | | \ sclerotome
+EMAP:2615      |   | + somite 38
+EMAP:2616      |   | | + dermomyotome
+EMAP:2617      |   | | + myocoele
+EMAP:2618      |   | | \ sclerotome
+EMAP:2619      |   | + somite 39
+EMAP:2620      |   | | + dermomyotome
+EMAP:2621      |   | | + myocoele
+EMAP:2622      |   | | \ sclerotome
+EMAP:31107 G   |   | + tail dermomyotome group
+EMAP:2588  >   |   | | + dermomyotome
+EMAP:2592  >   |   | | + dermomyotome
+EMAP:2596  >   |   | | + dermomyotome
+EMAP:2600  >   |   | | + dermomyotome
+EMAP:2604  >   |   | | + dermomyotome
+EMAP:2608  >   |   | | + dermomyotome
+EMAP:2612  >   |   | | + dermomyotome
+EMAP:2616  >   |   | | + dermomyotome
+EMAP:2620  >   |   | | \ dermomyotome
+EMAP:31128 G   |   | + tail myocoele group
+EMAP:2589  >   |   | | + myocoele
+EMAP:2593  >   |   | | + myocoele
+EMAP:2597  >   |   | | + myocoele
+EMAP:2601  >   |   | | + myocoele
+EMAP:2605  >   |   | | + myocoele
+EMAP:2609  >   |   | | + myocoele
+EMAP:2613  >   |   | | + myocoele
+EMAP:2617  >   |   | | + myocoele
+EMAP:2621  >   |   | | \ myocoele
+EMAP:31153 G   |   | \ tail sclerotome group
+EMAP:2590  >   |   |   + sclerotome
+EMAP:2594  >   |   |   + sclerotome
+EMAP:2598  >   |   |   + sclerotome
+EMAP:2602  >   |   |   + sclerotome
+EMAP:2606  >   |   |   + sclerotome
+EMAP:2610  >   |   |   + sclerotome
+EMAP:2614  >   |   |   + sclerotome
+EMAP:2618  >   |   |   + sclerotome
+EMAP:2622  >   |   |   \ sclerotome
+EMAP:2623      |   \ unsegmented mesenchyme (syn: presomitic mesenchyme)
+EMAP:2624      \ nervous system
+EMAP:2625        \ central nervous system (syn: CNS)
+EMAP:2626          \ future spinal cord
+EMAP:2627            \ neural tube

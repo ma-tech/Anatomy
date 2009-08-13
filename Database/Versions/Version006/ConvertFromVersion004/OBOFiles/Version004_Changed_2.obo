@@ -1,8 +1,8 @@
 format-version: 1.2
-date: 6:7:2009 9:37
+date: 13:7:2009 14:29
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
-remark: Version 004 + Changes 2 = Version 006!!!
+remark: Version 004 + Changes 1 + Changers 2 = Version 006!!!
 
 [Term]
 id: EMAPA:0
@@ -15398,8 +15398,8 @@ id: EMAPA:27794
 name: developing vasculature of metanephros
 namespace: abstract_anatomy
 relationship: part_of EMAPA:17373
-relationship: part_of EMAPA:31563
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:31563
 relationship: starts_at TS20
 relationship: ends_at TS21
 comment: order=13 for EMAPA:17373
@@ -17173,7 +17173,6 @@ relationship: part_of EMAPA:28540
 relationship: part_of EMAPA:30984
 relationship: starts_at TS20
 relationship: ends_at TS27
-related_synonym: "clitoris anlage" []
 comment: order=12 for EMAPA:17959\norder=2 for EMAPA:28540\norder=0 for EMAPA:30984
 
 [Term]
@@ -17360,7 +17359,6 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:28909
 relationship: starts_at TS20
 relationship: ends_at TS23
-related_synonym: "Müllerian duct of female" []
 related_synonym: "M�llerian duct of female" []
 comment: order=5 for EMAPA:28909
 
@@ -17389,7 +17387,6 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:17959
 relationship: starts_at TS20
 relationship: ends_at TS23
-related_synonym: "Müllerian duct of female" []
 related_synonym: "M�llerian duct of female" []
 related_synonym: "rest of" []
 comment: order=1 for EMAPA:17959
@@ -38474,7 +38471,7 @@ name: genital tubercle mesenchyme of female
 namespace: abstract_anatomy
 relationship: part_of EMAPA:18680
 relationship: starts_at TS20
-relationship: ends_at TS21
+relationship: ends_at TS20
 comment: order=1 for EMAPA:18680
 
 [Term]
@@ -38483,7 +38480,7 @@ name: genital tubercle surface epithelium of female
 namespace: abstract_anatomy
 relationship: part_of EMAPA:18680
 relationship: starts_at TS20
-relationship: ends_at TS21
+relationship: ends_at TS20
 comment: order=0 for EMAPA:18680
 
 [Term]
@@ -38779,7 +38776,7 @@ name: genital tubercle mesenchyme of male
 namespace: abstract_anatomy
 relationship: part_of EMAPA:17969
 relationship: starts_at TS20
-relationship: ends_at TS21
+relationship: ends_at TS20
 comment: order=1 for EMAPA:17969
 
 [Term]
@@ -38788,7 +38785,7 @@ name: genital tubercle surface epithelium of male
 namespace: abstract_anatomy
 relationship: part_of EMAPA:17969
 relationship: starts_at TS20
-relationship: ends_at TS21
+relationship: ends_at TS20
 comment: order=0 for EMAPA:17969
 
 [Term]
@@ -38855,7 +38852,6 @@ relationship: part_of EMAPA:17969
 relationship: starts_at TS23
 relationship: ends_at TS23
 related_synonym: "distal genital tubercle of male" []
-related_synonym: "penis" []
 related_synonym: "penis anlage" []
 comment: order=5 for EMAPA:17969
 
@@ -39219,7 +39215,6 @@ relationship: part_of EMAPA:29138
 relationship: starts_at TS20
 relationship: ends_at TS21
 related_synonym: "mesonephric portion of male" []
-related_synonym: "Müllerian duct of male" []
 related_synonym: "M�llerian duct of male" []
 comment: order=4 for EMAPA:29138
 
@@ -39230,7 +39225,6 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:29138
 relationship: starts_at TS22
 relationship: ends_at TS23
-related_synonym: "Müllerian duct" []
 related_synonym: "M�llerian duct" []
 comment: order=5 for EMAPA:29138
 
@@ -39297,7 +39291,6 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:17968
 relationship: starts_at TS22
 relationship: ends_at TS23
-related_synonym: "degenerating Müllerian duct" []
 related_synonym: "degenerating M�llerian duct" []
 comment: order=1 for EMAPA:17968
 
@@ -40063,7 +40056,7 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:28518
 relationship: part_of EMAPA:19279
 relationship: starts_at TS22
-relationship: ends_at TS28
+relationship: ends_at TS27
 related_synonym: "medullary stroma" []
 comment: order=7 for EMAPA:28518\norder=2 for EMAPA:19279
 
@@ -41676,7 +41669,6 @@ relationship: is_a group_term
 relationship: starts_at TS20
 relationship: ends_at TS28
 relationship: group_part_of EMAPA:17373
-related_synonym: "early tubule" []
 comment: order=20 for EMAPA:17373
 
 [Term]
@@ -41939,7 +41931,7 @@ name: renal medullary fibroblasts
 namespace: abstract_anatomy
 relationship: part_of EMAPA:18326
 relationship: starts_at TS22
-relationship: ends_at TS28
+relationship: ends_at TS27
 comment: order=0 for EMAPA:18326
 
 [Term]
@@ -41948,7 +41940,7 @@ name: resident macrophages of the medulla
 namespace: abstract_anatomy
 relationship: part_of EMAPA:18326
 relationship: starts_at TS22
-relationship: ends_at TS28
+relationship: ends_at TS27
 related_synonym: "renal monocytes of the medulla" []
 comment: order=1 for EMAPA:18326
 
@@ -41958,7 +41950,7 @@ name: rest of renal medullary interstitium
 namespace: abstract_anatomy
 relationship: part_of EMAPA:18326
 relationship: starts_at TS22
-relationship: ends_at TS28
+relationship: ends_at TS27
 comment: order=2 for EMAPA:18326
 
 [Term]
@@ -42874,8 +42866,8 @@ comment: order=9 for EMAPA:17969
 id: EMAPA:31511
 name: early distal tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28007
 relationship: part_of EMAPA:31571
+relationship: part_of EMAPA:28007
 relationship: starts_at TS22
 relationship: ends_at TS24
 related_synonym: "anlage of distal tubule" []
@@ -42885,8 +42877,8 @@ comment: order=0 for EMAPA:28007
 id: EMAPA:31512
 name: early proximal tubule of maturing nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31570
 relationship: part_of EMAPA:28284
+relationship: part_of EMAPA:31570
 relationship: starts_at TS25
 relationship: ends_at TS27
 comment: order=1 for EMAPA:28284
@@ -42915,8 +42907,8 @@ comment: order=1 for EMAPA:28390
 id: EMAPA:31515
 name: renal connecting tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28011
 relationship: part_of EMAPA:31571
+relationship: part_of EMAPA:28011
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=0 for EMAPA:28011
@@ -42935,8 +42927,8 @@ comment: order=1 for EMAPA:28011
 id: EMAPA:31517
 name: renal connecting tubule of mature nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28011
 relationship: part_of EMAPA:31566
+relationship: part_of EMAPA:28011
 relationship: starts_at TS25
 relationship: ends_at TS27
 comment: order=2 for EMAPA:28011
@@ -42994,8 +42986,8 @@ comment: order=22 for EMAPA:17366
 id: EMAPA:31523
 name: nerve of pelvic urethra
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30903
 relationship: part_of EMAPA:31569
+relationship: part_of EMAPA:30903
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: order=3 for EMAPA:30903
@@ -43004,8 +42996,8 @@ comment: order=3 for EMAPA:30903
 id: EMAPA:31524
 name: nerve of phallic urethra
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31569
 relationship: part_of EMAPA:30911
+relationship: part_of EMAPA:31569
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: order=2 for EMAPA:30911
@@ -43123,8 +43115,8 @@ comment: order=0 for EMAPA:30470
 id: EMAPA:31537
 name: developing vasculature of male mesonephros
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31564
 relationship: part_of EMAPA:29138
+relationship: part_of EMAPA:31564
 relationship: starts_at TS20
 relationship: ends_at TS23
 comment: order=7 for EMAPA:29138
@@ -43181,8 +43173,8 @@ comment: order=1 for EMAPA:28003
 id: EMAPA:31543
 name: early proximal tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28284
 relationship: part_of EMAPA:31571
+relationship: part_of EMAPA:28284
 relationship: starts_at TS25
 relationship: ends_at TS27
 related_synonym: "anlage of proximal tubule" []
@@ -43192,8 +43184,8 @@ comment: order=0 for EMAPA:28284
 id: EMAPA:31544
 name: early proximal tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31571
 relationship: part_of EMAPA:28003
+relationship: part_of EMAPA:31571
 relationship: starts_at TS22
 relationship: ends_at TS24
 related_synonym: "anlage of proximal tubule" []
@@ -43407,8 +43399,8 @@ comment: order=8 for EMAPA:18976
 id: EMAPA:31567
 name: nerve of pelvic urethra of female
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28753
 relationship: part_of EMAPA:31569
+relationship: part_of EMAPA:28753
 relationship: starts_at TS23
 relationship: ends_at TS28
 comment: order=3 for EMAPA:28753
@@ -43417,8 +43409,8 @@ comment: order=3 for EMAPA:28753
 id: EMAPA:31568
 name: nerve of phallic urethra of male
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17956
 relationship: part_of EMAPA:31569
+relationship: part_of EMAPA:17956
 relationship: starts_at TS23
 relationship: ends_at TS27
 comment: order=5 for EMAPA:17956

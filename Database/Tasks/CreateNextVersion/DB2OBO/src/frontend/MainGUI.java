@@ -95,7 +95,7 @@ public class MainGUI extends javax.swing.JFrame {
         //make root components for classes
         this.makeRootComponents();
         //load default reference tree
-        //loadDefaultReferenceTree();
+        loadDefaultReferenceTree();
         
     }
     
@@ -131,7 +131,6 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         mouseRB = new javax.swing.JRadioButton();
         humanRB = new javax.swing.JRadioButton();
-        chickRB = new javax.swing.JRadioButton();
         jPanel36 = new javax.swing.JPanel();
         timedcompRB = new javax.swing.JRadioButton();
         startendRB = new javax.swing.JRadioButton();
@@ -312,53 +311,6 @@ public class MainGUI extends javax.swing.JFrame {
         humanGroupTermClassIDTF = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
         humanGroupTermClassNamespaceTF = new javax.swing.JTextField();
-        jPanel28 = new javax.swing.JPanel();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
-        chickDBHostNameTF = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        chickDBPortTF = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        chickDBDbNameTF = new javax.swing.JTextField();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        chickDBUserNameTF = new javax.swing.JTextField();
-        chickDBPasswordPF = new javax.swing.JPasswordField();
-        cmdReconnectC = new javax.swing.JButton();
-        jPanel30 = new javax.swing.JPanel();
-        jPanel31 = new javax.swing.JPanel();
-        jLabel56 = new javax.swing.JLabel();
-        chickAbstractClassNameTF = new javax.swing.JTextField();
-        jLabel57 = new javax.swing.JLabel();
-        chickAbstractClassIDTF = new javax.swing.JTextField();
-        jLabel58 = new javax.swing.JLabel();
-        chickAbstractClassNamespaceTF = new javax.swing.JTextField();
-        jPanel32 = new javax.swing.JPanel();
-        jLabel59 = new javax.swing.JLabel();
-        chickStageClassNameTF = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
-        chickStageClassIDTF = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
-        chickStageClassNamespaceTF = new javax.swing.JTextField();
-        jPanel33 = new javax.swing.JPanel();
-        jLabel62 = new javax.swing.JLabel();
-        chickGroupClassNameTF = new javax.swing.JTextField();
-        jLabel63 = new javax.swing.JLabel();
-        chickGroupClassIDTF = new javax.swing.JTextField();
-        jLabel64 = new javax.swing.JLabel();
-        chickGroupClassNamespaceTF = new javax.swing.JTextField();
-        jPanel38 = new javax.swing.JPanel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        chickFormatVersionTF = new javax.swing.JTextField();
-        chickDefaultNamespaceTF = new javax.swing.JTextField();
-        jPanel39 = new javax.swing.JPanel();
-        jLabel81 = new javax.swing.JLabel();
-        chickGroupTermClassNameTF = new javax.swing.JTextField();
-        jLabel82 = new javax.swing.JLabel();
-        chickGroupTermClassIDTF = new javax.swing.JTextField();
-        jLabel83 = new javax.swing.JLabel();
-        chickGroupTermClassNamespaceTF = new javax.swing.JTextField();
         exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -368,11 +320,11 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel8.setText("Saved by:");
 
-        savedByTF.setText("Your Name!!!");
+        savedByTF.setText("Maze Lam");
 
         jLabel1.setText("OBO file:");
 
-        exportOBOFileTF.setText("*.obo");
+        exportOBOFileTF.setText("C:\\Maze\\OBO\\OBO_files\\OBOFile_TS14.obo");
 
         exportBrowseButton.setText("Browse...");
         exportBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -404,7 +356,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        exportTextFileTF.setText("treereport.txt");
+        exportTextFileTF.setText("D:\\OBO\\treereport.txt");
 
         exportTextBrowseButton.setText("Browse...");
         exportTextBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -448,10 +400,10 @@ public class MainGUI extends javax.swing.JFrame {
                         .add(19, 19, 19)
                         .add(jLabel6)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(savedByTF)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(savedByTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -477,7 +429,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(cmdGenerateTreeReport))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(expTermNoLabel)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
@@ -494,7 +446,6 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Species Database"));
 
         specieButtonGroup.add(mouseRB);
-        mouseRB.setSelected(true);
         mouseRB.setText("mouse");
         mouseRB.setToolTipText("Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 'Database and File Settings'");
         mouseRB.addItemListener(new java.awt.event.ItemListener() {
@@ -504,25 +455,12 @@ public class MainGUI extends javax.swing.JFrame {
         });
 
         specieButtonGroup.add(humanRB);
+        humanRB.setSelected(true);
         humanRB.setText("human");
         humanRB.setToolTipText("Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 'Database and File Settings'");
         humanRB.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 humanRBItemStateChanged(evt);
-            }
-        });
-
-        specieButtonGroup.add(chickRB);
-        chickRB.setText("chick");
-        chickRB.setToolTipText("Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 'Database and File Settings'");
-        chickRB.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                chickRBItemStateChanged(evt);
-            }
-        });
-        chickRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chickRBActionPerformed(evt);
             }
         });
 
@@ -535,18 +473,15 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(mouseRB)
                 .add(49, 49, 49)
                 .add(humanRB)
-                .add(32, 32, 32)
-                .add(chickRB)
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(mouseRB)
-                    .add(humanRB)
-                    .add(chickRB))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .add(humanRB))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder("File Format"));
@@ -623,7 +558,7 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel36Layout.setHorizontalGroup(
             jPanel36Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel36Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .add(startendRB)
                 .add(17, 17, 17)
                 .add(timedcompRB)
@@ -638,7 +573,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(cboEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(cboEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel36Layout.setVerticalGroup(
             jPanel36Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -694,7 +630,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(cboAddedRoots, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 123, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(cmdEditList, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -730,7 +666,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(cboProject, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 137, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jLabel31)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(359, Short.MAX_VALUE))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -739,7 +675,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel26)
                     .add(jLabel31)
                     .add(cboProject, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
@@ -753,12 +689,12 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel27, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel37, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -863,7 +799,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(txtPrimaryPath, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
                 .add(96, 96, 96)
                 .add(jLabel79)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -914,7 +850,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jPanel21Layout.linkSize(new java.awt.Component[] {txtEndStage, txtStartStage}, org.jdesktop.layout.GroupLayout.VERTICAL);
 
-        txtCurrentFile.setText("*.obo");
+        txtCurrentFile.setText("C:\\Maze\\OBO\\OBO_files\\OBOFile_test_edited.obo");
         txtCurrentFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCurrentFileActionPerformed(evt);
@@ -960,7 +896,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(txtChangedStatus))
                     .add(jScrollPane7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 340, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1026,13 +962,13 @@ public class MainGUI extends javax.swing.JFrame {
         lblUnprocessed.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblUnprocessed.setText("unprocessed");
 
-        lblNew.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblNew.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblNew.setText("new:?");
 
-        lblModified.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblModified.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblModified.setText("modified:?");
 
-        lblDeleted.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblDeleted.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblDeleted.setText("deleted:?");
 
         org.jdesktop.layout.GroupLayout jPanel25Layout = new org.jdesktop.layout.GroupLayout(jPanel25);
@@ -1048,54 +984,52 @@ public class MainGUI extends javax.swing.JFrame {
                             .add(jLabel72))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(cboProblemNodes, 0, 250, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblDeleted))
-                        .add(136, 136, 136))
-                    .add(jPanel25Layout.createSequentialGroup()
-                        .add(cmdFindCommonAncestor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 242, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(cmdPropCheck, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(90, 90, 90))))
-            .add(jPanel25Layout.createSequentialGroup()
-                .add(58, 58, 58)
-                .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel25Layout.createSequentialGroup()
-                        .add(lblNew)
-                        .add(79, 79, 79)
-                        .add(lblModified, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(lblUnprocessed))
-                .addContainerGap(284, Short.MAX_VALUE))
+                            .add(cboProblemNodes, 0, 220, Short.MAX_VALUE)
+                            .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel25Layout.createSequentialGroup()
+                                .add(lblUnprocessed)
+                                .add(66, 66, 66))
+                            .add(jPanel25Layout.createSequentialGroup()
+                                .add(lblNew)
+                                .add(9, 9, 9)
+                                .add(lblModified, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(lblDeleted)
+                                .add(53, 53, 53))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel25Layout.createSequentialGroup()
+                        .add(cmdFindCommonAncestor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 177, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(cmdPropCheck, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 141, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(64, 64, 64))))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel25Layout.createSequentialGroup()
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel71)
-                    .add(cboProblemNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(cboProblemNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(lblUnprocessed))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel72)
-                    .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(lblUnprocessed)
-                .add(18, 18, 18)
-                .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lblNew)
                     .add(lblModified)
-                    .add(lblDeleted))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(lblDeleted)
+                    .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(12, 12, 12)
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cmdFindCommonAncestor)
                     .add(cmdPropCheck))
-                .add(24, 24, 24))
+                .addContainerGap())
         );
 
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder("Reports"));
 
         jLabel47.setText("Database:");
 
-        txtReport.setText("SQLReport.txt");
+        txtReport.setText("C:\\Maze\\OBO\\OBO_files\\SQL\\SQLReport.txt");
 
         cmdBrowseReport.setText("...");
         cmdBrowseReport.addActionListener(new java.awt.event.ActionListener() {
@@ -1104,7 +1038,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        txtEditor.setText("EditorReport.txt");
+        txtEditor.setText("C:\\Maze\\OBO\\OBO_files\\Reports\\EditorReport.txt");
 
         cmdEditorBrowse.setText("...");
         cmdEditorBrowse.addActionListener(new java.awt.event.ActionListener() {
@@ -1156,9 +1090,9 @@ public class MainGUI extends javax.swing.JFrame {
                                 .add(jLabel47, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)))
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtEditor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtReport, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtEditor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtReport, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel26Layout.createSequentialGroup()
                                 .add(cmdEditorBrowse, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -1168,7 +1102,7 @@ public class MainGUI extends javax.swing.JFrame {
                                 .add(cmdBrowseReport, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(cmdGenerate)))))
-                .addContainerGap())
+                .add(10, 10, 10))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1185,12 +1119,12 @@ public class MainGUI extends javax.swing.JFrame {
                             .add(jLabel47))
                         .add(9, 9, 9)
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(cmdGenerateEditor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(cmdEditorBrowse, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(cmdGenerateEditor)
+                            .add(cmdEditorBrowse)
                             .add(txtEditor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(cmdUpdateDB, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .add(cmdUpdateDB)
+                .add(6, 6, 6))
         );
 
         lblPropFile.setText("Proposed:");
@@ -1202,43 +1136,43 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(txtCurrentFile, 0, 0, Short.MAX_VALUE)
-                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
                     .add(jPanel22Layout.createSequentialGroup()
                         .add(lblPropFile)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdBrowseOld, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 23, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(cmdBrowseOld, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel21, 0, 517, Short.MAX_VALUE)
-                    .add(jPanel24, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .add(jPanel26, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jPanel24, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jPanel25, 0, 468, Short.MAX_VALUE)
+                        .add(jPanel21, 0, 468, Short.MAX_VALUE)))
+                .add(44, 44, 44))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel22Layout.createSequentialGroup()
+                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(cmdBrowseOld)
+                            .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(lblPropFile)))
                     .add(jPanel22Layout.createSequentialGroup()
-                        .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel21, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 228, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel22Layout.createSequentialGroup()
-                        .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(lblPropFile)
-                            .add(cmdBrowseOld)))
-                    .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 105, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(23, 23, 23))
+                        .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel21.getAccessibleContext().setAccessibleName(null);
@@ -1278,7 +1212,7 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
+                    .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
                     .add(jPanel23Layout.createSequentialGroup()
                         .add(lblRefFile)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -1296,8 +1230,8 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 625, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 26, Short.MAX_VALUE)
+                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(cmdBrowseNew)
@@ -1315,14 +1249,15 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel9Layout.createSequentialGroup()
-                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+                .addContainerGap()
+                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel9Layout.createSequentialGroup()
-                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 727, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane2.getAccessibleContext().setAccessibleName("Proposed");
@@ -1341,6 +1276,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel7.setText("DB name:");
 
+        mouseDBDbNameTF.setText("gudmapgx");
         mouseDBDbNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mouseDBDbNameTFActionPerformed(evt);
@@ -1350,6 +1286,10 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel4.setText("Username:");
 
         jLabel5.setText("Password:");
+
+        mouseDBUserNameTF.setText("root");
+
+        mouseDBPasswordPF.setText("1234Blue");
 
         cmdReconnect.setText("Reconnect");
         cmdReconnect.addActionListener(new java.awt.event.ActionListener() {
@@ -1455,7 +1395,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel13)
                     .add(mouseAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
@@ -1489,9 +1429,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel14))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(mouseStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(mouseStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .add(mouseStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(mouseStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -1508,7 +1448,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel16))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
@@ -1556,7 +1496,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel8Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel19)
                     .add(mouseGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
@@ -1579,11 +1519,11 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3Layout.createSequentialGroup()
                         .add(jLabel29)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(mouseFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
+                        .add(mouseFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3Layout.createSequentialGroup()
                         .add(jLabel30)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(mouseDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)))
+                        .add(mouseDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1625,9 +1565,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel75))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel34Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel34Layout.setVerticalGroup(
@@ -1644,7 +1584,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel34Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel75)
                     .add(mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel15Layout = new org.jdesktop.layout.GroupLayout(jPanel15);
@@ -1653,17 +1593,17 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel15Layout.createSequentialGroup()
+                .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel15Layout.createSequentialGroup()
                         .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jPanel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1676,7 +1616,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jPanel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1687,9 +1627,9 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1697,8 +1637,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 373, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mouse database", jPanel11);
@@ -1715,6 +1655,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel24.setText("DB name:");
 
+        humanDBDbNameTF.setText("gudmapgx");
         humanDBDbNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 humanDBDbNameTFActionPerformed(evt);
@@ -1724,6 +1665,10 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel27.setText("Username:");
 
         jLabel28.setText("Password:");
+
+        humanDBUserNameTF.setText("root");
+
+        humanDBPasswordPF.setText("penyu");
 
         cmdReconnectH.setText("Reconnect");
         cmdReconnectH.addActionListener(new java.awt.event.ActionListener() {
@@ -1810,9 +1755,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel34))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -1829,7 +1774,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel34)
                     .add(humanAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
@@ -1877,7 +1822,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(humanStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel37))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
@@ -1906,9 +1851,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel40))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
@@ -1925,7 +1870,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel40)
                     .add(humanGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
@@ -1948,11 +1893,11 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jPanel20Layout.createSequentialGroup()
                         .add(jLabel41)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(humanFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+                        .add(humanFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
                     .add(jPanel20Layout.createSequentialGroup()
                         .add(jLabel42)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
+                        .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel20Layout.setVerticalGroup(
@@ -1964,7 +1909,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel42)
-                    .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder("Group Term Class"));
@@ -2012,7 +1958,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel78)
                     .add(humanGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel16Layout = new org.jdesktop.layout.GroupLayout(jPanel16);
@@ -2026,7 +1972,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jPanel16Layout.createSequentialGroup()
                         .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel19, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel17, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(jPanel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(jPanel35, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2037,8 +1983,8 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel16Layout.createSequentialGroup()
                 .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -2054,10 +2000,10 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel16, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel14, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -2065,385 +2011,11 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jPanel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 372, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .add(jPanel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Human database", jPanel12);
-
-        jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(" Database connection "));
-
-        jLabel51.setText("Hostname:");
-
-        chickDBHostNameTF.setText("localhost");
-
-        jLabel52.setText("Port:");
-
-        chickDBPortTF.setText("3306");
-
-        jLabel53.setText("DB name:");
-
-        chickDBDbNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chickDBDbNameTFActionPerformed(evt);
-            }
-        });
-
-        jLabel54.setText("Username:");
-
-        jLabel55.setText("Password:");
-
-        cmdReconnectC.setText("Reconnect");
-        cmdReconnectC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdReconnectCActionPerformed(evt);
-            }
-        });
-
-        org.jdesktop.layout.GroupLayout jPanel29Layout = new org.jdesktop.layout.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel51)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel52)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel53)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel54)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel55))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(chickDBHostNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBDbNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBUserNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBPortTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(jPanel29Layout.createSequentialGroup()
-                        .add(chickDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdReconnectC, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel29Layout.createSequentialGroup()
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel51)
-                    .add(chickDBHostNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel52)
-                    .add(chickDBPortTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(11, 11, 11)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel53)
-                    .add(chickDBDbNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel54)
-                    .add(chickDBUserNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel55)
-                    .add(chickDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cmdReconnectC))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(" OBO file "));
-
-        jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder("Abstract class"));
-
-        jLabel56.setText("Name:");
-
-        chickAbstractClassNameTF.setText("Abstract anatomy");
-
-        jLabel57.setText("Identifier:");
-
-        chickAbstractClassIDTF.setText("ECAPA:0");
-
-        jLabel58.setText("Namespace:");
-
-        chickAbstractClassNamespaceTF.setText("abstract_anatomy");
-
-        org.jdesktop.layout.GroupLayout jPanel31Layout = new org.jdesktop.layout.GroupLayout(jPanel31);
-        jPanel31.setLayout(jPanel31Layout);
-        jPanel31Layout.setHorizontalGroup(
-            jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel31Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel56)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel57)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel58))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel31Layout.setVerticalGroup(
-            jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel31Layout.createSequentialGroup()
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel56)
-                    .add(chickAbstractClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel57)
-                    .add(chickAbstractClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel58)
-                    .add(chickAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        jPanel32.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
-
-        jLabel59.setText("Name:");
-
-        chickStageClassNameTF.setText("Hamburger Hamilton stage");
-        chickStageClassNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chickStageClassNameTFActionPerformed(evt);
-            }
-        });
-
-        jLabel60.setText("Identifier:");
-
-        chickStageClassIDTF.setText("HH:0");
-
-        jLabel61.setText("Namespace:");
-
-        chickStageClassNamespaceTF.setText("hamburgerhamilton_stage");
-
-        org.jdesktop.layout.GroupLayout jPanel32Layout = new org.jdesktop.layout.GroupLayout(jPanel32);
-        jPanel32.setLayout(jPanel32Layout);
-        jPanel32Layout.setHorizontalGroup(
-            jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel32Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jLabel60)
-                    .add(jLabel61)
-                    .add(jLabel59))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(chickStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(chickStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(chickStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel32Layout.setVerticalGroup(
-            jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel32Layout.createSequentialGroup()
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel59))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel60))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel61))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
-
-        jLabel62.setText("Name:");
-
-        chickGroupClassNameTF.setText("Tmp new group");
-
-        jLabel63.setText("Identifier:");
-
-        chickGroupClassIDTF.setText("Tmp_new_group");
-
-        jLabel64.setText("Namespace:");
-
-        chickGroupClassNamespaceTF.setText("new_group_namespace");
-
-        org.jdesktop.layout.GroupLayout jPanel33Layout = new org.jdesktop.layout.GroupLayout(jPanel33);
-        jPanel33.setLayout(jPanel33Layout);
-        jPanel33Layout.setHorizontalGroup(
-            jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel33Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel62)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel63)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel64))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel33Layout.setVerticalGroup(
-            jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel33Layout.createSequentialGroup()
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel62)
-                    .add(chickGroupClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel63)
-                    .add(chickGroupClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel64)
-                    .add(chickGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-
-        jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
-
-        jLabel65.setText("Format version:");
-
-        jLabel66.setText("Default namespace:");
-
-        chickFormatVersionTF.setText("1.2");
-
-        chickDefaultNamespaceTF.setText("chick_ontology");
-
-        org.jdesktop.layout.GroupLayout jPanel38Layout = new org.jdesktop.layout.GroupLayout(jPanel38);
-        jPanel38.setLayout(jPanel38Layout);
-        jPanel38Layout.setHorizontalGroup(
-            jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel38Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel38Layout.createSequentialGroup()
-                        .add(jLabel65)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(chickFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
-                    .add(jPanel38Layout.createSequentialGroup()
-                        .add(jLabel66)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(chickDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel38Layout.setVerticalGroup(
-            jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel38Layout.createSequentialGroup()
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel65)
-                    .add(chickFormatVersionTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel66)
-                    .add(chickDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder("Group Term Class"));
-
-        jLabel81.setText("Name:");
-
-        chickGroupTermClassNameTF.setText("Group term");
-
-        jLabel82.setText("Identifier:");
-
-        chickGroupTermClassIDTF.setText("group_term");
-
-        jLabel83.setText("Namespace:");
-
-        chickGroupTermClassNamespaceTF.setText("group_term");
-
-        org.jdesktop.layout.GroupLayout jPanel39Layout = new org.jdesktop.layout.GroupLayout(jPanel39);
-        jPanel39.setLayout(jPanel39Layout);
-        jPanel39Layout.setHorizontalGroup(
-            jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel39Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel81)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel82)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel83))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel39Layout.setVerticalGroup(
-            jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel39Layout.createSequentialGroup()
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel81)
-                    .add(chickGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel82)
-                    .add(chickGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel83)
-                    .add(chickGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel30Layout = new org.jdesktop.layout.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel38, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel30Layout.createSequentialGroup()
-                        .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel33, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel31, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel39, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel32, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel30Layout.createSequentialGroup()
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel32, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel28Layout = new org.jdesktop.layout.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel30, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel29, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 381, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Chick database", jPanel28);
 
         org.jdesktop.layout.GroupLayout jPanel10Layout = new org.jdesktop.layout.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -2452,14 +2024,14 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 819, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 605, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainTabbedPanel.addTab("Database and File Settings", jPanel10);
@@ -2476,22 +2048,19 @@ public class MainGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
+                .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(12, 12, 12)
-                        .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 855, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(exitButton)))
+                    .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 855, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(exitButton))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(exitButton)
-                .addContainerGap())
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -2636,18 +2205,13 @@ public class MainGUI extends javax.swing.JFrame {
 
 private void mouseRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mouseRBItemStateChanged
 // TODO add your handling code here:
-    if ( mouseRB.isSelected() ) {
-        this.species = "mouse";
-    }
+    if ( mouseRB.isSelected() ) this.species = "mouse";
 }//GEN-LAST:event_mouseRBItemStateChanged
 
 private void humanRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_humanRBItemStateChanged
 // TODO add your handling code here:
-    if ( humanRB.isSelected() ) {
-        this.species = "human";
-    }
+    if ( humanRB.isSelected() ) this.species = "human";
 }//GEN-LAST:event_humanRBItemStateChanged
-
 
 private void cmdBrowseOldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBrowseOldActionPerformed
         // Open file browser window and get file path
@@ -2807,15 +2371,10 @@ private void makeRootComponents(){
             abstractClass.setID( mouseAbstractClassIDTF.getText() );
             abstractClass.setNamespace( mouseAbstractClassNamespaceTF.getText() );
         }
-        if ( humanRB.isSelected() ) {
+        else {
             abstractClass.setName( humanAbstractClassNameTF.getText() );
             abstractClass.setID( humanAbstractClassIDTF.getText() );
             abstractClass.setNamespace( humanAbstractClassNamespaceTF.getText() );
-        }
-        if ( chickRB.isSelected() ) {
-            abstractClass.setName( chickAbstractClassNameTF.getText() );
-            abstractClass.setID( chickAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( chickAbstractClassNamespaceTF.getText() );
         }
 
         // 2: set stage class parameters
@@ -2825,17 +2384,11 @@ private void makeRootComponents(){
             stageClass.setID( mouseStageClassIDTF.getText() );
             stageClass.setNamespace( mouseStageClassNamespaceTF.getText() );
         }
-        if ( humanRB.isSelected() ) {
+        else {
             stageClass.setName( humanStageClassNameTF.getText() );
             stageClass.setID( humanStageClassIDTF.getText() );
             stageClass.setNamespace( humanStageClassNamespaceTF.getText() );
         }
-        if ( chickRB.isSelected() ) {
-            abstractClass.setName( chickAbstractClassNameTF.getText() );
-            abstractClass.setID( chickAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( chickAbstractClassNamespaceTF.getText() );
-        }
-
         
         // 3: temporary new group class parameters
         groupClass = new Component();
@@ -2844,33 +2397,23 @@ private void makeRootComponents(){
             groupClass.setID( mouseGroupClassIDTF.getText() );
             groupClass.setNamespace( mouseGroupClassNamespaceTF.getText() );
         }
-        if ( humanRB.isSelected() ) {
+        else {
             groupClass.setName( humanGroupClassNameTF.getText() );
             groupClass.setID( humanGroupClassIDTF.getText() );
             groupClass.setNamespace( humanGroupClassNamespaceTF.getText() );
-        }
-        if ( chickRB.isSelected() ) {
-            groupClass.setName( chickGroupClassNameTF.getText() );
-            groupClass.setID( chickGroupClassIDTF.getText() );
-            groupClass.setNamespace( chickGroupClassNamespaceTF.getText() );
         }
         
         // 5: group term class parameters
         groupTermClass = new Component();
         if ( mouseRB.isSelected() ) {
-            groupTermClass.setName( mouseGroupTermClassNameTF.getText() );
-            groupTermClass.setID( mouseGroupTermClassIDTF.getText() );
-            groupTermClass.setNamespace( mouseGroupTermClassNamespaceTF.getText() );
-        }
-        if ( humanRB.isSelected() ) {
             groupTermClass.setName( humanGroupTermClassNameTF.getText() );
             groupTermClass.setID( humanGroupTermClassIDTF.getText() );
             groupTermClass.setNamespace( humanGroupTermClassNamespaceTF.getText() );
         }
-        if ( chickRB.isSelected() ) {
-            groupTermClass.setName( chickGroupTermClassNameTF.getText() );
-            groupTermClass.setID( chickGroupTermClassIDTF.getText() );
-            groupTermClass.setNamespace( chickGroupTermClassNamespaceTF.getText() );
+        else {
+            groupTermClass.setName( humanGroupTermClassNameTF.getText() );
+            groupTermClass.setID( humanGroupTermClassIDTF.getText() );
+            groupTermClass.setNamespace( humanGroupTermClassNamespaceTF.getText() );
         }
 
         // 6: stage anatomy class
@@ -2990,18 +2533,10 @@ private boolean loadDefaultReferenceTree(){
     
     String strURL = "";
     if ( mouseRB.isSelected() ) {
-        strURL = START_URL + mouseDBHostNameTF.getText() + ":"
-                + mouseDBPortTF.getText() + "/" + mouseDBDbNameTF.getText();
-    }
-    if ( humanRB.isSelected() ) {
-        strURL = START_URL + humanDBHostNameTF.getText() + ":"
-                + humanDBPortTF.getText() + "/" + humanDBDbNameTF.getText();
-    }
-    if ( chickRB.isSelected() ) {
-        strURL = START_URL + chickDBHostNameTF.getText() + ":"
-                + chickDBPortTF.getText() + "/" + chickDBDbNameTF.getText();
-    }
-    /*
+        strURL = START_URL + mouseDBHostNameTF.getText() + ":" + mouseDBPortTF.getText() + "/" + mouseDBDbNameTF.getText();
+    } else {
+        strURL = START_URL + humanDBHostNameTF.getText() + ":" + humanDBPortTF.getText() + "/" + humanDBDbNameTF.getText();
+    }/*
     this.txtReferenceDB.setText( strURL );
     int intConnect = JOptionPane.showConfirmDialog( null, " The current database specified in the 'Database and File Settings' tab is: \n" + 
                     strURL + "\n Are you sure you want to load your reference ontology from this database?", "DB2OBO", JOptionPane.YES_NO_OPTION );        
@@ -3701,6 +3236,35 @@ private void cmdEditListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     //new ListRoots().setVisible(true);
 }//GEN-LAST:event_cmdEditListActionPerformed
 
+private void humanDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanDBDbNameTFActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_humanDBDbNameTFActionPerformed
+
+private void mouseStageClassIDTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mouseStageClassIDTFFocusLost
+    // TODO add your handling code here:
+}//GEN-LAST:event_mouseStageClassIDTFFocusLost
+
+private void mouseDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mouseDBDbNameTFActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_mouseDBDbNameTFActionPerformed
+
+private void cmdReconnectHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectHActionPerformed
+    // TODO add your handling code here:
+    if ( isConnectedToDatabase() )  JOptionPane.showMessageDialog( null, "Connected to database!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+
+}//GEN-LAST:event_cmdReconnectHActionPerformed
+
+private void cmdReconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectActionPerformed
+    // TODO add your handling code here:
+    if ( isConnectedToDatabase() ){
+        //boolean connected = loadDefaultReferenceTree();
+        if ( loadDefaultReferenceTree() ) JOptionPane.showMessageDialog( null, "Connected to database. Reference ontology reloaded.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    }
+    else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+
+}//GEN-LAST:event_cmdReconnectActionPerformed
+
 private void cmdFromDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFromDatabaseActionPerformed
     // TODO add your handling code here:
     loadDefaultReferenceTree();
@@ -3712,54 +3276,6 @@ private void cboProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         this.project = cboProject.getSelectedItem().toString();
     }
 }//GEN-LAST:event_cboProjectActionPerformed
-
-private void chickRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chickRBItemStateChanged
-    if ( chickRB.isSelected() ) {
-        this.species = "chick";
-    }
-}//GEN-LAST:event_chickRBItemStateChanged
-
-private void chickRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickRBActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_chickRBActionPerformed
-
-private void cmdReconnectHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectHActionPerformed
-    // TODO add your handling code here:
-    if ( isConnectedToDatabase() )  JOptionPane.showMessageDialog( null, "Connected to database!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-}//GEN-LAST:event_cmdReconnectHActionPerformed
-
-private void humanDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanDBDbNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_humanDBDbNameTFActionPerformed
-
-private void mouseStageClassIDTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mouseStageClassIDTFFocusLost
-    // TODO add your handling code here:
-}//GEN-LAST:event_mouseStageClassIDTFFocusLost
-
-private void cmdReconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectActionPerformed
-    // TODO add your handling code here:
-    if ( isConnectedToDatabase() ){
-        //boolean connected = loadDefaultReferenceTree();
-        if ( loadDefaultReferenceTree() ) JOptionPane.showMessageDialog( null, "Connected to database. Reference ontology reloaded.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    } else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-}//GEN-LAST:event_cmdReconnectActionPerformed
-
-private void mouseDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mouseDBDbNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_mouseDBDbNameTFActionPerformed
-
-private void chickDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickDBDbNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_chickDBDbNameTFActionPerformed
-
-private void cmdReconnectCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectCActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_cmdReconnectCActionPerformed
-
-private void chickStageClassNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickStageClassNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_chickStageClassNameTFActionPerformed
 
 public void loadAddedRoots(Vector<String> roots){
     this.vUserRoots.clear();
@@ -3788,28 +3304,9 @@ private boolean isConnectedToDatabase() {
         try {
             Class.forName(DRIVER);
             if ( mouseRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + mouseDBHostNameTF.getText() + ":"
-                        + mouseDBPortTF.getText() + "/"
-                        + mouseDBDbNameTF.getText(),
-                        mouseDBUserNameTF.getText(),
-                        new String(mouseDBPasswordPF.getText()) );
-            }
-            if ( humanRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + humanDBHostNameTF.getText() + ":"
-                        + humanDBPortTF.getText() + "/"
-                        + humanDBDbNameTF.getText(),
-                        humanDBUserNameTF.getText(),
-                        new String(humanDBPasswordPF.getText()) );
-            }
-            if ( chickRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + chickDBHostNameTF.getText() + ":"
-                        + chickDBPortTF.getText() + "/"
-                        + chickDBDbNameTF.getText(),
-                        chickDBUserNameTF.getText(),
-                        new String(chickDBPasswordPF.getText()) );
+                this.connection = DriverManager.getConnection( START_URL + mouseDBHostNameTF.getText() + ":" + mouseDBPortTF.getText() + "/" + mouseDBDbNameTF.getText(), mouseDBUserNameTF.getText(), new String(mouseDBPasswordPF.getText()) );
+            } else {
+                this.connection = DriverManager.getConnection( START_URL + humanDBHostNameTF.getText() + ":" + humanDBPortTF.getText() + "/" + humanDBDbNameTF.getText(), humanDBUserNameTF.getText(), new String(humanDBPasswordPF.getText()) );
             }
             return true;
         } 
@@ -3840,18 +3337,8 @@ private boolean isConnectedToDatabase() {
         try {        
             BufferedWriter outputFile = new BufferedWriter(new FileWriter(fileName));
             // format-version
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        mouseFormatVersionTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        humanFormatVersionTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        chickFormatVersionTF.getText() + "\n");
-            }
+            if ( mouseRB.isSelected() ) outputFile.write("format-version: "+mouseFormatVersionTF.getText()+"\n");
+            else outputFile.write("format-version: "+humanFormatVersionTF.getText()+"\n");
             // date
             //outputFile.write("date: "+DATE+"\n");
             Calendar cal = Calendar.getInstance();
@@ -3859,18 +3346,8 @@ private boolean isConnectedToDatabase() {
             // saved by
             outputFile.write("saved-by: "+savedByTF.getText()+"\n");
             // default-namespace
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        mouseDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        humanDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        chickDefaultNamespaceTF.getText() + "\n");
-            }
+            if ( mouseRB.isSelected() ) outputFile.write("default-namespace: "+mouseDefaultNamespaceTF.getText()+"\n");
+            else outputFile.write("default-namespace: "+humanDefaultNamespaceTF.getText()+"\n");
             // remark
             outputFile.write("remark: "+remarkTA.getText()+"\n");
 
@@ -3952,18 +3429,8 @@ private boolean isConnectedToDatabase() {
         try {        
             BufferedWriter outputFile = new BufferedWriter(new FileWriter(exportOBOFileTF.getText()));
             // format-version
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        mouseFormatVersionTF.getText()+"\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        humanFormatVersionTF.getText()+"\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        chickFormatVersionTF.getText()+"\n");
-            }
+            if ( mouseRB.isSelected() ) outputFile.write("format-version: "+mouseFormatVersionTF.getText()+"\n");
+            else outputFile.write("format-version: "+humanFormatVersionTF.getText()+"\n");
             // date
             //outputFile.write("date: "+DATE+"\n");
             Calendar cal = Calendar.getInstance();
@@ -3971,18 +3438,8 @@ private boolean isConnectedToDatabase() {
             // saved by
             outputFile.write("saved-by: "+savedByTF.getText()+"\n");
             // default-namespace
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        mouseDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        humanDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        chickDefaultNamespaceTF.getText() + "\n");
-            }
+            if ( mouseRB.isSelected() ) outputFile.write("default-namespace: "+mouseDefaultNamespaceTF.getText()+"\n");
+            else outputFile.write("default-namespace: "+humanDefaultNamespaceTF.getText()+"\n");
             // remark
             outputFile.write("remark: "+remarkTA.getText()+"\n");
 
@@ -4081,26 +3538,6 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JComboBox cboProject;
     private javax.swing.JComboBox cboStage;
     private javax.swing.JComboBox cboStart;
-    private javax.swing.JTextField chickAbstractClassIDTF;
-    private javax.swing.JTextField chickAbstractClassNameTF;
-    private javax.swing.JTextField chickAbstractClassNamespaceTF;
-    private javax.swing.JTextField chickDBDbNameTF;
-    private javax.swing.JTextField chickDBHostNameTF;
-    private javax.swing.JPasswordField chickDBPasswordPF;
-    private javax.swing.JTextField chickDBPortTF;
-    private javax.swing.JTextField chickDBUserNameTF;
-    private javax.swing.JTextField chickDefaultNamespaceTF;
-    private javax.swing.JTextField chickFormatVersionTF;
-    private javax.swing.JTextField chickGroupClassIDTF;
-    private javax.swing.JTextField chickGroupClassNameTF;
-    private javax.swing.JTextField chickGroupClassNamespaceTF;
-    private javax.swing.JTextField chickGroupTermClassIDTF;
-    private javax.swing.JTextField chickGroupTermClassNameTF;
-    private javax.swing.JTextField chickGroupTermClassNamespaceTF;
-    private javax.swing.JRadioButton chickRB;
-    private javax.swing.JTextField chickStageClassIDTF;
-    private javax.swing.JTextField chickStageClassNameTF;
-    private javax.swing.JTextField chickStageClassNamespaceTF;
     private javax.swing.JCheckBox chkIsPrimary;
     private javax.swing.JButton cmdBrowseNew;
     private javax.swing.JButton cmdBrowseOld;
@@ -4114,7 +3551,6 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JButton cmdGenerateTreeReport;
     private javax.swing.JButton cmdPropCheck;
     private javax.swing.JButton cmdReconnect;
-    private javax.swing.JButton cmdReconnectC;
     private javax.swing.JButton cmdReconnectH;
     private javax.swing.JButton cmdUpdateDB;
     private javax.swing.JButton exitButton;
@@ -4191,23 +3627,7 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
@@ -4222,9 +3642,6 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
-    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -4246,19 +3663,11 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

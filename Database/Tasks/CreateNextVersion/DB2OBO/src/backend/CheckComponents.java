@@ -504,6 +504,7 @@ public class CheckComponents {
         Vector< Component > childrenCompie = new Vector< Component >();
         Vector< String > childrenOrder = new Vector< String >();
         int intMaxOrder = -1;
+        int intMinOrder = 10;
         boolean failedChild = false;
         boolean proceed = false;
         Component childCompie = new Component();
@@ -513,6 +514,7 @@ public class CheckComponents {
             childrenCompie.clear();
             childrenOrder.clear();
             intMaxOrder = -1;
+            intMinOrder = 10;
             failedChild = false;
             proceed = true;
             //get all children
@@ -552,23 +554,41 @@ public class CheckComponents {
                             intMaxOrder = Integer.parseInt(arrayFirstWord[0]);
                             //System.out.println("max seq = " + intMaxOrder);
                         }
+                        //find min order number for this series of siblings
+                        if ( Integer.parseInt(arrayFirstWord[0]) < intMinOrder ){
+                            intMinOrder = Integer.parseInt(arrayFirstWord[0]);
+                        }
                     }
                 }
             }
 
             //if max order+1 not == number of comments there are duplicate order sequence numbers
             if ( !childrenOrder.isEmpty() && childrenOrder.size()!=intMaxOrder+1 ){
-                System.out.println("intMaxOrder = " + intMaxOrder + " childrenOrder.size = " + childrenOrder.size());
-                //set fail to parent
-                parentCompie.setCheckComment("Ordering: One of this component's children has a duplicate order sequence.");
-                parentCompie.setFlagMissingRel(true);
-                parentCompie.setStrRuleStatus("FAILED");
-                this.problemTermList.add(parentCompie);
-                for (Component compie: childrenCompie){
-                    compie.setCheckComment("Ordering: One of the siblings of this component or this component itself has a duplicate order sequence.");
-                    compie.setStrRuleStatus("FAILED");
-                    compie.setFlagMissingRel(true);
-                    this.problemTermList.add(compie);
+                System.out.println("intMaxOrder = " + intMaxOrder + " childrenOrder.size = " + childrenOrder.size() + " intMinOrder = " + intMinOrder);
+                if ( intMinOrder > 0 ){
+                    //set fail to parent
+                    parentCompie.setCheckComment("Ordering: The order sequence for this component's children has to start from 0.");
+                    parentCompie.setFlagMissingRel(true);
+                    parentCompie.setStrRuleStatus("FAILED");
+                    this.problemTermList.add(parentCompie);
+                    for (Component compie: childrenCompie){
+                        compie.setCheckComment("Ordering: The order sequence for one of the siblings of this component or this component itself has to start from 0.");
+                        compie.setStrRuleStatus("FAILED");
+                        compie.setFlagMissingRel(true);
+                        this.problemTermList.add(compie);
+                    }
+                }else{
+                    //set fail to parent
+                    parentCompie.setCheckComment("Ordering: One of this component's children has a duplicate order sequence.");
+                    parentCompie.setFlagMissingRel(true);
+                    parentCompie.setStrRuleStatus("FAILED");
+                    this.problemTermList.add(parentCompie);
+                    for (Component compie: childrenCompie){
+                        compie.setCheckComment("Ordering: One of the siblings of this component or this component itself has a duplicate order sequence.");
+                        compie.setStrRuleStatus("FAILED");
+                        compie.setFlagMissingRel(true);
+                        this.problemTermList.add(compie);
+                    }
                 }
             //if order vector is not empty, there is at least one child with order
             }else if ( !childrenOrder.isEmpty() ){

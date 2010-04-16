@@ -47,8 +47,8 @@ TABLES_EMPTY = $(foreach TABLE,$(TABLES),$(TABLE).empty)
 TABLES_DROP  = $(foreach TABLE,$(TABLES),$(TABLE).drop)
 
 
-DUMP_FILE = ../../Versions/Version004/Formats/Dumps/mySqlSchemaAndDataDump.sql
-VALIDATION_LOG_FILE = ../../Versions/Version004/Doc/Data/validation.log
+DUMP_FILE = ../../Versions/Version006/Formats/Dumps/mySqlSchemaAndDataDump.sql
+VALIDATION_LOG_FILE = ../../Versions/Version006/Doc/Data/validation.log
 
 
 

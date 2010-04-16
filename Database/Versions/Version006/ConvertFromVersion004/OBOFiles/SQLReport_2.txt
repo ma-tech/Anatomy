@@ -1,6 +1,6 @@
 --Database Report For 
---  Import of OBO File: /net/homehost/export/home/mwicks/ma-day/workspace/Anatomy/Database/Versions/Version006/ConvertFromVersion004/OBOFiles/Version004_Changes_2_30-07-2009.obo
---  Using Reference: jdbc:mysql://localhost:3306/anatomy
+--  Import of OBO File: /net/homehost/export/home/mwicks/ma-day/workspace/Anatomy/Database/Versions/Version006/ConvertFromVersion004/OBOFiles/Version004_Changes_2_CORRECTED_30-07-2009.obo
+--  Using Reference: jdbc:mysql://localhost:3306/Anatomy_jane
 
 --CRITICAL WARNINGS
 --=================
@@ -11,11 +11,11 @@
 
 -- Inserting First Object ID for entire database update --
 
---INSERT INTO ANA_OBJECT (obj_oid , obj_creation_datetime, obj_creator_fk) VALUES (33107, '13/08/09 11:56:00', NULL);
+--INSERT INTO ANA_OBJECT (obj_oid , obj_creation_datetime, obj_creator_fk) VALUES (33107, NOW(), NULL);
 
 -- Inserting Version --
 
---INSERT INTO ANA_VERSION (ver_oid, ver_number, ver_date, ver_comments) VALUES (33107, 6, '13/08/09 11:56:00', 'DB2OBO Update: Editing the ontology');
+--INSERT INTO ANA_VERSION (ver_oid, ver_number, ver_date, ver_comments) VALUES (33107, 6, NOW(), 'DB2OBO Update: Editing the ontology');
 
 
 --ANA_NODE
@@ -51,7 +51,13 @@
 --======================================================================================= 
 
 
--- No records inserted --
+-- Inserting Object IDs for New Timed Components --
+
+--INSERT INTO ANA_OBJECT (obj_oid , obj_creation_datetime, obj_creator_fk) VALUES (33108, NOW(), NULL);
+
+-- Inserting Timed Components --
+
+--INSERT INTO ANA_TIMED_NODE (atn_oid, atn_node_fk, atn_stage_fk, atn_stage_modifier_fk, atn_public_id) VALUES (33108, 30239, 29, NULL, EMAP:31856);
 
 
 --INSERTION IN ANA_LOG FOR DELETION OF TIME COMPONENTS FOR MODIFIED STAGE RANGES 
@@ -129,14 +135,14 @@
 --================================================================================ 
 
 
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9187, 31631, 'REL_OID', '32791', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9188, 31631, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9189, 31631, 'REL_PARENT_FK', '32687', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9190, 31631, 'REL_CHILD_FK', '32685', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9191, 31632, 'REL_OID', '32794', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9192, 31632, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9193, 31632, 'REL_PARENT_FK', '32687', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9194, 31632, 'REL_CHILD_FK', '32686', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9207, 31635, 'REL_OID', '32792', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9208, 31635, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9209, 31635, 'REL_PARENT_FK', '32687', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9210, 31635, 'REL_CHILD_FK', '32685', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9211, 31636, 'REL_OID', '32793', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9212, 31636, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9213, 31636, 'REL_PARENT_FK', '32687', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9214, 31636, 'REL_CHILD_FK', '32686', 33107);
 
 
 --DELETION FROM ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR MODIFIED COMPONENTS 
@@ -145,9 +151,9 @@
 
 
 --DELETE FROM ANA_RELATIONSHIP WHERE rel_child_fk = 32685 AND rel_parent_fk = 32687;
---DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE rlp_relationship_fk = 32791;
+--DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE rlp_relationship_fk = 32792;
 --DELETE FROM ANA_RELATIONSHIP WHERE rel_child_fk = 32686 AND rel_parent_fk = 32687;
---DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE rlp_relationship_fk = 32794;
+--DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE rlp_relationship_fk = 32793;
 
 
 --DELETION FROM ANA_OBJECT FOR MODIFIED COMPONENTS
@@ -155,8 +161,8 @@
 
 -- Deleting Object IDs of Relationships for Removal of Parents in Modified Components --
 
---DELETE FROM ANA_OBJECT WHERE obj_oid = 32791;
---DELETE FROM ANA_OBJECT WHERE obj_oid = 32794;
+--DELETE FROM ANA_OBJECT WHERE obj_oid = 32792;
+--DELETE FROM ANA_OBJECT WHERE obj_oid = 32793;
 
 
 --UPDATE ANA_NODE PRIMARY STATUS
@@ -208,7 +214,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31451;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31452;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32750;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32704;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32705;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 29726;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 29727;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 10439;
@@ -244,9 +250,9 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 4 WHERE rlp_relationship_fk = 29902;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 5 WHERE rlp_relationship_fk = 29903;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 6 WHERE rlp_relationship_fk = 31454;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 7 WHERE rlp_relationship_fk = 32739;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32751;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32747;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 7 WHERE rlp_relationship_fk = 32740;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32752;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32748;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 27073;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31503;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 27077;
@@ -440,7 +446,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32178;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31353;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31354;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32724;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32725;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31341;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31342;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 31343;
@@ -562,12 +568,12 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33102;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33106;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32733;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32743;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32744;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33097;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33092;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32692;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32693;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32701;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32740;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32739;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32741;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33101;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33093;
@@ -585,11 +591,11 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32214;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 29781;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32722;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32725;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32724;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32760;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32775;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32777;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32779;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32778;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32780;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 26999;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32299;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31310;
@@ -633,7 +639,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 6 WHERE rlp_relationship_fk = 13528;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 7 WHERE rlp_relationship_fk = 13524;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 8 WHERE rlp_relationship_fk = 31393;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 9 WHERE rlp_relationship_fk = 32693;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 9 WHERE rlp_relationship_fk = 32692;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 13096;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 13075;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32226;
@@ -645,7 +651,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 13261;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 13268;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 13275;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 3 WHERE rlp_relationship_fk = 32778;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 3 WHERE rlp_relationship_fk = 32777;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 13864;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 13872;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 13869;
@@ -907,7 +913,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 18 WHERE rlp_relationship_fk = 12733;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 19 WHERE rlp_relationship_fk = 13147;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 20 WHERE rlp_relationship_fk = 31346;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 21 WHERE rlp_relationship_fk = 32792;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 21 WHERE rlp_relationship_fk = 32791;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 22 WHERE rlp_relationship_fk = 32721;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 23 WHERE rlp_relationship_fk = 32772;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 24 WHERE rlp_relationship_fk = 26980;
@@ -1003,8 +1009,8 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32203;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 3 WHERE rlp_relationship_fk = 32199;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 4 WHERE rlp_relationship_fk = 32200;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 5 WHERE rlp_relationship_fk = 32780;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32711;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 5 WHERE rlp_relationship_fk = 32779;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32710;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 32712;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32715;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31507;
@@ -1076,7 +1082,7 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32520;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31304;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31305;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32744;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32743;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 31282;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 31285;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 32255;
@@ -1105,27 +1111,27 @@
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 13685;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 3 WHERE rlp_relationship_fk = 13319;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 4 WHERE rlp_relationship_fk = 13358;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 5 WHERE rlp_relationship_fk = 32793;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 5 WHERE rlp_relationship_fk = 32794;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 6 WHERE rlp_relationship_fk = 32773;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 12130;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 12137;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 32753;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 33095;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32702;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32710;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32711;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32720;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32749;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32752;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32751;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 13441;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 13434;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 13337;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 13341;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 13344;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32705;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32704;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32707;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32709;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32713;
---UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32748;
+--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = 32747;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 0 WHERE rlp_relationship_fk = 11990;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 1 WHERE rlp_relationship_fk = 11993;
 --UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = 2 WHERE rlp_relationship_fk = 11996;
@@ -1253,20 +1259,20 @@ ANA_LOG
 ======= 
 
 
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9195, 31633, 'ANO_COMPONENT_NAME', 'developing vasculature of genitourinary system GROUP', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9196, 31633, 'ANO_IS_PRIMARY', '1', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9197, 31633, 'ANO_OID', '32687', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9198, 31633, 'ANO_PUBLIC_ID', 'EMAPA:31581', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9199, 31633, 'ANO_SPECIES_FK', 'mouse', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9200, 31634, 'ATN_OID', '33049', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9201, 31634, 'ATN_STAGE_FK', '24', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9202, 31634, 'ATN_STAGE_MODIFIER_FK', 'null', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9203, 31634, 'ATN_PUBLIC_ID', 'EMAP:31835', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9204, 31634, 'ATN_NODE_FK', '32687', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9205, 31635, 'REL_OID', '32795', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9206, 31635, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9207, 31635, 'REL_PARENT_FK', '6250', 33107);
---INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9208, 31635, 'REL_CHILD_FK', '32687', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9215, 31637, 'ANO_COMPONENT_NAME', 'developing vasculature of genitourinary system GROUP', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9216, 31637, 'ANO_IS_PRIMARY', '1', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9217, 31637, 'ANO_OID', '32687', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9218, 31637, 'ANO_PUBLIC_ID', 'EMAPA:31581', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9219, 31637, 'ANO_SPECIES_FK', 'mouse', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9220, 31638, 'ATN_OID', '33049', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9221, 31638, 'ATN_STAGE_FK', '24', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9222, 31638, 'ATN_STAGE_MODIFIER_FK', 'null', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9223, 31638, 'ATN_PUBLIC_ID', 'EMAP:31835', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9224, 31638, 'ATN_NODE_FK', '32687', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9225, 31639, 'REL_OID', '32795', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9226, 31639, 'REL_RELATIONSHIP_TYPE_FK', 'part-of', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9227, 31639, 'REL_PARENT_FK', '6250', 33107);
+--INSERT INTO ANA_LOG (log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) VALUES (9228, 31639, 'REL_CHILD_FK', '32687', 33107);
 
 
 --DELETION FROM ANA_OBJECT, ANA_NODE, ANA_RELATIONSHIP, ANA_TIMED_NODE, ANA_SYNONYM 
@@ -1350,11 +1356,13 @@ ANA_TIMED_NODE INSERT SUMMARY
 
 --STAGES
 ------
---Number of Components whose Stage Range was Extended: 0
+--Number of Components whose Stage Range was Extended: 1
 --Number of Components whose Stage Range was Shortened: 0
 
 -- EMAP:ID for Time Components created for stage range modification of existing Components: 
---Number of Records Inserted in ANA_TIMED_NODE: 0
+--  1. Time component created for modification of stage range of component EMAPA:30467 urethral epithelium of male : EMAP:31856 for TS24
+--Number of OID Records Inserted for Timed Components in ANA_OBJECT: 1
+--Number of Records Inserted in ANA_TIMED_NODE: 1
 --Number of OID Records Deleted for Timed Components in ANA_OBJECT: 0
 
 --SYNONYMS

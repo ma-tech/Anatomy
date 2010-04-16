@@ -18341,7 +18341,7 @@ relationship: starts_at TS22 ! TS22 (E13.5-15)
 
 [Term]
 id: EMAPA:18328
-name: MŸllerian tubercle
+name: Mullerian tubercle
 namespace: abstract_anatomy
 relationship: ends_at TS28 ! TS28 (P0-Adult)
 relationship: part_of EMAPA:17959 ! female reproductive system
@@ -38168,7 +38168,7 @@ relationship: starts_at TS20 ! TS20 (E11.5-13)
 id: EMAPA:28937
 name: paramesonephric duct of female, mesonephric portion
 namespace: abstract_anatomy
-related_synonym: "MŸllerian duct of female" []
+related_synonym: "Mullerian duct of female" []
 relationship: ends_at TS23 ! TS23 (E15)
 relationship: part_of EMAPA:28909 ! mesonephros of female
 relationship: starts_at TS20 ! TS20 (E11.5-13)
@@ -38177,7 +38177,7 @@ relationship: starts_at TS20 ! TS20 (E11.5-13)
 id: EMAPA:28940
 name: paramesonephric duct of female, rest of
 namespace: abstract_anatomy
-related_synonym: "MŸllerian duct of female" []
+related_synonym: "Mullerian duct of female" []
 related_synonym: "rest of" []
 relationship: ends_at TS23 ! TS23 (E15)
 relationship: part_of EMAPA:17959 ! female reproductive system
@@ -38448,7 +38448,7 @@ id: EMAPA:29158
 name: paramesonephric duct of male, mesonephric portion
 namespace: abstract_anatomy
 related_synonym: "mesonephric portion of male" []
-related_synonym: "MŸllerian duct of male" []
+related_synonym: "Mullerian duct of male" []
 relationship: ends_at TS21 ! TS21 (E12.5-14)
 relationship: part_of EMAPA:29138 ! mesonephros of male
 relationship: starts_at TS20 ! TS20 (E11.5-13)
@@ -38457,7 +38457,7 @@ relationship: starts_at TS20 ! TS20 (E11.5-13)
 id: EMAPA:29161
 name: degenerating mesonephric portion of male paramesonephric duct
 namespace: abstract_anatomy
-related_synonym: "MŸllerian duct" []
+related_synonym: "Mullerian duct" []
 relationship: ends_at TS23 ! TS23 (E15)
 relationship: part_of EMAPA:29138 ! mesonephros of male
 relationship: starts_at TS22 ! TS22 (E13.5-15)
@@ -38532,7 +38532,7 @@ relationship: starts_at TS21 ! TS21 (E12.5-14)
 id: EMAPA:29196
 name: degenerating rest of paramesonephric duct of male
 namespace: abstract_anatomy
-related_synonym: "degenerating MŸllerian duct" []
+related_synonym: "degenerating Mullerian duct" []
 relationship: ends_at TS23 ! TS23 (E15)
 relationship: part_of EMAPA:17968 ! male reproductive system
 relationship: starts_at TS22 ! TS22 (E13.5-15)

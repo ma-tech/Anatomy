@@ -578,6 +578,9 @@ class TxtReportFile (LinearReportFile):
         node       = anatomyLine.getNode()
         timedNode  = AnaTimedNodeDb.getByNodeStage(node.getOid(),
                                                    stage.getOid())
+        #print "stage.getOid() = %d" % stage.getOid()
+        #print "node.getOid() = %d" % node.getOid() 
+        #print "timedNode.getPublicId() = " + timedNode.getPublicId() 
         indent     = " ".join(indentLine.getIndent())
         if len(indent) > 0:
             indent += " "

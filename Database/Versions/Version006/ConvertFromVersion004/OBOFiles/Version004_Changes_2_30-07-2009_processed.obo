@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 13:7:2009 11:57
+date: 14:3:2010 10:11
 saved-by: Your Name!!!
 default-namespace: mouse_ontology
 remark: Database loaded: MySQL
@@ -550,8 +550,8 @@ comment:
 id: EMAPA:27681
 name: comma-shaped body
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:17954
+relationship: part_of EMAPA:17373
 relationship: starts_at TS20
 relationship: ends_at TS21
 comment: order=8 for EMAPA:17373
@@ -979,8 +979,8 @@ comment:
 id: EMAPA:31281
 name: anlage of loop of Henle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31571
 relationship: part_of EMAPA:18976
+relationship: part_of EMAPA:31571
 relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "primitive loop of Henle" []
@@ -1365,8 +1365,8 @@ comment:
 id: EMAPA:16317
 name: somite 13
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16184
+relationship: part_of EMAPA:31169
 relationship: starts_at TS13
 relationship: ends_at TS18
 comment: 
@@ -1382,8 +1382,8 @@ comment: order=1 for EMAPA:29880
 id: EMAPA:16316
 name: somite 12
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16184
+relationship: part_of EMAPA:31169
 relationship: starts_at TS13
 relationship: ends_at TS18
 comment: 
@@ -1416,8 +1416,8 @@ comment: order=1 for EMAPA:29897
 id: EMAPA:16314
 name: somite 10
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16184
+relationship: part_of EMAPA:31169
 relationship: starts_at TS13
 relationship: ends_at TS17
 comment: 
@@ -1718,8 +1718,8 @@ comment:
 id: EMAPA:28083
 name: perihilar interstitium
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17948
 relationship: part_of EMAPA:28518
+relationship: part_of EMAPA:17948
 relationship: starts_at TS22
 relationship: ends_at TS28
 comment: order=10 for EMAPA:28518
@@ -1805,8 +1805,8 @@ comment:
 id: EMAPA:17401
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17399
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:17399
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -1830,8 +1830,8 @@ comment:
 id: EMAPA:28069
 name: developing vasculature of medulla
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28457
 relationship: part_of EMAPA:19279
+relationship: part_of EMAPA:28457
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: order=8 for EMAPA:28457
@@ -1848,8 +1848,8 @@ comment:
 id: EMAPA:17410
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17407
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17407
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -1884,8 +1884,8 @@ comment:
 id: EMAPA:17408
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17407
+relationship: part_of EMAPA:29703
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -1893,8 +1893,8 @@ comment:
 id: EMAPA:17407
 name: somite 48
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -1902,8 +1902,8 @@ comment:
 id: EMAPA:17406
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17403
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17403
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -1920,8 +1920,8 @@ comment:
 id: EMAPA:17404
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17403
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:17403
 relationship: starts_at TS19
 relationship: ends_at TS22
 comment: 
@@ -3183,8 +3183,8 @@ comment:
 id: EMAPA:28888
 name: developing vasculature of ovary
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31564
 relationship: part_of EMAPA:17962
+relationship: part_of EMAPA:31564
 relationship: starts_at TS20
 relationship: ends_at TS27
 comment: order=14 for EMAPA:17962
@@ -3721,8 +3721,8 @@ comment: order=0 for EMAPA:18326
 id: EMAPA:27663
 name: nephric duct, mesonephric portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:27644
 relationship: part_of EMAPA:28429
+relationship: part_of EMAPA:27644
 relationship: starts_at TS19
 relationship: ends_at TS19
 comment: order=2 for EMAPA:27644
@@ -3967,8 +3967,8 @@ comment:
 id: EMAPA:18411
 name: physiological umbilical hernia
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16039
 relationship: part_of EMAPA:25765
+relationship: part_of EMAPA:16039
 relationship: starts_at TS17
 relationship: ends_at TS19
 comment: 
@@ -4530,8 +4530,8 @@ comment: order=0 for EMAPA:28396
 id: EMAPA:16427
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31119
 relationship: part_of EMAPA:16313
+relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -4573,8 +4573,8 @@ comment: order=0 for EMAPA:29844
 id: EMAPA:16424
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31119
 relationship: part_of EMAPA:16188
+relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -4599,8 +4599,8 @@ comment: order=1 for EMAPA:29836
 id: EMAPA:16426
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16313
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16313
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -4633,8 +4633,8 @@ comment: order=2 for EMAPA:19294
 id: EMAPA:16430
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16314
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16314
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -4659,8 +4659,8 @@ comment: order=1 for EMAPA:19294
 id: EMAPA:16432
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16315
+relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -4736,8 +4736,8 @@ comment: order=0 for EMAPA:29836
 id: EMAPA:16438
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16317
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16317
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -4839,8 +4839,8 @@ comment: order=0 for EMAPA:29838
 id: EMAPA:16444
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16441
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16441
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -4865,8 +4865,8 @@ comment: order=1 for EMAPA:29838
 id: EMAPA:16442
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16441
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16441
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -4933,8 +4933,8 @@ comment: order=0 for EMAPA:29822
 id: EMAPA:16446
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16445
+relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5086,8 +5086,8 @@ comment: order=3 for EMAPA:18984
 id: EMAPA:16452
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31144
 relationship: part_of EMAPA:16449
+relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5095,8 +5095,8 @@ comment:
 id: EMAPA:16453
 name: somite 17
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16184
+relationship: part_of EMAPA:31169
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5104,8 +5104,8 @@ comment:
 id: EMAPA:16454
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16453
+relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5113,8 +5113,8 @@ comment:
 id: EMAPA:16455
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16453
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16453
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5146,8 +5146,8 @@ comment: order=2 for EMAPA:19088
 id: EMAPA:16459
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16457
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5171,8 +5171,8 @@ comment: order=0 for EMAPA:29808
 id: EMAPA:16458
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16457
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5206,8 +5206,8 @@ comment: order=0 for EMAPA:29810
 id: EMAPA:16456
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16453
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16453
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5239,8 +5239,8 @@ comment: order=1 for EMAPA:29808
 id: EMAPA:16461
 name: somite 19
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16184
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16184
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5248,8 +5248,8 @@ comment:
 id: EMAPA:29055
 name: muscular layer of upper part of vagina
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30997
 relationship: part_of EMAPA:18987
+relationship: part_of EMAPA:30997
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=1 for EMAPA:18987
@@ -5258,8 +5258,8 @@ order=1 for EMAPA:30997
 id: EMAPA:16462
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16461
+relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5267,8 +5267,8 @@ comment:
 id: EMAPA:16460
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16457
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5295,8 +5295,8 @@ comment:
 id: EMAPA:16466
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16465
+relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5304,8 +5304,8 @@ comment:
 id: EMAPA:16463
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16461
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16461
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5321,8 +5321,8 @@ comment: order=1 for EMAPA:29816
 id: EMAPA:16464
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31144
 relationship: part_of EMAPA:16461
+relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
 comment: 
@@ -5330,8 +5330,8 @@ comment:
 id: EMAPA:29052
 name: epithelial layer of upper part of vagina
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18987
 relationship: part_of EMAPA:30991
+relationship: part_of EMAPA:18987
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=0 for EMAPA:18987
@@ -6632,8 +6632,8 @@ order=2 for EMAPA:19279
 id: EMAPA:18329
 name: labial swelling
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30984
 relationship: part_of EMAPA:17959
+relationship: part_of EMAPA:30984
 relationship: starts_at TS24
 relationship: ends_at TS27
 related_synonym: "labia" []
@@ -6643,8 +6643,8 @@ order=3 for EMAPA:30984
 id: EMAPA:18328
 name: M�llerian tubercle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28540
 relationship: part_of EMAPA:17959
+relationship: part_of EMAPA:28540
 relationship: starts_at TS22
 relationship: ends_at TS28
 comment: order=7 for EMAPA:17959
@@ -6967,8 +6967,8 @@ comment:
 id: EMAPA:18353
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18350
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:18350
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7028,8 +7028,8 @@ comment:
 id: EMAPA:18360
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18358
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:18358
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7045,8 +7045,8 @@ comment:
 id: EMAPA:18361
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:18358
+relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7112,8 +7112,8 @@ comment:
 id: EMAPA:18366
 name: somite 60
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7147,8 +7147,8 @@ comment:
 id: EMAPA:18365
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:18362
+relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7199,8 +7199,8 @@ comment:
 id: EMAPA:18359
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18358
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:18358
 relationship: starts_at TS22
 relationship: ends_at TS22
 comment: 
@@ -7903,8 +7903,8 @@ comment:
 id: EMAPA:19089
 name: gubernaculum
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28533
 relationship: part_of EMAPA:17968
+relationship: part_of EMAPA:28533
 relationship: starts_at TS23
 relationship: ends_at TS28
 related_synonym: "caudal suspensory ligament" []
@@ -8163,8 +8163,8 @@ comment: order=7 for EMAPA:17962
 id: EMAPA:16422
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31144
 relationship: part_of EMAPA:16187
+relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -8172,8 +8172,8 @@ comment:
 id: EMAPA:16421
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16187
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16187
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -8189,8 +8189,8 @@ comment: order=4 for EMAPA:18988
 id: EMAPA:16416
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16185
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16185
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -8240,8 +8240,8 @@ comment: order=3 for EMAPA:31476
 id: EMAPA:16419
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16186
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16186
 relationship: starts_at TS14
 relationship: ends_at TS17
 comment: 
@@ -8332,8 +8332,8 @@ id: EMAPA:27749
 name: ureteric tip
 namespace: abstract_anatomy
 relationship: part_of EMAPA:28477
-relationship: part_of EMAPA:27721
 relationship: part_of EMAPA:28407
+relationship: part_of EMAPA:27721
 relationship: starts_at TS21
 relationship: ends_at TS28
 related_synonym: "ureteric ampulla" []
@@ -8450,8 +8450,8 @@ comment: order=0 for EMAPA:31476
 id: EMAPA:16405
 name: limb
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS14
 relationship: ends_at TS26
 comment: 
@@ -8575,8 +8575,8 @@ comment:
 id: EMAPA:27770
 name: capillary loop renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17373
+relationship: part_of EMAPA:17954
 relationship: starts_at TS21
 relationship: ends_at TS21
 related_synonym: "renal corpuscle of the stage III nephron" []
@@ -8670,8 +8670,8 @@ comment: order=1 for EMAPA:27756
 id: EMAPA:27756
 name: s-shaped body
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17373
+relationship: part_of EMAPA:17954
 relationship: starts_at TS21
 relationship: ends_at TS21
 related_synonym: "stage II nephron" []
@@ -8739,8 +8739,8 @@ id: EMAPA:27794
 name: developing vasculature of metanephros
 namespace: abstract_anatomy
 relationship: part_of EMAPA:31563
-relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:17373
 relationship: starts_at TS20
 relationship: ends_at TS21
 comment: order=13 for EMAPA:17373
@@ -8920,8 +8920,8 @@ comment: order=0 for EMAPA:30699
 id: EMAPA:27782
 name: renal tubule
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17373
+relationship: part_of EMAPA:17954
 relationship: starts_at TS21
 relationship: ends_at TS21
 related_synonym: "renal tubule of capillary loop nephron " []
@@ -8931,8 +8931,8 @@ order=11 for EMAPA:17954
 id: EMAPA:27780
 name: presumptive endothelium of renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:27770
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:27770
 relationship: starts_at TS21
 relationship: ends_at TS21
 comment: order=2 for EMAPA:27770
@@ -9078,8 +9078,8 @@ comment:
 id: EMAPA:30423
 name: labioscrotal swelling of female
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30984
 relationship: part_of EMAPA:17959
+relationship: part_of EMAPA:30984
 relationship: starts_at TS22
 relationship: ends_at TS23
 comment: order=15 for EMAPA:17959
@@ -9088,8 +9088,8 @@ order=2 for EMAPA:30984
 id: EMAPA:16102
 name: notochordal process
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS11
 relationship: ends_at TS11
 related_synonym: "head process" []
@@ -9115,8 +9115,8 @@ comment:
 id: EMAPA:16101
 name: notochordal plate
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16039
 relationship: part_of EMAPA:25765
+relationship: part_of EMAPA:16039
 relationship: starts_at TS11
 relationship: ends_at TS13
 comment: 
@@ -9836,8 +9836,8 @@ comment:
 id: EMAPA:29316
 name: scrotal fold
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30977
 relationship: part_of EMAPA:17968
+relationship: part_of EMAPA:30977
 relationship: starts_at TS24
 relationship: ends_at TS27
 comment: order=22 for EMAPA:17968
@@ -9953,8 +9953,8 @@ comment:
 id: EMAPA:16175
 name: somite 03
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16172
+relationship: part_of EMAPA:31169
 relationship: starts_at TS12
 relationship: ends_at TS14
 comment: 
@@ -9962,8 +9962,8 @@ comment:
 id: EMAPA:16176
 name: somite 04
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16172
+relationship: part_of EMAPA:31169
 relationship: starts_at TS12
 relationship: ends_at TS14
 comment: 
@@ -9971,8 +9971,8 @@ comment:
 id: EMAPA:16173
 name: somite 01
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16172
+relationship: part_of EMAPA:31169
 relationship: starts_at TS12
 relationship: ends_at TS14
 comment: 
@@ -10187,8 +10187,8 @@ comment:
 id: EMAPA:16188
 name: somite 08
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16184
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16184
 relationship: starts_at TS12
 relationship: ends_at TS17
 comment: 
@@ -10646,8 +10646,8 @@ comment:
 id: EMAPA:17690
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17688
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:17688
 relationship: starts_at TS20
 relationship: ends_at TS22
 comment: 
@@ -10687,8 +10687,8 @@ comment:
 id: EMAPA:17698
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17696
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:17696
 relationship: starts_at TS20
 relationship: ends_at TS22
 comment: 
@@ -10712,8 +10712,8 @@ comment:
 id: EMAPA:17697
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17696
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:17696
 relationship: starts_at TS20
 relationship: ends_at TS22
 comment: 
@@ -10763,8 +10763,8 @@ comment:
 id: EMAPA:17695
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17692
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17692
 relationship: starts_at TS20
 relationship: ends_at TS22
 comment: 
@@ -10805,8 +10805,8 @@ comment:
 id: EMAPA:17693
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17692
+relationship: part_of EMAPA:29703
 relationship: starts_at TS20
 relationship: ends_at TS22
 comment: 
@@ -11459,8 +11459,8 @@ comment:
 id: EMAPA:16191
 name: notochord
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16039
 relationship: part_of EMAPA:25765
+relationship: part_of EMAPA:16039
 relationship: starts_at TS12
 relationship: ends_at TS20
 comment: 
@@ -11635,9 +11635,9 @@ comment:
 id: EMAPA:27829
 name: renal vesicle
 namespace: abstract_anatomy
+relationship: part_of EMAPA:17952
 relationship: part_of EMAPA:28500
 relationship: part_of EMAPA:17954
-relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "epithelial vesicle" []
@@ -12115,8 +12115,8 @@ comment: order=2 for EMAPA:17382
 id: EMAPA:31517
 name: renal connecting tubule of mature nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31566
 relationship: part_of EMAPA:28011
+relationship: part_of EMAPA:31566
 relationship: starts_at TS25
 relationship: ends_at TS27
 comment: order=2 for EMAPA:28011
@@ -12124,8 +12124,8 @@ comment: order=2 for EMAPA:28011
 id: EMAPA:31516
 name: renal connecting tubule of maturing nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28011
 relationship: part_of EMAPA:31570
+relationship: part_of EMAPA:28011
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=1 for EMAPA:28011
@@ -12133,8 +12133,8 @@ comment: order=1 for EMAPA:28011
 id: EMAPA:31515
 name: renal connecting tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31571
 relationship: part_of EMAPA:28011
+relationship: part_of EMAPA:31571
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=0 for EMAPA:28011
@@ -12142,8 +12142,8 @@ comment: order=0 for EMAPA:28011
 id: EMAPA:31514
 name: early distal tubule of maturing nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31570
 relationship: part_of EMAPA:28390
+relationship: part_of EMAPA:31570
 relationship: starts_at TS25
 relationship: ends_at TS27
 comment: order=1 for EMAPA:28390
@@ -12179,8 +12179,8 @@ comment: order=0 for EMAPA:28007
 id: EMAPA:31510
 name: developing vasculature of male genital tubercle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17969
 relationship: part_of EMAPA:31564
+relationship: part_of EMAPA:17969
 relationship: starts_at TS20
 relationship: ends_at TS23
 comment: order=9 for EMAPA:17969
@@ -12244,8 +12244,8 @@ comment:
 id: EMAPA:31503
 name: developing vasculature of female genital tubercle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18680
 relationship: part_of EMAPA:31564
+relationship: part_of EMAPA:18680
 relationship: starts_at TS20
 relationship: ends_at TS23
 comment: order=9 for EMAPA:18680
@@ -12546,9 +12546,9 @@ comment: order=0 for EMAPA:28765
 id: EMAPA:18680
 name: genital tubercle of female
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30984
-relationship: part_of EMAPA:28540
 relationship: part_of EMAPA:17959
+relationship: part_of EMAPA:28540
+relationship: part_of EMAPA:30984
 relationship: starts_at TS20
 relationship: ends_at TS27
 comment: order=12 for EMAPA:17959
@@ -12617,8 +12617,8 @@ comment: order=0 for EMAPA:28709
 id: EMAPA:18682
 name: penis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30977
 relationship: part_of EMAPA:17968
+relationship: part_of EMAPA:30977
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "genital tubercle of male" []
@@ -12727,8 +12727,8 @@ comment: order=0 for EMAPA:27829
 id: EMAPA:31543
 name: early proximal tubule of capillary loop nephron
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28284
 relationship: part_of EMAPA:31571
+relationship: part_of EMAPA:28284
 relationship: starts_at TS25
 relationship: ends_at TS27
 related_synonym: "anlage of proximal tubule" []
@@ -12984,8 +12984,8 @@ comment:
 id: EMAPA:31537
 name: developing vasculature of male mesonephros
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29138
 relationship: part_of EMAPA:31564
+relationship: part_of EMAPA:29138
 relationship: starts_at TS20
 relationship: ends_at TS23
 comment: order=7 for EMAPA:29138
@@ -13001,8 +13001,8 @@ comment:
 id: EMAPA:31538
 name: developing vasculature of female mesonephros
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31564
 relationship: part_of EMAPA:28909
+relationship: part_of EMAPA:31564
 relationship: starts_at TS20
 relationship: ends_at TS23
 comment: order=8 for EMAPA:28909
@@ -13018,8 +13018,8 @@ comment:
 id: EMAPA:31539
 name: developing vasculature of primitive bladder
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31563
 relationship: part_of EMAPA:30870
+relationship: part_of EMAPA:31563
 relationship: starts_at TS20
 relationship: ends_at TS21
 comment: order=2 for EMAPA:30870
@@ -13271,9 +13271,9 @@ comment:
 id: EMAPA:27853
 name: s-shaped body
 namespace: abstract_anatomy
+relationship: part_of EMAPA:28500
 relationship: part_of EMAPA:17952
 relationship: part_of EMAPA:17954
-relationship: part_of EMAPA:28500
 relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "stage II nephron" []
@@ -14292,8 +14292,8 @@ comment:
 id: EMAPA:30509
 name: labioscrotal swelling of male
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17968
 relationship: part_of EMAPA:30977
+relationship: part_of EMAPA:17968
 relationship: starts_at TS22
 relationship: ends_at TS23
 comment: order=23 for EMAPA:17968
@@ -15390,8 +15390,8 @@ comment:
 id: EMAPA:27925
 name: associated interstitium of renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:27907
 relationship: part_of EMAPA:28518
+relationship: part_of EMAPA:27907
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=0 for EMAPA:27907
@@ -15734,11 +15734,11 @@ comment:
 id: EMAPA:27943
 name: maturing renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28485
-relationship: part_of EMAPA:28445
-relationship: part_of EMAPA:17952
 relationship: part_of EMAPA:17954
+relationship: part_of EMAPA:28445
+relationship: part_of EMAPA:28485
 relationship: part_of EMAPA:28527
+relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "renal corpuscle of Stage IV nephron" []
@@ -16598,10 +16598,10 @@ comment:
 id: EMAPA:27907
 name: capillary loop renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28506
 relationship: part_of EMAPA:28527
-relationship: part_of EMAPA:17952
 relationship: part_of EMAPA:17954
+relationship: part_of EMAPA:28506
+relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "renal corpuscle of the stage III nephron" []
@@ -17431,8 +17431,8 @@ comment:
 id: EMAPA:27955
 name: glomerular capillary system of maturing glomerular tuft
 namespace: abstract_anatomy
-relationship: part_of EMAPA:27949
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:27949
 relationship: part_of EMAPA:31469
 relationship: starts_at TS22
 relationship: ends_at TS27
@@ -17483,8 +17483,8 @@ comment:
 id: EMAPA:27961
 name: glomerular mesangium
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28518
 relationship: part_of EMAPA:27949
+relationship: part_of EMAPA:28518
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=1 for EMAPA:27949
@@ -17598,8 +17598,8 @@ comment:
 id: EMAPA:27991
 name: juxtaglomerular arteriole
 namespace: abstract_anatomy
-relationship: part_of EMAPA:27943
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:27943
 relationship: starts_at TS22
 relationship: ends_at TS27
 comment: order=2 for EMAPA:27943
@@ -18053,8 +18053,8 @@ comment:
 id: EMAPA:16748
 name: tail
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS15
 relationship: ends_at TS26
 comment: 
@@ -20302,8 +20302,8 @@ namespace: abstract_anatomy
 relationship: is_a group_term
 relationship: starts_at TS21
 relationship: ends_at TS28
-relationship: group_part_of EMAPA:17366
 relationship: group_part_of EMAPA:31563
+relationship: group_part_of EMAPA:17366
 comment: order=24 for EMAPA:17366
 [Term]
 id: EMAPA:17008
@@ -21102,8 +21102,8 @@ comment:
 id: EMAPA:17062
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17061
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:17061
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21136,8 +21136,8 @@ comment:
 id: EMAPA:17060
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:17057
+relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21326,8 +21326,8 @@ comment:
 id: EMAPA:17050
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17049
+relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21360,8 +21360,8 @@ comment:
 id: EMAPA:17052
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17049
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21395,8 +21395,8 @@ comment:
 id: EMAPA:17058
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17057
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:17057
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21421,8 +21421,8 @@ comment:
 id: EMAPA:17862
 name: renal artery
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16201
 relationship: part_of EMAPA:31464
+relationship: part_of EMAPA:16201
 relationship: starts_at TS21
 relationship: ends_at TS26
 comment: 
@@ -21456,8 +21456,8 @@ comment:
 id: EMAPA:17054
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:17053
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21482,8 +21482,8 @@ comment:
 id: EMAPA:17056
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:17053
+relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -21698,8 +21698,8 @@ comment:
 id: EMAPA:17049
 name: somite 36
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS17
 relationship: ends_at TS20
 comment: 
@@ -23375,8 +23375,8 @@ comment:
 id: EMAPA:16071
 name: mesoderm
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS09
 relationship: ends_at TS11
 comment: 
@@ -23580,8 +23580,8 @@ comment:
 id: EMAPA:16872
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:16869
+relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -23625,8 +23625,8 @@ comment:
 id: EMAPA:16865
 name: somite 32
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16860
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16860
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -23634,8 +23634,8 @@ comment:
 id: EMAPA:16868
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:16865
+relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -23845,8 +23845,8 @@ comment:
 id: EMAPA:16097
 name: mesenchyme
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS11
 relationship: ends_at TS26
 comment: 
@@ -23895,8 +23895,8 @@ comment:
 id: EMAPA:16877
 name: somite 35
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16860
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16860
 relationship: starts_at TS16
 relationship: ends_at TS20
 comment: 
@@ -23912,8 +23912,8 @@ comment:
 id: EMAPA:16876
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:16873
+relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -23929,8 +23929,8 @@ comment:
 id: EMAPA:16875
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16873
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:16873
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -23963,8 +23963,8 @@ comment:
 id: EMAPA:16879
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31126
 relationship: part_of EMAPA:16877
+relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS20
 comment: 
@@ -24435,8 +24435,8 @@ comment:
 id: EMAPA:16862
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:16861
+relationship: part_of EMAPA:29703
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -24452,8 +24452,8 @@ comment:
 id: EMAPA:16861
 name: somite 31
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS16
 relationship: ends_at TS19
 comment: 
@@ -24522,9 +24522,9 @@ comment:
 id: EMAPA:28373
 name: renal artery
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17366
-relationship: part_of EMAPA:28457
 relationship: part_of EMAPA:31436
+relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:17366
 relationship: starts_at TS21
 relationship: ends_at TS28
 comment: order=3 for EMAPA:17366
@@ -24964,8 +24964,8 @@ comment:
 id: EMAPA:16069
 name: ectoderm
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS09
 relationship: ends_at TS19
 related_synonym: "epithelium" []
@@ -24982,8 +24982,8 @@ comment:
 id: EMAPA:16060
 name: cavities and their linings
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16039
 relationship: part_of EMAPA:25765
+relationship: part_of EMAPA:16039
 relationship: starts_at TS08
 relationship: ends_at TS26
 comment: 
@@ -25210,8 +25210,8 @@ comment:
 id: EMAPA:28396
 name: distal straight tubule
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31566
 relationship: part_of EMAPA:28387
+relationship: part_of EMAPA:31566
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "thick ascending limb" []
@@ -25317,8 +25317,8 @@ comment:
 id: EMAPA:28399
 name: macula densa
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30449
 relationship: part_of EMAPA:28396
+relationship: part_of EMAPA:30449
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=1 for EMAPA:28396
@@ -25357,8 +25357,8 @@ comment:
 id: EMAPA:28393
 name: distal convoluted tubule
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31566
 relationship: part_of EMAPA:28387
+relationship: part_of EMAPA:31566
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "second convoluted tubule" []
@@ -26768,8 +26768,8 @@ comment:
 id: EMAPA:28364
 name: inner medullary interstitium
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28518
 relationship: part_of EMAPA:28349
+relationship: part_of EMAPA:28518
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "papillary interstitium" []
@@ -26914,8 +26914,8 @@ comment:
 id: EMAPA:18030
 name: somite 53
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16860
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16860
 relationship: starts_at TS21
 relationship: ends_at TS22
 comment: 
@@ -26981,8 +26981,8 @@ comment:
 id: EMAPA:18035
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18034
 relationship: part_of EMAPA:29703
+relationship: part_of EMAPA:18034
 relationship: starts_at TS21
 relationship: ends_at TS22
 comment: 
@@ -27006,8 +27006,8 @@ comment:
 id: EMAPA:18032
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18030
 relationship: part_of EMAPA:31126
+relationship: part_of EMAPA:18030
 relationship: starts_at TS21
 relationship: ends_at TS22
 comment: 
@@ -27031,8 +27031,8 @@ comment:
 id: EMAPA:18033
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18030
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:18030
 relationship: starts_at TS21
 relationship: ends_at TS22
 comment: 
@@ -27066,8 +27066,8 @@ comment:
 id: EMAPA:18036
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31126
 relationship: part_of EMAPA:18034
+relationship: part_of EMAPA:31126
 relationship: starts_at TS21
 relationship: ends_at TS22
 comment: 
@@ -27188,8 +27188,8 @@ comment:
 id: EMAPA:28352
 name: loop of Henle, inner medullary portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:19280
 relationship: part_of EMAPA:28349
+relationship: part_of EMAPA:19280
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28349
@@ -28040,8 +28040,8 @@ order=0 for EMAPA:28540
 id: EMAPA:28322
 name: loop of Henle, outer medullary portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:19280
 relationship: part_of EMAPA:28310
+relationship: part_of EMAPA:19280
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28310
@@ -30032,8 +30032,8 @@ comment:
 id: EMAPA:17229
 name: somite 43
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30053,8 +30053,8 @@ order=0 for EMAPA:31469
 id: EMAPA:17228
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17225
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17225
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30289,8 +30289,8 @@ comment: order=0 for EMAPA:28281
 id: EMAPA:17231
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31126
 relationship: part_of EMAPA:17229
+relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30298,8 +30298,8 @@ comment:
 id: EMAPA:17232
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17229
 relationship: part_of EMAPA:31151
+relationship: part_of EMAPA:17229
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30307,8 +30307,8 @@ comment:
 id: EMAPA:28287
 name: renal proximal convoluted tubule
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31566
 relationship: part_of EMAPA:28281
+relationship: part_of EMAPA:31566
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "first convoluted tubule" []
@@ -30344,8 +30344,8 @@ comment:
 id: EMAPA:17233
 name: somite 44
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30402,8 +30402,8 @@ comment:
 id: EMAPA:17218
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17217
+relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30411,8 +30411,8 @@ comment:
 id: EMAPA:17217
 name: somite 40
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16860
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16860
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30607,8 +30607,8 @@ comment: order=1 for EMAPA:28266
 id: EMAPA:30819
 name: clitoris
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30984
 relationship: part_of EMAPA:17959
+relationship: part_of EMAPA:30984
 relationship: starts_at TS28
 relationship: ends_at TS28
 related_synonym: "genital tubercle of female" []
@@ -30627,8 +30627,8 @@ id: EMAPA:28275
 name: efferent arteriole
 namespace: abstract_anatomy
 relationship: part_of EMAPA:28236
-relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:31450
+relationship: part_of EMAPA:31469
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=3 for EMAPA:28236
@@ -30656,8 +30656,8 @@ comment:
 id: EMAPA:17222
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17221
+relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30682,8 +30682,8 @@ comment: order=5 for EMAPA:17968
 id: EMAPA:17224
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31151
 relationship: part_of EMAPA:17221
+relationship: part_of EMAPA:31151
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30692,8 +30692,8 @@ id: EMAPA:28278
 name: extraglomerular mesangium
 namespace: abstract_anatomy
 relationship: part_of EMAPA:28518
-relationship: part_of EMAPA:30449
 relationship: part_of EMAPA:28236
+relationship: part_of EMAPA:30449
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=4 for EMAPA:28236
@@ -30703,8 +30703,8 @@ order=0 for EMAPA:30449
 id: EMAPA:17225
 name: somite 42
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16860
+relationship: part_of EMAPA:31169
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -30800,8 +30800,8 @@ comment:
 id: EMAPA:31219
 name: developing vasculature of upper part of vagina
 namespace: abstract_anatomy
-relationship: part_of EMAPA:18987
 relationship: part_of EMAPA:31229
+relationship: part_of EMAPA:18987
 relationship: starts_at TS24
 relationship: ends_at TS27
 comment: order=3 for EMAPA:18987
@@ -30907,10 +30907,10 @@ comment: order=0 for EMAPA:29796
 id: EMAPA:28266
 name: afferent arteriole
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:28457
-relationship: part_of EMAPA:28236
+relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:31450
+relationship: part_of EMAPA:28236
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=2 for EMAPA:28236
@@ -30921,8 +30921,8 @@ order=3 for EMAPA:31469
 id: EMAPA:17213
 name: skeleton
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS15
 relationship: ends_at TS26
 comment: 
@@ -30954,8 +30954,8 @@ comment: order=12 for EMAPA:16367
 id: EMAPA:28269
 name: part of afferent arteriole forming the juxtaglomerular complex
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28266
 relationship: part_of EMAPA:30449
+relationship: part_of EMAPA:28266
 relationship: starts_at TS25
 relationship: ends_at TS28
 related_synonym: "renin-producing cell" []
@@ -31007,8 +31007,8 @@ comment: order=1 for EMAPA:19286
 id: EMAPA:31224
 name: developing vasculature of lower part of vagina
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31229
 relationship: part_of EMAPA:18999
+relationship: part_of EMAPA:31229
 relationship: starts_at TS24
 relationship: ends_at TS27
 comment: order=3 for EMAPA:18999
@@ -31155,8 +31155,8 @@ comment: order=2 for EMAPA:30819
 id: EMAPA:19223
 name: renal vein
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31464
 relationship: part_of EMAPA:16240
+relationship: part_of EMAPA:31464
 relationship: starts_at TS25
 relationship: ends_at TS26
 comment: 
@@ -31538,8 +31538,8 @@ comment:
 id: EMAPA:31204
 name: developing vasculature of caput epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:19291
 relationship: part_of EMAPA:31235
+relationship: part_of EMAPA:19291
 relationship: starts_at TS24
 relationship: ends_at TS27
 comment: order=3 for EMAPA:19291
@@ -31613,8 +31613,8 @@ comment:
 id: EMAPA:29755
 name: epithelium of corpus epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30445
 relationship: part_of EMAPA:19293
+relationship: part_of EMAPA:30445
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=1 for EMAPA:30445
@@ -31640,8 +31640,8 @@ comment:
 id: EMAPA:29757
 name: muscle layer of corpus of epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:19293
 relationship: part_of EMAPA:30447
+relationship: part_of EMAPA:19293
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=1 for EMAPA:30447
@@ -31701,8 +31701,8 @@ comment:
 id: EMAPA:29761
 name: epithelium of caput of epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30445
 relationship: part_of EMAPA:19291
+relationship: part_of EMAPA:30445
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=0 for EMAPA:30445
@@ -31719,8 +31719,8 @@ comment:
 id: EMAPA:29763
 name: muscle layer of caput of epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:19291
 relationship: part_of EMAPA:30447
+relationship: part_of EMAPA:19291
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=0 for EMAPA:30447
@@ -31855,8 +31855,8 @@ comment:
 id: EMAPA:29751
 name: muscle layer of cauda of epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30447
 relationship: part_of EMAPA:19292
+relationship: part_of EMAPA:30447
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=2 for EMAPA:30447
@@ -32972,9 +32972,9 @@ id: EMAPA:28245
 name: glomerular capillary system
 namespace: abstract_anatomy
 relationship: part_of EMAPA:28239
-relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:31443
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:31469
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28239
@@ -33362,8 +33362,8 @@ comment:
 id: EMAPA:28236
 name: mature renal corpuscle
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:28491
+relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17952
 relationship: starts_at TS25
 relationship: ends_at TS28
@@ -33633,10 +33633,10 @@ comment:
 id: EMAPA:28221
 name: arcuate vein
 namespace: abstract_anatomy
-relationship: part_of EMAPA:28152
-relationship: part_of EMAPA:31464
-relationship: part_of EMAPA:31450
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:28152
+relationship: part_of EMAPA:31450
+relationship: part_of EMAPA:31464
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=1 for EMAPA:28152
@@ -33871,10 +33871,10 @@ comment:
 id: EMAPA:28218
 name: interlobular vein
 namespace: abstract_anatomy
+relationship: part_of EMAPA:31464
+relationship: part_of EMAPA:28152
 relationship: part_of EMAPA:28457
 relationship: part_of EMAPA:31450
-relationship: part_of EMAPA:28152
-relationship: part_of EMAPA:31464
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28152
@@ -33900,10 +33900,10 @@ comment:
 id: EMAPA:28215
 name: arcuate artery
 namespace: abstract_anatomy
+relationship: part_of EMAPA:31436
 relationship: part_of EMAPA:31464
 relationship: part_of EMAPA:28457
 relationship: part_of EMAPA:28147
-relationship: part_of EMAPA:31436
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=1 for EMAPA:28147
@@ -33913,10 +33913,10 @@ order=2 for EMAPA:31436
 id: EMAPA:28212
 name: interlobular artery
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31436
-relationship: part_of EMAPA:28147
 relationship: part_of EMAPA:31464
 relationship: part_of EMAPA:28457
+relationship: part_of EMAPA:31436
+relationship: part_of EMAPA:28147
 relationship: starts_at TS25
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28147
@@ -34176,8 +34176,8 @@ comment:
 id: EMAPA:17239
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31126
 relationship: part_of EMAPA:17237
+relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -34194,8 +34194,8 @@ comment:
 id: EMAPA:17238
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29703
 relationship: part_of EMAPA:17237
+relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
 comment: 
@@ -35291,8 +35291,8 @@ comment:
 id: EMAPA:16580
 name: tail bud
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16039
 relationship: part_of EMAPA:25765
+relationship: part_of EMAPA:16039
 relationship: starts_at TS14
 relationship: ends_at TS14
 comment: 
@@ -36034,8 +36034,8 @@ namespace: abstract_anatomy
 relationship: is_a group_term
 relationship: starts_at TS14
 relationship: ends_at TS19
-relationship: group_part_of EMAPA:16184
 relationship: group_part_of EMAPA:31159
+relationship: group_part_of EMAPA:16184
 comment: 
 [Term]
 id: EMAPA:30873
@@ -36331,8 +36331,8 @@ comment:
 id: EMAPA:16603
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16600
 relationship: part_of EMAPA:31144
+relationship: part_of EMAPA:16600
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36400,8 +36400,8 @@ comment:
 id: EMAPA:16606
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31119
 relationship: part_of EMAPA:16604
+relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36470,8 +36470,8 @@ comment:
 id: EMAPA:16602
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16600
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16600
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36717,8 +36717,8 @@ comment:
 id: EMAPA:16616
 name: somite 25
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16184
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16184
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36735,8 +36735,8 @@ comment:
 id: EMAPA:16617
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16616
+relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36760,8 +36760,8 @@ comment: order=0 for EMAPA:28940
 id: EMAPA:16614
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31119
 relationship: part_of EMAPA:16612
+relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36819,8 +36819,8 @@ comment:
 id: EMAPA:16613
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16612
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16612
 relationship: starts_at TS15
 relationship: ends_at TS18
 comment: 
@@ -36913,8 +36913,8 @@ comment:
 id: EMAPA:16620
 name: somite 26
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16184
 relationship: part_of EMAPA:31169
+relationship: part_of EMAPA:16184
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -37027,8 +37027,8 @@ namespace: abstract_anatomy
 relationship: is_a group_term
 relationship: starts_at TS14
 relationship: ends_at TS19
-relationship: group_part_of EMAPA:16184
 relationship: group_part_of EMAPA:31134
+relationship: group_part_of EMAPA:16184
 comment: 
 [Term]
 id: EMAPA:19375
@@ -37167,8 +37167,8 @@ comment:
 id: EMAPA:29693
 name: epithelium of cauda of epididymis
 namespace: abstract_anatomy
-relationship: part_of EMAPA:30445
 relationship: part_of EMAPA:19292
+relationship: part_of EMAPA:30445
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=2 for EMAPA:30445
@@ -37262,9 +37262,9 @@ comment: order=1 for EMAPA:30917
 id: EMAPA:28162
 name: renal medullary arterial system
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31436
 relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:28157
+relationship: part_of EMAPA:31436
 relationship: starts_at TS23
 relationship: ends_at TS28
 comment: order=0 for EMAPA:28157
@@ -37495,8 +37495,8 @@ namespace: abstract_anatomy
 relationship: is_a group_term
 relationship: starts_at TS16
 relationship: ends_at TS22
-relationship: group_part_of EMAPA:16860
 relationship: group_part_of EMAPA:31134
+relationship: group_part_of EMAPA:16860
 comment: 
 [Term]
 id: EMAPA:28934
@@ -38074,8 +38074,8 @@ comment:
 id: EMAPA:16621
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16620
+relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38100,8 +38100,8 @@ comment:
 id: EMAPA:16624
 name: somite 27
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31169
 relationship: part_of EMAPA:16184
+relationship: part_of EMAPA:31169
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38125,8 +38125,8 @@ comment:
 id: EMAPA:16623
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31144
 relationship: part_of EMAPA:16620
+relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38142,8 +38142,8 @@ comment:
 id: EMAPA:16626
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16624
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16624
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38151,8 +38151,8 @@ comment:
 id: EMAPA:16625
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16624
 relationship: part_of EMAPA:29695
+relationship: part_of EMAPA:16624
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38185,8 +38185,8 @@ comment:
 id: EMAPA:16627
 name: sclerotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31144
 relationship: part_of EMAPA:16624
+relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38202,8 +38202,8 @@ comment:
 id: EMAPA:16629
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16628
+relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38401,8 +38401,8 @@ comment:
 id: EMAPA:16634
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16632
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16632
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38418,8 +38418,8 @@ comment: order=9 for EMAPA:17366
 id: EMAPA:16633
 name: dermomyotome
 namespace: abstract_anatomy
-relationship: part_of EMAPA:29695
 relationship: part_of EMAPA:16632
+relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -38461,8 +38461,8 @@ comment:
 id: EMAPA:16638
 name: myocoele
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16636
 relationship: part_of EMAPA:31119
+relationship: part_of EMAPA:16636
 relationship: starts_at TS15
 relationship: ends_at TS19
 comment: 
@@ -39255,8 +39255,8 @@ comment:
 id: EMAPA:27599
 name: nephric duct, metanephric portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16367
 relationship: part_of EMAPA:28425
+relationship: part_of EMAPA:16367
 relationship: starts_at TS17
 relationship: ends_at TS18
 comment: order=9 for EMAPA:16367
@@ -40007,8 +40007,8 @@ comment:
 id: EMAPA:17377
 name: nephric duct, metanephric portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:17366
 relationship: part_of EMAPA:28429
+relationship: part_of EMAPA:17366
 relationship: starts_at TS19
 relationship: ends_at TS20
 related_synonym: "Wolffian duct" []
@@ -40650,8 +40650,8 @@ comment:
 id: EMAPA:27591
 name: nephric duct, mesonephric portion
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16744
 relationship: part_of EMAPA:28425
+relationship: part_of EMAPA:16744
 relationship: starts_at TS17
 relationship: ends_at TS18
 comment: order=5 for EMAPA:16744
@@ -41838,12 +41838,12 @@ id: EMAPA:18976
 name: cortical renal tubule
 namespace: abstract_anatomy
 relationship: part_of EMAPA:28491
+relationship: part_of EMAPA:28485
 relationship: part_of EMAPA:28527
 relationship: part_of EMAPA:28445
-relationship: part_of EMAPA:17954
-relationship: part_of EMAPA:28485
-relationship: part_of EMAPA:17952
 relationship: part_of EMAPA:28506
+relationship: part_of EMAPA:17952
+relationship: part_of EMAPA:17954
 relationship: starts_at TS22
 relationship: ends_at TS28
 comment: order=6 for EMAPA:17952
@@ -42545,8 +42545,8 @@ name: renal medullary capillary
 namespace: abstract_anatomy
 relationship: part_of EMAPA:31469
 relationship: part_of EMAPA:28457
-relationship: part_of EMAPA:28157
 relationship: part_of EMAPA:31443
+relationship: part_of EMAPA:28157
 relationship: starts_at TS23
 relationship: ends_at TS28
 related_synonym: "vasa recta" []
@@ -42566,8 +42566,8 @@ comment:
 id: EMAPA:31025
 name: meiotic oocytes
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31058
 relationship: part_of EMAPA:17962
+relationship: part_of EMAPA:31058
 relationship: starts_at TS24
 relationship: ends_at TS28
 comment: order=4 for EMAPA:17962
@@ -42721,8 +42721,8 @@ comment:
 id: EMAPA:31017
 name: straight limb
 namespace: abstract_anatomy
-relationship: part_of EMAPA:31414
 relationship: part_of EMAPA:28049
+relationship: part_of EMAPA:31414
 relationship: starts_at TS22
 relationship: ends_at TS24
 comment: order=0 for EMAPA:28049
@@ -42825,8 +42825,8 @@ namespace: abstract_anatomy
 relationship: is_a group_term
 relationship: starts_at TS25
 relationship: ends_at TS28
-relationship: group_part_of EMAPA:28491
 relationship: group_part_of EMAPA:19279
+relationship: group_part_of EMAPA:28491
 comment: order=9 for EMAPA:19279
 order=1 for EMAPA:28491
 [Term]

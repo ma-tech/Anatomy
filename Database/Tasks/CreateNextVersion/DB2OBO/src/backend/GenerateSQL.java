@@ -113,17 +113,17 @@ public class GenerateSQL {
             this.reportFile = new BufferedWriter(new FileWriter(fileName));
 
             //File header
-            this.reportFile.write("Database Report For ");
+            this.reportFile.write("--Database Report For ");
             this.reportFile.newLine();
-            this.reportFile.write("  Import of OBO File: " + treebuilder.getRootNode() );
+            this.reportFile.write("--  Import of OBO File: " + treebuilder.getRootNode() );
             this.reportFile.newLine();
-            this.reportFile.write("  Using Reference: " + refTreebuilder.getRootNode() );
+            this.reportFile.write("--  Using Reference: " + refTreebuilder.getRootNode() );
             this.reportFile.newLine();
             this.reportFile.newLine();
             //Critical Warnings
-            this.reportFile.write("CRITICAL WARNINGS");
+            this.reportFile.write("--CRITICAL WARNINGS");
             this.reportFile.newLine();
-            this.reportFile.write("=================");
+            this.reportFile.write("--=================");
             this.reportFile.newLine();
             
             
@@ -143,8 +143,8 @@ public class GenerateSQL {
                 if( compie.getStrChangeStatus().equals("NEW") ){
                     if( compie.getStrRuleStatus().equals("FAILED") ) {
                         intFailed++;
-                        System.out.println( "SQL queries for New Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!" );
-                        this.reportFile.write( "SQL queries for New Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!" );
+                        System.out.println( "--SQL queries for New Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!" );
+                        this.reportFile.write( "--SQL queries for New Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!" );
                         this.reportFile.newLine();
                     }
                     newComponents.add( compie );
@@ -152,8 +152,8 @@ public class GenerateSQL {
                 if( compie.getStrChangeStatus().equals("DELETED") ){
                     if( compie.getStrRuleStatus().equals("FAILED") ){
                         intFailed++;
-                        System.out.println( "SQL queries for Deleted Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
-                        this.reportFile.write( "SQL queries for Deleted Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
+                        System.out.println( "--SQL queries for Deleted Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
+                        this.reportFile.write( "--SQL queries for Deleted Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
                         this.reportFile.newLine();
                     }
                     deletedComponents.add( compie );
@@ -161,8 +161,8 @@ public class GenerateSQL {
                 if( compie.getStrChangeStatus().equals("CHANGED") ){
                     if( compie.getStrRuleStatus().equals("FAILED") ){
                         intFailed++;
-                        System.out.println( "SQL queries for Changed Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
-                        this.reportFile.write( "SQL queries for Changed Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
+                        System.out.println( "--SQL queries for Changed Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
+                        this.reportFile.write( "--SQL queries for Changed Component " + compie.getID() + " " + compie.getName() + " with rule violation have been generated!");
                     }
                     changedComponents.add( compie );
                 }
@@ -200,7 +200,8 @@ public class GenerateSQL {
             //reorder siblings of deleted components that have order
             reorderANA_RELATIONSHIP( validDeletedComponents );
             //report for invalid delete term list that have not been deleted
-            reportDeletionSummary(deletedComponents, validDeletedComponents, this.unDeletedCompList);*/
+            reportDeletionSummary(deletedComponents, validDeletedComponents, this.unDeletedCompList);
+            */
             
             reportUpdateSummary();
             //modify components, set DBIDs and get only components that have dbids based on emap id
@@ -257,31 +258,31 @@ public class GenerateSQL {
             this.reportFile.newLine();
             this.reportFile.write("---------------------------------------------------------------------------------------------------------------------------");            
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DATABASE UPDATE SUMMARY");
+            this.reportFile.write("--DATABASE UPDATE SUMMARY");
             this.reportFile.newLine();
-            this.reportFile.write("=======================");
+            this.reportFile.write("--=======================");
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "ALLOWED UPDATES" );
-            this.reportFile.newLine();
-            this.reportFile.write( "---------------" );
-            this.reportFile.newLine();
-            this.reportFile.write( "Total Components from OBO File: " + proposedTermList.size() );
-            this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "NEW      : " + newComponents.size() );
-            this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "MODIFIED : " + changedComponents.size() );
-            this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "DELETED  : " + validDeletedComponents.size() );
-            this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "BLOCKED UPDATES" );
+            this.reportFile.write( "--ALLOWED UPDATES" );
             this.reportFile.newLine();
             this.reportFile.write( "---------------" );
             this.reportFile.newLine();
-            this.reportFile.write( "Total Components containing rule violations: " + intFailed );
+            this.reportFile.write( "--Total Components from OBO File: " + proposedTermList.size() );
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "Modified Components with rule violations: " + this.unModifiedCompList.size() );
+            this.reportFile.write( "--NEW      : " + newComponents.size() );
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "Deleted Components with rule violations: " + this.unDeletedCompList.size() );
+            this.reportFile.write( "--MODIFIED : " + changedComponents.size() );
+            this.reportFile.newLine(); this.reportFile.newLine();
+            this.reportFile.write( "--DELETED  : " + validDeletedComponents.size() );
+            this.reportFile.newLine(); this.reportFile.newLine();
+            this.reportFile.write( "--BLOCKED UPDATES" );
+            this.reportFile.newLine();
+            this.reportFile.write( "---------------" );
+            this.reportFile.newLine();
+            this.reportFile.write( "--Total Components containing rule violations: " + intFailed );
+            this.reportFile.newLine(); this.reportFile.newLine();
+            this.reportFile.write( "--Modified Components with rule violations: " + this.unModifiedCompList.size() );
+            this.reportFile.newLine(); this.reportFile.newLine();
+            this.reportFile.write( "--Deleted Components with rule violations: " + this.unDeletedCompList.size() );
             this.reportFile.newLine(); this.reportFile.newLine();
             
             this.reportFile.write( stringWriter.toString() ) ; 
@@ -309,10 +310,10 @@ public class GenerateSQL {
         //find ranges of stages that need to be inserted/deleted, create temporary components for ranges
         this.createDifferenceTimedComponents( changedStageTermList );
         report.println();
-        report.println( "STAGES" );
+        report.println( "--STAGES" );
         report.println( "------" );
-        report.println("Number of Components whose Stage Range was Extended: " + this.diffCreateTimedCompList.size() );
-        report.println("Number of Components whose Stage Range was Shortened: " + this.diffDeleteTimedCompList.size() );
+        report.println("--Number of Components whose Stage Range was Extended: " + this.diffCreateTimedCompList.size() );
+        report.println("--Number of Components whose Stage Range was Shortened: " + this.diffDeleteTimedCompList.size() );
         report.println();
         
         //insert time components in ANA_TIMED_NODE
@@ -336,10 +337,10 @@ public class GenerateSQL {
         //find ranges of stages that need to be inserted/deleted, create temporary components for ranges
         this.createDifferenceParents( changedParentsTermList );
         report.println();
-        report.println( "PARENTS" );
+        report.println( "--PARENTS" );
         report.println( "-------" );
-        report.println("Number of Components whose Parents were increased: " + this.diffCreateRelList.size() );
-        report.println("Number of Components whose Parents were removed: " + this.diffDeleteRelList.size() );
+        report.println("--Number of Components whose Parents were increased: " + this.diffCreateRelList.size() );
+        report.println("--Number of Components whose Parents were removed: " + this.diffDeleteRelList.size() );
         report.println();
         
         //insert relationships in ANA_RELATIONSHIP
@@ -361,10 +362,10 @@ public class GenerateSQL {
         this.createDifferenceSynonyms( changedSynonymsTermList );
         
         report.println();
-        report.println( "SYNONYMS" );
+        report.println( "--SYNONYMS" );
         report.println( "--------" );
-        report.println("Number of Components whose Synonyms were increased: " + this.diffCreateSynList.size() );
-        report.println("Number of Components whose Synonyms were removed: " + this.diffDeleteSynList.size() );
+        report.println("--Number of Components whose Synonyms were increased: " + this.diffCreateSynList.size() );
+        report.println("--Number of Components whose Synonyms were removed: " + this.diffDeleteSynList.size() );
         report.println();
 
         //insert relationships in ANA_SYNONYM
@@ -427,7 +428,7 @@ public class GenerateSQL {
 
                         //should never enter here if rule properly checked in CheckComponents
                         if ( arrOrderComments.length>1 ) {
-                            System.out.println("WARNING! more than one order comment for the same parent "
+                            System.out.println("--WARNING! more than one order comment for the same parent "
                                     + parent + " detected for component " + compie.getID());
                         }
                     } 
@@ -477,9 +478,9 @@ public class GenerateSQL {
         try{
             
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "UPDATE ANA_NODE COMPONENT NAMES" );
+            this.reportFile.write( "--UPDATE ANA_NODE COMPONENT NAMES" );
             this.reportFile.newLine();
-            this.reportFile.write( "===============================" );
+            this.reportFile.write( "--===============================" );
             this.reportFile.newLine(); this.reportFile.newLine();
             
             if ( changedNameTermList.isEmpty() ){
@@ -496,8 +497,8 @@ public class GenerateSQL {
                 preppie.setString( 2, compie.getID() );
                 preppie.addBatch();
                 
-                this.reportFile.write("UPDATE ANA_NODE SET ano_component_name = '" + compie.getName() +
-                                      "' WHERE ano_public_id = '" + compie.getID() + "'" );
+                this.reportFile.write("--UPDATE ANA_NODE SET ano_component_name = '" + compie.getName() +
+                                      "' WHERE ano_public_id = '" + compie.getID() + "';" );
                 this.reportFile.newLine();
             }
             if ( this.flagUpdateDB ) preppie.executeBatch();
@@ -515,9 +516,9 @@ public class GenerateSQL {
         
         try{
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "UPDATE ANA_NODE PRIMARY STATUS" );
+            this.reportFile.write( "--UPDATE ANA_NODE PRIMARY STATUS" );
             this.reportFile.newLine();
-            this.reportFile.write( "==============================" );
+            this.reportFile.write( "--==============================" );
             this.reportFile.newLine(); this.reportFile.newLine();
             
             if ( changedPrimaryTermList.isEmpty() ){
@@ -537,9 +538,9 @@ public class GenerateSQL {
                 preppie.setString( 2, compie.getID() );
                 preppie.addBatch();
                 
-                this.reportFile.write("UPDATE ANA_NODE SET ano_component_name = " + intIsPrimary +
+                this.reportFile.write("--UPDATE ANA_NODE SET ano_component_name = " + intIsPrimary +
                                       ", ano_is_group = " + intIsGroup + 
-                                      " WHERE ano_public_id = '" + compie.getID() + "'" );
+                                      " WHERE ano_public_id = '" + compie.getID() + "';" );
                 this.reportFile.newLine();
             }
             if ( this.flagUpdateDB ) preppie.executeBatch();
@@ -570,14 +571,14 @@ public class GenerateSQL {
 
             //ana_version summary
             report.println();
-            report.println( "ANA_VERSION INSERT SUMMARY" );
-            report.println( "==========================" );
+            report.println( "--ANA_VERSION INSERT SUMMARY" );
+            report.println( "--==========================" );
             
            //ana_node report header
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "ANA_VERSION" );
+            this.reportFile.write( "--ANA_VERSION" );
             this.reportFile.newLine();
-            this.reportFile.write( "===========" );
+            this.reportFile.write( "--===========" );
             this.reportFile.newLine(); this.reportFile.newLine();
             
            if ( newTermList.isEmpty() && delTermList.isEmpty() && modTermList.isEmpty() ){
@@ -605,23 +606,28 @@ public class GenerateSQL {
                //prepare values for insertion
                int intVER_OID = this.intCurrentVersionID;
                int intVER_NUMBER = ++intVersionEntries;
-               String strVER_DATE = datetime;
+               String strVER_DATE = "NOW()";
+               //String strVER_DATE = datetime;
                String strVER_COMMENTS = "DB2OBO Update: Editing the ontology";
                    
                //INSERT INTO ANA_VERSION
                query = "INSERT INTO ANA_VERSION " +
                        "(ver_oid, ver_number, ver_date, ver_comments) " + 
-                       "VALUES (" + intVER_OID + ", " + intVER_NUMBER + ", '" +
-                             strVER_DATE + "', '" + strVER_COMMENTS + "')";
+                       "VALUES (" + intVER_OID + ", " + intVER_NUMBER + ", " +
+                             strVER_DATE + ", '" + strVER_COMMENTS + "')";
+               //query = "INSERT INTO ANA_VERSION " +
+               //        "(ver_oid, ver_number, ver_date, ver_comments) " +
+               //        "VALUES (" + intVER_OID + ", " + intVER_NUMBER + ", '" +
+               //              strVER_DATE + "', '" + strVER_COMMENTS + "')";
                preppie =  this.newConnection.prepareStatement(query); 
 
                //write sql query to report file
-               this.reportFile.write(query);
+               this.reportFile.write("--" + query + ";");
                this.reportFile.newLine();
                
                //write summary to report file          
-               report.println( "Object id for update starts at " + this.intCurrentVersionID );
-               report.println( "Number of Records Inserted is always 1 if an update takes place." );
+               report.println( "--Object id for update starts at " + this.intCurrentVersionID );
+               report.println( "--Number of Records Inserted is always 1 if an update takes place." );
 
 
                if ( this.flagUpdateDB ) {
@@ -664,22 +670,23 @@ public class GenerateSQL {
             
             //format date and time to mysql standards
             Date now = new Date();
-            String datetime = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(now) + ":00";
+            String datetime = "NOW()";
+            //String datetime = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(now) + ":00";
 
             //ana_object summary
-            if ( calledFromTable.equals("ANA_OBJECT") ){
+            if ( calledFromTable.equals("--ANA_OBJECT") ){
                 //ana_object report header
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("ANA_OBJECT \n");
+                this.reportFile.write("--ANA_OBJECT \n");
                 this.reportFile.newLine();
-                this.reportFile.write("========== \n");
+                this.reportFile.write("--========== \n");
                 this.reportFile.newLine();
                 this.reportFile.newLine();
                 
                 report.println();
-                report.println("ANA_OBJECT SUMMARY");
+                report.println("--ANA_OBJECT SUMMARY");
                 report.println("==================");
-                report.println("Number of Records Inserted: " + newTermList.size() );
+                report.println("--Number of Records Inserted: " + newTermList.size() );
                 //System.out.println(newTermList.size() + " components to be updated.");
             }
             else if ( calledFromTable.equals("ANA_VERSION") ){
@@ -689,22 +696,22 @@ public class GenerateSQL {
             else if ( calledFromTable.equals("ANA_TIMED_NODE") ){
                 this.reportFile.write("-- Inserting Object IDs for New Timed Components --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Inserted for Timed Components in ANA_OBJECT: " + newTermList.size() );
+                report.println( "--Number of OID Records Inserted for Timed Components in ANA_OBJECT: " + newTermList.size() );
             }
             else if ( calledFromTable.equals("ANA_SYNONYM") ){
                 this.reportFile.write("-- Inserting Object IDs for New Synonyms --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Inserted for Synonyms in ANA_OBJECT: " + newTermList.size() );
+                report.println( "--Number of OID Records Inserted for Synonyms in ANA_OBJECT: " + newTermList.size() );
             }
             else if ( calledFromTable.equals("ANA_NODE") ){
                 this.reportFile.write("-- Inserting Object IDs for Creation of New Components --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Inserted for New Components in ANA_OBJECT: " + newTermList.size() );
+                report.println( "--Number of OID Records Inserted for New Components in ANA_OBJECT: " + newTermList.size() );
             }
             else if ( calledFromTable.equals("ANA_RELATIONSHIP") ){
                 this.reportFile.write("-- Inserting Object IDs for Adding New part-of Links --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Inserted for New part-of Links in ANA_OBJECT: " + newTermList.size() );
+                report.println( "--Number of OID Records Inserted for New part-of Links in ANA_OBJECT: " + newTermList.size() );
             }
       
             
@@ -717,7 +724,7 @@ public class GenerateSQL {
                 //INSERT INTO ANA_OBJECT
                 String query = "INSERT INTO ANA_OBJECT " + 
                                "(obj_oid , obj_creation_datetime, obj_creator_fk) " +
-                               "VALUES (?, '" + datetime + "', NULL)";
+                               "VALUES (?, " + datetime + ", NULL)";
                 preppie =  this.newConnection.prepareStatement(query);
                 
                 for(int i=0; i<newTermList.size(); i++){
@@ -734,9 +741,9 @@ public class GenerateSQL {
                     preppie.setInt(1, intOBJ_OID);
                     preppie.addBatch();
 
-                    this.reportFile.write("INSERT INTO ANA_OBJECT " + 
+                    this.reportFile.write("--INSERT INTO ANA_OBJECT " +
                         "(obj_oid , obj_creation_datetime, obj_creator_fk) " +
-                        "VALUES (" + intOBJ_OID + ", '" + datetime + "', NULL)" + "\n");
+                        "VALUES (" + intOBJ_OID + ", " + datetime + ", NULL)" + ";");
                     this.reportFile.newLine();
                 }
                 if( this.flagUpdateDB ) {
@@ -784,15 +791,15 @@ public class GenerateSQL {
 
             //ana_node summary
             report.println();
-            report.println( "ANA_NODE INSERT SUMMARY" );
-            report.println( "=======================" );
-            report.println( " EMAPA:ID assigned for new components created by user: ");
+            report.println( "--ANA_NODE INSERT SUMMARY" );
+            report.println( "--=======================" );
+            report.println( "-- EMAPA:ID assigned for new components created by user: ");
             
            //ana_node report header
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write( "ANA_NODE" );
+            this.reportFile.write( "--ANA_NODE" );
             this.reportFile.newLine();
-            this.reportFile.write( "========" );
+            this.reportFile.write( "--========" );
             this.reportFile.newLine(); this.reportFile.newLine();
             
            if ( newTermList.isEmpty() ){
@@ -835,7 +842,7 @@ public class GenerateSQL {
                    //System.out.println("assigning new Emapa id to new component: " + compie.getID());
 
                    
-                   report.println( "  " + Integer.toString(i+1) + ". " + "Created by user: " + compie.getID() + " " + compie.getName() + " : Assigned ID: EMAPA:" + this.intCurrentPublicID );
+                   report.println( "--  " + Integer.toString(i+1) + ". " + "Created by user: " + compie.getID() + " " + compie.getName() + " : Assigned ID: EMAPA:" + this.intCurrentPublicID );
                    //comment new component with generated EMAPA id
                    this.tree.getComponent( compie.getID() ).setCheckComment("New EMAPA:ID generated: " + strANO_PUBLIC_ID);
 
@@ -861,19 +868,19 @@ public class GenerateSQL {
                    //if too slow write code here to execute for every batch of 500 records
                    //and remove finally block
 
-                   this.reportFile.write("INSERT INTO ANA_NODE (" +
+                   this.reportFile.write("--INSERT INTO ANA_NODE (" +
                        "ano_oid, ano_species_fk, ano_component_name, ano_is_primary, ano_is_group, " +
                        "ano_public_id, ano_description) " + 
                        "VALUES (" +
                        intANO_OID + ", '" + strANO_SPECIES_FK + "', '" + strANO_COMPONENT_NAME + "', " +
-                       intANO_IS_PRIMARY + ", " + intANO_IS_GROUP + ", '" + strANO_PUBLIC_ID + "', NULL)" + "\n");
+                       intANO_IS_PRIMARY + ", " + intANO_IS_GROUP + ", '" + strANO_PUBLIC_ID + "', NULL)" + ";");
                    this.reportFile.newLine();
                }
                if ( this.flagUpdateDB ) preppie.executeBatch();
                preppie.close();
            }
             
-           report.println( "Number of Records Inserted: " + newTermList.size() );
+           report.println( "--Number of Records Inserted: " + newTermList.size() );
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -931,24 +938,24 @@ public class GenerateSQL {
             if ( calledFrom.equals("MODIFY") ){
                //ana_timed_node delete summary
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("INSERTION IN ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR CREATION OF NEW PARENTS FOR MODIFIED COMPONENTS \n");
+                this.reportFile.write("--INSERTION IN ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR CREATION OF NEW PARENTS FOR MODIFIED COMPONENTS \n");
                 this.reportFile.newLine();
-                this.reportFile.write("============================================================================================================== \n");
+                this.reportFile.write("--============================================================================================================== \n");
                 this.reportFile.newLine(); this.reportFile.newLine();       
             }
             else if ( calledFrom.equals("NEW") ) {
                 //ana_relationship query header
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("ANA_RELATIONSHIP" + "\n");
+                this.reportFile.write("--ANA_RELATIONSHIP" + "\n");
                 this.reportFile.newLine();
-                this.reportFile.write("================" + "\n");
+                this.reportFile.write("--================" + "\n");
                 this.reportFile.newLine(); this.reportFile.newLine(); 
                
                 //summary
                 //ana_relationship summary
                 report.println();
-                report.println("ANA_RELATIONSHIP INSERT SUMMARY");
-                report.println("===============================");
+                report.println("--ANA_RELATIONSHIP INSERT SUMMARY");
+                report.println("--===============================");
             }
 
            
@@ -959,13 +966,26 @@ public class GenerateSQL {
            else{
                //INSERT INTO ANA_RELATIONSHIP
                query = "INSERT INTO ANA_RELATIONSHIP " +
-                       "(rel_oid, rel_relationship_type_fk, rel_child_fk, rel_parent_fk, rel_sequence) " + 
-                       "VALUES (?, 'part-of', ?, ?, ? )";
+                       "(rel_oid, rel_relationship_type_fk, rel_child_fk, rel_parent_fk) " + 
+                       "VALUES (?, 'part-of', ?, ? )";
                preppie =  this.newConnection.prepareStatement(query);
+
                String queryProject = "INSERT INTO ANA_RELATIONSHIP_PROJECT " +
                               "(rlp_oid, rlp_relationship_fk, rlp_project_fk, rlp_sequence) " +
                               "VALUES (?, ?, '" + project + "', ?)";
                PreparedStatement preppieProject = this.newConnection.prepareStatement(queryProject);
+
+               String project2 = "";
+               if ( project.equals("GUDMAP") ) {
+                   project2 = "EMAP";
+               }
+               if ( project.equals("EMAP") ) {
+                   project2 = "GUDMAP";
+               }
+               String queryProject2 = "INSERT INTO ANA_RELATIONSHIP_PROJECT " +
+                              "(rlp_oid, rlp_relationship_fk, rlp_project_fk, rlp_sequence) " +
+                              "VALUES (?, ?, '" + project2 + "', ?)";
+               PreparedStatement preppieProject2 = this.newConnection.prepareStatement(queryProject2);
                
                for(int i = 0; i< newTermList.size(); i++){
 
@@ -1092,22 +1112,19 @@ public class GenerateSQL {
                         //int intREL_SEQUENCE = 0;
 
                         strSeq = (intREL_SEQUENCE==-1) ? "null" : Integer.toString(intREL_SEQUENCE);
+
                         preppie.setInt( 1, intREL_OID );
                         preppie.setInt( 2, intREL_CHILD_FK );
                         preppie.setInt( 3, intREL_PARENT_FK );
-                        if ( strSeq.equals("null") ){
-                            preppie.setNull( 4, java.sql.Types.INTEGER );
-                        } else{
-                            preppie.setInt( 4, intREL_SEQUENCE );
-                        }
-                        /*System.out.println( "INSERT INTO ANA_RELATIONSHIP " +
-                            "(rel_oid, rel_relationship_type_fk, rel_child_fk, rel_parent_fk, rel_sequence) " +
-                            "VALUES (" + intREL_OID + ", 'part-of', " + intREL_CHILD_FK + ", " +
-                            intREL_PARENT_FK + ", " + strSeq + ")" );*/
-                        //if( this.flagUpdateDB ) preppie.execute();
                         preppie.addBatch();
+                        this.reportFile.write( "--INSERT INTO ANA_RELATIONSHIP " +
+                            "(rel_oid, rel_relationship_type_fk, rel_child_fk, rel_parent_fk) " +
+                            "VALUES (" + intREL_OID + ", 'part-of', " + intREL_CHILD_FK + ", " +
+                            intREL_PARENT_FK + ");" );
+                        this.reportFile.newLine();
 
                         intMAX_PK++; //get max primary key for ana_relationship_project
+
                         preppieProject.setInt( 1, intMAX_PK );
                         preppieProject.setInt( 2, intREL_OID );
                         if ( strSeq.equals("null") ){
@@ -1116,17 +1133,21 @@ public class GenerateSQL {
                             preppieProject.setInt( 3, intREL_SEQUENCE );
                         }
                         preppieProject.addBatch();
-                        
-
-                        strSeq = (intREL_SEQUENCE==-1) ? "null" : Integer.toString(intREL_SEQUENCE);
-                        this.reportFile.write( "INSERT INTO ANA_RELATIONSHIP " +
-                            "(rel_oid, rel_relationship_type_fk, rel_child_fk, rel_parent_fk, rel_sequence) " + 
-                            "VALUES (" + intREL_OID + ", 'part-of', " + intREL_CHILD_FK + ", " + 
-                            intREL_PARENT_FK + ", " + strSeq + ")" );
-                        this.reportFile.newLine();
-                        this.reportFile.write( "INSERT INTO ANA_RELATIONSHIP_PROJECT " +
+                        this.reportFile.write( "--INSERT INTO ANA_RELATIONSHIP_PROJECT " +
                                 "(rlp_oid, rlp_relationship_fk, rlp_project_fk, rlp_sequence) " +
-                                "VALUES (" + intMAX_PK + ", " + intREL_OID + ", " + project + ", " + strSeq + ")");
+                                "VALUES (" + intMAX_PK + ", " + intREL_OID + ", '" + project + "', " + strSeq + ");");
+                        this.reportFile.newLine();
+                        
+                        intMAX_PK++; //get max primary key for ana_relationship_project
+
+                        preppieProject2.setInt( 1, intMAX_PK );
+                        preppieProject2.setInt( 2, intREL_OID );
+                        preppieProject2.setNull( 3, java.sql.Types.INTEGER );
+                        preppieProject2.addBatch();
+
+                        this.reportFile.write( "--INSERT INTO ANA_RELATIONSHIP_PROJECT " +
+                                "(rlp_oid, rlp_relationship_fk, rlp_project_fk, rlp_sequence) " +
+                                "VALUES (" + intMAX_PK + ", " + intREL_OID + ", '" + project2 + "', " + strSeq + ");");
                         this.reportFile.newLine();
                         
                    }
@@ -1134,15 +1155,17 @@ public class GenerateSQL {
                if( this.flagUpdateDB ) {
                    preppie.executeBatch();
                    preppieProject.executeBatch();
+                   preppieProject2.executeBatch();
                }
                preppie.close();
                preppieProject.close();
+               preppieProject2.close();
                
            }
             //print the number of records inserted for relationship after checks
-            report.println("Number of Records Inserted: " + intRecords );
+            report.println("--Number of Records Inserted: " + intRecords );
         } catch (Exception ex){
-            System.out.println("problem in ana_relationship at query " + batchreturn );
+            System.out.println("--problem in ana_relationship at query " + batchreturn );
             ex.printStackTrace();
         }  
     }
@@ -1168,17 +1191,17 @@ public class GenerateSQL {
            if ( calledFrom.equals("MODIFY")){
                //ana_timed_node delete summary
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("INSERTION IN ANA_TIMED_NODE FOR CREATION OF LARGER STAGE RANGES FOR MODIFIED COMPONENTS \n");
+                this.reportFile.write("--INSERTION IN ANA_TIMED_NODE FOR CREATION OF LARGER STAGE RANGES FOR MODIFIED COMPONENTS \n");
                 this.reportFile.newLine();
-                this.reportFile.write("======================================================================================= \n");
+                this.reportFile.write("--======================================================================================= \n");
                 this.reportFile.newLine(); this.reportFile.newLine();        
            }
            else if ( calledFrom.equals("NEW") ) {
                //ana_timed_node report header
                this.reportFile.newLine(); this.reportFile.newLine();
-               this.reportFile.write("ANA_TIMED_NODE");
+               this.reportFile.write("--ANA_TIMED_NODE");
                this.reportFile.newLine();
-               this.reportFile.write("==============");
+               this.reportFile.write("--==============");
                this.reportFile.newLine(); this.reportFile.newLine();
                
                //summary
@@ -1238,16 +1261,16 @@ public class GenerateSQL {
                    //System.out.println("INSERT INTO ANA_TIMED_NODE " +
                    //                   "(atn_oid, atn_node_fk, atn_stage_fk, atn_stage_modifier_fk, atn_public_id) " +
                    //                   "VALUES (" + intATN_OID + ", " + intATN_NODE_FK + ", " +  intATN_STAGE_FK + ", NULL, " + strATN_PUBLIC_ID + ")");
-                   this.reportFile.write("INSERT INTO ANA_TIMED_NODE " +
+                   this.reportFile.write("--INSERT INTO ANA_TIMED_NODE " +
                                          "(atn_oid, atn_node_fk, atn_stage_fk, atn_stage_modifier_fk, atn_public_id) " +
-                                         "VALUES (" + intATN_OID + ", " + intATN_NODE_FK + ", " +  intATN_STAGE_FK + ", NULL, " + strATN_PUBLIC_ID + ");" + "\n");
+                                         "VALUES (" + intATN_OID + ", " + intATN_NODE_FK + ", " +  intATN_STAGE_FK + ", NULL, " + strATN_PUBLIC_ID + ");");
                    this.reportFile.newLine();
                }
 
                if ( this.flagUpdateDB ) preppie.executeBatch();
                preppie.close();
            }
-           report.println("Number of Records Inserted in ANA_TIMED_NODE: " + timedCompList.size() );
+           report.println("--Number of Records Inserted in ANA_TIMED_NODE: " + timedCompList.size() );
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -1268,23 +1291,23 @@ public class GenerateSQL {
            if ( calledFrom.equals("MODIFY")){
                //ana_timed_node delete summary
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("INSERTION IN ANA_SYNONYM FOR CREATION OF NEW SYNONYMS FOR MODIFIED COMPONENTS \n");
+                this.reportFile.write("--INSERTION IN ANA_SYNONYM FOR CREATION OF NEW SYNONYMS FOR MODIFIED COMPONENTS \n");
                 this.reportFile.newLine();
-                this.reportFile.write("============================================================================= \n");
+                this.reportFile.write("--============================================================================= \n");
                 this.reportFile.newLine(); this.reportFile.newLine();       
            }
            else if ( calledFrom.equals("NEW") ) {
                 //ana_synonym report header
                 this.reportFile.newLine(); this.reportFile.newLine();
-                this.reportFile.write("ANA_SYNONYM \n");
+                this.reportFile.write("--ANA_SYNONYM \n");
                 this.reportFile.newLine();
-                this.reportFile.write("=========== \n");
+                this.reportFile.write("--=========== \n");
                 this.reportFile.newLine(); this.reportFile.newLine();
 
                 //ana_synonym summary
                 report.println();
-                report.println( "ANA_SYNONYM INSERT SUMMARY" );
-                report.println( "==========================" );
+                report.println( "--ANA_SYNONYM INSERT SUMMARY" );
+                report.println( "--==========================" );
            }
             
             //get max oid from referenced database
@@ -1346,7 +1369,7 @@ public class GenerateSQL {
                    //System.out.println( "INSERT INTO ANA_SYNONYM " +
                    // "(syn_oid, syn_object_fk, syn_synonym) " + 
                    // "VALUES (" + intSYN_OID + ", " + intSYN_OBJECT_FK + ", " + strSYN_SYNONYM + ");" );
-                   this.reportFile.write( "INSERT INTO ANA_SYNONYM " +
+                   this.reportFile.write( "--INSERT INTO ANA_SYNONYM " +
                     "(syn_oid, syn_object_fk, syn_synonym) " + 
                     "VALUES (" + intSYN_OID + ", " + intSYN_OBJECT_FK + ", '" + strSYN_SYNONYM + "');" + "\n" );
                    this.reportFile.newLine();
@@ -1354,7 +1377,7 @@ public class GenerateSQL {
                if ( this.flagUpdateDB ) preppie.executeBatch();
                preppie.close();
            }
-           report.println( "Number of records Inserted: " + synonymCompList.size() );
+           report.println( "--Number of records Inserted: " + synonymCompList.size() );
            
         } catch (Exception ex){
             ex.printStackTrace();
@@ -1390,7 +1413,7 @@ public class GenerateSQL {
     vRELcolumns.add("REL_RELATIONSHIP_TYPE_FK");
     vRELcolumns.add("REL_PARENT_FK");
     vRELcolumns.add("REL_CHILD_FK");
-    vRELcolumns.add("REL_SEQUENCE");
+    //vRELcolumns.add("REL_SEQUENCE");
     
     //ANA_TIMED_NODE columns
     Vector<String> vATNcolumns = new Vector();
@@ -1425,7 +1448,7 @@ public class GenerateSQL {
     String strREL_RELATIONSHIP_TYPE_FK = "";
     int intREL_PARENT_FK = 0;
     int intREL_CHILD_FK = 0;
-    int intREL_SEQUENCE = 0;
+    //int intREL_SEQUENCE = 0;
 
     //column values for selection from ANA_SYNONYM
     int intSYN_OID = 0;
@@ -1442,13 +1465,13 @@ public class GenerateSQL {
         
             //get max log_oid from new database
             ResultSet oidRS = null;
-            query = "SELECT MAX(log_oid) as max_oid FROM ana_log";
+            query = "SELECT MAX(log_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogOID = oidRS.getInt("max_oid");
             oidRS.close();
 
             //get max log_logged_oid from new database
-            query = "SELECT MAX(log_logged_oid) as max_oid FROM ana_log";
+            query = "SELECT MAX(log_logged_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogLoggedOID = oidRS.getInt("max_oid");
             oidRS.close();
@@ -1497,10 +1520,10 @@ public class GenerateSQL {
                         //    preppie.execute();
                         //}
 
-                        this.reportFile.write( "INSERT INTO ANA_LOG " +
+                        this.reportFile.write( "--INSERT INTO ANA_LOG " +
                             "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                             "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                            "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                            "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                         this.reportFile.newLine();
                     }
 
@@ -1541,10 +1564,10 @@ public class GenerateSQL {
                                     preppie.execute();
                                 }*/
 
-                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                this.reportFile.write( "--INSERT INTO ANA_LOG " +
                                 "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                 "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                         }     
                     }
@@ -1556,7 +1579,7 @@ public class GenerateSQL {
                         strREL_RELATIONSHIP_TYPE_FK = rs.getString("rel_relationship_type_fk");
                         intREL_PARENT_FK = rs.getInt("rel_parent_fk");
                         intREL_CHILD_FK = rs.getInt("rel_child_fk");
-                        intREL_SEQUENCE = rs.getInt("rel_sequence");
+                        //intREL_SEQUENCE = rs.getInt("rel_sequence");
 
                         //increment for each relationship record
                         ++intLogLoggedOID;
@@ -1567,7 +1590,7 @@ public class GenerateSQL {
                         relOldValues.put( "REL_RELATIONSHIP_TYPE_FK", strREL_RELATIONSHIP_TYPE_FK );
                         relOldValues.put( "REL_PARENT_FK", Integer.toString( intREL_PARENT_FK ) );
                         relOldValues.put( "REL_CHILD_FK", Integer.toString( intREL_CHILD_FK ) );
-                        relOldValues.put( "REL_SEQUENCE", Integer.toString( intREL_SEQUENCE ) );
+                        //relOldValues.put( "REL_SEQUENCE", Integer.toString( intREL_SEQUENCE ) );
 
                         for (String columnName: vRELcolumns){
                                 intLOG_OID = ++intLogOID;
@@ -1586,10 +1609,10 @@ public class GenerateSQL {
                                 //    preppie.execute();
                                 //}
 
-                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                this.reportFile.write( "--INSERT INTO ANA_LOG " +
                                 "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                 "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                         }     
                     }
@@ -1627,10 +1650,10 @@ public class GenerateSQL {
                                 //    preppie.execute();
                                 //}
 
-                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                this.reportFile.write( "--INSERT INTO ANA_LOG " +
                                 "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                 "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                         }     
                     }
@@ -1653,6 +1676,8 @@ public class GenerateSQL {
         PreparedStatement preppie = null;
         int intStartKey = 0;
         int intEndKey = 0;
+        String stageName = "";
+        int intStage = 0;
         
         //ANA_TIMED_NODE columns
         Vector<String> vATNcolumns = new Vector();
@@ -1683,19 +1708,19 @@ public class GenerateSQL {
             
             //ana_timed_node delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("INSERTION IN ANA_LOG FOR DELETION OF TIME COMPONENTS FOR MODIFIED STAGE RANGES \n");
+            this.reportFile.write("--INSERTION IN ANA_LOG FOR DELETION OF TIME COMPONENTS FOR MODIFIED STAGE RANGES \n");
             this.reportFile.newLine();
-            this.reportFile.write("============================================================================== \n");
+            this.reportFile.write("--============================================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine(); 
             //get max log_oid from new database
             ResultSet oidRS = null;
-            String query = "SELECT MAX(log_oid) as max_oid FROM ana_log";
+            String query = "SELECT MAX(log_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogOID = oidRS.getInt("max_oid");
             oidRS.close();
 
             //get max log_logged_oid from new database
-            query = "SELECT MAX(log_logged_oid) as max_oid FROM ana_log";
+            query = "SELECT MAX(log_logged_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogLoggedOID = oidRS.getInt("max_oid");
             oidRS.close();
@@ -1713,13 +1738,28 @@ public class GenerateSQL {
             else{
                 for ( Component compie: diffDeleteTimeComponents ){
 
-                    intStartKey = mapStageIDs.get( compie.getStartsAt() );
-                    intEndKey = mapStageIDs.get( compie.getEndsAt() );
+                    //intStartKey = mapStageIDs.get( compie.getStartsAt() );
+                    //intEndKey = mapStageIDs.get( compie.getEndsAt() );
+                    intStartKey = compie.getIntStartsAt();
+                    intEndKey = compie.getIntEndsAt();
 
                     for ( int stage=intStartKey; stage<=intEndKey; stage++ ){
-
-                        query = "SELECT * FROM ANA_TIMED_NODE WHERE atn_node_fk = " + compie.getDBID() + " " +
-                                "AND atn_stage_fk = " + stage;
+                        String strNumber = Integer.toString(stage);
+                        if ( strNumber.length() == 1 ) {
+                            stageName = "TS0" + stage;
+                        }
+                        else {
+                            stageName = "TS" + stage;
+                        }
+                        //query = "SELECT * FROM ANA_TIMED_NODE WHERE atn_node_fk = " + compie.getDBID() + " " +
+                        //        "AND atn_stage_fk = " + stage;
+                        query = "SELECT atn_oid, atn_node_fk, atn_stage_fk, " +
+                                "atn_stage_modifier_fk, atn_public_id " +
+                                "FROM ANA_TIMED_NODE "+
+                                "JOIN ANA_STAGE on atn_stage_fk = stg_oid " +
+                                "WHERE atn_node_fk = " + compie.getDBID() + " " +
+                                "AND stg_name = '" + stageName + "'";
+                        //System.out.println("New Query: " + query );
                         ResultSet rs = this.newConnection.createStatement().executeQuery(query);
 
                         while ( rs.next() ){ //should have only one record for each abstract timed node+stage combo
@@ -1762,10 +1802,10 @@ public class GenerateSQL {
                                 //add each record
                                 preppie.addBatch();
 
-                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                this.reportFile.write( "--INSERT INTO ANA_LOG " +
                                 "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                 "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                             }     
                         }
@@ -1797,14 +1837,14 @@ public class GenerateSQL {
         vRELcolumns.add("REL_RELATIONSHIP_TYPE_FK");
         vRELcolumns.add("REL_PARENT_FK");
         vRELcolumns.add("REL_CHILD_FK");
-        vRELcolumns.add("REL_SEQUENCE");
+        //vRELcolumns.add("REL_SEQUENCE");
         
         //column values for selection from ANA_RELATIONSHIP
         int intREL_OID = 0;
         String strREL_RELATIONSHIP_TYPE_FK = "";
         int intREL_PARENT_FK = 0;
         int intREL_CHILD_FK = 0;
-        int intREL_SEQUENCE = 0;
+        //int intREL_SEQUENCE = 0;
         
         //column values for insertion into ANA_LOG
         int intLOG_OID = 0;
@@ -1817,19 +1857,19 @@ public class GenerateSQL {
         try{    
             //ana_timed_node delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("INSERTION IN ANA_LOG FOR DELETION OF PARENT RELATIONSHIPS OF MODIFIED COMPONENTS \n");
+            this.reportFile.write("--INSERTION IN ANA_LOG FOR DELETION OF PARENT RELATIONSHIPS OF MODIFIED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("================================================================================ \n");
+            this.reportFile.write("--================================================================================ \n");
             this.reportFile.newLine(); this.reportFile.newLine();
             //get max log_oid from new database
             ResultSet oidRS = null;
-            String query = "SELECT MAX(log_oid) as max_oid FROM ana_log";
+            String query = "SELECT MAX(log_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogOID = oidRS.getInt("max_oid");
             oidRS.close();
 
             //get max log_logged_oid from new database
-            query = "SELECT MAX(log_logged_oid) as max_oid FROM ana_log";
+            query = "SELECT MAX(log_logged_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogLoggedOID = oidRS.getInt("max_oid");
             oidRS.close();
@@ -1869,7 +1909,7 @@ public class GenerateSQL {
                             strREL_RELATIONSHIP_TYPE_FK = rs.getString("rel_relationship_type_fk");
                             intREL_PARENT_FK = rs.getInt("rel_parent_fk");
                             intREL_CHILD_FK = rs.getInt("rel_child_fk");
-                            intREL_SEQUENCE = rs.getInt("rel_sequence");
+                            //intREL_SEQUENCE = rs.getInt("rel_sequence");
 
                             //increment for each relationship record
                             ++intLogLoggedOID;
@@ -1880,7 +1920,7 @@ public class GenerateSQL {
                             relOldValues.put( "REL_RELATIONSHIP_TYPE_FK", strREL_RELATIONSHIP_TYPE_FK );
                             relOldValues.put( "REL_PARENT_FK", Integer.toString( intREL_PARENT_FK ) );
                             relOldValues.put( "REL_CHILD_FK", Integer.toString( intREL_CHILD_FK ) );
-                            relOldValues.put( "REL_SEQUENCE", Integer.toString( intREL_SEQUENCE ) );
+                            //relOldValues.put( "REL_SEQUENCE", Integer.toString( intREL_SEQUENCE ) );
 
                             for (String columnName: vRELcolumns){
                                     intLOG_OID = ++intLogOID;
@@ -1895,15 +1935,15 @@ public class GenerateSQL {
                                     //add each record
                                     preppie.addBatch();
 
-                                    this.reportFile.write("INSERT INTO ANA_LOG " +
+                                    this.reportFile.write("--INSERT INTO ANA_LOG " +
                                     "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                     "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                    "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")");
+                                    "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");");
                                     this.reportFile.newLine();
                             }     
                         }
                         else {
-                            this.report.println("Delete Record Info: Attempt to remove component " 
+                            this.report.println("--Delete Record Info: Attempt to remove component "
                                     +  compie.getID() + " " + compie.getName() + "'s linkage to parent " + deleteParent + 
                                     " did not proceed. No parent-child relationship record for " + deleteParent + "-" + 
                                     compie.getID() + "could be found in ANA_RELATIONSHIP.");
@@ -1954,19 +1994,19 @@ public class GenerateSQL {
         try{    
             //ana_timed_node delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("INSERTION IN ANA_LOG FOR DELETION OF SYNONYMS OF MODIFIED COMPONENTS \n");
+            this.reportFile.write("--INSERTION IN ANA_LOG FOR DELETION OF SYNONYMS OF MODIFIED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("==================================================================== \n");
+            this.reportFile.write("--==================================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine();
             //get max log_oid from new database
             ResultSet oidRS = null;
-            String query = "SELECT MAX(log_oid) as max_oid FROM ana_log";
+            String query = "SELECT MAX(log_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogOID = oidRS.getInt("max_oid");
             oidRS.close();
 
             //get max log_logged_oid from new database
-            query = "SELECT MAX(log_logged_oid) as max_oid FROM ana_log";
+            query = "SELECT MAX(log_logged_oid) as max_oid FROM ANA_LOG";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             if ( oidRS.next() ) intLogLoggedOID = oidRS.getInt("max_oid");
             oidRS.close();
@@ -2028,18 +2068,18 @@ public class GenerateSQL {
                                 //add each record
                                 preppie.addBatch();
 
-                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                this.reportFile.write( "--INSERT INTO ANA_LOG " +
                                 "(log_oid, log_logged_oid, log_column_name, log_old_value, log_version_fk) " + 
                                 "VALUES (" + intLOG_OID + ", " + intLOG_LOGGED_OID + ", '" +  strLOG_COLUMN_NAME + 
-                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ")" );
+                                "', '" + strLOG_OLD_VALUE + "', " + intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                             }     
                         }
                         else {
-                            this.report.println("Delete Record Info: Attempt to delete synonym " + deleteSynonym + 
+                            this.report.println("--Delete Record Info: Attempt to delete synonym " + deleteSynonym +
                                     " belonging to " +  compie.getID() + " " + compie.getName() + 
                                     " did not proceed. No synonym record for " + deleteSynonym + 
-                                    " could be found in ANA_RELATIONSHIP.");
+                                    " could be found in ANA_SYNONYM.");
                         }
                     }
                 }
@@ -2079,9 +2119,9 @@ public class GenerateSQL {
         try{
             //delete component report header
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DELETION FROM ANA_OBJECT, ANA_NODE, ANA_RELATIONSHIP, ANA_TIMED_NODE, ANA_SYNONYM \n");
+            this.reportFile.write("--DELETION FROM ANA_OBJECT, ANA_NODE, ANA_RELATIONSHIP, ANA_TIMED_NODE, ANA_SYNONYM \n");
             this.reportFile.newLine();
-            this.reportFile.write("================================================================================= \n");
+            this.reportFile.write("--================================================================================= \n");
             this.reportFile.newLine(); this.reportFile.newLine();         
 
             //select object ids for all relationships from ANA_RELATIONSHIP
@@ -2140,7 +2180,7 @@ public class GenerateSQL {
                     while ( rs.next() ){
                         preppieDeleteObjects.setInt(1, rs.getInt("rel_oid"));
                         preppieDeleteObjects.addBatch();
-                        this.reportFile.write("DELETE FROM ANA_OBJECT WHERE obj_oid = " + rs.getInt("rel_oid"));
+                        this.reportFile.write("--DELETE FROM ANA_OBJECT WHERE obj_oid = " + rs.getInt("rel_oid") + ";");
                         this.reportFile.newLine();
                     }
 
@@ -2150,7 +2190,7 @@ public class GenerateSQL {
                     while ( rs.next() ){
                         preppieDeleteObjects.setInt(1, rs.getInt("atn_oid"));
                         preppieDeleteObjects.addBatch();
-                        this.reportFile.write("DELETE FROM ANA_OBJECT WHERE obj_oid = " + rs.getInt("atn_oid"));
+                        this.reportFile.write("--DELETE FROM ANA_OBJECT WHERE obj_oid = " + rs.getInt("atn_oid") + ";");
                         this.reportFile.newLine();
                     }
 
@@ -2211,9 +2251,9 @@ public class GenerateSQL {
         try{
             //reorder component report header
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("REORDERING REL_SEQUENCE IN ANA_RELATIONSHIP FOR DELETED COMPONENTS \n");
+            this.reportFile.write("--REORDERING RLP_SEQUENCE IN ANA_RELATIONSHIP_PROJECT FOR DELETED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("================================================================== \n");
+            this.reportFile.write("--========================================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine();
 
             if ( validDeleteTermList.isEmpty() ) {
@@ -2256,7 +2296,8 @@ public class GenerateSQL {
                     //exclude entries that are scheduled for deletion
                     preppieChildren = this.newConnection.prepareStatement( queryChildren );
                     preppieChildren.setInt(1, parentDBID);
-                    preppieChildren.setString(2, "GUDMAP");
+                    //preppieChildren.setString(2, "GUDMAP");
+                    preppieChildren.setString(2, project);
                     rsChildren = preppieChildren.executeQuery();
                     preppieReorder = this.newConnection.prepareStatement( queryReorder );
                     //reorder all child records that have a rel_seq entry
@@ -2266,8 +2307,8 @@ public class GenerateSQL {
                         preppieReorder.setInt( 2, intREL_OID );
                         preppieReorder.addBatch();
 
-                        this.reportFile.write("UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = " + intSEQ +
-                              " WHERE rlp_relationship_fk = " + intREL_OID );
+                        this.reportFile.write("--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = " + intSEQ +
+                              " WHERE rlp_relationship_fk = " + intREL_OID  + ";");
                         this.reportFile.newLine();
                         //increment rel_seq for next record
                         intSEQ++;
@@ -2297,22 +2338,19 @@ public class GenerateSQL {
         PreparedStatement preppieRels = null;
         ResultSet rsRels = null;
 
-        String queryRelsUnordered = "SELECT rel_oid FROM ANA_RELATIONSHIP WHERE rel_parent_fk = ? AND rel_oid NOT IN ";
+        String queryRelsUnordered = "SELECT rel_oid FROM ANA_RELATIONSHIP WHERE rel_parent_fk = ? ";
         PreparedStatement preppieRelsUnordered = null;
         ResultSet rsRelsUnordered = null;
 
         String queryUpdateProject = "UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = ? WHERE rlp_relationship_fk = ?";
         PreparedStatement preppieUpdateProject = null;
         
-        String queryUpdate = "UPDATE ANA_RELATIONSHIP SET rel_sequence = ? WHERE rel_oid = ?";
-        PreparedStatement preppieUpdate = null;
-
         try{
             //reorder component report header
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("REORDERING REL_SEQUENCE IN ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR MODIFIED COMPONENTS \n");
+            this.reportFile.write("--REORDERING RLP_SEQUENCE IN ANA_RELATIONSHIP_PROJECT FOR MODIFIED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("================================================================================================ \n");
+            this.reportFile.write("--=========================================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine();
 
             if ( mapParentChildren.isEmpty() ) {
@@ -2322,7 +2360,6 @@ public class GenerateSQL {
             else {
                 //prepare update statement
                 preppieUpdateProject = this.newConnection.prepareStatement( queryUpdateProject );
-                preppieUpdate = this.newConnection.prepareStatement( queryUpdate );
                 preppieRels = this.newConnection.prepareStatement( queryRels );
                 //for each entry in the map
                 for ( Iterator<String> i = mapParentChildren.keySet().iterator(); i.hasNext(); ){
@@ -2346,14 +2383,8 @@ public class GenerateSQL {
                             preppieUpdateProject.setNull(1, java.sql.Types.INTEGER);
                             preppieUpdateProject.setInt(2, intREL_OID);
                             preppieUpdateProject.addBatch();
-                            //update ana_relationship
-                            preppieUpdate.setNull(1, java.sql.Types.INTEGER);
-                            preppieUpdate.setInt(2, intREL_OID);
-                            preppieUpdate.addBatch();
 
-                            this.reportFile.write("UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = " + intREL_OID);
-                            this.reportFile.newLine();
-                            this.reportFile.write("UPDATE ANA_RELATIONSHIP SET rel_sequence = null WHERE rel_oid = " + intREL_OID);
+                            this.reportFile.write("--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = " + intREL_OID + ";");
                             this.reportFile.newLine();
                         }
                     } else{
@@ -2374,16 +2405,8 @@ public class GenerateSQL {
                                 preppieUpdateProject.setInt(1, intSEQ);
                                 preppieUpdateProject.setInt(2, intREL_OID);
                                 preppieUpdateProject.addBatch();
-                                //update ana_relationship
-                                preppieUpdate.setInt(1, intSEQ);
-                                preppieUpdate.setInt(2, intREL_OID);
-                                preppieUpdate.addBatch();
 
-                                this.reportFile.write("UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = " + intSEQ + " WHERE rlp_relationship_fk = " + intREL_OID);
-                                System.out.println("UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = " + intSEQ + " WHERE rlp_relationship_fk = " + intREL_OID);
-                                this.reportFile.newLine();
-                                this.reportFile.write("UPDATE ANA_RELATIONSHIP SET rel_sequence = " + intSEQ + " WHERE rel_oid = " + intREL_OID);
-                                System.out.println("UPDATE ANA_RELATIONSHIP SET rel_sequence = " + intSEQ + " WHERE rel_oid = " + intREL_OID);
+                                this.reportFile.write("--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = " + intSEQ + " WHERE rlp_relationship_fk = " + intREL_OID + ";");
                                 this.reportFile.newLine();
                             } else{ //if no relationship record found, child component is a new component
                                 intSEQ++; //skip this sequence number
@@ -2415,14 +2438,8 @@ public class GenerateSQL {
                             preppieUpdateProject.setNull(1, java.sql.Types.INTEGER);
                             preppieUpdateProject.setInt(2, intREL_OID);
                             preppieUpdateProject.addBatch();
-                            //update ana_relationship
-                            preppieUpdate.setNull(1, java.sql.Types.INTEGER);
-                            preppieUpdate.setInt(2, intREL_OID);
-                            preppieUpdate.addBatch();
 
-                            this.reportFile.write("UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = " + intREL_OID);
-                            this.reportFile.newLine();
-                            this.reportFile.write("UPDATE ANA_RELATIONSHIP SET rel_sequence = null WHERE rel_oid = " + intREL_OID);
+                            this.reportFile.write("--UPDATE ANA_RELATIONSHIP_PROJECT SET rlp_sequence = null WHERE rlp_relationship_fk = " + intREL_OID + ";");
                             this.reportFile.newLine();
                         }
                         preppieRelsUnordered.close();
@@ -2432,9 +2449,7 @@ public class GenerateSQL {
                 }
                 if ( this.flagUpdateDB ){
                     preppieUpdateProject.executeBatch();
-                    preppieUpdate.executeBatch();
                 }
-                preppieUpdate.close();
                 preppieUpdateProject.close();
                 preppieRels.close();
             }
@@ -2449,25 +2464,25 @@ public class GenerateSQL {
         try{
             //ana_object delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DELETION FROM ANA_OBJECT FOR MODIFIED COMPONENTS");
+            this.reportFile.write("--DELETION FROM ANA_OBJECT FOR MODIFIED COMPONENTS");
             this.reportFile.newLine();
-            this.reportFile.write("================================================");
+            this.reportFile.write("--================================================");
             this.reportFile.newLine(); this.reportFile.newLine();
             
             if ( calledFromTable.equals("ANA_TIMED_NODE") ){
                 this.reportFile.write("-- Deleting Object IDs of Timed Components for Shortening of Stage Ranges in Modified Components --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Deleted for Timed Components in ANA_OBJECT: " + deleteObjects.size() );
+                report.println( "--Number of OID Records Deleted for Timed Components in ANA_OBJECT: " + deleteObjects.size() );
             }
             else if ( calledFromTable.equals("ANA_SYNONYM") ){
                 this.reportFile.write("-- Deleting Object IDs of Synonyms for Removal of Synonyms in Modified Components --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Deleted for Synonyms in ANA_OBJECT: " + deleteObjects.size() );
+                report.println( "--Number of OID Records Deleted for Synonyms in ANA_OBJECT: " + deleteObjects.size() );
             }
             else if ( calledFromTable.equals("ANA_RELATIONSHIP") ){
                 this.reportFile.write("-- Deleting Object IDs of Relationships for Removal of Parents in Modified Components --");
                 this.reportFile.newLine(); this.reportFile.newLine();
-                report.println( "Number of OID Records Deleted for Relationships in ANA_OBJECT: " + deleteObjects.size() );
+                report.println( "--Number of OID Records Deleted for Relationships in ANA_OBJECT: " + deleteObjects.size() );
             }
             
             String query = "DELETE FROM ANA_OBJECT WHERE obj_oid = ?";
@@ -2482,7 +2497,7 @@ public class GenerateSQL {
                     //System.out.println("deleting object from ana_object for " + deleteObject.getDBID() + " " + deleteObject.getID() );
                     preppie.setInt( 1, Integer.parseInt( deleteObject.getDBID() ) );
                     preppie.addBatch();
-                    this.reportFile.write("DELETE FROM ANA_OBJECT WHERE obj_oid = " + deleteObject.getDBID() );
+                    this.reportFile.write("--DELETE FROM ANA_OBJECT WHERE obj_oid = " + deleteObject.getDBID() + ";" );
                     this.reportFile.newLine();
                 }
                 if ( flagUpdateDB ) preppie.executeBatch();
@@ -2496,13 +2511,15 @@ public class GenerateSQL {
 
     
     private void deleteANA_TIMED_NODE( ArrayList<Component> deleteTimedComponents ){
-        
+
+        HashMap<String, Integer> mapStageIDs = mapStageIDs();
+
         try{
             //ana_timed_node delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DELETION FROM ANA_TIMED_NODE FOR MODIFIED STAGE RANGES \n");
+            this.reportFile.write("--DELETION FROM ANA_TIMED_NODE FOR MODIFIED STAGE RANGES \n");
             this.reportFile.newLine();
-            this.reportFile.write("====================================================== \n");
+            this.reportFile.write("--====================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine();
         
             String query = "DELETE FROM ANA_TIMED_NODE WHERE atn_node_fk = ? " +
@@ -2517,10 +2534,14 @@ public class GenerateSQL {
                 for ( Component compie: deleteTimedComponents ){
                     //System.out.println( compie.getID() + " name:" + compie.getName() + " namespace:" + compie.getNamespace() );
                     preppie.setInt(1, Integer.parseInt( compie.getNamespace() ) );
-                    preppie.setInt(2, compie.getIntStartsAt() );
+                    //intStartKey = ;
+                    //System.out.println("Stage: " + mapStageIDs.get( compie.getStartsAt() ) );
+                    preppie.setInt(2, mapStageIDs.get( compie.getStartsAt() ) );
+                    //preppie.setInt(2, compie.getIntStartsAt() );
                     preppie.addBatch();
-                    this.reportFile.write("DELETE FROM ANA_TIMED_NODE WHERE atn_node_fk = " + compie.getNamespace() + 
-                                          " AND atn_stage_fk = " + compie.getIntStartsAt() );
+                    this.reportFile.write("--DELETE FROM ANA_TIMED_NODE WHERE atn_node_fk = " + compie.getNamespace() +
+                                          " AND atn_stage_fk = " + mapStageIDs.get( compie.getStartsAt() )  + ";");
+                                          //" AND atn_stage_fk = " + compie.getIntStartsAt()  + ";");
                     this.reportFile.newLine();
                 }
                 if ( flagUpdateDB ) preppie.executeBatch();
@@ -2536,9 +2557,9 @@ public class GenerateSQL {
         try{
             //ana_relationship delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DELETION FROM ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR MODIFIED COMPONENTS \n");
+            this.reportFile.write("--DELETION FROM ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT FOR MODIFIED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("=================================================================================== \n");
+            this.reportFile.write("--=================================================================================== \n");
             this.reportFile.newLine(); this.reportFile.newLine();           
             
             String query = "DELETE FROM ANA_RELATIONSHIP WHERE rel_child_fk = ? " +
@@ -2561,11 +2582,11 @@ public class GenerateSQL {
                     preppieProject.setInt( 1, Integer.parseInt( deleteRelCompie.getDBID() ) );
                     preppieProject.addBatch();
                     //record
-                    this.reportFile.write("DELETE FROM ANA_RELATIONSHIP WHERE rel_child_fk = " +
-                            deleteRelCompie.getID() + " AND rel_parent_fk = " + deleteRelCompie.getPartOf().get(0) );
+                    this.reportFile.write("--DELETE FROM ANA_RELATIONSHIP WHERE rel_child_fk = " +
+                            deleteRelCompie.getID() + " AND rel_parent_fk = " + deleteRelCompie.getPartOf().get(0)  + ";");
                     this.reportFile.newLine();
-                    this.reportFile.write("DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE " +
-                                          "rlp_relationship_fk = " + deleteRelCompie.getDBID() );
+                    this.reportFile.write("--DELETE FROM ANA_RELATIONSHIP_PROJECT WHERE " +
+                                          "rlp_relationship_fk = " + deleteRelCompie.getDBID()  + ";");
                     this.reportFile.newLine();
                 }
                 if ( flagUpdateDB ){
@@ -2585,9 +2606,9 @@ public class GenerateSQL {
         try{
             //ana_relationship delete summary
             this.reportFile.newLine(); this.reportFile.newLine();
-            this.reportFile.write("DELETION FROM ANA_SYNONYM FOR MODIFIED COMPONENTS \n");
+            this.reportFile.write("--DELETION FROM ANA_SYNONYM FOR MODIFIED COMPONENTS \n");
             this.reportFile.newLine();
-            this.reportFile.write("================================================= \n");
+            this.reportFile.write("--================================================= \n");
             this.reportFile.newLine(); this.reportFile.newLine();           
             
             String query = "DELETE FROM ANA_SYNONYM WHERE syn_oid = ?";
@@ -2601,7 +2622,7 @@ public class GenerateSQL {
                 for ( Component deleteSynCompie: deleteSynComponents ){
                     preppie.setInt( 1, Integer.parseInt( deleteSynCompie.getDBID() ) ); 
                     preppie.addBatch();
-                    this.reportFile.write("DELETE FROM ANA_SYNONYM WHERE syn_oid = " + deleteSynCompie.getDBID() );
+                    this.reportFile.write("--DELETE FROM ANA_SYNONYM WHERE syn_oid = " + deleteSynCompie.getDBID() + ";" );
                     this.reportFile.newLine();
                 }
                 if ( flagUpdateDB ) preppie.executeBatch();
@@ -2865,6 +2886,7 @@ public class GenerateSQL {
                    createTimedCompie.setStartsAt( compie.getStartsAt() );
                    createTimedCompie.setEndsAt( dbCompie.getIntStartsAt()-1 );
                    //System.out.println(createTimedCompie.getDBID() + " start:" + createTimedCompie.getStartsAt() + " end:" + createTimedCompie.getEndsAt() );
+                   //System.out.println(createTimedCompie.getDBID() + " start:" + createTimedCompie.getIntStartsAt() + " end:" + createTimedCompie.getIntEndsAt() );
                    this.diffCreateTimedCompList.add( createTimedCompie );
                 }
                 if ( dbCompie.getIntEndsAt() < compie.getIntEndsAt() ){
@@ -2875,6 +2897,7 @@ public class GenerateSQL {
                    createTimedCompie.setStartsAt( dbCompie.getIntEndsAt()+1 );
                    createTimedCompie.setEndsAt( compie.getEndsAt() );   
                    //System.out.println(createTimedCompie.getDBID() + " start:" + createTimedCompie.getStartsAt() + " end:" + createTimedCompie.getEndsAt() );
+                   //System.out.println(createTimedCompie.getDBID() + " start:" + createTimedCompie.getIntStartsAt() + " end:" + createTimedCompie.getIntEndsAt() );
                    this.diffCreateTimedCompList.add( createTimedCompie );
                 }
                 
@@ -2887,6 +2910,7 @@ public class GenerateSQL {
                    delTimedCompie.setStartsAt( dbCompie.getStartsAt() );
                    delTimedCompie.setEndsAt( compie.getIntStartsAt()-1 );
                    //System.out.println(delTimedCompie.getDBID() + " start:" + delTimedCompie.getStartsAt() + " end:" + delTimedCompie.getEndsAt() );
+                   //System.out.println(delTimedCompie.getDBID() + " start:" + delTimedCompie.getIntStartsAt() + " end:" + delTimedCompie.getIntEndsAt() );
                    this.diffDeleteTimedCompList.add( delTimedCompie );
                 }
                 if ( dbCompie.getIntEndsAt() > compie.getIntEndsAt() ){
@@ -2897,6 +2921,7 @@ public class GenerateSQL {
                     delTimedCompie.setStartsAt( compie.getIntEndsAt()+1 );
                     delTimedCompie.setEndsAt( dbCompie.getEndsAt() );
                     //System.out.println(delTimedCompie.getDBID() + " start:" + delTimedCompie.getStartsAt() + " end:" + delTimedCompie.getEndsAt() );
+                    //System.out.println(delTimedCompie.getDBID() + " start:" + delTimedCompie.getIntStartsAt() + " end:" + delTimedCompie.getIntEndsAt() );
                     this.diffDeleteTimedCompList.add( delTimedCompie );
                 }
             }
@@ -3002,17 +3027,17 @@ public class GenerateSQL {
         
            //ana_timed_node summary
            report.println();
-           report.println( "DELETION SUMMARY" );
-           report.println( "================" );
-           report.println( "Number of Components Scheduled to be Deleted: " + scheduledDeleteTermList.size() );
+           report.println( "--DELETION SUMMARY" );
+           report.println( "--================" );
+           report.println( "--Number of Components Scheduled to be Deleted: " + scheduledDeleteTermList.size() );
            for (int i = 0; i < scheduledDeleteTermList.size(); i++){
                report.println( "  " + scheduledDeleteTermList.get(i) );
            }
-           report.println( "Number of Components Succesfully Deleted: " + deletedTermList.size() );
+           report.println( "--Number of Components Succesfully Deleted: " + deletedTermList.size() );
            for (int i = 0; i < deletedTermList.size(); i++){
                report.println( "  " + deletedTermList.get(i) );
            }
-           report.println( "Number of Scheduled Components for Deletion that were not Deleted: " + notDeletedTermList.size() );
+           report.println( "--Number of Scheduled Components for Deletion that were not Deleted: " + notDeletedTermList.size() );
            for (int i = 0; i < notDeletedTermList.size(); i++){
                report.println( "  " + notDeletedTermList.get(i) );
                Set<String> comments = notDeletedTermList.get(i).getCheckComments(); 
@@ -3026,8 +3051,8 @@ public class GenerateSQL {
     
     private void reportUpdateSummary(){
         report.println();
-        report.println( "UPDATE SUMMARY" );
-        report.println( "==============" );
+        report.println( "--UPDATE SUMMARY" );
+        report.println( "--==============" );
     }
     
     private ArrayList < Component > createTimeComponents(ArrayList<Component> termList, String calledFrom){
@@ -3037,9 +3062,9 @@ public class GenerateSQL {
        ArrayList<Component> timedComps = new ArrayList<Component>();
 
        if ( calledFrom.equals("NEW") )
-            report.println( " EMAP:ID for Time Components created for new Components: " );
+            report.println( "-- EMAP:ID for Time Components created for new Components: " );
        else if ( calledFrom.equals("MODIFY") )
-            report.println( " EMAP:ID for Time Components created for stage range modification of existing Components: ");
+            report.println( "-- EMAP:ID for Time Components created for stage range modification of existing Components: ");
             
        for(int i = 0; i< termList.size(); i++){
 
@@ -3076,9 +3101,9 @@ public class GenerateSQL {
                    //object_counter++;
                    
                    if ( calledFrom.equals("NEW") )
-                       report.println( "  " + timedComps.size() + ". " + "Time component created for new component " + compie.getID() + " " + compie.getName() + " : " + timedCompie.getID() + " for " + timedCompie.getStartsAt() );
+                       report.println( "--  " + timedComps.size() + ". " + "Time component created for new component " + compie.getID() + " " + compie.getName() + " : " + timedCompie.getID() + " for " + timedCompie.getStartsAt() );
                    else if ( calledFrom.equals("MODIFY") )
-                       report.println( "  " + timedComps.size() + ". " + "Time component created for modification of stage range of component " + compie.getID() + " " + compie.getName() + " : " + timedCompie.getID() + " for " + timedCompie.getStartsAt() );
+                       report.println( "--  " + timedComps.size() + ". " + "Time component created for modification of stage range of component " + compie.getID() + " " + compie.getName() + " : " + timedCompie.getID() + " for " + timedCompie.getStartsAt() );
                    //else if ( calledFrom.equals("DELETE") )
                        //do nothing just used to update 
                        //report.println( "  " + timedComps.size() + ". " + "Time component created for " + compie.getID() + " " + compie.getName() + " : " + timedCompie.getID() + " for " + timedCompie.getStartsAt() );
@@ -3089,9 +3114,9 @@ public class GenerateSQL {
            if (!flagInsert) {
                //System.out.println("New Record Error: Component " + compie.getID() + " does not have a correct stage range." +  
                //                   "No database entries created for timed components of Component " + compie.getID() );
-               report.println( compie.getID() + " - No timed component records.");
-               report.println( "               " + " - Does not have a correct stage range.");
-               report.println( "               " + " - Next attempt to construct OBO file from database will trigger an error: No Starts_At & Ends_At for component entry.");
+               report.println( "--" +compie.getID() + " - No timed component records.");
+               report.println( "--               " + " - Does not have a correct stage range.");
+               report.println( "--               " + " - Next attempt to construct OBO file from database will trigger an error: No Starts_At & Ends_At for component entry.");
            }                                         
        }
        return timedComps;
@@ -3103,10 +3128,11 @@ public class GenerateSQL {
         ResultSet oidRS = null;
         
         try{
-            String query = "SELECT stg_oid, stg_name FROM ANA_STAGE ORDER BY stg_name";
+            //String query = "SELECT stg_oid, stg_name FROM ANA_STAGE ORDER BY stg_name";
+            String query = "SELECT stg_oid, stg_name FROM ANA_STAGE ORDER BY stg_sequence";
             oidRS = this.newConnection.createStatement().executeQuery(query);
             while ( oidRS.next() ){
-                stageNameToIDs.put( oidRS.getString("stg_name"), oidRS.getInt("stg_oid") );                
+                stageNameToIDs.put( oidRS.getString("stg_name"), oidRS.getInt("stg_oid"));
             }
         }
         catch(Exception ex){

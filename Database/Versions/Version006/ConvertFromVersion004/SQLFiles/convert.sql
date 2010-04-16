@@ -18,13 +18,17 @@
      as "==============================================";
  source createAnaRelationshipProject.sql;
 
+ select "***** Running dropAnaRelationshipSequence script. *****"
+     as "==============================================";
+ source dropAnaRelationshipSequence.sql
+
  select "***** Running createAdultKidneyGenePaint script. *****"
      as "==============================================";
  source createAdultKidneyGenePaint.sql;
 
- select "***** Running replaceDerivedData script. *****"
+ select "***** Running deleteDerivedData script. *****"
      as "==============================================";
- source replaceDerivedData.sql;
+ source deleteDerivedData.sql;
 
  select "***** Running schemaPost script. *****"
      as "======================================";

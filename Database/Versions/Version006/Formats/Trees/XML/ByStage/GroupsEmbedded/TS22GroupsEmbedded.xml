@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <mouseAnatomyReport>
-  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
   <perspective>Whole mouse</perspective>
   <stage>TS22</stage>
   <groupStatusKey>
@@ -935,7 +935,6 @@
               <name>early nephron GROUP</name>
               <emapaId>EMAPA:17954</emapaId>
               <groupPathStatus>isGroup</groupPathStatus>
-              <synonym>early tubule</synonym>
               <timedComponent emapId="EMAP:27998">
                 <name>cortical renal tubule</name>
                 <emapaId>EMAPA:18976</emapaId>
@@ -2097,8 +2096,7 @@
                 <name>degenerating mesonephric portion of male paramesonephric duct</name>
                 <emapaId>EMAPA:29161</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>Müllerian duct</synonym>
-                <synonym>Mllerian duct</synonym>
+                <synonym>Mullerian duct</synonym>
               </timedComponent>
               <timedComponent emapId="EMAP:30463">
                 <name>coelomic epithelium of male mesonephros</name>
@@ -2115,8 +2113,7 @@
               <name>degenerating rest of paramesonephric duct of male</name>
               <emapaId>EMAPA:29196</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>degenerating Müllerian duct</synonym>
-              <synonym>degenerating Mllerian duct</synonym>
+              <synonym>degenerating Mullerian duct</synonym>
               <timedComponent emapId="EMAP:29200">
                 <name>epithelium of degenerating rest of paramesonephric duct of male</name>
                 <emapaId>EMAPA:29199</emapaId>
@@ -2345,8 +2342,7 @@
                 <name>paramesonephric duct of female, mesonephric portion</name>
                 <emapaId>EMAPA:28937</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
               </timedComponent>
               <timedComponent emapId="EMAP:28932">
                 <name>rete ovarii of mesonephros</name>
@@ -2368,8 +2364,7 @@
               <name>paramesonephric duct of female, rest of</name>
               <emapaId>EMAPA:28940</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>Müllerian duct of female</synonym>
-              <synonym>Mllerian duct of female</synonym>
+              <synonym>Mullerian duct of female</synonym>
               <synonym>rest of</synonym>
               <timedComponent emapId="EMAP:28959">
                 <name>epithelium of rest of paramesonephric duct of female</name>
@@ -2460,7 +2455,7 @@
               <groupPathStatus>notInGroupPath</groupPathStatus>
             </timedComponent>
             <timedComponent emapId="EMAP:6695">
-              <name>Mllerian tubercle</name>
+              <name>Mullerian tubercle</name>
               <emapaId>EMAPA:18328</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
             </timedComponent>
@@ -2468,7 +2463,6 @@
               <name>genital tubercle of female</name>
               <emapaId>EMAPA:18680</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>clitoris anlage</synonym>
               <timedComponent emapId="EMAP:31846">
                 <name>urethral epithelium of female</name>
                 <emapaId>EMAPA:30470</emapaId>
@@ -9395,7 +9389,6 @@
                 <name>early nephron GROUP</name>
                 <emapaId>EMAPA:17954</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>early tubule</synonym>
                 <timedComponent emapId="EMAP:27998">
                   <name>cortical renal tubule</name>
                   <emapaId>EMAPA:18976</emapaId>
@@ -10557,8 +10550,7 @@
                   <name>degenerating mesonephric portion of male paramesonephric duct</name>
                   <emapaId>EMAPA:29161</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>Müllerian duct</synonym>
-                  <synonym>Mllerian duct</synonym>
+                  <synonym>Mullerian duct</synonym>
                 </timedComponent>
                 <timedComponent emapId="EMAP:30463">
                   <name>coelomic epithelium of male mesonephros</name>
@@ -10575,8 +10567,7 @@
                 <name>degenerating rest of paramesonephric duct of male</name>
                 <emapaId>EMAPA:29196</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>degenerating Müllerian duct</synonym>
-                <synonym>degenerating Mllerian duct</synonym>
+                <synonym>degenerating Mullerian duct</synonym>
                 <timedComponent emapId="EMAP:29200">
                   <name>epithelium of degenerating rest of paramesonephric duct of male</name>
                   <emapaId>EMAPA:29199</emapaId>
@@ -10805,8 +10796,7 @@
                   <name>paramesonephric duct of female, mesonephric portion</name>
                   <emapaId>EMAPA:28937</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>Müllerian duct of female</synonym>
-                  <synonym>Mllerian duct of female</synonym>
+                  <synonym>Mullerian duct of female</synonym>
                 </timedComponent>
                 <timedComponent emapId="EMAP:28932">
                   <name>rete ovarii of mesonephros</name>
@@ -10828,8 +10818,7 @@
                 <name>paramesonephric duct of female, rest of</name>
                 <emapaId>EMAPA:28940</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
                 <synonym>rest of</synonym>
                 <timedComponent emapId="EMAP:28959">
                   <name>epithelium of rest of paramesonephric duct of female</name>
@@ -10920,7 +10909,7 @@
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
               </timedComponent>
               <timedComponent emapId="EMAP:6695">
-                <name>Mllerian tubercle</name>
+                <name>Mullerian tubercle</name>
                 <emapaId>EMAPA:18328</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
               </timedComponent>
@@ -10928,7 +10917,6 @@
                 <name>genital tubercle of female</name>
                 <emapaId>EMAPA:18680</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
                 <timedComponent emapId="EMAP:31846">
                   <name>urethral epithelium of female</name>
                   <emapaId>EMAPA:30470</emapaId>

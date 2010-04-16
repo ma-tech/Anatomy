@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===== Anatomy Database Version 6, 2010-04-16 09:59:40 =====
 ===========================================================
 
 
@@ -235,7 +235,7 @@ EMAP:28086   | | | | | \ perihilar interstitium
 EMAP:31362   | | | | |   + perihilar fibroblast
 EMAP:31368   | | | | |   + resident macrophage of the perihilar interstitium (syn: renal monocytes of the perihilar interstitium)
 EMAP:31374   | | | | |   \ rest of perihilar interstitium
-EMAP:9549  G | | | | + early nephron GROUP (syn: early tubule)
+EMAP:9549  G | | | | + early nephron GROUP
 EMAP:9556  > | | | | | + cortical renal tubule
 EMAP:28006 ~ | | | | | | + early proximal tubule
 EMAP:31710 ~ | | | | | | | + early proximal tubule of capillary loop nephron (syn: anlage of proximal tubule)
@@ -511,6 +511,7 @@ EMAP:12728   | | | | + ejaculatory duct
 EMAP:12732   | | | | + gubernaculum (syn: caudal suspensory ligament)
 EMAP:9580    | | | | + mesorchium
 EMAP:9579    | | | | + genital tubercle of male (syn: penis anlage)
+EMAP:31856   | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAP:9582    | | | | | + glans penis
 EMAP:30633   | | | | | | + glans surface epithelium of male
 EMAP:30631   | | | | | | \ glans mesenchyme of male
@@ -523,6 +524,7 @@ EMAP:30625   | | | | | + scrotal fold mesenchyme of male
 EMAP:30628   | | | | | \ scrotal fold surface epithelium of male
 EMAP:30979 G | | | | \ male external genitalia
 EMAP:9579  > | | | |   + genital tubercle of male (syn: penis anlage)
+EMAP:31856 ~ | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAP:9582  ~ | | | |   | + glans penis
 EMAP:30633 ~ | | | |   | | + glans surface epithelium of male
 EMAP:30631 ~ | | | |   | | \ glans mesenchyme of male
@@ -553,7 +555,7 @@ EMAP:31036 > | | | | |   \ pre-granulosa cell
 EMAP:9562    | | | | + mesovarium
 EMAP:9565    | | | | + cystic vesicular appendage
 EMAP:12719   | | | | + suspensory ligament of ovary
-EMAP:9558    | | | | + Mùllerian tubercle
+EMAP:9558    | | | | + Mullerian tubercle
 EMAP:9574    | | | | + oviduct
 EMAP:30674   | | | | | + epithelial layer of oviduct
 EMAP:30673   | | | | | + muscle layer of oviduct
@@ -582,7 +584,7 @@ EMAP:30848 > | | | | | | \ muscular layer of upper part of vagina
 EMAP:31230 G | | | | | \ developing vasculature of vagina
 EMAP:31225 > | | | | |   + developing vasculature of lower part of vagina
 EMAP:31220 > | | | | |   \ developing vasculature of upper part of vagina
-EMAP:9559    | | | | + genital tubercle of female (syn: clitoris anlage)
+EMAP:9559    | | | | + genital tubercle of female
 EMAP:30683   | | | | | + preputial swelling of female (syn: prepuce of female)
 EMAP:30691   | | | | | | + surface epithelium of female preputial swelling
 EMAP:30687   | | | | | | + preputial gland of female
@@ -594,7 +596,7 @@ EMAP:9561    | | | | + labial swelling (syn: labia)
 EMAP:30439   | | | | | + surface epithelium of labial swelling
 EMAP:30434   | | | | | \ mesenchymal layer of labial swelling
 EMAP:30986 G | | | | \ female external genitalia
-EMAP:9559  > | | | |   + genital tubercle of female (syn: clitoris anlage)
+EMAP:9559  > | | | |   + genital tubercle of female
 EMAP:30683 ~ | | | |   | + preputial swelling of female (syn: prepuce of female)
 EMAP:30691 ~ | | | |   | | + surface epithelium of female preputial swelling
 EMAP:30687 ~ | | | |   | | + preputial gland of female
@@ -2107,7 +2109,7 @@ EMAP:28086 ~ | | | | | | \ perihilar interstitium
 EMAP:31362 ~ | | | | | |   + perihilar fibroblast
 EMAP:31368 ~ | | | | | |   + resident macrophage of the perihilar interstitium (syn: renal monocytes of the perihilar interstitium)
 EMAP:31374 ~ | | | | | |   \ rest of perihilar interstitium
-EMAP:9549  ~ | | | | | + early nephron GROUP (syn: early tubule)
+EMAP:9549  ~ | | | | | + early nephron GROUP
 EMAP:9556  ~ | | | | | | + cortical renal tubule
 EMAP:28006 ~ | | | | | | | + early proximal tubule
 EMAP:31710 ~ | | | | | | | | + early proximal tubule of capillary loop nephron (syn: anlage of proximal tubule)
@@ -2383,6 +2385,7 @@ EMAP:12728 ~ | | | | | + ejaculatory duct
 EMAP:12732 ~ | | | | | + gubernaculum (syn: caudal suspensory ligament)
 EMAP:9580  ~ | | | | | + mesorchium
 EMAP:9579  ~ | | | | | + genital tubercle of male (syn: penis anlage)
+EMAP:31856 ~ | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAP:9582  ~ | | | | | | + glans penis
 EMAP:30633 ~ | | | | | | | + glans surface epithelium of male
 EMAP:30631 ~ | | | | | | | \ glans mesenchyme of male
@@ -2395,6 +2398,7 @@ EMAP:30625 ~ | | | | | | + scrotal fold mesenchyme of male
 EMAP:30628 ~ | | | | | | \ scrotal fold surface epithelium of male
 EMAP:30979 ~ | | | | | \ male external genitalia
 EMAP:9579  ~ | | | | |   + genital tubercle of male (syn: penis anlage)
+EMAP:31856 ~ | | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAP:9582  ~ | | | | |   | + glans penis
 EMAP:30633 ~ | | | | |   | | + glans surface epithelium of male
 EMAP:30631 ~ | | | | |   | | \ glans mesenchyme of male
@@ -2425,7 +2429,7 @@ EMAP:31036 ~ | | | | | |   \ pre-granulosa cell
 EMAP:9562  ~ | | | | | + mesovarium
 EMAP:9565  ~ | | | | | + cystic vesicular appendage
 EMAP:12719 ~ | | | | | + suspensory ligament of ovary
-EMAP:9558  ~ | | | | | + Mùllerian tubercle
+EMAP:9558  ~ | | | | | + Mullerian tubercle
 EMAP:9574  ~ | | | | | + oviduct
 EMAP:30674 ~ | | | | | | + epithelial layer of oviduct
 EMAP:30673 ~ | | | | | | + muscle layer of oviduct
@@ -2454,7 +2458,7 @@ EMAP:30848 ~ | | | | | | | \ muscular layer of upper part of vagina
 EMAP:31230 ~ | | | | | | \ developing vasculature of vagina
 EMAP:31225 ~ | | | | | |   + developing vasculature of lower part of vagina
 EMAP:31220 ~ | | | | | |   \ developing vasculature of upper part of vagina
-EMAP:9559  ~ | | | | | + genital tubercle of female (syn: clitoris anlage)
+EMAP:9559  ~ | | | | | + genital tubercle of female
 EMAP:30683 ~ | | | | | | + preputial swelling of female (syn: prepuce of female)
 EMAP:30691 ~ | | | | | | | + surface epithelium of female preputial swelling
 EMAP:30687 ~ | | | | | | | + preputial gland of female
@@ -2466,7 +2470,7 @@ EMAP:9561  ~ | | | | | + labial swelling (syn: labia)
 EMAP:30439 ~ | | | | | | + surface epithelium of labial swelling
 EMAP:30434 ~ | | | | | | \ mesenchymal layer of labial swelling
 EMAP:30986 ~ | | | | | \ female external genitalia
-EMAP:9559  ~ | | | | |   + genital tubercle of female (syn: clitoris anlage)
+EMAP:9559  ~ | | | | |   + genital tubercle of female
 EMAP:30683 ~ | | | | |   | + preputial swelling of female (syn: prepuce of female)
 EMAP:30691 ~ | | | | |   | | + surface epithelium of female preputial swelling
 EMAP:30687 ~ | | | | |   | | + preputial gland of female

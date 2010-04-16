@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <mouseAnatomyReport>
-  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
   <perspective>Whole mouse</perspective>
   <stage>TS26</stage>
   <excludingGroupsTree>
@@ -532,28 +532,6 @@
                 <name>renal medulla</name>
                 <emapaId>EMAPA:19279</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <timedComponent emapId="EMAP:12271">
-                  <name>renal medullary interstitium</name>
-                  <emapaId>EMAPA:18326</emapaId>
-                  <groupPathStatus>notInGroupPath</groupPathStatus>
-                  <synonym>medullary stroma</synonym>
-                  <timedComponent emapId="EMAP:31330">
-                    <name>renal medullary fibroblasts</name>
-                    <emapaId>EMAPA:31326</emapaId>
-                    <groupPathStatus>notInGroupPath</groupPathStatus>
-                  </timedComponent>
-                  <timedComponent emapId="EMAP:31337">
-                    <name>resident macrophages of the medulla</name>
-                    <emapaId>EMAPA:31333</emapaId>
-                    <groupPathStatus>notInGroupPath</groupPathStatus>
-                    <synonym>renal monocytes of the medulla</synonym>
-                  </timedComponent>
-                  <timedComponent emapId="EMAP:31344">
-                    <name>rest of renal medullary interstitium</name>
-                    <emapaId>EMAPA:31340</emapaId>
-                    <groupPathStatus>notInGroupPath</groupPathStatus>
-                  </timedComponent>
-                </timedComponent>
                 <timedComponent emapId="EMAP:28312">
                   <name>outer medulla</name>
                   <emapaId>EMAPA:28310</emapaId>
@@ -1563,7 +1541,7 @@
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </timedComponent>
               <timedComponent emapId="EMAP:12278">
-                <name>Mllerian tubercle</name>
+                <name>Mullerian tubercle</name>
                 <emapaId>EMAPA:18328</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </timedComponent>
@@ -1669,7 +1647,6 @@
                 <name>genital tubercle of female</name>
                 <emapaId>EMAPA:18680</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
                 <timedComponent emapId="EMAP:12987">
                   <name>glans clitoris</name>
                   <emapaId>EMAPA:19170</emapaId>
@@ -15343,7 +15320,6 @@
                 <name>early nephron GROUP</name>
                 <emapaId>EMAPA:17954</emapaId>
                 <groupPathStatus>isGroup</groupPathStatus>
-                <synonym>early tubule</synonym>
                 <timedComponent emapId="EMAP:12276">
                   <name>cortical renal tubule</name>
                   <emapaId>EMAPA:18976</emapaId>
@@ -16253,28 +16229,6 @@
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   </timedComponent>
                 </timedComponent>
-                <timedComponent emapId="EMAP:12271">
-                  <name>renal medullary interstitium</name>
-                  <emapaId>EMAPA:18326</emapaId>
-                  <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
-                  <synonym>medullary stroma</synonym>
-                  <timedComponent emapId="EMAP:31330">
-                    <name>renal medullary fibroblasts</name>
-                    <emapaId>EMAPA:31326</emapaId>
-                    <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  </timedComponent>
-                  <timedComponent emapId="EMAP:31337">
-                    <name>resident macrophages of the medulla</name>
-                    <emapaId>EMAPA:31333</emapaId>
-                    <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    <synonym>renal monocytes of the medulla</synonym>
-                  </timedComponent>
-                  <timedComponent emapId="EMAP:31344">
-                    <name>rest of renal medullary interstitium</name>
-                    <emapaId>EMAPA:31340</emapaId>
-                    <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  </timedComponent>
-                </timedComponent>
                 <timedComponent emapId="EMAP:28339">
                   <name>outer medullary interstitium</name>
                   <emapaId>EMAPA:28337</emapaId>
@@ -17042,7 +16996,6 @@
                   <name>genital tubercle of female</name>
                   <emapaId>EMAPA:18680</emapaId>
                   <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
-                  <synonym>clitoris anlage</synonym>
                   <timedComponent emapId="EMAP:12987">
                     <name>glans clitoris</name>
                     <emapaId>EMAPA:19170</emapaId>
@@ -20144,28 +20097,6 @@
                   <name>renal medulla</name>
                   <emapaId>EMAPA:19279</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <timedComponent emapId="EMAP:12271">
-                    <name>renal medullary interstitium</name>
-                    <emapaId>EMAPA:18326</emapaId>
-                    <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    <synonym>medullary stroma</synonym>
-                    <timedComponent emapId="EMAP:31330">
-                      <name>renal medullary fibroblasts</name>
-                      <emapaId>EMAPA:31326</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    </timedComponent>
-                    <timedComponent emapId="EMAP:31337">
-                      <name>resident macrophages of the medulla</name>
-                      <emapaId>EMAPA:31333</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                      <synonym>renal monocytes of the medulla</synonym>
-                    </timedComponent>
-                    <timedComponent emapId="EMAP:31344">
-                      <name>rest of renal medullary interstitium</name>
-                      <emapaId>EMAPA:31340</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    </timedComponent>
-                  </timedComponent>
                   <timedComponent emapId="EMAP:28312">
                     <name>outer medulla</name>
                     <emapaId>EMAPA:28310</emapaId>
@@ -20426,7 +20357,6 @@
                   <name>early nephron GROUP</name>
                   <emapaId>EMAPA:17954</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>early tubule</synonym>
                   <timedComponent emapId="EMAP:12276">
                     <name>cortical renal tubule</name>
                     <emapaId>EMAPA:18976</emapaId>
@@ -21333,28 +21263,6 @@
                     <timedComponent emapId="EMAP:31309">
                       <name>rest of renal cortical interstitium</name>
                       <emapaId>EMAPA:31304</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    </timedComponent>
-                  </timedComponent>
-                  <timedComponent emapId="EMAP:12271">
-                    <name>renal medullary interstitium</name>
-                    <emapaId>EMAPA:18326</emapaId>
-                    <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    <synonym>medullary stroma</synonym>
-                    <timedComponent emapId="EMAP:31330">
-                      <name>renal medullary fibroblasts</name>
-                      <emapaId>EMAPA:31326</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    </timedComponent>
-                    <timedComponent emapId="EMAP:31337">
-                      <name>resident macrophages of the medulla</name>
-                      <emapaId>EMAPA:31333</emapaId>
-                      <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                      <synonym>renal monocytes of the medulla</synonym>
-                    </timedComponent>
-                    <timedComponent emapId="EMAP:31344">
-                      <name>rest of renal medullary interstitium</name>
-                      <emapaId>EMAPA:31340</emapaId>
                       <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     </timedComponent>
                   </timedComponent>
@@ -22851,7 +22759,7 @@
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </timedComponent>
                 <timedComponent emapId="EMAP:12278">
-                  <name>Mllerian tubercle</name>
+                  <name>Mullerian tubercle</name>
                   <emapaId>EMAPA:18328</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </timedComponent>
@@ -23002,7 +22910,6 @@
                   <name>genital tubercle of female</name>
                   <emapaId>EMAPA:18680</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>clitoris anlage</synonym>
                   <timedComponent emapId="EMAP:12987">
                     <name>glans clitoris</name>
                     <emapaId>EMAPA:19170</emapaId>
@@ -23100,7 +23007,6 @@
                     <name>genital tubercle of female</name>
                     <emapaId>EMAPA:18680</emapaId>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                    <synonym>clitoris anlage</synonym>
                     <timedComponent emapId="EMAP:12987">
                       <name>glans clitoris</name>
                       <emapaId>EMAPA:19170</emapaId>

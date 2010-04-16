@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===== Anatomy Database Version 6, 2010-04-16 09:59:40 =====
 ===========================================================
 
 
@@ -115,10 +115,6 @@ EMAP:30041   | | | | | | \ renal cortical capillary
 EMAP:31316   | | | | | + renal cortical lymphatics
 EMAP:31323   | | | | | \ renal cortical nerves
 EMAP:13155   | | | | + renal medulla
-EMAP:12271   | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31330   | | | | | | + renal medullary fibroblasts
-EMAP:31337   | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31344   | | | | | | \ rest of renal medullary interstitium
 EMAP:28312   | | | | | + outer medulla
 EMAP:28324   | | | | | | + loop of Henle, outer medullary portion
 EMAP:28327   | | | | | | | + thin descending limb
@@ -314,7 +310,7 @@ EMAP:12288   | | |   | \ rete ovarii of ovary
 EMAP:12282   | | |   + mesovarium
 EMAP:12285   | | |   + cystic vesicular appendage
 EMAP:12721   | | |   + suspensory ligament of ovary
-EMAP:12278   | | |   + Mùllerian tubercle
+EMAP:12278   | | |   + Mullerian tubercle
 EMAP:12294   | | |   + oviduct
 EMAP:29045   | | |   | + epithelial layer of oviduct
 EMAP:29048   | | |   | + muscle layer of oviduct
@@ -334,7 +330,7 @@ EMAP:12297   | | |   | \ upper part of vagina
 EMAP:29054   | | |   |   + epithelial layer of upper part of vagina
 EMAP:29057   | | |   |   + muscular layer of upper part of vagina
 EMAP:31222   | | |   |   \ developing vasculature of upper part of vagina
-EMAP:12279   | | |   + genital tubercle of female (syn: clitoris anlage)
+EMAP:12279   | | |   + genital tubercle of female
 EMAP:12987   | | |   | + glans clitoris
 EMAP:30722   | | |   | | + surface epithelium of glans clitoris
 EMAP:30717   | | |   | | \ mesenchyme of glans clitoris
@@ -3009,7 +3005,7 @@ EMAP:28354 > | | | | |   \ loop of Henle, inner medullary portion
 EMAP:28357 ~ | | | | |     + thin descending limb
 EMAP:28360 ~ | | | | |     + bend (syn: U-turn)
 EMAP:28363 ~ | | | | |     \ thin ascending limb (syn: ascending thin limb)
-EMAP:12269 G | | | | + early nephron GROUP (syn: early tubule)
+EMAP:12269 G | | | | + early nephron GROUP
 EMAP:12276 > | | | | | + cortical renal tubule
 EMAP:28283 ~ | | | | | | + renal proximal tubule
 EMAP:28286 ~ | | | | | | | + early proximal tubule
@@ -3179,10 +3175,6 @@ EMAP:28141 > | | | | | + renal cortical interstitium (syn: cortical stroma)
 EMAP:31293 ~ | | | | | | + renal cortical fibroblasts
 EMAP:31301 ~ | | | | | | + resident macrophages of the cortex (syn: renal monocytes of the cortex)
 EMAP:31309 ~ | | | | | | \ rest of renal cortical interstitium
-EMAP:12271 > | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31330 ~ | | | | | | + renal medullary fibroblasts
-EMAP:31337 ~ | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31344 ~ | | | | | | \ rest of renal medullary interstitium
 EMAP:28339 > | | | | | + outer medullary interstitium
 EMAP:31386 ~ | | | | | | + outer medullary fibroblast
 EMAP:31391 ~ | | | | | | + resident macrophage of the outer medulla (syn: renal monocytes of the outer medulla)
@@ -3333,7 +3325,7 @@ EMAP:31232 G | |   | | \ developing vasculature of vagina
 EMAP:31227 > | |   | |   + developing vasculature of lower part of vagina
 EMAP:31222 > | |   | |   \ developing vasculature of upper part of vagina
 EMAP:30988 G | |   | \ female external genitalia
-EMAP:12279 > | |   |   + genital tubercle of female (syn: clitoris anlage)
+EMAP:12279 > | |   |   + genital tubercle of female
 EMAP:12987 ~ | |   |   | + glans clitoris
 EMAP:30722 ~ | |   |   | | + surface epithelium of glans clitoris
 EMAP:30717 ~ | |   |   | | \ mesenchyme of glans clitoris
@@ -3929,10 +3921,6 @@ EMAP:28280 ~ | | | | | |   + extraglomerular mesangium
 EMAP:28401 ~ | | | | | |   + macula densa
 EMAP:28271 ~ | | | | | |   \ part of afferent arteriole forming the juxtaglomerular complex (syn: renin-producing cell)
 EMAP:13155 ~ | | | | | + renal medulla
-EMAP:12271 ~ | | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31330 ~ | | | | | | | + renal medullary fibroblasts
-EMAP:31337 ~ | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31344 ~ | | | | | | | \ rest of renal medullary interstitium
 EMAP:28312 ~ | | | | | | + outer medulla
 EMAP:28324 ~ | | | | | | | + loop of Henle, outer medullary portion
 EMAP:28327 ~ | | | | | | | | + thin descending limb
@@ -3980,7 +3968,7 @@ EMAP:28088 ~ | | | | | | \ perihilar interstitium
 EMAP:31364 ~ | | | | | |   + perihilar fibroblast
 EMAP:31370 ~ | | | | | |   + resident macrophage of the perihilar interstitium (syn: renal monocytes of the perihilar interstitium)
 EMAP:31376 ~ | | | | | |   \ rest of perihilar interstitium
-EMAP:12269 ~ | | | | | + early nephron GROUP (syn: early tubule)
+EMAP:12269 ~ | | | | | + early nephron GROUP
 EMAP:12276 ~ | | | | | | + cortical renal tubule
 EMAP:28283 ~ | | | | | | | + renal proximal tubule
 EMAP:28286 ~ | | | | | | | | + early proximal tubule
@@ -4150,10 +4138,6 @@ EMAP:28141 ~ | | | | | | + renal cortical interstitium (syn: cortical stroma)
 EMAP:31293 ~ | | | | | | | + renal cortical fibroblasts
 EMAP:31301 ~ | | | | | | | + resident macrophages of the cortex (syn: renal monocytes of the cortex)
 EMAP:31309 ~ | | | | | | | \ rest of renal cortical interstitium
-EMAP:12271 ~ | | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31330 ~ | | | | | | | + renal medullary fibroblasts
-EMAP:31337 ~ | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31344 ~ | | | | | | | \ rest of renal medullary interstitium
 EMAP:28339 ~ | | | | | | + outer medullary interstitium
 EMAP:31386 ~ | | | | | | | + outer medullary fibroblast
 EMAP:31391 ~ | | | | | | | + resident macrophage of the outer medulla (syn: renal monocytes of the outer medulla)
@@ -4446,7 +4430,7 @@ EMAP:31038 ~ | | | | | |   \ pre-granulosa cell
 EMAP:12282 ~ | | | | | + mesovarium
 EMAP:12285 ~ | | | | | + cystic vesicular appendage
 EMAP:12721 ~ | | | | | + suspensory ligament of ovary
-EMAP:12278 ~ | | | | | + Mùllerian tubercle
+EMAP:12278 ~ | | | | | + Mullerian tubercle
 EMAP:12294 ~ | | | | | + oviduct
 EMAP:29045 ~ | | | | | | + epithelial layer of oviduct
 EMAP:29048 ~ | | | | | | + muscle layer of oviduct
@@ -4475,7 +4459,7 @@ EMAP:29057 ~ | | | | | | | \ muscular layer of upper part of vagina
 EMAP:31232 ~ | | | | | | \ developing vasculature of vagina
 EMAP:31227 ~ | | | | | |   + developing vasculature of lower part of vagina
 EMAP:31222 ~ | | | | | |   \ developing vasculature of upper part of vagina
-EMAP:12279 ~ | | | | | + genital tubercle of female (syn: clitoris anlage)
+EMAP:12279 ~ | | | | | + genital tubercle of female
 EMAP:12987 ~ | | | | | | + glans clitoris
 EMAP:30722 ~ | | | | | | | + surface epithelium of glans clitoris
 EMAP:30717 ~ | | | | | | | \ mesenchyme of glans clitoris
@@ -4494,7 +4478,7 @@ EMAP:12991 ~ | | | | | + inguinal ring
 EMAP:12993 ~ | | | | | | + internal (syn: deep)
 EMAP:12995 ~ | | | | | | \ external (syn: superficial)
 EMAP:30988 ~ | | | | | \ female external genitalia
-EMAP:12279 ~ | | | | |   + genital tubercle of female (syn: clitoris anlage)
+EMAP:12279 ~ | | | | |   + genital tubercle of female
 EMAP:12987 ~ | | | | |   | + glans clitoris
 EMAP:30722 ~ | | | | |   | | + surface epithelium of glans clitoris
 EMAP:30717 ~ | | | | |   | | \ mesenchyme of glans clitoris

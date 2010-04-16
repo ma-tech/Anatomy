@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <mouseAnatomyReport>
-  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
   <perspective>Whole mouse</perspective>
   <stage>TS21</stage>
   <groupStatusKey>
@@ -275,7 +275,6 @@
               <name>early nephron GROUP</name>
               <emapaId>EMAPA:17954</emapaId>
               <groupPathStatus>isGroup</groupPathStatus>
-              <synonym>early tubule</synonym>
               <timedComponent emapId="EMAP:27680">
                 <name>renal vesicle</name>
                 <emapaId>EMAPA:27678</emapaId>
@@ -861,8 +860,7 @@
                 <emapaId>EMAPA:29158</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
                 <synonym>mesonephric portion of male</synonym>
-                <synonym>Müllerian duct of male</synonym>
-                <synonym>Mllerian duct of male</synonym>
+                <synonym>Mullerian duct of male</synonym>
               </timedComponent>
               <timedComponent emapId="EMAP:30462">
                 <name>coelomic epithelium of male mesonephros</name>
@@ -984,16 +982,6 @@
               <emapaId>EMAPA:17969</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
               <synonym>penis anlage</synonym>
-              <timedComponent emapId="EMAP:29172">
-                <name>genital tubercle surface epithelium of male</name>
-                <emapaId>EMAPA:29170</emapaId>
-                <groupPathStatus>notInGroupPath</groupPathStatus>
-              </timedComponent>
-              <timedComponent emapId="EMAP:29169">
-                <name>genital tubercle mesenchyme of male</name>
-                <emapaId>EMAPA:29167</emapaId>
-                <groupPathStatus>notInGroupPath</groupPathStatus>
-              </timedComponent>
               <timedComponent emapId="EMAP:30469">
                 <name>urethral epithelium of male</name>
                 <emapaId>EMAPA:30467</emapaId>
@@ -1125,8 +1113,7 @@
                 <name>paramesonephric duct of female, mesonephric portion</name>
                 <emapaId>EMAPA:28937</emapaId>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
               </timedComponent>
               <timedComponent emapId="EMAP:28931">
                 <name>rete ovarii of mesonephros</name>
@@ -1148,8 +1135,7 @@
               <name>paramesonephric duct of female, rest of</name>
               <emapaId>EMAPA:28940</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>Müllerian duct of female</synonym>
-              <synonym>Mllerian duct of female</synonym>
+              <synonym>Mullerian duct of female</synonym>
               <synonym>rest of</synonym>
               <timedComponent emapId="EMAP:28958">
                 <name>epithelium of rest of paramesonephric duct of female</name>
@@ -1233,17 +1219,6 @@
               <name>genital tubercle of female</name>
               <emapaId>EMAPA:18680</emapaId>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>clitoris anlage</synonym>
-              <timedComponent emapId="EMAP:29628">
-                <name>genital tubercle surface epithelium of female</name>
-                <emapaId>EMAPA:29626</emapaId>
-                <groupPathStatus>notInGroupPath</groupPathStatus>
-              </timedComponent>
-              <timedComponent emapId="EMAP:29623">
-                <name>genital tubercle mesenchyme of female</name>
-                <emapaId>EMAPA:29621</emapaId>
-                <groupPathStatus>notInGroupPath</groupPathStatus>
-              </timedComponent>
               <timedComponent emapId="EMAP:30472">
                 <name>urethral epithelium of female</name>
                 <emapaId>EMAPA:30470</emapaId>
@@ -6498,7 +6473,6 @@
                 <name>early nephron GROUP</name>
                 <emapaId>EMAPA:17954</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>early tubule</synonym>
                 <timedComponent emapId="EMAP:27680">
                   <name>renal vesicle</name>
                   <emapaId>EMAPA:27678</emapaId>
@@ -7084,8 +7058,7 @@
                   <emapaId>EMAPA:29158</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>mesonephric portion of male</synonym>
-                  <synonym>Müllerian duct of male</synonym>
-                  <synonym>Mllerian duct of male</synonym>
+                  <synonym>Mullerian duct of male</synonym>
                 </timedComponent>
                 <timedComponent emapId="EMAP:30462">
                   <name>coelomic epithelium of male mesonephros</name>
@@ -7207,16 +7180,6 @@
                 <emapaId>EMAPA:17969</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 <synonym>penis anlage</synonym>
-                <timedComponent emapId="EMAP:29172">
-                  <name>genital tubercle surface epithelium of male</name>
-                  <emapaId>EMAPA:29170</emapaId>
-                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                </timedComponent>
-                <timedComponent emapId="EMAP:29169">
-                  <name>genital tubercle mesenchyme of male</name>
-                  <emapaId>EMAPA:29167</emapaId>
-                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                </timedComponent>
                 <timedComponent emapId="EMAP:30469">
                   <name>urethral epithelium of male</name>
                   <emapaId>EMAPA:30467</emapaId>
@@ -7348,8 +7311,7 @@
                   <name>paramesonephric duct of female, mesonephric portion</name>
                   <emapaId>EMAPA:28937</emapaId>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>Müllerian duct of female</synonym>
-                  <synonym>Mllerian duct of female</synonym>
+                  <synonym>Mullerian duct of female</synonym>
                 </timedComponent>
                 <timedComponent emapId="EMAP:28931">
                   <name>rete ovarii of mesonephros</name>
@@ -7371,8 +7333,7 @@
                 <name>paramesonephric duct of female, rest of</name>
                 <emapaId>EMAPA:28940</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
                 <synonym>rest of</synonym>
                 <timedComponent emapId="EMAP:28958">
                   <name>epithelium of rest of paramesonephric duct of female</name>
@@ -7456,17 +7417,6 @@
                 <name>genital tubercle of female</name>
                 <emapaId>EMAPA:18680</emapaId>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
-                <timedComponent emapId="EMAP:29628">
-                  <name>genital tubercle surface epithelium of female</name>
-                  <emapaId>EMAPA:29626</emapaId>
-                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                </timedComponent>
-                <timedComponent emapId="EMAP:29623">
-                  <name>genital tubercle mesenchyme of female</name>
-                  <emapaId>EMAPA:29621</emapaId>
-                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                </timedComponent>
                 <timedComponent emapId="EMAP:30472">
                   <name>urethral epithelium of female</name>
                   <emapaId>EMAPA:30470</emapaId>

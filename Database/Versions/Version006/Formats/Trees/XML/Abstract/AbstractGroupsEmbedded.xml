@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <mouseAnatomyReport>
-  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
   <perspective>Whole mouse</perspective>
   <groupStatusKey>
     <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
@@ -2871,26 +2871,26 @@
               <abstractComponent emapaId="EMAPA:18326">
                 <name>renal medullary interstitium</name>
                 <pathStartStage>TS22</pathStartStage>
-                <pathEndStage>TS28</pathEndStage>
+                <pathEndStage>TS24</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
                 <synonym>medullary stroma</synonym>
                 <abstractComponent emapaId="EMAPA:31326">
                   <name>renal medullary fibroblasts</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>notInGroupPath</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:31333">
                   <name>resident macrophages of the medulla</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>notInGroupPath</groupPathStatus>
                   <synonym>renal monocytes of the medulla</synonym>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:31340">
                   <name>rest of renal medullary interstitium</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>notInGroupPath</groupPathStatus>
                 </abstractComponent>
               </abstractComponent>
@@ -3302,7 +3302,6 @@
               <pathStartStage>TS20</pathStartStage>
               <pathEndStage>TS28</pathEndStage>
               <groupPathStatus>isGroup</groupPathStatus>
-              <synonym>early tubule</synonym>
               <abstractComponent emapaId="EMAPA:18976">
                 <name>cortical renal tubule</name>
                 <pathStartStage>TS22</pathStartStage>
@@ -4968,26 +4967,26 @@
               <abstractComponent emapaId="EMAPA:18326">
                 <name>renal medullary interstitium</name>
                 <pathStartStage>TS22</pathStartStage>
-                <pathEndStage>TS28</pathEndStage>
+                <pathEndStage>TS24</pathEndStage>
                 <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
                 <synonym>medullary stroma</synonym>
                 <abstractComponent emapaId="EMAPA:31326">
                   <name>renal medullary fibroblasts</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:31333">
                   <name>resident macrophages of the medulla</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>renal monocytes of the medulla</synonym>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:31340">
                   <name>rest of renal medullary interstitium</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS28</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
               </abstractComponent>
@@ -7013,16 +7012,14 @@
                 <pathEndStage>TS21</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
                 <synonym>mesonephric portion of male</synonym>
-                <synonym>Müllerian duct of male</synonym>
-                <synonym>Mllerian duct of male</synonym>
+                <synonym>Mullerian duct of male</synonym>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:29161">
                 <name>degenerating mesonephric portion of male paramesonephric duct</name>
                 <pathStartStage>TS22</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>Müllerian duct</synonym>
-                <synonym>Mllerian duct</synonym>
+                <synonym>Mullerian duct</synonym>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:30460">
                 <name>coelomic epithelium of male mesonephros</name>
@@ -7042,8 +7039,7 @@
               <pathStartStage>TS22</pathStartStage>
               <pathEndStage>TS23</pathEndStage>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>degenerating Müllerian duct</synonym>
-              <synonym>degenerating Mllerian duct</synonym>
+              <synonym>degenerating Mullerian duct</synonym>
               <abstractComponent emapaId="EMAPA:29199">
                 <name>epithelium of degenerating rest of paramesonephric duct of male</name>
                 <pathStartStage>TS22</pathStartStage>
@@ -7957,19 +7953,19 @@
               <abstractComponent emapaId="EMAPA:29170">
                 <name>genital tubercle surface epithelium of male</name>
                 <pathStartStage>TS20</pathStartStage>
-                <pathEndStage>TS21</pathEndStage>
+                <pathEndStage>TS20</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:29167">
                 <name>genital tubercle mesenchyme of male</name>
                 <pathStartStage>TS20</pathStartStage>
-                <pathEndStage>TS21</pathEndStage>
+                <pathEndStage>TS20</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:30467">
                 <name>urethral epithelium of male</name>
                 <pathStartStage>TS20</pathStartStage>
-                <pathEndStage>TS23</pathEndStage>
+                <pathEndStage>TS24</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
                 <synonym>urethral plate</synonym>
                 <synonym>urethral seam</synonym>
@@ -8035,7 +8031,6 @@
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
                 <synonym>distal genital tubercle of male</synonym>
-                <synonym>penis</synonym>
                 <synonym>penis anlage</synonym>
                 <abstractComponent emapaId="EMAPA:29256">
                   <name>surface epithelium of glans of male genital tubercle</name>
@@ -8343,7 +8338,7 @@
                 <abstractComponent emapaId="EMAPA:30467">
                   <name>urethral epithelium of male</name>
                   <pathStartStage>TS23</pathStartStage>
-                  <pathEndStage>TS23</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>urethral plate</synonym>
                   <synonym>urethral seam</synonym>
@@ -8372,7 +8367,6 @@
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>distal genital tubercle of male</synonym>
-                  <synonym>penis</synonym>
                   <synonym>penis anlage</synonym>
                   <abstractComponent emapaId="EMAPA:29256">
                     <name>surface epithelium of glans of male genital tubercle</name>
@@ -8710,7 +8704,6 @@
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>distal genital tubercle of male</synonym>
-                  <synonym>penis</synonym>
                   <synonym>penis anlage</synonym>
                   <abstractComponent emapaId="EMAPA:29256">
                     <name>surface epithelium of glans of male genital tubercle</name>
@@ -8885,8 +8878,7 @@
                 <pathStartStage>TS20</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
                 <abstractComponent emapaId="EMAPA:30070">
                   <name>epithelium of paramesonephric duct, mesonephric portion</name>
                   <pathStartStage>TS23</pathStartStage>
@@ -8924,8 +8916,7 @@
               <pathStartStage>TS20</pathStartStage>
               <pathEndStage>TS23</pathEndStage>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>Müllerian duct of female</synonym>
-              <synonym>Mllerian duct of female</synonym>
+              <synonym>Mullerian duct of female</synonym>
               <synonym>rest of</synonym>
               <abstractComponent emapaId="EMAPA:28957">
                 <name>epithelium of rest of paramesonephric duct of female</name>
@@ -9320,7 +9311,7 @@
               <groupPathStatus>notInGroupPath</groupPathStatus>
             </abstractComponent>
             <abstractComponent emapaId="EMAPA:18328">
-              <name>Mllerian tubercle</name>
+              <name>Mullerian tubercle</name>
               <pathStartStage>TS22</pathStartStage>
               <pathEndStage>TS28</pathEndStage>
               <groupPathStatus>notInGroupPath</groupPathStatus>
@@ -9729,17 +9720,16 @@
               <pathStartStage>TS20</pathStartStage>
               <pathEndStage>TS27</pathEndStage>
               <groupPathStatus>notInGroupPath</groupPathStatus>
-              <synonym>clitoris anlage</synonym>
               <abstractComponent emapaId="EMAPA:29626">
                 <name>genital tubercle surface epithelium of female</name>
                 <pathStartStage>TS20</pathStartStage>
-                <pathEndStage>TS21</pathEndStage>
+                <pathEndStage>TS20</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:29621">
                 <name>genital tubercle mesenchyme of female</name>
                 <pathStartStage>TS20</pathStartStage>
-                <pathEndStage>TS21</pathEndStage>
+                <pathEndStage>TS20</pathEndStage>
                 <groupPathStatus>notInGroupPath</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:30470">
@@ -10055,7 +10045,6 @@
                 <pathStartStage>TS23</pathStartStage>
                 <pathEndStage>TS27</pathEndStage>
                 <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
                 <abstractComponent emapaId="EMAPA:30470">
                   <name>urethral epithelium of female</name>
                   <pathStartStage>TS23</pathStartStage>
@@ -10328,7 +10317,7 @@
                 <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:18328">
-                <name>Mllerian tubercle</name>
+                <name>Mullerian tubercle</name>
                 <pathStartStage>TS23</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
@@ -10338,7 +10327,6 @@
                 <pathStartStage>TS23</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
                 <abstractComponent emapaId="EMAPA:30470">
                   <name>urethral epithelium of female</name>
                   <pathStartStage>TS23</pathStartStage>
@@ -34168,26 +34156,26 @@
                 <abstractComponent emapaId="EMAPA:18326">
                   <name>renal medullary interstitium</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS26</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>medullary stroma</synonym>
                   <abstractComponent emapaId="EMAPA:31326">
                     <name>renal medullary fibroblasts</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   </abstractComponent>
                   <abstractComponent emapaId="EMAPA:31333">
                     <name>resident macrophages of the medulla</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     <synonym>renal monocytes of the medulla</synonym>
                   </abstractComponent>
                   <abstractComponent emapaId="EMAPA:31340">
                     <name>rest of renal medullary interstitium</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   </abstractComponent>
                 </abstractComponent>
@@ -34523,7 +34511,6 @@
                 <pathStartStage>TS20</pathStartStage>
                 <pathEndStage>TS26</pathEndStage>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>early tubule</synonym>
                 <abstractComponent emapaId="EMAPA:18976">
                   <name>cortical renal tubule</name>
                   <pathStartStage>TS22</pathStartStage>
@@ -36113,26 +36100,26 @@
                 <abstractComponent emapaId="EMAPA:18326">
                   <name>renal medullary interstitium</name>
                   <pathStartStage>TS22</pathStartStage>
-                  <pathEndStage>TS26</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>medullary stroma</synonym>
                   <abstractComponent emapaId="EMAPA:31326">
                     <name>renal medullary fibroblasts</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   </abstractComponent>
                   <abstractComponent emapaId="EMAPA:31333">
                     <name>resident macrophages of the medulla</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     <synonym>renal monocytes of the medulla</synonym>
                   </abstractComponent>
                   <abstractComponent emapaId="EMAPA:31340">
                     <name>rest of renal medullary interstitium</name>
                     <pathStartStage>TS22</pathStartStage>
-                    <pathEndStage>TS26</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   </abstractComponent>
                 </abstractComponent>
@@ -38038,16 +38025,14 @@
                   <pathEndStage>TS21</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>mesonephric portion of male</synonym>
-                  <synonym>Müllerian duct of male</synonym>
-                  <synonym>Mllerian duct of male</synonym>
+                  <synonym>Mullerian duct of male</synonym>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:29161">
                   <name>degenerating mesonephric portion of male paramesonephric duct</name>
                   <pathStartStage>TS22</pathStartStage>
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>Müllerian duct</synonym>
-                  <synonym>Mllerian duct</synonym>
+                  <synonym>Mullerian duct</synonym>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:30460">
                   <name>coelomic epithelium of male mesonephros</name>
@@ -38067,8 +38052,7 @@
                 <pathStartStage>TS22</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>degenerating Müllerian duct</synonym>
-                <synonym>degenerating Mllerian duct</synonym>
+                <synonym>degenerating Mullerian duct</synonym>
                 <abstractComponent emapaId="EMAPA:29199">
                   <name>epithelium of degenerating rest of paramesonephric duct of male</name>
                   <pathStartStage>TS22</pathStartStage>
@@ -38623,19 +38607,19 @@
                 <abstractComponent emapaId="EMAPA:29170">
                   <name>genital tubercle surface epithelium of male</name>
                   <pathStartStage>TS20</pathStartStage>
-                  <pathEndStage>TS21</pathEndStage>
+                  <pathEndStage>TS20</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:29167">
                   <name>genital tubercle mesenchyme of male</name>
                   <pathStartStage>TS20</pathStartStage>
-                  <pathEndStage>TS21</pathEndStage>
+                  <pathEndStage>TS20</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:30467">
                   <name>urethral epithelium of male</name>
                   <pathStartStage>TS20</pathStartStage>
-                  <pathEndStage>TS23</pathEndStage>
+                  <pathEndStage>TS24</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>urethral plate</synonym>
                   <synonym>urethral seam</synonym>
@@ -38701,7 +38685,6 @@
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                   <synonym>distal genital tubercle of male</synonym>
-                  <synonym>penis</synonym>
                   <synonym>penis anlage</synonym>
                   <abstractComponent emapaId="EMAPA:29256">
                     <name>surface epithelium of glans of male genital tubercle</name>
@@ -38907,7 +38890,7 @@
                   <abstractComponent emapaId="EMAPA:30467">
                     <name>urethral epithelium of male</name>
                     <pathStartStage>TS23</pathStartStage>
-                    <pathEndStage>TS23</pathEndStage>
+                    <pathEndStage>TS24</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     <synonym>urethral plate</synonym>
                     <synonym>urethral seam</synonym>
@@ -38936,7 +38919,6 @@
                     <pathEndStage>TS23</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     <synonym>distal genital tubercle of male</synonym>
-                    <synonym>penis</synonym>
                     <synonym>penis anlage</synonym>
                     <abstractComponent emapaId="EMAPA:29256">
                       <name>surface epithelium of glans of male genital tubercle</name>
@@ -39172,7 +39154,6 @@
                     <pathEndStage>TS23</pathEndStage>
                     <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                     <synonym>distal genital tubercle of male</synonym>
-                    <synonym>penis</synonym>
                     <synonym>penis anlage</synonym>
                     <abstractComponent emapaId="EMAPA:29256">
                       <name>surface epithelium of glans of male genital tubercle</name>
@@ -39347,8 +39328,7 @@
                   <pathStartStage>TS20</pathStartStage>
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>Müllerian duct of female</synonym>
-                  <synonym>Mllerian duct of female</synonym>
+                  <synonym>Mullerian duct of female</synonym>
                   <abstractComponent emapaId="EMAPA:30070">
                     <name>epithelium of paramesonephric duct, mesonephric portion</name>
                     <pathStartStage>TS23</pathStartStage>
@@ -39386,8 +39366,7 @@
                 <pathStartStage>TS20</pathStartStage>
                 <pathEndStage>TS23</pathEndStage>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>Müllerian duct of female</synonym>
-                <synonym>Mllerian duct of female</synonym>
+                <synonym>Mullerian duct of female</synonym>
                 <synonym>rest of</synonym>
                 <abstractComponent emapaId="EMAPA:28957">
                   <name>epithelium of rest of paramesonephric duct of female</name>
@@ -39549,7 +39528,7 @@
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
               </abstractComponent>
               <abstractComponent emapaId="EMAPA:18328">
-                <name>Mllerian tubercle</name>
+                <name>Mullerian tubercle</name>
                 <pathStartStage>TS22</pathStartStage>
                 <pathEndStage>TS26</pathEndStage>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
@@ -39730,17 +39709,16 @@
                 <pathStartStage>TS20</pathStartStage>
                 <pathEndStage>TS26</pathEndStage>
                 <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                <synonym>clitoris anlage</synonym>
                 <abstractComponent emapaId="EMAPA:29626">
                   <name>genital tubercle surface epithelium of female</name>
                   <pathStartStage>TS20</pathStartStage>
-                  <pathEndStage>TS21</pathEndStage>
+                  <pathEndStage>TS20</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:29621">
                   <name>genital tubercle mesenchyme of female</name>
                   <pathStartStage>TS20</pathStartStage>
-                  <pathEndStage>TS21</pathEndStage>
+                  <pathEndStage>TS20</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:30470">
@@ -39971,7 +39949,6 @@
                   <pathStartStage>TS23</pathStartStage>
                   <pathEndStage>TS26</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>clitoris anlage</synonym>
                   <abstractComponent emapaId="EMAPA:30470">
                     <name>urethral epithelium of female</name>
                     <pathStartStage>TS23</pathStartStage>
@@ -40159,7 +40136,7 @@
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
                 </abstractComponent>
                 <abstractComponent emapaId="EMAPA:18328">
-                  <name>Mllerian tubercle</name>
+                  <name>Mullerian tubercle</name>
                   <pathStartStage>TS23</pathStartStage>
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
@@ -40169,7 +40146,6 @@
                   <pathStartStage>TS23</pathStartStage>
                   <pathEndStage>TS23</pathEndStage>
                   <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
-                  <synonym>clitoris anlage</synonym>
                   <abstractComponent emapaId="EMAPA:30470">
                     <name>urethral epithelium of female</name>
                     <pathStartStage>TS23</pathStartStage>

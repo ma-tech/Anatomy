@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===== Anatomy Database Version 6, 2010-04-16 09:59:40 =====
 ===========================================================
 
 
@@ -468,10 +468,10 @@ EMAPA:31414 G TS22-TS24 | | | | | | \ medullary renal tubule
 EMAPA:31017 > TS22-TS24 | | | | | |   + straight limb
 EMAPA:31021 > TS22-TS24 | | | | | |   \ bend (syn: U-turn)
 EMAPA:28061   TS22-TS24 | | | | | + medullary collecting duct
-EMAPA:18326   TS22-TS28 | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAPA:31326   TS22-TS28 | | | | | | + renal medullary fibroblasts
-EMAPA:31333   TS22-TS28 | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAPA:31340   TS22-TS28 | | | | | | \ rest of renal medullary interstitium
+EMAPA:18326   TS22-TS24 | | | | | + renal medullary interstitium (syn: medullary stroma)
+EMAPA:31326   TS22-TS24 | | | | | | + renal medullary fibroblasts
+EMAPA:31333   TS22-TS24 | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
+EMAPA:31340   TS22-TS24 | | | | | | \ rest of renal medullary interstitium
 EMAPA:28069   TS22-TS22 | | | | | + developing vasculature of medulla
 EMAPA:28071   TS22-TS22 | | | | | | + arterial
 EMAPA:28073   TS22-TS22 | | | | | | + venous
@@ -535,7 +535,7 @@ EMAPA:28083   TS22-TS28 | | | | | \ perihilar interstitium
 EMAPA:31361   TS24-TS28 | | | | |   + perihilar fibroblast
 EMAPA:31367   TS24-TS28 | | | | |   + resident macrophage of the perihilar interstitium (syn: renal monocytes of the perihilar interstitium)
 EMAPA:31373   TS24-TS28 | | | | |   \ rest of perihilar interstitium
-EMAPA:17954 G TS20-TS28 | | | | + early nephron GROUP (syn: early tubule)
+EMAPA:17954 G TS20-TS28 | | | | + early nephron GROUP
 EMAPA:18976 > TS22-TS28 | | | | | + cortical renal tubule
 EMAPA:28003 ~ TS22-TS24 | | | | | | + early proximal tubule
 EMAPA:31544 ~ TS22-TS24 | | | | | | | + early proximal tubule of capillary loop nephron (syn: anlage of proximal tubule)
@@ -796,10 +796,10 @@ EMAPA:31426 ~ TS28-TS28 | | | | | | | + periarterial fibroblasts of cortex
 EMAPA:31424 ~ TS28-TS28 | | | | | | | \ peritubular fibroblasts of cortex
 EMAPA:31296 ~ TS22-TS28 | | | | | | + resident macrophages of the cortex (syn: renal monocytes of the cortex)
 EMAPA:31304 ~ TS22-TS28 | | | | | | \ rest of renal cortical interstitium
-EMAPA:18326 > TS22-TS28 | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAPA:31326 ~ TS22-TS28 | | | | | | + renal medullary fibroblasts
-EMAPA:31333 ~ TS22-TS28 | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAPA:31340 ~ TS22-TS28 | | | | | | \ rest of renal medullary interstitium
+EMAPA:18326 > TS22-TS24 | | | | | + renal medullary interstitium (syn: medullary stroma)
+EMAPA:31326 ~ TS22-TS24 | | | | | | + renal medullary fibroblasts
+EMAPA:31333 ~ TS22-TS24 | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
+EMAPA:31340 ~ TS22-TS24 | | | | | | \ rest of renal medullary interstitium
 EMAPA:28337 > TS25-TS28 | | | | | + outer medullary interstitium
 EMAPA:31384 ~ TS25-TS28 | | | | | | + outer medullary fibroblast
 EMAPA:31430 ~ TS28-TS28 | | | | | | | + periarterial fibroblasts of outer medulla
@@ -1129,11 +1129,11 @@ EMAPA:30540   TS20-TS22 | | | | | | \ caudal mesonephric tubule of male
 EMAPA:30556   TS23-TS23 | | | | | + cranial mesonephric tubule of male
 EMAPA:30560   TS23-TS23 | | | | | | + mesonephric glomerulus of male
 EMAPA:30558   TS23-TS23 | | | | | | \ rest of cranial mesonephric tubule
-EMAPA:29158   TS20-TS21 | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; M¸llerian duct of male; Mùllerian duct of male)
-EMAPA:29161   TS22-TS23 | | | | | + degenerating mesonephric portion of male paramesonephric duct (syn: M¸llerian duct; Mùllerian duct)
+EMAPA:29158   TS20-TS21 | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
+EMAPA:29161   TS22-TS23 | | | | | + degenerating mesonephric portion of male paramesonephric duct (syn: Mullerian duct)
 EMAPA:30460   TS20-TS23 | | | | | + coelomic epithelium of male mesonephros
 EMAPA:31537   TS20-TS23 | | | | | \ developing vasculature of male mesonephros
-EMAPA:29196   TS22-TS23 | | | | + degenerating rest of paramesonephric duct of male (syn: degenerating M¸llerian duct; degenerating Mùllerian duct)
+EMAPA:29196   TS22-TS23 | | | | + degenerating rest of paramesonephric duct of male (syn: degenerating Mullerian duct)
 EMAPA:29199   TS22-TS23 | | | | | + epithelium of degenerating rest of paramesonephric duct of male
 EMAPA:29202   TS22-TS23 | | | | | \ mesenchyme of degenerating rest of paramesonephric duct of male
 EMAPA:29185   TS20-TS21 | | | | + paramesonephric duct of male, rest of
@@ -1283,9 +1283,9 @@ EMAPA:29848   TS28-TS28 | | | | |       \ rest of interstitium of ventral prosta
 EMAPA:19089   TS23-TS28 | | | | + gubernaculum (syn: caudal suspensory ligament)
 EMAPA:17971   TS20-TS28 | | | | + mesorchium
 EMAPA:17969   TS20-TS24 | | | | + genital tubercle of male (syn: penis anlage)
-EMAPA:29170   TS20-TS21 | | | | | + genital tubercle surface epithelium of male
-EMAPA:29167   TS20-TS21 | | | | | + genital tubercle mesenchyme of male
-EMAPA:30467   TS20-TS23 | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:29170   TS20-TS20 | | | | | + genital tubercle surface epithelium of male
+EMAPA:29167   TS20-TS20 | | | | | + genital tubercle mesenchyme of male
+EMAPA:30467   TS20-TS24 | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507   TS21-TS23 | | | | | | + distal urethral epithelium of male
 EMAPA:31508   TS21-TS23 | | | | | | + proximal urethral epithelium of male
 EMAPA:31505   TS21-TS23 | | | | | | \ urethral opening of male
@@ -1295,7 +1295,7 @@ EMAPA:29207   TS21-TS22 | | | | | | \ mesenchyme of distal genital tubercle of m
 EMAPA:31504   TS21-TS22 | | | | | + proximal genital tubercle of male
 EMAPA:31502   TS21-TS22 | | | | | | + surface epithelium of proximal genital tubercle of male
 EMAPA:31501   TS21-TS22 | | | | | | \ mesenchyme of proximal genital tubercle of male
-EMAPA:29252   TS23-TS23 | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252   TS23-TS23 | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256   TS23-TS23 | | | | | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254   TS23-TS23 | | | | | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29288   TS24-TS24 | | | | | + glans penis
@@ -1346,11 +1346,11 @@ EMAPA:29745   TS28-TS28 | | | | | + septum of scrotum
 EMAPA:30791   TS28-TS28 | | | | | \ vasculature of scrotum
 EMAPA:30977 G TS23-TS28 | | | | + male external genitalia
 EMAPA:17969 > TS20-TS24 | | | | | + genital tubercle of male (syn: penis anlage)
-EMAPA:30467 ~ TS20-TS23 | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:30467 ~ TS20-TS24 | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507 ~ TS21-TS23 | | | | | | | + distal urethral epithelium of male
 EMAPA:31508 ~ TS21-TS23 | | | | | | | + proximal urethral epithelium of male
 EMAPA:31505 ~ TS21-TS23 | | | | | | | \ urethral opening of male
-EMAPA:29252 ~ TS23-TS23 | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252 ~ TS23-TS23 | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256 ~ TS23-TS23 | | | | | | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254 ~ TS23-TS23 | | | | | | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29288 ~ TS24-TS24 | | | | | | + glans penis
@@ -1401,11 +1401,11 @@ EMAPA:29745 ~ TS28-TS28 | | | | |   + septum of scrotum
 EMAPA:30791 ~ TS28-TS28 | | | | |   \ vasculature of scrotum
 EMAPA:28533 G TS23-TS23 | | | | \ male associated reproductive structure
 EMAPA:17969 > TS20-TS24 | | | |   + genital tubercle of male (syn: penis anlage)
-EMAPA:30467 ~ TS20-TS23 | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:30467 ~ TS20-TS24 | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507 ~ TS21-TS23 | | | |   | | + distal urethral epithelium of male
 EMAPA:31508 ~ TS21-TS23 | | | |   | | + proximal urethral epithelium of male
 EMAPA:31505 ~ TS21-TS23 | | | |   | | \ urethral opening of male
-EMAPA:29252 ~ TS23-TS23 | | | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252 ~ TS23-TS23 | | | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256 ~ TS23-TS23 | | | |   | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254 ~ TS23-TS23 | | | |   | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29220 ~ TS21-TS23 | | | |   | + preputial swelling of male (syn: prepuce of male)
@@ -1432,13 +1432,13 @@ EMAPA:30553   TS20-TS21 | | | | | | \ caudal mesonephric tubule of female
 EMAPA:28978   TS22-TS23 | | | | | + degenerating mesonephric tubule of female
 EMAPA:28924   TS20-TS21 | | | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
 EMAPA:28981   TS22-TS23 | | | | | + degenerating mesonephric portion of nephric duct of female
-EMAPA:28937   TS20-TS23 | | | | | + paramesonephric duct of female, mesonephric portion (syn: M¸llerian duct of female; Mùllerian duct of female)
+EMAPA:28937   TS20-TS23 | | | | | + paramesonephric duct of female, mesonephric portion (syn: Mullerian duct of female)
 EMAPA:30070   TS23-TS23 | | | | | | + epithelium of paramesonephric duct, mesonephric portion
 EMAPA:30072   TS23-TS23 | | | | | | \ mesenchyme of paramesonephric duct, mesonephric portion
 EMAPA:28929   TS20-TS23 | | | | | + rete ovarii of mesonephros
 EMAPA:28934   TS20-TS23 | | | | | + coelomic epithelium of female mesonephros
 EMAPA:31538   TS20-TS23 | | | | | \ developing vasculature of female mesonephros
-EMAPA:28940   TS20-TS23 | | | | + paramesonephric duct of female, rest of (syn: M¸llerian duct of female; Mùllerian duct of female; rest of)
+EMAPA:28940   TS20-TS23 | | | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
 EMAPA:28957   TS21-TS23 | | | | | + epithelium of rest of paramesonephric duct of female
 EMAPA:28961   TS21-TS23 | | | | | \ mesenchyme of rest of paramesonephric duct of female
 EMAPA:28945   TS20-TS23 | | | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
@@ -1501,7 +1501,7 @@ EMAPA:31035 > TS24-TS27 | | | | |   \ pre-granulosa cell
 EMAPA:17961   TS20-TS28 | | | | + mesovarium
 EMAPA:18978   TS24-TS28 | | | | + cystic vesicular appendage
 EMAPA:19085   TS23-TS28 | | | | + suspensory ligament of ovary
-EMAPA:18328   TS22-TS28 | | | | + Mùllerian tubercle
+EMAPA:18328   TS22-TS28 | | | | + Mullerian tubercle
 EMAPA:18984   TS24-TS28 | | | | + oviduct
 EMAPA:29897   TS28-TS28 | | | | | + infundibulum
 EMAPA:29899   TS28-TS28 | | | | | | + epithelial layer of infundibulum
@@ -1568,9 +1568,9 @@ EMAPA:29945 > TS28-TS28 | | | | | | \ adventitia of upper part of vagina
 EMAPA:31229 G TS24-TS27 | | | | | \ developing vasculature of vagina
 EMAPA:31224 > TS24-TS27 | | | | |   + developing vasculature of lower part of vagina
 EMAPA:31219 > TS24-TS27 | | | | |   \ developing vasculature of upper part of vagina
-EMAPA:18680   TS20-TS27 | | | | + genital tubercle of female (syn: clitoris anlage)
-EMAPA:29626   TS20-TS21 | | | | | + genital tubercle surface epithelium of female
-EMAPA:29621   TS20-TS21 | | | | | + genital tubercle mesenchyme of female
+EMAPA:18680   TS20-TS27 | | | | + genital tubercle of female
+EMAPA:29626   TS20-TS20 | | | | | + genital tubercle surface epithelium of female
+EMAPA:29621   TS20-TS20 | | | | | + genital tubercle mesenchyme of female
 EMAPA:30470   TS20-TS23 | | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536   TS21-TS23 | | | | | | + distal urethral epithelium of female
 EMAPA:31530   TS21-TS23 | | | | | | + proximal urethral epithelium of female
@@ -1621,7 +1621,7 @@ EMAPA:19172   TS25-TS28 | | | | + inguinal ring
 EMAPA:19173   TS25-TS28 | | | | | + internal (syn: deep)
 EMAPA:19174   TS25-TS28 | | | | | \ external (syn: superficial)
 EMAPA:30984 G TS23-TS28 | | | | + female external genitalia
-EMAPA:18680 > TS20-TS27 | | | | | + genital tubercle of female (syn: clitoris anlage)
+EMAPA:18680 > TS20-TS27 | | | | | + genital tubercle of female
 EMAPA:30470 ~ TS20-TS23 | | | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536 ~ TS21-TS23 | | | | | | | + distal urethral epithelium of female
 EMAPA:31530 ~ TS21-TS23 | | | | | | | + proximal urethral epithelium of female
@@ -1666,8 +1666,8 @@ EMAPA:30841 ~ TS28-TS28 | | | | |   + mesenchymal layer of labia
 EMAPA:30845 ~ TS28-TS28 | | | | |   \ vasculature of labia
 EMAPA:28540 G TS23-TS23 | | | | \ female associated reproductive structure
 EMAPA:17961 > TS20-TS28 | | | |   + mesovarium
-EMAPA:18328 > TS22-TS28 | | | |   + Mùllerian tubercle
-EMAPA:18680 > TS20-TS27 | | | |   \ genital tubercle of female (syn: clitoris anlage)
+EMAPA:18328 > TS22-TS28 | | | |   + Mullerian tubercle
+EMAPA:18680 > TS20-TS27 | | | |   \ genital tubercle of female
 EMAPA:30470 ~ TS20-TS23 | | | |     + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536 ~ TS21-TS23 | | | |     | + distal urethral epithelium of female
 EMAPA:31530 ~ TS21-TS23 | | | |     | + proximal urethral epithelium of female
@@ -5523,10 +5523,10 @@ EMAPA:31414 ~ TS22-TS24 | | | | | | | \ medullary renal tubule
 EMAPA:31017 ~ TS22-TS24 | | | | | | |   + straight limb
 EMAPA:31021 ~ TS22-TS24 | | | | | | |   \ bend (syn: U-turn)
 EMAPA:28061 ~ TS22-TS24 | | | | | | + medullary collecting duct
-EMAPA:18326 ~ TS22-TS28 | | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAPA:31326 ~ TS22-TS28 | | | | | | | + renal medullary fibroblasts
-EMAPA:31333 ~ TS22-TS28 | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAPA:31340 ~ TS22-TS28 | | | | | | | \ rest of renal medullary interstitium
+EMAPA:18326 ~ TS22-TS24 | | | | | | + renal medullary interstitium (syn: medullary stroma)
+EMAPA:31326 ~ TS22-TS24 | | | | | | | + renal medullary fibroblasts
+EMAPA:31333 ~ TS22-TS24 | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
+EMAPA:31340 ~ TS22-TS24 | | | | | | | \ rest of renal medullary interstitium
 EMAPA:28069 ~ TS22-TS22 | | | | | | + developing vasculature of medulla
 EMAPA:28071 ~ TS22-TS22 | | | | | | | + arterial
 EMAPA:28073 ~ TS22-TS22 | | | | | | | + venous
@@ -5578,7 +5578,7 @@ EMAPA:28083 ~ TS22-TS28 | | | | | | \ perihilar interstitium
 EMAPA:31361 ~ TS24-TS28 | | | | | |   + perihilar fibroblast
 EMAPA:31367 ~ TS24-TS28 | | | | | |   + resident macrophage of the perihilar interstitium (syn: renal monocytes of the perihilar interstitium)
 EMAPA:31373 ~ TS24-TS28 | | | | | |   \ rest of perihilar interstitium
-EMAPA:17954 ~ TS20-TS28 | | | | | + early nephron GROUP (syn: early tubule)
+EMAPA:17954 ~ TS20-TS28 | | | | | + early nephron GROUP
 EMAPA:18976 ~ TS22-TS28 | | | | | | + cortical renal tubule
 EMAPA:28003 ~ TS22-TS24 | | | | | | | + early proximal tubule
 EMAPA:31544 ~ TS22-TS24 | | | | | | | | + early proximal tubule of capillary loop nephron (syn: anlage of proximal tubule)
@@ -5827,10 +5827,10 @@ EMAPA:28136 ~ TS22-TS28 | | | | | | + renal cortical interstitium (syn: cortical
 EMAPA:31288 ~ TS22-TS28 | | | | | | | + renal cortical fibroblasts
 EMAPA:31296 ~ TS22-TS28 | | | | | | | + resident macrophages of the cortex (syn: renal monocytes of the cortex)
 EMAPA:31304 ~ TS22-TS28 | | | | | | | \ rest of renal cortical interstitium
-EMAPA:18326 ~ TS22-TS28 | | | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAPA:31326 ~ TS22-TS28 | | | | | | | + renal medullary fibroblasts
-EMAPA:31333 ~ TS22-TS28 | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAPA:31340 ~ TS22-TS28 | | | | | | | \ rest of renal medullary interstitium
+EMAPA:18326 ~ TS22-TS24 | | | | | | + renal medullary interstitium (syn: medullary stroma)
+EMAPA:31326 ~ TS22-TS24 | | | | | | | + renal medullary fibroblasts
+EMAPA:31333 ~ TS22-TS24 | | | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
+EMAPA:31340 ~ TS22-TS24 | | | | | | | \ rest of renal medullary interstitium
 EMAPA:28337 ~ TS25-TS28 | | | | | | + outer medullary interstitium
 EMAPA:31384 ~ TS25-TS28 | | | | | | | + outer medullary fibroblast
 EMAPA:31389 ~ TS25-TS28 | | | | | | | + resident macrophage of the outer medulla (syn: renal monocytes of the outer medulla)
@@ -6140,11 +6140,11 @@ EMAPA:30540 ~ TS20-TS22 | | | | | | | \ caudal mesonephric tubule of male
 EMAPA:30556 ~ TS23-TS23 | | | | | | + cranial mesonephric tubule of male
 EMAPA:30560 ~ TS23-TS23 | | | | | | | + mesonephric glomerulus of male
 EMAPA:30558 ~ TS23-TS23 | | | | | | | \ rest of cranial mesonephric tubule
-EMAPA:29158 ~ TS20-TS21 | | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; M¸llerian duct of male; Mùllerian duct of male)
-EMAPA:29161 ~ TS22-TS23 | | | | | | + degenerating mesonephric portion of male paramesonephric duct (syn: M¸llerian duct; Mùllerian duct)
+EMAPA:29158 ~ TS20-TS21 | | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
+EMAPA:29161 ~ TS22-TS23 | | | | | | + degenerating mesonephric portion of male paramesonephric duct (syn: Mullerian duct)
 EMAPA:30460 ~ TS20-TS23 | | | | | | + coelomic epithelium of male mesonephros
 EMAPA:31537 ~ TS20-TS23 | | | | | | \ developing vasculature of male mesonephros
-EMAPA:29196 ~ TS22-TS23 | | | | | + degenerating rest of paramesonephric duct of male (syn: degenerating M¸llerian duct; degenerating Mùllerian duct)
+EMAPA:29196 ~ TS22-TS23 | | | | | + degenerating rest of paramesonephric duct of male (syn: degenerating Mullerian duct)
 EMAPA:29199 ~ TS22-TS23 | | | | | | + epithelium of degenerating rest of paramesonephric duct of male
 EMAPA:29202 ~ TS22-TS23 | | | | | | \ mesenchyme of degenerating rest of paramesonephric duct of male
 EMAPA:29185 ~ TS20-TS21 | | | | | + paramesonephric duct of male, rest of
@@ -6235,9 +6235,9 @@ EMAPA:19287 ~ TS26-TS28 | | | | | | \ prostate gland
 EMAPA:19089 ~ TS23-TS28 | | | | | + gubernaculum (syn: caudal suspensory ligament)
 EMAPA:17971 ~ TS20-TS28 | | | | | + mesorchium
 EMAPA:17969 ~ TS20-TS24 | | | | | + genital tubercle of male (syn: penis anlage)
-EMAPA:29170 ~ TS20-TS21 | | | | | | + genital tubercle surface epithelium of male
-EMAPA:29167 ~ TS20-TS21 | | | | | | + genital tubercle mesenchyme of male
-EMAPA:30467 ~ TS20-TS23 | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:29170 ~ TS20-TS20 | | | | | | + genital tubercle surface epithelium of male
+EMAPA:29167 ~ TS20-TS20 | | | | | | + genital tubercle mesenchyme of male
+EMAPA:30467 ~ TS20-TS24 | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507 ~ TS21-TS23 | | | | | | | + distal urethral epithelium of male
 EMAPA:31508 ~ TS21-TS23 | | | | | | | + proximal urethral epithelium of male
 EMAPA:31505 ~ TS21-TS23 | | | | | | | \ urethral opening of male
@@ -6247,7 +6247,7 @@ EMAPA:29207 ~ TS21-TS22 | | | | | | | \ mesenchyme of distal genital tubercle of
 EMAPA:31504 ~ TS21-TS22 | | | | | | + proximal genital tubercle of male
 EMAPA:31502 ~ TS21-TS22 | | | | | | | + surface epithelium of proximal genital tubercle of male
 EMAPA:31501 ~ TS21-TS22 | | | | | | | \ mesenchyme of proximal genital tubercle of male
-EMAPA:29252 ~ TS23-TS23 | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252 ~ TS23-TS23 | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256 ~ TS23-TS23 | | | | | | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254 ~ TS23-TS23 | | | | | | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29288 ~ TS24-TS24 | | | | | | + glans penis
@@ -6281,11 +6281,11 @@ EMAPA:30515 ~ TS22-TS23 | | | | | | + surface epithelium of labioscrotal swellin
 EMAPA:30512 ~ TS22-TS23 | | | | | | \ mesenchyme of labioscrotal swelling of male
 EMAPA:30977 ~ TS23-TS28 | | | | | + male external genitalia
 EMAPA:17969 ~ TS20-TS24 | | | | | | + genital tubercle of male (syn: penis anlage)
-EMAPA:30467 ~ TS20-TS23 | | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:30467 ~ TS20-TS24 | | | | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507 ~ TS21-TS23 | | | | | | | | + distal urethral epithelium of male
 EMAPA:31508 ~ TS21-TS23 | | | | | | | | + proximal urethral epithelium of male
 EMAPA:31505 ~ TS21-TS23 | | | | | | | | \ urethral opening of male
-EMAPA:29252 ~ TS23-TS23 | | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252 ~ TS23-TS23 | | | | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256 ~ TS23-TS23 | | | | | | | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254 ~ TS23-TS23 | | | | | | | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29288 ~ TS24-TS24 | | | | | | | + glans penis
@@ -6319,11 +6319,11 @@ EMAPA:30624 ~ TS24-TS27 | | | | | |   + scrotal fold mesenchyme of male
 EMAPA:30627 ~ TS24-TS27 | | | | | |   \ scrotal fold surface epithelium of male
 EMAPA:28533 ~ TS23-TS23 | | | | | \ male associated reproductive structure
 EMAPA:17969 ~ TS20-TS24 | | | | |   + genital tubercle of male (syn: penis anlage)
-EMAPA:30467 ~ TS20-TS23 | | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:30467 ~ TS20-TS24 | | | | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
 EMAPA:31507 ~ TS21-TS23 | | | | |   | | + distal urethral epithelium of male
 EMAPA:31508 ~ TS21-TS23 | | | | |   | | + proximal urethral epithelium of male
 EMAPA:31505 ~ TS21-TS23 | | | | |   | | \ urethral opening of male
-EMAPA:29252 ~ TS23-TS23 | | | | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis; penis anlage)
+EMAPA:29252 ~ TS23-TS23 | | | | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
 EMAPA:29256 ~ TS23-TS23 | | | | |   | | + surface epithelium of glans of male genital tubercle
 EMAPA:29254 ~ TS23-TS23 | | | | |   | | \ mesenchyme of glans of male genital tubercle
 EMAPA:29220 ~ TS21-TS23 | | | | |   | + preputial swelling of male (syn: prepuce of male)
@@ -6350,13 +6350,13 @@ EMAPA:30553 ~ TS20-TS21 | | | | | | | \ caudal mesonephric tubule of female
 EMAPA:28978 ~ TS22-TS23 | | | | | | + degenerating mesonephric tubule of female
 EMAPA:28924 ~ TS20-TS21 | | | | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
 EMAPA:28981 ~ TS22-TS23 | | | | | | + degenerating mesonephric portion of nephric duct of female
-EMAPA:28937 ~ TS20-TS23 | | | | | | + paramesonephric duct of female, mesonephric portion (syn: M¸llerian duct of female; Mùllerian duct of female)
+EMAPA:28937 ~ TS20-TS23 | | | | | | + paramesonephric duct of female, mesonephric portion (syn: Mullerian duct of female)
 EMAPA:30070 ~ TS23-TS23 | | | | | | | + epithelium of paramesonephric duct, mesonephric portion
 EMAPA:30072 ~ TS23-TS23 | | | | | | | \ mesenchyme of paramesonephric duct, mesonephric portion
 EMAPA:28929 ~ TS20-TS23 | | | | | | + rete ovarii of mesonephros
 EMAPA:28934 ~ TS20-TS23 | | | | | | + coelomic epithelium of female mesonephros
 EMAPA:31538 ~ TS20-TS23 | | | | | | \ developing vasculature of female mesonephros
-EMAPA:28940 ~ TS20-TS23 | | | | | + paramesonephric duct of female, rest of (syn: M¸llerian duct of female; Mùllerian duct of female; rest of)
+EMAPA:28940 ~ TS20-TS23 | | | | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
 EMAPA:28957 ~ TS21-TS23 | | | | | | + epithelium of rest of paramesonephric duct of female
 EMAPA:28961 ~ TS21-TS23 | | | | | | \ mesenchyme of rest of paramesonephric duct of female
 EMAPA:28945 ~ TS20-TS23 | | | | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
@@ -6382,7 +6382,7 @@ EMAPA:31035 ~ TS24-TS27 | | | | | |   \ pre-granulosa cell
 EMAPA:17961 ~ TS20-TS28 | | | | | + mesovarium
 EMAPA:18978 ~ TS24-TS28 | | | | | + cystic vesicular appendage
 EMAPA:19085 ~ TS23-TS28 | | | | | + suspensory ligament of ovary
-EMAPA:18328 ~ TS22-TS28 | | | | | + Mùllerian tubercle
+EMAPA:18328 ~ TS22-TS28 | | | | | + Mullerian tubercle
 EMAPA:18984 ~ TS24-TS28 | | | | | + oviduct
 EMAPA:29043 ~ TS24-TS27 | | | | | | + epithelial layer of oviduct
 EMAPA:29046 ~ TS24-TS27 | | | | | | + muscle layer of oviduct
@@ -6411,9 +6411,9 @@ EMAPA:29055 ~ TS24-TS28 | | | | | | | \ muscular layer of upper part of vagina
 EMAPA:31229 ~ TS24-TS27 | | | | | | \ developing vasculature of vagina
 EMAPA:31224 ~ TS24-TS27 | | | | | |   + developing vasculature of lower part of vagina
 EMAPA:31219 ~ TS24-TS27 | | | | | |   \ developing vasculature of upper part of vagina
-EMAPA:18680 ~ TS20-TS27 | | | | | + genital tubercle of female (syn: clitoris anlage)
-EMAPA:29626 ~ TS20-TS21 | | | | | | + genital tubercle surface epithelium of female
-EMAPA:29621 ~ TS20-TS21 | | | | | | + genital tubercle mesenchyme of female
+EMAPA:18680 ~ TS20-TS27 | | | | | + genital tubercle of female
+EMAPA:29626 ~ TS20-TS20 | | | | | | + genital tubercle surface epithelium of female
+EMAPA:29621 ~ TS20-TS20 | | | | | | + genital tubercle mesenchyme of female
 EMAPA:30470 ~ TS20-TS23 | | | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536 ~ TS21-TS23 | | | | | | | + distal urethral epithelium of female
 EMAPA:31530 ~ TS21-TS23 | | | | | | | + proximal urethral epithelium of female
@@ -6450,7 +6450,7 @@ EMAPA:19172 ~ TS25-TS28 | | | | | + inguinal ring
 EMAPA:19173 ~ TS25-TS28 | | | | | | + internal (syn: deep)
 EMAPA:19174 ~ TS25-TS28 | | | | | | \ external (syn: superficial)
 EMAPA:30984 ~ TS23-TS28 | | | | | + female external genitalia
-EMAPA:18680 ~ TS20-TS27 | | | | | | + genital tubercle of female (syn: clitoris anlage)
+EMAPA:18680 ~ TS20-TS27 | | | | | | + genital tubercle of female
 EMAPA:30470 ~ TS20-TS23 | | | | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536 ~ TS21-TS23 | | | | | | | | + distal urethral epithelium of female
 EMAPA:31530 ~ TS21-TS23 | | | | | | | | + proximal urethral epithelium of female
@@ -6481,8 +6481,8 @@ EMAPA:30438 ~ TS24-TS27 | | | | | |   + surface epithelium of labial swelling
 EMAPA:30433 ~ TS24-TS27 | | | | | |   \ mesenchymal layer of labial swelling
 EMAPA:28540 ~ TS23-TS23 | | | | | \ female associated reproductive structure
 EMAPA:17961 ~ TS20-TS28 | | | | |   + mesovarium
-EMAPA:18328 ~ TS22-TS28 | | | | |   + Mùllerian tubercle
-EMAPA:18680 ~ TS20-TS27 | | | | |   \ genital tubercle of female (syn: clitoris anlage)
+EMAPA:18328 ~ TS22-TS28 | | | | |   + Mullerian tubercle
+EMAPA:18680 ~ TS20-TS27 | | | | |   \ genital tubercle of female
 EMAPA:30470 ~ TS20-TS23 | | | | |     + urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAPA:31536 ~ TS21-TS23 | | | | |     | + distal urethral epithelium of female
 EMAPA:31530 ~ TS21-TS23 | | | | |     | + proximal urethral epithelium of female

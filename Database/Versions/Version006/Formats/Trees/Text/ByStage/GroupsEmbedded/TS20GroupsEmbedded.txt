@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===== Anatomy Database Version 6, 2010-04-16 09:59:40 =====
 ===========================================================
 
 
@@ -48,7 +48,7 @@ EMAP:27795   | | | | + developing vasculature of metanephros
 EMAP:4590    | | | | + primitive collecting duct
 EMAP:27695   | | | | | + ureteric tip (syn: ampulla)
 EMAP:27698   | | | | | \ ureteric trunk (syn: ureteric stalk)
-EMAP:29339 G | | | | + early nephron GROUP (syn: early tubule)
+EMAP:29339 G | | | | + early nephron GROUP
 EMAP:27679 > | | | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
 EMAP:31700 ~ | | | | | | + renal connecting segment of renal vesicle
 EMAP:31836 ~ | | | | | | + distal renal vesicle
@@ -103,7 +103,7 @@ EMAP:30529   | | | | | | + cranial mesonephric tubule of male
 EMAP:30533   | | | | | | | + mesonephric glomerulus of male
 EMAP:30537   | | | | | | | \ rest of cranial mesonephric tubule of male
 EMAP:30541   | | | | | | \ caudal mesonephric tubule of male
-EMAP:29159   | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; M¸llerian duct of male; Mùllerian duct of male)
+EMAP:29159   | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
 EMAP:30461   | | | | | + coelomic epithelium of male mesonephros
 EMAP:31684   | | | | | \ developing vasculature of male mesonephros
 EMAP:30059   | | | | + paramesonephric duct of male, rest of
@@ -135,11 +135,11 @@ EMAP:30548   | | | | | | | + mesonephric glomerulus of female
 EMAP:30551   | | | | | | | \ rest of cranial mesonephric tubule of female
 EMAP:30554   | | | | | | \ caudal mesonephric tubule of female
 EMAP:28925   | | | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
-EMAP:28938   | | | | | + paramesonephric duct of female, mesonephric portion (syn: M¸llerian duct of female; Mùllerian duct of female)
+EMAP:28938   | | | | | + paramesonephric duct of female, mesonephric portion (syn: Mullerian duct of female)
 EMAP:28930   | | | | | + rete ovarii of mesonephros
 EMAP:28935   | | | | | + coelomic epithelium of female mesonephros
 EMAP:31688   | | | | | \ developing vasculature of female mesonephros
-EMAP:28941   | | | | + paramesonephric duct of female, rest of (syn: M¸llerian duct of female; Mùllerian duct of female; rest of)
+EMAP:28941   | | | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
 EMAP:30061   | | | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
 EMAP:28876   | | | | + ovary
 EMAP:28877   | | | | | + surface epithelium of ovary (syn: coelomic epithelium)
@@ -148,7 +148,7 @@ EMAP:28878   | | | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
 EMAP:28889   | | | | | + developing vasculature of ovary
 EMAP:28879   | | | | | \ rete ovarii of ovary
 EMAP:28875   | | | | + mesovarium
-EMAP:29618   | | | | \ genital tubercle of female (syn: clitoris anlage)
+EMAP:29618   | | | | \ genital tubercle of female
 EMAP:29627   | | | |   + genital tubercle surface epithelium of female
 EMAP:29622   | | | |   + genital tubercle mesenchyme of female
 EMAP:30471   | | | |   + urethral epithelium of female (syn: urethral plate; urethral seam)
@@ -966,7 +966,7 @@ EMAP:27795 ~ | | | | | + developing vasculature of metanephros
 EMAP:4590  ~ | | | | | + primitive collecting duct
 EMAP:27695 ~ | | | | | | + ureteric tip (syn: ampulla)
 EMAP:27698 ~ | | | | | | \ ureteric trunk (syn: ureteric stalk)
-EMAP:29339 ~ | | | | | + early nephron GROUP (syn: early tubule)
+EMAP:29339 ~ | | | | | + early nephron GROUP
 EMAP:27679 ~ | | | | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
 EMAP:31700 ~ | | | | | | | + renal connecting segment of renal vesicle
 EMAP:31836 ~ | | | | | | | + distal renal vesicle
@@ -1021,7 +1021,7 @@ EMAP:30529 ~ | | | | | | | + cranial mesonephric tubule of male
 EMAP:30533 ~ | | | | | | | | + mesonephric glomerulus of male
 EMAP:30537 ~ | | | | | | | | \ rest of cranial mesonephric tubule of male
 EMAP:30541 ~ | | | | | | | \ caudal mesonephric tubule of male
-EMAP:29159 ~ | | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; M¸llerian duct of male; Mùllerian duct of male)
+EMAP:29159 ~ | | | | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
 EMAP:30461 ~ | | | | | | + coelomic epithelium of male mesonephros
 EMAP:31684 ~ | | | | | | \ developing vasculature of male mesonephros
 EMAP:30059 ~ | | | | | + paramesonephric duct of male, rest of
@@ -1053,11 +1053,11 @@ EMAP:30548 ~ | | | | | | | | + mesonephric glomerulus of female
 EMAP:30551 ~ | | | | | | | | \ rest of cranial mesonephric tubule of female
 EMAP:30554 ~ | | | | | | | \ caudal mesonephric tubule of female
 EMAP:28925 ~ | | | | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
-EMAP:28938 ~ | | | | | | + paramesonephric duct of female, mesonephric portion (syn: M¸llerian duct of female; Mùllerian duct of female)
+EMAP:28938 ~ | | | | | | + paramesonephric duct of female, mesonephric portion (syn: Mullerian duct of female)
 EMAP:28930 ~ | | | | | | + rete ovarii of mesonephros
 EMAP:28935 ~ | | | | | | + coelomic epithelium of female mesonephros
 EMAP:31688 ~ | | | | | | \ developing vasculature of female mesonephros
-EMAP:28941 ~ | | | | | + paramesonephric duct of female, rest of (syn: M¸llerian duct of female; Mùllerian duct of female; rest of)
+EMAP:28941 ~ | | | | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
 EMAP:30061 ~ | | | | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
 EMAP:28876 ~ | | | | | + ovary
 EMAP:28877 ~ | | | | | | + surface epithelium of ovary (syn: coelomic epithelium)
@@ -1066,7 +1066,7 @@ EMAP:28878 ~ | | | | | | + germ cell of ovary (syn: oogonia; premeiotic germ cel
 EMAP:28889 ~ | | | | | | + developing vasculature of ovary
 EMAP:28879 ~ | | | | | | \ rete ovarii of ovary
 EMAP:28875 ~ | | | | | + mesovarium
-EMAP:29618 ~ | | | | | \ genital tubercle of female (syn: clitoris anlage)
+EMAP:29618 ~ | | | | | \ genital tubercle of female
 EMAP:29627 ~ | | | | |   + genital tubercle surface epithelium of female
 EMAP:29622 ~ | | | | |   + genital tubercle mesenchyme of female
 EMAP:30471 ~ | | | | |   + urethral epithelium of female (syn: urethral plate; urethral seam)

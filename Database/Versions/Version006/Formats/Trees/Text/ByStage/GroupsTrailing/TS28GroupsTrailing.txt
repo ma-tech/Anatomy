@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===== Anatomy Database Version 6, 2010-04-16 09:59:40 =====
 ===========================================================
 
 
@@ -76,10 +76,6 @@ EMAP:30042       | | | | \ renal cortical capillary
 EMAP:31318       | | | + renal cortical lymphatics
 EMAP:31325       | | | \ renal cortical nerves
 EMAP:29566       | | + renal medulla
-EMAP:31460       | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31332       | | | | + renal medullary fibroblasts
-EMAP:31339       | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31346       | | | | \ rest of renal medullary interstitium
 EMAP:29567       | | | + outer medulla
 EMAP:31490       | | | | + loop of Henle, outer medullary portion
 EMAP:31492       | | | | | + thin descending limb
@@ -380,7 +376,7 @@ EMAP:29632           | \ vasculature of the ovary
 EMAP:29400           + mesovarium
 EMAP:29404           + cystic vesicular appendage
 EMAP:29418           + suspensory ligament of ovary
-EMAP:29399           + Mllerian tubercle
+EMAP:29399           + Mullerian tubercle
 EMAP:29430           + oviduct
 EMAP:29898           | + infundibulum
 EMAP:29900           | | + epithelial layer of infundibulum
@@ -555,7 +551,7 @@ EMAP:29583 >   | | | |   \ loop of Henle, inner medullary portion
 EMAP:29584 ~   | | | |     + thin descending limb
 EMAP:29586 ~   | | | |     + bend (syn: U-turn)
 EMAP:29585 ~   | | | |     \ thin ascending limb (syn: ascending thin limb)
-EMAP:29594 G   | | | + early nephron GROUP (syn: early tubule)
+EMAP:29594 G   | | | + early nephron GROUP
 EMAP:29499 >   | | | | + cortical renal tubule
 EMAP:29500 ~   | | | | | + renal proximal tubule
 EMAP:29502 ~   | | | | | | + renal proximal convoluted tubule (syn: first convoluted tubule)
@@ -660,10 +656,6 @@ EMAP:31427 ~   | | | | | | + periarterial fibroblasts of cortex
 EMAP:31425 ~   | | | | | | \ peritubular fibroblasts of cortex
 EMAP:31303 ~   | | | | | + resident macrophages of the cortex (syn: renal monocytes of the cortex)
 EMAP:31311 ~   | | | | | \ rest of renal cortical interstitium
-EMAP:31460 >   | | | | + renal medullary interstitium (syn: medullary stroma)
-EMAP:31332 ~   | | | | | + renal medullary fibroblasts
-EMAP:31339 ~   | | | | | + resident macrophages of the medulla (syn: renal monocytes of the medulla)
-EMAP:31346 ~   | | | | | \ rest of renal medullary interstitium
 EMAP:29982 >   | | | | + outer medullary interstitium
 EMAP:31388 ~   | | | | | + outer medullary fibroblast
 EMAP:31431 ~   | | | | | | + periarterial fibroblasts of outer medulla

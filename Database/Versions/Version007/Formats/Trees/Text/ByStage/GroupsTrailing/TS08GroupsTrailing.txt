@@ -1,0 +1,64 @@
+
+===========================================================
+===== Anatomy Database Version 7, 2010-05-19 10:36:04 =====
+===========================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS08
+
+
+TS08 Whole mouse Excluding Groups
+
+EMAP:25773   mouse
+EMAP:58      + cavities and their linings
+EMAP:59      | \ embryonic component of the proamniotic cavity
+EMAP:60      + endoderm
+EMAP:61      | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:62      + epiblast (syn: primitive ectoderm)
+EMAP:63      \ extraembryonic component
+EMAP:64        + extraembryonic component cavities
+EMAP:65        | + proamniotic cavity extraembryonic part
+EMAP:66        | \ yolk sac cavity
+EMAP:67        + extraembryonic ectoderm
+EMAP:68        + extraembryonic endoderm
+EMAP:69        | + intermediate endoderm
+EMAP:70        | + parietal endoderm (syn: distal endoderm)
+EMAP:71        | | \ Reichert's membrane
+EMAP:72        | \ visceral endoderm
+EMAP:73        \ trophectoderm
+EMAP:74          + mural trophectoderm
+EMAP:75          | \ primary trophoblast giant cells (syn: primary trophoblastic giant cells)
+EMAP:76          \ polar trophectoderm
+EMAP:77            \ ectoplacental cone
+EMAP:78              + cytotrophoblast
+EMAP:79              \ syncytiotrophoblast
+
+
+
+==================================================================
+
+
+
+TS08 Whole mouse Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:25773   mouse
+EMAP:57    G \ embryo
+EMAP:58    >   + cavities and their linings
+EMAP:59    ~   | \ embryonic component of the proamniotic cavity
+EMAP:60    >   + endoderm
+EMAP:61    ~   | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:62    >   \ epiblast (syn: primitive ectoderm)

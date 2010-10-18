@@ -1,7 +1,30 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+################################################################################
+# Project:      Anatomy
+#
+# Title:        GenerateEditorReport.java
+#
+# Date:         2008
+#
+# Author:       MeiSze Lam and Attila Gyenesi
+#
+# Copyright:    2009 Medical Research Council, UK.
+#               All rights reserved.
+#
+# Address:      MRC Human Genetics Unit,
+#               Western General Hospital,
+#               Edinburgh, EH4 2XU, UK.
+#
+# Version: 1
+#
+# Maintenance:  Log changes below, with most recent at top of list.
+#
+# Who; When; What;
+#
+# Mike Wicks; September 2010; Tidy up and Document
+#
+################################################################################
+*/
 
 package backend;
 
@@ -16,46 +39,67 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-/**
- *
- * @author Maze Lam
- */
 public class GenerateEditorReport {
     
     private BufferedWriter reportFile;
-    private StringWriter stringWriter = new StringWriter() ; 
-    private PrintWriter printWriter = new PrintWriter( stringWriter ) ; 
+
+    private StringWriter stringWriter = 
+            new StringWriter();
+
+    private PrintWriter printWriter =
+            new PrintWriter( stringWriter );
     
-    private ArrayList<Component> newTerms = new ArrayList<Component>();
-    private ArrayList<Component> modifiedTerms = new ArrayList<Component>();
-    private ArrayList<Component> deletedTerms = new ArrayList<Component>();
-    private ArrayList<Component> unchangedTerms = new ArrayList<Component>();
-    private ArrayList<Component> problemTerms = new ArrayList<Component>();
+    private ArrayList<Component> newTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> modifiedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> deletedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> unchangedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> problemTerms =
+            new ArrayList<Component>();
 
     private boolean isProcessed = false;
-    
-    public GenerateEditorReport( CheckComponents checkie, String fileName, String importedFileName  ){
+
+    private String species = "";
+
+    public GenerateEditorReport( CheckComponents checkie, 
+            String fileName,
+            String importedFileName,
+            String species){
+
+        this.species = species;
         
         //sort terms from CheckComponents class into categories
         //ArrayList<Component> changedTerms = checkie.getChangesTermList();
         ArrayList<Component> proposedTerms = checkie.getProposedTermList();
         problemTerms = checkie.getProblemTermList();
         this.sortChangedTerms( proposedTerms );        
-
-        
+    
         try {
             //check filepath exists
             File file = new File(fileName);
-            if (!file.isDirectory())
+
+            if (!file.isDirectory()) {
                 file = file.getParentFile();
-            if (!file.exists()) return;
+            }
+                
+            if (!file.exists()) {
+                return;
+            }
 
             //create text file
             this.reportFile = new BufferedWriter( new FileWriter( fileName ) );
             this.reportFile.newLine();
             
             //title
-            this.reportFile.write("Editor Report for Import of OBO File: " + importedFileName);
+            this.reportFile.write("Editor Report for Import of OBO File: " +
+                    importedFileName);
             this.reportFile.newLine();
             this.reportFile.newLine();
             
@@ -67,12 +111,14 @@ public class GenerateEditorReport {
             this.reportFile.write( this.stringWriter.toString() );
             
             //writing new terms
-            this.flushStringWriter(); //can't find a way to flush the stringWriter after every method
+            //can't find a way to flush the stringWriter after every method
+            this.flushStringWriter(); 
             writeNewTerms( newTerms );
             this.reportFile.write( this.stringWriter.toString() );
             
             //writing modified terms
-            this.flushStringWriter(); //can't find a way to flush the stringWriter after every method
+            //can't find a way to flush the stringWriter after every method
+            this.flushStringWriter(); 
             writeModifiedTerms( modifiedTerms );
             this.reportFile.write( this.stringWriter.toString() ); 
             
@@ -100,10 +146,18 @@ public class GenerateEditorReport {
         
         for(Component compie: allTerms){
             
-            if ( compie.getStrChangeStatus().equals("NEW") ) newTerms.add(compie); 
-            else if ( compie.getStrChangeStatus().equals("CHANGED") ) modifiedTerms.add(compie);
-            else if ( compie.getStrChangeStatus().equals("DELETED") ) deletedTerms.add(compie);
-            else if ( compie.getStrChangeStatus().equals("UNCHANGED") ) unchangedTerms.add(compie);
+            if ( compie.getStrChangeStatus().equals("NEW") ) {
+                newTerms.add(compie);
+            }
+            else if ( compie.getStrChangeStatus().equals("CHANGED") ) {
+                modifiedTerms.add(compie);
+            }
+            else if ( compie.getStrChangeStatus().equals("DELETED") ) {
+                deletedTerms.add(compie);
+            }
+            else if ( compie.getStrChangeStatus().equals("UNCHANGED") ) {
+                unchangedTerms.add(compie);
+            }
         }
     }
     
@@ -114,20 +168,27 @@ public class GenerateEditorReport {
         this.printWriter.println();
         this.printWriter.println("=====================");
         this.printWriter.println();
-        this.printWriter.println( "Total Components from OBO File : " + checkie.getProposedTermList().size() );
+        this.printWriter.println( "Total Components from OBO File : " +
+                checkie.getProposedTermList().size() );
         this.printWriter.println();
-        this.printWriter.println( "New Components created         : " + newTerms.size() );
+        this.printWriter.println( "New Components created         : " +
+                newTerms.size() );
         this.printWriter.println();
-        this.printWriter.println( "Modified Components            : " + modifiedTerms.size() );
+        this.printWriter.println( "Modified Components            : " +
+                modifiedTerms.size() );
         this.printWriter.println();
-        this.printWriter.println( "Deleted Components             : " + deletedTerms.size() );
+        this.printWriter.println( "Deleted Components             : " +
+                deletedTerms.size() );
         this.printWriter.println();
-        this.printWriter.println( "Unchanged Components           : " + unchangedTerms.size() );
+        this.printWriter.println( "Unchanged Components           : " +
+                unchangedTerms.size() );
         this.printWriter.println();
-        this.printWriter.println( "Critical Components in file    : " + problemTerms.size() );
+        this.printWriter.println( "Critical Components in file    : " +
+                problemTerms.size() );
         this.printWriter.println();
         this.printWriter.println();
-        this.printWriter.println("--------------------------------------------------------------------------------");
+        this.printWriter.println("------------------------------------------" +
+                "--------------------------------------");
         this.printWriter.println();
     }
     
@@ -146,14 +207,16 @@ public class GenerateEditorReport {
             this.printWriter.println();
             this.printWriter.println("=====================================");
             this.printWriter.println();
-            this.printWriter.println("  Total Critical Components: " + termList.size());
+            this.printWriter.println("  Total Critical Components: " +
+                    termList.size());
             this.printWriter.println("  -----------------------------");
             this.printWriter.println();
             
             if ( !termList.isEmpty() ){
                 for(Component compie: termList){
                     counter++;
-                    this.printWriter.println( "  " + counter + ". " + compie.getID() + " - " + compie.getName() );                
+                    this.printWriter.println( "  " + counter + ". " +
+                            compie.getID() + " - " + compie.getName() );
                 }
 
                 this.printWriter.println();
@@ -165,32 +228,46 @@ public class GenerateEditorReport {
                 for(Component compie: termList){
                     counter++;
                     this.printWriter.println();
-                    this.printWriter.println( "   Problem Component " + counter );
-                    this.printWriter.println( "    ID        : " + compie.getID() );
-                    this.printWriter.println( "    Name      : " + compie.getName() );
-                    this.printWriter.println( "    Starts At : " + compie.getStartsAt() );
-                    this.printWriter.println( "    Ends At   : " + compie.getEndsAt() );
-                    this.printWriter.println( "    Parents   : " + compie.getPartOf() );
-                    this.printWriter.println( "    GParents  : " + compie.getGroupPartOf() );
-                    this.printWriter.println( "    Is Group  : " + !compie.getIsPrimary() );
-                    this.printWriter.println( "    Synonyms  : " + compie.getSynonym() );
-                    this.printWriter.println( "    Primary Path        : " + new TreePath(compie.getShortenedPrimaryPath()) );
+                    this.printWriter.println( "   Problem Component " +
+                            counter );
+                    this.printWriter.println( "    ID        : " +
+                            compie.getID() );
+                    this.printWriter.println( "    Name      : " +
+                            compie.getName() );
+                    this.printWriter.println( "    Starts At : " +
+                            compie.getStartsAtStr(this.species) );
+                    this.printWriter.println( "    Ends At   : " +
+                            compie.getEndsAtStr(this.species) );
+                    this.printWriter.println( "    Parents   : " +
+                            compie.getPartOf() );
+                    this.printWriter.println( "    GParents  : " +
+                            compie.getGroupPartOf() );
+                    this.printWriter.println( "    Is Group  : " +
+                            !compie.getIsPrimary() );
+                    this.printWriter.println( "    Synonyms  : " +
+                            compie.getSynonym() );
+                    this.printWriter.println( "    Primary Path        : " +
+                            new TreePath(compie.getShortenedPrimaryPath()) );
                     this.printWriter.println( "    Alternate Paths     : " );
                     paths = compie.getShortenedPaths();
                     pathCounter = 0;
                     for( DefaultMutableTreeNode[] path : paths ){
                         pathCounter++;
-                        this.printWriter.println( "     " + pathCounter +  ".  " + new TreePath(path) );
+                        this.printWriter.println( "     " + pathCounter +
+                                ".  " + new TreePath(path) );
                     }
-                    this.printWriter.println( "    Change Check Status : " + compie.getStrChangeStatus() );
-                    this.printWriter.println( "    Rules Check Status  : " + compie.getStrRuleStatus() );
+                    this.printWriter.println( "    Change Check Status : " +
+                            compie.getStrChangeStatus() );
+                    this.printWriter.println( "    Rules Check Status  : " +
+                            compie.getStrRuleStatus() );
                     this.printWriter.println( "    Comments: ");
                 
                     comments = compie.getCheckComments();
                     commentCounter = 0;
                     for( String s: comments ){
                         commentCounter++;
-                        this.printWriter.println( "     " + commentCounter +  ".  " + s );
+                        this.printWriter.println( "     " + commentCounter +
+                                ".  " + s );
                     }
                 }
             }
@@ -212,13 +289,15 @@ public class GenerateEditorReport {
             this.printWriter.println();
             this.printWriter.println("==============");
             this.printWriter.println();
-            this.printWriter.println("  Total New Components: " + termList.size());
+            this.printWriter.println("  Total New Components: " +
+                    termList.size());
             this.printWriter.println("  -------------------------------");
             this.printWriter.println();
        
             for(Component compie: termList){
                 counter++;
-                this.printWriter.println( "  " + counter + ". " + compie.getNewID() + " - " + compie.getName() );
+                this.printWriter.println( "  " + counter + ". " +
+                        compie.getNewID() + " - " + compie.getName() );
             }
             
             if ( !termList.isEmpty() ){
@@ -230,23 +309,35 @@ public class GenerateEditorReport {
                 for(Component compie: termList){
                     counter++;
                     this.printWriter.println();
-                    this.printWriter.println( "   New Component " + counter );
-                    this.printWriter.println( "    ID        : " + compie.getNewID() );
-                    this.printWriter.println( "    Name      : " + compie.getName() );
-                    this.printWriter.println( "    Starts At : " + compie.getStartsAt() );
-                    this.printWriter.println( "    Ends At   : " + compie.getEndsAt() );
-                    this.printWriter.println( "    Parents   : " + compie.getPartOf() );
-                    this.printWriter.println( "    GParents  : " + compie.getGroupPartOf() );
-                    this.printWriter.println( "    Is Group  : " + !compie.getIsPrimary() );
-                    this.printWriter.println( "    Synonyms  : " + compie.getSynonym() );
-                    this.printWriter.println( "    Change Check Status : " + compie.getStrChangeStatus() );
-                    this.printWriter.println( "    Rules Check Status  : " + compie.getStrRuleStatus() );
+                    this.printWriter.println( "   New Component " +
+                            counter );
+                    this.printWriter.println( "    ID        : " +
+                            compie.getNewID() );
+                    this.printWriter.println( "    Name      : " +
+                            compie.getName() );
+                    this.printWriter.println( "    Starts At : " +
+                            compie.getStartsAtStr(this.species) );
+                    this.printWriter.println( "    Ends At   : " +
+                            compie.getEndsAtStr(this.species) );
+                    this.printWriter.println( "    Parents   : " +
+                            compie.getPartOf() );
+                    this.printWriter.println( "    GParents  : " +
+                            compie.getGroupPartOf() );
+                    this.printWriter.println( "    Is Group  : " +
+                            !compie.getIsPrimary() );
+                    this.printWriter.println( "    Synonyms  : " +
+                            compie.getSynonym() );
+                    this.printWriter.println( "    Change Check Status : " +
+                            compie.getStrChangeStatus() );
+                    this.printWriter.println( "    Rules Check Status  : " +
+                            compie.getStrRuleStatus() );
                                 
                     comments = compie.getNewComments();
                     commentCounter = 0;
                     for( String s: comments ){
                         commentCounter++;
-                        this.printWriter.println( "    Comments  : " + commentCounter +  ".  " + s );
+                        this.printWriter.println( "    Comments  : " +
+                                commentCounter +  ".  " + s );
                     }
                 }
             }
@@ -269,7 +360,8 @@ public class GenerateEditorReport {
             this.printWriter.println();
             this.printWriter.println("===================");
             this.printWriter.println();
-            this.printWriter.println("  Total Modified Components: " + termList.size());
+            this.printWriter.println("  Total Modified Components: " +
+                    termList.size());
             this.printWriter.println("  -------------------------------");
             this.printWriter.println();
             
@@ -277,7 +369,8 @@ public class GenerateEditorReport {
             
                 for(Component compie: termList){
                     counter++;
-                    this.printWriter.println( "  " + counter + ". " + compie.getID() + " - " + compie.getName() ); 
+                    this.printWriter.println( "  " + counter + ". " +
+                            compie.getID() + " - " + compie.getName() );
                     comments = compie.getDifferenceComments();
                     for( String s: comments ){
                         this.printWriter.println( "       - " + s );
@@ -293,24 +386,36 @@ public class GenerateEditorReport {
                 for(Component compie: termList){
                     counter++;
                     this.printWriter.println();
-                    this.printWriter.println( "   Modified Component " + counter );
-                    this.printWriter.println( "    ID        : " + compie.getID() );
-                    this.printWriter.println( "    Name      : " + compie.getName() );
-                    this.printWriter.println( "    Starts At : " + compie.getStartsAt() );
-                    this.printWriter.println( "    Ends At   : " + compie.getEndsAt() );
-                    this.printWriter.println( "    Parents   : " + compie.getPartOf() );
-                    this.printWriter.println( "    GParents  : " + compie.getGroupPartOf() );
-                    this.printWriter.println( "    Is Group  : " + !compie.getIsPrimary() );
-                    this.printWriter.println( "    Synonyms  : " + compie.getSynonym() );
-                    this.printWriter.println( "    Change Check Status : " + compie.getStrChangeStatus() );
-                    this.printWriter.println( "    Rules Check Status  : " + compie.getStrRuleStatus() );
+                    this.printWriter.println( "   Modified Component " +
+                            counter );
+                    this.printWriter.println( "    ID        : " +
+                            compie.getID() );
+                    this.printWriter.println( "    Name      : " +
+                            compie.getName() );
+                    this.printWriter.println( "    Starts At : " +
+                            compie.getStartsAtStr(this.species) );
+                    this.printWriter.println( "    Ends At   : " +
+                            compie.getEndsAtStr(this.species) );
+                    this.printWriter.println( "    Parents   : " +
+                            compie.getPartOf() );
+                    this.printWriter.println( "    GParents  : " +
+                            compie.getGroupPartOf() );
+                    this.printWriter.println( "    Is Group  : " +
+                            !compie.getIsPrimary() );
+                    this.printWriter.println( "    Synonyms  : " +
+                            compie.getSynonym() );
+                    this.printWriter.println( "    Change Check Status : " +
+                            compie.getStrChangeStatus() );
+                    this.printWriter.println( "    Rules Check Status  : " +
+                            compie.getStrRuleStatus() );
                     this.printWriter.println( "    Changed Property    : ");
                                 
                     comments = compie.getDifferenceComments();
                     commentCounter = 0;
                     for( String s: comments ){
                         commentCounter++;
-                        this.printWriter.println( "     " + commentCounter +  ".  " + s );
+                        this.printWriter.println( "     " + commentCounter +
+                                ".  " + s );
                     }
                 }
             }
@@ -332,7 +437,8 @@ public class GenerateEditorReport {
             this.printWriter.println();
             this.printWriter.println("==================");
             this.printWriter.println();
-            this.printWriter.println("  Total Deleted Components: " + termList.size());
+            this.printWriter.println("  Total Deleted Components: " +
+                    termList.size());
             this.printWriter.println("  -----------------------------");
             this.printWriter.println();
             
@@ -340,7 +446,8 @@ public class GenerateEditorReport {
             
                 for(Component compie: termList){
                     counter++;
-                    this.printWriter.println( "  " + counter + ". " + compie.getID() + " - " + compie.getName() ); 
+                    this.printWriter.println( "  " + counter + ". " +
+                            compie.getID() + " - " + compie.getName() );
                 }
             
                 this.printWriter.println();
@@ -351,24 +458,36 @@ public class GenerateEditorReport {
                 for(Component compie: termList){
                     counter++;
                     this.printWriter.println();
-                    this.printWriter.println( "   Deleted Component " + counter );
-                    this.printWriter.println( "    ID        : " + compie.getID() );
-                    this.printWriter.println( "    Name      : " + compie.getName() );
-                    this.printWriter.println( "    Starts At : " + compie.getStartsAt() );
-                    this.printWriter.println( "    Ends At   : " + compie.getEndsAt() );
-                    this.printWriter.println( "    Parents   : " + compie.getPartOf() );
-                    this.printWriter.println( "    GParents  : " + compie.getGroupPartOf() );
-                    this.printWriter.println( "    Is Group  : " + !compie.getIsPrimary() );
-                    this.printWriter.println( "    Synonyms  : " + compie.getSynonym() );
-                    this.printWriter.println( "    Change Check Status : " + compie.getStrChangeStatus() );
-                    this.printWriter.println( "    Rules Check Status  : " + compie.getStrRuleStatus() );
+                    this.printWriter.println( "   Deleted Component " +
+                            counter );
+                    this.printWriter.println( "    ID        : " +
+                            compie.getID() );
+                    this.printWriter.println( "    Name      : " +
+                            compie.getName() );
+                    this.printWriter.println( "    Starts At : " +
+                            compie.getStartsAtStr(this.species) );
+                    this.printWriter.println( "    Ends At   : " +
+                            compie.getEndsAtStr(this.species) );
+                    this.printWriter.println( "    Parents   : " +
+                            compie.getPartOf() );
+                    this.printWriter.println( "    GParents  : " +
+                            compie.getGroupPartOf() );
+                    this.printWriter.println( "    Is Group  : " +
+                            !compie.getIsPrimary() );
+                    this.printWriter.println( "    Synonyms  : " +
+                            compie.getSynonym() );
+                    this.printWriter.println( "    Change Check Status : " +
+                            compie.getStrChangeStatus() );
+                    this.printWriter.println( "    Rules Check Status  : " +
+                            compie.getStrRuleStatus() );
                     this.printWriter.println( "    Comments  : ");
                                 
                     comments = compie.getCheckComments();
                     commentCounter = 0;
                     for( String s: comments ){
                         commentCounter++;
-                        this.printWriter.println( "     " + commentCounter +  ".  " + s );
+                        this.printWriter.println( "     " + commentCounter +
+                                ".  " + s );
                     }
                 }
             }
@@ -397,10 +516,15 @@ public class GenerateEditorReport {
         this.printWriter.println("----------------------------------------");
         this.printWriter.println();
         
-        this.printWriter.println("CRITICAL terms = Terms that require revision.");
-        this.printWriter.println("NEW terms = Terms that did not exist in the original file/database.");
-        this.printWriter.println("MODIFIED terms = Terms that have a changed property.");
-        this.printWriter.println("DELETED terms = Terms that exist in the original file/database but are no longer in the current file.");
+        this.printWriter.println("CRITICAL terms = Terms that require " +
+                "revision.");
+        this.printWriter.println("NEW terms = Terms that did not exist in " +
+                "the original file/database.");
+        this.printWriter.println("MODIFIED terms = Terms that have a " +
+                "changed property.");
+        this.printWriter.println("DELETED terms = Terms that exist in the " +
+                "original file/database but are no longer in the current " +
+                "file.");
         
 
     }

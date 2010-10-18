@@ -1,7 +1,30 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+################################################################################
+# Project:      Anatomy
+#
+# Title:        GenerateEditorPDF.java
+#
+# Date:         2008
+#
+# Author:       MeiSze Lam and Attila Gyenesi
+#
+# Copyright:    2009 Medical Research Council, UK.
+#               All rights reserved.
+#
+# Address:      MRC Human Genetics Unit,
+#               Western General Hospital,
+#               Edinburgh, EH4 2XU, UK.
+#
+# Version: 1
+#
+# Maintenance:  Log changes below, with most recent at top of list.
+#
+# Who; When; What;
+#
+# Mike Wicks; September 2010; Tidy up and Document
+#
+################################################################################
+*/
 
 package backend;
 
@@ -13,6 +36,7 @@ import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
+
 import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,17 +46,23 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-/**
- *
- * @author Maze Lam
- */
+
 public class GenerateEditorPDF {
      
-    private ArrayList<Component> newTerms = new ArrayList<Component>();
-    private ArrayList<Component> modifiedTerms = new ArrayList<Component>();
-    private ArrayList<Component> deletedTerms = new ArrayList<Component>();
-    private ArrayList<Component> unchangedTerms = new ArrayList<Component>();
-    private ArrayList<Component> problemTerms = new ArrayList<Component>();
+    private ArrayList<Component> newTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> modifiedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> deletedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> unchangedTerms =
+            new ArrayList<Component>();
+    
+    private ArrayList<Component> problemTerms =
+            new ArrayList<Component>();
     
     private int failedNewTerms = 0;
     private int failedModifiedTerms = 0;
@@ -42,33 +72,49 @@ public class GenerateEditorPDF {
     private Document pdfDocument = new Document();
     private TreeBuilder treebuilder;
     private boolean isProcessed = false;
-    
-    public GenerateEditorPDF( CheckComponents checkie, String fileName, String importedFileName, TreeBuilder treebuilder  ){
+
+    private String species = "";
+
+
+    public GenerateEditorPDF( CheckComponents checkie,
+            String fileName,
+            String importedFileName,
+            TreeBuilder treebuilder,
+            String species){
 
         this.treebuilder = treebuilder;
+        this.species = species;
 
         //sort terms from CheckComponents class into categories
         //ArrayList<Component> changedTerms = checkie.getChangesTermList();
         ArrayList<Component> proposedTerms = checkie.getProposedTermList();
         problemTerms = checkie.getProblemTermList();
         this.sortChangedTerms( proposedTerms );        
-
-        
+    
         try {
             //check filepath exists
             File file = new File(fileName);
-            if (!file.isDirectory())
+
+            if (!file.isDirectory()) {
                 file = file.getParentFile();
-            if (!file.exists()) return;
+            }
+
+            if (!file.exists()) {
+                return;
+            }
 
             //create pdf file
-            PdfWriter.getInstance( pdfDocument,new FileOutputStream( fileName ) );
+            PdfWriter.getInstance(pdfDocument,
+                    new FileOutputStream( fileName ) );
             pdfDocument.open();
             
             //pdf title
             Paragraph paraMainHeader = new Paragraph();
-            Chunk chkMainHeader = new Chunk( "Editor Report for \n Import of OBO File: \n" + importedFileName, 
+            Chunk chkMainHeader = 
+                    new Chunk( "Editor Report for \n Import of OBO File: \n" +
+                    importedFileName,
                     new Font( Font.HELVETICA, 14, Font.BOLD ) );
+
             paraMainHeader.add( chkMainHeader );
             paraMainHeader.add( Chunk.NEWLINE );
             paraMainHeader.add( Chunk.NEWLINE );
@@ -80,19 +126,39 @@ public class GenerateEditorPDF {
             
             //writing problem terms
             //writeProblemTerms( problemTerms );
-            writeTerms( problemTerms, "CRITICAL COMPONENTS: REQUIRE REVISION", "Total Critical Components: ", Color.RED, "Problem Component ", "PROBLEM" );
+            writeTerms( problemTerms,
+                    "CRITICAL COMPONENTS: REQUIRE REVISION",
+                    "Total Critical Components: ",
+                    Color.RED,
+                    "Problem Component ",
+                    "PROBLEM" );
             
             //writing new terms
             pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( newTerms, "NEW COMPONENTS", "Total New Components: ", new Color(0,140,0), "New Component " ,"NEW" );
+            writeTerms( newTerms,
+                    "NEW COMPONENTS",
+                    "Total New Components: ",
+                    new Color(0,140,0),
+                    "New Component ",
+                    "NEW" );
             
             //writing modified terms
             pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( modifiedTerms, "MODIFIED COMPONENTS", "Total Modified Components: ", new Color(0,140,0), "Modified Component ", "MODIFIED" );
+            writeTerms( modifiedTerms,
+                    "MODIFIED COMPONENTS",
+                    "Total Modified Components: ",
+                    new Color(0,140,0),
+                    "Modified Component ",
+                    "MODIFIED" );
             
             //writing deleted terms
             pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( deletedTerms, "DELETED COMPONENTS", "Total Deleted Components: ", new Color(0,140,0), "Deleted Components ", "DELETED" );
+            writeTerms( deletedTerms,
+                    "DELETED COMPONENTS",
+                    "Total Deleted Components: ",
+                    new Color(0,140,0),
+                    "Deleted Components ",
+                    "DELETED" );
             
             //appendix
             writeAppendix();
@@ -113,10 +179,11 @@ public class GenerateEditorPDF {
             if ( compie.getStrChangeStatus().equals("NEW") ) {
                 newTerms.add(compie);
                 if ( compie.getStrRuleStatus().equals("FAILED") ) {
-                    System.out.println("New and failed: " + compie.toString());
+                    //System.out.println("New and failed: " +
+                    // compie.toString());
                     for (Object oComment: compie.getCheckComments() ){
                         String comment = (String) oComment;
-                        System.out.println( comment );
+                        //System.out.println( comment );
                     }
                     failedNewTerms++;
                 }
@@ -124,10 +191,11 @@ public class GenerateEditorPDF {
             else if ( compie.getStrChangeStatus().equals("CHANGED") ) {
                 modifiedTerms.add(compie);
                 if ( compie.getStrRuleStatus().equals("FAILED") ) {
-                    System.out.println("Modified and failed: " + compie.toString());
+                    //System.out.println("Modified and failed: " +
+                    // compie.toString());
                     for (Object oComment: compie.getCheckComments() ){
                         String comment = (String) oComment;
-                        System.out.println( comment );
+                        //System.out.println( comment );
                     }
                     failedModifiedTerms++;
                 }
@@ -135,17 +203,19 @@ public class GenerateEditorPDF {
             else if ( compie.getStrChangeStatus().equals("DELETED") ) {
                 deletedTerms.add(compie);
                 if ( compie.getStrRuleStatus().equals("FAILED") ) {
-                    System.out.println("Deleted and failed: " + compie.toString());
+                    //System.out.println("Deleted and failed: " +
+                    // compie.toString());
                     failedDeletedTerms++;
                 }
             }
             else if ( compie.getStrChangeStatus().equals("UNCHANGED") ) {
                 unchangedTerms.add(compie);
                 if ( compie.getStrRuleStatus().equals("FAILED") ) {
-                    System.out.println("Unchanged and failed: " + compie.toString());
+                    //System.out.println("Unchanged and failed: " +
+                    // compie.toString());
                     for (Object oComment: compie.getCheckComments() ){
                         String comment = (String) oComment;
-                        System.out.println( comment );
+                        //System.out.println( comment );
                     }
                     failedUnchangedTerms++;
                 }
@@ -163,7 +233,8 @@ public class GenerateEditorPDF {
             pdfDocument.add( Chunk.NEWLINE ); pdfDocument.add( Chunk.NEWLINE );
 
             addSummaryEntry("Total Components from OBO File    : ", 
-                    Integer.toString(checkie.getProposedTermList().size()), checkie );
+                    Integer.toString(checkie.getProposedTermList().size()),
+                    checkie );
             addSummaryEntry("New Components created by user   : ", 
                     Integer.toString( newTerms.size() ), checkie );
             addSummaryEntry("Modified Components edited by user   : ",
@@ -175,7 +246,9 @@ public class GenerateEditorPDF {
             addSummaryEntry("Critical Components in File   : ",
                     Integer.toString( problemTerms.size() ), checkie );
 
-            Chunk chkSummaryFooter = new Chunk("------------------------------------------------------------------------------------------------------------");
+            Chunk chkSummaryFooter = new Chunk("----------------------------" +
+            "---------------------------------------------------------------" +
+            "-----------------");
             pdfDocument.add( chkSummaryFooter );
             pdfDocument.add( Chunk.NEWLINE ); pdfDocument.add( Chunk.NEWLINE );
         }
@@ -204,7 +277,8 @@ public class GenerateEditorPDF {
             cell = new Cell( chkHeader );
             table.addCell( cell );
             chkHeader = new Chunk( "Passed**",
-                    new Font( Font.COURIER, 12, Font.BOLDITALIC, new Color(0,140,0) ) );
+                    new Font( Font.COURIER, 12, Font.BOLDITALIC,
+                    new Color(0,140,0) ) );
             cell = new Cell( chkHeader );
             table.addCell( cell );
             chkHeader = new Chunk( "Total",
@@ -216,54 +290,72 @@ public class GenerateEditorPDF {
             
             table.addCell( makeSummaryTableLabel( "All Components" ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( problemTerms.size() ), Font.BOLD, Color.RED ) ); 
+                    Integer.toString( problemTerms.size() ),
+                    Font.BOLD, Color.RED ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( checkie.getProposedTermList().size()-problemTerms.size() ), 
+                    Integer.toString( checkie.getProposedTermList().size() -
+                    problemTerms.size() ),
                     Font.BOLD, Color.BLACK ) ); 
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( checkie.getProposedTermList().size() ), Font.BOLD, Color.BLACK ) ); 
+                    Integer.toString( checkie.getProposedTermList().size() ),
+                    Font.BOLD, Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "New" ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedNewTerms ), Font.NORMAL, Color.RED ) ); 
+                    Integer.toString( failedNewTerms ), Font.NORMAL,
+                    Color.RED ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( newTerms.size()-failedNewTerms ), 
+                    Integer.toString( newTerms.size() -
+                    failedNewTerms ),
                     Font.BOLD, new Color(0,140,0) ) ); 
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( newTerms.size() ), Font.BOLD, Color.BLACK ) ); 
+                    Integer.toString( newTerms.size() ), Font.BOLD,
+                    Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Modified" ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedModifiedTerms ), Font.NORMAL, Color.RED ) ); 
+                    Integer.toString( failedModifiedTerms ), Font.NORMAL,
+                    Color.RED ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( modifiedTerms.size()-failedModifiedTerms ), 
+                    Integer.toString( modifiedTerms.size() -
+                    failedModifiedTerms ),
                     Font.BOLD, new Color(0,140,0) ) ); 
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( modifiedTerms.size() ), Font.BOLD, Color.BLACK ) );
+                    Integer.toString( modifiedTerms.size() ), Font.BOLD,
+                    Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Deleted" ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedDeletedTerms ), Font.NORMAL, Color.RED ) ); 
+                    Integer.toString( failedDeletedTerms ), Font.NORMAL,
+                    Color.RED ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( deletedTerms.size()-failedDeletedTerms ), 
+                    Integer.toString( deletedTerms.size() -
+                    failedDeletedTerms ),
                     Font.BOLD, new Color(0,140,0) ) ); 
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( deletedTerms.size() ), Font.BOLD, Color.BLACK ) );
+                    Integer.toString( deletedTerms.size() ), Font.BOLD,
+                    Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Unchanged" ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedUnchangedTerms ), Font.NORMAL, Color.RED ) ); 
+                    Integer.toString( failedUnchangedTerms ), Font.NORMAL,
+                    Color.RED ) );
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( unchangedTerms.size()-failedUnchangedTerms ), 
+                    Integer.toString( unchangedTerms.size() -
+                    failedUnchangedTerms ),
                     Font.BOLD, new Color(0,140,0) ) ); 
             table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( unchangedTerms.size() ), Font.BOLD, Color.BLACK ) );
+                    Integer.toString( unchangedTerms.size() ), Font.BOLD,
+                    Color.BLACK ) );
            
             pdfDocument.add( table );
 
-            Chunk chkAsterisk1 = new Chunk( "*Failed: Some of the component's properties require revision by editor",
+            Chunk chkAsterisk1 = new Chunk( "*Failed: Some of the " +
+                    "component's properties require revision by editor",
                     new Font( Font.NORMAL, 8, Font.ITALIC, Color.BLACK ) );
-            Chunk chkAsterisk2 = new Chunk( "**Passed: Components have passed all checks and are approved for any updates that will take place",
+            Chunk chkAsterisk2 = new Chunk( "**Passed: Components have " +
+                    "passed all checks and are approved for any updates " +
+                    "that will take place",
                     new Font( Font.NORMAL, 8, Font.ITALIC, Color.BLACK ) );
             pdfDocument.add( chkAsterisk1 ); pdfDocument.add( Chunk.NEWLINE );
             pdfDocument.add( chkAsterisk2 );
@@ -290,7 +382,8 @@ public class GenerateEditorPDF {
         return cell;
     }
     
-    private void addSummaryEntry( String label, String item, CheckComponents checkie ){
+    private void addSummaryEntry( String label, String item,
+            CheckComponents checkie ){
         try{
             Chunk chkSummaryLabel = new Chunk( label, 
                     new Font( Font.COURIER, 10, Font.ITALIC ) );
@@ -308,7 +401,8 @@ public class GenerateEditorPDF {
     }
     
     
-    private void makeComponentTable( Component compie, String tableHeader, int counter, Color tableColor ){
+    private void makeComponentTable( Component compie, String tableHeader,
+            int counter, Color tableColor ){
         try{
             //table
             Table table = new Table( 4 );
@@ -328,67 +422,127 @@ public class GenerateEditorPDF {
 
             String parents = "";
             String groupparents = "";
-            String strCompieID = ( !compie.getNewID().equals("") ) ? compie.getNewID(): compie.getID();
-            for ( String parent: compie.getPartOf() )
-                parents = parents + parent + "[" + treebuilder.getComponent( parent ).getName() + "] ";
-            for ( String groupparent: compie.getGroupPartOf() )
-                groupparents = groupparents + groupparent + "[" + treebuilder.getComponent( groupparent ).getName() + "] ";
+            String strCompieID = ( !compie.getNewID().equals("") ) ?
+                compie.getNewID(): compie.getID();
+            for ( String parent: compie.getPartOf() ) {
+                parents = parents + parent + "[" +
+                treebuilder.getComponent( parent ).getName() + "] ";
+            }
+            for ( String groupparent: compie.getGroupPartOf() ) {
+                groupparents = groupparents + groupparent + "[" +
+                        treebuilder.getComponent( groupparent ).getName() +
+                        "] ";
+            }
 
-            cell = makeLabel("ID"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( strCompieID ); cell.setColspan( 1 ); table.addCell( cell );
+            cell = makeLabel("ID"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( strCompieID ); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
             
-            cell = makeLabel("Is Group Term"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( Boolean.toString(!compie.getIsPrimary()) ); cell.setColspan( 1 ); table.addCell( cell );
+            cell = makeLabel("Is Group Term"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( Boolean.toString(!compie.getIsPrimary()) ); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
             
-            cell = makeLabel("Name"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( compie.getName() ) ; cell.setColspan( 3 ); table.addCell( cell );
+            cell = makeLabel("Name"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( compie.getName() ); 
+            cell.setColspan( 3 );
+            table.addCell( cell );
             
-            cell = makeLabel("Starts At"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( compie.getStartsAt() ); cell.setColspan( 1 ); table.addCell( cell );
+            cell = makeLabel("Starts At"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( compie.getStartsAtStr(this.species) );
+            cell.setColspan( 1 );
+            table.addCell( cell );
             
-            cell = makeLabel("Ends At" ); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry(compie.getEndsAt() ); cell.setColspan( 1 ); table.addCell( cell );
+            cell = makeLabel("Ends At" ); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( compie.getEndsAtStr(this.species) );
+            cell.setColspan( 1 );
+            table.addCell( cell );
             
-            cell = makeLabel("Primary Parents"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( parents ); cell.setColspan( 3 ); table.addCell( cell );
+            cell = makeLabel("Primary Parents"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( parents ); 
+            cell.setColspan( 3 );
+            table.addCell( cell );
             
-            cell = makeLabel("Group Parents"); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( groupparents ); cell.setColspan( 3 ); table.addCell( cell );
+            cell = makeLabel("Group Parents"); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( groupparents ); 
+            cell.setColspan( 3 );
+            table.addCell( cell );
             
-            cell = makeLabel( "Synonyms" ); cell.setColspan( 1 ); table.addCell( cell );
-            cell = makeEntry( (compie.getSynonym()).toString() ); cell.setColspan( 3 ); table.addCell( cell );
-            
-            if ( !tableHeader.startsWith("New") ){ //don't print paths for new components
-                cell = makeLabel( "Primary Path" ); cell.setColspan( 1 ); table.addCell( cell );
-                TreePath primaryPath = new TreePath( compie.getShortenedPrimaryPath() );
-                cell = makeEntry( primaryPath.toString() ); cell.setColspan( 3 ); table.addCell( cell );
+            cell = makeLabel( "Synonyms" ); 
+            cell.setColspan( 1 );
+            table.addCell( cell );
+            cell = makeEntry( (compie.getSynonym()).toString() ); 
+            cell.setColspan( 3 );
+            table.addCell( cell );
 
-                cell = makeLabel( "Alternate Paths" ); cell.setColspan( 1 );
-                cell.setRowspan( (compie.getPaths().size()==0) ? 1 : compie.getPaths().size() ); table.addCell( cell );
+            //don't print paths for new components
+            if ( !tableHeader.startsWith("New") ){ 
+                cell = makeLabel( "Primary Path" );
+                cell.setColspan( 1 );
+                table.addCell( cell );
+                TreePath primaryPath =
+                        new TreePath( compie.getShortenedPrimaryPath() );
+                cell = makeEntry( primaryPath.toString() ); 
+                cell.setColspan( 3 );
+                table.addCell( cell );
 
-                Vector<DefaultMutableTreeNode[]> paths = compie.getShortenedPaths();
+                cell = makeLabel( "Alternate Paths" );
+                cell.setColspan( 1 );
+                cell.setRowspan( (compie.getPaths().size() == 0) ?
+                    1 : compie.getPaths().size() );
+                table.addCell( cell );
+
+                Vector<DefaultMutableTreeNode[]> paths =
+                        compie.getShortenedPaths();
                 if ( !paths.isEmpty() ){
                     int pathCounter = 0;
                     for( DefaultMutableTreeNode[] path : paths ){
                         pathCounter++;
                         TreePath alternatePath = new TreePath( path );
-                        cell = makeEntry( pathCounter + ". " + alternatePath.toString() );
-                        cell.setColspan( 3 ); table.addCell( cell );
+                        cell = makeEntry( pathCounter + ". " +
+                                alternatePath.toString() );
+                        cell.setColspan( 3 );
+                        table.addCell( cell );
                     }
-                }else{
+                }
+                else{
                     cell = makeEntry("");
-                    cell.setColspan( 3 ); table.addCell( cell );
+                    cell.setColspan( 3 );
+                    table.addCell( cell );
                 }
             }
             
-            cell = makeLabel( "Rule Status" ); cell.setColspan(1); table.addCell( cell );
-            cell = makeEntry( compie.getStrRuleStatus() ); table.addCell( cell );
+            cell = makeLabel( "Rule Status" ); 
+            cell.setColspan(1);
+            table.addCell( cell );
+            cell = makeEntry( compie.getStrRuleStatus() );
+            table.addCell( cell );
             
-            cell = makeLabel( "Edit Status" ); table.addCell( cell );
-            cell = makeEntry( compie.getStrChangeStatus() ); table.addCell( cell );
+            cell = makeLabel( "Edit Status" );
+            table.addCell( cell );
+            cell = makeEntry( compie.getStrChangeStatus() );
+            table.addCell( cell );
             
-            cell = makeLabel( "Comments" ); cell.setColspan( 1 ); 
-            cell.setRowspan( (compie.getCheckComments().size()==0) ? 1 : compie.getCheckComments().size() ); table.addCell( cell );
+            cell = makeLabel( "Comments" );
+            cell.setColspan( 1 );
+            cell.setRowspan( (compie.getCheckComments().size()==0) ? 
+                1 : compie.getCheckComments().size() );
+            table.addCell( cell );
            
             Set<String> comments = compie.getCheckComments();
             int commentCounter = 0;
@@ -424,22 +578,30 @@ public class GenerateEditorPDF {
         return cell;
     }
     
-    private void writeTerms( ArrayList<Component> termList, String strHeader, String strSubheader,
-            Color headerColor, String strTableHeader, String strStatus ){
-            int counter = 0;
-            String strCompieID = "";
+    private void writeTerms( ArrayList<Component> termList, 
+            String strHeader,
+            String strSubheader,
+            Color headerColor, 
+            String strTableHeader,
+            String strStatus ){
+
+        int counter = 0;
+        String strCompieID = "";
         
         try{
             //main header
             Chunk chkProblemTitle = new Chunk( strHeader, 
                     new Font( Font.COURIER, 12, Font.UNDERLINE, headerColor ) );
             pdfDocument.add( chkProblemTitle );
-            pdfDocument.add( Chunk.NEWLINE ); pdfDocument.add( Chunk.NEWLINE );
+            pdfDocument.add( Chunk.NEWLINE );
+            pdfDocument.add( Chunk.NEWLINE );
             
             //total
+            //Color.RED
             Chunk chkTotalLabel = new Chunk( strSubheader,
-                    new Font( Font.NORMAL, 10, Font.ITALIC, headerColor ) ); //Color.RED
-            Chunk chkTotalEntry = new Chunk( Integer.toString( termList.size() ),
+                    new Font( Font.NORMAL, 10, Font.ITALIC, headerColor ) ); 
+            Chunk chkTotalEntry =
+                    new Chunk( Integer.toString( termList.size() ),
                     new Font( Font.NORMAL, 10, Font.BOLD, headerColor ) );
             pdfDocument.add( chkTotalLabel );
             pdfDocument.add( chkTotalEntry );
@@ -451,11 +613,14 @@ public class GenerateEditorPDF {
 
                 for(Component compie: termList){
                     counter++;
-                    strCompieID = ( !compie.getNewID().equals("") ) ? compie.getNewID(): compie.getID();
+                    strCompieID = ( !compie.getNewID().equals("") ) ?
+                        compie.getNewID(): compie.getID();
 
                     Paragraph paraListItem = new Paragraph();
-                    Chunk chkListItem = new Chunk( "  " + counter + ". " + strCompieID + " - " + compie.getName(),
-                            new Font( Font.NORMAL, 10, Font.NORMAL, Color.BLACK ) );
+                    Chunk chkListItem = new Chunk( "  " + counter + ". " +
+                            strCompieID + " - " + compie.getName(),
+                            new Font( Font.NORMAL, 10, Font.NORMAL,
+                            Color.BLACK ) );
                     
                     paraListItem.setLeading( 9 );
                     paraListItem.add( chkListItem );
@@ -467,7 +632,8 @@ public class GenerateEditorPDF {
                 Chunk chkListDetail = new Chunk("DETAILS: ",
                     new Font( Font.NORMAL, 10, Font.UNDERLINE ) );
                 pdfDocument.add( chkListDetail );
-                pdfDocument.add( Chunk.NEWLINE ); pdfDocument.add( Chunk.NEWLINE );
+                pdfDocument.add( Chunk.NEWLINE );
+                pdfDocument.add( Chunk.NEWLINE );
                 
                 //component details
                 counter = 0;
@@ -475,8 +641,11 @@ public class GenerateEditorPDF {
                 for(Component compie: termList){
                     counter++;
                     pdfDocument.add( Chunk.NEWLINE );
-                    tableColor = ( compie.getStrRuleStatus().equals("FAILED") ) ? Color.RED : headerColor; 
-                    makeComponentTable( compie, strTableHeader, counter, tableColor );
+                    tableColor = 
+                            ( compie.getStrRuleStatus().equals("FAILED") ) ?
+                                Color.RED : headerColor;
+                    makeComponentTable( compie, strTableHeader,
+                            counter, tableColor );
                 }
             }
         }
@@ -492,14 +661,18 @@ public class GenerateEditorPDF {
 
             Paragraph paraAppendix = new Paragraph();
             paraAppendix.setLeading( 9 );
-            Chunk chkFooterLine = new Chunk( "--------------------------------------------------------------------------------------",
+            Chunk chkFooterLine = new Chunk( "------------------------------" +
+                    "--------------------------------------------------------",
                     new Font( Font.COURIER, 10, Font.NORMAL, Color.BLACK ) );
             Chunk chkAppendixTitle = new Chunk("APPENDIX",
                     new Font( Font.COURIER, 12, Font.UNDERLINE, Color.BLACK ) );
-            Chunk chkAppendixBody = new Chunk( "CRITICAL terms = Terms that require revision. \n" +
-                    "NEW terms = Terms that did not exist in the original file/database. \n" + 
+            Chunk chkAppendixBody = new Chunk( "CRITICAL terms = Terms that " +
+                    "require revision. \n" +
+                    "NEW terms = Terms that did not exist in the original " +
+                    "file/database. \n" +
                     "MODIFIED terms = Terms that have a changed property. \n" +
-                    "DELETED terms = Terms that exist in the original file/database but are no longer in the current file.",
+                    "DELETED terms = Terms that exist in the original file/" +
+                    "database but are no longer in the current file.",
                     new Font( Font.COURIER, 10, Font.ITALIC, Color.BLACK ) );
             paraAppendix.add( chkFooterLine );
             paraAppendix.add( Chunk.NEWLINE );
@@ -520,9 +693,4 @@ public class GenerateEditorPDF {
     public boolean getIsProcessed(){
         return this.isProcessed;
     }
-    
 }
-
-
-
-

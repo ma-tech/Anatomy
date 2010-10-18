@@ -34,10 +34,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="mainTabbedPanel" alignment="0" min="-2" pref="855" max="-2" attributes="0"/>
+                  <Component id="mainTabbedPanel" alignment="0" pref="875" max="32767" attributes="0"/>
                   <Component id="exitButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,7 +47,7 @@
               <Component id="mainTabbedPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="exitButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,11 +79,15 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jPanel27" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel37" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jPanel2" alignment="0" max="32767" attributes="1"/>
                           <Component id="jPanel36" alignment="0" max="32767" attributes="1"/>
                           <Component id="jPanel5" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="260" max="32767" attributes="0"/>
+                      <EmptySpace pref="312" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel2" max="32767" attributes="1"/>
+                      <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -95,11 +99,11 @@
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel37" min="-2" pref="59" max="-2" attributes="1"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                       <Component id="jPanel36" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
@@ -133,17 +137,18 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="1">
-                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="exportTextFileTF" max="32767" attributes="1"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="exportOBOFileTF" min="-2" pref="363" max="-2" attributes="1"/>
-                                      </Group>
                                       <Component id="expTermNoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="exportTextFileTF" min="-2" pref="363" max="-2" attributes="1"/>
+                                              <Component id="exportOBOFileTF" alignment="0" pref="363" max="32767" attributes="1"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -161,8 +166,8 @@
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="savedByTF" alignment="0" pref="636" max="32767" attributes="1"/>
-                                      <Component id="jScrollPane1" alignment="0" pref="636" max="32767" attributes="1"/>
+                                      <Component id="savedByTF" alignment="0" pref="761" max="32767" attributes="1"/>
+                                      <Component id="jScrollPane1" alignment="0" pref="761" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -198,7 +203,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="expTermNoLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -210,9 +215,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="savedByTF">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Maze Lam"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
@@ -220,9 +222,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="exportOBOFileTF">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="C:\Maze\OBO\OBO_files\OBOFile_TS14.obo"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportOBOFileTFActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="exportBrowseButton">
                   <Properties>
@@ -248,7 +250,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="test version..."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -275,9 +276,6 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="exportTextFileTF">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="D:\OBO\treereport.txt"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="exportTextBrowseButton">
                   <Properties>
@@ -321,21 +319,24 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="mouseRB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="humanRB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="498" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="chickRB" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="695" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="mouseRB" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="humanRB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chickRB" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -348,6 +349,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="specieButtonGroup"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="mouse"/>
                     <Property name="toolTipText" type="java.lang.String" value="Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 &apos;Database and File Settings&apos;"/>
                   </Properties>
@@ -360,12 +362,26 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="specieButtonGroup"/>
                     </Property>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="human"/>
                     <Property name="toolTipText" type="java.lang.String" value="Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 &apos;Database and File Settings&apos;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="humanRBItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="humanRBActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="chickRB">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="specieButtonGroup"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 &apos;Database and File Settings&apos;"/>
+                    <Property name="actionCommand" type="java.lang.String" value="chick"/>
+                    <Property name="label" type="java.lang.String" value="chick"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chickRBItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chickRBActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -387,19 +403,7 @@
                           <Component id="startendRB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="timedcompRB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="abstractstageRB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cboStage" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="rangeRB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cboStart" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel25" min="-2" pref="16" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cboEnd" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <EmptySpace pref="566" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -408,15 +412,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="timedcompRB" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="abstractstageRB" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboStage" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rangeRB" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboStart" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboEnd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="startendRB" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -445,155 +443,6 @@
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="startendRBItemStateChanged"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="abstractstageRB">
-                  <Properties>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="formatButtonGroup"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Abstract Stage"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="abstractstageRBItemStateChanged"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cboStage">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="28">
-                        <StringItem index="0" value="TS01"/>
-                        <StringItem index="1" value="TS02"/>
-                        <StringItem index="2" value="TS03"/>
-                        <StringItem index="3" value="TS04"/>
-                        <StringItem index="4" value="TS05"/>
-                        <StringItem index="5" value="TS06"/>
-                        <StringItem index="6" value="TS07"/>
-                        <StringItem index="7" value="TS08"/>
-                        <StringItem index="8" value="TS09"/>
-                        <StringItem index="9" value="TS10"/>
-                        <StringItem index="10" value="TS11"/>
-                        <StringItem index="11" value="TS12"/>
-                        <StringItem index="12" value="TS13"/>
-                        <StringItem index="13" value="TS14"/>
-                        <StringItem index="14" value="TS15"/>
-                        <StringItem index="15" value="TS16"/>
-                        <StringItem index="16" value="TS17"/>
-                        <StringItem index="17" value="TS18"/>
-                        <StringItem index="18" value="TS19"/>
-                        <StringItem index="19" value="TS20"/>
-                        <StringItem index="20" value="TS21"/>
-                        <StringItem index="21" value="TS22"/>
-                        <StringItem index="22" value="TS23"/>
-                        <StringItem index="23" value="TS24"/>
-                        <StringItem index="24" value="TS25"/>
-                        <StringItem index="25" value="TS26"/>
-                        <StringItem index="26" value="TS27"/>
-                        <StringItem index="27" value="TS28"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboStageItemStateChanged"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JRadioButton" name="rangeRB">
-                  <Properties>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="formatButtonGroup"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Abstract Stage Range"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rangeRBActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cboStart">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="28">
-                        <StringItem index="0" value="TS01"/>
-                        <StringItem index="1" value="TS02"/>
-                        <StringItem index="2" value="TS03"/>
-                        <StringItem index="3" value="TS04"/>
-                        <StringItem index="4" value="TS05"/>
-                        <StringItem index="5" value="TS06"/>
-                        <StringItem index="6" value="TS07"/>
-                        <StringItem index="7" value="TS08"/>
-                        <StringItem index="8" value="TS09"/>
-                        <StringItem index="9" value="TS10"/>
-                        <StringItem index="10" value="TS11"/>
-                        <StringItem index="11" value="TS12"/>
-                        <StringItem index="12" value="TS13"/>
-                        <StringItem index="13" value="TS14"/>
-                        <StringItem index="14" value="TS15"/>
-                        <StringItem index="15" value="TS16"/>
-                        <StringItem index="16" value="TS17"/>
-                        <StringItem index="17" value="TS18"/>
-                        <StringItem index="18" value="TS19"/>
-                        <StringItem index="19" value="TS20"/>
-                        <StringItem index="20" value="TS21"/>
-                        <StringItem index="21" value="TS22"/>
-                        <StringItem index="22" value="TS23"/>
-                        <StringItem index="23" value="TS24"/>
-                        <StringItem index="24" value="TS25"/>
-                        <StringItem index="25" value="TS26"/>
-                        <StringItem index="26" value="TS27"/>
-                        <StringItem index="27" value="TS28"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboStartItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboStartActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel25">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="to"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cboEnd">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="28">
-                        <StringItem index="0" value="TS01"/>
-                        <StringItem index="1" value="TS02"/>
-                        <StringItem index="2" value="TS03"/>
-                        <StringItem index="3" value="TS04"/>
-                        <StringItem index="4" value="TS05"/>
-                        <StringItem index="5" value="TS06"/>
-                        <StringItem index="6" value="TS07"/>
-                        <StringItem index="7" value="TS08"/>
-                        <StringItem index="8" value="TS09"/>
-                        <StringItem index="9" value="TS10"/>
-                        <StringItem index="10" value="TS11"/>
-                        <StringItem index="11" value="TS12"/>
-                        <StringItem index="12" value="TS13"/>
-                        <StringItem index="13" value="TS14"/>
-                        <StringItem index="14" value="TS15"/>
-                        <StringItem index="15" value="TS16"/>
-                        <StringItem index="16" value="TS17"/>
-                        <StringItem index="17" value="TS18"/>
-                        <StringItem index="18" value="TS19"/>
-                        <StringItem index="19" value="TS20"/>
-                        <StringItem index="20" value="TS21"/>
-                        <StringItem index="21" value="TS22"/>
-                        <StringItem index="22" value="TS23"/>
-                        <StringItem index="23" value="TS24"/>
-                        <StringItem index="24" value="TS25"/>
-                        <StringItem index="25" value="TS26"/>
-                        <StringItem index="26" value="TS27"/>
-                        <StringItem index="27" value="TS28"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="&quot;TS28&quot;" type="code"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboEndItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboEndActionPerformed"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel37">
@@ -616,8 +465,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cboAddedRoots" min="-2" pref="123" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cmdEditList" min="-2" pref="82" max="-2" attributes="0"/>
-                          <EmptySpace pref="191" max="32767" attributes="0"/>
+                          <Component id="cmdEditList" min="-2" pref="102" max="-2" attributes="0"/>
+                          <EmptySpace pref="268" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -695,7 +544,7 @@
                           <Component id="cboProject" min="-2" pref="137" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="359" max="32767" attributes="0"/>
+                          <EmptySpace pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -707,7 +556,7 @@
                               <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cboProject" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -754,7 +603,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTabbedPane2" pref="830" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane2" pref="846" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -762,7 +611,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTabbedPane2" pref="718" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane2" pref="756" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -791,25 +640,28 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Component id="jScrollPane3" alignment="1" pref="261" max="32767" attributes="2"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblPropFile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtCurrentFile" pref="209" max="32767" attributes="1"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cmdBrowseOld" min="-2" pref="25" max="-2" attributes="1"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cmdLoadOBOFile" alignment="0" pref="188" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtCurrentFile" pref="157" max="32767" attributes="1"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="cmdBrowseOld" min="-2" pref="25" max="-2" attributes="1"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Component id="jScrollPane3" alignment="1" pref="293" max="32767" attributes="2"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel26" max="32767" attributes="1"/>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jPanel24" alignment="0" max="32767" attributes="1"/>
-                                      <Component id="jPanel25" alignment="0" min="0" pref="468" max="32767" attributes="1"/>
-                                      <Component id="jPanel21" alignment="0" min="0" pref="468" max="32767" attributes="1"/>
-                                  </Group>
+                                  <Component id="jPanel25" alignment="0" min="0" max="32767" attributes="1"/>
+                                  <Component id="jPanel21" alignment="0" min="0" pref="544" max="32767" attributes="1"/>
+                                  <Component id="jPanel24" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jPanel26" min="-2" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -819,7 +671,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane3" pref="593" max="32767" attributes="1"/>
+                                      <Component id="jScrollPane3" pref="602" max="32767" attributes="1"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="cmdBrowseOld" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -837,7 +689,9 @@
                                       <Component id="jPanel26" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="57" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cmdLoadOBOFile" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -888,15 +742,7 @@
                                       <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="1">
-                                          <Component id="txtID" min="-2" pref="83" max="-2" attributes="1"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtName" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane5" alignment="0" pref="335" max="32767" attributes="1"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="txtSynonyms" max="32767" attributes="1"/>
@@ -918,11 +764,21 @@
                                               </Group>
                                               <Component id="chkIsPrimary" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                          <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtPrimaryPath" alignment="0" pref="335" max="32767" attributes="1"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jScrollPane5" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="txtPrimaryPath" alignment="0" max="32767" attributes="1"/>
+                                          <Group type="102" alignment="0" attributes="1">
+                                              <Component id="txtID" min="-2" pref="97" max="-2" attributes="1"/>
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtName" min="-2" pref="260" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1086,9 +942,6 @@
                       </SubComponents>
                     </Container>
                     <Component class="javax.swing.JTextField" name="txtCurrentFile">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="C:\Maze\OBO\OBO_files\OBOFile_test_edited.obo"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCurrentFileActionPerformed"/>
                       </Events>
@@ -1120,17 +973,20 @@
                                       <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="txtRulesStatus" min="-2" pref="99" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtChangedStatus" max="32767" attributes="0"/>
+                                          <Component id="txtChangedStatus" pref="51" max="32767" attributes="0"/>
+                                          <EmptySpace pref="131" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane7" alignment="0" min="-2" pref="340" max="-2" attributes="1"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jScrollPane7" pref="412" max="32767" attributes="1"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace pref="32" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1212,39 +1068,36 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="cboProblemNodes" pref="220" max="32767" attributes="1"/>
-                                              <Component id="cboChangedNodes" min="-2" pref="220" max="-2" attributes="1"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="lblUnprocessed" min="-2" max="-2" attributes="1"/>
-                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="lblNew" min="-2" max="-2" attributes="1"/>
-                                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                                  <Component id="lblModified" max="32767" attributes="1"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="lblDeleted" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cboProblemNodes" pref="220" max="32767" attributes="1"/>
+                                      <Component id="cboChangedNodes" min="-2" pref="220" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblUnprocessed" min="-2" max="-2" attributes="1"/>
+                                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="1">
-                                          <Component id="cmdFindCommonAncestor" min="-2" pref="177" max="-2" attributes="1"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblNew" min="-2" max="-2" attributes="1"/>
+                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                          <Component id="lblModified" pref="48" max="32767" attributes="1"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblDeleted" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cmdPropCheck" min="-2" pref="141" max="-2" attributes="1"/>
-                                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="1">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="cmdFindCommonAncestor" min="-2" pref="226" max="-2" attributes="1"/>
+                                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                                  <Component id="cmdPropCheck" min="-2" pref="182" max="-2" attributes="1"/>
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1260,14 +1113,14 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel72" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNew" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblModified" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDeleted" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cboChangedNodes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDeleted" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblModified" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="cmdFindCommonAncestor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmdPropCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmdFindCommonAncestor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1389,8 +1242,8 @@
                                               </Group>
                                           </Group>
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="txtEditor" alignment="0" pref="244" max="32767" attributes="1"/>
-                                              <Component id="txtReport" alignment="0" pref="244" max="32767" attributes="1"/>
+                                              <Component id="txtEditor" alignment="0" pref="248" max="32767" attributes="1"/>
+                                              <Component id="txtReport" alignment="0" pref="248" max="32767" attributes="1"/>
                                           </Group>
                                           <EmptySpace pref="10" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1407,7 +1260,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1448,9 +1301,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtReport">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="C:\Maze\OBO\OBO_files\SQL\SQLReport.txt"/>
-                          </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="cmdBrowseReport">
                           <Properties>
@@ -1461,9 +1311,6 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtEditor">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="C:\Maze\OBO\OBO_files\Reports\EditorReport.txt"/>
-                          </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="cmdEditorBrowse">
                           <Properties>
@@ -1512,6 +1359,14 @@
                         <Property name="text" type="java.lang.String" value="Proposed:"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="cmdLoadOBOFile">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Load OBO File"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdLoadOBOFileActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel23">
@@ -1529,7 +1384,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" alignment="0" pref="805" max="32767" attributes="1"/>
+                                  <Component id="jScrollPane4" alignment="0" pref="817" max="32767" attributes="1"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblRefFile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1548,7 +1403,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="639" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="674" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
@@ -1583,9 +1438,6 @@
                       </SubComponents>
                     </Container>
                     <Component class="javax.swing.JTextField" name="txtReferenceFile">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="D:\OBO\OBO_files\OBOFile_with_groups.obo"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtReferenceFileActionPerformed"/>
                       </Events>
@@ -1632,7 +1484,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTabbedPane1" min="-2" pref="819" max="-2" attributes="0"/>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1640,7 +1492,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTabbedPane1" pref="707" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane1" pref="744" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1654,8 +1506,8 @@
                 <Container class="javax.swing.JPanel" name="jPanel11">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Mouse database">
-                        <Property name="tabTitle" type="java.lang.String" value="Mouse database"/>
+                      <JTabbedPaneConstraints tabName="Database">
+                        <Property name="tabTitle" type="java.lang.String" value="Database"/>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -1666,10 +1518,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel13" alignment="0" min="-2" max="-2" attributes="1"/>
                                   <Component id="jPanel15" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Component id="jPanel13" alignment="0" min="-2" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace pref="51" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1680,7 +1532,7 @@
                               <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="133" max="32767" attributes="0"/>
+                              <EmptySpace pref="168" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1763,9 +1615,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="mouseDBHostNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="localhost"/>
-                          </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel3">
                           <Properties>
@@ -1773,9 +1622,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="mouseDBPortTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="3306"/>
-                          </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel7">
                           <Properties>
@@ -1783,9 +1629,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="mouseDBDbNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="gudmapgx"/>
-                          </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mouseDBDbNameTFActionPerformed"/>
                           </Events>
@@ -1801,13 +1644,10 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="mouseDBUserNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="root"/>
-                          </Properties>
                         </Component>
                         <Component class="javax.swing.JPasswordField" name="mouseDBPasswordPF">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="1234Blue"/>
+                            <Property name="focusCycleRoot" type="boolean" value="true"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="cmdReconnect">
@@ -1918,7 +1758,7 @@
                                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="mouseAbstractClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="24" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1930,9 +1770,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseAbstractClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Abstract anatomy"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel12">
                               <Properties>
@@ -1940,9 +1777,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseAbstractClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="EMAPA:0"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel13">
                               <Properties>
@@ -1950,9 +1784,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseAbstractClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="abstract_anatomy"/>
-                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2002,7 +1833,7 @@
                                           <Component id="mouseStageClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="18" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2014,9 +1845,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseStageClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Theiler stage"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel15">
                               <Properties>
@@ -2024,9 +1852,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseStageClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="TS:0"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mouseStageClassIDTFFocusLost"/>
                               </Events>
@@ -2037,9 +1862,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseStageClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="theiler_stage"/>
-                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2089,7 +1911,7 @@
                                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="mouseGroupClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="18" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2101,9 +1923,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Tmp new group"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel18">
                               <Properties>
@@ -2111,9 +1930,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Tmp_new_group"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel19">
                               <Properties>
@@ -2121,9 +1937,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="new_group_namespace"/>
-                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2145,12 +1958,12 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="mouseFormatVersionTF" pref="461" max="32767" attributes="1"/>
+                                              <Component id="mouseFormatVersionTF" pref="478" max="32767" attributes="1"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="mouseDefaultNamespaceTF" pref="441" max="32767" attributes="1"/>
+                                              <Component id="mouseDefaultNamespaceTF" pref="453" max="32767" attributes="1"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -2186,9 +1999,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseFormatVersionTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="1.2"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseDefaultNamespaceTF">
                               <Properties>
@@ -2243,7 +2053,7 @@
                                           <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="mouseGroupTermClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="21" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2255,9 +2065,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupTermClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Group term"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel74">
                               <Properties>
@@ -2265,9 +2072,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupTermClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="group_term"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel75">
                               <Properties>
@@ -2275,640 +2079,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="mouseGroupTermClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="group_term"/>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                      </SubComponents>
-                    </Container>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jPanel12">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Human database">
-                        <Property name="tabTitle" type="java.lang.String" value="Human database"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel16" alignment="0" min="-2" max="-2" attributes="1"/>
-                              </Group>
-                              <EmptySpace pref="32" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="133" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel14">
-                      <Properties>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title=" Database connection "/>
-                          </Border>
-                        </Property>
-                      </Properties>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel24" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel28" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="humanDBHostNameTF" alignment="0" pref="684" max="32767" attributes="0"/>
-                                      <Component id="humanDBDbNameTF" alignment="0" pref="684" max="32767" attributes="0"/>
-                                      <Component id="humanDBUserNameTF" alignment="0" pref="684" max="32767" attributes="0"/>
-                                      <Component id="humanDBPortTF" alignment="0" pref="684" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="humanDBPasswordPF" min="-2" pref="580" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cmdReconnectH" pref="98" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="humanDBHostNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="humanDBPortTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="humanDBDbNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="humanDBUserNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="humanDBPasswordPF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmdReconnectH" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel20">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Hostname:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="humanDBHostNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="localhost"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel22">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Port:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="humanDBPortTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="3306"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel24">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="DB name:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="humanDBDbNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="gudmapgx"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="humanDBDbNameTFActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel27">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Username:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel28">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Password:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="humanDBUserNameTF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="root"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JPasswordField" name="humanDBPasswordPF">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="penyu"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="cmdReconnectH">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Reconnect"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdReconnectHActionPerformed"/>
-                          </Events>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel16">
-                      <Properties>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title=" OBO file "/>
-                          </Border>
-                        </Property>
-                      </Properties>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jPanel20" alignment="0" max="32767" attributes="1"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jPanel19" alignment="0" max="32767" attributes="1"/>
-                                              <Component id="jPanel17" alignment="0" min="-2" max="-2" attributes="1"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jPanel35" max="32767" attributes="1"/>
-                                              <Component id="jPanel18" alignment="0" max="32767" attributes="1"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jPanel17" min="-2" max="-2" attributes="1"/>
-                                      <Component id="jPanel18" min="-2" max="-2" attributes="1"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jPanel19" min="-2" max="-2" attributes="1"/>
-                                      <Component id="jPanel35" min="-2" max="-2" attributes="1"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel20" min="-2" max="-2" attributes="1"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Container class="javax.swing.JPanel" name="jPanel17">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder title="Abstract class"/>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel32" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel33" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="humanAbstractClassNameTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanAbstractClassIDTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanAbstractClassNamespaceTF" alignment="1" pref="186" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanAbstractClassNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanAbstractClassIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanAbstractClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel32">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Name:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanAbstractClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Abstract anatomy"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel33">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Identifier:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanAbstractClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="EHDAA:0"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel34">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Namespace:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanAbstractClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="abstract_anatomy"/>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel18">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder title="Stage class"/>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel36" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel37" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel35" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="humanStageClassIDTF" alignment="0" pref="186" max="32767" attributes="0"/>
-                                          <Component id="humanStageClassNameTF" alignment="0" pref="186" max="32767" attributes="0"/>
-                                          <Component id="humanStageClassNamespaceTF" alignment="0" pref="186" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="humanStageClassNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="humanStageClassIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="humanStageClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel35">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Name:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanStageClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Carnegie stage"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel36">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Identifier:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanStageClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="CS:0"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel37">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Namespace:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanStageClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="carnegie_stage"/>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel19">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder title="New group class"/>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel38" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel39" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel40" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="humanGroupClassNameTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanGroupClassIDTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanGroupClassNamespaceTF" alignment="1" pref="186" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupClassNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupClassIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel38">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Name:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Tmp new group"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel39">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Identifier:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Tmp_new_group"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel40">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Namespace:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="new_group_namespace"/>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel20">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder title=" Header values "/>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="humanFormatVersionTF" pref="456" max="32767" attributes="1"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="humanDefaultNamespaceTF" pref="436" max="32767" attributes="1"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanFormatVersionTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanDefaultNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel41">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Format version:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel42">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Default namespace:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanFormatVersionTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="1.2"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanDefaultNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="human_ontology"/>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel35">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                <TitledBorder title="Group Term Class"/>
-                              </Border>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel76" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel77" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel78" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="humanGroupTermClassNameTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanGroupTermClassIDTF" alignment="1" pref="186" max="32767" attributes="1"/>
-                                          <Component id="humanGroupTermClassNamespaceTF" alignment="1" pref="186" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel76" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupTermClassNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupTermClassIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel78" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="humanGroupTermClassNamespaceTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel76">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Name:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupTermClassNameTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Group term"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel77">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Identifier:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupTermClassIDTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="group_term"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel78">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Namespace:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="humanGroupTermClassNamespaceTF">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="group_term"/>
-                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>

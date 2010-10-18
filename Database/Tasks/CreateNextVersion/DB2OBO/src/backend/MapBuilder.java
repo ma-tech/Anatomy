@@ -1,3 +1,30 @@
+/*
+################################################################################
+# Project:      Anatomy
+#
+# Title:        MapBuilder.java
+#
+# Date:         2008
+#
+# Author:       MeiSze Lam and Attila Gyenesi
+#
+# Copyright:    2009 Medical Research Council, UK.
+#               All rights reserved.
+#
+# Address:      MRC Human Genetics Unit,
+#               Western General Hospital,
+#               Edinburgh, EH4 2XU, UK.
+#
+# Version: 1
+#
+# Maintenance:  Log changes below, with most recent at top of list.
+#
+# Who; When; What;
+#
+# Mike Wicks; September 2010; Tidy up and Document
+#
+################################################################################
+*/
 package backend;
 
 import java.util.*;
@@ -10,16 +37,22 @@ import java.util.*;
 public class MapBuilder {
 
     private ArrayList<Component> components;
-    private HashMap<String, Component> treeProperty;        //<EMAPA:ID -> component object>
-    private HashMap<String, Vector<String>> treeChildren;   //<EMAPA:ID -> children (emapa:id)>
-    private HashMap<String, Vector<String>> treeTimeComponent; //<EMAPA:ID -> time components (emap:id)>
+
+    //<EMAPA:ID -> component object>
+    private HashMap<String, Component> treeProperty;
+
+    //<EMAPA:ID -> children (emapa:id)>
+    private HashMap<String, Vector<String>> treeChildren;
+
+    //<EMAPA:ID -> time components (emap:id)>
+    private HashMap<String, Vector<String>> treeTimeComponent;
 
     private HashMap<String, Vector<Component[]>> treePaths;
     private Vector<String> vRootNodes;
 
     
     public MapBuilder(ArrayList<Component> termList) {
-        System.out.println("instantiating MapBuilder");
+        //System.out.println("instantiating MapBuilder");
 
         //instantiate
         this.components = new ArrayList();
@@ -43,9 +76,12 @@ public class MapBuilder {
         findRootNodes();
         
         //test
-        //System.out.println("Root nodes defined as no part of/is a = " + this.vRootNodes);
-        //System.out.println("Root nodes defined as no entry in treeChildren = " + this.rootcomponents);
-        //System.out.println("Looking for entry of EMAPA:16037 in treeChildren = " + this.treeChildren.get("EMAPA:16037"));
+        //System.out.println("Root nodes defined as no part of/is a = " +
+        // this.vRootNodes);
+        //System.out.println("Root nodes defined as no entry in " +
+        // "treeChildren = " + this.rootcomponents);
+        //System.out.println("Looking for entry of EMAPA:16037 in " +
+        // "treeChildren = " + this.treeChildren.get("EMAPA:16037"));
     }
 
     
@@ -56,13 +92,17 @@ public class MapBuilder {
 
             compie = (Component) i.next();
             
-            //look for duplicate ids not necessary - OBOParser/OBO-Edit does not allow duplicate ids 
+            //look for duplicate ids not necessary -
+            // OBOParser/OBO-Edit does not allow duplicate ids
             /*
             duplicateCompie = treeProperty.get( compie.getID() );
             if ( duplicateCompie!=null){
-                System.out.println("found duplicate! " + duplicateCompie.getID() + " matches current component " + compie.getID() );
+                System.out.println("found duplicate! " + 
+                duplicateCompie.getID() + " matches current component " +
+                compie.getID() );
                 duplicateCompie.setStrRuleStatus("FAILED");
-                duplicateCompie.setCheckComment("Duplicate ID: Component shares the same ID with the term '" + compie.getName() + "'" );
+                duplicateCompie.setCheckComment("Duplicate ID: Component " +
+                shares the same ID with the term '" + compie.getName() + "'" );
                 compie.setID( compie.getID() + "copy");
             }*/
             //all components in component arraylist
@@ -84,21 +124,30 @@ public class MapBuilder {
                 
                 
                 //RULE CHECK: broken links
-                //searching for parents that do not have a component entry in the file
+                //searching for parents that do not have a component entry
+                // in the file
                 //parent has been deleted, but children have not
-                Component instance_of_comp = (Component) this.treeProperty.get(parent);
-                if(instance_of_comp==null) {
-                    System.out.println("Parent has been deleted from file: " + parent);
-                    //set flagMissingRel to true to display component in red + add comment
+                Component instance_of_comp =
+                        (Component) this.treeProperty.get(parent);
+
+                if ( instance_of_comp == null ) {
+                    System.out.println("Parent has been deleted from file: " +
+                            parent);
+                    //set flagMissingRel to true to display component in red +
+                    // add comment
                     compie.setFlagMissingRel(true);
-                    compie.setCheckComment("Broken Link: Phantom parent " + parent + " deleted from OBO file.");
+                    compie.setCheckComment("Broken Link: Phantom parent " +
+                            parent + " deleted from OBO file.");
                     //add to root nodes so that it can be displayed in the tree 
-                    //treebuilder builds branches recursively from a list of rootnodes
+                    //treebuilder builds branches recursively from a list of
+                    // rootnodes
                     this.vRootNodes.add(parent);
                     
                     //Question: Display under namespace OR 
-                        //change parent to namespace root so that it is displayed under the correct namespace
-                        //abtract_anatomy => hard coded at the moment; preferably linked from gui
+                        //change parent to namespace root so that it is
+                        // displayed under the correct namespace
+                        //abtract_anatomy => hard coded at the moment;
+                        // preferably linked from gui
                     //Display under a dummy component called 'missing parent'
                         //this code takes place in TreeBuilder
                 }
@@ -114,26 +163,36 @@ public class MapBuilder {
             }
             
              //group part of relationship
-            for (Iterator k = compie.getGroupPartOf().iterator(); k.hasNext();) {
+            for (Iterator k = compie.getGroupPartOf().iterator();
+                 k.hasNext();) {
 
                 String parent = (String) k.next();
                 
                 //RULE CHECK: broken links
-                //searching for parents that do not have a component entry in the file
+                //searching for parents that do not have a component entry
+                // in the file
                 //parent has been deleted, but children have not
-                Component instance_of_comp = (Component) this.treeProperty.get(parent);
-                if(instance_of_comp==null) {
-                    System.out.println("Parent has been deleted from file: " + parent);
-                    //set flagMissingRel to true to display component in red + add comment
+                Component instance_of_comp =
+                        (Component) this.treeProperty.get(parent);
+                
+                if ( instance_of_comp == null ) {
+                    System.out.println("Parent has been deleted from file: " +
+                            parent);
+                    //set flagMissingRel to true to display component in red +
+                    // add comment
                     compie.setFlagMissingRel(true);
-                    compie.setCheckComment("Broken Link: Phantom parent " + parent + " deleted from OBO file.");
+                    compie.setCheckComment("Broken Link: Phantom parent " +
+                            parent + " deleted from OBO file.");
                     //add to root nodes so that it can be displayed in the tree 
-                    //treebuilder builds branches recursively from a list of rootnodes
+                    //treebuilder builds branches recursively from a list of
+                    // rootnodes
                     this.vRootNodes.add(parent);
                     
                     //Question: Display under namespace OR 
-                        //change parent to namespace root so that it is displayed under the correct namespace
-                        //abtract_anatomy => hard coded at the moment; preferably linked from gui
+                        //change parent to namespace root so that it is
+                        // displayed under the correct namespace
+                        //abtract_anatomy => hard coded at the moment;
+                        // preferably linked from gui
                     //Display under a dummy component called 'missing parent'
                         //this code takes place in TreeBuilder
                 }
@@ -147,7 +206,7 @@ public class MapBuilder {
             }
 
             //is a relationship
-            if (!compie.getIsA().equals("")) {
+            if ( !compie.getIsA().equals("") ) {
                 Vector<String> v = this.treeChildren.get(compie.getIsA());
                 if (v == null) {
                     v = new Vector();
@@ -167,17 +226,22 @@ public class MapBuilder {
 
             compie = (Component) i.next();
             //get time component
-            for (Iterator j = compie.getHasTimeComponent().iterator(); j.hasNext();) {
+            for (Iterator j = compie.getHasTimeComponent().iterator();
+                 j.hasNext();) {
 
                 String timeCompie = (String) j.next();
 
-
                 //RULE CHECK: broken links
-                //searching for parents that do not have a component entry in the file
+                //searching for parents that do not have a component entry in
+                // the file
                 //parent has been deleted, but children have not
-                Component instance_of_comp = (Component) this.treeProperty.get(timeCompie);
-                if(instance_of_comp==null) {
-                    compie.setCheckComment("Broken Link: Phantom time component " + timeCompie + " deleted from OBO file.");
+                Component instance_of_comp =
+                        (Component) this.treeProperty.get(timeCompie);
+
+                if ( instance_of_comp == null ) {
+                    compie.setCheckComment("Broken Link: Phantom time " + 
+                            "component " + timeCompie +
+                            " deleted from OBO file.");
                 }
 
 
@@ -200,14 +264,23 @@ public class MapBuilder {
 
         for(Component compie: this.components){    
             //if partOf is empty or itself
-            notPartOf = ( compie.getPartOf().isEmpty() || ( compie.getPartOf().size()==1 && compie.getPartOf().contains( compie.getID() ) ) ); 
+            notPartOf = ( compie.getPartOf().isEmpty() || 
+                    ( compie.getPartOf().size() == 1 &&
+                    compie.getPartOf().contains( compie.getID() ) ) );
+
             //if isA is empty or isA is itself
-            notIsA = ( compie.getIsA().equals("") || compie.getIsA().equals( compie.getID() ) ); 
+            notIsA = ( compie.getIsA().equals("") ||
+                    compie.getIsA().equals( compie.getID() ) );
+
             //if groupPartOf is empty or itself
-            notGroupPartOf = ( compie.getGroupPartOf().isEmpty() || ( compie.getGroupPartOf().size()==1 && compie.getGroupPartOf().contains( compie.getID() ) ) );
+            notGroupPartOf = ( compie.getGroupPartOf().isEmpty() || 
+                    ( compie.getGroupPartOf().size() == 1 &&
+                    compie.getGroupPartOf().contains( compie.getID() ) ) );
 
             //check if components have any PartOf or IsA parents
-            if ( notPartOf && notIsA && notGroupPartOf ) {
+            if ( notPartOf && 
+                 notIsA &&
+                 notGroupPartOf ) {
                 this.vRootNodes.add( compie.getID() );
             }
         }
@@ -234,4 +307,3 @@ public class MapBuilder {
         return this.vRootNodes;
     }
 }
-

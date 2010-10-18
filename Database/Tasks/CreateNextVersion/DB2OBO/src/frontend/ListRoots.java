@@ -1,8 +1,34 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+################################################################################
+# Project:      Anatomy
+#
+# Title:        ListRoots.java
+#
+# Date:         2008
+#
+# Author:       MeiSze Lam and Attila Gyenesi
+#
+# Copyright:    2009 Medical Research Council, UK.
+#               All rights reserved.
+#
+# Address:      MRC Human Genetics Unit,
+#               Western General Hospital,
+#               Edinburgh, EH4 2XU, UK.
+#
+# Version: 1
+#
+# Maintenance:  Log changes below, with most recent at top of list.
+#
+# Who; When; What;
+#
+# Mike Wicks; September 2010; Tidy up and Document
+#
+################################################################################
+#
+# I DONT KNOW IF THIS CLASS IS ACTUALLY USED?
+#
+################################################################################
+*/
 /*
  * ListRoots.java
  *
@@ -136,7 +162,8 @@ public class ListRoots extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if ( cboListComponents.getSelectedIndex()!= -1 )
-            cboListComponents.removeItemAt( cboListComponents.getSelectedIndex() );
+            cboListComponents.removeItemAt(
+                    cboListComponents.getSelectedIndex() );
     }//GEN-LAST:event_cmdRemoveActionPerformed
 
     private void cmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOKActionPerformed

@@ -1,37 +1,44 @@
+/*
+################################################################################
+# Project:      Anatomy
+#
+# Title:        MainGUI.java
+#
+# Date:         2008
+#
+# Author:       MeiSze Lam and Attila Gyenesi
+#
+# Copyright:    2009 Medical Research Council, UK.
+#               All rights reserved.
+#
+# Address:      MRC Human Genetics Unit,
+#               Western General Hospital,
+#               Edinburgh, EH4 2XU, UK.
+#
+# Version: 1
+#
+# Maintenance:  Log changes below, with most recent at top of list.
+#
+# Who; When; What;
+#
+# Mike Wicks; September 2010; Tidy up and Document
+#                             Add a properties file in which all settings are
+#                             saved on Exit
+#
+################################################################################
+*/
+
 package frontend;
 
-/*
- * MainGUI.java
- *
- * Created on March 27, 2008, 5:12 AM
- */
-
-
-
-/**
- *
- * @author  attila
- */
 import backend.*;
+
 import java.awt.Color;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import java.io.File;
-import javax.swing.JFileChooser;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
-import java.io.IOException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JTree;
@@ -39,71 +46,217 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import java.sql.*;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
+
 
 public class MainGUI extends javax.swing.JFrame {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String START_URL = "jdbc:mysql://";
     private Connection connection; 
-    private String species = "";
-    private String project = "";
+    private String species = "mouse";
+    private String project = "GUDMAP";
+    private String filetype = "Starts and Ends";
+    private String stage = "TS01";
+    private String rangestart = "TS01";
+    private String rangeend = "TS28";
+    private Integer rangestartint = 0;
+    private Integer rangeendint = 27;
+    private boolean defaultroot = true;
+
     private ArrayList < Component > expTermList = null;
     private ArrayList < Relation > expRelationList = null;
-    private Component abstractClass, stageClass, groupClass, groupTermClass, stageAnatomyClass;
+
+    private Component abstractClass,
+                      stageClass,
+                      groupClass,
+                      groupTermClass,
+                      stageAnatomyClass;
     
-    //maze
     private ArrayList < Component > parseOldTermList = null;
     private ArrayList < Component > parseNewTermList = null;
-    private TreeBuilder propTreebuilder; //treeCurrent object
-    private TreeBuilder refTreebuilder; //treeReferenced object
-    private CheckComponents propCheckComponents; //checker attached to treeCurrent 
+    
+    //treeCurrent object
+    private TreeBuilder propTreebuilder;
+
+    //treeReferenced object
+    private TreeBuilder refTreebuilder;
+
+    //checker attached to treeCurrent
+    private CheckComponents propCheckComponents; 
     private GenerateSQL genie = null;
     
-    private String filetype = "";
-    private String stage = "";
-    private String rangestart = "";
-    private String rangeend = "";
-    private boolean defaultroot = true;
     public Vector<String> vUserRoots = new Vector();
     
     public static final int CHECK_CHANGES_ONLY = 0;
-    public static final int CHECK_RED_RULES = 1; 
-    public static final int CHECK_RED_BLUE_RULES = 2; //note: blue rules cannot be checked without checking red rules first!
-    public static final int CHECK_CHANGES_AND_RULES = 3;
-            
     
-    /** Creates new form MainGUI */
+    public static final int CHECK_RED_RULES = 1;
+
+    //note: blue rules cannot be checked without checking red rules first!
+    public static final int CHECK_RED_BLUE_RULES = 2; 
+
+    public static final int CHECK_CHANGES_AND_RULES = 3;
+
+    //preferences file
+    private String fileName = ".db2ono";
+
+    //private File iniFile;
+    private BufferedWriter iniFile;
+    private BufferedReader outFile;
+
+    private String strURL = "";
+
+    //fields for saving
+    // Initial Values
+    private String iniSavedByTF = "Your Name";
+    private String iniRemarkTA
+            = "Any relevant remarks on this exported OBO File";
+    private String iniExportOBOFileTF = "Export_OBO_File.obo";
+    private String iniExportTextFileTF = "Export_Tree_report.txt";
+
+    private String iniTxtCurrentFileTF = "Import_OBO_file.obo";
+    private String iniTxtReportTF = "Proposed_SQL_Report.sql";
+    private String iniTxtEditorTF = "Proposed_Editor_Report.pdf";
+
+    private String iniMouseDBHostNameTF = "localhost";
+    private String iniMouseDBPortTF = "3306";
+    private String iniMouseDBDbNameTF = "";
+    private String iniMouseDBUserNameTF = "";
+
+    private String iniMouseAbstractClassNameTF = "Abstract anatomy";
+    private String iniMouseAbstractClassIDTF = "EMAPA:0";
+    private String iniMouseAbstractClassNamespaceTF = "abstract_anatomy";
+
+    private String iniMouseStageClassNameTF = "Theiler stage";
+    private String iniMouseStageClassIDTF = "TS:0";
+    private String iniMouseStageClassNamespaceTF = "theiler_stage";
+
+    private String iniMouseGroupClassNameTF = "Tmp new group";
+    private String iniMouseGroupClassIDTF = "Tmp_new_group";
+    private String iniMouseGroupClassNamespaceTF = "new_group_namespace";
+
+    private String iniMouseGroupTermClassNameTF = "Group term";
+    private String iniMouseGroupTermClassIDTF = "group_term";
+    private String iniMouseGroupTermClassNamespaceTF = "group_term";
+
+    private String iniMouseFormatVersionTF = "1.2";
+    private String iniMouseDefaultNamespaceTF = "mouse_ontology";
+
+
     public MainGUI() {
         
         //initialise gui components
         initComponents();
+
         //change colour of fonts for tree nodes
         treeCurrent.setCellRenderer(new MyTreeCellRenderer()); 
         treeReferenced.setCellRenderer(new MyTreeCellRenderer());
+
         //locate the frame at the center of desktop
         setLocationRelativeTo(null); 
+
         //set default values for Radiobuttons + default species + filetype
         this.mouseRB.setSelected(true);
         this.startendRB.setSelected(true);
-        this.species = "mouse";
-        this.filetype = "Starts and Ends";
-        this.stage = "TS01";
-        this.rangestart = "TS01";
-        this.rangeend = "TS28";
-        this.project = "GUDMAP";
+
+        this.mainTabbedPanel.setSelectedIndex(2);
+
+        try{
+            //check filepath exists
+            File file = new File(this.fileName);
+
+            if (file.exists()) {
+                //initialise BufferedWriter for report
+                //System.out.println("Read in File");
+                this.outFile =
+                        new BufferedReader(new FileReader(this.fileName));
+
+                this.readIniRecords();
+
+                this.outFile.close();
+            }
+            else {
+                //Fill in default Text Values in Fields
+                savedByTF.setText(this.iniSavedByTF);
+                remarkTA.setText(this.iniRemarkTA);
+                exportOBOFileTF.setText(this.iniExportOBOFileTF);
+                exportTextFileTF.setText(this.iniExportTextFileTF);
+
+                txtCurrentFile.setText(this.iniTxtCurrentFileTF);
+                txtReport.setText(this.iniTxtReportTF);
+                txtEditor.setText(this.iniTxtEditorTF);
+
+                mouseDBHostNameTF.setText(this.iniMouseDBHostNameTF);
+                mouseDBPortTF.setText(this.iniMouseDBPortTF);
+                mouseDBDbNameTF.setText(this.iniMouseDBDbNameTF);
+                mouseDBUserNameTF.setText(this.iniMouseDBUserNameTF);
+                mouseDBPasswordPF.setText("");
+
+                mouseAbstractClassNameTF.setText(
+                        this.iniMouseAbstractClassNameTF);
+                mouseAbstractClassIDTF.setText(
+                        this.iniMouseAbstractClassIDTF);
+                mouseAbstractClassNamespaceTF.setText(
+                        this.iniMouseAbstractClassNamespaceTF);
+
+                mouseStageClassNameTF.setText(
+                        this.iniMouseStageClassNameTF);
+                mouseStageClassIDTF.setText(
+                        this.iniMouseStageClassIDTF);
+                mouseStageClassNamespaceTF.setText(
+                        this.iniMouseStageClassNamespaceTF);
+
+                mouseGroupClassNameTF.setText(
+                        this.iniMouseGroupClassNameTF);
+                mouseGroupClassIDTF.setText(
+                        this.iniMouseGroupClassIDTF);
+                mouseGroupClassNamespaceTF.setText(
+                        this.iniMouseGroupClassNamespaceTF);
+
+                mouseGroupTermClassNameTF.setText(
+                        this.iniMouseGroupTermClassNameTF);
+                mouseGroupTermClassIDTF.setText(
+                        this.iniMouseGroupTermClassIDTF);
+                mouseGroupTermClassNamespaceTF.setText(
+                        this.iniMouseGroupTermClassNamespaceTF);
+
+                mouseFormatVersionTF.setText(
+                        this.iniMouseFormatVersionTF);
+                mouseDefaultNamespaceTF.setText(
+                        this.iniMouseDefaultNamespaceTF);
+
+
+            }
+            //make root components for classes
+            this.makeRootComponents();
+
+        }
+        catch(IOException io) {
+            io.printStackTrace();
+        }
         
-        //make root components for classes
-        this.makeRootComponents();
+
         //load default reference tree
         //loadDefaultReferenceTree();
         
     }
     
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
-     */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -135,12 +288,6 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel36 = new javax.swing.JPanel();
         timedcompRB = new javax.swing.JRadioButton();
         startendRB = new javax.swing.JRadioButton();
-        abstractstageRB = new javax.swing.JRadioButton();
-        cboStage = new javax.swing.JComboBox();
-        rangeRB = new javax.swing.JRadioButton();
-        cboStart = new javax.swing.JComboBox();
-        jLabel25 = new javax.swing.JLabel();
-        cboEnd = new javax.swing.JComboBox();
         jPanel37 = new javax.swing.JPanel();
         rbDefaultRoot = new javax.swing.JRadioButton();
         rbSelectedComponents = new javax.swing.JRadioButton();
@@ -209,6 +356,7 @@ public class MainGUI extends javax.swing.JFrame {
         cmdGenerate = new javax.swing.JButton();
         cmdGenerateEditor = new javax.swing.JButton();
         lblPropFile = new javax.swing.JLabel();
+        cmdLoadOBOFile = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         treeReferenced = new javax.swing.JTree();
@@ -265,100 +413,6 @@ public class MainGUI extends javax.swing.JFrame {
         mouseGroupTermClassIDTF = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         mouseGroupTermClassNamespaceTF = new javax.swing.JTextField();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        humanDBHostNameTF = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        humanDBPortTF = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        humanDBDbNameTF = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        humanDBUserNameTF = new javax.swing.JTextField();
-        humanDBPasswordPF = new javax.swing.JPasswordField();
-        cmdReconnectH = new javax.swing.JButton();
-        jPanel16 = new javax.swing.JPanel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        humanAbstractClassNameTF = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        humanAbstractClassIDTF = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        humanAbstractClassNamespaceTF = new javax.swing.JTextField();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        humanStageClassNameTF = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        humanStageClassIDTF = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
-        humanStageClassNamespaceTF = new javax.swing.JTextField();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        humanGroupClassNameTF = new javax.swing.JTextField();
-        jLabel39 = new javax.swing.JLabel();
-        humanGroupClassIDTF = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
-        humanGroupClassNamespaceTF = new javax.swing.JTextField();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        humanFormatVersionTF = new javax.swing.JTextField();
-        humanDefaultNamespaceTF = new javax.swing.JTextField();
-        jPanel35 = new javax.swing.JPanel();
-        jLabel76 = new javax.swing.JLabel();
-        humanGroupTermClassNameTF = new javax.swing.JTextField();
-        jLabel77 = new javax.swing.JLabel();
-        humanGroupTermClassIDTF = new javax.swing.JTextField();
-        jLabel78 = new javax.swing.JLabel();
-        humanGroupTermClassNamespaceTF = new javax.swing.JTextField();
-        jPanel28 = new javax.swing.JPanel();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
-        chickDBHostNameTF = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        chickDBPortTF = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        chickDBDbNameTF = new javax.swing.JTextField();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        chickDBUserNameTF = new javax.swing.JTextField();
-        chickDBPasswordPF = new javax.swing.JPasswordField();
-        cmdReconnectC = new javax.swing.JButton();
-        jPanel30 = new javax.swing.JPanel();
-        jPanel31 = new javax.swing.JPanel();
-        jLabel56 = new javax.swing.JLabel();
-        chickAbstractClassNameTF = new javax.swing.JTextField();
-        jLabel57 = new javax.swing.JLabel();
-        chickAbstractClassIDTF = new javax.swing.JTextField();
-        jLabel58 = new javax.swing.JLabel();
-        chickAbstractClassNamespaceTF = new javax.swing.JTextField();
-        jPanel32 = new javax.swing.JPanel();
-        jLabel59 = new javax.swing.JLabel();
-        chickStageClassNameTF = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
-        chickStageClassIDTF = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
-        chickStageClassNamespaceTF = new javax.swing.JTextField();
-        jPanel33 = new javax.swing.JPanel();
-        jLabel62 = new javax.swing.JLabel();
-        chickGroupClassNameTF = new javax.swing.JTextField();
-        jLabel63 = new javax.swing.JLabel();
-        chickGroupClassIDTF = new javax.swing.JTextField();
-        jLabel64 = new javax.swing.JLabel();
-        chickGroupClassNamespaceTF = new javax.swing.JTextField();
-        jPanel38 = new javax.swing.JPanel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        chickFormatVersionTF = new javax.swing.JTextField();
-        chickDefaultNamespaceTF = new javax.swing.JTextField();
-        jPanel39 = new javax.swing.JPanel();
-        jLabel81 = new javax.swing.JLabel();
-        chickGroupTermClassNameTF = new javax.swing.JTextField();
-        jLabel82 = new javax.swing.JLabel();
-        chickGroupTermClassIDTF = new javax.swing.JTextField();
-        jLabel83 = new javax.swing.JLabel();
-        chickGroupTermClassNamespaceTF = new javax.swing.JTextField();
         exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -368,11 +422,13 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel8.setText("Saved by:");
 
-        savedByTF.setText("Your Name!!!");
-
         jLabel1.setText("OBO file:");
 
-        exportOBOFileTF.setText("*.obo");
+        exportOBOFileTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportOBOFileTFActionPerformed(evt);
+            }
+        });
 
         exportBrowseButton.setText("Browse...");
         exportBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -385,7 +441,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         remarkTA.setColumns(20);
         remarkTA.setRows(5);
-        remarkTA.setText("test version...");
         jScrollPane1.setViewportView(remarkTA);
 
         exportButton.setText("Generate OBO file");
@@ -403,8 +458,6 @@ public class MainGUI extends javax.swing.JFrame {
                 cmdGenerateTreeReportActionPerformed(evt);
             }
         });
-
-        exportTextFileTF.setText("treereport.txt");
 
         exportTextBrowseButton.setText("Browse...");
         exportTextBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -427,15 +480,15 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jPanel5Layout.createSequentialGroup()
                         .add(16, 16, 16)
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                            .add(jPanel5Layout.createSequentialGroup()
-                                .add(jLabel23)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(exportTextFileTF))
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, expTermNoLabel)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5Layout.createSequentialGroup()
-                                .add(jLabel1)
+                                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel1)
+                                    .add(jLabel23))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(exportOBOFileTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 363, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, expTermNoLabel))
+                                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(exportTextFileTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 363, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(exportOBOFileTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(exportBrowseButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -448,10 +501,10 @@ public class MainGUI extends javax.swing.JFrame {
                         .add(19, 19, 19)
                         .add(jLabel6)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(savedByTF)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(savedByTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -477,7 +530,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(cmdGenerateTreeReport))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(expTermNoLabel)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
@@ -511,10 +564,16 @@ public class MainGUI extends javax.swing.JFrame {
                 humanRBItemStateChanged(evt);
             }
         });
+        humanRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                humanRBActionPerformed(evt);
+            }
+        });
 
         specieButtonGroup.add(chickRB);
-        chickRB.setText("chick");
         chickRB.setToolTipText("Specify the database to use for extraction, updates and reference. Database settings can be changed in Tab 3 'Database and File Settings'");
+        chickRB.setActionCommand("chick");
+        chickRB.setLabel("chick");
         chickRB.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chickRBItemStateChanged(evt);
@@ -533,11 +592,11 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel2Layout.createSequentialGroup()
                 .add(48, 48, 48)
                 .add(mouseRB)
-                .add(49, 49, 49)
+                .add(48, 48, 48)
                 .add(humanRB)
-                .add(32, 32, 32)
+                .add(57, 57, 57)
                 .add(chickRB)
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addContainerGap(695, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -546,7 +605,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(mouseRB)
                     .add(humanRB)
                     .add(chickRB))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder("File Format"));
@@ -568,91 +627,24 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        formatButtonGroup.add(abstractstageRB);
-        abstractstageRB.setText("Abstract Stage");
-        abstractstageRB.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                abstractstageRBItemStateChanged(evt);
-            }
-        });
-
-        cboStage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TS01", "TS02", "TS03", "TS04", "TS05", "TS06", "TS07", "TS08", "TS09", "TS10", "TS11", "TS12", "TS13", "TS14", "TS15", "TS16", "TS17", "TS18", "TS19", "TS20", "TS21", "TS22", "TS23", "TS24", "TS25", "TS26", "TS27", "TS28" }));
-        cboStage.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboStageItemStateChanged(evt);
-            }
-        });
-
-        formatButtonGroup.add(rangeRB);
-        rangeRB.setText("Abstract Stage Range");
-        rangeRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rangeRBActionPerformed(evt);
-            }
-        });
-
-        cboStart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TS01", "TS02", "TS03", "TS04", "TS05", "TS06", "TS07", "TS08", "TS09", "TS10", "TS11", "TS12", "TS13", "TS14", "TS15", "TS16", "TS17", "TS18", "TS19", "TS20", "TS21", "TS22", "TS23", "TS24", "TS25", "TS26", "TS27", "TS28" }));
-        cboStart.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboStartItemStateChanged(evt);
-            }
-        });
-        cboStart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboStartActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("to");
-
-        cboEnd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TS01", "TS02", "TS03", "TS04", "TS05", "TS06", "TS07", "TS08", "TS09", "TS10", "TS11", "TS12", "TS13", "TS14", "TS15", "TS16", "TS17", "TS18", "TS19", "TS20", "TS21", "TS22", "TS23", "TS24", "TS25", "TS26", "TS27", "TS28" }));
-        cboEnd.setSelectedItem("TS28");
-        cboEnd.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboEndItemStateChanged(evt);
-            }
-        });
-        cboEnd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboEndActionPerformed(evt);
-            }
-        });
-
         org.jdesktop.layout.GroupLayout jPanel36Layout = new org.jdesktop.layout.GroupLayout(jPanel36);
         jPanel36.setLayout(jPanel36Layout);
         jPanel36Layout.setHorizontalGroup(
             jPanel36Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel36Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .add(startendRB)
                 .add(17, 17, 17)
                 .add(timedcompRB)
-                .add(10, 10, 10)
-                .add(abstractstageRB)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(cboStage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(rangeRB)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(cboStart, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(cboEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(566, Short.MAX_VALUE))
         );
         jPanel36Layout.setVerticalGroup(
             jPanel36Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel36Layout.createSequentialGroup()
                 .add(jPanel36Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(timedcompRB)
-                    .add(abstractstageRB)
-                    .add(cboStage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(rangeRB)
-                    .add(cboStart, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel25)
-                    .add(cboEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(startendRB))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel37.setBorder(javax.swing.BorderFactory.createTitledBorder("Root Component"));
@@ -693,8 +685,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(cboAddedRoots, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 123, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(cmdEditList, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .add(cmdEditList, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -739,7 +731,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel26)
                     .add(jLabel31)
                     .add(cboProject, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
@@ -753,12 +745,15 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel27, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel37, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel36, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
+            .add(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(126, 126, 126))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -767,11 +762,11 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jPanel27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(12, 12, 12)
+                .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 34, Short.MAX_VALUE)
                 .add(jPanel36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -836,14 +831,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel69)
                     .add(jLabel50))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jPanel21Layout.createSequentialGroup()
-                        .add(txtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(jLabel21)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(txtName))
-                    .add(jScrollPane5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .add(jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel21Layout.createSequentialGroup()
                         .add(jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(txtSynonyms)
@@ -859,11 +847,19 @@ public class MainGUI extends javax.swing.JFrame {
                                 .add(jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                     .add(txtEndStage)
                                     .add(txtStartStage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                            .add(chkIsPrimary)))
-                    .add(txtPrimaryPath, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
-                .add(96, 96, 96)
-                .add(jLabel79)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(chkIsPrimary))
+                        .add(96, 96, 96)
+                        .add(jLabel79))
+                    .add(jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane5)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, txtPrimaryPath, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel21Layout.createSequentialGroup()
+                            .add(txtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(4, 4, 4)
+                            .add(jLabel21)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(txtName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 260, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -914,7 +910,6 @@ public class MainGUI extends javax.swing.JFrame {
 
         jPanel21Layout.linkSize(new java.awt.Component[] {txtEndStage, txtStartStage}, org.jdesktop.layout.GroupLayout.VERTICAL);
 
-        txtCurrentFile.setText("*.obo");
         txtCurrentFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCurrentFileActionPerformed(evt);
@@ -952,15 +947,17 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel48)
                     .add(jLabel45))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel24Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                .add(jPanel24Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel24Layout.createSequentialGroup()
                         .add(txtRulesStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 99, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(30, 30, 30)
                         .add(jLabel44)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(txtChangedStatus))
-                    .add(jScrollPane7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 340, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .add(txtChangedStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                        .addContainerGap(131, Short.MAX_VALUE))
+                    .add(jPanel24Layout.createSequentialGroup()
+                        .add(jScrollPane7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1026,13 +1023,13 @@ public class MainGUI extends javax.swing.JFrame {
         lblUnprocessed.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblUnprocessed.setText("unprocessed");
 
-        lblNew.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblNew.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblNew.setText("new:?");
 
-        lblModified.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblModified.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblModified.setText("modified:?");
 
-        lblDeleted.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        lblDeleted.setFont(new java.awt.Font("Tahoma", 0, 9));
         lblDeleted.setText("deleted:?");
 
         org.jdesktop.layout.GroupLayout jPanel25Layout = new org.jdesktop.layout.GroupLayout(jPanel25);
@@ -1042,60 +1039,55 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel25Layout.createSequentialGroup()
-                        .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel71)
-                            .add(jLabel72))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(cboProblemNodes, 0, 250, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblDeleted))
-                        .add(136, 136, 136))
-                    .add(jPanel25Layout.createSequentialGroup()
-                        .add(cmdFindCommonAncestor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 242, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(cmdPropCheck, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(90, 90, 90))))
-            .add(jPanel25Layout.createSequentialGroup()
-                .add(58, 58, 58)
+                    .add(jLabel71)
+                    .add(jLabel72))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(cboProblemNodes, 0, 220, Short.MAX_VALUE)
+                    .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 220, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel25Layout.createSequentialGroup()
+                        .add(lblUnprocessed)
+                        .add(122, 122, 122))
+                    .add(jPanel25Layout.createSequentialGroup()
                         .add(lblNew)
-                        .add(79, 79, 79)
-                        .add(lblModified, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(lblUnprocessed))
-                .addContainerGap(284, Short.MAX_VALUE))
+                        .add(38, 38, 38)
+                        .add(lblModified, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                        .add(18, 18, 18)
+                        .add(lblDeleted)
+                        .addContainerGap())))
+            .add(jPanel25Layout.createSequentialGroup()
+                .add(33, 33, 33)
+                .add(cmdFindCommonAncestor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 226, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 29, Short.MAX_VALUE)
+                .add(cmdPropCheck, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 182, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(64, 64, 64))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel25Layout.createSequentialGroup()
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel71)
-                    .add(cboProblemNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(cboProblemNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(lblUnprocessed))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel72)
-                    .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(lblUnprocessed)
-                .add(18, 18, 18)
-                .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lblNew)
-                    .add(lblModified)
-                    .add(lblDeleted))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(cboChangedNodes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(lblDeleted)
+                    .add(lblModified))
+                .add(12, 12, 12)
                 .add(jPanel25Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(cmdFindCommonAncestor)
-                    .add(cmdPropCheck))
-                .add(24, 24, 24))
+                    .add(cmdPropCheck)
+                    .add(cmdFindCommonAncestor))
+                .addContainerGap())
         );
 
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder("Reports"));
 
         jLabel47.setText("Database:");
-
-        txtReport.setText("SQLReport.txt");
 
         cmdBrowseReport.setText("...");
         cmdBrowseReport.addActionListener(new java.awt.event.ActionListener() {
@@ -1103,8 +1095,6 @@ public class MainGUI extends javax.swing.JFrame {
                 cmdBrowseReportActionPerformed(evt);
             }
         });
-
-        txtEditor.setText("EditorReport.txt");
 
         cmdEditorBrowse.setText("...");
         cmdEditorBrowse.addActionListener(new java.awt.event.ActionListener() {
@@ -1156,9 +1146,9 @@ public class MainGUI extends javax.swing.JFrame {
                                 .add(jLabel47, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)))
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtEditor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtReport, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtEditor, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, txtReport, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel26Layout.createSequentialGroup()
                                 .add(cmdEditorBrowse, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -1168,7 +1158,7 @@ public class MainGUI extends javax.swing.JFrame {
                                 .add(cmdBrowseReport, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(cmdGenerate)))))
-                .addContainerGap())
+                .add(62, 62, 62))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1185,15 +1175,22 @@ public class MainGUI extends javax.swing.JFrame {
                             .add(jLabel47))
                         .add(9, 9, 9)
                         .add(jPanel26Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(cmdGenerateEditor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(cmdEditorBrowse, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(cmdGenerateEditor)
+                            .add(cmdEditorBrowse)
                             .add(txtEditor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(cmdUpdateDB, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .add(cmdUpdateDB)
+                .add(6, 6, 6))
         );
 
         lblPropFile.setText("Proposed:");
+
+        cmdLoadOBOFile.setText("Load OBO File");
+        cmdLoadOBOFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLoadOBOFileActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel22Layout = new org.jdesktop.layout.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1202,17 +1199,20 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(txtCurrentFile, 0, 0, Short.MAX_VALUE)
-                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                     .add(jPanel22Layout.createSequentialGroup()
                         .add(lblPropFile)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdBrowseOld, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 23, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(cmdLoadOBOFile, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                            .add(jPanel22Layout.createSequentialGroup()
+                                .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(cmdBrowseOld, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel21, 0, 517, Short.MAX_VALUE)
+                    .add(jPanel25, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel21, 0, 544, Short.MAX_VALUE)
                     .add(jPanel24, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -1222,23 +1222,24 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel22Layout.createSequentialGroup()
+                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(cmdBrowseOld)
+                            .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(lblPropFile)))
                     .add(jPanel22Layout.createSequentialGroup()
-                        .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel21, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 228, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel22Layout.createSequentialGroup()
-                        .add(txtCurrentFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel22Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(lblPropFile)
-                            .add(cmdBrowseOld)))
-                    .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 105, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(23, 23, 23))
+                        .add(jPanel26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(cmdLoadOBOFile)
+                .add(47, 47, 47))
         );
 
         jPanel21.getAccessibleContext().setAccessibleName(null);
@@ -1248,7 +1249,6 @@ public class MainGUI extends javax.swing.JFrame {
         treeReferenced.setModel(new DefaultTreeModel(null));
         jScrollPane4.setViewportView(treeReferenced);
 
-        txtReferenceFile.setText("D:\\OBO\\OBO_files\\OBOFile_with_groups.obo");
         txtReferenceFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtReferenceFileActionPerformed(evt);
@@ -1278,7 +1278,7 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
+                    .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
                     .add(jPanel23Layout.createSequentialGroup()
                         .add(lblRefFile)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -1296,8 +1296,8 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 625, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 26, Short.MAX_VALUE)
+                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel23Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(cmdBrowseNew)
@@ -1315,14 +1315,15 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel9Layout.createSequentialGroup()
-                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+                .addContainerGap()
+                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel9Layout.createSequentialGroup()
-                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 727, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .add(jTabbedPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane2.getAccessibleContext().setAccessibleName("Proposed");
@@ -1333,11 +1334,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel2.setText("Hostname:");
 
-        mouseDBHostNameTF.setText("localhost");
-
         jLabel3.setText("Port:");
-
-        mouseDBPortTF.setText("3306");
 
         jLabel7.setText("DB name:");
 
@@ -1350,6 +1347,8 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel4.setText("Username:");
 
         jLabel5.setText("Password:");
+
+        mouseDBPasswordPF.setFocusCycleRoot(true);
 
         cmdReconnect.setText("Reconnect");
         cmdReconnect.addActionListener(new java.awt.event.ActionListener() {
@@ -1414,15 +1413,9 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel11.setText("Name:");
 
-        mouseAbstractClassNameTF.setText("Abstract anatomy");
-
         jLabel12.setText("Identifier:");
 
-        mouseAbstractClassIDTF.setText("EMAPA:0");
-
         jLabel13.setText("Namespace:");
-
-        mouseAbstractClassNamespaceTF.setText("abstract_anatomy");
 
         org.jdesktop.layout.GroupLayout jPanel6Layout = new org.jdesktop.layout.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1455,18 +1448,15 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel13)
                     .add(mouseAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
 
         jLabel14.setText("Name:");
 
-        mouseStageClassNameTF.setText("Theiler stage");
-
         jLabel15.setText("Identifier:");
 
-        mouseStageClassIDTF.setText("TS:0");
         mouseStageClassIDTF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 mouseStageClassIDTFFocusLost(evt);
@@ -1474,8 +1464,6 @@ public class MainGUI extends javax.swing.JFrame {
         });
 
         jLabel16.setText("Namespace:");
-
-        mouseStageClassNamespaceTF.setText("theiler_stage");
 
         org.jdesktop.layout.GroupLayout jPanel7Layout = new org.jdesktop.layout.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1489,9 +1477,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jLabel14))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(mouseStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(mouseStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .add(mouseStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(mouseStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -1508,22 +1496,16 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(mouseStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel16))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
 
         jLabel17.setText("Name:");
 
-        mouseGroupClassNameTF.setText("Tmp new group");
-
         jLabel18.setText("Identifier:");
 
-        mouseGroupClassIDTF.setText("Tmp_new_group");
-
         jLabel19.setText("Namespace:");
-
-        mouseGroupClassNamespaceTF.setText("new_group_namespace");
 
         org.jdesktop.layout.GroupLayout jPanel8Layout = new org.jdesktop.layout.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1556,7 +1538,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel8Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel19)
                     .add(mouseGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
@@ -1564,8 +1546,6 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel29.setText("Format version:");
 
         jLabel30.setText("Default namespace:");
-
-        mouseFormatVersionTF.setText("1.2");
 
         mouseDefaultNamespaceTF.setText("mouse_ontology");
 
@@ -1579,11 +1559,11 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3Layout.createSequentialGroup()
                         .add(jLabel29)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(mouseFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
+                        .add(mouseFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3Layout.createSequentialGroup()
                         .add(jLabel30)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(mouseDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)))
+                        .add(mouseDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1603,15 +1583,9 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel73.setText("Name:");
 
-        mouseGroupTermClassNameTF.setText("Group term");
-
         jLabel74.setText("Identifier:");
 
-        mouseGroupTermClassIDTF.setText("group_term");
-
         jLabel75.setText("Namespace:");
-
-        mouseGroupTermClassNamespaceTF.setText("group_term");
 
         org.jdesktop.layout.GroupLayout jPanel34Layout = new org.jdesktop.layout.GroupLayout(jPanel34);
         jPanel34.setLayout(jPanel34Layout);
@@ -1625,9 +1599,9 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel75))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel34Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel34Layout.setVerticalGroup(
@@ -1644,7 +1618,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .add(jPanel34Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel75)
                     .add(mouseGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout jPanel15Layout = new org.jdesktop.layout.GroupLayout(jPanel15);
@@ -1653,17 +1627,17 @@ public class MainGUI extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel15Layout.createSequentialGroup()
+                .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jPanel15Layout.createSequentialGroup()
                         .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jPanel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1676,7 +1650,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .add(jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jPanel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1697,753 +1671,11 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 373, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .add(jPanel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Mouse database", jPanel11);
-
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(" Database connection "));
-
-        jLabel20.setText("Hostname:");
-
-        humanDBHostNameTF.setText("localhost");
-
-        jLabel22.setText("Port:");
-
-        humanDBPortTF.setText("3306");
-
-        jLabel24.setText("DB name:");
-
-        humanDBDbNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                humanDBDbNameTFActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setText("Username:");
-
-        jLabel28.setText("Password:");
-
-        cmdReconnectH.setText("Reconnect");
-        cmdReconnectH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdReconnectHActionPerformed(evt);
-            }
-        });
-
-        org.jdesktop.layout.GroupLayout jPanel14Layout = new org.jdesktop.layout.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel20)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel22)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel24)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel27)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel28))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(humanDBHostNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(humanDBDbNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(humanDBUserNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(humanDBPortTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(jPanel14Layout.createSequentialGroup()
-                        .add(humanDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdReconnectH, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel14Layout.createSequentialGroup()
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel20)
-                    .add(humanDBHostNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel22)
-                    .add(humanDBPortTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(11, 11, 11)
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel24)
-                    .add(humanDBDbNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel27)
-                    .add(humanDBUserNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel14Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel28)
-                    .add(humanDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cmdReconnectH))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(" OBO file "));
-
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Abstract class"));
-
-        jLabel32.setText("Name:");
-
-        humanAbstractClassNameTF.setText("Abstract anatomy");
-
-        jLabel33.setText("Identifier:");
-
-        humanAbstractClassIDTF.setText("EHDAA:0");
-
-        jLabel34.setText("Namespace:");
-
-        humanAbstractClassNamespaceTF.setText("abstract_anatomy");
-
-        org.jdesktop.layout.GroupLayout jPanel17Layout = new org.jdesktop.layout.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel32)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel33)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel34))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel17Layout.createSequentialGroup()
-                .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel32)
-                    .add(humanAbstractClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel33)
-                    .add(humanAbstractClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel17Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel34)
-                    .add(humanAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
-
-        jLabel35.setText("Name:");
-
-        humanStageClassNameTF.setText("Carnegie stage");
-
-        jLabel36.setText("Identifier:");
-
-        humanStageClassIDTF.setText("CS:0");
-
-        jLabel37.setText("Namespace:");
-
-        humanStageClassNamespaceTF.setText("carnegie_stage");
-
-        org.jdesktop.layout.GroupLayout jPanel18Layout = new org.jdesktop.layout.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jLabel36)
-                    .add(jLabel37)
-                    .add(jLabel35))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(humanStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .add(humanStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .add(humanStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel18Layout.createSequentialGroup()
-                .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(humanStageClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel35))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(humanStageClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel36))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel18Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(humanStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel37))
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
-
-        jLabel38.setText("Name:");
-
-        humanGroupClassNameTF.setText("Tmp new group");
-
-        jLabel39.setText("Identifier:");
-
-        humanGroupClassIDTF.setText("Tmp_new_group");
-
-        jLabel40.setText("Namespace:");
-
-        humanGroupClassNamespaceTF.setText("new_group_namespace");
-
-        org.jdesktop.layout.GroupLayout jPanel19Layout = new org.jdesktop.layout.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel38)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel39)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel40))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel19Layout.createSequentialGroup()
-                .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel38)
-                    .add(humanGroupClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel39)
-                    .add(humanGroupClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel19Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel40)
-                    .add(humanGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
-
-        jLabel41.setText("Format version:");
-
-        jLabel42.setText("Default namespace:");
-
-        humanFormatVersionTF.setText("1.2");
-
-        humanDefaultNamespaceTF.setText("human_ontology");
-
-        org.jdesktop.layout.GroupLayout jPanel20Layout = new org.jdesktop.layout.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel20Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel20Layout.createSequentialGroup()
-                        .add(jLabel41)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(humanFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
-                    .add(jPanel20Layout.createSequentialGroup()
-                        .add(jLabel42)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel20Layout.createSequentialGroup()
-                .add(jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel41)
-                    .add(humanFormatVersionTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel20Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel42)
-                    .add(humanDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder("Group Term Class"));
-
-        jLabel76.setText("Name:");
-
-        humanGroupTermClassNameTF.setText("Group term");
-
-        jLabel77.setText("Identifier:");
-
-        humanGroupTermClassIDTF.setText("group_term");
-
-        jLabel78.setText("Namespace:");
-
-        humanGroupTermClassNamespaceTF.setText("group_term");
-
-        org.jdesktop.layout.GroupLayout jPanel35Layout = new org.jdesktop.layout.GroupLayout(jPanel35);
-        jPanel35.setLayout(jPanel35Layout);
-        jPanel35Layout.setHorizontalGroup(
-            jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel35Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel76)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel77)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel78))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, humanGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel35Layout.setVerticalGroup(
-            jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel35Layout.createSequentialGroup()
-                .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel76)
-                    .add(humanGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel77)
-                    .add(humanGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel35Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel78)
-                    .add(humanGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel16Layout = new org.jdesktop.layout.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel20, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel16Layout.createSequentialGroup()
-                        .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel19, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel17, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel35, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel18, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel16Layout.createSequentialGroup()
-                .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel16Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel12Layout = new org.jdesktop.layout.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel16, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel14, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 372, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Human database", jPanel12);
-
-        jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(" Database connection "));
-
-        jLabel51.setText("Hostname:");
-
-        chickDBHostNameTF.setText("localhost");
-
-        jLabel52.setText("Port:");
-
-        chickDBPortTF.setText("3306");
-
-        jLabel53.setText("DB name:");
-
-        chickDBDbNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chickDBDbNameTFActionPerformed(evt);
-            }
-        });
-
-        jLabel54.setText("Username:");
-
-        jLabel55.setText("Password:");
-
-        cmdReconnectC.setText("Reconnect");
-        cmdReconnectC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdReconnectCActionPerformed(evt);
-            }
-        });
-
-        org.jdesktop.layout.GroupLayout jPanel29Layout = new org.jdesktop.layout.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel51)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel52)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel53)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel54)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel55))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(chickDBHostNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBDbNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBUserNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(chickDBPortTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .add(jPanel29Layout.createSequentialGroup()
-                        .add(chickDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdReconnectC, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel29Layout.createSequentialGroup()
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel51)
-                    .add(chickDBHostNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel52)
-                    .add(chickDBPortTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(11, 11, 11)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel53)
-                    .add(chickDBDbNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel54)
-                    .add(chickDBUserNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel29Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel55)
-                    .add(chickDBPasswordPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cmdReconnectC))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(" OBO file "));
-
-        jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder("Abstract class"));
-
-        jLabel56.setText("Name:");
-
-        chickAbstractClassNameTF.setText("Abstract anatomy");
-
-        jLabel57.setText("Identifier:");
-
-        chickAbstractClassIDTF.setText("ECAPA:0");
-
-        jLabel58.setText("Namespace:");
-
-        chickAbstractClassNamespaceTF.setText("abstract_anatomy");
-
-        org.jdesktop.layout.GroupLayout jPanel31Layout = new org.jdesktop.layout.GroupLayout(jPanel31);
-        jPanel31.setLayout(jPanel31Layout);
-        jPanel31Layout.setHorizontalGroup(
-            jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel31Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel56)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel57)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel58))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel31Layout.setVerticalGroup(
-            jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel31Layout.createSequentialGroup()
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel56)
-                    .add(chickAbstractClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel57)
-                    .add(chickAbstractClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel31Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel58)
-                    .add(chickAbstractClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        jPanel32.setBorder(javax.swing.BorderFactory.createTitledBorder("Stage class"));
-
-        jLabel59.setText("Name:");
-
-        chickStageClassNameTF.setText("Hamburger Hamilton stage");
-        chickStageClassNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chickStageClassNameTFActionPerformed(evt);
-            }
-        });
-
-        jLabel60.setText("Identifier:");
-
-        chickStageClassIDTF.setText("HH:0");
-
-        jLabel61.setText("Namespace:");
-
-        chickStageClassNamespaceTF.setText("hamburgerhamilton_stage");
-
-        org.jdesktop.layout.GroupLayout jPanel32Layout = new org.jdesktop.layout.GroupLayout(jPanel32);
-        jPanel32.setLayout(jPanel32Layout);
-        jPanel32Layout.setHorizontalGroup(
-            jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel32Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jLabel60)
-                    .add(jLabel61)
-                    .add(jLabel59))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(chickStageClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(chickStageClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(chickStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel32Layout.setVerticalGroup(
-            jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel32Layout.createSequentialGroup()
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel59))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel60))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel32Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(chickStageClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel61))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder("New group class"));
-
-        jLabel62.setText("Name:");
-
-        chickGroupClassNameTF.setText("Tmp new group");
-
-        jLabel63.setText("Identifier:");
-
-        chickGroupClassIDTF.setText("Tmp_new_group");
-
-        jLabel64.setText("Namespace:");
-
-        chickGroupClassNamespaceTF.setText("new_group_namespace");
-
-        org.jdesktop.layout.GroupLayout jPanel33Layout = new org.jdesktop.layout.GroupLayout(jPanel33);
-        jPanel33.setLayout(jPanel33Layout);
-        jPanel33Layout.setHorizontalGroup(
-            jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel33Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel62)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel63)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel64))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel33Layout.setVerticalGroup(
-            jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel33Layout.createSequentialGroup()
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel62)
-                    .add(chickGroupClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel63)
-                    .add(chickGroupClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel33Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel64)
-                    .add(chickGroupClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-
-        jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder(" Header values "));
-
-        jLabel65.setText("Format version:");
-
-        jLabel66.setText("Default namespace:");
-
-        chickFormatVersionTF.setText("1.2");
-
-        chickDefaultNamespaceTF.setText("chick_ontology");
-
-        org.jdesktop.layout.GroupLayout jPanel38Layout = new org.jdesktop.layout.GroupLayout(jPanel38);
-        jPanel38.setLayout(jPanel38Layout);
-        jPanel38Layout.setHorizontalGroup(
-            jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel38Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel38Layout.createSequentialGroup()
-                        .add(jLabel65)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(chickFormatVersionTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
-                    .add(jPanel38Layout.createSequentialGroup()
-                        .add(jLabel66)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(chickDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel38Layout.setVerticalGroup(
-            jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel38Layout.createSequentialGroup()
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel65)
-                    .add(chickFormatVersionTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel38Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel66)
-                    .add(chickDefaultNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder("Group Term Class"));
-
-        jLabel81.setText("Name:");
-
-        chickGroupTermClassNameTF.setText("Group term");
-
-        jLabel82.setText("Identifier:");
-
-        chickGroupTermClassIDTF.setText("group_term");
-
-        jLabel83.setText("Namespace:");
-
-        chickGroupTermClassNamespaceTF.setText("group_term");
-
-        org.jdesktop.layout.GroupLayout jPanel39Layout = new org.jdesktop.layout.GroupLayout(jPanel39);
-        jPanel39.setLayout(jPanel39Layout);
-        jPanel39Layout.setHorizontalGroup(
-            jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel39Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel81)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel82)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel83))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, chickGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel39Layout.setVerticalGroup(
-            jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel39Layout.createSequentialGroup()
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel81)
-                    .add(chickGroupTermClassNameTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel82)
-                    .add(chickGroupTermClassIDTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel39Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel83)
-                    .add(chickGroupTermClassNamespaceTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel30Layout = new org.jdesktop.layout.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel38, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel30Layout.createSequentialGroup()
-                        .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel33, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jPanel31, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel39, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel32, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel30Layout.createSequentialGroup()
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel32, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel30Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jPanel39, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        org.jdesktop.layout.GroupLayout jPanel28Layout = new org.jdesktop.layout.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel30, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel29, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 381, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Chick database", jPanel28);
+        jTabbedPane1.addTab("Database", jPanel11);
 
         org.jdesktop.layout.GroupLayout jPanel10Layout = new org.jdesktop.layout.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -2452,14 +1684,14 @@ public class MainGUI extends javax.swing.JFrame {
             .add(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 819, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 605, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainTabbedPanel.addTab("Database and File Settings", jPanel10);
@@ -2476,43 +1708,63 @@ public class MainGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
+                .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(12, 12, 12)
-                        .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 855, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(exitButton)))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
+                    .add(exitButton))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(mainTabbedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(exitButton)
-                .addContainerGap())
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
+
+        try{
+            //check filepath exists
+            File file = new File(this.fileName);
+
+            //System.out.println("Write Out File");
+            if (file.exists()) {
+                file.delete();
+            }
+
+            //initialise BufferedWriter for report
+            this.iniFile = new BufferedWriter(new FileWriter(this.fileName));
+
+            this.writeIniRecords();
+
+            this.iniFile.close();
+        }
+        catch(IOException io) {
+            io.printStackTrace();
+        }
+
         System.exit( 0 );
     }//GEN-LAST:event_exitButtonActionPerformed
 
+
     private void exportBrowseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBrowseButtonActionPerformed
-        // TODO add your handling code here:
+
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
         int result;
         result = fileChooser.showSaveDialog( this );
+
         if ( result != JFileChooser.CANCEL_OPTION ) {
             File file = fileChooser.getSelectedFile();
             exportOBOFileTF.setText( file.getAbsolutePath() );
         }            
     }//GEN-LAST:event_exportBrowseButtonActionPerformed
+
 
     private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
         
@@ -2521,37 +1773,97 @@ public class MainGUI extends javax.swing.JFrame {
         // 5: connect to the database and get and export data
         if ( isConnectedToDatabase() ){
             if ( this.defaultroot ){
-                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
+                ImportDatabase db =
+                        new ImportDatabase( connection,
+                        abstractClass,
+                        stageClass,
+                        groupClass,
+                        groupTermClass,
+                        species,
+                        filetype,
+                        stage,
+                        rangestartint,
+                        rangeendint,
+                        defaultroot,
+                        project );
+
                 if ( db.getIsProcessed() ) {
                     expTermList = db.getTermList();
                     expRelationList = db.getRelationList();
-                    expTermNoLabel.setText("Number of terms: "+expTermList.size());
+                    expTermNoLabel.setText("Number of terms: " +
+                            expTermList.size());
 
                     // save OBO file
                     if ( !exportOBOFileTF.getText().equals("") ) {
                         saveOBOFile();
-                        JOptionPane.showMessageDialog( null, "OBO file has been generated and saved!", " DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                    } else JOptionPane.showMessageDialog( null, "OBO file has been generated but not saved!","DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+                        JOptionPane.showMessageDialog( null, 
+                                "OBO file has been generated and saved!",
+                                " DB2OBO",
+                                JOptionPane.INFORMATION_MESSAGE );
+
+                    }
+                    else {
+                        JOptionPane.showMessageDialog( null,
+                                "OBO file has been generated but not saved!",
+                                "DB2OBO",
+                                JOptionPane.INFORMATION_MESSAGE );
+                    }
+                
                 }
-                else JOptionPane.showMessageDialog( null, "OBO file has not been generated! \nPlease check the database connection.", "Error - Matrix generation", JOptionPane.ERROR_MESSAGE );
+                else {
+                    JOptionPane.showMessageDialog( null,
+                            "OBO file has not been generated! \nPlease " +
+                            "check the database connection.",
+                            "Error - Matrix generation",
+                            JOptionPane.ERROR_MESSAGE );
+                }
                 disconnectFromDatabase();
-            }else {
-                ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, true, project );
+
+            }
+            else {
+                ImportDatabase db =
+                        new ImportDatabase( connection,
+                        abstractClass,
+                        stageClass,
+                        groupClass,
+                        groupTermClass,
+                        species,
+                        filetype,
+                        stage,
+                        rangestartint,
+                        rangeendint,
+                        true,
+                        project );
+
                 if ( db.getIsProcessed() ){
                     expTermList = db.getTermList();
                     expRelationList = db.getRelationList();
 
                     MapBuilder mapbuilder = new MapBuilder( expTermList );
-                    TreeBuilder treebuilder = new TreeBuilder( mapbuilder );
+                    TreeBuilder treebuilder = new TreeBuilder( mapbuilder, this.species );
 
                     //get new expTermList without components
-                    ImportDatabase emptyDB = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
+                    ImportDatabase emptyDB =
+                            new ImportDatabase( connection,
+                            abstractClass,
+                            stageClass,
+                            groupClass,
+                            groupTermClass,
+                            species,
+                            filetype,
+                            stage,
+                            rangestartint,
+                            rangeendint,
+                            defaultroot,
+                            project );
+
                     expTermList = emptyDB.getTermList();
 
                     //set specified root components
                     Vector<String> vSelRoots = this.vUserRoots;
 
                     ArrayList<String> arrEmpty = new ArrayList();
+
                     //get descendants of roots and populate expTermList
                     for ( String strID: vSelRoots ){
                         //abstract components
@@ -2559,23 +1871,36 @@ public class MainGUI extends javax.swing.JFrame {
                         Component selRoot = treebuilder.getComponent( strID );
                         selRoot.setPartOf( arrEmpty );
                         selRoot.addPartOf( abstractClass.getID() );
-                        this.expTermList.add( treebuilder.getComponent( strID ) );
+                        this.expTermList.add(
+                                treebuilder.getComponent( strID ) );
 
                         //get the node of each component
-                        Vector<DefaultMutableTreeNode> vSelNodes = treebuilder.getNodes( strID );
+                        Vector<DefaultMutableTreeNode> vSelNodes =
+                                treebuilder.getNodes( strID );
+
                         //for each node of one component
                         for ( DefaultMutableTreeNode selNode: vSelNodes ){
                             //get the descendants
-                            Vector<DefaultMutableTreeNode> vDescNodes = new Vector();
-                            vDescNodes = treebuilder.recursiveGetNodes(selNode, vDescNodes);
+                            Vector<DefaultMutableTreeNode> vDescNodes =
+                                    new Vector();
+                            vDescNodes = 
+                                    treebuilder.recursiveGetNodes(
+                                    selNode, vDescNodes);
+
                             //convert descendant nodes back into components
                             //add to expTermList
                             for ( DefaultMutableTreeNode descNode: vDescNodes ){
-                                Component currentCompie = (Component) descNode.getUserObject();
+                                Component currentCompie =
+                                        (Component) descNode.getUserObject();
                                 ArrayList<String> arrParents = new ArrayList();
-                                for ( String strParent: currentCompie.getPartOf() ){
-                                    Component currentParent = treebuilder.getComponent( strParent );
-                                    if ( currentParent.getIsPrimary() ) arrParents.add( strParent );
+                                for ( String strParent:
+                                      currentCompie.getPartOf() ){
+                                    Component currentParent = 
+                                            treebuilder.getComponent(
+                                            strParent );
+                                    if ( currentParent.getIsPrimary() ) {
+                                        arrParents.add( strParent );
+                                    }
                                 }
                                 currentCompie.setPartOf( arrParents );
                                 this.expTermList.add( currentCompie );
@@ -2585,36 +1910,67 @@ public class MainGUI extends javax.swing.JFrame {
                         //do same for time components
                         if ( filetype.equals("Timed Component") ){
                             Map mapTimeCompie = mapbuilder.getTimeComponents();
-                            System.out.println("getting time components for " + strID);
-                            Vector<String> vTimeCompies = (Vector<String>) mapTimeCompie.get( strID );
+                            System.out.println("getting time components for " + 
+                                    strID);
+
+                            Vector<String> vTimeCompies =
+                                    (Vector<String>) mapTimeCompie.get( strID );
 
                             for ( String timeCompie: vTimeCompies ){
+
                                 //modify parent of specified roots to be 'root'
-                                Component selTimeRoot = treebuilder.getComponent( timeCompie );
+                                Component selTimeRoot =
+                                        treebuilder.getComponent( timeCompie );
                                 selTimeRoot.setPartOf( new ArrayList() );
-                                selTimeRoot.addPartOf( stageAnatomyClass.getID() );
-                                this.expTermList.add( treebuilder.getComponent( timeCompie ) );
+                                selTimeRoot.addPartOf(
+                                        stageAnatomyClass.getID() );
+                                this.expTermList.add(
+                                       treebuilder.getComponent( timeCompie ) );
 
                                 //get the node of each component
-                                Vector<DefaultMutableTreeNode> vSelTimeNodes = treebuilder.getNodes( timeCompie );
+                                Vector<DefaultMutableTreeNode> vSelTimeNodes =
+                                        treebuilder.getNodes( timeCompie );
+
                                 //for each node of one component
-                                for ( DefaultMutableTreeNode selTimeNode: vSelTimeNodes ){
+                                for ( DefaultMutableTreeNode selTimeNode:
+                                      vSelTimeNodes ){
+
                                     //get the descendants
-                                    Vector<DefaultMutableTreeNode> vDescTimeNodes = new Vector();
-                                    vDescTimeNodes = treebuilder.recursiveGetNodes(selTimeNode, vDescTimeNodes);
-                                    //convert descendant nodes back into components
+                                    Vector<DefaultMutableTreeNode>
+                                            vDescTimeNodes = new Vector();
+                                    vDescTimeNodes = 
+                                            treebuilder.recursiveGetNodes(
+                                            selTimeNode, vDescTimeNodes);
+
+                                    //convert descendant nodes back into
+                                    // components
                                     //add to expTermList
-                                    for ( DefaultMutableTreeNode descTimeNode: vDescTimeNodes ){
-                                        Component currentTimeCompie = (Component) descTimeNode.getUserObject();
-                                        ArrayList<String> arrParents = new ArrayList();
+                                    for ( DefaultMutableTreeNode descTimeNode:
+                                          vDescTimeNodes ){
+                                        Component currentTimeCompie =
+                                       (Component) descTimeNode.getUserObject();
+                                        ArrayList<String> arrParents =
+                                                new ArrayList();
+
                                         //remove non primary components
-                                        for ( String strParent: currentTimeCompie.getPartOf() ){
-                                            Component currentParent = treebuilder.getComponent( strParent );
-                                            Component abstractParent = treebuilder.getComponent( currentParent.getTimeComponentOf() );
-                                            if ( abstractParent.getIsPrimary() ) arrParents.add( strParent );
+                                        for ( String strParent:
+                                            currentTimeCompie.getPartOf() ){
+                                            Component currentParent = 
+                                                    treebuilder.getComponent(
+                                                    strParent );
+
+                                            Component abstractParent = 
+                                                    treebuilder.getComponent(
+                                           currentParent.getTimeComponentOf() );
+                                            if ( abstractParent.getIsPrimary() ) 
+                                            {
+                                                arrParents.add( strParent );
+                                            }
                                         }
-                                        currentTimeCompie.setPartOf( arrParents );
-                                        this.expTermList.add( currentTimeCompie );
+                                        currentTimeCompie.setPartOf(
+                                                arrParents );
+                                        this.expTermList.add(
+                                                currentTimeCompie );
                                     }
                                 }
                             }
@@ -2624,357 +1980,856 @@ public class MainGUI extends javax.swing.JFrame {
                     // save OBO file
                     if ( !exportOBOFileTF.getText().equals("") ) {
                         saveOBOFile();
-                        JOptionPane.showMessageDialog( null, "OBO file has been generated and saved!", " DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                    } else JOptionPane.showMessageDialog( null, "OBO file has been generated but not saved!","DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+                        JOptionPane.showMessageDialog( null,
+                                "OBO file has been generated and saved!",
+                                " DB2OBO",
+                                JOptionPane.INFORMATION_MESSAGE );
+                    }
+                    else {
+                        JOptionPane.showMessageDialog( null,
+                                "OBO file has been generated but not saved!",
+                                "DB2OBO",
+                                JOptionPane.INFORMATION_MESSAGE );
+                    }
+                
                 }
-                else JOptionPane.showMessageDialog( null, "OBO file has not been generated! \nPlease check the database connection.", "Error - Matrix generation", JOptionPane.ERROR_MESSAGE );
+                else {
+                    JOptionPane.showMessageDialog( null,
+                            "OBO file has not been generated! \nPlease " +
+                            "check the database connection.",
+                            "Error - Matrix generation",
+                            JOptionPane.ERROR_MESSAGE );
+                }
                 disconnectFromDatabase();
             }
-        }else JOptionPane.showMessageDialog( null, "Cannot connect to database! \n" + 
-                "Please check Parameter Settings and make sure your database server is turned on.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        }
+        else {
+            JOptionPane.showMessageDialog( null,
+                    "Cannot connect to database! \n" +
+                    "Please check Parameter Settings and make sure your " +
+                    "database server is turned on.",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+        }
     }//GEN-LAST:event_exportButtonActionPerformed
 
+
 private void mouseRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mouseRBItemStateChanged
-// TODO add your handling code here:
+
     if ( mouseRB.isSelected() ) {
         this.species = "mouse";
     }
 }//GEN-LAST:event_mouseRBItemStateChanged
 
+
 private void humanRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_humanRBItemStateChanged
-// TODO add your handling code here:
-    if ( humanRB.isSelected() ) {
-        this.species = "human";
-    }
 }//GEN-LAST:event_humanRBItemStateChanged
 
 
 private void cmdBrowseOldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBrowseOldActionPerformed
-        // Open file browser window and get file path
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
-        int result;
-        result = fileChooser.showOpenDialog( this );
+
+    // Open file browser window and get file path
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
+    int result;
+    result = fileChooser.showOpenDialog( this );
         
-        if ( result != JFileChooser.CANCEL_OPTION ) {
-            File file = fileChooser.getSelectedFile();  
-            txtCurrentFile.setText( file.getAbsolutePath() );
-            this.loadProposedTree();
-            //cmdLoadTreeCurrentActionPerformed(evt); 
-        }
+    if ( result != JFileChooser.CANCEL_OPTION ) {
+        File file = fileChooser.getSelectedFile();  
+        txtCurrentFile.setText( file.getAbsolutePath() );
+        //this.loadProposedTree();
+        //cmdLoadTreeCurrentActionPerformed(evt); 
+    }
 }//GEN-LAST:event_cmdBrowseOldActionPerformed
 
 
 private void cmdBrowseNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBrowseNewActionPerformed
-         // Open file browser window and get file path
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
-        int result;
-        result = fileChooser.showOpenDialog( this );
+
+    // Open file browser window and get file path
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
+    int result;
+    result = fileChooser.showOpenDialog( this );
         
-        if ( result != JFileChooser.CANCEL_OPTION ) {
-            File file = fileChooser.getSelectedFile();  
-            txtReferenceFile.setText( file.getAbsolutePath() );
-            //cmdLoadTreeReferenceActionPerformed(evt); 
-            loadReferenceTree();
-        }
+    if ( result != JFileChooser.CANCEL_OPTION ) {
+        File file = fileChooser.getSelectedFile();  
+        txtReferenceFile.setText( file.getAbsolutePath() );
+        //cmdLoadTreeReferenceActionPerformed(evt); 
+        loadReferenceTree();
+    }
 }//GEN-LAST:event_cmdBrowseNewActionPerformed
 
+
 private void cmdPropCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPropCheckActionPerformed
-        //rebuild referenceList (parseOldTermList)
-        //when loading from an old file 
-        //this.loadReferenceTree();
-        String strSize = "";
+
+    //rebuild referenceList (parseOldTermList)
+    //when loading from an old file 
+    //this.loadReferenceTree();
+    String strSize = "";
     
-        if (this.parseNewTermList!=null && this.parseOldTermList!=null){
+    if (this.parseNewTermList != null &&
+            this.parseOldTermList != null){
   
-            //check components on current termlist
-            CheckComponents checkie = new CheckComponents( this.parseNewTermList, this.parseOldTermList, this.propTreebuilder, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
+        //check components on current termlist
+        CheckComponents checkie = 
+                    new CheckComponents( this.parseNewTermList,
+                        this.parseOldTermList,
+                        this.propTreebuilder,
+                        this.abstractClass,
+                        this.stageClass,
+                        this.groupClass,
+                        this.groupTermClass,
+                        this.species );
             
-            //pass to public check components
-            this.propCheckComponents = checkie;
-            //change indicator
-            if ( checkie.getProblemTermList().isEmpty() ){
+        //pass to public check components
+        this.propCheckComponents = checkie;
+
+        //change indicator
+        if ( checkie.getProblemTermList().isEmpty() ){
+            lblUnprocessed.setForeground( new Color( 0, 140, 0 ) );
+            lblUnprocessed.setText("PROCESSED");
                 
+            strSize = Integer.toString(
+                    this.propCheckComponents.getNewTermList().size() );
+            lblNew.setForeground( new Color( 0, 140, 0 ) );
+            lblNew.setText( "new:" + strSize );
                 
-                lblUnprocessed.setForeground( new Color( 0, 140, 0 ) );
-                lblUnprocessed.setText("PROCESSED");
+            strSize = Integer.toString(
+                    this.propCheckComponents.getModifiedTermList().size() );
+            lblModified.setForeground( new Color( 0, 140, 0 ) );
+            lblModified.setText( "modified:" + strSize );
                 
-                strSize = Integer.toString( this.propCheckComponents.getNewTermList().size() );
-                lblNew.setForeground( new Color( 0, 140, 0 ) );
-                lblNew.setText( "new:" + strSize );
+            strSize = Integer.toString(
+                    this.propCheckComponents.getDeletedTermList().size() );
+            lblDeleted.setForeground( new Color( 0, 140, 0 ) );
+            lblDeleted.setText( "deleted:" + strSize );
                 
-                strSize = Integer.toString( this.propCheckComponents.getModifiedTermList().size() );
-                lblModified.setForeground( new Color( 0, 140, 0 ) );
-                lblModified.setText( "modified:" + strSize );
-                
-                strSize = Integer.toString( this.propCheckComponents.getDeletedTermList().size() );
-                lblDeleted.setForeground( new Color( 0, 140, 0 ) );
-                lblDeleted.setText( "deleted:" + strSize );
-                
-            }else{
-                lblUnprocessed.setForeground( Color.RED );
-                lblUnprocessed.setText("PROCESSED: " + checkie.getProblemTermList().size() + " failed" );
-                
-                strSize = Integer.toString( this.propCheckComponents.getNewTermList().size() );
-                lblNew.setForeground( new Color( 0, 140, 0 ) );
-                lblNew.setText( "new:" + strSize );
-                
-                strSize = Integer.toString( this.propCheckComponents.getModifiedTermList().size() );
-                lblModified.setForeground( new Color( 0, 140, 0 ) );
-                lblModified.setText( "modified:" + strSize );
-                
-                strSize = Integer.toString( this.propCheckComponents.getDeletedTermList().size() );
-                lblDeleted.setForeground( new Color( 0, 140, 0 ) );
-                lblDeleted.setText( "deleted:" + strSize );
-            }
-            
-            //build maps from checked components
-            MapBuilder mapbuilder = new MapBuilder( this.parseNewTermList );
-            //build tree
-            //TreeBuilder obotree = new TreeBuilder(mapbuilder);
-            this.propTreebuilder = new TreeBuilder( mapbuilder );
-            
-            //load tree
-            DefaultTreeModel model = ( DefaultTreeModel ) treeCurrent.getModel();
-            DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
-            propRoot.setUserObject( txtCurrentFile.getText() );
-            model.setRoot( propRoot );        
-            
-            //load combobox
-            //Populate the combobox list
-            this.reloadComboBox( cboProblemNodes, checkie.getProblemTermList() );
-            this.reloadComboBox( cboChangedNodes, checkie.getChangesTermList() );
         }
-        else if ( this.parseNewTermList != null){
+        else {
+            lblUnprocessed.setForeground( Color.RED );
+            lblUnprocessed.setText("PROCESSED: " +
+                        checkie.getProblemTermList().size() + " failed" );
+                
+            strSize = Integer.toString(
+                    this.propCheckComponents.getNewTermList().size() );
+            lblNew.setForeground( new Color( 0, 140, 0 ) );
+            lblNew.setText( "new:" + strSize );
+                
+            strSize = Integer.toString(
+                    this.propCheckComponents.getModifiedTermList().size() );
+            lblModified.setForeground( new Color( 0, 140, 0 ) );
+            lblModified.setText( "modified:" + strSize );
+                
+            strSize = Integer.toString(
+                    this.propCheckComponents.getDeletedTermList().size() );
+            lblDeleted.setForeground( new Color( 0, 140, 0 ) );
+            lblDeleted.setText( "deleted:" + strSize );
+        }
+            
+        //build maps from checked components
+        MapBuilder mapbuilder = new MapBuilder( this.parseNewTermList );
+
+        //build tree
+        //TreeBuilder obotree = new TreeBuilder(mapbuilder);
+        this.propTreebuilder = new TreeBuilder( mapbuilder, this.species );
+            
+        //load tree
+        DefaultTreeModel model = ( DefaultTreeModel ) treeCurrent.getModel();
+        DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
+        propRoot.setUserObject( txtCurrentFile.getText() );
+        model.setRoot( propRoot );        
+            
+        //load combobox
+        //Populate the combobox list
+        this.reloadComboBox(
+                    cboProblemNodes, checkie.getProblemTermList() );
+        this.reloadComboBox(
+                    cboChangedNodes, checkie.getChangesTermList() );
+    }
+    else if ( this.parseNewTermList != null) {
             //check components for rules only
-            CheckComponents rulesCheckie = new CheckComponents( this.parseNewTermList, this.propTreebuilder, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
-            if ( rulesCheckie.getProblemTermList().isEmpty() ){
-                lblUnprocessed.setForeground( new Color( 0, 140, 0 ) );
-                lblUnprocessed.setText("PROCESSED");
-            }else{
-                lblUnprocessed.setForeground( Color.RED );
-                lblUnprocessed.setText("PROCESSED: " + rulesCheckie.getProblemTermList().size() + " failed" );
-            }
+        CheckComponents rulesCheckie =
+                    new CheckComponents(
+                        this.parseNewTermList,
+                        this.propTreebuilder,
+                        this.abstractClass,
+                        this.stageClass,
+                        this.groupClass,
+                        this.groupTermClass,
+                        this.species );
+
+        if ( rulesCheckie.getProblemTermList().isEmpty() ) {
+            lblUnprocessed.setForeground( new Color( 0, 140, 0 ) );
+            lblUnprocessed.setText("PROCESSED");
+        }
+        else {
+            lblUnprocessed.setForeground( Color.RED );
+            lblUnprocessed.setText("PROCESSED: " +
+                        rulesCheckie.getProblemTermList().size() + " failed" );
+        }
             
-            //build maps from checked components
-            MapBuilder mapbuilder = new MapBuilder ( this.parseNewTermList );
-            //build tree
-            this.propTreebuilder = new TreeBuilder( mapbuilder );
-            //load tree
-            DefaultTreeModel model = ( DefaultTreeModel ) treeCurrent.getModel();
-            DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
-            propRoot.setUserObject( txtCurrentFile.getText() );
-            model.setRoot( propRoot );
-            //load problems combobox only
-            this.reloadComboBox( cboProblemNodes, rulesCheckie.getProblemTermList() );
+        //build maps from checked components
+        MapBuilder mapbuilder = new MapBuilder ( this.parseNewTermList );
+
+        //build tree
+        this.propTreebuilder = new TreeBuilder( mapbuilder, this.species );
+
+        //load tree
+        DefaultTreeModel model = ( DefaultTreeModel ) treeCurrent.getModel();
+        DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
+        propRoot.setUserObject( txtCurrentFile.getText() );
+        model.setRoot( propRoot );
+
+        //load problems combobox only
+        this.reloadComboBox( cboProblemNodes,
+                    rulesCheckie.getProblemTermList() );
             
-            JOptionPane.showMessageDialog( null, "No reference file loaded. Only performing rules check!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-        } else JOptionPane.showMessageDialog( null , "No file loaded yet!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( null,
+                    "No reference file loaded. Only performing rules check!",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+    }
+    else {
+        JOptionPane.showMessageDialog( null,
+                    "No file loaded yet!",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+    }
 }//GEN-LAST:event_cmdPropCheckActionPerformed
 
-private void treeCurrentValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeCurrentValueChanged
-        // TODO add your handling code here:
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeCurrent.getLastSelectedPathComponent();
-        
-        if (node == null)
-        //Nothing is selected.	
-        return;
 
-        Object nodeInfo = node.getUserObject();
-        if (nodeInfo instanceof backend.Component){
-            backend.Component comp = (backend.Component) nodeInfo;
-            
-            loadTextBoxes(comp);
-        }
+private void treeCurrentValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeCurrentValueChanged
+
+    DefaultMutableTreeNode node =
+            (DefaultMutableTreeNode) treeCurrent.getLastSelectedPathComponent();
+        
+    //Nothing is selected.
+    if (node == null) {
+        return;
+    }
+
+    Object nodeInfo = node.getUserObject();
+
+    if (nodeInfo instanceof backend.Component) {
+        backend.Component comp = (backend.Component) nodeInfo;
+
+        loadTextBoxes(comp);
+    }
 }//GEN-LAST:event_treeCurrentValueChanged
 
+
 private void expandAll(JTree tree) {
-        int row = 0;
+
+    int row = 0;
         while (row < tree.getRowCount()) {
             tree.expandRow(row);
             row++;
         }
 }
 
+
 private void makeRootComponents(){
     
-     // TODO add your handling code here:
-        // 1: set abstract class parameters
-        abstractClass = new Component();
-        if ( mouseRB.isSelected() ) {
-            abstractClass.setName( mouseAbstractClassNameTF.getText() );
-            abstractClass.setID( mouseAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( mouseAbstractClassNamespaceTF.getText() );
-        }
-        if ( humanRB.isSelected() ) {
-            abstractClass.setName( humanAbstractClassNameTF.getText() );
-            abstractClass.setID( humanAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( humanAbstractClassNamespaceTF.getText() );
-        }
-        if ( chickRB.isSelected() ) {
-            abstractClass.setName( chickAbstractClassNameTF.getText() );
-            abstractClass.setID( chickAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( chickAbstractClassNamespaceTF.getText() );
-        }
+    // 1: set abstract class parameters
+    abstractClass = new Component();
+    abstractClass.setName( mouseAbstractClassNameTF.getText() );
+    abstractClass.setID( mouseAbstractClassIDTF.getText() );
+    abstractClass.setNamespace( mouseAbstractClassNamespaceTF.getText() );
 
-        // 2: set stage class parameters
-        stageClass = new Component();
-        if ( mouseRB.isSelected() ) {
-            stageClass.setName( mouseStageClassNameTF.getText() );
-            stageClass.setID( mouseStageClassIDTF.getText() );
-            stageClass.setNamespace( mouseStageClassNamespaceTF.getText() );
-        }
-        if ( humanRB.isSelected() ) {
-            stageClass.setName( humanStageClassNameTF.getText() );
-            stageClass.setID( humanStageClassIDTF.getText() );
-            stageClass.setNamespace( humanStageClassNamespaceTF.getText() );
-        }
-        if ( chickRB.isSelected() ) {
-            abstractClass.setName( chickAbstractClassNameTF.getText() );
-            abstractClass.setID( chickAbstractClassIDTF.getText() );
-            abstractClass.setNamespace( chickAbstractClassNamespaceTF.getText() );
-        }
+    // 2: set stage class parameters
+    stageClass = new Component();
+    stageClass.setName( mouseStageClassNameTF.getText() );
+    stageClass.setID( mouseStageClassIDTF.getText() );
+    stageClass.setNamespace( mouseStageClassNamespaceTF.getText() );
 
+    // 3: temporary new group class parameters
+    groupClass = new Component();
+    groupClass.setName( mouseGroupClassNameTF.getText() );
+    groupClass.setID( mouseGroupClassIDTF.getText() );
+    groupClass.setNamespace( mouseGroupClassNamespaceTF.getText() );
         
-        // 3: temporary new group class parameters
-        groupClass = new Component();
-        if ( mouseRB.isSelected() ) {
-            groupClass.setName( mouseGroupClassNameTF.getText() );
-            groupClass.setID( mouseGroupClassIDTF.getText() );
-            groupClass.setNamespace( mouseGroupClassNamespaceTF.getText() );
+    // 4: set stage name ID
+    /*
+    if ( species.equals("mouse") ) {
+        stageNameID =
+                mouseStageClassIDTF.getText().substring(0,
+                mouseStageClassIDTF.getText().indexOf(":"));
+    }
+    */
+
+    // 5: group term class parameters
+    groupTermClass = new Component();
+    groupTermClass.setName( mouseGroupTermClassNameTF.getText() );
+    groupTermClass.setID( mouseGroupTermClassIDTF.getText() );
+    groupTermClass.setNamespace( mouseGroupTermClassNamespaceTF.getText() );
+
+    // 6: stage anatomy class
+    stageAnatomyClass = new Component();
+    stageAnatomyClass.setName( "Stage anatomy" );
+    stageAnatomyClass.setID( abstractClass.getID().substring(0, 4) + ":0" );
+    stageAnatomyClass.setNamespace( "stage_anatomy" );
+        
+}
+
+
+private void writeIniRecords(){
+
+    try {
+        this.iniFile.write("[DB2OBO]" );
+        this.iniFile.newLine();
+        this.iniFile.write("db_url=" + this.strURL );
+        this.iniFile.newLine();
+        this.iniFile.write("db_host=" + mouseDBHostNameTF.getText() );
+        this.iniFile.newLine();
+        this.iniFile.write("db_port=" + mouseDBPortTF.getText() );
+        this.iniFile.newLine();
+        this.iniFile.write("db_name=" + mouseDBDbNameTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("db_user=" + mouseDBUserNameTF.getText() );
+        this.iniFile.newLine();
+        this.iniFile.write("species=" + this.species);
+        this.iniFile.newLine();
+        this.iniFile.write("stage=" + this.stage);
+        this.iniFile.newLine();
+        this.iniFile.write("rangestart=" + this.rangestart);
+        this.iniFile.newLine();
+        this.iniFile.write("rangestartint=" +
+                Integer.toString(this.rangestartint));
+        this.iniFile.newLine();
+        this.iniFile.write("rangeend=" + this.rangeend);
+        this.iniFile.newLine();
+        this.iniFile.write("rangeendint=" + Integer.toString(this.rangeendint));
+        this.iniFile.newLine();
+        this.iniFile.write("abstractClassName=" + 
+                mouseAbstractClassNameTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("abstractClassId=" + 
+                mouseAbstractClassIDTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("abstractClassNamespace=" +
+                mouseAbstractClassNamespaceTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("stageClassName=" + mouseStageClassNameTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("stageClassId=" + mouseStageClassIDTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("stageClassNamespace=" +
+                mouseStageClassNamespaceTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupClassName=" + mouseGroupClassNameTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupClassId=" + mouseGroupClassIDTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupClassNamespace=" + 
+                mouseGroupClassNamespaceTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupTermClassName=" + 
+                mouseGroupTermClassNameTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupTermClassId=" + 
+                mouseGroupTermClassIDTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("groupTermClassNamespace=" +
+                mouseGroupTermClassNamespaceTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("savedBy=" + savedByTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("remark=" + remarkTA.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("exportOBOFile=" + exportOBOFileTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("exportTextFile=" + exportTextFileTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("txtCurrentFile=" + txtCurrentFile.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("txtReport=" + txtReport.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("txtEditor=" + txtEditor.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("mouseFormatVersion=" +
+                mouseFormatVersionTF.getText());
+        this.iniFile.newLine();
+        this.iniFile.write("mouseDefaultNamespace=" +
+                mouseDefaultNamespaceTF.getText());
+        this.iniFile.newLine();
+
+    }
+    catch(IOException io) {
+        io.printStackTrace();
+    }
+
+}
+
+
+private void readIniRecords(){
+
+    String line = "";
+    String[] temp;
+
+    //System.out.println("Read Records");
+
+    try {
+        line = this.outFile.readLine();
+        //System.out.println("line = " + line);
+        line = this.outFile.readLine();
+        //System.out.println("line = " + line);
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.strURL = "";
         }
-        if ( humanRB.isSelected() ) {
-            groupClass.setName( humanGroupClassNameTF.getText() );
-            groupClass.setID( humanGroupClassIDTF.getText() );
-            groupClass.setNamespace( humanGroupClassNamespaceTF.getText() );
+        else {
+            this.strURL = temp[1];
         }
-        if ( chickRB.isSelected() ) {
-            groupClass.setName( chickGroupClassNameTF.getText() );
-            groupClass.setID( chickGroupClassIDTF.getText() );
-            groupClass.setNamespace( chickGroupClassNamespaceTF.getText() );
+        //System.out.println("this.strURL = " + this.strURL);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseDBHostNameTF.setText("");
+        }
+        else {
+            mouseDBHostNameTF.setText(temp[1]);
         }
         
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseDBPortTF.setText("");
+        }
+        else {
+            mouseDBPortTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseDBDbNameTF.setText("");
+        }
+        else {
+            mouseDBDbNameTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseDBUserNameTF.setText("");
+        }
+        else {
+            mouseDBUserNameTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        mouseDBPasswordPF.setText("");
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.species = "";
+        }
+        else {
+            this.species = temp[1];
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.stage = "";
+        }
+        else {
+            this.stage = temp[1];
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.rangestart = "";
+        }
+        else {
+            this.rangestart = temp[1];
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.rangestartint = 0;
+        }
+        else {
+            this.rangestartint = Integer.parseInt(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.rangeend = "";
+        }
+        else {
+            this.rangeend = temp[1];
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            this.rangeendint = 0;
+        }
+        else {
+        this.rangeendint = Integer.parseInt(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseAbstractClassNameTF.setText("");
+        }
+        else {
+            mouseAbstractClassNameTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseAbstractClassIDTF.setText("");
+        }
+        else {
+            mouseAbstractClassIDTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseAbstractClassNamespaceTF.setText("");
+        }
+        else {
+            mouseAbstractClassNamespaceTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseStageClassNameTF.setText("");
+        }
+        else {
+            mouseStageClassNameTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseStageClassIDTF.setText("");
+        }
+        else {
+            mouseStageClassIDTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseStageClassNamespaceTF.setText("");
+        }
+        else {
+            mouseStageClassNamespaceTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupClassNameTF.setText("");
+        }
+        else {
+            mouseGroupClassNameTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupClassIDTF.setText("");
+        }
+        else {
+            mouseGroupClassIDTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupClassNamespaceTF.setText("");
+        }
+        else {
+            mouseGroupClassNamespaceTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupTermClassNameTF.setText("");
+        }
+        else {
+            mouseGroupTermClassNameTF.setText(temp[1]);
+        }
         // 5: group term class parameters
-        groupTermClass = new Component();
-        if ( mouseRB.isSelected() ) {
-            groupTermClass.setName( mouseGroupTermClassNameTF.getText() );
-            groupTermClass.setID( mouseGroupTermClassIDTF.getText() );
-            groupTermClass.setNamespace( mouseGroupTermClassNamespaceTF.getText() );
-        }
-        if ( humanRB.isSelected() ) {
-            groupTermClass.setName( humanGroupTermClassNameTF.getText() );
-            groupTermClass.setID( humanGroupTermClassIDTF.getText() );
-            groupTermClass.setNamespace( humanGroupTermClassNamespaceTF.getText() );
-        }
-        if ( chickRB.isSelected() ) {
-            groupTermClass.setName( chickGroupTermClassNameTF.getText() );
-            groupTermClass.setID( chickGroupTermClassIDTF.getText() );
-            groupTermClass.setNamespace( chickGroupTermClassNamespaceTF.getText() );
-        }
+        //System.out.println("temp[1] = " + temp[1]);
 
-        // 6: stage anatomy class
-        stageAnatomyClass = new Component();
-        stageAnatomyClass.setName( "Stage anatomy" );
-        stageAnatomyClass.setID( abstractClass.getID().substring(0, 4) + ":0" );
-        stageAnatomyClass.setNamespace( "stage_anatomy" );
-        
-        // 4: set stage name ID
-        //if ( species.equals("mouse") ) stageNameID = mouseStageClassIDTF.getText().substring(0,mouseStageClassIDTF.getText().indexOf(":"));
-        //if ( species.equals("human") ) stageNameID = humanStageClassIDTF.getText().substring(0,humanStageClassIDTF.getText().indexOf(":"));
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupTermClassIDTF.setText("");
+        }
+        else {
+            mouseGroupTermClassIDTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseGroupTermClassNamespaceTF.setText("");
+        }
+        else {
+            mouseGroupTermClassNamespaceTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            savedByTF.setText("");
+        }
+        else {
+            savedByTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            remarkTA.setText("");
+        }
+        else {
+            remarkTA.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            exportOBOFileTF.setText("");
+        }
+        else {
+            exportOBOFileTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            exportTextFileTF.setText("");
+        }
+        else {
+            exportTextFileTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            txtCurrentFile.setText("");
+        }
+        else {
+            txtCurrentFile.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            txtReport.setText("");
+        }
+        else {
+            txtReport.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            txtEditor.setText("");
+        }
+        else {
+            txtEditor.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseFormatVersionTF.setText("");
+        }
+        else {
+            mouseFormatVersionTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+        line = this.outFile.readLine();
+        temp = line.split("=");
+        if (temp.length == 1 ) {
+            mouseDefaultNamespaceTF.setText("");
+        }
+        else {
+            mouseDefaultNamespaceTF.setText(temp[1]);
+        }
+        //System.out.println("temp[1] = " + temp[1]);
+
+    }
+    catch(IOException io) {
+        io.printStackTrace();
+    }
+
 }
 
-private void reloadTree(JTree tree, ArrayList<Component> termList, TreeBuilder treebuilder, String fileName){     
-        //Build hashmap of components
-        MapBuilder mapbuilder = new MapBuilder(termList);
-        //Build tree
-        treebuilder = new TreeBuilder(mapbuilder); 
-        //load tree
-        DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
-        DefaultMutableTreeNode root = treebuilder.getRootNode();
-        root.setUserObject( fileName );
-        model.setRoot( root );
+
+private void reloadTree(JTree tree, ArrayList<Component> termList,
+        TreeBuilder treebuilder, String fileName){
+
+    //Build hashmap of components
+    MapBuilder mapbuilder = new MapBuilder(termList);
+
+    //Build tree
+    treebuilder = new TreeBuilder(mapbuilder, this.species);
+
+    //load tree
+    DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+    DefaultMutableTreeNode root = treebuilder.getRootNode();
+    root.setUserObject( fileName );
+    model.setRoot( root );
         
-        //test
-        //System.out.println( "checking root node from reloadTree: " + treebuilder.getRootNode() );
+    //test
+    //System.out.println( "checking root node from reloadTree: " +
+    // treebuilder.getRootNode() );
 }
 
 
-private void expandPathsTo(JTree tree, TreeBuilder treebuilder, Component compie){
+private void expandPathsTo(JTree tree, TreeBuilder treebuilder,
+        Component compie){
+
+    for(int i = 1; i <= tree.getRowCount(); i++) {
+        tree.collapseRow(i);
+    }
+
+    Vector< DefaultMutableTreeNode[] > paths =
+            treebuilder.getPaths( compie.getID() );
         
-        for(int i = 1; i <= tree.getRowCount(); i++) {
-            tree.collapseRow(i);
-        }
-        Vector< DefaultMutableTreeNode[] > paths = treebuilder.getPaths( compie.getID() );
         
-        if (paths!=null){
-            TreePath[] new_paths = new TreePath[paths.size()];
-            for(int i=0; i< paths.size(); i++){
-                new_paths[i] = new TreePath(paths.get(i));
-            }        
-            tree.getSelectionModel().setSelectionPaths(new_paths);   
-        }
-        else JOptionPane.showMessageDialog( null, "Component not found! Check reference tree for " + compie.getID() + " " + compie.getName(), "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-        loadTextBoxes(compie);
+    if (paths != null) {
+        TreePath[] new_paths = new TreePath[paths.size()];
+        for(int i=0; i< paths.size(); i++){
+            new_paths[i] = new TreePath(paths.get(i));
+        }        
+        tree.getSelectionModel().setSelectionPaths(new_paths);   
+    }
+    else {
+        JOptionPane.showMessageDialog( null,
+                "Component not found! Check reference tree for " +
+                compie.getID() + " " + compie.getName(),
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
+    loadTextBoxes(compie);
 }
+
 
 private void loadTextBoxes(Component compie){
-        txtID.setText( compie.getID() );
-        txtName.setText( compie.getName() );
-        txtStartStage.setText( compie.getStartsAt() );
-        txtEndStage.setText( compie.getEndsAt() );
-        txtPartOf.setText( compie.getPartOf().toString() );
-        txtGroupPartOf.setText( compie.getGroupPartOf().toString() );
-        txtSynonyms.setText( compie.getSynonym().toString() ); 
-        txtChangedStatus.setText( compie.getStrChangeStatus() );
-        txtRulesStatus.setText( compie.getStrRuleStatus() );
-        chkIsPrimary.setSelected( compie.getIsPrimary() );
-        if ( compie.getPrimaryPath()!=null ){
-            TreePath pathDisplay = new TreePath( compie.getPrimaryPath() );
-            txtPrimaryPath.setText( pathDisplay.toString() );
-        }
-        else txtPrimaryPath.setText("");
+
+    txtID.setText( compie.getID() );
+    txtName.setText( compie.getName() );
+    txtStartStage.setText( compie.getStartsAtStr(this.species) );
+    txtEndStage.setText( compie.getEndsAtStr(this.species)  );
+    txtPartOf.setText( compie.getPartOf().toString() );
+    txtGroupPartOf.setText( compie.getGroupPartOf().toString() );
+    txtSynonyms.setText( compie.getSynonym().toString() ); 
+    txtChangedStatus.setText( compie.getStrChangeStatus() );
+    txtRulesStatus.setText( compie.getStrRuleStatus() );
+    chkIsPrimary.setSelected( compie.getIsPrimary() );
         
-        //Paths
-        DefaultListModel listPathsModel = new DefaultListModel();
-        //Vector< DefaultMutableTreeNode[] > paths = this.propTreebuilder.getPaths( compie.getID() );
-        Vector< DefaultMutableTreeNode[] > paths = compie.getPaths();
-        for (int i =0; i< paths.size(); i++){
-            TreePath treepath = new TreePath( paths.get(i) );
-            listPathsModel.addElement( treepath );
-        }
-        listPaths.setModel( listPathsModel );
+    
+    if ( compie.getPrimaryPath() != null ) {
+        TreePath pathDisplay = new TreePath( compie.getPrimaryPath() );
+        txtPrimaryPath.setText( pathDisplay.toString() );
+    }
+    else {
+        txtPrimaryPath.setText("");
+    }
         
-        //Comments
-        DefaultListModel listModel = new DefaultListModel();
-        Set<String> comments = compie.getCheckComments();
-        for (String s: comments){
-            listModel.addElement(s);
-        }
-        listComments.setModel( listModel );
+    //Paths
+    DefaultListModel listPathsModel = new DefaultListModel();
+
+    //Vector< DefaultMutableTreeNode[] > paths =
+    // this.propTreebuilder.getPaths( compie.getID() );
+    Vector< DefaultMutableTreeNode[] > paths = compie.getPaths();
+
+    for (int i =0; i< paths.size(); i++){
+        TreePath treepath = new TreePath( paths.get(i) );
+        listPathsModel.addElement( treepath );
+    }
+
+    listPaths.setModel( listPathsModel );
+        
+    //Comments
+    DefaultListModel listModel = new DefaultListModel();
+    Set<String> comments = compie.getCheckComments();
+
+    for (String s: comments){
+        listModel.addElement(s);
+    }
+    listComments.setModel( listModel );
 }
+
 
 private void clearReportTextBoxes(){
-        txtID.setText("");
-        txtName.setText("");
-        txtStartStage.setText("");
-        txtEndStage.setText("");
-        txtPartOf.setText("");
-        txtGroupPartOf.setText("");
-        txtChangedStatus.setText("");
-        txtRulesStatus.setText("");
-        txtPrimaryPath.setText("");
-        txtSynonyms.setText("");
-        txtRulesStatus.setText("");
-        txtChangedStatus.setText("");
-        chkIsPrimary.setSelected( false );
+
+    txtID.setText("");
+    txtName.setText("");
+    txtStartStage.setText("");
+    txtEndStage.setText("");
+    txtPartOf.setText("");
+    txtGroupPartOf.setText("");
+    txtChangedStatus.setText("");
+    txtRulesStatus.setText("");
+    txtPrimaryPath.setText("");
+    txtSynonyms.setText("");
+    txtRulesStatus.setText("");
+    txtChangedStatus.setText("");
+    chkIsPrimary.setSelected( false );
         
-        DefaultListModel listModel = new DefaultListModel();
-        listPaths.setModel( listModel );
-        listComments.setModel( listModel );
+    DefaultListModel listModel = new DefaultListModel();
+
+    listPaths.setModel( listModel );
+    listComments.setModel( listModel );
 }
 
+
 private void reloadComboBox(JComboBox cbo, ArrayList<Component> termList){
+
     Component compie;
     
     cbo.removeAllItems();
@@ -2984,40 +2839,39 @@ private void reloadComboBox(JComboBox cbo, ArrayList<Component> termList){
     }
 }
 
+
 private boolean loadDefaultReferenceTree(){
     
     boolean loaded = false;
     
-    String strURL = "";
-    if ( mouseRB.isSelected() ) {
-        strURL = START_URL + mouseDBHostNameTF.getText() + ":"
-                + mouseDBPortTF.getText() + "/" + mouseDBDbNameTF.getText();
-    }
-    if ( humanRB.isSelected() ) {
-        strURL = START_URL + humanDBHostNameTF.getText() + ":"
-                + humanDBPortTF.getText() + "/" + humanDBDbNameTF.getText();
-    }
-    if ( chickRB.isSelected() ) {
-        strURL = START_URL + chickDBHostNameTF.getText() + ":"
-                + chickDBPortTF.getText() + "/" + chickDBDbNameTF.getText();
-    }
-    /*
-    this.txtReferenceDB.setText( strURL );
-    int intConnect = JOptionPane.showConfirmDialog( null, " The current database specified in the 'Database and File Settings' tab is: \n" + 
-                    strURL + "\n Are you sure you want to load your reference ontology from this database?", "DB2OBO", JOptionPane.YES_NO_OPTION );        
-    if ( intConnect!=0 ){
-        JOptionPane.showMessageDialog( null, "Not connected to any reference database. Please load a reference tree manually.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-        return false;
-    }*/
+    this.strURL = START_URL +
+            mouseDBHostNameTF.getText() + ":" +
+            mouseDBPortTF.getText() + "/" +
+            mouseDBDbNameTF.getText();
    
-    if ( this.isConnectedToDatabase() ){//&& intConnect==0 ){
+    if ( this.isConnectedToDatabase() ){
         
         //get configured roots from gui
         makeRootComponents();
+
         //import database
-        ImportDatabase db = new ImportDatabase( connection, abstractClass, stageClass, groupClass, groupTermClass, species, filetype, stage, rangestart, rangeend, defaultroot, project );
+        ImportDatabase db =
+                new ImportDatabase( connection,
+                abstractClass,
+                stageClass,
+                groupClass,
+                groupTermClass,
+                species,
+                filetype,
+                stage,
+                rangestartint,
+                rangeendint,
+                defaultroot,
+                project );
+
         expTermList = db.getTermList();
         expRelationList = db.getRelationList();
+
         this.loadProjects( db.getProjects() );
         
         //reset CheckComponent object
@@ -3039,16 +2893,28 @@ private boolean loadDefaultReferenceTree(){
         
         //set oldTermList to expTermList
         this.parseOldTermList = this.expTermList;
+
         //Build hashmap of components
         MapBuilder mapbuilder = new MapBuilder(this.parseOldTermList);
+
         //Build tree
-        TreeBuilder obotree = new TreeBuilder(mapbuilder);
+        TreeBuilder obotree = new TreeBuilder(mapbuilder, this.species);
+
         //check for rules violation
-        CheckComponents checkie = new CheckComponents( this.parseOldTermList, obotree, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
+        CheckComponents checkie =
+                new CheckComponents( this.parseOldTermList,
+                obotree,
+                this.abstractClass,
+                this.stageClass,
+                this.groupClass,
+                this.groupTermClass,
+                this.species );
+
         //if file has problems don't allow to load
         if ( checkie.getProblemTermList().isEmpty() ){
             //load tree
-            DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
+            DefaultTreeModel model =
+                    (DefaultTreeModel) treeReferenced.getModel();
             DefaultMutableTreeNode refRoot = obotree.getRootNode();
             refRoot.setUserObject( strURL );
             model.setRoot( refRoot );
@@ -3060,33 +2926,53 @@ private boolean loadDefaultReferenceTree(){
             this.refTreebuilder = obotree;
             
             loaded = true;
-            //reload proposed tree to clear any deleted components added to parseNewTermList
+            //reload proposed tree to clear any deleted components added to
+            // parseNewTermList
             //File propFiley = new File( txtCurrentFile.getText() );
             //if ( propFiley.exists() ) this.loadProposedTree();
+            /*
             try {
                 //set remark text area to loaded database
-                this.remarkTA.setText("Database loaded: " + this.connection.getMetaData().getDatabaseProductName());
+                this.remarkTA.setText("Database loaded: " +
+                        this.connection.getMetaData().getDatabaseProductName());
             } catch (SQLException ex) {
-                Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
+                Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE,
+                        null, ex);
+            }*/
+        }
+        else{
             //reset parseOldTermList
             this.parseOldTermList = null;
+
             //reset tree
-            DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
+            DefaultTreeModel model =
+                    (DefaultTreeModel) treeReferenced.getModel();
             model.setRoot(null);
-            JOptionPane.showMessageDialog( null, "Loading Default Reference Tree: Some components in the specified reference contain rule violations. \n" +
-                    "Please load the reference under the proposed tab to fix the problem; \n" +
-                    "Alternatively, please select another reference.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+
+            JOptionPane.showMessageDialog( null,
+                    "Loading Default Reference Tree: Some components in the " +
+                    "specified reference contain rule violations. \n" +
+                    "Please load the reference under the proposed tab to fix " +
+                    "the problem; \n" +
+                    "Alternatively, please select another reference.", 
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+
             System.out.println( checkie.getProblemTermList() );
-            Component probCompie = (Component) checkie.getProblemTermList().get(0);
-            System.out.println("no. of components with problems = " + checkie.getProblemTermList().size());
+            
+            Component probCompie =
+                    (Component) checkie.getProblemTermList().get(0);
+            
+            System.out.println("no. of components with problems = " +
+                    checkie.getProblemTermList().size());
             System.out.println("comments = " + probCompie.getCheckComments());
         }
-    } else {
+    }
+    else {
         //reset everything related to reference file
         //reset CheckComponent object
         this.propCheckComponents = null;
+
         //reset indicator
         lblUnprocessed.setForeground( Color.BLACK );
         lblUnprocessed.setText("UNPROCESSED");
@@ -3096,166 +2982,225 @@ private boolean loadDefaultReferenceTree(){
         lblModified.setText("modified:?");
         lblDeleted.setForeground( Color.BLACK );
         lblDeleted.setText("deleted:?");
+
         //reset changes list
         this.clearReportTextBoxes();
         this.cboChangedNodes.removeAllItems();
+
         //reset old term list
         this.parseOldTermList = null;
+
         //set tree to nothing
         DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
         model.setRoot(null);
 
-        JOptionPane.showMessageDialog( null, "Failed to load reference tree from database. Please check connection.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( null, 
+                "Failed to load reference tree from database. Please check " +
+                "connection.",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
     }
     
     return loaded;
 }
 
+
 private void loadProposedTree(){
-       File filey = new File(txtCurrentFile.getText());   
-       if ( filey.exists() ){    
-           
-            //reset CheckComponents object
-            this.propCheckComponents = null;
-            //reset indicator
-            lblUnprocessed.setForeground( Color.BLACK );
-            lblUnprocessed.setText("UNPROCESSED");
-            lblNew.setForeground( Color.BLACK );
-            lblNew.setText("new:?");
-            lblModified.setForeground( Color.BLACK );
-            lblModified.setText("modified:?");
-            lblDeleted.setForeground( Color.BLACK );
-            lblDeleted.setText("deleted:?");
-            //reset gui
-            this.clearReportTextBoxes();
-            this.cboProblemNodes.removeAllItems();
-            this.cboChangedNodes.removeAllItems();
 
-            //Parse file
-            OBOParser obofile = new OBOParser(txtCurrentFile.getText());
-            //Build components
-            this.parseNewTermList = obofile.getComponents();
-            //Build hashmap of components
-            MapBuilder mapbuilder = new MapBuilder(this.parseNewTermList);
-            //Build tree
-            this.propTreebuilder = new TreeBuilder(mapbuilder);
+    File filey = new File(txtCurrentFile.getText());
 
-            //load tree
-            DefaultTreeModel model = (DefaultTreeModel) treeCurrent.getModel();
-            DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
-            propRoot.setUserObject( txtCurrentFile.getText() );
-            model.setRoot( propRoot );
-            //model.setRoot(this.propTreebuilder.getRootNode());
+    if ( filey.exists() ){
+        //reset CheckComponents object
+        this.propCheckComponents = null;
+
+        //reset indicator
+        lblUnprocessed.setForeground( Color.BLACK );
+        lblUnprocessed.setText("UNPROCESSED");
+        lblNew.setForeground( Color.BLACK );
+        lblNew.setText("new:?");
+        lblModified.setForeground( Color.BLACK );
+        lblModified.setText("modified:?");
+        lblDeleted.setForeground( Color.BLACK );
+        lblDeleted.setText("deleted:?");
+
+        //reset gui
+        this.clearReportTextBoxes();
+        this.cboProblemNodes.removeAllItems();
+        this.cboChangedNodes.removeAllItems();
+
+        //Parse file
+        OBOParser obofile = new OBOParser(txtCurrentFile.getText());
+
+        //Build components
+        this.parseNewTermList = obofile.getComponents();
+
+        //Build hashmap of components
+        MapBuilder mapbuilder = new MapBuilder(this.parseNewTermList);
+
+        //Build tree
+        this.propTreebuilder = new TreeBuilder(mapbuilder, this.species);
+
+        //load tree
+        DefaultTreeModel model = (DefaultTreeModel) treeCurrent.getModel();
+        DefaultMutableTreeNode propRoot = this.propTreebuilder.getRootNode();
+        propRoot.setUserObject( txtCurrentFile.getText() );
+        model.setRoot( propRoot );
+        //model.setRoot(this.propTreebuilder.getRootNode());
             
-        } else {
-           //reset everything related to proposed file
-           //reset CheckComponents object
-           this.propCheckComponents = null;
-           //reset indicator
-           lblUnprocessed.setForeground( Color.BLACK );
-           lblUnprocessed.setText("UNPROCESSED");
-           lblNew.setForeground( Color.BLACK );
-           lblNew.setText("new:?");
-           lblModified.setForeground( Color.BLACK );
-           lblModified.setText("modified:?");
-           lblDeleted.setForeground( Color.BLACK );
-           lblDeleted.setText("deleted:?");
-           //reset gui
-           this.clearReportTextBoxes();
-           this.cboProblemNodes.removeAllItems();
-           this.cboChangedNodes.removeAllItems();
-           //reset new term list
-           this.parseNewTermList = null;
-           //set tree to nothing      
-           DefaultTreeModel model = (DefaultTreeModel) treeCurrent.getModel();
-           model.setRoot(null);
-           JOptionPane.showMessageDialog( null, "File Not Found!","DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-        }
+    }
+    else {
+        //reset everything related to proposed file
+        //reset CheckComponents object
+        this.propCheckComponents = null;
+
+        //reset indicator
+        lblUnprocessed.setForeground( Color.BLACK );
+        lblUnprocessed.setText("UNPROCESSED");
+        lblNew.setForeground( Color.BLACK );
+        lblNew.setText("new:?");
+        lblModified.setForeground( Color.BLACK );
+        lblModified.setText("modified:?");
+        lblDeleted.setForeground( Color.BLACK );
+        lblDeleted.setText("deleted:?");
+
+        //reset gui
+        this.clearReportTextBoxes();
+        this.cboProblemNodes.removeAllItems();
+        this.cboChangedNodes.removeAllItems();
+
+        //reset new term list
+        this.parseNewTermList = null;
+
+        //set tree to nothing
+        DefaultTreeModel model = (DefaultTreeModel) treeCurrent.getModel();
+        model.setRoot(null);
+        JOptionPane.showMessageDialog( null,
+                "File Not Found!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
 }
 
+
 private void loadReferenceTree(){
-        
-        File filey = new File( txtReferenceFile.getText() );
-        if ( filey.exists() ) {
-        
-            //reset changes list
-            this.clearReportTextBoxes();
-            this.cboChangedNodes.removeAllItems();
-            //set checkComponents to null
-            this.propCheckComponents = null;
-            //reset indicator
-            lblUnprocessed.setForeground( Color.BLACK );
-            lblUnprocessed.setText("UNPROCESSED");
-            lblNew.setForeground( Color.BLACK );
-            lblNew.setText("new:?");
-            lblModified.setForeground( Color.BLACK );
-            lblModified.setText("modified:?");
-            lblDeleted.setForeground( Color.BLACK );
-            lblDeleted.setText("deleted:?");
 
-            //Parse file
-            OBOParser obofile = new OBOParser(txtReferenceFile.getText());
-            //Build components
-            this.parseOldTermList = obofile.getComponents();
-            //Build hashmap of components
-            MapBuilder mapbuilder = new MapBuilder(this.parseOldTermList);
-            //Build tree
-            TreeBuilder obotree = new TreeBuilder(mapbuilder);
-            //check for rules violation
-            CheckComponents checkie = new CheckComponents( this.parseOldTermList, obotree, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
-            //if file has problems don't allow to load
-            if ( checkie.getProblemTermList().isEmpty() ){
-                //load tree
-                DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
-                DefaultMutableTreeNode refRoot = obotree.getRootNode();
-                refRoot.setUserObject( txtReferenceFile.getText() );
-                model.setRoot( refRoot );
-                //reload proposed tree to clear any deleted components added to parseNewTermList
-                File propFiley = new File( txtCurrentFile.getText() );
-                if ( propFiley.exists() ) this.loadProposedTree();
-                //set refTreebuilder to current obo tree
-                this.refTreebuilder = obotree;
-                try {
-                    //set remark text area to loaded database
-                    this.remarkTA.setText("Database loaded: " + this.connection.getMetaData().getDatabaseProductName());
-                } catch (SQLException ex) {
-                    Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }else{
-                //reset old term list
-                this.parseOldTermList = null;
-                //reset tree
-                DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
-                model.setRoot(null);
-                JOptionPane.showMessageDialog( null, "Loading Reference Tree: Some components in the specified reference contain rule violations. \n" +
-                        "Please load the reference under the proposed tab to fix the problem; \n" +
-                        "Alternatively, please select another reference.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    File filey = new File( txtReferenceFile.getText() );
+
+    if ( filey.exists() ) {
+        //reset changes list
+        this.clearReportTextBoxes();
+        this.cboChangedNodes.removeAllItems();
+
+        //set checkComponents to null
+        this.propCheckComponents = null;
+
+        //reset indicator
+        lblUnprocessed.setForeground( Color.BLACK );
+        lblUnprocessed.setText("UNPROCESSED");
+        lblNew.setForeground( Color.BLACK );
+        lblNew.setText("new:?");
+        lblModified.setForeground( Color.BLACK );
+        lblModified.setText("modified:?");
+        lblDeleted.setForeground( Color.BLACK );
+        lblDeleted.setText("deleted:?");
+
+        //Parse file
+        OBOParser obofile = new OBOParser(txtReferenceFile.getText());
+
+        //Build components
+        this.parseOldTermList = obofile.getComponents();
+
+        //Build hashmap of components
+        MapBuilder mapbuilder = new MapBuilder(this.parseOldTermList);
+
+        //Build tree
+        TreeBuilder obotree = new TreeBuilder(mapbuilder, this.species);
+
+        //check for rules violation
+        CheckComponents checkie =
+                new CheckComponents( this.parseOldTermList,
+                    obotree,
+                    this.abstractClass,
+                    this.stageClass,
+                    this.groupClass,
+                    this.groupTermClass,
+                    this.species );
+
+        //if file has problems don't allow to load
+        if ( checkie.getProblemTermList().isEmpty() ){
+            //load tree
+            DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
+            DefaultMutableTreeNode refRoot = obotree.getRootNode();
+            refRoot.setUserObject( txtReferenceFile.getText() );
+            model.setRoot( refRoot );
+
+            //reload proposed tree to clear any deleted components added to parseNewTermList
+            File propFiley = new File( txtCurrentFile.getText() );
+
+            if ( propFiley.exists() ) this.loadProposedTree();
+
+            //set refTreebuilder to current obo tree
+            this.refTreebuilder = obotree;
+            try {
+                //set remark text area to loaded database
+                this.remarkTA.setText("Database loaded: " +
+                        this.connection.getMetaData().getDatabaseProductName());
             }
-
-        } else {
-            //reset everything related to proposed file
-            //reset CheckComponents object
-            this.propCheckComponents = null;
-            //reset indicator
-            lblUnprocessed.setForeground( Color.BLACK );
-            lblUnprocessed.setText("UNPROCESSED");
-            lblNew.setForeground( Color.BLACK );
-            lblNew.setText("new:?");
-            lblModified.setForeground( Color.BLACK );
-            lblModified.setText("modified:?");
-            lblDeleted.setForeground( Color.BLACK );
-            lblDeleted.setText("deleted:?");
-            //reset gui
-            this.clearReportTextBoxes();
-            this.cboProblemNodes.removeAllItems();
-            this.cboChangedNodes.removeAllItems();
+            catch (SQLException ex) {
+                Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE,
+                        null, ex);
+            }
+        }
+        else {
             //reset old term list
             this.parseOldTermList = null;
-            //set tree to nothing     
-            DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
+
+            //reset tree
+            DefaultTreeModel model =
+                    (DefaultTreeModel) treeReferenced.getModel();
             model.setRoot(null);
-            JOptionPane.showMessageDialog( null, "Proposed File Not Found!","DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+            JOptionPane.showMessageDialog( null, 
+                    "Loading Reference Tree: Some components in the " +
+                    "specified reference contain rule violations. \n" +
+                    "Please load the reference under the proposed tab to fix " +
+                    "the problem; \n" +
+                    "Alternatively, please select another reference.", 
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
         }
+
+    }
+    else {
+        //reset everything related to proposed file
+        //reset CheckComponents object
+        this.propCheckComponents = null;
+
+        //reset indicator
+        lblUnprocessed.setForeground( Color.BLACK );
+        lblUnprocessed.setText("UNPROCESSED");
+        lblNew.setForeground( Color.BLACK );
+        lblNew.setText("new:?");
+        lblModified.setForeground( Color.BLACK );
+        lblModified.setText("modified:?");
+        lblDeleted.setForeground( Color.BLACK );
+        lblDeleted.setText("deleted:?");
+
+        //reset gui
+        this.clearReportTextBoxes();
+        this.cboProblemNodes.removeAllItems();
+        this.cboChangedNodes.removeAllItems();
+
+        //reset old term list
+        this.parseOldTermList = null;
+
+        //set tree to nothing
+        DefaultTreeModel model = (DefaultTreeModel) treeReferenced.getModel();
+        model.setRoot(null);
+        JOptionPane.showMessageDialog( null,
+                "Proposed File Not Found!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
 }
 
 
@@ -3266,16 +3211,36 @@ private boolean noRuleViolationsInDB(){
     //try to load tree from database
     if ( this.loadDefaultReferenceTree() ){
         //if loading successful, db tree does not have violations
+
         //perform full checks
-        this.propCheckComponents = new CheckComponents( this.parseNewTermList, this.parseOldTermList, this.propTreebuilder, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
-        //return true to allow db update to proceed if checking detects no rule violations in proposed file 
-        if ( this.propCheckComponents.getProblemTermList().isEmpty() ) return true;
+        this.propCheckComponents = 
+                new CheckComponents( this.parseNewTermList,
+                     this.parseOldTermList,
+                     this.propTreebuilder,
+                     this.abstractClass,
+                     this.stageClass,
+                     this.groupClass,
+                     this.groupTermClass,
+                     this.species );
+        
+        //return true to allow db update to proceed if checking detects no
+        // rule violations in proposed file
+        if ( this.propCheckComponents.getProblemTermList().isEmpty() ) {
+            return true;
+        }
         else {
             JOptionPane.showMessageDialog(null, "Rule violations detected! \n" + 
-                "Please ensure that all components in the proposed file are free of rule violations. \n" +
-                "Database Update did not proceed.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE);
+                "Please ensure that all components in the proposed file are " +
+                "free of rule violations. \n" +
+                "Database Update did not proceed.", 
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE);
+
             System.out.println( this.propCheckComponents.getProblemTermList() );
-            ArrayList <Component> problems = this.propCheckComponents.getProblemTermList();
+
+            ArrayList <Component> problems =
+                    this.propCheckComponents.getProblemTermList();
+
             for ( Component compie: problems ){
                 System.out.println( compie.getCheckComments() );
             }
@@ -3289,224 +3254,426 @@ private boolean noRuleViolationsInDB(){
 
 
 private void txtCurrentFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentFileActionPerformed
-    //cmdLoadTreeCurrentActionPerformed(evt);                                     
+
+    //cmdLoadTreeCurrentActionPerformed(evt);
     this.loadProposedTree();
+
 }//GEN-LAST:event_txtCurrentFileActionPerformed
 
+
 private void cboProblemNodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboProblemNodesActionPerformed
-        // TODO add your handling code here:
-        Component compie = (Component) (cboProblemNodes.getSelectedItem());
-        if (compie!=null) {
-            loadTextBoxes(compie);            
-            expandPathsTo(treeCurrent, this.propTreebuilder, compie);
-        }
+
+    Component compie = (Component) (cboProblemNodes.getSelectedItem());
+    if (compie!=null) {
+        loadTextBoxes(compie);            
+        expandPathsTo(treeCurrent, this.propTreebuilder, compie);
+    }
 }//GEN-LAST:event_cboProblemNodesActionPerformed
 
+
 private void cmdGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGenerateActionPerformed
-    // TODO add your handling code here:
         
     int proceed = 0;    
     boolean flagUpdateDB = false;
     
-    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) && !this.project.equals("") ){
-        if ( isConnectedToDatabase() ){            
-            //allow generation of report even if there are failed components but warn user
-            if ( !this.propCheckComponents.getProblemTermList().isEmpty() ){
-                proceed = JOptionPane.showConfirmDialog( null , "Rule Violations Detected! \n " +
-                            "Program will generate SQL Query Report - No actual update can take place \n " +
-                            "before the components with Rule Violations are attended to.", "DB2OBO", JOptionPane.OK_CANCEL_OPTION );
+    if ( ( this.parseNewTermList != null ) &&
+         ( this.propCheckComponents != null ) &&
+           !this.project.equals("") ) {
+        if ( isConnectedToDatabase() ) {
+            //allow generation of report even if there are failed components
+            // but warn user
+            if ( !this.propCheckComponents.getProblemTermList().isEmpty() ) {
+                proceed = JOptionPane.showConfirmDialog( null ,
+                        "Rule Violations Detected! \n " +
+                        "Program will generate SQL Query Report - No actual " +
+                        "update can take place \n " +
+                        "before the components with Rule Violations are " +
+                        "attended to.",
+                        "DB2OBO",
+                        JOptionPane.OK_CANCEL_OPTION );
             }
             //if user clicks ok generate the sql report
-            if ( proceed==0 ){
+            if ( proceed == 0 ) {
                 System.out.println( this.propTreebuilder.getRootNode() );
-                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass, this.project );
+
+                this.reloadTree( treeCurrent, 
+                        this.parseNewTermList,
+                        this.propTreebuilder,
+                        txtCurrentFile.getText() );
+
+                this.genie = 
+                        new GenerateSQL(this.connection,
+                            this.parseNewTermList,
+                            this.propTreebuilder,
+                            this.refTreebuilder,
+                            this.species,
+                            flagUpdateDB,
+                            txtReport.getText(),
+                            abstractClass,
+                            this.project );
+
                 disconnectFromDatabase();
-                if ( genie.getIsProcessed() ){
-                    JOptionPane.showMessageDialog( null, "SQL Query Report generated.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                    this.reloadTree( treeCurrent, this.parseNewTermList, this.propTreebuilder, txtCurrentFile.getText() );
+
+                if ( genie.getIsProcessed() ) {
+                    JOptionPane.showMessageDialog( null, 
+                            "SQL Query Report generated.",
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
+
+                    this.reloadTree( treeCurrent,
+                            this.parseNewTermList,
+                            this.propTreebuilder,
+                            txtCurrentFile.getText() );
                 }
-                else
-                    JOptionPane.showMessageDialog( null, "SQL Query Report could not be saved. Check path in save file textbox." , "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+                else {
+                    JOptionPane.showMessageDialog( null,
+                            "SQL Query Report could not be saved. Check " +
+                            "path in save file textbox." ,
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
+                }
             }
-        }else JOptionPane.showMessageDialog( null, "Cannot connect to databases!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    }else if( (this.parseNewTermList!=null) || (this.propCheckComponents!=null) ){
-        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    }else{
-        JOptionPane.showMessageDialog( null, "Select a Project to reference!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        }
+        else {
+            JOptionPane.showMessageDialog( null,
+                    "Cannot connect to databases!",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+        }
+    }
+    else if ( ( this.parseNewTermList != null ) ||
+              ( this.propCheckComponents != null ) ) {
+        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", 
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
+    else {
+        JOptionPane.showMessageDialog( null, "Select a Project to reference!", 
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
     }
 //GEN-LAST:event_cmdGenerateActionPerformed
 }                                           
 
+
 private void cboChangedNodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChangedNodesActionPerformed
-        // TODO add your handling code here:
-        Component compie = (Component) (cboChangedNodes.getSelectedItem());
-        if (compie!=null) {
-            loadTextBoxes(compie);
-            expandPathsTo(treeCurrent, this.propTreebuilder, compie);
-        }     
+
+    Component compie = (Component) (cboChangedNodes.getSelectedItem());
+
+    if (compie!=null) {
+        loadTextBoxes(compie);
+        expandPathsTo(treeCurrent, this.propTreebuilder, compie);
+    }     
 }//GEN-LAST:event_cboChangedNodesActionPerformed
 
+
 private void cmdFindCommonAncestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFindCommonAncestorActionPerformed
-        // TODO add your handling code here:
-       int intProceed = 0;
-       Component selectedCompie = null;
+
+    int intProceed = 0;
+    Component selectedCompie = null;
     
-       //find component that is currently displayed in txtID
-       if (this.propCheckComponents!=null){
+    //find component that is currently displayed in txtID
+    if (this.propCheckComponents != null) {
            
-            //find last selected node from tree and change to component
-            DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeCurrent.getLastSelectedPathComponent();            
+        //find last selected node from tree and change to component
+        DefaultMutableTreeNode node = 
+                (DefaultMutableTreeNode)
+                    treeCurrent.getLastSelectedPathComponent();
             
-            if (node == null)
-            //Nothing is selected.	
+        if (node == null) {
+            //Nothing is selected.
             return;
+        }
           
-            //change selected node into a component, make sure it is in the parsed list
-            Object nodeInfo = node.getUserObject();
-            if ( nodeInfo instanceof backend.Component ){
-                Component compie = (Component) nodeInfo;
-                selectedCompie = this.propTreebuilder.getComponent( compie.getID() );
-            }
+        //change selected node into a component, make sure it is in the parsed
+        // list
+        Object nodeInfo = node.getUserObject();
+
+        if ( nodeInfo instanceof backend.Component ){
+            Component compie = (Component) nodeInfo;
+            selectedCompie =
+                    this.propTreebuilder.getComponent( compie.getID() );
+        }
             
-            if ( selectedCompie!=null ){
+        if ( selectedCompie != null ){
 
-                //if common ancester has already been found
-                ArrayList<String> groupparents = selectedCompie.getGroupPartOf();
-                for ( String groupparent: groupparents ){
-                    if ( this.propTreebuilder.getComponent( groupparent ).getIsPrimary() ){
-                        JOptionPane.showMessageDialog( null , "Cannot add another common ancestor! \n" + 
-                            "This term already has a primary parent - " + groupparent + 
-                            "[" + this.propTreebuilder.getComponent( groupparent ).getName() + "]", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                            return;
-                    }
-                }
-                ArrayList<String> primaryparents = selectedCompie.getPartOf();
-                for ( String primaryparent: primaryparents ){
-                    Component primaryCompie = this.propTreebuilder.getComponent(primaryparent);
-                    if ( primaryCompie.getIsPrimary() && !primaryCompie.getID().equals( groupClass.getID() ) ){
-                        JOptionPane.showMessageDialog( null , "Cannot add another common ancestor! \n" + 
-                            "This term already has a primary parent - " + primaryCompie.getID() + 
-                            "[" + primaryCompie.getName() + "]", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                            return;
-                    }
-                }
+            //if common ancester has already been found
+            ArrayList<String> groupparents = selectedCompie.getGroupPartOf();
 
-                if ( node.getChildCount()==1 ){
-                    //only one child, not allowed to be new group component
-                    selectedCompie.setCheckComment("Invalid Group Term - contains only one child term.");
-                 
-                    JOptionPane.showMessageDialog( null , "Invalid Group Term! \n" + 
-                            "A Group Term must have more than one child component.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+            for ( String groupparent: groupparents ){
+                if ( this.propTreebuilder.getComponent(
+                        groupparent ).getIsPrimary() ) {
+                    JOptionPane.showMessageDialog( null ,
+                            "Cannot add another common ancestor! \n" +
+                            "This term already has a primary parent - " +
+                            groupparent +
+                            "[" + 
+                    this.propTreebuilder.getComponent( groupparent ).getName() +
+                            "]",
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
                     return;
                 }
+            }
 
-                //method findCommonAncestor gets all children of compie to findCommonAncestor
-                //pass node back to findCommonAncestor method so that children of node can be passed along
-                Component commonAncestor = this.propCheckComponents.getCommonAncestor( node, this.propTreebuilder );
-                //get common ancestor component from tree
-                Component commie = this.propTreebuilder.getComponent( commonAncestor.getID() );
-                //if common ancestor id is empty it is an invalid component passed by getCommonAncestor
-                //if ( commonAncestor.getID().isEmpty() || commie==null ){
-                if ( commonAncestor.getID() == null || commie==null ){
-                     JOptionPane.showMessageDialog( null, "Could not find common ancestor for children under " +
-                                               node + "! Returned output: " + commonAncestor, "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+            ArrayList<String> primaryparents = selectedCompie.getPartOf();
+
+            for ( String primaryparent: primaryparents ){
+                Component primaryCompie =
+                        this.propTreebuilder.getComponent(primaryparent);
+                if ( primaryCompie.getIsPrimary() &&
+                        !primaryCompie.getID().equals( groupClass.getID() ) ){
+                    JOptionPane.showMessageDialog( null ,
+                            "Cannot add another common ancestor! \n" +
+                            "This term already has a primary parent - " +
+                            primaryCompie.getID() +
+                            "[" + primaryCompie.getName() + "]", 
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
+                        return;
                 }
-                else{
-                     intProceed = JOptionPane.showConfirmDialog( null, "Common Ancestor for all the children under " +
-                             "\n      " + node + " is: \n         " + commonAncestor + "\n Create new group term '" + node + "' under " + commonAncestor + "?" , "DB2OBO", JOptionPane.YES_NO_CANCEL_OPTION );
-                     if ( intProceed==0 ){
-                        //ASSIGN properties to NEW GROUP TERM
-                        //selected component is now a group term
-                        selectedCompie.setIsPrimary( false );
-                        //add group part of [ common ancestor ] to selected node
-                        selectedCompie.addGroupPartOf( commie.getID() );
-                        //add is a group to selected node
-                        selectedCompie.setIsA( this.groupTermClass.getID() );
-                        //change namespace to abstract anatomy
-                        selectedCompie.setNamespace( this.abstractClass.getNamespace() );
-                        //set default start at and ends at same as parent for now 
-                        //note: if have time write alternate method to find min start and max end for all children
-                        //note: alternate method not important unless one of the children is a new node
-                        selectedCompie.setStartsAt( commonAncestor.getStartsAt() );
-                        selectedCompie.setEndsAt( commonAncestor.getEndsAt() );
-                        //clear rule and changed status
-                        selectedCompie.setStrRuleStatus("PASSED");
-                        selectedCompie.setStrChangeStatus("NEW");
-                        selectedCompie.setFlagMissingRel(false);
-                        //set checkComment 
-                        selectedCompie.clearCheckComment();
-                        selectedCompie.setCheckComment("New Group Component - Common Ancestor is " +
-                                commie.getID() + "[" + this.propTreebuilder.getComponent(commie.getID()).getName() + "]" );
+            }
+
+            if ( node.getChildCount() == 1 ){
+
+                //only one child, not allowed to be new group component
+                selectedCompie.setCheckComment("Invalid Group Term - " +
+                        "contains only one child term.");
+                 
+                JOptionPane.showMessageDialog( null , "Invalid Group Term! \n" + 
+                            "A Group Term must have more than one child " +
+                            "component.",
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
+                return;
+            }
+
+            //method findCommonAncestor gets all children of compie to
+            // findCommonAncestor
+            //pass node back to findCommonAncestor method so that children of
+            // node can be passed along
+            Component commonAncestor = 
+                    this.propCheckComponents.getCommonAncestor( node,
+                        this.propTreebuilder );
+
+            //get common ancestor component from tree
+            Component commie =
+                    this.propTreebuilder.getComponent( commonAncestor.getID() );
+
+            //if common ancestor id is empty it is an invalid component passed
+            // by getCommonAncestor
+            //if ( commonAncestor.getID().isEmpty() || commie==null ){
+            if ( commonAncestor.getID() == null || 
+                    commie == null ){
+                JOptionPane.showMessageDialog( null,
+                        "Could not find common ancestor for children under " +
+                        node + "! Returned output: " + commonAncestor, 
+                        "DB2OBO",
+                        JOptionPane.INFORMATION_MESSAGE );
+            }
+            else {
+                intProceed = JOptionPane.showConfirmDialog( null,
+                        "Common Ancestor for all the children under " +
+                        "\n      " + node + " is: \n         " + 
+                        commonAncestor + "\n Create new group term '" +
+                        node + "' under " + commonAncestor +
+                        "?" ,
+                        "DB2OBO",
+                        JOptionPane.YES_NO_CANCEL_OPTION );
+
+                if ( intProceed == 0 ){
+                    //ASSIGN properties to NEW GROUP TERM
+                    //selected component is now a group term
+                    selectedCompie.setIsPrimary( false );
+
+                    //add group part of [ common ancestor ] to selected node
+                    selectedCompie.addGroupPartOf( commie.getID() );
+
+                    //add is a group to selected node
+                    selectedCompie.setIsA( this.groupTermClass.getID() );
+
+                    //change namespace to abstract anatomy
+                    selectedCompie.setNamespace(
+                            this.abstractClass.getNamespace() );
+
+                    //set default start at and ends at same as parent for now
+                    //note: if have time write alternate method to find min
+                    // start and max end for all children
+                    //note: alternate method not important unless one of the
+                    // children is a new node
+                    selectedCompie.setStartsAt(
+                            commonAncestor.getStartsAtStr(this.species) );
+                    selectedCompie.setEndsAt( 
+                            commonAncestor.getEndsAtStr(this.species) );
+
+                    //clear rule and changed status
+                    selectedCompie.setStrRuleStatus("PASSED");
+                    selectedCompie.setStrChangeStatus("NEW");
+                    selectedCompie.setFlagMissingRel(false);
+
+                    //set checkComment
+                    selectedCompie.clearCheckComment();
+                    selectedCompie.setCheckComment("New Group Component - " +
+                            "Common Ancestor is " +
+                            commie.getID() + "[" + 
+                            this.propTreebuilder.getComponent(
+                            commie.getID()).getName() + "]" );
                               
-                        MapBuilder mapbuilder = new MapBuilder(this.parseNewTermList);
-                        this.propTreebuilder = new TreeBuilder(mapbuilder);
-                        this.propCheckComponents = new CheckComponents( this.parseNewTermList, this.parseOldTermList, this.propTreebuilder, this.abstractClass, this.stageClass, this.groupClass, this.groupTermClass, this.species );
-                        this.reloadTree( treeCurrent, this.parseNewTermList, this.propTreebuilder, txtCurrentFile.getText() );
-                        //set obo file name to root: operation in reloadTree does not have any
-                        //effect on propTreebuilder - could it be pass by reference problem?
-                        //load tree
-                        DefaultTreeModel model = (DefaultTreeModel) treeCurrent.getModel();
-                        DefaultMutableTreeNode root = this.propTreebuilder.getRootNode();
-                        root.setUserObject( txtCurrentFile.getText() );
-                        model.setRoot( root );
                         
-                        //load combobox
-                        //Populate the combobox list
-                        this.reloadComboBox( cboProblemNodes, this.propCheckComponents.getProblemTermList() );
-                        this.reloadComboBox( cboChangedNodes, this.propCheckComponents.getChangesTermList() );
-                        //reload lable
-                        if ( !this.propCheckComponents.getProblemTermList().isEmpty() ) {
-                            lblUnprocessed.setForeground( Color.RED );
-                            lblUnprocessed.setText("PROCESSED: " + this.propCheckComponents.getProblemTermList().size() + " failed" );
-                        } else {
-                            lblUnprocessed.setForeground( Color.GREEN );
-                            lblUnprocessed.setText("PROCESSED");
-                        }
-                     }
+                    MapBuilder mapbuilder =
+                            new MapBuilder(this.parseNewTermList);
+                    this.propTreebuilder = new TreeBuilder(mapbuilder, this.species);
+
+                    this.propCheckComponents = new CheckComponents( 
+                            this.parseNewTermList,
+                            this.parseOldTermList,
+                            this.propTreebuilder,
+                            this.abstractClass,
+                            this.stageClass,
+                            this.groupClass,
+                            this.groupTermClass,
+                            this.species );
+                        
+                    this.reloadTree( treeCurrent, this.parseNewTermList,
+                            this.propTreebuilder, txtCurrentFile.getText() );
+
+                    //set obo file name to root: operation in reloadTree does
+                    // not have any
+                    //effect on propTreebuilder - could it be pass by reference
+                    // problem?
+                    //load tree
+                    DefaultTreeModel model =
+                            (DefaultTreeModel) treeCurrent.getModel();
+                    DefaultMutableTreeNode root =
+                            this.propTreebuilder.getRootNode();
+                    root.setUserObject( txtCurrentFile.getText() );
+                    model.setRoot( root );
+                        
+                    //load combobox
+                    //Populate the combobox list
+                    this.reloadComboBox( cboProblemNodes,
+                            this.propCheckComponents.getProblemTermList() );
+                    this.reloadComboBox( cboChangedNodes,
+                            this.propCheckComponents.getChangesTermList() );
+
+                    //reload lable
+                    if (
+                    !this.propCheckComponents.getProblemTermList().isEmpty() ) {
+                        lblUnprocessed.setForeground( Color.RED );
+                        lblUnprocessed.setText("PROCESSED: " + 
+                          this.propCheckComponents.getProblemTermList().size() +
+                          " failed" );
+                    }
+                    else {
+                        lblUnprocessed.setForeground( Color.GREEN );
+                        lblUnprocessed.setText("PROCESSED");
+                    }
                 }
-            }else JOptionPane.showMessageDialog( null, "Selected node is not a valid component!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+            }
         }
-        else JOptionPane.showMessageDialog( null , "Perform Check Components to build paths for each node first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        else {
+            JOptionPane.showMessageDialog( null,
+                    "Selected node is not a valid component!",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+        }
+    }
+    else {
+        JOptionPane.showMessageDialog( null ,
+                "Perform Check Components to build paths for each node first!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
 }//GEN-LAST:event_cmdFindCommonAncestorActionPerformed
 
+
 private void timedcompRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_timedcompRBItemStateChanged
-     // TODO add your handling code here:
-     if ( timedcompRB.isSelected() ) this.filetype = "Timed Component";
+
+    if ( timedcompRB.isSelected() ) {
+        this.filetype = "Timed Component";
+    }
+
 }//GEN-LAST:event_timedcompRBItemStateChanged
 
+
 private void startendRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_startendRBItemStateChanged
-    // TODO add your handling code here:
-    if (startendRB.isSelected() ) this.filetype = "Starts and Ends";
+
+    if (startendRB.isSelected() ) {
+        this.filetype = "Starts and Ends";
+    }
+
 }//GEN-LAST:event_startendRBItemStateChanged
 
+
 private void cmdUpdateDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUpdateDBActionPerformed
-    // TODO add your handling code here:
     
-    if( (this.parseNewTermList!=null) && (this.propCheckComponents!=null) && !this.project.equals("") ){
-        if ( noRuleViolationsInDB() ){
-            if ( isConnectedToDatabase() ){
-                System.out.println("Connected to database for obo file import!");
-                boolean flagUpdateDB = true; //change this to true!
-                this.genie = new GenerateSQL(this.connection, this.parseNewTermList, this.propTreebuilder, this.refTreebuilder, this.species, flagUpdateDB, txtReport.getText(), abstractClass, this.project );
+    if( ( this.parseNewTermList != null ) &&
+        ( this.propCheckComponents != null ) &&
+          !this.project.equals("") ) {
+        if ( noRuleViolationsInDB() ) {
+            if ( isConnectedToDatabase() ) {
+
+                System.out.println("Connected to database for obo file " +
+                        "import!");
+                
+                //change this to true!
+                boolean flagUpdateDB = true;
+
+                this.genie =
+                        new GenerateSQL(this.connection,
+                        this.parseNewTermList,
+                        this.propTreebuilder,
+                        this.refTreebuilder,
+                        this.species,
+                        flagUpdateDB,
+                        txtReport.getText(),
+                        abstractClass,
+                        this.project );
+
                 if ( this.genie.getIsProcessed() ){
-                    JOptionPane.showMessageDialog( null, "Database update completed succesfully!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-                    this.reloadTree( treeCurrent, this.parseNewTermList, this.propTreebuilder, txtCurrentFile.getText() );
+                    JOptionPane.showMessageDialog( null, 
+                            "Database update completed succesfully!",
+                            "DB2OBO",
+                            JOptionPane.INFORMATION_MESSAGE );
+
+                    this.reloadTree( treeCurrent,
+                            this.parseNewTermList,
+                            this.propTreebuilder,
+                            txtCurrentFile.getText() );
                 }
-                else
-                    JOptionPane.showMessageDialog( null, "ERROR: Database update could not be completed!", "DB2OBO", JOptionPane.ERROR_MESSAGE);
+                else { 
+                    JOptionPane.showMessageDialog( null,
+                            "ERROR: Database update could not be completed!",
+                            "DB2OBO",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+
                 //make new obo file with generated emapa ids
                 String strUpdatedFile = "";
-                if ( txtCurrentFile.getText().endsWith(".obo") ){
-                    strUpdatedFile = strUpdatedFile.copyValueOf( txtCurrentFile.getText().toCharArray(), 0, txtCurrentFile.getText().length()-4 ); 
+
+                if ( txtCurrentFile.getText().endsWith(".obo") ) {
+                    strUpdatedFile = 
+                            strUpdatedFile.copyValueOf(
+                                txtCurrentFile.getText().toCharArray(),
+                                0, txtCurrentFile.getText().length()-4 );
+
                     strUpdatedFile = strUpdatedFile + "_processed.obo";
-                } else strUpdatedFile = txtCurrentFile.getText() + "_processed.obo";
-                saveOBOFile( strUpdatedFile, this.propCheckComponents.getProposedTermList() );
+
+                }
+                else {
+                    strUpdatedFile = txtCurrentFile.getText() +
+                            "_processed.obo";
+                }
+
+                /*saveOBOFile( strUpdatedFile,
+                        this.propCheckComponents.getProposedTermList() );*/
                 
-                txtCurrentFile.setText( strUpdatedFile );
+                //txtCurrentFile.setText( strUpdatedFile );
                 this.loadProposedTree(); 
-                this.loadDefaultReferenceTree();
+                //this.loadDefaultReferenceTree();
                 
                 this.propCheckComponents = null;
+
                 //reset indicator
                 lblUnprocessed.setForeground( Color.BLACK );
                 lblUnprocessed.setText("UNPROCESSED");
@@ -3516,601 +3683,819 @@ private void cmdUpdateDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 lblModified.setText("modified:?");
                 lblDeleted.setForeground( Color.BLACK );
                 lblDeleted.setText("deleted:?");
+
                 disconnectFromDatabase();
             }
-        }else {
-            JOptionPane.showMessageDialog( null, "Database Update Cancelled! \n" +
-                    "There was a problem performing the checks against the database. \n" +
-                    "Please load a reference file from the database you wish to perform the update to and try again. \n", 
-                    "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
         }
-    }else if( (this.parseNewTermList!=null) || (this.propCheckComponents!=null) ) {
-        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    }else{
-        JOptionPane.showMessageDialog( null, "Select a Project to reference!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+        else {
+            JOptionPane.showMessageDialog( null,
+                    "Database Update Cancelled! \n" +
+                    "There was a problem performing the checks against the " +
+                    "database. \n" +
+                    "Please load a reference file from the database you wish " +
+                    "to perform the update to and try again. \n",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+        }
+    }
+    else if( ( this.parseNewTermList != null ) ||
+             ( this.propCheckComponents != null ) ) {
+        JOptionPane.showMessageDialog( null, "Perform Full Checks first!", 
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
+    else {
+        JOptionPane.showMessageDialog( null, "Select a Project to reference!", 
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
     }
 }//GEN-LAST:event_cmdUpdateDBActionPerformed
 
+
 private void cmdBrowseReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBrowseReportActionPerformed
-    // TODO add your handling code here:
+
     // Open file browser window and get file path
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
-        int result;
-        result = fileChooser.showSaveDialog( this );
-        
-        if ( result != JFileChooser.CANCEL_OPTION ) {
-            File file = fileChooser.getSelectedFile();  
-            txtReport.setText( file.getAbsolutePath() );
-        }
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
+    int result;
+    result = fileChooser.showSaveDialog( this );
+       
+    if ( result != JFileChooser.CANCEL_OPTION ) {
+        File file = fileChooser.getSelectedFile();  
+        txtReport.setText( file.getAbsolutePath() );
+    }
 }//GEN-LAST:event_cmdBrowseReportActionPerformed
 
+
 private void txtReferenceFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReferenceFileActionPerformed
-    // TODO add your handling code here:
+
     this.loadReferenceTree();
 }//GEN-LAST:event_txtReferenceFileActionPerformed
 
+
 private void cmdEditorBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditorBrowseActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
-        int result;
-        result = fileChooser.showSaveDialog( this );
-        if ( result != JFileChooser.CANCEL_OPTION ) {
-            File file = fileChooser.getSelectedFile();
-            txtEditor.setText( file.getAbsolutePath() );
-        } 
+
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
+    int result;
+    result = fileChooser.showSaveDialog( this );
+
+    if ( result != JFileChooser.CANCEL_OPTION ) {
+        File file = fileChooser.getSelectedFile();
+        txtEditor.setText( file.getAbsolutePath() );
+    } 
 }//GEN-LAST:event_cmdEditorBrowseActionPerformed
 
+
 private void cmdGenerateEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGenerateEditorActionPerformed
-    // TODO add your handling code here:
-    if ( this.propCheckComponents!=null ){
+
+    if ( this.propCheckComponents != null ) {
         int intFormat = 0;
         String strFileName = txtEditor.getText(); 
-        String strExtension = strFileName.substring( txtEditor.getText().length()-4, txtEditor.getText().length() );
+        String strExtension = 
+                strFileName.substring( txtEditor.getText().length() - 4,
+                    txtEditor.getText().length() );
         
-        intFormat = JOptionPane.showConfirmDialog( null, "The Editor Report is in text format by default, \n" +
-                "Would you like DB2OBO to generate the report in PDF format instead?", 
-                "DB2OBO", JOptionPane.YES_NO_CANCEL_OPTION );
+        intFormat = JOptionPane.showConfirmDialog( null,
+                "The Editor Report is in text format by default, \n" +
+                "Would you like DB2OBO to generate the report in PDF format " +
+                "instead?",
+                "DB2OBO",
+                JOptionPane.YES_NO_CANCEL_OPTION );
         
-        if (intFormat==0){
+        if (intFormat == 0) {
+
             //validate file extension for pdf
-            if ( !strExtension.equals(".pdf") ) strFileName = strFileName + ".pdf";
+            if ( !strExtension.equals(".pdf") ) {
+                strFileName = strFileName + ".pdf";
+            }
+
             txtEditor.setText( strFileName );
-            //generate pdf 
-            GenerateEditorPDF piddy = new GenerateEditorPDF( this.propCheckComponents, strFileName, txtCurrentFile.getText(), this.propTreebuilder );
-            if ( piddy.getIsProcessed() )
-                JOptionPane.showMessageDialog( null, "PDF file " + strFileName + " generated and saved!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-            else
-                JOptionPane.showMessageDialog( null, "PDF file " + strFileName + " could not be saved. Check path in save file textbox.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+
+            //generate pdf
+            GenerateEditorPDF piddy = 
+                    new GenerateEditorPDF( this.propCheckComponents,
+                        strFileName,
+                        txtCurrentFile.getText(),
+                        this.propTreebuilder,
+                        this.species);
+
+            if ( piddy.getIsProcessed() ) {
+                JOptionPane.showMessageDialog( null, "PDF file " + strFileName +
+                        " generated and saved!",
+                        "DB2OBO",
+                        JOptionPane.INFORMATION_MESSAGE );
+            }
+            else {
+                JOptionPane.showMessageDialog( null, "PDF file " + strFileName +
+                        " could not be saved. Check path in save file textbox.",
+                        "DB2OBO",
+                        JOptionPane.INFORMATION_MESSAGE );
+            }
         }
-        else if (intFormat==1){
+        else if (intFormat == 1) {
             //validate file extension for txt
-            if ( !strExtension.equals(".txt") ) strFileName = strFileName + ".txt";
+            if ( !strExtension.equals(".txt") ) {
+                strFileName = strFileName + ".txt";
+            }
+
             txtEditor.setText( strFileName );
+
             //generate txt
-            GenerateEditorReport eddie = new GenerateEditorReport( this.propCheckComponents, strFileName, txtCurrentFile.getText() );
-            if ( eddie.getIsProcessed() )
-                JOptionPane.showMessageDialog( null, "Text file " + strFileName + " generated and saved!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-            else
-                JOptionPane.showMessageDialog( null, "Text file " + strFileName + " could not be saved. Check path in save file textbox.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+            GenerateEditorReport eddie =
+                    new GenerateEditorReport( this.propCheckComponents,
+                        strFileName,
+                        txtCurrentFile.getText(),
+                        this.species);
+            
+            if ( eddie.getIsProcessed() ) {
+                JOptionPane.showMessageDialog( null, "Text file " +
+                        strFileName + " generated and saved!",
+                        "DB2OBO",
+                        JOptionPane.INFORMATION_MESSAGE );
+            }
+            else {
+                JOptionPane.showMessageDialog( null, "Text file " +
+                        strFileName + " could not be saved. Check path in " +
+                        "save file textbox.",
+                        "DB2OBO",
+                        JOptionPane.INFORMATION_MESSAGE );
+            }
         }
     }
-    else JOptionPane.showMessageDialog( null, "Perform Full Checks first!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
+    else {
+        JOptionPane.showMessageDialog( null, "Perform Full Checks first!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
 }//GEN-LAST:event_cmdGenerateEditorActionPerformed
 
+
 private void cboProblemNodesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cboProblemNodesFocusGained
-    // TODO add your handling code here:
-        Component compie = (Component) (cboProblemNodes.getSelectedItem());
-        if (compie!=null) {
-            loadTextBoxes(compie);            
-            expandPathsTo(treeCurrent, this.propTreebuilder, compie);
-        }
+
+    Component compie = (Component) (cboProblemNodes.getSelectedItem());
+    
+    if (compie != null) {
+        loadTextBoxes(compie);            
+        expandPathsTo(treeCurrent, this.propTreebuilder, compie);
+    }
 }//GEN-LAST:event_cboProblemNodesFocusGained
 
+
 private void cboChangedNodesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cboChangedNodesFocusGained
-// TODO add your handling code here:
-        Component compie = (Component) (cboChangedNodes.getSelectedItem());
-        if (compie!=null) {
-            loadTextBoxes(compie);
-            expandPathsTo(treeCurrent, this.propTreebuilder, compie);
-        }  
+
+    Component compie = (Component) (cboChangedNodes.getSelectedItem());
+
+    if (compie != null) {
+        loadTextBoxes(compie);
+        expandPathsTo(treeCurrent, this.propTreebuilder, compie);
+    }  
 }//GEN-LAST:event_cboChangedNodesFocusGained
 
 
 private void cmdGenerateTreeReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGenerateTreeReportActionPerformed
-// TODO add your handling code here:
+
     this.loadDefaultReferenceTree();
-    this.refTreebuilder.writeNodeReport("D:\\TreeReport.txt", "EMAPA:0");
+
+    // save Tree Report
+    if ( !exportTextFileTF.getText().equals("") ) {
+        if ( this.species.equals("mouse") ) {
+            this.refTreebuilder.writeNodeReport(exportTextFileTF.getText(),
+                    "EMAPA:0");
+        }
+        if ( this.species.equals("human") ) {
+            this.refTreebuilder.writeNodeReport(exportTextFileTF.getText(),
+                    "EHDAA:0");
+        }
+        JOptionPane.showMessageDialog( null,
+                "Tree Report has been generated and saved!",
+                " DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+
+    }
+    else {
+        JOptionPane.showMessageDialog( null,
+                "Tree Report has NOT been generated!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
+
 }//GEN-LAST:event_cmdGenerateTreeReportActionPerformed
 
+
 private void exportTextBrowseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTextBrowseButtonActionPerformed
-// TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
-        int result;
-        result = fileChooser.showSaveDialog( this );
-        if ( result != JFileChooser.CANCEL_OPTION ) {
-            File file = fileChooser.getSelectedFile();
-            exportTextFileTF.setText( file.getAbsolutePath() );
-        }   
-        
+
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode( JFileChooser.FILES_ONLY );
+    int result;
+    result = fileChooser.showSaveDialog( this );
+
+    if ( result != JFileChooser.CANCEL_OPTION ) {
+        File file = fileChooser.getSelectedFile();
+        exportTextFileTF.setText( file.getAbsolutePath() );
+    }   
 }//GEN-LAST:event_exportTextBrowseButtonActionPerformed
 
-private void cboStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboStartActionPerformed
-    // TODO add your handling code here:
-    if ( Integer.parseInt(cboStart.getSelectedItem().toString().substring(2)) > Integer.parseInt(this.rangeend.substring(2)) ){
-         JOptionPane.showMessageDialog( null, "Start stage cannot be later than end stage!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-         cboStart.setSelectedItem( this.rangestart );
-    }
-    else this.rangestart = cboStart.getSelectedItem().toString();
-}//GEN-LAST:event_cboStartActionPerformed
-
-private void cboStageItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboStageItemStateChanged
-    // TODO add your handling code here:
-    this.stage = cboStage.getSelectedItem().toString();
-}//GEN-LAST:event_cboStageItemStateChanged
-
-private void abstractstageRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_abstractstageRBItemStateChanged
-    // TODO add your handling code here:
-    if ( abstractstageRB.isSelected() ) {
-        this.filetype = "Abstract Stage";
-        this.stage = cboStage.getSelectedItem().toString();
-    }
-}//GEN-LAST:event_abstractstageRBItemStateChanged
-
-private void cboStartItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboStartItemStateChanged
-    // TODO add your handling code here:
-}//GEN-LAST:event_cboStartItemStateChanged
-
-private void cboEndItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboEndItemStateChanged
-    // TODO add your handling code here:
-}//GEN-LAST:event_cboEndItemStateChanged
-
-private void rangeRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangeRBActionPerformed
-    // TODO add your handling code here:
-    if ( rangeRB.isSelected() ) {
-        this.filetype = "Abstract Stage Range";
-        this.rangestart = cboStart.getSelectedItem().toString();
-        this.rangeend = cboEnd.getSelectedItem().toString();
-    }
-}//GEN-LAST:event_rangeRBActionPerformed
-
-private void cboEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboEndActionPerformed
-    // TODO add your handling code here:
-    if ( Integer.parseInt(cboEnd.getSelectedItem().toString().substring(2)) < Integer.parseInt(this.rangestart.substring(2)) ){
-         JOptionPane.showMessageDialog( null, "End stage cannot be earlier than start stage!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-         cboEnd.setSelectedItem( this.rangeend );
-    }
-    else this.rangeend = cboEnd.getSelectedItem().toString();
-}//GEN-LAST:event_cboEndActionPerformed
 
 private void rbDefaultRootItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbDefaultRootItemStateChanged
-    // TODO add your handling code here:
-    if ( rbDefaultRoot.isSelected() ) this.defaultroot = true;
+
+    if ( rbDefaultRoot.isSelected() ) {
+        this.defaultroot = true;
+    }
+
 }//GEN-LAST:event_rbDefaultRootItemStateChanged
 
+
 private void rbSelectedComponentsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbSelectedComponentsItemStateChanged
-    // TODO add your handling code here:
-    if ( rbSelectedComponents.isSelected() ) this.defaultroot = false;
+    
+    if ( rbSelectedComponents.isSelected() ) {
+        this.defaultroot = false;
+    }
+
 }//GEN-LAST:event_rbSelectedComponentsItemStateChanged
 
+
 private void cmdEditListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditListActionPerformed
-    // TODO add your handling code here:
+
     ListRoots listie = new ListRoots(this);
     listie.setVisible(true);
+
     //new ListRoots().setVisible(true);
 }//GEN-LAST:event_cmdEditListActionPerformed
 
+
 private void cmdFromDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFromDatabaseActionPerformed
-    // TODO add your handling code here:
+
     loadDefaultReferenceTree();
 }//GEN-LAST:event_cmdFromDatabaseActionPerformed
 
+
 private void cboProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboProjectActionPerformed
-    // TODO add your handling code here:#
-    if (cboProject.getSelectedItem()!=null){
+    
+    if (cboProject.getSelectedItem() != null){
         this.project = cboProject.getSelectedItem().toString();
     }
+
 }//GEN-LAST:event_cboProjectActionPerformed
 
-private void chickRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chickRBItemStateChanged
-    if ( chickRB.isSelected() ) {
-        this.species = "chick";
-    }
+
+private void humanRB1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chickRBItemStateChanged
 }//GEN-LAST:event_chickRBItemStateChanged
 
-private void chickRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickRBActionPerformed
+
+private void humanRB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickRBActionPerformed
     // TODO add your handling code here:
 }//GEN-LAST:event_chickRBActionPerformed
 
-private void cmdReconnectHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectHActionPerformed
-    // TODO add your handling code here:
-    if ( isConnectedToDatabase() )  JOptionPane.showMessageDialog( null, "Connected to database!", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-}//GEN-LAST:event_cmdReconnectHActionPerformed
-
-private void humanDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanDBDbNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_humanDBDbNameTFActionPerformed
-
-private void mouseStageClassIDTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mouseStageClassIDTFFocusLost
-    // TODO add your handling code here:
-}//GEN-LAST:event_mouseStageClassIDTFFocusLost
-
-private void cmdReconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectActionPerformed
-    // TODO add your handling code here:
-    if ( isConnectedToDatabase() ){
-        //boolean connected = loadDefaultReferenceTree();
-        if ( loadDefaultReferenceTree() ) JOptionPane.showMessageDialog( null, "Connected to database. Reference ontology reloaded.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-    } else  JOptionPane.showMessageDialog( null, "Failed to establish connection! Please check database settings.", "DB2OBO", JOptionPane.INFORMATION_MESSAGE );
-}//GEN-LAST:event_cmdReconnectActionPerformed
-
-private void mouseDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mouseDBDbNameTFActionPerformed
-    // TODO add your handling code here:
-}//GEN-LAST:event_mouseDBDbNameTFActionPerformed
 
 private void chickDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickDBDbNameTFActionPerformed
     // TODO add your handling code here:
 }//GEN-LAST:event_chickDBDbNameTFActionPerformed
 
+
 private void cmdReconnectCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectCActionPerformed
     // TODO add your handling code here:
 }//GEN-LAST:event_cmdReconnectCActionPerformed
+
 
 private void chickStageClassNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chickStageClassNameTFActionPerformed
     // TODO add your handling code here:
 }//GEN-LAST:event_chickStageClassNameTFActionPerformed
 
+
+private void exportOBOFileTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportOBOFileTFActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_exportOBOFileTFActionPerformed
+
+
+private void chickRBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_humanRB1ItemStateChanged
+    // TODO add your handling code here:
+}//GEN-LAST:event_humanRB1ItemStateChanged
+
+
+private void humanRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanRBActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_humanRBActionPerformed
+
+
+private void chickRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanRB1ActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_humanRB1ActionPerformed
+
+
+private void mouseStageClassIDTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mouseStageClassIDTFFocusLost
+    // TODO add your handling code here:
+}//GEN-LAST:event_mouseStageClassIDTFFocusLost
+
+
+private void cmdReconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdReconnectActionPerformed
+
+    if ( isConnectedToDatabase() ){
+        //boolean connected = loadDefaultReferenceTree();
+        if ( loadDefaultReferenceTree() ) {
+            JOptionPane.showMessageDialog( null,
+                    "Connected to database. Reference ontology reloaded.",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
+        }
+    } 
+    /*else {
+        JOptionPane.showMessageDialog( null,
+                "Failed to establish connection! Please check database " +
+                "settings.",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }*/
+}//GEN-LAST:event_cmdReconnectActionPerformed
+
+
+private void mouseDBDbNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mouseDBDbNameTFActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_mouseDBDbNameTFActionPerformed
+
+private void cmdLoadOBOFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLoadOBOFileActionPerformed
+
+    if ( txtCurrentFile.getText().equals("") ) {
+        JOptionPane.showMessageDialog( null, "Please Enter a valid Obo File",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+    }
+    else {
+        this.loadProposedTree();
+    }
+
+
+}//GEN-LAST:event_cmdLoadOBOFileActionPerformed
+
+
 public void loadAddedRoots(Vector<String> roots){
     this.vUserRoots.clear();
     cboAddedRoots.removeAllItems();
+
     for (String root: roots){
         this.vUserRoots.add( root );
         cboAddedRoots.addItem( (Object) root );
     }
 }
 
+
 public void loadProjects(ArrayList<String> projects){
+
     cboProject.removeAllItems();
     int currentIndex = 0;
+
     for (String strProject: projects){
-        System.out.println("Adding project to combobox: " + strProject);
+        //System.out.println("Adding project to combobox: " + strProject);
         cboProject.addItem( (Object) strProject );
+
         if ( strProject.equals("GUDMAP") ){
             cboProject.setSelectedIndex(currentIndex);
             this.project = strProject;
         }
+
         currentIndex++;
     }
 }
 
+
 private boolean isConnectedToDatabase() {
-        try {
-            Class.forName(DRIVER);
-            if ( mouseRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + mouseDBHostNameTF.getText() + ":"
-                        + mouseDBPortTF.getText() + "/"
-                        + mouseDBDbNameTF.getText(),
-                        mouseDBUserNameTF.getText(),
-                        new String(mouseDBPasswordPF.getText()) );
-            }
-            if ( humanRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + humanDBHostNameTF.getText() + ":"
-                        + humanDBPortTF.getText() + "/"
-                        + humanDBDbNameTF.getText(),
-                        humanDBUserNameTF.getText(),
-                        new String(humanDBPasswordPF.getText()) );
-            }
-            if ( chickRB.isSelected() ) {
-                this.connection = DriverManager.getConnection( START_URL
-                        + chickDBHostNameTF.getText() + ":"
-                        + chickDBPortTF.getText() + "/"
-                        + chickDBDbNameTF.getText(),
-                        chickDBUserNameTF.getText(),
-                        new String(chickDBPasswordPF.getText()) );
-            }
-            return true;
-        } 
-        catch (SQLException ex) {
-            ex.printStackTrace();
-            System.out.println("Cannot connect to the database!");
-            return false;
-        } 
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            System.out.println("Missing database driver! (Please install MySQL Connector/J.)");
+
+    String query = "";
+
+    try {
+        Class.forName(DRIVER);
+        if ( mouseDBPasswordPF.getText().equals("")) {
+            JOptionPane.showMessageDialog( null,
+                    "Password is blank - Please enter a Password!",
+                    "DB2OBO",
+                    JOptionPane.INFORMATION_MESSAGE );
             return false;
         }
+        else {
+            this.connection = DriverManager.getConnection( START_URL +
+                            mouseDBHostNameTF.getText() + ":" +
+                            mouseDBPortTF.getText() + "/" +
+                            mouseDBDbNameTF.getText(),
+                            mouseDBUserNameTF.getText(),
+                            new String(mouseDBPasswordPF.getText()) );
+
+            ResultSet speciesRS = null;
+            query = "SELECT rsp_name FROM REF_SPECIES";
+
+            speciesRS = this.connection.createStatement().executeQuery(query);
+
+            if ( speciesRS.next() ) {
+                this.species = speciesRS.getString("rsp_name");
+            }
+
+            ResultSet stageRS = null;
+            query = "SELECT stg_sequence, stg_name FROM ANA_STAGE ORDER " +
+                    "BY stg_sequence";
+
+            stageRS = this.connection.createStatement().executeQuery(query);
+
+            if ( stageRS.next() ) {
+                stageRS.first();
+                this.stage = stageRS.getString("stg_name");
+                this.rangestart = stageRS.getString("stg_name");
+                this.rangestartint = stageRS.getInt("stg_sequence");
+                stageRS.last();
+                this.rangeend = stageRS.getString("stg_name");
+                this.rangeendint = stageRS.getInt("stg_sequence");
+            }
+        }
+        return true;
+    } 
+    catch (SQLException ex) {
+        //ex.printStackTrace();
+        System.out.println("Cannot connect to the database!");
+        JOptionPane.showMessageDialog( null,
+                "Cannot connect to the database!",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+        return false;
+    } 
+    catch (ClassNotFoundException ex) {
+        //ex.printStackTrace();
+        System.out.println("Missing database driver! (Please install MySQL " +
+                "Connector/J.)");
+        JOptionPane.showMessageDialog( null,
+                "Missing database driver! (Please install MySQL " +
+                "Connector/J.)",
+                "DB2OBO",
+                JOptionPane.INFORMATION_MESSAGE );
+        return false;
     }
+}
     
    
-    // Disconnect from database               
-    private void disconnectFromDatabase() {              
-        try {                                            
-            connection.close();
-        } // end try                                 
-        catch (SQLException ex) {
-            System.out.println("Database error during disconnection");
-        }                             
-    } // end method disconnectFromDatabase  
-    
-    private void saveOBOFile(String fileName, ArrayList<Component> termList) {
-        try {        
-            BufferedWriter outputFile = new BufferedWriter(new FileWriter(fileName));
-            // format-version
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("format-version: " +
+private void disconnectFromDatabase() {              
+
+    try {
+        System.out.println("Disconnecting from Database");
+        connection.close();
+    }
+    catch (SQLException ex) {
+        System.out.println("Database error during disconnection");
+    }                             
+}
+
+
+private void saveOBOFile(String fileName, ArrayList<Component> termList) {
+
+    try {
+
+        //System.out.println("saveOBOFile #1");
+
+        BufferedWriter outputFile =
+                    new BufferedWriter(new FileWriter(fileName));
+
+        // format-version
+        outputFile.write("format-version: " +
                         mouseFormatVersionTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        humanFormatVersionTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        chickFormatVersionTF.getText() + "\n");
-            }
-            // date
-            //outputFile.write("date: "+DATE+"\n");
-            Calendar cal = Calendar.getInstance();
-            outputFile.write("date: "+cal.get(Calendar.DAY_OF_MONTH)+":"+cal.get(Calendar.MONTH)+":"+cal.get(Calendar.YEAR)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+"\n");
-            // saved by
-            outputFile.write("saved-by: "+savedByTF.getText()+"\n");
-            // default-namespace
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
+        // date
+        //outputFile.write("date: "+DATE+"\n");
+        Calendar cal = Calendar.getInstance();
+        outputFile.write("date: " + cal.get(Calendar.DAY_OF_MONTH) + ":" +
+                    cal.get(Calendar.MONTH) + ":" + cal.get(Calendar.YEAR) +
+                    " " + cal.get(Calendar.HOUR_OF_DAY) + ":" +
+                    cal.get(Calendar.MINUTE)+"\n");
+        // saved by
+        outputFile.write("saved-by: " + savedByTF.getText() + "\n");
+
+        // default-namespace
+        outputFile.write("default-namespace: " +
                         mouseDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        humanDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        chickDefaultNamespaceTF.getText() + "\n");
-            }
-            // remark
-            outputFile.write("remark: "+remarkTA.getText()+"\n");
+        // remark
+        outputFile.write("remark: " + remarkTA.getText() + "\n");
 
-            // terms - component
-            for (int i=0; i<termList.size(); i++) {
-                if ( !termList.get(i).getStrChangeStatus().equals("DELETED") ){
+        // terms - component
+        for (int i=0; i<termList.size(); i++) {
+            if ( !termList.get(i).getStrChangeStatus().equals("DELETED") ){
+                outputFile.write("\n[Term]\n");
+                // id
+                outputFile.write("id: " + termList.get(i).getID() + "\n");
+                /*System.out.println("id : " +
+                     termList.get(i).getID());*/
+                // name
+                outputFile.write("name: " + termList.get(i).getName() + "\n");
+                /*System.out.println("name : " +
+                     termList.get(i).getName());*/
+                // namespace
+                outputFile.write("namespace: " +
+                            termList.get(i).getNamespace() + "\n");
 
-                    outputFile.write("\n[Term]\n");
-                    // id
-                    outputFile.write("id: "+termList.get(i).getID()+"\n");
-                    // name
-                    outputFile.write("name: "+termList.get(i).getName()+"\n");
-                    // namespace
-                    outputFile.write("namespace: "+termList.get(i).getNamespace()+"\n");
+                //System.out.println("termList.get(i).getNamespace() = " + termList.get(i).getNamespace());
+                //System.out.println("termList.get(i).getName() = " + termList.get(i).getName());
+
+                if ( !termList.get(i).getIsA().equals("") ) {
+                    outputFile.write("relationship: is_a " +
+                            termList.get(i).getIsA() + "\n");
+                    /*System.out.println("relationship: is_a " +
+                     termList.get(i).getIsA());*/
+                }
+
+                if ( !termList.get(i).getNamespace().equals("theiler_stage") ||
+                     !termList.get(i).getNamespace().equals("new_group_namespace") &&
+                     !termList.get(i).getNamespace().equals("group_term") &&
+                     !termList.get(i).getName().equals("Abstract anatomy") ){
+
                     // is_a relationship
-                    if ( !termList.get(i).getIsA().equals("") ) {
-                        outputFile.write("relationship: is_a "+termList.get(i).getIsA()+"\n");
-                    }
                     // part_of relationships
+                    //System.out.println("id: "+termList.get(i).getID()+);
                     for (int j=0; j<termList.get(i).getPartOf().size(); j++) {
-                        outputFile.write("relationship: part_of "+termList.get(i).getPartOf().get(j)+"\n");
+                        /*System.out.println("relationship: part_of " +
+                         termList.get(i).getPartOf());*/
+                        outputFile.write("relationship: part_of " +
+                                termList.get(i).getPartOf().get(j) + "\n");
                     }
 
                     // starts_at relationship
-                    if ( !termList.get(i).getStartsAt().equals("") ) outputFile.write("relationship: starts_at "+termList.get(i).getStartsAt()+"\n");
+                    if ( !termList.get(i).getStartsAt().equals("") ) {
+                        outputFile.write("relationship: starts_at " +
+                                termList.get(i).getStartsAtStr(this.species) +
+                                "\n");
+                    }
+
                     // ends_at relationship
-                    if ( !termList.get(i).getEndsAt().equals("") ) outputFile.write("relationship: ends_at "+termList.get(i).getEndsAt()+"\n");
+                    if ( !termList.get(i).getEndsAt().equals("") ) {
+                        outputFile.write("relationship: ends_at " +
+                                termList.get(i).getEndsAtStr(this.species) + "\n");
+                    }
 
                     // has timed_component relationship
-                    for (int j=0; j<termList.get(i).getHasTimeComponent().size(); j++) {
-                        outputFile.write("relationship: has_timed_component "+termList.get(i).getHasTimeComponent().get(j)+"\n");
+                    for (int j=0; j<termList.get(i).getHasTimeComponent().size();
+                         j++) {
+                        outputFile.write("relationship: has_timed_component " +
+                                termList.get(i).getHasTimeComponent().get(j) +
+                                "\n");
                     }
+
                     // present_in relationship
-                    if ( !termList.get(i).getPresentIn().equals("") ) outputFile.write("relationship: present_in "+termList.get(i).getPresentIn()+"\n");
-                    // time_component_of relationship
-                    if ( !termList.get(i).getTimeComponentOf().equals("") ) outputFile.write("relationship: time_component_of "+termList.get(i).getTimeComponentOf()+"\n");
-                    // group_part_of relationship
-                    for (int j=0; j<termList.get(i).getGroupPartOf().size(); j++) {
-                        outputFile.write("relationship: group_part_of "+termList.get(i).getGroupPartOf().get(j)+"\n");
+                    if ( termList.get(i).getPresentIn() != 0 ) {
+                        outputFile.write("relationship: present_in " +
+                                Integer.toString(termList.get(i).getPresentIn()) +
+                                "\n");
                     }
+
+                    // time_component_of relationship
+                    if ( !termList.get(i).getTimeComponentOf().equals("") ) {
+                          outputFile.write("relationship: time_component_of " +
+                                  termList.get(i).getTimeComponentOf() + "\n");
+                    }
+
+                    // group_part_of relationship
+                    for (int j=0; j<termList.get(i).getGroupPartOf().size();
+                         j++) {
+                        outputFile.write("relationship: group_part_of " +
+                                termList.get(i).getGroupPartOf().get(j) + "\n");
+                    }
+
                     // synonyms
                     for (int j=0; j<termList.get(i).getSynonym().size(); j++) {
-                        outputFile.write("related_synonym: \"" + termList.get(i).getSynonym().get(j) + "\" []\n");
+                        outputFile.write("related_synonym: \"" +
+                                termList.get(i).getSynonym().get(j) +
+                                "\" []\n");
                     }
-                    // comments
-                    boolean firstComment = true;
-                    for (Iterator<String> k = termList.get(i).getUserComments().iterator(); k.hasNext();){
-                        if (firstComment){
-                            outputFile.write("comment: ");
-                            firstComment = false;
-                        } else{
-                            outputFile.write("\n");
-                        }
-                        outputFile.write(k.next());
-                        //if ( !k.hasNext() ){ //line carriage after last comment
-                        //    outputFile.write("\n");
-                        //}
-                    }
-                }
-            }// for i
 
-                // relations
-                for (int i=0; i<expRelationList.size(); i++) {
-                    outputFile.write("\n[Typedef]\n");
-                    outputFile.write("id: "+expRelationList.get(i).getID()+"\n");
-                    outputFile.write("name: "+expRelationList.get(i).getName()+"\n");
-                    if ( !expRelationList.get(i).getTransitive().equals("") ) outputFile.write("is_transitive: " + expRelationList.get(i).getTransitive() + "\n");
-                }
-                outputFile.write("\\n");
 
-                outputFile.close(); // close outputFile
-        }
-        catch(IOException io) {
-            io.printStackTrace();
-        }
-   }
-    
-    private void saveOBOFile() {
-        try {        
-            BufferedWriter outputFile = new BufferedWriter(new FileWriter(exportOBOFileTF.getText()));
-            // format-version
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        mouseFormatVersionTF.getText()+"\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        humanFormatVersionTF.getText()+"\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("format-version: " +
-                        chickFormatVersionTF.getText()+"\n");
-            }
-            // date
-            //outputFile.write("date: "+DATE+"\n");
-            Calendar cal = Calendar.getInstance();
-            outputFile.write("date: "+cal.get(Calendar.DAY_OF_MONTH)+":"+cal.get(Calendar.MONTH)+":"+cal.get(Calendar.YEAR)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+"\n");
-            // saved by
-            outputFile.write("saved-by: "+savedByTF.getText()+"\n");
-            // default-namespace
-            if ( mouseRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        mouseDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( humanRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        humanDefaultNamespaceTF.getText() + "\n");
-            }
-            if ( chickRB.isSelected() ) {
-                outputFile.write("default-namespace: " +
-                        chickDefaultNamespaceTF.getText() + "\n");
-            }
-            // remark
-            outputFile.write("remark: "+remarkTA.getText()+"\n");
-
-            // terms - component
-            for (int i=0; i<expTermList.size(); i++) {
-                outputFile.write("\n[Term]\n");
-                // id
-                outputFile.write("id: "+expTermList.get(i).getID()+"\n");
-                // name
-                outputFile.write("name: "+expTermList.get(i).getName()+"\n");
-                
-                
-                // namespace
-                outputFile.write("namespace: "+expTermList.get(i).getNamespace()+"\n");
-                // is_a relationship
-                if ( !expTermList.get(i).getIsA().equals("") ) {
-                    outputFile.write("relationship: is_a "+expTermList.get(i).getIsA()+"\n");
                 }
-                
-                // part_of relationships
-                for (int j=0; j<expTermList.get(i).getPartOf().size(); j++) {
-                    outputFile.write("relationship: part_of "+expTermList.get(i).getPartOf().get(j)+"\n");
-                }
-               
-                // starts_at relationship
-                if ( !expTermList.get(i).getStartsAt().equals("") ) outputFile.write("relationship: starts_at "+expTermList.get(i).getStartsAt()+"\n");
-                // ends_at relationship
-                if ( !expTermList.get(i).getEndsAt().equals("") ) outputFile.write("relationship: ends_at "+expTermList.get(i).getEndsAt()+"\n");
-                
-                // has_time_component relationship
-                for (int j=0; j<expTermList.get(i).getHasTimeComponent().size(); j++) {
-                    outputFile.write("relationship: has_time_component "+expTermList.get(i).getHasTimeComponent().get(j)+"\n");
-                }
-                // present_in relationship
-                if ( !expTermList.get(i).getPresentIn().equals("") ) outputFile.write("relationship: present_in "+expTermList.get(i).getPresentIn()+"\n");
-                // time_component_of relationship
-                if ( !expTermList.get(i).getTimeComponentOf().equals("") ) outputFile.write("relationship: time_component_of "+expTermList.get(i).getTimeComponentOf()+"\n");
-                // group_part_of relationship
-                for (int j=0; j<expTermList.get(i).getGroupPartOf().size(); j++) {
-                    outputFile.write("relationship: group_part_of "+expTermList.get(i).getGroupPartOf().get(j)+"\n");
-                }
-                // synonyms
-                for (int j=0; j<expTermList.get(i).getSynonym().size(); j++) {
-                    outputFile.write("related_synonym: \"" + expTermList.get(i).getSynonym().get(j) + "\" []\n");
-                }
-                //comments
+                // comments
                 boolean firstComment = true;
-                for (Iterator<String> k = expTermList.get(i).getUserComments().iterator(); k.hasNext();){
+
+                for (Iterator<String> k =
+                        termList.get(i).getUserComments().iterator();
+                        k.hasNext();){
                     if (firstComment){
-                            outputFile.write("comment: ");
-                            firstComment = false;
-                        } else{
-                            outputFile.write("\\n");
-                        }
-                    outputFile.write(k.next());
-                    if ( !k.hasNext() ){ //line carriage after last comment
+                        outputFile.write("comment: ");
+                        firstComment = false;
+                    } 
+                    else {
                         outputFile.write("\n");
                     }
+                    outputFile.write(k.next());
+                    //line carriage after last comment
+                    //if ( !k.hasNext() ){ 
+                    //    outputFile.write("\n");
+                    //}
                 }
-            }// for i
-
-            // relations
-            for (int i=0; i<expRelationList.size(); i++) {
-                outputFile.write("\n[Typedef]\n");
-                outputFile.write("id: "+expRelationList.get(i).getID()+"\n");
-                outputFile.write("name: "+expRelationList.get(i).getName()+"\n");
-                if ( !expRelationList.get(i).getTransitive().equals("") ) outputFile.write("is_transitive: " + expRelationList.get(i).getTransitive() + "\n");
             }
-            outputFile.write("\n");
-            
-            outputFile.close(); // close outputFile
-        }
-        catch(IOException io) {
-            io.printStackTrace();
-        }
-   }// end method saveGeneExprData    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                String osName = System.getProperty("os.name");
-                System.out.println("os.name = -->"+osName+"<--");
-                String osArch = System.getProperty("os.arch");
-                System.out.println("os.arch = -->"+osArch+"<--");
+        }// for i
 
-                System.out.println("java.library.path = "+System.getProperty("java.library.path"));
-                System.out.println("java.ext.dirs = "+System.getProperty("java.ext.dirs"));
-                System.out.println("java.class.path = "+System.getProperty("java.class.path"));
-
-                new MainGUI().setVisible(true);
+        // relations
+        for (int i=0; i<expRelationList.size(); i++) {
+            outputFile.write("\n[Typedef]\n");
+            outputFile.write("id: " + expRelationList.get(i).getID() +
+                    "\n");
+            outputFile.write("name: " + expRelationList.get(i).getName() +
+                    "\n");
+            if ( !expRelationList.get(i).getTransitive().equals("") ) {
+                outputFile.write("is_transitive: " +
+                        expRelationList.get(i).getTransitive() +
+                        "\n");
             }
-        });
+        }
+        outputFile.write("\\n");
+        outputFile.close(); // close outputFile
     }
+    catch(IOException io) {
+        io.printStackTrace();
+    }
+}
+
+
+private void saveOBOFile() {
+
+    try {        
+        BufferedWriter outputFile =
+                new BufferedWriter(new FileWriter(exportOBOFileTF.getText()));
+
+        //System.out.println("saveOBOFile #2");
+
+        // format-version
+        outputFile.write("format-version: " + mouseFormatVersionTF.getText() +
+                "\n");
+
+        // date
+        //outputFile.write("date: "+DATE+"\n");
+        Calendar cal = Calendar.getInstance();
+        outputFile.write("date: " + cal.get(Calendar.DAY_OF_MONTH) + ":" +
+                cal.get(Calendar.MONTH) + ":" + cal.get(Calendar.YEAR) + " " +
+                cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) +
+                "\n");
+
+        // saved by
+        outputFile.write("saved-by: " + savedByTF.getText() + "\n");
+
+        // default-namespace
+        outputFile.write("default-namespace: " +
+                        mouseDefaultNamespaceTF.getText() + "\n");
+
+        // remark
+        outputFile.write("remark: " + remarkTA.getText() + "\n");
+
+
+        // terms - component
+        for (int i=0; i<expTermList.size(); i++) {
+            outputFile.write("\n[Term]\n");
+
+            // id
+            outputFile.write("id: " + expTermList.get(i).getID() + "\n");
+            //System.out.println("id : " + expTermList.get(i).getID());
+
+            // name
+            outputFile.write("name: " + expTermList.get(i).getName() + "\n");
+            //System.out.println("name : " + expTermList.get(i).getName());
+                
+            // namespace
+            outputFile.write("namespace: " + expTermList.get(i).getNamespace() +
+                    "\n");
+
+            //System.out.println("expTermList.get(i).getNamespace() = " + expTermList.get(i).getNamespace());
+            //System.out.println("expTermList.get(i).getName() = " + expTermList.get(i).getName());
+
+            // is_a relationship
+            if ( !expTermList.get(i).getIsA().equals("") ) {
+                outputFile.write("relationship: is_a " +
+                        expTermList.get(i).getIsA() + "\n");
+                /*System.out.println("relationship: is_a " +
+                 termList.get(i).getIsA());*/
+            }
+
+            // is_a relationship
+            if ( !expTermList.get(i).getNamespace().equals("theiler_stage") &&
+                 !expTermList.get(i).getNamespace().equals("new_group_namespace") &&
+                 !expTermList.get(i).getNamespace().equals("group_term") &&
+                 !expTermList.get(i).getName().equals("Abstract anatomy") ) {
+
+                // part_of relationships
+                //System.out.println("id: "+termList.get(i).getID()+);
+                for (int j=0; j<expTermList.get(i).getPartOf().size(); j++) {
+                    /*System.out.println("relationship: part_of " +
+                     termList.get(i).getPartOf());*/
+                    outputFile.write("relationship: part_of " +
+                            expTermList.get(i).getPartOf().get(j) + "\n");
+                }
+
+                // starts_at relationship
+                if ( !expTermList.get(i).getStartsAt().equals("") ) {
+                    outputFile.write("relationship: starts_at " +
+                            expTermList.get(i).getStartsAtStr(this.species) +
+                            "\n");
+                }
+
+                // ends_at relationship
+                if ( !expTermList.get(i).getEndsAt().equals("") ) {
+                    outputFile.write("relationship: ends_at " +
+                            expTermList.get(i).getEndsAtStr(this.species) + "\n");
+                }
+
+                // has timed_component relationship
+                for (int j=0; j<expTermList.get(i).getHasTimeComponent().size();
+                     j++) {
+                    outputFile.write("relationship: has_timed_component " +
+                            expTermList.get(i).getHasTimeComponent().get(j) +
+                            "\n");
+                }
+
+                // present_in relationship
+                if ( expTermList.get(i).getPresentIn() != 0 ) {
+                    outputFile.write("relationship: present_in " +
+                            Integer.toString(expTermList.get(i).getPresentIn()) +
+                            "\n");
+                }
+
+                // time_component_of relationship
+                if ( !expTermList.get(i).getTimeComponentOf().equals("") ) {
+                      outputFile.write("relationship: time_component_of " +
+                              expTermList.get(i).getTimeComponentOf() + "\n");
+                }
+
+                // group_part_of relationship
+                for (int j=0; j<expTermList.get(i).getGroupPartOf().size();
+                     j++) {
+                    outputFile.write("relationship: group_part_of " +
+                            expTermList.get(i).getGroupPartOf().get(j) + "\n");
+                }
+
+                // synonyms
+                for (int j=0; j<expTermList.get(i).getSynonym().size(); j++) {
+                    outputFile.write("related_synonym: \"" +
+                            expTermList.get(i).getSynonym().get(j) +
+                            "\" []\n");
+                }
+
+
+            }
+            //comments
+            boolean firstComment = true;
+
+            for (Iterator<String> k = 
+                    expTermList.get(i).getUserComments().iterator();
+                    k.hasNext();){
+                if ( firstComment ) {
+                    outputFile.write("comment: ");
+                    firstComment = false;
+                } 
+                else {
+                    outputFile.write("\\n");
+                }
+                outputFile.write(k.next());
+
+                if ( !k.hasNext() ){ 
+                        outputFile.write("\n");
+                }
+            }
+        }// for i
+
+        // relations
+        for (int i=0; i<expRelationList.size(); i++) {
+            outputFile.write("\n[Typedef]\n");
+            outputFile.write("id: " + expRelationList.get(i).getID() + "\n");
+            outputFile.write("name: " + expRelationList.get(i).getName() + "\n");
+            if ( !expRelationList.get(i).getTransitive().equals("") ) {
+                outputFile.write("is_transitive: " +
+                        expRelationList.get(i).getTransitive() + "\n");
+            }
+        }
+        outputFile.write("\n");
+            
+        outputFile.close(); 
+    }
+
+    catch(IOException io) {
+            io.printStackTrace();
+    }
+}
+    
+
+public static void main(String args[]) {
+    java.awt.EventQueue.invokeLater(new Runnable() {
+
+        public void run() {
+        /*
+        String osName = System.getProperty("os.name");
+        System.out.println("os.name = -->"+osName+"<--");
+        String osArch = System.getProperty("os.arch");
+        System.out.println("os.arch = -->"+osArch+"<--");
+
+        System.out.println("java.library.path = "+System.getProperty("java.library.path"));
+        System.out.println("java.ext.dirs = "+System.getProperty("java.ext.dirs"));
+        System.out.println("java.class.path = "+System.getProperty("java.class.path"));
+        */
+            new MainGUI().setVisible(true);
+        }
+        
+    } );
+
+}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton abstractstageRB;
     private javax.swing.JComboBox cboAddedRoots;
     private javax.swing.JComboBox cboChangedNodes;
-    private javax.swing.JComboBox cboEnd;
     private javax.swing.JComboBox cboProblemNodes;
     private javax.swing.JComboBox cboProject;
-    private javax.swing.JComboBox cboStage;
-    private javax.swing.JComboBox cboStart;
-    private javax.swing.JTextField chickAbstractClassIDTF;
-    private javax.swing.JTextField chickAbstractClassNameTF;
-    private javax.swing.JTextField chickAbstractClassNamespaceTF;
-    private javax.swing.JTextField chickDBDbNameTF;
-    private javax.swing.JTextField chickDBHostNameTF;
-    private javax.swing.JPasswordField chickDBPasswordPF;
-    private javax.swing.JTextField chickDBPortTF;
-    private javax.swing.JTextField chickDBUserNameTF;
-    private javax.swing.JTextField chickDefaultNamespaceTF;
-    private javax.swing.JTextField chickFormatVersionTF;
-    private javax.swing.JTextField chickGroupClassIDTF;
-    private javax.swing.JTextField chickGroupClassNameTF;
-    private javax.swing.JTextField chickGroupClassNamespaceTF;
-    private javax.swing.JTextField chickGroupTermClassIDTF;
-    private javax.swing.JTextField chickGroupTermClassNameTF;
-    private javax.swing.JTextField chickGroupTermClassNamespaceTF;
     private javax.swing.JRadioButton chickRB;
-    private javax.swing.JTextField chickStageClassIDTF;
-    private javax.swing.JTextField chickStageClassNameTF;
-    private javax.swing.JTextField chickStageClassNamespaceTF;
     private javax.swing.JCheckBox chkIsPrimary;
     private javax.swing.JButton cmdBrowseNew;
     private javax.swing.JButton cmdBrowseOld;
@@ -4122,10 +4507,9 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JButton cmdGenerate;
     private javax.swing.JButton cmdGenerateEditor;
     private javax.swing.JButton cmdGenerateTreeReport;
+    private javax.swing.JButton cmdLoadOBOFile;
     private javax.swing.JButton cmdPropCheck;
     private javax.swing.JButton cmdReconnect;
-    private javax.swing.JButton cmdReconnectC;
-    private javax.swing.JButton cmdReconnectH;
     private javax.swing.JButton cmdUpdateDB;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel expTermNoLabel;
@@ -4135,26 +4519,7 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JButton exportTextBrowseButton;
     private javax.swing.JTextField exportTextFileTF;
     private javax.swing.ButtonGroup formatButtonGroup;
-    private javax.swing.JTextField humanAbstractClassIDTF;
-    private javax.swing.JTextField humanAbstractClassNameTF;
-    private javax.swing.JTextField humanAbstractClassNamespaceTF;
-    private javax.swing.JTextField humanDBDbNameTF;
-    private javax.swing.JTextField humanDBHostNameTF;
-    private javax.swing.JPasswordField humanDBPasswordPF;
-    private javax.swing.JTextField humanDBPortTF;
-    private javax.swing.JTextField humanDBUserNameTF;
-    private javax.swing.JTextField humanDefaultNamespaceTF;
-    private javax.swing.JTextField humanFormatVersionTF;
-    private javax.swing.JTextField humanGroupClassIDTF;
-    private javax.swing.JTextField humanGroupClassNameTF;
-    private javax.swing.JTextField humanGroupClassNamespaceTF;
-    private javax.swing.JTextField humanGroupTermClassIDTF;
-    private javax.swing.JTextField humanGroupTermClassNameTF;
-    private javax.swing.JTextField humanGroupTermClassNamespaceTF;
     private javax.swing.JRadioButton humanRB;
-    private javax.swing.JTextField humanStageClassIDTF;
-    private javax.swing.JTextField humanStageClassNameTF;
-    private javax.swing.JTextField humanStageClassNamespaceTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4167,31 +4532,14 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -4201,23 +4549,7 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
@@ -4226,29 +4558,16 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
-    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -4256,19 +4575,10 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -4311,7 +4621,6 @@ private boolean isConnectedToDatabase() {
     private javax.swing.JTextField mouseStageClassIDTF;
     private javax.swing.JTextField mouseStageClassNameTF;
     private javax.swing.JTextField mouseStageClassNamespaceTF;
-    private javax.swing.JRadioButton rangeRB;
     private javax.swing.JRadioButton rbDefaultRoot;
     private javax.swing.JRadioButton rbSelectedComponents;
     private javax.swing.JTextArea remarkTA;

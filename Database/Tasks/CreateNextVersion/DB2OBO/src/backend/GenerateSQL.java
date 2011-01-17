@@ -1694,8 +1694,7 @@ public class GenerateSQL {
     private void insertANA_TIMED_NODE( ArrayList<Component> newTermList,
             String calledFrom ){
 
-        /*System.out.println("insertANA_TIMED_NODE called from: " +
-            calledFrom );*/
+        //System.out.println("insertANA_TIMED_NODE called from: " + calledFrom );
 
         //table desc
         //ATN_OID
@@ -2358,7 +2357,9 @@ public class GenerateSQL {
 
         ArrayList < Component > deleteTimeComponents =
                 new ArrayList < Component >();
-        HashMap<String, String> atnOldValues = new HashMap(); 
+
+        HashMap<String, String> atnOldValues = new HashMap();
+
         PreparedStatement preppie = null;
         int intStartKey = 0;
         int intEndKey = 0;
@@ -2391,10 +2392,7 @@ public class GenerateSQL {
         int intLOG_VERSION_FK = this.intCurrentVersionID;
 
         
-        HashMap<String, Integer> mapStageIDs = this.mapStageIDs();
-   
         try{    
-            
             //ana_timed_node delete summary
             this.reportFile.newLine();
             this.reportFile.newLine();
@@ -2422,43 +2420,17 @@ public class GenerateSQL {
             else{
                 for ( Component compie: diffDeleteTimeComponents ){
 
-                    //intStartKey = mapStageIDs.get( compie.getStartsAt() );
-                    //intEndKey = mapStageIDs.get( compie.getEndsAt() );
                     intStartKey = compie.getStartsAt();
                     intEndKey = compie.getEndsAt();
 
                     for ( int stage=intStartKey; stage<=intEndKey; stage++ ){
-
-                        String query2 = "SELECT stg_name FROM ANA_STAGE " +
-                                "WHERE stg_sequence = " +
-                                compie.getStartsAt();
-                        ResultSet stgNameRS = null;
-
-                        stgNameRS =
-                      this.newConnection.createStatement().executeQuery(query2);
-                        if ( stgNameRS.next() ) {
-                            stageName = stgNameRS.getString("stg_name");
-                        }
-
-                        /*
-                        String strNumber = Integer.toString(stage);
-                        if ( strNumber.length() == 1 ) {
-                            stageName = "TS0" + stage;
-                        }
-                        else {
-                            stageName = "TS" + stage;
-                        }
-                        */
-                        //query = "SELECT * FROM ANA_TIMED_NODE WHERE " +
-                        //        "atn_node_fk = " + compie.getDBID() + " " +
-                        //        "AND atn_stage_fk = " + stage;
                         query = "SELECT atn_oid, atn_node_fk, atn_stage_fk, " +
                                 "atn_stage_modifier_fk, atn_public_id " +
                                 "FROM ANA_TIMED_NODE "+
                                 "JOIN ANA_STAGE on atn_stage_fk = stg_oid " +
                                 "WHERE atn_node_fk = " + compie.getDBID() + 
-                                " " + "AND stg_name = '" + stageName + "'";
-                        //System.out.println("New Query: " + query );
+                                " " + "AND stg_sequence = " + stage;
+
                         ResultSet rs =
                        this.newConnection.createStatement().executeQuery(query);
 
@@ -2466,21 +2438,25 @@ public class GenerateSQL {
                         // node+stage combo
                         while ( rs.next() ){ 
                             Component deleteTimeComponent = new Component();
+
+                            //dbid
                             deleteTimeComponent.setDBID(
-                                    rs.getString("atn_oid") ); //dbid
+                                    rs.getString("atn_oid") );
+                            //child
                             deleteTimeComponent.setID(
-                                    rs.getString("atn_public_id") ); //child
-                            deleteTimeComponent.setNamespace(
-                                    compie.getDBID() ); //abstract term dbid
-                            deleteTimeComponent.setStartsAt(
-                                    stageName ); //stage key
+                                    rs.getString("atn_public_id") );
+                            //abstract term dbid
+                            deleteTimeComponent.setNamespace(compie.getDBID() );
+                            //stage key
+                            deleteTimeComponent.setStartsAtInt( stage ); 
+                            /*
+                            System.out.println("Component to be DELETED");
+                            System.out.println(rs.getString("atn_oid") );
+                            System.out.println(rs.getString("atn_public_id") );
+                            System.out.println(compie.getDBID() );
+                            System.out.println(stage );
+                            */
                             deleteTimeComponents.add( deleteTimeComponent );
-                            
-                            /*System.out.println("creating timed component " +
-                             for deletion at stage " + stage + ": " +
-                             deleteTimeComponent.getDBID() + " " +
-                             deleteTimeComponent.getID() + " " +
-                             deleteTimeComponent.getStartsAt() );*/
                             
                             intATN_OID = rs.getInt("atn_oid");
                             intATN_STAGE_FK = rs.getInt("atn_stage_fk");
@@ -2515,18 +2491,18 @@ public class GenerateSQL {
                                 preppie.setInt(2, intLOG_LOGGED_OID);
                                 preppie.setString(3, strLOG_COLUMN_NAME);
                                 preppie.setString(4, strLOG_OLD_VALUE);
-                                //add each record
+
                                 preppie.addBatch();
 
-                                this.reportFile.write( "INSERT INTO " +
-                                        "ANA_LOG " +
-                                        "(log_oid, log_logged_oid, " +
-                                        "log_column_name, log_old_value, " +
-                                        "log_version_fk) " +
-                                        "VALUES (" + intLOG_OID + ", " +
+                                this.reportFile.write( "INSERT INTO ANA_LOG " +
+                                    "(log_oid, log_logged_oid, " +
+                                    "log_column_name, log_old_value, " +
+                                    "log_version_fk) " +
+                                    "VALUES (" +
+                                        intLOG_OID + ", " +
                                         intLOG_LOGGED_OID + ", '" +
-                                        strLOG_COLUMN_NAME +
-                                        "', '" + strLOG_OLD_VALUE + "', " +
+                                        strLOG_COLUMN_NAME + "', '" +
+                                        strLOG_OLD_VALUE + "', " +
                                         intLOG_VERSION_FK + ");" );
                                 this.reportFile.newLine();
                             }     
@@ -3474,12 +3450,15 @@ public class GenerateSQL {
             }
             else{
                 for ( Component deleteObject: deleteObjects ){
+                    /*
                     System.out.println("deleting object from ana_object " +
                      "for " + deleteObject.getDBID() + " " +
                      deleteObject.getID() );
+                    */
                     preppie.setInt( 1,
                             Integer.parseInt( deleteObject.getDBID() ) );
                     preppie.addBatch();
+                    
                     this.reportFile.write("DELETE FROM ANA_OBJECT WHERE " +
                             "obj_oid = " + deleteObject.getDBID() + ";" );
                     this.reportFile.newLine();
@@ -3501,8 +3480,6 @@ public class GenerateSQL {
 
         //System.out.println("deleteANA_TIMED_NODE");
 
-        HashMap<String, Integer> mapStageIDs = mapStageIDs();
-
         try{
             //ana_timed_node delete summary
             this.reportFile.newLine();
@@ -3517,8 +3494,7 @@ public class GenerateSQL {
             this.reportFile.newLine();
             this.reportFile.newLine();
         
-            String query = "DELETE FROM ANA_TIMED_NODE WHERE atn_node_fk = ? " +
-                "AND atn_stage_fk = ?"; 
+            String query = "DELETE FROM ANA_TIMED_NODE WHERE atn_oid = ? ";
             PreparedStatement preppie =
                     this.newConnection.prepareStatement(query);
             
@@ -3528,41 +3504,16 @@ public class GenerateSQL {
             }
             else {
                 for ( Component compie: deleteTimedComponents ){
-                    /*System.out.println( compie.getID() + " name:" +
-                     compie.getName() + " namespace:" +
-                     compie.getNamespace() );*/
-                    preppie.setInt(1,
-                            Integer.parseInt( compie.getNamespace() ) );
-                    //intStartKey = ;
-                    /*System.out.println("Stage: " +
-                     mapStageIDs.get( compie.getStartsAt() ) );*/
-
-                    String query2 = "SELECT stg_oid FROM ANA_STAGE WHERE " +
-                            "stg_sequence = " + compie.getStartsAt();
-                    ResultSet stgOidRS = null;
-
-                    stgOidRS =
-                      this.newConnection.createStatement().executeQuery(query2);
-                    if ( stgOidRS.next() ) {
-                        preppie.setInt(2, 
-                                mapStageIDs.get(
-                                Integer.toString( stgOidRS.getInt("stg_oid"))));
-                    }
-
-                    //preppie.setInt(2,
-                    // mapStageIDs.get( compie.getStartsAt() ) );
-                    //preppie.setInt(2, compie.getStartsAt() );
+                    preppie.setInt(1, Integer.parseInt( compie.getDBID() ) );
                     preppie.addBatch();
+
                     this.reportFile.write("DELETE FROM ANA_TIMED_NODE " +
-                            "WHERE atn_node_fk = " + compie.getNamespace() +
-                            //" AND atn_stage_fk = " +
-                            // mapStageIDs.get( compie.getStartsAt() )  + ";");
-                            " AND atn_stage_fk = " + 
-                            mapStageIDs.get( Integer.toString(
-                            stgOidRS.getInt("stg_oid"))) + ";");
-                            //" AND atn_stage_fk = " + compie.getStartsAt()
-                            // + ";");
+                        "WHERE atn_oid = " + compie.getDBID()  + ";");
                     this.reportFile.newLine();
+                    /*
+                    System.out.println("DELETE FROM ANA_TIMED_NODE " +
+                        "WHERE atn_oid = " + compie.getDBID() + ";");
+                    */
                 }
                 if ( flagUpdateDB ) {
                     preppie.executeBatch();
@@ -3899,7 +3850,8 @@ public class GenerateSQL {
                 preppie.setInt( 1, Integer.parseInt( compie.getDBID() ) );
                 rs = preppie.executeQuery();
 
-                //System.out.println("CHILD dbCompie.getPartOf() = " + dbCompie.getPartOf() );
+                //System.out.println("CHILD dbCompie.getPartOf() = "
+                // + dbCompie.getPartOf() );
                 //reset temporary component's parents for each component
                 dbCompie.setPartOf( new ArrayList<String>() );
                 //add to temporary component
@@ -3916,30 +3868,52 @@ public class GenerateSQL {
                 //System.out.println("CHILD compie.getOrderComment() = " + compie.getOrderComment() );
                 //parents.add( compie.getIsA() );
 
+                processedOrderArray = null;
+
                 if ( !compie.getOrderComment().equals("") ){
                     orderArray = compie.getOrderComment().split("order=");
-                    processedOrderArray = null;
+                    /*
+                    for (int i=0; i < orderArray.length; i++){
+                        System.out.println("orderArray[i] = " + orderArray[i]);
+                    }
+                    */
+
+                    intValidString = 0;
+
                     for (int i=0; i < orderArray.length; i++){
                         unprocessed = orderArray[i];
                         unprocessed = unprocessed.replace("\n", "");
                         unprocessed = unprocessed.trim();
                         orderArray[i] = unprocessed;
+                        //System.out.println("unprocessed = " + unprocessed);
                         if ( !unprocessed.equals("") ) {
                             intValidString++;
                         }
                     }
+
+                    //System.out.println("intValidString = " + Integer.toString(intValidString));
+                    
                     if (intValidString > 0){
                         int j = 0;
                         processedOrderArray = new String[intValidString];
                         for (int i=0; i<orderArray.length; i++){
+                            //System.out.println("orderArray[i] = " + orderArray[i]);
                             if ( !orderArray[i].equals("") ){
-                                processedOrderArray[j] = orderArray[i];
-                                //System.out.println("processedOrderArray[j] = " + processedOrderArray[j]);
-                                j++;
+                                //System.out.println("orderArray[i] = " + orderArray[i]);
+                                if ( !orderArray[i].isEmpty() ) {
+                                    processedOrderArray[j] = orderArray[i];
+                                    //System.out.println("processedOrderArray[j] = " + processedOrderArray[j]);
+                                    j++;
+                                }
                             }
                         }
                     }
                 }
+                /*
+                for (int i=0; i < processedOrderArray.length; i++){
+                    System.out.println("processedOrderArray[i] = " + processedOrderArray[i]);
+                }
+                */
 
                 //get parents to be deleted
                 //parents owned by dbCompie but not by compie
@@ -3947,7 +3921,7 @@ public class GenerateSQL {
                 deleteParents.clear();
                 deleteParents.addAll( dbCompie.getPartOf() );
                 //System.out.println("CHILD dbCompie.getPartOf() = " + dbCompie.getPartOf() );
-                //System.out.println("CHILD dbCompie.getOrderComment() = " + dbCompie.getOrderCommment() );
+                //System.out.println("CHILD dbCompie.getOrderComment() = " + dbCompie.getOrderComment() );
                 //deleteParents.add( dbCompie.getIsA() );
                 deleteParents.removeAll( parents );
                 
@@ -3989,9 +3963,13 @@ public class GenerateSQL {
                         for (int i=0; i < processedOrderArray.length; i++){
                             orderArray = processedOrderArray[i].split("for ");
                             if ( eachParent.equals(orderArray[1]) ) {
+                                //System.out.println("processedOrderArray.length = " + Integer.toString(processedOrderArray.length));
                                 //System.out.println("orderArray[0] = " + orderArray[0]);
                                 //System.out.println("orderArray[1] = " + orderArray[1]);
+                                //System.out.println("processedOrderArray[i] = " + processedOrderArray[i] );
                                 insertRelCompie.setOrderComment( "order=" + processedOrderArray[i] );
+                                //System.out.println("insertRelCompie.getPartOf() = " + insertRelCompie.getPartOf() );
+                                //System.out.println("insertRelCompie.getOrderComment() = " + insertRelCompie.getOrderComment() );
 
                             }
                         }
@@ -4019,10 +3997,9 @@ public class GenerateSQL {
         String query = "SELECT stg_name FROM ANA_TIMED_NODE, ANA_STAGE " + 
                        "WHERE atn_node_fk = ? " +
                        "AND atn_stage_fk = stg_oid " +
-                       //"ORDER BY stg_name";
                        "ORDER BY stg_sequence";
 
-        HashMap<String, Integer> mapStageIDs = mapStageIDs();
+        int stageDiff = 0;
 
         
         try{
@@ -4031,7 +4008,12 @@ public class GenerateSQL {
                 preppie = this.newConnection.prepareStatement(query);
                 preppie.setInt( 1, Integer.parseInt(compie.getDBID()) );
                 rs = preppie.executeQuery();
-                
+                /*
+                System.out.println("SELECT stg_name FROM ANA_TIMED_NODE, ANA_STAGE " +
+                       "WHERE atn_node_fk = " + compie.getDBID() +
+                       " AND atn_stage_fk = stg_oid " +
+                       "ORDER BY stg_sequence" );
+                */
                 Component dbCompie = new Component();
                 rs.next();
                 dbCompie.setStartsAt( rs.getString("stg_name") );
@@ -4040,82 +4022,78 @@ public class GenerateSQL {
 
                 //compare stage ranges between compie and dbCompie
                 //for creating new timed components
+
+                /* If the DB component for the matching OBO component has a
+                    START Stage LATER than OBO component START Stage THEN
+                     ADD New Timed Components
+                */
                 if ( dbCompie.getStartsAt() > compie.getStartsAt() ){
-                   Component createTimedCompie = new Component();
-                   createTimedCompie.setID( compie.getID() );
-                   createTimedCompie.setName( compie.getName() );
-                   createTimedCompie.setDBID( compie.getDBID() );
-                   createTimedCompie.setStartsAtInt( compie.getStartsAt() );
-                   createTimedCompie.setEndsAtInt( 
-                           dbCompie.getStartsAt() - 1 );
-                   /*System.out.println(createTimedCompie.getDBID() +
-                           " start: " +
-                           createTimedCompie.getStartsAtStr(this.strSpecies) +
-                           " end: " +
-                           createTimedCompie.getEndsAtStr(this.strSpecies) );*/
-                   /*System.out.println(createTimedCompie.getDBID() +
-                           " start: " +
-                           Integer.toString(
-                               createTimedCompie.getStartsAt()) + " end: " +
-                           Integer.toString(createTimedCompie.getEndsAt()) );*/
-                   this.diffCreateTimedCompList.add( createTimedCompie );
+                    stageDiff = dbCompie.getStartsAt() - compie.getStartsAt();
+
+                    Component createTimedCompie = new Component();
+                    createTimedCompie.setID( compie.getID() );
+                    createTimedCompie.setName( compie.getName() );
+                    createTimedCompie.setDBID( compie.getDBID() );
+                    createTimedCompie.setStartsAtInt( compie.getStartsAt() );
+                    createTimedCompie.setEndsAtInt(dbCompie.getStartsAt() - 1 );
+                    this.diffCreateTimedCompList.add( createTimedCompie );
                 }
+
+                /* If the DB component for the matching OBO component has an
+                    END Stage EARLIER than OBO component END Stage THEN
+                     ADD New Timed Components
+                */
                 if ( dbCompie.getEndsAt() < compie.getEndsAt() ){
-                   Component createTimedCompie = new Component();
-                   createTimedCompie.setID( compie.getID() );
-                   createTimedCompie.setName( compie.getName() );                   
-                   createTimedCompie.setDBID( compie.getDBID() );
-                   createTimedCompie.setStartsAtInt( 
-                           dbCompie.getEndsAt() + 1 );
-                   createTimedCompie.setEndsAtInt( compie.getEndsAt() );
-                   /*System.out.println(createTimedCompie.getDBID() +
-                           " start: " +
-                           createTimedCompie.getStartsAtStr(this.strSpecies) +
-                           " end: " +
-                           createTimedCompie.getEndsAtStr(this.strSpecies) );*/
-                   /*System.out.println(createTimedCompie.getDBID() +
-                           " start: " +
-                           Integer.toString(
-                               createTimedCompie.getStartsAt()) + " end: " +
-                           Integer.toString(createTimedCompie.getEndsAt() ));*/
-                   this.diffCreateTimedCompList.add( createTimedCompie );
+                    stageDiff = compie.getEndsAt() - dbCompie.getEndsAt();
+
+                    Component createTimedCompie = new Component();
+                    createTimedCompie.setID( compie.getID() );
+                    createTimedCompie.setName( compie.getName() );
+                    createTimedCompie.setDBID( compie.getDBID() );
+                    createTimedCompie.setStartsAtInt(dbCompie.getEndsAt() + 1 );
+                    createTimedCompie.setEndsAtInt( compie.getEndsAt() );
+                    this.diffCreateTimedCompList.add( createTimedCompie );
                 }
                 
                 //for deleting existing timed components
-                if ( dbCompie.getStartsAt() < compie.getStartsAt() ){
-                   Component delTimedCompie = new Component();
-                   delTimedCompie.setID( compie.getID() );
-                   delTimedCompie.setName( compie.getName() );
-                   delTimedCompie.setDBID( compie.getDBID() );
-                   delTimedCompie.setStartsAtInt( dbCompie.getStartsAt() );
-                   delTimedCompie.setEndsAtInt( compie.getStartsAt() - 1 );
-                   /*System.out.println(delTimedCompie.getDBID() + " start: " +
-                           delTimedCompie.getStartsAtStr(this.strSpecies) +
-                           " end: " +
-                           delTimedCompie.getEndsAtStr(this.strSpecies) );*/
-                   /*System.out.println(delTimedCompie.getDBID() + " start: " +
-                           Integer.toString(delTimedCompie.getStartsAt() )
-                           + " end: " +
-                           Integer.toString(delTimedCompie.getEndsAt() ) );*/
-                   this.diffDeleteTimedCompList.add( delTimedCompie );
-                }
 
-                if ( dbCompie.getEndsAt() > compie.getEndsAt() ){
+                /* If the DB component for the matching OBO component has an
+                    START Stage EARLIER than OBO component START Stage THEN
+                     DELETE Existing Timed Components
+                */
+                if ( dbCompie.getStartsAt() < compie.getStartsAt() ){
+                    stageDiff = compie.getStartsAt() - dbCompie.getStartsAt();
+
                     Component delTimedCompie = new Component();
                     delTimedCompie.setID( compie.getID() );
                     delTimedCompie.setName( compie.getName() );
                     delTimedCompie.setDBID( compie.getDBID() );
-                    delTimedCompie.setStartsAtInt(
-                            compie.getEndsAt() + 1 );
+                    delTimedCompie.setStartsAtInt( dbCompie.getStartsAt() );
+                    delTimedCompie.setEndsAtInt( compie.getStartsAt() - 1 );
+                    this.diffDeleteTimedCompList.add( delTimedCompie );
+                }
+
+                /* If the DB component for the matching OBO component has an
+                    END Stage LATER than OBO component END Stage THEN
+                     DELETE Existing Timed Components
+                */
+                if ( dbCompie.getEndsAt() > compie.getEndsAt() ){
+                    stageDiff = dbCompie.getEndsAt() - compie.getEndsAt();
+
+                    Component delTimedCompie = new Component();
+                    delTimedCompie.setID( compie.getID() );
+                    delTimedCompie.setName( compie.getName() );
+                    delTimedCompie.setDBID( compie.getDBID() );
+                    delTimedCompie.setStartsAtInt( compie.getEndsAt() + 1 );
                     delTimedCompie.setEndsAtInt( dbCompie.getEndsAt() );
-                    /*System.out.println(delTimedCompie.getDBID() + " start: " +
-                            delTimedCompie.getStartsAtStr(this.strSpecies) +
-                            " end: " +
-                            delTimedCompie.getEndsAtStr(this.strSpecies) );*/
-                    /*System.out.println(delTimedCompie.getDBID() + " start:" +
-                            Integer.toString(delTimedCompie.getStartsAt() ) +
-                            " end:" +
-                            Integer.toString(delTimedCompie.getEndsAt() ) );*/
+                    /*
+                    System.out.println("Component to be DELETED");
+                    System.out.println(delTimedCompie.getID());
+                    System.out.println(delTimedCompie.getName() );
+                    System.out.println(delTimedCompie.getDBID() );
+                    System.out.println(delTimedCompie.getStartsAt() );
+                    System.out.println(delTimedCompie.getEndsAt() );
+                    */
                     this.diffDeleteTimedCompList.add( delTimedCompie );
                 }
             }

@@ -895,7 +895,8 @@ public class GenerateSQL {
                preppie =  this.newConnection.prepareStatement(query); 
 
                //write sql query to report file
-               this.reportFile.write("-- " + query + ";");
+               //this.reportFile.write("-- " + query + ";");
+               this.reportFile.write( query + ";");
                this.reportFile.newLine();
                
                //write summary to report file          

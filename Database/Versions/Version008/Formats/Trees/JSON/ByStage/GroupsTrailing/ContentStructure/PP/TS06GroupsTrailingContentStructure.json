@@ -1,0 +1,110 @@
+{
+    "node": {
+        "children": [
+            {
+                "node": {
+                    "extId": "EMAP:32", 
+                    "name": "epiblast", 
+                    "nodeId": "2"
+                }
+            }, 
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:36", 
+                                            "name": "blastocoelic cavity", 
+                                            "nodeId": "5"
+                                        }
+                                    }
+                                ], 
+                                "extId": "EMAP:35", 
+                                "name": "cavities and their linings", 
+                                "nodeId": "4"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:38", 
+                                            "name": "parietal endoderm", 
+                                            "nodeId": "7"
+                                        }
+                                    }
+                                ], 
+                                "extId": "EMAP:37", 
+                                "name": "extraembryonic endoderm", 
+                                "nodeId": "6"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:40", 
+                                            "name": "mural trophectoderm", 
+                                            "nodeId": "9"
+                                        }
+                                    }, 
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:41", 
+                                            "name": "polar trophectoderm", 
+                                            "nodeId": "10"
+                                        }
+                                    }
+                                ], 
+                                "extId": "EMAP:39", 
+                                "name": "trophectoderm", 
+                                "nodeId": "8"
+                            }
+                        }
+                    ], 
+                    "extId": "EMAP:34", 
+                    "name": "extraembryonic component", 
+                    "nodeId": "3"
+                }
+            }, 
+            {
+                "node": {
+                    "extId": "EMAP:33", 
+                    "name": "primitive endoderm", 
+                    "nodeId": "11"
+                }
+            }, 
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "extId": "EMAP:32", 
+                                "name": "epiblast", 
+                                "nodeId": "13"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "extId": "EMAP:33", 
+                                "name": "primitive endoderm", 
+                                "nodeId": "14"
+                            }
+                        }
+                    ], 
+                    "extId": "EMAP:31", 
+                    "name": "embryo", 
+                    "nodeId": "12"
+                }
+            }
+        ], 
+        "extId": "EMAP:25771", 
+        "name": "mouse", 
+        "nodeId": "1"
+    }
+}

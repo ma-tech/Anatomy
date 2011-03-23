@@ -1,0 +1,477 @@
+[
+    {
+        "extId": "EMAP:25776", 
+        "name": "mouse", 
+        "nodeId": "1"
+    }, 
+    {
+        "extId": "EMAP:170", 
+        "name": "organ system", 
+        "nodeId": "2"
+    }, 
+    {
+        "extId": "EMAP:171", 
+        "name": "cardiovascular system", 
+        "nodeId": "3"
+    }, 
+    {
+        "extId": "EMAP:172", 
+        "name": "heart", 
+        "nodeId": "4"
+    }, 
+    {
+        "extId": "EMAP:173", 
+        "name": "cardiogenic plate", 
+        "nodeId": "5"
+    }, 
+    {
+        "extId": "EMAP:148", 
+        "name": "cavities and their linings", 
+        "nodeId": "6"
+    }, 
+    {
+        "extId": "EMAP:149", 
+        "name": "intraembryonic coelom", 
+        "nodeId": "7"
+    }, 
+    {
+        "extId": "EMAP:150", 
+        "name": "ectoderm", 
+        "nodeId": "8"
+    }, 
+    {
+        "extId": "EMAP:151", 
+        "name": "neural ectoderm", 
+        "nodeId": "9"
+    }, 
+    {
+        "extId": "EMAP:152", 
+        "name": "future brain", 
+        "nodeId": "10"
+    }, 
+    {
+        "extId": "EMAP:153", 
+        "name": "neural fold", 
+        "nodeId": "11"
+    }, 
+    {
+        "extId": "EMAP:154", 
+        "name": "neural crest", 
+        "nodeId": "12"
+    }, 
+    {
+        "extId": "EMAP:155", 
+        "name": "future spinal cord", 
+        "nodeId": "13"
+    }, 
+    {
+        "extId": "EMAP:156", 
+        "name": "neural fold", 
+        "nodeId": "14"
+    }, 
+    {
+        "extId": "EMAP:157", 
+        "name": "neural crest", 
+        "nodeId": "15"
+    }, 
+    {
+        "extId": "EMAP:158", 
+        "name": "neural plate", 
+        "nodeId": "16"
+    }, 
+    {
+        "extId": "EMAP:159", 
+        "name": "surface ectoderm", 
+        "nodeId": "17"
+    }, 
+    {
+        "extId": "EMAP:147", 
+        "name": "embryo", 
+        "nodeId": "18"
+    }, 
+    {
+        "extId": "EMAP:148", 
+        "name": "cavities and their linings", 
+        "nodeId": "19"
+    }, 
+    {
+        "extId": "EMAP:149", 
+        "name": "intraembryonic coelom", 
+        "nodeId": "20"
+    }, 
+    {
+        "extId": "EMAP:150", 
+        "name": "ectoderm", 
+        "nodeId": "21"
+    }, 
+    {
+        "extId": "EMAP:151", 
+        "name": "neural ectoderm", 
+        "nodeId": "22"
+    }, 
+    {
+        "extId": "EMAP:152", 
+        "name": "future brain", 
+        "nodeId": "23"
+    }, 
+    {
+        "extId": "EMAP:153", 
+        "name": "neural fold", 
+        "nodeId": "24"
+    }, 
+    {
+        "extId": "EMAP:154", 
+        "name": "neural crest", 
+        "nodeId": "25"
+    }, 
+    {
+        "extId": "EMAP:155", 
+        "name": "future spinal cord", 
+        "nodeId": "26"
+    }, 
+    {
+        "extId": "EMAP:156", 
+        "name": "neural fold", 
+        "nodeId": "27"
+    }, 
+    {
+        "extId": "EMAP:157", 
+        "name": "neural crest", 
+        "nodeId": "28"
+    }, 
+    {
+        "extId": "EMAP:158", 
+        "name": "neural plate", 
+        "nodeId": "29"
+    }, 
+    {
+        "extId": "EMAP:159", 
+        "name": "surface ectoderm", 
+        "nodeId": "30"
+    }, 
+    {
+        "extId": "EMAP:160", 
+        "name": "endoderm", 
+        "nodeId": "31"
+    }, 
+    {
+        "extId": "EMAP:161", 
+        "name": "definitive endoderm", 
+        "nodeId": "32"
+    }, 
+    {
+        "extId": "EMAP:162", 
+        "name": "primitive endoderm", 
+        "nodeId": "33"
+    }, 
+    {
+        "extId": "EMAP:163", 
+        "name": "mesenchyme", 
+        "nodeId": "34"
+    }, 
+    {
+        "extId": "EMAP:164", 
+        "name": "head mesenchyme", 
+        "nodeId": "35"
+    }, 
+    {
+        "extId": "EMAP:165", 
+        "name": "mesenchyme derived from head mesoderm", 
+        "nodeId": "36"
+    }, 
+    {
+        "extId": "EMAP:15246", 
+        "name": "mesenchyme derived from somites 01-04", 
+        "nodeId": "37"
+    }, 
+    {
+        "extId": "EMAP:166", 
+        "name": "mesenchyme derived from neural-crest", 
+        "nodeId": "38"
+    }, 
+    {
+        "extId": "EMAP:167", 
+        "name": "mesoderm", 
+        "nodeId": "39"
+    }, 
+    {
+        "extId": "EMAP:168", 
+        "name": "notochordal plate", 
+        "nodeId": "40"
+    }, 
+    {
+        "extId": "EMAP:169", 
+        "name": "notochordal process", 
+        "nodeId": "41"
+    }, 
+    {
+        "extId": "EMAP:170", 
+        "name": "organ system", 
+        "nodeId": "42"
+    }, 
+    {
+        "extId": "EMAP:171", 
+        "name": "cardiovascular system", 
+        "nodeId": "43"
+    }, 
+    {
+        "extId": "EMAP:172", 
+        "name": "heart", 
+        "nodeId": "44"
+    }, 
+    {
+        "extId": "EMAP:173", 
+        "name": "cardiogenic plate", 
+        "nodeId": "45"
+    }, 
+    {
+        "extId": "EMAP:174", 
+        "name": "primitive streak", 
+        "nodeId": "46"
+    }, 
+    {
+        "extId": "EMAP:175", 
+        "name": "node", 
+        "nodeId": "47"
+    }, 
+    {
+        "extId": "EMAP:160", 
+        "name": "endoderm", 
+        "nodeId": "48"
+    }, 
+    {
+        "extId": "EMAP:161", 
+        "name": "definitive endoderm", 
+        "nodeId": "49"
+    }, 
+    {
+        "extId": "EMAP:162", 
+        "name": "primitive endoderm", 
+        "nodeId": "50"
+    }, 
+    {
+        "extId": "EMAP:176", 
+        "name": "extraembryonic component", 
+        "nodeId": "51"
+    }, 
+    {
+        "extId": "EMAP:177", 
+        "name": "allantois", 
+        "nodeId": "52"
+    }, 
+    {
+        "extId": "EMAP:178", 
+        "name": "allantois mesoderm", 
+        "nodeId": "53"
+    }, 
+    {
+        "extId": "EMAP:179", 
+        "name": "amnion", 
+        "nodeId": "54"
+    }, 
+    {
+        "extId": "EMAP:180", 
+        "name": "amnion ectoderm", 
+        "nodeId": "55"
+    }, 
+    {
+        "extId": "EMAP:181", 
+        "name": "amnion mesoderm", 
+        "nodeId": "56"
+    }, 
+    {
+        "extId": "EMAP:187", 
+        "name": "chorion", 
+        "nodeId": "57"
+    }, 
+    {
+        "extId": "EMAP:188", 
+        "name": "chorion ectoderm", 
+        "nodeId": "58"
+    }, 
+    {
+        "extId": "EMAP:32107", 
+        "name": "chorion mesenchyme", 
+        "nodeId": "59"
+    }, 
+    {
+        "extId": "EMAP:189", 
+        "name": "chorion mesoderm", 
+        "nodeId": "60"
+    }, 
+    {
+        "extId": "EMAP:182", 
+        "name": "extraembryonic component cavities", 
+        "nodeId": "61"
+    }, 
+    {
+        "extId": "EMAP:183", 
+        "name": "amniotic cavity", 
+        "nodeId": "62"
+    }, 
+    {
+        "extId": "EMAP:184", 
+        "name": "ectoplacental cavity", 
+        "nodeId": "63"
+    }, 
+    {
+        "extId": "EMAP:185", 
+        "name": "exocoelomic cavity", 
+        "nodeId": "64"
+    }, 
+    {
+        "extId": "EMAP:186", 
+        "name": "yolk sac cavity", 
+        "nodeId": "65"
+    }, 
+    {
+        "extId": "EMAP:32167", 
+        "name": "extraembryonic ectoderm", 
+        "nodeId": "66"
+    }, 
+    {
+        "extId": "EMAP:190", 
+        "name": "extraembryonic endoderm", 
+        "nodeId": "67"
+    }, 
+    {
+        "extId": "EMAP:191", 
+        "name": "intermediate endoderm", 
+        "nodeId": "68"
+    }, 
+    {
+        "extId": "EMAP:192", 
+        "name": "parietal endoderm", 
+        "nodeId": "69"
+    }, 
+    {
+        "extId": "EMAP:193", 
+        "name": "Reichert's membrane", 
+        "nodeId": "70"
+    }, 
+    {
+        "extId": "EMAP:194", 
+        "name": "visceral endoderm", 
+        "nodeId": "71"
+    }, 
+    {
+        "extId": "EMAP:31917", 
+        "name": "extraembryonic mesenchyme", 
+        "nodeId": "72"
+    }, 
+    {
+        "extId": "EMAP:31916", 
+        "name": "extraembryonic mesoderm", 
+        "nodeId": "73"
+    }, 
+    {
+        "extId": "EMAP:195", 
+        "name": "trophectoderm", 
+        "nodeId": "74"
+    }, 
+    {
+        "extId": "EMAP:196", 
+        "name": "mural trophectoderm", 
+        "nodeId": "75"
+    }, 
+    {
+        "extId": "EMAP:197", 
+        "name": "primary trophoblast giant cells", 
+        "nodeId": "76"
+    }, 
+    {
+        "extId": "EMAP:198", 
+        "name": "polar trophectoderm", 
+        "nodeId": "77"
+    }, 
+    {
+        "extId": "EMAP:199", 
+        "name": "ectoplacental cone", 
+        "nodeId": "78"
+    }, 
+    {
+        "extId": "EMAP:200", 
+        "name": "cytotrophoblast", 
+        "nodeId": "79"
+    }, 
+    {
+        "extId": "EMAP:201", 
+        "name": "syncytiotrophoblast", 
+        "nodeId": "80"
+    }, 
+    {
+        "extId": "EMAP:202", 
+        "name": "yolk sac", 
+        "nodeId": "81"
+    }, 
+    {
+        "extId": "EMAP:203", 
+        "name": "yolk sac endoderm", 
+        "nodeId": "82"
+    }, 
+    {
+        "extId": "EMAP:204", 
+        "name": "yolk sac mesoderm", 
+        "nodeId": "83"
+    }, 
+    {
+        "extId": "EMAP:205", 
+        "name": "blood island", 
+        "nodeId": "84"
+    }, 
+    {
+        "extId": "EMAP:206", 
+        "name": "primordial germ cells", 
+        "nodeId": "85"
+    }, 
+    {
+        "extId": "EMAP:163", 
+        "name": "mesenchyme", 
+        "nodeId": "86"
+    }, 
+    {
+        "extId": "EMAP:164", 
+        "name": "head mesenchyme", 
+        "nodeId": "87"
+    }, 
+    {
+        "extId": "EMAP:165", 
+        "name": "mesenchyme derived from head mesoderm", 
+        "nodeId": "88"
+    }, 
+    {
+        "extId": "EMAP:15246", 
+        "name": "mesenchyme derived from somites 01-04", 
+        "nodeId": "89"
+    }, 
+    {
+        "extId": "EMAP:166", 
+        "name": "mesenchyme derived from neural-crest", 
+        "nodeId": "90"
+    }, 
+    {
+        "extId": "EMAP:167", 
+        "name": "mesoderm", 
+        "nodeId": "91"
+    }, 
+    {
+        "extId": "EMAP:168", 
+        "name": "notochordal plate", 
+        "nodeId": "92"
+    }, 
+    {
+        "extId": "EMAP:169", 
+        "name": "notochordal process", 
+        "nodeId": "93"
+    }, 
+    {
+        "extId": "EMAP:174", 
+        "name": "primitive streak", 
+        "nodeId": "94"
+    }, 
+    {
+        "extId": "EMAP:175", 
+        "name": "node", 
+        "nodeId": "95"
+    }
+]

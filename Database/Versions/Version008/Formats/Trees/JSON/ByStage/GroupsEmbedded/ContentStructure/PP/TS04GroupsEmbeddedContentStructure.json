@@ -1,0 +1,108 @@
+{
+    "node": {
+        "children": [
+            {
+                "node": {
+                    "extId": "EMAP:13", 
+                    "name": "compacted morula", 
+                    "nodeId": "2"
+                }
+            }, 
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "extId": "EMAP:13", 
+                                "name": "compacted morula", 
+                                "nodeId": "4"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "extId": "EMAP:14", 
+                                "name": "inner cell mass", 
+                                "nodeId": "5"
+                            }
+                        }
+                    ], 
+                    "extId": "EMAP:12", 
+                    "name": "embryo", 
+                    "nodeId": "3"
+                }
+            }, 
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:17", 
+                                            "name": "blastocoelic cavity", 
+                                            "nodeId": "8"
+                                        }
+                                    }
+                                ], 
+                                "extId": "EMAP:16", 
+                                "name": "cavities and their linings", 
+                                "nodeId": "7"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "extId": "EMAP:18", 
+                                "name": "second polar body", 
+                                "nodeId": "9"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:20", 
+                                            "name": "mural trophectoderm", 
+                                            "nodeId": "11"
+                                        }
+                                    }, 
+                                    {
+                                        "node": {
+                                            "extId": "EMAP:21", 
+                                            "name": "polar trophectoderm", 
+                                            "nodeId": "12"
+                                        }
+                                    }
+                                ], 
+                                "extId": "EMAP:19", 
+                                "name": "trophectoderm", 
+                                "nodeId": "10"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "extId": "EMAP:22", 
+                                "name": "zona pellucida", 
+                                "nodeId": "13"
+                            }
+                        }
+                    ], 
+                    "extId": "EMAP:15", 
+                    "name": "extraembryonic component", 
+                    "nodeId": "6"
+                }
+            }, 
+            {
+                "node": {
+                    "extId": "EMAP:14", 
+                    "name": "inner cell mass", 
+                    "nodeId": "14"
+                }
+            }
+        ], 
+        "extId": "EMAP:25769", 
+        "name": "mouse", 
+        "nodeId": "1"
+    }
+}

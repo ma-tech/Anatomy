@@ -25,8 +25,6 @@ from hgu.anatomyDb.version006 import Anatomy
 import ReportTree
 import ReportFile
 
-
-
 # ------------------------------------------------------------------
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
@@ -77,8 +75,13 @@ def __initialise(configFile, configParams):
         configParams["DEPTH_LIMIT"] = int(configParams["DEPTH_LIMIT"])
 
     # process the PROJECT flag
-    if configParams["PROJECT"].lower() not in ["emap", "gudmap"]:
+    if configParams["PROJECT"] not in ["EMAP", "GUDMAP"]:
         Util.fatalError(["Unrecognised PROJECT parameter: " + configParams["PROJECT"]])
+
+    if configParams["JSON_FORMATS"] == "NONE":
+        configParams["JSON_FORMATS"] = []
+    else:
+        configParams["JSON_FORMATS"] = configParams["JSON_FORMATS"].split()
 
 
     # Initialise Database and read the whole thing in.
@@ -110,6 +113,7 @@ config = {
     "ABSTRACT_REPORTS": None,
     "STAGE_REPORTS":    None,
     "STAGE_FILES":      None,
+    "JSON_FORMATS":      None,
     "DEPTH_LIMIT":      None,
     "DEBUGGING":        None,
     "PROJECT":          None 
@@ -125,19 +129,41 @@ perspectiveTree = ReportTree.ReportTree(config["PERSPECTIVE"],
 
 for format in config["OUTPUT_FORMATS"]:
     for abstractType in config["ABSTRACT_REPORTS"]:
-        Util.statusMessage([
-            "Generating " + format + " abstract " + abstractType + " report."])
-        ReportFile.writeAbstractReport(
-            perspectiveTree, config["OUTPUT_DIRECTORY"], format, abstractType)
+        if format == "JSON":
+            for jsonFormat in config["JSON_FORMATS"]:
+                Util.statusMessage([
+                    "Generating " + format + " abstract " + abstractType + 
+                    " format " + jsonFormat + " report."])
+                ReportFile.writeAbstractReport(
+                    perspectiveTree, config["OUTPUT_DIRECTORY"], format, abstractType, jsonFormat)
+        else:
+            jsonFormat = 'NONE'
+            Util.statusMessage([
+                "Generating " + format + " abstract " + abstractType + " report."])
+            ReportFile.writeAbstractReport(
+                perspectiveTree, config["OUTPUT_DIRECTORY"], format, abstractType, jsonFormat)
 
     for stageType in config["STAGE_REPORTS"]:
         for togetherness in config["STAGE_FILES"]:
-            Util.statusMessage([
-                "Generating " + format + " stage " + stageType +
-                " with stages in " + togetherness + " file(s) report."])
-            ReportFile.writeStageReport(
-                perspectiveTree, config["OUTPUT_DIRECTORY"], format, stageType,
-                togetherness)
+            if format == "JSON":
+                for jsonFormat in config["JSON_FORMATS"]:
+                    Util.statusMessage([
+                        "Generating " + format + " stage " + stageType +
+                        " with stages in " + togetherness + 
+                        " with format " + jsonFormat +
+                        " file(s) report."])
+                    ReportFile.writeStageReport(
+                        perspectiveTree, config["OUTPUT_DIRECTORY"], format, stageType,
+                        togetherness, jsonFormat)
+            else:
+                jsonFormat = 'NONE'
+                Util.statusMessage([
+                    "Generating " + format + " stage " + stageType +
+                    " with stages in " + togetherness + " file(s) report."])
+                ReportFile.writeStageReport(
+                    perspectiveTree, config["OUTPUT_DIRECTORY"], format, stageType,
+                    togetherness, jsonFormat)
+
 
 Util.statusMessage(["Done"])
 

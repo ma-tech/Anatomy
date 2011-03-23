@@ -1,4 +1,3 @@
-#!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """
@@ -29,6 +28,7 @@ import ReportTree
 PLAIN_TEXT = "PLAIN_TEXT"
 RICH_TEXT  = "RICH_TEXT"
 XML        = "XML"
+JSON       = "JSON"
 
 # Define a low-budget lookup to hold facts about each format
 
@@ -38,7 +38,8 @@ FORMAT_SUBDIRECTORY = 1
 FORMATS = {
     PLAIN_TEXT: ["txt", "Text"],
     RICH_TEXT:  ["rtf", "RTF"],
-    XML:        ["xml", "XML"]
+    XML:        ["xml", "XML"],
+    JSON:       ["json", "JSON"]
     }
 
 
@@ -55,6 +56,23 @@ REPORT_TYPE_NAME = 0
 REPORT_TYPES = {
     GROUPS_EMBEDDED: ["GroupsEmbedded"],
     GROUPS_TRAILING: ["GroupsTrailing"]
+    }
+
+
+# FORMAT TYPES ------------------------------
+
+CONTENT          = "CONTENT"
+STRUCTURE        = "STRUCTURE"
+CONTENTSTRUCTURE = "CONTENTSTRUCTURE"
+
+# Define a low budget lookup to hold facts about each report format
+
+FORMAT_TYPE_NAME = 0
+
+FORMAT_TYPES = {
+    CONTENT:          ["Content"],
+    STRUCTURE:        ["Structure"],
+    CONTENTSTRUCTURE: ["ContentStructure"]
     }
 
 
@@ -90,6 +108,11 @@ RTF_UNICODE_INDENT_SYMBOLS = {
 # GLOBALS
 # ------------------------------------------------------------------
 
+_prev_indent = 0
+_prev_depth = 0
+_count = 0
+_depth = 0
+_second_root = False
 
 # ------------------------------------------------------------------
 # REPORT FILE
@@ -106,7 +129,8 @@ class ReportFile:
         Open a report file.
 
         This method must be overriden by a derived class.  Raises exception
-        if it is ever called.
+        if it is ever called.            terminator = "},"
+
         """
         self.GROUP_DISPLAY = None
         self._reportTree = None
@@ -114,7 +138,7 @@ class ReportFile:
         Util.methodNotOverriddenError()
 
 
-    def closeReportFile(self):
+    def closeReportFile(self, formatType):
         """
         Close a report file.
 
@@ -166,17 +190,23 @@ class ReportFile:
         Util.methodNotOverriddenError()
 
 
-    def addAbstractAnatomy(self, indentLines):
+    def addAbstractAnatomy(self, indentLines, formatType):
         """
         Add the given ordered list on anatomy items to the report.
 
         This method must be overriden by a derived class.  Raises exception
         if it is ever called.
         """
-        Util.methodNotOverriddenError()
+        global _prev_indent, _prev_depth, _depth
+        _prev_indent = 0
+        _prev_depth = 0
+        _depth = 0
+
+        for indentLine in indentLines:
+            self.addAbstractAnatomyLine(indentLine, formatType)
 
 
-    def addAbstractAnatomyLine(self, anatomyLine):
+    def addAbstractAnatomyLine(self, anatomyLine, formatType):
         """
         Add an anatomy line in abstract format.  This includes the EMAPA id and
         the stage range.
@@ -187,16 +217,25 @@ class ReportFile:
         Util.methodNotOverriddenError()
 
 
-    def addStageAnatomy(self, stage, indentLines):
+    def addStageAnatomy(self, stage, indentLines, formatType):
         """
         Add the given ordered list on anatomy items to the report.
         """
+        global _prev_indent, _prev_depth, _depth
+        _prev_indent = 0
+        _prev_depth = 0
+        _depth = 0
+        _second_root = False
+
+        #print 'STAGE = ' + stage.getName()
+        #print '====='
+        
         for indentLine in indentLines:
-            self.addStageAnatomyLine(stage, indentLine)
+            self.addStageAnatomyLine(stage, indentLine, formatType)
 
 
 
-    def addStageAnatomyLine(self, stage, indentLine):
+    def addStageAnatomyLine(self, stage, indentLine, formatType):
         """
         Add this line in a single stage format.  This includes the EMAP id but
         not the stage name.
@@ -243,7 +282,7 @@ class ReportFile:
 
 
 
-    def addGroupKey(self):
+    def addGroupKey(self, formatType):
         """
         Adds the group symbol expanation to the report.
 
@@ -380,7 +419,7 @@ class LinearReportFile (ReportFile):
 
 
 
-    def addGroupKey(self):
+    def addGroupKey(self, formatType):
         """
         Adds the group symbol expanation to the report.
         """
@@ -411,17 +450,6 @@ class LinearReportFile (ReportFile):
 
 
 
-    def addAbstractAnatomy(self, indentLines):
-        """
-        Add the given ordered list on anatomy items to the report.
-        """
-        for indentLine in indentLines:
-            self.addAbstractAnatomyLine(indentLine)
-
-        return
-
-
-
     def formatSynonyms(self, anatomyLine):
         """
         Format the synonym list for this anatomyLine.
@@ -434,6 +462,380 @@ class LinearReportFile (ReportFile):
         return formattedSyns
 
 
+
+
+# ------------------------------------------------------------------
+# JSON REPORT FILE
+# ------------------------------------------------------------------
+
+class JsonReportFile (LinearReportFile):
+    """
+    JSON text anatomy report file class.  This class is used to create a
+    JSON text file show the anatomy.
+    """
+
+    def __init__(self, filePath, reportTree):
+        """
+        Initialise a plain text report file.  That is, open it.
+        """
+        self._reportTree = reportTree
+        self.__filePath = filePath
+        self._document = open(self.__filePath, "w")
+
+        return None
+
+
+    def closeReportFile(self, formatType):
+        """
+        Close a plain text report file.
+        """
+        global _depth, _second_root
+
+        if _second_root == False:
+            if formatType != CONTENT:
+                dispLine = "}}"
+                self.getDocument().write(dispLine)
+
+        count = 0
+        
+        while count < _depth:
+            if formatType != CONTENT:
+                dispLine = "]}}"
+                self.getDocument().write(dispLine)
+            count = count + 1
+        
+        if _second_root == True:
+            if formatType != CONTENT:
+                dispLine = "]}}"
+                self.getDocument().write(dispLine)
+            count = count + 1
+
+        if formatType == CONTENT:
+            dispLine = "]"
+            self.getDocument().write(dispLine)
+
+        _second_root = False
+            
+        self._document.close()
+        self._document = None
+        return
+
+
+    def addPageBreak(self):
+        """
+        Add a page break.
+
+        Text reports don'thave page breaks.  Generate a text separator instead.
+        """
+        return
+
+
+    def addH1(self, textLine):
+        """
+        Add a very large header line to a plain text file.
+        """
+        return
+
+
+
+    def addH2(self, textLine):
+        """
+        Add a large header line to a plain text file.
+        """
+
+        return
+
+
+
+    def addH3(self, textLine):
+        """
+        Add a normal header line to a plain text file.
+        """
+        return
+
+    def addGroupKey(self, formatType):
+        """
+        Adds the group symbol expanation to the report.
+        
+        Reset the file to start again from the root node 
+        """
+        global _depth, _count, _second_root
+
+        _count = _count - 1
+        
+        if formatType != CONTENT:
+            dispLine = "}}"
+            self.getDocument().write(dispLine)
+
+        count = 1
+        
+        while count < _depth:
+            if formatType != CONTENT:
+                dispLine = "]}}"
+                self.getDocument().write(dispLine)
+            count = count + 1
+
+        dispLine = "\n"
+        self.getDocument().write(dispLine)
+        
+        if formatType == CONTENT:
+            _second_root = False
+        else:
+            _second_root = False
+        
+        return
+
+
+    def addTextLine(self, textLine):
+        """
+        Add a normal line of text to an XML file.
+        """
+        self.getDocument().write(
+            textLine + "\n")
+        return
+
+
+
+    def addAbstractAnatomyLine(self, indentLine, formatType):
+        """
+        Add an anatomy line in abstract format.  This includes the EMAPA id and
+        the stage range.
+        """
+        global _prev_indent, _count, _prev_depth, _depth, _second_root
+
+        _count = _count + 1
+
+        if formatType == CONTENT:
+            if _count == 1: 
+                dispLine = "[\n"
+                self.getDocument().write(dispLine)
+            if _count > 1:
+                if _second_root == False:
+                    dispLine = ","
+                    self.getDocument().write(dispLine)
+                if _second_root == True:
+                    _second_root = False
+        
+        anatomyLine = indentLine.getLine()
+        partOf      = anatomyLine.getPartOf()
+        node        = anatomyLine.getNode()
+        startStage  = Stages.getByOid(partOf.getNodeStartStageOid())
+        endStage    = Stages.getByOid(partOf.getNodeEndStageOid())
+
+        indent     = " ".join(indentLine.getIndent())
+        if len(indent) > 0:
+            indent += " "
+        
+        indent_diff = 0
+        indent_diff = len(indent) - _prev_indent
+        
+        new_indent = indent.replace("|"," ")
+        indent = new_indent.replace("\\"," ")
+        new_indent = indent.replace("+"," ")
+            
+        _depth = 0
+        direction = ""
+        depth_diff = 0
+
+        if len(indent) == 0:
+            _depth = 0
+            direction = "Root Node "
+        else:
+            _depth = len(indent) / 2
+            if _depth == _prev_depth:
+                direction = "Same Depth"
+            if _depth > _prev_depth:
+                direction = "Increasing"
+            if _depth < _prev_depth:
+                direction = "Decreasing"
+
+        depth_diff = _prev_depth - _depth
+        count = 1
+            
+        if formatType != CONTENT:
+            if direction == "Increasing":
+                if _second_root == False:
+                    dispLine = ",\n\"children\":["
+                else:
+                    dispLine = ","
+                _second_root = False
+                self.getDocument().write(dispLine)
+        
+            if direction == "Decreasing":
+                while count <= depth_diff:
+                    if count == 1: 
+                        dispLine = "}}]}}"
+                    else:
+                        dispLine = "]}}"
+                    self.getDocument().write(dispLine)
+                    count = count + 1
+
+            if direction == "Same Depth":
+                dispLine = "}},\n"
+                self.getDocument().write(dispLine)
+
+            if direction == "Increasing":
+                dispLine = "\n"
+                self.getDocument().write(dispLine)
+
+            if direction == "Decreasing":
+                dispLine = ",\n"
+                self.getDocument().write(dispLine)
+
+        if direction == "Root Node " and _count > 1:
+            _second_root = True
+        else:
+            if formatType == CONTENT:
+                if _count > 1:
+                    if _second_root == False:
+                        dispLine = "\n"
+                        self.getDocument().write(dispLine)
+                dispLine = "{\"nodeId\":\"%s\",\"extId\":\"%s\",\"starts\":\"%s\",\"ends\":\"%s\",\"name\":\"%s\"}" % (
+                        _count,
+                        node.getPublicId().strip(" "),
+                        startStage.getName(),
+                        endStage.getName(),
+                        node.getComponentName()
+                        )
+                self.getDocument().write(dispLine)
+            if formatType == CONTENTSTRUCTURE:
+                dispLine = "{\"node\":{\"nodeId\":\"%s\",\"extId\":\"%s\",\"starts\":\"%s\",\"ends\":\"%s\",\"name\":\"%s\"" % (
+                    _count,
+                    node.getPublicId().strip(" "),
+                    startStage.getName(),
+                    endStage.getName(),
+                    node.getComponentName()
+                    )
+                self.getDocument().write(dispLine)
+            if formatType == STRUCTURE:
+                dispLine = "{\"node\":{\"nodeId\":\"%s\"" % (
+                    _count
+                    )
+                self.getDocument().write(dispLine)
+
+        _prev_indent = len(indent)
+        _prev_depth = _depth
+
+        return
+
+
+    def addStageAnatomyLine(self, stage, indentLine, formatType):
+        """
+        Add this line in a single stage format.  This includes the EMAP id but
+        not the stage name.
+        """
+        global _prev_indent, _count, _prev_depth, _depth, _second_root
+
+        _count = _count + 1
+        
+        if formatType == CONTENT:
+            if _count == 1: 
+                dispLine = "[\n"
+                self.getDocument().write(dispLine)
+            if _count > 1:
+                if _second_root == False:
+                    dispLine = ""
+                if _second_root == True:
+                    dispLine = ""
+                    _second_root = False
+                self.getDocument().write(dispLine)
+
+        anatomyLine = indentLine.getLine()
+        node       = anatomyLine.getNode()
+        timedNode  = AnaTimedNodeDb.getByNodeStage(node.getOid(),
+                                                   stage.getOid())
+        #print "stage.getOid() = %d" % stage.getOid()
+        #print "node.getOid() = %d" % node.getOid() 
+        #print "timedNode.getPublicId() = " + timedNode.getPublicId() 
+        indent     = " ".join(indentLine.getIndent())
+        if len(indent) > 0:
+            indent += " "
+        
+        indent_diff = 0
+        indent_diff = len(indent) - _prev_indent
+        
+        new_indent = indent.replace("|"," ")
+        indent = new_indent.replace("\\"," ")
+        new_indent = indent.replace("+"," ")
+            
+        _depth = 0
+        direction = ""
+        depth_diff = 0
+
+        if len(indent) == 0:
+            _depth = 0
+            direction = "Root Node "
+        else:
+            _depth = len(indent) / 2
+            if _depth == _prev_depth:
+                direction = "Same Depth"
+            if _depth > _prev_depth:
+                direction = "Increasing"
+            if _depth < _prev_depth:
+                direction = "Decreasing"
+
+        depth_diff = _prev_depth - _depth
+        count = 1
+            
+        if formatType != CONTENT:
+            if direction == "Increasing":
+                if _second_root == False:
+                    dispLine = ",\n\"children\":["
+                else:
+                    dispLine = ","
+                _second_root = False
+                self.getDocument().write(dispLine)
+        
+            if direction == "Decreasing":
+                while count <= depth_diff:
+                    if count == 1: 
+                        dispLine = "}}]}}"
+                    else:
+                        dispLine = "]}}"
+                    self.getDocument().write(dispLine)
+                    count = count + 1
+
+            if direction == "Same Depth":
+                dispLine = "}},\n"
+                self.getDocument().write(dispLine)
+
+            if direction == "Increasing":
+                dispLine = "\n"
+                self.getDocument().write(dispLine)
+
+            if direction == "Decreasing":
+                dispLine = ",\n"
+                self.getDocument().write(dispLine)
+
+        if direction == "Root Node " and _count > 1:
+            _second_root = True
+        else:
+            if formatType == CONTENT:
+                if _count > 1:
+                    if _second_root == False:
+                        dispLine = ",\n"
+                        self.getDocument().write(dispLine)
+                dispLine = "{\"nodeId\":\"%s\",\"extId\":\"%s\",\"name\":\"%s\"}" % (
+                    _count,
+                    timedNode.getPublicId().strip(" "),
+                    node.getComponentName()
+                    )
+            if formatType == CONTENTSTRUCTURE:
+                dispLine = "{\"node\":{\"nodeId\":\"%s\",\"extId\":\"%s\",\"name\":\"%s\"" % (
+                    _count,
+                    timedNode.getPublicId().strip(" "),
+                    node.getComponentName()
+                    )
+            if formatType == STRUCTURE:
+                dispLine = "{\"node\":{\"nodeId\":\"%s\"" % (
+                    _count
+                    )
+            self.getDocument().write(dispLine)
+
+        _prev_indent = len(indent)
+        _prev_depth = _depth
+
+        return
 
 
 # ------------------------------------------------------------------
@@ -465,7 +867,7 @@ class TxtReportFile (LinearReportFile):
         return None
 
 
-    def closeReportFile(self):
+    def closeReportFile(self, formatType):
         """
         Close a plain text report file.
         """
@@ -542,7 +944,7 @@ class TxtReportFile (LinearReportFile):
 
 
 
-    def addAbstractAnatomyLine(self, indentLine):
+    def addAbstractAnatomyLine(self, indentLine, formatType):
         """
         Add an anatomy line in abstract format.  This includes the EMAPA id and
         the stage range.
@@ -569,7 +971,7 @@ class TxtReportFile (LinearReportFile):
 
 
 
-    def addStageAnatomyLine(self, stage, indentLine):
+    def addStageAnatomyLine(self, stage, indentLine, formatType):
         """
         Add this line in a single stage format.  This includes the EMAP id but
         not the stage name.
@@ -631,7 +1033,7 @@ class RtfReportFile (LinearReportFile):
         return None
 
 
-    def closeReportFile(self):
+    def closeReportFile(self, formatType):
         """
         Close an RTF report file.
         """
@@ -763,7 +1165,7 @@ class RtfReportFile (LinearReportFile):
 
 
 
-    def addAbstractAnatomyLine(self, indentLine):
+    def addAbstractAnatomyLine(self, indentLine, formatType):
         """
         Add an anatomy line in abstract format.  This includes the EMAPA id and
         the stage range.
@@ -796,7 +1198,7 @@ class RtfReportFile (LinearReportFile):
 
 
 
-    def addStageAnatomyLine(self, stage, indentLine):
+    def addStageAnatomyLine(self, stage, indentLine, formatType):
         """
         Add this line in a single stage format.  This includes the EMAP id but
         not the stage name.
@@ -861,7 +1263,7 @@ class XmlReportFile (ReportFile):
         return None
 
 
-    def closeReportFile(self):
+    def closeReportFile(self, formatType):
         """
         Close an XML report file.
         """
@@ -932,7 +1334,7 @@ class XmlReportFile (ReportFile):
 
 
 
-    def addGroupKey(self):
+    def addGroupKey(self, formatType):
         """
         Adds the group symbol expanation to the report.
         """
@@ -976,12 +1378,12 @@ class XmlReportFile (ReportFile):
 
 
 
-    def addAbstractAnatomy(self, indentLines):
+    def addAbstractAnatomy(self, indentLines, formatType):
         """
         Add the given ordered list on anatomy items to the report.
         """
         for indentLine in indentLines:
-            self.addAbstractAnatomyLine(indentLine)
+            self.addAbstractAnatomyLine(indentLine, formatType)
 
         return
 
@@ -991,7 +1393,7 @@ class XmlReportFile (ReportFile):
     # It should never be called for XML.
 
 
-    def addAbstractAnatomyLine(self, indentLine):
+    def addAbstractAnatomyLine(self, indentLine, formatType):
         """
         Add an anatomy line in abstract format.  This includes the EMAPA id and
         the stage range.
@@ -1024,7 +1426,7 @@ class XmlReportFile (ReportFile):
 
 
 
-    def addStageAnatomyLine(self, stage, indentLine):
+    def addStageAnatomyLine(self, stage, indentLine, formatType):
         """
         Add this line in a single stage format.  This includes the EMAP id but
         not the stage name.
@@ -1102,6 +1504,8 @@ def _openReportFile(filePath, reportTree, format):
         reportFile = RtfReportFile(filePath, reportTree)
     elif format == XML:
         reportFile = XmlReportFile(filePath, reportTree)
+    elif format == JSON:
+        reportFile = JsonReportFile(filePath, reportTree)
     else:
         Util.fatalError([
             "Given format '" + format + "' in list of supported formats, " +
@@ -1111,77 +1515,92 @@ def _openReportFile(filePath, reportTree, format):
 
 
 
-def _writeAbstractGroupsEmbeddedReport(reportTree, reportFile):
+def _writeAbstractGroupsEmbeddedReport(reportTree, reportFile, format, formatType):
     """
     Write an abstract report with groups shown in same tree as
     primary paths.  An abstract report shows the entire anatomy,
     including the stage window for each item.
     """
-    reportFile.addGroupKey()
+    global _count
+    _count = 0
+
+    if format != JSON:
+       reportFile.addGroupKey(formatType)
 
     # report on every line in tree.
     indentLines = reportTree.genAbstractAllList()
-    reportFile.addAbstractAnatomy(indentLines)
+    reportFile.addAbstractAnatomy(indentLines, formatType)
 
     return
 
 
 
-def _writeAbstractGroupsTrailingReport(reportTree, reportFile):
+def _writeAbstractGroupsTrailingReport(reportTree, reportFile, formatType):
     """
     Write an abstract report first showing only
     primary paths, and then again showing only group paths plus minimal
     context.
     """
+    global _count
+    _count = 0
+
     # Generate tree without groups.
     reportFile.addExcludingGroupsHeader("Abstract")
     indentLines = reportTree.genAbstractExcludingGroupsList()
-    reportFile.addAbstractAnatomy(indentLines)
+    reportFile.addAbstractAnatomy(indentLines, formatType)
 
     # Generate tree showing only groups.
     reportFile.addPageBreak()
     reportFile.addOnlyGroupsHeader("Abstract")
-    reportFile.addGroupKey()
+    reportFile.addGroupKey(formatType)
     indentLines = reportTree.genAbstractOnlyGroupsList()
-    reportFile.addAbstractAnatomy(indentLines)
+    reportFile.addAbstractAnatomy(indentLines, formatType)
 
     return
 
 
 
-def _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage):
+def _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage, format, formatType):
     """
     Write a report for the given stage in the anatomy, showing groups and
     primary paths in the same tree.
     """
+    global _count
+    _count = 0
+
     reportFile.addStageHeader(stage)
-    reportFile.addGroupKey()
+    
+    if format != JSON:
+       reportFile.addGroupKey(formatType)
 
     indentLines = reportTree.genStageAllList(stage)
-    reportFile.addStageAnatomy(stage, indentLines)
+    reportFile.addStageAnatomy(stage, indentLines, formatType)
 
     return
 
 
-def _writeStageGroupsTrailingReport(reportTree, reportFile, stage):
+def _writeStageGroupsTrailingReport(reportTree, reportFile, stage, formatType):
     """
     Write a report for the given stage in the anatomy, splitting it into two
     parts, one showing everything but groups, and the second showing only
     groups plus minimal context.
     """
+    global _count
+    _count = 0
+
     reportFile.addStageHeader(stage)
 
     # Generate tree without groups.
     reportFile.addExcludingGroupsHeader(stage.getName())
     indentLines = reportTree.genStageExcludingGroupsList(stage)
-    reportFile.addStageAnatomy(stage, indentLines)
+    reportFile.addStageAnatomy(stage, indentLines, formatType)
 
     # Generate tree showing only groups.
     reportFile.addPageBreak()
     reportFile.addOnlyGroupsHeader(stage.getName())
-    reportFile.addGroupKey()
+    reportFile.addGroupKey(formatType)
     indentLines = reportTree.genStageOnlyGroupsList(stage)
-    reportFile.addStageAnatomy(stage, indentLines)
+    reportFile.addStageAnatomy(stage, indentLines, formatType)
 
     return
 
@@ -1192,12 +1611,22 @@ def _writeStageGroupsTrailingReport(reportTree, reportFile, stage):
 # ------------------------------------------------------------------
 
 
-def writeAbstractReport(reportTree, outputDir, format, reportType):
+def writeAbstractReport(reportTree, outputDir, format, reportType, formatType):
     """
     Write an abstract report.  An abstract report shows the entire anatomy,
     including the stage window for each item.
     """
-    filePath = (outputDir + "/" +
+    if format == JSON:
+        filePath = (outputDir + "/" +
+                FORMATS[format][FORMAT_SUBDIRECTORY] + "/Abstract/" +
+                FORMAT_TYPES[formatType][FORMAT_TYPE_NAME] +
+                "/Abstract" +
+                REPORT_TYPES[reportType][REPORT_TYPE_NAME] + 
+                FORMAT_TYPES[formatType][FORMAT_TYPE_NAME] +
+                "." +
+                FORMATS[format][FORMAT_EXTENSION])
+    else:
+        filePath = (outputDir + "/" +
                 FORMATS[format][FORMAT_SUBDIRECTORY] + "/Abstract/Abstract" +
                 REPORT_TYPES[reportType][REPORT_TYPE_NAME] + "." +
                 FORMATS[format][FORMAT_EXTENSION])
@@ -1206,18 +1635,18 @@ def writeAbstractReport(reportTree, outputDir, format, reportType):
     reportFile.addReportHeader()
 
     if reportType == GROUPS_EMBEDDED:
-        _writeAbstractGroupsEmbeddedReport(reportTree, reportFile)
+        _writeAbstractGroupsEmbeddedReport(reportTree, reportFile, format, formatType)
     elif reportType == GROUPS_TRAILING:
-        _writeAbstractGroupsTrailingReport(reportTree, reportFile)
+        _writeAbstractGroupsTrailingReport(reportTree, reportFile, formatType)
 
-    reportFile.closeReportFile()
+    reportFile.closeReportFile(formatType)
 
     return
 
 
 
 def writeStageReport(reportTree, outputDir, format, reportType,
-                     togetherness):
+                     togetherness, formatType):
     """
     Write stage specific reports, one for each stage.
     """
@@ -1232,12 +1661,29 @@ def writeStageReport(reportTree, outputDir, format, reportType,
             "XML file.  Therefore, THE REQUESTED REPORT WILL NOT BE GENERATED."])
         return None
 
-    reportDir = (outputDir + "/" +
+    if format == JSON and togetherness == CONCATENATED:
+        # A Concatenated JSON stage report is a nonsensical request.
+        #  Therefore it will not be produced and a warning generated.
+        Util.warning([
+            "You have requested an JSON file that would include a separate",
+            "tree for each stage, all in the same JSON file.  This is NOT",
+            "reasonable request, as a JSON file should only have a single ",
+            "root node.  Therefore, THE REQUESTED REPORT WILL NOT BE ",
+            "GENERATED."])
+        return None
+    
+    if format == JSON:
+        reportDir = (outputDir + "/" +
+                FORMATS[format][FORMAT_SUBDIRECTORY] + "/ByStage/" +
+                REPORT_TYPES[reportType][REPORT_TYPE_NAME] + "/" +
+                FORMAT_TYPES[formatType][FORMAT_TYPE_NAME])
+    else:
+        reportDir = (outputDir + "/" +
                  FORMATS[format][FORMAT_SUBDIRECTORY] + "/ByStage/" +
                  REPORT_TYPES[reportType][REPORT_TYPE_NAME])
     reportFile = None
 
-    if togetherness == CONCATENATED:
+    if togetherness == CONCATENATED and format != JSON:
         # Open one report file.
         fileName = (reportDir + "/AllStages" +
                     REPORT_TYPES[reportType][REPORT_TYPE_NAME] + "." +
@@ -1247,7 +1693,7 @@ def writeStageReport(reportTree, outputDir, format, reportType,
 
     for stage in Stages.SequenceIterator():
 
-        if togetherness == SEPARATE:
+        if togetherness == SEPARATE and format != JSON:
             # open report file for each stage
             fileName = (reportDir + "/" + stage.getName() +
                         REPORT_TYPES[reportType][REPORT_TYPE_NAME] +
@@ -1255,17 +1701,26 @@ def writeStageReport(reportTree, outputDir, format, reportType,
             reportFile = _openReportFile(fileName, reportTree, format)
             reportFile.addReportHeader()
 
+        if togetherness == SEPARATE and format == JSON:
+            # open report file for each stage
+            fileName = (reportDir + "/" + stage.getName() +
+                        REPORT_TYPES[reportType][REPORT_TYPE_NAME] +
+                        FORMAT_TYPES[formatType][FORMAT_TYPE_NAME] +
+                        "." + FORMATS[format][FORMAT_EXTENSION])
+            reportFile = _openReportFile(fileName, reportTree, format)
+            reportFile.addReportHeader()
+
         if reportType == GROUPS_EMBEDDED:
-            _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage)
+            _writeStageGroupsEmbeddedReport(reportTree, reportFile, stage, format, formatType)
         elif reportType == GROUPS_TRAILING:
-            _writeStageGroupsTrailingReport(reportTree, reportFile, stage)
+            _writeStageGroupsTrailingReport(reportTree, reportFile, stage, formatType)
 
         if togetherness == SEPARATE:
-            reportFile.closeReportFile()
+            reportFile.closeReportFile(formatType)
         else:
             reportFile.addPageBreak()
 
-    if togetherness == CONCATENATED:
-        reportFile.closeReportFile()
+    if togetherness == CONCATENATED and format != JSON:
+        reportFile.closeReportFile(formatType)
 
     return

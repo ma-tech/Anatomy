@@ -978,7 +978,7 @@ insert into parentChildApo_temp
   from ANAD_PART_OF parent, ANAD_PART_OF child, nextParentApo_temp
   where parent.APO_OID = NPAT_PARENT_APO_FK
     /* identify immediate children of each parent node */
-    and parent.APO_DEPTH    = CAST(child.APO_DEPTH as UNSIGNED) - 1
+    and parent.APO_DEPTH  + 1 =  child.APO_DEPTH
     and parent.APO_SEQUENCE < child.APO_SEQUENCE
     and child.APO_SEQUENCE < NPAT_NEXT_PARENT_SEQUENCE;
 
@@ -1212,7 +1212,7 @@ select POP_PERSPECTIVE_FK   as "Perspective",
     and NPOP_PARENT_APO_FK  = parent.APO_OID
     and NPOP_PERSPECTIVE_FK = POP_PERSPECTIVE_FK
     /* identify immediate children of each parent node */
-    and parent.APO_DEPTH    = child.APO_DEPTH - 1
+    and parent.APO_DEPTH + 1 = child.APO_DEPTH
     and parent.APO_SEQUENCE < child.APO_SEQUENCE
     and child.APO_SEQUENCE < NPOP_NEXT_PARENT_SEQUENCE
     and (

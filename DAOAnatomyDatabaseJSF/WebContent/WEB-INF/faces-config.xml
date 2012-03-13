@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+    <application>
+        <message-bundle>messages</message-bundle>
+    </application>
+
+    <converter>
+        <converter-for-class>java.lang.String</converter-for-class>
+        <converter-class>Model.EmptyToNullConverter</converter-class>
+    </converter>
+
+    <managed-bean>
+    	<managed-bean-name>config</managed-bean-name>
+        <managed-bean-class>WebApp.Config</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>TestBean</managed-bean-name>
+        <managed-bean-class>Beans.TestBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+    	<managed-bean-name>SynonymBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.SynonymBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>NodeBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.NodeBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>TimedNodeBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.TimedNodeBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>StageBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.StageBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>ThingBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.ThingBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>RelationshipBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.RelationshipBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>VersionBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.VersionBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>SourceBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.SourceBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>EditorBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.EditorBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>PerspectiveAmbitBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.PerspectiveAmbitBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfFKBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfFKBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKBackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesJsonFKBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesJsonFKBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+    	<managed-bean-name>DerivedRelationshipTransitiveBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedRelationshipTransitiveBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS01BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS01BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS02BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS02BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS03BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS03BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS04BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS04BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS05BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS05BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS06BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS06BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS07BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS07BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS08BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS08BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS09BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS09BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS10BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS10BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS11BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS11BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS12BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS12BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS13BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS13BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS14BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS14BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS15BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS15BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS16BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS16BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS17BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS17BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS18BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS18BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS19BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS19BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS20BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS20BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS21BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS21BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS22BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS22BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS23BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS23BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS24BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS24BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS25BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS25BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS26BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS26BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS27BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS27BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>DerivedPartOfPerspectivesFKTS28BackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKTS28BackingBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+</faces-config>

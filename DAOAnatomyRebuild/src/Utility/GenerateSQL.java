@@ -1,40 +1,39 @@
 /*
-################################################################################
-# Project:      Anatomy
-#
-# Title:        GenerateSQL.java
-#
-# Date:         2008
-#
-# Author:       MeiSze Lam and Attila Gyenesi
-#
-# Copyright:    2009 Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; September 2010; Tidy up and Document
-#
-################################################################################
+*----------------------------------------------------------------------------------------------
+* Project:      Anatomy
+*
+* Title:        GenerateSQL.java
+*
+* Date:         2008
+*
+* Author:       MeiSze Lam and Attila Gyenesi
+*
+* Copyright:    2009 Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  Produce a tree structure from an ArrayList of OBO Components
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; September 2010; Tidy up and Document
+* Mike Wicks; March 2012; Completely rewrite to use a standardised DAO Layer
+*
+*----------------------------------------------------------------------------------------------
 */
 
 package Utility;
 
-import java.text.DateFormat;
-
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
 import java.util.Vector;
 
 import DAOLayer.DAOException;
@@ -59,20 +58,16 @@ import DAOLayer.ThingDAO;
 import DAOLayer.TimedNodeDAO;
 import DAOLayer.VersionDAO;
 
-import DAOModel.DerivedPartOf;
 import DAOModel.JOINNodeRelationship;
 import DAOModel.JOINNodeRelationshipNode;
 import DAOModel.JOINNodeRelationshipRelationshipProject;
 import DAOModel.JOINRelationshipProjectRelationship;
-import DAOModel.JOINTimedNodeNodeStage;
 import DAOModel.JOINTimedNodeStage;
 import DAOModel.Log;
 import DAOModel.Node;
-import DAOModel.Project;
 import DAOModel.Relationship;
 import DAOModel.RelationshipProject;
 import DAOModel.Stage;
-import DAOModel.StageRange;
 import DAOModel.Synonym;
 import DAOModel.Thing;
 import DAOModel.TimedNode;

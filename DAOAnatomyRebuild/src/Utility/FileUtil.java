@@ -1,4 +1,41 @@
 /*
+*---------------------------------------------------------------------------------------------
+* Project:      Anatomy
+*
+* Title:        FileUtil.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012 Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  Useful File utilities NOT USED in DAOAnatomyRebuild YET!!!!
+*                
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; March 2012; Create Class
+*
+*---------------------------------------------------------------------------------------------
+*/
+
+/*
+ * Useful file system level utilities.
+ * 
+ * @author BalusC
+ * @link http://balusc.blogspot.com/2007/09/FileUtil.html
+ */
+
+/*
  * net/balusc/util/FileUtil.java
  * 
  * Copyright (C) 2007 BalusC
@@ -35,12 +72,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Useful file system level utilities.
- * 
- * @author BalusC
- * @link http://balusc.blogspot.com/2007/09/FileUtil.html
- */
 public final class FileUtil {
 
     // Init ---------------------------------------------------------------------------------------

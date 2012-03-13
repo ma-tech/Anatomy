@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.Calendar;
 
-
 import DAOLayer.DAOException;
 import DAOLayer.DAOFactory;
 import DAOLayer.JOINNodeRelationshipRelationshipProjectDAO;
@@ -60,7 +59,6 @@ import DAOModel.Project;
 
 import OBOModel.ComponentFile;
 import OBOModel.Relation;
-
 
 
 public class ImportDatabase {

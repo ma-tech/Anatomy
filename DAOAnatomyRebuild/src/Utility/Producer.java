@@ -18,7 +18,7 @@
 #
 # Version: 1
 #
-# Description:  Parse an OBO File, and return an ArrayList of OBO Components
+# Description:  Produced an OBO File from an ArrayList of OBO Components
 #
 # Maintenance:  Log changes below, with most recent at top of list.
 #

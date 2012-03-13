@@ -41,9 +41,6 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.Calendar;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-
 import OBOModel.ComponentFile;
 import OBOModel.Relation;
 
@@ -235,7 +232,7 @@ public class ImportFile {
                 }
                 
             }
-            outputFile.write("\\n");
+            outputFile.write("\n");
             outputFile.close(); // close outputFile
         }
         catch(IOException io) {

@@ -1,29 +1,33 @@
 /*
-################################################################################
-# Project:      Anatomy
-#
-# Title:        MapBuilder.java
-#
-# Date:         2008
-#
-# Author:       MeiSze Lam and Attila Gyenesi
-#
-# Copyright:    2009 Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; September 2010; Tidy up and Document
-#
-################################################################################
+*---------------------------------------------------------------------------------------------
+* Project:      Anatomy
+*
+* Title:        MapBuilder.java
+*
+* Date:         2008
+*
+* Author:       MeiSze Lam and Attila Gyenesi
+*
+* Copyright:    2009 Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This Class extracts a list of components from the database, and builds a list 
+*                in the OBO style.
+*                
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; September 2010; Tidy up and Document
+* Mike Wicks; March 2012; More rejigging
+*
+*---------------------------------------------------------------------------------------------
 */
 
 package Utility;

@@ -47,7 +47,7 @@ import org.geneontology.oboedit.datamodel.impl.OBOClassImpl;
 import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
 import OBOModel.ComponentFile;
-import OBOModel.Relation;
+
 
 public class Parser {
 

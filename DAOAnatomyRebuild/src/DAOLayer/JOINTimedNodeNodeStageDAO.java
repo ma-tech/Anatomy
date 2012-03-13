@@ -1,3 +1,40 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINTimedNodeNodeStageDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the 
+*                JOINTimedNodeNodeStage DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the JOINTimedNodeNodeStage DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +49,6 @@ import java.util.List;
 
 import DAOModel.JOINTimedNodeNodeStage;
 
-/*
- * This class represents a SQL Database Access Object for the JOINTimedNodeNodeStage DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the JOINTimedNodeNodeStage DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class JOINTimedNodeNodeStageDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -33,20 +61,19 @@ public final class JOINTimedNodeNodeStageDAO {
         "JOIN ANA_NODE ON ANO_OID = ATN_NODE_FK " +
         "JOIN ANA_STAGE ON STG_OID = ATN_STAGE_FK";
         
-    
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a JOINTimedNodeNodeStage DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     JOINTimedNodeNodeStageDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+       
+    	this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -55,7 +82,6 @@ public final class JOINTimedNodeNodeStageDAO {
     public List<JOINTimedNodeNodeStage> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -86,9 +112,7 @@ public final class JOINTimedNodeNodeStageDAO {
         }
 
         return timednodes;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -117,7 +141,5 @@ public final class JOINTimedNodeNodeStageDAO {
        		resultSet.getString("STG_SHORT_EXTRA_TEXT"),
        		resultSet.getString("STG_PUBLIC_ID")
         );
-    	
     }
-
 }

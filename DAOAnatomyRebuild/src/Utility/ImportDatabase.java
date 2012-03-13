@@ -158,10 +158,10 @@ public class ImportDatabase {
 
                 // 1_2_4: query for the node's start and end stage---------------------------------------------
                 List<JOINTimedNodeStage> tnsJoins = new ArrayList<JOINTimedNodeStage>();
-                tnsJoins = timednodestagejoinDAO.listAllByNodeFkOrderByStageSequence( obocomponent.getDBID() );
+                tnsJoins = timednodestagejoinDAO.listAllByNodeFkOrderByStageSequence( Long.valueOf(obocomponent.getDBID()) );
                 Iterator<JOINTimedNodeStage> iteratorTnsJoin = tnsJoins.iterator();
                 
-                int rowCount = timednodestagejoinDAO.countAllByNodeFk( obocomponent.getDBID() );
+                int rowCount = timednodestagejoinDAO.countAllByNodeFk( Long.valueOf(obocomponent.getDBID()) );
           		int i = 0;
 
           		obocomponent.setStart( "TS01" );

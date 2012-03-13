@@ -1,3 +1,40 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINNodeRelationshipRelationshipProjectDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the 
+*                JOINNodeRelationshipRelationshipProject DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the JOINNodeRelationshipRelationshipProject DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +49,6 @@ import java.util.List;
 
 import DAOModel.JOINNodeRelationshipRelationshipProject;
 
-/*
- * This class represents a SQL Database Access Object for the JOINNodeRelationshipRelationshipProject DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the JOINNodeRelationshipRelationshipProject DTO and a SQL database.
- *
- * @link http://balusc.bnodespot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class JOINNodeRelationshipRelationshipProjectDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -52,23 +81,20 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
         "JOIN ANA_RELATIONSHIP_PROJECT ON REL_OID = RLP_RELATIONSHIP_FK " +
         "WHERE REL_CHILD_FK = ? " +
         "AND RLP_PROJECT_FK = ? ";
-        
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a JOINNodeRelationshipRelationshipProject DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     JOINNodeRelationshipRelationshipProjectDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -77,7 +103,6 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
     public List<JOINNodeRelationshipRelationshipProject> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -86,7 +111,6 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
     public List<JOINNodeRelationshipRelationshipProject> listAllByChildFK(Long childFK) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_CHILD, childFK);
-        
     }
     
     /*
@@ -95,7 +119,6 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
     public List<JOINNodeRelationshipRelationshipProject> listAllByChildAndProject(Long childFK, String project) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_CHILD_AND_PROJECT, childFK, project);
-        
     }
     
     /*
@@ -126,9 +149,7 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
         }
 
         return nodes;
-        
     }
-    
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -153,7 +174,5 @@ public final class JOINNodeRelationshipRelationshipProjectDAO {
        		resultSet.getString("RLP_PROJECT_FK"),
        		resultSet.getLong("RLP_SEQUENCE") 
         );
-    	
     }
-
 }

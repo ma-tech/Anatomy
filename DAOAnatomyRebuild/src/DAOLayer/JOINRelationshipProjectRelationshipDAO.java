@@ -1,3 +1,40 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINRelationshipProjectRelationshipDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the 
+*                JOINRelationshipProjectRelationship DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the JOINRelationshipProjectRelationship DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +49,6 @@ import java.util.List;
 
 import DAOModel.JOINRelationshipProjectRelationship;
 
-/*
- * This class represents a SQL Database Access Object for the JOINRelationshipProjectRelationship DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the JOINRelationshipProjectRelationship DTO and a SQL database.
- *
- * @link http://balusc.bnodespot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class JOINRelationshipProjectRelationshipDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -49,23 +78,20 @@ public final class JOINRelationshipProjectRelationshipDAO {
         "AND RLP_PROJECT_FK = ? " +
         "AND RLP_OID NOT IN ? " +
         "ORDER BY RLP_SEQUENCE ";
-            
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a JOINRelationshipProjectRelationship DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     JOINRelationshipProjectRelationshipDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -74,7 +100,6 @@ public final class JOINRelationshipProjectRelationshipDAO {
     public List<JOINRelationshipProjectRelationship> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -83,7 +108,6 @@ public final class JOINRelationshipProjectRelationshipDAO {
     public List<JOINRelationshipProjectRelationship> listAllByChildAndProject(Long childFK, String project) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_CHILD_AND_PROJECT, childFK, project);
-        
     }
     
     /*
@@ -92,7 +116,6 @@ public final class JOINRelationshipProjectRelationshipDAO {
     public List<JOINRelationshipProjectRelationship> listAllByParentAndProjectNotIn(Long parentFK, String project, String notIn) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_PARENT_AND_PROJECT_NOT_IN, parentFK, project, notIn);
-        
     }
     
     /*
@@ -123,9 +146,7 @@ public final class JOINRelationshipProjectRelationshipDAO {
         }
 
         return nodes;
-        
     }
-    
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -143,7 +164,5 @@ public final class JOINRelationshipProjectRelationshipDAO {
        		resultSet.getLong("REL_CHILD_FK"), 
        		resultSet.getLong("REL_PARENT_FK")
         );
-    	
     }
-
 }

@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINNodeRelationshipNodeDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the JOINNodeRelationshipNode DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the JOINNodeRelationshipNode DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.JOINNodeRelationshipNode;
 
-/*
- * This class represents a SQL Database Access Object for the JOINNodeRelationshipNode DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the JOINNodeRelationshipNode DTO and a SQL database.
- *
- * @link http://balusc.bnoderelationshipnodespot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class JOINNodeRelationshipNodeDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -54,9 +82,7 @@ public final class JOINNodeRelationshipNodeDAO {
     JOINNodeRelationshipNodeDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -65,16 +91,14 @@ public final class JOINNodeRelationshipNodeDAO {
     public List<JOINNodeRelationshipNode> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
-    
+
     /*
      * Returns a list of ALL rows, otherwise null.
      */
     public List<JOINNodeRelationshipNode> listAllByParentId(String parentId) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_PARENT_ID, parentId);
-        
     }
     
     /*
@@ -105,9 +129,7 @@ public final class JOINNodeRelationshipNodeDAO {
         }
 
         return noderelationshipnodes;
-        
     }
-    
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -135,7 +157,5 @@ public final class JOINNodeRelationshipNodeDAO {
        		resultSet.getString("b.ANO_PUBLIC_ID"), 
        		resultSet.getString("b.ANO_DESCRIPTION")
         );
-    	
     }
-
 }

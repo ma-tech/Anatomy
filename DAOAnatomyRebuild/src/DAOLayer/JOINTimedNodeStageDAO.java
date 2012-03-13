@@ -1,3 +1,40 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINTimedNodeStageDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the 
+*                JOINTimedNodeStage DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the JOINTimedNodeStage DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +49,6 @@ import java.util.List;
 
 import DAOModel.JOINTimedNodeStage;
 
-/*
- * This class represents a SQL Database Access Object for the JOINTimedNodeStage DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the JOINTimedNodeStage DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class JOINTimedNodeStageDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -80,87 +108,80 @@ public final class JOINTimedNodeStageDAO {
         "AND STG_SEQUENCE = ? " +
         ") " +
         "AND STG_SEQUENCE = ?";
-            
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a JOINTimedNodeStage DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     JOINTimedNodeStageDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL jointimednodestages, otherwise null.
      */
     public List<JOINTimedNodeStage> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(String nodeFk) throws DAOException {
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(Long nodeFk) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_ORDER_BY_STAGE_NAME, nodeFk);
-        
     }
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Sequence, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(String nodeFk) throws DAOException {
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(Long nodeFk) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_ORDER_BY_STAGE_SEQUENCE, nodeFk);
-        
     }
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(String nodeFk, String stageName) throws DAOException {
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(Long nodeFk, String stageName) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_AND_STAGE_NAME, nodeFk, stageName);
-        
     }
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL jointimednodestages by node Fk and Sequence, otherwise null.
      */
-    public int countAllByNodeFk(String nodeFk) throws DAOException {
-    	
-        return count(SQL_COUNT_ALL_BY_NODE_FK, nodeFk);
-        
-    }
-    
-    /*
-     * Returns a list of ALL timednodes, otherwise null.
-     */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(String nodeFk, String sequence) throws DAOException {
+    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(Long nodeFk, String sequence) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_AND_SEQUENCE, nodeFk, sequence);
-        
     }
     
     /*
-     * Returns a list of all timednodes from the database. 
-     *  The list is never null and is empty when the database does not contain any timednodes.
+     * Returns a count of ALL jointimednodestages by node FK, otherwise null.
+     */
+    public int countAllByNodeFk(Long nodeFk) throws DAOException {
+    	
+        return count(SQL_COUNT_ALL_BY_NODE_FK, nodeFk);
+    }
+    
+    /*
+     * Returns a list of all jointimednodestages from the database. 
+     *  The list is never null and is empty when the database does not contain any jointimednodestages.
      */
     public List<JOINTimedNodeStage> list(String sql, Object... values) throws DAOException {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<JOINTimedNodeStage> timednodes = new ArrayList<JOINTimedNodeStage>();
+        List<JOINTimedNodeStage> jointimednodestages = new ArrayList<JOINTimedNodeStage>();
 
         try {
             connection = daoFactory.getConnection();
@@ -168,7 +189,7 @@ public final class JOINTimedNodeStageDAO {
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
-                timednodes.add(mapJOINTimedNodeStage(resultSet));
+                jointimednodestages.add(mapJOINTimedNodeStage(resultSet));
             }
         } 
         catch (SQLException e) {
@@ -178,14 +199,13 @@ public final class JOINTimedNodeStageDAO {
             close(connection, preparedStatement, resultSet);
         }
 
-        return timednodes;
-        
+        return jointimednodestages;
     }
     
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String sql, String key) throws DAOException {
+    public int count(String sql, Long key) throws DAOException {
 
         Object[] values = {
         		key
@@ -215,11 +235,7 @@ public final class JOINTimedNodeStageDAO {
         }
 
         return count;
-        
     }
-
-
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -241,7 +257,5 @@ public final class JOINTimedNodeStageDAO {
        		resultSet.getString("STG_SHORT_EXTRA_TEXT"),
        		resultSet.getString("STG_PUBLIC_ID")
         );
-    	
     }
-
 }

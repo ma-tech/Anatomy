@@ -2048,7 +2048,7 @@ public class GenerateSQL {
             for (ComponentFile component: diffStageTermList){
 
             	//get stage range from database
-            	ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkOrderByStageSequence(component.getDBID());
+            	ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkOrderByStageSequence(Long.valueOf(component.getDBID()));
             	
             	JOINTimedNodeStage jointimednodestagefirst = jointimednodestages.get(0);
             	JOINTimedNodeStage jointimednodestagelast = jointimednodestages.get(jointimednodestages.size() - 1);
@@ -2188,7 +2188,7 @@ public class GenerateSQL {
 
                         stageName = component.getStart();
 
-                        ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkAndStageName(component.getDBID(), stageName);
+                        ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkAndStageName(Long.valueOf(component.getDBID()), stageName);
 
                       	Iterator<JOINTimedNodeStage> iteratorjointimednodestage = jointimednodestages.iterator();
 

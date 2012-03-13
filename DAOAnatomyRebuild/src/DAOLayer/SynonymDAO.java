@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        SynonymDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Synonym DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Synonym DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +48,6 @@ import java.util.List;
 
 import DAOModel.Synonym;
 
-/*
- * This class represents a SQL Database Access Object for the Synonym DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the Synonym DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class SynonymDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -78,20 +105,18 @@ public final class SynonymDAO {
         "FROM ANA_SYNONYM " +
         "WHERE SYN_OID = ?";
 
-    
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
-    
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Synonym DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     SynonymDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
 
+    	this.daoFactory = daoFactory;
+    }
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -100,7 +125,6 @@ public final class SynonymDAO {
     public Synonym findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -109,7 +133,6 @@ public final class SynonymDAO {
     public List<Synonym> listByObjectFKAndSynonym(Long objectFK, String synonym) throws DAOException {
     	
         return list(SQL_LIST_BY_OBJECT_FK_AND_SYNONYM, objectFK, synonym);
-        
     }
     
     /*
@@ -118,7 +141,6 @@ public final class SynonymDAO {
     public List<Synonym> listByObjectFK(Long objectFK) throws DAOException {
     	
         return list(SQL_LIST_BY_OBJECT_FK, objectFK);
-        
     }
     
     /*
@@ -127,7 +149,6 @@ public final class SynonymDAO {
     public List<Synonym> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -136,11 +157,11 @@ public final class SynonymDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given synonym in the database.
+     * 
      *  If the Synonym OID is null, 
      *   then it will invoke "create(Synonym)", 
      *   else it will invoke "update(Synonym)".
@@ -153,9 +174,7 @@ public final class SynonymDAO {
     	else {
             update(synonym);
         }
-    	
     }
-
     
     /*
      * Returns the synonym from the database matching the given 
@@ -185,9 +204,7 @@ public final class SynonymDAO {
         }
 
         return synonym;
-        
     }
-
     
     /*
      * Returns a list of all synonyms from the database. 
@@ -217,17 +234,15 @@ public final class SynonymDAO {
         }
 
         return synonyms;
-        
     }
-
     
     /*
-     * Create the given synonym in the database. 
+     * Create the given synonym in the database.
+     *  
      *  The synonym OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the synonym OID value is unknown, rather use save(Synonym).
-     * After creating, the DAO will set the obtained ID in the given synonym.
+     *  If the synonym OID value is unknown, rather use save(Synonym).
+     *   After creating, the DAO will set the obtained ID in the given synonym.
      */
-     
     public void create(Synonym synonym) throws IllegalArgumentException, DAOException {
     	
     	Object[] values = {
@@ -255,7 +270,6 @@ public final class SynonymDAO {
             else {
             	System.out.println("UPDATE: Create ANA_SYNONYM Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -263,12 +277,11 @@ public final class SynonymDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given synonym in the database.
+     * 
      *  The synonym OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the synonym OID value is unknown, rather use save(Synonym)}.
      */
@@ -305,7 +318,6 @@ public final class SynonymDAO {
             else {
             	System.out.println("UPDATE: Update ANA_SYNONYM Skipped");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -313,9 +325,7 @@ public final class SynonymDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      * Delete the given synonym from the database. 
@@ -355,9 +365,7 @@ public final class SynonymDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -383,9 +391,7 @@ public final class SynonymDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Synonyms for Display purposes
@@ -449,7 +455,6 @@ public final class SynonymDAO {
             while (resultSet.next()) {
                 dataList.add(mapSynonym(resultSet));
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -459,9 +464,7 @@ public final class SynonymDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -514,9 +517,7 @@ public final class SynonymDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -529,7 +530,5 @@ public final class SynonymDAO {
        		resultSet.getLong("SYN_OBJECT_FK"), 
        		resultSet.getString("SYN_SYNONYM")
         );
-    	
     }
-
 }

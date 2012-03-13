@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        StageDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Stage DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Stage DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -13,13 +49,6 @@ import java.util.List;
 
 import DAOModel.Stage;
 
-/*
- * This class represents a SQL Database Access Object for the Stage DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the Stage DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class StageDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -96,17 +125,17 @@ public final class StageDAO {
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Stage DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     StageDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
 
+    	this.daoFactory = daoFactory;
+    }
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -115,34 +144,30 @@ public final class StageDAO {
     public Stage findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
-     * Returns the Stage from the database matching the given OID, otherwise null.
+     * Returns the Stage from the database matching the given Name, otherwise null.
      */
     public Stage findByName(String name) throws DAOException {
     	
         return find(SQL_FIND_BY_NAME, name);
-        
     }
     
     /*
-     * Returns the Stage from the database matching the given OID, otherwise null.
+     * Returns the Stage from the database matching the given Sequence Number, otherwise null.
      */
     public Stage findBySequence(Long seq) throws DAOException {
     	
         return find(SQL_FIND_BY_SEQUENCE, seq);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages, ordered by Sequence otherwise null.
      */
     public List<Stage> listAllBySequence() throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_SEQUENCE);
-        
     }
     
     /*
@@ -151,7 +176,6 @@ public final class StageDAO {
     public List<Stage> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -160,7 +184,6 @@ public final class StageDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
@@ -169,20 +192,19 @@ public final class StageDAO {
     public int valueMaxSequence() throws DAOException {
     	
         return value(SQL_VALUE_MAX_SEQUENCE);
-        
     }
 
     /*
-     * Returns the Maximum stage sequence in the database.
+     * Returns the Minimum stage sequence in the database.
      */
     public int valueMinSequence() throws DAOException {
     	
         return value(SQL_VALUE_MIN_SEQUENCE);
-        
     }
 
     /*
      * Save the given stage in the database.
+     * 
      *  If the Stage OID is null, 
      *   then it will invoke "create(Stage)", 
      *   else it will invoke "update(Stage)".
@@ -195,9 +217,7 @@ public final class StageDAO {
     	else {
             update(stage);
         }
-    	
     }
-
     
     /*
      * Returns the stage from the database matching the given 
@@ -227,12 +247,11 @@ public final class StageDAO {
         }
 
         return stage;
-        
     }
-
     
     /*
      * Returns a list of all stages from the database. 
+     * 
      *  The list is never null and is empty when the database does not contain any stages.
      */
     public List<Stage> list(String sql, Object... values) throws DAOException {
@@ -259,17 +278,15 @@ public final class StageDAO {
         }
 
         return stages;
-        
     }
-
     
     /*
-     * Create the given stage in the database. 
+     * Create the given stage in the database.
+     *  
      *  The stage OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the stage OID value is unknown, rather use save(Stage).
-     * After creating, the DAO will set the obtained ID in the given stage.
+     *  If the stage OID value is unknown, rather use save(Stage).
+     *   After creating, the DAO will set the obtained ID in the given stage.
      */
-     
     public void create(Stage stage) throws IllegalArgumentException, DAOException {
     	
         Object[] values = {
@@ -301,7 +318,6 @@ public final class StageDAO {
             else {
             	System.out.println("UPDATE: Create ANA_STAGE Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -309,12 +325,11 @@ public final class StageDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given stage in the database.
+     * 
      *  The stage OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the stage OID value is unknown, rather use save(Stage)}.
      */
@@ -363,12 +378,11 @@ public final class StageDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      * Delete the given stage from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given stage to null.
      */
     public void delete(Stage stage) throws DAOException {
@@ -405,9 +419,7 @@ public final class StageDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -433,9 +445,7 @@ public final class StageDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Stages for Display purposes
@@ -521,9 +531,7 @@ public final class StageDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -576,9 +584,7 @@ public final class StageDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -609,9 +615,7 @@ public final class StageDAO {
         }
 
         return value;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -628,7 +632,5 @@ public final class StageDAO {
        		resultSet.getString("STG_SHORT_EXTRA_TEXT"),
        		resultSet.getString("STG_PUBLIC_ID")
         );
-    	
     }
-
 }

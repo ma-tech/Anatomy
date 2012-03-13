@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ThingDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Thing (Object) DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Thing (Object) DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +48,6 @@ import java.util.List;
 
 import DAOModel.Thing;
 
-/*
- * This class represents a SQL Database Access Object for the Thing DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the Thing DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class ThingDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -76,7 +103,6 @@ public final class ThingDAO {
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -84,9 +110,9 @@ public final class ThingDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     ThingDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
 
+    	this.daoFactory = daoFactory;
+    }
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -95,7 +121,6 @@ public final class ThingDAO {
     public int maximumOid() throws DAOException {
     	
         return maximum(SQL_MAX_OID);
-        
     }
     
     /*
@@ -104,7 +129,6 @@ public final class ThingDAO {
     public Thing findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -113,7 +137,6 @@ public final class ThingDAO {
     public List<Thing> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -122,11 +145,11 @@ public final class ThingDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given thing in the database.
+     * 
      *  If the Thing OID is null, 
      *   then it will invoke "create(Thing)", 
      *   else it will invoke "update(Thing)".
@@ -139,10 +162,8 @@ public final class ThingDAO {
     	else {
             update(thing);
         }
-    	
     }
 
-    
     /*
      * Returns the thing from the database matching the given 
      *  SQL query with the given values.
@@ -171,9 +192,7 @@ public final class ThingDAO {
         }
 
         return thing;
-        
     }
-
     
     /*
      * Returns a list of all things from the database. 
@@ -203,17 +222,15 @@ public final class ThingDAO {
         }
 
         return things;
-        
     }
-
     
     /*
      * Create the given thing in the database. 
+     * 
      *  The thing OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the thing OID value is unknown, rather use save(Thing).
-     * After creating, the DAO will set the obtained ID in the given thing.
+     *  If the thing OID value is unknown, rather use save(Thing).
+     *   After creating, the DAO will set the obtained ID in the given thing.
      */
-     
     public void create(Thing thing) throws IllegalArgumentException, DAOException {
     	
     	Object[] values = {
@@ -251,12 +268,11 @@ public final class ThingDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given thing in the database.
+     * 
      *  The thing OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the thing OID value is unknown, rather use save(Thing)}.
      */
@@ -295,7 +311,6 @@ public final class ThingDAO {
             else {
             	System.out.println("UPDATE: Update ANA_OBJECT Skipped");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -303,12 +318,11 @@ public final class ThingDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
     
-     
     /*
      * Delete the given thing from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given thing to null.
      */
     public void delete(Thing thing) throws DAOException {
@@ -345,9 +359,7 @@ public final class ThingDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -373,9 +385,7 @@ public final class ThingDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Things for Display purposes
@@ -455,9 +465,7 @@ public final class ThingDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -510,9 +518,7 @@ public final class ThingDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -543,9 +549,7 @@ public final class ThingDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -560,7 +564,5 @@ public final class ThingDAO {
        		resultSet.getString("OBJ_DESCRIPTION"),
        		resultSet.getString("OBJ_TABLE")
         );
-    	
     }
-
 }

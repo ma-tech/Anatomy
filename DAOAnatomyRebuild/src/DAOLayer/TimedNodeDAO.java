@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        TimedNodeDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Timed Node DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Timed Node DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +48,6 @@ import java.util.List;
 
 import DAOModel.TimedNode;
 
-/*
- * This class represents a SQL Database Access Object for the TimedNode DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the TimedNode DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class TimedNodeDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -96,17 +123,17 @@ public final class TimedNodeDAO {
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a TimedNode DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     TimedNodeDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
 
+    	this.daoFactory = daoFactory;
+    }
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -115,7 +142,6 @@ public final class TimedNodeDAO {
     public int maximumEmap() throws DAOException {
     	
         return maximum(SQL_MAX_EMAP);
-        
     }
     
     /*
@@ -124,7 +150,6 @@ public final class TimedNodeDAO {
     public TimedNode findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -133,7 +158,6 @@ public final class TimedNodeDAO {
     public List<TimedNode> listByNodeFK(Long nodeFK) throws DAOException {
     	
         return list(SQL_LIST_BY_NODE_FK, nodeFK);
-        
     }
     
     /*
@@ -142,7 +166,6 @@ public final class TimedNodeDAO {
     public List<TimedNode> listByStageFK(Long stageFK) throws DAOException {
     	
         return list(SQL_LIST_BY_STAGE_FK, stageFK);
-        
     }
     
     /*
@@ -151,7 +174,6 @@ public final class TimedNodeDAO {
     public List<TimedNode> listByPublicID(String publicID) throws DAOException {
     	
         return list(SQL_LIST_BY_PUBLIC_ID, publicID);
-        
     }
     
     /*
@@ -160,7 +182,6 @@ public final class TimedNodeDAO {
     public List<TimedNode> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -169,11 +190,11 @@ public final class TimedNodeDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given timednode in the database.
+     * 
      *  If the TimedNode OID is null, 
      *   then it will invoke "create(TimedNode)", 
      *   else it will invoke "update(TimedNode)".
@@ -186,9 +207,7 @@ public final class TimedNodeDAO {
     	else {
             update(timednode);
         }
-    	
     }
-
     
     /*
      * Returns the timednode from the database matching the given 
@@ -218,12 +237,11 @@ public final class TimedNodeDAO {
         }
 
         return timednode;
-        
     }
-
     
     /*
-     * Returns a list of all timednodes from the database. 
+     * Returns a list of all timednodes from the database.
+     * 
      *  The list is never null and is empty when the database does not contain any timednodes.
      */
     public List<TimedNode> list(String sql, Object... values) throws DAOException {
@@ -250,17 +268,15 @@ public final class TimedNodeDAO {
         }
 
         return timednodes;
-        
     }
 
-    
     /*
-     * Create the given timednode in the database. 
+     * Create the given timednode in the database.
+     *  
      *  The timednode OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the timednode OID value is unknown, rather use save(TimedNode).
-     * After creating, the DAO will set the obtained ID in the given timednode.
+     *  If the timednode OID value is unknown, rather use save(TimedNode).
+     *   After creating, the DAO will set the obtained ID in the given timednode.
      */
-     
     public void create(TimedNode timednode) throws IllegalArgumentException, DAOException {
     	
     	Object[] values = {
@@ -300,12 +316,12 @@ public final class TimedNodeDAO {
         }
         
     }
-
     
     /*
      * Update the given timednode in the database.
+     * 
      *  The timednode OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the timednode OID value is unknown, rather use save(TimedNode)}.
+     *  If the timednode OID value is unknown, rather use save(TimedNode).
      */
     public void update(TimedNode timednode) throws DAOException {
     	
@@ -350,12 +366,11 @@ public final class TimedNodeDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      * Delete the given timednode from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
     public void delete(TimedNode timednode) throws DAOException {
@@ -392,12 +407,11 @@ public final class TimedNodeDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
     
-    
     /*
-     * Delete the given timednode from the database. 
+     * Delete the given timednode from the database.
+     * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
     public void deleteByNodeAndStage(Long nodeFK, Long stageFK) throws DAOException {
@@ -432,9 +446,7 @@ public final class TimedNodeDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -460,9 +472,7 @@ public final class TimedNodeDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of TimedNodes for Display purposes
@@ -542,9 +552,7 @@ public final class TimedNodeDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -597,9 +605,7 @@ public final class TimedNodeDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -630,9 +636,7 @@ public final class TimedNodeDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -647,7 +651,5 @@ public final class TimedNodeDAO {
        		resultSet.getString("ATN_STAGE_MODIFIER_FK"),
        		resultSet.getString("ATN_PUBLIC_ID")
         );
-    	
     }
-
 }

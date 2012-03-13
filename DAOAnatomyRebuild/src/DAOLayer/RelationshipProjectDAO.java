@@ -1,3 +1,5 @@
+
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,13 +14,6 @@ import java.util.List;
 
 import DAOModel.RelationshipProject;
 
-/*
- * This class represents a SQL Database Access Object for the RelationshipProject DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the RelationshipProject DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class RelationshipProjectDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -88,35 +83,33 @@ public final class RelationshipProjectDAO {
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a RelationshipProject DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     RelationshipProjectDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+    
+    	this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns the maximum EMAP id.
+     * Returns the maximum Oid.
      */
     public int maximumOid() throws DAOException {
     	
         return maximum(SQL_MAX_OID);
-        
     }
     
     /*
-     * Returns the RelationshipProject from the database matching the given OID, otherwise null.
+     * Returns the relationshipproject from the database matching the given OID, otherwise null.
      */
     public RelationshipProject findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -125,25 +118,22 @@ public final class RelationshipProjectDAO {
     public List<RelationshipProject> listByProjectFK(Long projectFK) throws DAOException {
     	
         return list(SQL_LIST_BY_PROJECT_FK, projectFK);
-        
     }
     
     /*
-     * Returns a list of ALL relationshipprojects by Child FK, otherwise null.
+     * Returns a list of ALL relationshipprojects by Sequence Number, otherwise null.
      */
     public List<RelationshipProject> listBySequence(Long sequence) throws DAOException {
     	
         return list(SQL_LIST_BY_SEQUENCE, sequence);
-        
     }
     
     /*
-     * Returns a list of ALL relationshipprojects by Child FK, otherwise null.
+     * Returns a list of ALL relationshipprojects by Relationship FK, otherwise null.
      */
     public List<RelationshipProject> listByRelationshipFK(Long relationshipFK) throws DAOException {
     	
         return list(SQL_LIST_BY_RELATIONSHIP_FK, relationshipFK);
-        
     }
     
     /*
@@ -152,7 +142,6 @@ public final class RelationshipProjectDAO {
     public List<RelationshipProject> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -161,11 +150,11 @@ public final class RelationshipProjectDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given relationshipproject in the database.
+     * 
      *  If the RelationshipProject OID is null, 
      *   then it will invoke "create(RelationshipProject)", 
      *   else it will invoke "update(RelationshipProject)".
@@ -178,9 +167,7 @@ public final class RelationshipProjectDAO {
     	else {
             update(relationshipproject);
         }
-    	
     }
-
     
     /*
      * Returns the relationshipproject from the database matching the given 
@@ -210,9 +197,7 @@ public final class RelationshipProjectDAO {
         }
 
         return relationshipproject;
-        
     }
-
     
     /*
      * Returns a list of all relationshipprojects from the database. 
@@ -242,17 +227,15 @@ public final class RelationshipProjectDAO {
         }
 
         return relationshipprojects;
-        
     }
-
     
     /*
-     * Create the given relationshipproject in the database. 
+     * Create the given relationshipproject in the database.
+     *  
      *  The relationshipproject OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
-     * After creating, the DAO will set the obtained ID in the given relationshipproject.
+     *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
+     *   After creating, the DAO will set the obtained ID in the given relationshipproject.
      */
-     
     public void create(RelationshipProject relationshipproject) throws IllegalArgumentException, DAOException {
     	
         Object[] values = {
@@ -281,7 +264,6 @@ public final class RelationshipProjectDAO {
             else {
             	System.out.println("UPDATE: Create ANA_RELATIONSHIP_PROJECT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -289,14 +271,13 @@ public final class RelationshipProjectDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given relationshipproject in the database.
+     * 
      *  The relationshipproject OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject)}.
+     *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
      */
     public void update(RelationshipProject relationshipproject) throws DAOException {
     	
@@ -332,7 +313,6 @@ public final class RelationshipProjectDAO {
             else {
             	System.out.println("UPDATE: Update ANA_RELATIONSHIP_PROJECT Skipped");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -340,12 +320,11 @@ public final class RelationshipProjectDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
     
-     
     /*
      * Delete the given relationshipproject from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given relationshipproject to null.
      */
     public void delete(RelationshipProject relationshipproject) throws DAOException {
@@ -382,9 +361,7 @@ public final class RelationshipProjectDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -410,9 +387,7 @@ public final class RelationshipProjectDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of RelationshipProjects for Display purposes
@@ -489,9 +464,7 @@ public final class RelationshipProjectDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -544,9 +517,7 @@ public final class RelationshipProjectDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -577,9 +548,7 @@ public final class RelationshipProjectDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -593,7 +562,5 @@ public final class RelationshipProjectDAO {
        		resultSet.getString("RLP_PROJECT_FK"), 
        		resultSet.getLong("RLP_SEQUENCE")
         );
-    	
     }
-
 }

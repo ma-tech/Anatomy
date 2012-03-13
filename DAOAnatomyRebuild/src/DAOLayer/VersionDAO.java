@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        VersionDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Version DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Version DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,13 +48,6 @@ import java.util.List;
 
 import DAOModel.Version;
 
-/*
- * This class represents a SQL Database Access Object for the Version DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the Version DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class VersionDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -74,16 +103,16 @@ public final class VersionDAO {
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
-    
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Version DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     VersionDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -92,7 +121,6 @@ public final class VersionDAO {
     public Version findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -101,7 +129,6 @@ public final class VersionDAO {
     public List<Version> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -110,11 +137,11 @@ public final class VersionDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given version in the database.
+     * 
      *  If the Version OID is null, 
      *   then it will invoke "create(Version)", 
      *   else it will invoke "update(Version)".
@@ -127,9 +154,7 @@ public final class VersionDAO {
     	else {
             update(version);
         }
-    	
     }
-
     
     /*
      * Returns the version from the database matching the given 
@@ -159,12 +184,11 @@ public final class VersionDAO {
         }
 
         return version;
-        
     }
-
     
     /*
-     * Returns a list of all versions from the database. 
+     * Returns a list of all versions from the database.
+     * 
      *  The list is never null and is empty when the database does not contain any versions.
      */
     public List<Version> list(String sql, Object... values) throws DAOException {
@@ -191,17 +215,15 @@ public final class VersionDAO {
         }
 
         return versions;
-        
     }
-
     
     /*
      * Create the given version in the database. 
+     * 
      *  The version OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the version OID value is unknown, rather use save(Version).
-     * After creating, the DAO will set the obtained ID in the given version.
+     *  If the version OID value is unknown, rather use save(Version).
+     *   After creating, the DAO will set the obtained ID in the given version.
      */
-     
     public void create(Version version) throws IllegalArgumentException, DAOException {
     	
         Object[] values = {
@@ -238,12 +260,11 @@ public final class VersionDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
 
-    
     /*
      * Update the given version in the database.
+     * 
      *  The version OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the version OID value is unknown, rather use save(Version)}.
      */
@@ -289,12 +310,11 @@ public final class VersionDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
-     * Delete the given version from the database. 
+     * Delete the given version from the database.
+     *  
      *  After deleting, the DAO will set the ID of the given version to null.
      */
     public void delete(Version version) throws DAOException {
@@ -331,9 +351,7 @@ public final class VersionDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -359,9 +377,7 @@ public final class VersionDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Versions for Display purposes
@@ -438,10 +454,8 @@ public final class VersionDAO {
         }
 
         return dataList;
-        
     }
 
-    
     /*
      * Returns total amount of rows in table.
      */
@@ -493,7 +507,6 @@ public final class VersionDAO {
         }
 
         return count;
-        
     }
 
 
@@ -529,7 +542,6 @@ public final class VersionDAO {
         
     }
 
-
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to an User.
@@ -542,7 +554,5 @@ public final class VersionDAO {
        		resultSet.getString("VER_DATE"), 
        		resultSet.getString("VER_COMMENTS")
         );
-    	
     }
-
 }

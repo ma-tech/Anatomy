@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        StageRangeDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Stage Range DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Stage Range DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,18 +48,9 @@ import java.util.List;
 
 import DAOModel.StageRange;
 
-/*
- * This class represents a SQL Database Access Object for the StageRange DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the StageRange DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class StageRangeDAO {
 
     // Constants ----------------------------------------------------------------------------------
-    //"SELECT COUNT(*) AS VALUE " +
-
     //Check Existing Child Stage Range is within Existing Parent Stage Range
     private static final String SQL_LIST_EXISTING_CHILD_EXISTING_PARENT =
         "SELECT " +
@@ -222,10 +249,8 @@ public final class StageRangeDAO {
        	"or b.stg_sequence > d.stg_sequence)) " +
        	"order by aoc_obo_id, acr_obo_parent";
     
-    
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -233,103 +258,97 @@ public final class StageRangeDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     StageRangeDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+
+    	this.daoFactory = daoFactory;
     }
 
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages ranges by existing child and existing parent, otherwise null
      */
     public List<StageRange> listByExistingChildExistingParent() throws DAOException {
     	
         return list(SQL_LIST_EXISTING_CHILD_EXISTING_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages ranges by existing child and proposed parent, otherwise null
      */
     public List<StageRange> listByExistingChildProposedParent() throws DAOException {
     	
         return list(SQL_LIST_EXISTING_CHILD_PROPOSED_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages ranges by proposed child and proposed parent, otherwise null
      */
     public List<StageRange> listByProposedChildProposedParent() throws DAOException {
     	
         return list(SQL_LIST_PROPOSED_CHILD_PROPOSED_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages ranges by proposed child and existing parent, otherwise null
      */
     public List<StageRange> listByProposedChildExistingParent() throws DAOException {
     	
         return list(SQL_LIST_PROPOSED_CHILD_EXISTING_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a list of ALL stages ranges by existing child and existing parent from the 
+     *  current database, otherwise null
      */
     public List<StageRange> listByExistingChildExistingParentDatabase() throws DAOException {
     	
         return list(SQL_LIST_EXISTING_CHILD_EXISTING_PARENT_DB);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a count of ALL stages ranges by existing child and existing parent
      */
     public int countByExistingChildExistingParent() throws DAOException {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a count of ALL stages ranges by existing child and proposed parent
      */
     public int countByExistingChildProposedParent() throws DAOException {
     	
         return count(SQL_COUNT_EXISTING_CHILD_PROPOSED_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a count of ALL stages ranges by proposed child and proposed parent
      */
     public int countByProposedChildProposedParent() throws DAOException {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_PROPOSED_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a count of ALL stages ranges by proposed child and existing parent
      */
     public int countlistByProposedChildExistingParent() throws DAOException {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_EXISTING_PARENT);
-        
     }
     
     /*
-     * Returns a list of ALL stages, otherwise null.
+     * Returns a count of ALL stages ranges by existing child and existing parent from the 
+     *  current database
      */
     public int countlistByExistingChildExistingParentDatabase() throws DAOException {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT_DB);
-        
     }
     
     /*
-     * Returns a list of all stages from the database. 
+     * Returns a list of all stages from the database.
+     * 
      *  The list is never null and is empty when the database does not contain any stages.
      */
     public List<StageRange> list(String sql, Object... values) throws DAOException {
@@ -356,12 +375,10 @@ public final class StageRangeDAO {
         }
 
         return stages;
-        
     }
-
     
     /*
-     * Returns total amount of rows in table.
+     * Returns a of the number of rows in query.
      */
     public int count(String sql) throws DAOException {
 
@@ -389,9 +406,7 @@ public final class StageRangeDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -407,7 +422,5 @@ public final class StageRangeDAO {
        		resultSet.getString("PARENT_START"),
        		resultSet.getString("PARENT_END")
         );
-    	
     }
-
 }

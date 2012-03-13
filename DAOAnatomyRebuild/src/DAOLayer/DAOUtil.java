@@ -1,3 +1,44 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        DAOUtil.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  Utility class for DAO's.
+* 
+*               This class contains commonly used DAO logic which has been re-factored into
+*                single static methods.
+*                 
+*               It contains:
+*                - a PreparedStatement values setter
+*                - several quiet close methods
+*                - a MD5 hasher which conforms to MySQL's own md5() function.
+*
+*  Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import java.io.BufferedWriter;
@@ -14,27 +55,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Utility class for DAO's.
- * 
- *  This class contains commonly used DAO logic which is been refactored in
- *   single static methods. 
- *  As far it contains a PreparedStatement values setter, several quiet close
- *   methods and a MD5 hasher which conforms under each MySQL own md5() function.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class DAOUtil {
 
     // Constructors -------------------------------------------------------------------------------
-
     private DAOUtil() {
         // Utility class, hide constructor.
     }
 
     // Actions ------------------------------------------------------------------------------------
-
-    /**
+    /*
      * Returns a PreparedStatement of the given connection, set with the given SQL query and the
      * given parameter values.
      */
@@ -67,10 +96,9 @@ public final class DAOUtil {
         }
         
         return preparedStatement;
-        
     }
 
-    /**
+    /*
      * Set the given parameter values in the given PreparedStatement.
      */
     public static void setValues(PreparedStatement preparedStatement, Object... values)
@@ -79,10 +107,9 @@ public final class DAOUtil {
     	for ( int i = 0; i < values.length; i++ ) {
             preparedStatement.setObject(i + 1, values[i]);
         }
-    	
     }
 
-    /**
+    /*
      * Quietly close the Connection. Any errors will be printed to the stderr.
      */
     public static void close(Connection connection) {
@@ -96,10 +123,9 @@ public final class DAOUtil {
                 e.printStackTrace();
             }
         }
-    	
     }
 
-    /**
+    /*
      * Quietly close the Statement. Any errors will be printed to the stderr.
      */
     public static void close(Statement statement) {
@@ -113,10 +139,9 @@ public final class DAOUtil {
                 e.printStackTrace();
             }
         }
-    	
     }
 
-    /**
+    /*
      * Quietly close the ResultSet. Any errors will be printed to the stderr.
      */
     public static void close(ResultSet resultSet) {
@@ -130,20 +155,18 @@ public final class DAOUtil {
                 e.printStackTrace();
             }
         }
-    	
     }
 
-    /**
+    /*
      * Quietly close the Connection and Statement. Any errors will be printed to the stderr.
      */
     public static void close(Connection connection, Statement statement) {
         
     	close(statement);
         close(connection);
-        
     }
 
-    /**
+    /*
      * Quietly close the Connection, Statement and ResultSet. Any errors will be printed to the stderr.
      */
     public static void close(Connection connection, Statement statement, ResultSet resultSet) {
@@ -151,13 +174,13 @@ public final class DAOUtil {
     	close(resultSet);
         close(statement);
         close(connection);
-        
     }
 
-    /**
-     * Generate MD5 hash for the given String. MD5 is kind of an one-way encryption. Very useful for
-     * hashing passwords before saving in database. This function generates exactly the same hash as
-     * MySQL's own md5() function should do.
+    /*
+     * Generate MD5 hash for the given String. MD5 is kind of an one-way encryption. 
+     *  Very useful for Hashing passwords before saving in database. 
+     *  This function generates exactly the same hash as MySQL's own md5() function 
+     *   should do.
      */
     public static String hashMD5(String string) {
         
@@ -185,7 +208,5 @@ public final class DAOUtil {
         }
         
         return hex.toString();
-        
     }
-
 }

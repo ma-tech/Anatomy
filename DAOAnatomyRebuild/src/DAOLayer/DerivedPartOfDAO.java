@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        DerivedPartOfDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the DerivedPartOf DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the DerivedPartOf DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,15 +48,6 @@ import java.util.List;
 
 import DAOModel.DerivedPartOf;
 
-/*
- * This class represents a SQL Database Access Object for the DerivedPartOf DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the DerivedPartOf DTO and a SQL database.
- *
- * http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- * 
- */
 public final class DerivedPartOfDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -79,21 +106,20 @@ public final class DerivedPartOfDAO {
         "SELECT APO_OID " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_OID = ?";
-
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a DerivedPartOf DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     DerivedPartOfDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+       
+    	this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -102,7 +128,6 @@ public final class DerivedPartOfDAO {
     public DerivedPartOf findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -111,7 +136,6 @@ public final class DerivedPartOfDAO {
     public List<DerivedPartOf> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -120,11 +144,11 @@ public final class DerivedPartOfDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given derivedpartof in the database.
+     * 
      *  If the DerivedPartOf OID is null, 
      *   then it will invoke "create(DerivedPartOf)", 
      *   else it will invoke "update(DerivedPartOf)".
@@ -137,9 +161,7 @@ public final class DerivedPartOfDAO {
     	else {
             update(derivedpartof);
         }
-    	
     }
-
     
     /*
      * Returns the derivedpartof from the database matching the given 
@@ -169,9 +191,7 @@ public final class DerivedPartOfDAO {
         }
 
         return derivedpartof;
-        
     }
-
     
     /*
      * Returns a list of all derivedpartofs from the database. 
@@ -201,17 +221,15 @@ public final class DerivedPartOfDAO {
         }
 
         return derivedpartofs;
-        
     }
-
     
     /*
      * Create the given derivedpartof in the database. 
+     * 
      *  The derivedpartof OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
-     * After creating, the DAO will set the obtained ID in the given derivedpartof.
+     *   If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
+     *    After creating, the DAO will set the obtained ID in the given derivedpartof.
      */
-     
     public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, DAOException {
     	
     	Object[] values = {
@@ -252,7 +270,6 @@ public final class DerivedPartOfDAO {
             else {
             	System.out.println("UPDATE: Create ANAD_PART_OF Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -260,12 +277,11 @@ public final class DerivedPartOfDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given derivedpartof in the database.
+     * 
      *  The derivedpartof OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the derivedpartof OID value is unknown, rather use save(DerivedPartOf)}.
      */
@@ -323,12 +339,11 @@ public final class DerivedPartOfDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      * Delete the given derivedpartof from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given derivedpartof to null.
      */
     public void delete(DerivedPartOf derivedpartof) throws DAOException {
@@ -365,9 +380,7 @@ public final class DerivedPartOfDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -393,10 +406,8 @@ public final class DerivedPartOfDAO {
         }
 
         return exist;
-        
     }
-
-    
+   
     /*
      * Returns list of DerivedPartOfs for Display purposes
      *  starting at the given first index with the given row count,
@@ -508,9 +519,7 @@ public final class DerivedPartOfDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -563,9 +572,7 @@ public final class DerivedPartOfDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -591,7 +598,5 @@ public final class DerivedPartOfDAO {
        		resultSet.getInt("APO_IS_PRIMARY_PATH"),
        		resultSet.getLong("APO_PARENT_APO_FK")
         );
-    	
     }
-
 }

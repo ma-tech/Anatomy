@@ -1,3 +1,42 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        DAOProperties.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class immediately loads the DAO properties file 'dao.properties' once 
+*                into memory and provides a constructor which takes the specific key 
+*                which is to be used as property key prefix of the DAO properties file.
+*                
+*               There is a property getter which only returns the property prefixed with 
+*                'specificKey.' and provides the option to indicate whether the property 
+*                is mandatory or not.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import java.io.IOException;
@@ -5,16 +44,6 @@ import java.io.InputStream;
 
 import java.util.Properties;
 
-/**
- * This class immediately loads the DAO properties file 'dao.properties' once in memory and provides
- *  a constructor which takes the specific key which is to be used as property key prefix of the DAO
- *  properties file.
- *  
- * There is a property getter which only returns the property prefixed with 'specificKey.' and 
- *  provides the option to indicate whether the property is mandatory or not.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public class DAOProperties {
 
     // Constants ----------------------------------------------------------------------------------
@@ -36,26 +65,23 @@ public class DAOProperties {
             throw new DAOConfigurationException(
                 "Cannot load properties file '" + PROPERTIES_FILE + "'.", e);
         }
-        
     }
 
     // Vars ---------------------------------------------------------------------------------------
     private String specificKey;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct a DAOProperties instance for the given specific key which is to be used as property
      * key prefix of the DAO properties file.
      */
     public DAOProperties(String specificKey) throws DAOConfigurationException {
         
     	this.specificKey = specificKey;
-    	
     }
 
     // Actions ------------------------------------------------------------------------------------
-
-    /**
+    /*
      * Returns the DAOProperties instance specific property value associated with the given key with
      * the option to indicate whether the property is mandatory or not.
      */
@@ -76,7 +102,5 @@ public class DAOProperties {
         }
 
         return property;
-        
     }
-
 }

@@ -118,7 +118,7 @@ public class ImportDatabase {
                 // 1_2_2: query for the node's partOf relationship---------------------------------------------
                 List<JOINNodeRelationshipRelationshipProject> nrrpJoins = 
                 		new ArrayList<JOINNodeRelationshipRelationshipProject>();
-                nrrpJoins = nrrpjoinDAO.listAllByChildAndProject(String.valueOf(obocomponent.getDBID()), project);
+                nrrpJoins = nrrpjoinDAO.listAllByChildAndProject(Long.valueOf(obocomponent.getDBID()), project);
                 Iterator<JOINNodeRelationshipRelationshipProject> iteratorNrrpJoin = 
                    		nrrpJoins.iterator();
                     

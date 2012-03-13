@@ -1,7 +1,40 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        RunOBOFileEcho.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Reads an OBO File and echos it out again
+*
+*               Required Files:
+*                2. obo.properties file contains the OBO file access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package App;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import OBOModel.ComponentFile;
@@ -12,7 +45,9 @@ import OBOLayer.OBOException;
 import OBOLayer.ComponentOBO;
 
 public class RunOBOFileEcho {
-	
+	/*
+	 * run Method
+	 */
 	public static void run () {
 
 		try {
@@ -58,7 +93,5 @@ public class RunOBOFileEcho {
 		catch (OBOException oboexception) {
 			oboexception.printStackTrace();
 		}
-
 	}
-    
 }

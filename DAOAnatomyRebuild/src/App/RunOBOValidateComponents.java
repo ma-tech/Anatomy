@@ -1,38 +1,38 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOValidateComponents.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-#                database with the extracted data.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#                2. obo.properties file contains the OBO file access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOValidateComponents.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
+*                tables in the Anatomy database .
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package App;
 
 import java.util.List;
@@ -46,30 +46,20 @@ import DAOLayer.StageRangeDAO;
 import DAOModel.StageRange;
 
 public class RunOBOValidateComponents {
-
+	/*
+	 * run Method
+	 */
     public static void run() {
     	
     	try {
-            /*
-            System.out.println("Create OBOFactory");
-            System.out.println("=================");
-            */
             // Obtain DAOFactory.
             DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
             //System.out.println("DAOFactory successfully obtained: " + anatomy008);
-
-            /*
-            System.out.println("Create DAOs");
-            System.out.println("===========");
-            */
 
             // Obtain DAOs.
             StageRangeDAO stagerangeDAO = anatomy008.getStageRangeDAO();
             //System.out.println("StageRangeDAO successfully obtained: " + componentDAO);
 
-            List<StageRange> daostageranges = new ArrayList<StageRange>();
-            daostageranges = stagerangeDAO.listByExistingChildExistingParent();
-            
             int i = 0;
 
             System.out.println("");
@@ -79,6 +69,9 @@ public class RunOBOValidateComponents {
             System.out.println(" It validates the stage ranges of amended components WITHIN the submitted OBO File");
             System.out.println("  against the existing DATABASE, for those components whose parents have not been changed!");
             
+            List<StageRange> daostageranges = new ArrayList<StageRange>();
+            daostageranges = stagerangeDAO.listByExistingChildExistingParent();
+
             System.out.println("");
             System.out.println("Test 1");
             System.out.println("\t========================================================================");
@@ -88,7 +81,8 @@ public class RunOBOValidateComponents {
             System.out.println("\t-------\t\t----------\t--------\t--------\t-----------\t---------");
 
             Iterator<StageRange> iteratorStageRange = daostageranges.iterator();
-          	while (iteratorStageRange.hasNext()) {
+          	
+            while (iteratorStageRange.hasNext()) {
            		StageRange stagerange = iteratorStageRange.next();
            		i++;
            		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
@@ -171,7 +165,5 @@ public class RunOBOValidateComponents {
 		catch (DAOException daoexception) {
 			daoexception.printStackTrace();
 		}
-
     }
-
 }

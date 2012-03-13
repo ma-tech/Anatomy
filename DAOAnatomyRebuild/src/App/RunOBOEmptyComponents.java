@@ -1,37 +1,38 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOEmptyComponents.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that empties 4 tables that contain OBO Temporary Data in the anatomy
-#                database.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOEmptyComponents.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that empties 4 tables that contain OBO Temporary Data in the anatomy
+*                database.
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package App;
 
 import java.util.List;
@@ -48,27 +49,14 @@ import DAOModel.ComponentRelationship;
 import DAOModel.ComponentComment;
 import DAOModel.ComponentSynonym;
 
-
 public class RunOBOEmptyComponents {
-
 	/*
-	 * Main Class
+	 * run Method
 	 */
     public static void run() throws Exception {
-
-
-        /*
-        System.out.println("==================================");
-        System.out.println("Create DAOFactory");
-        System.out.println("=================");
-        */
-        // Obtain DAOFactory.
+    	// Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
         //System.out.println("DAOFactory successfully obtained: " + anatomy008);
-        /*
-        System.out.println("Create DAOs");
-        System.out.println("===========");
-        */
 
         // Obtain DAOs.
         ComponentDAO componentDAO = anatomy008.getComponentDAO();
@@ -131,7 +119,5 @@ public class RunOBOEmptyComponents {
         System.out.println("====================================================");
         
         System.out.println("");
-
     }
-
 }

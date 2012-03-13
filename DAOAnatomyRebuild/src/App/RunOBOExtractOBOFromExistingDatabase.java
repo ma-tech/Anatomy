@@ -1,38 +1,39 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOExtractOBOFromExistingDatabase.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-#                database with the extracted data.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#                2. obo.properties file contains the OBO file access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOExtractOBOFromExistingDatabase.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Reads an Anatomy Database and Writes out the data in OBO
+*                Format
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*                2. obo.properties file contains the OBO file access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package App;
 
 import java.util.ArrayList;
@@ -45,11 +46,9 @@ import OBOLayer.ComponentOBO;
 
 import Utility.ImportDatabase;
 
-
 public class RunOBOExtractOBOFromExistingDatabase {
-
 	/*
-	 * Main Class
+	 * run Method
 	 */
     public static void run() throws Exception {
 
@@ -63,7 +62,6 @@ public class RunOBOExtractOBOFromExistingDatabase {
         ComponentOBO componentOBO = obofactory.getComponentOBO();
         
         // Export Database Components to OBO File.
-        //importdatabase.saveOBOFile(componentOBO.outputFile());
         List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
         obocomponents = importdatabase.getTermList();
         
@@ -79,8 +77,5 @@ public class RunOBOExtractOBOFromExistingDatabase {
         else {
             System.out.println("Obo File FAILED to write to " + componentOBO.outputFile());
         }
-
-
     }
-
 }

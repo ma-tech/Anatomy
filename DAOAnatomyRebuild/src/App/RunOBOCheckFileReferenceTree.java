@@ -1,38 +1,38 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOCheckFileReferenceTree.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-#                database with the extracted data.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#                2. obo.properties file contains the OBO file access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        RunOBOCheckFileReferenceTree.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Reads an OBO File and validates it against itself.
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*                2. obo.properties file contains the OBO file access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package App;
 
 import java.util.List;
@@ -54,14 +54,17 @@ import Utility.MapBuilder;
 import Utility.TreeBuilder;
 import Utility.ValidateComponents;
 
-
 public class RunOBOCheckFileReferenceTree {
-
+	/*
+	 * run Method
+	 */
     public static void run() {
 
     	try {
             // Obtain DAOFactory.
             DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
+            //System.out.println("DAOFactory successfully obtained: " + anatomy008);
+            
             // Obtain DAOs.
             ComponentDAO componentDAO = anatomy008.getComponentDAO();
             //System.out.println("ComponentDAO successfully obtained: " + componentDAO);
@@ -95,14 +98,11 @@ public class RunOBOCheckFileReferenceTree {
 
             //if file has problems don't allow to load
             if ( validatecomponents.getProblemTermList().isEmpty() ){
-
             	System.out.println("OBOCheckFileReferenceTree.java:\n=======\nPASSED!\n=======\n" +
                         "Loading Default Reference Tree From Input OBO File:\n===\n" +
             			"All Components in the Reference Tree are OK!\n" );
-
             }
-            else{
-
+            else {
             	System.out.println("OBOCheckFileReferenceTree.java:\n=======\nERRORS!\n=======\n" +
                     "Loading Default Reference Tree From Input OBO File:\n" + 
             		"Some components in the Reference Tree contain rule violations.\n" );
@@ -120,13 +120,10 @@ public class RunOBOCheckFileReferenceTree {
                 System.out.println("userComments = " + probobocomponent.getUserComments());
                 
                 System.out.println("probobocomponent = " + probobocomponent.toString());
-                
             }
     	}
     	catch (OBOException oboexception) {
 			oboexception.printStackTrace();
     	}
-
     }
-
 }

@@ -1,43 +1,42 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOCompareFlieAndDatabaseReferences.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-#                database with the extracted data.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#                2. obo.properties file contains the OBO file access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        RunOBOCompareFileAndDatabaseReferences.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Reads an OBO File and Validates it against an existing 
+*                Anatomy database; Problems are reported in both text and PDF files
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*                2. obo.properties file contains the OBO file access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package App;
 
-import java.util.Iterator;
 import java.util.ArrayList;
-import java.util.Set;
 
 import OBOModel.ComponentFile;
 
@@ -49,18 +48,14 @@ import Utility.ValidateComponents;
 import Utility.GenerateEditorReport;
 import Utility.GenerateEditorPDF;
 
-
 public class RunOBOCompareFileAndDatabaseReferences {
-
 	/*
-	 * Main Class
+	 * run Method
 	 */
     public static void run() throws Exception {
-
         //import Obo File from obo.properties, file.oboinfile
         ImportFile importfile = new ImportFile();
         ArrayList<ComponentFile> parseNewTermList = importfile.getTermList();
-
 
         //import Database from dao.properties, anatomy008.url
         ImportDatabase importdatabase = new ImportDatabase(true, "EMAP" );
@@ -68,14 +63,13 @@ public class RunOBOCompareFileAndDatabaseReferences {
 
         //Build hashmap of components
         MapBuilder mapbuilder = new MapBuilder(parseNewTermList);
+
         //Build tree
         TreeBuilder treebuilder = new TreeBuilder(mapbuilder);
-
 
         //check for rules violation
         ValidateComponents validatecomponents =
             new ValidateComponents( parseNewTermList, parseOldTermList, treebuilder);
-        
 
         //Report Success/Failure
     	System.out.println("");
@@ -88,7 +82,6 @@ public class RunOBOCompareFileAndDatabaseReferences {
         	System.out.println("SUCCESS" );
         	System.out.println("-------" );
         	System.out.println(" All Components in the File Reference Tree are OK!" );
-
         }
         else {
         	System.out.println("FAILURE" );
@@ -159,7 +152,5 @@ public class RunOBOCompareFileAndDatabaseReferences {
         	System.out.println(" PDF Report " + generateeditorpdf.getSummaryReportNamePdf() + " could NOT be saved.\n" +
                     "Check path in obo.properties file");
         }
-
     }
-
 }

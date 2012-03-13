@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        LogDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Log DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Log DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.Log;
 
-/*
- * This class represents a SQL Database Access Object for the Log DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the Log DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class LogDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -90,32 +118,29 @@ public final class LogDAO {
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Log DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     LogDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns the maximum EMAP id.
+     * Returns the maximum Oid.
      */
     public int maximumOid() throws DAOException {
     	
         return maximum(SQL_MAX_OID);
-        
     }
     
     /*
-     * Returns the maximum EMAP id.
+     * Returns the maximum Logged Oid.
      */
     public int maximumLoggedOid() throws DAOException {
     	
         return maximum(SQL_MAX_LOGGED_OID);
-        
     }
     
     /*
@@ -124,34 +149,22 @@ public final class LogDAO {
     public Log findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
-    }
-    
-    /*
-     * Returns the log from the database matching the given OID, otherwise null.
-     */
-    public Log findByLoggedOid(Long loggedOid) throws DAOException {
-    	
-        return find(SQL_FIND_BY_LOGGED_OID, loggedOid);
-        
     }
     
     /*
      * Returns the log from the database matching the given Logged OID, otherwise null.
      */
-    public Log findByLoggedOid(String publicId) throws DAOException {
+    public Log findByLoggedOid(Long loggedOid) throws DAOException {
     	
-        return find(SQL_FIND_BY_OID, publicId);
-        
+        return find(SQL_FIND_BY_LOGGED_OID, loggedOid);
     }
-
+    
     /*
      * Returns a list of ALL logs, otherwise null.
      */
     public List<Log> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -160,11 +173,11 @@ public final class LogDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given log in the database.
+     * 
      *  If the Log OID is null, 
      *   then it will invoke "create(Log)", 
      *   else it will invoke "update(Log)".
@@ -177,9 +190,7 @@ public final class LogDAO {
     	else {
             update(log);
         }
-    	
     }
-
 
     /*
      * Returns the log from the database matching the given 
@@ -209,9 +220,7 @@ public final class LogDAO {
         }
 
         return log;
-        
     }
-
     
     /*
      * Returns a list of all logs from the database. 
@@ -241,15 +250,14 @@ public final class LogDAO {
         }
 
         return logs;
-        
     }
-
     
     /*
      * Create the given log in the database. 
+     * 
      *  The log OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the log OID value is unknown, rather use save(Log).
-     * After creating, the DAO will set the obtained ID in the given log.
+     *   After creating, the DAO will set the obtained ID in the given log.
      */
     public void create(Log log) throws IllegalArgumentException, DAOException {
     	
@@ -281,7 +289,6 @@ public final class LogDAO {
             else {
             	System.out.println("UPDATE: Create ANA_LOG Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -289,12 +296,11 @@ public final class LogDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given log in the database.
+     * 
      *  The log OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the log OID value is unknown, rather use save(Log)}.
      */
@@ -334,7 +340,6 @@ public final class LogDAO {
             else {
             	System.out.println("UPDATE: Update ANA_LOG Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -342,12 +347,11 @@ public final class LogDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given log from the database. 
+     *  
      *  After deleting, the DAO will set the ID of the given log to null.
      */
     public void delete(Log log) throws DAOException {
@@ -385,9 +389,7 @@ public final class LogDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -413,9 +415,7 @@ public final class LogDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Logs for Display purposes
@@ -488,7 +488,6 @@ public final class LogDAO {
             while (resultSet.next()) {
                 dataList.add(mapLog(resultSet));
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -498,9 +497,7 @@ public final class LogDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -553,9 +550,7 @@ public final class LogDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -586,9 +581,7 @@ public final class LogDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -604,7 +597,5 @@ public final class LogDAO {
        		resultSet.getString("LOG_OLD_VALUE"), 
        		resultSet.getString("LOG_COMMENTS")
         );
-    	
     }
-
 }

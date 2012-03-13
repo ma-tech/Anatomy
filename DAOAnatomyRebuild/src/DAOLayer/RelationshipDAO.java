@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        RelationshipDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Relationship DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Relationship DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,13 +48,6 @@ import java.util.List;
 
 import DAOModel.Relationship;
 
-/*
- * This class represents a SQL Database Access Object for the Relationship DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the Relationship DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class RelationshipDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -95,25 +124,24 @@ public final class RelationshipDAO {
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
-    
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Relationship DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     RelationshipDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns the maximum EMAP id.
+     * Returns the maximum Oid.
      */
     public int maximumOid() throws DAOException {
     	
         return maximum(SQL_MAX_OID);
-        
     }
     
     /*
@@ -122,7 +150,6 @@ public final class RelationshipDAO {
     public Relationship findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -131,7 +158,6 @@ public final class RelationshipDAO {
     public List<Relationship> listByParentFK(Long parentFK) throws DAOException {
     	
         return list(SQL_LIST_BY_PARENT_FK, parentFK);
-        
     }
     
     /*
@@ -140,16 +166,14 @@ public final class RelationshipDAO {
     public List<Relationship> listByChildFK(Long childFK) throws DAOException {
     	
         return list(SQL_LIST_BY_CHILD_FK, childFK);
-        
     }
     
     /*
-     * Returns a list of ALL relationships by Child FK, otherwise null.
+     * Returns a list of ALL relationships by Parent FK AND Child FK, otherwise null.
      */
     public List<Relationship> listByParentFKAndChildFK(Long parentFK, Long childFK) throws DAOException {
     	
         return list(SQL_LIST_BY_PARENT_FK_AND_CHILD_FK, parentFK, childFK);
-        
     }
     
     /*
@@ -158,7 +182,6 @@ public final class RelationshipDAO {
     public List<Relationship> listByRelationshipTypeFK(String relationshipTypeFK) throws DAOException {
     	
         return list(SQL_LIST_BY_RELATIONSHIP_TYPE_FK, relationshipTypeFK);
-        
     }
     
     /*
@@ -167,7 +190,6 @@ public final class RelationshipDAO {
     public List<Relationship> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -176,11 +198,11 @@ public final class RelationshipDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given relationship in the database.
+     * 
      *  If the Relationship OID is null, 
      *   then it will invoke "create(Relationship)", 
      *   else it will invoke "update(Relationship)".
@@ -193,9 +215,7 @@ public final class RelationshipDAO {
     	else {
             update(relationship);
         }
-    	
     }
-
     
     /*
      * Returns the relationship from the database matching the given 
@@ -225,10 +245,8 @@ public final class RelationshipDAO {
         }
 
         return relationship;
-        
     }
 
-    
     /*
      * Returns a list of all relationships from the database. 
      *  The list is never null and is empty when the database does not contain any relationships.
@@ -257,17 +275,14 @@ public final class RelationshipDAO {
         }
 
         return relationships;
-        
     }
-
     
     /*
      * Create the given relationship in the database. 
      *  The relationship OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the relationship OID value is unknown, rather use save(Relationship).
-     * After creating, the DAO will set the obtained ID in the given relationship.
+     *  If the relationship OID value is unknown, rather use save(Relationship).
+     *   After creating, the DAO will set the obtained ID in the given relationship.
      */
-     
     public void create(Relationship relationship) throws IllegalArgumentException, DAOException {
     	
         Object[] values = {
@@ -296,7 +311,6 @@ public final class RelationshipDAO {
             else {
             	System.out.println("UPDATE: Create ANA_RELATIONSHIP Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -304,12 +318,11 @@ public final class RelationshipDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-
     
     /*
      * Update the given relationship in the database.
+     * 
      *  The relationship OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the relationship OID value is unknown, rather use save(Relationship)}.
      */
@@ -355,12 +368,11 @@ public final class RelationshipDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      * Delete the given relationship from the database. 
+     * 
      *  After deleting, the DAO will set the ID of the given relationship to null.
      */
     public void delete(Relationship relationship) throws DAOException {
@@ -397,9 +409,7 @@ public final class RelationshipDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -425,9 +435,7 @@ public final class RelationshipDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Relationships for Display purposes
@@ -504,9 +512,7 @@ public final class RelationshipDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -559,9 +565,7 @@ public final class RelationshipDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -582,7 +586,6 @@ public final class RelationshipDAO {
             if (resultSet.next()) {
             	maximum = resultSet.getInt("MAXIMUM");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -592,9 +595,7 @@ public final class RelationshipDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -608,7 +609,5 @@ public final class RelationshipDAO {
        		resultSet.getLong("REL_CHILD_FK"), 
        		resultSet.getLong("REL_PARENT_FK")
         );
-    	
     }
-
 }

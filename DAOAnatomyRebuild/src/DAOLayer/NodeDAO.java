@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        VersionDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Node DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Node DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.Node;
 
-/*
- * This class represents a SQL Database Access Object for the Node DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the Node DTO and a SQL database.
- *
- * @link http://balusc.bnodespot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class NodeDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -97,19 +125,17 @@ public final class NodeDAO {
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Node DAO for the given DAOFactory.
+     * 
      *  Package private so that it can be constructed inside the DAO package only.
      */
     NodeDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -118,7 +144,6 @@ public final class NodeDAO {
     public int maximumEmapa() throws DAOException {
     	
         return maximum(SQL_MAX_EMAPA);
-        
     }
     
     /*
@@ -127,7 +152,6 @@ public final class NodeDAO {
     public Node findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -136,7 +160,6 @@ public final class NodeDAO {
     public Node findByPublicId(String publicId) throws DAOException {
     	
         return find(SQL_FIND_BY_PUBLIC_ID, publicId);
-        
     }
 
     /*
@@ -145,7 +168,6 @@ public final class NodeDAO {
     public Node findByComponentName(String componentName) throws DAOException {
     	
         return find(SQL_FIND_BY_COMPONENT_NAME, componentName);
-        
     }
 
     /*
@@ -154,7 +176,6 @@ public final class NodeDAO {
     public List<Node> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -163,12 +184,11 @@ public final class NodeDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
-    
     /*
      * Save the given node in the database.
+     * 
      *  If the Node OID is null, 
      *   then it will invoke "create(Node)", 
      *   else it will invoke "update(Node)".
@@ -181,9 +201,7 @@ public final class NodeDAO {
     	else {
             update(node);
         }
-    	
     }
-
 
     /*
      * Returns the node from the database matching the given 
@@ -213,9 +231,7 @@ public final class NodeDAO {
         }
 
         return node;
-        
     }
-
     
     /*
      * Returns a list of all nodes from the database. 
@@ -245,15 +261,14 @@ public final class NodeDAO {
         }
 
         return nodes;
-        
     }
-
     
     /*
-     * Create the given node in the database. 
+     * Create the given node in the database.
+     * 
      *  The node OID must be null, otherwise it will throw IllegalArgumentException.
-     *  If the node OID value is unknown, rather use save(Node).
-     * After creating, the DAO will set the obtained ID in the given node.
+     *   If the node OID value is unknown, rather use save(Node).
+     *    After creating, the DAO will set the obtained ID in the given node.
      */
     public void create(Node node) throws IllegalArgumentException, DAOException {
     	
@@ -294,12 +309,11 @@ public final class NodeDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given node in the database.
+     * 
      *  The node OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the node OID value is unknown, rather use save(Node)}.
      */
@@ -340,7 +354,6 @@ public final class NodeDAO {
             else {
             	System.out.println("UPDATE: Update ANA_NODE Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -348,12 +361,11 @@ public final class NodeDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given node from the database. 
+     *  
      *  After deleting, the DAO will set the ID of the given node to null.
      */
     public void delete(Node node) throws DAOException {
@@ -383,7 +395,6 @@ public final class NodeDAO {
             else {
             	System.out.println("UPDATE: Delete ANA_NODE Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -391,9 +402,7 @@ public final class NodeDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -419,9 +428,7 @@ public final class NodeDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Nodes for Display purposes
@@ -507,9 +514,7 @@ public final class NodeDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -562,9 +567,7 @@ public final class NodeDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -595,9 +598,7 @@ public final class NodeDAO {
         }
 
         return maximum;
-        
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -614,7 +615,5 @@ public final class NodeDAO {
        		resultSet.getString("ANO_PUBLIC_ID"), 
        		resultSet.getString("ANO_DESCRIPTION")
         );
-    	
     }
-
 }

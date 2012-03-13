@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ProjectDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Project DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Project DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,23 +48,15 @@ import java.util.List;
 
 import DAOModel.Project;
 
-/*
- * This class represents a SQL Database Access Object for the Project DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the Project DTO and a SQL database.
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ProjectDAO {
 
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
-        "SELECT VER_OID, VER_NUMBER, VER_DATE, VER_COMMENTS " +
-        "FROM ANA_VERSION ";
+        "SELECT AJP_NAME " +
+        "FROM ANA_PROJECT ";
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -36,9 +64,9 @@ public final class ProjectDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     ProjectDAO(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
 
+    	this.daoFactory = daoFactory;
+    }
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -78,7 +106,6 @@ public final class ProjectDAO {
         }
 
         return versions;
-        
     }
 
     // Helpers ------------------------------------------------------------------------------------
@@ -90,7 +117,5 @@ public final class ProjectDAO {
     	return new Project(
        		resultSet.getString("APJ_NAME")
         );
-    	
     }
-
 }

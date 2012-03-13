@@ -1,46 +1,43 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOEmptyComponents.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that empties 4 tables that contain OBO Temporary Data in the anatomy
-#                database.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        MainOBOEmptyComponents.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class 
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package Main;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import App.RunOBOEmptyComponents;
 
 public class MainOBOEmptyComponents {
-
 	/*
 	 * Main Class
 	 */
@@ -58,6 +55,9 @@ public class MainOBOEmptyComponents {
         System.out.println("=========   ======================");
         System.out.println("");
 
+        /*
+         * MAINLINE
+         */
         RunOBOEmptyComponents.run();
         
         System.out.println("");
@@ -69,8 +69,5 @@ public class MainOBOEmptyComponents {
         System.out.println("====        ======================");
         System.out.println("DONE ------ MainOBOEmptyComponents.java took " + duration / 1000 + " seconds");
         System.out.println("====        ======================");
-        
-
     }
-
 }

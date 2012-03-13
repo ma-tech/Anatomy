@@ -1,3 +1,34 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        MainDAOTest.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Executable Class 
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package Main;
 
 import java.text.SimpleDateFormat;
@@ -6,9 +37,10 @@ import java.util.Date;
 
 import App.RunDAOTest;
 
-
 public class MainDAOTest {
-
+	/*
+	 * Main Class
+	 */
     public static void main(String[] args) throws Exception {
 
     	long startTime = System.currentTimeMillis();
@@ -23,6 +55,9 @@ public class MainDAOTest {
         System.out.println("=========   -----------");
         System.out.println("");
 
+        /*
+         * MAINLINE
+         */
         RunDAOTest.run();
 
     	long endTime = System.currentTimeMillis();
@@ -32,7 +67,5 @@ public class MainDAOTest {
         System.out.println("====       -----------");
         System.out.println("DONE ----- MainDAOTest.java took " + duration / 1000 + " seconds");
         System.out.println("====       -----------");
-
     }
-
 }

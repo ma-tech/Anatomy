@@ -1,48 +1,48 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOCompareFlieAndDatabaseReferences.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-#                database with the extracted data.
-#
-#               Required Files:
-#                1. dao.properties file contains the database access attributes
-#                2. obo.properties file contains the OBO file access attributes
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        MainOBOCompareFileAndDatabaseReferences.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
+*                database with the extracted data.
+*
+*               Required Files:
+*                1. dao.properties file contains the database access attributes
+*                2. obo.properties file contains the OBO file access attributes
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package Main;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import App.RunOBOCompareFileAndDatabaseReferences;
 
-
 public class MainOBOCompareFileAndDatabaseReferences {
-
 	/*
 	 * Main Class
 	 */
@@ -60,7 +60,9 @@ public class MainOBOCompareFileAndDatabaseReferences {
         System.out.println("=========   ---------------------------------------");
         System.out.println("");
 
-        // DO WORK
+        /*
+         * MAINLINE
+         */
         RunOBOCompareFileAndDatabaseReferences.run();
 
     	long endTime = System.currentTimeMillis();
@@ -70,8 +72,5 @@ public class MainOBOCompareFileAndDatabaseReferences {
         System.out.println("====       ---------------------------------------");
         System.out.println("DONE ----- MainOBOCompareFileAndDatabaseReferences.java took " + duration / 1000 + " seconds");
         System.out.println("====       ---------------------------------------");
-
-
     }
-
 }

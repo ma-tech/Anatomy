@@ -1,4 +1,4 @@
-	package DAOLayer;
+package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 import Model.TimedLeaf;
 
-/**
+/*
  * This class represents a SQL Database Access Object for the {@link Relation} DTO. 
  *  This DAO should be used as a central point for the mapping between the 
  *  Relation DTO and a SQL database.
@@ -96,7 +96,7 @@ public final class TimedLeafDAO {
 
     
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct an Leaf DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
@@ -107,7 +107,7 @@ public final class TimedLeafDAO {
     
     // Actions ------------------------------------------------------------------------------------
     // LIST    ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns a list of All Leafs for the given Root Name, otherwise null.
      */
     public List<TimedLeaf> listAllTimedNodesByRootName(String rootName1, String stage1, String rootName2, String stage2) 
@@ -115,7 +115,7 @@ public final class TimedLeafDAO {
         return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME, rootName1, stage1, rootName2, stage2);
     }
     
-    /**
+    /*
      * Returns a list of All Leafs for the given Root Description, otherwise null.
      */
     public List<TimedLeaf> listAllTimedNodesByRootDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
@@ -124,7 +124,7 @@ public final class TimedLeafDAO {
     }
     
     
-    /**
+    /*
      * Returns a list of Leafs from the database.
      *  The list is never null and is empty when the database does not contain any 
      *  Leafs.
@@ -161,7 +161,7 @@ public final class TimedLeafDAO {
 
     
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to a Leaf.
      */
     private static TimedLeaf mapTimedLeaf(ResultSet resultSet) 
@@ -182,7 +182,7 @@ public final class TimedLeafDAO {
     }
 
     
-    /**
+    /*
      * Convert the Leaf ResultSet to JSON.
      */
     public String convertLeafListToStringJson(List<TimedLeaf> timedleafs) {
@@ -204,7 +204,7 @@ public final class TimedLeafDAO {
   		        	returnString = returnString + 
   		        		"\"children\": [\n{\n\"attr\": {\n\"ext_id\": \"" +
   		        		timedleaf.getRootName() + 
-                        "\", \"id\": \"li.node.ROOT.Timed.id" +
+                        "\", \"id\": \"li_node_ROOT_Timed_id" +
                         timedleaf.getRootOid() +
  	    	            "\",\"stage\": \"" + 
         	            timedleaf.getStage() +
@@ -220,7 +220,7 @@ public final class TimedLeafDAO {
         	        returnString = returnString + 
                         "{\n\"attr\": {\n\"ext_id\": \"" +
                         timedleaf.getChildName() + 
-        	            "\",\n\"id\": \"li.node.LEAF.Timed.id" + 
+        	            "\",\n\"id\": \"li_node_LEAF_Timed_id" + 
         	            timedleaf.getChildOid() +
  	    	            "\",\"stage\": \"" + 
         	            timedleaf.getStage() +
@@ -240,7 +240,7 @@ public final class TimedLeafDAO {
   		  		  	        returnString = returnString + 
    	                            ",\n{\n\"attr\": {\n\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\n\"id\": \"li.node.BRANCH.Timed.id" + 
+  		        	            "\",\n\"id\": \"li_node_BRANCH_Timed_id" + 
   		 	    	            savedLeaf.getChildId() +
         	    	            "\",\"stage\": \"" + 
                 	            savedLeaf.getStage() +
@@ -265,7 +265,7 @@ public final class TimedLeafDAO {
                 returnString = returnString + 
                 ",\n{\n\"attr\": {\n\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
-	        	"\",\n\"id\": \"li.node.BRANCH.Timed.id" + 
+	        	"\",\n\"id\": \"li_node_BRANCH_Timed_id" + 
 	 	    	savedLeaf.getChildId() +
  	    	    "\",\"stage\": \"" + 
         	    savedLeaf.getStage() +
@@ -291,7 +291,7 @@ public final class TimedLeafDAO {
     
     }
 
-    /**
+    /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
     public String convertLeafListToStringJsonLines(List<TimedLeaf> timedleafs) {
@@ -313,7 +313,7 @@ public final class TimedLeafDAO {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
                         timedleaf.getChildName() + 
-        	            "\",\"id\": \"li.node.LEAF.Timed.id" + 
+        	            "\",\"id\": \"li_node_LEAF_Timed_id" + 
         	            timedleaf.getChildOid() +
  	    	            "\",\"stage\": \"" + 
         	            timedleaf.getStage() +
@@ -333,7 +333,7 @@ public final class TimedLeafDAO {
   		  		  	        returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li.node.BRANCH.Timed.id" + 
+  		        	            "\",\"id\": \"li_node_BRANCH_Timed_id" + 
   		 	    	            savedLeaf.getChildId() +
         	    	            "\",\"stage\": \"" + 
                 	            savedLeaf.getStage() +
@@ -358,7 +358,7 @@ public final class TimedLeafDAO {
     	  		returnString = returnString + 
                 "{\"attr\": {\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
-	        	"\",\"id\": \"li.node.BRANCH.Timed.id" + 
+	        	"\",\"id\": \"li_node_BRANCH_Timed_id" + 
 	 	    	savedLeaf.getChildId() +
    	            "\",\"stage\": \"" + 
    	            savedLeaf.getStage() +
@@ -377,7 +377,7 @@ public final class TimedLeafDAO {
     }
 
 
-    /**
+    /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
     public String convertLeafListToStringJsonAggregate(List<TimedLeaf> timedleafs) {
@@ -402,7 +402,7 @@ public final class TimedLeafDAO {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
                         timedleaf.getChildName() + 
-        	            "\",\"id\": \"li.node.LEAF.Timed.id" + 
+        	            "\",\"id\": \"li_node_LEAF_Timed_id" + 
         	            timedleaf.getChildOid() +
  	    	            "\",\"stage\": \"" + 
         	            timedleaf.getStage() +
@@ -426,7 +426,7 @@ public final class TimedLeafDAO {
   		  		  	        returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li.node.BRANCH.Timed.id" + 
+  		        	            "\",\"id\": \"li_node_BRANCH_Timed_id" + 
   		 	    	            savedLeaf.getChildId() +
         	    	            "\",\"stage\": \"" + 
                 	            savedLeaf.getStage() +
@@ -449,7 +449,7 @@ public final class TimedLeafDAO {
         	  		    returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
 	  		            savedLeaf.getChildName() + 
-	        	        "\",\"id\": \"li.node.BRANCH.Timed.id" + 
+	        	        "\",\"id\": \"li_node_BRANCH_Timed_id" + 
 	 	    	        savedLeaf.getChildId() +
       	                "\",\"stage\": \"" + 
       	                savedLeaf.getStage() +

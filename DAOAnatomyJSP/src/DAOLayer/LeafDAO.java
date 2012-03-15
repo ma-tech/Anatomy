@@ -13,7 +13,7 @@ import java.util.List;
 
 import Model.Leaf;
 
-/**
+/*
  * This class represents a SQL Database Access Object for the {@link Relation} DTO. 
  *  This DAO should be used as a central point for the mapping between the 
  *  Relation DTO and a SQL database.
@@ -119,7 +119,7 @@ public final class LeafDAO {
 
     
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct an Leaf DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
@@ -130,14 +130,14 @@ public final class LeafDAO {
     
     // Actions ------------------------------------------------------------------------------------
     // LIST    ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns a list of All Leafs for the given Root Name, otherwise null.
      */
     public List<Leaf> listAllNodesByRootName(String rootName1, String rootName2) throws DAOException {
         return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME, rootName1, rootName2);
     }
     
-    /**
+    /*
      * Returns a list of All Leafs for the given Root Description, otherwise null.
      */
     public List<Leaf> listAllNodesByRootDesc(String rootDesc1, String rootDesc2) throws DAOException {
@@ -145,7 +145,7 @@ public final class LeafDAO {
     }
     
     
-    /**
+    /*
      * Returns a list of Leafs from the database.
      *  The list is never null and is empty when the database does not contain any 
      *  Leafs.
@@ -180,7 +180,7 @@ public final class LeafDAO {
 
     
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to a Leaf.
      */
     private static Leaf mapLeaf(ResultSet resultSet) throws SQLException {
@@ -202,7 +202,7 @@ public final class LeafDAO {
     }
 
     
-    /**
+    /*
      * Convert the Leaf ResultSet to JSON.
      */
     public String convertLeafListToStringJson(List<Leaf> leafs) {
@@ -224,7 +224,7 @@ public final class LeafDAO {
   		        	returnString = returnString + 
   		        		"\"children\": [\n{\n\"attr\": {\n\"ext_id\": \"" +
                         leaf.getRootName() + 
-                        "\", \"id\": \"li.node.ROOT.Abstract.id" +
+                        "\", \"id\": \"li_node_ROOT_Abstract_id" +
                         leaf.getRootOid() +
                         "\", \"name\": \"" +
                         leaf.getRootDescription() +
@@ -242,7 +242,7 @@ public final class LeafDAO {
         	        returnString = returnString + 
                         "{\n\"attr\": {\n\"ext_id\": \"" +
   		                leaf.getChildName() + 
-        	            "\",\n\"id\": \"li.node.LEAF.Abstract.id" + 
+        	            "\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
  	    	            leaf.getChildOid() +
  	    	            "\",\n\"name\": \"" + 
  	    	            leaf.getChildDescription() + 
@@ -264,7 +264,7 @@ public final class LeafDAO {
   		  		  	        returnString = returnString + 
    	                            ",\n{\n\"attr\": {\n\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\n\"id\": \"li.node.BRANCH.Abstract.id" + 
+  		        	            "\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
   		 	    	            savedLeaf.getChildId() +
   		 	    	            "\",\n\"name\": \"" + 
   		 	    	            savedLeaf.getChildDescription() + 
@@ -291,7 +291,7 @@ public final class LeafDAO {
                 returnString = returnString + 
                 ",\n{\n\"attr\": {\n\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
-	        	"\",\n\"id\": \"li.node.BRANCH.Abstract.id" + 
+	        	"\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
 	 	    	savedLeaf.getChildId() +
 	 	    	"\",\n\"name\": \"" + 
 	 	    	savedLeaf.getChildDescription() + 
@@ -319,7 +319,7 @@ public final class LeafDAO {
     
     }
 
-    /**
+    /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
     public String convertLeafListToStringJsonLines(List<Leaf> leafs) {
@@ -341,7 +341,7 @@ public final class LeafDAO {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
   		                leaf.getChildName() + 
-        	            "\",\"id\": \"li.node.LEAF.Abstract.id" + 
+        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
  	    	            leaf.getChildOid() +
  	    	            "\",\"name\": \"" + 
  	    	            leaf.getChildDescription() + 
@@ -363,7 +363,7 @@ public final class LeafDAO {
   		  		  	        returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li.node.BRANCH.Abstract.id" + 
+  		        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
   		 	    	            savedLeaf.getChildId() +
   		 	    	            "\",\"name\": \"" + 
   		 	    	            savedLeaf.getChildDescription() + 
@@ -390,7 +390,7 @@ public final class LeafDAO {
     	  		returnString = returnString + 
                 "{\"attr\": {\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
-	        	"\",\"id\": \"li.node.BRANCH.Abstract.id" + 
+	        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
 	 	    	savedLeaf.getChildId() +
 	 	    	"\",\"name\": \"" + 
 	 	    	savedLeaf.getChildDescription() + 

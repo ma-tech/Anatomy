@@ -98,8 +98,8 @@ public class ValidateComponents {
                              TreeBuilder treebuilder ) {
 
         //System.out.println("ValidateComponents Class: Constructor, 2 Lists ...");
-        // 1: set abstract class parameters
 
+    	// 1: set abstract class parameters
         this.abstractclassobocomponent = new ComponentFile();
         // 2: set stage class parameters
         this.stageclassobocomponent = new ComponentFile();

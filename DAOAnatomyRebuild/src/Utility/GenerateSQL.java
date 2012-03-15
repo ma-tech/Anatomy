@@ -39,20 +39,16 @@ import java.util.Vector;
 import DAOLayer.DAOException;
 import DAOLayer.DAOFactory;
 
-import DAOLayer.DerivedPartOfDAO;
 import DAOLayer.JOINNodeRelationshipDAO;
 import DAOLayer.JOINNodeRelationshipNodeDAO;
 import DAOLayer.JOINNodeRelationshipRelationshipProjectDAO;
 import DAOLayer.JOINRelationshipProjectRelationshipDAO;
-import DAOLayer.JOINTimedNodeNodeStageDAO;
 import DAOLayer.JOINTimedNodeStageDAO;
 import DAOLayer.LogDAO;
 import DAOLayer.NodeDAO;
-import DAOLayer.ProjectDAO;
 import DAOLayer.RelationshipDAO;
 import DAOLayer.RelationshipProjectDAO;
 import DAOLayer.StageDAO;
-import DAOLayer.StageRangeDAO;
 import DAOLayer.SynonymDAO;
 import DAOLayer.ThingDAO;
 import DAOLayer.TimedNodeDAO;
@@ -75,10 +71,8 @@ import DAOModel.Version;
 
 import OBOModel.ComponentFile;
 
-
 public class GenerateSQL {
-	
-    // Properties ---------------------------------------------------------------------------------
+	// Properties ---------------------------------------------------------------------------------
     
 	// A flag to print comments to System.out
 	boolean debug; 
@@ -141,13 +135,12 @@ public class GenerateSQL {
     private boolean isProcessed = false;
     
     //abstract class configuration
-    private ComponentFile abstractClass;
+    private ComponentFile abstractclassobocomponent;
     
     //Data Access Object Factory
     private DAOFactory daofactory;
     
     //Data Access Objects (DAOs)
-    private DerivedPartOfDAO derivedpartofDAO;
     private LogDAO logDAO;
     private NodeDAO nodeDAO; 
     private RelationshipDAO relationshipDAO;
@@ -157,16 +150,11 @@ public class GenerateSQL {
     private ThingDAO thingDAO;
     private TimedNodeDAO timednodeDAO; 
     private VersionDAO versionDAO;
-    private ProjectDAO projectDAO;
-    private StageRangeDAO stagerangeDAO; 
     private JOINNodeRelationshipDAO joinnoderelationshipDAO;
     private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO; 
     private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
     private JOINRelationshipProjectRelationshipDAO joinrelationshipprojectrelationshipDAO;
-    private JOINTimedNodeNodeStageDAO jointimednodenodestageDAO;
     private JOINTimedNodeStageDAO jointimednodestageDAO;
-    
-    
     
     // Constructors -------------------------------------------------------------------------------
     public GenerateSQL(
@@ -176,7 +164,6 @@ public class GenerateSQL {
             TreeBuilder refTreebuilder,
             String species,
             String fileName,
-            ComponentFile abstractClass,
             String project  ) {
 
 
@@ -203,7 +190,14 @@ public class GenerateSQL {
         this.strSpecies = species;
         this.intCurrentPublicID = 0;
         this.intCurrentObjectID = 0;
-        this.abstractClass = abstractClass;
+        
+    	// set abstract class parameters
+        this.abstractclassobocomponent = new ComponentFile();
+
+        // 1: set abstract class parameters
+        this.abstractclassobocomponent.setName( "Abstract anatomy" );
+        this.abstractclassobocomponent.setID( "EMAPA:0" );
+        this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
         this.project = project;
 
         //internal termlists for data manipulation
@@ -221,7 +215,6 @@ public class GenerateSQL {
         
         ArrayList<ComponentFile> changedPropComponentFiles =
                 new ArrayList < ComponentFile >();
-        
         
         //construct internal arraylists
         ComponentFile component = new ComponentFile();
@@ -263,13 +256,10 @@ public class GenerateSQL {
             }
         }
         
-        
         // Obtain DAOFactory.
         this.daofactory = DAOFactory.getInstance("daofactory");
-        //System.out.println("DAOFactory successfully obtained: " + daofactory);
 
         // Obtain DAOs.
-        this.derivedpartofDAO = daofactory.getDerivedPartOfDAO();
         this.logDAO = daofactory.getLogDAO();
         this.nodeDAO = daofactory.getNodeDAO();
         this.relationshipDAO = daofactory.getRelationshipDAO();
@@ -279,15 +269,11 @@ public class GenerateSQL {
         this.thingDAO = daofactory.getThingDAO();
         this.timednodeDAO = daofactory.getTimedNodeDAO();
         this.versionDAO = daofactory.getVersionDAO();
-        this.projectDAO = daofactory.getProjectDAO();
-        this.stagerangeDAO = daofactory.getStageRangeDAO();
         this.joinnoderelationshipDAO = daofactory.getJOINNodeRelationshipDAO();
         this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
         this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
         this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
-        this.jointimednodenodestageDAO = daofactory.getJOINTimedNodeNodeStageDAO();
         this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
-
 
         // 01
         //set version id
@@ -298,121 +284,17 @@ public class GenerateSQL {
         insertANA_VERSION( this.intCurrentVersionID, newComponentFiles,
                 deletedComponentFiles, changedComponentFiles );
 
-        //new components
-        //insertANA_OBJECT(newComponentFiles, "ANA_OBJECT");
-        // 03
-        insertANA_NODE(newComponentFiles);
-        
-        // 04
-        insertANA_RELATIONSHIP(newComponentFiles, "NEW");
-        
-        // 05
-        insertANA_TIMED_NODE(newComponentFiles, "NEW");
-        
-        // 06
-        insertANA_SYNONYM(newComponentFiles, "NEW");
+        // AA
+        //  INSERT components
+        inserts( newComponentFiles );
 
-        /*
-        delete components
-         delete components, set DBIDs and get only components that have
-         dbids based on emap id
-        deletedComponentFiles = setDBIDs(deletedComponentFiles);
-        CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
-        1. check that term exists in database
-        2. if term = primary, check that all descendants are due for deletion in obo file as well
-        3. if one descendant specified in database is not found in OBO file 
-           OR descendant is found but not specified for deletion, 
-        4. pass on invalid term to unDeletedCompList
-        pass valid terms to validDeleteComponentFiles
-        validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
-        insert log records for deleted components
-        insertANA_LOG( validDeletedComponentFiles );
-        perform deletion on valid deletion term list
-        deleteComponentFileFromTables( validDeletedComponentFiles );
-        reorder siblings of deleted components that have order
-        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
-        report for invalid delete term list that have not been deleted
-        reportDeletionSummary(deletedComponentFiles, validDeletedComponentFiles, this.unDeletedCompList);
-        */
+        // BB
+        //  AMENDED components
+        updates( changedComponentFiles );
         
-        
-        //modify components, set DBIDs and get only components that have dbids based on emap id
-        // 07
-        changedComponentFiles = setDBIDs(changedComponentFiles);
-        
-        //get components whose stage ranges have changed
-        // 08
-        changedPropComponentFiles = this.getChangedStagesTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified stage ranges
-        // 09
-        updateStages( changedPropComponentFiles );
-        
-        //get components whose names have changed
-        // 10
-        changedPropComponentFiles = this.getChangedNamesTermList( changedComponentFiles );
-        
-        //perform update for modified names
-        // 11
-        updateANA_NODE( changedPropComponentFiles );
-        
-        //get components whose synonyms have changed
-        // 12
-        changedPropComponentFiles = this.getChangedSynonymsTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified synonyms
-        // 13
-        updateSynonyms( changedPropComponentFiles );
-        
-        //get components whose parents have changed
-        // 14
-        changedPropComponentFiles = this.getChangedParentsTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified parent relationships
-        // 15
-        updateParents( changedPropComponentFiles );
-        
-        //get components whose primary status have changed
-        changedPropComponentFiles = this.getChangedPrimaryStatusTermList( changedComponentFiles );
-        //perform update for modified primary status
-        // 15.5
-        updateANA_NODE_primary( changedPropComponentFiles );
-        
-        //get components whose ordering have changed
-        // 16
-        changedPropComponentFiles = this.getChangedOrderTermList( changedComponentFiles );
-
-        //perform reordering
-        // 17
-        updateOrder( changedPropComponentFiles );
-        
-        //delete components
-        // delete components, set DBIDs and get only components that have dbids based on emap id
-        // 07
-        deletedComponentFiles = setDBIDs(deletedComponentFiles);
-
-        //CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
-        //1. check that term exists in database
-        //2. if term = primary, check that all descendants are due for deletion in obo file as well
-        //3. if one descendant specified in database is not found in OBO file
-        //   OR descendant is found but not specified for deletion,
-        //4. pass on invalid term to unDeletedCompList
-        
-        //pass valid terms to validDeleteComponentFiles
-        // 18
-        validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
-        
-        //insert log records for deleted components
-        // 19
-        insertANA_LOG( validDeletedComponentFiles );
-        
-        //perform deletion on valid deletion term list
-        // 20
-        deleteComponentFileFromTables( validDeletedComponentFiles );
-        
-        //reorder siblings of deleted components that have order
-        // 21
-        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+        // CC
+        //  DELETED components
+        deletes( deletedComponentFiles );
         
         setIsProcessed( true );
 
@@ -496,6 +378,146 @@ public class GenerateSQL {
         }
     } 
 
+    // AA
+    //  Wrapper Routine for ALL INSERTS to the database
+    private void inserts( ArrayList<ComponentFile> newComponentFiles ){
+
+    	if (this.debug) {
+            System.out.println("AA - inserts");
+        }
+        
+        // 03
+        insertANA_NODE(newComponentFiles);
+        
+        // 04
+        insertANA_RELATIONSHIP(newComponentFiles, "NEW");
+        
+        // 05
+        insertANA_TIMED_NODE(newComponentFiles, "NEW");
+        
+        // 06
+        insertANA_SYNONYM(newComponentFiles, "NEW");
+    }
+    
+    // BB
+    //  Wrapper Routine for ALL UPDATES to the database
+    private void updates( ArrayList<ComponentFile> changedComponentFilesIn ){
+    	
+    	if (this.debug) {
+            System.out.println("BB - updates");
+        }
+        
+        //modify components, set DBIDs and get only components that have dbids based on emap id
+        // 07
+    	ArrayList<ComponentFile> changedComponentFiles = setDBIDs(changedComponentFilesIn);
+        
+        //get components whose stage ranges have changed
+        // 08
+    	ArrayList<ComponentFile> changedPropComponentFiles = this.getChangedStagesTermList( changedComponentFiles );
+        
+        //perform insertion and deletion for modified stage ranges
+        // 09
+        updateStages( changedPropComponentFiles );
+        
+        //get components whose names have changed
+        // 10
+        changedPropComponentFiles = this.getChangedNamesTermList( changedComponentFiles );
+        
+        //perform update for modified names
+        // 11
+        updateANA_NODE( changedPropComponentFiles );
+        
+        //get components whose synonyms have changed
+        // 12
+        changedPropComponentFiles = this.getChangedSynonymsTermList( changedComponentFiles );
+        
+        //perform insertion and deletion for modified synonyms
+        // 13
+        updateSynonyms( changedPropComponentFiles );
+        
+        //get components whose parents have changed
+        // 14
+        changedPropComponentFiles = this.getChangedParentsTermList( changedComponentFiles );
+        
+        //perform insertion and deletion for modified parent relationships
+        // 15
+        updateParents( changedPropComponentFiles );
+        
+        //get components whose primary status have changed
+        changedPropComponentFiles = this.getChangedPrimaryStatusTermList( changedComponentFiles );
+        //perform update for modified primary status
+        // 15.5
+        updateANA_NODE_primary( changedPropComponentFiles );
+        
+        //get components whose ordering have changed
+        // 16
+        changedPropComponentFiles = this.getChangedOrderTermList( changedComponentFiles );
+
+        //perform reordering
+        // 17
+        updateOrder( changedPropComponentFiles );
+    }
+    
+    // CC
+    //  Wrapper Routine for ALL DELETES to the database
+    private void deletes( ArrayList<ComponentFile> deletedComponentFilesIn ){
+    	
+    	if (this.debug) {
+            System.out.println("CC - deletes");
+        }
+        
+        /*
+        delete components
+         delete components, set DBIDs and get only components that have
+         dbids based on emap id
+        deletedComponentFiles = setDBIDs(deletedComponentFiles);
+        CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
+        1. check that term exists in database
+        2. if term = primary, check that all descendants are due for deletion in obo file as well
+        3. if one descendant specified in database is not found in OBO file 
+           OR descendant is found but not specified for deletion, 
+        4. pass on invalid term to unDeletedCompList
+        pass valid terms to validDeleteComponentFiles
+        validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+        insert log records for deleted components
+        insertANA_LOG( validDeletedComponentFiles );
+        perform deletion on valid deletion term list
+        deleteComponentFileFromTables( validDeletedComponentFiles );
+        reorder siblings of deleted components that have order
+        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+        report for invalid delete term list that have not been deleted
+        reportDeletionSummary(deletedComponentFiles, validDeletedComponentFiles, this.unDeletedCompList);
+        */
+
+        // delete components, set DBIDs and get only components that have dbids based on emap id
+        // 07
+    	ArrayList<ComponentFile> deletedComponentFiles = setDBIDs(deletedComponentFilesIn);
+
+        //CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
+        //1. check that term exists in database
+        //2. if term = primary, check that all descendants are due for deletion in obo file as well
+        //3. if one descendant specified in database is not found in OBO file
+        //   OR descendant is found but not specified for deletion,
+        //4. pass on invalid term to unDeletedCompList
+        
+        //pass valid terms to validDeleteComponentFiles
+        // 18
+    	ArrayList<ComponentFile> validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+        
+        //insert log records for deleted components
+        // 19
+        insertANA_LOG( validDeletedComponentFiles );
+        
+        //perform deletion on valid deletion term list
+        // 20
+        deleteComponentFileFromTables( validDeletedComponentFiles );
+        
+        //reorder siblings of deleted components that have order
+        // 21
+        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+    }
+    
+    
     // 03
     //  Insert new rows into ANA_NODE
     private void insertANA_NODE( ArrayList<ComponentFile> newTermList ){
@@ -712,7 +734,7 @@ public class GenerateSQL {
                             flagInsert = true;
                         }
                         //if parent is root Tmp new group don't treat as relationship
-                        else if ( !parent.getNamespace().equals( this.abstractClass.getNamespace() ) ){
+                        else if ( !parent.getNamespace().equals( this.abstractclassobocomponent.getNamespace() ) ){
                             flagInsert = false;
                         }
                     

@@ -1,40 +1,49 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentSynonym.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Object for an OBO ComponentSynonym inserted into the Anatomy Database
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentSynonym.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                ComponentSynonym Table - ANA_OBO_COMPONENT_SYNONYM
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package DAOModel;
 
 import java.io.Serializable;
 
 public class ComponentSynonym implements Serializable{
-
-    // daocomponentsynonym fields
+    // Properties ---------------------------------------------------------------------------------
+	/*
+     *  Columns:
+     *   ACS_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACS_OBO_ID varchar(25) NOT NULL,
+     *   ACS_OBO_TEXT varchar(1000) NOT NULL,
+	 */
     private Long oid;
     private String id;
     private String text;
@@ -57,9 +66,7 @@ public class ComponentSynonym implements Serializable{
     	this.oid = oid;
     	this.id = id;
     	this.text = text;
- 
     }
-
     
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
@@ -84,13 +91,10 @@ public class ComponentSynonym implements Serializable{
     }
     
     // Helpers ------------------------------------------------------------------------------------
-
     /*
      * Is this ComponentSynonym the same as the Supplied ComponentSynonym?
      */
     public boolean isComponentSynonymSameAs(ComponentSynonym daocomponentsynonym){
-    	
-        //EMAP id, description, start stage, end stage, parents, synonyms
 
     	if ( this.getId().equals(daocomponentsynonym.getId()) && 
              this.getText() == daocomponentsynonym.getText() ){
@@ -101,10 +105,10 @@ public class ComponentSynonym implements Serializable{
             return false;
         }
     }
-    
 
     /*
-     * The relation ID is unique for each Thing. So this should compare Thing by ID only.
+     * The OID is unique for each ComponentSynonym.
+     *  So this should compare ComponentSynonym by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof ComponentSynonym) && (oid != null) 
@@ -113,12 +117,12 @@ public class ComponentSynonym implements Serializable{
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this ComponentSynonym.
+     *  Not required, it just pleases reading logs.
      */
     public String toString() {
         return String.format("ComponentSynonym [ oid=%d, id=%s, text=%s ]", 
         		oid, id, text );
     }
-
 }
 	

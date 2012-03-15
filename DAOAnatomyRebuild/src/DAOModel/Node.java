@@ -1,14 +1,42 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the Node (Abstract - EMAPA)
- */
-public class Node {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Node.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Node Table.
+*                ANA_NODE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class Node {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE - ABSTRACT Nodes in the Anatomy DAG
-	 *              - EMAPA:.... 
-     *  
      *  Columns:
      *   1. ANO_OID            - int(10) unsigned 
      *   2. ANO_SPECIES_FK     - varchar(20)      
@@ -27,18 +55,18 @@ public class Node {
     private String description; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Node() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -108,8 +136,9 @@ public class Node {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each Node. So this should compare Node by ID only.
+    /*
+     * The Node OID is unique for each Node.
+     *  So this should compare Node by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Node) && (oid != null) 
@@ -117,13 +146,12 @@ public class Node {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this Node. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this Node.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("Node [ oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s ]", 
             oid, speciesFK, componentName, primary, group, publicId, description); 
-
     }
-
 }

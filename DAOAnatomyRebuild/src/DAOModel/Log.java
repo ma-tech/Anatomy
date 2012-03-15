@@ -1,12 +1,42 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Log.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Log Table.
+*                ANA_LOG
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOModel;
 
 import java.io.Serializable;
 
-/**
- * This class represents a Data Transfer Object for the Log. 
- */
 public class Log implements Serializable {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 *  ANA_Log - A Log of all Updates to the Anatomy Database
@@ -28,18 +58,17 @@ public class Log implements Serializable {
     private String comments;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Log() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      * Full constructor. Contains required and optional fields.
      *  The Full Constructor is the Minimal Constructor
-     * 
      */
     public Log(Long oid,
     		   Long loggedOid, 
@@ -98,8 +127,8 @@ public class Log implements Serializable {
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * The relation ID is unique for each Log. 
-     *  So this should compare Log by ID only.
+     * The Log OID is unique for each Log. 
+     *  So this should compare Log by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Log) && (oid != null) 
@@ -114,6 +143,5 @@ public class Log implements Serializable {
     public String toString() {
         return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s ]", 
         		oid, loggedOid, versionFK, columnName, oldValue, comments);
-
     }
 }

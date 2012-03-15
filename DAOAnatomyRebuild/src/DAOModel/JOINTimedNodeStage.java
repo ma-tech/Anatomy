@@ -1,13 +1,43 @@
-package DAOModel;
 /*
- * This class represents a Data Transfer Object for the Timed Node (Staged - EMAP)
- */
-public class JOINTimedNodeStage {
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINTimedNodeStage.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                JOINTimedNodeStage "Table".
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class JOINTimedNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_TIMED_NODE - 
-	 *  ANA_STAGE - All Stages in the Anatomy DAG
+	 *  ANA_TIMED_NODE & ANA_STAGE
 	 *  
      *  Columns:
      *   1. ATN_OID               - int(10) unsigned 
@@ -74,7 +104,7 @@ public class JOINTimedNodeStage {
         this.publicStageId = publicStageId; 
     }
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -161,7 +191,8 @@ public class JOINTimedNodeStage {
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * The relation ID is unique for each Relation. So this should compare Relation by ID only.
+     * The JOINTimedNodeStage TimedNode OID is unique for each JOINTimedNodeStage. 
+     *  So this should compare JOINTimedNodeStage by TimedNode OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof JOINTimedNodeStage) && (oidTimedNode != null) 
@@ -170,7 +201,8 @@ public class JOINTimedNodeStage {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this JOINTimedNodeStage.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("JOINTimedNodeStage\n" +
@@ -178,5 +210,4 @@ public class JOINTimedNodeStage {
         		"Stage [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicStageId=%s ]", 
         		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, oidTimedNode, speciesFK, name, sequence, description, extraText, publicStageId);
     }
-
 }

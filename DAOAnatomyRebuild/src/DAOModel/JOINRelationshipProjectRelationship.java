@@ -1,16 +1,43 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the JOINRelationshipProjectRelationship (Abstract - EMAPA)
- */
-public class JOINRelationshipProjectRelationship {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINRelationshipProjectRelationship.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                JOINRelationshipProjectRelationship "Table".
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class JOINRelationshipProjectRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE - ABSTRACT JOINRelationshipProjectRelationships in the Anatomy DAG
-	 *              - EMAPA:.... 
-	 *  ANA_RELATIONSHIP - All Relationships between ABSTRACT Nodes in the Anatomy DAG
-     *  
-	 *  ANA_RELATIONSHIP_PROJECT - All Relationships between ABSTRACT Nodes in the Anatomy DAG
+	 *  ANA_RELATIONSHIP_PROJECT & ANA_RELATIONSHIP
      *  
      *  Columns:
      *   1. RLP_OID                  - int(10) unsigned
@@ -32,18 +59,18 @@ public class JOINRelationshipProjectRelationship {
     private Long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public JOINRelationshipProjectRelationship() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -66,10 +93,7 @@ public class JOINRelationshipProjectRelationship {
         this.typeFK = typeFK; 
         this.childFK = childFK; 
         this.parentFK = parentFK;
-
     }
-
-
 
     // Getters ------------------------------------------------------------------------------------
     public Long getOidRelationshipProject() {
@@ -126,8 +150,9 @@ public class JOINRelationshipProjectRelationship {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each JOINRelationshipProjectRelationship. So this should compare JOINRelationshipProjectRelationship by ID only.
+    /*
+     * The RelationshipProject OID is unique for each JOINRelationshipProjectRelationship. 
+     * So this should compare JOINRelationshipProjectRelationship by RelationshipProject OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof JOINRelationshipProjectRelationship) && (oidRelationshipProject != null) 
@@ -135,15 +160,14 @@ public class JOINRelationshipProjectRelationship {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this JOINRelationshipProjectRelationship. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this JOINRelationshipProjectRelationship. 
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("JOINRelationshipProjectRelationship\n" +
         	"RelationshipProject [ oidRelationshipProject=%d, relationshipFK=%d, projectFK=%s, sequenceFK=%d ]" +
         	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n",
             oidRelationshipProject, relationshipFK, projectFK, sequenceFK, oidRelationship, typeFK, childFK, parentFK); 
-
     }
-
 }

@@ -1,16 +1,45 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Version.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Version Table.
+*                ANA_VERSION
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOModel;
 
 import java.io.Serializable;
 
-/**
- * This class represents a Data Transfer Object for the Node (Abstract - EMAPA)
- */
 public class Version implements Serializable {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 *  ANA_VERSION - A record of all the versions of the Anatomy Database
-	 *              - EMAPA:.... 
      *  
      *  Columns:
      *   1. VER_OID      - int(10) unsigned
@@ -25,18 +54,18 @@ public class Version implements Serializable {
     private String comments; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Version() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -82,8 +111,9 @@ public class Version implements Serializable {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each Node. So this should compare Node by ID only.
+    /*
+     * The relation ID is unique for each Version. 
+     *  So this should compare Version by ID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Version) && (oid != null) 
@@ -91,13 +121,12 @@ public class Version implements Serializable {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this Node. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this Version. 
+     *  Not required, it just make reading logs easier.
      */
     public String toString() {
         return String.format("Version [ oid=%d, number=%s, date=%s, comments=%s ]", 
             oid, number, date, comments); 
-
     }
-
 }

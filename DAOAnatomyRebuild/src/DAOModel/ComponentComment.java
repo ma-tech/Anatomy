@@ -1,40 +1,51 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentComment.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Object for an OBO ComponentComment inserted into the Anatomy Database
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentComment.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                ComponentComment Table - ANA_OBO_COMPONENT_COMMENT
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package DAOModel;
 
 import java.io.Serializable;
 
 public class ComponentComment implements Serializable{
-
-    // daocomponentcomment fields
+    // Properties ---------------------------------------------------------------------------------
+	/*
+     *  Columns:
+     *   ACC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACC_OBO_ID varchar(25) NOT NULL,
+     *   ACC_OBO_GENERAL_COMMENT varchar(1000) NOT NULL,
+     *   ACC_OBO_USER_COMMENT varchar(1000) NOT NULL,
+     *   ACC_OBO_ORDER_COMMENT varchar(1000) NOT NULL,
+	 */
     private Long oid;
     private String id;
     private String general;
@@ -102,13 +113,10 @@ public class ComponentComment implements Serializable{
     }
     
     // Helpers ------------------------------------------------------------------------------------
-
     /*
      * Is this ComponentComment the same as the Supplied ComponentComment?
      */
     public boolean isComponentCommentSameAs(ComponentComment daocomponentcomment){
-    	
-        //EMAP id, description, start stage, end stage, parents, synonyms
 
     	if ( this.getId().equals(daocomponentcomment.getId()) && 
              this.getGeneral() == daocomponentcomment.getGeneral() &&
@@ -121,10 +129,10 @@ public class ComponentComment implements Serializable{
             return false;
         }
     }
-    
 
     /*
-     * The relation ID is unique for each Thing. So this should compare Thing by ID only.
+     * The OID is unique for each ComponentComment.
+     *  So this should compare ComponentComment by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof ComponentComment) && (oid != null) 
@@ -133,12 +141,12 @@ public class ComponentComment implements Serializable{
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this ComponentComment.
+     *  Not required, it just pleases reading logs.
      */
     public String toString() {
         return String.format("ComponentComment [ oid=%d, id=%s, general=%s, user=%s, order=%s ]", 
         		oid, id, general, user, order);
     }
-
 }
 	

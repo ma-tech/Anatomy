@@ -1,17 +1,44 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Synonym.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Synonym Table.
+*                ANA_SYNONYM
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOModel;
 
 import java.io.Serializable;
 
-/**
- * This class represents a Data Transfer Object for the Synonym (Abstract - EMAPA)
- */
 public class Synonym implements Serializable{
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE - ABSTRACT Synonyms in the Anatomy DAG
-	 *              - EMAPA:.... 
-     *  
      *  Columns:
      *   1. SYN_OID         - int(10) unsigned
      *   2. SYN_OBJECT_FK   - int(10) unsigned
@@ -22,18 +49,18 @@ public class Synonym implements Serializable{
     private String name; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Synonym() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -71,9 +98,9 @@ public class Synonym implements Serializable{
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
+    /*
      * The OID is unique for each Synonym.
-     *  So this should compare Synonym by ID only.
+     *  So this should compare Synonym by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Synonym) && (oid != null) 
@@ -81,14 +108,12 @@ public class Synonym implements Serializable{
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this Synonym. 
-     *  Not required, it just helps reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("Synonym [ oid=%d, thingFK=%d, name=%s ]", 
             oid, thingFK, name); 
-
     }
-
 }

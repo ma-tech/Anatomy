@@ -1,40 +1,58 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        Component.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Object for an OBO Component inserted into the Anatomy Database
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Component.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                Component Table - ANA_OBO_COMPONENT
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package DAOModel;
 
 import java.io.Serializable;
 
 public class Component implements Serializable{
-
-    // daocomponent fields
+    // Properties ---------------------------------------------------------------------------------
+	/*
+     *  Columns:
+     *   AOC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   AOC_NAME varchar(255) NOT NULL,
+     *   AOC_OBO_ID varchar(25) NOT NULL,
+     *   AOC_DB_ID varchar(25) NOT NULL,
+     *   AOC_NEW_ID varchar(25) NOT NULL,
+     *   AOC_NAMESPACE varchar(50) NOT NULL,
+     *   AOC_GROUP tinyint(1) NOT NULL,
+     *   AOC_START varchar(10) NOT NULL,
+     *   AOC_END varchar(10) NOT NULL,
+     *   AOC_PRESENT varchar(10) NOT NULL,
+     *   AOC_STATUS_CHANGE varchar(10) NOT NULL COMMENT 'UNCHANGED NEW CHANGED DELETED',
+     *   AOC_STATUS_RULE varchar(10) NOT NULL COMMENT 'UNCHECKED PASSED FAILED',
+	 */
     private Long oid;
     private String name;
     private String id;
@@ -84,9 +102,7 @@ public class Component implements Serializable{
     	this.present = present;
         this.statuschange = statuschange;
         this.statusrule = statusrule;
-
     }
-
     
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
@@ -165,13 +181,10 @@ public class Component implements Serializable{
     }
     
     // Helpers ------------------------------------------------------------------------------------
-
     /*
      * Is this Component the same as the Supplied Component?
      */
     public boolean isComponentSameAs(Component daocomponent){
-    	
-        //EMAP id, description, start stage, end stage, parents, synonyms
 
     	if ( this.getId().equals(daocomponent.getId()) && 
              this.getName().equals(daocomponent.getName()) &&
@@ -184,10 +197,10 @@ public class Component implements Serializable{
             return false;
         }
     }
-    
 
     /*
-     * The relation ID is unique for each Thing. So this should compare Thing by ID only.
+     * The OID is unique for each Component.
+     *  So this should compare Component by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Component) && (oid != null) 
@@ -196,11 +209,11 @@ public class Component implements Serializable{
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this Component.
+     *  Not required, it just pleases reading logs.
      */
     public String toString() {
         return String.format("Component [ oid=%d, id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%d ]", 
         		oid, id, name, statuschange, statusrule, dbid, newid, namespace, group, start, end, present);
     }
-
 }

@@ -1,16 +1,45 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the Stage. 
- */
-public class Stage {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Stage.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Stage Table.
+*                ANA_STAGE - All Stages in the Anatomy DAG
+*                          - Mouse - Theiler, TS
+*                          - Human - Carnegie, CS
+*                          - Chick - Hamburger Hamilton, HH & EGK
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class Stage {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_STAGE - All Stages in the Anatomy DAG
-	 *               - Mouse - Theiler, TS
-	 *               - Human - Carnegie, CS
-	 *               - Chick - Hamburger Hamilton, HH & EGK
-     *  
      *  Columns:
      *   1. STG_OID              - int(10) unsigned
      *   2. STG_SPECIES_FK       - varchar(20)      
@@ -36,11 +65,11 @@ public class Stage {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -110,8 +139,9 @@ public class Stage {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each Stage. So this should compare Stage by ID only.
+    /*
+     * The relation ID is unique for each Stage. 
+     *  So this should compare Stage by ID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Stage) && (oid != null) 
@@ -119,13 +149,12 @@ public class Stage {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this Stage. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this Stage. 
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("Stage [ oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s ]", 
             oid, speciesFK, name, sequence, description, extraText, publicId);
-
     }
-
 }

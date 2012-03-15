@@ -1,16 +1,44 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        DerivedPartOf.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                DerivedPartOf Table - ANAD_PART_OF
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOModel;
 
 import java.io.Serializable;
 
-/**
- * This class represents a Data Transfer Object for the DerivedPartOf. 
- */
 public class DerivedPartOf implements Serializable {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_DerivedPartOf - All DerivedPartOfs between ABSTRACT Nodes in the Anatomy DAG
-     *  
      *  Columns:
      *   1.  APO_OID                 => int(10)
      *   2.  APO_SPECIES_FK          => varchar(20)
@@ -47,18 +75,17 @@ public class DerivedPartOf implements Serializable {
     private Long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public DerivedPartOf() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      * Full constructor. Contains required and optional fields.
      *  The Full Constructor is the Minimal Constructor
-     * 
      */
     public DerivedPartOf(Long oid,
     		String speciesFK, 
@@ -201,9 +228,9 @@ public class DerivedPartOf implements Serializable {
     } 
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each DerivedPartOf. 
-     *  So this should compare DerivedPartOf by ID only.
+    /*
+     * The OID is unique for each DerivedPartOf. 
+     *  So this should compare DerivedPartOf by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof DerivedPartOf) && (oid != null) 
@@ -211,13 +238,12 @@ public class DerivedPartOf implements Serializable {
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this DerivedPartOf.
      *  Not required, it just aids log reading.
      */
     public String toString() {
         return String.format("DerivedPartOf [ oid=%d, speciesFK=%s, nodeStartFK=%d, nodeStopFK=%d, pathStartFK=%d, pathStopFK=%d, nodeFK=%d, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%d, primaryPath=%d, parentFK=%d ]", 
         		oid, speciesFK, nodeStartFK, nodeStopFK, pathStartFK, pathStopFK, nodeFK, sequence, depth, fullPath, fullPathOids, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
-
     }
 }

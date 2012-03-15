@@ -1,13 +1,42 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the Timed Node (Staged - EMAP)
- */
-public class TimedNode {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        TimedNode.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Timed Node Table.
+*                ANA_TIMED_NODE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class TimedNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_TIMED_NODE - 
-	 *  
      *  Columns:
      *   1. ATN_OID               - int(10) unsigned 
      *   2. ATN_NODE_FK           - int(10) unsigned 
@@ -22,14 +51,14 @@ public class TimedNode {
     private String publicId;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public TimedNode() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
     public TimedNode(Long oid, 
@@ -45,7 +74,7 @@ public class TimedNode {
         this.publicId = publicId;
     }
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -87,9 +116,9 @@ public class TimedNode {
     }
 
     // Override -----------------------------------------------------------------------------------
-
-    /**
-     * The relation ID is unique for each Relation. So this should compare Relation by ID only.
+    /*
+     * The Timed Node OID is unique for each Timed Node.
+     *  So this should compare Timed Node by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof TimedNode) && (oid != null) 
@@ -97,12 +126,12 @@ public class TimedNode {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this Timed Node. 
+     *  Not required, it just makes reading logs easier
      */
     public String toString() {
         return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s ]", 
             oid, nodeFK, stageFK, stageModifierFK, publicId);
     }
-
 }

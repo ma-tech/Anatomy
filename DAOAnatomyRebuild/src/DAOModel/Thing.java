@@ -1,20 +1,48 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Thing.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Object Table.
+*                ANA_OBJECT - ALL Objects in the Anatomy DAG
+*                           - Abstract Nodes - ANA_NODE 
+*                           - Timed Nodes    - ANA_TIMED_NODE
+*                           - Relationships  - ANA_RELATIONSHIP
+*                           - Stages         - ANA_STAGE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOModel;
 
 import java.io.Serializable;
 
-/**
- * This class represents a Data Transfer Object for the Object. 
- */
 public class Thing implements Serializable {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_OBJECT - ALL Objects in the Anatomy DAG
-	 *                - Abstract Nodes - ANA_NODE 
-	 *                - Timed Nodes    - ANA_TIMED_NODE
-	 *                - Relationships  - ANA_RELATIONSHIP
-	 *                - Stages         - ANA_STAGE
-     *  
      *  Columns:
      *   1. OBJ_OID               - int(10) unsigned 
      *   2. OBJ_CREATION_DATETIME - datetime         
@@ -29,18 +57,18 @@ public class Thing implements Serializable {
     private String description; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Thing() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -95,7 +123,8 @@ public class Thing implements Serializable {
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * The relation ID is unique for each Thing. So this should compare Thing by ID only.
+     * The relation OID is unique for each Thing. 
+     *  So this should compare Thing by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof Thing) && (oid != null) 
@@ -104,11 +133,11 @@ public class Thing implements Serializable {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this Thing.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("Object [ oid=%d, creationDateTime=%s, creatorFK=%d, table=%s, description=%s ]", 
             oid, creationDateTime, creatorFK, table, description);
     }
-
 }

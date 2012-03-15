@@ -1,9 +1,40 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the RelationshipProject. 
- */
-public class RelationshipProject {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        RelationshipProject.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the RelationshipProject Table.
+*                ANA_RELATIONSHIP_PROJECT
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class RelationshipProject {
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 *  ANA_RELATIONSHIP_PROJECT 
@@ -21,18 +52,17 @@ public class RelationshipProject {
     private Long sequence;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public RelationshipProject() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      * Full constructor. Contains required and optional fields.
      *  The Full Constructor is the Minimal Constructor
-     * 
      */
     public RelationshipProject(Long oid, 
     		Long relationshipFK, 
@@ -74,9 +104,9 @@ public class RelationshipProject {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each RelationshipProject. 
-     *  So this should compare RelationshipProject by ID only.
+    /*
+     * The RelationshipProject OID is unique for each RelationshipProject. 
+     *  So this should compare RelationshipProject by OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof RelationshipProject) && (oid != null) 
@@ -84,13 +114,12 @@ public class RelationshipProject {
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this RelationshipProject.
      *  Not required, it just aids log reading.
      */
     public String toString() {
         return String.format("RelationshipProject [ oid=%d, relationshipFK=%d, projectFK=%s, sequence=%d ]", 
             oid, relationshipFK, projectFK, sequence);
-
     }
 }

@@ -1,17 +1,44 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the JOINNodeRelationshipNode (Abstract - EMAPA)
- */
-public class JOINNodeRelationshipNode {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        JOINNodeRelationshipNode.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                JOINNodeRelationshipNode "Table".
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class JOINNodeRelationshipNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE - ABSTRACT JOINNodeRelationshipNodes in the Anatomy DAG
-	 *              - EMAPA:.... 
-	 *  ANA_RELATIONSHIP - All Relationships between ABSTRACT Nodes in the Anatomy DAG
-     *  
-	 *  ANA_NODE - ABSTRACT JOINNodeRelationshipNodes in the Anatomy DAG
-	 *              - EMAPA:.... 
+	 *  ANA_NODE & ANA_RELATIONSHIP & ANA_NODE 
+	 *  
      *  Columns:
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
@@ -52,18 +79,18 @@ public class JOINNodeRelationshipNode {
     private String Bdescription; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public JOINNodeRelationshipNode() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -225,8 +252,9 @@ public class JOINNodeRelationshipNode {
     }
     
     // Override -----------------------------------------------------------------------------------
-    /**
-     * The relation ID is unique for each JOINNodeRelationshipNode. So this should compare JOINNodeRelationshipNode by ID only.
+    /*
+     * The A.Node OID is unique for each JOINNodeRelationshipNode. 
+     *  So this should compare JOINNodeRelationshipNode by A.Node OID only.
      */
     public boolean equals(Object other) {
         return (other instanceof JOINNodeRelationshipNode) && (AoidNode != null) 
@@ -234,8 +262,9 @@ public class JOINNodeRelationshipNode {
         		: (other == this);
     }
 
-    /**
-     * Returns the String representation of this JOINNodeRelationshipNode. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this JOINNodeRelationshipNode. 
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("JOINNodeRelationshipNode\n" +
@@ -245,7 +274,5 @@ public class JOINNodeRelationshipNode {
             AoidNode, AspeciesFK, AcomponentName, Aprimary, Agroup, ApublicId, Adescription, 
             oidRelationship, typeFK, childFK, parentFK, 
             BoidNode, BspeciesFK, BcomponentName, Bprimary, Bgroup, BpublicId, Bdescription); 
-
     }
-
 }

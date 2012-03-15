@@ -1,9 +1,39 @@
-package DAOModel;
-/**
- * This class represents a Data Transfer Object for the StageRange. 
- */
-public class StageRange {
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        Synonym.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the StageRange "Table".
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 
+package DAOModel;
+
+public class StageRange {
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 * CHILD_ID     - varchar(25)
@@ -21,18 +51,18 @@ public class StageRange {
     private String parentEnd; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public StageRange() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
 
-    /**
+    /*
      * Full constructor. Contains required and optional fields.
      * 
      * The Full Constructor is the Minimal Constructor
@@ -94,18 +124,20 @@ public class StageRange {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
-     * Returns the String representation of this StageRange. Not required, it just pleases reading logs.
+    /*
+     * Returns the String representation of this StageRange.
+     *  Not required, it just makes reading logs easier
      */
     public String toString() {
         return String.format("StageRange [ childId=%s, childStart=%s, childEnd=%s, parentId=%s, parentStart=%s, parentEnd=%s ]", 
         		childId, childStart, childEnd, parentId, parentStart, parentEnd);
-
     }
 
+    /*
+     * Returns Another the String representation of this StageRange.
+     */
     public String reportStageRange() {
         return String.format("\t%s\t%s\t\t%s\t\t%s\t%s\t\t%s", 
         		childId, childStart, childEnd, parentId, parentStart, parentEnd);
-
     }
 }

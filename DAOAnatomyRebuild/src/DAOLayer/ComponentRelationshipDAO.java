@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentRelationshipDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the ComponentRelationship DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the ComponentRelationship DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.ComponentRelationship;
 
-/*
- * This class represents a SQL Database Access Object for the ComponentRelationship DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the ComponentRelationship DTO and a SQL database.
- *
- * @link http://balusc.bcomponentrelationshipspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ComponentRelationshipDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -89,10 +117,8 @@ public final class ComponentRelationshipDAO {
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OID = ?";
 
-
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -102,9 +128,7 @@ public final class ComponentRelationshipDAO {
     ComponentRelationshipDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -113,7 +137,6 @@ public final class ComponentRelationshipDAO {
     public ComponentRelationship findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -122,7 +145,6 @@ public final class ComponentRelationshipDAO {
     public List<ComponentRelationship> listByOboId(String oboid) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_OBO_ID, oboid);
-        
     }
     
     /*
@@ -131,7 +153,6 @@ public final class ComponentRelationshipDAO {
     public List<ComponentRelationship> listByParent(String parent) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_PARENT, parent);
-        
     }
     
     /*
@@ -140,7 +161,6 @@ public final class ComponentRelationshipDAO {
     public List<ComponentRelationship> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -149,11 +169,11 @@ public final class ComponentRelationshipDAO {
     public boolean existOid(String oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given daocomponentrelationship in the database.
+     * 
      *  If the ComponentRelationship OID is null, 
      *   then it will invoke "create(ComponentRelationship)", 
      *   else it will invoke "update(ComponentRelationship)".
@@ -166,9 +186,7 @@ public final class ComponentRelationshipDAO {
     	else {
             update(daocomponentrelationship);
         }
-    	
     }
-
 
     /*
      * Returns the daocomponentrelationship from the database matching the given 
@@ -198,9 +216,7 @@ public final class ComponentRelationshipDAO {
         }
 
         return daocomponentrelationship;
-        
     }
-
     
     /*
      * Returns a list of all componentrelationships from the database. 
@@ -230,15 +246,13 @@ public final class ComponentRelationshipDAO {
         }
 
         return componentrelationships;
-        
     }
-
     
     /*
      * Create the given daocomponentrelationship in the database. 
      *  The daocomponentrelationship OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentrelationship OID value is unknown, rather use save(ComponentRelationship).
-     * After creating, the DAO will set the obtained ID in the given daocomponentrelationship.
+     *   After creating, the DAO will set the obtained ID in the given daocomponentrelationship.
      */
     public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, DAOException {
 
@@ -267,7 +281,6 @@ public final class ComponentRelationshipDAO {
             else {
             	System.out.println("UPDATE: Create ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -275,9 +288,7 @@ public final class ComponentRelationshipDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given daocomponentrelationship in the database.
@@ -318,7 +329,6 @@ public final class ComponentRelationshipDAO {
             else {
             	System.out.println("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -326,9 +336,7 @@ public final class ComponentRelationshipDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given daocomponentrelationship from the database. 
@@ -361,7 +369,6 @@ public final class ComponentRelationshipDAO {
             else {
             	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -369,9 +376,7 @@ public final class ComponentRelationshipDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      *  Delete the given daocomponentrelationship from the database. 
@@ -397,7 +402,6 @@ public final class ComponentRelationshipDAO {
             else {
             	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -405,9 +409,7 @@ public final class ComponentRelationshipDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -433,10 +435,8 @@ public final class ComponentRelationshipDAO {
         }
 
         return exist;
-        
     }
 
-    
     /*
      * Returns list of ComponentRelationships for Display purposes
      *  starting at the given first index with the given row count,
@@ -502,7 +502,6 @@ public final class ComponentRelationshipDAO {
             while (resultSet.next()) {
                 dataList.add(mapComponentRelationship(resultSet));
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -512,9 +511,7 @@ public final class ComponentRelationshipDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -557,7 +554,6 @@ public final class ComponentRelationshipDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -567,9 +563,7 @@ public final class ComponentRelationshipDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -590,7 +584,6 @@ public final class ComponentRelationshipDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -600,9 +593,7 @@ public final class ComponentRelationshipDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -616,7 +607,5 @@ public final class ComponentRelationshipDAO {
        		resultSet.getString("ACR_OBO_TYPE"), 
        		resultSet.getString("ACR_OBO_PARENT")
         );
-    	
     }
-
 }

@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        LogDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Log DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Log DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.ComponentComment;
 
-/*
- * This class represents a SQL Database Access Object for the ComponentComment DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the ComponentComment DTO and a SQL database.
- *
- * @link http://balusc.bcomponentcommentspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ComponentCommentDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -80,10 +108,8 @@ public final class ComponentCommentDAO {
         "FROM ANA_OBO_COMPONENT_COMMENT " +
         "WHERE ACC_OID = ?";
 
-
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -93,9 +119,7 @@ public final class ComponentCommentDAO {
     ComponentCommentDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -104,7 +128,6 @@ public final class ComponentCommentDAO {
     public ComponentComment findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -113,7 +136,6 @@ public final class ComponentCommentDAO {
     public List<ComponentComment> listByOboId(String oboid) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_OBO_ID, oboid);
-        
     }
     
     /*
@@ -122,7 +144,6 @@ public final class ComponentCommentDAO {
     public List<ComponentComment> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -131,11 +152,11 @@ public final class ComponentCommentDAO {
     public boolean existOid(String oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given daocomponentcomment in the database.
+     * 
      *  If the ComponentComment OID is null, 
      *   then it will invoke "create(ComponentComment)", 
      *   else it will invoke "update(ComponentComment)".
@@ -148,9 +169,7 @@ public final class ComponentCommentDAO {
     	else {
             update(daocomponentcomment);
         }
-    	
     }
-
 
     /*
      * Returns the daocomponentcomment from the database matching the given 
@@ -180,9 +199,7 @@ public final class ComponentCommentDAO {
         }
 
         return daocomponentcomment;
-        
     }
-
     
     /*
      * Returns a list of all componentcomments from the database. 
@@ -212,15 +229,14 @@ public final class ComponentCommentDAO {
         }
 
         return componentcomments;
-        
     }
-
     
     /*
      * Create the given daocomponentcomment in the database. 
+     * 
      *  The daocomponentcomment OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentcomment OID value is unknown, rather use save(ComponentComment).
-     * After creating, the DAO will set the obtained ID in the given daocomponentcomment.
+     *   After creating, the DAO will set the obtained ID in the given daocomponentcomment.
      */
     public void create(ComponentComment daocomponentcomment) throws IllegalArgumentException, DAOException {
 
@@ -250,7 +266,6 @@ public final class ComponentCommentDAO {
             else {
             	System.out.println("UPDATE: Create ANA_OBO_COMPONENT_COMMENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -258,12 +273,11 @@ public final class ComponentCommentDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given daocomponentcomment in the database.
+     * 
      *  The daocomponentcomment OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the daocomponentcomment OID value is unknown, rather use save(ComponentComment)}.
      */
@@ -302,7 +316,6 @@ public final class ComponentCommentDAO {
             else {
             	System.out.println("UPDATE: Update ANA_OBO_COMPONENT_COMMENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -310,9 +323,7 @@ public final class ComponentCommentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given daocomponentcomment from the database. 
@@ -345,7 +356,6 @@ public final class ComponentCommentDAO {
             else {
             	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT_COMMENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -353,9 +363,7 @@ public final class ComponentCommentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      *  Delete the given daocomponentcomment from the database. 
@@ -381,7 +389,6 @@ public final class ComponentCommentDAO {
             else {
             	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT_COMMENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -389,9 +396,7 @@ public final class ComponentCommentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -417,10 +422,8 @@ public final class ComponentCommentDAO {
         }
 
         return exist;
-        
     }
 
-    
     /*
      * Returns list of ComponentComments for Display purposes
      *  starting at the given first index with the given row count,
@@ -499,9 +502,7 @@ public final class ComponentCommentDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -554,9 +555,7 @@ public final class ComponentCommentDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -587,9 +586,7 @@ public final class ComponentCommentDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -604,7 +601,5 @@ public final class ComponentCommentDAO {
        		resultSet.getString("ACC_OBO_USER_COMMENT"), 
        		resultSet.getString("ACC_OBO_ORDER_COMMENT")
         );
-    	
     }
-
 }

@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Component DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Component DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.Component;
 
-/*
- * This class represents a SQL Database Access Object for the Component DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the Component DTO and a SQL database.
- *
- * @link http://balusc.bcomponentspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ComponentDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -92,10 +120,8 @@ public final class ComponentDAO {
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_OID = ?";
 
-
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -105,9 +131,7 @@ public final class ComponentDAO {
     ComponentDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -116,7 +140,6 @@ public final class ComponentDAO {
     public Component findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -125,7 +148,6 @@ public final class ComponentDAO {
     public Component findByOboId(String oboid) throws DAOException {
     	
         return find(SQL_FIND_BY_OBO_ID, oboid);
-        
     }
     
     /*
@@ -134,7 +156,6 @@ public final class ComponentDAO {
     public Component findByOboName(String oboname) throws DAOException {
     	
         return find(SQL_FIND_BY_OBO_NAME, oboname);
-        
     }
     
     /*
@@ -143,7 +164,6 @@ public final class ComponentDAO {
     public List<Component> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -152,11 +172,11 @@ public final class ComponentDAO {
     public boolean existOid(String oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given daocomponent in the database.
+     * 
      *  If the Component OID is null, 
      *   then it will invoke "create(Component)", 
      *   else it will invoke "update(Component)".
@@ -169,9 +189,7 @@ public final class ComponentDAO {
     	else {
             update(daocomponent);
         }
-    	
     }
-
 
     /*
      * Returns the daocomponent from the database matching the given 
@@ -201,9 +219,7 @@ public final class ComponentDAO {
         }
 
         return daocomponent;
-        
     }
-
     
     /*
      * Returns a list of all components from the database. 
@@ -233,9 +249,7 @@ public final class ComponentDAO {
         }
 
         return components;
-        
     }
-
     
     /*
      * Create the given daocomponent in the database. 
@@ -278,7 +292,6 @@ public final class ComponentDAO {
             else {
             	System.out.println("UPDATE: Create ANA_OBO_COMPONENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -286,12 +299,11 @@ public final class ComponentDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given daocomponent in the database.
+     * 
      *  The daocomponent OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the daocomponent OID value is unknown, rather use save(Component)}.
      */
@@ -337,7 +349,6 @@ public final class ComponentDAO {
             else {
             	System.out.println("UPDATE: Update ANA_OBO_COMPONENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -345,9 +356,7 @@ public final class ComponentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given daocomponent from the database. 
@@ -380,7 +389,6 @@ public final class ComponentDAO {
             else {
             	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -388,9 +396,7 @@ public final class ComponentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      *  Delete the given daocomponent from the database. 
@@ -416,7 +422,6 @@ public final class ComponentDAO {
             else {
             	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -424,10 +429,8 @@ public final class ComponentDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
     
-
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
@@ -452,9 +455,7 @@ public final class ComponentDAO {
         }
 
         return exist;
-        
     }
-
     
     /*
      * Returns list of Components for Display purposes
@@ -545,7 +546,6 @@ public final class ComponentDAO {
             while (resultSet.next()) {
                 dataList.add(mapComponent(resultSet));
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -555,9 +555,7 @@ public final class ComponentDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -600,7 +598,6 @@ public final class ComponentDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -610,9 +607,7 @@ public final class ComponentDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -633,7 +628,6 @@ public final class ComponentDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -643,9 +637,7 @@ public final class ComponentDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -668,7 +660,5 @@ public final class ComponentDAO {
        		resultSet.getString("AOC_STATUS_RULE")
 
         );
-    	
     }
-
 }

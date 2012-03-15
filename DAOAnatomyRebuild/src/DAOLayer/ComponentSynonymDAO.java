@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentSynonymDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the ComponentSynonym DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the ComponentSynonym DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+
 package DAOLayer;
 
 import static DAOLayer.DAOUtil.*;
@@ -12,14 +48,6 @@ import java.util.List;
 
 import DAOModel.ComponentSynonym;
 
-/*
- * This class represents a SQL Database Access Object for the ComponentSynonym DTO.
- * 
- * This DAO should be used as a central point for the mapping between 
- *  the ComponentSynonym DTO and a SQL database.
- *
- * @link http://balusc.bcomponentsynonymspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ComponentSynonymDAO {
 
     // Constants ----------------------------------------------------------------------------------
@@ -83,10 +111,8 @@ public final class ComponentSynonymDAO {
         "FROM ANA_OBO_COMPONENT_SYNONYM " +
         "WHERE ACS_OID = ?";
 
-
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -96,9 +122,7 @@ public final class ComponentSynonymDAO {
     ComponentSynonymDAO(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -107,7 +131,6 @@ public final class ComponentSynonymDAO {
     public ComponentSynonym findByOid(Long oid) throws DAOException {
     	
         return find(SQL_FIND_BY_OID, oid);
-        
     }
     
     /*
@@ -116,7 +139,6 @@ public final class ComponentSynonymDAO {
     public List<ComponentSynonym> listByOboId(String oboid) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_OBO_ID, oboid);
-        
     }
     
     /*
@@ -125,7 +147,6 @@ public final class ComponentSynonymDAO {
     public List<ComponentSynonym> listByText(String text) throws DAOException {
     	
         return list(SQL_LIST_ALL_BY_TEXT, text);
-        
     }
     
     /*
@@ -134,7 +155,6 @@ public final class ComponentSynonymDAO {
     public List<ComponentSynonym> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
@@ -143,11 +163,11 @@ public final class ComponentSynonymDAO {
     public boolean existOid(String oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
-        
     }
 
     /*
      * Save the given daocomponentsynonym in the database.
+     * 
      *  If the ComponentSynonym OID is null, 
      *   then it will invoke "create(ComponentSynonym)", 
      *   else it will invoke "update(ComponentSynonym)".
@@ -160,9 +180,7 @@ public final class ComponentSynonymDAO {
     	else {
             update(daocomponentsynonym);
         }
-    	
     }
-
 
     /*
      * Returns the daocomponentsynonym from the database matching the given 
@@ -192,9 +210,7 @@ public final class ComponentSynonymDAO {
         }
 
         return daocomponentsynonym;
-        
     }
-
     
     /*
      * Returns a list of all componentsynonyms from the database. 
@@ -224,15 +240,14 @@ public final class ComponentSynonymDAO {
         }
 
         return componentsynonyms;
-        
     }
-
     
     /*
      * Create the given daocomponentsynonym in the database. 
+     * 
      *  The daocomponentsynonym OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentsynonym OID value is unknown, rather use save(ComponentSynonym).
-     * After creating, the DAO will set the obtained ID in the given daocomponentsynonym.
+     *   After creating, the DAO will set the obtained ID in the given daocomponentsynonym.
      */
     public void create(ComponentSynonym daocomponentsynonym) throws IllegalArgumentException, DAOException {
 
@@ -260,7 +275,6 @@ public final class ComponentSynonymDAO {
             else {
             	System.out.println("UPDATE: Create ANA_OBO_COMPONENT_SYNONYM Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -268,9 +282,7 @@ public final class ComponentSynonymDAO {
         finally {
             close(connection, preparedStatement, generatedKeys);
         }
-        
     }
-    
     
     /*
      * Update the given daocomponentsynonym in the database.
@@ -310,7 +322,6 @@ public final class ComponentSynonymDAO {
             else {
             	System.out.println("UPDATE: Update ANA_OBO_COMPONENT_SYNONYM Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -318,9 +329,7 @@ public final class ComponentSynonymDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
      
     /*
      *  Delete the given daocomponentsynonym from the database. 
@@ -353,7 +362,6 @@ public final class ComponentSynonymDAO {
             else {
             	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT_SYNONYM Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -361,9 +369,7 @@ public final class ComponentSynonymDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      *  Delete the given daocomponentsynonym from the database. 
@@ -389,7 +395,6 @@ public final class ComponentSynonymDAO {
             else {
             	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT_SYNONYM Skipped");
             }
-
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -397,9 +402,7 @@ public final class ComponentSynonymDAO {
         finally {
             close(connection, preparedStatement);
         }
-        
     }
-    
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
@@ -425,10 +428,8 @@ public final class ComponentSynonymDAO {
         }
 
         return exist;
-        
     }
 
-    
     /*
      * Returns list of ComponentSynonyms for Display purposes
      *  starting at the given first index with the given row count,
@@ -491,7 +492,6 @@ public final class ComponentSynonymDAO {
             while (resultSet.next()) {
                 dataList.add(mapComponentSynonym(resultSet));
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -501,9 +501,7 @@ public final class ComponentSynonymDAO {
         }
 
         return dataList;
-        
     }
-
     
     /*
      * Returns total amount of rows in table.
@@ -546,7 +544,6 @@ public final class ComponentSynonymDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -556,9 +553,7 @@ public final class ComponentSynonymDAO {
         }
 
         return count;
-        
     }
-
 
     /*
      * Returns total amount of rows in table.
@@ -579,7 +574,6 @@ public final class ComponentSynonymDAO {
             if (resultSet.next()) {
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
             throw new DAOException(e);
@@ -589,9 +583,7 @@ public final class ComponentSynonymDAO {
         }
 
         return count;
-        
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*
@@ -604,7 +596,5 @@ public final class ComponentSynonymDAO {
        		resultSet.getString("ACS_OBO_ID"), 
        		resultSet.getString("ACS_OBO_TEXT")
        	);
-    	
     }
-
 }

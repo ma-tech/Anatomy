@@ -1,42 +1,43 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentOBO.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Class for accessing OBO Components
-#
-# This class immediately loads the OBO properties file 'obo.properties' once in memory and provides
-#  a constructor which takes the specific key which is to be used as property key prefix of the OBO
-#  properties file.
-#  
-# There is a property getter which only returns the property prefixed with 'specificKey.' and 
-#  provides the option to indicate whether the property is mandatory or not.
-#
-# http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOProperties.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Wrapper Class for accessing OBO Components
+*
+* This class immediately loads the OBO properties file 'obo.properties' once in memory and provides
+*  a constructor which takes the specific key which is to be used as property key prefix of the OBO
+*  properties file.
+*  
+* There is a property getter which only returns the property prefixed with 'specificKey.' and 
+*  provides the option to indicate whether the property is mandatory or not.
+*
+* http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package OBOLayer;
 
 import java.io.IOException;
@@ -66,7 +67,6 @@ public class OBOProperties {
             throw new OBOConfigurationException(
                 "Cannot load properties file '" + PROPERTIES_FILE + "'.", e);
         }
-        
     }
 
     // Vars ---------------------------------------------------------------------------------------
@@ -80,11 +80,9 @@ public class OBOProperties {
     public OBOProperties(String specificKey) throws OBOConfigurationException {
         
     	this.specificKey = specificKey;
-    	
     }
 
     // Actions ------------------------------------------------------------------------------------
-
     /*
      * Returns the OBOProperties instance specific property value associated with the given key with
      * the option to indicate whether the property is mandatory or not.
@@ -106,7 +104,5 @@ public class OBOProperties {
         }
 
         return property;
-        
     }
-
 }

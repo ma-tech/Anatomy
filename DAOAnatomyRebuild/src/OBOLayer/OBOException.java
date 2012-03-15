@@ -1,41 +1,40 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentOBO.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Class for accessing OBO Components
-#
-# This class represents a generic OBO exception.
-#
-# http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOException.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a generic OBO exception.
+*                It should wrap any exception of the underlying code, such as SQLExceptions.
+*                
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package OBOLayer;
 
 public class OBOException extends Exception {
-
     // Constructors -------------------------------------------------------------------------------
     /*
      * Constructs a OBOException with the given detail message.
@@ -43,7 +42,6 @@ public class OBOException extends Exception {
     public OBOException(String message) {
 
     	super(message);
-    	
     }
 
     /*
@@ -52,7 +50,6 @@ public class OBOException extends Exception {
     public OBOException(Throwable cause) {
         
     	super(cause);
-    	
     }
 
     /*
@@ -61,7 +58,5 @@ public class OBOException extends Exception {
     public OBOException(String message, Throwable cause) {
         
     	super(message, cause);
-    	
     }
-
 }

@@ -1,33 +1,34 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentFileOBO.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Class for accessing OBO ComponentFiles
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        ComponentOBO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Wrapper Class for accessing OBO ComponentOBO files
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package OBOLayer;
 
 import java.util.ArrayList;
@@ -43,38 +44,31 @@ import DAOModel.Stage;
 import OBOModel.ComponentFile;
 import OBOModel.Relation;
 
-/*
- * This class represents a File Database Access Object for the ComponentFile DTO.
- * 
- */
 public final class ComponentOBO {
 
     // Constants ----------------------------------------------------------------------------------
 
     // Vars ---------------------------------------------------------------------------------------
     private OBOFactory oboFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Log DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Component OBO for the given OBOFactory.
+     * 
+     *  Package private so that it can be constructed inside the OBO package only.
      */
     ComponentOBO(OBOFactory oboFactory) {
     	
         this.oboFactory = oboFactory;
-        
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns a list of ALL logs, otherwise null.
+     * Returns a list of ALL Components, otherwise null.
      */
     public List<ComponentFile> listAll() throws OBOException {
     	
         return list();
-        
     }
     
     /*
@@ -86,216 +80,186 @@ public final class ComponentOBO {
         List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
 
         try {
-        	
         	obocomponents = oboFactory.getComponents();
-            
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
 
         return obocomponents;
-        
     }
 
     /*
-     * Returns a list of ALL logs, otherwise null.
+     * Within the OBOFactory, throw away any existing list of OBO Components, and replace them
+     *  with the supplied list instead. 
      */
     public void setComponentFileList(ArrayList<ComponentFile> arrayobolist) throws OBOException {
     	
     	oboFactory.setComponents(arrayobolist);
-        
-    }
-    
-    public void setRelationList(ArrayList<Relation> arrayrellist) throws OBOException {
-    	
-    	oboFactory.setRelations(arrayrellist);
-        
-    }
-    
-    public void addComponentFileList(ArrayList<ComponentFile> arrayobolist) throws OBOException {
-    	
-    	oboFactory.addComponents(arrayobolist);
-        
     }
     
     /*
-     * Returns a list of ALL logs, otherwise null.
+     * Within the OBOFactory, throw away any existing list of Relations, and replace them
+     *  with the supplied list instead. 
+     */
+    public void setRelationList(ArrayList<Relation> arrayrellist) throws OBOException {
+    	
+    	oboFactory.setRelations(arrayrellist);
+    }
+    
+    /*
+     * Within the OBOFactory, Add an additional lust of OBO Components to the existing list 
+     */
+    public void addComponentFileList(ArrayList<ComponentFile> arrayobolist) throws OBOException {
+    	
+    	oboFactory.addComponents(arrayobolist);
+    }
+    
+    /*
+     * Within the OBOFactory, write ALL the OBO Components in the existing OBO Factory list to File 
      */
     public Boolean writeAll() throws OBOException {
     	
         return write();
-        
     }
     
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * write OBO Components
      */
     public Boolean write() throws OBOException {
       
         Boolean isProcessed = false; 
         		
         try {
-        	
         	isProcessed = oboFactory.writeComponents();
-            
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-
         return isProcessed;
-        
     }
 
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * Return the OBO Factory Debug flag - from the OBO properties file
      */
     public boolean debug() throws OBOException {
-      
 
         try {
-        	
             return oboFactory.isDebug();
-            
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-       
     }
 
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * Return the OBO Factory Summary Report TEXT File name - from the OBO properties file
      */
     public String summaryReport() throws OBOException {
-      
 
         try {
-        	
-            return oboFactory.getSummaryReport();
-            
+        	return oboFactory.getSummaryReport();
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-       
     }
 
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * Return the OBO Factory Summary Report PDF File name - from the OBO properties file
      */
     public String summaryReportPdf() throws OBOException {
-      
 
         try {
-        	
             return oboFactory.getSummaryReportPdf();
-            
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-       
     }
 
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * Return the OBO Factory Input File name - from the OBO properties file
      */
     public String inputFile() throws OBOException {
-      
 
         try {
-        	
             return oboFactory.getInputFile();
-            
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-       
-    }
-
-    public String inputFileVersion() throws OBOException {
-        
-
-        try {
-        	
-            return oboFactory.getOutputFileVersion();
-            
-        } 
-        catch (OBOConfigurationException e) {
-            throw new OBOException(e);
-        } 
-       
-    }
-
-    public String inputFileNameSpace() throws OBOException {
-        
-
-        try {
-        	
-            return oboFactory.getOutputFileNameSpace();
-            
-        } 
-        catch (OBOConfigurationException e) {
-            throw new OBOException(e);
-        } 
-       
-    }
-
-    public String inputFileSavedBy() throws OBOException {
-        
-
-        try {
-        	
-            return oboFactory.getOutputFileSavedBy();
-            
-        } 
-        catch (OBOConfigurationException e) {
-            throw new OBOException(e);
-        } 
-       
-    }
-
-    public String inputFileRemark() throws OBOException {
-        
-
-        try {
-        	
-            return oboFactory.getOutputFileRemark();
-            
-        } 
-        catch (OBOConfigurationException e) {
-            throw new OBOException(e);
-        } 
-       
     }
 
     /*
-     * Returns a list of all components from the file. 
-     *  The list is never null and is empty when the file does not contain any components.
+     * Return the OBO Factory Input File Version - from the OBO properties file
      */
-    public String outputFile() throws OBOException {
-      
+    public String inputFileVersion() throws OBOException {
 
         try {
-        	
-            return oboFactory.getOutputFile();
-            
+            return oboFactory.getOutputFileVersion();
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);
         } 
-       
+    }
+
+    /*
+     * Return the OBO Factory Input File namespace - from the OBO properties file
+     */
+    public String inputFileNameSpace() throws OBOException {
+
+        try {
+            return oboFactory.getOutputFileNameSpace();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory Input File Author - from the OBO properties file
+     */
+    public String inputFileSavedBy() throws OBOException {
+
+        try {
+            return oboFactory.getOutputFileSavedBy();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory Input File Remark - from the OBO properties file
+     */
+    public String inputFileRemark() throws OBOException {
+
+    	try {
+            return oboFactory.getOutputFileRemark();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory Output File - from the OBO properties file
+     */
+    public String outputFile() throws OBOException {
+
+    	try {
+            return oboFactory.getOutputFile();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
     }
 
     // Helpers ------------------------------------------------------------------------------------
+    /*
+     * Add the extra OBO components to the component list for Stages, Relationships etc
+     */
     public void createTemplateRelationList() throws OBOException {
     	
         ArrayList<Relation> oborelationList = new ArrayList();
@@ -312,8 +276,7 @@ public final class ComponentOBO {
             // Obtain DAOs.
             StageDAO stageDAO = anatomy008.getStageDAO();
 
-            // 5: group obocomponents----------------------------------------------------------------------
-            // 5:1:----------------------------------------------------------------------------------------
+            // group obocomponents----------------------------------------------------------------------
             obocomponent = new ComponentFile();
             obocomponent.setName( "Group term" );
             obocomponent.setID( "group_term" );
@@ -321,8 +284,7 @@ public final class ComponentOBO {
             obocomponent.setDBID( "-1" );
             obocomponentList.add( obocomponent );
 
-            // 2: stage class------------------------------------------------------------------------------
-            // 2_1: main stage obocomponent----------------------------------------------------------------
+            // stage class------------------------------------------------------------------------------
             obocomponent = new ComponentFile();
             obocomponent.setName( "Theiler stage" );
             obocomponent.setID( "TS:0" );
@@ -330,15 +292,14 @@ public final class ComponentOBO {
             obocomponent.setDBID( "-1" );
             obocomponentList.add( obocomponent );
 
-            // 2_2: rest from db---------------------------------------------------------------------------
+            // rest from db---------------------------------------------------------------------------
             List<Stage> stages = new ArrayList<Stage>();
             stages = stageDAO.listAll();
             Iterator<Stage> iteratorStage = stages.iterator();
                 
           	while (iteratorStage.hasNext()) {
           		
-                // 2_2_1: query for the stages
-                // 2_2_1: query for the stages-----------------------------------------------------------------
+                // query for the stages-----------------------------------------------------------------
           		Stage stage = iteratorStage.next();
 
           		obocomponent = new ComponentFile();
@@ -346,7 +307,6 @@ public final class ComponentOBO {
                 obocomponent.setID( stage.getName() );
                 obocomponent.setDBID( String.valueOf(stage.getOid()) );
 
-                // add obocomponent to the obocomponent list
                 obocomponent.addChildOf( "TS:0" );
                 obocomponent.addChildOfType( "IS_A" );
 
@@ -354,7 +314,7 @@ public final class ComponentOBO {
                 obocomponentList.add( obocomponent );
           	}
 
-            // 3: new group class
+            // new group class
             obocomponent = new ComponentFile();
             obocomponent.setName( "Tmp new group" );
             obocomponent.setID( "Tmp_new_group" );
@@ -362,42 +322,39 @@ public final class ComponentOBO {
             obocomponent.setDBID( "-1" );
             obocomponentList.add( obocomponent );
 
-            // 3_1: starts at
+            // starts at
             oborelation = new Relation();
             oborelation.setName( "starts at" );
             oborelation.setID( "starts_at" );
             oborelationList.add( oborelation );
 
-            // 3_2: ends at
+            // ends at
             oborelation = new Relation();
             oborelation.setName( "ends at" );
             oborelation.setID( "ends_at" );
             oborelationList.add( oborelation );
 
-            // 3_3: partOf
+            // partOf
             oborelation = new Relation();
             oborelation.setName( "part of" );
             oborelation.setID( "part_of" );
             oborelation.setTransitive( "true" );
             oborelationList.add( oborelation );
 
-            // 3_4: groupPartOf
+            // groupPartOf
             oborelation = new Relation();
             oborelation.setName( "group part of" );
             oborelation.setID( "group_part_of" );
             oborelation.setTransitive( "true" );
             oborelationList.add( oborelation );
 
-            /* IS_A ????
-            rel = new Relation();
-            rel.setName( "is a" );
-            rel.setID( "is_a" );
-            rel.setTransitive( "true" );
-            relationList.add( rel );
-            */
-
+            // isA
+            oborelation = new Relation();
+            oborelation.setName( "is a" );
+            oborelation.setID( "is_a" );
+            oborelation.setTransitive( "true" );
+            oborelationList.add( oborelation );
     	}
-	
     	catch (DAOException ex) {
     		ex.printStackTrace();
     	}
@@ -405,8 +362,5 @@ public final class ComponentOBO {
     	oboFactory.setRelations(oborelationList);
 
     	oboFactory.addComponents(obocomponentList);
-
     }
-    
-
 }

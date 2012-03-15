@@ -1,65 +1,65 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        ComponentOBO.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Class for accessing OBO Components
-#
-# This class represents a OBO factory for ano OBO File. 
-# 
-#  You can use "getInstance(String)" to obtain a new instance for the given database name. 
-#  The specific instance returned depends on the properties file configuration. 
-#  You can obtain OBO's for the OBO factory instance using the OBO getters.
-# 
-# This class requires a properties file named 'dao.properties' in the classpath with under each
-# the following properties:
-# 
-#  name.oboInFile *
-#  name.debug *
-# 
-# Those marked with * are required, others are optional and can be left away or empty. 
-# 
-#  The 'name' must represent the database name in "getInstance(String)".
-#  
-#  The 'name.oboInFile' must represent either the JDBC URL or JNDI name of the database.
-# 
-#  The 'name.debug' states whether the factory is to print out SQL statements and other Information
-#   to System.out.
-#  
-# Here are basic examples of valid properties for a file with the name 'file':
-# 
-#  file.oboInFile = /Users/mwicks/Desktop/Version008_TEST.obo
-# 
-# Here is a basic use example:
-# 
-#  OBOFactory fileobo = OBOFactory.getInstance("file");
-#  FileOBO fileOBO = fileobo.getFileOBO();
-# 
-# See http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
-# 
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOFactory.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Wrapper Class for accessing OBO Components
+*
+* This class represents a OBO factory for ano OBO File. 
+* 
+*  You can use "getInstance(String)" to obtain a new instance for the given database name. 
+*  The specific instance returned depends on the properties file configuration. 
+*  You can obtain OBO's for the OBO factory instance using the OBO getters.
+* 
+* This class requires a properties file named 'dao.properties' in the classpath with under each
+* the following properties:
+* 
+*  name.oboInFile *
+*  name.debug *
+* 
+* Those marked with * are required, others are optional and can be left away or empty. 
+* 
+*  The 'name' must represent the database name in "getInstance(String)".
+*  
+*  The 'name.oboInFile' must represent either the JDBC URL or JNDI name of the database.
+* 
+*  The 'name.debug' states whether the factory is to print out SQL statements and other Information
+*   to System.out.
+*  
+* Here are basic examples of valid properties for a file with the name 'file':
+* 
+*  file.oboInFile = /Users/mwicks/Desktop/Version008_TEST.obo
+* 
+* Here is a basic use example:
+* 
+*  OBOFactory fileobo = OBOFactory.getInstance("file");
+*  FileOBO fileOBO = fileobo.getFileOBO();
+* 
+* See http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
 package OBOLayer;
 
@@ -74,7 +74,6 @@ import Utility.Parser;
 import Utility.Producer;
 
 public abstract class OBOFactory {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String PROPERTY_OBO_IN_FILE = "oboinfile";
     private static final String PROPERTY_OBO_OUT_FILE = "obooutfile";
@@ -148,9 +147,7 @@ public abstract class OBOFactory {
         }
 
         return instance;
-        
     }
-
 
     /*
      * Returns a connection to the database. Package private so that it can be used inside the OBO
@@ -191,15 +188,14 @@ public abstract class OBOFactory {
      */
     
     public ComponentOBO getComponentOBO() {
+    	
         return new ComponentOBO(this);
     }
 
     // You can add more OBO getters here.
-
 }
 
 // Default OBOFactory implementations -------------------------------------------------------------
-
 /*
  * The DriverManager based OBOFactory.
  */
@@ -239,7 +235,6 @@ class FileOBOFactory extends OBOFactory {
         this.debug = debug;
         this.summaryReport = summaryReport;
         this.summaryReportPdf = summaryReportPdf;
-        
     }
 
     ArrayList<ComponentFile> getComponents() throws OBOConfigurationException {
@@ -249,7 +244,6 @@ class FileOBOFactory extends OBOFactory {
     	componentList = parser.getComponents();
     	
     	return componentList;
-
     }
     
     Boolean writeComponents() throws OBOConfigurationException {
@@ -265,44 +259,54 @@ class FileOBOFactory extends OBOFactory {
     	Boolean isProcessed = producer.writeOboFile();
     	
     	return isProcessed;
-    	
     }
     
     Boolean isDebug() {
-        return debug;
+
+    	return debug;
     }
     String getSummaryReport() {
-        return summaryReport;
+        
+    	return summaryReport;
     }
     String getSummaryReportPdf() {
-        return summaryReportPdf;
+        
+    	return summaryReportPdf;
     }
     String getInputFile() {
-        return oboInFile;
+        
+    	return oboInFile;
     }
     String getOutputFile() {
-        return oboOutFile;
+        
+    	return oboOutFile;
     }
     String getOutputFileVersion() {
-        return oboOutFileVersion;
+        
+    	return oboOutFileVersion;
     }
     String getOutputFileNameSpace() {
-        return oboOutFileNameSpace;
+        
+    	return oboOutFileNameSpace;
     }
     String getOutputFileSavedBy() {
-        return oboOutFileSavedBy;
+        
+    	return oboOutFileSavedBy;
     }
     String getOutputFileRemark() {
-        return oboOutFileRemark;
+        
+    	return oboOutFileRemark;
     }
     void setComponents(ArrayList<ComponentFile> obocomponentList) {
-        this.obocomponentList = obocomponentList;
+        
+    	this.obocomponentList = obocomponentList;
     }
     void setRelations(ArrayList<Relation> oborelationList) {
-        this.oborelationList = oborelationList;
+        
+    	this.oborelationList = oborelationList;
     }
     void addComponents(ArrayList<ComponentFile> obocomponentList) {
-        this.obocomponentList.addAll(obocomponentList);
+        
+    	this.obocomponentList.addAll(obocomponentList);
     }
-
 }

@@ -1,33 +1,34 @@
 /*
------------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyRebuild
-#
-# Title:        OBOComponentFile.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  A Wrapper Object for an OBO ComponentFile
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
------------------------------------------------------------------------------------------------
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        OBOComponentFile.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Wrapper Object for an OBO ComponentFile
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
 */
+
 package OBOModel;
 
 import java.util.ArrayList;
@@ -36,7 +37,6 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-
 
 public class ComponentFile {
 
@@ -76,15 +76,6 @@ public class ComponentFile {
     /*
      * Default constructor.
      */
-    /*
-    public OBOComponentFile() {
-        // Always keep the default constructor alive in a Javabean class.
-    }
-    */
-
-    /*
-     * Minimal constructor. Contains required fields.
-     */
     public ComponentFile() {
     	
     	this.name = "";
@@ -115,7 +106,6 @@ public class ComponentFile {
         this.primaryPath = null;
 
         this.comments = new TreeSet();
-
     }
 
     /*
@@ -139,10 +129,7 @@ public class ComponentFile {
     	this.newid = newid;
     	this.namespace = namespace;
     	this.group = group;
-    	/*
-    	this.start = start;
-    	this.end = end;
-    	*/
+
     	setStart(start);
     	setEnd(end);
 
@@ -164,7 +151,6 @@ public class ComponentFile {
         this.primaryPath = null;
 
         this.comments = new TreeSet();
-
     }
 
     /*
@@ -196,9 +182,7 @@ public class ComponentFile {
         this.userComments = userComments;
         this.orderComment = orderComment;
         this.comments = comments;
-
     }
-
     
     // Getters ------------------------------------------------------------------------------------
     public String getID() {
@@ -276,8 +260,6 @@ public class ComponentFile {
     public DefaultMutableTreeNode[] getPrimaryPath(){
         return this.primaryPath;
     }
-    
-    
 
     // Setters ------------------------------------------------------------------------------------
     public void setID( String id ) {
@@ -1756,7 +1738,6 @@ public class ComponentFile {
     public void setPrimaryPath( DefaultMutableTreeNode[] path ){
         this.primaryPath = path;
     }
-
     
     // Helpers ------------------------------------------------------------------------------------
     public void addChildOf( String childOf ) {
@@ -1846,8 +1827,6 @@ public class ComponentFile {
         
     }
 
-    
-
     /*
      * Find Clone this OBOComponentFile
      */
@@ -1867,10 +1846,6 @@ public class ComponentFile {
         copyobocomponent.setSynonyms( this.getSynonyms() );
         copyobocomponent.setStatusChange( this.getStatusChange() );
         copyobocomponent.setStatusRule( this.getStatusRule() );
-        /*
-        copyOBOComponentFile.setHasTimeOBOComponentFile( this.getHasTimeOBOComponentFile() );
-        copyOBOComponentFile.setTimeOBOComponentFileOf( this.getTimeOBOComponentFileOf() );
-        */
         copyobocomponent.setFlagMissingRel( this.getFlagMissingRel() );
         copyobocomponent.setFlagLifeTime( this.getFlagLifeTime() );
 
@@ -1910,12 +1885,9 @@ public class ComponentFile {
              orderdiff==null ){
 
         	return true;
-        	
         }
         else {
-            
         	return false;
-        	
         }
     }
     
@@ -1952,7 +1924,6 @@ public class ComponentFile {
             arrDifferenceWith.add( "Different Parents - Referenced ComponentFile " +
                     obocomponent.getID() + " has parents " + 
                     obocomponent.getChildOfs().toString());
-                    //obocomponent.getChildOfs().toString() + "( " + this.getChildOfs().toString() + " )");
         }
 
         if ( !this.getIsPrimary() == obocomponent.getIsPrimary() ) {
@@ -2307,5 +2278,4 @@ public class ComponentFile {
         return String.format("\nComponentFile [ id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%d ]", 
         		id, name, statusChange, statusRule, dbID, newid, namespace, group, start, end, present);
     }
-
 }

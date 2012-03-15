@@ -163,7 +163,6 @@ public class GenerateSQL {
             TreeBuilder treebuilder,
             TreeBuilder refTreebuilder,
             String species,
-            String fileName,
             String project  ) {
 
 

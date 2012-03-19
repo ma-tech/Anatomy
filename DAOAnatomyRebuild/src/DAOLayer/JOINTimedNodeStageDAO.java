@@ -90,8 +90,7 @@ public final class JOINTimedNodeStageDAO {
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANA_TIMED_NODE " +
         "JOIN ANA_STAGE ON ATN_STAGE_FK = STG_OID " +
-        "WHERE ATN_NODE_FK = ? " +
-        "ORDER BY STG_NAME";
+        "WHERE ATN_NODE_FK = ? ";
             
     private static final String SQL_LIST_ALL_BY_NODE_FK_AND_SEQUENCE =
         "SELECT " +

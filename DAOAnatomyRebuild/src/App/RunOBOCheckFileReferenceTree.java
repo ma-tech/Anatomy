@@ -38,12 +38,6 @@ package App;
 import java.util.List;
 import java.util.ArrayList;
 
-import DAOLayer.ComponentCommentDAO;
-import DAOLayer.ComponentDAO;
-import DAOLayer.ComponentRelationshipDAO;
-import DAOLayer.ComponentSynonymDAO;
-import DAOLayer.DAOFactory;
-
 import OBOLayer.OBOFactory;
 import OBOLayer.OBOException;
 import OBOLayer.ComponentOBO;
@@ -61,25 +55,9 @@ public class RunOBOCheckFileReferenceTree {
     public static void run() {
 
     	try {
-            // Obtain DAOFactory.
-            DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-            //System.out.println("DAOFactory successfully obtained: " + anatomy008);
-            
-            // Obtain DAOs.
-            ComponentDAO componentDAO = anatomy008.getComponentDAO();
-            //System.out.println("ComponentDAO successfully obtained: " + componentDAO);
-            ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-            //System.out.println("ComponentRelationshipDAO successfully obtained: " + componentrelationshipDAO);
-            ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-            //System.out.println("ComponentCommentDAO successfully obtained: " + componentcommentDAO);
-            ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-            //System.out.println("ComponentSynonymDAO successfully obtained: " + componentsynonymDAO);
-
             OBOFactory obofactory = OBOFactory.getInstance("file");
-            //System.out.println("OBOFactory successfully obtained: " + obofactory);
 
             ComponentOBO componentOBO = obofactory.getComponentOBO();
-            //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
 
             List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
             obocomponents = componentOBO.listAll();
@@ -88,7 +66,6 @@ public class RunOBOCheckFileReferenceTree {
             
             //Build hashmap of components
             MapBuilder mapbuilder = new MapBuilder(parseOldTermList);
-
             //Build tree
             TreeBuilder treebuilder = new TreeBuilder(mapbuilder);
 

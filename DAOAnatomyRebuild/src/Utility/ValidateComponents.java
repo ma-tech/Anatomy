@@ -42,7 +42,6 @@ import javax.swing.tree.TreePath;
 
 import OBOModel.ComponentFile;
 
-
 public class ValidateComponents {
 
     private ComponentFile abstractclassobocomponent; 
@@ -157,7 +156,7 @@ public class ValidateComponents {
         validateConfiguredRoots(treebuilder);
 
         // A-4
-        this.abstractTermList = getAbstractAnatomyChildren(treebuilder);
+        this.abstractTermList = (ArrayList) getAbstractAnatomyChildren(treebuilder);
 
         // A-5
         //set and validate primary + alternate paths to abstract anatomy terms
@@ -495,21 +494,12 @@ public class ValidateComponents {
                 
                 if ( isPrimaryPath ){
                     if ( obocomponent.getPrimaryPath() == null ) {
-                    	obocomponent.setPrimaryPath(path);
+                    	//obocomponent.setPrimaryPath(path);
                     }
                     else{
-                        //DON'T FAIL THEM YET - UNLESS THEY ARE A DIRECT
-                        // DESCENDANT OF TWO PRIMARY PARENTS
-                        //ISSUE WARNING INSTEAD
-                    	obocomponent.setStatusRule("FAILED");
                     	obocomponent.setFlagLifeTime(true);
                         TreePath printPath = 
                                 new TreePath( obocomponent.shortenPath( path) );
-                        obocomponent.setCheckComment("More than one primary path! " +
-                            "Alternate primary path = " + printPath);
-                        // ????
-                        this.problemTermList.remove(obocomponent);
-                        this.problemTermList.add(obocomponent);
                     }
                 }
                 else {
@@ -717,50 +707,39 @@ public class ValidateComponents {
 
         //iterate for each component in termList
         for (ComponentFile obocomponent: this.passRedTermList) {
+    	    Vector< DefaultMutableTreeNode[] > paths = obocomponent.getPaths();
 
-	    Vector< DefaultMutableTreeNode[] > paths = obocomponent.getPaths();
+            if ( paths != null) {
+                	
+                for(DefaultMutableTreeNode[] path: paths){
 
-        if ( paths != null) {
-            	
-            for(DefaultMutableTreeNode[] path: paths){
+                    for ( int pointer=2; pointer < path.length-1 && proceed; pointer++ ) {
+                    
+                      	ComponentFile parent = (ComponentFile) path[pointer].getUserObject();
+                        ComponentFile child = (ComponentFile) path[pointer+1].getUserObject();
 
-                for ( int pointer=2; pointer < path.length-1 && proceed; pointer++ ) {
-                
-                  	ComponentFile parent = (ComponentFile) path[pointer].getUserObject();
-                    ComponentFile child = (ComponentFile) path[pointer+1].getUserObject();
+                        if ( !( ( parent.getStartSequence() <= child.getStartSequence() ) &&
+    			                ( parent.getEndSequence() >= child.getEndSequence() ) ) ) {
+                        	
+                        	if ( !parent.getIsGroup() ) {
+                                obocomponent.setFlagLifeTime(true);
+                                obocomponent.setStatusRule("FAILED");
+                                obocomponent.setCheckComment("Stage out of range: [" +
+                                    child.getID() + " " +
+                                    child.getName() + " " + 
+                                    child.getStart() + "-" +
+                                    child.getEnd() +
+                                    "] is not within lifetime of parent [" + 
+                                    parent.getID() + " " +
+                                    parent.getName() + " " +
+                                    parent.getStart() + "-" +
+                                    parent.getEnd() + "]");
 
-                    /*
-                    within = ( ( parent.getStartSequence() <= child.getStartSequence() ) &&
-			                   ( parent.getEndSequence() >= child.getEndSequence()) );
-
-                    System.out.println("child.getID() " + child.getID() + 
-                    	": parent.getID() " + parent.getID() + "\n" + 
-                        "parent.getStartSequence() "+ parent.getStartSequence() + " " +
-                        "child.getStartSequence() " + child.getStartSequence() + "\n" + 
-                    	"parent.getEndSequence() " + parent.getEndSequence() + " " +
-                    	"child.getEndSequence() "+ child.getEndSequence() );
-                    System.out.println("within = " + within); 
-                    */
-
-                    if ( !( ( parent.getStartSequence() <= child.getStartSequence() ) &&
-			                ( parent.getEndSequence() >= child.getEndSequence() ) ) ) {
-                    	
-                        obocomponent.setFlagLifeTime(true);
-                        obocomponent.setStatusRule("FAILED");
-                        obocomponent.setCheckComment("Stage out of range: [" +
-                            child.getID() + " " +
-                            child.getName() + " " + 
-                            child.getStart() + "-" +
-                            child.getEnd() +
-                            "] is not within lifetime of parent [" + 
-                            parent.getID() + " " +
-                            parent.getName() + " " +
-                            parent.getStart() + "-" +
-                            parent.getEnd() + "]");
-
-                        //this.problemTermList.add(obocomponent);
-                        
-                        withOutCount++;
+                                this.problemTermList.remove(obocomponent);
+                                this.problemTermList.add(obocomponent);
+           
+                                withOutCount++;
+                            }
                         }
                     }
                 }
@@ -1026,25 +1005,14 @@ public class ValidateComponents {
                 	
                     primaryParents++;
                     primaryParentsList.add( parentcomponent.toString() );
-                    
                 }
             }
-            //if more than one primary parent failed
-            
             if ( primaryParents > 1 ) {
-            	
-            	obocomponent.setStatusRule("FAILED");
+
             	obocomponent.setFlagLifeTime(true);
-            	obocomponent.setCheckComment("More than one primary parent! " +
-                       "Primary Parents are: " + primaryParentsList);
-                
-            	this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
             }
-            
         }
     }
-    
 
     // deleted is found in validateConfigureRoots
     /*

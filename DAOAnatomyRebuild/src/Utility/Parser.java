@@ -195,19 +195,19 @@ public class Parser {
                         else if (oborestrictionimpl.getType().getID().equals("group_part_of")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("GROUP_PART_OF");
-                        	obocomponent.setIsPrimary(false);
+                        	//obocomponent.setIsPrimary(false);
                         }
 
                         else if (oborestrictionimpl.getType().getID().equals("OBO_REL:is_a")){
                         	if ( oborestrictionimpl.getParent().getID().equals("group_term") ) {
                         		//System.out.println("HELLO!  I'm adding group_term as a relationship = NOOOOOO!");
                         		obocomponent.setGroup(true);
-                            	obocomponent.setIsPrimary(false);
+                            	//obocomponent.setIsPrimary(false);
                         	}
                         	else {
                         		obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                             	obocomponent.addChildOfType("IS_A");
-                            	obocomponent.setIsPrimary(false);
+                            	//obocomponent.setIsPrimary(false);
                         	}
                         }
 

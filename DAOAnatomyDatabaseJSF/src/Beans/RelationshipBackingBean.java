@@ -9,8 +9,8 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.RelationshipDAO;
 import DAOLayer.DAOException;
 
-import Model.Relationship;
-import Model.TimedNode;
+import DAOModel.Relationship;
+import DAOModel.TimedNode;
 
 import WebApp.Config;
 
@@ -109,8 +109,8 @@ public class RelationshipBackingBean implements Serializable {
 
         // Load list and totalCount.
         try {
-            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm);
-            totalRows = dao.count(searchTerm);
+            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, "");
+            totalRows = dao.count(searchTerm, "");
         } 
         catch (DAOException e) {
             throw new RuntimeException(e); // Handle it yourself.

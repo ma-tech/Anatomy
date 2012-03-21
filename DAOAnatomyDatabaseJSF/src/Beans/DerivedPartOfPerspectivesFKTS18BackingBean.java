@@ -15,7 +15,7 @@ import javax.faces.context.FacesContext;
 import DAOLayer.DerivedPartOfPerspectivesFKDAO;
 import DAOLayer.DAOException;
 
-import Model.DerivedPartOfPerspectivesFK;
+import DAOModel.DerivedPartOfPerspectivesFK;
 
 import Utility.WhatIsThisString;
 

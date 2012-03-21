@@ -12,19 +12,13 @@
 
     <converter>
         <converter-for-class>java.lang.String</converter-for-class>
-        <converter-class>Model.EmptyToNullConverter</converter-class>
+        <converter-class>Utility.EmptyToNullConverter</converter-class>
     </converter>
 
     <managed-bean>
     	<managed-bean-name>config</managed-bean-name>
         <managed-bean-class>WebApp.Config</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
-    </managed-bean>
-
-    <managed-bean>
-        <managed-bean-name>TestBean</managed-bean-name>
-        <managed-bean-class>Beans.TestBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>

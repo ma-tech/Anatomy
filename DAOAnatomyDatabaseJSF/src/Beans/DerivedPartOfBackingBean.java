@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.DerivedPartOfDAO;
 import DAOLayer.DAOException;
 
-import Model.DerivedPartOf;
+import DAOModel.DerivedPartOf;
 
 import WebApp.Config;
 
@@ -108,8 +108,8 @@ public class DerivedPartOfBackingBean implements Serializable {
 
         // Load list and totalCount.
         try {
-            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm);
-            totalRows = dao.count(searchTerm);
+            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, "");
+            totalRows = dao.count(searchTerm, "");
         } 
         catch (DAOException e) {
             throw new RuntimeException(e); // Handle it yourself.

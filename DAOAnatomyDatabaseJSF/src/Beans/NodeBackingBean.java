@@ -9,8 +9,8 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.NodeDAO;
 import DAOLayer.DAOException;
 
-import Model.Node;
-import Model.TimedNode;
+import DAOModel.Node;
+import DAOModel.TimedNode;
 
 import WebApp.Config;
 

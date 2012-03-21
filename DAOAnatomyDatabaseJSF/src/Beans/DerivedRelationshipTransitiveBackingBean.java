@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.DerivedRelationshipTransitiveDAO;
 import DAOLayer.DAOException;
 
-import Model.DerivedRelationshipTransitive;
+import DAOModel.DerivedRelationshipTransitive;
 
 import WebApp.Config;
 

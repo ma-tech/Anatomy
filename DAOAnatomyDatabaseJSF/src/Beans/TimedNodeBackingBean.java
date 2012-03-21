@@ -9,8 +9,8 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.TimedNodeDAO;
 import DAOLayer.DAOException;
 
-import Model.Thing;
-import Model.TimedNode;
+import DAOModel.Thing;
+import DAOModel.TimedNode;
 
 import WebApp.Config;
 
@@ -109,8 +109,8 @@ public class TimedNodeBackingBean implements Serializable {
 
         // Load list and totalCount.
         try {
-            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm);
-            totalRows = dao.count(searchTerm);
+            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, "");
+            totalRows = dao.count(searchTerm, "");
         } 
         catch (DAOException e) {
             throw new RuntimeException(e); // Handle it yourself.

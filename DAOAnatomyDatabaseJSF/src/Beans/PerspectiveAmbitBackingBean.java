@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.PerspectiveAmbitDAO;
 import DAOLayer.DAOException;
 
-import Model.PerspectiveAmbit;
+import DAOModel.PerspectiveAmbit;
 
 import WebApp.Config;
 

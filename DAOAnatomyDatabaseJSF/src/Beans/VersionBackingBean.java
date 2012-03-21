@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.VersionDAO;
 import DAOLayer.DAOException;
 
-import Model.Version;
+import DAOModel.Version;
 
 import WebApp.Config;
 

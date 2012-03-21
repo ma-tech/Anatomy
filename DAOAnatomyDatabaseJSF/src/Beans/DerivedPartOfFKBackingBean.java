@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.DerivedPartOfFKDAO;
 import DAOLayer.DAOException;
 
-import Model.DerivedPartOfFK;
+import DAOModel.DerivedPartOfFK;
 
 import WebApp.Config;
 

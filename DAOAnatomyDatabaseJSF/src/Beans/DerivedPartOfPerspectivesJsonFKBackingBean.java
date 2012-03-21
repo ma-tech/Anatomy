@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import DAOLayer.DerivedPartOfPerspectivesJsonFKDAO;
 import DAOLayer.DAOException;
 
-import Model.DerivedPartOfPerspectivesJsonFK;
+import DAOModel.DerivedPartOfPerspectivesJsonFK;
 
 import WebApp.Config;
 

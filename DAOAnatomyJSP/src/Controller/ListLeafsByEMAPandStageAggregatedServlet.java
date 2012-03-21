@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAOLayer.TimedLeafDAO;
 
-import Model.TimedLeaf;
-import Model.TimedLeafForm;
+import DAOModel.TimedLeaf;
+
+import Form.TimedLeafForm;
 
 import WebApp.Config;
 

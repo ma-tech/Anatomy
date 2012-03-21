@@ -3,7 +3,7 @@
   <display-name>DAOAnatomyJSP</display-name>
   <context-param>
     <param-name>database.name</param-name>
-    <param-value>anatomy008.jdbc</param-value>
+    <param-value>anatomy008</param-value>
   </context-param>
   <listener>
     <listener-class>WebApp.Config</listener-class>

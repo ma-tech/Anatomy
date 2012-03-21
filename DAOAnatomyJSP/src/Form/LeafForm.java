@@ -1,4 +1,4 @@
-package Model;
+package Form;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,6 +7,8 @@ import java.util.List;
 
 import DAOLayer.DAOException;
 import DAOLayer.LeafDAO;
+
+import DAOModel.Leaf;
 
 /**
  * This class holds all business logic related to the request processing of the Leaf DTO.

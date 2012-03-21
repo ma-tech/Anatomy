@@ -11,8 +11,9 @@ import java.util.List;
 
 import DAOLayer.LeafDAO;
 
-import Model.Leaf;
-import Model.LeafForm;
+import DAOModel.Leaf;
+
+import Form.LeafForm;
 
 import WebApp.Config;
 

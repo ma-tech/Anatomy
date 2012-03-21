@@ -1,4 +1,4 @@
-package Model;
+package Form;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAOLayer.DAOException;
-import DAOLayer.TimedNodeDAO;
+import DAOLayer.ExtraTimedNodeDAO;
+
+import DAOModel.ExtraTimedNode;
 
 import Utility.WhatIsThisString;
 
@@ -24,15 +26,15 @@ public final class TimedNodeForm extends Form {
 
     
     // Variables ----------------------------------------------------------------------------------
-    private TimedNodeDAO timednodeDAO;
+    private ExtraTimedNodeDAO extratimednodeDAO;
 
     
     // Constructors -------------------------------------------------------------------------------
     /**
      * Construct an Leaf Form associated with the given LeafDTO.
      */
-    public TimedNodeForm(TimedNodeDAO timednodeDAO) {
-        this.timednodeDAO = timednodeDAO;
+    public TimedNodeForm(ExtraTimedNodeDAO extratimednodeDAO) {
+        this.extratimednodeDAO = extratimednodeDAO;
     }
 
     
@@ -44,22 +46,22 @@ public final class TimedNodeForm extends Form {
      */
     public String findTimedNodeByEmap(HttpServletRequest request) {
         
-    	TimedNode timednode = new TimedNode();
+    	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";
 
         try {
-        	outString = processEMAPId(request, timednode);
+        	outString = processEMAPId(request, extratimednode);
 
         	if ( outString.equals("")) {
 
                 if (isSuccess()) {
-                 	if (timednodeDAO.existEmapId(timednode.getPublicEmapId())) {
-                       	timednode = timednodeDAO.findByEmap(timednode.getPublicEmapId());
+                 	if (extratimednodeDAO.existEmapId(extratimednode.getPublicEmapId())) {
+                       	extratimednode = extratimednodeDAO.findByEmap(extratimednode.getPublicEmapId());
 
-                       	outString = "SUCCESS: " + "Node " + timednode.getPublicEmapId() + " is " + timednode.getPublicEmapaId() + " from " + timednode.getStageMinName() + " to " + timednode.getStageMaxName();
+                       	outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapId() + " is " + extratimednode.getPublicEmapaId() + " from " + extratimednode.getStageMinName() + " to " + extratimednode.getStageMaxName();
                    	}
                 	else {
-                    	outString = "FAIL! " + "Node " + timednode.getPublicEmapId() + " does NOT EXIST!";
+                    	outString = "FAIL! " + "Node " + extratimednode.getPublicEmapId() + " does NOT EXIST!";
                 	}
                 }
        	    }
@@ -81,26 +83,26 @@ public final class TimedNodeForm extends Form {
      */
     public String findTimedNodeByEmapaAndStage(HttpServletRequest request) {
         
-    	TimedNode timednode = new TimedNode();
+    	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";
 
         try {
-        	outString = processEMAPAId(request, timednode);
+        	outString = processEMAPAId(request, extratimednode);
         	
         	if ( outString.equals("")) {
 
-        		outString = processStageSeq(request, timednode);
+        		outString = processStageSeq(request, extratimednode);
 
             	if ( outString.equals("")) {
 
                     if (isSuccess()) {
-                    	if (timednodeDAO.existEmapaIdAndStageSeq(timednode.getPublicEmapaId(), timednode.getStageSeq())) {
-                        	timednode = timednodeDAO.findByEmapaAndStage(timednode.getPublicEmapaId(), timednode.getStageSeq());
+                    	if (extratimednodeDAO.existEmapaIdAndStageSeq(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq())) {
+                        	extratimednode = extratimednodeDAO.findByEmapaAndStage(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq());
 
-                        	outString = "SUCCESS: " + "Node " + timednode.getPublicEmapaId() + " is " + timednode.getPublicEmapId() + " at Stage Sequence " + timednode.getStageSeq();
+                        	outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapaId() + " is " + extratimednode.getPublicEmapId() + " at Stage Sequence " + extratimednode.getStageSeq();
                     	}
                     	else {
-                        	outString = "FAIL! " + "Node " + timednode.getPublicEmapaId() + " does NOT EXIST at Stage Sequence " + timednode.getStageSeq();
+                        	outString = "FAIL! " + "Node " + extratimednode.getPublicEmapaId() + " does NOT EXIST at Stage Sequence " + extratimednode.getStageSeq();
                     	}
                     }
             	}
@@ -120,12 +122,12 @@ public final class TimedNodeForm extends Form {
     /**
      * Process and validate the Name which is to be associated with the given Leaf.
      */
-    public String processEMAPId(HttpServletRequest request, TimedNode timednode) throws DAOException {
+    public String processEMAPId(HttpServletRequest request, ExtraTimedNode extratimednode) throws DAOException {
     	
     	String outString = "";
         String emapId = FormUtil.getFieldValue(request, FIELD_NODE_EMAP);
 
-        if (emapId == null || FormUtil.isChanged(timednode.getPublicEmapId(), emapId)) {
+        if (emapId == null || FormUtil.isChanged(extratimednode.getPublicEmapId(), emapId)) {
             
         	try {
         		validateEmap(emapId);
@@ -134,7 +136,7 @@ public final class TimedNodeForm extends Form {
             	outString = e.getMessage();
             }
         	
-        	timednode.setPublicEmapId("EMAP:" + emapId);
+        	extratimednode.setPublicEmapId("EMAP:" + emapId);
         }
         
         //System.out.println(outString);
@@ -145,12 +147,12 @@ public final class TimedNodeForm extends Form {
     /**
      * Process and validate the Name which is to be associated with the given Leaf.
      */
-    public String processEMAPAId(HttpServletRequest request, TimedNode timednode) throws DAOException {
+    public String processEMAPAId(HttpServletRequest request, ExtraTimedNode extratimednode) throws DAOException {
     	
     	String outString = "";
         String emapaId = FormUtil.getFieldValue(request, FIELD_NODE_EMAPA);
 
-        if (emapaId == null || FormUtil.isChanged(timednode.getPublicEmapaId(), emapaId)) {
+        if (emapaId == null || FormUtil.isChanged(extratimednode.getPublicEmapaId(), emapaId)) {
             
         	try {
         		validateEmapa(emapaId);
@@ -159,7 +161,7 @@ public final class TimedNodeForm extends Form {
             	outString = e.getMessage();
             }
         	
-        	timednode.setPublicEmapaId("EMAPA:" + emapaId);
+        	extratimednode.setPublicEmapaId("EMAPA:" + emapaId);
         }
         
         //System.out.println(outString);
@@ -170,19 +172,19 @@ public final class TimedNodeForm extends Form {
     /**
      * Process and validate the Description which is to be associated with the given Leaf.
      */
-    public String processStageSeq(HttpServletRequest request, TimedNode timednode) throws DAOException {
+    public String processStageSeq(HttpServletRequest request, ExtraTimedNode extratimednode) throws DAOException {
     	
     	String outString = "";
         String stageSeq = FormUtil.getFieldValue(request, FIELD_NODE_STAGE);
 
-        if (stageSeq == null || FormUtil.isChanged(timednode.getStageSeq(), stageSeq)) {
+        if (stageSeq == null || FormUtil.isChanged(extratimednode.getStageSeq(), stageSeq)) {
         	
             try {
             	validateStageSeq(stageSeq);
 
             	long l = Long.parseLong(stageSeq);
 
-                timednode.setStageSeq(l);
+                extratimednode.setStageSeq(l);
             }
             catch (ValidatorException e) {
             	outString = e.getMessage();

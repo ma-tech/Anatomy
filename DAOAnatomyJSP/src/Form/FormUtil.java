@@ -1,4 +1,4 @@
-package Model;
+package Form;
 
 import java.util.Collection;
 import java.util.Map;

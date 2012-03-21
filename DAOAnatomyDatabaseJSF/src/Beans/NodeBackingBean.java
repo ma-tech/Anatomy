@@ -10,7 +10,6 @@ import DAOLayer.NodeDAO;
 import DAOLayer.DAOException;
 
 import DAOModel.Node;
-import DAOModel.TimedNode;
 
 import WebApp.Config;
 
@@ -52,7 +51,7 @@ public class NodeBackingBean implements Serializable {
         // Set default values somehow (properties files?).
         
         // Default search term.
-        searchExtra = ""; 
+        searchExtra = "mouse"; 
         // Default search term.
         searchTerm = ""; 
         // Default rows per page (max amount of rows to be displayed at once).

@@ -85,6 +85,17 @@
                  
       <h:column>
         <f:facet name="header">
+          <h:commandLink value="OBJ_TABLE" 
+                         actionListener="#{ThingBackingBean.sort}">
+            <f:attribute name="sortField" 
+                         value="table" />
+          </h:commandLink>
+        </f:facet>
+        <h:outputText value="#{item.table}" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">
           <h:commandLink value="OBJ_DESCRIPTION" 
                          actionListener="#{ThingBackingBean.sort}">
             <f:attribute name="sortField" 

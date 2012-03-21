@@ -6,11 +6,10 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import DAOLayer.TimedNodeDAO;
+import DAOLayer.ExtraTimedNodeDAO;
 import DAOLayer.DAOException;
 
-import DAOModel.Thing;
-import DAOModel.TimedNode;
+import DAOModel.ExtraTimedNode;
 
 import WebApp.Config;
 
@@ -25,10 +24,10 @@ public class TimedNodeBackingBean implements Serializable {
     // Properties ---------------------------------------------------------------------------------
 
     // DAO.
-    private static TimedNodeDAO dao = Config.getInstance().getDAOFactory().getTimedNodeDAO();
+    private static ExtraTimedNodeDAO dao = Config.getInstance().getDAOFactory().getExtraTimedNodeDAO();
 
     // Data.
-    private List<TimedNode> dataList;
+    private List<ExtraTimedNode> dataList;
     private int totalRows;
 
     // Paging.
@@ -109,6 +108,7 @@ public class TimedNodeBackingBean implements Serializable {
 
         // Load list and totalCount.
         try {
+        	//display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
             dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, "");
             totalRows = dao.count(searchTerm, "");
         } 
@@ -132,7 +132,7 @@ public class TimedNodeBackingBean implements Serializable {
     }
 
     // Getters ------------------------------------------------------------------------------------
-    public List<TimedNode> getDataList() {
+    public List<ExtraTimedNode> getDataList() {
         if (dataList == null) {
             // Preload page for the 1st view.
             loadDataList(); 

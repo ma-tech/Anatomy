@@ -66,13 +66,13 @@
      
     <h:dataTable value="#{TimedNodeBackingBean.dataList}" 
                  var="item">
-                 
+
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ATN_OID" 
+          <h:commandLink value="a.ATN_OID" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="oid" />
+                         value="a.ATN_OID" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.oid}" />
@@ -80,10 +80,10 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ATN_NODE_FK" 
+          <h:commandLink value="a.ATN_NODE_FK" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="nodeFK" />
+                         value="a.ATN_NODE_FK" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.nodeFK}" />
@@ -91,10 +91,10 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ATN_STAGE_FK" 
+          <h:commandLink value="a.ATN_STAGE_FK" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="stageFK" />
+                         value="a.ATN_STAGE_FK" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.stageFK}" />
@@ -102,10 +102,10 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ATN_STAGE_MODIFIER_FK" 
+          <h:commandLink value="a.ATN_STAGE_MODIFIER_FK" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="stageModifierFK" />
+                         value="a.ATN_STAGE_MODIFIER_FK" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.stageModifierFK}" />
@@ -113,21 +113,21 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ATN_PUBLIC_ID" 
+          <h:commandLink value="a.ATN_PUBLIC_ID" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="publicId" />
+                         value="a.ATN_PUBLIC_ID" />
           </h:commandLink>
         </f:facet>
-        <h:outputText value="#{item.publicId}" />
+        <h:outputText value="#{item.publicEmapId}" />
       </h:column>
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="ANO_PUBLIC_ID" 
+          <h:commandLink value="b.ANO_PUBLIC_ID" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="publicEmapaId" />
+                         value="b.ANO_PUBLIC_ID" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.publicEmapaId}" />
@@ -135,10 +135,10 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="STG_NAME" 
+          <h:commandLink value="c.STG_NAME" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="stageName" />
+                         value="c.STG_NAME" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.stageName}" />
@@ -146,13 +146,35 @@
       
       <h:column>
         <f:facet name="header">
-          <h:commandLink value="STG_SEQUENCE" 
+          <h:commandLink value="c.STG_SEQUENCE" 
                          actionListener="#{TimedNodeBackingBean.sort}">
             <f:attribute name="sortField" 
-                         value="stageSeq" />
+                         value="c.STG_SEQUENCE" />
           </h:commandLink>
         </f:facet>
         <h:outputText value="#{item.stageSeq}" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">
+          <h:commandLink value="STAGE_MIN" 
+                         actionListener="#{TimedNodeBackingBean.sort}">
+            <f:attribute name="sortField" 
+                         value="STAGE_MIN" />
+          </h:commandLink>
+        </f:facet>
+        <h:outputText value="#{item.stageMinName}" />
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">
+          <h:commandLink value="STAGE_MAX" 
+                         actionListener="#{TimedNodeBackingBean.sort}">
+            <f:attribute name="sortField" 
+                         value="STAGE_MAX" />
+          </h:commandLink>
+        </f:facet>
+        <h:outputText value="#{item.stageMaxName}" />
       </h:column>
       
     </h:dataTable>

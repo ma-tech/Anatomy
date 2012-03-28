@@ -209,6 +209,110 @@ public class GenerateEditorPDF {
 
     }
 
+    // Constructor ---------------------------------------------------------------------------------
+    public GenerateEditorPDF( ValidateComponents validatecomponents,
+            TreeBuilder treebuilder, 
+            String infile, 
+            String outfile){
+
+        this.treebuilder = treebuilder;
+
+        //sort terms from ValidateComponents class into categories
+        //ArrayList<ComponentFile> changedTerms = validatecomponents.getChangesTermList();
+        proposedTerms = validatecomponents.getProposedTermList();
+        
+        problemobocomponents = validatecomponents.getProblemTermList();
+        
+        this.sortChangedTerms( proposedTerms );        
+        
+    	try {
+            summaryReportNamePdf = outfile;
+            
+            inputOboFileName = infile;
+
+            //check filepath exists
+            File file = new File(summaryReportNamePdf);
+
+            if (!file.isDirectory()){
+                file = file.getParentFile();
+
+            }
+            if (!file.exists()) {
+                return;
+            }
+
+            //create pdf file
+            PdfWriter.getInstance(pdfDocument,
+                    new FileOutputStream( summaryReportNamePdf ) );
+            pdfDocument.open();
+            
+            //pdf title
+            Paragraph paraMainHeader = new Paragraph();
+            Chunk chkMainHeader = 
+                    new Chunk( "Editor Report for \n Import of OBO File: \n" +
+                    		inputOboFileName,
+                            new Font( Font.HELVETICA, 14, Font.BOLD ) );
+
+            paraMainHeader.add( chkMainHeader );
+            paraMainHeader.add( Chunk.NEWLINE );
+            paraMainHeader.add( Chunk.NEWLINE );
+            pdfDocument.add( paraMainHeader );
+            
+            //summary
+            writeReportSummary(validatecomponents);
+            writeSummaryTable( validatecomponents );
+            
+            //writing problem terms
+            //writeProblemTerms( problemobocomponents );
+            writeTerms( problemobocomponents,
+                    "CRITICAL COMPONENTS: REQUIRE REVISION",
+                    "Total Critical Components: ",
+                    Color.RED,
+                    "Problem ComponentFile ",
+                    "PROBLEM" );
+            
+            //writing new terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( newTerms,
+                    "NEW COMPONENTS",
+                    "Total New Components: ",
+                    new Color(0,140,0),
+                    "New ComponentFile ",
+                    "NEW" );
+            
+            //writing modified terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( modifiedTerms,
+                    "MODIFIED COMPONENTS",
+                    "Total Modified Components: ",
+                    new Color(0,140,0),
+                    "Modified ComponentFile ",
+                    "MODIFIED" );
+            
+            //writing deleted terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( deletedTerms,
+                    "DELETED COMPONENTS",
+                    "Total Deleted Components: ",
+                    new Color(0,140,0),
+                    "Deleted Components ",
+                    "DELETED" );
+            
+            //appendix
+            writeAppendix();
+            
+            //close pdf file
+            pdfDocument.close();
+            
+            this.isProcessed = true;
+            
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            isProcessed = false;
+        }
+
+    }
 
     //----------------------------------------------------------------------------------------------
 

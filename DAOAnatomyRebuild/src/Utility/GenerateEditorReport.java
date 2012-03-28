@@ -176,7 +176,86 @@ public class GenerateEditorReport {
         }
 
     }
-    
+
+    // Constructor ---------------------------------------------------------------------------------
+    public GenerateEditorReport( ValidateComponents validatecomponents, String infile, String outfile ){
+
+        //sort terms from ValidateComponents class into categories
+        //ArrayList<ComponentFile> changedTerms = validatecomponent.getChangesTermList();
+        proposedTerms = validatecomponents.getProposedTermList();
+        
+        problemTerms = validatecomponents.getProblemTermList();
+        
+        sortChangedTerms( proposedTerms );        
+        
+    	try {
+            summaryReportName = outfile;
+            
+            inputOboFileName = infile;
+
+            
+            //check filepath exists
+            File file = new File(summaryReportName);
+            
+            if (!file.isDirectory()) {
+                file = file.getParentFile();
+            }
+            
+            if (!file.exists()) {
+                return;
+            }
+
+            //create text file
+            reportFile = new BufferedWriter( new FileWriter( summaryReportName ) );
+            reportFile.newLine();
+            
+            //title
+            reportFile.write("Editor Report for Import of OBO File: " +
+            		inputOboFileName);
+            reportFile.newLine();
+            reportFile.newLine();
+            
+            //summary
+            writeReportSummary(validatecomponents);
+            
+            //writing problem terms
+            writeProblemTerms( problemTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //writing new terms
+            flushStringWriter();
+            writeNewTerms( newTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //writing modified terms
+            flushStringWriter();
+            writeModifiedTerms( modifiedTerms );
+            reportFile.write( stringWriter.toString() ); 
+            
+            //writing deleted terms
+            flushStringWriter();
+            writeDeletedTerms( deletedTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //appendix
+            flushStringWriter();
+            writeAppendix();
+            reportFile.write( stringWriter.toString() );
+            
+            printWriter.close();
+            stringWriter.close();
+            reportFile.close();
+            
+            this.isProcessed = true;
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            isProcessed = false;
+        }
+
+    }
+
     //----------------------------------------------------------------------------------------------
 
     // Getters -------------------------------------------------------------------------------------

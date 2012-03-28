@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/iText-2.1.6.jar"/>
 	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/oboedit.jar"/>
 	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/org.geneontology.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/commons-io-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

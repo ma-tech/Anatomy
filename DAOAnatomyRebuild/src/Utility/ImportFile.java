@@ -81,6 +81,13 @@ public class ImportFile {
 
     }
 
+    public ImportFile(String filename) {
+    	
+    	ArrayList<ComponentFile> componentList = new ArrayList();
+        Parser parser = new Parser(filename);
+        obocomponentList = (ArrayList) parser.getComponents();
+    }
+
     public ArrayList<ComponentFile> getTermList() {
 
         return obocomponentList;

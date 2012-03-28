@@ -135,6 +135,13 @@ public final class OBOFileDAO {
     }
 
     /*
+     * Returns the obofile from the database matching the given OID, otherwise null.
+     */
+    public OBOFile findWithBinary(Long oid) throws DAOException {
+        return findWithBinary(SQL_FIND_BY_OID, oid);
+    }
+
+    /*
      * Returns the obofile from the database matching the given 
      *  SQL query with the given values.
      */
@@ -165,10 +172,47 @@ public final class OBOFileDAO {
     }
 
     /*
+     * Returns the obofile from the database matching the given 
+     *  SQL query with the given values.
+     */
+    private OBOFile findWithBinary(String sql, Object... values) throws DAOException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        OBOFile obofile = null;
+
+        try {
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            resultSet = preparedStatement.executeQuery();
+            
+            if (resultSet.next()) {
+            
+            	obofile = mapOBOFileWithBinary(resultSet);
+            }
+        } 
+        catch (SQLException e) {
+            throw new DAOException(e);
+        } 
+        finally {
+            close(connection, preparedStatement, resultSet);
+        }
+
+        return obofile;
+    }
+
+    /*
      * Returns a list of ALL files, otherwise null.
      */
     public List<OBOFile> listAll() throws DAOException {
         return list(SQL_LIST_ALL, null);
+    }
+    
+    /*
+     * Returns a list of ALL files, otherwise null.
+     */
+    public List<OBOFile> listAllWithBinary() throws DAOException {
+        return listWithBinary(SQL_LIST_ALL, null);
     }
     
     /*
@@ -189,6 +233,36 @@ public final class OBOFileDAO {
             while (resultSet.next()) {
             
             	files.add(mapOBOFile(resultSet));
+            }
+        } 
+        catch (SQLException e) {
+            throw new DAOException(e);
+        } 
+        finally {
+            close(connection, preparedStatement, resultSet);
+        }
+
+        return files;
+    }
+
+    /*
+     * Returns a list of all files from the database. 
+     *  The list is never null and is empty when the database does not contain any files.
+     */
+    public List<OBOFile> listWithBinary(String sql, Object... values) throws DAOException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<OBOFile> files = new ArrayList<OBOFile>();
+
+        try {
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()) {
+            
+            	files.add(mapOBOFileWithBinary(resultSet));
             }
         } 
         catch (SQLException e) {
@@ -300,8 +374,6 @@ public final class OBOFileDAO {
         try {
             connection = daoFactory.getConnection();
             preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
-            
-            System.out.println(preparedStatement.toString());
             
             int affectedRows = preparedStatement.executeUpdate();
             
@@ -600,6 +672,33 @@ public final class OBOFileDAO {
        		resultSet.getString("AOF_TEXT_REPORT_DATE"),
        		resultSet.getString("AOF_PDF_REPORT_NAME"),
        		null,
+       		resultSet.getString("AOF_PDF_REPORT_TYPE"),
+       		resultSet.getLong("AOF_PDF_REPORT_LENGTH"),
+       		resultSet.getString("AOF_PDF_REPORT_DATE")
+        );
+    }
+    
+    /*
+     * Map the current row of the given ResultSet to an User.
+     */
+    private static OBOFile mapOBOFileWithBinary(ResultSet resultSet) throws SQLException {
+
+    	return new OBOFile(
+      		resultSet.getLong("AOF_OID"), 
+       		resultSet.getString("AOF_FILE_NAME"),
+       		resultSet.getBinaryStream("AOF_FILE_CONTENT"),
+       		resultSet.getString("AOF_FILE_CONTENT_TYPE"),
+       		resultSet.getLong("AOF_FILE_CONTENT_LENGTH"),
+       		resultSet.getString("AOF_FILE_CONTENT_DATE"),
+       		resultSet.getString("AOF_FILE_VALIDATION"), 
+      		resultSet.getString("AOF_FILE_AUTHOR"),
+       		resultSet.getString("AOF_TEXT_REPORT_NAME"),
+       		resultSet.getBinaryStream("AOF_TEXT_REPORT"),
+       		resultSet.getString("AOF_TEXT_REPORT_TYPE"),
+       		resultSet.getLong("AOF_TEXT_REPORT_LENGTH"),
+       		resultSet.getString("AOF_TEXT_REPORT_DATE"),
+       		resultSet.getString("AOF_PDF_REPORT_NAME"),
+       		resultSet.getBinaryStream("AOF_PDF_REPORT"),
        		resultSet.getString("AOF_PDF_REPORT_TYPE"),
        		resultSet.getLong("AOF_PDF_REPORT_LENGTH"),
        		resultSet.getString("AOF_PDF_REPORT_DATE")

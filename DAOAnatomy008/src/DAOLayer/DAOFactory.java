@@ -336,6 +336,11 @@ public abstract class DAOFactory {
     public SourceDAO getSourceDAO() {
         return new SourceDAO(this);
     }
+
+    public UserDAO getUserDAO() {
+        return new UserDAO(this);
+    }
+
     // You can add more DAO getters here.
 
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+    <application>
+        <message-bundle>messages</message-bundle>
+    </application>
+
+    <converter>
+        <converter-for-class>java.lang.String</converter-for-class>
+        <converter-class>Beans.EmptyToNullConverter</converter-class>
+    </converter>
+
+    <managed-bean>
+    	<managed-bean-name>config</managed-bean-name>
+        <managed-bean-class>WebApp.Config</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+    	<managed-bean-name>UploadFileForm</managed-bean-name>
+    	<managed-bean-class>Beans.UploadFileForm</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+    	<managed-bean-name>OBOFileBackingBean</managed-bean-name>
+    	<managed-bean-class>Beans.OBOFileBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>AuthenticationBean</managed-bean-name>
+    	<managed-bean-class>Beans.AuthenticationBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>register</managed-bean-name>
+        <managed-bean-class>Beans.RegisterUserForm</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>login</managed-bean-name>
+        <managed-bean-class>Beans.LoginUserForm</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+</faces-config>

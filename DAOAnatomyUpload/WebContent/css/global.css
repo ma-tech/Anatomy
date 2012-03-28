@@ -1,0 +1,54 @@
+/*
+ * Global CSS styles.
+ */
+
+/* General ------------------------------------------------------------------------------------- */
+
+body, p, legend, label, input {
+    font: normal 8pt verdana, helvetica, sans-serif;
+}
+
+fieldset {
+    padding: 5px;
+    border: 1px #000 solid;
+}
+
+legend {
+    font-variant: small-caps;
+    letter-spacing: 10px;
+}
+
+/* Forms --------------------------------------------------------------------------------------- */
+
+form label {
+    float: left;
+    width: 150px;
+    margin: 3px 0px 0px 0px;
+}
+
+form input {
+    margin: 3px 3px 0px 0px;
+    border: 1px #999 solid;
+}
+
+form input.highlight {
+    border: 1px #c66 solid;
+    background-color: #fcc;
+}
+
+form input.withoutLabel {
+    margin-left: 150px;
+}
+
+form .required {
+    color: #c00;
+}
+
+form .error {
+    color: #900;
+}
+
+form .succes {
+    color: #090;
+}
+

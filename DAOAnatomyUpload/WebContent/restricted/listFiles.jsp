@@ -11,7 +11,7 @@
 
 
 <head>
-  <title>List Uploaded OBO Files</title>
+  <title>Anatomy - List Uploaded OBO Files</title>
  
   <link type="text/css" rel="stylesheet" href="../css/global.css">
   <script type="text/javascript" src="../scripts/global.js"></script>

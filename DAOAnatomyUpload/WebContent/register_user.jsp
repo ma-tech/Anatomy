@@ -8,12 +8,15 @@
 <f:view>
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
-            <title>Register</title>
+            <title>Anatomy - Register as an OBO Editor</title>
             <link type="text/css" rel="stylesheet" href="./css/global.css" />
             <script type="text/javascript" src="./scripts/global.js"></script>
         </head>
         <body>
             <h:form id="register" binding="#{register.form}">
+            
+              <h1>Anatomy - Register as an OBO Editor</h1>
+            
                 <fieldset>
                     <legend>Register</legend>
                     

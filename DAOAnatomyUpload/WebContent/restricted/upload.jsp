@@ -8,7 +8,7 @@
 <f:view>
   <html lang="en">
     <head>
-      <title>Upload An OBO File</title>
+      <title>Anatomy - Upload An OBO File</title>
       
       <link type="text/css" rel="stylesheet" href="../css/global.css">
       <script type="text/javascript" src="../scripts/global.js"></script>
@@ -16,7 +16,7 @@
 
     <body>
 
-    <h1>Upload An OBO File</h1>
+    <h1>Anatomy - Upload An OBO File</h1>
 
 
     <fieldset>

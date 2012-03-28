@@ -9,7 +9,7 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
 
         <head>
-            <title>Login</title>
+            <title>Anatomy - Login/Logout User</title>
             <link type="text/css" rel="stylesheet" href="./css/global.css" />
             <script type="text/javascript" src="./scripts/global.js"></script>
         </head>
@@ -18,13 +18,15 @@
 
             <h:form id="login" binding="#{login.form}">
 
+              <h1>Anatomy - Login/Logout User</h1>
+
                 <fieldset>
                 
-                  <h:panelGroup rendered="#{not login.loggedIn}">
-
-                    <legend>Login</legend>
+                    <legend>Login/Logout</legend>
 
                     <p><a href="index.html">BACK</a></p>
+
+                  <h:panelGroup rendered="#{not login.loggedIn}">
 
                     <p>Here you can Login HERE</p>
 
@@ -72,6 +74,8 @@
                   
                   <h:panelGroup rendered="#{login.loggedIn}">
                   
+                    <p>Here you can Logout HERE</p>
+
                     <p><a href="restricted/listFiles.jsf">List Uploaded OBO Files</a></p>
                     <p><a href="restricted/upload.jsf">Upload a New OBO File</a></p>
                   

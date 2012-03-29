@@ -133,7 +133,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>fileServlet</servlet-name>
-    <url-pattern>/obo/*</url-pattern>
+    <url-pattern>/restricted/obo/*</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -142,7 +142,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>textServlet</servlet-name>
-    <url-pattern>/txt/*</url-pattern>
+    <url-pattern>/restricted/txt/*</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -151,16 +151,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>pdfServlet</servlet-name>
-    <url-pattern>/pdf/*</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>pendingServlet</servlet-name>
-    <servlet-class>Servlet.PendingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>pendingServlet</servlet-name>
-    <url-pattern>/pending/*</url-pattern>
+    <url-pattern>/restricted/pdf/*</url-pattern>
   </servlet-mapping>
   
   <filter>

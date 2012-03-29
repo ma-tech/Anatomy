@@ -110,12 +110,19 @@ public class OBOFileBackingBean implements Serializable {
         
         try {
             String oidString = String.valueOf(validateFieldAttribute);
-            String process = "/usr/bin/java";
+            
+            // My Mac Laptop
+            //String process = "/usr/bin/java";
+            // Caperdonich
+            String process = "/opt/java6/bin/java";
             String argument1 =  "-jar";
             String argument2 =  "MainDAOExtractOBOAndValidate.jar";
             String argument3 =  oidString;
             ProcessBuilder pb = new ProcessBuilder(process, argument1, argument2, argument3);
-            String webInfLib = "/wtpwebapps/DAOAnatomyUpload/WEB-INF/lib";
+            // My Mac Laptop
+            //String webInfLib = "/wtpwebapps/DAOAnatomyUpload/WEB-INF/lib";
+            // Caperdonich
+            String webInfLib = "/webapps/DAOAnatomyUpload/WEB-INF/lib";
             String catalinaBase = System.getProperty("catalina.base");
             String directory = catalinaBase + webInfLib;
 

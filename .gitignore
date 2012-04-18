@@ -1,0 +1,9 @@
+*py.class
+*py.class
+*pyc
+.DS_Store
+*.log
+.cvsignore
+.py~
+.pyc
+*.pyc

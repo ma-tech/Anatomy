@@ -1,7 +1,0 @@
-anatomy008.url = jdbc:mysql://caperdonich:33061/anatomy008
-anatomy008.driver = com.mysql.jdbc.Driver
-anatomy008.username = jacobson
-anatomy008.password = vomeronasal
-anatomy008.debug = false
-anatomy008.update = true
-anatomy008.sqloutput = /tmp/output.sql

@@ -106,23 +106,23 @@ public class OBOFileBackingBean implements Serializable {
     // Validate actions ----------------------------------------------------------------------------
     public void validate(ActionEvent event) {
 
-    	Long validateFieldAttribute = (Long) event.getComponent().getAttributes().get("validateField");
+    	Long validateFieldAttribute = (Long) event.getComponent().getAttributes().get("actionField");
         
         try {
             String oidString = String.valueOf(validateFieldAttribute);
             
             // My Mac Laptop
-            //String process = "/usr/bin/java";
+            String process = "/usr/bin/java";
             // Caperdonich
-            String process = "/opt/java6/bin/java";
+            //String process = "/opt/java6/bin/java";
             String argument1 =  "-jar";
             String argument2 =  "MainDAOExtractOBOAndValidate.jar";
             String argument3 =  oidString;
             ProcessBuilder pb = new ProcessBuilder(process, argument1, argument2, argument3);
             // My Mac Laptop
-            //String webInfLib = "/wtpwebapps/DAOAnatomyUpload/WEB-INF/lib";
+            String webInfLib = "/wtpwebapps/DAOAnatomyUpload/WEB-INF/lib";
             // Caperdonich
-            String webInfLib = "/webapps/DAOAnatomyUpload/WEB-INF/lib";
+            //String webInfLib = "/webapps/DAOAnatomyUpload/WEB-INF/lib";
             String catalinaBase = System.getProperty("catalina.base");
             String directory = catalinaBase + webInfLib;
 
@@ -131,13 +131,60 @@ public class OBOFileBackingBean implements Serializable {
             Process p = pb.start();
 
             OBOFile obofile = dao.findWithBinary(validateFieldAttribute);
-            obofile.setValidation("PENDING");
+            obofile.setValidation("VALIDATING");
             dao.save(obofile);
         }
         catch (IOException ioe) {
             // Handle it yourself.
             throw new RuntimeException( ioe ); 
         }
+        catch (DAOException daoe) {
+            // Handle it yourself.
+            throw new RuntimeException( daoe ); 
+        }
+
+        // redisplay current page.
+        page( this.firstRow ); 
+       
+    }
+
+    // Update actions ----------------------------------------------------------------------------
+    public void update(ActionEvent event) {
+
+    	Long updateFieldAttribute = (Long) event.getComponent().getAttributes().get("actionField");
+        
+        try {
+            String oidString = String.valueOf(updateFieldAttribute);
+
+            // My Mac Laptop
+            String process = "/usr/bin/java";
+            // Caperdonich
+            //String process = "/opt/java6/bin/java";
+            String argument1 =  "-jar";
+            String argument2 =  "MainOBOLoadFileIntoDatabase.jar";
+            String argument3 =  oidString;
+            ProcessBuilder pb = new ProcessBuilder(process, argument1, argument2, argument3);
+            // My Mac Laptop
+            String webInfLib = "/wtpwebapps/DAOAnatomyUpload/WEB-INF/lib";
+            // Caperdonich
+            //String webInfLib = "/webapps/DAOAnatomyUpload/WEB-INF/lib";
+            String catalinaBase = System.getProperty("catalina.base");
+            String directory = catalinaBase + webInfLib;
+
+            Map<String, String> environ = pb.environment();
+            pb.directory(new File(directory));
+            Process p = pb.start();
+
+            OBOFile obofile = dao.findWithBinary(updateFieldAttribute);
+            obofile.setValidation("UPDATING");
+            dao.save(obofile);
+        }
+        
+        catch (IOException ioe) {
+            // Handle it yourself.
+            throw new RuntimeException( ioe ); 
+        }
+        
         catch (DAOException daoe) {
             // Handle it yourself.
             throw new RuntimeException( daoe ); 

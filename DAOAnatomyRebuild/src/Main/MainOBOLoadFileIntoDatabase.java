@@ -54,22 +54,25 @@ public class MainOBOLoadFileIntoDatabase{
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
 
-        System.out.println("=========   ---------------------------------------");
-        System.out.println("EXECUTING - MainOBOCompareFileAndDatabaseReferences.java on " + parsed.toString());
-        System.out.println("=========   ---------------------------------------");
+        System.out.println("=========   ---------------------------");
+        System.out.println("EXECUTING - MainOBOLoadFileIntoDatabase.java on " + parsed.toString());
+        System.out.println("=========   ---------------------------");
         System.out.println("");
+
+        System.out.println("args[0] = " + args[0]);
 
         /*
          * MAINLINE
          */
-        RunOBOLoadFileIntoDatabase.run();
+        RunOBOLoadFileIntoDatabase.run(args[0]);
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
 
         System.out.println("");
-        System.out.println("====       ---------------------------------------");
-        System.out.println("DONE ----- MainOBOCompareFileAndDatabaseReferences.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ---------------------------------------");
+        System.out.println("====       ---------------------------");
+        System.out.println("DONE ----- MainOBOLoadFileIntoDatabase.java took " + duration / 1000 + " seconds");
+        System.out.println("====       ---------------------------");
+
     }
 }

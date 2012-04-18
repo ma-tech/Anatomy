@@ -1101,6 +1101,13 @@ public class ValidateComponents {
                         	
                         }
 
+                    	if (proposed.getID().equals("EMAPA:16172")) {
+                            System.out.println("Changed component detected: " + proposed.getID());
+                            System.out.println("proposed.toString() " + proposed.toString());
+                            System.out.println("proposed.getCheckComments() " + proposed.getCheckComments());
+                    	}
+                    	
+
                         this.changesTermList.add(proposed);
                         //<=== this is the component arraylist to generate SQL queries!!!
                     }

@@ -165,8 +165,14 @@ public class ImportFile {
                                 outputFile.write("relationship: is_a " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
+                            /*
                             if (obocomponentList.get(i).getChildOfTypes().get(j).equals("GROUP_PART_OF")) {
                                 outputFile.write("relationship: group_part_of " +
+                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
+                            }
+                            */
+                            if (obocomponentList.get(i).getChildOfTypes().get(j).equals("GROUP_PART_OF")) {
+                                outputFile.write("relationship: part_of " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         }

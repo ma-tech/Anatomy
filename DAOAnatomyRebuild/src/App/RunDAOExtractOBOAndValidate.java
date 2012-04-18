@@ -126,7 +126,7 @@ public class RunDAOExtractOBOAndValidate {
             	obofile.setValidation("VALIDATED");
             }
             else {
-            	obofile.setValidation("FAILED");
+            	obofile.setValidation("FAILED VALIDATION");
             }
             
             //generate txt summary report

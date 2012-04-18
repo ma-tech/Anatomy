@@ -293,6 +293,9 @@ public abstract class DAOFactory {
     public ComponentSynonymDAO getComponentSynonymDAO() {
         return new ComponentSynonymDAO(this);
     }
+    public ComponentAlternativeDAO getComponentAlternativeDAO() {
+        return new ComponentAlternativeDAO(this);
+    }
     
     public StageRangeDAO getStageRangeDAO() {
         return new StageRangeDAO(this);

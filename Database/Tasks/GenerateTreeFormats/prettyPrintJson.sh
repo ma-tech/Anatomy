@@ -11,23 +11,23 @@ find $1 -name '*.json' -type f |
        filename=`basename "$file"`
        pp="PP"
        testfile=${file%PP*}
-       #echo "BEFORE"
-       #echo $testfile
-       #echo $file
+       echo "BEFORE"
+       echo $testfile
+       echo $file
        if [ "$testfile" = "$file" ] 
        then
            outfile=$directory"/"$pp"/"$filename
-           #echo $directory
+           echo $directory
            echo $filename
-           #echo $pp
-           #echo "EQUAL"
-           #echo $outfile
+           echo $pp
+           echo "EQUAL"
+           echo $outfile
            cat $file | python -mjson.tool > $outfile
            if [ $? = 0 ]
            then
                rm $file
            fi
-       #else
-           #echo "NOT EQUAL"
+       else
+           echo "NOT EQUAL"
        fi
    done

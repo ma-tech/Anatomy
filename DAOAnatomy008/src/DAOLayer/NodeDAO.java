@@ -109,7 +109,7 @@ public final class NodeDAO {
         "ANO_COMPONENT_NAME = ?, " + 
         "ANO_IS_PRIMARY = ?, " +
         "ANO_IS_GROUP = ?, " +
-        "ANO_PUBLIC_ID = , " +
+        "ANO_PUBLIC_ID = ?, " +
         "ANO_DESCRIPTION = ? " + 
         "WHERE ANO_OID = ?";
     
@@ -119,7 +119,7 @@ public final class NodeDAO {
         "ANO_COMPONENT_NAME = ?, " + 
         "ANO_IS_PRIMARY = ?, " +
         "ANO_IS_GROUP = ?, " +
-        "ANO_PUBLIC_ID = , " +
+        "ANO_PUBLIC_ID = ?, " +
         "ANO_DESCRIPTION = ? " + 
         "WHERE ANO_PUBLIC_ID = ?";
         
@@ -132,6 +132,10 @@ public final class NodeDAO {
         "FROM ANA_NODE " +
         "WHERE ANO_OID = ?";
 
+    private static final String SQL_EXIST_BY_PUBLIC_ID =
+        "SELECT ANO_OID " +
+        "FROM ANA_NODE " +
+        "WHERE ANO_PUBLIC_ID = ?";
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -194,6 +198,14 @@ public final class NodeDAO {
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
+    }
+
+    /*
+     * Returns true if the given node OID exists in the database.
+     */
+    public boolean existPublicId(String publicId) throws DAOException {
+    	
+        return exist(SQL_EXIST_BY_PUBLIC_ID, publicId);
     }
 
     /*

@@ -133,6 +133,7 @@ public class Parser {
                 //remove 4 default extra terms in map created by obosession.getAllTermsHash()
                 if(!oboclassimpl.getID().startsWith("obo")){
 
+            		ArrayList<String> alternativeIds = new ArrayList<String>();
             		ArrayList<String> childOfs = new ArrayList<String>();
             		ArrayList<String> childOfTypes = new ArrayList<String>();
             		ArrayList<String> synonyms = new ArrayList<String>();
@@ -148,14 +149,16 @@ public class Parser {
                     		"TBD",
                     		"TBD",
                     		0,
-                    		"UNCHANGED",
+                    		"",
+                    		//"UNCHANGED",
                     		"UNCHECKED",
                      		childOfs,
                     		childOfTypes,
                     		synonyms,
                     		userComments,
                     		"",
-                    		comments);
+                    		comments,
+                    		alternativeIds);
                     
                     //get comments
             		/*
@@ -178,6 +181,16 @@ public class Parser {
                     	obocomponent.addSynonym(k.next().toString());
                     }
 
+                    Set altIds = oboclassimpl.getSecondaryIDs();
+
+                	for(Iterator altidsiterator = altIds.iterator(); altidsiterator.hasNext(); ){
+                    
+                		String altId = (String) altidsiterator.next();
+                    	System.out.println("ID = " + oboclassimpl.getID());
+                    	System.out.println("altId = " + altId);
+                		obocomponent.addAlternative(altId);
+                    }
+
                     /*
                      * set obocomponent relationships
                      *  parents(arraylist), startsat(string TSxx), endsat(TSxx)
@@ -194,20 +207,21 @@ public class Parser {
 
                         else if (oborestrictionimpl.getType().getID().equals("group_part_of")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
-                        	obocomponent.addChildOfType("GROUP_PART_OF");
-                        	//obocomponent.setIsPrimary(false);
+                        	//obocomponent.addChildOfType("GROUP_PART_OF");
+                        	obocomponent.addChildOfType("PART_OF");
+                        	obocomponent.setIsPrimary(false);
                         }
 
                         else if (oborestrictionimpl.getType().getID().equals("OBO_REL:is_a")){
                         	if ( oborestrictionimpl.getParent().getID().equals("group_term") ) {
                         		//System.out.println("HELLO!  I'm adding group_term as a relationship = NOOOOOO!");
                         		obocomponent.setGroup(true);
-                            	//obocomponent.setIsPrimary(false);
+                            	obocomponent.setIsPrimary(false);
                         	}
                         	else {
                         		obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                             	obocomponent.addChildOfType("IS_A");
-                            	//obocomponent.setIsPrimary(false);
+                            	obocomponent.setIsPrimary(false);
                         	}
                         }
 
@@ -230,6 +244,11 @@ public class Parser {
                         }
 
                         else if (oborestrictionimpl.getType().getID().equals("develops_IN")){
+                        	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
+                        	obocomponent.addChildOfType("DEVELOPS_IN");
+                        }
+
+                        else if (oborestrictionimpl.getType().getID().equals("develops_in")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("DEVELOPS_IN");
                         }

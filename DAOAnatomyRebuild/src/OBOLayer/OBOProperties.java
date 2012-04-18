@@ -48,7 +48,7 @@ import java.util.Properties;
 public class OBOProperties {
 
     // Constants ----------------------------------------------------------------------------------
-    private static final String PROPERTIES_FILE = "obo.properties";
+    private static final String PROPERTIES_FILE = "obo.properties_human";
     private static final Properties PROPERTIES = new Properties();
 
     static {

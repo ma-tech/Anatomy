@@ -60,6 +60,8 @@ public class ComponentFile {
     private ArrayList<String> userComments;
     private String orderComment;
     private Set<String> comments; //store unique comments only
+    
+    private ArrayList<String> alternativeIds;
 
     //missing relationships, starts < end
     private boolean flagMissingRel;
@@ -106,6 +108,8 @@ public class ComponentFile {
         this.primaryPath = null;
 
         this.comments = new TreeSet();
+        
+        this.alternativeIds = new ArrayList();
     }
 
     /*
@@ -184,6 +188,39 @@ public class ComponentFile {
         this.comments = comments;
     }
     
+    /*
+     * Fuller constructor. Contains required and optional fields.
+     */
+    public ComponentFile(String name, 
+    		String id,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		Boolean group,
+    		String start,
+    		String end,
+    		Integer present, 
+    		String statusChange, 
+    		String statusRule,
+    		ArrayList<String> childOfs,
+    		ArrayList<String> childOfTypes,
+    		ArrayList<String> synonyms, 
+    		ArrayList<String> userComments,
+    		String orderComment,
+    		TreeSet comments,
+    		ArrayList<String> alternativeIds) {
+    	
+    	this(name, id, dbID, newid, namespace, group, start, end, present, statusChange, statusRule);
+
+    	this.childOfs = childOfs;
+        this.childOfTypes = childOfTypes;
+        this.synonyms = synonyms;
+        this.userComments = userComments;
+        this.orderComment = orderComment;
+        this.comments = comments;
+        this.alternativeIds = alternativeIds;
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public String getID() {
         return this.id;
@@ -232,6 +269,9 @@ public class ComponentFile {
     }
     public String getOrderComment(){
         return this.orderComment;
+    }
+    public ArrayList<String> getAlternativeIds() {
+        return this.alternativeIds;
     }
 
     public boolean getFlagMissingRel(){
@@ -1719,6 +1759,9 @@ public class ComponentFile {
     public void setOrderComment(String s){
         this.orderComment = s;
     }
+    public void setAlternativeIds( ArrayList<String> alternativeIds ) {
+        this.alternativeIds = alternativeIds;
+    }
     
     public void setFlagMissingRel(boolean flag){
         this.flagMissingRel = flag;
@@ -1740,11 +1783,17 @@ public class ComponentFile {
     }
     
     // Helpers ------------------------------------------------------------------------------------
+    public void addAlternative( String alternative ) {
+        this.alternativeIds.add( alternative ); 
+    }
     public void addChildOf( String childOf ) {
         this.childOfs.add( childOf ); 
     }
     public void addChildOfType( String childOfType ) {
         this.childOfTypes.add( childOfType ); 
+    }
+    public void removeAlternative( String alternative ){
+        this.alternativeIds.remove( alternative );
     }
     public void removeChildOf( String childOf ){
         this.childOfs.remove( childOf );
@@ -1897,34 +1946,57 @@ public class ComponentFile {
         ArrayList<String> arrDiffOrder = null;
         
         if ( !this.getID().equals(obocomponent.getID()) ) {
+        	
             arrDifferenceWith.add( "Different ID - Referenced ComponentFile " +
                    "has ID [" + obocomponent.getID() + "]" );
         }
 
         if ( !this.getName().equals(obocomponent.getName())) {
+        	
             arrDifferenceWith.add( "Different Name - Referenced ComponentFile " +
                     obocomponent.getID() + " has name [" +
                     obocomponent.getName() + "]" );
         }
 
         if ( this.getStartSequence() != obocomponent.getStartSequence() ) {
+        	
             arrDifferenceWith.add( "Different Start Stage - Referenced " +
                     "ComponentFile " + obocomponent.getID() + " has Start Stage " +
                     obocomponent.getStart() );
         }
 
         if ( this.getEndSequence() != obocomponent.getEndSequence() ) {
+        	
             arrDifferenceWith.add( "Different End Stage - Referenced " +
                     "ComponentFile " + obocomponent.getID() + " has End Stage " +
                     obocomponent.getEnd() );
         }
 
-        if ( !this.getChildOfs().containsAll(obocomponent.getChildOfs()) ||
-             !obocomponent.getChildOfs().containsAll(this.getChildOfs()) ) {
+        if ( !obocomponent.getChildOfs().containsAll(this.getChildOfs()) ) {
+        	
+        	if (this.getID().equals("EMAPA:16172")) {
+                System.out.println("HERE!");
+                System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
+                System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
+        	}
+
             arrDifferenceWith.add( "Different Parents - Referenced ComponentFile " +
                     obocomponent.getID() + " has parents " + 
-                    obocomponent.getChildOfs().toString());
+                    this.getChildOfs());
         }
+
+        if ( !this.getChildOfs().containsAll(obocomponent.getChildOfs()) ) {
+           	
+           	if (this.getID().equals("EMAPA:16172")) {
+                System.out.println("THERE!");
+                System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
+                System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
+           	}
+
+               arrDifferenceWith.add( "Different Parents - Referenced ComponentFile " +
+                       obocomponent.getID() + " has parents " + 
+                       obocomponent.getChildOfs().toString());
+           }
 
         if ( !this.getIsPrimary() == obocomponent.getIsPrimary() ) {
 
@@ -1944,6 +2016,7 @@ public class ComponentFile {
 
         if ( !this.getSynonyms().containsAll(obocomponent.getSynonyms()) ||
              !obocomponent.getSynonyms().containsAll(this.getSynonyms()) ) {
+        	
             arrDifferenceWith.add( "Different Synonyms - Referenced ComponentFile " + 
                     obocomponent.getID() + " has synonyms " + 
                     obocomponent.getSynonyms().toString() );

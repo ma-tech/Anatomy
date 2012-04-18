@@ -7,8 +7,8 @@ format in a file.
 
 import PyRTF.Elements                            # Rich Text Format files
 import unicodedata
-import xml.dom.Document
-
+import xml.dom.minidom as minidom
+import re
 
 from hgu import Util
 
@@ -482,6 +482,9 @@ class JsonReportFile (LinearReportFile):
         self.__filePath = filePath
         self._document = open(self.__filePath, "w")
 
+        dispLine = "{\"json_data\":{\"data\":[{\"data\":\"Anatomy\",\"attr\":{\"id\":\"li.node.ts01.root\",\"ext_id\":\"EMAP:0\",\"name\":\"Anatomy\"},\"children\":["
+        self.getDocument().write(dispLine)
+
         return None
 
 
@@ -500,13 +503,13 @@ class JsonReportFile (LinearReportFile):
         
         while count < _depth:
             if formatType != CONTENT:
-                dispLine = "]}}"
+                dispLine = "]}"
                 self.getDocument().write(dispLine)
             count = count + 1
         
         if _second_root == True:
             if formatType != CONTENT:
-                dispLine = "]}}"
+                dispLine = "]}"
                 self.getDocument().write(dispLine)
             count = count + 1
 
@@ -515,6 +518,9 @@ class JsonReportFile (LinearReportFile):
             self.getDocument().write(dispLine)
 
         _second_root = False
+
+        dispLine = "],\"state\":\"closed\"}],\"progressive_render\":true},\"plugins\":[\"themes\",\"json_data\",\"ui\"]}"
+        self.getDocument().write(dispLine)
             
         self._document.close()
         self._document = None
@@ -571,12 +577,12 @@ class JsonReportFile (LinearReportFile):
         
         while count < _depth:
             if formatType != CONTENT:
-                dispLine = "]}}"
+                dispLine = "}]}}"
                 self.getDocument().write(dispLine)
             count = count + 1
 
-        dispLine = "\n"
-        self.getDocument().write(dispLine)
+        #dispLine = "\n"
+        #self.getDocument().write(dispLine)
         
         if formatType == CONTENT:
             _second_root = False
@@ -608,6 +614,7 @@ class JsonReportFile (LinearReportFile):
         if formatType == CONTENT:
             if _count == 1: 
                 dispLine = "[\n"
+                #dispLine = "["
                 self.getDocument().write(dispLine)
             if _count > 1:
                 if _second_root == False:
@@ -656,6 +663,7 @@ class JsonReportFile (LinearReportFile):
             if direction == "Increasing":
                 if _second_root == False:
                     dispLine = ",\n\"children\":["
+                    #dispLine = ",\"children\":["
                 else:
                     dispLine = ","
                 _second_root = False
@@ -672,14 +680,17 @@ class JsonReportFile (LinearReportFile):
 
             if direction == "Same Depth":
                 dispLine = "}},\n"
+                #dispLine = "}},"
                 self.getDocument().write(dispLine)
 
             if direction == "Increasing":
                 dispLine = "\n"
+                #dispLine = ""
                 self.getDocument().write(dispLine)
 
             if direction == "Decreasing":
                 dispLine = ",\n"
+                #dispLine = ","
                 self.getDocument().write(dispLine)
 
         if direction == "Root Node " and _count > 1:
@@ -689,6 +700,7 @@ class JsonReportFile (LinearReportFile):
                 if _count > 1:
                     if _second_root == False:
                         dispLine = "\n"
+                        #dispLine = ""
                         self.getDocument().write(dispLine)
                 dispLine = "{\"nodeId\":\"%s\",\"extId\":\"%s\",\"starts\":\"%s\",\"ends\":\"%s\",\"name\":\"%s\"}" % (
                         _count,
@@ -731,6 +743,7 @@ class JsonReportFile (LinearReportFile):
         if formatType == CONTENT:
             if _count == 1: 
                 dispLine = "[\n"
+                #dispLine = "[\n"
                 self.getDocument().write(dispLine)
             if _count > 1:
                 if _second_root == False:
@@ -780,7 +793,8 @@ class JsonReportFile (LinearReportFile):
         if formatType != CONTENT:
             if direction == "Increasing":
                 if _second_root == False:
-                    dispLine = ",\n\"children\":["
+                    dispLine = "},\n\"children\":["
+                    #dispLine = "},\"children\":["
                 else:
                     dispLine = ","
                 _second_root = False
@@ -789,22 +803,25 @@ class JsonReportFile (LinearReportFile):
             if direction == "Decreasing":
                 while count <= depth_diff:
                     if count == 1: 
-                        dispLine = "}}]}}"
+                        dispLine = "}}]}"
                     else:
-                        dispLine = "]}}"
+                        dispLine = "]}"
                     self.getDocument().write(dispLine)
                     count = count + 1
 
             if direction == "Same Depth":
                 dispLine = "}},\n"
+                #dispLine = "}},"
                 self.getDocument().write(dispLine)
 
             if direction == "Increasing":
                 dispLine = "\n"
+                #dispLine = ""
                 self.getDocument().write(dispLine)
 
             if direction == "Decreasing":
                 dispLine = ",\n"
+                #dispLine = ","
                 self.getDocument().write(dispLine)
 
         if direction == "Root Node " and _count > 1:
@@ -814,6 +831,7 @@ class JsonReportFile (LinearReportFile):
                 if _count > 1:
                     if _second_root == False:
                         dispLine = ",\n"
+                        #dispLine = ","
                         self.getDocument().write(dispLine)
                 dispLine = "{\"nodeId\":\"%s\",\"extId\":\"%s\",\"name\":\"%s\"}" % (
                     _count,
@@ -821,7 +839,9 @@ class JsonReportFile (LinearReportFile):
                     node.getComponentName()
                     )
             if formatType == CONTENTSTRUCTURE:
-                dispLine = "{\"node\":{\"nodeId\":\"%s\",\"extId\":\"%s\",\"name\":\"%s\"" % (
+                dispLine = "{\"data\":\"%s\",\"attr\":{\"id\":\"li.node.%s.id%s\",\"ext_id\":\"%s\",\"name\":\"%s\"" % (
+                    node.getComponentName(),
+                    stage.getName(),
                     _count,
                     timedNode.getPublicId().strip(" "),
                     node.getComponentName()
@@ -1246,7 +1266,10 @@ class XmlReportFile (ReportFile):
         """
         self._reportTree = reportTree
         self.__filePath = filePath
-        self._document = xml.dom.Document.Document(None)
+        #self._document = minidom.Document(None)
+        self._dom = minidom.getDOMImplementation()
+        self._document  = self._dom.createDocument(None, "request", None)
+                
         self.__reportElement = None
         self.__lastHeaderElement = None
         # Initial contents of stack don't matter.  Just has to be > max depth
@@ -1267,8 +1290,14 @@ class XmlReportFile (ReportFile):
         """
         Close an XML report file.
         """
-        Util.writeXmlFile(self.__filePath, self._document)
+        xml = minidom.parseString(re.sub("='([^']*)'([ \/>\?])", '="\g<1>"\g<2>', self._document.toxml("iso-8859-1")))
+        
+        xmlFile = open(self.__filePath, "w")
+        xmlFile.write(xml.toprettyxml())
+        xmlFile.close()
+    
         self._document = None
+        
         return
 
 
@@ -1286,19 +1315,26 @@ class XmlReportFile (ReportFile):
         """
         Add the report element that is the root of everything else
         """
-        reportElement = Util.addXmlElement(
-            self.getDocument(), "mouseAnatomyReport")
+        reportElement = self._document.createElement("mouseAnatomyReport")
+        doc_root = self._document.documentElement 
+        doc_root.appendChild(reportElement)
+        
         self.__reportElement = reportElement
         self.__lastHeaderElement = reportElement
         self.__anatomyStack[0] = reportElement
 
         version = self.getReportTree().getVersion()
-        versionElement = Util.addXmlElement(
-            reportElement, "anatomyDatabaseVersion")
+        versionElement = self._document.createElement("anatomyDatabaseVersion")
         versionElement.setAttribute("number", str(version.getNumber()))
         versionElement.setAttribute("date", str(version.getDate()))
-        Util.addXmlElement(reportElement, "perspective",
-                        self.getReportTree().getPerspectiveName())
+        doc_root.appendChild(versionElement)
+        
+        perspectiveElement = self._document.createElement("perspective")
+        text = self.getReportTree().getPerspectiveName()
+        perspectiveElement.appendChild(self._document.createTextNode(text))
+        
+        doc_root.appendChild(perspectiveElement)
+
         return
 
 
@@ -1309,8 +1345,9 @@ class XmlReportFile (ReportFile):
 
         XML reports ignore the prefix.
         """
-        excludingGroupsElement = Util.addXmlElement(
-            self.__reportElement, "excludingGroupsTree")
+        excludingGroupsElement = self._document.createElement("excludingGroupsTree")
+        self.__reportElement.appendChild(excludingGroupsElement)
+        
         self.__lastHeaderElement = excludingGroupsElement
         self.__anatomyStack[0]   = excludingGroupsElement
 
@@ -1324,9 +1361,9 @@ class XmlReportFile (ReportFile):
 
         XML reports ignore the prefix parameter.
         """
+        onlyGroupsElement = self._document.createElement("onlyGroupsTree")
+        self.__reportElement.appendChild(onlyGroupsElement)
 
-        onlyGroupsElement = Util.addXmlElement(
-            self.__reportElement, "onlyGroupsTree")
         self.__lastHeaderElement = onlyGroupsElement
         self.__anatomyStack[0]   = onlyGroupsElement
 
@@ -1340,29 +1377,34 @@ class XmlReportFile (ReportFile):
         """
         parent = self.__lastHeaderElement
 
-        key = Util.addXmlElement(parent, "groupStatusKey")
+        key = self._document.createElement("groupStatusKey")
+        parent.appendChild(key)
 
-        status = Util.addXmlElement(
-            key, "groupStatus",
-            "Term is not a group nor is it contained in a group.")
+        status = self._document.createElement("groupStatus")
+        text = "Term is not a group nor is it contained in a group."
+        status.appendChild(self._document.createTextNode(text))
         status.setAttribute("status", self.GROUP_DISPLAY[ReportTree.GROUP_AVERSE])
+        key.appendChild(status)
 
-        status = Util.addXmlElement(
-            key, "groupStatus",
-            "Term a group.")
+        status = self._document.createElement("groupStatus")
+        text = "Term a group"
+        status.appendChild(self._document.createTextNode(text))
         status.setAttribute("status", self.GROUP_DISPLAY[ReportTree.GROUP])
+        key.appendChild(status)
 
-        status = Util.addXmlElement(
-            key, "groupStatus",
-            "Term is directly contained in a group.")
+        status = self._document.createElement("groupStatus")
+        text = "Term is directly contained in a group."
+        status.appendChild(self._document.createTextNode(text))
         status.setAttribute(
             "status", self.GROUP_DISPLAY[ReportTree.GROUP_DIRECT_DESCENDANT])
+        key.appendChild(status)
 
-        status = Util.addXmlElement(
-            key, "groupStatus",
-            "Term is indirectly contained in a group.")
+        status = self._document.createElement("groupStatus")
+        text = "Term is indirectly contained in a group."
+        status.appendChild(self._document.createTextNode(text))
         status.setAttribute(
             "status", self.GROUP_DISPLAY[ReportTree.GROUP_INDIRECT_DESCENDANT])
+        key.appendChild(status)
 
         return
 
@@ -1372,7 +1414,10 @@ class XmlReportFile (ReportFile):
         """
         Add header for this specific stage.
         """
-        Util.addXmlElement(self.__lastHeaderElement, "stage", stage.getName())
+        stageHeader = self._document.createElement("stage")
+        text = stage.getName()
+        stageHeader.appendChild(self._document.createTextNode(text))
+        self.__lastHeaderElement.appendChild(stageHeader)
 
         return
 
@@ -1407,20 +1452,40 @@ class XmlReportFile (ReportFile):
 
         depth      = partOf.getDepth()
         parent = self.__anatomyStack[depth]
-        item = Util.addXmlElement(parent, "abstractComponent")
-        self.__anatomyStack[depth+1] = item
-
+ 
+        item = self._document.createElement("abstractComponent")
         item.setAttribute("emapaId", node.getPublicId())
-        Util.addXmlElement(item, "name", node.getComponentName())
-        Util.addXmlElement(item, "pathStartStage", startStage.getName())
-        Util.addXmlElement(item, "pathEndStage", endStage.getName())
+        parent.appendChild(item)
+
+        self.__anatomyStack[depth+1] = item
+        
+        name = self._document.createElement("name")
+        text = node.getComponentName()
+        name.appendChild(self._document.createTextNode(text))
+        item.appendChild(name)
+
+        pathStartStage = self._document.createElement("pathStartStage")
+        text = startStage.getName()
+        pathStartStage.appendChild(self._document.createTextNode(text))
+        item.appendChild(pathStartStage)
+
+        pathEndStage = self._document.createElement("pathEndStage")
+        text = endStage.getName()
+        pathEndStage.appendChild(self._document.createTextNode(text))
+        item.appendChild(pathEndStage)
+
         # :TODO: Put a list of stage specific EMAP IDs here
-        Util.addXmlElement(item, "groupPathStatus",
-                        self.GROUP_DISPLAY[anatomyLine.getGroupStatus()])
+        groupPathStatus = self._document.createElement("groupPathStatus")
+        text = self.GROUP_DISPLAY[anatomyLine.getGroupStatus()]
+        groupPathStatus.appendChild(self._document.createTextNode(text))
+        item.appendChild(groupPathStatus)
 
         # Add Synonyms
         for syn in anatomyLine.getSynonyms():
-            Util.addXmlElement(item, "synonym", syn)
+            synonym = self._document.createElement("synonym")
+            text = syn
+            synonym.appendChild(self._document.createTextNode(text))
+            item.appendChild(synonym)
 
         return
 
@@ -1438,18 +1503,38 @@ class XmlReportFile (ReportFile):
                                                    stage.getOid())
         depth      = partOf.getDepth()
         parent = self.__anatomyStack[depth]
-        item = Util.addXmlElement(parent, "timedComponent")
-        self.__anatomyStack[depth+1] = item
+        
+        timedComponent = self._document.createElement("timedComponent")
+        timedComponent.setAttribute("emapId", timedNode.getPublicId())
+        parent.appendChild(timedComponent)
 
-        item.setAttribute("emapId", timedNode.getPublicId())
-        Util.addXmlElement(item, "name", node.getComponentName())
-        Util.addXmlElement(item, "emapaId", node.getPublicId())
-        Util.addXmlElement(item, "groupPathStatus",
-                        self.GROUP_DISPLAY[anatomyLine.getGroupStatus()])
+        self.__anatomyStack[depth+1] = timedComponent
+
+        name = self._document.createElement("name")
+        text = node.getComponentName()
+        name.appendChild(self._document.createTextNode(text))
+        name.setAttribute("emapId", timedNode.getPublicId())
+        timedComponent.appendChild(name)
+
+        emapaId = self._document.createElement("emapaId")
+        text = node.getPublicId()
+        emapaId.appendChild(self._document.createTextNode(text))
+        emapaId.setAttribute("emapId", timedNode.getPublicId())
+        timedComponent.appendChild(emapaId)
+
+        groupPathStatus = self._document.createElement("groupPathStatus")
+        text = self.GROUP_DISPLAY[anatomyLine.getGroupStatus()]
+        groupPathStatus.appendChild(self._document.createTextNode(text))
+        groupPathStatus.setAttribute("emapId", timedNode.getPublicId())
+        timedComponent.appendChild(groupPathStatus)
 
         # Add Synonyms
         for syn in anatomyLine.getSynonyms():
-            Util.addXmlElement(item, "synonym", syn)
+            synonym = self._document.createElement("synonym")
+            text = syn
+            synonym.appendChild(self._document.createTextNode(text))
+            synonym.setAttribute("emapId", timedNode.getPublicId())
+            timedComponent.appendChild(synonym)
 
         return
 

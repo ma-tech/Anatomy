@@ -49,12 +49,14 @@ import DAOLayer.ComponentDAO;
 import DAOLayer.ComponentRelationshipDAO;
 import DAOLayer.ComponentCommentDAO;
 import DAOLayer.ComponentSynonymDAO;
+import DAOLayer.ComponentAlternativeDAO;
 import DAOLayer.DAOFactory;
 
 import DAOModel.Component;
 import DAOModel.ComponentRelationship;
 import DAOModel.ComponentComment;
 import DAOModel.ComponentSynonym;
+import DAOModel.ComponentAlternative;
 
 public class RunOBOLoadComponents {
 	/*
@@ -79,13 +81,10 @@ public class RunOBOLoadComponents {
 
         // Obtain DAOs.
         ComponentDAO componentDAO = anatomy008.getComponentDAO();
-        //System.out.println("ComponentDAO successfully obtained: " + componentDAO);
         ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-        //System.out.println("ComponentRelationshipDAO successfully obtained: " + componentrelationshipDAO);
         ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-        //System.out.println("ComponentCommentDAO successfully obtained: " + componentcommentDAO);
         ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-        //System.out.println("ComponentSynonymDAO successfully obtained: " + componentsynonymDAO);
+        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
 
         int i = componentDAO.countAll();
         if ( i > 0 ) {
@@ -115,6 +114,13 @@ public class RunOBOLoadComponents {
             componentsynonymDAO.empty();
         }
 
+        i = componentalternativeDAO.countAll();
+        if ( i > 0 ) {
+            System.out.println("EMPTY ANA_OBO_COMPONENT_ALTERNATIVE");
+
+            componentalternativeDAO.empty();
+        }
+
       	Iterator<ComponentFile> iteratorComponent = obocomponents.iterator();
       	while (iteratorComponent.hasNext()) {
        		ComponentFile obocomponent = iteratorComponent.next();
@@ -134,11 +140,25 @@ public class RunOBOLoadComponents {
        		
        		componentDAO.save(daocomponent);
        		
+       		List<String> oboalternativeids = new ArrayList<String>();
+       		oboalternativeids = obocomponent.getAlternativeIds();
+       		
        		List<String> obopartofs = new ArrayList<String>();
        		obopartofs = obocomponent.getChildOfs();
+       		
        		List<String> obopartoftypes = new ArrayList<String>();
        		obopartoftypes = obocomponent.getChildOfTypes();
        		
+            for ( i = 0; i < oboalternativeids.size(); i++ ) {
+
+           		ComponentAlternative daocomponentalternative = new ComponentAlternative(null,
+           				obocomponent.getID(),
+           				oboalternativeids.get(i));
+           		
+           		componentalternativeDAO.save(daocomponentalternative);
+
+       		}
+
             for ( i = 0; i < obopartofs.size(); i++ ) {
 
            		ComponentRelationship daocomponentrelationship = new ComponentRelationship(null,
@@ -151,11 +171,14 @@ public class RunOBOLoadComponents {
        		}
 
             List<String> usercomments = obocomponent.getUserComments();
-            String usercomment = usercomments.get(0);
+            //System.out.println("WARNING! usercomments.size, = " + Integer.toString(usercomments.size()));
+
+            /*
             
             if (usercomment.startsWith("order=")) {
             	usercomment = "None";
             }
+            */
 
             if (usercomments.size() > 1) {
                 System.out.println("WARNING! usercomments.size() > 1, = " + Integer.toString(usercomments.size()));
@@ -166,7 +189,9 @@ public class RunOBOLoadComponents {
                 
                 for ( i = 0; i < ordercomments.length; i++ ) {
 
-               		ComponentComment daocomponentcomment = new ComponentComment(null,
+                    String usercomment = usercomments.get(0);
+
+                	ComponentComment daocomponentcomment = new ComponentComment(null,
                				obocomponent.getID(),
                				"None",
                				usercomment,
@@ -212,6 +237,11 @@ public class RunOBOLoadComponents {
         daocomponentsynonym = componentsynonymDAO.listAll();
         
         System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + Integer.toString(daocomponentsynonym.size()));
+
+        List<ComponentAlternative> daocomponentalternative = new ArrayList<ComponentAlternative>();
+        daocomponentalternative = componentalternativeDAO.listAll();
+        
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + Integer.toString(daocomponentalternative.size()));
         System.out.println("===============================================================");
     }
 }

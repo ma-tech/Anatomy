@@ -86,12 +86,33 @@ public final class JOINTimedNodeStageDAO {
         "WHERE ATN_NODE_FK = ? " +
         "AND STG_NAME = ?";
             
+    private static final String SQL_LIST_ALL_BY_NODE_FK_AND_STAGE_SEQUENCE =
+        "SELECT " +
+        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
+        "STG_OID, STG_SPECIES_FK, STG_NAME, STG_SEQUENCE, STG_DESCRIPTION, STG_SHORT_EXTRA_TEXT, STG_PUBLIC_ID " +
+        "FROM ANA_TIMED_NODE " +
+        "JOIN ANA_STAGE ON ATN_STAGE_FK = STG_OID " +
+        "WHERE ATN_NODE_FK = ? " +
+        "AND STG_SEQUENCE = ?";
+                
     private static final String SQL_COUNT_ALL_BY_NODE_FK =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANA_TIMED_NODE " +
         "JOIN ANA_STAGE ON ATN_STAGE_FK = STG_OID " +
         "WHERE ATN_NODE_FK = ? ";
             
+    private static final String SQL_MAX_SEQUENCE_BY_NODE_FK =
+        "SELECT MAX(STG_SEQUENCE) AS VALUE " +
+        "FROM ANA_TIMED_NODE " +
+        "JOIN ANA_STAGE ON ATN_STAGE_FK = STG_OID " +
+        "WHERE ATN_NODE_FK = ? ";
+ 
+    private static final String SQL_MIN_SEQUENCE_BY_NODE_FK =
+        "SELECT MIN(STG_SEQUENCE) AS VALUE " +
+        "FROM ANA_TIMED_NODE " +
+        "JOIN ANA_STAGE ON ATN_STAGE_FK = STG_OID " +
+        "WHERE ATN_NODE_FK = ? ";
+     
     private static final String SQL_LIST_ALL_BY_NODE_FK_AND_SEQUENCE =
         "SELECT " +
         "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
@@ -156,6 +177,14 @@ public final class JOINTimedNodeStageDAO {
     }
     
     /*
+     * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
+     */
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageSequence(Long nodeFk, Long stageSequence) throws DAOException {
+    	
+        return list(SQL_LIST_ALL_BY_NODE_FK_AND_STAGE_SEQUENCE, nodeFk, stageSequence);
+    }
+    
+    /*
      * Returns a list of ALL jointimednodestages by node Fk and Sequence, otherwise null.
      */
     public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(Long nodeFk, String sequence) throws DAOException {
@@ -169,6 +198,22 @@ public final class JOINTimedNodeStageDAO {
     public int countAllByNodeFk(Long nodeFk) throws DAOException {
     	
         return count(SQL_COUNT_ALL_BY_NODE_FK, nodeFk);
+    }
+    
+    /*
+     * Returns a count of ALL jointimednodestages by node FK, otherwise null.
+     */
+    public int maxSequenceByNodeFk(Long nodeFk) throws DAOException {
+    	
+        return maxMin(SQL_MAX_SEQUENCE_BY_NODE_FK, nodeFk);
+    }
+    
+    /*
+     * Returns a count of ALL jointimednodestages by node FK, otherwise null.
+     */
+    public int minSequenceByNodeFk(Long nodeFk) throws DAOException {
+    	
+        return maxMin(SQL_MIN_SEQUENCE_BY_NODE_FK, nodeFk);
     }
     
     /*
@@ -205,6 +250,41 @@ public final class JOINTimedNodeStageDAO {
      * Returns total amount of rows in table.
      */
     public int count(String sql, Long key) throws DAOException {
+
+        Object[] values = {
+        		key
+        };
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int count = 0;
+
+        try {
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("VALUE");
+            }
+            
+        } 
+        catch (SQLException e) {
+            throw new DAOException(e);
+        } 
+        finally {
+            close(connection, preparedStatement, resultSet);
+        }
+
+        return count;
+    }
+
+    /*
+     * Returns total amount of rows in table.
+     */
+    public int maxMin(String sql, Long key) throws DAOException {
 
         Object[] values = {
         		key

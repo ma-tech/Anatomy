@@ -71,6 +71,8 @@ import DAOModel.Version;
 
 import OBOModel.ComponentFile;
 
+import Utility.MySQLDateTime;
+
 public class GenerateSQL {
 	// Properties ---------------------------------------------------------------------------------
     
@@ -132,7 +134,7 @@ public class GenerateSQL {
     private int intCurrentObjectID;
     
     //check whether was processed all the way
-    private boolean isProcessed = false;
+    private boolean processed;
     
     //abstract class configuration
     private ComponentFile abstractclassobocomponent;
@@ -165,15 +167,19 @@ public class GenerateSQL {
             String species,
             String project  ) {
 
-
+    	this.processed = true;
         this.debug = debug;
         
         if (this.debug) {
+            System.out.println("===========");
             System.out.println("GenerateSQL - Constructor");
+            System.out.println("===========");
         }
         
         this.proposedTermList = proposedTermList;
         
+        //System.out.println("-- proposedTermList.size() " + proposedTermList.size() + " --");
+
         this.timedCompList = new ArrayList<ComponentFile>();
         this.synonymCompList = new ArrayList<ComponentFile>();
         this.unDeletedCompList = new ArrayList<ComponentFile>();
@@ -215,12 +221,22 @@ public class GenerateSQL {
         ArrayList<ComponentFile> changedPropComponentFiles =
                 new ArrayList < ComponentFile >();
         
+        int newCount = 0;
+        int delCount = 0;
+        int chgCount = 0;
+        
         //construct internal arraylists
         ComponentFile component = new ComponentFile();
         for (int i = 0; i<this.proposedTermList.size(); i++){
             component = this.proposedTermList.get(i);
-        
+
+            //System.out.println("-- component.getStatusChange() " + component.getStatusChange() + " --");
+            //System.out.println("-- component.getStatusRule() " + component.getStatusRule() + " --");
+
             if ( component.getStatusChange().equals("NEW") ){
+            	
+                //System.out.println("-- component.getStatusChange() " + component.getStatusChange() + " --");
+            	newCount++;
                 if ( component.getStatusRule().equals("FAILED") ) {
                     if (this.debug) {
                         System.out.println(
@@ -228,21 +244,29 @@ public class GenerateSQL {
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!" );
                     }
+                    setProcessed(false);
                 }
                 newComponentFiles.add( component );
             }
             if ( component.getStatusChange().equals("DELETED") ){
-                if ( component.getStatusRule().equals("FAILED") ){
+
+                //System.out.println("-- component.getStatusChange() " + component.getStatusChange() + " --");
+            	delCount++;
+            	if ( component.getStatusRule().equals("FAILED") ){
                     if (this.debug) {
                         System.out.println( 
                                 "--SQL queries for Deleted ComponentFile " +
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!");
                     }
+                    setProcessed(false);
                 }
                 deletedComponentFiles.add( component );
             }
             if ( component.getStatusChange().equals("CHANGED") ){
+
+                //System.out.println("-- component.getStatusChange() " + component.getStatusChange() + " --");
+            	chgCount++;
                 if ( component.getStatusRule().equals("FAILED") ){
                     if (this.debug) {
                         System.out.println( 
@@ -250,64 +274,72 @@ public class GenerateSQL {
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!");
                     }
+                    setProcessed(false);
                 }
                 changedComponentFiles.add( component );
             }
         }
-        
-        // Obtain DAOFactory.
-        this.daofactory = DAOFactory.getInstance("daofactory");
+        /*
+        System.out.println("-- newCount " + newCount + " --");
+        System.out.println("-- chgCount " + chgCount + " --");
+        System.out.println("-- delCount " + delCount + " --");
+        */
 
-        // Obtain DAOs.
-        this.logDAO = daofactory.getLogDAO();
-        this.nodeDAO = daofactory.getNodeDAO();
-        this.relationshipDAO = daofactory.getRelationshipDAO();
-        this.relationshipprojectDAO = daofactory.getRelationshipProjectDAO();
-        this.stageDAO = daofactory.getStageDAO();
-        this.synonymDAO = daofactory.getSynonymDAO();
-        this.thingDAO = daofactory.getThingDAO();
-        this.timednodeDAO = daofactory.getTimedNodeDAO();
-        this.versionDAO = daofactory.getVersionDAO();
-        this.joinnoderelationshipDAO = daofactory.getJOINNodeRelationshipDAO();
-        this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
-        this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
-        this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
-        this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
+        if (processed) {
+        	
+        	// Obtain DAOFactory.
+            this.daofactory = DAOFactory.getInstance("anatomy008");
 
-        // 01
-        //set version id
-        initialiseVersionID();
-        
-        // 02
-        //set a version record in ANA_VERSION for this update
-        insertANA_VERSION( this.intCurrentVersionID, newComponentFiles,
-                deletedComponentFiles, changedComponentFiles );
+            // Obtain DAOs.
+            this.logDAO = daofactory.getLogDAO();
+            this.nodeDAO = daofactory.getNodeDAO();
+            this.relationshipDAO = daofactory.getRelationshipDAO();
+            this.relationshipprojectDAO = daofactory.getRelationshipProjectDAO();
+            this.stageDAO = daofactory.getStageDAO();
+            this.synonymDAO = daofactory.getSynonymDAO();
+            this.thingDAO = daofactory.getThingDAO();
+            this.timednodeDAO = daofactory.getTimedNodeDAO();
+            this.versionDAO = daofactory.getVersionDAO();
+            this.joinnoderelationshipDAO = daofactory.getJOINNodeRelationshipDAO();
+            this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
+            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
+            this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
+            this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
 
-        // AA
-        //  INSERT components
-        inserts( newComponentFiles );
+            // 01
+            //set version id
+            initialiseVersionID();
+            
+            // 02
+            //set a version record in ANA_VERSION for this update
+            insertANA_VERSION( this.intCurrentVersionID, newComponentFiles,
+                    deletedComponentFiles, changedComponentFiles );
 
-        // BB
-        //  AMENDED components
-        updates( changedComponentFiles );
-        
-        // CC
-        //  DELETED components
-        deletes( deletedComponentFiles );
-        
-        setIsProcessed( true );
+            // AA
+            //  INSERT components
+            inserts( newComponentFiles );
 
+            // BB
+            //  AMENDED components
+            updates( changedComponentFiles );
+            
+            // CC
+            //  DELETED components
+            deletes( deletedComponentFiles );
+
+            setProcessed( true );
+        }
     }
     
     
     // Getters ------------------------------------------------------------------------------------
-    public boolean getIsProcessed(){
-        return this.isProcessed;
+    public boolean isProcessed(){
+        return this.processed;
     }
     
     // Setters ------------------------------------------------------------------------------------
-    public void setIsProcessed( boolean isProcessed ) {
-        this.isProcessed = isProcessed;
+    public void setProcessed( boolean processed ) {
+        this.processed = processed;
     }
 
 
@@ -360,19 +392,30 @@ public class GenerateSQL {
                //prepare values for insertion
                int intVER_OID = this.intCurrentVersionID;
                int intVER_NUMBER = ++intVersionEntries;
-               String strVER_DATE = "NOW()";
-               String strVER_COMMENTS = "DB2OBO Update: Editing the ontology";
+               String strVER_DATE = Utility.MySQLDateTime.now();
+               String strVER_COMMENTS = "DB2OBO Update - Editing the ontology";
 
                Version version = new Version((long) intVER_OID, (long) intVER_NUMBER, strVER_DATE, strVER_COMMENTS);
 
-               this.versionDAO.save(version);
+               this.versionDAO.create(version);
 
+           }
+           else {
+        	   if (this.debug) {
+            	
+        		   System.out.println("-- No record inserted: Database Update " +
+                           "did not occur because DB2OBO failed to detect any " +
+                           "changes in the OBO File --");
+        	   }
+        	   setProcessed(false);
            }
         } 
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
     } 
@@ -382,20 +425,26 @@ public class GenerateSQL {
     private void inserts( ArrayList<ComponentFile> newComponentFiles ){
 
     	if (this.debug) {
+            System.out.println("== - =======");
             System.out.println("AA - inserts");
+            System.out.println("== - =======");
         }
         
-        // 03
-        insertANA_NODE(newComponentFiles);
-        
-        // 04
-        insertANA_RELATIONSHIP(newComponentFiles, "NEW");
-        
-        // 05
-        insertANA_TIMED_NODE(newComponentFiles, "NEW");
-        
-        // 06
-        insertANA_SYNONYM(newComponentFiles, "NEW");
+        //System.out.println("newComponentFiles.size() " + newComponentFiles.size());
+
+        if (newComponentFiles.size() > 0) {
+            // 03
+            insertANA_NODE(newComponentFiles);
+            
+            // 04
+            insertANA_RELATIONSHIP(newComponentFiles, "NEW");
+            
+            // 05
+            insertANA_TIMED_NODE(newComponentFiles, "NEW");
+            
+            // 06
+            insertANA_SYNONYM(newComponentFiles, "NEW");
+        }
     }
     
     // BB
@@ -403,58 +452,64 @@ public class GenerateSQL {
     private void updates( ArrayList<ComponentFile> changedComponentFilesIn ){
     	
     	if (this.debug) {
+            System.out.println("== - =======");
             System.out.println("BB - updates");
+            System.out.println("== - =======");
         }
-        
-        //modify components, set DBIDs and get only components that have dbids based on emap id
-        // 07
-    	ArrayList<ComponentFile> changedComponentFiles = setDBIDs(changedComponentFilesIn);
-        
-        //get components whose stage ranges have changed
-        // 08
-    	ArrayList<ComponentFile> changedPropComponentFiles = this.getChangedStagesTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified stage ranges
-        // 09
-        updateStages( changedPropComponentFiles );
-        
-        //get components whose names have changed
-        // 10
-        changedPropComponentFiles = this.getChangedNamesTermList( changedComponentFiles );
-        
-        //perform update for modified names
-        // 11
-        updateANA_NODE( changedPropComponentFiles );
-        
-        //get components whose synonyms have changed
-        // 12
-        changedPropComponentFiles = this.getChangedSynonymsTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified synonyms
-        // 13
-        updateSynonyms( changedPropComponentFiles );
-        
-        //get components whose parents have changed
-        // 14
-        changedPropComponentFiles = this.getChangedParentsTermList( changedComponentFiles );
-        
-        //perform insertion and deletion for modified parent relationships
-        // 15
-        updateParents( changedPropComponentFiles );
-        
-        //get components whose primary status have changed
-        changedPropComponentFiles = this.getChangedPrimaryStatusTermList( changedComponentFiles );
-        //perform update for modified primary status
-        // 15.5
-        updateANA_NODE_primary( changedPropComponentFiles );
-        
-        //get components whose ordering have changed
-        // 16
-        changedPropComponentFiles = this.getChangedOrderTermList( changedComponentFiles );
+    	
+        //System.out.println("changedComponentFilesIn.size() " + changedComponentFilesIn.size());
 
-        //perform reordering
-        // 17
-        updateOrder( changedPropComponentFiles );
+        if (changedComponentFilesIn.size() > 0) {
+            //modify components, set DBIDs and get only components that have dbids based on emap id
+            // 07
+        	ArrayList<ComponentFile> changedComponentFiles = setDBIDs(changedComponentFilesIn);
+            
+            //get components whose stage ranges have changed
+            // 08
+        	ArrayList<ComponentFile> changedPropComponentFiles = this.getChangedStagesTermList( changedComponentFiles );
+            
+            //perform insertion and deletion for modified stage ranges
+            // 09
+            updateStages( changedPropComponentFiles );
+            
+            //get components whose names have changed
+            // 10
+            changedPropComponentFiles = this.getChangedNamesTermList( changedComponentFiles );
+            
+            //perform update for modified names
+            // 11
+            updateANA_NODE( changedPropComponentFiles );
+            
+            //get components whose synonyms have changed
+            // 12
+            changedPropComponentFiles = this.getChangedSynonymsTermList( changedComponentFiles );
+            
+            //perform insertion and deletion for modified synonyms
+            // 13
+            updateSynonyms( changedPropComponentFiles );
+            
+            //get components whose parents have changed
+            // 14
+            changedPropComponentFiles = this.getChangedParentsTermList( changedComponentFiles );
+            
+            //perform insertion and deletion for modified parent relationships
+            // 15
+            updateParents( changedPropComponentFiles );
+            
+            //get components whose primary status have changed
+            changedPropComponentFiles = this.getChangedPrimaryStatusTermList( changedComponentFiles );
+            //perform update for modified primary status
+            // 15.5
+            updateANA_NODE_primary( changedPropComponentFiles );
+            
+            //get components whose ordering have changed
+            // 16
+            changedPropComponentFiles = this.getChangedOrderTermList( changedComponentFiles );
+
+            //perform reordering
+            // 17
+            updateOrder( changedPropComponentFiles );
+        }
     }
     
     // CC
@@ -462,58 +517,64 @@ public class GenerateSQL {
     private void deletes( ArrayList<ComponentFile> deletedComponentFilesIn ){
     	
     	if (this.debug) {
+            System.out.println("== - =======");
             System.out.println("CC - deletes");
+            System.out.println("== - =======");
         }
         
-        /*
-        delete components
-         delete components, set DBIDs and get only components that have
-         dbids based on emap id
-        deletedComponentFiles = setDBIDs(deletedComponentFiles);
-        CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
-        1. check that term exists in database
-        2. if term = primary, check that all descendants are due for deletion in obo file as well
-        3. if one descendant specified in database is not found in OBO file 
-           OR descendant is found but not specified for deletion, 
-        4. pass on invalid term to unDeletedCompList
-        pass valid terms to validDeleteComponentFiles
-        validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
-        insert log records for deleted components
-        insertANA_LOG( validDeletedComponentFiles );
-        perform deletion on valid deletion term list
-        deleteComponentFileFromTables( validDeletedComponentFiles );
-        reorder siblings of deleted components that have order
-        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
-        report for invalid delete term list that have not been deleted
-        reportDeletionSummary(deletedComponentFiles, validDeletedComponentFiles, this.unDeletedCompList);
-        */
+        //System.out.println("deletedComponentFilesIn.size() " + deletedComponentFilesIn.size());
 
-        // delete components, set DBIDs and get only components that have dbids based on emap id
-        // 07
-    	ArrayList<ComponentFile> deletedComponentFiles = setDBIDs(deletedComponentFilesIn);
+        if (deletedComponentFilesIn.size() > 0) {
+            /*
+            delete components
+             delete components, set DBIDs and get only components that have
+             dbids based on emap id
+            deletedComponentFiles = setDBIDs(deletedComponentFiles);
+            CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
+            1. check that term exists in database
+            2. if term = primary, check that all descendants are due for deletion in obo file as well
+            3. if one descendant specified in database is not found in OBO file 
+               OR descendant is found but not specified for deletion, 
+            4. pass on invalid term to unDeletedCompList
+            pass valid terms to validDeleteComponentFiles
+            validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+            insert log records for deleted components
+            insertANA_LOG( validDeletedComponentFiles );
+            perform deletion on valid deletion term list
+            deleteComponentFileFromTables( validDeletedComponentFiles );
+            reorder siblings of deleted components that have order
+            reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+            report for invalid delete term list that have not been deleted
+            reportDeletionSummary(deletedComponentFiles, validDeletedComponentFiles, this.unDeletedCompList);
+            */
 
-        //CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
-        //1. check that term exists in database
-        //2. if term = primary, check that all descendants are due for deletion in obo file as well
-        //3. if one descendant specified in database is not found in OBO file
-        //   OR descendant is found but not specified for deletion,
-        //4. pass on invalid term to unDeletedCompList
-        
-        //pass valid terms to validDeleteComponentFiles
-        // 18
-    	ArrayList<ComponentFile> validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
-        
-        //insert log records for deleted components
-        // 19
-        insertANA_LOG( validDeletedComponentFiles );
-        
-        //perform deletion on valid deletion term list
-        // 20
-        deleteComponentFileFromTables( validDeletedComponentFiles );
-        
-        //reorder siblings of deleted components that have order
-        // 21
-        reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+            // delete components, set DBIDs and get only components that have dbids based on emap id
+            // 07
+        	ArrayList<ComponentFile> deletedComponentFiles = setDBIDs(deletedComponentFilesIn);
+
+            //CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
+            //1. check that term exists in database
+            //2. if term = primary, check that all descendants are due for deletion in obo file as well
+            //3. if one descendant specified in database is not found in OBO file
+            //   OR descendant is found but not specified for deletion,
+            //4. pass on invalid term to unDeletedCompList
+            
+            //pass valid terms to validDeleteComponentFiles
+            // 18
+        	ArrayList<ComponentFile> validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+            
+            //insert log records for deleted components
+            // 19
+            insertANA_LOG( validDeletedComponentFiles );
+            
+            //perform deletion on valid deletion term list
+            // 20
+            deleteComponentFileFromTables( validDeletedComponentFiles );
+            
+            //reorder siblings of deleted components that have order
+            // 21
+            reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+    	}
     }
     
     
@@ -597,7 +658,7 @@ public class GenerateSQL {
                    
                    Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION);
                    
-                   this.nodeDAO.save(node);
+                   this.nodeDAO.create(node);
                    
                    //Update Components in Memory
                    // assign generated new EMAPA id to new components replacing temp id
@@ -625,9 +686,11 @@ public class GenerateSQL {
             
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
     }
@@ -652,7 +715,7 @@ public class GenerateSQL {
          *   4. RLP_SEQUENCE        - int(10) unsigned 
     	 */
         if (this.debug) {
-            System.out.println("04 insertANA_RELATIONSHIP - called from = " + calledFrom);
+            System.out.println("04 - insertANA_RELATIONSHIP - called from = " + calledFrom);
         }
 
         ArrayList < ComponentFile > insertRelObjects = new ArrayList<ComponentFile>();
@@ -662,11 +725,8 @@ public class GenerateSQL {
         
         int intMax_OID = 0;
         int intMAX_PK = 0;
-        int intRecords = 0;
         
         boolean flagInsert;
-        
-        int[] batchreturn = null;
         
         String project2 = "";
         
@@ -715,6 +775,32 @@ public class GenerateSQL {
 
                         flagInsert = true;
                         ComponentFile parent = (ComponentFile) this.tree.getComponent( parents.get(j) );
+                        /*
+                        if (component.getID().equals("EMAPA:16172")) {
+                        	System.out.println("Got the Child EMAPA:16172");
+                        	System.out.println("component.toString() " + component.toString());
+                        	if (parent.getID().equals("EMAPA:31169")){
+                            	System.out.println("Got the Parent EMAPA:31169");
+                            	System.out.println("parent.toString() " + parent.toString());
+                        	}
+                        }
+                        if (component.getID().equals("EMAPA:16173")) {
+                        	System.out.println("Got the Child EMAPA:16173");
+                        	System.out.println("component.toString() " + component.toString());
+                        	if (parent.getID().equals("EMAPA:16172")){
+                            	System.out.println("Got the Parent EMAPA:16172");
+                            	System.out.println("parent.toString() " + parent.toString());
+                        	}
+                        }
+                        if (component.getID().equals("EMAPA:31169")) {
+                        	System.out.println("Got the Child EMAPA:31169");
+                        	System.out.println("component.toString() " + component.toString());
+                        	if (parent.getID().equals("EMAPA:32757")){
+                            	System.out.println("Got the Parent EMAPA:32757");
+                            	System.out.println("parent.toString() " + parent.toString());
+                        	}
+                        }
+                        */
 
                         String strParentType = "";
                         strParentType = parentTypes.get(j);
@@ -723,10 +809,25 @@ public class GenerateSQL {
                         if ( parent == null ) {
                              flagInsert = false;
                         }
+                        else {
+                        	ArrayList<JOINNodeRelationshipNode> joinnoderelationshipnodes = 
+                        			(ArrayList) joinnoderelationshipnodeDAO.listAllByChildIdAndParentId(component.getID(), parent.getID());
+                        	if (joinnoderelationshipnodes.size() == 0){
+                                flagInsert = true;
+                        	}
+                        	else {
+                                flagInsert = false;
+                        	}
+                        }
                         //UPDATED CODE: deleted components are now marked in proposed file as well and appear in the tree under its own root outside abstract anatomy
-                        else if ( parent.getStatusChange().equals("DELETED") ){
+                        if ( parent.getStatusChange().equals("DELETED") ){
                             flagInsert = false;
                         }
+                        /*
+                        if ( parent.getStatusChange().equals("CHANGED") ){
+                            flagInsert = false;
+                        }
+                        */
                         //check whether any rules broken for each parent and print warning
                         //ignore any kind of rule violation for relationship record insertion except missing parent
                         else if ( parent.getStatusRule().equals("FAILED") ){
@@ -740,6 +841,7 @@ public class GenerateSQL {
                         //proceed with insertion 
                         if (flagInsert){
                             ComponentFile insertRelObject = new ComponentFile();
+                            
                             insertRelObject.setID( component.getDBID() ); 
                             
                             String strParentDBID = "";
@@ -749,8 +851,18 @@ public class GenerateSQL {
                             }
                             //if component is not new 
                             else {
-                          	   Node node = nodeDAO.findByPublicId(parent.getID());
-                          	   strParentDBID = Long.toString(node.getOid());
+                            	Node node = null;
+                                
+                            	if ( nodeDAO.existPublicId(parent.getID()) ) {
+
+                            		node = nodeDAO.findByPublicId(parent.getID());
+                                	strParentDBID = Long.toString(node.getOid());
+                            	}
+                            	else {
+                                	
+                            		node = null;
+                                	strParentDBID = "0";
+                            	}
                             }
 
                             //get order for child based on parent
@@ -792,31 +904,63 @@ public class GenerateSQL {
                         }
 
                         intREL_CHILD_FK = Integer.parseInt( insertRelObject.getID() );
-                        intRLP_SEQUENCE = -1;
-
+                        //intRLP_SEQUENCE = -1;
+                        intRLP_SEQUENCE = 0;
+                        
                         if ( !insertRelObject.getOrderComment().equals("") ){
                             intRLP_SEQUENCE = Integer.parseInt( insertRelObject.getOrderComment() );
                         }
 
+                        try {
+                            int intTryREL_PARENT_FK = 0;
+                            intTryREL_PARENT_FK = Integer.parseInt( insertRelObject.getChildOfs().get(0) );
+                            intREL_PARENT_FK = intTryREL_PARENT_FK;
+                        }
+                        catch(Exception e){
+                            System.out.println("Exception caught for child " + 
+                                insertRelObject.getID() + " parent " +
+                                insertRelObject.getChildOfs().toString() );
+                            e.printStackTrace();
+                        }
+                    	
+                        if ( !insertRelObject.getOrderComment().equals("") ){
+                            intRLP_SEQUENCE = Integer.parseInt( insertRelObject.getOrderComment() );
+                        }
+                        /*
+                        if ( intREL_CHILD_FK == 1175 && intREL_PARENT_FK == 1165 ) {
+                        	System.out.println("Adding Erroneous Relationship - It Already exists!");
+                        	System.out.println("insertRelObject.toString() " + insertRelObject.toString());
+                            System.out.println("=========================================");
+                            System.out.println("insertRelObject.getChildOsf().get(0)     = " + insertRelObject.getChildOfs().get(0) );
+                            System.out.println("insertRelObject.getChildOfTypes().get(0) = " + insertRelObject.getChildOfTypes().get(0) );
+                            System.out.println("insertRelObject.getID()                  = " + insertRelObject.getID() );
+                            System.out.println("insertRelObject.getDBID()                = " + insertRelObject.getDBID() );
+                            System.out.println("=========================================");
+
+                        }
+                        */
+
                         Relationship relationship = new Relationship((long) intREL_OID, strREL_RELATIONSHIP_TYPE_FK, (long) intREL_CHILD_FK, (long) intREL_PARENT_FK);
-                        this.relationshipDAO.save(relationship);
+                        this.relationshipDAO.create(relationship);
 
                   		 intMAX_PK++; //get max primary key for ana_relationship_project
                         RelationshipProject relationshipproject1 = new RelationshipProject((long) intMAX_PK, (long) intREL_OID, this.project, (long) intRLP_SEQUENCE);
-                        this.relationshipprojectDAO.save(relationshipproject1);
+                        this.relationshipprojectDAO.create(relationshipproject1);
                         
                         intMAX_PK++; //get max primary key for ana_relationship_project
                         RelationshipProject relationshipproject2 = new RelationshipProject((long) intMAX_PK, (long) intREL_OID, project2, (long) intRLP_SEQUENCE);
-                        this.relationshipprojectDAO.save(relationshipproject2);
+                        this.relationshipprojectDAO.create(relationshipproject2);
 
                     }
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
     }
@@ -879,7 +1023,7 @@ public class GenerateSQL {
                     String strATN_PUBLIC_ID = component.getID();
                     
                     TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID);
-                    timednodeDAO.save(timednode);
+                    timednodeDAO.create(timednode);
 
                     intPrevNode = intATN_NODE_FK;
 
@@ -887,9 +1031,11 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
     }
@@ -940,6 +1086,8 @@ public class GenerateSQL {
            
            if ( !synonymCompList.isEmpty() ) {
         	   
+               //System.out.println("synonymCompList.size() " + synonymCompList.size());
+
                insertANA_OBJECT(synonymCompList, "ANA_SYNONYM");
 
                for( ComponentFile synCompie: synonymCompList ){
@@ -950,7 +1098,7 @@ public class GenerateSQL {
                    String strSYN_SYNONYM = synCompie.getName();
 
                    Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
-                   synonymDAO.save(synonym);
+                   synonymDAO.create(synonym);
 
                }
 
@@ -958,12 +1106,13 @@ public class GenerateSQL {
            
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
-
     }
     
     // 07
@@ -974,8 +1123,6 @@ public class GenerateSQL {
             System.out.println("07 - setDBIDs");
         }
         
-        int intDBID = 0;
-
         ComponentFile component = new ComponentFile();
         
         try{
@@ -1011,14 +1158,18 @@ public class GenerateSQL {
                     }
                 }
                 else {
-                    component.setDBID( Integer.toString(intDBID) );
+                    //System.out.println("node.getOid() " + node.getOid());
+                    
+                    component.setDBID( node.getOid().toString() );
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
         
@@ -1098,9 +1249,11 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -1188,17 +1341,18 @@ public class GenerateSQL {
                  	node.setGroup(!component.getIsPrimary());
                 	node.setPrimary(component.getIsPrimary());
 
-                	nodeDAO.save(node);
+                	nodeDAO.update(node);
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
-
     }
 
     // 17
@@ -1367,11 +1521,11 @@ public class GenerateSQL {
             }
         }
         catch (Exception ex){
+        	setProcessed(false);
             ex.printStackTrace();
         }
         
         return dbTermList;
-        
     }
     
     // 19
@@ -1536,7 +1690,7 @@ public class GenerateSQL {
                         strLOG_COMMENTS = "Insert into ANA_LOG for Valid Deleted Components; ANA_NODE";
 
                         Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                        logDAO.save(log); 
+                        logDAO.create(log); 
                     }
 
                     ArrayList<TimedNode> timednodes = (ArrayList) timednodeDAO.listByNodeFK(Long.valueOf(component.getDBID()));
@@ -1574,7 +1728,7 @@ public class GenerateSQL {
                             strLOG_COMMENTS = "Insert into ANA_LOG for Valid Deleted Components; ANA_TIMED_NODE";
 
                             Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                            logDAO.save(log); 
+                            logDAO.create(log); 
                         }     
 
                   	}
@@ -1611,7 +1765,7 @@ public class GenerateSQL {
                             strLOG_COMMENTS = "Insert into ANA_LOG for Valid Deleted Components; ANA_RELATIONSHIP";
 
                             Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                            logDAO.save(log); 
+                            logDAO.create(log); 
                         }     
                     }
                   	
@@ -1644,16 +1798,18 @@ public class GenerateSQL {
                             strLOG_COMMENTS = "Insert into ANA_LOG for Valid Deleted Components; ANA_SYNONYM";
 
                             Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                            logDAO.save(log); 
+                            logDAO.create(log); 
                         }     
                     }
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         }
     }
@@ -1755,9 +1911,11 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         } 
     }
@@ -1837,7 +1995,7 @@ public class GenerateSQL {
                   		RelationshipProject relationshipproject = relationshipprojectDAO.findByOid(joinrpr.getOidRelationshipProject());
                   		
                   		relationshipproject.setSequence((long) intSEQ);
-                  		relationshipprojectDAO.save(relationshipproject);
+                  		relationshipprojectDAO.create(relationshipproject);
 
                         //increment rel_seq for next record
                         intSEQ++;
@@ -1846,13 +2004,14 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         } 
     }
-
     
     // SUB Methods ------------------------------------------------------------------------------------
 
@@ -1860,7 +2019,7 @@ public class GenerateSQL {
     private int getMaxObjectID(){
 
         if (this.debug) {
-            System.out.println("1-1 getMaxObjectID");
+            System.out.println("1-1 - getMaxObjectID");
         }
 
         //use old and new connection
@@ -1884,14 +2043,15 @@ public class GenerateSQL {
 
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         }
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         } 
 
     	return intMaxObjectID;
-        
     }
     
     // 02-1
@@ -1907,7 +2067,7 @@ public class GenerateSQL {
     	 */
 
         if (this.debug) {
-            System.out.println("02-1 insertANA_OBJECT - for Inserts to Table " + calledFromTable);
+            System.out.println("02-1 - insertANA_OBJECT - for Inserts to Table " + calledFromTable);
         }
         
         ComponentFile component = new ComponentFile();
@@ -1916,7 +2076,7 @@ public class GenerateSQL {
             this.intCurrentObjectID = this.getMaxObjectID();
             
             int intOBJ_OID = 0;
-            String datetime = "NOW()";
+            String datetime = Utility.MySQLDateTime.now();
             long sysadmin = 2;
             String description = "";
 
@@ -1931,14 +2091,16 @@ public class GenerateSQL {
                     component.setDBID(Integer.toString(intOBJ_OID));
 
                     Thing thing = new Thing((long) intOBJ_OID, datetime, sysadmin, calledFromTable, description);
-                    this.thingDAO.save(thing);
+                    this.thingDAO.create(thing);
                 }
             }
         }
         catch ( DAOException dao ) {
-                dao.printStackTrace();
+        	setProcessed(false);
+            dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
             ex.printStackTrace();
         } 
     }
@@ -1975,9 +2137,11 @@ public class GenerateSQL {
 
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
 
@@ -1986,12 +2150,8 @@ public class GenerateSQL {
     	if ( this.intCurrentPublicID >= intMaxPublicID ) {
     		intMaxPublicID = this.intCurrentPublicID;
     	}
-    	else {
-    		intMaxPublicID = intMaxPublicID;
-    	}
         
         return intMaxPublicID;
-        
     }
 
     // 05-1
@@ -2004,19 +2164,23 @@ public class GenerateSQL {
        //create timed components in ANA_OBJECT
        ComponentFile component = new ComponentFile();
        
-       boolean flagInsert;
+       boolean flagInsert = false;
        
        ArrayList<ComponentFile> timedComps = new ArrayList<ComponentFile>();
+       
+       //System.out.println("termList.size() " + termList.size());
 
        for ( int i = 0; i< termList.size(); i++){
            component = termList.get(i);
 
-           if (!( component.commentsContain("Relation: ends_at -- Missing ends at stage - ComponentFile's stage range cannot be determined.") ) &&
-               !( component.commentsContain("Relation: starts_at -- Missing starts at stage - ComponentFile's stage range cannot be determined.") ) &&
-               !( component.commentsContain("Relation: starts_at, ends_at -- Ends at stage earlier than starts at stage.") ) &&
-               !( component.commentsContain("Relation: Starts At - More than one Start Stage!") ) &&
-               !( component.commentsContain("Relation: Ends At - More than one End Stage!") ) &&
-               !( component.commentsContain("Relation: starts_at, ends_at -- Stages are out of range!") ) ) 
+           //System.out.println("component.getCheckComments() " + component.getCheckComments());
+
+           if ( ( component.commentsContain("Relation: ends_at -- Missing ends at stage - ComponentFile's stage range cannot be determined.") ) ||
+                ( component.commentsContain("Relation: starts_at -- Missing starts at stage - ComponentFile's stage range cannot be determined.") ) ||
+                ( component.commentsContain("Relation: starts_at, ends_at -- Ends at stage earlier than starts at stage.") ) ||
+                ( component.commentsContain("Relation: Starts At - More than one Start Stage!") ) ||
+                ( component.commentsContain("Relation: Ends At - More than one End Stage!") ) ||
+                ( component.commentsContain("Relation: starts_at, ends_at -- Stages are out of range!") ) ) 
            {
                flagInsert = false; 
            }
@@ -2066,62 +2230,84 @@ public class GenerateSQL {
         }
         
         try {
+        	
             for (ComponentFile component: diffStageTermList){
 
-            	//get stage range from database
-            	ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkOrderByStageSequence(Long.valueOf(component.getDBID()));
-            	
-            	JOINTimedNodeStage jointimednodestagefirst = jointimednodestages.get(0);
-            	JOINTimedNodeStage jointimednodestagelast = jointimednodestages.get(jointimednodestages.size() - 1);
-
-                ComponentFile databasecomponent = new ComponentFile();
-
-                databasecomponent.setStart( jointimednodestagefirst.getName() );
-                databasecomponent.setEnd( jointimednodestagelast.getName() );
-            	
+                int startSequence = jointimednodestageDAO.minSequenceByNodeFk(Long.valueOf(component.getDBID()));
+                int endSequence = jointimednodestageDAO.maxSequenceByNodeFk(Long.valueOf(component.getDBID()));
+                /*
+                if (component.getDBID().equals("25576")){
+                    System.out.println("component.getDBID() = 25576; startSequence " + startSequence);
+                    System.out.println("component.getDBID() = 25576; endSequence " + endSequence);
+                    System.out.println("component.getStartSequence() " + component.getStartSequence());
+                    System.out.println("component.getEndSequence() " + component.getEndSequence());
+                }
+            	*/
                 //compare stage ranges between component and databasecomponent
                 // for creating new timed components
-                if ( databasecomponent.getStartSequence() > component.getStartSequence() ){
-                   ComponentFile createtimedcomponent = new ComponentFile();
-                   createtimedcomponent.setID( component.getID() );
-                   createtimedcomponent.setName( component.getName() );
-                   createtimedcomponent.setDBID( component.getDBID() );
-                   createtimedcomponent.setStart( component.getStart() );
-                   createtimedcomponent.setEndSequence( databasecomponent.getStartSequence() - 1, this.strSpecies );
+                if ( startSequence > component.getStartSequence() ){
                    
-                   this.diffCreateTimedCompList.add( createtimedcomponent );
+                	ComponentFile createtimedcomponent = new ComponentFile();
+                   
+                	createtimedcomponent.setID( component.getID() );
+                	createtimedcomponent.setName( component.getName() );
+                	createtimedcomponent.setDBID( component.getDBID() );
+                	createtimedcomponent.setStart( component.getStart() );
+                	createtimedcomponent.setEndSequence( startSequence - 1, this.strSpecies );
+
+                	this.diffCreateTimedCompList.add( createtimedcomponent );
 
                 }
-                if ( databasecomponent.getEndSequence() < component.getEndSequence() ){
-                   ComponentFile createtimedcomponent = new ComponentFile();
-                   createtimedcomponent.setID( component.getID() );
-                   createtimedcomponent.setName( component.getName() );                   
-                   createtimedcomponent.setDBID( component.getDBID() );
-                   createtimedcomponent.setStartSequence( databasecomponent.getEndSequence() + 1, this.strSpecies );
-                   createtimedcomponent.setEndSequence( component.getEndSequence(), this.strSpecies );
+                if ( endSequence < component.getEndSequence() ){
                    
-                   this.diffCreateTimedCompList.add( createtimedcomponent );
+                	ComponentFile createtimedcomponent = new ComponentFile();
+                   
+                	createtimedcomponent.setID( component.getID() );
+                	createtimedcomponent.setName( component.getName() );                   
+                	createtimedcomponent.setDBID( component.getDBID() );
+                	createtimedcomponent.setStartSequence( endSequence + 1, this.strSpecies );
+                	createtimedcomponent.setEndSequence( component.getEndSequence(), this.strSpecies );
+                   
+                	this.diffCreateTimedCompList.add( createtimedcomponent );
                    
                 }
                 //for deleting existing timed components
-                if ( databasecomponent.getStartSequence() < component.getStartSequence() ){
-                   ComponentFile delTimedCompie = new ComponentFile();
-                   delTimedCompie.setID( component.getID() );
-                   delTimedCompie.setName( component.getName() );
-                   delTimedCompie.setDBID( component.getDBID() );
-                   delTimedCompie.setStartSequence( databasecomponent.getStartSequence(), this.strSpecies );
-                   delTimedCompie.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
+                if ( startSequence < component.getStartSequence() ){
+                   
+                	ComponentFile delTimedCompie = new ComponentFile();
+                   
+                	delTimedCompie.setID( component.getID() );
+                	delTimedCompie.setName( component.getName() );
+                	delTimedCompie.setDBID( component.getDBID() );
+                	delTimedCompie.setStartSequence( startSequence, this.strSpecies );
+                	delTimedCompie.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
+                	/*
+                    if (component.getDBID().equals("25576")){
+                        System.out.println("startSequence < component.getStartSequence()");
+                        System.out.println("component.getDBID() = 25576; delTimedCompie.getStartSequence() " + delTimedCompie.getStartSequence());
+                        System.out.println("component.getDBID() = 25576; delTimedCompie.getEndSequence() " + delTimedCompie.getEndSequence());
+                    }
+                    */
 
-                   this.diffDeleteTimedCompList.add( delTimedCompie );
+                	this.diffDeleteTimedCompList.add( delTimedCompie );
                    
                 }
-                if ( databasecomponent.getEndSequence() > component.getEndSequence() ){
-                    ComponentFile delTimedCompie = new ComponentFile();
-                    delTimedCompie.setID( component.getID() );
+                if ( endSequence > component.getEndSequence() ){
+                    
+                	ComponentFile delTimedCompie = new ComponentFile();
+                    
+                	delTimedCompie.setID( component.getID() );
                     delTimedCompie.setName( component.getName() );
                     delTimedCompie.setDBID( component.getDBID() );
                     delTimedCompie.setStartSequence( component.getEndSequence() + 1, this.strSpecies );
-                    delTimedCompie.setEndSequence( databasecomponent.getEndSequence(), this.strSpecies );
+                    delTimedCompie.setEndSequence( endSequence, this.strSpecies );
+                    /*
+                    if (component.getDBID().equals("25576")){
+                        System.out.println("endSequence > component.getEndSequence()");
+                        System.out.println("component.getDBID() = 25576; delTimedCompie.getStartSequence() " + delTimedCompie.getStartSequence());
+                        System.out.println("component.getDBID() = 25576; delTimedCompie.getEndSequence() " + delTimedCompie.getEndSequence());
+                    }
+                    */
 
                     this.diffDeleteTimedCompList.add( delTimedCompie );
                     
@@ -2129,12 +2315,13 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
-
     }
     
     // 09-2
@@ -2198,6 +2385,10 @@ public class GenerateSQL {
             //get max log_logged_oid from new database
         	intLogLoggedOID = logDAO.maximumLoggedOid();
 
+        	/*
+            System.out.println("diffDeleteTimeComponentFiles.size() " + diffDeleteTimeComponentFiles.size());
+            */
+
             if ( !diffDeleteTimeComponentFiles.isEmpty() ) {
 
             	for ( ComponentFile component: diffDeleteTimeComponentFiles ){
@@ -2207,10 +2398,12 @@ public class GenerateSQL {
 
                     for ( int stage=intStartKey; stage<=intEndKey; stage++ ){
 
-                        stageName = component.getStart();
-
-                        ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkAndStageName(Long.valueOf(component.getDBID()), stageName);
-
+                        ArrayList<JOINTimedNodeStage> jointimednodestages = (ArrayList) jointimednodestageDAO.listAllByNodeFkAndStageSequence(Long.valueOf(component.getDBID()), (long) stage);
+                        /*
+                        System.out.println("jointimednodestages.size() " + jointimednodestages.size());
+                        System.out.println("intStartKey " + intStartKey);
+                        System.out.println("intEndKey " + intEndKey);
+                        */
                       	Iterator<JOINTimedNodeStage> iteratorjointimednodestage = jointimednodestages.iterator();
 
                       	while (iteratorjointimednodestage.hasNext()) {
@@ -2252,7 +2445,7 @@ public class GenerateSQL {
                                 strLOG_OLD_VALUE = atnOldValues.get(columnName);
 
                                 Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                                logDAO.save(log);
+                                logDAO.create(log);
                             }
                       	}     
                     }
@@ -2260,14 +2453,19 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
 
+        /*
+        System.out.println("deleteTimeComponentFiles.size() " + deleteTimeComponentFiles.size());
+        */
+
         return deleteTimeComponentFiles;
-          
     }
 
     // 09-3
@@ -2275,31 +2473,25 @@ public class GenerateSQL {
     private void deleteANA_TIMED_NODE( ArrayList<ComponentFile> deleteTimedComponentFiles ){
 
         if (this.debug) {
-            System.out.println("deleteANA_TIMED_NODE");
+            System.out.println("09-3 - deleteANA_TIMED_NODE");
         }
 
         try {
             if ( !deleteTimedComponentFiles.isEmpty() ) {
 
             	for ( ComponentFile component: deleteTimedComponentFiles ){
-                
-            		ArrayList<TimedNode> timednodes = (ArrayList) timednodeDAO.listByNodeFK(Long.valueOf(component.getNamespace()));
-            		
-                  	Iterator<TimedNode> iteratortimednode = timednodes.iterator();
 
-                  	while (iteratortimednode.hasNext()) {
-                    
-                  		TimedNode timednode = iteratortimednode.next();
-
-                  		timednodeDAO.delete(timednode);
-                  	}
+            		TimedNode timednode = timednodeDAO.findByOid(Long.valueOf(component.getDBID()));
+                  	timednodeDAO.delete(timednode);
             	}
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -2319,25 +2511,25 @@ public class GenerateSQL {
     	 */
 
         if (this.debug) {
-            System.out.println("09-4 deleteANA_OBJECT - for Deletes to ANA_OBJECT for Table " + calledFromTable);
+            System.out.println("09-4 - deleteANA_OBJECT - for Deletes to ANA_OBJECT for Table " + calledFromTable);
         }
 
         try {
             if ( !deleteObjects.isEmpty() ){
 
-            	for ( ComponentFile deleteObject: deleteObjects ){
+                for ( ComponentFile deleteObject: deleteObjects ){
             		
-            		Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
-
+                    Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
             		thingDAO.delete(thing);
-            		
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -2421,9 +2613,11 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -2525,7 +2719,7 @@ public class GenerateSQL {
                                 strLOG_OLD_VALUE = synOldValues.get(columnName);
 
                                 Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                                logDAO.save(log);
+                                logDAO.create(log);
                             }     
 
                       	}
@@ -2534,14 +2728,15 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
         
         return deleteSynComponentFiles;
-      
     }
 
     // 13-3
@@ -2558,15 +2753,16 @@ public class GenerateSQL {
                 for ( ComponentFile deletesynonymcomponent: deleteSynComponentFiles ){
                 	
                 	Synonym synonym = synonymDAO.findByOid(Long.valueOf(deletesynonymcomponent.getDBID()));
-
                 	synonymDAO.delete(synonym);
                 }
             } 
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -2600,14 +2796,19 @@ public class GenerateSQL {
             	//reset temporary component's parents for each component
                 databasecomponent.setChildOfs( new ArrayList<String>() );
                 databasecomponent.setChildOfTypes( new ArrayList<String>() );
-                
+
                 ArrayList<JOINNodeRelationship> joinnoderelationships = (ArrayList) joinnoderelationshipDAO.listAllByChild(Long.valueOf(component.getDBID()));
 
               	Iterator<JOINNodeRelationship> iteratorjoinnoderelationship = joinnoderelationships.iterator();
 
               	while (iteratorjoinnoderelationship.hasNext()) {
               		JOINNodeRelationship joinnoderelationship = iteratorjoinnoderelationship.next();
-
+              		/*
+                    if ( component.getID().equals("EMAPA:16172")) {
+                        System.out.println("joinnoderelationship.toString() " + joinnoderelationship.toString());
+                        System.out.println("joinnoderelationship.getPublicId() " + joinnoderelationship.getPublicId());
+                    }
+                    */
                     databasecomponent.addChildOf( joinnoderelationship.getPublicId());
 
                     if ( joinnoderelationship.getTypeFK().equals("part-of")) {
@@ -2630,7 +2831,12 @@ public class GenerateSQL {
                 *  the database.
                 *
                 */
-
+              	/*
+                if ( component.getID().equals("EMAPA:16172")) {
+                    System.out.println("component.getChildOfs() " + component.getChildOfs().toString());
+                    System.out.println("databasecomponent.getChildOfs() " + databasecomponent.getChildOfs().toString());
+                }
+                */
                 //compare with component's parents and group parents
                 inputParents.clear();
                 inputParents.addAll( component.getChildOfs() );
@@ -2703,10 +2909,10 @@ public class GenerateSQL {
                 //get parents to be deleted
                 //parents owned by databasecomponent but not by component
                 deleteParents.clear();
-                deleteParents.addAll( inputParents );
+                deleteParents.addAll( dbParents );
                 deleteParentTypes.clear();
-                deleteParents.addAll( inputParentTypes );
-
+                deleteParentTypes.addAll( dbParentTypes );
+                
                 if ( !deleteParents.isEmpty() ){
                     deleteRelCompie = new ComponentFile();
                     ArrayList < String > copyDeleteParents =
@@ -2722,13 +2928,32 @@ public class GenerateSQL {
                     deleteRelCompie.setName( component.getName() );
                     deleteRelCompie.setChildOfs( copyDeleteParents );
                     deleteRelCompie.setChildOfTypes( copyDeleteParentTypes );
-
+                    
                     this.diffDeleteRelList.add( deleteRelCompie );
+
+                    /*
+                    if ( deleteRelCompie.getID().equals("EMAPA:16173")) {
+                        System.out.println("EMAPA:16173");
+                        System.out.println("deleteRelCompie.toString() " + deleteRelCompie.toString());
+                        System.out.println("deleteRelCompie.getChildOfs().toString() " + deleteRelCompie.getChildOfs().toString());
+                    }
+                    if ( deleteRelCompie.getID().equals("EMAPA:16172")) {
+                        System.out.println("EMAPA:16172");
+                        System.out.println("deleteRelCompie.toString() " + deleteRelCompie.toString());
+                        System.out.println("deleteRelCompie.getChildOfs().toString() " + deleteRelCompie.getChildOfs().toString());
+                    }
+                    if ( deleteRelCompie.getID().equals("EMAPA:31169")) {
+                        System.out.println("EMAPA:31169");
+                        System.out.println("deleteRelCompie.toString() " + deleteRelCompie.toString());
+                        System.out.println("deleteRelCompie.getChildOfs().toString() " + deleteRelCompie.getChildOfs().toString());
+                    }
+                    */
                 }
                 
+
                 insertParents.clear(); 
-                insertParentTypes.clear();
                 insertParents.addAll( inputParents );
+                insertParentTypes.clear();
                 insertParentTypes.addAll( inputParentTypes );
 
                 if ( !insertParents.isEmpty() ){
@@ -2747,15 +2972,34 @@ public class GenerateSQL {
                     insertRelCompie.setName( component.getName() );
                     insertRelCompie.setChildOfs( copyInsertParents );
                     insertRelCompie.setChildOfTypes( copyInsertParentTypes );
-                    
+
                     this.diffCreateRelList.add( insertRelCompie );
+                    /*
+                    if ( component.getID().equals("EMAPA:16173")) {
+                        System.out.println("EMAPA:16173");
+                        System.out.println("insertRelCompie.toString() " + insertRelCompie.toString());
+                        System.out.println("insertRelCompie.getChildOfs().toString() " + insertRelCompie.getChildOfs().toString());
+                    }
+                    if ( component.getID().equals("EMAPA:31169")) {
+                        System.out.println("EMAPA:31169");
+                        System.out.println("insertRelCompie.toString() " + insertRelCompie.toString());
+                        System.out.println("insertRelCompie.getChildOfs().toString() " + insertRelCompie.getChildOfs().toString());
+                    }
+                    if ( component.getID().equals("EMAPA:16172")) {
+                        System.out.println("EMAPA:16172");
+                        System.out.println("insertRelCompie.toString() " + insertRelCompie.toString());
+                        System.out.println("insertRelCompie.getChildOfs().toString() " + insertRelCompie.getChildOfs().toString());
+                    }
+                    */
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
         	dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -2820,14 +3064,15 @@ public class GenerateSQL {
       	  
             if ( !diffDeleteRels.isEmpty() ) {
             	for ( ComponentFile component: diffDeleteRels ){
+                    //deleteParents = component.getChildOfs();
                     deleteParents = component.getChildOfs();
 
                     for ( String deleteParent: deleteParents ){
 
                         intParentDBID = this.getDatabaseIdentifier( deleteParent ); 
-
-                        ArrayList<Relationship> relationships = (ArrayList) relationshipDAO.listByParentFKAndChildFK((long) intParentDBID, Long.valueOf(component.getDBID()));
                         
+                        ArrayList<Relationship> relationships = (ArrayList) relationshipDAO.listByParentFKAndChildFK((long) intParentDBID, Long.valueOf(component.getDBID()));
+
                         if (relationships.size() == 1) {
                         	Relationship relationship = relationships.get(0);
                       	  
@@ -2875,7 +3120,7 @@ public class GenerateSQL {
                                 strLOG_OLD_VALUE = relOldValues.get(columnName);
 
                                 Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
-                                logDAO.save(log);
+                                logDAO.create(log);
                             }     
 
                         }
@@ -2889,22 +3134,25 @@ public class GenerateSQL {
 
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
 
         return deleteRelComponentFiles;
-      
     }
 
     // 15-2-1
     private int getDatabaseIdentifier( String publicId ){
 
+    	/*
         if (this.debug) {
             System.out.println("15-2-1 - getDatabaseIdentifier");
         }
+        */
 
         try{
         	Node node = nodeDAO.findByPublicId(publicId);
@@ -2917,9 +3165,11 @@ public class GenerateSQL {
             } 
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
         
@@ -2942,8 +3192,8 @@ public class GenerateSQL {
                   	Iterator<Relationship> iteratorrelationship = relationships.iterator();
 
                   	while (iteratorrelationship.hasNext()) {
-                  		Relationship relationship = iteratorrelationship.next();
                   		
+                  		Relationship relationship = iteratorrelationship.next();
                   		relationshipDAO.delete(relationship);
                   	}
 
@@ -2951,17 +3201,19 @@ public class GenerateSQL {
                   	Iterator<RelationshipProject> iteratorrelationshipproject = relationshipprojects.iterator();
 
                   	while (iteratorrelationship.hasNext()) {
+
                   		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
-                  		
                   		relationshipprojectDAO.delete(relationshipproject);
                   	}
                 }
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
     }
@@ -3019,7 +3271,7 @@ public class GenerateSQL {
                           		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
 
                           		relationshipproject.setSequence((long) 0);
-                          		relationshipprojectDAO.save(relationshipproject);
+                          		relationshipprojectDAO.create(relationshipproject);
                           	}
                       	}
                     }
@@ -3049,7 +3301,7 @@ public class GenerateSQL {
                               		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
 
                               		relationshipproject.setSequence((long) intSEQ);
-                              		relationshipprojectDAO.save(relationshipproject);
+                              		relationshipprojectDAO.create(relationshipproject);
                               	}
 
                                 
@@ -3090,7 +3342,7 @@ public class GenerateSQL {
                           		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
 
                           		relationshipproject.setSequence((long) 0);
-                          		relationshipprojectDAO.save(relationshipproject);
+                          		relationshipprojectDAO.create(relationshipproject);
                           	}
 
                       	}
@@ -3099,12 +3351,13 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
-
     }
 
     // 18-1
@@ -3201,14 +3454,15 @@ public class GenerateSQL {
             }
         }
         catch ( DAOException dao ) {
+        	setProcessed(false);
             dao.printStackTrace();
         } 
         catch ( Exception ex ) {
+        	setProcessed(false);
         	ex.printStackTrace();
         } 
 
         return descendants;
-        
     } 
 
     // Helpers ------------------------------------------------------------------------------------
@@ -3290,11 +3544,25 @@ public class GenerateSQL {
         	if ( component.hasDifferenceComment("Different Parents") ) {
             
         		termList.add( component );
+        		/*
+        		if ( component.getID().equals("EMAPA:16172") ) {
+
+        			System.out.println("component.hasDifferenceComment(\"Different Parents\") " + component.toString());
+            		System.out.println("component.getCheckComments() " + component.getCheckComments());
+        		}
+        		*/
             }
         	
             if ( component.hasDifferenceComment("Different Group Parents") ) {
             
             	termList.add( component );
+            	/*
+        		if ( component.getID().equals("EMAPA:16172") ) {
+
+        			System.out.println("component.hasDifferenceComment(\"Different Group Parents\") " + component.toString());
+            		System.out.println("component.getCheckComments() " + component.getCheckComments());
+        		}
+        		*/
             }
         }
         

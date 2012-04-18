@@ -39,15 +39,15 @@ public class MainDAOExtractOBOAndValidate {
 	 */
     public static void main(String[] args) throws Exception {
 
-    	//System.out.println("args[0] = " + args[0]);
+    	System.out.println("args[0] = " + args[0]);
     	
     	long startTime = System.currentTimeMillis();
-    	/*
+    	
         System.out.println("=========   ----------------------------");
         System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + Utility.MySQLDateTime.now());
         System.out.println("=========   ----------------------------");
         System.out.println("");
-        */
+        
         /*
          * MAINLINE
          */
@@ -55,11 +55,11 @@ public class MainDAOExtractOBOAndValidate {
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-    	/*
+    	
         System.out.println("");
         System.out.println("====       ----------------------------");
         System.out.println("DONE ----- MainDAOExtractOBOAndValidate.java took " + duration / 1000 + " seconds");
         System.out.println("====       ----------------------------");
-        */
+        
     }
 }

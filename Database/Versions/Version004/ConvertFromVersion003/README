@@ -1,0 +1,26 @@
+This directory contains scripts to convert a version 3 anatomy database to a
+version 4 anatomy database.
+
+To perform the conversion apply the convert.sql script to your database:
+
+  mysql --show-warnings -u_username_ -p_password_ _dbname_ < convert.sql
+
+NOTE:
+  The SQL in updateSiblingOrder.sql is slightly different from that which
+  was actually used to produce version 4 of the database.  The SQL that was
+  used contained some slight errors.  These errors are fixed in the version
+  of updateSiblingOrder.sql you see here.  They are also fixed in the
+  schemaPre.sql file for converting to version 5.
+
+  So, if you use the version 4 dump (which corresponds to what is actually
+  in the EuReGene and GUDMAP databases), you will see a slightly different
+  ordering then if you load the version 3 dump and then convert it with these
+  scripts.
+
+  Unless you are studying how to convert from one version to another, load
+  database version 4 from the dump.
+
+  Version 5 will be derived from the version 4 dump file.
+
+  No one uses Version 3, so no one will actually be doing the version 3 to 4
+  conversion.

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2011-01-18 10:34:49</date>
+  <species>mouse</species>
+  <component name="mouse" id="25767">
+    <stage name="TS02"/>
+    <component isPrimary="true" name="second polar body" id="5">
+      <printName>second polar body</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25767</parentId>
+    </component>
+    <childrenId>5</childrenId>
+    <component isPrimary="true" name="two-cell stage" id="6">
+      <printName>two-cell stage</printName>
+      <abbreviation/>
+      <startEmbryoStage>02</startEmbryoStage>
+      <stopEmbryoStage>02</stopEmbryoStage>
+      <parentId>25767</parentId>
+    </component>
+    <childrenId>6</childrenId>
+    <component isPrimary="true" name="zona pellucida" id="7">
+      <printName>zona pellucida</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25767</parentId>
+    </component>
+    <childrenId>7</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

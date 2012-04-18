@@ -1,0 +1,106 @@
+{
+    "node": {
+        "children": [
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "nodeId": "3"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "nodeId": "4"
+                            }
+                        }
+                    ], 
+                    "nodeId": "2"
+                }
+            }, 
+            {
+                "node": {
+                    "nodeId": "5"
+                }
+            }, 
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "8"
+                                        }
+                                    }
+                                ], 
+                                "nodeId": "7"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "10"
+                                        }
+                                    }, 
+                                    {
+                                        "node": {
+                                            "children": [
+                                                {
+                                                    "node": {
+                                                        "nodeId": "12"
+                                                    }
+                                                }
+                                            ], 
+                                            "nodeId": "11"
+                                        }
+                                    }, 
+                                    {
+                                        "node": {
+                                            "nodeId": "13"
+                                        }
+                                    }
+                                ], 
+                                "nodeId": "9"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "15"
+                                        }
+                                    }, 
+                                    {
+                                        "node": {
+                                            "children": [
+                                                {
+                                                    "node": {
+                                                        "nodeId": "17"
+                                                    }
+                                                }
+                                            ], 
+                                            "nodeId": "16"
+                                        }
+                                    }
+                                ], 
+                                "nodeId": "14"
+                            }
+                        }
+                    ], 
+                    "nodeId": "6"
+                }
+            }, 
+            {
+                "node": {
+                    "nodeId": "18"
+                }
+            }
+        ], 
+        "nodeId": "1"
+    }
+}

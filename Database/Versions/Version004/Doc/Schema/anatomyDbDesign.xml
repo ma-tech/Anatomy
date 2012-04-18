@@ -1,0 +1,1635 @@
+<?xml version="1.0" standalone="yes" ?>
+<DBMODEL Version="4.0">
+<SETTINGS>
+<GLOBALSETTINGS ModelName="Anatomy Multiple Granularities." IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="MySQL" ZoomFac="75.00" XPos="0" YPos="0" DefaultDataType="5" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="" DefQueryDBConn="" Printer="" HPageCount="4.0" PageAspectRatio="1.440892512336408" PageOrientation="1" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="0" DefaultTableType="1" ActivateRefDefForNewRelations="1" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="1" DBQuoteCharacter="`" CreateSQLforLinkedObjects="0" DefModelFont="Nimbus Sans L" CanvasWidth="4096" CanvasHeight="2842" />
+<DATATYPEGROUPS>
+<DATATYPEGROUP Name="Numeric Types" Icon="1" />
+<DATATYPEGROUP Name="Date and Time Types" Icon="2" />
+<DATATYPEGROUP Name="String Types" Icon="3" />
+<DATATYPEGROUP Name="Blob and Text Types" Icon="4" />
+<DATATYPEGROUP Name="User defined Types" Icon="5" />
+<DATATYPEGROUP Name="Geographic Types" Icon="6" />
+</DATATYPEGROUPS>
+<DATATYPES>
+<DATATYPE ID="1" IDGroup="0" TypeName="TINYINT" Description="A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="1" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="2" IDGroup="0" TypeName="SMALLINT" Description="A small integer. The signed range is -32768 to 32767. The unsigned range is 0 to 65535." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="1" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="3" IDGroup="0" TypeName="MEDIUMINT" Description="A medium-size integer. The signed range is -8388608 to 8388607. The unsigned range is 0 to 16777215." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="1" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="4" IDGroup="0" TypeName="INT" Description="A normal-size integer. The signed range is -2147483648 to 2147483647. The unsigned range is 0 to 4294967295." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="1" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="0" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="5" IDGroup="0" TypeName="INTEGER" Description="A normal-size integer. The signed range is -2147483648 to 2147483647. The unsigned range is 0 to 4294967295." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="1" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="1" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="6" IDGroup="0" TypeName="BIGINT" Description="A large integer. The signed range is -9223372036854775808 to 9223372036854775807. The unsigned range is 0 to 18446744073709551615." ParamCount="1" OptionCount="2" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="UNSIGNED" Default="0" />
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="7" IDGroup="0" TypeName="FLOAT" Description="A small (single-precision) floating-point number. Cannot be unsigned. Allowable values are -3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38." ParamCount="1" OptionCount="1" ParamRequired="1" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="precision" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="8" IDGroup="0" TypeName="FLOAT" Description="A small (single-precision) floating-point number. Cannot be unsigned. Allowable values are -3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38." ParamCount="2" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="9" IDGroup="0" TypeName="DOUBLE" Description="A normal-size (double-precision) floating-point number. Cannot be unsigned. Allowable values are -1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and 2.2250738585072014E-308 to 1.7976931348623157E+308." ParamCount="2" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="2" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="10" IDGroup="0" TypeName="DOUBLE PRECISION" Description="This is a synonym for DOUBLE." ParamCount="2" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="2" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="11" IDGroup="0" TypeName="REAL" Description="This is a synonym for DOUBLE." ParamCount="2" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="2" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="12" IDGroup="0" TypeName="DECIMAL" Description="An unpacked floating-point number. Cannot be unsigned. Behaves like a CHAR column." ParamCount="2" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="3" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="13" IDGroup="0" TypeName="NUMERIC" Description="This is a synonym for DECIMAL." ParamCount="2" OptionCount="1" ParamRequired="1" EditParamsAsString="0" SynonymGroup="3" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+<PARAM Name="decimals" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="ZEROFILL" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="14" IDGroup="1" TypeName="DATE" Description="A date. The supported range is \a1000-01-01\a to \a9999-12-31\a." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="15" IDGroup="1" TypeName="DATETIME" Description="A date and time combination. The supported range is \a1000-01-01 00:00:00\a to \a9999-12-31 23:59:59\a." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="16" IDGroup="1" TypeName="TIMESTAMP" Description="A timestamp. The range is \a1970-01-01 00:00:00\a to sometime in the year 2037. The length can be 14 (or missing), 12, 10, 8, 6, 4, or 2 representing YYYYMMDDHHMMSS, ... , YYYYMMDD, ... , YY formats." ParamCount="1" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+</DATATYPE>
+<DATATYPE ID="17" IDGroup="1" TypeName="TIME" Description="A time. The range is \a-838:59:59\a to \a838:59:59\a." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="18" IDGroup="1" TypeName="YEAR" Description="A year in 2- or 4-digit format (default is 4-digit)." ParamCount="1" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+</DATATYPE>
+<DATATYPE ID="19" IDGroup="2" TypeName="CHAR" Description="A fixed-length string (1 to 255 characters) that is always right-padded with spaces to the specified length when stored. values are sorted and compared in case-insensitive fashion according to the default character set unless the BINARY keyword is given." ParamCount="1" OptionCount="1" ParamRequired="1" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="BINARY" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="20" IDGroup="2" TypeName="VARCHAR" Description="A variable-length string (1 to 255 characters). Values are sorted and compared in case-sensitive fashion unless the BINARY keyword is given." ParamCount="1" OptionCount="1" ParamRequired="1" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="length" />
+</PARAMS>
+<OPTIONS>
+<OPTION Name="BINARY" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="21" IDGroup="2" TypeName="BIT" Description="This is a synonym for CHAR(1)." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="22" IDGroup="2" TypeName="BOOL" Description="This is a synonym for CHAR(1)." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="23" IDGroup="3" TypeName="TINYBLOB" Description="A column maximum length of 255 (2^8 - 1) characters. Values are sorted and compared in case-sensitive fashion." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="24" IDGroup="3" TypeName="BLOB" Description="A column maximum length of 65535 (2^16 - 1) characters. Values are sorted and compared in case-sensitive fashion." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="25" IDGroup="3" TypeName="MEDIUMBLOB" Description="A column maximum length of 16777215 (2^24 - 1) characters. Values are sorted and compared in case-sensitive fashion." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="26" IDGroup="3" TypeName="LONGBLOB" Description="A column maximum length of 4294967295 (2^32 - 1) characters. Values are sorted and compared in case-sensitive fashion." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="27" IDGroup="3" TypeName="TINYTEXT" Description="A column maximum length of 255 (2^8 - 1) characters." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="28" IDGroup="3" TypeName="TEXT" Description="A column maximum length of 65535 (2^16 - 1) characters." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="29" IDGroup="3" TypeName="MEDIUMTEXT" Description="A column maximum length of 16777215 (2^24 - 1) characters." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="30" IDGroup="3" TypeName="LONGTEXT" Description="A column maximum length of 4294967295 (2^32 - 1) characters." ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="31" IDGroup="3" TypeName="ENUM" Description="An enumeration. A string object that can have only one value, chosen from the list of values." ParamCount="1" OptionCount="0" ParamRequired="1" EditParamsAsString="1" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="values" />
+</PARAMS>
+</DATATYPE>
+<DATATYPE ID="32" IDGroup="3" TypeName="SET" Description="A set. A string object that can have zero or more values, each of which must be chosen from the list of values." ParamCount="1" OptionCount="0" ParamRequired="1" EditParamsAsString="1" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<PARAMS>
+<PARAM Name="values" />
+</PARAMS>
+</DATATYPE>
+<DATATYPE ID="33" IDGroup="4" TypeName="Varchar(20)" Description="" ParamCount="0" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<OPTIONS>
+<OPTION Name="BINARY" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="34" IDGroup="4" TypeName="Varchar(45)" Description="" ParamCount="0" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<OPTIONS>
+<OPTION Name="BINARY" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="35" IDGroup="4" TypeName="Varchar(255)" Description="" ParamCount="0" OptionCount="1" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+<OPTIONS>
+<OPTION Name="BINARY" Default="0" />
+</OPTIONS>
+</DATATYPE>
+<DATATYPE ID="36" IDGroup="5" TypeName="GEOMETRY" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="38" IDGroup="5" TypeName="LINESTRING" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="39" IDGroup="5" TypeName="POLYGON" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="40" IDGroup="5" TypeName="MULTIPOINT" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="41" IDGroup="5" TypeName="MULTILINESTRING" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="42" IDGroup="5" TypeName="MULTIPOLYGON" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+<DATATYPE ID="43" IDGroup="5" TypeName="GEOMETRYCOLLECTION" Description="Geographic Datatype" ParamCount="0" OptionCount="0" ParamRequired="0" EditParamsAsString="0" SynonymGroup="0" PhysicalMapping="0" PhysicalTypeName="" >
+</DATATYPE>
+</DATATYPES>
+<COMMON_DATATYPES>
+<COMMON_DATATYPE ID="5" />
+<COMMON_DATATYPE ID="8" />
+<COMMON_DATATYPE ID="20" />
+<COMMON_DATATYPE ID="15" />
+<COMMON_DATATYPE ID="22" />
+<COMMON_DATATYPE ID="28" />
+<COMMON_DATATYPE ID="26" />
+<COMMON_DATATYPE ID="33" />
+<COMMON_DATATYPE ID="34" />
+<COMMON_DATATYPE ID="35" />
+</COMMON_DATATYPES>
+<TABLEPREFIXES>
+<TABLEPREFIX Name="Default (no prefix)" />
+</TABLEPREFIXES>
+<REGIONCOLORS>
+<REGIONCOLOR Color="Red=#FFEEEC" />
+<REGIONCOLOR Color="Yellow=#FEFDED" />
+<REGIONCOLOR Color="Green=#EAFFE5" />
+<REGIONCOLOR Color="Cyan=#ECFDFF" />
+<REGIONCOLOR Color="Blue=#F0F1FE" />
+<REGIONCOLOR Color="Magenta=#FFEBFA" />
+</REGIONCOLORS>
+<POSITIONMARKERS>
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+</POSITIONMARKERS>
+</SETTINGS>
+<METADATA>
+<REGIONS>
+</REGIONS>
+<TABLES>
+<TABLE ID="2249" Tablename="ANA_RELATIONSHIP_TYPE" PrevTableName="Table_03" XPos="1121" YPos="185" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Defines relationship types.  All types are assumed to be directional from \Achild\A to \Aparent\A, and are assumed to be transitive.  This contradicts DAG-Edit which supports a wide variety of relationships including, cyclic, non-transitive, and non-directional relationships.  The use of \Aparent\A and \Achild\A differs from GMOD which uses \Asubject\A and \Aobject\A in its relationships.  In GMOD subject means child and object means parent.  As long as we only have directional relationships, I favour parent and child because it is clearer.\n \nRelationship names use the child to parent form of the relationship. \n\nThere is no \Ais-a\A relationship in a mouse atlas database.  The semantics of \Ais-a\A in the world of ontologies is that any property that a parent has is also held by the children.  Thus, saying that a gene is expressed in a parent node of an is-a relationship, would imply that the gene is expressed in all the children.  This would rarely be the case.  However, is-a could have a place in terms of describing anatomy.  Properties held by \Amuscle\A would also be help by \Aslow muscle\A, \Afast muscle\A, and \Asmooth muscle\A.  It just doesn\at work for gene expression.\n\n\Adevelops-from\A relationships are complicated in the mouse atlas.  They have (at least) 3 related meanings:\n\kol\g\n  \kli\gSame path, same compenent, next stage:  For example, \Abody/brain in stage x devolops into body/brain in stage x+1\A.  This meaning is necessary because of Mouse Atlas\as use of timed nodes.\k/li\g\n  \kli\gDiffernet path, same component, next stage:  For example \Abody/brain in stage x devolops into body/head/brain in stage x+1\A.  In this case, the component (brain) is the same, but the path to get to it has changed.  This is necessary because of Mouse Atlas\as use of full paths to uniquely identify parts.\k/li\g\n  \kli\gDifferent path, different component, next stage:  For Example, \A.../metanephros/comma shaped nephron in stage x devolops into .../metanephros/s-shaped nephron in stage x+1\A.  In this case the component changes.\k/li\g\n\k/ol\g\n\nI believe that the \ADifferent path, spawned component, same or next stage\A case, where only part of the original component develops into a different part (think mesenchyme) is a special case of the last item." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="2" >
+<COLUMNS>
+<COLUMN ID="2254" ColName="RTY_NAME" PrevColName="name" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of relationship, such as \Apart-of\A \Adevelops-from\A, etc.  Relationship names reflect the child to parent relationship. ">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2256" ColName="RTY_CHILD_TO_PARENT_DISPLAY" PrevColName="child_to_parent_display" Pos="3" idDatatype="20" DatatypeParams="(40)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Use when displaying the relationship from the child\as point of view, e.g., \Apart of\A, \Adevelops from\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2255" ColName="RTY_PARENT_TO_CHILD_DISPLAY" PrevColName="parent_to_child_display" Pos="2" idDatatype="20" DatatypeParams="(40)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Use this when displaying the relationship from the parent\as point of view.  e.g., \Ahas part\A, \Adevelops into\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="2755" />
+<RELATION_START ID="2974" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3281" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2254" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2264" Tablename="ANA_STAGE" PrevTableName="Table_04" XPos="608" YPos="528" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Defines the standard staging series for a species.  There is only one standard staging series per species and all alternative series are mapped to it.  For mouse the one true staging series is Theiler.  For Xenopus it is N\+F.\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" >
+<COLUMNS>
+<COLUMN ID="3785" ColName="STG_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database wide ID for this stage.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4033" ColName="STG_SPECIES_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Species this stage is for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2266" ColName="STG_NAME" PrevColName="name" Pos="0" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of the stage, e.g. TS01">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3565" ColName="STG_SEQUENCE" PrevColName="" Pos="4" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Definitive ordering of this stage relative to all other stages for this species.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2278" ColName="STG_DESCRIPTION" PrevColName="description" Pos="4" idDatatype="20" DatatypeParams="(2000)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Alternatively, could have a URL here.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3922" ColName="STG_SHORT_EXTRA_TEXT" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(25)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Very short additional text describing the stage.  This is useful when real estate is tight but you still have enough space to give the user some additional information besides just the somtimes uninformative stage name.  For mouse, this will likely be an equivalent DPC stage range.  For Xenopus, this will likely be the short term for the stage, e.g., blastula.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4054" ColName="STG_PUBLIC_ID" PrevColName="" Pos="6" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Public ID of stage.  NULL means that staging series does not have public IDs.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="2357" />
+<RELATION_START ID="2407" />
+<RELATION_START ID="3254" />
+<RELATION_START ID="3978" />
+<RELATION_START ID="3984" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="2528" />
+<RELATION_END ID="3215" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3788" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3785" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="2463" IndexName="STG_NAME_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2266" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3566" IndexName="STG_SEQUENCE_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3565" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3882" IndexName="ANA_STAGE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3215">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3785" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4034" IndexName="ANA_STAGE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="2528">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4033" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2317" Tablename="ANA_NODE" PrevTableName="Table_09" XPos="308" YPos="285" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table implements the \Aabstract mouse\A. Defines every anatomy item in the organism.\n\nAnatomy is actually a directed acyclic graph (DAG), meaning there can be multiple paths from any node in the graph back to the root. \n\nPrimary and group nodes are defined as :\n\kul\g\kli\gPrimary Component: These form the primary/canonical paths for navigating anatomy. They define a tree structure, where there is a unique path from the root to any component.\k/li\g\kli\gGroup Component: These were introduced to allow alternative ways to navigate anatomy. They effectively convert the anatomy tree to a DAG. Group compenents do not participate in canonical paths, except at the end of the path.\k/li\g\k/ul\g\n\nIt was decided at the 05/04/2006 Anatomy database meeting, that while canonical paths still exist they should be de-emphasised.  See Mantis issue 101.\n\n\kstrong\g:TODO:\k/strong\g This ignores a key case: nested groups.\n\kstrong\g:TODO:\k/strong\g Validate that full_name is in fact the concatenation of the component names of this node and all its primary, part-of, ancestor nodes.\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="4" >
+<COLUMNS>
+<COLUMN ID="3783" ColName="ANO_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database wide ID for this anatomy node">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4031" ColName="ANO_SPECIES_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Species this component occurs in.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2323" ColName="ANO_COMPONENT_NAME" PrevColName="anatomy_stage_path" Pos="1" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of this node.  This is not unique.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2680" ColName="ANO_IS_PRIMARY" PrevColName="anode_is_group" Pos="5" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True if this node is a primary node, false if it is a group node.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4098" ColName="ANO_IS_GROUP" PrevColName="" Pos="6" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True if the node is a group node, False if it is not.  PAY ATTENTION:  This column is the inverse of and replaces ANO_IS_PRIMARY.  ANO_IS_PRIMARY will be dropped in version 5 of the database.  The name/meaning of the column was changed to make it more distinct from the APO_IS_PRIMARY_PATH column in the ANAD_PART_OF table.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3008" ColName="ANO_PUBLIC_ID" PrevColName="ANODE_PUBLISHED_ID" Pos="8" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Published ID of htis node.  For Mouse, this is an EMAPA ID.  I presume that EMAPA was chosen so that we never accidentally display a node in the abstract mouse.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4056" ColName="ANO_DESCRIPTION" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(2000)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Description of this component.  Can be NULL.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3257" />
+<RELATION_START ID="3628" />
+<RELATION_START ID="3935" />
+<RELATION_START ID="4061" />
+<RELATION_START ID="4080" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="3175" />
+<RELATION_END ID="3234" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3784" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3783" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="2398" IndexName="anode_component_name_index" IndexKind="1" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2323" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3016" IndexName="anode_public_id_index" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3008" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3884" IndexName="ANA_NODE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3234">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3783" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4035" IndexName="ANA_NODE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3175">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4031" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2346" Tablename="ANA_TIMED_NODE" PrevTableName="Table_12" XPos="517" YPos="176" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Contains a record for each individual stage that an anatomy node exists in.  This table, more than any other table, defines what EMAP looks like to the outside world.\n\nThe GUDMAP and EuReGene projects use timed nodes to record annotation, but their query interface is much more driven by the abstract mouse defined in ANA_NODE.\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="5" >
+<COLUMNS>
+<COLUMN ID="3782" ColName="ATN_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database wide ID of this timed node">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3854" ColName="ATN_NODE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Untimed node this timed node is for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3847" ColName="ATN_STAGE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Particualr stage at which this timed node exists.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3835" ColName="ATN_STAGE_MODIFIER_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Some timed nodes have stage modifiers, such as late or early.  NULL for most records, meaning no modifier.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2353" ColName="ATN_PUBLIC_ID" PrevColName="external_id" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="This is the public ID of this node.  This, once generated, never changes.  For EMAP, this takes the form \AEMAP:nnn\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="2357" />
+<RELATION_END ID="2955" />
+<RELATION_END ID="3241" />
+<RELATION_END ID="3628" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3759" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3782" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="2467" IndexName="atn_public_id_index" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2353" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3861" IndexName="ATN_AK2_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3854" LengthParam="0" />
+<INDEXCOLUMN idColumn="3847" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3885" IndexName="ANA_TIMED_NODE_FKIndex1" IndexKind="1" FKRefDef_Obj_id="2357">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3847" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3886" IndexName="ANA_TIMED_NODE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="2955">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3835" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3887" IndexName="ANA_TIMED_NODE_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3241">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3782" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3888" IndexName="ANA_TIMED_NODE_FKIndex4" IndexKind="1" FKRefDef_Obj_id="3628">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3854" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2401" Tablename="ANAD_PART_OF" PrevTableName="Table_13" XPos="44" YPos="427" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table is \kstrong\gderived\k/strong\g from ANA_NODE, ANA_TIMED_NODE, and ANA_RELATIONSHIP.  It is used to quickly display anatomy for a stage in an indented tree format.  This shows only part-of relationships.  We display the anatomy as a tree, even though it is actually a DAG.  Displaying a DAG is too darn difficult.  \n\nThere can be multiple records in this table for each corresponding record in ANA_NODE.  There will be one record for each possible path to any node.\n\nUntil we have some way of coping with components under group nodes having the same component names, we can\at have a unique index on full path." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="6" >
+<COLUMNS>
+<COLUMN ID="3096" ColName="APO_OID" PrevColName="ADISP_OID" Pos="4" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="OID for this record.  Since this table is derived, this does not persist across different generations of this table.  This will always be equal to APO_SEQUENCE.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3989" ColName="APO_NODE_START_STAGE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Start stage of the node this record is for.  This has the same value in all records for this node.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3983" ColName="APO_NODE_END_STAGE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="End stage of the node this record is for.  This has the same value in all records for this node.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3981" ColName="APO_PATH_START_STAGE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Start stage of node as constrained by its place in the tree (that is, the start stages of its ancestor nodes along the current path.)  This can be the same as or older than APO_NODE_START_STAGE_FK.  This can have different values in different records for this node.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3987" ColName="APO_PATH_END_STAGE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="End stage of node as constrained by its place in the tree (that is, the end stages of its ancestor nodes along the current path.)  This can be the same as or younger than APO_NODE_END_STAGE_FK.  This can have different values in different records for this node.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4029" ColName="APO_SPECIES_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Species this record is for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3855" ColName="APO_NODE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Anatomy node this part of path record is for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2405" ColName="APO_SEQUENCE" PrevColName="sequence" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Absolute ordering of how this anatomy node relative to all other anatomy nodes.  This starts at 0 and is dense.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2406" ColName="APO_DEPTH" PrevColName="depth" Pos="2" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="How deep in the tree the item is / how much to indent the item.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3468" ColName="APO_FULL_PATH" PrevColName="APOD_FULL_PATH" Pos="4" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Full path from root to this anatomy node.  There can be multiple paths from the root to any given node.  Each path has its own record in this table.  The path consists of an ordered list of components, with each component separated by a \A.\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3469" ColName="APO_IS_PRIMARY" PrevColName="APOD_IS_PRIMARY" Pos="5" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True if this is the primary path to this node; false if it is a secondary (via group) path.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4096" ColName="APO_IS_PRIMARY_PATH" PrevColName="" Pos="12" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True if this is the primary path to this node; false if the path to this node contains a group node.  PAY ATTENTION!  Every node in the ontology, including group nodes has exactly one primary path to it.  If this record shows that path, then this column will be true.  If this record shows a path that passes through a group to get to this node, the this colum will be false.  NOTE: This column is identical to and replaces APO_IS_PRIMARY.  APO_IS_PRIMARY will be dropped in Version 5 of the database.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4068" ColName="APO_PARENT_APO_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="OID of the ANAD_PART_OF record that is this record\as parent.  Is NULL for the root node.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="4019" />
+<RELATION_START ID="4065" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="2407" />
+<RELATION_END ID="3254" />
+<RELATION_END ID="3257" />
+<RELATION_END ID="3473" />
+<RELATION_END ID="3978" />
+<RELATION_END ID="3984" />
+<RELATION_END ID="4065" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="2586" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3096" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3097" IndexName="APOD_AK_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2405" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3889" IndexName="ANAD_PART_OF_FKIndex1" IndexKind="1" FKRefDef_Obj_id="2407">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3989" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3890" IndexName="ANAD_PART_OF_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3254">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3983" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3891" IndexName="ANAD_PART_OF_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3257">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3855" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3980" IndexName="ANAD_PART_OF_FKIndex5" IndexKind="1" FKRefDef_Obj_id="3978">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3981" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3986" IndexName="ANAD_PART_OF_FKIndex6" IndexKind="1" FKRefDef_Obj_id="3984">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3987" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4036" IndexName="ANAD_PART_OF_FKIndex6" IndexKind="1" FKRefDef_Obj_id="3473">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4029" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4067" IndexName="ANAD_PART_OF_FKIndex7" IndexKind="1" FKRefDef_Obj_id="4065">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4068" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2517" Tablename="REF_SPECIES" PrevTableName="Table_08" XPos="515" YPos="403" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" >
+<COLUMNS>
+<COLUMN ID="2521" ColName="RSP_NAME" PrevColName="common_name" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name that is most often displayed for the species, e.g. mouse, Xenopus laevis, etc.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2522" ColName="RSP_LATIN_NAME" PrevColName="latin_name" Pos="2" idDatatype="20" DatatypeParams="(30)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Latin name of the species, e.g. mus musculus, Xenopus laevis, etc">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4012" ColName="RSP_TIMED_NODE_ID_PREFIX" PrevColName="SPE_" Pos="2" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="For species, that have defined ontologies, this is the prefix to in front of IDs for timed nodes from that ontology.  For example, \AEMAP:\A.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4106" ColName="RSP_NODE_ID_PREFIX" PrevColName="" Pos="3" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="For species that have defined ontologies, this the prefix in front of the IDs for abstract nodes in that ontology.  For exaple, \AEMAPA:\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="2528" />
+<RELATION_START ID="3175" />
+<RELATION_START ID="3473" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3477" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2521" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="2524" IndexName="species_latin_name_index" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2522" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2597" Tablename="ANA_SYNONYM" PrevTableName="Table_11" XPos="814" YPos="127" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table support synonyms for any anatomy object that has its ID in ANA_OBJECT." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="8" >
+<COLUMNS>
+<COLUMN ID="3780" ColName="SYN_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique database wide ID of this synonym">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3779" ColName="SYN_OBJECT_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Object this is a synonym for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="2601" ColName="SYN_SYNONYM" PrevColName="anatsyn_synonym" Pos="1" idDatatype="20" DatatypeParams="(100)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="synonym">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="3236" />
+<RELATION_END ID="3444" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3781" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3780" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="2606" IndexName="SYN_SYNONYM_INDEX" IndexKind="1" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2601" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3866" IndexName="SYN_AK_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3779" LengthParam="0" />
+<INDEXCOLUMN idColumn="2601" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3898" IndexName="ANA_SYNONYM_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3236">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3780" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3899" IndexName="ANA_SYNONYM_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3444">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3779" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2722" Tablename="ANA_RELATIONSHIP" PrevTableName="Table_15" XPos="1121" YPos="312" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Defines binary, ordered relationships between objects in a mouse database.  Well, only certain types of binary, ordered relationships.\n\nInitially (04/2006), this table only contains relationships between nodes, and relationships between timed nodes.  More broadly, in initially contains binary ordered relationships between objects of the same type.\n\nWe also thought about redefining timed nodes as a relationship between a node and a stage and then storing that relationship in this table.  In that case, relationships between timed nodes would become relationships between relationships.  While this has a certain elegance, if you take it to its extreme conclusion then you end up with a two table database: objects, and relationships.  I don\at want to go there.\n\n\n\n\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="9" >
+<COLUMNS>
+<COLUMN ID="3774" ColName="REL_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database wide ID for this relationship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3871" ColName="REL_RELATIONSHIP_TYPE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Type of relationship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3777" ColName="REL_CHILD_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="OID of Child in relatonship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3778" ColName="REL_PARENT_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="OID of parent in relationship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4039" ColName="REL_SEQUENCE" PrevColName="" Pos="4" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Order to display the child item underneath the parent item, relative to the parent\as other children.  Ties are broken alphabetically.  If this is NULL, then order is up to application, but general rule is display NULLs in alphabetical order, after all items with a specified order.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="2755" />
+<RELATION_END ID="3270" />
+<RELATION_END ID="3273" />
+<RELATION_END ID="3289" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3763" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3774" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3880" IndexName="REL_AK_IINDEX" IndexKind="1" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3778" LengthParam="0" />
+<INDEXCOLUMN idColumn="3777" LengthParam="0" />
+<INDEXCOLUMN idColumn="3871" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3900" IndexName="ANA_RELATIONSHIP_FKIndex1" IndexKind="1" FKRefDef_Obj_id="2755">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3871" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3901" IndexName="ANA_RELATIONSHIP_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3270">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3778" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3902" IndexName="ANA_RELATIONSHIP_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3273">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3777" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3903" IndexName="ANA_RELATIONSHIP_FKIndex4" IndexKind="1" FKRefDef_Obj_id="3289">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3774" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2916" Tablename="ANAD_RELATIONSHIP_TRANSITIVE" PrevTableName="Table_31" XPos="1120" YPos="46" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table is \kstrong\gderived\k/strong\g from ANA_RELATIONSHIP.  It contains the transitive closure of all part-of relationships in that table.  That is, for any nodes related in a child-parent, or grandchild-grandparent, or great-grandchild-great-grandparent, etc. relationships, there is an entry in this table.  Transitivity does not cross relationship types.  That is, the chain of relationships from ancestor to descdent will all be of the same type.\n\nThis table also stores \Aself-refrential\A records.  For example \Abrain\A is a part of \Abrain\A.  This greatly simplifies the SQL to check for expression in a part and all its descendents.\n\nEventually, it may also contain the transitive closure of lineage relationships as well.  " Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="10" >
+<COLUMNS>
+<COLUMN ID="2964" ColName="RTR_OID" PrevColName="ARELTRANS_OID" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="OID of this record.  Since this table is derived this OID is not persistent across different derivations of this table">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3873" ColName="RTR_RELATIONSHIP_TYPE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Type of relationship that connects every link in the chain from ancestor to descendent.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3775" ColName="RTR_DESCENDENT_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Descendent in relationship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3875" ColName="RTR_ANCESTOR_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Ancestor in relationship">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="2974" />
+<RELATION_END ID="3275" />
+<RELATION_END ID="3278" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="2965" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2964" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3878" IndexName="RTR_AK_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3875" LengthParam="0" />
+<INDEXCOLUMN idColumn="3775" LengthParam="0" />
+<INDEXCOLUMN idColumn="3873" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3904" IndexName="ANAD_RELATIONSHIP_TRANSITIVE_FKIndex1" IndexKind="1" FKRefDef_Obj_id="2974">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3873" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3905" IndexName="ANAD_RELATIONSHIP_TRANSITIVE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3275">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3875" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3906" IndexName="ANAD_RELATIONSHIP_TRANSITIVE_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3278">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3775" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="2945" Tablename="ANA_STAGE_MODIFIER" PrevTableName="Table_17" XPos="538" YPos="51" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Sometimes a part appears particularly early or disappears particularly late in a stage.  In such cases it is helpful to specify this in the anatomy.\n\nWe could further subdivide modifiers into those that can be applied to start stages, and those that can be applied to end stages.  Might do this if it becomes a problem.\n\n\kstrong\g:TODO:\k/strong\g Currently (03/2006) all stage modifiers are applied to either the first or last stage that a node exists at.  Verify that stage modifiers exist only at start and stop stages.\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="11" >
+<COLUMNS>
+<COLUMN ID="2948" ColName="SMO_NAME" PrevColName="STGMOD_NAME" Pos="0" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Modifier name: \AAppears early\A, \AAppears late\A, \ALost early\A, \ALost late\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="2955" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="2949" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="2948" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3166" Tablename="ANA_OBJECT" PrevTableName="Table_19" XPos="796" YPos="327" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table is a central place to store all persistent internal IDs.  This table exists for two reasons:\n\kol\g\kli\gTo store attributes, such as creation time, that are common to all objects.\k/li\g\kli\gSo that we can have generic tables that still support foreign keys.\k/li\g\k/ol\g\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" >
+<COLUMNS>
+<COLUMN ID="3168" ColName="OBJ_OID" PrevColName="ANAID_OID" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="ID value">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3170" ColName="OBJ_CREATION_DATETIME" PrevColName="ANAID_CREATION_DATETIME" Pos="1" idDatatype="15" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Date and time when this ID and its corresponding record were created.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3672" ColName="OBJ_CREATOR_FK" PrevColName="ANAOBJ_CREATOR_FK" Pos="2" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="ID of editor who created this object.  This is usually NULL, as we usually don\at know.  This field should be an FK to ANA_EDITOR, but MySQL (or maybe just DBDesigner) does not support circular references.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3215" />
+<RELATION_START ID="3234" />
+<RELATION_START ID="3236" />
+<RELATION_START ID="3241" />
+<RELATION_START ID="3270" />
+<RELATION_START ID="3273" />
+<RELATION_START ID="3275" />
+<RELATION_START ID="3278" />
+<RELATION_START ID="3289" />
+<RELATION_START ID="3330" />
+<RELATION_START ID="3335" />
+<RELATION_START ID="3339" />
+<RELATION_START ID="3444" />
+<RELATION_START ID="3536" />
+<RELATION_START ID="3969" />
+<RELATION_START ID="4071" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3169" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3168" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3292" Tablename="ANA_VERSION" PrevTableName="Table_18" XPos="812" YPos="770" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Stores version number of the database as a whole.  Updates to the anatomy database are done infrequently, and when done, they are done as a coherent whole.  This table records those updates.  Each such update is a new version.\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" >
+<COLUMNS>
+<COLUMN ID="3973" ColName="VER_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Unique, persistent database wide OID for this version.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3296" ColName="VER_NUMBER" PrevColName="AVERS_NUMBER" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Version number of the anatomy database as a whole.  Assumes integer version numbers.  This could easily be a string supporting sub-version numbers.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3298" ColName="VER_DATE" PrevColName="AVERS_DATE" Pos="3" idDatatype="15" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Datetime version was released.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3297" ColName="VER_COMMENTS" PrevColName="AVERS_COMMENTS" Pos="2" idDatatype="20" DatatypeParams="(2000)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Comments on this version.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3958" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="3969" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3975" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3973" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3299" IndexName="AVERS_NUMBER_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3296" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3300" IndexName="AVERS_DATE" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3298" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3971" IndexName="ANA_VERSION_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3969">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3973" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3328" Tablename="ANA_ATTRIBUTION" PrevTableName="Table_20" XPos="821" YPos="503" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This implements record level (but not column level) attribution for any record type that stores its ID in ANA_OBJECT." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="14" >
+<COLUMNS>
+<COLUMN ID="3753" ColName="ATR_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database wide ID of this attribution record.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3768" ColName="ATR_OBJECT_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Object this attribution is for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3773" ColName="ATR_SOURCE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Source for this attribution">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3806" ColName="ATR_EVIDENCE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(50)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Type of evidence that occurred in source, in support of this attribution.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3635" ColName="ATR_COMMENTS" PrevColName="AATTRIB_COMMENTS" Pos="3" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Additional comments on this attribution.  May be NULL, and usually is.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="3330" />
+<RELATION_END ID="3335" />
+<RELATION_END ID="3343" />
+<RELATION_END ID="3660" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3764" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3753" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3868" IndexName="ATR_AK_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3768" LengthParam="0" />
+<INDEXCOLUMN idColumn="3773" LengthParam="0" />
+<INDEXCOLUMN idColumn="3806" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3907" IndexName="ANA_ATTRIBUTION_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3330">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3753" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3908" IndexName="ANA_ATTRIBUTION_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3335">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3768" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3909" IndexName="ANA_ATTRIBUTION_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3343">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3773" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3910" IndexName="ANA_ATTRIBUTION_FKIndex4" IndexKind="1" FKRefDef_Obj_id="3660">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3806" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3337" Tablename="ANA_SOURCE" PrevTableName="Table_21" XPos="1070" YPos="492" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Deescribes sources of information.  These can be books, journal article, personal communication, ...." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="15" >
+<COLUMNS>
+<COLUMN ID="3771" ColName="SRC_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique, database-wide ID for this source.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3653" ColName="SRC_NAME" PrevColName="ASRC_NAME" Pos="3" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of source.  Could be book name, or Article name ">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3654" ColName="SRC_AUTHORS" PrevColName="ASRC_AUTHORS" Pos="4" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="List of authors in order and as they occur in the source.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3804" ColName="SRC_FORMAT_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(30)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Format the source is in.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3652" ColName="SRC_YEAR" PrevColName="ASRC_YEAR" Pos="2" idDatatype="18" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Year source was created/published.  We could store a full date here, but most of the time that is not appropriate.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3343" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="3339" />
+<RELATION_END ID="3647" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3772" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3771" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3705" IndexName="ANA_SOURCE_AK_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3653" LengthParam="0" />
+<INDEXCOLUMN idColumn="3654" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3911" IndexName="ANA_SOURCE_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3339">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3771" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3912" IndexName="ANA_SOURCE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3647">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3804" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3364" Tablename="ANA_LOG" PrevTableName="Table_24" XPos="1011" YPos="753" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This table records updates to the database.  \n\nThis version of the table is database centric.  The assumption is that in the long run it will be populated by update and delete triggers on anatomy tables.  In the short term, it will be populated by the same scripts that update the anatomy tables.\n\nSince column names are unique in the database, storing just the column name is sufficient.  but it is awkward.  In order to find the table name the column is in, you need to strip off the 3 letter column name prefix, and then look that up in REF_ABBREVIATION.  Not exactly graceful, but we can revisit when it becomes a priority.\n\nThis table does not store the new column value.  Strictly speaking this is fine, since the new value is always available in the database table.  However, the table would probably be easier to use if it stored both the old and new values.\n\nThe original design for this table stored the datetime that the change happened.  The plan was to extract this from the CIOF file\as LastModificationTime fields.  However, those are not reliable and are not even available for some object types.  Therefore we switched to tagging records with the database version rather than the exact time of modification.  Therefore any update that happened between versions will appear to have happened all at once, when the new version came out.  With that change we also dropped the editor column from this table.  The CIOF doesn\at tell us who made any particular change.  Therefore, storing an editor in this table was fiction.\n\nWe should reconsider how we record time and responsibility if and when we start editing the anatomy in another format besides ObjectStore." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="16" >
+<COLUMNS>
+<COLUMN ID="3366" ColName="LOG_OID" PrevColName="ALOG_OID" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="Unique, persistent ID for this log entry.  This is not unique across the database.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3992" ColName="LOG_VERSION_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3371" ColName="LOG_LOGGED_OID" PrevColName="ALOG_LOGGED_OID" Pos="3" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="OID of record that was updated.  This could be a foreign key to ANA_OBJECT, but then we couldn\at keep history for deleted IDs.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3924" ColName="LOG_COLUMN_NAME" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(64)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of database column that was updated.  Maximum 64 characters in a MySQL column name.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3925" ColName="LOG_OLD_VALUE" PrevColName="" Pos="6" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Old value of column expressed as a character string.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3369" ColName="LOG_COMMENTS" PrevColName="ALOG_COMMENTS" Pos="2" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Comments on this update.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="3958" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3367" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3366" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3727" IndexName="ALOG_LOGGED_OID_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3371" LengthParam="0" />
+<INDEXCOLUMN idColumn="3924" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3991" IndexName="ANA_LOG_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3958">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3992" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3404" Tablename="ANA_DELETED_PUBLIC_ID" PrevTableName="Table_28" XPos="286" YPos="737" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Keeps a history of deleted public IDs so that we can direct queries that use them to what they have been replaced with.  This table is meant to keep only a history of deleted PUBLIC IDs, not deleted internal IDs.  " Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="17" >
+<COLUMNS>
+<COLUMN ID="3406" ColName="DPI_DELETED_PUBLIC_ID" PrevColName="ADPID_PUBLIC_ID" Pos="0" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Public ID that has been deleted from the DB">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3829" ColName="DPI_EDITOR_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Editor who deleted the ID">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3828" ColName="DPI_REASON_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Reason the ID was deleted.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3724" ColName="DPI_DATETIME" PrevColName="ADEL_DATETIME" Pos="4" idDatatype="15" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="When the delete was done.  This can be compared with the datetime on the version to determine which version this delete happened in.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3410" ColName="DPI_COMMENTS" PrevColName="ADPID_COMMENTS" Pos="3" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Optional comments on why this was deleted.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3426" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="3415" />
+<RELATION_END ID="3549" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3407" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3406" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3917" IndexName="ANA_DELETED_PUBLIC_ID_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3415">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3828" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3918" IndexName="ANA_DELETED_PUBLIC_ID_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3549">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3829" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3411" Tablename="ANA_DELETE_REASON" PrevTableName="Table_29" XPos="56" YPos="764" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="There are a limited number of reasons why a public ID can be deleted.  This table defines those reasons." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" >
+<COLUMNS>
+<COLUMN ID="3413" ColName="DRE_NAME" PrevColName="ADREASON_NAME" Pos="0" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Short text reason for delete.  Can be diplayed.  Examples are \Amerged\A, \Asplit\A, \Adeleted\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3715" ColName="DRE_COMMENTS" PrevColName="ADREASON_COMMENTS" Pos="1" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Description of reason.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3415" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3414" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3413" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3418" Tablename="ANA_REPLACED_BY" PrevTableName="Table_30" XPos="565" YPos="802" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Tables lists what public ID(s) replaced a deleted public ID.  We keep track of this information so that we can redirect users who are using the old IDs." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="19" >
+<COLUMNS>
+<COLUMN ID="3422" ColName="RPL_NEW_PUBLIC_ID" PrevColName="ADPIDL_NEW_PUBLIC_ID" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="(One of) the public ID(s) that replaced it, if it was replaced.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3832" ColName="RPL_OLD_PUBLIC_ID" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(20)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Public ID that was replaced.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="3426" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3425" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3422" LengthParam="0" />
+<INDEXCOLUMN idColumn="3832" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3919" IndexName="ANA_REPLACED_BY_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3426">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3832" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3534" Tablename="ANA_EDITOR" PrevTableName="Table_26" XPos="565" YPos="729" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Defines editors in the database.  Initially, the list of editors comes entirely from the lineage annotation in the CIOF file.  There are only 3 editors to begin with." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="20" >
+<COLUMNS>
+<COLUMN ID="3799" ColName="EDI_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Persistent, unique database wide ID of the editor.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3543" ColName="EDI_NAME" PrevColName="AEDITOR_SURNAME" Pos="1" idDatatype="20" DatatypeParams="(50)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of editor">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3549" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="3536" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3800" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3799" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3545" IndexName="ANA_EDITOR_NAME_INDEX" IndexKind="2" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3543" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3920" IndexName="ANA_EDITOR_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3536">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3799" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3643" Tablename="ANA_SOURCE_FORMAT" PrevTableName="Table_26" XPos="1065" YPos="668" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="I thought about other names for the table: source_type, source_medium.  Still looking for a better name." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="21" >
+<COLUMNS>
+<COLUMN ID="3645" ColName="SFM_NAME" PrevColName="ASRCFORM_NAME" Pos="0" idDatatype="20" DatatypeParams="(30)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Type of source, e.g. \Abook\A, \Ajournal article\A, \Apersonal communication\A">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3647" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3646" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3645" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3655" Tablename="ANA_EVIDENCE" PrevTableName="Table_27" XPos="842" YPos="665" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="This is a qualifier on the type of evidence that exists in a source.  Initially, there is only one value." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="22" >
+<COLUMNS>
+<COLUMN ID="3658" ColName="EVI_NAME" PrevColName="AEVIDENCE_NAME" Pos="0" idDatatype="20" DatatypeParams="(50)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of evidence type.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3660" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3659" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3658" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3927" Tablename="ANA_PERSPECTIVE" PrevTableName="Table_22" XPos="54" YPos="77" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Perspectives are particular views of subsets of the anatomy.   Initially they are used to display only parts of the anatomy graph instead of the whole darn thing.  \n\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="23" >
+<COLUMNS>
+<COLUMN ID="3929" ColName="PSP_NAME" PrevColName="" Pos="0" idDatatype="20" DatatypeParams="(25)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Name of perspective.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3956" ColName="PSP_COMMENTS" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(1024)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Description of perspective">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="3941" />
+<RELATION_START ID="4023" />
+<RELATION_START ID="4077" />
+</RELATIONS_START>
+<INDICES>
+<INDEX ID="3930" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3929" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="3931" Tablename="ANA_NODE_IN_PERSPECTIVE" PrevTableName="Table_23" XPos="329" YPos="40" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="THIS TABLE IS DEPRECATED.  IT HAS BEEN REPLACED BY ANA_PERSPECTIVE_AMBIT.  THIS TABLE WILL BE DROPPED IN VERSION 5.\n\nDefines what nodes participate in what perspectives.\n\nInitially, perspective membership lists are minimal.  You pick the nodes from the anatomy you want to be in the perspective.  All parent and child nodes of the selected nodes are then assumed to also be in the perspective.  As long as this model works, the minimal membership lists will work well." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="24" >
+<COLUMNS>
+<COLUMN ID="3933" ColName="NIP_OID" PrevColName="" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="Unique ID of this row.  This is not unique across the database.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3944" ColName="NIP_PERSPECTIVE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(25)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Perspective the node is a part of.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3945" ColName="NIP_NODE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Node that is a part of the perspective.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="3935" />
+<RELATION_END ID="3941" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="3934" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3933" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3937" IndexName="ANA_NODE_IN_PERSPECTIVE_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3935">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3945" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="3943" IndexName="ANA_NODE_IN_PERSPECTIVE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3941">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="3944" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="4014" Tablename="ANAD_PART_OF_PERSPECTIVE" PrevTableName="Table_24" XPos="20" YPos="289" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="A derived table supporting quick lookup of what ANAD_PART_OF records belong to each perspective." Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" >
+<COLUMNS>
+<COLUMN ID="4026" ColName="POP_PERSPECTIVE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(25)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Perspective that APO record is in.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4027" ColName="POP_APO_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="APO record that is a part of perspective.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4103" ColName="POP_IS_ANCESTOR" PrevColName="" Pos="3" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True if this APO is not part of the perspective and is included here only to give context for nodes that are in the perspective.  If your application wants to see only APOs that are contained in the perspective then exclude ancestor records.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4064" ColName="POP_NODE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Included here to speed up/simplify using this table.  \kstrong\gNote: This should be a foreign key pointing at APO_NODE_FK, but I couldn\at get that to work in MySQL\k/strong\g">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="4019" />
+<RELATION_END ID="4023" />
+<RELATION_END ID="4061" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="4022" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4026" LengthParam="0" />
+<INDEXCOLUMN idColumn="4027" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4021" IndexName="ANAD_PART_OF_PERSPECTIVE_FKIndex1" IndexKind="1" FKRefDef_Obj_id="4019">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4027" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4025" IndexName="ANAD_PART_OF_PERSPECTIVE_FKIndex2" IndexKind="1" FKRefDef_Obj_id="4023">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4026" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4063" IndexName="ANAD_PART_OF_PERSPECTIVE_FKIndex3" IndexKind="1" FKRefDef_Obj_id="4061">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4064" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+<TABLE ID="4069" Tablename="ANA_PERSPECTIVE_AMBIT" PrevTableName="Table_25" XPos="227" YPos="129" TableType="1" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="Defines the nodes that form the boundary of the perspective.  The boundary is the minimal defintion of what nodes are in a perspective.  Nodes in the boundary are part of the perspective.\n\nBoundary nodes are defined as START nodes, STOP nodes, or both:\n\kul\g\kli\gSTART: Define the top of the perspective.  The perspective includes START nodes plus their descendents.  Every perspective must have at least one START node\k/li\g\n\kli\gSTOP: Define the bottom (or lower limit) of the perspecitve.  This says \Ainclude this node in the perspective, but none of its children.\A  STOP nodes are optional.  If they are present then they must be descendants of al least one of the START nodes.\k/li\g\n\kli\gSTART and STOP:  It is possible for a node to be both a START and a STOP node.  This says \Ainclude this node, but none of its children.  This is useful for creating a flat list of terms.\k/li\g\k/ul\g\n\nSTART nodes tend to be towards the top of the anatomy and therefore tend to be few in number.  STOP nodes, if present tend to be lower in the anatomy and can therefore be much more numerous.  If a perspective contains only START nodes then every descendant of every start node is included in the perspective.\n\nANAD_PART_OF_PERSPECTIVE.POP_IS_ANCESTOR for how ancestor nodes of START nodes can be used with perspectives, if you want to.\n\kul\g\kli\gAncestor nodes are not part of the perspective.\k/li\g\n\kli\gHowever, include the ancestor nodes along the primary path (meaning no group paths) to all START nodes in the derived ANAD_PART_OF_PERSPECTIVE table.  However, flag them as non-member primary path ancestor nodes\k/li\g\n\kli\gIt is then up to the application if it wants to display the ancestor nodes or not, and if so, if it wants to treat them differently.\k/li\g\k/ul\g\n \n\n" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="26" >
+<COLUMNS>
+<COLUMN ID="4075" ColName="PAM_OID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Unique OID for this record.  This is persistent across database versions and is unique across the database.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4084" ColName="PAM_PERSPECTIVE_FK" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(25)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="Name of perspective that this node defines a border point for.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4083" ColName="PAM_NODE_FK" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="OID of node that forms part of the perspective\as ambit.  That is, this node is part of this perspective\as border.  Nodes in the border are part of the perspective.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4086" ColName="PAM_IS_START" PrevColName="" Pos="3" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True: This node forms part (or all) of the upper border of the perspective.. ">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4087" ColName="PAM_IS_STOP" PrevColName="" Pos="4" idDatatype="22" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="True: This node forms part of the lower border of the perspective.">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="4089" ColName="PAM_COMMENTS" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(255)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Why this node is a start and/or stop node in this perspective.">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="4071" />
+<RELATION_END ID="4077" />
+<RELATION_END ID="4080" />
+</RELATIONS_END>
+<INDICES>
+<INDEX ID="4076" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4075" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4073" IndexName="ANA_PERSPECTIVE_AMBIT_FKIndex1" IndexKind="1" FKRefDef_Obj_id="4071">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4075" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4079" IndexName="ANA_PERSPECTIVE_AMBIT_FKIndex2" IndexKind="1" FKRefDef_Obj_id="4077">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4084" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4082" IndexName="ANA_PERSPECTIVE_AMBIT_FKIndex3" IndexKind="1" FKRefDef_Obj_id="4080">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4083" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="4091" IndexName="PAM_AK_INDEX" IndexKind="1" FKRefDef_Obj_id="-1">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="4084" LengthParam="0" />
+<INDEXCOLUMN idColumn="4083" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+</INDICES>
+</TABLE>
+</TABLES>
+<RELATIONS>
+<RELATION ID="2357" RelationName="Rel_15" Kind="2" SrcTable="2264" DestTable="2346" FKFields="STG_OID=ATN_STAGE_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="-29" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3885" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
+<RELATION ID="2407" RelationName="Rel_18" Kind="2" SrcTable="2264" DestTable="2401" FKFields="STG_OID=APO_NODE_START_STAGE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="49" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3889" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="28" />
+<RELATION ID="2528" RelationName="Rel_12" Kind="2" SrcTable="2517" DestTable="2264" FKFields="RSP_NAME=STG_SPECIES_FK\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4034" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="29" />
+<RELATION ID="2755" RelationName="Rel_33" Kind="2" SrcTable="2249" DestTable="2722" FKFields="RTY_NAME=REL_RELATIONSHIP_TYPE_FK\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3900" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="30" />
+<RELATION ID="2955" RelationName="Rel_31" Kind="2" SrcTable="2945" DestTable="2346" FKFields="SMO_NAME=ATN_STAGE_MODIFIER_FK\n" FKFieldsComments="\n" relDirection="3" MidOffset="-1" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3886" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="31" />
+<RELATION ID="2974" RelationName="Rel_34" Kind="2" SrcTable="2249" DestTable="2916" FKFields="RTY_NAME=RTR_RELATIONSHIP_TYPE_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3904" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="32" />
+<RELATION ID="3175" RelationName="Rel_33" Kind="2" SrcTable="2517" DestTable="2317" FKFields="RSP_NAME=ANO_SPECIES_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4035" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="33" />
+<RELATION ID="3215" RelationName="stg_obj" Kind="4" SrcTable="3166" DestTable="2264" FKFields="OBJ_OID=STG_OID\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3882" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="34" />
+<RELATION ID="3234" RelationName="anode_obj" Kind="4" SrcTable="3166" DestTable="2317" FKFields="OBJ_OID=ANO_OID\n" FKFieldsComments="\n" relDirection="4" MidOffset="-13" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="-2" EndIntervalOffsetY="1" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3884" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="35" />
+<RELATION ID="3236" RelationName="asyn_obj" Kind="4" SrcTable="3166" DestTable="2597" FKFields="OBJ_OID=SYN_OID\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3898" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="36" />
+<RELATION ID="3241" RelationName="atn_obj" Kind="4" SrcTable="3166" DestTable="2346" FKFields="OBJ_OID=ATN_OID\n" FKFieldsComments="\n" relDirection="4" MidOffset="7" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3887" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="37" />
+<RELATION ID="3254" RelationName="Rel_48" Kind="2" SrcTable="2264" DestTable="2401" FKFields="STG_OID=APO_NODE_END_STAGE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="51" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3890" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="38" />
+<RELATION ID="3257" RelationName="Rel_49" Kind="2" SrcTable="2317" DestTable="2401" FKFields="ANO_OID=APO_NODE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3891" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="39" />
+<RELATION ID="3270" RelationName="Rel_38" Kind="2" SrcTable="3166" DestTable="2722" FKFields="OBJ_OID=REL_PARENT_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="23" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3901" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="40" />
+<RELATION ID="3273" RelationName="Rel_39" Kind="2" SrcTable="3166" DestTable="2722" FKFields="OBJ_OID=REL_CHILD_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="38" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3902" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="41" />
+<RELATION ID="3275" RelationName="Rel_40" Kind="2" SrcTable="3166" DestTable="2916" FKFields="OBJ_OID=RTR_ANCESTOR_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="-20" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3905" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="42" />
+<RELATION ID="3278" RelationName="Rel_41" Kind="2" SrcTable="3166" DestTable="2916" FKFields="OBJ_OID=RTR_DESCENDENT_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="-2" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3906" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="43" />
+<RELATION ID="3289" RelationName="arel_obj" Kind="4" SrcTable="3166" DestTable="2722" FKFields="OBJ_OID=REL_OID\n" FKFieldsComments="\n" relDirection="2" MidOffset="18" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="1" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3903" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="44" />
+<RELATION ID="3330" RelationName="attrib_obj" Kind="4" SrcTable="3166" DestTable="3328" FKFields="OBJ_OID=ATR_OID\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3907" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="45" />
+<RELATION ID="3335" RelationName="Rel_48" Kind="2" SrcTable="3166" DestTable="3328" FKFields="OBJ_OID=ATR_OBJECT_FK\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3908" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="46" />
+<RELATION ID="3339" RelationName="asrc_obj" Kind="4" SrcTable="3166" DestTable="3337" FKFields="OBJ_OID=SRC_OID\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3911" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="47" />
+<RELATION ID="3343" RelationName="Rel_50" Kind="2" SrcTable="3337" DestTable="3328" FKFields="SRC_OID=ATR_SOURCE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3909" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="48" />
+<RELATION ID="3415" RelationName="Rel_58" Kind="2" SrcTable="3411" DestTable="3404" FKFields="DRE_NAME=DPI_REASON_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3917" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="49" />
+<RELATION ID="3426" RelationName="Rel_59" Kind="1" SrcTable="3404" DestTable="3418" FKFields="DPI_DELETED_PUBLIC_ID=RPL_OLD_PUBLIC_ID\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3919" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="50" />
+<RELATION ID="3444" RelationName="Rel_60" Kind="2" SrcTable="3166" DestTable="2597" FKFields="OBJ_OID=SYN_OBJECT_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3899" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="51" />
+<RELATION ID="3473" RelationName="Rel_40" Kind="2" SrcTable="2517" DestTable="2401" FKFields="RSP_NAME=APO_SPECIES_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4036" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="52" />
+<RELATION ID="3536" RelationName="aeditor_obj" Kind="4" SrcTable="3166" DestTable="3534" FKFields="OBJ_OID=EDI_OID\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3920" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="53" />
+<RELATION ID="3549" RelationName="Rel_43" Kind="2" SrcTable="3534" DestTable="3404" FKFields="EDI_OID=DPI_EDITOR_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3918" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="54" />
+<RELATION ID="3628" RelationName="Rel_45" Kind="2" SrcTable="2317" DestTable="2346" FKFields="ANO_OID=ATN_NODE_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3888" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="55" />
+<RELATION ID="3647" RelationName="Rel_45" Kind="2" SrcTable="3643" DestTable="3337" FKFields="SFM_NAME=SRC_FORMAT_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3912" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="56" />
+<RELATION ID="3660" RelationName="Rel_46" Kind="2" SrcTable="3655" DestTable="3328" FKFields="EVI_NAME=ATR_EVIDENCE_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3910" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="57" />
+<RELATION ID="3935" RelationName="Rel_33" Kind="2" SrcTable="2317" DestTable="3931" FKFields="ANO_OID=NIP_NODE_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="1" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3937" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="58" />
+<RELATION ID="3941" RelationName="Rel_35" Kind="2" SrcTable="3927" DestTable="3931" FKFields="PSP_NAME=NIP_PERSPECTIVE_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="Perspective the node is a part of." FKRefDefIndex_Obj_id="3943" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="59" />
+<RELATION ID="3958" RelationName="Rel_36" Kind="2" SrcTable="3292" DestTable="3364" FKFields="VER_OID=LOG_VERSION_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3991" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="60" />
+<RELATION ID="3969" RelationName="ver_obj" Kind="4" SrcTable="3166" DestTable="3292" FKFields="OBJ_OID=VER_OID\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3971" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="61" />
+<RELATION ID="3978" RelationName="Rel_37" Kind="2" SrcTable="2264" DestTable="2401" FKFields="STG_OID=APO_PATH_START_STAGE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="50" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3980" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="62" />
+<RELATION ID="3984" RelationName="Rel_38" Kind="2" SrcTable="2264" DestTable="2401" FKFields="STG_OID=APO_PATH_END_STAGE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="50" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3986" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="63" />
+<RELATION ID="4019" RelationName="Rel_40" Kind="1" SrcTable="2401" DestTable="4014" FKFields="APO_OID=POP_APO_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4021" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="64" />
+<RELATION ID="4023" RelationName="Rel_41" Kind="1" SrcTable="3927" DestTable="4014" FKFields="PSP_NAME=POP_PERSPECTIVE_FK\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4025" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="65" />
+<RELATION ID="4061" RelationName="POP_NODE_FK" Kind="2" SrcTable="2317" DestTable="4014" FKFields="ANO_OID=POP_NODE_FK\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=1\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4063" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="66" />
+<RELATION ID="4065" RelationName="Rel_41" Kind="2" SrcTable="2401" DestTable="2401" FKFields="APO_OID=APO_PARENT_APO_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="23" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4067" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="67" />
+<RELATION ID="4071" RelationName="pam_obj" Kind="1" SrcTable="3166" DestTable="4069" FKFields="OBJ_OID=PAM_OID\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4073" Splitted="1" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="68" />
+<RELATION ID="4077" RelationName="Rel_43" Kind="2" SrcTable="3927" DestTable="4069" FKFields="PSP_NAME=PAM_PERSPECTIVE_FK\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4079" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="69" />
+<RELATION ID="4080" RelationName="Rel_44" Kind="2" SrcTable="2317" DestTable="4069" FKFields="ANO_OID=PAM_NODE_FK\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="4082" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="70" />
+</RELATIONS>
+<NOTES>
+<NOTE ID="2362" NoteName="Note_01" XPos="36" YPos="901" NoteText="Known defficiences:\n1. This design complely ignores images and spatial mapping.  My belief is that these can be added later without significantly changing the foundation described here.\n\nDerived tables start with ANAD_.  They exist to speed and simplify SQL:\n  ANAD_PART_OF\n  ANAD_PART_OF_PERSPECTIVE\n  ANAD_RELATIONSHIP_TRANSTIVE\n\nThese core tables describe anatomy\nANA_STAGE: The single canonical staging series for a species.\nANA_NODE:  Nodes in the anatomy graph.  \nANA_TIMED_NODE:  Instances of ANA_NODE for each stage that the node exists in.\nANA_RELATIONSHIP:  binary ordered relationships between nodes, and between timed nodes.\n" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="71" />
+<NOTE ID="2867" NoteName="Note_02" XPos="731" YPos="47" NoteText="Anatomy database design for GMERG databases.\nAnatomy Database Version: 4\n" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="72" />
+</NOTES>
+<IMAGES>
+<IMAGE ID="2944" ImageName="Image_01" XPos="21" YPos="344" Width="1" Height="1" StrechImg="1" ImgWidth="0" ImgHeight="0" ImgFormat="BMP" ImgData="" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="73" />
+</IMAGES>
+</METADATA>
+<PLUGINDATA>
+<PLUGINDATARECORDS>
+<PLUGINDATARECORD PluginName="HTMLReport" Obj_id="-1" DataValue="nil">
+<PLUGINDATAPARAMS>
+<PLUGINDATAPARAM Value="SelectedTables=anatomy;anatomy_relationship;anatomy_relationship_category;stage;anatomy_display;anatomy_path;anatomy_path_stage;anatomy_term;alternative_stage;species;ANA_NODE;ANA_COMPONENT;ANA_ALTERNATIVE_STAGE;ANA_ALTERNATIVE_STAGE_SERIES;ANA_COMPONENT_SYNONYM;ANA_DISPLAY;ANA_NODE_RELATIONSHIP;ANA_NODE_SYNONYM;ANA_RELATIONSHIP;ANA_RELATIONSHIP_TRANSITIVE;ANA_RELATIONSHIP_TYPE;ANA_STAGE;ANA_STAGE_MODIFIER;ANA_SYNONYM;ANA_TIMED_NODE;ANA_TIMED_NODE_RELATIONSHIP;REF_SPECIES;ANA_ATTRIBUTION;ANA_DELETED_PUBLIC_ID;ANA_DELETE_REASON;ANA_EDITOR;ANA_EVIDENCE;ANA_LOG;ANA_LOG_DETAIL;ANA_LOG_FORM;ANA_LOG_FORM_FIELD;ANA_OBJECT;ANA_PART_OF_DERIVED;ANA_RELATIONSHIP_TRANSITIVE_DERIVED;ANA_REPLACED_BY;ANA_SOURCE;ANA_SOURCE_FORMAT;ANA_VERSION;ANAD_PART_OF;ANAD_RELATIONSHIP_TRANSITIVE;ANA_NODE_IN_PERSPECTIVE;ANA_PERSPECTIVE;ANAD_PART_OF_PERSPECTIVE;ANA_PERSPECTIVE_AMBIT;" />
+</PLUGINDATAPARAMS>
+</PLUGINDATARECORD>
+</PLUGINDATARECORDS>
+</PLUGINDATA>
+<QUERYDATA>
+<QUERYRECORDS>
+</QUERYRECORDS>
+</QUERYDATA>
+<LINKEDMODELS>
+</LINKEDMODELS>
+</DBMODEL>

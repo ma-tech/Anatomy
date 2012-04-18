@@ -1,0 +1,39 @@
+{
+    "node": {
+        "children": [
+            {
+                "node": {
+                    "children": [
+                        {
+                            "node": {
+                                "nodeId": "3"
+                            }
+                        }, 
+                        {
+                            "node": {
+                                "nodeId": "4"
+                            }
+                        }
+                    ], 
+                    "nodeId": "2"
+                }
+            }, 
+            {
+                "node": {
+                    "nodeId": "5"
+                }
+            }, 
+            {
+                "node": {
+                    "nodeId": "6"
+                }
+            }, 
+            {
+                "node": {
+                    "nodeId": "7"
+                }
+            }
+        ], 
+        "nodeId": "1"
+    }
+}

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mouseAnatomyReport>
+  <anatomyDatabaseVersion date="2007-02-20 15:35:21" number="4"/>
+  <perspective>Whole mouse</perspective>
+  <stage>TS11</stage>
+  <excludingGroupsTree>
+    <timedComponent emapId="EMAP:25776">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:148">
+        <name>cavities and their linings</name>
+        <emapaId>EMAPA:16060</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:149">
+          <name>intraembryonic coelom</name>
+          <emapaId>EMAPA:16088</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>future pericardial component</synonym>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:150">
+        <name>ectoderm</name>
+        <emapaId>EMAPA:16069</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <synonym>epithelium</synonym>
+        <timedComponent emapId="EMAP:151">
+          <name>neural ectoderm</name>
+          <emapaId>EMAPA:16073</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:152">
+            <name>future brain</name>
+            <emapaId>EMAPA:16089</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:153">
+              <name>neural fold</name>
+              <emapaId>EMAPA:16090</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+              <synonym>cephalic neural fold</synonym>
+              <timedComponent emapId="EMAP:154">
+                <name>neural crest</name>
+                <emapaId>EMAPA:16091</emapaId>
+                <groupPathStatus>notInGroupPath</groupPathStatus>
+                <synonym>cephalic neural crest</synonym>
+              </timedComponent>
+            </timedComponent>
+          </timedComponent>
+          <timedComponent emapId="EMAP:155">
+            <name>future spinal cord</name>
+            <emapaId>EMAPA:16092</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:156">
+              <name>neural fold</name>
+              <emapaId>EMAPA:16093</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+              <timedComponent emapId="EMAP:157">
+                <name>neural crest</name>
+                <emapaId>EMAPA:16094</emapaId>
+                <groupPathStatus>notInGroupPath</groupPathStatus>
+              </timedComponent>
+            </timedComponent>
+            <timedComponent emapId="EMAP:158">
+              <name>neural plate</name>
+              <emapaId>EMAPA:16095</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:159">
+          <name>surface ectoderm</name>
+          <emapaId>EMAPA:16096</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>surface epithelium</synonym>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:160">
+        <name>endoderm</name>
+        <emapaId>EMAPA:16062</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:161">
+          <name>definitive endoderm</name>
+          <emapaId>EMAPA:16070</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>embryonic endoderm</synonym>
+        </timedComponent>
+        <timedComponent emapId="EMAP:162">
+          <name>primitive endoderm</name>
+          <emapaId>EMAPA:16063</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>hypoblast</synonym>
+          <synonym>primary endoderm</synonym>
+          <synonym>proximal endoderm</synonym>
+          <synonym>visceral endoderm</synonym>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:176">
+        <name>extraembryonic component</name>
+        <emapaId>EMAPA:16042</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:177">
+          <name>allantois</name>
+          <emapaId>EMAPA:16107</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>allantoic bud</synonym>
+          <timedComponent emapId="EMAP:178">
+            <name>mesoderm</name>
+            <emapaId>EMAPA:16108</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:179">
+          <name>amnion</name>
+          <emapaId>EMAPA:16109</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:180">
+            <name>ectoderm</name>
+            <emapaId>EMAPA:16110</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:181">
+            <name>mesoderm</name>
+            <emapaId>EMAPA:16111</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:182">
+          <name>cavities</name>
+          <emapaId>EMAPA:16054</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:183">
+            <name>amniotic cavity</name>
+            <emapaId>EMAPA:16079</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:184">
+            <name>ectoplacental cavity</name>
+            <emapaId>EMAPA:16080</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:185">
+            <name>exocoelomic cavity</name>
+            <emapaId>EMAPA:16081</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <synonym>extra-embryonic coelomic cavity</synonym>
+          </timedComponent>
+          <timedComponent emapId="EMAP:186">
+            <name>yolk sac cavity</name>
+            <emapaId>EMAPA:16055</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:187">
+          <name>chorion</name>
+          <emapaId>EMAPA:16112</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:188">
+            <name>ectoderm</name>
+            <emapaId>EMAPA:16113</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:189">
+            <name>mesoderm</name>
+            <emapaId>EMAPA:16114</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:190">
+          <name>endoderm</name>
+          <emapaId>EMAPA:16052</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:191">
+            <name>intermediate endoderm</name>
+            <emapaId>EMAPA:16056</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:192">
+            <name>parietal endoderm</name>
+            <emapaId>EMAPA:16053</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <synonym>distal endoderm</synonym>
+            <timedComponent emapId="EMAP:193">
+              <name>Reichert's membrane</name>
+              <emapaId>EMAPA:16057</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+            </timedComponent>
+          </timedComponent>
+          <timedComponent emapId="EMAP:194">
+            <name>visceral endoderm</name>
+            <emapaId>EMAPA:16058</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:195">
+          <name>trophectoderm</name>
+          <emapaId>EMAPA:16046</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:196">
+            <name>mural trophectoderm</name>
+            <emapaId>EMAPA:16047</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:197">
+              <name>primary trophoblast giant cells</name>
+              <emapaId>EMAPA:16066</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+              <synonym>primary trophoblastic giant cells</synonym>
+            </timedComponent>
+          </timedComponent>
+          <timedComponent emapId="EMAP:198">
+            <name>polar trophectoderm</name>
+            <emapaId>EMAPA:16048</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:199">
+              <name>ectoplacental cone</name>
+              <emapaId>EMAPA:16059</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+              <timedComponent emapId="EMAP:200">
+                <name>cytotrophoblast</name>
+                <emapaId>EMAPA:16067</emapaId>
+                <groupPathStatus>notInGroupPath</groupPathStatus>
+              </timedComponent>
+              <timedComponent emapId="EMAP:201">
+                <name>syncytiotrophoblast</name>
+                <emapaId>EMAPA:16068</emapaId>
+                <groupPathStatus>notInGroupPath</groupPathStatus>
+              </timedComponent>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:202">
+          <name>yolk sac</name>
+          <emapaId>EMAPA:16085</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:203">
+            <name>endoderm</name>
+            <emapaId>EMAPA:16086</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+          <timedComponent emapId="EMAP:204">
+            <name>mesoderm</name>
+            <emapaId>EMAPA:16087</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:205">
+              <name>blood island</name>
+              <emapaId>EMAPA:16115</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+            </timedComponent>
+            <timedComponent emapId="EMAP:206">
+              <name>primordial germ cells</name>
+              <emapaId>EMAPA:16116</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:163">
+        <name>mesenchyme</name>
+        <emapaId>EMAPA:16097</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:164">
+          <name>head mesenchyme</name>
+          <emapaId>EMAPA:16098</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:165">
+            <name>mesenchyme derived from head mesoderm</name>
+            <emapaId>EMAPA:16099</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:15246">
+              <name>mesenchyme derived from somites 01-04</name>
+              <emapaId>EMAPA:25356</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+            </timedComponent>
+          </timedComponent>
+          <timedComponent emapId="EMAP:166">
+            <name>mesenchyme derived from neural-crest</name>
+            <emapaId>EMAPA:16100</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+          </timedComponent>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:167">
+        <name>mesoderm</name>
+        <emapaId>EMAPA:16071</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:168">
+        <name>notochordal plate</name>
+        <emapaId>EMAPA:16101</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:169">
+        <name>notochordal process</name>
+        <emapaId>EMAPA:16102</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <synonym>head process</synonym>
+      </timedComponent>
+      <timedComponent emapId="EMAP:174">
+        <name>primitive streak</name>
+        <emapaId>EMAPA:16072</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:175">
+          <name>node</name>
+          <emapaId>EMAPA:16075</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <synonym>Hensen's node</synonym>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:170">
+        <name>organ system</name>
+        <emapaId>EMAPA:16103</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:171">
+          <name>cardiovascular system</name>
+          <emapaId>EMAPA:16104</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+          <timedComponent emapId="EMAP:172">
+            <name>heart</name>
+            <emapaId>EMAPA:16105</emapaId>
+            <groupPathStatus>notInGroupPath</groupPathStatus>
+            <timedComponent emapId="EMAP:173">
+              <name>cardiogenic plate</name>
+              <emapaId>EMAPA:16106</emapaId>
+              <groupPathStatus>notInGroupPath</groupPathStatus>
+              <synonym>heart rudiment</synonym>
+              <synonym>myocardial plate</synonym>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+      </timedComponent>
+    </timedComponent>
+  </excludingGroupsTree>
+  <onlyGroupsTree>
+    <groupStatusKey>
+      <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
+      <groupStatus status="isGroup">Term a group.</groupStatus>
+      <groupStatus status="isGroupDirectDescendant">Term is directly contained in a group.</groupStatus>
+      <groupStatus status="isGroupIndirectDescendant">Term is indirectly contained in a group.</groupStatus>
+    </groupStatusKey>
+    <timedComponent emapId="EMAP:25776">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:147">
+        <name>embryo</name>
+        <emapaId>EMAPA:16039</emapaId>
+        <groupPathStatus>isGroup</groupPathStatus>
+        <timedComponent emapId="EMAP:148">
+          <name>cavities and their linings</name>
+          <emapaId>EMAPA:16060</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <timedComponent emapId="EMAP:149">
+            <name>intraembryonic coelom</name>
+            <emapaId>EMAPA:16088</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <synonym>future pericardial component</synonym>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:150">
+          <name>ectoderm</name>
+          <emapaId>EMAPA:16069</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <synonym>epithelium</synonym>
+          <timedComponent emapId="EMAP:151">
+            <name>neural ectoderm</name>
+            <emapaId>EMAPA:16073</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <timedComponent emapId="EMAP:152">
+              <name>future brain</name>
+              <emapaId>EMAPA:16089</emapaId>
+              <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              <timedComponent emapId="EMAP:153">
+                <name>neural fold</name>
+                <emapaId>EMAPA:16090</emapaId>
+                <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+                <synonym>cephalic neural fold</synonym>
+                <timedComponent emapId="EMAP:154">
+                  <name>neural crest</name>
+                  <emapaId>EMAPA:16091</emapaId>
+                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+                  <synonym>cephalic neural crest</synonym>
+                </timedComponent>
+              </timedComponent>
+            </timedComponent>
+            <timedComponent emapId="EMAP:155">
+              <name>future spinal cord</name>
+              <emapaId>EMAPA:16092</emapaId>
+              <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              <timedComponent emapId="EMAP:156">
+                <name>neural fold</name>
+                <emapaId>EMAPA:16093</emapaId>
+                <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+                <timedComponent emapId="EMAP:157">
+                  <name>neural crest</name>
+                  <emapaId>EMAPA:16094</emapaId>
+                  <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+                </timedComponent>
+              </timedComponent>
+              <timedComponent emapId="EMAP:158">
+                <name>neural plate</name>
+                <emapaId>EMAPA:16095</emapaId>
+                <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              </timedComponent>
+            </timedComponent>
+          </timedComponent>
+          <timedComponent emapId="EMAP:159">
+            <name>surface ectoderm</name>
+            <emapaId>EMAPA:16096</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <synonym>surface epithelium</synonym>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:160">
+          <name>endoderm</name>
+          <emapaId>EMAPA:16062</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <timedComponent emapId="EMAP:161">
+            <name>definitive endoderm</name>
+            <emapaId>EMAPA:16070</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <synonym>embryonic endoderm</synonym>
+          </timedComponent>
+          <timedComponent emapId="EMAP:162">
+            <name>primitive endoderm</name>
+            <emapaId>EMAPA:16063</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <synonym>hypoblast</synonym>
+            <synonym>primary endoderm</synonym>
+            <synonym>proximal endoderm</synonym>
+            <synonym>visceral endoderm</synonym>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:163">
+          <name>mesenchyme</name>
+          <emapaId>EMAPA:16097</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <timedComponent emapId="EMAP:164">
+            <name>head mesenchyme</name>
+            <emapaId>EMAPA:16098</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <timedComponent emapId="EMAP:165">
+              <name>mesenchyme derived from head mesoderm</name>
+              <emapaId>EMAPA:16099</emapaId>
+              <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              <timedComponent emapId="EMAP:15246">
+                <name>mesenchyme derived from somites 01-04</name>
+                <emapaId>EMAPA:25356</emapaId>
+                <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              </timedComponent>
+            </timedComponent>
+            <timedComponent emapId="EMAP:166">
+              <name>mesenchyme derived from neural-crest</name>
+              <emapaId>EMAPA:16100</emapaId>
+              <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:167">
+          <name>mesoderm</name>
+          <emapaId>EMAPA:16071</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+        </timedComponent>
+        <timedComponent emapId="EMAP:168">
+          <name>notochordal plate</name>
+          <emapaId>EMAPA:16101</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+        </timedComponent>
+        <timedComponent emapId="EMAP:169">
+          <name>notochordal process</name>
+          <emapaId>EMAPA:16102</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <synonym>head process</synonym>
+        </timedComponent>
+        <timedComponent emapId="EMAP:170">
+          <name>organ system</name>
+          <emapaId>EMAPA:16103</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <timedComponent emapId="EMAP:171">
+            <name>cardiovascular system</name>
+            <emapaId>EMAPA:16104</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <timedComponent emapId="EMAP:172">
+              <name>heart</name>
+              <emapaId>EMAPA:16105</emapaId>
+              <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+              <timedComponent emapId="EMAP:173">
+                <name>cardiogenic plate</name>
+                <emapaId>EMAPA:16106</emapaId>
+                <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+                <synonym>heart rudiment</synonym>
+                <synonym>myocardial plate</synonym>
+              </timedComponent>
+            </timedComponent>
+          </timedComponent>
+        </timedComponent>
+        <timedComponent emapId="EMAP:174">
+          <name>primitive streak</name>
+          <emapaId>EMAPA:16072</emapaId>
+          <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+          <timedComponent emapId="EMAP:175">
+            <name>node</name>
+            <emapaId>EMAPA:16075</emapaId>
+            <groupPathStatus>isGroupIndirectDescendant</groupPathStatus>
+            <synonym>Hensen's node</synonym>
+          </timedComponent>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:163">
+        <name>mesenchyme</name>
+        <emapaId>EMAPA:16097</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:170">
+        <name>organ system</name>
+        <emapaId>EMAPA:16103</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+    </timedComponent>
+  </onlyGroupsTree>
+</mouseAnatomyReport>

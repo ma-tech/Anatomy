@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <component name="mouse" id="25776">
+    <stage name="TS11"/>
+    <component isPrimary="true" name="cavities and their linings" id="148">
+      <printName>cavities and their linings</printName>
+      <abbreviation/>
+      <startEmbryoStage>08</startEmbryoStage>
+      <stopEmbryoStage>26</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="intraembryonic coelom" id="149">
+        <printName>cavities and their linings.intraembryonic coelom</printName>
+        <abbreviation/>
+        <synonym>future pericardial component</synonym>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>26</stopEmbryoStage>
+        <parentId>148</parentId>
+      </component>
+      <childrenId>149</childrenId>
+    </component>
+    <childrenId>148</childrenId>
+    <component isPrimary="true" name="ectoderm" id="150">
+      <printName>ectoderm</printName>
+      <abbreviation/>
+      <synonym>epithelium</synonym>
+      <startEmbryoStage>09</startEmbryoStage>
+      <stopEmbryoStage>19</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="neural ectoderm" id="151">
+        <printName>ectoderm.neural ectoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>10</startEmbryoStage>
+        <stopEmbryoStage>13</stopEmbryoStage>
+        <parentId>150</parentId>
+        <component isPrimary="true" name="future brain" id="152">
+          <printName>ectoderm.neural ectoderm.future brain</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>13</stopEmbryoStage>
+          <parentId>151</parentId>
+          <component isPrimary="true" name="neural fold" id="153">
+            <printName>ectoderm.neural ectoderm.future brain.neural fold</printName>
+            <abbreviation/>
+            <synonym>cephalic neural fold</synonym>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>11</stopEmbryoStage>
+            <parentId>152</parentId>
+            <component isPrimary="true" name="neural crest" id="154">
+              <printName>ectoderm.neural ectoderm.future brain.neural fold.neural crest</printName>
+              <abbreviation/>
+              <synonym>cephalic neural crest</synonym>
+              <startEmbryoStage>11</startEmbryoStage>
+              <stopEmbryoStage>11</stopEmbryoStage>
+              <parentId>153</parentId>
+            </component>
+            <childrenId>154</childrenId>
+          </component>
+          <childrenId>153</childrenId>
+        </component>
+        <childrenId>152</childrenId>
+        <component isPrimary="true" name="future spinal cord" id="155">
+          <printName>ectoderm.neural ectoderm.future spinal cord</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>13</stopEmbryoStage>
+          <parentId>151</parentId>
+          <component isPrimary="true" name="neural fold" id="156">
+            <printName>ectoderm.neural ectoderm.future spinal cord.neural fold</printName>
+            <abbreviation/>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>11</stopEmbryoStage>
+            <parentId>155</parentId>
+            <component isPrimary="true" name="neural crest" id="157">
+              <printName>ectoderm.neural ectoderm.future spinal cord.neural fold.neural crest</printName>
+              <abbreviation/>
+              <startEmbryoStage>11</startEmbryoStage>
+              <stopEmbryoStage>11</stopEmbryoStage>
+              <parentId>156</parentId>
+            </component>
+            <childrenId>157</childrenId>
+          </component>
+          <childrenId>156</childrenId>
+          <component isPrimary="true" name="neural plate" id="158">
+            <printName>ectoderm.neural ectoderm.future spinal cord.neural plate</printName>
+            <abbreviation/>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>13</stopEmbryoStage>
+            <parentId>155</parentId>
+          </component>
+          <childrenId>158</childrenId>
+        </component>
+        <childrenId>155</childrenId>
+      </component>
+      <childrenId>151</childrenId>
+      <component isPrimary="true" name="surface ectoderm" id="159">
+        <printName>ectoderm.surface ectoderm</printName>
+        <abbreviation/>
+        <synonym>surface epithelium</synonym>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>19</stopEmbryoStage>
+        <parentId>150</parentId>
+      </component>
+      <childrenId>159</childrenId>
+    </component>
+    <childrenId>150</childrenId>
+    <component isPrimary="true" name="endoderm" id="160">
+      <printName>endoderm</printName>
+      <abbreviation/>
+      <startEmbryoStage>08</startEmbryoStage>
+      <stopEmbryoStage>12</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="definitive endoderm" id="161">
+        <printName>endoderm.definitive endoderm</printName>
+        <abbreviation/>
+        <synonym>embryonic endoderm</synonym>
+        <startEmbryoStage>09</startEmbryoStage>
+        <stopEmbryoStage>11</stopEmbryoStage>
+        <parentId>160</parentId>
+      </component>
+      <childrenId>161</childrenId>
+      <component isPrimary="true" name="primitive endoderm" id="162">
+        <printName>endoderm.primitive endoderm</printName>
+        <abbreviation/>
+        <synonym>hypoblast</synonym>
+        <synonym>primary endoderm</synonym>
+        <synonym>proximal endoderm</synonym>
+        <synonym>visceral endoderm</synonym>
+        <startEmbryoStage>08</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>160</parentId>
+      </component>
+      <childrenId>162</childrenId>
+    </component>
+    <childrenId>160</childrenId>
+    <component isPrimary="true" name="extraembryonic component" id="176">
+      <printName>extraembryonic component</printName>
+      <abbreviation/>
+      <startEmbryoStage>04</startEmbryoStage>
+      <stopEmbryoStage>26</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="allantois" id="177">
+        <printName>extraembryonic component.allantois</printName>
+        <abbreviation/>
+        <synonym>allantoic bud</synonym>
+        <startEmbryoStage>10</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="mesoderm" id="178">
+          <printName>extraembryonic component.allantois.mesoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>177</parentId>
+        </component>
+        <childrenId>178</childrenId>
+      </component>
+      <childrenId>177</childrenId>
+      <component isPrimary="true" name="amnion" id="179">
+        <printName>extraembryonic component.amnion</printName>
+        <abbreviation/>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="ectoderm" id="180">
+          <printName>extraembryonic component.amnion.ectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>179</parentId>
+        </component>
+        <childrenId>180</childrenId>
+        <component isPrimary="true" name="mesoderm" id="181">
+          <printName>extraembryonic component.amnion.mesoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>179</parentId>
+        </component>
+        <childrenId>181</childrenId>
+      </component>
+      <childrenId>179</childrenId>
+      <component isPrimary="true" name="cavities" id="182">
+        <printName>extraembryonic component.cavities</printName>
+        <abbreviation/>
+        <startEmbryoStage>07</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="amniotic cavity" id="183">
+          <printName>extraembryonic component.cavities.amniotic cavity</printName>
+          <abbreviation/>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>182</parentId>
+        </component>
+        <childrenId>183</childrenId>
+        <component isPrimary="true" name="ectoplacental cavity" id="184">
+          <printName>extraembryonic component.cavities.ectoplacental cavity</printName>
+          <abbreviation/>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>182</parentId>
+        </component>
+        <childrenId>184</childrenId>
+        <component isPrimary="true" name="exocoelomic cavity" id="185">
+          <printName>extraembryonic component.cavities.exocoelomic cavity</printName>
+          <abbreviation/>
+          <synonym>extra-embryonic coelomic cavity</synonym>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>182</parentId>
+        </component>
+        <childrenId>185</childrenId>
+        <component isPrimary="true" name="yolk sac cavity" id="186">
+          <printName>extraembryonic component.cavities.yolk sac cavity</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>182</parentId>
+        </component>
+        <childrenId>186</childrenId>
+      </component>
+      <childrenId>182</childrenId>
+      <component isPrimary="true" name="chorion" id="187">
+        <printName>extraembryonic component.chorion</printName>
+        <abbreviation/>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="ectoderm" id="188">
+          <printName>extraembryonic component.chorion.ectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>187</parentId>
+        </component>
+        <childrenId>188</childrenId>
+        <component isPrimary="true" name="mesoderm" id="189">
+          <printName>extraembryonic component.chorion.mesoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>187</parentId>
+        </component>
+        <childrenId>189</childrenId>
+      </component>
+      <childrenId>187</childrenId>
+      <component isPrimary="true" name="endoderm" id="190">
+        <printName>extraembryonic component.endoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>06</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="intermediate endoderm" id="191">
+          <printName>extraembryonic component.endoderm.intermediate endoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>190</parentId>
+        </component>
+        <childrenId>191</childrenId>
+        <component isPrimary="true" name="parietal endoderm" id="192">
+          <printName>extraembryonic component.endoderm.parietal endoderm</printName>
+          <abbreviation/>
+          <synonym>distal endoderm</synonym>
+          <startEmbryoStage>06</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>190</parentId>
+          <component isPrimary="true" name="Reichert's membrane" id="193">
+            <printName>extraembryonic component.endoderm.parietal endoderm.Reichert's membrane</printName>
+            <abbreviation/>
+            <startEmbryoStage>07</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>192</parentId>
+          </component>
+          <childrenId>193</childrenId>
+        </component>
+        <childrenId>192</childrenId>
+        <component isPrimary="true" name="visceral endoderm" id="194">
+          <printName>extraembryonic component.endoderm.visceral endoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>190</parentId>
+        </component>
+        <childrenId>194</childrenId>
+      </component>
+      <childrenId>190</childrenId>
+      <component isPrimary="true" name="trophectoderm" id="195">
+        <printName>extraembryonic component.trophectoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>04</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="mural trophectoderm" id="196">
+          <printName>extraembryonic component.trophectoderm.mural trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>195</parentId>
+          <component isPrimary="true" name="primary trophoblast giant cells" id="197">
+            <printName>extraembryonic component.trophectoderm.mural trophectoderm.primary trophoblast giant cells</printName>
+            <abbreviation/>
+            <synonym>primary trophoblastic giant cells</synonym>
+            <startEmbryoStage>08</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>196</parentId>
+          </component>
+          <childrenId>197</childrenId>
+        </component>
+        <childrenId>196</childrenId>
+        <component isPrimary="true" name="polar trophectoderm" id="198">
+          <printName>extraembryonic component.trophectoderm.polar trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>195</parentId>
+          <component isPrimary="true" name="ectoplacental cone" id="199">
+            <printName>extraembryonic component.trophectoderm.polar trophectoderm.ectoplacental cone</printName>
+            <abbreviation/>
+            <startEmbryoStage>07</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>198</parentId>
+            <component isPrimary="true" name="cytotrophoblast" id="200">
+              <printName>extraembryonic component.trophectoderm.polar trophectoderm.ectoplacental cone.cytotrophoblast</printName>
+              <abbreviation/>
+              <startEmbryoStage>08</startEmbryoStage>
+              <stopEmbryoStage>12</stopEmbryoStage>
+              <parentId>199</parentId>
+            </component>
+            <childrenId>200</childrenId>
+            <component isPrimary="true" name="syncytiotrophoblast" id="201">
+              <printName>extraembryonic component.trophectoderm.polar trophectoderm.ectoplacental cone.syncytiotrophoblast</printName>
+              <abbreviation/>
+              <startEmbryoStage>08</startEmbryoStage>
+              <stopEmbryoStage>12</stopEmbryoStage>
+              <parentId>199</parentId>
+            </component>
+            <childrenId>201</childrenId>
+          </component>
+          <childrenId>199</childrenId>
+        </component>
+        <childrenId>198</childrenId>
+      </component>
+      <childrenId>195</childrenId>
+      <component isPrimary="true" name="yolk sac" id="202">
+        <printName>extraembryonic component.yolk sac</printName>
+        <abbreviation/>
+        <startEmbryoStage>10</startEmbryoStage>
+        <stopEmbryoStage>26</stopEmbryoStage>
+        <parentId>176</parentId>
+        <component isPrimary="true" name="endoderm" id="203">
+          <printName>extraembryonic component.yolk sac.endoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>26</stopEmbryoStage>
+          <parentId>202</parentId>
+        </component>
+        <childrenId>203</childrenId>
+        <component isPrimary="true" name="mesoderm" id="204">
+          <printName>extraembryonic component.yolk sac.mesoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>10</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>202</parentId>
+          <component isPrimary="true" name="blood island" id="205">
+            <printName>extraembryonic component.yolk sac.mesoderm.blood island</printName>
+            <abbreviation/>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>11</stopEmbryoStage>
+            <parentId>204</parentId>
+          </component>
+          <childrenId>205</childrenId>
+          <component isPrimary="true" name="primordial germ cells" id="206">
+            <printName>extraembryonic component.yolk sac.mesoderm.primordial germ cells</printName>
+            <abbreviation/>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>11</stopEmbryoStage>
+            <parentId>204</parentId>
+          </component>
+          <childrenId>206</childrenId>
+        </component>
+        <childrenId>204</childrenId>
+      </component>
+      <childrenId>202</childrenId>
+    </component>
+    <childrenId>176</childrenId>
+    <component isPrimary="true" name="mesenchyme" id="163">
+      <printName>mesenchyme</printName>
+      <abbreviation/>
+      <startEmbryoStage>11</startEmbryoStage>
+      <stopEmbryoStage>26</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="head mesenchyme" id="164">
+        <printName>mesenchyme.head mesenchyme</printName>
+        <abbreviation/>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>26</stopEmbryoStage>
+        <parentId>163</parentId>
+        <component isPrimary="true" name="mesenchyme derived from head mesoderm" id="165">
+          <printName>mesenchyme.head mesenchyme.mesenchyme derived from head mesoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>19</stopEmbryoStage>
+          <parentId>164</parentId>
+          <component isPrimary="true" name="mesenchyme derived from somites 01-04" id="15246">
+            <printName>mesenchyme.head mesenchyme.mesenchyme derived from head mesoderm.mesenchyme derived from somites 01-04</printName>
+            <abbreviation/>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>19</stopEmbryoStage>
+            <parentId>165</parentId>
+          </component>
+          <childrenId>15246</childrenId>
+        </component>
+        <childrenId>165</childrenId>
+        <component isPrimary="true" name="mesenchyme derived from neural-crest" id="166">
+          <printName>mesenchyme.head mesenchyme.mesenchyme derived from neural-crest</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>164</parentId>
+        </component>
+        <childrenId>166</childrenId>
+      </component>
+      <childrenId>164</childrenId>
+    </component>
+    <childrenId>163</childrenId>
+    <component isPrimary="true" name="mesoderm" id="167">
+      <printName>mesoderm</printName>
+      <abbreviation/>
+      <startEmbryoStage>09</startEmbryoStage>
+      <stopEmbryoStage>11</stopEmbryoStage>
+      <parentId>25776</parentId>
+    </component>
+    <childrenId>167</childrenId>
+    <component isPrimary="true" name="notochordal plate" id="168">
+      <printName>notochordal plate</printName>
+      <abbreviation/>
+      <startEmbryoStage>11</startEmbryoStage>
+      <stopEmbryoStage>13</stopEmbryoStage>
+      <parentId>25776</parentId>
+    </component>
+    <childrenId>168</childrenId>
+    <component isPrimary="true" name="notochordal process" id="169">
+      <printName>notochordal process</printName>
+      <abbreviation/>
+      <synonym>head process</synonym>
+      <startEmbryoStage>11</startEmbryoStage>
+      <stopEmbryoStage>11</stopEmbryoStage>
+      <parentId>25776</parentId>
+    </component>
+    <childrenId>169</childrenId>
+    <component isPrimary="true" name="primitive streak" id="174">
+      <printName>primitive streak</printName>
+      <abbreviation/>
+      <startEmbryoStage>09</startEmbryoStage>
+      <stopEmbryoStage>14</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="node" id="175">
+        <printName>primitive streak.node</printName>
+        <abbreviation/>
+        <synonym>Hensen's node</synonym>
+        <startEmbryoStage>10</startEmbryoStage>
+        <stopEmbryoStage>11</stopEmbryoStage>
+        <parentId>174</parentId>
+      </component>
+      <childrenId>175</childrenId>
+    </component>
+    <childrenId>174</childrenId>
+    <component isPrimary="true" name="organ system" id="170">
+      <printName>organ system</printName>
+      <abbreviation/>
+      <startEmbryoStage>11</startEmbryoStage>
+      <stopEmbryoStage>28</stopEmbryoStage>
+      <parentId>25776</parentId>
+      <component isPrimary="true" name="cardiovascular system" id="171">
+        <printName>organ system.cardiovascular system</printName>
+        <abbreviation/>
+        <startEmbryoStage>11</startEmbryoStage>
+        <stopEmbryoStage>26</stopEmbryoStage>
+        <parentId>170</parentId>
+        <component isPrimary="true" name="heart" id="172">
+          <printName>organ system.cardiovascular system.heart</printName>
+          <abbreviation/>
+          <startEmbryoStage>11</startEmbryoStage>
+          <stopEmbryoStage>26</stopEmbryoStage>
+          <parentId>171</parentId>
+          <component isPrimary="true" name="cardiogenic plate" id="173">
+            <printName>organ system.cardiovascular system.heart.cardiogenic plate</printName>
+            <abbreviation/>
+            <synonym>heart rudiment</synonym>
+            <synonym>myocardial plate</synonym>
+            <startEmbryoStage>11</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>172</parentId>
+          </component>
+          <childrenId>173</childrenId>
+        </component>
+        <childrenId>172</childrenId>
+      </component>
+      <childrenId>171</childrenId>
+    </component>
+    <childrenId>170</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

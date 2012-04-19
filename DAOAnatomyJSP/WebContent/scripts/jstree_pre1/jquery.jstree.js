@@ -8,8 +8,8 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  *
- * $Date: 2012/03/13 11:45:41 $
- * $Revision: 1.1 $
+ * $Date: 2011-02-09 01:17:14 +0200 (ср, 09 февр 2011) $
+ * $Revision: 236 $
  */
 
 /*jslint browser: true, onevar: true, undef: true, bitwise: true, strict: true */

@@ -5,9 +5,6 @@
     <param-name>database.name</param-name>
     <param-value>anatomy008</param-value>
   </context-param>
-  <listener>
-    <listener-class>WebApp.Config</listener-class>
-  </listener>
 
   <servlet>
     <servlet-name>findByEMAPServlet</servlet-name>

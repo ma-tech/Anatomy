@@ -2,12 +2,12 @@
 <classpath>
 	<classpathentry excluding="Libs/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomy008/src/Libs/mysql-connector-java-5.1.18-bin.jar"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/iText-2.1.6.jar"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/oboedit.jar"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/org.geneontology.jar"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyRebuild/src/Libs/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="src/Libs/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="src/Libs/DAOAnatomy008.jar"/>
+	<classpathentry kind="lib" path="src/Libs/iText-2.1.6.jar"/>
+	<classpathentry kind="lib" path="src/Libs/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="src/Libs/oboedit.jar"/>
+	<classpathentry kind="lib" path="src/Libs/org.geneontology.jar"/>
 	<classpathentry kind="lib" path="src/Libs/UsefulJava.jar"/>
-	<classpathentry kind="lib" path="src/Libs/DAOAnatomy008QA.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

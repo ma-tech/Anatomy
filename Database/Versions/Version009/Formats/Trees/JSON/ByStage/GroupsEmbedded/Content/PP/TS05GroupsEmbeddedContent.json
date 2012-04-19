@@ -1,0 +1,75 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    [
+                        {
+                            "extId": "EMAP:25770",
+                            "name": "mouse",
+                            "nodeId": "1"
+                        },
+                        {
+                            "extId": "EMAP:23",
+                            "name": "embryo",
+                            "nodeId": "2"
+                        },
+                        {
+                            "extId": "EMAP:24",
+                            "name": "inner cell mass",
+                            "nodeId": "3"
+                        },
+                        {
+                            "extId": "EMAP:25",
+                            "name": "extraembryonic component",
+                            "nodeId": "4"
+                        },
+                        {
+                            "extId": "EMAP:26",
+                            "name": "cavities and their linings",
+                            "nodeId": "5"
+                        },
+                        {
+                            "extId": "EMAP:27",
+                            "name": "blastocoelic cavity",
+                            "nodeId": "6"
+                        },
+                        {
+                            "extId": "EMAP:28",
+                            "name": "trophectoderm",
+                            "nodeId": "7"
+                        },
+                        {
+                            "extId": "EMAP:29",
+                            "name": "mural trophectoderm",
+                            "nodeId": "8"
+                        },
+                        {
+                            "extId": "EMAP:30",
+                            "name": "polar trophectoderm",
+                            "nodeId": "9"
+                        },
+                        {
+                            "extId": "EMAP:24",
+                            "name": "inner cell mass",
+                            "nodeId": "10"
+                        }
+                    ]
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

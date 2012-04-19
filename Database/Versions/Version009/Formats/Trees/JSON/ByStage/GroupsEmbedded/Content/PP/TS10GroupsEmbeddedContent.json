@@ -1,0 +1,290 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    [
+                        {
+                            "extId": "EMAP:25775",
+                            "name": "mouse",
+                            "nodeId": "1"
+                        },
+                        {
+                            "extId": "EMAP:107",
+                            "name": "cavities and their linings",
+                            "nodeId": "2"
+                        },
+                        {
+                            "extId": "EMAP:108",
+                            "name": "embryonic component of the proamniotic cavity",
+                            "nodeId": "3"
+                        },
+                        {
+                            "extId": "EMAP:109",
+                            "name": "ectoderm",
+                            "nodeId": "4"
+                        },
+                        {
+                            "extId": "EMAP:110",
+                            "name": "neural ectoderm",
+                            "nodeId": "5"
+                        },
+                        {
+                            "extId": "EMAP:111",
+                            "name": "non-neural ectoderm",
+                            "nodeId": "6"
+                        },
+                        {
+                            "extId": "EMAP:106",
+                            "name": "embryo",
+                            "nodeId": "7"
+                        },
+                        {
+                            "extId": "EMAP:107",
+                            "name": "cavities and their linings",
+                            "nodeId": "8"
+                        },
+                        {
+                            "extId": "EMAP:108",
+                            "name": "embryonic component of the proamniotic cavity",
+                            "nodeId": "9"
+                        },
+                        {
+                            "extId": "EMAP:109",
+                            "name": "ectoderm",
+                            "nodeId": "10"
+                        },
+                        {
+                            "extId": "EMAP:110",
+                            "name": "neural ectoderm",
+                            "nodeId": "11"
+                        },
+                        {
+                            "extId": "EMAP:111",
+                            "name": "non-neural ectoderm",
+                            "nodeId": "12"
+                        },
+                        {
+                            "extId": "EMAP:112",
+                            "name": "endoderm",
+                            "nodeId": "13"
+                        },
+                        {
+                            "extId": "EMAP:113",
+                            "name": "definitive endoderm",
+                            "nodeId": "14"
+                        },
+                        {
+                            "extId": "EMAP:114",
+                            "name": "primitive endoderm",
+                            "nodeId": "15"
+                        },
+                        {
+                            "extId": "EMAP:115",
+                            "name": "mesoderm",
+                            "nodeId": "16"
+                        },
+                        {
+                            "extId": "EMAP:116",
+                            "name": "primitive streak",
+                            "nodeId": "17"
+                        },
+                        {
+                            "extId": "EMAP:117",
+                            "name": "node",
+                            "nodeId": "18"
+                        },
+                        {
+                            "extId": "EMAP:112",
+                            "name": "endoderm",
+                            "nodeId": "19"
+                        },
+                        {
+                            "extId": "EMAP:113",
+                            "name": "definitive endoderm",
+                            "nodeId": "20"
+                        },
+                        {
+                            "extId": "EMAP:114",
+                            "name": "primitive endoderm",
+                            "nodeId": "21"
+                        },
+                        {
+                            "extId": "EMAP:118",
+                            "name": "extraembryonic component",
+                            "nodeId": "22"
+                        },
+                        {
+                            "extId": "EMAP:15232",
+                            "name": "allantois",
+                            "nodeId": "23"
+                        },
+                        {
+                            "extId": "EMAP:15233",
+                            "name": "allantois mesoderm",
+                            "nodeId": "24"
+                        },
+                        {
+                            "extId": "EMAP:119",
+                            "name": "amniotic fold",
+                            "nodeId": "25"
+                        },
+                        {
+                            "extId": "EMAP:120",
+                            "name": "amniotic fold ectoderm",
+                            "nodeId": "26"
+                        },
+                        {
+                            "extId": "EMAP:121",
+                            "name": "amniotic fold mesoderm",
+                            "nodeId": "27"
+                        },
+                        {
+                            "extId": "EMAP:122",
+                            "name": "extraembryonic component cavities",
+                            "nodeId": "28"
+                        },
+                        {
+                            "extId": "EMAP:123",
+                            "name": "amniotic cavity",
+                            "nodeId": "29"
+                        },
+                        {
+                            "extId": "EMAP:127",
+                            "name": "cavity within amniotic fold",
+                            "nodeId": "30"
+                        },
+                        {
+                            "extId": "EMAP:124",
+                            "name": "ectoplacental cavity",
+                            "nodeId": "31"
+                        },
+                        {
+                            "extId": "EMAP:125",
+                            "name": "exocoelomic cavity",
+                            "nodeId": "32"
+                        },
+                        {
+                            "extId": "EMAP:126",
+                            "name": "proamniotic cavity extraembryonic part",
+                            "nodeId": "33"
+                        },
+                        {
+                            "extId": "EMAP:128",
+                            "name": "yolk sac cavity",
+                            "nodeId": "34"
+                        },
+                        {
+                            "extId": "EMAP:129",
+                            "name": "extraembryonic ectoderm",
+                            "nodeId": "35"
+                        },
+                        {
+                            "extId": "EMAP:130",
+                            "name": "extraembryonic endoderm",
+                            "nodeId": "36"
+                        },
+                        {
+                            "extId": "EMAP:131",
+                            "name": "intermediate endoderm",
+                            "nodeId": "37"
+                        },
+                        {
+                            "extId": "EMAP:132",
+                            "name": "parietal endoderm",
+                            "nodeId": "38"
+                        },
+                        {
+                            "extId": "EMAP:133",
+                            "name": "Reichert's membrane",
+                            "nodeId": "39"
+                        },
+                        {
+                            "extId": "EMAP:134",
+                            "name": "visceral endoderm",
+                            "nodeId": "40"
+                        },
+                        {
+                            "extId": "EMAP:137",
+                            "name": "trophectoderm",
+                            "nodeId": "41"
+                        },
+                        {
+                            "extId": "EMAP:138",
+                            "name": "mural trophectoderm",
+                            "nodeId": "42"
+                        },
+                        {
+                            "extId": "EMAP:139",
+                            "name": "primary trophoblast giant cells",
+                            "nodeId": "43"
+                        },
+                        {
+                            "extId": "EMAP:140",
+                            "name": "polar trophectoderm",
+                            "nodeId": "44"
+                        },
+                        {
+                            "extId": "EMAP:141",
+                            "name": "ectoplacental cone",
+                            "nodeId": "45"
+                        },
+                        {
+                            "extId": "EMAP:142",
+                            "name": "cytotrophoblast",
+                            "nodeId": "46"
+                        },
+                        {
+                            "extId": "EMAP:143",
+                            "name": "syncytiotrophoblast",
+                            "nodeId": "47"
+                        },
+                        {
+                            "extId": "EMAP:144",
+                            "name": "yolk sac",
+                            "nodeId": "48"
+                        },
+                        {
+                            "extId": "EMAP:145",
+                            "name": "yolk sac endoderm",
+                            "nodeId": "49"
+                        },
+                        {
+                            "extId": "EMAP:146",
+                            "name": "yolk sac mesoderm",
+                            "nodeId": "50"
+                        },
+                        {
+                            "extId": "EMAP:115",
+                            "name": "mesoderm",
+                            "nodeId": "51"
+                        },
+                        {
+                            "extId": "EMAP:116",
+                            "name": "primitive streak",
+                            "nodeId": "52"
+                        },
+                        {
+                            "extId": "EMAP:117",
+                            "name": "node",
+                            "nodeId": "53"
+                        }
+                    ]
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

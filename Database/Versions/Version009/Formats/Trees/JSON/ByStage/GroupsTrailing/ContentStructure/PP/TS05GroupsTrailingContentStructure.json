@@ -1,0 +1,113 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25770",
+                            "id": "li.node.TS05.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:25",
+                                    "id": "li.node.TS05.id2",
+                                    "name": "extraembryonic component"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:26",
+                                            "id": "li.node.TS05.id3",
+                                            "name": "cavities and their linings"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:27",
+                                                    "id": "li.node.TS05.id4",
+                                                    "name": "blastocoelic cavity"
+                                                },
+                                                "data": "blastocoelic cavity"
+                                            }
+                                        ],
+                                        "data": "cavities and their linings"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:28",
+                                            "id": "li.node.TS05.id5",
+                                            "name": "trophectoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:29",
+                                                    "id": "li.node.TS05.id6",
+                                                    "name": "mural trophectoderm"
+                                                },
+                                                "data": "mural trophectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:30",
+                                                    "id": "li.node.TS05.id7",
+                                                    "name": "polar trophectoderm"
+                                                },
+                                                "data": "polar trophectoderm"
+                                            }
+                                        ],
+                                        "data": "trophectoderm"
+                                    }
+                                ],
+                                "data": "extraembryonic component"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:24",
+                                    "id": "li.node.TS05.id8",
+                                    "name": "inner cell mass"
+                                },
+                                "data": "inner cell mass"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:23",
+                                    "id": "li.node.TS05.id9",
+                                    "name": "embryo"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:24",
+                                            "id": "li.node.TS05.id10",
+                                            "name": "inner cell mass"
+                                        },
+                                        "data": "inner cell mass"
+                                    }
+                                ],
+                                "data": "embryo"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

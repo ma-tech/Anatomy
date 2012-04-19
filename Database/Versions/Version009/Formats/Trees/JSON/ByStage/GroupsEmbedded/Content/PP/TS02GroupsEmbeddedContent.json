@@ -1,0 +1,45 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    [
+                        {
+                            "extId": "EMAP:25767",
+                            "name": "mouse",
+                            "nodeId": "1"
+                        },
+                        {
+                            "extId": "EMAP:5",
+                            "name": "second polar body",
+                            "nodeId": "2"
+                        },
+                        {
+                            "extId": "EMAP:6",
+                            "name": "two-cell stage",
+                            "nodeId": "3"
+                        },
+                        {
+                            "extId": "EMAP:7",
+                            "name": "zona pellucida",
+                            "nodeId": "4"
+                        }
+                    ]
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

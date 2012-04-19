@@ -1,0 +1,57 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25767",
+                            "id": "li.node.TS02.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:5",
+                                    "id": "li.node.TS02.id2",
+                                    "name": "second polar body"
+                                },
+                                "data": "second polar body"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:6",
+                                    "id": "li.node.TS02.id3",
+                                    "name": "two-cell stage"
+                                },
+                                "data": "two-cell stage"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:7",
+                                    "id": "li.node.TS02.id4",
+                                    "name": "zona pellucida"
+                                },
+                                "data": "zona pellucida"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

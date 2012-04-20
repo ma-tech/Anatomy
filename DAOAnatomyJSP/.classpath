@@ -13,6 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/mwicks/eclipseWorkspace/DAOAnatomyJSP/WebContent/WEB-INF/lib/DAOAnatomy008QA.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

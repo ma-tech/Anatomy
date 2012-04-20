@@ -2,7 +2,9 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="DAOAnatomyUpload">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Server/build/classes"/>
+        <wb-resource deploy-path="/WEB-INF/lib" source-path="/Server/lib"/>
+        <wb-resource deploy-path="/WEB-INF" source-path="/Server/WEB-INF"/>
         <property name="context-root" value="DAOAnatomyUpload"/>
         <property name="java-output-path" value="/DAOAnatomyUpload/build/classes"/>
     </wb-module>

@@ -43,11 +43,13 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
     	String leafTree = "";
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
+        //System.out.println("ListLeafsByEMAPandStageServlet timedleafForm.checkTimedLeafsByRootNameByChildDesc");
+        
         // Process request and get result.
-        String outString = timedleafForm.checkTimedLeafsByRootName(request);
+        String outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
         
         if ( outString.equals("SUCCESS!")) {
-            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootName(request);
+            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
             leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
         }
         else {

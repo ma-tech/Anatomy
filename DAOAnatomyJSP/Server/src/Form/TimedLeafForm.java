@@ -105,6 +105,73 @@ public final class TimedLeafForm extends Form {
     }
 
 
+    /**
+     * Returns the Leafs based on the given request. It will gather all form fields,
+     * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
+     * associated with this form.
+     */
+    public List<TimedLeaf> listTimedLeafsByRootNameByChildDesc(HttpServletRequest request) {
+        
+    	List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
+    	TimedLeaf timedleaf = new TimedLeaf();
+
+        try {
+            processStage(request, timedleaf);
+            processRootName(request, timedleaf);
+
+            if (isSuccess()) {
+            	timedleafs = timedleafDAO.listAllTimedNodesByRootNameByChildDesc(timedleaf.getRootName(), timedleaf.getStage(), timedleaf.getRootName(), timedleaf.getStage());
+                setMessage(FIELD_RESULT, "SUCCESS:" + "Node " + timedleaf.getRootName() + " has " + timedleafs.size() + " Leaves \n");
+            }
+        }
+        catch (DAOException e) {
+            setError(FIELD_RESULT, "FAIL! FIND failed due to database error, please try again later. Detail message: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return timedleafs;
+    }
+
+
+    /**
+     * Returns the Leafs based on the given request. It will gather all form fields,
+     * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
+     * associated with this form.
+     */
+    public String checkTimedLeafsByRootNameByChildDesc(HttpServletRequest request) {
+        
+    	String outString = "";
+    	List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
+    	TimedLeaf timedleaf = new TimedLeaf();
+
+        try {
+            outString = processStage(request, timedleaf);
+            
+            if (outString.equals("")) {
+            	outString = processRootName(request, timedleaf);
+            	
+                if (outString.equals("")) {
+                    if (isSuccess()) {
+                    	timedleafs = timedleafDAO.listAllTimedNodesByRootNameByChildDesc(timedleaf.getRootName(), timedleaf.getStage(), timedleaf.getRootName(), timedleaf.getStage());
+                    	if ( timedleafs.size() > 0 ){
+                            outString = "SUCCESS!";
+                    	}
+                    	else {
+                            outString = "FAIL! Node " + timedleaf.getRootName() + " has No Leaves.";
+                    	}
+                    }
+                }
+            }
+        }
+        catch (DAOException e) {
+            setError(FIELD_RESULT, "FAIL! FIND failed due to database error, please try again later. Detail message: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return outString;
+    }
+
+
     
     // Field processors ---------------------------------------------------------------------------
     /**

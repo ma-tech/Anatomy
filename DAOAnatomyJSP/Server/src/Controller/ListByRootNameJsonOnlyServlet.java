@@ -42,8 +42,10 @@ public class ListByRootNameJsonOnlyServlet extends HttpServlet {
         // Prepare form bean.
         LeafForm leafForm = new LeafForm(leafDAO);
 
+        //System.out.println("ListByRootNameJsonOnlyServlet leafForm.listLeafsByRootNameByChildDesc");
+
         // Process request and get result.
-        List<Leaf> leafs = leafForm.listLeafsByRootName(request);
+        List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
         String leafTree = leafDAO.convertLeafListToStringJsonLines(leafs);
         
         java.io.PrintWriter out = response.getWriter();

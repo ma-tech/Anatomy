@@ -52,10 +52,13 @@ public class ListByRootNameServlet extends HttpServlet {
     {
         // Prepare form bean.
         LeafForm leafForm = new LeafForm(leafDAO);
+        
+        //System.out.println("ListByRootNameServlet leafForm.listLeafsByRootNameByChildDesc");
+        
         request.setAttribute(ATTRIBUTE_FORM, leafForm);
 
         // Process request and get result.
-        List<Leaf> leafs = leafForm.listLeafsByRootName(request);
+        List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
         request.setAttribute(ATTRIBUTE_LEAFS, leafs);
 
         // Postback.

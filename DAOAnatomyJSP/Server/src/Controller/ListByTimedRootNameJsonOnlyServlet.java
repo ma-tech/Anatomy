@@ -41,9 +41,11 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
     {
         // Prepare form bean.
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
-
+        
+        //System.out.println("ListByTimedRootNameJsonOnlyServlet timedleafForm.listTimedLeafsByRootNameByChildDesc");
+        
         // Process request and get result.
-        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootName(request);
+        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
         String leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
         
         java.io.PrintWriter out = response.getWriter();

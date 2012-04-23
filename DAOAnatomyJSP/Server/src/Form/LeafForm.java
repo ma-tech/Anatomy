@@ -90,6 +90,60 @@ public final class LeafForm extends Form {
     }
 
     
+    /**
+     * Returns the Leafs based on the given request. It will gather all form fields,
+     * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
+     * associated with this form.
+     */
+    public List<Leaf> listLeafsByRootNameByChildDesc(HttpServletRequest request) {
+        
+    	List<Leaf> leafs = new ArrayList<Leaf>();
+    	Leaf leaf = new Leaf();
+
+        try {
+            processRootName(request, leaf);
+
+            if (isSuccess()) {
+            	leafs = leafDAO.listAllNodesByRootNameByChildDesc(leaf.getRootName(), leaf.getRootName());
+                setMessage(FIELD_RESULT, "Success!\n" + "Node " + leaf.getRootName() + " has " + leafs.size() + " Leaves \n");
+            }
+        } catch (DAOException e) {
+            setError(FIELD_RESULT, "FIND failed due to database error." + 
+                " Please try again later. Detail message: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return leafs;
+    }
+
+
+    /**
+     * Returns the Leafs based on the given request. It will gather all form fields,
+     * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
+     * associated with this form.
+     */
+    public List<Leaf> listLeafsByRootDescByChildDesc(HttpServletRequest request) {
+        
+    	List<Leaf> leafs = new ArrayList<Leaf>();
+    	Leaf leaf = new Leaf();
+
+        try {
+            processRootDescription(request, leaf);
+
+            if (isSuccess()) {
+            	leafs = leafDAO.listAllNodesByRootDescByChildDesc(leaf.getRootDescription(), leaf.getRootDescription());
+                setMessage(FIELD_RESULT, "Success!\n" + "Node " + leaf.getRootDescription() + " has " + leafs.size() + " Leaves \n");
+            }
+        } catch (DAOException e) {
+            setError(FIELD_RESULT, "FIND failed due to database error." + 
+                " Please try again later. Detail message: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return leafs;
+    }
+
+    
     // Field processors ---------------------------------------------------------------------------
     /**
      * Process and validate the Name which is to be associated with the given Leaf.

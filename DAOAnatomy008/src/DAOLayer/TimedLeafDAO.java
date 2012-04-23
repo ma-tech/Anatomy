@@ -56,6 +56,41 @@ public final class TimedLeafDAO {
         " AND STG_NAME = ? " +
         " ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
 
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC =
+        "SELECT  " +
+        "  ANAV_STAGE AS STAGE, " +
+        "  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+        "  ANAV_NAME_1 AS ROOT_NAME, " +
+        "  ANAV_DESC_1 AS ROOT_DESC, " +
+        "  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+        "  'LEAF' AS CHILD_ID, " +
+        "  ANAV_NAME_2 AS CHILD_NAME, " + 
+        "  ANAV_DESC_2 AS CHILD_DESC, " + 
+        "  'No Children' AS GRAND_CHILD_ID, " + 
+        "  'No Children' AS GRAND_CHILD_NAME, " +
+        "  'No Children' AS GRAND_CHILD_DESC " +
+        " FROM ANAV_TIMED_LEAF_RELATION " +
+        " WHERE ANAV_NAME_1 = ?  " +
+        " AND ANAV_STAGE = ?  " +
+        "UNION " +
+        "SELECT " +
+        "  STG_NAME AS STAGE, " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " + 
+        "  ANAV_DESC_1, " +
+        "  CAST(ANAV_OID_2 AS CHAR), " + 
+        "  ANAV_ID_2, " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_DESC_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        " FROM ANAV_TIMED_GRAND_RELATION " +
+        " JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+        " WHERE ANAV_NAME_1 = ? " +
+        " AND STG_NAME = ? " +
+        " ORDER BY CHILD_DESC ";
+
     private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
         "SELECT  " +
         "  ANAV_STAGE AS STAGE, " +
@@ -91,6 +126,41 @@ public final class TimedLeafDAO {
         " AND STG_NAME = ? " +
         " ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
     
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC =
+        "SELECT  " +
+        "  ANAV_STAGE AS STAGE, " +
+        "  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+        "  ANAV_NAME_1 AS ROOT_NAME, " +
+        "  ANAV_DESC_1 AS ROOT_DESC, " +
+        "  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+        "  'LEAF' AS CHILD_ID, " +
+        "  ANAV_NAME_2 AS CHILD_NAME, " + 
+        "  ANAV_DESC_2 AS CHILD_DESC, " + 
+        "  'No Children' AS GRAND_CHILD_ID, " + 
+        "  'No Children' AS GRAND_CHILD_NAME, " +
+        "  'No Children' AS GRAND_CHILD_DESC " +
+        " FROM ANAV_TIMED_LEAF_RELATION " +
+        " WHERE ANAV_DESC_1 = ?  " +
+        " AND ANAV_STAGE = ?  " +
+        "UNION " +
+        "SELECT " +
+        "  STG_NAME AS STAGE, " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " + 
+        "  ANAV_DESC_1, " +
+        "  CAST(ANAV_OID_2 AS CHAR), " + 
+        "  ANAV_ID_2, " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_DESC_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        " FROM ANAV_TIMED_GRAND_RELATION " +
+        " JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+        " WHERE ANAV_DESC_1 = ? " +
+        " AND STG_NAME = ? " +
+        " ORDER BY CHILD_DESC ";
+
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
@@ -121,6 +191,22 @@ public final class TimedLeafDAO {
     public List<TimedLeaf> listAllTimedNodesByRootDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
     	throws DAOException {
         return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC, rootDesc1, stage1, rootDesc2, stage2);
+    }
+    
+    /*
+     * Returns a list of All Leafs for the given Root Name, otherwise null.
+     */
+    public List<TimedLeaf> listAllTimedNodesByRootNameByChildDesc(String rootName1, String stage1, String rootName2, String stage2) 
+    	throws DAOException {
+        return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC, rootName1, stage1, rootName2, stage2);
+    }
+    
+    /*
+     * Returns a list of All Leafs for the given Root Description, otherwise null.
+     */
+    public List<TimedLeaf> listAllTimedNodesByRootDescByChildDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
+    	throws DAOException {
+        return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC, rootDesc1, stage1, rootDesc2, stage2);
     }
     
     

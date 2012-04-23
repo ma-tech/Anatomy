@@ -52,10 +52,13 @@ public class ListByRootNameJsonServlet extends HttpServlet {
     {
         // Prepare form bean.
         LeafForm leafForm = new LeafForm(leafDAO);
+        
+        //System.out.println("ListByRootNameJsonServlet leafForm.listLeafsByRootNameByChildDesc");
+
         request.setAttribute(ATTRIBUTE_FORM, leafForm);
 
         // Process request and get result.
-        List<Leaf> leafs = leafForm.listLeafsByRootName(request);
+        List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
         String leafTree = leafDAO.convertLeafListToStringJson(leafs);
         request.setAttribute(ATTRIBUTE_LEAF_TREE, leafTree);
 

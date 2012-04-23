@@ -52,10 +52,13 @@ public class ListByTimedRootNameServlet extends HttpServlet {
     {
         // Prepare form bean.
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
+        
+        //System.out.println("ListByTimedRootNameServlet timedleafForm.listTimedLeafsByRootNameByChildDesc");
+        
         request.setAttribute(ATTRIBUTE_FORM, timedleafForm);
 
         // Process request and get result.
-        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootName(request);
+        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
         request.setAttribute(ATTRIBUTE_LEAFS, timedleafs);
 
         // Postback.

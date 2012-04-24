@@ -1,0 +1,15 @@
+Ensure your DEPLOYMENT ASSEMBLY is configured as follows:
+
+1. /Server/build/classes -> WEB-INF/classes
+
+2. /Server/lib           -> WEB-INF/lib
+
+3. /Server/WEB-INF       -> WEB-INF
+
+4. /WebContent           -> /
+
+
+NB. Eclipse does NOT save these on exit, so you'll need to set them up each time you restart Eclipse
+
+MW
+2012-04-20

@@ -1,0 +1,91 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25766",
+                            "id": "li.node.TS01.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:1",
+                                    "id": "li.node.TS01.id2",
+                                    "name": "first polar body"
+                                },
+                                "data": "first polar body"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:2",
+                                    "id": "li.node.TS01.id3",
+                                    "name": "one-cell stage"
+                                },
+                                "data": "one-cell stage"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:3",
+                                    "id": "li.node.TS01.id4",
+                                    "name": "second polar body"
+                                },
+                                "data": "second polar body"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:4",
+                                    "id": "li.node.TS01.id5",
+                                    "name": "zona pellucida"
+                                },
+                                "data": "zona pellucida"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:31909",
+                                    "id": "li.node.TS01.id6",
+                                    "name": "polar body GROUP"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:1",
+                                            "id": "li.node.TS01.id7",
+                                            "name": "first polar body"
+                                        },
+                                        "data": "first polar body"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:3",
+                                            "id": "li.node.TS01.id8",
+                                            "name": "second polar body"
+                                        },
+                                        "data": "second polar body"
+                                    }
+                                ],
+                                "data": "polar body GROUP"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

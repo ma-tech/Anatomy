@@ -1,0 +1,873 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25776",
+                            "id": "li.node.TS11.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:170",
+                                    "id": "li.node.TS11.id2",
+                                    "name": "organ system"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:171",
+                                            "id": "li.node.TS11.id3",
+                                            "name": "cardiovascular system"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:172",
+                                                    "id": "li.node.TS11.id4",
+                                                    "name": "heart"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:173",
+                                                            "id": "li.node.TS11.id5",
+                                                            "name": "cardiogenic plate"
+                                                        },
+                                                        "data": "cardiogenic plate"
+                                                    }
+                                                ],
+                                                "data": "heart"
+                                            }
+                                        ],
+                                        "data": "cardiovascular system"
+                                    }
+                                ],
+                                "data": "organ system"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:148",
+                                    "id": "li.node.TS11.id6",
+                                    "name": "cavities and their linings"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:149",
+                                            "id": "li.node.TS11.id7",
+                                            "name": "intraembryonic coelom"
+                                        },
+                                        "data": "intraembryonic coelom"
+                                    }
+                                ],
+                                "data": "cavities and their linings"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:150",
+                                    "id": "li.node.TS11.id8",
+                                    "name": "ectoderm"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:151",
+                                            "id": "li.node.TS11.id9",
+                                            "name": "neural ectoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:152",
+                                                    "id": "li.node.TS11.id10",
+                                                    "name": "future brain"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:153",
+                                                            "id": "li.node.TS11.id11",
+                                                            "name": "neural fold"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:154",
+                                                                    "id": "li.node.TS11.id12",
+                                                                    "name": "neural crest"
+                                                                },
+                                                                "data": "neural crest"
+                                                            }
+                                                        ],
+                                                        "data": "neural fold"
+                                                    }
+                                                ],
+                                                "data": "future brain"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:155",
+                                                    "id": "li.node.TS11.id13",
+                                                    "name": "future spinal cord"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:156",
+                                                            "id": "li.node.TS11.id14",
+                                                            "name": "neural fold"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:157",
+                                                                    "id": "li.node.TS11.id15",
+                                                                    "name": "neural crest"
+                                                                },
+                                                                "data": "neural crest"
+                                                            }
+                                                        ],
+                                                        "data": "neural fold"
+                                                    },
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:158",
+                                                            "id": "li.node.TS11.id16",
+                                                            "name": "neural plate"
+                                                        },
+                                                        "data": "neural plate"
+                                                    }
+                                                ],
+                                                "data": "future spinal cord"
+                                            }
+                                        ],
+                                        "data": "neural ectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:159",
+                                            "id": "li.node.TS11.id17",
+                                            "name": "surface ectoderm"
+                                        },
+                                        "data": "surface ectoderm"
+                                    }
+                                ],
+                                "data": "ectoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:147",
+                                    "id": "li.node.TS11.id18",
+                                    "name": "embryo"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:148",
+                                            "id": "li.node.TS11.id19",
+                                            "name": "cavities and their linings"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:149",
+                                                    "id": "li.node.TS11.id20",
+                                                    "name": "intraembryonic coelom"
+                                                },
+                                                "data": "intraembryonic coelom"
+                                            }
+                                        ],
+                                        "data": "cavities and their linings"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:150",
+                                            "id": "li.node.TS11.id21",
+                                            "name": "ectoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:151",
+                                                    "id": "li.node.TS11.id22",
+                                                    "name": "neural ectoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:152",
+                                                            "id": "li.node.TS11.id23",
+                                                            "name": "future brain"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:153",
+                                                                    "id": "li.node.TS11.id24",
+                                                                    "name": "neural fold"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "attr": {
+                                                                            "ext_id": "EMAP:154",
+                                                                            "id": "li.node.TS11.id25",
+                                                                            "name": "neural crest"
+                                                                        },
+                                                                        "data": "neural crest"
+                                                                    }
+                                                                ],
+                                                                "data": "neural fold"
+                                                            }
+                                                        ],
+                                                        "data": "future brain"
+                                                    },
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:155",
+                                                            "id": "li.node.TS11.id26",
+                                                            "name": "future spinal cord"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:156",
+                                                                    "id": "li.node.TS11.id27",
+                                                                    "name": "neural fold"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "attr": {
+                                                                            "ext_id": "EMAP:157",
+                                                                            "id": "li.node.TS11.id28",
+                                                                            "name": "neural crest"
+                                                                        },
+                                                                        "data": "neural crest"
+                                                                    }
+                                                                ],
+                                                                "data": "neural fold"
+                                                            },
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:158",
+                                                                    "id": "li.node.TS11.id29",
+                                                                    "name": "neural plate"
+                                                                },
+                                                                "data": "neural plate"
+                                                            }
+                                                        ],
+                                                        "data": "future spinal cord"
+                                                    }
+                                                ],
+                                                "data": "neural ectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:159",
+                                                    "id": "li.node.TS11.id30",
+                                                    "name": "surface ectoderm"
+                                                },
+                                                "data": "surface ectoderm"
+                                            }
+                                        ],
+                                        "data": "ectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:160",
+                                            "id": "li.node.TS11.id31",
+                                            "name": "endoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:161",
+                                                    "id": "li.node.TS11.id32",
+                                                    "name": "definitive endoderm"
+                                                },
+                                                "data": "definitive endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:162",
+                                                    "id": "li.node.TS11.id33",
+                                                    "name": "primitive endoderm"
+                                                },
+                                                "data": "primitive endoderm"
+                                            }
+                                        ],
+                                        "data": "endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:163",
+                                            "id": "li.node.TS11.id34",
+                                            "name": "mesenchyme"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:164",
+                                                    "id": "li.node.TS11.id35",
+                                                    "name": "head mesenchyme"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:165",
+                                                            "id": "li.node.TS11.id36",
+                                                            "name": "mesenchyme derived from head mesoderm"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:15246",
+                                                                    "id": "li.node.TS11.id37",
+                                                                    "name": "mesenchyme derived from somites 01-04"
+                                                                },
+                                                                "data": "mesenchyme derived from somites 01-04"
+                                                            }
+                                                        ],
+                                                        "data": "mesenchyme derived from head mesoderm"
+                                                    },
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:166",
+                                                            "id": "li.node.TS11.id38",
+                                                            "name": "mesenchyme derived from neural-crest"
+                                                        },
+                                                        "data": "mesenchyme derived from neural-crest"
+                                                    }
+                                                ],
+                                                "data": "head mesenchyme"
+                                            }
+                                        ],
+                                        "data": "mesenchyme"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:167",
+                                            "id": "li.node.TS11.id39",
+                                            "name": "mesoderm"
+                                        },
+                                        "data": "mesoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:168",
+                                            "id": "li.node.TS11.id40",
+                                            "name": "notochordal plate"
+                                        },
+                                        "data": "notochordal plate"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:169",
+                                            "id": "li.node.TS11.id41",
+                                            "name": "notochordal process"
+                                        },
+                                        "data": "notochordal process"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:170",
+                                            "id": "li.node.TS11.id42",
+                                            "name": "organ system"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:171",
+                                                    "id": "li.node.TS11.id43",
+                                                    "name": "cardiovascular system"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:172",
+                                                            "id": "li.node.TS11.id44",
+                                                            "name": "heart"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:173",
+                                                                    "id": "li.node.TS11.id45",
+                                                                    "name": "cardiogenic plate"
+                                                                },
+                                                                "data": "cardiogenic plate"
+                                                            }
+                                                        ],
+                                                        "data": "heart"
+                                                    }
+                                                ],
+                                                "data": "cardiovascular system"
+                                            }
+                                        ],
+                                        "data": "organ system"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:174",
+                                            "id": "li.node.TS11.id46",
+                                            "name": "primitive streak"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:175",
+                                                    "id": "li.node.TS11.id47",
+                                                    "name": "node"
+                                                },
+                                                "data": "node"
+                                            }
+                                        ],
+                                        "data": "primitive streak"
+                                    }
+                                ],
+                                "data": "embryo"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:160",
+                                    "id": "li.node.TS11.id48",
+                                    "name": "endoderm"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:161",
+                                            "id": "li.node.TS11.id49",
+                                            "name": "definitive endoderm"
+                                        },
+                                        "data": "definitive endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:162",
+                                            "id": "li.node.TS11.id50",
+                                            "name": "primitive endoderm"
+                                        },
+                                        "data": "primitive endoderm"
+                                    }
+                                ],
+                                "data": "endoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:176",
+                                    "id": "li.node.TS11.id51",
+                                    "name": "extraembryonic component"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:177",
+                                            "id": "li.node.TS11.id52",
+                                            "name": "allantois"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:178",
+                                                    "id": "li.node.TS11.id53",
+                                                    "name": "allantois mesoderm"
+                                                },
+                                                "data": "allantois mesoderm"
+                                            }
+                                        ],
+                                        "data": "allantois"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:179",
+                                            "id": "li.node.TS11.id54",
+                                            "name": "amnion"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:180",
+                                                    "id": "li.node.TS11.id55",
+                                                    "name": "amnion ectoderm"
+                                                },
+                                                "data": "amnion ectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:181",
+                                                    "id": "li.node.TS11.id56",
+                                                    "name": "amnion mesoderm"
+                                                },
+                                                "data": "amnion mesoderm"
+                                            }
+                                        ],
+                                        "data": "amnion"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:187",
+                                            "id": "li.node.TS11.id57",
+                                            "name": "chorion"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:188",
+                                                    "id": "li.node.TS11.id58",
+                                                    "name": "chorion ectoderm"
+                                                },
+                                                "data": "chorion ectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:32107",
+                                                    "id": "li.node.TS11.id59",
+                                                    "name": "chorion mesenchyme"
+                                                },
+                                                "data": "chorion mesenchyme"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:189",
+                                                    "id": "li.node.TS11.id60",
+                                                    "name": "chorion mesoderm"
+                                                },
+                                                "data": "chorion mesoderm"
+                                            }
+                                        ],
+                                        "data": "chorion"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:182",
+                                            "id": "li.node.TS11.id61",
+                                            "name": "extraembryonic component cavities"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:183",
+                                                    "id": "li.node.TS11.id62",
+                                                    "name": "amniotic cavity"
+                                                },
+                                                "data": "amniotic cavity"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:184",
+                                                    "id": "li.node.TS11.id63",
+                                                    "name": "ectoplacental cavity"
+                                                },
+                                                "data": "ectoplacental cavity"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:185",
+                                                    "id": "li.node.TS11.id64",
+                                                    "name": "exocoelomic cavity"
+                                                },
+                                                "data": "exocoelomic cavity"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:186",
+                                                    "id": "li.node.TS11.id65",
+                                                    "name": "yolk sac cavity"
+                                                },
+                                                "data": "yolk sac cavity"
+                                            }
+                                        ],
+                                        "data": "extraembryonic component cavities"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:32167",
+                                            "id": "li.node.TS11.id66",
+                                            "name": "extraembryonic ectoderm"
+                                        },
+                                        "data": "extraembryonic ectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:190",
+                                            "id": "li.node.TS11.id67",
+                                            "name": "extraembryonic endoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:191",
+                                                    "id": "li.node.TS11.id68",
+                                                    "name": "intermediate endoderm"
+                                                },
+                                                "data": "intermediate endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:192",
+                                                    "id": "li.node.TS11.id69",
+                                                    "name": "parietal endoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:193",
+                                                            "id": "li.node.TS11.id70",
+                                                            "name": "Reichert's membrane"
+                                                        },
+                                                        "data": "Reichert's membrane"
+                                                    }
+                                                ],
+                                                "data": "parietal endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:194",
+                                                    "id": "li.node.TS11.id71",
+                                                    "name": "visceral endoderm"
+                                                },
+                                                "data": "visceral endoderm"
+                                            }
+                                        ],
+                                        "data": "extraembryonic endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:31917",
+                                            "id": "li.node.TS11.id72",
+                                            "name": "extraembryonic mesenchyme"
+                                        },
+                                        "data": "extraembryonic mesenchyme"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:31916",
+                                            "id": "li.node.TS11.id73",
+                                            "name": "extraembryonic mesoderm"
+                                        },
+                                        "data": "extraembryonic mesoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:195",
+                                            "id": "li.node.TS11.id74",
+                                            "name": "trophectoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:196",
+                                                    "id": "li.node.TS11.id75",
+                                                    "name": "mural trophectoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:197",
+                                                            "id": "li.node.TS11.id76",
+                                                            "name": "primary trophoblast giant cells"
+                                                        },
+                                                        "data": "primary trophoblast giant cells"
+                                                    }
+                                                ],
+                                                "data": "mural trophectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:198",
+                                                    "id": "li.node.TS11.id77",
+                                                    "name": "polar trophectoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:199",
+                                                            "id": "li.node.TS11.id78",
+                                                            "name": "ectoplacental cone"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:200",
+                                                                    "id": "li.node.TS11.id79",
+                                                                    "name": "cytotrophoblast"
+                                                                },
+                                                                "data": "cytotrophoblast"
+                                                            },
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:201",
+                                                                    "id": "li.node.TS11.id80",
+                                                                    "name": "syncytiotrophoblast"
+                                                                },
+                                                                "data": "syncytiotrophoblast"
+                                                            }
+                                                        ],
+                                                        "data": "ectoplacental cone"
+                                                    }
+                                                ],
+                                                "data": "polar trophectoderm"
+                                            }
+                                        ],
+                                        "data": "trophectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:202",
+                                            "id": "li.node.TS11.id81",
+                                            "name": "yolk sac"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:203",
+                                                    "id": "li.node.TS11.id82",
+                                                    "name": "yolk sac endoderm"
+                                                },
+                                                "data": "yolk sac endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:204",
+                                                    "id": "li.node.TS11.id83",
+                                                    "name": "yolk sac mesoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:205",
+                                                            "id": "li.node.TS11.id84",
+                                                            "name": "blood island"
+                                                        },
+                                                        "data": "blood island"
+                                                    },
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:206",
+                                                            "id": "li.node.TS11.id85",
+                                                            "name": "primordial germ cells"
+                                                        },
+                                                        "data": "primordial germ cells"
+                                                    }
+                                                ],
+                                                "data": "yolk sac mesoderm"
+                                            }
+                                        ],
+                                        "data": "yolk sac"
+                                    }
+                                ],
+                                "data": "extraembryonic component"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:163",
+                                    "id": "li.node.TS11.id86",
+                                    "name": "mesenchyme"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:164",
+                                            "id": "li.node.TS11.id87",
+                                            "name": "head mesenchyme"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:165",
+                                                    "id": "li.node.TS11.id88",
+                                                    "name": "mesenchyme derived from head mesoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:15246",
+                                                            "id": "li.node.TS11.id89",
+                                                            "name": "mesenchyme derived from somites 01-04"
+                                                        },
+                                                        "data": "mesenchyme derived from somites 01-04"
+                                                    }
+                                                ],
+                                                "data": "mesenchyme derived from head mesoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:166",
+                                                    "id": "li.node.TS11.id90",
+                                                    "name": "mesenchyme derived from neural-crest"
+                                                },
+                                                "data": "mesenchyme derived from neural-crest"
+                                            }
+                                        ],
+                                        "data": "head mesenchyme"
+                                    }
+                                ],
+                                "data": "mesenchyme"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:167",
+                                    "id": "li.node.TS11.id91",
+                                    "name": "mesoderm"
+                                },
+                                "data": "mesoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:168",
+                                    "id": "li.node.TS11.id92",
+                                    "name": "notochordal plate"
+                                },
+                                "data": "notochordal plate"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:169",
+                                    "id": "li.node.TS11.id93",
+                                    "name": "notochordal process"
+                                },
+                                "data": "notochordal process"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:174",
+                                    "id": "li.node.TS11.id94",
+                                    "name": "primitive streak"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:175",
+                                            "id": "li.node.TS11.id95",
+                                            "name": "node"
+                                        },
+                                        "data": "node"
+                                    }
+                                ],
+                                "data": "primitive streak"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

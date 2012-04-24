@@ -1,0 +1,330 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "3"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "2"
+                                }
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "5"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "nodeId": "6"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "4"
+                                }
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "9"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "8"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "11"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "12"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "10"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "14"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "15"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "13"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "nodeId": "16"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "18"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "17"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "7"
+                                }
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "20"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "nodeId": "21"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "19"
+                                }
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "24"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "23"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "26"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "27"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "25"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "29"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "30"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "31"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "32"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "33"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "34"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "28"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "nodeId": "35"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "37"
+                                                }
+                                            },
+                                            {
+                                                "children": [
+                                                    {
+                                                        "node": {
+                                                            "nodeId": "39"
+                                                        }
+                                                    }
+                                                ],
+                                                "node": {
+                                                    "nodeId": "38"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "40"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "36"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [
+                                                    {
+                                                        "node": {
+                                                            "nodeId": "43"
+                                                        }
+                                                    }
+                                                ],
+                                                "node": {
+                                                    "nodeId": "42"
+                                                }
+                                            },
+                                            {
+                                                "children": [
+                                                    {
+                                                        "children": [
+                                                            {
+                                                                "node": {
+                                                                    "nodeId": "46"
+                                                                }
+                                                            },
+                                                            {
+                                                                "node": {
+                                                                    "nodeId": "47"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "node": {
+                                                            "nodeId": "45"
+                                                        }
+                                                    }
+                                                ],
+                                                "node": {
+                                                    "nodeId": "44"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "41"
+                                        }
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "node": {
+                                                    "nodeId": "49"
+                                                }
+                                            },
+                                            {
+                                                "node": {
+                                                    "nodeId": "50"
+                                                }
+                                            }
+                                        ],
+                                        "node": {
+                                            "nodeId": "48"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "22"
+                                }
+                            },
+                            {
+                                "node": {
+                                    "nodeId": "51"
+                                }
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "node": {
+                                            "nodeId": "53"
+                                        }
+                                    }
+                                ],
+                                "node": {
+                                    "nodeId": "52"
+                                }
+                            }
+                        ],
+                        "node": {
+                            "nodeId": "1"
+                        }
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

@@ -1,0 +1,331 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25774",
+                            "id": "li.node.TS09.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:81",
+                                    "id": "li.node.TS09.id2",
+                                    "name": "cavities and their linings"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:82",
+                                            "id": "li.node.TS09.id3",
+                                            "name": "embryonic component of the proamniotic cavity"
+                                        },
+                                        "data": "embryonic component of the proamniotic cavity"
+                                    }
+                                ],
+                                "data": "cavities and their linings"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:83",
+                                    "id": "li.node.TS09.id4",
+                                    "name": "ectoderm"
+                                },
+                                "data": "ectoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:84",
+                                    "id": "li.node.TS09.id5",
+                                    "name": "endoderm"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:85",
+                                            "id": "li.node.TS09.id6",
+                                            "name": "definitive endoderm"
+                                        },
+                                        "data": "definitive endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:86",
+                                            "id": "li.node.TS09.id7",
+                                            "name": "primitive endoderm"
+                                        },
+                                        "data": "primitive endoderm"
+                                    }
+                                ],
+                                "data": "endoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:89",
+                                    "id": "li.node.TS09.id8",
+                                    "name": "extraembryonic component"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:90",
+                                            "id": "li.node.TS09.id9",
+                                            "name": "extraembryonic component cavities"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:91",
+                                                    "id": "li.node.TS09.id10",
+                                                    "name": "proamniotic cavity extraembryonic part"
+                                                },
+                                                "data": "proamniotic cavity extraembryonic part"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:92",
+                                                    "id": "li.node.TS09.id11",
+                                                    "name": "yolk sac cavity"
+                                                },
+                                                "data": "yolk sac cavity"
+                                            }
+                                        ],
+                                        "data": "extraembryonic component cavities"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:93",
+                                            "id": "li.node.TS09.id12",
+                                            "name": "extraembryonic ectoderm"
+                                        },
+                                        "data": "extraembryonic ectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:94",
+                                            "id": "li.node.TS09.id13",
+                                            "name": "extraembryonic endoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:95",
+                                                    "id": "li.node.TS09.id14",
+                                                    "name": "intermediate endoderm"
+                                                },
+                                                "data": "intermediate endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:96",
+                                                    "id": "li.node.TS09.id15",
+                                                    "name": "parietal endoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:97",
+                                                            "id": "li.node.TS09.id16",
+                                                            "name": "Reichert's membrane"
+                                                        },
+                                                        "data": "Reichert's membrane"
+                                                    }
+                                                ],
+                                                "data": "parietal endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:98",
+                                                    "id": "li.node.TS09.id17",
+                                                    "name": "visceral endoderm"
+                                                },
+                                                "data": "visceral endoderm"
+                                            }
+                                        ],
+                                        "data": "extraembryonic endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:99",
+                                            "id": "li.node.TS09.id18",
+                                            "name": "trophectoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:100",
+                                                    "id": "li.node.TS09.id19",
+                                                    "name": "mural trophectoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:101",
+                                                            "id": "li.node.TS09.id20",
+                                                            "name": "primary trophoblast giant cells"
+                                                        },
+                                                        "data": "primary trophoblast giant cells"
+                                                    }
+                                                ],
+                                                "data": "mural trophectoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:102",
+                                                    "id": "li.node.TS09.id21",
+                                                    "name": "polar trophectoderm"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "attr": {
+                                                            "ext_id": "EMAP:103",
+                                                            "id": "li.node.TS09.id22",
+                                                            "name": "ectoplacental cone"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:104",
+                                                                    "id": "li.node.TS09.id23",
+                                                                    "name": "cytotrophoblast"
+                                                                },
+                                                                "data": "cytotrophoblast"
+                                                            },
+                                                            {
+                                                                "attr": {
+                                                                    "ext_id": "EMAP:105",
+                                                                    "id": "li.node.TS09.id24",
+                                                                    "name": "syncytiotrophoblast"
+                                                                },
+                                                                "data": "syncytiotrophoblast"
+                                                            }
+                                                        ],
+                                                        "data": "ectoplacental cone"
+                                                    }
+                                                ],
+                                                "data": "polar trophectoderm"
+                                            }
+                                        ],
+                                        "data": "trophectoderm"
+                                    }
+                                ],
+                                "data": "extraembryonic component"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:87",
+                                    "id": "li.node.TS09.id25",
+                                    "name": "mesoderm"
+                                },
+                                "data": "mesoderm"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:88",
+                                    "id": "li.node.TS09.id26",
+                                    "name": "primitive streak"
+                                },
+                                "data": "primitive streak"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:80",
+                                    "id": "li.node.TS09.id27",
+                                    "name": "embryo"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:81",
+                                            "id": "li.node.TS09.id28",
+                                            "name": "cavities and their linings"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:82",
+                                                    "id": "li.node.TS09.id29",
+                                                    "name": "embryonic component of the proamniotic cavity"
+                                                },
+                                                "data": "embryonic component of the proamniotic cavity"
+                                            }
+                                        ],
+                                        "data": "cavities and their linings"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:83",
+                                            "id": "li.node.TS09.id30",
+                                            "name": "ectoderm"
+                                        },
+                                        "data": "ectoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:84",
+                                            "id": "li.node.TS09.id31",
+                                            "name": "endoderm"
+                                        },
+                                        "children": [
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:85",
+                                                    "id": "li.node.TS09.id32",
+                                                    "name": "definitive endoderm"
+                                                },
+                                                "data": "definitive endoderm"
+                                            },
+                                            {
+                                                "attr": {
+                                                    "ext_id": "EMAP:86",
+                                                    "id": "li.node.TS09.id33",
+                                                    "name": "primitive endoderm"
+                                                },
+                                                "data": "primitive endoderm"
+                                            }
+                                        ],
+                                        "data": "endoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:87",
+                                            "id": "li.node.TS09.id34",
+                                            "name": "mesoderm"
+                                        },
+                                        "data": "mesoderm"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:88",
+                                            "id": "li.node.TS09.id35",
+                                            "name": "primitive streak"
+                                        },
+                                        "data": "primitive streak"
+                                    }
+                                ],
+                                "data": "embryo"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

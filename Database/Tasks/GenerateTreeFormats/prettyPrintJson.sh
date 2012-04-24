@@ -1,6 +1,7 @@
 #! /bin/bash
 #
-# Usage "./prettyPrintJson.sh ../../Versions/TestJSON/Formats/Trees"
+# Usage "./prettyPrintJson.sh ../../Versions/Version009/Formats/Trees"
+#  From "Anatomy/Database/Tasks/GenerateTreeFormats"
 #
 echo "Finding JSON files to Validate and Pretty Print"
 
@@ -22,7 +23,7 @@ find $1 -name '*.json' -type f |
            echo $pp
            echo "EQUAL"
            echo $outfile
-           cat $file | python -mjson.tool > $outfile
+           cat $file | python -msimplejson.tool > $outfile
            if [ $? = 0 ]
            then
                rm $file

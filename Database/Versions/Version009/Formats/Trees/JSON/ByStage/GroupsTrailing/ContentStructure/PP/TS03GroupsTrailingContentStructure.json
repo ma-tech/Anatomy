@@ -1,0 +1,83 @@
+{
+    "json_data": {
+        "data": [
+            {
+                "attr": {
+                    "ext_id": "EMAP:0",
+                    "id": "li.node.ts01.root",
+                    "name": "Anatomy"
+                },
+                "children": [
+                    {
+                        "attr": {
+                            "ext_id": "EMAP:25768",
+                            "id": "li.node.TS03.id1",
+                            "name": "mouse"
+                        },
+                        "children": [
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:8",
+                                    "id": "li.node.TS03.id2",
+                                    "name": "4-8 cell stage"
+                                },
+                                "children": [
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:31922",
+                                            "id": "li.node.TS03.id3",
+                                            "name": "4-cell stage"
+                                        },
+                                        "data": "4-cell stage"
+                                    },
+                                    {
+                                        "attr": {
+                                            "ext_id": "EMAP:31923",
+                                            "id": "li.node.TS03.id4",
+                                            "name": "8-cell stage"
+                                        },
+                                        "data": "8-cell stage"
+                                    }
+                                ],
+                                "data": "4-8 cell stage"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:9",
+                                    "id": "li.node.TS03.id5",
+                                    "name": "compacted morula"
+                                },
+                                "data": "compacted morula"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:10",
+                                    "id": "li.node.TS03.id6",
+                                    "name": "second polar body"
+                                },
+                                "data": "second polar body"
+                            },
+                            {
+                                "attr": {
+                                    "ext_id": "EMAP:11",
+                                    "id": "li.node.TS03.id7",
+                                    "name": "zona pellucida"
+                                },
+                                "data": "zona pellucida"
+                            }
+                        ],
+                        "data": "mouse"
+                    }
+                ],
+                "data": "Anatomy",
+                "state": "closed"
+            }
+        ],
+        "progressive_render": true
+    },
+    "plugins": [
+        "themes",
+        "json_data",
+        "ui"
+    ]
+}

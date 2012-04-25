@@ -18,6 +18,7 @@ import DAOLayer.DAOException;
 import DAOModel.DerivedPartOfPerspectivesFK;
 
 import Utility.WhatIsThisString;
+import Utility.FacesUtil;
 
 import WebApp.Config;
 
@@ -30,6 +31,9 @@ import WebApp.Config;
 public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     // Properties ---------------------------------------------------------------------------------
+	
+	// Init ---------------------------------------------------------------------------------------
+    private String theilerStage;
 
 	// Form
     private UIForm form;
@@ -61,14 +65,10 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
     private String searchEndStage;
     private String searchPerspective;
 
-    // TEST.
-    private HtmlInputHidden text;
-    private HtmlInputHidden htmlInputHidden;
-
     // Constructors -------------------------------------------------------------------------------
     public DerivedPartOfPerspectivesFKBackingBean() {
         // Set default values somehow (properties files?).
-        
+
         // Default search term.
         searchTerm = ""; 
         // Default search Id.
@@ -76,9 +76,9 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
         // Default search direction.
         searchDirection = "ALL"; 
         // Default search start stage.
-        searchStartStage = ""; 
+        searchStartStage = "0"; 
         // Default search start stage.
-        searchEndStage = ""; 
+        searchEndStage = "0"; 
         // Default search perspective.
         searchPerspective = "Whole mouse"; 
         // Default rows per page (max amount of rows to be displayed at once).
@@ -89,6 +89,7 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
         sortField = "fullPath"; 
         // Default sort direction.
         sortAscending = true; 
+
     }
 
     // Session actions ----------------------------------------------------------------------------
@@ -101,19 +102,30 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     // Paging actions -----------------------------------------------------------------------------
     public void pageFirst() {
+    	
         page(0);
     }
 
     public void pageNext() {
-        page(firstRow + rowsPerPage);
+
+       	this.firstRow = (Integer) FacesUtil.getSessionMapValue("firstRow");
+
+    	page(firstRow + rowsPerPage);
+
     }
 
     public void pagePrevious() {
-        page(firstRow - rowsPerPage);
+       	
+    	this.firstRow = (Integer) FacesUtil.getSessionMapValue("firstRow");
+
+      	page(firstRow - rowsPerPage);
+
     }
 
     public void pageLast() {
-        page(totalRows - ((totalRows % rowsPerPage != 0) ? totalRows % rowsPerPage : rowsPerPage));
+        
+      	page(totalRows - ((totalRows % rowsPerPage != 0) ? totalRows % rowsPerPage : rowsPerPage));
+
     }
 
     public void page(ActionEvent event) {
@@ -121,12 +133,16 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
     }
 
     private void page(int firstRow) {
+    	
+      	FacesUtil.deleteApplicationMapValue("firstRow");
+
         this.firstRow = firstRow;
         
         if (validateStages(searchStartStage, searchEndStage)){
             loadDataList(); // Load requested page.
         }
 
+        FacesUtil.setSessionMapValue("firstRow", firstRow);
     }
 
     // Sorting actions ----------------------------------------------------------------------------
@@ -148,10 +164,10 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
     // Loaders ------------------------------------------------------------------------------------
     private void loadDataList() {
 
-        // Load list and totalCount.
+    	// Load list and totalCount.
         try {
-            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, searchId, searchDirection, getTextValue(), getTextValue(), searchPerspective);
-            totalRows = dao.count(searchTerm, searchId, searchDirection, getTextValue(), getTextValue(), searchPerspective);
+            dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, searchId, searchDirection, searchStartStage, searchEndStage, searchPerspective);
+            totalRows = dao.count(searchTerm, searchId, searchDirection, searchStartStage, searchEndStage, searchPerspective);
         } 
         catch (DAOException e) {
             throw new RuntimeException(e); // Handle it yourself.
@@ -170,6 +186,7 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
         for (int i = 0; i < pagesLength; i++) {
             pages[i] = ++firstPage;
         }
+
     }
     
 
@@ -180,8 +197,6 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
      */
     public boolean validateStages(String stageStart, String stageEnd) {
     	
-        //System.out.println("validateStages\nstageStart = " + stageStart + "\nstageEnd = " + stageEnd);
-
         int start = 0;
         int end = 0;
         
@@ -211,14 +226,6 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     
     // Getters ------------------------------------------------------------------------------------
-    public HtmlInputHidden getText() {
-        return htmlInputHidden;
-    }
-
-    public String getTextValue() {
-        return (String) htmlInputHidden.getAttributes().get("stage");
-    }
-
     /**
      * Returns the form.
      */
@@ -228,12 +235,12 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     public List<DerivedPartOfPerspectivesFK> getDataList() {
     	
-        System.out.println("getDataList; HtmlInputHidden = " + getTextValue());
-
         if (dataList == null) {
             // Preload page for the 1st view.
-            if (validateStages(getTextValue(), getTextValue())){
+            if (validateStages(searchStartStage, searchEndStage)){
+
                 loadDataList(); // Load requested page.
+
             }
         }
         return dataList;
@@ -275,6 +282,10 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
         return searchPerspective;
     }
 
+    public String getTheilerStage() {
+    	return theilerStage;
+    }
+
     // Setters ------------------------------------------------------------------------------------
     /**
      * Set the form.
@@ -306,14 +317,135 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
         this.searchPerspective = searchPerspective;
     }
 
-    public void setText(HtmlInputHidden htmlInputHidden) {
-        this.htmlInputHidden = htmlInputHidden;
-        this.searchStartStage = getTextValue();
-        this.searchEndStage = getTextValue();
-    }
+    public void setTheilerStage(String theilerStage) {
 
-    public void setTextValue(String stage) {
-        this.htmlInputHidden.getAttributes().put("stage", stage);  
+    	if ( theilerStage == null) {
+        	this.theilerStage = (String) FacesUtil.getSessionMapValue("theilerStage");
+        	this.searchStartStage = (String) FacesUtil.getSessionMapValue("searchStartStage");
+        	this.searchEndStage = (String) FacesUtil.getSessionMapValue("searchEndStage");
+    	}
+    	else {
+        	this.theilerStage = theilerStage;
+        	
+        	if (theilerStage.equals("TS01")) {
+        		this.searchStartStage = "0";
+        		this.searchEndStage = "0";
+        	}
+        	else if (theilerStage.equals("TS02")) {
+        		this.searchStartStage = "1";
+        		this.searchEndStage = "1";
+        	}
+        	else if (theilerStage.equals("TS03")) {
+        		this.searchStartStage = "2";
+        		this.searchEndStage = "2";
+        	}
+        	else if (theilerStage.equals("TS04")) {
+        		this.searchStartStage = "3";
+        		this.searchEndStage = "3";
+        	}
+        	else if (theilerStage.equals("TS05")) {
+        		this.searchStartStage = "4";
+        		this.searchEndStage = "4";
+        	}
+        	else if (theilerStage.equals("TS06")) {
+        		this.searchStartStage = "5";
+        		this.searchEndStage = "5";
+        	}
+        	else if (theilerStage.equals("TS07")) {
+        		this.searchStartStage = "6";
+        		this.searchEndStage = "6";
+        	}
+        	else if (theilerStage.equals("TS08")) {
+        		this.searchStartStage = "7";
+        		this.searchEndStage = "7";
+        	}
+        	else if (theilerStage.equals("TS09")) {
+        		this.searchStartStage = "8";
+        		this.searchEndStage = "8";
+        	}
+        	else if (theilerStage.equals("TS10")) {
+        		this.searchStartStage = "9";
+        		this.searchEndStage = "9";
+        	}
+        	else if (theilerStage.equals("TS11")) {
+        		this.searchStartStage = "10";
+        		this.searchEndStage = "10";
+        	}
+        	else if (theilerStage.equals("TS12")) {
+        		this.searchStartStage = "11";
+        		this.searchEndStage = "11";
+        	}
+        	else if (theilerStage.equals("TS13")) {
+        		this.searchStartStage = "12";
+        		this.searchEndStage = "12";
+        	}
+        	else if (theilerStage.equals("TS14")) {
+        		this.searchStartStage = "13";
+        		this.searchEndStage = "13";
+        	}
+        	else if (theilerStage.equals("TS15")) {
+        		this.searchStartStage = "14";
+        		this.searchEndStage = "14";
+        	}
+        	else if (theilerStage.equals("TS16")) {
+        		this.searchStartStage = "15";
+        		this.searchEndStage = "15";
+        	}
+        	else if (theilerStage.equals("TS17")) {
+        		this.searchStartStage = "16";
+        		this.searchEndStage = "16";
+        	}
+        	else if (theilerStage.equals("TS18")) {
+        		this.searchStartStage = "17";
+        		this.searchEndStage = "17";
+        	}
+        	else if (theilerStage.equals("TS19")) {
+        		this.searchStartStage = "18";
+        		this.searchEndStage = "18";
+        	}
+        	else if (theilerStage.equals("TS20")) {
+        		this.searchStartStage = "19";
+        		this.searchEndStage = "19";
+        	}
+        	else if (theilerStage.equals("TS21")) {
+        		this.searchStartStage = "20";
+        		this.searchEndStage = "20";
+        	}
+        	else if (theilerStage.equals("TS22")) {
+        		this.searchStartStage = "21";
+        		this.searchEndStage = "21";
+        	}
+        	else if (theilerStage.equals("TS23")) {
+        		this.searchStartStage = "22";
+        		this.searchEndStage = "22";
+        	}
+        	else if (theilerStage.equals("TS24")) {
+        		this.searchStartStage = "23";
+        		this.searchEndStage = "23";
+        	}
+        	else if (theilerStage.equals("TS25")) {
+        		this.searchStartStage = "24";
+        		this.searchEndStage = "24";
+        	}
+        	else if (theilerStage.equals("TS26")) {
+        		this.searchStartStage = "25";
+        		this.searchEndStage = "25";
+        	}
+        	else if (theilerStage.equals("TS27")) {
+        		this.searchStartStage = "26";
+        		this.searchEndStage = "26";
+        	}
+        	else if (theilerStage.equals("TS28")) {
+        		this.searchStartStage = "27";
+        		this.searchEndStage = "27";
+        	}
+        	
+        	FacesUtil.setSessionMapValue("theilerStage", this.theilerStage);
+        	FacesUtil.setSessionMapValue("searchStartStage", this.searchStartStage);
+        	FacesUtil.setSessionMapValue("searchEndStage", this.searchEndStage);
+
+    	}
+    	
     }
 
 }

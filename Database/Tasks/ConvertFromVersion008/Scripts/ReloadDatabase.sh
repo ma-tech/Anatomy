@@ -1,0 +1,2 @@
+echo 'drop database anatomy008; create database anatomy008;' | mysql -uroot -pbanana anatomy008
+mysql -uroot -pbanana anatomy008 < ../../../Versions/Version009/Formats/Dumps/mySqlSchemaOldDataRoutinesDump.sql

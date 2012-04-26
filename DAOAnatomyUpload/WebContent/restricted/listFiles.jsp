@@ -102,6 +102,14 @@
           <f:attribute name="validateField" 
                          value="#{item.oid}" />
         </h:commandLink>
+        <h:outputText value=" - " 
+                      rendered="#{item.validation == 'VALIDATED'}" />
+        <h:commandLink value="UPDATE!" 
+                         actionListener="#{OBOFileBackingBean.update}"
+                         rendered="#{item.validation == 'VALIDATED'}">
+          <f:attribute name="validateField" 
+                         value="#{item.oid}" />
+        </h:commandLink>
       </h:column>
       
       <h:column>

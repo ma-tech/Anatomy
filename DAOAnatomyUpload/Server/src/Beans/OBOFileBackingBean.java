@@ -106,7 +106,7 @@ public class OBOFileBackingBean implements Serializable {
     // Validate actions ----------------------------------------------------------------------------
     public void validate(ActionEvent event) {
 
-    	Long validateFieldAttribute = (Long) event.getComponent().getAttributes().get("actionField");
+    	Long validateFieldAttribute = (Long) event.getComponent().getAttributes().get("validateField");
         
         try {
             String oidString = String.valueOf(validateFieldAttribute);
@@ -151,7 +151,7 @@ public class OBOFileBackingBean implements Serializable {
     // Update actions ----------------------------------------------------------------------------
     public void update(ActionEvent event) {
 
-    	Long updateFieldAttribute = (Long) event.getComponent().getAttributes().get("actionField");
+    	Long updateFieldAttribute = (Long) event.getComponent().getAttributes().get("validateField");
         
         try {
             String oidString = String.valueOf(updateFieldAttribute);

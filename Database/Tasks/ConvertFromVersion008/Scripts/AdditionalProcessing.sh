@@ -2,7 +2,7 @@
 #########################################################################
 # Project:      Anatomy
 # Title:        AdditionalProcessing - Version009 and on
-# Date:         November 2009
+# Date:         April 2012
 # Author:       Mike Wicks
 # Copyright:    2009 Medical Research Council, UK.
 #               All rights reserved.
@@ -17,26 +17,21 @@
 
 # ADDITIONAL-PROCESSING - STEPS
 
-# 1. Rebuild ANA_PERSPECTIVE_LINK
-echo '1. Rebuild ANA_PERSPECTIVE_LINK'
-pwd
-cd ../SQLFiles/UpdateProcessing/002NewData
-pwd
-#mysql -uroot -pbanana anatomy008 < createAnaNodePerspectiveLinkData.sql > AnaNodePerspectiveLink.csv
+# 1. Rebuild Materialised Views (ANAM_EDGE & ANAM_TIMED_EDGE)
+echo '1. Rebuild Materialised Views'
+cd ../SQLFiles/AdditionalProcessing/001SetUp/
+#pwd
 
-# TODO => Script to add OID row numbers on each row
-
-#rm /tmp/AnaNodePerspectiveLink.csv
-#cp AnaNodePerspectiveLink.csv /tmp/AnaNodePerspectiveLink.csv
-#mysql -uroot -pbanana anatomy008 < NewPerspectiveNodeLinkTable.sql
-
-# 2. Rebuild Materialised Views (ANAM_EDGE & ANAM_TIMED_EDGE)
-echo '2. Rebuild Materialised Views'
-cd ../001SetUp
-pwd
+echo 'A. Drop Existing Materialised Views'
+mysql -uroot -pbanana anatomy008 < 001createAbstractEdgeTable.sql
+mysql -uroot -pbanana anatomy008 < 002createTimedEdgeTable.sql
+echo 'A. Drop Existing Materialised Views - DONE'
+echo 'B. Build Data Files'
 mysql -uroot -pbanana anatomy008 < 009inputAbstractEdgeSP.sql > update/011buildAbstractEdge.sql
 mysql -uroot -pbanana anatomy008 < 010inputTimedEdgeSP.sql > update/012buildTimedEdge.sql
-mysql -uroot -pbanana anatomy008 < update/011buildAbstractEdge.sql
-mysql -uroot -pbanana anatomy008 < update/012buildTimedEdge.sql
-
-
+echo 'B. Build Data Files - DONE'
+echo 'C. Insert Data Files'
+mysql -uroot -pbanana anatomy008 < update/011buildAbstractEdge.sql > /tmp/011buildAbstractEdge.log
+mysql -uroot -pbanana anatomy008 < update/012buildTimedEdge.sql > /tmp/012buildTimedEdge.log
+echo 'C. Insert Data Files - DONE'
+echo '1. Rebuild Materialised Views - ALL DONE'

@@ -26,7 +26,8 @@ public class TestExecuteCommand {
             System.out.println("");
 
             //String commandString1 = "ls -al";
-            String commandString1 = "rm /Users/mwicks/Dropbox/Work/Anatomy/TEST/sqloutput.sql";
+            //String commandString1 = "rm /Users/mwicks/Dropbox/Work/Anatomy/TEST/sqloutput.sql";
+            String commandString1 = "/Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/Scripts/ExtractOBO.sh &";
             ArrayList<String> results = new ArrayList<String>();
             
     		long startCommand = System.currentTimeMillis();

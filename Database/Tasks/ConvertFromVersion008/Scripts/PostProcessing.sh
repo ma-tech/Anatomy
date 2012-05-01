@@ -2,7 +2,7 @@
 #########################################################################
 # Project:      Anatomy
 # Title:        PostProcessing - Version009 and on
-# Date:         November 2009
+# Date:         April 2012
 # Author:       Mike Wicks
 # Copyright:    2009 Medical Research Council, UK.
 #               All rights reserved.
@@ -19,11 +19,14 @@
 
 # 1. Set-Up PYTHONPATH
 echo '1. Set-Up PYTHONPATH'
+#pwd
 export PYTHONPATH=/Users/mwicks/GitMahost/Anatomy/Gmerg/Common/lib/python
 
 # 2. Generate Derived Data
 echo '2. Generate Derived Data'
-cd ../../CreateNextVersion/RegenerateDerivedData && ./regenerateDerivedData.py ../../CreateNextVersion/RegenerateDerivedData/version009.config >& /tmp/regenerateDerivedData.log
+cd ../../CreateNextVersion/RegenerateDerivedData
+#pwd
+./regenerateDerivedData.py ../../CreateNextVersion/RegenerateDerivedData/version009.config >& /tmp/regenerateDerivedData.log
 
 # 3. Apply Derived Data
 echo '3. Apply Derived Data'
@@ -31,16 +34,28 @@ mysql -uroot -pbanana anatomy008 < ../../ConvertFromVersion008/SQLFiles/PostProc
 
 # 4. Update ANA_OBJECT (Index Entries)
 echo '4. Update ANA_OBJECT (Index Entries)'
-# pwd
-cd ../../ConvertFromVersion008/SQLFiles/PostProcessing/001AnaObject && ./createFiles.sh && ./applyFiles.sh
+cd ../../ConvertFromVersion008/SQLFiles/PostProcessing/001AnaObject
+#pwd
+./createFiles.sh && ./applyFiles.sh
 
 # 5. Generate Tree Formats
 echo '5. Generate Tree Formats'
-# pwd
-cd ../../../../GenerateTreeFormats && ./generateTreeReports.py version009.config >& /tmp/generateTreeReports.log && ./prettyPrintJson.sh /Users/mwicks/GitMahost/Anatomy/Database/Versions/Version009/Formats/Trees
-# pwd
+cd ../../../../GenerateTreeFormats
+#pwd
+./generateTreeReports.py version009.config >& /tmp/generateTreeReports.log && ./prettyPrintJson.sh /Users/mwicks/GitMahost/Anatomy/Database/Versions/Version009/Formats/Trees
 
-# 6. Generate OBO File
-echo '6. Generate OBO File'
-echo 'NOT YET!!!'
+# 6. Rebuild ANA_PERSPECTIVE_LINK
+echo '6. Rebuild ANA_PERSPECTIVE_LINK'
+cd ../ConvertFromVersion008/SQLFiles/PostProcessing/002AnaNodePerspectiveLink
+#pwd
+mysql -uroot -pbanana anatomy008 < createAnaNodePerspectiveLinkData.sql > AnaNodePerspectiveLink.csv
+mysql -uroot -pbanana anatomy008 < NewPerspectiveNodeLinkTable.sql 
+mysql -uroot -pbanana anatomy008 < createAnaNodePerspectiveLinkData.sql > update/inputAnaNodePerspectiveLinkData.sql 
+mysql -uroot -pbanana anatomy008 < update/inputAnaNodePerspectiveLinkData.sql 
+
+# 7. Generate OBO File
+echo '7. Generate OBO File'
+cd ../../../Scripts
+#pwd
+./ExtractOBO.sh
 

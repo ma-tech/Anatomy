@@ -107,6 +107,14 @@
             <property-name>theilerStage</property-name>
             <value>#{param.theilerStage}</value>
         </managed-property>
+        <managed-property>
+            <property-name>searchInput</property-name>
+            <value>#{param.searchInput}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>pageInput</property-name>
+            <value>#{param.pageInput}</value>
+        </managed-property>
     </managed-bean>
     
     <managed-bean>

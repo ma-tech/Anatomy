@@ -28,7 +28,7 @@
 #
 -----------------------------------------------------------------------------------------------
 */
-package Utility;
+package utility;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -38,8 +38,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 
-import OBOModel.ComponentFile;
-import OBOModel.Relation;
+import obomodel.ComponentFile;
+import obomodel.Relation;
 
 
 public class Producer {

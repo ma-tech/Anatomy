@@ -4,7 +4,7 @@
  * M Wicks, 05/03/2012
  * 
  */
-package Utility;
+package utility;
 
 import java.util.Stack;
 

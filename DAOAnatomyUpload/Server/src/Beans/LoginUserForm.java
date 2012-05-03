@@ -1,10 +1,10 @@
-package Beans;
+package beans;
 
 import javax.faces.context.FacesContext;
 
-import DAOLayer.DAOException;
+import daolayer.DAOException;
 
-import DAOModel.User;
+import daomodel.User;
 
 /*
  * This bean is to be associated with a single User Registration Form in the JSF page.

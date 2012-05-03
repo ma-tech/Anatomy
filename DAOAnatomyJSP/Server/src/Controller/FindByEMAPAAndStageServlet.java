@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAOLayer.ExtraTimedNodeDAO;
+import daolayer.ExtraTimedNodeDAO;
 
-import DAOModel.ExtraTimedNode;
+import daomodel.ExtraTimedNode;
 
-import Form.TimedNodeForm;
+import form.TimedNodeForm;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * FIND a Relation by OID.

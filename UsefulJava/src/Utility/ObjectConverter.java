@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package Utility;
+package utility;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -74,7 +74,7 @@ public final class ObjectConverter {
     }
 
     private ObjectConverter() {
-        // Utility class, hide the constructor.
+        // utility class, hide the constructor.
     }
 
     // Action -------------------------------------------------------------------------------------

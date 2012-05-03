@@ -38,7 +38,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package OBOLayer;
+package obolayer;
 
 import java.io.IOException;
 import java.io.InputStream;

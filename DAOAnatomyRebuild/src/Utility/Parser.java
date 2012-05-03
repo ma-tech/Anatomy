@@ -28,7 +28,7 @@
 #
 -----------------------------------------------------------------------------------------------
 */
-package Utility;
+package utility;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ import org.geneontology.oboedit.datamodel.OBOSession;
 import org.geneontology.oboedit.datamodel.impl.OBOClassImpl;
 import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
 
 public class Parser {

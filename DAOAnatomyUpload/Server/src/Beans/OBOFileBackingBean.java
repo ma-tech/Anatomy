@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.io.Serializable;
 import java.io.IOException;
@@ -12,12 +12,12 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.context.FacesContext;
 
-import DAOLayer.OBOFileDAO;
-import DAOLayer.DAOException;
+import daolayer.OBOFileDAO;
+import daolayer.DAOException;
 
-import DAOModel.OBOFile;
+import daomodel.OBOFile;
 
-import WebApp.Config;
+import webapp.Config;
 
 
 /**

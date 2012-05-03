@@ -33,29 +33,29 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.DerivedPartOfDAO;
-import DAOLayer.LogDAO;
-import DAOLayer.NodeDAO;
-import DAOLayer.RelationshipDAO;
-import DAOLayer.StageDAO;
-import DAOLayer.SynonymDAO;
-import DAOLayer.ThingDAO;
-import DAOLayer.TimedNodeDAO;
-import DAOLayer.VersionDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.DerivedPartOfDAO;
+import daolayer.LogDAO;
+import daolayer.NodeDAO;
+import daolayer.RelationshipDAO;
+import daolayer.StageDAO;
+import daolayer.SynonymDAO;
+import daolayer.ThingDAO;
+import daolayer.TimedNodeDAO;
+import daolayer.VersionDAO;
 
-import DAOModel.DerivedPartOf;
-import DAOModel.Log;
-import DAOModel.Node;
-import DAOModel.Relationship;
-import DAOModel.Stage;
-import DAOModel.Synonym;
-import DAOModel.Thing;
-import DAOModel.TimedNode;
-import DAOModel.Version;
+import daomodel.DerivedPartOf;
+import daomodel.Log;
+import daomodel.Node;
+import daomodel.Relationship;
+import daomodel.Stage;
+import daomodel.Synonym;
+import daomodel.Thing;
+import daomodel.TimedNode;
+import daomodel.Version;
 
 public class RunDAOTest {
 	/*

@@ -61,17 +61,17 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package OBOLayer;
+package obolayer;
 
 import java.io.File;
 
 import java.util.ArrayList;
 
-import OBOModel.ComponentFile;
-import OBOModel.Relation;
+import obomodel.ComponentFile;
+import obomodel.Relation;
 
-import Utility.Parser;
-import Utility.Producer;
+import utility.Parser;
+import utility.Producer;
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------

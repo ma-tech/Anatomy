@@ -33,13 +33,13 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import App.RunOBOLoadFileIntoDatabase;
+import app.RunOBOLoadFileIntoDatabase;
 
 public class MainOBOLoadFileIntoDatabase{
 	/*

@@ -30,7 +30,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -40,7 +40,7 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
 public class ValidateComponents {
 

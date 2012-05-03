@@ -1,4 +1,4 @@
-package TestApp;
+package testapp;
 
 import java.text.SimpleDateFormat;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Utility.ExecuteCommand;
+import utility.ExecuteCommand;
 
 public class TestExecuteCommand {
 

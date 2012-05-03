@@ -3415,7 +3415,7 @@ if ( document.documentElement.compareDocumentPosition ) {
 	};
 }
 
-// Utility function for retreiving the text value of an array of DOM nodes
+// utility function for retreiving the text value of an array of DOM nodes
 function getText( elems ) {
 	var ret = "", elem;
 

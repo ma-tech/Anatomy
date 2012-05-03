@@ -1,12 +1,12 @@
-package TestApp;
+package testapp;
 
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 import java.util.Calendar;
 
-import Utility.DateUtil;
-import Utility.CalendarUtil;
+import utility.DateUtil;
+import utility.CalendarUtil;
 
 public class TestDateUtil {
 

@@ -18,7 +18,7 @@
 *
 * Version: 1
 *
-* Description:  Utility class for DAO's.
+* Description:  utility class for DAO's.
 * 
 *               This class contains commonly used DAO logic which has been re-factored into
 *                single static methods.
@@ -39,7 +39,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOLayer;
+package daolayer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -59,7 +59,7 @@ public final class DAOUtil {
 
     // Constructors -------------------------------------------------------------------------------
     private DAOUtil() {
-        // Utility class, hide constructor.
+        // utility class, hide constructor.
     }
 
     // Actions ------------------------------------------------------------------------------------

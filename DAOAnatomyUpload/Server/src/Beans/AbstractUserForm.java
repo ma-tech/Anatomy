@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -6,10 +6,10 @@ import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
-import DAOLayer.DAOException;
-import DAOLayer.UserDAO;
+import daolayer.DAOException;
+import daolayer.UserDAO;
 
-import WebApp.Config;
+import webapp.Config;
 
 /*
  * This bean is to be associated with a single User form in the JSF page. It provides under each

@@ -29,9 +29,9 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
-import App.RunDAOExtractOBO;
+import app.RunDAOExtractOBO;
 
 public class MainDAOExtractOBO {
 	/*
@@ -42,7 +42,7 @@ public class MainDAOExtractOBO {
     	long startTime = System.currentTimeMillis();
     	
         System.out.println("=========   -----------------");
-        System.out.println("EXECUTING - MainDAOExtractOBO.java on " + Utility.MySQLDateTime.now());
+        System.out.println("EXECUTING - MainDAOExtractOBO.java on " + utility.MySQLDateTime.now());
         System.out.println("=========   -----------------");
         System.out.println("");
 

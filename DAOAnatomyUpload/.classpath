@@ -19,5 +19,5 @@
 			<attribute name="owner.project.facets" value="jst.jsf"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="output" path="Server/build/classes"/>
 </classpath>

@@ -1,4 +1,4 @@
-package Form;
+package form;
 
 /**
  * This class represents a generic validator exception. It should be thrown by all validation

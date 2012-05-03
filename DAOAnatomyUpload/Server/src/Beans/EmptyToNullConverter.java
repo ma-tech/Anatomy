@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;

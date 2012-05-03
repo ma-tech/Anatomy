@@ -34,19 +34,19 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.ArrayList;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import Utility.ImportFile;
-import Utility.ImportDatabase;
-import Utility.MapBuilder;
-import Utility.TreeBuilder;
-import Utility.ValidateComponents;
-import Utility.GenerateEditorReport;
-import Utility.GenerateEditorPDF;
+import utility.ImportFile;
+import utility.ImportDatabase;
+import utility.MapBuilder;
+import utility.TreeBuilder;
+import utility.ValidateComponents;
+import utility.GenerateEditorReport;
+import utility.GenerateEditorPDF;
 
 public class RunOBOCompareFileAndDatabaseReferences {
 	/*

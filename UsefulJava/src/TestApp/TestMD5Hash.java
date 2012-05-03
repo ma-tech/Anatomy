@@ -1,4 +1,4 @@
-package TestApp;
+package testapp;
 
 public class TestMD5Hash {
 
@@ -8,12 +8,12 @@ public class TestMD5Hash {
     		long startTime = System.currentTimeMillis();
         	
             System.out.println("=========   ===========");
-            System.out.println("EXECUTING - TestMD5Hash.java on " + Utility.MySQLDateTime.now());
+            System.out.println("EXECUTING - TestMD5Hash.java on " + utility.MySQLDateTime.now());
             System.out.println("=========   ===========");
             System.out.println("");
 
-            String MD5Hash = Utility.MD5Hash.MD5Hash("banana");
-            System.out.println("Utility.MD5Hash.MD5Hash(\"banana\") " + Utility.MD5Hash.MD5Hash("banana"));
+            String MD5Hash = utility.MD5Hash.MD5Hash("banana");
+            System.out.println("utility.MD5Hash.MD5Hash(\"banana\") " + utility.MD5Hash.MD5Hash("banana"));
             System.out.println("");
 
         	long endTime = System.currentTimeMillis();

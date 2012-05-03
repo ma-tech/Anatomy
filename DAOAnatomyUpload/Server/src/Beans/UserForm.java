@@ -1,11 +1,11 @@
-package Beans;
+package beans;
 
 import javax.servlet.http.HttpServletRequest;
 
-import DAOLayer.DAOException;
-import DAOLayer.UserDAO;
+import daolayer.DAOException;
+import daolayer.UserDAO;
 
-import DAOModel.User;
+import daomodel.User;
 
 /*
  * This class holds all business logic related to the request processing of the User DTO.

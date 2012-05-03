@@ -33,7 +33,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package OBOLayer;
+package obolayer;
 
 public class OBOConfigurationException extends RuntimeException {
     // Constructors -------------------------------------------------------------------------------

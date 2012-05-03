@@ -83,7 +83,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOLayer;
+package daolayer;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -96,7 +96,7 @@ import javax.sql.DataSource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import Utility.ExecuteCommand;
+import utility.ExecuteCommand;
 
 public abstract class DAOFactory {
     // Constants ----------------------------------------------------------------------------------

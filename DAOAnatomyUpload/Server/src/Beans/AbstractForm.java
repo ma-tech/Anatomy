@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 
-import DAOLayer.DAOUtil;
+import daolayer.DAOUtil;
 
 /*
  * This bean is to be associated with a single form in the JSF page. It provides under each a 'form'
@@ -94,7 +94,7 @@ public abstract class AbstractForm {
         addMessage(component, message, FacesMessage.SEVERITY_ERROR);
     }
 
-    // Utility (can be refactored to public utility class) ----------------------------------------
+    // utility (can be refactored to public utility class) ----------------------------------------
     /*
      * Add the given message with the given severity to the given component.
      */

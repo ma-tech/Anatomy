@@ -1,8 +1,8 @@
 format-version: 1.2
-date: 27:3:2012 15:18
+date: 3:4:2012 15:42
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
-remark: This is an OBO file extracted from the Database using the Producer Class in the Utility Package
+remark: This is an OBO file extracted from the Database using the Producer Class in the utility Package
 
 [Term]
 id: EMAPA:0

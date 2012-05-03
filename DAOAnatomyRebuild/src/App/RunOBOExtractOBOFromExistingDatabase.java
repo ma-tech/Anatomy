@@ -34,17 +34,17 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import OBOLayer.OBOFactory;
-import OBOLayer.ComponentOBO;
+import obolayer.OBOFactory;
+import obolayer.ComponentOBO;
 
-import Utility.ImportDatabase;
+import utility.ImportDatabase;
 
 public class RunOBOExtractOBOFromExistingDatabase {
 	/*

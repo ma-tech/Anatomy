@@ -34,13 +34,13 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import App.RunOBOCheckFileReferenceTree;
+import app.RunOBOCheckFileReferenceTree;
 
 public class MainOBOCheckFileReferenceTree {
 	/*

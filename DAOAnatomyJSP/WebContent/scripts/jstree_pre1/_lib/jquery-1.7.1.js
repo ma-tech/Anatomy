@@ -4180,7 +4180,7 @@ Sizzle.error = function( msg ) {
 };
 
 /**
- * Utility function for retreiving the text value of an array of DOM nodes
+ * utility function for retreiving the text value of an array of DOM nodes
  * @param {Array|Element} elem
  */
 var getText = Sizzle.getText = function( elem ) {

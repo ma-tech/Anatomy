@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

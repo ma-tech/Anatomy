@@ -29,20 +29,20 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package OBOLayer;
+package obolayer;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.StageDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.StageDAO;
 
-import DAOModel.Stage;
+import daomodel.Stage;
 
-import OBOModel.ComponentFile;
-import OBOModel.Relation;
+import obomodel.ComponentFile;
+import obomodel.Relation;
 
 public final class ComponentOBO {
 

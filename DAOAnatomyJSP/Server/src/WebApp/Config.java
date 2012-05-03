@@ -1,10 +1,10 @@
-package WebApp;
+package webapp;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import DAOLayer.DAOFactory;
+import daolayer.DAOFactory;
 
 /**
  * Configures the webapp.

@@ -29,9 +29,9 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
-import App.RunDAOExtractOBOAndValidate;
+import app.RunDAOExtractOBOAndValidate;
 
 public class MainDAOExtractOBOAndValidate {
 	/*
@@ -44,7 +44,7 @@ public class MainDAOExtractOBOAndValidate {
     	long startTime = System.currentTimeMillis();
     	
         System.out.println("=========   ----------------------------");
-        System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + Utility.MySQLDateTime.now());
+        System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + utility.MySQLDateTime.now());
         System.out.println("=========   ----------------------------");
         System.out.println("");
         

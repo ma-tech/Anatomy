@@ -1,16 +1,16 @@
-package Form;
+package form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import DAOLayer.DAOException;
-import DAOLayer.ExtraTimedNodeDAO;
+import daolayer.DAOException;
+import daolayer.ExtraTimedNodeDAO;
 
-import DAOModel.ExtraTimedNode;
+import daomodel.ExtraTimedNode;
 
-import Utility.WhatIsThisString;
+import utility.WhatIsThisString;
 
 /**
  * This class holds all business logic related to the request processing of the Leaf DTO.

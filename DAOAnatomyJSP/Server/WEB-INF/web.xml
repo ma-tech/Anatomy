@@ -14,12 +14,12 @@
   </context-param>
 
   <listener>
-    <listener-class>WebApp.Config</listener-class>
+    <listener-class>webapp.Config</listener-class>
   </listener>
 
   <servlet>
     <servlet-name>findByEMAPServlet</servlet-name>
-    <servlet-class>Controller.FindByEMAPServlet</servlet-class>
+    <servlet-class>controller.FindByEMAPServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>findByEMAPServlet</servlet-name>
@@ -28,7 +28,7 @@
 
   <servlet>
     <servlet-name>findByEMAPAAndStageServlet</servlet-name>
-    <servlet-class>Controller.FindByEMAPAAndStageServlet</servlet-class>
+    <servlet-class>controller.FindByEMAPAAndStageServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>findByEMAPAAndStageServlet</servlet-name>
@@ -37,7 +37,7 @@
 
   <servlet>
     <servlet-name>listLeafsByEMAPandStageServlet</servlet-name>
-    <servlet-class>Controller.ListLeafsByEMAPandStageServlet</servlet-class>
+    <servlet-class>controller.ListLeafsByEMAPandStageServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listLeafsByEMAPandStageServlet</servlet-name>
@@ -46,7 +46,7 @@
 
   <servlet>
     <servlet-name>listLeafsByEMAPandStageAggregatedServlet</servlet-name>
-    <servlet-class>Controller.ListLeafsByEMAPandStageAggregatedServlet</servlet-class>
+    <servlet-class>controller.ListLeafsByEMAPandStageAggregatedServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listLeafsByEMAPandStageAggregatedServlet</servlet-name>
@@ -55,7 +55,7 @@
 
   <servlet>
     <servlet-name>listByRootNameServlet</servlet-name>
-    <servlet-class>Controller.ListByRootNameServlet</servlet-class>
+    <servlet-class>controller.ListByRootNameServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByRootNameServlet</servlet-name>
@@ -64,7 +64,7 @@
   
   <servlet>
     <servlet-name>listByTimedRootNameServlet</servlet-name>
-    <servlet-class>Controller.ListByTimedRootNameServlet</servlet-class>
+    <servlet-class>controller.ListByTimedRootNameServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByTimedRootNameServlet</servlet-name>
@@ -73,7 +73,7 @@
   
   <servlet>
     <servlet-name>listByRootNameJsonServlet</servlet-name>
-    <servlet-class>Controller.ListByRootNameJsonServlet</servlet-class>
+    <servlet-class>controller.ListByRootNameJsonServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByRootNameJsonServlet</servlet-name>
@@ -82,7 +82,7 @@
   
   <servlet>
     <servlet-name>listByTimedRootNameJsonServlet</servlet-name>
-    <servlet-class>Controller.ListByTimedRootNameJsonServlet</servlet-class>
+    <servlet-class>controller.ListByTimedRootNameJsonServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByTimedRootNameJsonServlet</servlet-name>
@@ -91,7 +91,7 @@
   
   <servlet>
     <servlet-name>listByRootNameJsonOnlyServlet</servlet-name>
-    <servlet-class>Controller.ListByRootNameJsonOnlyServlet</servlet-class>
+    <servlet-class>controller.ListByRootNameJsonOnlyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByRootNameJsonOnlyServlet</servlet-name>
@@ -100,7 +100,7 @@
   
   <servlet>
     <servlet-name>listByTimedRootNameJsonOnlyServlet</servlet-name>
-    <servlet-class>Controller.ListByTimedRootNameJsonOnlyServlet</servlet-class>
+    <servlet-class>controller.ListByTimedRootNameJsonOnlyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listByTimedRootNameJsonOnlyServlet</servlet-name>

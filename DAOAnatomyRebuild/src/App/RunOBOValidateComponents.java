@@ -33,17 +33,17 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.StageRangeDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.StageRangeDAO;
 
-import DAOModel.StageRange;
+import daomodel.StageRange;
 
 public class RunOBOValidateComponents {
 	/*

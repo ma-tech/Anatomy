@@ -29,13 +29,13 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import App.RunOBOLoadComponents;
+import app.RunOBOLoadComponents;
 
 public class MainOBOLoadComponents {
 	/*

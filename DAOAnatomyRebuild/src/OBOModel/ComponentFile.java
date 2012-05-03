@@ -29,7 +29,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package OBOModel;
+package obomodel;
 
 import java.util.ArrayList;
 import java.util.Set;

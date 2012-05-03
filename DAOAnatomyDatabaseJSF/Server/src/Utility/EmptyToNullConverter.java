@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;

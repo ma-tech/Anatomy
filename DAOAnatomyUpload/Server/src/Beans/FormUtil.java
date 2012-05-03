@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.util.Collection;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /*
- * Utility class for forms. This class contains commonly used request parameter processing and
+ * utility class for forms. This class contains commonly used request parameter processing and
  * validation logic which are been refactored in single static methods.
  *
  * @author BalusC
@@ -16,7 +16,7 @@ public final class FormUtil {
 
     // Constructors -------------------------------------------------------------------------------
     private FormUtil() {
-        // Utility class, hide constructor.
+        // utility class, hide constructor.
     }
 
     // Request parameter processing ---------------------------------------------------------------

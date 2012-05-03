@@ -31,7 +31,7 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package DAOModel;
+package daomodel;
 
 import java.io.Serializable;
 

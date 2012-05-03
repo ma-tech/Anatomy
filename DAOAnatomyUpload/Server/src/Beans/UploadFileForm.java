@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.io.IOException;
 
@@ -8,13 +8,13 @@ import javax.faces.event.ActionEvent;
 
 import org.apache.myfaces.custom.fileupload.UploadedFile;
 
-import WebApp.Config;
+import webapp.Config;
 
-import DAOLayer.OBOFileDAO;
-import DAOLayer.DAOException;
+import daolayer.OBOFileDAO;
+import daolayer.DAOException;
 
-import DAOModel.OBOFile;
-import DAOModel.User;
+import daomodel.OBOFile;
+import daomodel.User;
 
 /*
  * This bean is to be associated with a single User Registration Form in the JSF page.
@@ -47,7 +47,7 @@ public class UploadFileForm extends AbstractFileForm {
             		uploadedFile.getInputStream(), 
             		uploadedFile.getContentType(), 
             		uploadedFile.getSize(), 
-            		Utility.MySQLDateTime.now(), 
+            		utility.MySQLDateTime.now(), 
             		"NEW", 
             		user.getUsername());
             

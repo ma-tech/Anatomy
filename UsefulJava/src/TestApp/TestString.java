@@ -1,6 +1,6 @@
-package TestApp;
+package testapp;
 
-import Utility.WhatIsThisString;
+import utility.WhatIsThisString;
 
 public class TestString {
 

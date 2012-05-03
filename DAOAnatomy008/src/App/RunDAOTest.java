@@ -33,29 +33,43 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.DerivedPartOfDAO;
-import DAOLayer.LogDAO;
-import DAOLayer.NodeDAO;
-import DAOLayer.RelationshipDAO;
-import DAOLayer.StageDAO;
-import DAOLayer.SynonymDAO;
-import DAOLayer.ThingDAO;
-import DAOLayer.TimedNodeDAO;
-import DAOLayer.VersionDAO;
+import java.io.File;
+import java.io.InputStream;
+import java.io.IOException;
 
-import DAOModel.DerivedPartOf;
-import DAOModel.Log;
-import DAOModel.Node;
-import DAOModel.Relationship;
-import DAOModel.Stage;
-import DAOModel.Synonym;
-import DAOModel.Thing;
-import DAOModel.TimedNode;
-import DAOModel.Version;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+import utility.CsvUtil;
+import utility.FileUtil;
+import utility.ObjectConverter;
+
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.DerivedPartOfDAO;
+import daolayer.LogDAO;
+import daolayer.NodeDAO;
+import daolayer.RelationshipDAO;
+import daolayer.StageDAO;
+import daolayer.SynonymDAO;
+import daolayer.ThingDAO;
+import daolayer.TimedNodeDAO;
+import daolayer.VersionDAO;
+
+import daomodel.DerivedPartOf;
+import daomodel.DerivedPartOfPerspectivesFK;
+import daomodel.Log;
+import daomodel.Node;
+import daomodel.Relationship;
+import daomodel.Stage;
+import daomodel.Synonym;
+import daomodel.Thing;
+import daomodel.TimedNode;
+import daomodel.Version;
 
 public class RunDAOTest {
 	/*
@@ -141,10 +155,36 @@ public class RunDAOTest {
 		    Version version = versionDAO.findByOid(Long.parseLong(versionOid));
 		    System.out.println("versionDAO.findByOid(\"4948\")");
 		    System.out.println("Retrieved Version: " + version);
+		    
+		    // Dump ANA_OBJECT to CSV
+		    List<Thing> things = thingDAO.listAll();
+		    List<List<String>> csvList = new ArrayList<List<String>>();
+		    Iterator<Thing> iteratorThings = things.iterator();
 
+          	while (iteratorThings.hasNext()) {
+          		Thing thingOut = iteratorThings.next();
+
+          		String s1 = ObjectConverter.convert(thingOut.getOid(), String.class);
+          		String s2 = ObjectConverter.convert(thingOut.getCreationDateTime(), String.class); 
+          		String s3 = ObjectConverter.convert(thingOut.getCreatorFK(), String.class);
+          		String s4 = ObjectConverter.convert(thingOut.getDescription(), String.class); 
+          		String s5 = ObjectConverter.convert(thingOut.getTable(), String.class);
+  				
+          		csvList.add(Arrays.asList(s1, s2, s3, s4, s5));
+          	}
+
+          	// Format CSV.
+            InputStream csvInput = CsvUtil.formatCsv(csvList, ',');
+            // Save CSV.
+            FileUtil.write(new File("/Users/mwicks/Desktop/test.csv"), csvInput);
+
+		    
 		}
 		catch (DAOException daoexception) {
 			daoexception.printStackTrace();
+		}
+		catch (IOException ioexception) {
+			ioexception.printStackTrace();
 		}
 
 	}

@@ -1,4 +1,4 @@
-package DAOModel;
+package daomodel;
 
 import java.io.Serializable;
 import java.io.InputStream;

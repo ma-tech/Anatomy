@@ -29,49 +29,49 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
 
-import DAOLayer.JOINNodeRelationshipDAO;
-import DAOLayer.JOINNodeRelationshipNodeDAO;
-import DAOLayer.JOINNodeRelationshipRelationshipProjectDAO;
-import DAOLayer.JOINRelationshipProjectRelationshipDAO;
-import DAOLayer.JOINTimedNodeStageDAO;
-import DAOLayer.LogDAO;
-import DAOLayer.NodeDAO;
-import DAOLayer.RelationshipDAO;
-import DAOLayer.RelationshipProjectDAO;
-import DAOLayer.StageDAO;
-import DAOLayer.SynonymDAO;
-import DAOLayer.ThingDAO;
-import DAOLayer.TimedNodeDAO;
-import DAOLayer.VersionDAO;
+import daolayer.JOINNodeRelationshipDAO;
+import daolayer.JOINNodeRelationshipNodeDAO;
+import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
+import daolayer.JOINRelationshipProjectRelationshipDAO;
+import daolayer.JOINTimedNodeStageDAO;
+import daolayer.LogDAO;
+import daolayer.NodeDAO;
+import daolayer.RelationshipDAO;
+import daolayer.RelationshipProjectDAO;
+import daolayer.StageDAO;
+import daolayer.SynonymDAO;
+import daolayer.ThingDAO;
+import daolayer.TimedNodeDAO;
+import daolayer.VersionDAO;
 
-import DAOModel.JOINNodeRelationship;
-import DAOModel.JOINNodeRelationshipNode;
-import DAOModel.JOINNodeRelationshipRelationshipProject;
-import DAOModel.JOINRelationshipProjectRelationship;
-import DAOModel.JOINTimedNodeStage;
-import DAOModel.Log;
-import DAOModel.Node;
-import DAOModel.Relationship;
-import DAOModel.RelationshipProject;
-import DAOModel.Stage;
-import DAOModel.Synonym;
-import DAOModel.Thing;
-import DAOModel.TimedNode;
-import DAOModel.Version;
+import daomodel.JOINNodeRelationship;
+import daomodel.JOINNodeRelationshipNode;
+import daomodel.JOINNodeRelationshipRelationshipProject;
+import daomodel.JOINRelationshipProjectRelationship;
+import daomodel.JOINTimedNodeStage;
+import daomodel.Log;
+import daomodel.Node;
+import daomodel.Relationship;
+import daomodel.RelationshipProject;
+import daomodel.Stage;
+import daomodel.Synonym;
+import daomodel.Thing;
+import daomodel.TimedNode;
+import daomodel.Version;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import Utility.MySQLDateTime;
+import utility.MySQLDateTime;
 
 public class GenerateSQL {
 	// Properties ---------------------------------------------------------------------------------
@@ -392,7 +392,7 @@ public class GenerateSQL {
                //prepare values for insertion
                int intVER_OID = this.intCurrentVersionID;
                int intVER_NUMBER = ++intVersionEntries;
-               String strVER_DATE = Utility.MySQLDateTime.now();
+               String strVER_DATE = utility.MySQLDateTime.now();
                String strVER_COMMENTS = "DB2OBO Update - Editing the ontology";
 
                Version version = new Version((long) intVER_OID, (long) intVER_NUMBER, strVER_DATE, strVER_COMMENTS);
@@ -2076,7 +2076,7 @@ public class GenerateSQL {
             this.intCurrentObjectID = this.getMaxObjectID();
             
             int intOBJ_OID = 0;
-            String datetime = Utility.MySQLDateTime.now();
+            String datetime = utility.MySQLDateTime.now();
             long sysadmin = 2;
             String description = "";
 

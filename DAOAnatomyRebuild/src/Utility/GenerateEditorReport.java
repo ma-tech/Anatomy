@@ -29,7 +29,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,11 +44,11 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import OBOLayer.ComponentOBO;
-import OBOLayer.OBOException;
-import OBOLayer.OBOFactory;
+import obolayer.ComponentOBO;
+import obolayer.OBOException;
+import obolayer.OBOFactory;
 
 
 public class GenerateEditorReport {

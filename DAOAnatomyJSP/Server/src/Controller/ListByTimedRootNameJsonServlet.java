@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import DAOLayer.TimedLeafDAO;
+import daolayer.TimedLeafDAO;
 
-import DAOModel.TimedLeaf;
+import daomodel.TimedLeaf;
 
-import Form.TimedLeafForm;
+import form.TimedLeafForm;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * Register an user.

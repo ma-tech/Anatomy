@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.OBOFileDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.OBOFileDAO;
 
-import DAOModel.OBOFile;
+import daomodel.OBOFile;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * The File servlet for serving from database.

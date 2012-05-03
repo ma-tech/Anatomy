@@ -33,7 +33,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,21 +45,21 @@ import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
-import OBOModel.ComponentFile;
-import Utility.ExecuteCommand;
-import Utility.GenerateEditorPDF;
-import Utility.GenerateEditorReport;
-import Utility.ImportDatabase;
-import Utility.ImportFile;
-import Utility.MapBuilder;
-import Utility.TreeBuilder;
-import Utility.ValidateComponents;
+import obomodel.ComponentFile;
+import utility.ExecuteCommand;
+import utility.GenerateEditorPDF;
+import utility.GenerateEditorReport;
+import utility.ImportDatabase;
+import utility.ImportFile;
+import utility.MapBuilder;
+import utility.TreeBuilder;
+import utility.ValidateComponents;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.OBOFileDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.OBOFileDAO;
 
-import DAOModel.OBOFile;
+import daomodel.OBOFile;
 
 public class RunDAOExtractOBOAndValidate {
 	
@@ -145,7 +145,7 @@ public class RunDAOExtractOBOAndValidate {
 
             obofile.setTextreport(input);
             obofile.setTextreportname(fileTextReport);
-            obofile.setTextreportdate(Utility.MySQLDateTime.now());
+            obofile.setTextreportdate(utility.MySQLDateTime.now());
             obofile.setTextreportlength(file.length());
             obofile.setTextreporttype(obofile.getContenttype());
             
@@ -155,7 +155,7 @@ public class RunDAOExtractOBOAndValidate {
 
             obofile.setPdfreport(input);
             obofile.setPdfreportname(filePdfReport);
-            obofile.setPdfreportdate(Utility.MySQLDateTime.now());
+            obofile.setPdfreportdate(utility.MySQLDateTime.now());
             obofile.setPdfreportlength(file.length());
             obofile.setPdfreporttype(obofile.getContenttype());
             

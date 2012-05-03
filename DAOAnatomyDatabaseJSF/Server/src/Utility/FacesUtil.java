@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 import javax.faces.event.ActionEvent;
 import javax.faces.context.FacesContext;

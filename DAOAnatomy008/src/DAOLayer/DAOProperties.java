@@ -37,7 +37,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOLayer;
+package daolayer;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package Utility;
+package utility;
 
 import java.util.Calendar;
 
@@ -30,7 +30,7 @@ public final class CalendarUtil {
     // Init ---------------------------------------------------------------------------------------
 
     private CalendarUtil() {
-        // Utility class, hide the constructor.
+        // utility class, hide the constructor.
     }
 
     // Validators ---------------------------------------------------------------------------------

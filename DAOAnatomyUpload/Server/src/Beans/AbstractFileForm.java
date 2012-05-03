@@ -1,8 +1,8 @@
-package Beans;
+package beans;
 
-import DAOLayer.UserDAO;
+import daolayer.UserDAO;
 
-import WebApp.Config;
+import webapp.Config;
 
 /*
  * This bean is to be associated with a single User form in the JSF page. It provides under each

@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import DAOLayer.RelationshipDAO;
-import DAOLayer.DAOException;
+import daolayer.RelationshipDAO;
+import daolayer.DAOException;
 
-import DAOModel.Relationship;
-import DAOModel.TimedNode;
+import daomodel.Relationship;
+import daomodel.TimedNode;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * The example backing bean for effective datatable paging and sorting.

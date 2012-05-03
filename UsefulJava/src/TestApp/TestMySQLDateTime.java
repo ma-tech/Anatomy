@@ -1,6 +1,6 @@
-package TestApp;
+package testapp;
 
-import Utility.MySQLDateTime;
+import utility.MySQLDateTime;
 
 public class TestMySQLDateTime {
 
@@ -10,7 +10,7 @@ public class TestMySQLDateTime {
     		long startTime = System.currentTimeMillis();
         	
             System.out.println("=========   =================");
-            System.out.println("EXECUTING - TestMySQLDateTime.java on " + Utility.MySQLDateTime.now());
+            System.out.println("EXECUTING - TestMySQLDateTime.java on " + utility.MySQLDateTime.now());
             System.out.println("=========   =================");
             System.out.println("");
 

@@ -1,4 +1,4 @@
-package TestApp;
+package testapp;
 
 import java.text.SimpleDateFormat;
 
@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Iterator;
 
-import Utility.FileUtil;
+import utility.FileUtil;
 
 public class TestFileUtil {
 

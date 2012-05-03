@@ -1,6 +1,6 @@
-package DAOLayer;
+package daolayer;
 
-import static DAOLayer.DAOUtil.*;
+import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAOModel.PerspectiveAmbit;
+import daomodel.PerspectiveAmbit;
 
 /**
  * This class represents a SQL Database Access Object for the PerspectiveAmbit DTO.

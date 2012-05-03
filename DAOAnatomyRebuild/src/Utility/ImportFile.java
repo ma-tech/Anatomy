@@ -30,7 +30,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -41,12 +41,12 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.Calendar;
 
-import OBOModel.ComponentFile;
-import OBOModel.Relation;
+import obomodel.ComponentFile;
+import obomodel.Relation;
 
-import OBOLayer.ComponentOBO;
-import OBOLayer.OBOFactory;
-import OBOLayer.OBOException;
+import obolayer.ComponentOBO;
+import obolayer.OBOFactory;
+import obolayer.OBOException;
 
 
 public class ImportFile {

@@ -1,4 +1,4 @@
-package Filter;
+package filter;
 /**
 * When the session destroyed, MySessionListener will
 * do necessary logout operations.
@@ -24,7 +24,7 @@ import javax.servlet.ServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 
-import Beans.LoginUserForm;
+import beans.LoginUserForm;
 
 public class SessionTimeoutFilter implements Filter {
 

@@ -1,4 +1,4 @@
-package Form;
+package form;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

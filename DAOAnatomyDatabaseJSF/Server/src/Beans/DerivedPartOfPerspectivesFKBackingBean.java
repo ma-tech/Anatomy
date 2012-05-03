@@ -1,4 +1,4 @@
-package Beans;
+package beans;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,15 +12,15 @@ import javax.faces.event.ActionEvent;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import DAOLayer.DerivedPartOfPerspectivesFKDAO;
-import DAOLayer.DAOException;
+import daolayer.DerivedPartOfPerspectivesFKDAO;
+import daolayer.DAOException;
 
-import DAOModel.DerivedPartOfPerspectivesFK;
+import daomodel.DerivedPartOfPerspectivesFK;
 
-import Utility.WhatIsThisString;
-import Utility.FacesUtil;
+import utility.WhatIsThisString;
+import utility.FacesUtil;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * The example backing bean for effective datatable paging and sorting.

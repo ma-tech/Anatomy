@@ -28,9 +28,9 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package Main;
+package main;
 
-import App.RunDAOTest;
+import app.RunDAOTest;
 
 public class MainDAOTest {
 	/*
@@ -41,7 +41,7 @@ public class MainDAOTest {
     	long startTime = System.currentTimeMillis();
 
         System.out.println("=========   -----------");
-        System.out.println("EXECUTING - MainDAOTest.java on " + Utility.MySQLDateTime.now());
+        System.out.println("EXECUTING - MainDAOTest.java on " + utility.MySQLDateTime.now());
         System.out.println("=========   -----------");
         System.out.println("");
 

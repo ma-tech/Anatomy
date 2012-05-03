@@ -32,16 +32,16 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.ArrayList;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import Utility.ImportDatabase;
-import Utility.MapBuilder;
-import Utility.TreeBuilder;
-import Utility.ValidateComponents;
+import utility.ImportDatabase;
+import utility.MapBuilder;
+import utility.TreeBuilder;
+import utility.ValidateComponents;
 
 public class RunOBOCheckDatabaseReferenceTree {
 	/*

@@ -33,21 +33,21 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import DAOLayer.ComponentDAO;
-import DAOLayer.ComponentRelationshipDAO;
-import DAOLayer.ComponentCommentDAO;
-import DAOLayer.ComponentSynonymDAO;
-import DAOLayer.DAOFactory;
+import daolayer.ComponentDAO;
+import daolayer.ComponentRelationshipDAO;
+import daolayer.ComponentCommentDAO;
+import daolayer.ComponentSynonymDAO;
+import daolayer.DAOFactory;
 
-import DAOModel.Component;
-import DAOModel.ComponentRelationship;
-import DAOModel.ComponentComment;
-import DAOModel.ComponentSynonym;
+import daomodel.Component;
+import daomodel.ComponentRelationship;
+import daomodel.ComponentComment;
+import daomodel.ComponentSynonym;
 
 public class RunOBOEmptyComponents {
 	/*

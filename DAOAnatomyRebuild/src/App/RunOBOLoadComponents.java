@@ -34,29 +34,29 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import OBOLayer.OBOFactory;
-import OBOLayer.ComponentOBO;
+import obolayer.OBOFactory;
+import obolayer.ComponentOBO;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import DAOLayer.ComponentDAO;
-import DAOLayer.ComponentRelationshipDAO;
-import DAOLayer.ComponentCommentDAO;
-import DAOLayer.ComponentSynonymDAO;
-import DAOLayer.ComponentAlternativeDAO;
-import DAOLayer.DAOFactory;
+import daolayer.ComponentDAO;
+import daolayer.ComponentRelationshipDAO;
+import daolayer.ComponentCommentDAO;
+import daolayer.ComponentSynonymDAO;
+import daolayer.ComponentAlternativeDAO;
+import daolayer.DAOFactory;
 
-import DAOModel.Component;
-import DAOModel.ComponentRelationship;
-import DAOModel.ComponentComment;
-import DAOModel.ComponentSynonym;
-import DAOModel.ComponentAlternative;
+import daomodel.Component;
+import daomodel.ComponentRelationship;
+import daomodel.ComponentComment;
+import daomodel.ComponentSynonym;
+import daomodel.ComponentAlternative;
 
 public class RunOBOLoadComponents {
 	/*

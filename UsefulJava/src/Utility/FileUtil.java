@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package Utility;
+package utility;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -50,7 +50,7 @@ public final class FileUtil {
     // Constructors -------------------------------------------------------------------------------
 
     private FileUtil() {
-        // Utility class, hide constructor.
+        // utility class, hide constructor.
     }
 
     // Writers ------------------------------------------------------------------------------------

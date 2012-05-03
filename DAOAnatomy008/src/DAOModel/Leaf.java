@@ -1,4 +1,4 @@
-package DAOModel;
+package daomodel;
 /**
  * This class represents a Data Transfer Object for the LEAF. 
  *  This DTO can be used thorough out all layers:

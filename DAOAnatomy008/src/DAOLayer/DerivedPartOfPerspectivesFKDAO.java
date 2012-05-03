@@ -1,6 +1,6 @@
-package DAOLayer;
+package daolayer;
 
-import static DAOLayer.DAOUtil.*;
+import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Utility.WhatIsThisString;
+import utility.WhatIsThisString;
 
-import DAOModel.DerivedPartOfPerspectivesFK;
+import daomodel.DerivedPartOfPerspectivesFK;
 
 /**
  * This class represents a SQL Database Access Object for the DerivedPartOf DTO.

@@ -30,7 +30,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -41,24 +41,24 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.Calendar;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.JOINNodeRelationshipRelationshipProjectDAO;
-import DAOLayer.JOINTimedNodeStageDAO;
-import DAOLayer.NodeDAO;
-import DAOLayer.SynonymDAO;
-import DAOLayer.StageDAO;
-import DAOLayer.ProjectDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
+import daolayer.JOINTimedNodeStageDAO;
+import daolayer.NodeDAO;
+import daolayer.SynonymDAO;
+import daolayer.StageDAO;
+import daolayer.ProjectDAO;
 
-import DAOModel.JOINNodeRelationshipRelationshipProject;
-import DAOModel.JOINTimedNodeStage;
-import DAOModel.Node;
-import DAOModel.Synonym;
-import DAOModel.Stage;
-import DAOModel.Project;
+import daomodel.JOINNodeRelationshipRelationshipProject;
+import daomodel.JOINTimedNodeStage;
+import daomodel.Node;
+import daomodel.Synonym;
+import daomodel.Stage;
+import daomodel.Project;
 
-import OBOModel.ComponentFile;
-import OBOModel.Relation;
+import obomodel.ComponentFile;
+import obomodel.Relation;
 
 
 public class ImportDatabase {

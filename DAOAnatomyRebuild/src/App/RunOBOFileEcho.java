@@ -32,17 +32,17 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import OBOLayer.OBOFactory;
-import OBOLayer.OBOException;
+import obolayer.OBOFactory;
+import obolayer.OBOException;
 
-import OBOLayer.ComponentOBO;
+import obolayer.ComponentOBO;
 
 public class RunOBOFileEcho {
 	/*

@@ -1,4 +1,4 @@
-package TestApp;
+package testapp;
 
 import java.text.SimpleDateFormat;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 
 import java.math.BigDecimal;
 
-import Utility.ObjectConverter;
+import utility.ObjectConverter;
 
 public class TestObjectConverter {
 

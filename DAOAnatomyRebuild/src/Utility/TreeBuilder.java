@@ -29,14 +29,14 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.util.*;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
 
 public class TreeBuilder {

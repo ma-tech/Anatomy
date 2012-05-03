@@ -34,7 +34,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,18 +44,18 @@ import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
-import DAOLayer.DAOFactory;
-import DAOLayer.OBOFileDAO;
-import DAOModel.OBOFile;
+import daolayer.DAOFactory;
+import daolayer.OBOFileDAO;
+import daomodel.OBOFile;
 
-import OBOModel.ComponentFile;
-import Utility.ExecuteCommand;
-import Utility.ImportFile;
-import Utility.ImportDatabase;
-import Utility.MapBuilder;
-import Utility.TreeBuilder;
-import Utility.GenerateSQL;
-import Utility.ValidateComponents;
+import obomodel.ComponentFile;
+import utility.ExecuteCommand;
+import utility.ImportFile;
+import utility.ImportDatabase;
+import utility.MapBuilder;
+import utility.TreeBuilder;
+import utility.GenerateSQL;
+import utility.ValidateComponents;
 
 public class RunOBOLoadFileIntoDatabase {
 	/*

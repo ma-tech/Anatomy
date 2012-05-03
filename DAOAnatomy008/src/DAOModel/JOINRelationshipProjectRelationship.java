@@ -32,7 +32,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOModel;
+package daomodel;
 
 public class JOINRelationshipProjectRelationship {
     // Properties ---------------------------------------------------------------------------------

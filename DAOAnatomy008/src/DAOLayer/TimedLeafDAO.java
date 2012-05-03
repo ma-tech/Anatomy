@@ -1,6 +1,6 @@
-package DAOLayer;
+package daolayer;
 
-import static DAOLayer.DAOUtil.*;
+import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import DAOModel.TimedLeaf;
+import daomodel.TimedLeaf;
 
 /*
  * This class represents a SQL Database Access Object for the {@link Relation} DTO. 

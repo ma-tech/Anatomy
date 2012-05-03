@@ -1,4 +1,4 @@
-package Listener;
+package listener;
 /**
 * When the user session timedout, 
 * ({@link #sessionDestroyed(HttpSessionEvent)})method will be invoked.
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSessionEvent;
 
 import java.util.Date;
 
-import Beans.LoginUserForm;
+import beans.LoginUserForm;
 
 public class MySessionListener implements HttpSessionListener {
 

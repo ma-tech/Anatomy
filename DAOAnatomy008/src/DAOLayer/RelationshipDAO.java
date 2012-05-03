@@ -34,9 +34,9 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOLayer;
+package daolayer;
 
-import static DAOLayer.DAOUtil.*;
+import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +46,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAOModel.Relationship;
+import daomodel.Relationship;
 
 public final class RelationshipDAO {
 

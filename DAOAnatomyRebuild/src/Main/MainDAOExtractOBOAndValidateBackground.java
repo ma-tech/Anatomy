@@ -29,14 +29,14 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
 import java.io.IOException;
 
 import java.util.*;
 
-//import DAOLayer.DAOException;
-//import DAOModel.OBOFile;
+//import daolayer.DAOException;
+//import daomodel.OBOFile;
 
 public class MainDAOExtractOBOAndValidateBackground {
 	/*
@@ -49,7 +49,7 @@ public class MainDAOExtractOBOAndValidateBackground {
     	long startTime = System.currentTimeMillis();
     	/*
         System.out.println("=========   ----------------------------");
-        System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + Utility.MySQLDateTime.now());
+        System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + utility.MySQLDateTime.now());
         System.out.println("=========   ----------------------------");
         System.out.println("");
         */

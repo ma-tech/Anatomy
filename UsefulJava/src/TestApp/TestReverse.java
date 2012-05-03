@@ -1,9 +1,9 @@
-package TestApp;
+package testapp;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Utility.StringReverse;
+import utility.StringReverse;
 
 public class TestReverse {
 

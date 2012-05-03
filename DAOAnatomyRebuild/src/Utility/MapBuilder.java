@@ -30,11 +30,11 @@
 *---------------------------------------------------------------------------------------------
 */
 
-package Utility;
+package utility;
 
 import java.util.*;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
 public class MapBuilder {
 

@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import DAOLayer.LeafDAO;
+import daolayer.LeafDAO;
 
-import DAOModel.Leaf;
+import daomodel.Leaf;
 
-import Form.LeafForm;
+import form.LeafForm;
 
-import WebApp.Config;
+import webapp.Config;
 
 /**
  * Register an user.

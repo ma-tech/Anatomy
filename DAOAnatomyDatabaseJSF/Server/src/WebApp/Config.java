@@ -1,8 +1,8 @@
-package WebApp;
+package webapp;
 
 import javax.faces.context.FacesContext;
 
-import DAOLayer.DAOFactory;
+import daolayer.DAOFactory;
 
 /**
  * Configures the JSF webapplication.

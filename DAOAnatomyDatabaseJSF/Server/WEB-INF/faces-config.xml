@@ -12,96 +12,96 @@
 
     <converter>
         <converter-for-class>java.lang.String</converter-for-class>
-        <converter-class>Utility.EmptyToNullConverter</converter-class>
+        <converter-class>utility.EmptyToNullConverter</converter-class>
     </converter>
 
     <managed-bean>
     	<managed-bean-name>config</managed-bean-name>
-        <managed-bean-class>WebApp.Config</managed-bean-class>
+        <managed-bean-class>webapp.Config</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
     	<managed-bean-name>SynonymBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.SynonymBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.SynonymBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>NodeBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.NodeBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.NodeBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>TimedNodeBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.TimedNodeBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.TimedNodeBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>StageBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.StageBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.StageBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>ThingBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.ThingBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.ThingBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>RelationshipBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.RelationshipBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.RelationshipBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>VersionBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.VersionBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.VersionBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>SourceBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.SourceBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.SourceBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>EditorBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.EditorBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.EditorBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>PerspectiveAmbitBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.PerspectiveAmbitBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.PerspectiveAmbitBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>DerivedPartOfBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.DerivedPartOfBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.DerivedPartOfBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>DerivedPartOfFKBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.DerivedPartOfFKBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.DerivedPartOfFKBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>DerivedPartOfPerspectivesBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.DerivedPartOfPerspectivesBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.DerivedPartOfPerspectivesBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>
     	<managed-bean-name>DerivedPartOfPerspectivesFKBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.DerivedPartOfPerspectivesFKBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.DerivedPartOfPerspectivesFKBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
         <managed-property>
             <property-name>theilerStage</property-name>
@@ -119,7 +119,7 @@
     
     <managed-bean>
     	<managed-bean-name>DerivedRelationshipTransitiveBackingBean</managed-bean-name>
-    	<managed-bean-class>Beans.DerivedRelationshipTransitiveBackingBean</managed-bean-class>
+    	<managed-bean-class>beans.DerivedRelationshipTransitiveBackingBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     

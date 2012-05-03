@@ -29,13 +29,13 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package Main;
+package main;
 
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import App.RunDAOTest;
+import app.RunDAOTest;
 
 public class MainDAOTest {
 	/*

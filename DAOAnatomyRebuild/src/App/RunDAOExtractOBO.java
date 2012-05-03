@@ -33,7 +33,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,13 +42,13 @@ import java.io.FileOutputStream;
 
 import org.apache.commons.io.IOUtils;
 
-import Utility.ExecuteCommand;
+import utility.ExecuteCommand;
 
-import DAOLayer.DAOException;
-import DAOLayer.DAOFactory;
-import DAOLayer.OBOFileDAO;
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+import daolayer.OBOFileDAO;
 
-import DAOModel.OBOFile;
+import daomodel.OBOFile;
 
 public class RunDAOExtractOBO {
 	

@@ -34,9 +34,9 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package DAOLayer;
+package daolayer;
 
-import static DAOLayer.DAOUtil.*;
+import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import DAOModel.Stage;
+import daomodel.Stage;
 
 public final class StageDAO {
 

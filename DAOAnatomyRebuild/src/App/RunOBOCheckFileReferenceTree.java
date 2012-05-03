@@ -33,20 +33,20 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package App;
+package app;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import OBOLayer.OBOFactory;
-import OBOLayer.OBOException;
-import OBOLayer.ComponentOBO;
+import obolayer.OBOFactory;
+import obolayer.OBOException;
+import obolayer.ComponentOBO;
 
-import OBOModel.ComponentFile;
+import obomodel.ComponentFile;
 
-import Utility.MapBuilder;
-import Utility.TreeBuilder;
-import Utility.ValidateComponents;
+import utility.MapBuilder;
+import utility.TreeBuilder;
+import utility.ValidateComponents;
 
 public class RunOBOCheckFileReferenceTree {
 	/*

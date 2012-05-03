@@ -16,7 +16,7 @@
  * 02110-1301, USA.
  */
 
-package Utility;
+package utility;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -64,7 +64,7 @@ public final class DateUtil {
     }};
 
     private DateUtil() {
-        // Utility class, hide the constructor.
+        // utility class, hide the constructor.
     }
 
     // Converters ---------------------------------------------------------------------------------

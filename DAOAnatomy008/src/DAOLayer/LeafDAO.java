@@ -512,4 +512,97 @@ public final class LeafDAO {
         return returnString;
     
     }
+
+    /*
+     * Convert the Leaf ResultSet to JSON for Ajax calls
+     */
+    public String convertLeafListToStringJsonAggregate(List<Leaf> leafs) {
+
+	    String returnString = "[";
+
+        int rowCount = 0;
+        int grandChildCount = 1;
+        
+        boolean lastLeaf = false;
+
+        Leaf savedLeaf = new Leaf();
+
+        if (leafs.size() > 0) {
+        	Iterator<Leaf> iterator = leafs.iterator();
+        	while (iterator.hasNext()) {
+        		Leaf leaf = iterator.next();
+  		        if ( leaf.getChildId().equals("LEAF")) {
+        	        returnString = returnString + 
+                        "{\"attr\": {\"ext_id\": \"" +
+  		                leaf.getChildName() + 
+        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
+ 	    	            leaf.getChildOid() +
+ 	    	            "\",\"name\": \"" + 
+ 	    	            leaf.getChildDescription() + 
+ 	    	            "\",\"start\": \"" + 
+ 	    	            leaf.getChildStart() + 
+ 	    	            "\",\"end\": \"" + 
+ 	    	            leaf.getChildEnd() + 
+ 	    	            "\"},\"data\": \"" +
+                        leaf.getChildDescription() + 
+                        "\"}";
+        	            if ( leafs.size() != rowCount ) {
+	        	            returnString = returnString + ",";
+		        	    }
+        	            lastLeaf = true;
+  		        }
+  		        else {
+  		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
+  		        		grandChildCount = grandChildCount + 1;
+  		        	}
+  		        	else {
+  		        		if (lastLeaf == false){
+  		  		  	        returnString = returnString + 
+   	                            "{\"attr\": {\"ext_id\": \"" +
+  		  		                savedLeaf.getChildName() + 
+  		        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
+  		 	    	            savedLeaf.getChildId() +
+  		 	    	            "\",\"name\": \"" + 
+  		 	    	            savedLeaf.getChildDescription() + 
+  		 	    	            "\",\"start\": \"" + 
+  		 	    	            savedLeaf.getChildStart() + 
+  		 	    	            "\",\"end\": \"" + 
+  		 	    	            savedLeaf.getChildEnd() + 
+  		 	    	            "\"},\"data\": \"" +
+  		                        savedLeaf.getChildDescription() + 
+  		                        "(" + 
+  		                        Integer.toString(grandChildCount) + 
+  		                        ")\",\"state\": \"closed\"},";  		        		}
+  		        		else {
+  		        			lastLeaf = false;
+  		        		}
+ 	  	                grandChildCount = 1;
+  		        	}
+  		        }
+  		        rowCount = rowCount + 1;
+ 		        savedLeaf = leaf;
+        	}
+	        if ( rowCount == leafs.size() ) {
+    	  		returnString = returnString + 
+                "{\"attr\": {\"ext_id\": \"" +
+	  		    savedLeaf.getChildName() + 
+	        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
+	 	    	savedLeaf.getChildId() +
+	 	    	"\",\"name\": \"" + 
+	 	    	savedLeaf.getChildDescription() + 
+	 	    	"\",\"start\": \"" + 
+	 	    	savedLeaf.getChildStart() + 
+	 	    	"\",\"end\": \"" + 
+	 	    	savedLeaf.getChildEnd() + 
+	 	    	"\"},\"data\": \"" +
+	            savedLeaf.getChildDescription() + 
+	            "(" + 
+	            Integer.toString(grandChildCount) + 
+	            ")\",\"state\": \"closed\"}";
+    	  	}
+        }
+        
+        return returnString + "]";
+    
+    }
 }

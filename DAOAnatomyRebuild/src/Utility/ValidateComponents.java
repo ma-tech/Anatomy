@@ -40,38 +40,38 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 public class ValidateComponents {
 
-    private ComponentFile abstractclassobocomponent; 
-    private ComponentFile stageclassobocomponent; 
-    private ComponentFile groupclassobocomponent; 
-    private ComponentFile grouptermclassobocomponent; 
+    private OBOComponent abstractclassobocomponent; 
+    private OBOComponent stageclassobocomponent; 
+    private OBOComponent groupclassobocomponent; 
+    private OBOComponent grouptermclassobocomponent; 
 	
-    private ArrayList<ComponentFile> proposedTermList = null; 
+    private ArrayList<OBOComponent> proposedTermList = null; 
     //new OBO file <= all checks are appended to this file,
     // used to build maps+trees
     
-    private ArrayList<ComponentFile> referenceTermList = null;
+    private ArrayList<OBOComponent> referenceTermList = null;
     //reference OBO file 
     
-    private ArrayList<ComponentFile> passRedTermList = null;
+    private ArrayList<OBOComponent> passRedTermList = null;
     //components that have passed red check
 
-    private ArrayList<ComponentFile> passBlueTermList = null;
+    private ArrayList<OBOComponent> passBlueTermList = null;
     //components that have passed blue check
     
-    private ArrayList<ComponentFile> changesTermList = null;
+    private ArrayList<OBOComponent> changesTermList = null;
     //components (new/existing) with proposed changes => comobox ChangedNodes
     
-    private ArrayList<ComponentFile> problemTermList = null;
+    private ArrayList<OBOComponent> problemTermList = null;
     //components that have not passed red / blue check => combobox ProblemNodes
   
-    private ArrayList<ComponentFile> groupTermList = null;
+    private ArrayList<OBOComponent> groupTermList = null;
     //components that are group terms ..delete after testing
     
-    private ArrayList<ComponentFile> abstractTermList = null;
+    private ArrayList<OBOComponent> abstractTermList = null;
     //components that are abstract anatomy terms excluding roots => used for
     // ontology rules check
     
@@ -86,26 +86,26 @@ public class ValidateComponents {
     
     //root nodes of the tree that are abstract anatomy terms -
     // used for ontology rules check
-    private ArrayList<ComponentFile> abstractRootList = null; 
+    private ArrayList<OBOComponent> abstractRootList = null; 
 
     //----------------------------------------------------------------------------------------------
 
     // Constructor ---------------------------------------------------------------------------------
     //  A - 2 Lists of Terms
-    public ValidateComponents(ArrayList<ComponentFile> newTermList, 
-                             ArrayList<ComponentFile> oldTermList, 
+    public ValidateComponents(ArrayList<OBOComponent> newTermList, 
+                             ArrayList<OBOComponent> oldTermList, 
                              TreeBuilder treebuilder ) {
 
         //System.out.println("ValidateComponents Class: Constructor, 2 Lists ...");
 
     	// 1: set abstract class parameters
-        this.abstractclassobocomponent = new ComponentFile();
+        this.abstractclassobocomponent = new OBOComponent();
         // 2: set stage class parameters
-        this.stageclassobocomponent = new ComponentFile();
+        this.stageclassobocomponent = new OBOComponent();
         // 3: temporary new group class parameters
-        this.groupclassobocomponent = new ComponentFile();
+        this.groupclassobocomponent = new OBOComponent();
         // 4: group term class parameters
-        this.grouptermclassobocomponent = new ComponentFile();
+        this.grouptermclassobocomponent = new OBOComponent();
 
         // 1: set abstract class parameters
         this.abstractclassobocomponent.setName( "Abstract anatomy" );
@@ -134,12 +134,12 @@ public class ValidateComponents {
         //instantiate term lists
         this.proposedTermList = newTermList;
         this.referenceTermList = oldTermList;
-        this.passRedTermList = new ArrayList<ComponentFile>();
-        this.passBlueTermList = new ArrayList<ComponentFile>();
-        this.changesTermList = new ArrayList<ComponentFile>();
-        this.problemTermList = new ArrayList<ComponentFile>();
-        this.groupTermList = new ArrayList<ComponentFile>(); 
-        this.abstractTermList = new ArrayList<ComponentFile>();
+        this.passRedTermList = new ArrayList<OBOComponent>();
+        this.passBlueTermList = new ArrayList<OBOComponent>();
+        this.changesTermList = new ArrayList<OBOComponent>();
+        this.problemTermList = new ArrayList<OBOComponent>();
+        this.groupTermList = new ArrayList<OBOComponent>(); 
+        this.abstractTermList = new ArrayList<OBOComponent>();
 
         this.passedRed = false;
         this.passedBlue = false;
@@ -150,7 +150,7 @@ public class ValidateComponents {
         // check that roots of tree are same as configuration,
         //  also detect correctly deleted components, all other changes are
         //   detected in checkchanges
-        this.abstractRootList = new ArrayList<ComponentFile>();
+        this.abstractRootList = new ArrayList<OBOComponent>();
 
         // A-3
         validateConfiguredRoots(treebuilder);
@@ -197,19 +197,19 @@ public class ValidateComponents {
 
     // Constructor ---------------------------------------------------------------------------------
     //  B - 1 List of Terms
-    public ValidateComponents(ArrayList<ComponentFile> newTermList, 
+    public ValidateComponents(ArrayList<OBOComponent> newTermList, 
                              TreeBuilder treebuilder) {
 
         //System.out.println("ValidateComponents Class: Constructor, 1 List ...");
 
         // 1: set abstract class parameters
-        this.abstractclassobocomponent = new ComponentFile();
+        this.abstractclassobocomponent = new OBOComponent();
         // 2: set stage class parameters
-        this.stageclassobocomponent = new ComponentFile();
+        this.stageclassobocomponent = new OBOComponent();
         // 3: temporary new group class parameters
-        this.groupclassobocomponent = new ComponentFile();
+        this.groupclassobocomponent = new OBOComponent();
         // 4: group term class parameters
-        this.grouptermclassobocomponent = new ComponentFile();
+        this.grouptermclassobocomponent = new OBOComponent();
 
         // 1: set abstract class parameters
         this.abstractclassobocomponent.setName( "Abstract anatomy" );
@@ -234,11 +234,11 @@ public class ValidateComponents {
 
         //instantiate term lists        
         this.proposedTermList = newTermList;
-        this.passRedTermList = new ArrayList<ComponentFile>();
-        this.passBlueTermList = new ArrayList<ComponentFile>();
-        this.problemTermList = new ArrayList<ComponentFile>();
-        this.groupTermList = new ArrayList<ComponentFile>(); 
-        this.abstractTermList = new ArrayList<ComponentFile>();
+        this.passRedTermList = new ArrayList<OBOComponent>();
+        this.passBlueTermList = new ArrayList<OBOComponent>();
+        this.problemTermList = new ArrayList<OBOComponent>();
+        this.groupTermList = new ArrayList<OBOComponent>(); 
+        this.abstractTermList = new ArrayList<OBOComponent>();
 
         this.passedRed = false;
         this.passedBlue = false;
@@ -248,7 +248,7 @@ public class ValidateComponents {
 
         //prepare abstract anatomy term list
         // check that roots of tree are same as configuration
-        this.abstractRootList = new ArrayList<ComponentFile>();
+        this.abstractRootList = new ArrayList<OBOComponent>();
         
         // B-3
         validateConfiguredRoots(treebuilder);
@@ -286,14 +286,14 @@ public class ValidateComponents {
      * 
      * Clear all the Status Comments and Flags
      */
-   public void clearStatusComments( ArrayList < ComponentFile > termList ){
+   public void clearStatusComments( ArrayList<OBOComponent>termList ){
 
-        for ( ComponentFile obocomponent: termList ){
+        for ( OBOComponent obocomponent: termList ){
             //clear everything except deleted terms that can't be detected any
             // other way
             // and recently added to common ancestor group components
             if ( !obocomponent.commentsContain("INFO: Obsolete Term") && 
-                 !obocomponent.commentsContain("New Group ComponentFile") ) {
+                 !obocomponent.commentsContain("New Group Component") ) {
             	
                 obocomponent.clearCheckComment();
                 obocomponent.setStatusRule("UNCHECKED");
@@ -320,7 +320,7 @@ public class ValidateComponents {
         Vector<String> roots = treebuilder.getTreeRoots();
         
         for(String emapID: roots){
-            ComponentFile rootobocomponent = treebuilder.getComponent(emapID);
+            OBOComponent rootobocomponent = treebuilder.getComponent(emapID);
             rootNameSpace = rootobocomponent.getNamespace();
             rootName = rootobocomponent.getName();
 
@@ -370,7 +370,7 @@ public class ValidateComponents {
                 //obsolete terms appear as roots
                 //don't allow to fail
                 rootobocomponent.setStatusRule("PASSED");
-                rootobocomponent.setCheckComment("ComponentFile has been deleted " +
+                rootobocomponent.setCheckComment("Component has been deleted " +
                         "correctly from OBO File and can be scheduled for " +
                         "deletion in database");
                 
@@ -404,7 +404,7 @@ public class ValidateComponents {
      */
     private ArrayList getAbstractAnatomyChildren(TreeBuilder treebuilder){
 
-        ArrayList<ComponentFile> abstractAnatomyChildren = new ArrayList<ComponentFile>();
+        ArrayList<OBOComponent> abstractAnatomyChildren = new ArrayList<OBOComponent>();
         
         Vector<String> vRoots = treebuilder.getTreeRoots();
 
@@ -416,7 +416,7 @@ public class ValidateComponents {
         }
         else {
             for (int i = 0; i < this.proposedTermList.size(); i++){
-                ComponentFile obocomponent = this.proposedTermList.get(i);
+                OBOComponent obocomponent = this.proposedTermList.get(i);
 
                 //is an abstract anatomy term
                 if ( obocomponent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
@@ -429,14 +429,14 @@ public class ValidateComponents {
                 }
             }
 
-            //for (ComponentFile obocomponent: abstractAnatomyChildren ){ 
+            //for (Component obocomponent: abstractAnatomyChildren ){ 
             // bug: new for iterator cannot be used in conjunction with remove
             for (int k = 0; k < this.proposedTermList.size(); k++){
-                ComponentFile obocomponent = this.proposedTermList.get(k);
+                OBOComponent obocomponent = this.proposedTermList.get(k);
 
                 //is an abstract anatomy root
                 for (int j = 0; j < this.abstractRootList.size(); j++ ){
-                    ComponentFile rootobocomponent = this.abstractRootList.get(j);
+                    OBOComponent rootobocomponent = this.abstractRootList.get(j);
                     //if ( obocomponent.isComponentSameAs(rootobocomponent) ) 
                     //MAZE:
                     // REPLACE isSamsAs with matching id, two obocomponents can be the 
@@ -479,7 +479,7 @@ public class ValidateComponents {
                     // more than one primary path!, add to problem terms
                 //if not primary, add to component.path list
         
-        for ( ComponentFile obocomponent: this.abstractTermList ){
+        for ( OBOComponent obocomponent: this.abstractTermList ){
 
         	obocomponent.setPrimaryPath(null);
             obocomponent.setPaths( new Vector< DefaultMutableTreeNode[] >() );
@@ -531,7 +531,7 @@ public class ValidateComponents {
         //this.passRedTermList.addAll(this.proposedTermList);
         //use abstractterm list instead 
         this.passRedTermList.addAll(this.abstractTermList);
-        ComponentFile obocomponent;
+        OBOComponent obocomponent;
         
         //for (int i = 0; i < this.proposedTermList.size(); i++) {
         //    obocomponent = this.proposedTermList.get(i);
@@ -547,7 +547,7 @@ public class ValidateComponents {
                 
             	obocomponent.setFlagMissingRel(true);
                 obocomponent.setCheckComment("Relation: ends_at -- " +
-                    "Missing ends at stage - ComponentFile's stage range " +
+                    "Missing ends at stage - Component's stage range " +
                     "cannot be determined.");
 
                 obocomponent.setStatusRule("FAILED");
@@ -564,7 +564,7 @@ public class ValidateComponents {
                 
             	obocomponent.setFlagMissingRel(true);
                 obocomponent.setCheckComment("Relation: starts_at -- Missing " +
-                    "starts at stage - ComponentFile's stage range cannot be " +
+                    "starts at stage - Component's stage range cannot be " +
                     "determined.");
 
                 obocomponent.setStatusRule("FAILED");
@@ -582,7 +582,7 @@ public class ValidateComponents {
                 
                 obocomponent.setFlagMissingRel(true);
                 obocomponent.setCheckComment("Relation: part_of -- " +
-                    "Missing relationship - ComponentFile has no " +
+                    "Missing relationship - OBOComponent has no " +
                     "parents.");
                 
                 obocomponent.setStatusRule("FAILED");
@@ -625,7 +625,7 @@ public class ValidateComponents {
                         obocomponent.getStart() +
                         ", End Stage:" +
                         obocomponent.getEnd() +
-                        "] ComponentFile cannot exist "+
+                        "] OBOComponent cannot exist "+
                         "earlier than First Stage or later than " +
                         "Last Stage.");
                     
@@ -706,7 +706,7 @@ public class ValidateComponents {
         this.passBlueTermList.addAll( this.passRedTermList );
 
         //iterate for each component in termList
-        for (ComponentFile obocomponent: this.passRedTermList) {
+        for (OBOComponent obocomponent: this.passRedTermList) {
     	    Vector< DefaultMutableTreeNode[] > paths = obocomponent.getPaths();
 
             if ( paths != null) {
@@ -715,8 +715,8 @@ public class ValidateComponents {
 
                     for ( int pointer=2; pointer < path.length-1 && proceed; pointer++ ) {
                     
-                      	ComponentFile parent = (ComponentFile) path[pointer].getUserObject();
-                        ComponentFile child = (ComponentFile) path[pointer+1].getUserObject();
+                    	OBOComponent parent = (OBOComponent) path[pointer].getUserObject();
+                        OBOComponent child = (OBOComponent) path[pointer+1].getUserObject();
 
                         if ( !( ( parent.getStartSequence() <= child.getStartSequence() ) &&
     			                ( parent.getEndSequence() >= child.getEndSequence() ) ) ) {
@@ -771,8 +771,8 @@ public class ValidateComponents {
                 tree.getRootNode().children();
                 eRootChildren.hasMoreElements(); ){
 
-            ComponentFile rootChildCompie =
-                    (ComponentFile) eRootChildren.nextElement().getUserObject();
+            OBOComponent rootChildCompie =
+                    (OBOComponent) eRootChildren.nextElement().getUserObject();
 
             if ( rootChildCompie.getID().equals( abstractID ) ){
             	
@@ -789,14 +789,14 @@ public class ValidateComponents {
 
         //initialise children container, order container, child component,
         // max ordering number
-        Vector< ComponentFile > childrenobocomponents = new Vector< ComponentFile >();
+        Vector< OBOComponent > childrenobocomponents = new Vector< OBOComponent >();
         Vector< String > childrenOrder = new Vector< String >();
 
         int intMaxOrder = -1;
         boolean failedChild = false;
         boolean proceed = false;
 
-        ComponentFile childobocomponent = new ComponentFile();
+        OBOComponent childobocomponent = new OBOComponent();
 
         //iterate all nodes
         for (DefaultMutableTreeNode nodie: allNodes){
@@ -812,11 +812,11 @@ public class ValidateComponents {
                     eChildren.hasMoreElements() ;) {
 
                 childrenobocomponents.add(
-                        (ComponentFile) eChildren.nextElement().getUserObject() );
+                        (OBOComponent) eChildren.nextElement().getUserObject() );
             }
             
             //convert parent node to component
-            ComponentFile parentobocomponent = (ComponentFile) nodie.getUserObject();
+            OBOComponent parentobocomponent = (OBOComponent) nodie.getUserObject();
             
             //stop order checking if parent is a failed component anyway
             if ( parentobocomponent.getStatusRule().equals("FAILED") ) {
@@ -827,7 +827,7 @@ public class ValidateComponents {
             }
 
             //stop order checking if any of the children fail
-            for (ComponentFile obocomponent: childrenobocomponents){
+            for (OBOComponent obocomponent: childrenobocomponents){
             
             	if ( obocomponent.getStatusRule().equals("FAILED") ) {
             		failedChild = true;
@@ -900,7 +900,7 @@ public class ValidateComponents {
                 
                 this.problemTermList.add(parentobocomponent);
                 
-                for (ComponentFile obocomponent: childrenobocomponents){
+                for (OBOComponent obocomponent: childrenobocomponents){
                 
                 	obocomponent.setCheckComment("Ordering: One of the siblings " +
                             "of this component or this component itself " +
@@ -954,7 +954,7 @@ public class ValidateComponents {
 
                         this.problemTermList.add(parentobocomponent);
 
-                        for (ComponentFile obocomponent: childrenobocomponents){
+                        for (OBOComponent obocomponent: childrenobocomponents){
                         
                         	obocomponent.setCheckComment("Ordering: One of the " +
                                     "siblings of this component or this " +
@@ -985,7 +985,7 @@ public class ValidateComponents {
         int primaryParents = 0;
         ArrayList<String> primaryParentsList = new ArrayList();
         
-        for ( ComponentFile obocomponent: this.abstractTermList ){
+        for ( OBOComponent obocomponent: this.abstractTermList ){
         
         	//reset counter primaryParents
             primaryParents = 0;
@@ -999,7 +999,7 @@ public class ValidateComponents {
             for ( String parent: parents ){
             
             	//System.out.println("parent = " + parent);
-                ComponentFile parentcomponent = tree.getComponent(parent);
+                OBOComponent parentcomponent = tree.getComponent(parent);
                 
                 if ( parentcomponent.getIsPrimary() ) {
                 	
@@ -1023,14 +1023,14 @@ public class ValidateComponents {
      */
     private void checkChanges() {
 
-        ComponentFile proposed, reference;
+        OBOComponent proposed, reference;
         boolean flagFound;
         int intTest = 0;
 
         //Look for new and changed nodes 
         //For each component in newTermList
-        for (Iterator<ComponentFile> i = this.abstractTermList.iterator(); i.hasNext();){
-        //for (Iterator<ComponentFile> i = this.proposedTermList.iterator(); i.hasNext();) {
+        for (Iterator<OBOComponent> i = this.abstractTermList.iterator(); i.hasNext();){
+        //for (Iterator<OBOComponent> i = this.proposedTermList.iterator(); i.hasNext();) {
             proposed = i.next();
 
             //set to unchanged 
@@ -1038,17 +1038,17 @@ public class ValidateComponents {
             flagFound = false;
 
             //look for component in oldTermList
-            for (Iterator<ComponentFile> k = this.referenceTermList.iterator(); k.hasNext() && !flagFound;) {
+            for (Iterator<OBOComponent> k = this.referenceTermList.iterator(); k.hasNext() && !flagFound;) {
             	
                 reference = k.next();
 
-                //System.out.println("ComponentFile: " + proposed.getID() + " " + proposed.getStatusChange() + " " + proposed.getCheckComments()   );
+                //System.out.println("Component: " + proposed.getID() + " " + proposed.getStatusChange() + " " + proposed.getCheckComments()   );
 
                 //if found,
                 if ( proposed.getID().equals( reference.getID() ) ) {
 
                     //compare: if same do nothing
-                    if ( proposed.isComponentFileSameAs(reference) && 
+                    if ( proposed.isOBOComponentSameAs(reference) && 
                          !proposed.commentsContain("INFO: Obsolete Term")) {
                 
                     	//set to unchanged 
@@ -1059,7 +1059,7 @@ public class ValidateComponents {
 
                     //can't detect deleted components here because component has been removed from abstractTermList
                     //else if ( proposed.getStatusChange().equals("DELETED") && proposed.commentsContain("INFO: Obsolete Term")){
-                    if ( proposed.isComponentFileSameAs(reference) && 
+                    if ( proposed.isOBOComponentSameAs(reference) && 
                          proposed.commentsContain("INFO: Obsolete Term")){
                     	
                         //System.out.println("Deleted component detected: " + proposed.getID());
@@ -1073,7 +1073,7 @@ public class ValidateComponents {
                         //<=== this is the component arraylist to generate SQL queries!!!
                     }
 
-                    if ( !proposed.isComponentFileSameAs(reference) &&
+                    if ( !proposed.isOBOComponentSameAs(reference) &&
                          proposed.commentsContain("INFO: Obsolete Term")){
                     	
                         //System.out.println("Deleted component detected: " + proposed.getID());
@@ -1087,7 +1087,7 @@ public class ValidateComponents {
                         //<=== this is the component arraylist to generate SQL queries!!!
                     }
 
-                    if (!proposed.isComponentFileSameAs(reference) &&
+                    if (!proposed.isOBOComponentSameAs(reference) &&
                         !proposed.commentsContain("INFO: Obsolete Term")) {
                     	
                         //System.out.println("Changed component detected: " + proposed.getID());
@@ -1136,14 +1136,14 @@ public class ValidateComponents {
 
         //Look for deleted nodes
         //For each component in referenceTermList
-        for (Iterator<ComponentFile> i = this.referenceTermList.iterator(); i.hasNext();) {
+        for (Iterator<OBOComponent> i = this.referenceTermList.iterator(); i.hasNext();) {
         	
             reference = i.next();
 
             flagFound = false;
 
             //look for component in newTermList
-            for (Iterator<ComponentFile> k = this.proposedTermList.iterator(); k.hasNext()
+            for (Iterator<OBOComponent> k = this.proposedTermList.iterator(); k.hasNext()
                  && !flagFound;) {
             	
                 proposed = k.next();
@@ -1164,7 +1164,7 @@ public class ValidateComponents {
             	
                 reference.setStatusChange("DELETED");
                 reference.setStatusRule("FAILED");   
-                reference.setCheckComment("INFO: ComponentFile was deleted from OBO file bypassing obsolete procedures.");
+                reference.setCheckComment("INFO: OBOComponent was deleted from OBO file bypassing obsolete procedures.");
                 
                 reference.setFlagMissingRel(true);
  
@@ -1186,7 +1186,7 @@ public class ValidateComponents {
                 this.problemTermList.add(reference);
 
                 System.out.println("checkChanges");
-                System.out.println("Failed ComponentFile = " + reference.getID());
+                System.out.println("Failed OBOComponent = " + reference.getID());
 
                 this.changesTermList.add(reference); //<=== this is the component arraylist to generate SQL queries!!!
 
@@ -1259,8 +1259,8 @@ public class ValidateComponents {
         return this.changesTermList;
     }
     public ArrayList getNewTermList(){
-        ArrayList < ComponentFile > newTerms = new ArrayList<ComponentFile>();
-        for ( ComponentFile term: this.changesTermList ){
+        ArrayList<OBOComponent>newTerms = new ArrayList<OBOComponent>();
+        for ( OBOComponent term: this.changesTermList ){
             if ( term.getStatusChange().equals("NEW") ) {
                 newTerms.add( term );
             }
@@ -1268,8 +1268,8 @@ public class ValidateComponents {
         return newTerms;
     }
     public ArrayList getDeletedTermList(){
-        ArrayList < ComponentFile > deletedTerms = new ArrayList<ComponentFile>();
-        for ( ComponentFile term: this.changesTermList ){
+        ArrayList<OBOComponent>deletedTerms = new ArrayList<OBOComponent>();
+        for ( OBOComponent term: this.changesTermList ){
             if ( term.getStatusChange().equals("DELETED") ) {
                 deletedTerms.add( term );
             }
@@ -1277,8 +1277,8 @@ public class ValidateComponents {
         return deletedTerms;
     }
     public ArrayList getModifiedTermList(){
-        ArrayList < ComponentFile > modifiedTerms = new ArrayList<ComponentFile>();
-        for ( ComponentFile term: this.changesTermList ){
+        ArrayList<OBOComponent>modifiedTerms = new ArrayList<OBOComponent>();
+        for ( OBOComponent term: this.changesTermList ){
         	if ( term.getStatusChange().equals("CHANGED") ) {
                 modifiedTerms.add( term );
             }

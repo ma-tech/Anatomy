@@ -44,7 +44,7 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import obolayer.ComponentOBO;
 import obolayer.OBOException;
@@ -62,23 +62,23 @@ public class GenerateEditorReport {
     private PrintWriter printWriter =
             new PrintWriter( stringWriter );
     
-    private ArrayList<ComponentFile> newTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> newTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> modifiedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> modifiedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> deletedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> deletedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> unchangedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> unchangedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> problemTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> problemTerms =
+            new ArrayList<OBOComponent>();
 
-    private ArrayList<ComponentFile> proposedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> proposedTerms =
+            new ArrayList<OBOComponent>();
 
     private String summaryReportName = "";
     private String inputOboFileName = "";
@@ -91,7 +91,7 @@ public class GenerateEditorReport {
     public GenerateEditorReport( ValidateComponents validatecomponents ){
 
         //sort terms from ValidateComponents class into categories
-        //ArrayList<ComponentFile> changedTerms = validatecomponent.getChangesTermList();
+        //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
         proposedTerms = validatecomponents.getProposedTermList();
         
         problemTerms = validatecomponents.getProblemTermList();
@@ -181,7 +181,7 @@ public class GenerateEditorReport {
     public GenerateEditorReport( ValidateComponents validatecomponents, String infile, String outfile ){
 
         //sort terms from ValidateComponents class into categories
-        //ArrayList<ComponentFile> changedTerms = validatecomponent.getChangesTermList();
+        //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
         proposedTerms = validatecomponents.getProposedTermList();
         
         problemTerms = validatecomponents.getProblemTermList();
@@ -271,9 +271,9 @@ public class GenerateEditorReport {
 
 
     // Private (Internal) Methods ------------------------------------------------------------------
-    private void sortChangedTerms(ArrayList<ComponentFile> obocomponents){
+    private void sortChangedTerms(ArrayList<OBOComponent> obocomponents){
         
-        for(ComponentFile obocomponent: obocomponents){
+        for(OBOComponent obocomponent: obocomponents){
             
             if ( obocomponent.getStatusChange().equals("NEW") ) {
                 newTerms.add(obocomponent);
@@ -331,7 +331,7 @@ public class GenerateEditorReport {
     }
     
     
-    private void writeProblemTerms(ArrayList<ComponentFile> obocomponents){
+    private void writeProblemTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -352,7 +352,7 @@ public class GenerateEditorReport {
             
             if ( !obocomponents.isEmpty() ){
             	
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 
                 	counter++;
                     
@@ -369,13 +369,13 @@ public class GenerateEditorReport {
                 
                 //System.out.println(obocomponents.size());
                 
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 	
                     counter++;
                     
                     printWriter.println();
                     printWriter.println();
-                    printWriter.println( "   Problem ComponentFile " +
+                    printWriter.println( "   Problem OBOComponent " +
                             counter );
                     printWriter.println( "    ID        : " +
                             obocomponent.getID() );
@@ -428,7 +428,7 @@ public class GenerateEditorReport {
     }
 
 
-    private void writeNewTerms(ArrayList<ComponentFile> obocomponents){
+    private void writeNewTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -445,7 +445,7 @@ public class GenerateEditorReport {
             printWriter.println("  -------------------------------");
             printWriter.println();
        
-            for(ComponentFile obocomponent: obocomponents){
+            for(OBOComponent obocomponent: obocomponents){
             	
                 counter++;
                 printWriter.println( "  " + counter + ". " +
@@ -462,12 +462,12 @@ public class GenerateEditorReport {
                 
                 counter = 0;
             
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 	
                     counter++;
                     
                     printWriter.println();
-                    printWriter.println( "   New ComponentFile " +
+                    printWriter.println( "   New OBOComponent " +
                             counter );
                     printWriter.println( "    ID        : " +
                             obocomponent.getID() );
@@ -508,7 +508,7 @@ public class GenerateEditorReport {
     }
     
     
-    private void writeModifiedTerms(ArrayList<ComponentFile> obocomponents){
+    private void writeModifiedTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -528,7 +528,7 @@ public class GenerateEditorReport {
             
             if (!obocomponents.isEmpty()){
             
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 	
                     counter++;
                     
@@ -552,12 +552,12 @@ public class GenerateEditorReport {
                 
                 counter = 0;
 
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 
                 	counter++;
                     
                 	printWriter.println();
-                    printWriter.println( "   Modified ComponentFile " +
+                    printWriter.println( "   Modified OBOComponent " +
                             counter );
                     printWriter.println( "    ID        : " +
                             obocomponent.getID() );
@@ -598,7 +598,7 @@ public class GenerateEditorReport {
     }
 
 
-    private void writeDeletedTerms(ArrayList<ComponentFile> obocomponents){
+    private void writeDeletedTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -617,7 +617,7 @@ public class GenerateEditorReport {
             
             if (!obocomponents.isEmpty()){
             
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
                 	
                     counter++;
                     
@@ -632,12 +632,12 @@ public class GenerateEditorReport {
                 
                 counter = 0;
                 
-                for(ComponentFile obocomponent: obocomponents){
+                for(OBOComponent obocomponent: obocomponents){
 
                 	counter++;
                     
                 	printWriter.println();
-                    printWriter.println( "   Deleted ComponentFile " +
+                    printWriter.println( "   Deleted OBOComponent " +
                             counter );
                     printWriter.println( "    ID        : " +
                             obocomponent.getID() );

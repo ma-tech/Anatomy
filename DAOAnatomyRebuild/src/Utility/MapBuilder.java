@@ -34,14 +34,14 @@ package utility;
 
 import java.util.*;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 public class MapBuilder {
 
-    private ArrayList<ComponentFile> obocomponents;
+    private ArrayList<OBOComponent> obocomponents;
 
     //<EMAPA:ID -> component object>
-    private HashMap<String, ComponentFile> treeProperty;
+    private HashMap<String, OBOComponent> treeProperty;
     
     //<EMAPA:ID -> children (emapa:id)>
     private HashMap<String, Vector<String>> treeChildren;
@@ -49,11 +49,11 @@ public class MapBuilder {
     //<EMAPA:ID -> time obocomponents (emap:id)>
     //private HashMap<String, Vector<String>> treeTimeComponent;
 
-    private HashMap<String, Vector<ComponentFile[]>> treePaths;
+    private HashMap<String, Vector<OBOComponent[]>> treePaths;
     private Vector<String> vRootNodes;
 
     
-    public MapBuilder(ArrayList<ComponentFile> termList) {
+    public MapBuilder(ArrayList<OBOComponent> termList) {
         
     	//System.out.println("instantiating MapBuilder");
 
@@ -81,11 +81,11 @@ public class MapBuilder {
     
     public void mapTreeProperty() {
     	
-        ComponentFile obocomponent;
+        OBOComponent obocomponent;
         
         for (Iterator i = obocomponents.iterator(); i.hasNext();) {
 
-            obocomponent = (ComponentFile) i.next();
+            obocomponent = (OBOComponent) i.next();
             
             //all obocomponents in component arraylist
             this.treeProperty.put(obocomponent.getID(), obocomponent);
@@ -95,11 +95,11 @@ public class MapBuilder {
     
     public void mapChildrenProperty() {
     	
-        ComponentFile obocomponent;
+        OBOComponent obocomponent;
         
         for (Iterator i = obocomponents.iterator(); i.hasNext();) {
 
-            obocomponent = (ComponentFile) i.next();
+            obocomponent = (OBOComponent) i.next();
 
             //part of relationship
             for (Iterator j = obocomponent.getChildOfs().iterator(); j.hasNext();) {
@@ -112,7 +112,7 @@ public class MapBuilder {
                   in the file
                  parent has been deleted, but children have not
                 */
-                ComponentFile instance_of_comp = (ComponentFile) this.treeProperty.get(parent);
+                OBOComponent instance_of_comp = (OBOComponent) this.treeProperty.get(parent);
 
                 if ( instance_of_comp == null ) {
                     System.out.println("Parent has been deleted from file: " +
@@ -159,7 +159,7 @@ public class MapBuilder {
 
         boolean notChildOf;
 
-        for(ComponentFile obocomponent: this.obocomponents){    
+        for(OBOComponent obocomponent: this.obocomponents){    
             //if childOf is empty or itself
             notChildOf = ( obocomponent.getChildOfs().isEmpty() ||
                         ( obocomponent.getChildOfs().size() == 1 &&
@@ -173,7 +173,7 @@ public class MapBuilder {
     }
 
 
-    public void addTreePropertyEntry(String strEMAPA, ComponentFile obocomponent){
+    public void addTreePropertyEntry(String strEMAPA, OBOComponent obocomponent){
         this.treeProperty.put(strEMAPA, obocomponent);
     }
 

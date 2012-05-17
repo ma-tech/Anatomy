@@ -69,7 +69,7 @@ import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.Version;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import utility.MySQLDateTime;
 
@@ -80,7 +80,7 @@ public class GenerateSQL {
 	boolean debug; 
 	
     //term list to be updated and term list to refer to
-    private ArrayList < ComponentFile > proposedTermList; 
+    private ArrayList < OBOComponent > proposedTermList; 
     
     //file properties
     private String strSpecies = "";
@@ -90,43 +90,43 @@ public class GenerateSQL {
     private TreeBuilder tree; 
     
     //term list for timed components
-    private ArrayList < ComponentFile > timedCompList;
+    private ArrayList < OBOComponent > timedCompList;
 
     //term list for synonym components
-    private ArrayList < ComponentFile > synonymCompList;
+    private ArrayList < OBOComponent > synonymCompList;
     
     //term list for disallowed deleted components 
     // 1 - not found in db
     // 2 - is primary and have undeleted children
-    private ArrayList < ComponentFile > unDeletedCompList;
+    private ArrayList < OBOComponent > unDeletedCompList;
     
     //term list for disallowed modified components
     // 1 - not found in db
-    private ArrayList < ComponentFile > unModifiedCompList;
+    private ArrayList < OBOComponent > unModifiedCompList;
     
     //term list for temporary terms created for larger stage ranges from
     // modified components
-    private ArrayList < ComponentFile > diffCreateTimedCompList;
+    private ArrayList < OBOComponent > diffCreateTimedCompList;
     
     //term list for timed components to be deleted for smaller stage ranges
     // from modified components
-    private ArrayList < ComponentFile > diffDeleteTimedCompList;
+    private ArrayList < OBOComponent > diffDeleteTimedCompList;
     
     //term list for relationships to be created for changed parents from
     // modifed components
-    private ArrayList < ComponentFile > diffCreateRelList;
+    private ArrayList < OBOComponent > diffCreateRelList;
     
     //term list for relationships to be created for deleted parents from
     // modified components
-    private ArrayList < ComponentFile > diffDeleteRelList;
+    private ArrayList < OBOComponent > diffDeleteRelList;
     
     //term list for synonyms to be created for changed synonyms from modifed
     // components
-    private ArrayList < ComponentFile > diffCreateSynList;
+    private ArrayList < OBOComponent > diffCreateSynList;
     
     //term list for synonyms to be created for deleted synonyms from modified
     // components
-    private ArrayList < ComponentFile > diffDeleteSynList;
+    private ArrayList < OBOComponent > diffDeleteSynList;
     
     //maximum public id
     private int intCurrentVersionID;
@@ -137,7 +137,7 @@ public class GenerateSQL {
     private boolean processed;
     
     //abstract class configuration
-    private ComponentFile abstractclassobocomponent;
+    private OBOComponent abstractclassobocomponent;
     
     //Data Access Object Factory
     private DAOFactory daofactory;
@@ -161,7 +161,7 @@ public class GenerateSQL {
     // Constructors -------------------------------------------------------------------------------
     public GenerateSQL(
     		boolean debug,
-            ArrayList<ComponentFile> proposedTermList,
+            ArrayList<OBOComponent> proposedTermList,
             TreeBuilder treebuilder,
             TreeBuilder refTreebuilder,
             String species,
@@ -180,16 +180,16 @@ public class GenerateSQL {
         
         //System.out.println("-- proposedTermList.size() " + proposedTermList.size() + " --");
 
-        this.timedCompList = new ArrayList<ComponentFile>();
-        this.synonymCompList = new ArrayList<ComponentFile>();
-        this.unDeletedCompList = new ArrayList<ComponentFile>();
-        this.unModifiedCompList = new ArrayList<ComponentFile>();
-        this.diffCreateTimedCompList = new ArrayList<ComponentFile>();
-        this.diffDeleteTimedCompList = new ArrayList<ComponentFile>();
-        this.diffCreateRelList = new ArrayList<ComponentFile>();
-        this.diffDeleteRelList = new ArrayList<ComponentFile>();
-        this.diffCreateSynList = new ArrayList<ComponentFile>();
-        this.diffDeleteSynList = new ArrayList<ComponentFile>();
+        this.timedCompList = new ArrayList<OBOComponent>();
+        this.synonymCompList = new ArrayList<OBOComponent>();
+        this.unDeletedCompList = new ArrayList<OBOComponent>();
+        this.unModifiedCompList = new ArrayList<OBOComponent>();
+        this.diffCreateTimedCompList = new ArrayList<OBOComponent>();
+        this.diffDeleteTimedCompList = new ArrayList<OBOComponent>();
+        this.diffCreateRelList = new ArrayList<OBOComponent>();
+        this.diffDeleteRelList = new ArrayList<OBOComponent>();
+        this.diffCreateSynList = new ArrayList<OBOComponent>();
+        this.diffDeleteSynList = new ArrayList<OBOComponent>();
 
         this.tree = treebuilder;
         this.strSpecies = species;
@@ -197,7 +197,7 @@ public class GenerateSQL {
         this.intCurrentObjectID = 0;
         
     	// set abstract class parameters
-        this.abstractclassobocomponent = new ComponentFile();
+        this.abstractclassobocomponent = new OBOComponent();
 
         // 1: set abstract class parameters
         this.abstractclassobocomponent.setName( "Abstract anatomy" );
@@ -206,27 +206,27 @@ public class GenerateSQL {
         this.project = project;
 
         //internal termlists for data manipulation
-        ArrayList<ComponentFile> newComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList<OBOComponent> newComponents =
+                new ArrayList < OBOComponent >();
 
-        ArrayList<ComponentFile> deletedComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList<OBOComponent> deletedComponents =
+                new ArrayList < OBOComponent >();
         
-        ArrayList<ComponentFile> validDeletedComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList<OBOComponent> validDeletedComponents =
+                new ArrayList < OBOComponent >();
         
-        ArrayList<ComponentFile> changedComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList<OBOComponent> changedComponents =
+                new ArrayList < OBOComponent >();
         
-        ArrayList<ComponentFile> changedPropComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList<OBOComponent> changedPropComponents =
+                new ArrayList < OBOComponent >();
         
         int newCount = 0;
         int delCount = 0;
         int chgCount = 0;
         
         //construct internal arraylists
-        ComponentFile component = new ComponentFile();
+        OBOComponent component = new OBOComponent();
         for (int i = 0; i<this.proposedTermList.size(); i++){
             component = this.proposedTermList.get(i);
 
@@ -240,13 +240,13 @@ public class GenerateSQL {
                 if ( component.getStatusRule().equals("FAILED") ) {
                     if (this.debug) {
                         System.out.println(
-                                "--SQL queries for New ComponentFile " +
+                                "--SQL queries for New OBOComponent " +
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!" );
                     }
                     setProcessed(false);
                 }
-                newComponentFiles.add( component );
+                newComponents.add( component );
             }
             if ( component.getStatusChange().equals("DELETED") ){
 
@@ -255,13 +255,13 @@ public class GenerateSQL {
             	if ( component.getStatusRule().equals("FAILED") ){
                     if (this.debug) {
                         System.out.println( 
-                                "--SQL queries for Deleted ComponentFile " +
+                                "--SQL queries for Deleted OBOComponent " +
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!");
                     }
                     setProcessed(false);
                 }
-                deletedComponentFiles.add( component );
+                deletedComponents.add( component );
             }
             if ( component.getStatusChange().equals("CHANGED") ){
 
@@ -270,13 +270,13 @@ public class GenerateSQL {
                 if ( component.getStatusRule().equals("FAILED") ){
                     if (this.debug) {
                         System.out.println( 
-                                "--SQL queries for Changed ComponentFile " +
+                                "--SQL queries for Changed OBOComponent " +
                                 component.getID() + " " + component.getName() +
                                 " with rule violation have been generated!");
                     }
                     setProcessed(false);
                 }
-                changedComponentFiles.add( component );
+                changedComponents.add( component );
             }
         }
         /*
@@ -312,20 +312,20 @@ public class GenerateSQL {
             
             // 02
             //set a version record in ANA_VERSION for this update
-            insertANA_VERSION( this.intCurrentVersionID, newComponentFiles,
-                    deletedComponentFiles, changedComponentFiles );
+            insertANA_VERSION( this.intCurrentVersionID, newComponents,
+                    deletedComponents, changedComponents );
 
             // AA
             //  INSERT components
-            inserts( newComponentFiles );
+            inserts( newComponents );
 
             // BB
             //  AMENDED components
-            updates( changedComponentFiles );
+            updates( changedComponents );
             
             // CC
             //  DELETED components
-            deletes( deletedComponentFiles );
+            deletes( deletedComponents );
 
             setProcessed( true );
         }
@@ -361,9 +361,9 @@ public class GenerateSQL {
     // 02
     //  Insert a new row into ANA_VERSION
     private void insertANA_VERSION( int objectID, 
-    		ArrayList<ComponentFile> newTermList, 
-    		ArrayList<ComponentFile> delTermList, 
-    		ArrayList<ComponentFile> modTermList ){
+    		ArrayList<OBOComponent> newTermList, 
+    		ArrayList<OBOComponent> delTermList, 
+    		ArrayList<OBOComponent> modTermList ){
     	/*
          *  Columns:
          *   1. VER_OID      - int(10) unsigned
@@ -380,8 +380,8 @@ public class GenerateSQL {
         try{
            if ( !( newTermList.isEmpty() && delTermList.isEmpty() && modTermList.isEmpty() ) ){
                //insert into ANA_OBJECT
-               ComponentFile vercomponent = new ComponentFile();
-               ArrayList< ComponentFile > verTermList = new ArrayList<ComponentFile>();
+               OBOComponent vercomponent = new OBOComponent();
+               ArrayList< OBOComponent > verTermList = new ArrayList<OBOComponent>();
                verTermList.add( vercomponent );
                
                insertANA_OBJECT( verTermList, "ANA_VERSION" );
@@ -422,7 +422,7 @@ public class GenerateSQL {
 
     // AA
     //  Wrapper Routine for ALL INSERTS to the database
-    private void inserts( ArrayList<ComponentFile> newComponentFiles ){
+    private void inserts( ArrayList<OBOComponent> newComponents ){
 
     	if (this.debug) {
             System.out.println("== - =======");
@@ -430,26 +430,26 @@ public class GenerateSQL {
             System.out.println("== - =======");
         }
         
-        //System.out.println("newComponentFiles.size() " + newComponentFiles.size());
+        //System.out.println("newComponents.size() " + newComponents.size());
 
-        if (newComponentFiles.size() > 0) {
+        if (newComponents.size() > 0) {
             // 03
-            insertANA_NODE(newComponentFiles);
+            insertANA_NODE(newComponents);
             
             // 04
-            insertANA_RELATIONSHIP(newComponentFiles, "NEW");
+            insertANA_RELATIONSHIP(newComponents, "NEW");
             
             // 05
-            insertANA_TIMED_NODE(newComponentFiles, "NEW");
+            insertANA_TIMED_NODE(newComponents, "NEW");
             
             // 06
-            insertANA_SYNONYM(newComponentFiles, "NEW");
+            insertANA_SYNONYM(newComponents, "NEW");
         }
     }
     
     // BB
     //  Wrapper Routine for ALL UPDATES to the database
-    private void updates( ArrayList<ComponentFile> changedComponentFilesIn ){
+    private void updates( ArrayList<OBOComponent> changedComponentsIn ){
     	
     	if (this.debug) {
             System.out.println("== - =======");
@@ -457,64 +457,64 @@ public class GenerateSQL {
             System.out.println("== - =======");
         }
     	
-        //System.out.println("changedComponentFilesIn.size() " + changedComponentFilesIn.size());
+        //System.out.println("changedComponentsIn.size() " + changedComponentsIn.size());
 
-        if (changedComponentFilesIn.size() > 0) {
+        if (changedComponentsIn.size() > 0) {
             //modify components, set DBIDs and get only components that have dbids based on emap id
             // 07
-        	ArrayList<ComponentFile> changedComponentFiles = setDBIDs(changedComponentFilesIn);
+        	ArrayList<OBOComponent> changedComponents = setDBIDs(changedComponentsIn);
             
             //get components whose stage ranges have changed
             // 08
-        	ArrayList<ComponentFile> changedPropComponentFiles = this.getChangedStagesTermList( changedComponentFiles );
+        	ArrayList<OBOComponent> changedPropComponents = this.getChangedStagesTermList( changedComponents );
             
             //perform insertion and deletion for modified stage ranges
             // 09
-            updateStages( changedPropComponentFiles );
+            updateStages( changedPropComponents );
             
             //get components whose names have changed
             // 10
-            changedPropComponentFiles = this.getChangedNamesTermList( changedComponentFiles );
+            changedPropComponents = this.getChangedNamesTermList( changedComponents );
             
             //perform update for modified names
             // 11
-            updateANA_NODE( changedPropComponentFiles );
+            updateANA_NODE( changedPropComponents );
             
             //get components whose synonyms have changed
             // 12
-            changedPropComponentFiles = this.getChangedSynonymsTermList( changedComponentFiles );
+            changedPropComponents = this.getChangedSynonymsTermList( changedComponents );
             
             //perform insertion and deletion for modified synonyms
             // 13
-            updateSynonyms( changedPropComponentFiles );
+            updateSynonyms( changedPropComponents );
             
             //get components whose parents have changed
             // 14
-            changedPropComponentFiles = this.getChangedParentsTermList( changedComponentFiles );
+            changedPropComponents = this.getChangedParentsTermList( changedComponents );
             
             //perform insertion and deletion for modified parent relationships
             // 15
-            updateParents( changedPropComponentFiles );
+            updateParents( changedPropComponents );
             
             //get components whose primary status have changed
-            changedPropComponentFiles = this.getChangedPrimaryStatusTermList( changedComponentFiles );
+            changedPropComponents = this.getChangedPrimaryStatusTermList( changedComponents );
             //perform update for modified primary status
             // 15.5
-            updateANA_NODE_primary( changedPropComponentFiles );
+            updateANA_NODE_primary( changedPropComponents );
             
             //get components whose ordering have changed
             // 16
-            changedPropComponentFiles = this.getChangedOrderTermList( changedComponentFiles );
+            changedPropComponents = this.getChangedOrderTermList( changedComponents );
 
             //perform reordering
             // 17
-            updateOrder( changedPropComponentFiles );
+            updateOrder( changedPropComponents );
         }
     }
     
     // CC
     //  Wrapper Routine for ALL DELETES to the database
-    private void deletes( ArrayList<ComponentFile> deletedComponentFilesIn ){
+    private void deletes( ArrayList<OBOComponent> deletedComponentsIn ){
     	
     	if (this.debug) {
             System.out.println("== - =======");
@@ -522,35 +522,35 @@ public class GenerateSQL {
             System.out.println("== - =======");
         }
         
-        //System.out.println("deletedComponentFilesIn.size() " + deletedComponentFilesIn.size());
+        //System.out.println("deletedComponentsIn.size() " + deletedComponentsIn.size());
 
-        if (deletedComponentFilesIn.size() > 0) {
+        if (deletedComponentsIn.size() > 0) {
             /*
             delete components
              delete components, set DBIDs and get only components that have
              dbids based on emap id
-            deletedComponentFiles = setDBIDs(deletedComponentFiles);
+            deletedComponents = setDBIDs(deletedComponents);
             CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
             1. check that term exists in database
             2. if term = primary, check that all descendants are due for deletion in obo file as well
             3. if one descendant specified in database is not found in OBO file 
                OR descendant is found but not specified for deletion, 
             4. pass on invalid term to unDeletedCompList
-            pass valid terms to validDeleteComponentFiles
-            validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+            pass valid terms to validDeleteComponents
+            validDeletedComponents = this.validateDeleteTermList( deletedComponents );
             insert log records for deleted components
-            insertANA_LOG( validDeletedComponentFiles );
+            insertANA_LOG( validDeletedComponents );
             perform deletion on valid deletion term list
-            deleteComponentFileFromTables( validDeletedComponentFiles );
+            deleteComponentFromTables( validDeletedComponents );
             reorder siblings of deleted components that have order
-            reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+            reorderANA_RELATIONSHIP( validDeletedComponents, this.project );
             report for invalid delete term list that have not been deleted
-            reportDeletionSummary(deletedComponentFiles, validDeletedComponentFiles, this.unDeletedCompList);
+            reportDeletionSummary(deletedComponents, validDeletedComponents, this.unDeletedCompList);
             */
 
             // delete components, set DBIDs and get only components that have dbids based on emap id
             // 07
-        	ArrayList<ComponentFile> deletedComponentFiles = setDBIDs(deletedComponentFilesIn);
+        	ArrayList<OBOComponent> deletedComponents = setDBIDs(deletedComponentsIn);
 
             //CRITICAL DELETION VALIDATION: to disallow deletion of components that do have children in database
             //1. check that term exists in database
@@ -559,28 +559,28 @@ public class GenerateSQL {
             //   OR descendant is found but not specified for deletion,
             //4. pass on invalid term to unDeletedCompList
             
-            //pass valid terms to validDeleteComponentFiles
+            //pass valid terms to validDeleteComponents
             // 18
-        	ArrayList<ComponentFile> validDeletedComponentFiles = this.validateDeleteTermList( deletedComponentFiles );
+        	ArrayList<OBOComponent> validDeletedComponents = this.validateDeleteTermList( deletedComponents );
             
             //insert log records for deleted components
             // 19
-            insertANA_LOG( validDeletedComponentFiles );
+            insertANA_LOG( validDeletedComponents );
             
             //perform deletion on valid deletion term list
             // 20
-            deleteComponentFileFromTables( validDeletedComponentFiles );
+            deleteComponentFromTables( validDeletedComponents );
             
             //reorder siblings of deleted components that have order
             // 21
-            reorderANA_RELATIONSHIP( validDeletedComponentFiles, this.project );
+            reorderANA_RELATIONSHIP( validDeletedComponents, this.project );
     	}
     }
     
     
     // 03
     //  Insert new rows into ANA_NODE
-    private void insertANA_NODE( ArrayList<ComponentFile> newTermList ){
+    private void insertANA_NODE( ArrayList<OBOComponent> newTermList ){
     	/*
          *  Columns:
          *   1. ANO_OID            - int(10) unsigned 
@@ -603,7 +603,7 @@ public class GenerateSQL {
         String strANO_PUBLIC_ID = "";
         String strANO_DESCRIPTION = "";
 
-        ComponentFile component;
+        OBOComponent component;
 
         try {
         	//get current max public id
@@ -697,7 +697,7 @@ public class GenerateSQL {
     
     // 04
     //  Insert into ANA_RELATIONSHIP
-    private void insertANA_RELATIONSHIP( ArrayList < ComponentFile > newTermList,
+    private void insertANA_RELATIONSHIP( ArrayList < OBOComponent > newTermList,
             String calledFrom){
     	/*
     	 *  ANA_RELATIONSHIP
@@ -718,8 +718,8 @@ public class GenerateSQL {
             System.out.println("04 - insertANA_RELATIONSHIP - called from = " + calledFrom);
         }
 
-        ArrayList < ComponentFile > insertRelObjects = new ArrayList<ComponentFile>();
-        ComponentFile component;
+        ArrayList < OBOComponent > insertRelObjects = new ArrayList<OBOComponent>();
+        OBOComponent component;
 
         String[] orders = null;
         
@@ -774,7 +774,7 @@ public class GenerateSQL {
                         //reset insertflag for each parent
 
                         flagInsert = true;
-                        ComponentFile parent = (ComponentFile) this.tree.getComponent( parents.get(j) );
+                        OBOComponent parent = (OBOComponent) this.tree.getComponent( parents.get(j) );
                         /*
                         if (component.getID().equals("EMAPA:16172")) {
                         	System.out.println("Got the Child EMAPA:16172");
@@ -840,7 +840,7 @@ public class GenerateSQL {
                     
                         //proceed with insertion 
                         if (flagInsert){
-                            ComponentFile insertRelObject = new ComponentFile();
+                            OBOComponent insertRelObject = new OBOComponent();
                             
                             insertRelObject.setID( component.getDBID() ); 
                             
@@ -890,7 +890,7 @@ public class GenerateSQL {
                     insertANA_OBJECT( insertRelObjects, "ANA_RELATIONSHIP" );
                     
                     //INSERT INTO ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT
-                    for ( ComponentFile insertRelObject : insertRelObjects ){
+                    for ( OBOComponent insertRelObject : insertRelObjects ){
                         intREL_OID = Integer.parseInt( insertRelObject.getDBID() );
 
                         if ( insertRelObject.getChildOfTypes().get(0).equals("PART_OF")) {
@@ -967,7 +967,7 @@ public class GenerateSQL {
     
     // 05
     //  Insert into ANA_TIMED_NODE
-    private void insertANA_TIMED_NODE( ArrayList<ComponentFile> newTermList, String calledFrom ){
+    private void insertANA_TIMED_NODE( ArrayList<OBOComponent> newTermList, String calledFrom ){
     	/*
     	 *  ANA_TIMED_NODE - 
     	 *  
@@ -983,7 +983,7 @@ public class GenerateSQL {
             System.out.println("05 - insertANA_TIMED_NODE - called from = " + calledFrom);
         }
 
-        ComponentFile component;
+        OBOComponent component;
 
         try{
         	//03-1
@@ -991,7 +991,7 @@ public class GenerateSQL {
             
             //create timed components in ANA_OBJECT
             // 05-1
-            this.timedCompList = this.createTimeComponentFiles(newTermList, calledFrom);
+            this.timedCompList = this.createTimeComponents(newTermList, calledFrom);
                            
             if ( !timedCompList.isEmpty() ) {
                 //INSERT timed component obj_oids into ANA_OBJECT
@@ -1042,7 +1042,7 @@ public class GenerateSQL {
 
     // 06
     //  Insert into ANA_SYNONYM
-    private void insertANA_SYNONYM( ArrayList<ComponentFile> newTermList, String calledFrom ){
+    private void insertANA_SYNONYM( ArrayList<OBOComponent> newTermList, String calledFrom ){
     	/*
     	 *  ANA_NODE - ABSTRACT Synonyms in the Anatomy DAG
     	 *              - EMAPA:.... 
@@ -1057,7 +1057,7 @@ public class GenerateSQL {
             System.out.println("06 - insertANA_SYNONYM - called from = " + calledFrom);
         }
 
-        ComponentFile component;
+        OBOComponent component;
 
         this.synonymCompList.clear();
 
@@ -1075,7 +1075,7 @@ public class GenerateSQL {
                
                for (int j = 0; j< synonyms.size(); j++){
                    
-            	   ComponentFile synonymcomponent = new ComponentFile();
+            	   OBOComponent synonymcomponent = new OBOComponent();
                    synonymcomponent.setID( component.getDBID() );
                    synonymcomponent.setName( synonyms.get(j) );
                    
@@ -1090,7 +1090,7 @@ public class GenerateSQL {
 
                insertANA_OBJECT(synonymCompList, "ANA_SYNONYM");
 
-               for( ComponentFile synCompie: synonymCompList ){
+               for( OBOComponent synCompie: synonymCompList ){
 
                    //proceed with insertion
                    int intSYN_OID = Integer.parseInt( synCompie.getDBID() );
@@ -1117,16 +1117,16 @@ public class GenerateSQL {
     
     // 07
     //  Set Database Ids into a list of components
-    private ArrayList setDBIDs( ArrayList<ComponentFile> termList ){
+    private ArrayList setDBIDs( ArrayList<OBOComponent> termList ){
 
         if (this.debug) {
             System.out.println("07 - setDBIDs");
         }
         
-        ComponentFile component = new ComponentFile();
+        OBOComponent component = new OBOComponent();
         
         try{
-            //for (ComponentFile component : termList){
+            //for (OBOComponent component : termList){
             for (int i = 0; i<termList.size(); i++ ){
                 component = termList.get(i);
                 
@@ -1178,19 +1178,19 @@ public class GenerateSQL {
 
     // 09
     //  update Stage
-    private void updateStages( ArrayList < ComponentFile > changedStageTermList ){
+    private void updateStages( ArrayList < OBOComponent > changedStageTermList ){
 
         if (this.debug) {
             System.out.println("09 - updateStages");
         }
 
-        ArrayList < ComponentFile > deleteTimedComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList < OBOComponent > deleteTimedComponents =
+                new ArrayList < OBOComponent >();
         
         //find ranges of stages that need to be inserted/deleted, create
         // temporary components for ranges
         // 09-1
-        this.createDifferenceTimedComponentFiles( changedStageTermList );
+        this.createDifferenceTimedComponents( changedStageTermList );
         
         //insert time components in ANA_TIMED_NODE
         insertANA_TIMED_NODE( this.diffCreateTimedCompList, "MODIFY" );
@@ -1199,24 +1199,24 @@ public class GenerateSQL {
           //insertANA_LOG_deletedStages( this.diffDeleteTimedCompList );
           //create timed components due for deletion
         
-        //deleteTimedComponentFiles = this.createTimeComponentFiles( this.diffDeleteTimedCompList, "DELETE" ); //delete obj_oids!
+        //deleteTimedComponents = this.createTimeComponents( this.diffDeleteTimedCompList, "DELETE" ); //delete obj_oids!
         // 09-2
-        deleteTimedComponentFiles =
+        deleteTimedComponents =
                this.insertANA_LOG_deletedStages( this.diffDeleteTimedCompList );
         
         //delete time components in ANA_TIMED_NODE
         // 09-3
-        deleteANA_TIMED_NODE( deleteTimedComponentFiles );
+        deleteANA_TIMED_NODE( deleteTimedComponents );
         
         //delete object oids of timed components in ANA_OBJECT
         // 09-4
-        deleteANA_OBJECT( deleteTimedComponentFiles, "ANA_TIMED_NODE" );
+        deleteANA_OBJECT( deleteTimedComponents, "ANA_TIMED_NODE" );
         
     }
 
     // 11
     //  Update ANA_NODE for Changed Names
-    private void updateANA_NODE( ArrayList< ComponentFile > changedNameTermList ){
+    private void updateANA_NODE( ArrayList< OBOComponent > changedNameTermList ){
     	/*
     	 *  ANA_NODE - ABSTRACT Nodes in the Anatomy DAG
     	 *              - EMAPA:.... 
@@ -1239,7 +1239,7 @@ public class GenerateSQL {
             
             if ( !changedNameTermList.isEmpty() ){
 
-            	for (ComponentFile component: changedNameTermList){
+            	for (OBOComponent component: changedNameTermList){
                 	
                 	Node node = nodeDAO.findByPublicId(component.getID());
                 	
@@ -1259,12 +1259,12 @@ public class GenerateSQL {
     }
 
     // 13
-    private void updateSynonyms( ArrayList < ComponentFile > changedSynonymsTermList ){
+    private void updateSynonyms( ArrayList < OBOComponent > changedSynonymsTermList ){
 
         if (this.debug) {
             System.out.println("13 - updateSynonyms");
         }
-        ArrayList < ComponentFile > deleteSynComponentFiles = new ArrayList < ComponentFile >();
+        ArrayList < OBOComponent > deleteSynComponents = new ArrayList < OBOComponent >();
         
         //find ranges of stages that need to be inserted/deleted, create
         // temporary components for ranges
@@ -1277,28 +1277,28 @@ public class GenerateSQL {
         
         //insert relationships to be deleted in ANA_LOG
         // 13-2
-        deleteSynComponentFiles =
+        deleteSynComponents =
                 this.insertANA_LOG_deletedSyns( this.diffDeleteSynList );
         
         //delete relationships in ANA_SYNONYM
         // 13-3
-        deleteANA_SYNONYM( deleteSynComponentFiles );
+        deleteANA_SYNONYM( deleteSynComponents );
         
         //delete object oids of synonym records in ANA_OBJECT
         // 09-4
-        deleteANA_OBJECT( deleteSynComponentFiles, "ANA_SYNONYM" );
+        deleteANA_OBJECT( deleteSynComponents, "ANA_SYNONYM" );
         
     }
 
     // 15
-    private void updateParents( ArrayList < ComponentFile > changedParentsTermList ){
+    private void updateParents( ArrayList < OBOComponent > changedParentsTermList ){
 
         if (this.debug) {
             System.out.println("15 - updateParents");
         }
 
-        ArrayList < ComponentFile > deleteRelComponentFiles =
-                new ArrayList < ComponentFile >();
+        ArrayList < OBOComponent > deleteRelComponents =
+                new ArrayList < OBOComponent >();
         
         //find ranges of stages that need to be inserted/deleted, create
         // temporary components for ranges
@@ -1311,22 +1311,22 @@ public class GenerateSQL {
         
         //insert relationships to be deleted in ANA_LOG
         // 15-2
-        deleteRelComponentFiles =
+        deleteRelComponents =
                 this.insertANA_LOG_deletedRels( this.diffDeleteRelList );
         
         //delete relationships in ANA_RELATIONSHIP
         // 15-3
-        deleteANA_RELATIONSHIP( deleteRelComponentFiles );
+        deleteANA_RELATIONSHIP( deleteRelComponents );
         
         //delete object oids of relationship records in ANA_OBJECT
         // 09-4
-        deleteANA_OBJECT( deleteRelComponentFiles, "ANA_RELATIONSHIP" );
+        deleteANA_OBJECT( deleteRelComponents, "ANA_RELATIONSHIP" );
         
         //reorder children in deleted/added child rows
     }
 
     // 15.5
-    private void updateANA_NODE_primary( ArrayList< ComponentFile > changedPrimaryTermList ){
+    private void updateANA_NODE_primary( ArrayList< OBOComponent > changedPrimaryTermList ){
 
         if (this.debug) {
             System.out.println("15.5 - updateANA_NODE_primary");
@@ -1334,7 +1334,7 @@ public class GenerateSQL {
 
         try {
             if ( !changedPrimaryTermList.isEmpty() ) {
-                for (ComponentFile component: changedPrimaryTermList) {
+                for (OBOComponent component: changedPrimaryTermList) {
 
                 	Node node = nodeDAO.findByPublicId(component.getID());
                     
@@ -1356,7 +1356,7 @@ public class GenerateSQL {
     }
 
     // 17
-    private void updateOrder( ArrayList < ComponentFile > changedOrderTermList ){
+    private void updateOrder( ArrayList < OBOComponent > changedOrderTermList ){
 
         if (this.debug) {
             System.out.println("17 - updateOrder");
@@ -1375,13 +1375,13 @@ public class GenerateSQL {
         ArrayList<String> children = new ArrayList<String>();
         ArrayList<String> commentsOnParent = new ArrayList<String>();
         
-        ComponentFile childCompie = new ComponentFile();
+        OBOComponent childCompie = new OBOComponent();
         
         String[] arrayFirstWord = null;
         String forChild = "";
         int intMaxOrder = 0;
         
-        for (ComponentFile component: changedOrderTermList){
+        for (OBOComponent component: changedOrderTermList){
             //get all parents
             parents.addAll(component.getChildOfs());
             //parents.addAll(component.getGroupPartOf());
@@ -1414,7 +1414,7 @@ public class GenerateSQL {
                         //add to order comments for this parent
                         commentsOnParent.add(forChild);
 
-                        //should never enter here if rule properly checked in CheckComponentFiles
+                        //should never enter here if rule properly checked in CheckComponents
                         if ( arrOrderComments.length>1 ) {
                             System.out.println("--WARNING! more than one " +
                                 "order comment for the same parent "
@@ -1463,7 +1463,7 @@ public class GenerateSQL {
     }
 
     // 18
-    private ArrayList < ComponentFile > validateDeleteTermList(ArrayList<ComponentFile> deletedTermList){
+    private ArrayList < OBOComponent > validateDeleteTermList(ArrayList<OBOComponent> deletedTermList){
         /*
         method to validate term list scheduled for deletion
          check that all for each component in term list, if its primary, then all
@@ -1488,14 +1488,14 @@ public class GenerateSQL {
             System.out.println("18 - validateDeleteTermList");
         }
 
-        ArrayList<ComponentFile> dbTermList = new ArrayList<ComponentFile>();
+        ArrayList<OBOComponent> dbTermList = new ArrayList<OBOComponent>();
         Vector<String> dependentDescendants = new Vector<String>();
         
         Boolean invalidDelete = false;
         
         try {
             //for each term in deletedTermList
-            for (ComponentFile deleteCompie: deletedTermList){
+            for (OBOComponent deleteCompie: deletedTermList){
                 //get all dependent descendants
                 dependentDescendants = recursiveGetDependentDescendants(deleteCompie.getID(), dependentDescendants, invalidDelete);
             
@@ -1529,7 +1529,7 @@ public class GenerateSQL {
     }
     
     // 19
-    private void insertANA_LOG(ArrayList<ComponentFile> recordTermList){
+    private void insertANA_LOG(ArrayList<OBOComponent> recordTermList){
     	/*
     	 *  ANA_Log - A Log of all Updates to the Anatomy Database
          *  
@@ -1653,7 +1653,7 @@ public class GenerateSQL {
 
             if ( !recordTermList.isEmpty() ) {
                 //for each component to be deleted
-                for (ComponentFile component: recordTermList){
+                for (OBOComponent component: recordTermList){
 
                     if ( component.getIsGroup() ) {
                     	intIsGroup = 1;
@@ -1815,15 +1815,15 @@ public class GenerateSQL {
     }
 
     // 20
-    private void deleteComponentFileFromTables (ArrayList <ComponentFile> validDeleteTermList){
+    private void deleteComponentFromTables (ArrayList <OBOComponent> validDeleteTermList){
 
         if (this.debug) {
-            System.out.println("20 - deleteComponentFileFromTables");
+            System.out.println("20 - deleteComponentFromTables");
         }
 
         try {
             if ( !validDeleteTermList.isEmpty() ) {
-                for (ComponentFile component: validDeleteTermList){
+                for (OBOComponent component: validDeleteTermList){
                 	
                 	// delete ANA_RELATIONSHIP rows, if any
                 	ArrayList<Relationship> relationships = (ArrayList) relationshipDAO.listByChildFK(Long.valueOf(component.getDBID()));
@@ -1921,7 +1921,7 @@ public class GenerateSQL {
     }
 
     // 21
-    private void reorderANA_RELATIONSHIP(ArrayList <ComponentFile> validDeleteTermList, String project){
+    private void reorderANA_RELATIONSHIP(ArrayList <OBOComponent> validDeleteTermList, String project){
         /*
          * Reorders a collection of siblings that have order sequence entries in the ANA_RELATIONSHIP
          *   when one of the siblings have been deleted, re-ordering is based on original order and closes
@@ -1946,7 +1946,7 @@ public class GenerateSQL {
             if ( !validDeleteTermList.isEmpty() ) {
 
             	//for each component to be deleted
-                for (ComponentFile component: validDeleteTermList){
+                for (OBOComponent component: validDeleteTermList){
 
                 	//get all parent-child relationship entries with ordering
                     childDBID = this.getDatabaseIdentifier(component.getID());
@@ -2056,7 +2056,7 @@ public class GenerateSQL {
     
     // 02-1
     // Insert a new row into ANA_OBJECT
-    private void insertANA_OBJECT( ArrayList< ComponentFile > newTermList, String calledFromTable ){
+    private void insertANA_OBJECT( ArrayList< OBOComponent > newTermList, String calledFromTable ){
     	/*
          *  Columns:
          *   1. OBJ_OID               - int(10) unsigned 
@@ -2070,7 +2070,7 @@ public class GenerateSQL {
             System.out.println("02-1 - insertANA_OBJECT - for Inserts to Table " + calledFromTable);
         }
         
-        ComponentFile component = new ComponentFile();
+        OBOComponent component = new OBOComponent();
 
         try {
             this.intCurrentObjectID = this.getMaxObjectID();
@@ -2155,18 +2155,18 @@ public class GenerateSQL {
     }
 
     // 05-1
-    private ArrayList < ComponentFile > createTimeComponentFiles(ArrayList<ComponentFile> termList, String calledFrom){
+    private ArrayList < OBOComponent > createTimeComponents(ArrayList<OBOComponent> termList, String calledFrom){
 
         if (this.debug) {
-            System.out.println("05-1 - createTimeComponentFiles");
+            System.out.println("05-1 - createTimeComponents");
         }
 
        //create timed components in ANA_OBJECT
-       ComponentFile component = new ComponentFile();
+       OBOComponent component = new OBOComponent();
        
        boolean flagInsert = false;
        
-       ArrayList<ComponentFile> timedComps = new ArrayList<ComponentFile>();
+       ArrayList<OBOComponent> timedComps = new ArrayList<OBOComponent>();
        
        //System.out.println("termList.size() " + termList.size());
 
@@ -2175,8 +2175,8 @@ public class GenerateSQL {
 
            //System.out.println("component.getCheckComments() " + component.getCheckComments());
 
-           if ( ( component.commentsContain("Relation: ends_at -- Missing ends at stage - ComponentFile's stage range cannot be determined.") ) ||
-                ( component.commentsContain("Relation: starts_at -- Missing starts at stage - ComponentFile's stage range cannot be determined.") ) ||
+           if ( ( component.commentsContain("Relation: ends_at -- Missing ends at stage - OBOComponent's stage range cannot be determined.") ) ||
+                ( component.commentsContain("Relation: starts_at -- Missing starts at stage - OBOComponent's stage range cannot be determined.") ) ||
                 ( component.commentsContain("Relation: starts_at, ends_at -- Ends at stage earlier than starts at stage.") ) ||
                 ( component.commentsContain("Relation: Starts At - More than one Start Stage!") ) ||
                 ( component.commentsContain("Relation: Ends At - More than one End Stage!") ) ||
@@ -2194,7 +2194,7 @@ public class GenerateSQL {
 
                    String strStage = component.getStart();
 
-                   ComponentFile timedCompie = new ComponentFile();
+                   OBOComponent timedCompie = new OBOComponent();
                    timedCompie.setNamespace( component.getDBID() ); //current component
 
                    timedCompie.setStart( strStage );
@@ -2223,15 +2223,15 @@ public class GenerateSQL {
 
     // 09-1
     //  method to measure difference in stage ranges between modified components and existing components in DB
-    private void createDifferenceTimedComponentFiles( ArrayList<ComponentFile> diffStageTermList ){
+    private void createDifferenceTimedComponents( ArrayList<OBOComponent> diffStageTermList ){
 
         if (this.debug) {
-            System.out.println("09-1 - createDifferenceTimedComponentFiles");
+            System.out.println("09-1 - createDifferenceTimedComponents");
         }
         
         try {
         	
-            for (ComponentFile component: diffStageTermList){
+            for (OBOComponent component: diffStageTermList){
 
                 int startSequence = jointimednodestageDAO.minSequenceByNodeFk(Long.valueOf(component.getDBID()));
                 int endSequence = jointimednodestageDAO.maxSequenceByNodeFk(Long.valueOf(component.getDBID()));
@@ -2247,7 +2247,7 @@ public class GenerateSQL {
                 // for creating new timed components
                 if ( startSequence > component.getStartSequence() ){
                    
-                	ComponentFile createtimedcomponent = new ComponentFile();
+                	OBOComponent createtimedcomponent = new OBOComponent();
                    
                 	createtimedcomponent.setID( component.getID() );
                 	createtimedcomponent.setName( component.getName() );
@@ -2260,7 +2260,7 @@ public class GenerateSQL {
                 }
                 if ( endSequence < component.getEndSequence() ){
                    
-                	ComponentFile createtimedcomponent = new ComponentFile();
+                	OBOComponent createtimedcomponent = new OBOComponent();
                    
                 	createtimedcomponent.setID( component.getID() );
                 	createtimedcomponent.setName( component.getName() );                   
@@ -2274,7 +2274,7 @@ public class GenerateSQL {
                 //for deleting existing timed components
                 if ( startSequence < component.getStartSequence() ){
                    
-                	ComponentFile delTimedCompie = new ComponentFile();
+                	OBOComponent delTimedCompie = new OBOComponent();
                    
                 	delTimedCompie.setID( component.getID() );
                 	delTimedCompie.setName( component.getName() );
@@ -2294,7 +2294,7 @@ public class GenerateSQL {
                 }
                 if ( endSequence > component.getEndSequence() ){
                     
-                	ComponentFile delTimedCompie = new ComponentFile();
+                	OBOComponent delTimedCompie = new OBOComponent();
                     
                 	delTimedCompie.setID( component.getID() );
                     delTimedCompie.setName( component.getName() );
@@ -2326,7 +2326,7 @@ public class GenerateSQL {
     
     // 09-2
     //  Insert into ANA_LOG for ANA_TIMED_NODE Deletions
-    private ArrayList insertANA_LOG_deletedStages( ArrayList<ComponentFile> diffDeleteTimeComponentFiles ){
+    private ArrayList insertANA_LOG_deletedStages( ArrayList<OBOComponent> diffDeleteTimeComponents ){
     	/*
     	 *  ANA_Log - A Log of all Updates to the Anatomy Database
          *  
@@ -2344,7 +2344,7 @@ public class GenerateSQL {
             System.out.println("09-2 - insertANA_LOG_deletedStages");
         }
         
-        ArrayList < ComponentFile > deleteTimeComponentFiles = new ArrayList < ComponentFile >();
+        ArrayList < OBOComponent > deleteTimeComponents = new ArrayList < OBOComponent >();
         
         HashMap<String, String> atnOldValues = new HashMap(); 
         int intLogLoggedOID = 0;
@@ -2386,12 +2386,12 @@ public class GenerateSQL {
         	intLogLoggedOID = logDAO.maximumLoggedOid();
 
         	/*
-            System.out.println("diffDeleteTimeComponentFiles.size() " + diffDeleteTimeComponentFiles.size());
+            System.out.println("diffDeleteTimeComponents.size() " + diffDeleteTimeComponents.size());
             */
 
-            if ( !diffDeleteTimeComponentFiles.isEmpty() ) {
+            if ( !diffDeleteTimeComponents.isEmpty() ) {
 
-            	for ( ComponentFile component: diffDeleteTimeComponentFiles ){
+            	for ( OBOComponent component: diffDeleteTimeComponents ){
 
                     intStartKey = component.getStartSequence();
                     intEndKey = component.getEndSequence();
@@ -2410,14 +2410,14 @@ public class GenerateSQL {
                         
                       		JOINTimedNodeStage jointimednodestage = iteratorjointimednodestage.next();
                       		
-                            ComponentFile deleteTimeComponentFile = new ComponentFile();
+                            OBOComponent deleteTimeComponent = new OBOComponent();
 
-                            deleteTimeComponentFile.setDBID( jointimednodestage.getOidTimedNode().toString());
-                            deleteTimeComponentFile.setID( jointimednodestage.getPublicTimedNodeId());
-                            deleteTimeComponentFile.setNamespace( component.getDBID() ); 
-                            deleteTimeComponentFile.setStart( stageName );
+                            deleteTimeComponent.setDBID( jointimednodestage.getOidTimedNode().toString());
+                            deleteTimeComponent.setID( jointimednodestage.getPublicTimedNodeId());
+                            deleteTimeComponent.setNamespace( component.getDBID() ); 
+                            deleteTimeComponent.setStart( stageName );
                             
-                            deleteTimeComponentFiles.add( deleteTimeComponentFile );
+                            deleteTimeComponents.add( deleteTimeComponent );
                             
                             intATN_OID = jointimednodestage.getOidTimedNode().intValue();
                             intATN_STAGE_FK = jointimednodestage.getStageFK().intValue();
@@ -2462,24 +2462,24 @@ public class GenerateSQL {
         } 
 
         /*
-        System.out.println("deleteTimeComponentFiles.size() " + deleteTimeComponentFiles.size());
+        System.out.println("deleteTimeComponents.size() " + deleteTimeComponents.size());
         */
 
-        return deleteTimeComponentFiles;
+        return deleteTimeComponents;
     }
 
     // 09-3
     //  Delete from ANA_TIMED_NODE 
-    private void deleteANA_TIMED_NODE( ArrayList<ComponentFile> deleteTimedComponentFiles ){
+    private void deleteANA_TIMED_NODE( ArrayList<OBOComponent> deleteTimedComponents ){
 
         if (this.debug) {
             System.out.println("09-3 - deleteANA_TIMED_NODE");
         }
 
         try {
-            if ( !deleteTimedComponentFiles.isEmpty() ) {
+            if ( !deleteTimedComponents.isEmpty() ) {
 
-            	for ( ComponentFile component: deleteTimedComponentFiles ){
+            	for ( OBOComponent component: deleteTimedComponents ){
 
             		TimedNode timednode = timednodeDAO.findByOid(Long.valueOf(component.getDBID()));
                   	timednodeDAO.delete(timednode);
@@ -2498,7 +2498,7 @@ public class GenerateSQL {
 
     // 09-4
     //  Delete from ANA_OBJECT
-    private void deleteANA_OBJECT( ArrayList<ComponentFile> deleteObjects, String calledFromTable ){
+    private void deleteANA_OBJECT( ArrayList<OBOComponent> deleteObjects, String calledFromTable ){
     	/*
     	 *  ANA_OBJECT - ALL Objects in the Anatomy DAG
     	 *  
@@ -2517,7 +2517,7 @@ public class GenerateSQL {
         try {
             if ( !deleteObjects.isEmpty() ){
 
-                for ( ComponentFile deleteObject: deleteObjects ){
+                for ( OBOComponent deleteObject: deleteObjects ){
             		
                     Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
             		thingDAO.delete(thing);
@@ -2535,15 +2535,15 @@ public class GenerateSQL {
     }
     
     // 13-1
-    private void createDifferenceSynonyms( ArrayList<ComponentFile> diffSynonymTermList ){
+    private void createDifferenceSynonyms( ArrayList<OBOComponent> diffSynonymTermList ){
 
         if (this.debug) {
             System.out.println("13-1 - createDifferenceSynonyms");
         }
 
-        ComponentFile databasecomponent = new ComponentFile();
-        ComponentFile deletesynonymcomponent = new ComponentFile();
-        ComponentFile insertsynonymcomponent = new ComponentFile();        
+        OBOComponent databasecomponent = new OBOComponent();
+        OBOComponent deletesynonymcomponent = new OBOComponent();
+        OBOComponent insertsynonymcomponent = new OBOComponent();        
         
         ArrayList<String> synonyms = new ArrayList<String>();
         ArrayList<String> deleteSynonyms = new ArrayList<String>();
@@ -2551,7 +2551,7 @@ public class GenerateSQL {
         
         try {
             //for each component where parents have changed
-            for(ComponentFile component: diffSynonymTermList){
+            for(OBOComponent component: diffSynonymTermList){
 
             	ArrayList<Synonym> synonymlist = (ArrayList) synonymDAO.listByObjectFK(Long.valueOf(component.getDBID()));
             	
@@ -2578,7 +2578,7 @@ public class GenerateSQL {
                 deleteSynonyms.removeAll( synonyms );
                 
                 if ( !deleteSynonyms.isEmpty() ){
-                    deletesynonymcomponent = new ComponentFile();
+                    deletesynonymcomponent = new OBOComponent();
                 
                     ArrayList < String > copyDeleteSynonyms = new ArrayList<String>();
                     
@@ -2598,7 +2598,7 @@ public class GenerateSQL {
                 insertSynonyms.removeAll( databasecomponent.getSynonyms() );
                 
                 if ( !insertSynonyms.isEmpty() ){
-                    insertsynonymcomponent = new ComponentFile();
+                    insertsynonymcomponent = new OBOComponent();
                 
                     ArrayList < String > copyInsertSynonyms = new ArrayList<String>();
                     
@@ -2624,7 +2624,7 @@ public class GenerateSQL {
 
     // 13-2
     //  Insert into ANA_LOG for all Deleted Synonyms
-    private ArrayList insertANA_LOG_deletedSyns( ArrayList<ComponentFile> diffDeleteSyns ){
+    private ArrayList insertANA_LOG_deletedSyns( ArrayList<OBOComponent> diffDeleteSyns ){
     	/*
     	 *  ANA_Log - A Log of all Updates to the Anatomy Database
          *  
@@ -2642,7 +2642,7 @@ public class GenerateSQL {
             System.out.println("13-2 - insertANA_LOG_deletedSyns");
         }
         
-        ArrayList< ComponentFile > deleteSynComponentFiles = new ArrayList<ComponentFile>(); 
+        ArrayList< OBOComponent > deleteSynComponents = new ArrayList<OBOComponent>(); 
         HashMap<String, String> synOldValues = new HashMap(); 
         ArrayList < String > deleteSynonyms = new ArrayList<String>();
 
@@ -2677,7 +2677,7 @@ public class GenerateSQL {
 
             if ( !diffDeleteSyns.isEmpty() ) {
 
-            	for ( ComponentFile component: diffDeleteSyns ){
+            	for ( OBOComponent component: diffDeleteSyns ){
 
                     deleteSynonyms = component.getSynonyms();
 
@@ -2691,12 +2691,12 @@ public class GenerateSQL {
                       	while (iteratorsynonym.hasNext()) {
                       		Synonym synonym = iteratorsynonym.next();
 
-                            ComponentFile deleteSynComponentFile = new ComponentFile();
+                            OBOComponent deleteSynComponent = new OBOComponent();
                             
-                            deleteSynComponentFile.setName( deleteSynonym );
-                            deleteSynComponentFile.setDBID( Long.toString(synonym.getOid()) );
-                            deleteSynComponentFile.setID( component.getDBID() );
-                            deleteSynComponentFiles.add( deleteSynComponentFile );
+                            deleteSynComponent.setName( deleteSynonym );
+                            deleteSynComponent.setDBID( Long.toString(synonym.getOid()) );
+                            deleteSynComponent.setID( component.getDBID() );
+                            deleteSynComponents.add( deleteSynComponent );
 
                             //set record values
                             intSYN_OID = synonym.getOid().intValue();
@@ -2736,21 +2736,21 @@ public class GenerateSQL {
         	ex.printStackTrace();
         } 
         
-        return deleteSynComponentFiles;
+        return deleteSynComponents;
     }
 
     // 13-3
     //  Delete from ANA_SYNONYM
-    private void deleteANA_SYNONYM( ArrayList<ComponentFile> deleteSynComponentFiles ){
+    private void deleteANA_SYNONYM( ArrayList<OBOComponent> deleteSynComponents ){
 
         if (this.debug) {
             System.out.println("13-3 - deleteANA_SYNONYM");
         }
         
         try {
-            if ( !deleteSynComponentFiles.isEmpty() ) {
+            if ( !deleteSynComponents.isEmpty() ) {
             	
-                for ( ComponentFile deletesynonymcomponent: deleteSynComponentFiles ){
+                for ( OBOComponent deletesynonymcomponent: deleteSynComponents ){
                 	
                 	Synonym synonym = synonymDAO.findByOid(Long.valueOf(deletesynonymcomponent.getDBID()));
                 	synonymDAO.delete(synonym);
@@ -2769,15 +2769,15 @@ public class GenerateSQL {
 
     //method to detect difference in parents between modified components and existing components in DB
     // 15-1
-    private void createDifferenceParents( ArrayList<ComponentFile> diffParentTermList ){
+    private void createDifferenceParents( ArrayList<OBOComponent> diffParentTermList ){
 
         if (this.debug) {
             System.out.println("15-1 - createDifferenceParents");
         }
 
-        ComponentFile databasecomponent = new ComponentFile();
-        ComponentFile deleteRelCompie = new ComponentFile();
-        ComponentFile insertRelCompie = new ComponentFile();        
+        OBOComponent databasecomponent = new OBOComponent();
+        OBOComponent deleteRelCompie = new OBOComponent();
+        OBOComponent insertRelCompie = new OBOComponent();        
         
         ArrayList<String> inputParents = new ArrayList<String>();
         ArrayList<String> inputParentTypes = new ArrayList<String>();
@@ -2791,7 +2791,7 @@ public class GenerateSQL {
         
         try{
             //for each component where parents have changed
-            for(ComponentFile component: diffParentTermList){
+            for(OBOComponent component: diffParentTermList){
 
             	//reset temporary component's parents for each component
                 databasecomponent.setChildOfs( new ArrayList<String>() );
@@ -2914,7 +2914,7 @@ public class GenerateSQL {
                 deleteParentTypes.addAll( dbParentTypes );
                 
                 if ( !deleteParents.isEmpty() ){
-                    deleteRelCompie = new ComponentFile();
+                    deleteRelCompie = new OBOComponent();
                     ArrayList < String > copyDeleteParents =
                             new ArrayList<String>();
                     ArrayList < String > copyDeleteParentTypes =
@@ -2957,7 +2957,7 @@ public class GenerateSQL {
                 insertParentTypes.addAll( inputParentTypes );
 
                 if ( !insertParents.isEmpty() ){
-                    insertRelCompie = new ComponentFile();
+                    insertRelCompie = new OBOComponent();
 
                     ArrayList < String > copyInsertParents =
                             new ArrayList<String>();
@@ -3006,7 +3006,7 @@ public class GenerateSQL {
 
     // 15-2
     //  Insert into ANA_LOG for ANA_RELATIONSHIP Deletions
-    private ArrayList insertANA_LOG_deletedRels( ArrayList<ComponentFile> diffDeleteRels ){
+    private ArrayList insertANA_LOG_deletedRels( ArrayList<OBOComponent> diffDeleteRels ){
     	/*
     	 *  ANA_Log - A Log of all Updates to the Anatomy Database
          *  
@@ -3024,7 +3024,7 @@ public class GenerateSQL {
             System.out.println("15-2 - insertANA_LOG_deletedRels");
         }
     
-        ArrayList< ComponentFile > deleteRelComponentFiles = new ArrayList<ComponentFile>(); 
+        ArrayList< OBOComponent > deleteRelComponents = new ArrayList<OBOComponent>(); 
         HashMap<String, String> relOldValues = new HashMap(); 
         ArrayList < String > deleteParents = new ArrayList<String>();
 
@@ -3063,7 +3063,7 @@ public class GenerateSQL {
         	intLogLoggedOID = logDAO.maximumLoggedOid();
       	  
             if ( !diffDeleteRels.isEmpty() ) {
-            	for ( ComponentFile component: diffDeleteRels ){
+            	for ( OBOComponent component: diffDeleteRels ){
                     //deleteParents = component.getChildOfs();
                     deleteParents = component.getChildOfs();
 
@@ -3076,26 +3076,26 @@ public class GenerateSQL {
                         if (relationships.size() == 1) {
                         	Relationship relationship = relationships.get(0);
                       	  
-                            ComponentFile deleteRelComponentFile = new ComponentFile();
+                            OBOComponent deleteRelComponent = new OBOComponent();
 
-                            deleteRelComponentFile.setDBID( Long.toString(relationship.getOid()) );
-                            deleteRelComponentFile.setID( component.getDBID() );
-                            deleteRelComponentFile.addChildOf( Integer.toString( intParentDBID ) );
+                            deleteRelComponent.setDBID( Long.toString(relationship.getOid()) );
+                            deleteRelComponent.setID( component.getDBID() );
+                            deleteRelComponent.addChildOf( Integer.toString( intParentDBID ) );
 
                             if ( relationship.getTypeFK().equals("part-of") ) {
-                                deleteRelComponentFile.addChildOfType( "PART_OF" );
+                                deleteRelComponent.addChildOfType( "PART_OF" );
                             }
                             if ( relationship.getTypeFK().equals("derives-from") ) {
-                                deleteRelComponentFile.addChildOfType( "DERIVES_FROM" );
+                                deleteRelComponent.addChildOfType( "DERIVES_FROM" );
                             }
                             if ( relationship.getTypeFK().equals("is-a") ) {
-                                deleteRelComponentFile.addChildOfType( "IS_A" );
+                                deleteRelComponent.addChildOfType( "IS_A" );
                             }
                             if ( relationship.getTypeFK().equals("group_part_of") ) {
-                                deleteRelComponentFile.addChildOfType( "GROUP_PART_OF" );
+                                deleteRelComponent.addChildOfType( "GROUP_PART_OF" );
                             }
 
-                            deleteRelComponentFiles.add( deleteRelComponentFile );
+                            deleteRelComponents.add( deleteRelComponent );
 
                             intREL_OID = relationship.getOid().intValue();
                             strREL_RELATIONSHIP_TYPE_FK = relationship.getTypeFK();
@@ -3142,7 +3142,7 @@ public class GenerateSQL {
         	ex.printStackTrace();
         } 
 
-        return deleteRelComponentFiles;
+        return deleteRelComponents;
     }
 
     // 15-2-1
@@ -3178,15 +3178,15 @@ public class GenerateSQL {
 
     // 15-3
     //  Delete from ANA_RELATIONSHIP
-    private void deleteANA_RELATIONSHIP( ArrayList<ComponentFile> deleteRelComponentFiles ){
+    private void deleteANA_RELATIONSHIP( ArrayList<OBOComponent> deleteRelComponents ){
 
         if (this.debug) {
             System.out.println("15-3 - deleteANA_RELATIONSHIP");
         }
         
         try {
-            if ( !deleteRelComponentFiles.isEmpty() ) {
-                for ( ComponentFile deleteRelCompie: deleteRelComponentFiles ){
+            if ( !deleteRelComponents.isEmpty() ) {
+                for ( OBOComponent deleteRelCompie: deleteRelComponents ){
                 	
                 	ArrayList<Relationship> relationships = (ArrayList) relationshipDAO.listByParentFKAndChildFK(Long.valueOf(deleteRelCompie.getChildOfs().get(0)), Long.valueOf(deleteRelCompie.getID()));
                   	Iterator<Relationship> iteratorrelationship = relationships.iterator();
@@ -3372,8 +3372,8 @@ public class GenerateSQL {
 
         boolean isPrimary = false;
         
-        ComponentFile component = new ComponentFile();
-        ComponentFile deletedcomponent = new ComponentFile();
+        OBOComponent component = new OBOComponent();
+        OBOComponent deletedcomponent = new OBOComponent();
         
         try {
             ArrayList<JOINNodeRelationshipNode> joinnoderelationshipnodes = (ArrayList) joinnoderelationshipnodeDAO.listAllByParentId(componentID);
@@ -3470,13 +3470,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed stages
      */
     // 08
-    private ArrayList< ComponentFile > getChangedStagesTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedStagesTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("08 - getChangedStagesTermList");
         
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Start Stage") || 
                  component.hasDifferenceComment("Different End Stage") )
@@ -3491,13 +3491,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed names
      */
     // 10
-    private ArrayList< ComponentFile > getChangedNamesTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedNamesTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("10 - getChangedNamesTermList");
         
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Name") ) {
             
@@ -3512,13 +3512,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed synonyms
      */
     // 12
-    private ArrayList< ComponentFile > getChangedSynonymsTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedSynonymsTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("12 - getChangedSynonymsTermList");
         
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Synonyms") ) {
             
@@ -3533,13 +3533,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed parents
      */
     // 14
-    private ArrayList< ComponentFile > getChangedParentsTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedParentsTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("14 - getChangedParentsTermList");
         
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Parents") ) {
             
@@ -3573,13 +3573,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed synonyms
      */
     // 15.25
-    private ArrayList< ComponentFile > getChangedPrimaryStatusTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedPrimaryStatusTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("15.25 - getChangedPrimaryStatusTermList");
         
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Primary Status") ) {
             
@@ -3594,13 +3594,13 @@ public class GenerateSQL {
      * method to sort through modified component list for changed synonyms
      */
     // 16
-    private ArrayList< ComponentFile > getChangedOrderTermList( ArrayList<ComponentFile> changedTermList ){
+    private ArrayList< OBOComponent > getChangedOrderTermList( ArrayList<OBOComponent> changedTermList ){
 
         System.out.println("16 - getChangedOrderTermList");
 
-        ArrayList < ComponentFile > termList = new ArrayList<ComponentFile>();
+        ArrayList < OBOComponent > termList = new ArrayList<OBOComponent>();
         
-        for ( ComponentFile component: changedTermList ){
+        for ( OBOComponent component: changedTermList ){
         
         	if ( component.hasDifferenceComment("Different Order") ) {
             

@@ -48,7 +48,7 @@ import daolayer.DAOFactory;
 import daolayer.OBOFileDAO;
 import daomodel.OBOFile;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import utility.ExecuteCommand;
 import utility.ImportFile;
 import utility.ImportDatabase;
@@ -97,7 +97,7 @@ public class RunOBOLoadFileIntoDatabase {
         
         //import Obo File from obo.properties, file.oboinfile
         ImportFile importfile = new ImportFile(filePath);
-        ArrayList<ComponentFile> parseNewTermList = importfile.getTermList();
+        ArrayList<OBOComponent> parseNewTermList = importfile.getTermList();
         //Build hashmap of NEW components
         MapBuilder newmapbuilder = new MapBuilder(parseNewTermList);
         //Build tree
@@ -107,7 +107,7 @@ public class RunOBOLoadFileIntoDatabase {
 
         //import Database from dao.properties, anatomy008.url
         ImportDatabase importdatabase = new ImportDatabase(true, "EMAP" );
-        ArrayList<ComponentFile> parseOldTermList = importdatabase.getTermList();
+        ArrayList<OBOComponent> parseOldTermList = importdatabase.getTermList();
         //Build hashmap of OLD components
         MapBuilder oldmapbuilder = new MapBuilder(parseOldTermList);
         //Build tree

@@ -51,8 +51,8 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
         java.io.PrintWriter out = response.getWriter();
         response.setContentType("text/html");           
         response.setHeader("Cache-Control", "no-cache");
-        //System.out.println(leafTree);
-        out.println(leafTree);
+        System.out.println(leafTree);
+        //out.println(leafTree);
 
     }
 

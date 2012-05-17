@@ -99,6 +99,15 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>listByRootNameJsonOnlyAggregatedServlet</servlet-name>
+    <servlet-class>controller.ListByRootNameJsonOnlyAggregatedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listByRootNameJsonOnlyAggregatedServlet</servlet-name>
+    <url-pattern>/listbyrootnamejsononlyaggregated</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>listByTimedRootNameJsonOnlyServlet</servlet-name>
     <servlet-class>controller.ListByTimedRootNameJsonOnlyServlet</servlet-class>
   </servlet>

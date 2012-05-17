@@ -9,6 +9,7 @@ import daolayer.DAOException;
 import daolayer.LeafDAO;
 
 import daomodel.Leaf;
+import daomodel.TimedLeaf;
 
 /**
  * This class holds all business logic related to the request processing of the Leaf DTO.
@@ -36,6 +37,41 @@ public final class LeafForm extends Form {
 
     
     // Form actions -------------------------------------------------------------------------------
+    /**
+     * Returns the Leafs based on the given request. It will gather all form fields,
+     * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
+     * associated with this form.
+     */
+    public String checkLeafsByRootName(HttpServletRequest request) {
+        
+    	String outString = "";
+    	List<Leaf> leafs = new ArrayList<Leaf>();
+    	Leaf leaf = new Leaf();
+
+        try {
+            outString = processRootName(request, leaf);
+            	
+            if (outString.equals("")) {
+                if (isSuccess()) {
+                	leafs = leafDAO.listAllNodesByRootNameByChildDesc(leaf.getRootName(), leaf.getRootName());
+                  	if ( leafs.size() > 0 ){
+                        outString = "SUCCESS!";
+                  	}
+                   	else {
+                        outString = "FAIL! Node " + leaf.getRootName() + " has No Leaves.";
+                    }
+                }
+            }
+        }
+        catch (DAOException e) {
+            setError(FIELD_RESULT, "FAIL! FIND failed due to database error, please try again later. Detail message: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return outString;
+    }
+
+
     /**
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
@@ -148,17 +184,23 @@ public final class LeafForm extends Form {
     /**
      * Process and validate the Name which is to be associated with the given Leaf.
      */
-    public void processRootName(HttpServletRequest request, Leaf leaf) throws DAOException {
+    public String processRootName(HttpServletRequest request, Leaf leaf) 
+    		throws DAOException {
+        
+    	String outString = "";
         String rootName = FormUtil.getFieldValue(request, FIELD_ROOT_NAME);
 
         if (rootName == null || FormUtil.isChanged(leaf.getRootName(), rootName)) {
             try {
                 validateName(rootName);
             } catch (ValidatorException e) {
-                setError(FIELD_ROOT_NAME, e.getMessage());
+                //setError(FIELD_ROOT_NAME, e.getMessage());
+                outString = e.getMessage();
             }
             leaf.setRootName(rootName);
         }
+        
+        return outString;
     }
 
 

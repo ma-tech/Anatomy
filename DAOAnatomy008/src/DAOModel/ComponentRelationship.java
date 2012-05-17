@@ -41,11 +41,15 @@ public class ComponentRelationship implements Serializable{
      *  Columns:
      *   ACR_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
      *   ACR_OBO_ID varchar(25) NOT NULL,
+     *   ACR_OBO_CHILD_START int NOT NULL,
+     *   ACR_OBO_CHILD_STOP int NOT NULL,
      *   ACR_OBO_TYPE varchar(25) NOT NULL,
      *   ACR_OBO_PARENT varchar(25) NOT NULL,
 	 */
     private Long oid;
-    private String id;
+    private String child;
+    private Long childStart;
+    private Long childStop;
     private String type;
     private String parent;
 
@@ -61,12 +65,16 @@ public class ComponentRelationship implements Serializable{
      * Minimal constructor. Contains required fields.
      */
     public ComponentRelationship(Long oid,
-    		String id, 
+    		String child, 
+    		Long childStart,
+    		Long childStop,
     		String type,
     		String parent) {
     	
     	this.oid = oid;
-    	this.id = id;
+    	this.child = child;
+    	this.childStart = childStart;
+    	this.childStop = childStop;
     	this.type = type;
         this.parent = parent;
     }
@@ -75,8 +83,14 @@ public class ComponentRelationship implements Serializable{
     public Long getOid() {
         return this.oid;
     }
-    public String getId() {
-        return this.id;
+    public String getChild() {
+        return this.child;
+    }
+    public Long getChildStart() {
+        return this.childStart;
+    }
+    public Long getChildStop() {
+        return this.childStop;
     }
     public String getType() {
         return this.type;
@@ -89,8 +103,14 @@ public class ComponentRelationship implements Serializable{
     public void setOid( Long oid ) {
         this.oid = oid;
     }
-    public void setId( String id ) {
-        this.id = id;
+    public void setChild( String child ) {
+        this.child = child;
+    }
+    public void setChildStart( Long childStart ) {
+        this.childStart = childStart;
+    }
+    public void setChildStop( Long childStop ) {
+        this.childStop = childStop;
     }
     public void setType( String type ) {
         this.type = type;
@@ -107,7 +127,7 @@ public class ComponentRelationship implements Serializable{
     	
         //EMAP id, description, start stage, end stage, parents, synonyms
 
-    	if ( this.getId().equals(daocomponent.getId()) && 
+    	if ( this.getChild().equals(daocomponent.getChild()) && 
              this.getType() == daocomponent.getType() &&
              this.getParent() == daocomponent.getParent() ){
 
@@ -133,8 +153,8 @@ public class ComponentRelationship implements Serializable{
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("ComponentRelationship [ oid=%d, id=%s, type=%s, parent=%s ]", 
-        		oid, id, type, parent);
+        return String.format("ComponentRelationship [ oid=%d, child=%s, childStart=%d, childStop=%d, type=%s, parent=%s ]", 
+        		oid, child, childStart, childStop, type, parent);
     }
 }
 	

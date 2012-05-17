@@ -46,6 +46,7 @@ public class Component implements Serializable{
      *   AOC_DB_ID varchar(25) NOT NULL,
      *   AOC_NEW_ID varchar(25) NOT NULL,
      *   AOC_NAMESPACE varchar(50) NOT NULL,
+     *   AOC_DEFINITION varchar(510) NOT NULL,
      *   AOC_GROUP tinyint(1) NOT NULL,
      *   AOC_START varchar(10) NOT NULL,
      *   AOC_END varchar(10) NOT NULL,
@@ -59,6 +60,7 @@ public class Component implements Serializable{
     private String dbid;
     private String newid;
     private String namespace;
+    private String definition;
     private Integer group;
     private String start;
     private String end;
@@ -83,6 +85,7 @@ public class Component implements Serializable{
     		String dbid,
     		String newid,
     		String namespace,
+    		String definition,
     		Integer group,
     		String start,
     		String end,
@@ -96,6 +99,7 @@ public class Component implements Serializable{
     	this.dbid = dbid;
     	this.newid = newid;
     	this.namespace = namespace;
+    	this.definition = definition;
     	this.group = group;
     	this.start = start;
     	this.end = end;
@@ -122,6 +126,9 @@ public class Component implements Serializable{
     }
     public String getNamespace() {
         return this.namespace;
+    }
+    public String getDefinition() {
+        return this.definition;
     }
     public Integer getGroup() {
         return this.group;
@@ -160,6 +167,9 @@ public class Component implements Serializable{
     }
     public void setNamespace( String namespace ) {
         this.namespace = namespace;
+    }
+    public void setDefinition( String definition ) {
+        this.definition = definition;
     }
     public void setGroup( Integer group ) {
         this.group = group;
@@ -213,7 +223,7 @@ public class Component implements Serializable{
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("Component [ oid=%d, id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%d ]", 
-        		oid, id, name, statuschange, statusrule, dbid, newid, namespace, group, start, end, present);
+        return String.format("Component [ oid=%d, id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, definition=%s, group=%b, start=%s, end=%s, present=%d ]", 
+        		oid, id, name, statuschange, statusrule, dbid, newid, namespace, definition, group, start, end, present);
     }
 }

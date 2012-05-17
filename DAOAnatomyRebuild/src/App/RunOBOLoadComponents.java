@@ -43,13 +43,14 @@ import java.util.Iterator;
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import daolayer.ComponentDAO;
 import daolayer.ComponentRelationshipDAO;
 import daolayer.ComponentCommentDAO;
 import daolayer.ComponentSynonymDAO;
 import daolayer.ComponentAlternativeDAO;
+
 import daolayer.DAOFactory;
 
 import daomodel.Component;
@@ -57,6 +58,8 @@ import daomodel.ComponentRelationship;
 import daomodel.ComponentComment;
 import daomodel.ComponentSynonym;
 import daomodel.ComponentAlternative;
+
+import utility.ObjectConverter;
 
 public class RunOBOLoadComponents {
 	/*
@@ -72,7 +75,7 @@ public class RunOBOLoadComponents {
         ComponentOBO componentOBO = obofactory.getComponentOBO();
         //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
 
-        List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = componentOBO.listAll();
 
         // Obtain DAOFactory.
@@ -121,127 +124,143 @@ public class RunOBOLoadComponents {
             componentalternativeDAO.empty();
         }
 
-      	Iterator<ComponentFile> iteratorComponent = obocomponents.iterator();
+      	Iterator<OBOComponent> iteratorComponent = obocomponents.iterator();
       	while (iteratorComponent.hasNext()) {
-       		ComponentFile obocomponent = iteratorComponent.next();
+      		OBOComponent obocomponent = iteratorComponent.next();
 
-       		Component daocomponent = new Component(null,
-       				obocomponent.getName(),
-       				obocomponent.getID(),
-       				obocomponent.getDBID(),
-       				obocomponent.getNewID(),
-       				obocomponent.getNamespace(),
-       				0,
-       				obocomponent.getStart(),
-       				obocomponent.getEnd(),
-       				obocomponent.getPresent(),
-       				obocomponent.getStatusChange(),
-       				obocomponent.getStatusRule());
-       		
-       		componentDAO.save(daocomponent);
-       		
-       		List<String> oboalternativeids = new ArrayList<String>();
-       		oboalternativeids = obocomponent.getAlternativeIds();
-       		
-       		List<String> obopartofs = new ArrayList<String>();
-       		obopartofs = obocomponent.getChildOfs();
-       		
-       		List<String> obopartoftypes = new ArrayList<String>();
-       		obopartoftypes = obocomponent.getChildOfTypes();
-       		
-            for ( i = 0; i < oboalternativeids.size(); i++ ) {
-
-           		ComponentAlternative daocomponentalternative = new ComponentAlternative(null,
-           				obocomponent.getID(),
-           				oboalternativeids.get(i));
-           		
-           		componentalternativeDAO.save(daocomponentalternative);
-
+       		if ( obocomponent.getStatusChange().equals("DELETED") ) {
+                System.out.println("WARNING! obocomponent, = " + obocomponent.toString());
        		}
-
-            for ( i = 0; i < obopartofs.size(); i++ ) {
-
-           		ComponentRelationship daocomponentrelationship = new ComponentRelationship(null,
+       		else {
+           		Component daocomponent = new Component(null,
+           				obocomponent.getName(),
            				obocomponent.getID(),
-           				obopartoftypes.get(i),
-           				obopartofs.get(i));
+           				obocomponent.getDBID(),
+           				obocomponent.getNewID(),
+           				obocomponent.getNamespace(),
+           				obocomponent.getDefinition(),
+           				0,
+           				obocomponent.getStart(),
+           				obocomponent.getEnd(),
+           				obocomponent.getPresent(),
+           				obocomponent.getStatusChange(),
+           				obocomponent.getStatusRule());
            		
-           		componentrelationshipDAO.save(daocomponentrelationship);
+           		componentDAO.save(daocomponent);
+           		
+           		List<String> oboalternativeids = new ArrayList<String>();
+           		oboalternativeids = obocomponent.getAlternativeIds();
+       		
+           		/*
+           		if (oboalternativeids.size() > 0) {
+                    System.out.println("WARNING! oboalternativeids.size, = " + ObjectConverter.convert(oboalternativeids.size(), String.class));
+           		}
+           		*/
 
-       		}
+           		List<String> obopartofs = new ArrayList<String>();
+           		obopartofs = obocomponent.getChildOfs();
+           		
+           		List<String> obopartoftypes = new ArrayList<String>();
+           		obopartoftypes = obocomponent.getChildOfTypes();
+           		
+                for ( i = 0; i < oboalternativeids.size(); i++ ) {
 
-            List<String> usercomments = obocomponent.getUserComments();
-            //System.out.println("WARNING! usercomments.size, = " + Integer.toString(usercomments.size()));
+               		ComponentAlternative daocomponentalternative = new ComponentAlternative(null,
+               				obocomponent.getID(),
+               				oboalternativeids.get(i));
+               		
+               		componentalternativeDAO.save(daocomponentalternative);
 
-            /*
-            
-            if (usercomment.startsWith("order=")) {
-            	usercomment = "None";
-            }
-            */
+           		}
 
-            if (usercomments.size() > 1) {
-                System.out.println("WARNING! usercomments.size() > 1, = " + Integer.toString(usercomments.size()));
-            }
+                for ( i = 0; i < obopartofs.size(); i++ ) {
 
-            if (obocomponent.getOrderComments() != null) {
-                String [] ordercomments = obocomponent.getOrderComments();
+               		ComponentRelationship daocomponentrelationship = new ComponentRelationship(null,
+               				obocomponent.getID(),
+               				ObjectConverter.convert(obocomponent.getStartSequence(), Long.class),
+               				ObjectConverter.convert(obocomponent.getEndSequence(), Long.class),
+               				obopartoftypes.get(i),
+               				obopartofs.get(i)
+               				);
+               		
+               		componentrelationshipDAO.save(daocomponentrelationship);
+
+           		}
+
+                List<String> usercomments = obocomponent.getUserComments();
+                //System.out.println("WARNING! usercomments.size, = " + ObjectConverter.convert(usercomments.size(), String.class));
+
+                /*
                 
-                for ( i = 0; i < ordercomments.length; i++ ) {
+                if (usercomment.startsWith("order=")) {
+                	usercomment = "None";
+                }
+                */
 
-                    String usercomment = usercomments.get(0);
+                if (usercomments.size() > 1) {
+                    System.out.println("WARNING! usercomments.size() > 1, = " + ObjectConverter.convert(usercomments.size(), String.class));
+                }
 
-                	ComponentComment daocomponentcomment = new ComponentComment(null,
-               				obocomponent.getID(),
-               				"None",
-               				usercomment,
-               				ordercomments[i]);
-               		
-               		componentcommentDAO.save(daocomponentcomment);
+                if (obocomponent.getOrderComments() != null) {
+                    String [] ordercomments = obocomponent.getOrderComments();
+                    
+                    for ( i = 0; i < ordercomments.length; i++ ) {
 
-           		}
-            }
+                        String usercomment = usercomments.get(0);
 
-            List<String> synonyms = obocomponent.getSynonyms();
-            
-            if (synonyms.size() > 1) {
-                for ( i = 0; i < synonyms.size(); i++ ) {
+                    	ComponentComment daocomponentcomment = new ComponentComment(null,
+                   				obocomponent.getID(),
+                   				"None",
+                   				usercomment,
+                   				ordercomments[i]);
+                   		
+                   		componentcommentDAO.save(daocomponentcomment);
 
-               		ComponentSynonym daocomponentsynonym = new ComponentSynonym(null,
-               				obocomponent.getID(),
-               				synonyms.get(i));
-               		
-               		componentsynonymDAO.save(daocomponentsynonym);
+               		}
+                }
 
-           		}
-            }
+                List<String> synonyms = obocomponent.getSynonyms();
+                
+                if (synonyms.size() > 1) {
+                    for ( i = 0; i < synonyms.size(); i++ ) {
+
+                   		ComponentSynonym daocomponentsynonym = new ComponentSynonym(null,
+                   				obocomponent.getID(),
+                   				synonyms.get(i));
+                   		
+                   		componentsynonymDAO.save(daocomponentsynonym);
+
+               		}
+                }
+       			
+       		}
       	}
       	
         List<Component> daocomponents = new ArrayList<Component>();
         daocomponents = componentDAO.listAll();
         
         System.out.println("===============================================================");
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + Integer.toString(daocomponents.size()));
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + ObjectConverter.convert(daocomponents.size(), String.class));
 
         List<ComponentRelationship> daocomponentrelationships = new ArrayList<ComponentRelationship>();
         daocomponentrelationships = componentrelationshipDAO.listAll();
         
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + Integer.toString(daocomponentrelationships.size()));
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + ObjectConverter.convert(daocomponentrelationships.size(), String.class));
         
         List<ComponentComment> daocomponentcomments = new ArrayList<ComponentComment>();
         daocomponentcomments = componentcommentDAO.listAll();
         
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + Integer.toString(daocomponentcomments.size()));
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + ObjectConverter.convert(daocomponentcomments.size(), String.class));
         
         List<ComponentSynonym> daocomponentsynonym = new ArrayList<ComponentSynonym>();
         daocomponentsynonym = componentsynonymDAO.listAll();
         
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + Integer.toString(daocomponentsynonym.size()));
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + ObjectConverter.convert(daocomponentsynonym.size(), String.class));
 
         List<ComponentAlternative> daocomponentalternative = new ArrayList<ComponentAlternative>();
         daocomponentalternative = componentalternativeDAO.listAll();
         
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + Integer.toString(daocomponentalternative.size()));
+        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + ObjectConverter.convert(daocomponentalternative.size(), String.class));
         System.out.println("===============================================================");
     }
 }

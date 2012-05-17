@@ -67,7 +67,7 @@ import java.io.File;
 
 import java.util.ArrayList;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import obomodel.Relation;
 
 import utility.Parser;
@@ -153,7 +153,7 @@ public abstract class OBOFactory {
      * Returns a connection to the database. Package private so that it can be used inside the OBO
      * package only.
      */
-    abstract ArrayList<ComponentFile> getComponents() throws OBOException;
+    abstract ArrayList<OBOComponent> getComponents() throws OBOException;
 
     abstract Boolean writeComponents() throws OBOException;
 
@@ -175,11 +175,11 @@ public abstract class OBOFactory {
 
     abstract String getOutputFileRemark();
 
-    abstract void setComponents(ArrayList<ComponentFile> arrayobolist);
+    abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
 
     abstract void setRelations(ArrayList<Relation> arrayrellist);
 
-    abstract void addComponents(ArrayList<ComponentFile> arrayobolist);
+    abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
 
     
     // OBO getters --------------------------------------------------------------------------------
@@ -211,10 +211,10 @@ class FileOBOFactory extends OBOFactory {
 	private String summaryReport;
 	private String summaryReportPdf;
 	
-    private ArrayList<ComponentFile> obocomponentList;
+    private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
 
-	private ArrayList<ComponentFile> componentList;
+	private ArrayList<OBOComponent> componentList;
 	
     FileOBOFactory(String oboInFile, 
     		String oboOutFile, 
@@ -237,9 +237,9 @@ class FileOBOFactory extends OBOFactory {
         this.summaryReportPdf = summaryReportPdf;
     }
 
-    ArrayList<ComponentFile> getComponents() throws OBOConfigurationException {
+    ArrayList<OBOComponent> getComponents() throws OBOConfigurationException {
     	
-    	ArrayList<ComponentFile> componentList = new ArrayList();
+    	ArrayList<OBOComponent> componentList = new ArrayList();
     	Parser parser = new Parser(this.oboInFile);
     	componentList = parser.getComponents();
     	
@@ -297,7 +297,7 @@ class FileOBOFactory extends OBOFactory {
         
     	return oboOutFileRemark;
     }
-    void setComponents(ArrayList<ComponentFile> obocomponentList) {
+    void setComponents(ArrayList<OBOComponent> obocomponentList) {
         
     	this.obocomponentList = obocomponentList;
     }
@@ -305,7 +305,7 @@ class FileOBOFactory extends OBOFactory {
         
     	this.oborelationList = oborelationList;
     }
-    void addComponents(ArrayList<ComponentFile> obocomponentList) {
+    void addComponents(ArrayList<OBOComponent> obocomponentList) {
         
     	this.obocomponentList.addAll(obocomponentList);
     }

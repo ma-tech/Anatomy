@@ -36,7 +36,7 @@ package app;
 
 import java.util.ArrayList;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import utility.ImportDatabase;
 import utility.MapBuilder;
@@ -51,9 +51,9 @@ public class RunOBOCheckDatabaseReferenceTree {
         //import database
         ImportDatabase importdatabase = new ImportDatabase(true, "GUDMAP" );
 
-        ArrayList<ComponentFile> expTermList = importdatabase.getTermList();
+        ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
 
-        ArrayList<ComponentFile> parseOldTermList = expTermList;
+        ArrayList<OBOComponent> parseOldTermList = expTermList;
         
         //Build hashmap of components
         MapBuilder mapbuilder = new MapBuilder(parseOldTermList);
@@ -67,12 +67,12 @@ public class RunOBOCheckDatabaseReferenceTree {
 
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){
-        	System.out.println("ValidateComponentFiles Class: \n" +
+        	System.out.println("ValidateComponents Class: \n" +
                     "Loading Default Reference Tree From ANATOMY008 DATABASE:\n===\n" +
         			"All Components in the Reference Tree are OK!" );
         }
         else {
-        	System.out.println("ValidateComponentFiles Class: \n" +
+        	System.out.println("ValidateComponents Class: \n" +
                 "Loading Default Reference TreeFrom ANATOMY008 DATABASE:\n===\n" + 
         		"Some components in the Reference Tree contain rule violations.\n" +
                 "Please load the reference under the proposed tab to fix the problem; \n" +
@@ -80,8 +80,8 @@ public class RunOBOCheckDatabaseReferenceTree {
 
             //System.out.println( validatecomponents.getProblemTermList() );
             
-            ComponentFile probobocomponent =
-                    (ComponentFile) validatecomponents.getProblemTermList().get(0);
+            OBOComponent probobocomponent =
+                    (OBOComponent) validatecomponents.getProblemTermList().get(0);
             
             System.out.println("no. of components with problems = " +
                     validatecomponents.getProblemTermList().size());

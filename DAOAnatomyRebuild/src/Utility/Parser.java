@@ -46,7 +46,7 @@ import org.geneontology.oboedit.datamodel.OBOSession;
 import org.geneontology.oboedit.datamodel.impl.OBOClassImpl;
 import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 
 public class Parser {
@@ -54,7 +54,7 @@ public class Parser {
     private String strFile;
 
     //instantiated components
-    private ArrayList<ComponentFile> componentList;
+    private ArrayList<OBOComponent> componentList;
 
 
     public Parser(String txtFileName){
@@ -103,9 +103,9 @@ public class Parser {
     }
     
     
-    private ArrayList<ComponentFile> addComponents(String strFile){
+    private ArrayList<OBOComponent> addComponents(String strFile){
         
-    	ArrayList<ComponentFile> componentList = new ArrayList<ComponentFile>();
+    	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
     			
         try {
             OBOSession obosession = getSession(strFile);
@@ -140,11 +140,12 @@ public class Parser {
             		ArrayList<String> userComments = new ArrayList<String>();
             		TreeSet comments = new TreeSet();
 
-            		ComponentFile obocomponent = new ComponentFile(oboclassimpl.toString(), 
+            		OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
                     		oboclassimpl.getID(), 
                     		"TBD",
                     		"TBD",
                     		oboclassimpl.getNamespace().toString(),
+                    		oboclassimpl.getDefinition().toString(),
                     		false,
                     		"TBD",
                     		"TBD",
@@ -159,9 +160,12 @@ public class Parser {
                     		"",
                     		comments,
                     		alternativeIds);
+            		
+            		/*
+            		String def = oboclassimpl.getDefinition().toString();
+                	System.out.println("def = " + def);
                     
                     //get comments
-            		/*
             		obocomponent.setCheckComment( oboclassimpl.getComment() );
             		obocomponent.addUserComments( oboclassimpl.getComment() );
             		*/
@@ -186,8 +190,8 @@ public class Parser {
                 	for(Iterator altidsiterator = altIds.iterator(); altidsiterator.hasNext(); ){
                     
                 		String altId = (String) altidsiterator.next();
-                    	System.out.println("ID = " + oboclassimpl.getID());
-                    	System.out.println("altId = " + altId);
+                    	//System.out.println("ID = " + oboclassimpl.getID());
+                    	//System.out.println("altId = " + altId);
                 		obocomponent.addAlternative(altId);
                     }
 
@@ -268,6 +272,11 @@ public class Parser {
                         	obocomponent.addChildOfType("ATTACHED_TO");
                         }
 
+                        else if (oborestrictionimpl.getType().getID().equals("has_part")){
+                        	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
+                        	obocomponent.addChildOfType("HAS_PART");
+                        }
+
                         else {
                             System.out.println("TYPE = " + oborestrictionimpl.getType().getID());
                         }
@@ -293,11 +302,12 @@ public class Parser {
             	ArrayList<String> userComments = new ArrayList<String>();
             	TreeSet comments = new TreeSet();
 
-            	ComponentFile obocomponent = new ComponentFile(oboclassimpl.toString(), 
+            	OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
             		oboclassimpl.getID(), 
                     "TBD",
                     "TBD",
                     oboclassimpl.getNamespace().toString(),
+                    oboclassimpl.getDefinition().toString(),
                     false,
                     "TBD",
                     "TBD",

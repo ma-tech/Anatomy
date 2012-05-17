@@ -42,7 +42,7 @@ import obolayer.OBOFactory;
 import obolayer.OBOException;
 import obolayer.ComponentOBO;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import utility.MapBuilder;
 import utility.TreeBuilder;
@@ -59,10 +59,10 @@ public class RunOBOCheckFileReferenceTree {
 
             ComponentOBO componentOBO = obofactory.getComponentOBO();
 
-            List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+            List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
 
-            ArrayList<ComponentFile> parseOldTermList = (ArrayList) obocomponents;
+            ArrayList<OBOComponent> parseOldTermList = (ArrayList) obocomponents;
             
             //Build hashmap of components
             MapBuilder mapbuilder = new MapBuilder(parseOldTermList);
@@ -86,8 +86,8 @@ public class RunOBOCheckFileReferenceTree {
 
                 //System.out.println( validatecomponents.getProblemTermList() );
                 
-                ComponentFile probobocomponent =
-                        (ComponentFile) validatecomponents.getProblemTermList().get(0);
+                OBOComponent probobocomponent =
+                        (OBOComponent) validatecomponents.getProblemTermList().get(0);
                 
                 System.out.println("no. of components with problems = " +
                         validatecomponents.getProblemTermList().size() + "\n");

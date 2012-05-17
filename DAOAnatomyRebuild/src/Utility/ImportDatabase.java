@@ -57,7 +57,7 @@ import daomodel.Synonym;
 import daomodel.Stage;
 import daomodel.Project;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import obomodel.Relation;
 
 
@@ -66,7 +66,7 @@ public class ImportDatabase {
     // Properties ---------------------------------------------------------------------------------
 
     // global variables
-    private ArrayList <ComponentFile> obocomponentList = new ArrayList <ComponentFile>();
+    private ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     private ArrayList <Relation> oborelationList = new ArrayList <Relation>();
 
     
@@ -88,10 +88,10 @@ public class ImportDatabase {
             StageDAO stageDAO = anatomy008.getStageDAO();
 
             // 1: abstract class---------------------------------------------------------------------------
-            ComponentFile obocomponent;
+            OBOComponent obocomponent;
 
             // 1_1: main abstract obocomponent-------------------------------------------------------------
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Abstract anatomy" );
             obocomponent.setID( "EMAPA:0" );
             obocomponent.setNamespace( "abstract_anatomy" );
@@ -107,7 +107,7 @@ public class ImportDatabase {
           	while (iteratorNode.hasNext()) {
           		Node node = iteratorNode.next();
 
-                obocomponent = new ComponentFile();
+                obocomponent = new OBOComponent();
                 obocomponent.setName( node.getComponentName());
                 obocomponent.setID( node.getPublicId() );
                 obocomponent.setDBID( Long.toString(node.getOid()) );
@@ -199,7 +199,7 @@ public class ImportDatabase {
 
             // 5: group obocomponents----------------------------------------------------------------------
             // 5:1:----------------------------------------------------------------------------------------
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Group term" );
             obocomponent.setID( "group_term" );
             obocomponent.setNamespace( "group_term" );
@@ -208,7 +208,7 @@ public class ImportDatabase {
 
             // 2: stage class------------------------------------------------------------------------------
             // 2_1: main stage obocomponent----------------------------------------------------------------
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Theiler stage" );
             obocomponent.setID( "TS:0" );
             obocomponent.setNamespace( "theiler_stage" );
@@ -226,7 +226,7 @@ public class ImportDatabase {
                 // 2_2_1: query for the stages-----------------------------------------------------------------
           		Stage stage = iteratorStage.next();
 
-          		obocomponent = new ComponentFile();
+          		obocomponent = new OBOComponent();
                 obocomponent.setName( stage.getName() );
                 obocomponent.setID( stage.getName() );
                 obocomponent.setDBID( String.valueOf(stage.getOid()) );
@@ -240,7 +240,7 @@ public class ImportDatabase {
           	}
 
             // 3: new group class
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Tmp new group" );
             obocomponent.setID( "Tmp_new_group" );
             obocomponent.setNamespace( "new_group_namespace" );
@@ -299,7 +299,7 @@ public class ImportDatabase {
     */
 
     
-    public ArrayList<ComponentFile> getTermList() {
+    public ArrayList<OBOComponent> getTermList() {
 
         return obocomponentList;
 
@@ -390,7 +390,7 @@ public class ImportDatabase {
             outputFile.write("remark: " + remarkTA.getText() + "\n");
             */
 
-            // terms - ComponentFile
+            // terms - OBOComponent
             for (int i=0; i<obocomponentList.size(); i++) {
                 if ( !obocomponentList.get(i).getStatusChange().equals("DELETED") ){
 

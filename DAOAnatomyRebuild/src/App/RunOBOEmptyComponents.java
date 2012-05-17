@@ -42,12 +42,17 @@ import daolayer.ComponentDAO;
 import daolayer.ComponentRelationshipDAO;
 import daolayer.ComponentCommentDAO;
 import daolayer.ComponentSynonymDAO;
+import daolayer.ComponentAlternativeDAO;
+
 import daolayer.DAOFactory;
 
 import daomodel.Component;
 import daomodel.ComponentRelationship;
 import daomodel.ComponentComment;
 import daomodel.ComponentSynonym;
+import daomodel.ComponentAlternative;
+
+import utility.ObjectConverter;
 
 public class RunOBOEmptyComponents {
 	/*
@@ -60,15 +65,14 @@ public class RunOBOEmptyComponents {
 
         // Obtain DAOs.
         ComponentDAO componentDAO = anatomy008.getComponentDAO();
-        //System.out.println("ComponentDAO successfully obtained: " + componentDAO);
         ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-        //System.out.println("ComponentRelationshipDAO successfully obtained: " + componentrelationshipDAO);
         ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-        //System.out.println("ComponentCommentDAO successfully obtained: " + componentcommentDAO);
         ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-        //System.out.println("ComponentSynonymDAO successfully obtained: " + componentsynonymDAO);
+        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
 
-        int i = componentDAO.countAll();
+        int i = 0;
+
+        i = componentDAO.countAll();
         if ( i > 0 ) {
             System.out.println("EMPTY ANA_OBO_COMPONENT");
 
@@ -96,26 +100,38 @@ public class RunOBOEmptyComponents {
             componentsynonymDAO.empty();
         }
 
+        i = componentalternativeDAO.countAll();
+        if ( i > 0 ) {
+            System.out.println("EMPTY ANA_OBO_COMPONENT_ALTERNATIVE");
+
+            componentalternativeDAO.empty();
+        }
+
         List<Component> daocomponents = new ArrayList<Component>();
         daocomponents = componentDAO.listAll();
         
         System.out.println("====================================================");
-        System.out.println("The Number of Rows in ANA_OBO_COMPONENT              = " + Integer.toString(daocomponents.size()));
+        System.out.println("The Number of Rows in ANA_OBO_COMPONENT              = " + ObjectConverter.convert(daocomponents.size(), String.class));
 
         List<ComponentRelationship> daocomponentrelationships = new ArrayList<ComponentRelationship>();
         daocomponentrelationships = componentrelationshipDAO.listAll();
         
-        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_RELATIONSHIP = " + Integer.toString(daocomponentrelationships.size()));
+        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_RELATIONSHIP = " + ObjectConverter.convert(daocomponentrelationships.size(), String.class));
         
         List<ComponentComment> daocomponentcomments = new ArrayList<ComponentComment>();
         daocomponentcomments = componentcommentDAO.listAll();
         
-        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_COMMENTS     = " + Integer.toString(daocomponentcomments.size()));
+        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_COMMENTS     = " + ObjectConverter.convert(daocomponentcomments.size(), String.class));
         
         List<ComponentSynonym> daocomponentsynonym = new ArrayList<ComponentSynonym>();
         daocomponentsynonym = componentsynonymDAO.listAll();
         
-        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_SYNONYM      = " + Integer.toString(daocomponentsynonym.size()));
+        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_SYNONYM      = " + ObjectConverter.convert(daocomponentsynonym.size(), String.class));
+        
+        List<ComponentAlternative> daocomponentalternative = new ArrayList<ComponentAlternative>();
+        daocomponentalternative = componentalternativeDAO.listAll();
+        
+        System.out.println("The Number of Rows in ANA_OBO_COMPONENT_ALTERNATIVE  = " + ObjectConverter.convert(daocomponentalternative.size(), String.class));
         System.out.println("====================================================");
         
         System.out.println("");

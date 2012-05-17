@@ -39,7 +39,7 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
@@ -62,11 +62,11 @@ public class RunOBOExtractOBOFromExistingDatabase {
         ComponentOBO componentOBO = obofactory.getComponentOBO();
         
         // Export Database Components to OBO File.
-        List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importdatabase.getTermList();
         
         // Write out Obo File
-        componentOBO.setComponentFileList((ArrayList) obocomponents);
+        componentOBO.setComponentList((ArrayList) obocomponents);
         componentOBO.createTemplateRelationList();
         
         Boolean isProcessed = componentOBO.writeAll();

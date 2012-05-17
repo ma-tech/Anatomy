@@ -38,7 +38,7 @@ package app;
 
 import java.util.ArrayList;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import utility.ImportFile;
 import utility.ImportDatabase;
@@ -55,11 +55,11 @@ public class RunOBOCompareFileAndDatabaseReferences {
     public static void run() throws Exception {
         //import Obo File from obo.properties, file.oboinfile
         ImportFile importfile = new ImportFile();
-        ArrayList<ComponentFile> parseNewTermList = importfile.getTermList();
+        ArrayList<OBOComponent> parseNewTermList = importfile.getTermList();
 
         //import Database from dao.properties, anatomy008.url
         ImportDatabase importdatabase = new ImportDatabase(true, "EMAP" );
-        ArrayList<ComponentFile> parseOldTermList = importdatabase.getTermList();
+        ArrayList<OBOComponent> parseOldTermList = importdatabase.getTermList();
 
         //Build hashmap of components
         MapBuilder mapbuilder = new MapBuilder(parseNewTermList);
@@ -94,12 +94,12 @@ public class RunOBOCompareFileAndDatabaseReferences {
         	System.out.println("   ------- ----------" );
             
         	/*
-            ArrayList<ComponentFile> problemobocomponents = validatecomponents.getProblemTermList();
+            ArrayList<OBOComponent> problemobocomponents = validatecomponents.getProblemTermList();
 
-          	Iterator<ComponentFile> iteratorProblemComponent = problemobocomponents.iterator();
+          	Iterator<OBOComponent> iteratorProblemComponent = problemobocomponents.iterator();
           	int i = 0;
           	while (iteratorProblemComponent.hasNext()) {
-           		ComponentFile problemobocomponent = iteratorProblemComponent.next();
+           		OBOComponent problemobocomponent = iteratorProblemComponent.next();
 
            		i++;
            		System.out.println("  PROBLEM #" + i + ": " + problemobocomponent.toString());

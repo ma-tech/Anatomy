@@ -36,7 +36,7 @@ import java.util.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 
 public class TreeBuilder {
@@ -67,7 +67,7 @@ public class TreeBuilder {
 
         //build tree starting from all defined roots
         for(int i=0; i< vRoots.size(); i++){
-            //ComponentFile obocomponent = (ComponentFile) this.mapProperties.get(vRoots.get(i));
+            //OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(vRoots.get(i));
             DefaultMutableTreeNode rootnode = recursiveAddNode(vRoots.get(i), new DefaultMutableTreeNode[]{this.mothernode});
             this.mothernode.add(rootnode);     
         }
@@ -87,8 +87,8 @@ public class TreeBuilder {
 
         //build tree starting from all defined roots
         for(int i=0; i< vRoots.size(); i++){
-            //ComponentFile obocomponent =
-            // (ComponentFile) this.mapProperties.get(vRoots.get(i));
+            //OBOComponent obocomponent =
+            // (OBOComponent) this.mapProperties.get(vRoots.get(i));
             DefaultMutableTreeNode rootnode =
                     recursiveAddNode(vRoots.get(i),
                     new DefaultMutableTreeNode[]{this.mothernode});
@@ -101,7 +101,7 @@ public class TreeBuilder {
             DefaultMutableTreeNode[] parent_path){
         //traverse from root component
 
-        ComponentFile obocomponent = (ComponentFile) this.mapProperties.get(key);
+        OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(key);
         //System.out.println("treebuilder adding component " +
         // obocomponent.getID() + " " + obocomponent.getName());
 
@@ -110,7 +110,7 @@ public class TreeBuilder {
         //note: dummy component's sole purpose = a node for tree display;
         // not included in any component lists
         if (obocomponent == null) {
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setID(key);
             obocomponent.setName("Missing link");
             obocomponent.setFlagMissingRel(true);
@@ -201,12 +201,12 @@ public class TreeBuilder {
             DefaultMutableTreeNode[] parent_path){
         
         //traverse from root component
-        ComponentFile obocomponent = (ComponentFile) this.mapProperties.get(key);
+        OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(key);
 
         //check that component is not null otherwise create dummy component for node
         //note: dummy component's sole purpose = a node for tree display; not included in any component lists
         if ( obocomponent == null ) {
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setID(key);
             obocomponent.setName("Missing link");
             obocomponent.setFlagMissingRel(true);
@@ -379,9 +379,9 @@ public class TreeBuilder {
         	
             Object nodeInfo = node.getUserObject(); 
             
-            if (nodeInfo instanceof ComponentFile){
+            if (nodeInfo instanceof OBOComponent){
                 
-            	ComponentFile obocomponent = (ComponentFile) nodeInfo;
+            	OBOComponent obocomponent = (OBOComponent) nodeInfo;
             
                 if ( !obocomponent.getIsPrimary() ) {
                     return false;
@@ -394,7 +394,7 @@ public class TreeBuilder {
 
 
     public boolean containsComponent(DefaultMutableTreeNode[] path,
-            ComponentFile obocomponent){
+            OBOComponent obocomponent){
 
         boolean contains = false;
         
@@ -402,8 +402,8 @@ public class TreeBuilder {
         for (DefaultMutableTreeNode currentNode: path){
             //check to see whether each node in the path contains a component
             Object nodeInfo = currentNode.getUserObject();
-            if (nodeInfo instanceof ComponentFile){
-                ComponentFile currentcomponent = (ComponentFile) nodeInfo;
+            if (nodeInfo instanceof OBOComponent){
+                OBOComponent currentcomponent = (OBOComponent) nodeInfo;
                 //if currentcomponent is a group node, the path is not a valid path back to the root 
                 //if ( !currentcomponent.getIsPrimary() ) return false;
                 //match current component to targeted component
@@ -422,11 +422,11 @@ public class TreeBuilder {
     public boolean containsNode(DefaultMutableTreeNode[] path, DefaultMutableTreeNode node){
 
         boolean contains = false;
-        ComponentFile nodeCompie = new ComponentFile();
+        OBOComponent nodeCompie = new OBOComponent();
         
         Object nodeInfo = node.getUserObject();
-        if (nodeInfo instanceof ComponentFile){
-            nodeCompie = (ComponentFile) nodeInfo;
+        if (nodeInfo instanceof OBOComponent){
+            nodeCompie = (OBOComponent) nodeInfo;
         }
         else {
             return contains;
@@ -436,8 +436,8 @@ public class TreeBuilder {
         for (DefaultMutableTreeNode currentNode: path){
             //check to see whether each node in the path contains a component
             Object currentNodeInfo = currentNode.getUserObject();
-            if (currentNodeInfo instanceof ComponentFile){
-                ComponentFile currentcomponent = (ComponentFile) currentNodeInfo;
+            if (currentNodeInfo instanceof OBOComponent){
+                OBOComponent currentcomponent = (OBOComponent) currentNodeInfo;
                 
                 //if ( nodeCompie.isSameAs(currentcomponent) ) return true;//MAZE:
                 //REPLACE isSamsAs with matching id, two obocomponents can be the same but have modified properties
@@ -450,7 +450,7 @@ public class TreeBuilder {
     }
     
     
-    public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, ComponentFile obocomponent ){
+    public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, OBOComponent obocomponent ){
 
         //iterate thru each node in the path
         for ( DefaultMutableTreeNode currentNode: pathTo ){
@@ -458,8 +458,8 @@ public class TreeBuilder {
         	
             Object nodeInfo = currentNode.getUserObject();
             
-            if ( nodeInfo instanceof ComponentFile ){
-                ComponentFile currentcomponent = ( ComponentFile ) nodeInfo;
+            if ( nodeInfo instanceof OBOComponent ){
+                OBOComponent currentcomponent = ( OBOComponent ) nodeInfo;
                 //if currentcomponent is a group node
                 //if ( !currentcomponent.getIsPrimary() && !currentcomponent.isComponentSameAs(obocomponent) ) {//MAZE:
                 //REPLACE isSamsAs with matching id, two obocomponents can be the same but have modified properties
@@ -473,14 +473,14 @@ public class TreeBuilder {
     }
 
 
-    public boolean isPathInNamespace( DefaultMutableTreeNode[] path, ComponentFile rootobocomponent ){
+    public boolean isPathInNamespace( DefaultMutableTreeNode[] path, OBOComponent rootobocomponent ){
         
         for ( DefaultMutableTreeNode node: path ){
         	
             Object nodeInfo = node.getUserObject();
             
-            if ( nodeInfo instanceof ComponentFile ){
-                ComponentFile currentcomponent = ( ComponentFile ) nodeInfo;
+            if ( nodeInfo instanceof OBOComponent ){
+                OBOComponent currentcomponent = ( OBOComponent ) nodeInfo;
                 //if currentcomponent is a group node
             
                 if ( !currentcomponent.getNamespace().equals(rootobocomponent.getNamespace()) ) {
@@ -497,10 +497,10 @@ public class TreeBuilder {
     }
     
     
-    public ComponentFile getComponent(String id){
+    public OBOComponent getComponent(String id){
         //System.out.println("getComponent: " + id);
         try{
-            ComponentFile obocomponent = (ComponentFile) this.mapProperties.get(id);
+            OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(id);
             //System.out.println("obocomponent: " + obocomponent.getID());
             return obocomponent;
         }

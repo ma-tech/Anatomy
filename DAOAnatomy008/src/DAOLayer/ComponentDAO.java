@@ -52,7 +52,7 @@ public final class ComponentDAO {
 
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_OBO_ID LIKE ? " +
         "AND AOC_NAME LIKE ? " +
@@ -70,28 +70,28 @@ public final class ComponentDAO {
         "FROM ANA_OBO_COMPONENT ";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_OID = ? ";
     
     private static final String SQL_FIND_BY_OBO_ID =
-        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_OBO_ID = ? ";
     
     private static final String SQL_FIND_BY_OBO_NAME =
-        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_NAME = ? ";
         
     private static final String SQL_LIST_ALL =
-        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT ";
     
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT " +
-        "(AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE) " +
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        "(AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_OBO_COMPONENT SET " +
@@ -100,6 +100,7 @@ public final class ComponentDAO {
         "AOC_DB_ID = ?, " +
         "AOC_NEW_ID = ?, " +
         "AOC_NAMESPACE = ?, " +
+        "AOC_DEFINITION = ?, " +
         "AOC_GROUP = ?, " + 
         "AOC_START = ?, " +
         "AOC_END = ?, " +
@@ -265,6 +266,7 @@ public final class ComponentDAO {
             daocomponent.getDbId(),
         	daocomponent.getNewId(),
         	daocomponent.getNamespace(),
+        	daocomponent.getDefinition(),
         	daocomponent.getGroup(),
         	daocomponent.getStart(),
         	daocomponent.getEnd(),
@@ -319,6 +321,7 @@ public final class ComponentDAO {
             daocomponent.getDbId(),
             daocomponent.getNewId(),
             daocomponent.getNamespace(),
+        	daocomponent.getDefinition(),
             daocomponent.getGroup(),
             daocomponent.getStart(),
             daocomponent.getEnd(),
@@ -488,6 +491,9 @@ public final class ComponentDAO {
         if (sortField.equals("namespace")) {
         	sqlSortField = "AOC_NAMESPACE";         
         }
+        if (sortField.equals("definition")) {
+        	sqlSortField = "AOC_DEFINITION";         
+        }
     	if (sortField.equals("group")) {
         	sqlSortField = "AOC_GROUP";       
         }
@@ -652,6 +658,7 @@ public final class ComponentDAO {
        		resultSet.getString("AOC_DB_ID"),
        		resultSet.getString("AOC_NEW_ID"), 
        		resultSet.getString("AOC_NAMESPACE"),      		
+       		resultSet.getString("AOC_DEFINITION"),      		
        		resultSet.getInt("AOC_GROUP"), 
        		resultSet.getString("AOC_START"), 
        		resultSet.getString("AOC_END"), 

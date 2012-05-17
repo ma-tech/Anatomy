@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        ComponentOBO.java
+* Title:        OBOComponentOBO.java
 *
 * Date:         2012
 *
@@ -18,7 +18,7 @@
 *
 * Version: 1
 *
-* Description:  A Wrapper Class for accessing OBO ComponentOBO files
+* Description:  A Wrapper Class for accessing OBO OBOComponentOBO files
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -41,7 +41,7 @@ import daolayer.StageDAO;
 
 import daomodel.Stage;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import obomodel.Relation;
 
 public final class ComponentOBO {
@@ -53,7 +53,7 @@ public final class ComponentOBO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Component OBO for the given OBOFactory.
+     * Construct a OBOComponent OBO for the given OBOFactory.
      * 
      *  Package private so that it can be constructed inside the OBO package only.
      */
@@ -64,9 +64,9 @@ public final class ComponentOBO {
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns a list of ALL Components, otherwise null.
+     * Returns a list of ALL OBOComponents, otherwise null.
      */
-    public List<ComponentFile> listAll() throws OBOException {
+    public List<OBOComponent> listAll() throws OBOException {
     	
         return list();
     }
@@ -75,9 +75,9 @@ public final class ComponentOBO {
      * Returns a list of all components from the file. 
      *  The list is never null and is empty when the file does not contain any components.
      */
-    public List<ComponentFile> list() throws OBOException {
+    public List<OBOComponent> list() throws OBOException {
       
-        List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 
         try {
         	obocomponents = oboFactory.getComponents();
@@ -90,10 +90,10 @@ public final class ComponentOBO {
     }
 
     /*
-     * Within the OBOFactory, throw away any existing list of OBO Components, and replace them
+     * Within the OBOFactory, throw away any existing list of OBO OBOComponents, and replace them
      *  with the supplied list instead. 
      */
-    public void setComponentFileList(ArrayList<ComponentFile> arrayobolist) throws OBOException {
+    public void setComponentList(ArrayList<OBOComponent> arrayobolist) throws OBOException {
     	
     	oboFactory.setComponents(arrayobolist);
     }
@@ -108,15 +108,15 @@ public final class ComponentOBO {
     }
     
     /*
-     * Within the OBOFactory, Add an additional lust of OBO Components to the existing list 
+     * Within the OBOFactory, Add an additional lust of OBO OBOComponents to the existing list 
      */
-    public void addComponentFileList(ArrayList<ComponentFile> arrayobolist) throws OBOException {
+    public void addOBOComponentList(ArrayList<OBOComponent> arrayobolist) throws OBOException {
     	
     	oboFactory.addComponents(arrayobolist);
     }
     
     /*
-     * Within the OBOFactory, write ALL the OBO Components in the existing OBO Factory list to File 
+     * Within the OBOFactory, write ALL the OBO OBOComponents in the existing OBO Factory list to File 
      */
     public Boolean writeAll() throws OBOException {
     	
@@ -124,7 +124,7 @@ public final class ComponentOBO {
     }
     
     /*
-     * write OBO Components
+     * write OBO OBOComponents
      */
     public Boolean write() throws OBOException {
       
@@ -263,9 +263,9 @@ public final class ComponentOBO {
     public void createTemplateRelationList() throws OBOException {
     	
         ArrayList<Relation> oborelationList = new ArrayList();
-        ComponentFile obocomponent;
+        OBOComponent obocomponent;
 
-        ArrayList <ComponentFile> obocomponentList = new ArrayList <ComponentFile>();
+        ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
         Relation oborelation;
 
     	try {
@@ -277,7 +277,7 @@ public final class ComponentOBO {
             StageDAO stageDAO = anatomy008.getStageDAO();
 
             // group obocomponents----------------------------------------------------------------------
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Group term" );
             obocomponent.setID( "group_term" );
             obocomponent.setNamespace( "group_term" );
@@ -285,7 +285,7 @@ public final class ComponentOBO {
             obocomponentList.add( obocomponent );
 
             // stage class------------------------------------------------------------------------------
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Theiler stage" );
             obocomponent.setID( "TS:0" );
             obocomponent.setNamespace( "theiler_stage" );
@@ -302,7 +302,7 @@ public final class ComponentOBO {
                 // query for the stages-----------------------------------------------------------------
           		Stage stage = iteratorStage.next();
 
-          		obocomponent = new ComponentFile();
+          		obocomponent = new OBOComponent();
                 obocomponent.setName( stage.getName() );
                 obocomponent.setID( stage.getName() );
                 obocomponent.setDBID( String.valueOf(stage.getOid()) );
@@ -315,7 +315,7 @@ public final class ComponentOBO {
           	}
 
             // new group class
-            obocomponent = new ComponentFile();
+            obocomponent = new OBOComponent();
             obocomponent.setName( "Tmp new group" );
             obocomponent.setID( "Tmp_new_group" );
             obocomponent.setNamespace( "new_group_namespace" );

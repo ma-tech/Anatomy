@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import obomodel.Relation;
 
 
@@ -55,8 +55,8 @@ public class Producer {
     private String fileSavedBy;
 	//  Output fileRemark
     private String fileRemark;
-    //  Arraylist of <ComponentFile>s
-    private ArrayList<ComponentFile> obocomponentList;
+    //  Arraylist of <OBOComponent>s
+    private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
 
     private boolean isProcessed;
@@ -67,7 +67,7 @@ public class Producer {
     		String fileNameSpace,
     		String fileSavedBy,
     		String fileRemark,
-    		ArrayList<ComponentFile> obocomponentList, 
+    		ArrayList<OBOComponent> obocomponentList, 
     		ArrayList<Relation> oborelationList){
     	
         this.fileName = fileName.trim();
@@ -121,7 +121,7 @@ public class Producer {
     public void setFileRemark(String fileRemark){
         this.fileRemark = fileRemark;
     }
-    public void setComponents(ArrayList<ComponentFile> obocomponentList){
+    public void setComponents(ArrayList<OBOComponent> obocomponentList){
         this.obocomponentList = obocomponentList;
     }
     public void setRelations(ArrayList<Relation> oborelationList){
@@ -161,7 +161,7 @@ public class Producer {
             // remark
             outputFile.write("remark: " + fileRemark + "\n");
 
-            // terms - ComponentFile
+            // terms - OBOComponent
             //  for i
             for (int i=0; i<obocomponentList.size(); i++) {
             	

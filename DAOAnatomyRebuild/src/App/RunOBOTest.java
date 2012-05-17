@@ -37,7 +37,7 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import obolayer.OBOFactory;
 import obolayer.OBOException;
@@ -60,15 +60,15 @@ public class RunOBOTest {
 	        //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
 
 	        // Read in OBO File
-	        List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 	        obocomponents = componentOBO.listAll();
 	        
 	        /*
 	        if (componentOBO.debug()) {
-	        	Iterator<ComponentFile> iterator = obocomponents.iterator();
+	        	Iterator<OBOComponent> iterator = obocomponents.iterator();
 
 	        	while (iterator.hasNext()) {
-	        		ComponentFile obocomponent = iterator.next();
+	        		OBOComponent obocomponent = iterator.next();
 	                System.out.println(obocomponent.toString());
 	        	}
 	        }
@@ -76,7 +76,7 @@ public class RunOBOTest {
             System.out.println("Number of File Components Read In = " + Integer.toString(obocomponents.size()));
 
 	        // Write out Obo File
-	        componentOBO.setComponentFileList((ArrayList) obocomponents);
+	        componentOBO.setComponentList((ArrayList) obocomponents);
 	        componentOBO.createTemplateRelationList();
 	        
 	        Boolean isProcessed = componentOBO.writeAll();

@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.Calendar;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 import obomodel.Relation;
 
 import obolayer.ComponentOBO;
@@ -54,7 +54,7 @@ public class ImportFile {
     // Properties ---------------------------------------------------------------------------------
 
     // global variables
-    private ArrayList <ComponentFile> obocomponentList = new ArrayList <ComponentFile>();
+    private ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     private ArrayList <Relation> oborelationList = new ArrayList <Relation>();
 
     
@@ -69,7 +69,7 @@ public class ImportFile {
             ComponentOBO componentOBO = obofactory.getComponentOBO();
             //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
             
-            List<ComponentFile> obocomponents = new ArrayList<ComponentFile>();
+            List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
             
             obocomponentList = (ArrayList) obocomponents;
@@ -83,12 +83,12 @@ public class ImportFile {
 
     public ImportFile(String filename) {
     	
-    	ArrayList<ComponentFile> componentList = new ArrayList();
+    	ArrayList<OBOComponent> componentList = new ArrayList();
         Parser parser = new Parser(filename);
         obocomponentList = (ArrayList) parser.getComponents();
     }
 
-    public ArrayList<ComponentFile> getTermList() {
+    public ArrayList<OBOComponent> getTermList() {
 
         return obocomponentList;
 
@@ -140,7 +140,7 @@ public class ImportFile {
             outputFile.write("remark: " + remarkTA.getText() + "\n");
             */
 
-            // terms - ComponentFile
+            // terms - OBOComponent
             for (int i=0; i<obocomponentList.size(); i++) {
                 if ( !obocomponentList.get(i).getStatusChange().equals("DELETED") ){
 

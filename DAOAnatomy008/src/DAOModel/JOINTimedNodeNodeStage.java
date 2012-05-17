@@ -152,7 +152,7 @@ public class JOINTimedNodeNodeStage {
     public String getStageModifierFK() {
         return stageModifierFK;
     }
-    public String getPpublicTimedNodeId() {
+    public String getPublicTimedNodeId() {
         return publicTimedNodeId;
     }
 

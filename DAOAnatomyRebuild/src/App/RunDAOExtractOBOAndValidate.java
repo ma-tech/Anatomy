@@ -45,7 +45,8 @@ import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
+
 import utility.ExecuteCommand;
 import utility.GenerateEditorPDF;
 import utility.GenerateEditorReport;
@@ -107,11 +108,11 @@ public class RunDAOExtractOBOAndValidate {
             
             //import Obo File from obo.properties, file.oboinfile
             ImportFile importfile = new ImportFile(filePath);
-            ArrayList<ComponentFile> parseNewTermList = importfile.getTermList();
+            ArrayList<OBOComponent> parseNewTermList = importfile.getTermList();
 
             //import Database from dao.properties, anatomy008.url
             ImportDatabase importdatabase = new ImportDatabase(true, "EMAP" );
-            ArrayList<ComponentFile> parseOldTermList = importdatabase.getTermList();
+            ArrayList<OBOComponent> parseOldTermList = importdatabase.getTermList();
 
             //Build hashmap of components
             MapBuilder mapbuilder = new MapBuilder(parseNewTermList);

@@ -52,10 +52,10 @@ public final class ComponentRelationshipDAO {
 
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OBO_PARENT LIKE ? " +
-        "AND ACR_OBO_ID LIKE ? " +
+        "AND ACR_OBO_CHILD LIKE ? " +
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
@@ -63,44 +63,46 @@ public final class ComponentRelationshipDAO {
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OBO_PARENT LIKE ? " +
-        "AND ACR_OBO_ID LIKE ? ";
+        "AND ACR_OBO_CHILD LIKE ? ";
 
     private static final String SQL_ROW_COUNT_ALL =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP ";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT  " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OID = ? ";
     
     private static final String SQL_FIND_BY_OBO_ID =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
-        "WHERE ACR_OBO_ID = ? ";
+        "WHERE ACR_OBO_CHILD = ? ";
     
     private static final String SQL_LIST_ALL =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP ";
     
     private static final String SQL_LIST_ALL_BY_OBO_ID =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT  " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
-        "WHERE ACR_OBO_ID = ? ";
+        "WHERE ACR_OBO_CHILD = ? ";
             
     private static final String SQL_LIST_ALL_BY_PARENT =
-        "SELECT ACR_OID, ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT  " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OBO_PARENT = ? ";
         
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT_RELATIONSHIP " +
-        "(ACR_OBO_ID, ACR_OBO_TYPE, ACR_OBO_PARENT) " +
-        "VALUES (?, ?, ?)";
+        "(ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT ) " +
+        "VALUES (?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_OBO_COMPONENT_RELATIONSHIP SET " +
-        "ACR_OBO_ID = ?, " +
+        "ACR_OBO_CHILD = ?, " +
+        "ACR_OBO_CHILD_START = ?, " +
+        "ACR_OBO_CHILD_STOP = ?, " +
         "ACR_OBO_TYPE = ?, " + 
         "ACR_OBO_PARENT = ? " + 
         "WHERE ACR_OID = ?";
@@ -257,7 +259,9 @@ public final class ComponentRelationshipDAO {
     public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, DAOException {
 
     	Object[] values = {
-        	daocomponentrelationship.getId(),
+        	daocomponentrelationship.getChild(),
+        	daocomponentrelationship.getChildStart(),
+        	daocomponentrelationship.getChildStop(),
             daocomponentrelationship.getType(),
         	daocomponentrelationship.getParent()
         };
@@ -302,9 +306,11 @@ public final class ComponentRelationshipDAO {
         }
 
         Object[] values = {
-            daocomponentrelationship.getId(),
+          	daocomponentrelationship.getChild(),
+           	daocomponentrelationship.getChildStart(),
+           	daocomponentrelationship.getChildStop(),
             daocomponentrelationship.getType(),
-            daocomponentrelationship.getParent(),
+           	daocomponentrelationship.getParent(),
            	daocomponentrelationship.getOid()
         };
 
@@ -453,8 +459,14 @@ public final class ComponentRelationshipDAO {
     	if (sortField.equals("oid")) {
         	sqlSortField = "ACR_OID";       
         }
-        if (sortField.equals("id")) {
-        	sqlSortField = "ACR_OBO_ID";         
+        if (sortField.equals("child")) {
+        	sqlSortField = "ACR_OBO_CHILD";         
+        }
+        if (sortField.equals("childStart")) {
+        	sqlSortField = "ACR_OBO_CHILD_START";         
+        }
+        if (sortField.equals("childStop")) {
+        	sqlSortField = "ACR_OBO_CHILD_STOP";         
         }
         if (sortField.equals("type")) {
         	sqlSortField = "ACR_OBO_TYPE";         
@@ -603,7 +615,9 @@ public final class ComponentRelationshipDAO {
       
     	return new ComponentRelationship(
       		resultSet.getLong("ACR_OID"), 
-       		resultSet.getString("ACR_OBO_ID"), 
+       		resultSet.getString("ACR_OBO_CHILD"), 
+       		resultSet.getLong("ACR_OBO_CHILD_START"), 
+       		resultSet.getLong("ACR_OBO_CHILD_STOP"), 
        		resultSet.getString("ACR_OBO_TYPE"), 
        		resultSet.getString("ACR_OBO_PARENT")
         );

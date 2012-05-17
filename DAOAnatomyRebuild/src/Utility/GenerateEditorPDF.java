@@ -52,7 +52,7 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.ComponentFile;
+import obomodel.OBOComponent;
 
 import obolayer.ComponentOBO;
 import obolayer.OBOException;
@@ -61,23 +61,23 @@ import obolayer.OBOFactory;
 
 public class GenerateEditorPDF {
      
-    private ArrayList<ComponentFile> newTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> newTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> modifiedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> modifiedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> deletedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> deletedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> unchangedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> unchangedTerms =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> problemobocomponents =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> problemobocomponents =
+            new ArrayList<OBOComponent>();
     
-    private ArrayList<ComponentFile> proposedTerms =
-            new ArrayList<ComponentFile>();
+    private ArrayList<OBOComponent> proposedTerms =
+            new ArrayList<OBOComponent>();
     
     private int failedNewTerms = 0;
     private int failedModifiedTerms = 0;
@@ -101,7 +101,7 @@ public class GenerateEditorPDF {
         this.treebuilder = treebuilder;
 
         //sort terms from ValidateComponents class into categories
-        //ArrayList<ComponentFile> changedTerms = validatecomponents.getChangesTermList();
+        //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
         proposedTerms = validatecomponents.getProposedTermList();
         
         problemobocomponents = validatecomponents.getProblemTermList();
@@ -159,7 +159,7 @@ public class GenerateEditorPDF {
                     "CRITICAL COMPONENTS: REQUIRE REVISION",
                     "Total Critical Components: ",
                     Color.RED,
-                    "Problem ComponentFile ",
+                    "Problem OBOComponent ",
                     "PROBLEM" );
             
             //writing new terms
@@ -168,7 +168,7 @@ public class GenerateEditorPDF {
                     "NEW COMPONENTS",
                     "Total New Components: ",
                     new Color(0,140,0),
-                    "New ComponentFile ",
+                    "New OBOComponent ",
                     "NEW" );
             
             //writing modified terms
@@ -177,7 +177,7 @@ public class GenerateEditorPDF {
                     "MODIFIED COMPONENTS",
                     "Total Modified Components: ",
                     new Color(0,140,0),
-                    "Modified ComponentFile ",
+                    "Modified OBOComponent ",
                     "MODIFIED" );
             
             //writing deleted terms
@@ -218,7 +218,7 @@ public class GenerateEditorPDF {
         this.treebuilder = treebuilder;
 
         //sort terms from ValidateComponents class into categories
-        //ArrayList<ComponentFile> changedTerms = validatecomponents.getChangesTermList();
+        //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
         proposedTerms = validatecomponents.getProposedTermList();
         
         problemobocomponents = validatecomponents.getProblemTermList();
@@ -268,7 +268,7 @@ public class GenerateEditorPDF {
                     "CRITICAL COMPONENTS: REQUIRE REVISION",
                     "Total Critical Components: ",
                     Color.RED,
-                    "Problem ComponentFile ",
+                    "Problem OBOComponent ",
                     "PROBLEM" );
             
             //writing new terms
@@ -277,7 +277,7 @@ public class GenerateEditorPDF {
                     "NEW COMPONENTS",
                     "Total New Components: ",
                     new Color(0,140,0),
-                    "New ComponentFile ",
+                    "New OBOComponent ",
                     "NEW" );
             
             //writing modified terms
@@ -286,7 +286,7 @@ public class GenerateEditorPDF {
                     "MODIFIED COMPONENTS",
                     "Total Modified Components: ",
                     new Color(0,140,0),
-                    "Modified ComponentFile ",
+                    "Modified OBOComponent ",
                     "MODIFIED" );
             
             //writing deleted terms
@@ -329,9 +329,9 @@ public class GenerateEditorPDF {
 
 
     // Private (Internal) Methods ------------------------------------------------------------------
-    private void sortChangedTerms(ArrayList<ComponentFile> allTerms){
+    private void sortChangedTerms(ArrayList<OBOComponent> allTerms){
         
-        for(ComponentFile obocomponent: allTerms){
+        for(OBOComponent obocomponent: allTerms){
             
             if ( obocomponent.getStatusChange().equals("NEW") ) {
                 newTerms.add(obocomponent);
@@ -572,7 +572,7 @@ public class GenerateEditorPDF {
     }
     
     
-    private void makeComponentTable( ComponentFile obocomponent, String tableHeader, int counter, Color tableColor ){
+    private void makeComponentTable( OBOComponent obocomponent, String tableHeader, int counter, Color tableColor ){
     	
         try{
             //table
@@ -766,7 +766,7 @@ public class GenerateEditorPDF {
     }
 
 
-    private void writeTerms( ArrayList<ComponentFile> termList, 
+    private void writeTerms( ArrayList<OBOComponent> termList, 
             String strHeader,
             String strSubheader,
             Color headerColor, 
@@ -799,7 +799,7 @@ public class GenerateEditorPDF {
             if ( !termList.isEmpty() ){
                 //component ids + names
 
-                for(ComponentFile obocomponent: termList){
+                for(OBOComponent obocomponent: termList){
                     counter++;
                     
                     if ( obocomponent.getNewID().equals("TBD") ) {
@@ -831,7 +831,7 @@ public class GenerateEditorPDF {
                 //component details
                 counter = 0;
                 Color tableColor = Color.BLACK;
-                for(ComponentFile obocomponent: termList){
+                for(OBOComponent obocomponent: termList){
                     counter++;
                     pdfDocument.add( Chunk.NEWLINE );
 

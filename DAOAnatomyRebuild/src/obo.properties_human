@@ -1,9 +1,0 @@
-file.oboinfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-12/AEOandEHDAA2_2012-05-16d.obo
-file.obooutfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-12/output.obo
-file.summaryreport = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-12/summaryReport.txt
-file.summaryreportpdf = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-12/summaryReport.pdf
-file.debug = true
-file.obooutfileversion = 1.2
-file.obooutfilenamespace = mouse_ontology
-file.obooutfilesavedby = Mike Wicks
-file.obooutfileremark = Jonathon Bard Human Ontology

@@ -1,9 +1,0 @@
-file.oboinfile = /Users/mwicks/Desktop/OBOFile_HH1-27_copy81.obo
-file.obooutfile = /Users/mwicks/Desktop/output.obo
-file.summaryreport = /Users/mwicks/Desktop/summaryReport.txt
-file.summaryreportpdf = /Users/mwicks/Desktop/summaryReport.pdf
-file.debug = true
-file.obooutfileversion = 1.2
-file.obooutfilenamespace = mouse_ontology
-file.obooutfilesavedby = Mike Wicks
-file.obooutfileremark = Jonathon Bard Human Ontology

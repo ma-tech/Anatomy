@@ -74,6 +74,24 @@ public final class ComponentAlternativeDAO {
         "FROM ANA_OBO_COMPONENT_ALTERNATIVE " +
         "WHERE ACA_OID = ? ";
     
+    private static final String SQL_FIND_BY_OBO_ID_AEO =
+        "SELECT ACA_OID, ACA_OBO_ID, ACA_OBO_ALT_ID  " +
+        "FROM ANA_OBO_COMPONENT_ALTERNATIVE " +
+        "WHERE ACA_OBO_ID = ? " +
+        "AND SUBSTR(ACA_OBO_ALT_ID, 1, 4) = 'AEO:'";
+        
+    private static final String SQL_FIND_BY_OBO_ID_CARO =
+        "SELECT ACA_OID, ACA_OBO_ID, ACA_OBO_ALT_ID  " +
+        "FROM ANA_OBO_COMPONENT_ALTERNATIVE " +
+        "WHERE ACA_OBO_ID = ? " +
+        "AND SUBSTR(ACA_OBO_ALT_ID, 1, 5) = 'CARO:'";
+            
+    private static final String SQL_FIND_BY_OBO_ID_UBERON =
+        "SELECT ACA_OID, ACA_OBO_ID, ACA_OBO_ALT_ID  " +
+        "FROM ANA_OBO_COMPONENT_ALTERNATIVE " +
+        "WHERE ACA_OBO_ID = ? " +
+        "AND SUBSTR(ACA_OBO_ALT_ID, 1, 7) = 'UBERON:'";
+            
     private static final String SQL_LIST_ALL =
         "SELECT ACA_OID, ACA_OBO_ID, ACA_OBO_ALT_ID " +
         "FROM ANA_OBO_COMPONENT_ALTERNATIVE ";
@@ -126,7 +144,7 @@ public final class ComponentAlternativeDAO {
     
     // Actions ------------------------------------------------------------------------------------
     /*
-     * Returns the daocomponentsynonym from the database matching the given OID, otherwise null.
+     * Returns the daocomponentalternative from the database matching the given OID, otherwise null.
      */
     public ComponentAlternative findByOid(Long oid) throws DAOException {
     	
@@ -134,7 +152,31 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     * Returns the daocomponentsynonyms from the database matching the given OBO ID, otherwise null.
+     * Returns the daocomponentalternative from the database matching the given OBO ID for an AEO Alternative, otherwise null.
+     */
+    public ComponentAlternative findByOboIdAEO(String oboid) throws DAOException {
+    	
+        return find(SQL_FIND_BY_OBO_ID_AEO, oboid);
+    }
+    
+    /*
+     * Returns the daocomponentalternative from the database matching the given OBO ID for an UBERON Alternative, otherwise null.
+     */
+    public ComponentAlternative findByOboIdUBERON(String oboid) throws DAOException {
+    	
+        return find(SQL_FIND_BY_OBO_ID_UBERON, oboid);
+    }
+    
+    /*
+     * Returns the daocomponentalternative from the database matching the given OBO ID for an CARO Alternative, otherwise null.
+     */
+    public ComponentAlternative findByOboIdCARO(String oboid) throws DAOException {
+    	
+        return find(SQL_FIND_BY_OBO_ID_CARO, oboid);
+    }
+    
+    /*
+     * Returns the daocomponentalternatives from the database matching the given OBO ID, otherwise null.
      */
     public List<ComponentAlternative> listByOboId(String oboid) throws DAOException {
     	
@@ -142,7 +184,7 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     * Returns the daocomponentsynonyms from the database matching the given OBI Name, otherwise null.
+     * Returns the daocomponentalternatives from the database matching the given OBI Name, otherwise null.
      */
     public List<ComponentAlternative> listByAltId(String text) throws DAOException {
     	
@@ -158,7 +200,7 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     * Returns true if the given daocomponentsynonym OID exists in the database.
+     * Returns true if the given daocomponentalternative OID exists in the database.
      */
     public boolean existOid(String oid) throws DAOException {
     	
@@ -166,24 +208,24 @@ public final class ComponentAlternativeDAO {
     }
 
     /*
-     * Save the given daocomponentsynonym in the database.
+     * Save the given daocomponentalternative in the database.
      * 
      *  If the ComponentAlternative OID is null, 
      *   then it will invoke "create(ComponentAlternative)", 
      *   else it will invoke "update(ComponentAlternative)".
      */
-    public void save(ComponentAlternative daocomponentsynonym) throws DAOException {
+    public void save(ComponentAlternative daocomponentalternative) throws DAOException {
      
-    	if (daocomponentsynonym.getOid() == null) {
-            create(daocomponentsynonym);
+    	if (daocomponentalternative.getOid() == null) {
+            create(daocomponentalternative);
         }
     	else {
-            update(daocomponentsynonym);
+            update(daocomponentalternative);
         }
     }
 
     /*
-     * Returns the daocomponentsynonym from the database matching the given 
+     * Returns the daocomponentalternative from the database matching the given 
      *  SQL query with the given values.
      */
     private ComponentAlternative find(String sql, Object... values) throws DAOException {
@@ -191,7 +233,7 @@ public final class ComponentAlternativeDAO {
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        ComponentAlternative daocomponentsynonym = null;
+        ComponentAlternative daocomponentalternative = null;
 
         try {
             connection = daoFactory.getConnection();
@@ -199,7 +241,7 @@ public final class ComponentAlternativeDAO {
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
-                daocomponentsynonym = mapComponentAlternative(resultSet);
+                daocomponentalternative = mapComponentAlternative(resultSet);
             }
         } 
         catch (SQLException e) {
@@ -209,7 +251,7 @@ public final class ComponentAlternativeDAO {
             close(connection, preparedStatement, resultSet);
         }
 
-        return daocomponentsynonym;
+        return daocomponentalternative;
     }
     
     /*
@@ -243,17 +285,17 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     * Create the given daocomponentsynonym in the database. 
+     * Create the given daocomponentalternative in the database. 
      * 
-     *  The daocomponentsynonym OID must be null, otherwise it will throw IllegalArgumentException.
-     *  If the daocomponentsynonym OID value is unknown, rather use save(ComponentAlternative).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentsynonym.
+     *  The daocomponentalternative OID must be null, otherwise it will throw IllegalArgumentException.
+     *  If the daocomponentalternative OID value is unknown, rather use save(ComponentAlternative).
+     *   After creating, the DAO will set the obtained ID in the given daocomponentalternative.
      */
-    public void create(ComponentAlternative daocomponentsynonym) throws IllegalArgumentException, DAOException {
+    public void create(ComponentAlternative daocomponentalternative) throws IllegalArgumentException, DAOException {
 
     	Object[] values = {
-        	daocomponentsynonym.getId(),
-            daocomponentsynonym.getAltId()
+        	daocomponentalternative.getId(),
+            daocomponentalternative.getAltId()
         };
 
         Connection connection = null;
@@ -285,20 +327,20 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     * Update the given daocomponentsynonym in the database.
-     *  The daocomponentsynonym OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the daocomponentsynonym OID value is unknown, rather use save(ComponentAlternative)}.
+     * Update the given daocomponentalternative in the database.
+     *  The daocomponentalternative OID must not be null, otherwise it will throw IllegalArgumentException. 
+     *  If the daocomponentalternative OID value is unknown, rather use save(ComponentAlternative)}.
      */
-    public void update(ComponentAlternative daocomponentsynonym) throws DAOException {
+    public void update(ComponentAlternative daocomponentalternative) throws DAOException {
     	
-        if (daocomponentsynonym.getOid() == null) {
-            throw new IllegalArgumentException("ComponentAlternative is not created yet, so the daocomponentsynonym OID cannot be null.");
+        if (daocomponentalternative.getOid() == null) {
+            throw new IllegalArgumentException("ComponentAlternative is not created yet, so the daocomponentalternative OID cannot be null.");
         }
 
         Object[] values = {
-            daocomponentsynonym.getId(),
-            daocomponentsynonym.getAltId(),
-           	daocomponentsynonym.getOid()
+            daocomponentalternative.getId(),
+            daocomponentalternative.getAltId(),
+           	daocomponentalternative.getOid()
         };
 
         Connection connection = null;
@@ -316,7 +358,7 @@ public final class ComponentAlternativeDAO {
                     throw new DAOException("Updating ComponentAlternative failed, no rows affected.");
                 } 
                 else {
-                	daocomponentsynonym.setOid(null);
+                	daocomponentalternative.setOid(null);
                 }
             }
             else {
@@ -332,13 +374,13 @@ public final class ComponentAlternativeDAO {
     }
      
     /*
-     *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  Delete the given daocomponentalternative from the database. 
+     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
      */
-    public void delete(ComponentAlternative daocomponentsynonym) throws DAOException {
+    public void delete(ComponentAlternative daocomponentalternative) throws DAOException {
     	
         Object[] values = { 
-        	daocomponentsynonym.getOid() 
+        	daocomponentalternative.getOid() 
         };
 
         Connection connection = null;
@@ -356,7 +398,7 @@ public final class ComponentAlternativeDAO {
                     throw new DAOException("Deleting ComponentAlternative failed, no rows affected.");
                 } 
                 else {
-                	daocomponentsynonym.setOid(null);
+                	daocomponentalternative.setOid(null);
                 }
             }
             else {
@@ -372,8 +414,8 @@ public final class ComponentAlternativeDAO {
     }
     
     /*
-     *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  Delete the given daocomponentalternative from the database. 
+     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
      */
     public void empty() throws DAOException {
     	

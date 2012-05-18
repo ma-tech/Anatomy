@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Server/build/classes"/>
         <wb-resource deploy-path="/WEB-INF/lib" source-path="/Server/lib"/>
         <wb-resource deploy-path="/WEB-INF" source-path="/Server/WEB-INF"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/DAOSource"/>
         <property name="context-root" value="DAOAnatomyUpload"/>
         <property name="java-output-path" value="/DAOAnatomyUpload/build/classes"/>
     </wb-module>

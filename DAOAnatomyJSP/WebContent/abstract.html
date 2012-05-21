@@ -1,126 +1,262 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-  <title>JSP - ANATOMY STUFF</title>
-
-  <script type="text/javascript" src="./scripts/jsTree.v.1.0rc2/_lib/jquery.js"></script>
-  <script type="text/javascript" src="./scripts/jsTree.v.1.0rc2/_lib/jquery.hotkeys.js"></script>
-  <script type="text/javascript" src="./scripts/jsTree.v.1.0rc2/jquery.cookie.js"></script>
-  <script type="text/javascript" src="./scripts/jsTree.v.1.0rc2/jquery.jstree.js"></script>
-  <script type="text/javascript" src="./scripts/jsTree.v.1.0rc2/jquery.jstree.extra.js"></script>
-
-  <link type="text/css" rel="stylesheet" href="./css/global.css">
-
-  <style type="text/css">
-    #tree {
-      font-family: Verdana, helvetica, arial, sans-serif;
-      font-size: 100%;
-    }
-  </style>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/ema_template.dwt" codeOutsideHTMLIsLocked="false" -->
+   <head>
+   <!-- InstanceBeginEditable name="doctitle" -->
+   <title>abstract anatomy ontology</title>
+     <script type="text/javascript" src="./scripts/jstree_pre1/_lib/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="./scripts/jstree_pre1/_lib/jquery.cookie.js"></script>
+  <script type="text/javascript" src="./scripts/jstree_pre1/_lib/jquery.hotkeys.js"></script>
+  <script type="text/javascript" src="./scripts/jstree_pre1/jquery.jstree.js"></script>
+  <script type="text/javascript" src="./scripts/jstree_pre1/_docs/syntax/!script.js"></script>
 
   <script type="text/javascript" src="./scripts/buildPaths.js"></script>
-  
-  <script type="text/javascript">
-	/*
-	 * Build the initial JsTree
-	 */ 
-  $(function () {
-	    $("#tree").jstree({ 
-		    "json_data" : {
-			    "data" : [
-				    {
-				    	"data" : "Anatomy",
-					    "attr" : { 
-					    	"id" : "li.node.BASE.Abstract.id0", 
-			                "ext_id" : "EMAPA:0",
-					    	"name" : "Anatomy",
-  				    	    "start" : "TS01",
-							"end" : "TS28"
-					    },
-					    "children": [{
-                            "attr": {
-                                 "ext_id": "EMAPA:25765", 
-                                 "id": "li.node.BRANCH.Abstract.id33", 
-                                 "name": "mouse",
-       				    	     "start" : "TS01",
-    							 "end" : "TS28"
-                             },
-                             "data": "mouse"
-                        }
-					    ],
-					    "state" : "open"
-				    }
-			    ],
-			    
-			    "progressive_render" : true,
-		    },
-		    "contextmenu" : {
-		    	"items" : createDefaultMenu 
-		    },
-		    "plugins": [
-		        "themes", 
-		        "json_data", 
-		        "ui",
-		        "contextmenu"
-		    ]
-  	})
-  	.bind("select_node.jstree", function (event, data) {
-		popUpAbstractDetails( data.rslt.obj );
-    })
-  });
-  
-    /*
-     * Create the Right Click Menu for each item in the Tree
-     */
-    function createDefaultMenu(obj){
-		
-		var arrayStr = obj.attr("id").split(".");
-    	var nodeType = arrayStr[2];
-    	var treeType = arrayStr[3];
+  <script type="text/javascript" src="./scripts/ema_tree_abstract.js"></script>
+  <script type="text/javascript" src="./scripts/ema_ts.js"></script>
+  <link href="css/ontology.css" rel="stylesheet" type="text/css" />
 
-    	var stageSeq = "0";
-    	var emapId = "";
-		
-        //alert("Tree Type = " + treeType + "\nnodeType = " + nodeType); 
-
-    	if ( nodeType == "BRANCH") {
-    	    return {
-                "Expand" : {
-            	    label : "Expand Branch",
-	            	action: function (obj) {
-	                	addAbstractSubTree(obj);
-		            },
-                	"seperator_after" : false,
-            	    "seperator_before" : false
-                }
-    	    }
-    	}
-    	
-    }
-    
-  </script>
-
+   <!-- InstanceEndEditable -->
+   <link rel="shortcut icon" href="http://www.emouseatlas.org/emage/images/emage.ico" />
+   <link href="../../css/ema.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript">
+   var addressBar = window.location.href;
+   function popupCenterFixedURL(w,h)
+{
+	var searchString = "/emap/";
+	var pageURL = 'help/feedback/popupemap.php';
+	var currentURL = window.document.location;		
+	var urlStringEmapLocation = currentURL.href.search(searchString);
+	if (urlStringEmapLocation != -1) {
+		pageURL = currentURL.href.substring(0,urlStringEmapLocation) + searchString + pageURL;
+	};
+	var windowname = 'feedbackEmap';
+	var left = (screen.width/2)-(w/2);
+	var top = (screen.height/2)-(h/2);
+	var targetWin = window.open (pageURL, windowname, 'resizeable=1, toolbar=0, scrollbars=1,'+'width='+w+', height='+h+', top='+top+', left='+left);
+}
+   </script>
+   <script type="text/javascript" src="../../javascript/main.js"></script>
+   <script type="text/javascript" src="../../javascript/gatag.js"></script>
+   
+      <!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
 </head>
 
-<body>
+   <body onload="open_tree()">
+      
+   <div id="header">
+   	<a href="../../home.html">
+     <img src="../../images/ema_logo.png" alt="mouse atlas project logo" class="logo" />    </a>
+	
+	<a href="../../home.html" class="header_text_img">
+	<!--[if lte IE 6]>
+	<span style="width:163px;height:69px;display:inline-block;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.emouseatlas.org/emage/images/emage_name_only_logo.png');">
+		<img style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);" 
+			src="varyAlpha.png" width="163" height="69" border="0" alt="">
+		</span>
+	<![endif]-->	
+     <img src="../../images/emap_text_only_copy.png" class="hack" title="e mouse atlas project" alt="mouse atlas project - spatial image data, structured anatomy, gene expression" /> </a> 
+	    
+  <div class="form">
+        <form name="quickSearch" action="http://www.google.co.uk/search" method="get">
+          Site Search&nbsp;&nbsp;
+             <input class="quick_search" name="as_q" type="text" size="15" value=""></input>
+              &nbsp;&nbsp;
+             <input class="quick_search" type="submit" value="Go"> </input>
+			 <input class="quick_search" name="as_sitesearch" type="hidden" value="www.emouseatlas.org/emap"></input>
+        </form>
+     </div> 
+	  <!--end form div-->
+	  
+	  <div class="feedback">
+	  	<img src="../../help/feedback/feedback_icon.png" />
+        <a class="header_link" href="javascript:void(0);" onclick="popupCenterFixedURL(580,690);">Feedback</a>
+	  </div> 
+	  <div class="compatibility">
+	  	<a class="header_link" href="../../help/compatibility.html">Browser compatibility</a>
+	  </div>
+	   
+           <div class="emage_menu">
+              <ul id="nav">
+			  <li style="margin: 0px 10px;"><a href="../../home.html">EMAP Project</a>     
+                  <ul>
+                  	   <li><a href="../../home.html">EMAP&nbsp;Home</a></li>
+                       <li><a href="../../analysis_tools_resources/analysis_tools_resources.html">EMAP&nbsp;Analysis&nbsp;Tools&nbsp;&amp;&nbsp;Resources</a></li>
+                       <li><a href="../../eatlas_links/eatlas_links.html">EMAP&nbsp;eAtlas&nbsp;Links</a></li>
+                       <li><a href="../../news/news.html">EMAP&nbsp;News</a></li>
+                   </ul>	
+				</li>
+                <li style="margin: 0px 10px;"><a href="../home.html">EMA&nbsp;Anatomy&nbsp;Atlas</a>     
+                  <ul>
+                  <li><a href="../home.html">EMA&nbsp;Home</a></li>
+                  <li><a href="../protocols/protocols.html">EMA&nbsp;Protocols</a></li>
+				  <li><a href="../theiler_stages/theiler_stages.html">EMA&nbsp;Theiler&nbsp;Stages</a></li>
+                  <li><a href="../staging_criteria/staging_criteria.html">EMA&nbsp;Staging&nbsp;Criteria</a></li>
+                   </ul>	
+				</li>
+                 <li style="margin: 0px 10px;"><a href="http://www.emouseatlas.org/emage/home.php">EMAGE Gene Expression</a>
+                  <ul>
+                  		<li><a href="http://www.emouseatlas.org/emage/home.php">EMAGE&nbsp;Home</a></li>
+                       <li><a href="http://www.emouseatlas.org/emage/search/all_search_tools.html">EMAGE&nbsp;Search&nbsp;&amp;&nbsp;Analysis</a></li>
+                       <li><a href="http://www.emouseatlas.org/emage/data_submission/all_submission_options.html">EMAGE&nbsp;Data&nbsp;Submission</a></li>
+                   </ul>
+                </li>
+                 <li style="margin: 0px 10px;"><a href="../../about/about.html">About</a>
+                  <ul>
+                       <li><a href="../../about/what_is_emap.html">About&nbsp;EMAP</a></li>
+                       <li><a href="../../about/people.html">People</a></li>
+                       <li><a href="../../about/publications.html">Publications</a></li>
+                       <li><a href="../../about/citing_emap.html">Citing&nbsp;EMAP</a></li>
+                       <li><a href="../../about/collaborations/collaborations.html">Collaborations</a></li>
+                   </ul>
+                </li>
 
-  <h1>JAVASCRIPT - ANATOMY STUFF - ABSTRACT</h1>
-  
-  <fieldset>
-  
-  <legend>Browse Anatomy Tree .... Javascript</legend>
+                 <li style="margin: 0px 10px;"><a href="../../help/help.html">Help</a>
+                   <ul>
+                       <li><a href="../../help/tutorials.html">Tutorials</a></li>
+					   <li><a href="../../help/documentation.html">Documentation</a></li>
+                       <li><a href="../../help/glossary.html">Glossary&nbsp;of&nbsp;Terms</a></li>
+                       <li><a href="../../help/faqs.html">FAQs</a></li>   
+                       <li><a href="../../help/site_map.html">Site&nbsp;Map</a></li>
+                       <li><a href="../../help/contact.html">Contact&nbsp;EMAP</a></li>
+					   <li><a href="../../help/compatibility.html">Browser&nbsp;Compatibility</a></li>
+                   </ul>
+                </li>
+              </ul>
+           </div>
+	  <!--end menu div -->
+	   
+   </div><!--end header div -->
+
+   <div id="end_header">   </div>
+
+  <!-- END OF HEADER -------------------------------------->
+
+  <!-- START OF GENERAL CONTENT --------------------------->
+   <div id="content">
+     <!-- InstanceBeginEditable name="General Content" -->
   <br />
+  <div id="tree_title"></div>
+  <p></p>
+  <div id="version">Anatomy Ontology Version 008</div>
+  <p></p>
+
+  <fieldset class="fieldset"> 
+     <legend>Theiler Stage Navigation</legend>
+     <div id="navigation_toggle">
+        <img src="/emap/ema/images/common/hide.png"/>
+        <span class="small_toggle">hide navigation</span>
+     </div>	  
+     <div id="navigation_container">
+        <p></p>
+        <div id="stage_selector">Ontology dropdown: 
+	   <select id="nav_selector" >
+	      <option value="TS01">TS01</option>
+	      <option value="TS02">TS02</option>
+	      <option value="TS03">TS03</option>
+	      <option value="TS04">TS04</option>
+	      <option value="TS05">TS05</option>
+	      <option value="TS06">TS06</option>
+	      <option value="TS07">TS07</option>
+	      <option value="TS08">TS08</option>
+	      <option value="TS09">TS09</option>
+	      <option value="TS10">TS10</option>
+	      <option value="TS11">TS11</option>
+	      <option value="TS12">TS12</option>
+	      <option value="TS13">TS13</option>
+	      <option value="TS14">TS14</option>
+	      <option value="TS15">TS15</option>
+	      <option value="TS16">TS16</option>
+	      <option value="TS17">TS17</option>
+	      <option value="TS18">TS18</option>
+	      <option value="TS19">TS19</option>
+	      <option value="TS20">TS20</option>
+	      <option value="TS21">TS21</option>
+	      <option value="TS22">TS22</option>
+	      <option value="TS23">TS23</option>
+	      <option value="TS24">TS24</option>
+	      <option value="TS25">TS25</option>
+	      <option value="TS26">TS26</option>
+	      <option value="Abstract">Abstract</option>
+	   </select>
+	</div>
+        <p></p>
+        <div id="stage_index">Theiler Stages: <a href="../theiler_stages/StageDefinition/stagedefinition.html">All Stages Summary Table</a></div>
+        <p></p>
+        <div id="stage_definition">inserted by ema_tree.js</div>
+        <p></p>
+     </div>
+  </fieldset> 
+
+  <fieldset class="fieldset">
+     <legend>Interactive Tree <span class="small_legend">(right click for menu options)</span></legend>
+     <div id="interactive_tree_toggle">
+        <img src="/emap/ema/images/common/hide.png"/>
+        <span class="small_toggle">hide tree</span>
+     </div>
+     <br />
+     <div id="interactive_tree_container">
+        <div id="tree"></div>
+     </div>
+  </fieldset> 
+
+  <fieldset class="fieldset">
+     <legend>Text Tree</legend>
+     <div id="text_tree_toggle">
+        <img src="/emap/ema/images/common/hide.png"/>
+        <span class="small_toggle">hide tree</span>
+     </div>
+     <div id="text_tree_container">
+        <iframe id="text_tree" src="" width="100%" height="300px" frameborder="0">
+	  <p>Your browser does not support iframes. <a href="text/index.html">Text tree index</a></p>
+        </iframe>
+     </div>
+  </fieldset> 
+
+  <fieldset class="fieldset">
+  <legend>Download</legend>	  
+  <div id="download"></div>
+  </fieldset> 
+	 <!-- InstanceEndEditable --></div>
+
+   <!-- END OF GENERAL CONTENT --------------------------->
   
-  <p><a href="javascript.html">BACK</a></p>
-
-  <div id="tree"></div>
-
-  <br />
-  
-  </fieldset>
-
+  <!-- START OF FOOTER ------------------------------->
+  <div id="footer">
+	<hr noshade="noshade"/>
+	<div id="footerLeftDiv">
+	</div>
+	<div id="footerCentreDiv">
+    	<div id="footerEmapContact">
+    		EMAP &#8226; Human Genetics Unit &#8226; Medical Research Council<br/>			
+        	Tel: +44(0)131 332 2471 &#8226; <a href="mailto:emap@emouseatlas.org">emap@emouseatlas.org</a></div>
+		<div id="footerCopyrightImgDiv">
+			<img alt="Creative Commons Attribution License" src="../../images/cc_small.png"/>
+        </div>
+		<div id="footerCopyrightTextDiv">
+			All site content,
+			<a class="footer_links" href="../../info/copyright.html">except where otherwise noted,</a>
+			is licensed under a
+			<a class="footer_links" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License.</a>
+			<br/>
+            <br/>
+	    </div>
+						
+	</div>
+   	<div id="footerRightDiv">
+	    	<a href="http://www.mrc.ac.uk">
+		<img alt="MRC" src="../../images/MRC_50H.gif"/>		</a>
+	</div>
+  </div>
 </body>
 
-</html>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8582879-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- InstanceEnd --></html>

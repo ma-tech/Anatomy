@@ -205,6 +205,9 @@ jQuery(document).ready(function(){
 	"<a href=\"text/" + stage + "GroupsTrailing.rtf\">" + stage + ".rtf </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>";
 
+      //set the navigation selector drop down
+      $("#nav_selector").val(stage);
+
       var idMap = emouseatlas.emap.emaTree.getEmbryoIdMap();
       if ( ! idMap.hasItem(stage)) {
 	 return;
@@ -238,8 +241,7 @@ jQuery(document).ready(function(){
 			    "ajax" : { 
 				    async : false,
 				    type : 'GET',
-				    //"url" : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
-				    "url" : "http://localhost:8080/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
+				    "url" : "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
 				    dataType : "text",
 				    data : function (n) { 
 					    var emap_id = n.attr("ext_id").replace(/EMAP:/,"");

@@ -1,6 +1,10 @@
 // ema_ts.js
 // various effects for ema theiler stage and ontology pages
 $(document).ready(function() {
+   $("#nav_selector").change(function() { 
+	window.location.href = "anatomy.html?stage=" + $("#nav_selector option:selected").text();
+   });
+
    $("#navigation_toggle").toggle(function(){
         $("#navigation_container").hide('fast');
         $("#navigation_toggle span").html("show navigation");

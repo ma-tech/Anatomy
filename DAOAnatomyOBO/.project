@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>DAOAnatomyRebuild</name>
+	<name>DAOAnatomyOBO</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -19,11 +19,6 @@
 			<name>DAOsrc</name>
 			<type>2</type>
 			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomy008/src</location>
-		</link>
-		<link>
-			<name>OBOsrc</name>
-			<type>2</type>
-			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomyOBO/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

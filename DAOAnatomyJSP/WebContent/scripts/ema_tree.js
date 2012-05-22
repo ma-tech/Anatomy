@@ -241,7 +241,7 @@ jQuery(document).ready(function(){
 			    "ajax" : { 
 				    async : false,
 				    type : 'GET',
-				    "url" : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
+				    "url" : "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
 				    dataType : "text",
 				    data : function (n) { 
 					    var emap_id = n.attr("ext_id").replace(/EMAP:/,"");

@@ -209,7 +209,7 @@ jQuery(document).ready(function(){
 			    "ajax" : { 
 				    async : false,
 				    type : 'GET',
-				    "url" : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
+				    "url" : "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
 				    dataType : "text",
 				    data : function (n) { 
 					    var emap_id = n.attr("ext_id");

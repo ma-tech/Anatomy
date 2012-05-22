@@ -59,7 +59,6 @@ public final class FileUtil {
      * Write byte array to file. If file already exists, it will be overwritten.
      * @param file The file where the given byte array have to be written to.
      * @param bytes The byte array which have to be written to the given file.
-     * @throws IOException If writing file fails.
      */
     public static void write(File file, byte[] bytes) throws IOException {
         write(file, new ByteArrayInputStream(bytes), false);

@@ -67,8 +67,8 @@ public class RunOBOBardUpdateComponent {
         // Obtain DAOs.
         ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
         
-        File fileIn = new File("/Users/mwicks/Desktop/anaOboComponent_IN.csv");
-        File fileOut = new File("/Users/mwicks/Desktop/anaOboComponent_OUT.csv");
+        File fileIn = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponent_IN.csv");
+        File fileOut = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponent_OUT.csv");
         
         InputStream fileStream = FileUtil.readStream(fileIn);
         
@@ -97,19 +97,19 @@ public class RunOBOBardUpdateComponent {
     		 * AOC_STATUS_RULE
     		 */
             
-    		String aocOid = rowString.get(0);
-    		String aocName = rowString.get(1);
-    		String aocOboId = rowString.get(2);
-    		String aocOboDbId = rowString.get(3);
-    		String aocNewId = rowString.get(4);
-    		String aocNamespace = rowString.get(5);
-    		String aocDefinition = rowString.get(6);
-    		String aocGroup = rowString.get(7);
-    		String aocStart = rowString.get(8);
-    		String aocEnd = rowString.get(9);
-    		String aocPresent = rowString.get(10);
-    		String aocStatusChange = rowString.get(11);
-    		String aocStatusRule = rowString.get(12);
+    		String aocOid = rowString.get(0).replace(',', ' ');
+    		String aocName = rowString.get(1).replace(',', ' ');
+    		String aocOboId = rowString.get(2).replace(',', ' ');
+    		String aocOboDbId = rowString.get(3).replace(',', ' ');
+    		String aocNewId = rowString.get(4).replace(',', ' ');
+    		String aocNamespace = rowString.get(5).replace(',', ' ');
+    		String aocDefinition = rowString.get(6).replace(',', ' ');
+    		String aocGroup = rowString.get(7).replace(',', ' ');
+    		String aocStart = rowString.get(8).replace(',', ' ');
+    		String aocEnd = rowString.get(9).replace(',', ' ');
+    		String aocPresent = rowString.get(10).replace(',', ' ');
+    		String aocStatusChange = rowString.get(11).replace(',', ' ');
+    		String aocStatusRule = rowString.get(12).replace(',', ' ');
     		
     		String aocOboAltId = "";
 

@@ -34,8 +34,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
 import obomodel.OBOComponent;
@@ -145,12 +147,11 @@ public class Producer {
             outputFile.write("format-version: " + fileVersion + "\n");
 
             // date
-            //outputFile.write("date: "+DATE+"\n");
-            Calendar cal = Calendar.getInstance();
-            outputFile.write("date: " + cal.get(Calendar.DAY_OF_MONTH) + ":" +
-                    cal.get(Calendar.MONTH) + ":" + cal.get(Calendar.YEAR) + " " +
-                    cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) +
-                    "\n");
+            Date today = new Date();
+        	SimpleDateFormat format = new SimpleDateFormat("dd:MM:yyyy HH:mm");
+        	String formattedDate = format.format(today);
+            outputFile.write("date: " + formattedDate + "\n");
+            System.out.println("Today’s date and Time is: " + formattedDate);
 
             // saved by
             outputFile.write("saved-by: " + fileSavedBy + "\n");
@@ -159,7 +160,7 @@ public class Producer {
             outputFile.write("default-namespace: " + fileNameSpace + "\n");
 
             // remark
-            outputFile.write("remark: " + fileRemark + "\n");
+            outputFile.write("remark: " + fileRemark + "\n\n");
 
             // terms - OBOComponent
             //  for i
@@ -167,7 +168,7 @@ public class Producer {
             	
                 if ( !obocomponentList.get(i).getStatusChange().equals("DELETED") ){
 
-                	outputFile.write("\n[Term]\n");
+                	outputFile.write("[Term]\n");
                     outputFile.write("id: " + obocomponentList.get(i).getID() + "\n");
                     outputFile.write("name: " + obocomponentList.get(i).getName() + "\n");
                     outputFile.write("namespace: " +
@@ -262,7 +263,7 @@ public class Producer {
                             firstComment = false;
                         } 
                         else {
-                            outputFile.write("\n");
+                            //outputFile.write("\n");
                         }
                     
                         outputFile.write(k.next());
@@ -297,7 +298,7 @@ public class Producer {
             isProcessed = false;
     		io.printStackTrace();
     	}
-    	
+
     	return isProcessed;
     			
     }

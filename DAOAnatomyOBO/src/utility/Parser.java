@@ -128,7 +128,8 @@ public class Parser {
 
                 OBOClassImpl oboclassimpl = (OBOClassImpl) map.get(i.next());
                 
-            	//System.out.println("ID = " + oboclassimpl.getID());
+            	//System.out.println("ID =  " + oboclassimpl.getID());
+            	//System.out.println("DEF = " + oboclassimpl.getDefinition().toString());
             	
                 //remove 4 default extra terms in map created by obosession.getAllTermsHash()
                 if(!oboclassimpl.getID().startsWith("obo")){

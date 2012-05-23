@@ -67,8 +67,8 @@ public class RunOBOBardUpdateRelationship {
         // Obtain DAOs.
         ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
         
-        File fileIn = new File("/Users/mwicks/Desktop/anaOboComponentRelationship_IN.csv");
-        File fileOut = new File("/Users/mwicks/Desktop/anaOboComponentRelationship_OUT.csv");
+        File fileIn = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponentRelationship_IN.csv");
+        File fileOut = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponentRelationship_OUT.csv");
         
         InputStream fileStream = FileUtil.readStream(fileIn);
         
@@ -82,12 +82,12 @@ public class RunOBOBardUpdateRelationship {
     		List<String> rowString = iteratorRow.next();
     		List<String> rowStringOut = new ArrayList<String>();
             
-    		String acrOid = rowString.get(0);
-    		String acrOboChild = rowString.get(1);
-    		String acrOboChildStart = rowString.get(2);
-    		String acrOboChildStop = rowString.get(3);
-    		String acrOboType = rowString.get(4);
-    		String acrOboParent = rowString.get(5);
+    		String acrOid = rowString.get(0).replace(',', ' ');
+    		String acrOboChild = rowString.get(1).replace(',', ' ');
+    		String acrOboChildStart = rowString.get(2).replace(',', ' ');
+    		String acrOboChildStop = rowString.get(3).replace(',', ' ');
+    		String acrOboType = rowString.get(4).replace(',', ' ');
+    		String acrOboParent = rowString.get(5).replace(',', ' ');
     		
     		String acrOboChildAlt = "";
     		String acrOboParentAlt = "";

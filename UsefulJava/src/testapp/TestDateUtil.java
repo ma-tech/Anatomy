@@ -20,9 +20,9 @@ public class TestDateUtil {
     	
     	try {
     	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   -------------------");
+            System.out.println("=========   ------------");
             System.out.println("EXECUTING - TestDateUtil.java on " + parsed.toString());
-            System.out.println("=========   -------------------");
+            System.out.println("=========   ------------");
             System.out.println("");
 
             System.out.println("Set Up Date Strings");
@@ -514,9 +514,9 @@ public class TestDateUtil {
         	long duration = endTime - startTime;
 
             System.out.println("");
-            System.out.println("====       ------------------");
+            System.out.println("====       ------------");
             System.out.println("DONE ----- TestDateUtil.java took " + duration + " milliseconds");
-            System.out.println("====       ------------------");
+            System.out.println("====       ------------");
 
     	}
     	catch (Exception e) {

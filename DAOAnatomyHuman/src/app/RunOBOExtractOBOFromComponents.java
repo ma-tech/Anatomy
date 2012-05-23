@@ -93,20 +93,20 @@ public class RunOBOExtractOBOFromComponents {
     		
             OBOComponent obocomponent = new OBOComponent();
             
-    		obocomponent.setID(component.getId());
-    		obocomponent.setDBID(component.getDbId());
-    		obocomponent.setNewID(component.getNewId());
-    		obocomponent.setName(component.getName());
-    		obocomponent.setNamespace(component.getNamespace());
-    		obocomponent.setDefinition(component.getDefinition());
+    		obocomponent.setID(component.getId().replace("\n", " ").trim());
+    		obocomponent.setDBID(component.getDbId().replace("\n", " ").trim());
+    		obocomponent.setNewID(component.getNewId().replace("\n", " ").trim());
+    		obocomponent.setName(component.getName().replace("\n", " ").trim());
+    		obocomponent.setNamespace(component.getNamespace().replace("\n", " ").trim());
+    		obocomponent.setDefinition(component.getDefinition().replace("\n", " ").trim());
     		obocomponent.setGroup(ObjectConverter.convert(component.getGroup(), Boolean.class));
-    		obocomponent.setStart(component.getStart());
-    		obocomponent.setEnd(component.getEnd());
+    		obocomponent.setStart(component.getStart().replace("\n", " ").trim());
+    		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());
     		obocomponent.setPresent(component.getPresent());
-    		obocomponent.setStatusChange(component.getStatusChange());
-    		obocomponent.setStatusRule(component.getStatusRule());
+    		obocomponent.setStatusChange(component.getStatusChange().replace("\n", " ").trim());
+    		obocomponent.setStatusRule(component.getStatusRule().replace("\n", " ").trim());
 
-    		componentrelationships = componentrelationshipDAO.listByOboId(component.getId());
+    		componentrelationships = componentrelationshipDAO.listByOboId(component.getId().replace("\n", " ").trim());
 
         	Iterator<ComponentRelationship> iteratorComponentRelationship = componentrelationships.iterator();
 
@@ -114,8 +114,8 @@ public class RunOBOExtractOBOFromComponents {
         		
         		componentrelationship = iteratorComponentRelationship.next();
 
-        		obocomponent.addChildOf(componentrelationship.getParent());
-        		obocomponent.addChildOfType(componentrelationship.getType());
+        		obocomponent.addChildOf(componentrelationship.getParent().replace("\n", " ").trim());
+        		obocomponent.addChildOfType(componentrelationship.getType().replace("\n", " ").trim());
         	}
         	
         	obocomponents.add(obocomponent);

@@ -1,12 +1,11 @@
 package daomodel;
 
-import java.io.Serializable;
 import java.io.InputStream;
 
 /*
  * This class represents a Data Transfer Object for the Object. 
  */
-public class OBOFile implements Serializable {
+public class OBOFile {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *  Columns:

@@ -115,7 +115,7 @@ public final class EditorDAO {
      * Returns a list of ALL editors, otherwise null.
      */
     public List<Editor> listAll() throws DAOException {
-        return list(SQL_LIST_ALL, null);
+        return list(SQL_LIST_ALL, (Object[]) null);
     }
     
     /**

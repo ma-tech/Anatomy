@@ -38,10 +38,10 @@ import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 
-import utility.ImportDatabase;
-import utility.MapBuilder;
-import utility.TreeBuilder;
-import utility.ValidateComponents;
+import routines.ImportDatabase;
+import routines.MapBuilder;
+import routines.TreeBuilder;
+import routines.ValidateComponents;
 
 public class RunOBOCheckDatabaseReferenceTree {
 	/*

@@ -35,6 +35,7 @@
 
 package obolayer;
 
+@SuppressWarnings("serial")
 public class OBOConfigurationException extends RuntimeException {
     // Constructors -------------------------------------------------------------------------------
     /*

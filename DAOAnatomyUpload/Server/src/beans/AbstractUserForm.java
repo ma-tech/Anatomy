@@ -38,7 +38,6 @@ public abstract class AbstractUserForm extends AbstractForm {
     /*
      * Validate the username.
      */
-    @SuppressWarnings("unused")
     public void validateUsername(FacesContext facesContext, UIComponent component, Object value)
         throws ValidatorException
     {

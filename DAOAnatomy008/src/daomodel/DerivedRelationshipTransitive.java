@@ -1,11 +1,9 @@
 package daomodel;
 
-import java.io.Serializable;
-
 /**
  * This class represents a Data Transfer Object for the DerivedPartOf. 
  */
-public class DerivedRelationshipTransitive implements Serializable {
+public class DerivedRelationshipTransitive {
 
     // Properties ---------------------------------------------------------------------------------
 	/*

@@ -34,9 +34,7 @@
 
 package daomodel;
 
-import java.io.Serializable;
-
-public class DerivedPartOf implements Serializable {
+public class DerivedPartOf {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *  Columns:

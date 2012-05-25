@@ -48,13 +48,14 @@ import org.apache.commons.io.IOUtils;
 import obomodel.OBOComponent;
 
 import utility.ExecuteCommand;
-import utility.GenerateEditorPDF;
-import utility.GenerateEditorReport;
-import utility.ImportDatabase;
-import utility.ImportFile;
-import utility.MapBuilder;
-import utility.TreeBuilder;
-import utility.ValidateComponents;
+
+import routines.GenerateEditorPDF;
+import routines.GenerateEditorReport;
+import routines.ImportDatabase;
+import routines.ImportFile;
+import routines.MapBuilder;
+import routines.TreeBuilder;
+import routines.ValidateComponents;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;

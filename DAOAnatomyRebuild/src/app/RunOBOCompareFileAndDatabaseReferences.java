@@ -40,13 +40,13 @@ import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 
-import utility.ImportFile;
-import utility.ImportDatabase;
-import utility.MapBuilder;
-import utility.TreeBuilder;
-import utility.ValidateComponents;
-import utility.GenerateEditorReport;
-import utility.GenerateEditorPDF;
+import routines.ImportFile;
+import routines.ImportDatabase;
+import routines.MapBuilder;
+import routines.TreeBuilder;
+import routines.ValidateComponents;
+import routines.GenerateEditorReport;
+import routines.GenerateEditorPDF;
 
 public class RunOBOCompareFileAndDatabaseReferences {
 	/*

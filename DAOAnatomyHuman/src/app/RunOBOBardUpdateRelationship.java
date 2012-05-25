@@ -39,7 +39,6 @@ package app;
 import java.io.File;
 import java.io.InputStream;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -52,7 +51,6 @@ import daomodel.ComponentAlternative;
 
 import utility.FileUtil;
 import utility.CsvUtil;
-import utility.ObjectConverter;
 
 public class RunOBOBardUpdateRelationship {
 	/*

@@ -44,7 +44,7 @@ import obomodel.OBOComponent;
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
 
-import utility.ImportDatabase;
+import routines.ImportDatabase;
 
 public class RunOBOExtractOBOFromExistingDatabase {
 	/*
@@ -66,7 +66,7 @@ public class RunOBOExtractOBOFromExistingDatabase {
         obocomponents = importdatabase.getTermList();
         
         // Write out Obo File
-        componentOBO.setComponentList((ArrayList) obocomponents);
+        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
         componentOBO.createTemplateRelationList();
         
         Boolean isProcessed = componentOBO.writeAll();

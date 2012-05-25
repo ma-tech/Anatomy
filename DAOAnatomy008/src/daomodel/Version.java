@@ -34,9 +34,7 @@
 
 package daomodel;
 
-import java.io.Serializable;
-
-public class Version implements Serializable {
+public class Version {
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 *  ANA_VERSION - A record of all the versions of the Anatomy Database

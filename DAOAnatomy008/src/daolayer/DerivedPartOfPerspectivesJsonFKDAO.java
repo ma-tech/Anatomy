@@ -23,10 +23,6 @@ import daomodel.DerivedPartOfPerspectivesJsonFK;
 public final class DerivedPartOfPerspectivesJsonFKDAO {
 
     // Constants ----------------------------------------------------------------------------------
-    private static final String SQL_ROW_COUNT =
-        "SELECT COUNT(*) AS VALUE " +
-        "FROM ANAD_PART_OF_PERSPECTIVE ";
-
     private static final String SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +

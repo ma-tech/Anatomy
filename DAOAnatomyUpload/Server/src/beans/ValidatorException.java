@@ -7,6 +7,7 @@ package beans;
  * @author BalusC
  * @link http://balusc.blogspot.com/2008/07/dao-tutorial-use-in-jspservlet.html
  */
+@SuppressWarnings("serial")
 public class ValidatorException extends Exception {
 
     // Constructors -------------------------------------------------------------------------------

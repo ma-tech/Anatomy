@@ -34,6 +34,7 @@
 
 package daolayer;
 
+@SuppressWarnings("serial")
 public class DAOException extends Exception {
     // Constructors -------------------------------------------------------------------------------
     /*

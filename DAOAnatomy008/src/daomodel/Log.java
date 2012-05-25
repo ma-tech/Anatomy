@@ -34,9 +34,7 @@
 
 package daomodel;
 
-import java.io.Serializable;
-
-public class Log implements Serializable {
+public class Log {
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 *  ANA_Log - A Log of all Updates to the Anatomy Database

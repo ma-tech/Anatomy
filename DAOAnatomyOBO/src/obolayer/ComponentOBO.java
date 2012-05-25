@@ -31,6 +31,7 @@
 
 package obolayer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -66,7 +67,7 @@ public final class ComponentOBO {
     /*
      * Returns a list of ALL OBOComponents, otherwise null.
      */
-    public List<OBOComponent> listAll() throws OBOException {
+    public List<OBOComponent> listAll() throws OBOException, IOException {
     	
         return list();
     }
@@ -75,7 +76,7 @@ public final class ComponentOBO {
      * Returns a list of all components from the file. 
      *  The list is never null and is empty when the file does not contain any components.
      */
-    public List<OBOComponent> list() throws OBOException {
+    public List<OBOComponent> list() throws OBOException, IOException {
       
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 
@@ -262,7 +263,7 @@ public final class ComponentOBO {
      */
     public void createTemplateRelationList() throws OBOException {
     	
-        ArrayList<Relation> oborelationList = new ArrayList();
+        ArrayList<Relation> oborelationList = new ArrayList<Relation>();
         OBOComponent obocomponent;
 
         ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
@@ -369,7 +370,7 @@ public final class ComponentOBO {
      */
     public void createHumanRelationList() throws OBOException {
     	
-        ArrayList<Relation> oborelationList = new ArrayList();
+        ArrayList<Relation> oborelationList = new ArrayList<Relation>();
         OBOComponent obocomponent;
 
         ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();

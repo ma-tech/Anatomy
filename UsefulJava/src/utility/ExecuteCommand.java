@@ -36,7 +36,7 @@ public class ExecuteCommand {
     	BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
     	String line = "";
     	
-    	int i = 0;
+    	//int i = 0;
         ArrayList<String> lines = new ArrayList<String>();
     	
     	try {

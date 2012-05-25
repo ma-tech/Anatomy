@@ -1,11 +1,9 @@
 package daomodel;
 
-import java.io.Serializable;
-
 /**
  * This class represents a Data Transfer Object for the Timed Node (Staged - EMAP)
  */
-public class ExtraTimedNode implements Serializable {
+public class ExtraTimedNode {
 
     // Properties ---------------------------------------------------------------------------------
 	/*

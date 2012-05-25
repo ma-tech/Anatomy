@@ -121,7 +121,7 @@ public final class PerspectiveAmbitDAO {
      * Returns a list of ALL perspectiveAmbits, otherwise null.
      */
     public List<PerspectiveAmbit> listAll() throws DAOException {
-        return list(SQL_LIST_ALL, null);
+        return list(SQL_LIST_ALL, (Object[]) null);
     }
     
     /**

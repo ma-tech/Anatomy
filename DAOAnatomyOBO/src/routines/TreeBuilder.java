@@ -29,33 +29,34 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package utility;
+package routines;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Vector;
+import java.util.HashMap;
+import java.util.Enumeration;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import obomodel.OBOComponent;
 
-
 public class TreeBuilder {
     
     // pass from MapBuilder
-    private Map mapChildren;
+    private Map<String, Vector<String>> mapChildren;
 
     // pass from MapBuilder
-    private Map mapProperties;
+    private Map<String, OBOComponent> mapProperties;
 
     //map < id => paths >
-    private HashMap<String, Vector<DefaultMutableTreeNode[] >> treePaths;
+    private HashMap<String, Vector<DefaultMutableTreeNode[]>> treePaths;
     
     private Vector<String> vRoots;
     private DefaultMutableTreeNode mothernode;
 
     
     public TreeBuilder(MapBuilder mapchildren){
-
         //System.out.println("instantiating TreeBuilder");
 
         this.mapChildren = mapchildren.getChildren();
@@ -67,15 +68,12 @@ public class TreeBuilder {
 
         //build tree starting from all defined roots
         for(int i=0; i< vRoots.size(); i++){
-            //OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(vRoots.get(i));
             DefaultMutableTreeNode rootnode = recursiveAddNode(vRoots.get(i), new DefaultMutableTreeNode[]{this.mothernode});
             this.mothernode.add(rootnode);     
         }
     }
 
-
-    public TreeBuilder(MapBuilder mapchildren, Vector vParents){
-
+    public TreeBuilder(MapBuilder mapchildren, Vector<String> vParents){
         //System.out.println("instantiating TreeBuilder with selected parents");
 
         this.mapChildren = mapchildren.getChildren();
@@ -87,8 +85,6 @@ public class TreeBuilder {
 
         //build tree starting from all defined roots
         for(int i=0; i< vRoots.size(); i++){
-            //OBOComponent obocomponent =
-            // (OBOComponent) this.mapProperties.get(vRoots.get(i));
             DefaultMutableTreeNode rootnode =
                     recursiveAddNode(vRoots.get(i),
                     new DefaultMutableTreeNode[]{this.mothernode});
@@ -96,14 +92,11 @@ public class TreeBuilder {
         }
     }
 
-
     public DefaultMutableTreeNode recursiveAddNode(String key,
             DefaultMutableTreeNode[] parent_path){
-        //traverse from root component
 
+    	//traverse from root component
         OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(key);
-        //System.out.println("treebuilder adding component " +
-        // obocomponent.getID() + " " + obocomponent.getName());
 
         //check that component is not null otherwise create dummy component
         // for node
@@ -166,8 +159,8 @@ public class TreeBuilder {
         return newnode;
     }
 
-
-    public Vector< DefaultMutableTreeNode > recursiveGetNodes(
+    @SuppressWarnings("unchecked")
+	public Vector< DefaultMutableTreeNode > recursiveGetNodes(
             DefaultMutableTreeNode node,
             Vector<DefaultMutableTreeNode> nodes){
         
@@ -175,19 +168,15 @@ public class TreeBuilder {
         Vector< DefaultMutableTreeNode > children =
                 new Vector<DefaultMutableTreeNode>();
         
-        //Enumeration eChildren = node.children();
-        for (Enumeration<DefaultMutableTreeNode> eChildren = node.children() ;
+        for (Enumeration<DefaultMutableTreeNode> eChildren = (Enumeration<DefaultMutableTreeNode>) node.children() ;
              eChildren.hasMoreElements() ;) {
             children.add( eChildren.nextElement() );
         }
         
         if ( children.isEmpty() ){
-            //descendants.add(node);
-            //System.out.println(node);
-            //System.out.println("test recursiveGetNodes: is empty!");
             return descendants;
         }
-        else{
+        else {
             for (int i=0; i< children.size(); i++){
                 descendants.add( children.get(i) );
                 descendants = recursiveGetNodes( children.get(i), descendants );
@@ -195,7 +184,6 @@ public class TreeBuilder {
             return descendants;
         }
     } 
-
 
     public DefaultMutableTreeNode recursiveWriteNode(String key,
             DefaultMutableTreeNode[] parent_path){
@@ -218,27 +206,6 @@ public class TreeBuilder {
         //initialise new node for each component
         DefaultMutableTreeNode newnode = new DefaultMutableTreeNode(obocomponent);
 
-        /*
-        if ( this.species.equals("mouse") ) {
-            if ( obocomponent.getStartsAt() >= 0 &&
-                 obocomponent.getEndsAt() <= 27 ) {
-                for ( int i=0; i<parent_path.length; i++ ){
-                    printNode.print("  ");
-                }
-                printNode.println( "-" + obocomponent.getName() );
-            }
-        }
-        if ( this.species.equals("human") ) {
-            if ( obocomponent.getStartsAt() >= 0 &&
-                 obocomponent.getEndsAt() <= 23 ){
-                for ( int i=0; i<parent_path.length; i++ ){
-                    printNode.print("  ");
-                }
-                printNode.println( "-" + obocomponent.getName() );
-            }
-        }
-        */
-        
         //check for cycles
         if ( this.containsComponent(parent_path, obocomponent) ){
             obocomponent.setStatusRule("FAILED");
@@ -257,7 +224,7 @@ public class TreeBuilder {
         //get paths for each component
         Vector<DefaultMutableTreeNode[]> paths =
                 (Vector<DefaultMutableTreeNode[]>) this.treePaths.get(key);
-        if(paths == null) {
+        if ( paths == null ) {
             paths = new Vector<DefaultMutableTreeNode[]>();
         }
         
@@ -282,20 +249,16 @@ public class TreeBuilder {
         }
         return newnode;
     }
-
     
     public DefaultMutableTreeNode getRootNode(){
         return this.mothernode;
     }
-
     
     public Vector< DefaultMutableTreeNode > getNodes( String componentID ){
         //method that returns nodes of a component
         
-        Vector< DefaultMutableTreeNode > nodes =
-                new Vector< DefaultMutableTreeNode >();
-        Vector< DefaultMutableTreeNode[] > paths =
-                this.getPaths( componentID );
+        Vector<DefaultMutableTreeNode> nodes = new Vector<DefaultMutableTreeNode>();
+        Vector<DefaultMutableTreeNode[]> paths = this.getPaths( componentID );
 
         if ( paths == null) {
             System.out.printf( "ID %s,  Nodes %s\n", componentID, nodes );
@@ -309,20 +272,18 @@ public class TreeBuilder {
         return nodes;
     }
 
-
-    public Vector< DefaultMutableTreeNode[] > getPaths(String id){
-
+    public Vector<DefaultMutableTreeNode[]> getPaths(String id){
         return this.treePaths.get(id);
     }
 
-
-    public Vector< DefaultMutableTreeNode[] > getPathsTo(String id){
+    public Vector<DefaultMutableTreeNode[]> getPathsTo(String id){
         
         Vector< DefaultMutableTreeNode[] > paths = getPaths(id);
-        //Vector< DefaultMutableTreeNode[] > pathsTo = new Vector< DefaultMutableTreeNode[] >();
+
         for(int i = 0; i< paths.size(); i++){
             DefaultMutableTreeNode[] path = paths.get(i);
-            if(path.length > 0) {
+
+            if (path.length > 0) {
                 DefaultMutableTreeNode[] pathTo =
                         new DefaultMutableTreeNode[path.length - 1];
                 System.arraycopy(path, 0, pathTo, 0, path.length - 1);   
@@ -330,13 +291,12 @@ public class TreeBuilder {
                 paths.add(pathTo);
             }
         }
-        
         return paths;
     }
 
-
     public Vector< String > getStrPaths(String id){
-        Vector< DefaultMutableTreeNode[] > paths = getPaths(id);
+     
+    	Vector< DefaultMutableTreeNode[] > paths = getPaths(id);
         Vector< String > strPaths = new Vector< String >();
 
         for(int i = 0; i< paths.size(); i++){
@@ -346,7 +306,6 @@ public class TreeBuilder {
         }
         return strPaths;
     }
-
 
     public boolean isSamePathAs(DefaultMutableTreeNode[] path1, DefaultMutableTreeNode[] path2){
         
@@ -370,7 +329,6 @@ public class TreeBuilder {
         return match;        
     }
 
-
     public boolean isPrimaryPath(DefaultMutableTreeNode[] pathTo){
         
         boolean isPrimaryPath = true;
@@ -380,7 +338,6 @@ public class TreeBuilder {
             Object nodeInfo = node.getUserObject(); 
             
             if (nodeInfo instanceof OBOComponent){
-                
             	OBOComponent obocomponent = (OBOComponent) nodeInfo;
             
                 if ( !obocomponent.getIsPrimary() ) {
@@ -391,7 +348,6 @@ public class TreeBuilder {
         
         return isPrimaryPath;
     }
-
 
     public boolean containsComponent(DefaultMutableTreeNode[] path,
             OBOComponent obocomponent){
@@ -417,7 +373,6 @@ public class TreeBuilder {
         //Vector< DefaultMutableTreeNode > vPath = new Vector( java.util.Arrays.asList( path ) );  
         return contains;
     }
-
 
     public boolean containsNode(DefaultMutableTreeNode[] path, DefaultMutableTreeNode node){
 
@@ -449,7 +404,6 @@ public class TreeBuilder {
         return contains;
     }
     
-    
     public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, OBOComponent obocomponent ){
 
         //iterate thru each node in the path
@@ -472,7 +426,6 @@ public class TreeBuilder {
         return false;
     }
 
-
     public boolean isPathInNamespace( DefaultMutableTreeNode[] path, OBOComponent rootobocomponent ){
         
         for ( DefaultMutableTreeNode node: path ){
@@ -491,34 +444,27 @@ public class TreeBuilder {
         return true;
     }
 
-
-    public Map getTreePaths(){
+    public Map<String, Vector<DefaultMutableTreeNode[]>> getTreePaths(){
         return this.treePaths;
     }
     
-    
     public OBOComponent getComponent(String id){
-        //System.out.println("getComponent: " + id);
-        try{
+
+    	try{
             OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(id);
-            //System.out.println("obocomponent: " + obocomponent.getID());
             return obocomponent;
         }
         catch(NullPointerException np){
             //np.printStackTrace();
             return null;
         }
-
     }
-
 
     public Vector<String> getTreeRoots(){
         return this.vRoots;
     }
 
-
     public Vector<String> getChildrenBasedOnParent(String parent){
         return (Vector<String>) this.mapChildren.get(parent);
     }
-    
 }

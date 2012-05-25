@@ -9,8 +9,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 
-import daolayer.DAOUtil;
-
 /*
  * This bean is to be associated with a single form in the JSF page. It provides under each a 'form'
  * property which must be bound with the h:form component in the JSF page using the 'binding'

@@ -73,7 +73,7 @@ public class OBOComponent {
     //path variables
     private boolean isPrimary;
     private DefaultMutableTreeNode[] primaryPath;
-    private Vector < DefaultMutableTreeNode[] > paths;
+    private Vector<DefaultMutableTreeNode[]> paths;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -96,10 +96,10 @@ public class OBOComponent {
         this.statusChange = "";
         this.statusRule = "";
 
-        this.childOfs = new ArrayList();
-        this.childOfTypes = new ArrayList();
-        this.synonyms = new ArrayList();
-        this.userComments = new ArrayList();
+        this.childOfs = new ArrayList<String>();
+        this.childOfTypes = new ArrayList<String>();
+        this.synonyms = new ArrayList<String>();
+        this.userComments = new ArrayList<String>();
         this.orderComment = "";
         		
         this.flagMissingRel = false;
@@ -109,9 +109,9 @@ public class OBOComponent {
         this.isPrimary = true;
         this.primaryPath = null;
 
-        this.comments = new TreeSet();
+        this.comments = new TreeSet<String>();
         
-        this.alternativeIds = new ArrayList();
+        this.alternativeIds = new ArrayList<String>();
     }
 
     /*
@@ -145,10 +145,10 @@ public class OBOComponent {
         this.statusChange = statusChange;
         this.statusRule = statusRule;
 
-        this.childOfs = new ArrayList();
-        this.childOfTypes = new ArrayList();
-        this.synonyms = new ArrayList();
-        this.userComments = new ArrayList();
+        this.childOfs = new ArrayList<String>();
+        this.childOfTypes = new ArrayList<String>();
+        this.synonyms = new ArrayList<String>();
+        this.userComments = new ArrayList<String>();
         this.orderComment = "";
         
         this.flagMissingRel = false;
@@ -158,7 +158,7 @@ public class OBOComponent {
         this.isPrimary = true;
         this.primaryPath = null;
 
-        this.comments = new TreeSet();
+        this.comments = new TreeSet<String>();
     }
 
     /*
@@ -181,7 +181,7 @@ public class OBOComponent {
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
     		String orderComment,
-    		TreeSet comments) {
+    		TreeSet<String> comments) {
     	
     	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
@@ -213,7 +213,7 @@ public class OBOComponent {
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
     		String orderComment,
-    		TreeSet comments,
+    		TreeSet<String> comments,
     		ArrayList<String> alternativeIds) {
     	
     	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
@@ -292,7 +292,7 @@ public class OBOComponent {
     public boolean getIsPrimary(){
         return this.isPrimary;
     }
-    public Vector getPaths(){
+    public Vector<DefaultMutableTreeNode[]> getPaths(){
         return this.paths;
     }
     public boolean getIsGroup(){
@@ -1827,10 +1827,10 @@ public class OBOComponent {
         this.paths.add(path);
     }
 
-    public Vector getShortenedPaths(){
+    public Vector<DefaultMutableTreeNode[]> getShortenedPaths(){
 
-        Vector<DefaultMutableTreeNode[]> longPaths = new Vector();
-        Vector<DefaultMutableTreeNode[]> shortPaths = new Vector();
+        Vector<DefaultMutableTreeNode[]> longPaths = new Vector<DefaultMutableTreeNode[]>();
+        Vector<DefaultMutableTreeNode[]> shortPaths = new Vector<DefaultMutableTreeNode[]>();
         
         if ( !this.paths.isEmpty() ){
         	
@@ -1854,9 +1854,7 @@ public class OBOComponent {
                 }
             }
         }
-        
         return shortPaths;
-        
     }
     
     public DefaultMutableTreeNode[] getShortenedPrimaryPath(){
@@ -1885,7 +1883,6 @@ public class OBOComponent {
         System.arraycopy(longPath, 1, shortPath, 0, longPath.length - 1); 
         
         return shortPath;
-        
     }
 
     /*
@@ -1954,7 +1951,7 @@ public class OBOComponent {
     
     public ArrayList<String> getDifferenceWith(OBOComponent obocomponent){
 
-        ArrayList<String> arrDifferenceWith = new ArrayList();
+        ArrayList<String> arrDifferenceWith = new ArrayList<String>();
         ArrayList<String> arrDiffOrder = null;
         
         if ( !this.getID().equals(obocomponent.getID()) ) {
@@ -2046,10 +2043,10 @@ public class OBOComponent {
     /*
      * Find comments that have changed
      */
-    public Set getDifferenceComments(){
+    public Set<String> getDifferenceComments(){
         
         Set<String> allComments = this.getCheckComments();
-        Set<String> changedComments = new TreeSet();
+        Set<String> changedComments = new TreeSet<String>();
         
         for (String s: allComments){
             if (s.startsWith("Different")){
@@ -2092,10 +2089,10 @@ public class OBOComponent {
     /*
      * If the Comments are New, refresh the comments
      */
-    public Set getNewComments(){
+    public Set<String> getNewComments(){
         
         Set<String> allComments = this.getCheckComments();
-        Set<String> changedComments = new TreeSet();
+        Set<String> changedComments = new TreeSet<String>();
         
         for (String s: allComments){
             if (s.startsWith("New")){
@@ -2178,7 +2175,7 @@ public class OBOComponent {
     }
 
     /*
-     * Determinet whether the order comments are correct.
+     * Determine whether the order comments are correct.
      */
     public boolean hasIncorrectOrderComments(){
 
@@ -2187,7 +2184,6 @@ public class OBOComponent {
         int intCounter = 0;
         boolean foundIncorrect = false;
         boolean foundParent = false;
-        int intOrder = -1;
         String strNumber = "";
 
         Vector< String > vComments = new Vector<String>();
@@ -2219,7 +2215,7 @@ public class OBOComponent {
                 try{
                     strNumber = results[k];
                     strNumber = strNumber.replaceAll("order=", "");
-                    intOrder = Integer.parseInt( strNumber.split(" ")[0] );
+                    //intOrder = Integer.parseInt( strNumber.split(" ")[0] );
                 }
                 catch(NumberFormatException nEx){
                     System.out.println(this.id + "Ordering: There is an " +
@@ -2248,17 +2244,14 @@ public class OBOComponent {
                         "that does not reference a valid parent");
                 foundIncorrect = true;
             }
-            
-
         }
-
         return foundIncorrect;
     }
 
     /* 
     * Compare the Order Comments
     */
-    public ArrayList compareOrderComments(OBOComponent obocomponent, ArrayList<String> diff){
+    public ArrayList<String> compareOrderComments(OBOComponent obocomponent, ArrayList<String> diff){
         //find new/additional comments
         
         boolean notFound = true;

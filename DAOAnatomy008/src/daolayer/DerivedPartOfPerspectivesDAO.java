@@ -23,10 +23,6 @@ import daomodel.DerivedPartOfPerspectives;
 public final class DerivedPartOfPerspectivesDAO {
 
     // Constants ----------------------------------------------------------------------------------
-    private static final String SQL_ROW_COUNT_ALL =
-        "SELECT COUNT(*) AS VALUE " +
-        "FROM ANAD_PART_OF_PERSPECTIVE";
-
     private static final String SQL_ROW_COUNT_BY_PERSPECTIVE =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +

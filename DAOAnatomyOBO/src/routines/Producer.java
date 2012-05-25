@@ -28,7 +28,7 @@
 #
 -----------------------------------------------------------------------------------------------
 */
-package utility;
+package routines;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -43,23 +43,16 @@ import java.util.Iterator;
 import obomodel.OBOComponent;
 import obomodel.Relation;
 
-
 public class Producer {
 
     // Attributes ---------------------------------------------------------------------------------
-	//  Output Filename
     private String fileName;
-	//  Output Namespace
     private String fileVersion;
-	//  Output Namespace
     private String fileNameSpace;
-	//  Output fileSavedBy
     private String fileSavedBy;
-	//  Output fileRemark
     private String fileRemark;
-    //  Arraylist of <OBOComponent>s
     private ArrayList<OBOComponent> obocomponentList;
-    private ArrayList <Relation> oborelationList;
+    private ArrayList<Relation> oborelationList;
 
     private boolean isProcessed;
 
@@ -97,10 +90,10 @@ public class Producer {
     public String getFileRemark(){
         return this.fileRemark;
     }
-    public ArrayList getComponents(){
+    public ArrayList<OBOComponent> getComponents(){
         return this.obocomponentList;
     }
-    public ArrayList getRelations(){
+    public ArrayList<Relation> getRelations(){
         return this.oborelationList;
     }
     public Boolean getIsProcessed(){
@@ -143,23 +136,16 @@ public class Producer {
             BufferedWriter outputFile =
                         new BufferedWriter(new FileWriter(fileName));
 
-            // format-version
             outputFile.write("format-version: " + fileVersion + "\n");
 
-            // date
             Date today = new Date();
         	SimpleDateFormat format = new SimpleDateFormat("dd:MM:yyyy HH:mm");
         	String formattedDate = format.format(today);
             outputFile.write("date: " + formattedDate + "\n");
             System.out.println("Today’s date and Time is: " + formattedDate);
 
-            // saved by
             outputFile.write("saved-by: " + fileSavedBy + "\n");
-
-            // default-namespace
             outputFile.write("default-namespace: " + fileNameSpace + "\n");
-
-            // remark
             outputFile.write("remark: " + fileRemark + "\n\n");
 
             // terms - OBOComponent
@@ -218,13 +204,11 @@ public class Producer {
                                 outputFile.write("relationship: group_part_of " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
-                            
                         }
 
                         if ( !obocomponentList.get(i).getStart().equals("") ) {
                             outputFile.write("relationship: starts_at " +
-                            		obocomponentList.get(i).getStart() +
-                                    "\n");
+                            		obocomponentList.get(i).getStart() + "\n");
                         }
 
                         if ( !obocomponentList.get(i).getEnd().equals("") ) {
@@ -234,22 +218,17 @@ public class Producer {
 
                         if ( obocomponentList.get(i).getPresent() != 0 ) {
                             outputFile.write("relationship: present_in " +
-                                    Integer.toString(obocomponentList.get(i).getPresent()) +
-                                    "\n");
+                                    Integer.toString(obocomponentList.get(i).getPresent()) + "\n");
                         }
 
                         for (int j=0; j<obocomponentList.get(i).getSynonyms().size(); j++) {
-                        	
                             outputFile.write("related_synonym: \"" +
-                            		obocomponentList.get(i).getSynonyms().get(j) +
-                                    "\" []\n");
-                        
+                            		obocomponentList.get(i).getSynonyms().get(j) + "\" []\n");
                         }
 
                         if (obocomponentList.get(i).getIsGroup()) {
                             outputFile.write("relationship: is_a group_term\n");
                         }
-
                     }
 
                     boolean firstComment = true;
@@ -262,16 +241,12 @@ public class Producer {
                             outputFile.write("comment: ");
                             firstComment = false;
                         } 
-                        else {
-                            //outputFile.write("\n");
-                        }
-                    
+
                         outputFile.write(k.next());
 
                     }
                 outputFile.write("\n");
                 }
-
             }
 
             // terms - OBOComponent
@@ -285,22 +260,17 @@ public class Producer {
                 if ( "true".equals(oborelationList.get(i).getTransitive()) ) {
                     outputFile.write("is_transitive: true\n");
                 }
-
             }
-
             outputFile.close();
             
             isProcessed = true;
-
     	}
     
     	catch(IOException io) {
             isProcessed = false;
     		io.printStackTrace();
     	}
-
     	return isProcessed;
-    			
     }
         
 }

@@ -52,8 +52,6 @@ import obomodel.OBOComponent;
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
 
-import utility.Producer;
-
 import utility.ObjectConverter;
 
 public class RunOBOExtractOBOFromComponents {
@@ -64,7 +62,6 @@ public class RunOBOExtractOBOFromComponents {
 
         // Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-        //System.out.println("DAOFactory successfully obtained: " + anatomy008);
         // Obtain DAOs.
         ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
         ComponentDAO componentDAO = anatomy008.getComponentDAO();
@@ -100,8 +97,21 @@ public class RunOBOExtractOBOFromComponents {
     		obocomponent.setNamespace(component.getNamespace().replace("\n", " ").trim());
     		obocomponent.setDefinition(component.getDefinition().replace("\n", " ").trim());
     		obocomponent.setGroup(ObjectConverter.convert(component.getGroup(), Boolean.class));
-    		obocomponent.setStart(component.getStart().replace("\n", " ").trim());
-    		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());
+    		
+    		if ( "TBD".equals(component.getStart().replace("\n", " ").trim()) ){
+        		obocomponent.setStart("");
+    		}
+    		else {
+        		obocomponent.setStart(component.getStart().replace("\n", " ").trim());
+    		}
+    		
+    		if ( "TBD".equals(component.getEnd().replace("\n", " ").trim()) ){
+        		obocomponent.setEnd("");
+    		}
+    		else {
+        		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());
+    		}
+    		
     		obocomponent.setPresent(component.getPresent());
     		obocomponent.setStatusChange(component.getStatusChange().replace("\n", " ").trim());
     		obocomponent.setStatusRule(component.getStatusRule().replace("\n", " ").trim());

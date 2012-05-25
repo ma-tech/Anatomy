@@ -38,9 +38,7 @@
 
 package daomodel;
 
-import java.io.Serializable;
-
-public class Thing implements Serializable {
+public class Thing {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *  Columns:

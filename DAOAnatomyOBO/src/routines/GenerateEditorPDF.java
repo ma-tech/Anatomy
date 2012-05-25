@@ -29,7 +29,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package utility;
+package routines;
 
 import com.lowagie.text.BadElementException;
 import com.lowagie.text.Cell;
@@ -95,16 +95,16 @@ public class GenerateEditorPDF {
     
     //----------------------------------------------------------------------------------------------
     // Constructor ---------------------------------------------------------------------------------
-    public GenerateEditorPDF( ValidateComponents validatecomponents,
+	public GenerateEditorPDF( ValidateComponents validatecomponents,
             TreeBuilder treebuilder){
 
         this.treebuilder = treebuilder;
 
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
-        proposedTerms = validatecomponents.getProposedTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
         
-        problemobocomponents = validatecomponents.getProblemTermList();
+        problemobocomponents = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
         
         this.sortChangedTerms( proposedTerms );        
         
@@ -210,7 +210,7 @@ public class GenerateEditorPDF {
     }
 
     // Constructor ---------------------------------------------------------------------------------
-    public GenerateEditorPDF( ValidateComponents validatecomponents,
+	public GenerateEditorPDF( ValidateComponents validatecomponents,
             TreeBuilder treebuilder, 
             String infile, 
             String outfile){
@@ -219,9 +219,9 @@ public class GenerateEditorPDF {
 
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
-        proposedTerms = validatecomponents.getProposedTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
         
-        problemobocomponents = validatecomponents.getProblemTermList();
+        problemobocomponents = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
         
         this.sortChangedTerms( proposedTerms );        
         
@@ -336,44 +336,48 @@ public class GenerateEditorPDF {
             if ( obocomponent.getStatusChange().equals("NEW") ) {
                 newTerms.add(obocomponent);
                 if ( obocomponent.getStatusRule().equals("FAILED") ) {
-                    //System.out.println("New and failed: " +
-                    // obocomponent.toString());
+                    /*
+                    System.out.println("New and failed: " + obocomponent.toString());
                     for (Object oComment: obocomponent.getCheckComments() ){
                         String comment = (String) oComment;
-                        //System.out.println( comment );
+                        System.out.println( comment );
                     }
+                    */
                     failedNewTerms++;
                 }
             } 
             else if ( obocomponent.getStatusChange().equals("CHANGED") ) {
                 modifiedTerms.add(obocomponent);
                 if ( obocomponent.getStatusRule().equals("FAILED") ) {
-                    //System.out.println("Modified and failed: " +
-                    // obocomponent.toString());
+                	/*
+                    System.out.println("Modified and failed: " + obocomponent.toString());
                     for (Object oComment: obocomponent.getCheckComments() ){
                         String comment = (String) oComment;
-                        //System.out.println( comment );
+                        System.out.println( comment );
                     }
+                    */
                     failedModifiedTerms++;
                 }
             }
             else if ( obocomponent.getStatusChange().equals("DELETED") ) {
                 deletedTerms.add(obocomponent);
                 if ( obocomponent.getStatusRule().equals("FAILED") ) {
-                    //System.out.println("Deleted and failed: " +
-                    // obocomponent.toString());
+                	/*
+                    System.out.println("Deleted and failed: " + obocomponent.toString());
+                    */
                     failedDeletedTerms++;
                 }
             }
             else if ( obocomponent.getStatusChange().equals("UNCHANGED") ) {
                 unchangedTerms.add(obocomponent);
                 if ( obocomponent.getStatusRule().equals("FAILED") ) {
-                    //System.out.println("Unchanged and failed: " +
-                    // obocomponent.toString());
+                	/*
+                    System.out.println("Unchanged and failed: " + obocomponent.toString());
                     for (Object oComment: obocomponent.getCheckComments() ){
                         String comment = (String) oComment;
-                        //System.out.println( comment );
+                        System.out.println( comment );
                     }
+                    */
                     failedUnchangedTerms++;
                 }
             }
@@ -676,12 +680,11 @@ public class GenerateEditorPDF {
                 else {
                 	cell.setRowspan( obocomponent.getPaths().size() );
                 }
-
                 
                 table.addCell( cell );
 
-                Vector<DefaultMutableTreeNode[]> paths =
-                        obocomponent.getShortenedPaths();
+				Vector<DefaultMutableTreeNode[]> paths = 
+                		(Vector<DefaultMutableTreeNode[]>) obocomponent.getShortenedPaths();
                 if ( !paths.isEmpty() ){
                     int pathCounter = 0;
                     for( DefaultMutableTreeNode[] path : paths ){

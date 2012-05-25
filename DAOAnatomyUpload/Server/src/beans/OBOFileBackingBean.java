@@ -26,6 +26,7 @@ import webapp.Config;
  * @author BalusC
  * @link http://balusc.blogspot.com/2008/10/effective-datatable-paging-and-sorting.html
  */
+@SuppressWarnings("serial")
 public class OBOFileBackingBean implements Serializable {
 
     // Constants ----------------------------------------------------------------------------------

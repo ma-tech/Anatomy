@@ -12,7 +12,6 @@ public class TestMD5Hash {
             System.out.println("=========   ===========");
             System.out.println("");
 
-            String MD5Hash = utility.MD5Hash.MD5Hash("banana");
             System.out.println("utility.MD5Hash.MD5Hash(\"banana\") " + utility.MD5Hash.MD5Hash("banana"));
             System.out.println("");
 

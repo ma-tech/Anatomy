@@ -1,11 +1,9 @@
 package daomodel;
 
-import java.io.Serializable;
-
 /**
  * This class represents a Data Transfer Object for the DerivedPartOfPerspectives. 
  */
-public class DerivedPartOfPerspectives implements Serializable {
+public class DerivedPartOfPerspectives {
 
     // Properties ---------------------------------------------------------------------------------
 	/*

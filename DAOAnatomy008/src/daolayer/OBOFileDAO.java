@@ -205,14 +205,14 @@ public final class OBOFileDAO {
      * Returns a list of ALL files, otherwise null.
      */
     public List<OBOFile> listAll() throws DAOException {
-        return list(SQL_LIST_ALL, null);
+        return list(SQL_LIST_ALL, (Object[]) null);
     }
     
     /*
      * Returns a list of ALL files, otherwise null.
      */
     public List<OBOFile> listAllWithBinary() throws DAOException {
-        return listWithBinary(SQL_LIST_ALL, null);
+        return listWithBinary(SQL_LIST_ALL, (Object[]) null);
     }
     
     /*

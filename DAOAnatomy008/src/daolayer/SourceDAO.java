@@ -120,7 +120,7 @@ public final class SourceDAO {
      * Returns a list of ALL sources, otherwise null.
      */
     public List<Source> listAll() throws DAOException {
-        return list(SQL_LIST_ALL, null);
+        return list(SQL_LIST_ALL, (Object[]) null);
     }
     
     /**

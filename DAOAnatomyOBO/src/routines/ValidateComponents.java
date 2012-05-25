@@ -30,7 +30,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package utility;
+package routines;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
+//import javax.swing.tree.TreePath;
 
 import obomodel.OBOComponent;
 
@@ -75,10 +75,10 @@ public class ValidateComponents {
     //components that are abstract anatomy terms excluding roots => used for
     // ontology rules check
     
-    private boolean passedRed;
+    //private boolean passedRed;
     //passed red check: checkAbstractAnatomyLinks()
     
-    private boolean passedBlue;
+    //private boolean passedBlue;
     //passed blue check: checkAbstractAnatomyStages()
     
     //flag for proceeding with each check in entire class
@@ -141,8 +141,8 @@ public class ValidateComponents {
         this.groupTermList = new ArrayList<OBOComponent>(); 
         this.abstractTermList = new ArrayList<OBOComponent>();
 
-        this.passedRed = false;
-        this.passedBlue = false;
+        //this.passedRed = false;
+        //this.passedBlue = false;
         //not in use yet
         this.proceed = true;
 
@@ -156,7 +156,7 @@ public class ValidateComponents {
         validateConfiguredRoots(treebuilder);
 
         // A-4
-        this.abstractTermList = (ArrayList) getAbstractAnatomyChildren(treebuilder);
+        this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
 
         // A-5
         //set and validate primary + alternate paths to abstract anatomy terms
@@ -174,7 +174,8 @@ public class ValidateComponents {
 
             // A-8
             //check that component is within life time of primary parent
-            int i = checkAbstractAnatomyStages();
+            //int i = checkAbstractAnatomyStages();
+            checkAbstractAnatomyStages();
             
             //System.out.println("checkAbstractAnatomyStages Failure Count " + i);
             
@@ -240,8 +241,8 @@ public class ValidateComponents {
         this.groupTermList = new ArrayList<OBOComponent>(); 
         this.abstractTermList = new ArrayList<OBOComponent>();
 
-        this.passedRed = false;
-        this.passedBlue = false;
+        //this.passedRed = false;
+        //this.passedBlue = false;
 
         //not in use yet
         this.proceed = true;
@@ -254,7 +255,7 @@ public class ValidateComponents {
         validateConfiguredRoots(treebuilder);
         
         // B-4
-        this.abstractTermList = getAbstractAnatomyChildren(treebuilder);
+        this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
 
         //set and validate primary + alternate paths to abstract anatomy terms
         // B-5
@@ -402,7 +403,7 @@ public class ValidateComponents {
      *  does not include abstract terms that are tree roots (eg. mouse, 
      *   human or abstract terms whose parent link has been deleted)
      */
-    private ArrayList getAbstractAnatomyChildren(TreeBuilder treebuilder){
+    private ArrayList<OBOComponent> getAbstractAnatomyChildren(TreeBuilder treebuilder){
 
         ArrayList<OBOComponent> abstractAnatomyChildren = new ArrayList<OBOComponent>();
         
@@ -498,8 +499,10 @@ public class ValidateComponents {
                     }
                     else{
                     	obocomponent.setFlagLifeTime(true);
+                    	/*
                         TreePath printPath = 
                                 new TreePath( obocomponent.shortenPath( path) );
+                        */
                     }
                 }
                 else {
@@ -692,11 +695,12 @@ public class ValidateComponents {
      *  check for all components in the abstract anatomy (except mouse)
      *   for the primary path, each node must be within the lifetime of the preceding node
      */
-    private int checkAbstractAnatomyStages(){
+	private void checkAbstractAnatomyStages(){
+  	//private int checkAbstractAnatomyStages(){
 
         //System.out.println("checkAbstractAnatomyStages");
 
-        int withOutCount = 0;
+        //int withOutCount = 0;
         //Boolean within = true;
         
         //get the primary path for each component
@@ -707,7 +711,8 @@ public class ValidateComponents {
 
         //iterate for each component in termList
         for (OBOComponent obocomponent: this.passRedTermList) {
-    	    Vector< DefaultMutableTreeNode[] > paths = obocomponent.getPaths();
+    	    Vector<DefaultMutableTreeNode[]> paths = 
+    	    		(Vector<DefaultMutableTreeNode[]>) obocomponent.getPaths();
 
             if ( paths != null) {
                 	
@@ -738,7 +743,7 @@ public class ValidateComponents {
                                 this.problemTermList.remove(obocomponent);
                                 this.problemTermList.add(obocomponent);
            
-                                withOutCount++;
+                                //withOutCount++;
                             }
                         }
                     }
@@ -746,7 +751,7 @@ public class ValidateComponents {
             }
         }
         
-        return withOutCount;
+        //return withOutCount;
     }
 
 
@@ -757,7 +762,8 @@ public class ValidateComponents {
      * Check the Ordering between the abstract anatomy children
      * 
      */
-    private void checkOrdering(TreeBuilder tree){
+    @SuppressWarnings({ "unchecked", "unused" })
+	private void checkOrdering(TreeBuilder tree){
         //get all children for each component
         //check that ordering has no gaps
 
@@ -768,7 +774,7 @@ public class ValidateComponents {
                 new DefaultMutableTreeNode();
 
         for (Enumeration<DefaultMutableTreeNode> eRootChildren = 
-                tree.getRootNode().children();
+                (Enumeration<DefaultMutableTreeNode>) tree.getRootNode().children();
                 eRootChildren.hasMoreElements(); ){
 
             OBOComponent rootChildCompie =
@@ -983,14 +989,14 @@ public class ValidateComponents {
     private void checkAbstractAnatomyParents(TreeBuilder tree){
         
         int primaryParents = 0;
-        ArrayList<String> primaryParentsList = new ArrayList();
+        ArrayList<String> primaryParentsList = new ArrayList<String>();
         
         for ( OBOComponent obocomponent: this.abstractTermList ){
         
         	//reset counter primaryParents
             primaryParents = 0;
             //get all parents
-            ArrayList<String> parents = new ArrayList();
+            ArrayList<String> parents = new ArrayList<String>();
             parents.addAll( obocomponent.getChildOfs() );
 
             //count how many primary parents
@@ -1025,7 +1031,6 @@ public class ValidateComponents {
 
         OBOComponent proposed, reference;
         boolean flagFound;
-        int intTest = 0;
 
         //Look for new and changed nodes 
         //For each component in newTermList
@@ -1199,7 +1204,8 @@ public class ValidateComponents {
 
     
     // Helpers-------------------------------------------------------------------------------------
-    private DefaultMutableTreeNode findCommonAncestor( 
+    @SuppressWarnings("unused")
+	private DefaultMutableTreeNode findCommonAncestor( 
             Vector< DefaultMutableTreeNode[] > paths,
             TreeBuilder tree){
  
@@ -1250,45 +1256,56 @@ public class ValidateComponents {
         return commonAncestor;
     }
 
-
     // Getters ------------------------------------------------------------------------------------
-    public ArrayList getProblemTermList(){
+    public ArrayList<OBOComponent> getProblemTermList(){
         return this.problemTermList;
     }
-    public ArrayList getChangesTermList(){
+    
+    public ArrayList<OBOComponent> getChangesTermList(){
         return this.changesTermList;
     }
-    public ArrayList getNewTermList(){
-        ArrayList<OBOComponent>newTerms = new ArrayList<OBOComponent>();
-        for ( OBOComponent term: this.changesTermList ){
+    
+    public ArrayList<OBOComponent> getNewTermList(){
+        
+    	ArrayList<OBOComponent> newTerms = new ArrayList<OBOComponent>();
+        
+    	for ( OBOComponent term: this.changesTermList ){
             if ( term.getStatusChange().equals("NEW") ) {
                 newTerms.add( term );
             }
         }
         return newTerms;
     }
-    public ArrayList getDeletedTermList(){
-        ArrayList<OBOComponent>deletedTerms = new ArrayList<OBOComponent>();
-        for ( OBOComponent term: this.changesTermList ){
+    
+    public ArrayList<OBOComponent> getDeletedTermList(){
+        
+    	ArrayList<OBOComponent>deletedTerms = new ArrayList<OBOComponent>();
+        
+    	for ( OBOComponent term: this.changesTermList ){
             if ( term.getStatusChange().equals("DELETED") ) {
                 deletedTerms.add( term );
             }
         }
         return deletedTerms;
     }
-    public ArrayList getModifiedTermList(){
-        ArrayList<OBOComponent>modifiedTerms = new ArrayList<OBOComponent>();
-        for ( OBOComponent term: this.changesTermList ){
+    
+    public ArrayList<OBOComponent> getModifiedTermList(){
+    
+    	ArrayList<OBOComponent>modifiedTerms = new ArrayList<OBOComponent>();
+        
+    	for ( OBOComponent term: this.changesTermList ){
         	if ( term.getStatusChange().equals("CHANGED") ) {
                 modifiedTerms.add( term );
             }
         }
         return modifiedTerms;
     }
-    public ArrayList getGroupTermList(){
+    
+    public ArrayList<OBOComponent> getGroupTermList(){
         return this.groupTermList;
     }
-    public ArrayList getProposedTermList(){
+    
+    public ArrayList<OBOComponent> getProposedTermList(){
         return this.proposedTermList;
     }
 

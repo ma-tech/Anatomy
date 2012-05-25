@@ -29,7 +29,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package utility;
+package routines;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -88,28 +88,24 @@ public class GenerateEditorReport {
 
     //----------------------------------------------------------------------------------------------
     // Constructor ---------------------------------------------------------------------------------
-    public GenerateEditorReport( ValidateComponents validatecomponents ){
+	public GenerateEditorReport( ValidateComponents validatecomponents ){
 
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
-        proposedTerms = validatecomponents.getProposedTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
         
-        problemTerms = validatecomponents.getProblemTermList();
+        problemTerms = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
         
         sortChangedTerms( proposedTerms );        
         
     	try {
     		
             OBOFactory obofactory = OBOFactory.getInstance("file");
-            //System.out.println("OBOFactory successfully obtained: " + obofactory);
 
             ComponentOBO componentOBO = obofactory.getComponentOBO();
-            //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
             
             summaryReportName = componentOBO.summaryReport();
-            
             inputOboFileName = componentOBO.inputFile();
-
             
             //check filepath exists
             File file = new File(summaryReportName);
@@ -178,13 +174,13 @@ public class GenerateEditorReport {
     }
 
     // Constructor ---------------------------------------------------------------------------------
-    public GenerateEditorReport( ValidateComponents validatecomponents, String infile, String outfile ){
+	public GenerateEditorReport( ValidateComponents validatecomponents, String infile, String outfile ){
 
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
-        proposedTerms = validatecomponents.getProposedTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
         
-        problemTerms = validatecomponents.getProblemTermList();
+        problemTerms = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
         
         sortChangedTerms( proposedTerms );        
         
@@ -330,8 +326,7 @@ public class GenerateEditorReport {
         	
     }
     
-    
-    private void writeProblemTerms(ArrayList<OBOComponent> obocomponents){
+	private void writeProblemTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -358,7 +353,6 @@ public class GenerateEditorReport {
                     
                 	printWriter.println( "  " + counter + ". " +
                             obocomponent.getID() + " - " + obocomponent.getName() );
-                	
                 }
 
                 printWriter.println();
@@ -366,8 +360,6 @@ public class GenerateEditorReport {
                 printWriter.println("  -------");
                 
                 counter = 0;
-                
-                //System.out.println(obocomponents.size());
                 
                 for(OBOComponent obocomponent: obocomponents){
                 	
@@ -391,7 +383,7 @@ public class GenerateEditorReport {
                             obocomponent.getSynonyms() );
                     printWriter.println( "    Alternate Paths     : " );
                     
-                    paths = obocomponent.getShortenedPaths();
+                    paths = (Vector<DefaultMutableTreeNode[]>) obocomponent.getShortenedPaths();
                     pathCounter = 0;
                     
                     for( DefaultMutableTreeNode[] path : paths ){
@@ -399,7 +391,6 @@ public class GenerateEditorReport {
                     	pathCounter++;
                         printWriter.println( "     " + pathCounter +
                                 ".  " + new TreePath(path) );
-                        
                     }
                     
                     printWriter.println( "    Change Check Status : " +
@@ -427,8 +418,7 @@ public class GenerateEditorReport {
         }
     }
 
-
-    private void writeNewTerms(ArrayList<OBOComponent> obocomponents){
+	private void writeNewTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;
@@ -506,9 +496,8 @@ public class GenerateEditorReport {
             isProcessed = false;
         }
     }
-    
-    
-    private void writeModifiedTerms(ArrayList<OBOComponent> obocomponents){
+
+	private void writeModifiedTerms(ArrayList<OBOComponent> obocomponents){
         
         int counter = 0;
         int commentCounter = 0;

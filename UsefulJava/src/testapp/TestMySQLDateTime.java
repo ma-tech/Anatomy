@@ -1,7 +1,5 @@
 package testapp;
 
-import utility.MySQLDateTime;
-
 public class TestMySQLDateTime {
 
 	public static void main(String args[]){  

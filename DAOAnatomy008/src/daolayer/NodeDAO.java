@@ -113,16 +113,6 @@ public final class NodeDAO {
         "ANO_DESCRIPTION = ? " + 
         "WHERE ANO_OID = ?";
     
-    private static final String SQL_UPDATE_BY_PUBLIC_ID =
-        "UPDATE ANA_NODE SET " +
-        "ANO_SPECIES_FK = ?, " +
-        "ANO_COMPONENT_NAME = ?, " + 
-        "ANO_IS_PRIMARY = ?, " +
-        "ANO_IS_GROUP = ?, " +
-        "ANO_PUBLIC_ID = ?, " +
-        "ANO_DESCRIPTION = ? " + 
-        "WHERE ANO_PUBLIC_ID = ?";
-        
     private static final String SQL_DELETE =
         "DELETE FROM ANA_NODE " +
         "WHERE ANO_OID = ?";

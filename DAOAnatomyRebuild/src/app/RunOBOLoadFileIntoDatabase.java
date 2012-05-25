@@ -40,22 +40,26 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+
 import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
 import daolayer.DAOFactory;
 import daolayer.OBOFileDAO;
+
 import daomodel.OBOFile;
 
 import obomodel.OBOComponent;
+
 import utility.ExecuteCommand;
-import utility.ImportFile;
-import utility.ImportDatabase;
-import utility.MapBuilder;
-import utility.TreeBuilder;
-import utility.GenerateSQL;
-import utility.ValidateComponents;
+
+import routines.ImportFile;
+import routines.ImportDatabase;
+import routines.MapBuilder;
+import routines.TreeBuilder;
+import routines.GenerateSQL;
+import routines.ValidateComponents;
 
 public class RunOBOLoadFileIntoDatabase {
 	/*

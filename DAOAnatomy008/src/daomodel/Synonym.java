@@ -34,9 +34,7 @@
 
 package daomodel;
 
-import java.io.Serializable;
-
-public class Synonym implements Serializable{
+public class Synonym {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *  Columns:

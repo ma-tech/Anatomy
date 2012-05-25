@@ -74,11 +74,6 @@ public final class ComponentRelationshipDAO {
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OID = ? ";
     
-    private static final String SQL_FIND_BY_OBO_ID =
-        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
-        "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
-        "WHERE ACR_OBO_CHILD = ? ";
-    
     private static final String SQL_LIST_ALL =
         "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP ";

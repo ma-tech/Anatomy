@@ -35,6 +35,7 @@
 
 package app;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -44,15 +45,15 @@ import obolayer.ComponentOBO;
 
 import obomodel.OBOComponent;
 
-import utility.MapBuilder;
-import utility.TreeBuilder;
-import utility.ValidateComponents;
+import routines.MapBuilder;
+import routines.TreeBuilder;
+import routines.ValidateComponents;
 
 public class RunOBOCheckFileReferenceTree {
 	/*
 	 * run Method
 	 */
-    public static void run() {
+    public static void run() throws IOException {
 
     	try {
             OBOFactory obofactory = OBOFactory.getInstance("file");
@@ -62,7 +63,7 @@ public class RunOBOCheckFileReferenceTree {
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
 
-            ArrayList<OBOComponent> parseOldTermList = (ArrayList) obocomponents;
+            ArrayList<OBOComponent> parseOldTermList = (ArrayList<OBOComponent>) obocomponents;
             
             //Build hashmap of components
             MapBuilder mapbuilder = new MapBuilder(parseOldTermList);

@@ -30,9 +30,13 @@
 *---------------------------------------------------------------------------------------------
 */
 
-package utility;
+package routines;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+import java.util.Iterator;
 
 import obomodel.OBOComponent;
 
@@ -49,62 +53,51 @@ public class MapBuilder {
     //<EMAPA:ID -> time obocomponents (emap:id)>
     //private HashMap<String, Vector<String>> treeTimeComponent;
 
-    private HashMap<String, Vector<OBOComponent[]>> treePaths;
     private Vector<String> vRootNodes;
 
     
     public MapBuilder(ArrayList<OBOComponent> termList) {
-        
     	//System.out.println("instantiating MapBuilder");
 
         //instantiate
-        this.obocomponents = new ArrayList();
-        //this.rootobocomponents = new ArrayList();
+        this.obocomponents = new ArrayList<OBOComponent>();
+        this.treeProperty = new HashMap<String, OBOComponent>();
+        this.treeChildren = new HashMap<String, Vector<String>>();
+        this.vRootNodes = new Vector<String>();
         
-        this.treeProperty = new HashMap();
-        this.treeChildren = new HashMap();
-        //this.treeTimeComponent = new HashMap();
-        this.treePaths = new HashMap();
-        this.vRootNodes = new Vector();
-
         this.obocomponents.addAll(termList);
-        //this.rootobocomponents.addAll(this.obocomponents);
 
-        //mapComponents();
         mapTreeProperty();
         mapChildrenProperty();
-        //mapTimeComponents();
-        findRootNodes();
-        
-    }
 
+        findRootNodes();
+    }
     
     public void mapTreeProperty() {
     	
         OBOComponent obocomponent;
         
-        for (Iterator i = obocomponents.iterator(); i.hasNext();) {
+        for (Iterator<OBOComponent> i = obocomponents.iterator(); i.hasNext();) {
 
-            obocomponent = (OBOComponent) i.next();
+            obocomponent = i.next();
             
             //all obocomponents in component arraylist
             this.treeProperty.put(obocomponent.getID(), obocomponent);
         }
     }
     
-    
     public void mapChildrenProperty() {
     	
         OBOComponent obocomponent;
         
-        for (Iterator i = obocomponents.iterator(); i.hasNext();) {
+        for (Iterator<OBOComponent> i = obocomponents.iterator(); i.hasNext();) {
 
-            obocomponent = (OBOComponent) i.next();
+            obocomponent = i.next();
 
             //part of relationship
-            for (Iterator j = obocomponent.getChildOfs().iterator(); j.hasNext();) {
+            for (Iterator<String> j = obocomponent.getChildOfs().iterator(); j.hasNext();) {
 
-                String parent = (String) j.next();
+                String parent = j.next();
 
                 /*
                  RULE CHECK: broken links
@@ -144,7 +137,7 @@ public class MapBuilder {
 
                 Vector<String> v = this.treeChildren.get(parent);
                 if (v == null) {
-                    v = new Vector();
+                    v = new Vector<String>();
                 }
 
                 v.add(obocomponent.getID());
@@ -153,7 +146,6 @@ public class MapBuilder {
             }
         }
     }
-
 
     public void findRootNodes() {
 
@@ -172,32 +164,20 @@ public class MapBuilder {
 
     }
 
-
     public void addTreePropertyEntry(String strEMAPA, OBOComponent obocomponent){
         this.treeProperty.put(strEMAPA, obocomponent);
     }
 
-
-    public Map getChildren() {
+    public Map<String, Vector<String>> getChildren() {
         return this.treeChildren;
     }
 
-
-    public Map getProperties() {
+    public Map<String, OBOComponent> getProperties() {
         return this.treeProperty;
     }
 
-
-    /*
-    public Map getTimeComponents(){
-        return this.treeTimeComponent;
-    }
-    */
-
-
-    public Vector getRootNodes() {
+    public Vector<String> getRootNodes() {
         return this.vRootNodes;
     }
-
 }
 

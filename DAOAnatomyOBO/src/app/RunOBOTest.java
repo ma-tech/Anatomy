@@ -34,6 +34,7 @@
 
 package app;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class RunOBOTest {
 	/*
 	 * run Method
 	 */
-	public static void run () {
+	public static void run () throws IOException {
 
 		try {
 	        // Obtain OBOFactory.
@@ -64,7 +65,7 @@ public class RunOBOTest {
             System.out.println("Number of File Components Read In = " + Integer.toString(obocomponents.size()));
 
 	        // Write out Obo File
-	        componentOBO.setComponentList((ArrayList) obocomponents);
+	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        componentOBO.createTemplateRelationList();
 	        
 	        Boolean isProcessed = componentOBO.writeAll();

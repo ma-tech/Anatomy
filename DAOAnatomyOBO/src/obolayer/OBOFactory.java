@@ -64,14 +64,15 @@
 package obolayer;
 
 import java.io.File;
+import java.io.IOException;
 
 import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 import obomodel.Relation;
 
-import utility.Parser;
-import utility.Producer;
+import routines.Parser;
+import routines.Producer;
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
@@ -127,7 +128,6 @@ public abstract class OBOFactory {
         OBOFactory instance;
 
         File infile = new File (oboInFile);
-        //File outfile = new File (summaryReport);
         
         // If driver is specified, then load it to let it register itself with DriverManager.
         if (infile.exists()) {
@@ -153,42 +153,26 @@ public abstract class OBOFactory {
      * Returns a connection to the database. Package private so that it can be used inside the OBO
      * package only.
      */
-    abstract ArrayList<OBOComponent> getComponents() throws OBOException;
-
+    abstract ArrayList<OBOComponent> getComponents() throws OBOException, IOException;
     abstract Boolean writeComponents() throws OBOException;
-
     abstract Boolean isDebug();
-
     abstract String getSummaryReport();
-
     abstract String getSummaryReportPdf();
-
     abstract String getInputFile();
-
     abstract String getOutputFile();
-
     abstract String getOutputFileVersion();
-
     abstract String getOutputFileNameSpace();
-
     abstract String getOutputFileSavedBy();
-
     abstract String getOutputFileRemark();
-
     abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
-
     abstract void setRelations(ArrayList<Relation> arrayrellist);
-
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
-
     
     // OBO getters --------------------------------------------------------------------------------
     /*
      * Returns the ... OBO associated with the current OBOFactory.
      */
-    
     public ComponentOBO getComponentOBO() {
-    	
         return new ComponentOBO(this);
     }
 
@@ -214,8 +198,6 @@ class FileOBOFactory extends OBOFactory {
     private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
 
-	private ArrayList<OBOComponent> componentList;
-	
     FileOBOFactory(String oboInFile, 
     		String oboOutFile, 
     		String oboOutFileVersion, 
@@ -237,9 +219,9 @@ class FileOBOFactory extends OBOFactory {
         this.summaryReportPdf = summaryReportPdf;
     }
 
-    ArrayList<OBOComponent> getComponents() throws OBOConfigurationException {
+    ArrayList<OBOComponent> getComponents() throws OBOConfigurationException, IOException {
     	
-    	ArrayList<OBOComponent> componentList = new ArrayList();
+    	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
     	Parser parser = new Parser(this.oboInFile);
     	componentList = parser.getComponents();
     	
@@ -262,51 +244,40 @@ class FileOBOFactory extends OBOFactory {
     }
     
     Boolean isDebug() {
-
     	return debug;
     }
     String getSummaryReport() {
-        
     	return summaryReport;
     }
     String getSummaryReportPdf() {
-        
     	return summaryReportPdf;
     }
     String getInputFile() {
-        
     	return oboInFile;
     }
     String getOutputFile() {
-        
     	return oboOutFile;
     }
     String getOutputFileVersion() {
-        
     	return oboOutFileVersion;
     }
     String getOutputFileNameSpace() {
-        
     	return oboOutFileNameSpace;
     }
     String getOutputFileSavedBy() {
-        
     	return oboOutFileSavedBy;
     }
     String getOutputFileRemark() {
-        
     	return oboOutFileRemark;
     }
     void setComponents(ArrayList<OBOComponent> obocomponentList) {
-        
     	this.obocomponentList = obocomponentList;
     }
     void setRelations(ArrayList<Relation> oborelationList) {
-        
     	this.oborelationList = oborelationList;
     }
     void addComponents(ArrayList<OBOComponent> obocomponentList) {
-        
     	this.obocomponentList.addAll(obocomponentList);
     }
+
 }

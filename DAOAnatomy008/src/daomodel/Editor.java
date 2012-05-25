@@ -1,11 +1,9 @@
 package daomodel;
 
-import java.io.Serializable;
-
 /**
  * This class represents a Data Transfer Object for the Node (Abstract - EMAPA)
  */
-public class Editor implements Serializable {
+public class Editor {
 
     // Properties ---------------------------------------------------------------------------------
 	/*

@@ -54,10 +54,10 @@ public final class StageRangeDAO {
     //Check Existing Child Stage Range is within Existing Parent Stage Range
     private static final String SQL_LIST_EXISTING_CHILD_EXISTING_PARENT =
         "SELECT " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+        "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+        "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -69,13 +69,31 @@ public final class StageRangeDAO {
         "or b.stg_sequence > d.stg_sequence) " +
         "order by e.aoc_obo_id, f.aoc_obo_id";
 
+    private static final String SQL_LIST_EXISTING_CHILD_PART_OF_EXISTING_PARENT =
+        "SELECT " +
+                "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+                "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+        "FROM ANA_OBO_COMPONENT e " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
+        "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
+        "join ana_stage a on a.stg_name = e.aoc_start " +
+        "join ana_stage b on b.stg_name = e.aoc_end " +
+        "join ana_stage c on c.stg_name = f.aoc_start " +
+        "join ana_stage d on d.stg_name = f.aoc_end " +
+        "where substring(e.aoc_obo_id, 1, 3) <> 'TH:' " +
+        "and substring(f.aoc_obo_id, 1, 3) <> 'TH:' " +
+        "and ACR_OBO_TYPE = 'PART_OF' " +
+        "AND (a.stg_sequence < c.stg_sequence " +
+        "or b.stg_sequence > d.stg_sequence) " +
+        "order by e.aoc_obo_id, f.aoc_obo_id";
+
     //Check Existing Child Stage Range is within Proposed Parent Stage Range
     private static final String SQL_LIST_EXISTING_CHILD_PROPOSED_PARENT =
         "SELECT " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+                "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+                "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -90,10 +108,10 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Proposed Parent Stage Ranges
     private static final String SQL_LIST_PROPOSED_CHILD_PROPOSED_PARENT =
         "SELECT " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+                "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+                "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -108,10 +126,10 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Existing Parent Stage Ranges
     private static final String SQL_LIST_PROPOSED_CHILD_EXISTING_PARENT =
         "SELECT " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+                "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+                "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -126,10 +144,10 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Existing Parent Stage Ranges - against Database
     private static final String SQL_LIST_EXISTING_CHILD_EXISTING_PARENT_DB =
     	"SELECT " +
-    	"aoc_obo_id as CHILD_ID, aoc_start as CHILD_START, aoc_end as CHILD_END, " +
-    	"acr_obo_parent as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
+    	        "e.aoc_obo_id as CHILD_ID, e.aoc_name as CHILD_NAME, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
+    	        "f.aoc_obo_id as PARENT_ID, f.aoc_name as PARENT_NAME, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
     	"FROM ANA_OBO_COMPONENT " +
-    	"join ANA_OBO_COMPONENT_RELATIONSHIP on acr_obo_id = aoc_obo_id " +
+    	"join ANA_OBO_COMPONENT_RELATIONSHIP on ACR_OBO_CHILD = aoc_obo_id " +
     	"join ana_node g on g.ano_public_id = acr_obo_parent " +
     	"join anav_stage_range on anav_node_fk = g.ano_oid " +
     	"join ana_stage a on a.stg_name = aoc_start " +
@@ -138,9 +156,10 @@ public final class StageRangeDAO {
     	"join ana_stage d on d.stg_sequence = anav_stage_max " +
     	"where (a.stg_sequence < anav_stage_min " +
     	"or b.stg_sequence > anav_stage_max) " +
-    	"and aoc_obo_id not in (SELECT e.aoc_obo_id " +
+    	"and aoc_obo_id not in (" +
+    	"SELECT e.aoc_obo_id " +
     	"FROM ANA_OBO_COMPONENT e " +
-    	"join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+    	"join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
     	"join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
     	"join ana_stage a on a.stg_name = e.aoc_start " +
     	"join ana_stage b on b.stg_name = e.aoc_end " +
@@ -149,16 +168,15 @@ public final class StageRangeDAO {
     	"where substring(e.aoc_obo_id, 1, 3) <> 'TH:' " +
     	"and substring(f.aoc_obo_id, 1, 3) <> 'TH:' " +
     	"and (a.stg_sequence < c.stg_sequence " +
-    	"or b.stg_sequence > d.stg_sequence)) " +
+    	"or b.stg_sequence > d.stg_sequence)" +
+    	") " +
     	"order by aoc_obo_id, acr_obo_parent";
     
     //Check Existing Child Stage Range is within Existing Parent Stage Range
     private static final String SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT =
         "SELECT COUNT(*) AS VALUE " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -172,10 +190,8 @@ public final class StageRangeDAO {
     //Check Existing Child Stage Range is within Proposed Parent Stage Range
     private static final String SQL_COUNT_EXISTING_CHILD_PROPOSED_PARENT =
         "SELECT COUNT(*) AS VALUE " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -189,10 +205,8 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Proposed Parent Stage Ranges
     private static final String SQL_COUNT_PROPOSED_CHILD_PROPOSED_PARENT =
         "SELECT COUNT(*) AS VALUE " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -206,10 +220,8 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Existing Parent Stage Ranges
     private static final String SQL_COUNT_PROPOSED_CHILD_EXISTING_PARENT =
         "SELECT COUNT(*) AS VALUE " +
-        "e.aoc_obo_id as CHILD_ID, a.stg_name as CHILD_START, b.stg_name as CHILD_END, " +
-        "f.aoc_obo_id as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
         "FROM ANA_OBO_COMPONENT e " +
-        "join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+        "join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
         "join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
         "join ana_stage a on a.stg_name = e.aoc_start " +
         "join ana_stage b on b.stg_name = e.aoc_end " +
@@ -223,10 +235,8 @@ public final class StageRangeDAO {
     //Check Proposed New Child Node Ranges are within Existing Parent Stage Ranges - against Database
     private static final String SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT_DB =
         "SELECT COUNT(*) AS VALUE " +
-       	"aoc_obo_id as CHILD_ID, aoc_start as CHILD_START, aoc_end as CHILD_END, " +
-       	"acr_obo_parent as PARENT_ID, c.stg_name as PARENT_START, d.stg_name as PARENT_END " +
        	"FROM ANA_OBO_COMPONENT " +
-       	"join ANA_OBO_COMPONENT_RELATIONSHIP on acr_obo_id = aoc_obo_id " +
+       	"join ANA_OBO_COMPONENT_RELATIONSHIP on ACR_OBO_CHILD = aoc_obo_id " +
        	"join ana_node g on g.ano_public_id = acr_obo_parent " +
        	"join anav_stage_range on anav_node_fk = g.ano_oid " +
        	"join ana_stage a on a.stg_name = aoc_start " +
@@ -235,9 +245,10 @@ public final class StageRangeDAO {
        	"join ana_stage d on d.stg_sequence = anav_stage_max " +
        	"where (a.stg_sequence < anav_stage_min " +
        	"or b.stg_sequence > anav_stage_max) " +
-       	"and aoc_obo_id not in (SELECT e.aoc_obo_id " +
+       	"and aoc_obo_id not in (" +
+       	"SELECT e.aoc_obo_id " +
        	"FROM ANA_OBO_COMPONENT e " +
-       	"join ana_obo_component_relationship on acr_obo_id = e.aoc_obo_id " +
+       	"join ana_obo_component_relationship on ACR_OBO_CHILD = e.aoc_obo_id " +
        	"join ana_obo_component f on f.aoc_obo_id = acr_obo_parent " +
        	"join ana_stage a on a.stg_name = e.aoc_start " +
        	"join ana_stage b on b.stg_name = e.aoc_end " +
@@ -246,7 +257,8 @@ public final class StageRangeDAO {
        	"where substring(e.aoc_obo_id, 1, 3) <> 'TH:' " +
        	"and substring(f.aoc_obo_id, 1, 3) <> 'TH:' " +
        	"and (a.stg_sequence < c.stg_sequence " +
-       	"or b.stg_sequence > d.stg_sequence)) " +
+       	"or b.stg_sequence > d.stg_sequence)" +
+       	") " +
        	"order by aoc_obo_id, acr_obo_parent";
     
     // Vars ---------------------------------------------------------------------------------------
@@ -270,6 +282,14 @@ public final class StageRangeDAO {
     public List<StageRange> listByExistingChildExistingParent() throws DAOException {
     	
         return list(SQL_LIST_EXISTING_CHILD_EXISTING_PARENT);
+    }
+    
+    /*
+     * Returns a list of ALL stages ranges by existing child and existing parent, otherwise null, PART_OFs ONLY
+     */
+    public List<StageRange> listByExistingChildPartOfExistingParent() throws DAOException {
+    	
+        return list(SQL_LIST_EXISTING_CHILD_PART_OF_EXISTING_PARENT);
     }
     
     /*
@@ -416,9 +436,11 @@ public final class StageRangeDAO {
 
     	return new StageRange(
        		resultSet.getString("CHILD_ID"), 
+       		resultSet.getString("CHILD_NAME"), 
        		resultSet.getString("CHILD_START"), 
        		resultSet.getString("CHILD_END"), 
        		resultSet.getString("PARENT_ID"), 
+       		resultSet.getString("PARENT_NAME"), 
        		resultSet.getString("PARENT_START"),
        		resultSet.getString("PARENT_END")
         );

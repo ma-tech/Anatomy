@@ -69,19 +69,14 @@ public class RunOBOLoadComponents {
 
         // Obtain OBOFactory.
         OBOFactory obofactory = OBOFactory.getInstance("file");
-        //System.out.println("OBOFactory successfully obtained: " + obofactory);
-
         // Obtain DAOs.
         ComponentOBO componentOBO = obofactory.getComponentOBO();
-        //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
 
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = componentOBO.listAll();
 
         // Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-        //System.out.println("DAOFactory successfully obtained: " + anatomy008);
-
         // Obtain DAOs.
         ComponentDAO componentDAO = anatomy008.getComponentDAO();
         ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();

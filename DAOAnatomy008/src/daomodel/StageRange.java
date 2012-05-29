@@ -37,16 +37,20 @@ public class StageRange {
     // Properties ---------------------------------------------------------------------------------
 	/*
 	 * CHILD_ID     - varchar(25)
+	 * CHILD_NAME   - varchar(255)
 	 * CHILD_START  - varchar(25)
 	 * CHILD_END    - varchar(25)
 	 * PARENT_ID    - varchar(25)
+	 * PARENT_NAME  - varchar(255)
 	 * PARENT_START - varchar(25)
 	 * PARENT_END   - varchar(25)
 	 */
     private String childId; 
+    private String childName;
     private String childStart; 
     private String childEnd; 
     private String parentId; 
+    private String parentName;
     private String parentStart; 
     private String parentEnd; 
 
@@ -69,16 +73,20 @@ public class StageRange {
      * 
      */
     public StageRange(String childId, 
+    		String childName, 
     		String childStart, 
     		String childEnd, 
     		String parentId, 
+    		String parentName, 
     		String parentStart, 
     		String parentEnd) {
     	
         this.childId = childId;
+        this.childName = childName;
         this.childStart = childStart; 
         this.childEnd = childEnd; 
         this.parentId = parentId;
+        this.parentName = parentName;
         this.parentStart = parentStart;
         this.parentEnd = parentEnd; 
     }
@@ -86,6 +94,9 @@ public class StageRange {
     // Getters ------------------------------------------------------------------------------------
     public String getChildId() {
         return childId;
+    }
+    public String getChildName() {
+        return childName;
     }
     public String getChildStart() {
         return childStart;
@@ -96,6 +107,9 @@ public class StageRange {
     public String getParentId() {
         return parentId;
     }
+    public String getParentName() {
+        return parentName;
+    }
     public String getParentStart() {
         return parentStart;
     }
@@ -104,17 +118,23 @@ public class StageRange {
     }
 
     // Setters ------------------------------------------------------------------------------------
-    public void SetChildId(String childId) {
+    public void setChildId(String childId) {
         this.childId = childId;
     }
-    public void SetChildStart(String childStart) {
+    public void setChildName(String childName) {
+        this.childName = childName;
+    }
+    public void setChildStart(String childStart) {
         this.childStart = childStart;
     }
-    public void SetChildEnd(String childEnd) {
+    public void setChildEnd(String childEnd) {
         this.childEnd = childEnd;
     }
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
     public void setParentStart(String parentStart) {
         this.parentStart = parentStart;
@@ -129,15 +149,15 @@ public class StageRange {
      *  Not required, it just makes reading logs easier
      */
     public String toString() {
-        return String.format("StageRange [ childId=%s, childStart=%s, childEnd=%s, parentId=%s, parentStart=%s, parentEnd=%s ]", 
-        		childId, childStart, childEnd, parentId, parentStart, parentEnd);
+        return String.format("StageRange [ childId=%s, childName=%s, childStart=%s, childEnd=%s, parentId=%s, parentName=%s, parentStart=%s, parentEnd=%s ]", 
+        		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd);
     }
 
     /*
      * Returns Another the String representation of this StageRange.
      */
     public String reportStageRange() {
-        return String.format("\t%s\t%s\t\t%s\t\t%s\t%s\t\t%s", 
-        		childId, childStart, childEnd, parentId, parentStart, parentEnd);
+    	return String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+        		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd);
     }
 }

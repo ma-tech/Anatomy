@@ -125,25 +125,23 @@ public class Parser {
         this.setOboSession(obosession);
 
     	//all terms in a map
-    	Map<?, ?> map = obosession.getAllTermsHash();
+    	Map map = obosession.getAllTermsHash();
             
         return this.addComponents(map);
     }
         
          
-    private ArrayList<OBOComponent> addComponents(Map<?, ?> map){
+    private ArrayList<OBOComponent> addComponents(Map map){
             
      	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
         			
         try {
             //iterate through each term in the map
-            	
-			@SuppressWarnings("unchecked")
-			Iterator<Map<?, ?>> iteratorMap = (Iterator<Map<?, ?>>) map.keySet().iterator();
+			Iterator iteratorMap = map.keySet().iterator();
     
             while (iteratorMap.hasNext() ){
 
-                OBOClassImpl oboclassimpl = (OBOClassImpl) iteratorMap.next();
+                OBOClassImpl oboclassimpl = (OBOClassImpl) map.get(iteratorMap.next());
                 
                 //remove 4 default extra terms in map created by obosession.getAllTermsHash()
                 if(!oboclassimpl.getID().startsWith("obo")){
@@ -179,8 +177,7 @@ public class Parser {
                     /*
                      * set obocomponent synonyms (arraylist)
                      */
-					@SuppressWarnings("unchecked")
-					Iterator<Map<?, ?>> iteratorSynonyms = (Iterator<Map<?, ?>>) oboclassimpl.getSynonyms().iterator();
+					Iterator iteratorSynonyms = oboclassimpl.getSynonyms().iterator();
         		    
                     while (iteratorSynonyms.hasNext() ){
                     	obocomponent.addSynonym(iteratorSynonyms.next().toString());
@@ -275,10 +272,9 @@ public class Parser {
             }
                 
             //get obsolete terms
-            Set<?> obsoTerms = this.oboSession.getObsoleteObjects();
+            Set obsoTerms = this.oboSession.getObsoleteObjects();
 
-			@SuppressWarnings("unchecked")
-			Iterator<OBOClassImpl> iteratorObsoletes = (Iterator<OBOClassImpl>) obsoTerms.iterator();
+			Iterator<OBOClassImpl> iteratorObsoletes = obsoTerms.iterator();
 
             while (iteratorObsoletes.hasNext() ){
 
@@ -310,15 +306,6 @@ public class Parser {
                     comments);
 
             	obocomponent.setCheckComment("INFO: Obsolete Term");
-
-                //set synonyms (not string in oboparser)
-    			@SuppressWarnings("unchecked")
-				Iterator<String> iteratorSynonyms = (Iterator<String>) oboclassimpl.getSynonyms();
-
-                while (iteratorSynonyms.hasNext() ){
-                	
-                	obocomponent.addSynonym(iteratorSynonyms.next().toString());
-                }
 
                 componentList.add(obocomponent);
       

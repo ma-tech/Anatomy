@@ -111,7 +111,8 @@ public final class LeafDAO {
         "JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_STG_MIN_2 " +
         "JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
         "WHERE ANAV_NAME_1 = ? " +
-        "ORDER BY ROOT_DESC, CHILD_DESC";
+        "ORDER BY CHILD_ID DESC, CHILD_NAME DESC";
+        //"ORDER BY ROOT_DESC, CHILD_DESC";
 
     private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
         "SELECT" +

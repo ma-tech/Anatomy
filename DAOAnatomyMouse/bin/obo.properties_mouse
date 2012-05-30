@@ -1,0 +1,11 @@
+file.oboinfile = /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/OBOInput/Version009_Input_2012-03-29.obo
+-- file.obooutfile = /Users/mwicks/GitMahost/Anatomy/Database/Versions/Version009/Formats/OBOOutput/Version009_Output_2012-03-29.obo
+file.obooutfile = /Users/mwicks/Desktop/output.obo
+file.obooutfileversion = 1.2
+file.obooutfilenamespace = mouse_ontology
+file.obooutfilesavedby = Mike Wicks
+file.obooutfileremark = This is an OBO file extracted from the Database using the Producer Class in the utility Package
+file.summaryreport = /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/OBOInput/Version009_Input_2012-03-29_ValidationReport.txt
+file.summaryreportpdf = /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/OBOInput/Version009_Input_2012-03-29_ValidationReport.pdf
+file.debug = true
+

@@ -1,7 +1,7 @@
-file.oboinfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-28/AEOandEHDAA2_2012-05-28.obo
-file.obooutfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-28/AEOandEHDAA2_2012-05-28_OUTPUT.obo
-file.summaryreport = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-28/summaryReport.txt
-file.summaryreportpdf = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-28/summaryReport.pdf
+file.oboinfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-29b.obo
+file.obooutfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-29b_OUTPUT.obo
+file.summaryreport = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/summaryReport.txt
+file.summaryreportpdf = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/summaryReport.pdf
 file.debug = true
 file.obooutfileversion = 1.2
 file.obooutfilenamespace = mouse_ontology

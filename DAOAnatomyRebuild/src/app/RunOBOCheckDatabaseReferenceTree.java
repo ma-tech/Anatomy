@@ -63,7 +63,7 @@ public class RunOBOCheckDatabaseReferenceTree {
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( parseOldTermList, treebuilder);
+            new ValidateComponents( "mouse", parseOldTermList, treebuilder);
 
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){

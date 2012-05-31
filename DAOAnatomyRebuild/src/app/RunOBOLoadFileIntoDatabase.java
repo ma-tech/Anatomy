@@ -119,7 +119,7 @@ public class RunOBOLoadFileIntoDatabase {
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( parseNewTermList, parseOldTermList, newtreebuilder);
+            new ValidateComponents( "mouse", parseNewTermList, parseOldTermList, newtreebuilder);
         
         if ( validatecomponents.getProblemTermList().isEmpty() ) {
         	System.out.println("PASSED VALIDATION");

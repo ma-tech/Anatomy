@@ -1,5 +1,5 @@
-file.oboinfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-29b.obo
-file.obooutfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-29b_OUTPUT.obo
+file.oboinfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-31b.obo
+file.obooutfile = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/EHDAA2--12-05-31b.obo
 file.summaryreport = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/summaryReport.txt
 file.summaryreportpdf = /Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-29/summaryReport.pdf
 file.debug = true

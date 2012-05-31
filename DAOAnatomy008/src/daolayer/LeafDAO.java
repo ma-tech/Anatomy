@@ -530,9 +530,12 @@ public final class LeafDAO {
 
         if (leafs.size() > 0) {
         	Iterator<Leaf> iterator = leafs.iterator();
+        	
         	while (iterator.hasNext()) {
         		Leaf leaf = iterator.next();
-  		        if ( leaf.getChildId().equals("LEAF")) {
+            	rowCount = rowCount + 1; 
+
+            	if ( leaf.getChildId().equals("LEAF")) {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
   		                leaf.getChildName() + 
@@ -550,14 +553,15 @@ public final class LeafDAO {
         	            if ( leafs.size() != rowCount ) {
 	        	            returnString = returnString + ",";
 		        	    }
-        	            lastLeaf = true;
+        	        lastLeaf = true;
   		        }
-  		        else {
+            	
+            	if ( !leaf.getChildId().equals("LEAF")) {
   		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
   		        		grandChildCount = grandChildCount + 1;
   		        	}
   		        	else {
-  		        		if (lastLeaf == false){
+  		        		if (lastLeaf == false && rowCount > 1){
   		  		  	        returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
@@ -579,27 +583,27 @@ public final class LeafDAO {
   		        		}
  	  	                grandChildCount = 1;
   		        	}
+  	 		        savedLeaf = leaf;
+  	 		        
+  	 		        if ( rowCount == leafs.size() ) {
+  	 	    	  		returnString = returnString + 
+  	 	                "{\"attr\": {\"ext_id\": \"" +
+  	 		  		    savedLeaf.getChildName() + 
+  	 		        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
+  	 		 	    	savedLeaf.getChildId() +
+  	 		 	    	"\",\"name\": \"" + 
+  	 		 	    	savedLeaf.getChildDescription() + 
+  	 		 	    	"\",\"start\": \"" + 
+  	 		 	    	savedLeaf.getChildStart() + 
+  	 		 	    	"\",\"end\": \"" + 
+  	 		 	    	savedLeaf.getChildEnd() + 
+  	 		 	    	"\"},\"data\": \"" +
+  	 		            savedLeaf.getChildDescription() + 
+  	 		            "(" + 
+  	 		            Integer.toString(grandChildCount) + 
+  	 		            ")\",\"state\": \"closed\"}";
+  	 	        	}
   		        }
-  		        rowCount = rowCount + 1;
- 		        savedLeaf = leaf;
-        	}
-	        if ( rowCount == leafs.size() ) {
-    	  		returnString = returnString + 
-                "{\"attr\": {\"ext_id\": \"" +
-	  		    savedLeaf.getChildName() + 
-	        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
-	 	    	savedLeaf.getChildId() +
-	 	    	"\",\"name\": \"" + 
-	 	    	savedLeaf.getChildDescription() + 
-	 	    	"\",\"start\": \"" + 
-	 	    	savedLeaf.getChildStart() + 
-	 	    	"\",\"end\": \"" + 
-	 	    	savedLeaf.getChildEnd() + 
-	 	    	"\"},\"data\": \"" +
-	            savedLeaf.getChildDescription() + 
-	            "(" + 
-	            Integer.toString(grandChildCount) + 
-	            ")\",\"state\": \"closed\"}";
     	  	}
         }
         

@@ -35,6 +35,7 @@ package routines;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 //import daolayer.ComponentAlternativeDAO;
 import daolayer.ComponentCommentDAO;
@@ -77,49 +78,61 @@ public class ImportComponents {
             //ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
 
             ArrayList<Component> components = (ArrayList<Component>) componentDAO.listAll(); 
-            
+            List<ComponentRelationship> componentrelationships = new ArrayList<ComponentRelationship>();
+
           	Iterator<Component> iteratorComponent = components.iterator();
 
           	while (iteratorComponent.hasNext()) {
           		Component component = iteratorComponent.next();
 
+                ComponentRelationship componentrelationship = new ComponentRelationship();
+
            		if (component.getStatusChange().equals("DELETED") ) {
                     System.out.println("WARNING! obocomponent, = " + component.toString());
            		}
            		else {
-               		OBOComponent obocomponent = new OBOComponent(
-               				component.getName(),
-               				component.getId(),
-               				component.getDbId(),
-               				component.getNewId(),
-               				component.getNamespace(),
-               				component.getDefinition(),
-               				ObjectConverter.convert(component.getGroup(), Boolean.class),
-               				component.getStart(),
-               				component.getEnd(),
-               				component.getPresent(),
-               				component.getStatusChange(),
-               				component.getStatusRule());
-               		
-               		// Get Relationships for this Component
-               		ArrayList<ComponentRelationship> componentrelationships = 
-               				(ArrayList<ComponentRelationship>) componentrelationshipDAO.listByOboId(component.getId());
-               		
-                  	Iterator<ComponentRelationship> iteratorComponentRelationship = componentrelationships.iterator();
+           			
+                    OBOComponent obocomponent = new OBOComponent();
+                    
+            		obocomponent.setID(component.getId().replace("\n", " ").trim());
+            		obocomponent.setDBID(component.getDbId().replace("\n", " ").trim());
+            		obocomponent.setNewID(component.getNewId().replace("\n", " ").trim());
+            		obocomponent.setName(component.getName().replace("\n", " ").trim());
+            		obocomponent.setNamespace(component.getNamespace().replace("\n", " ").trim());
+            		obocomponent.setDefinition(component.getDefinition().replace("\n", " ").trim());
+            		obocomponent.setGroup(ObjectConverter.convert(component.getGroup(), Boolean.class));
+            		
+            		if ( "TBD".equals(component.getStart().replace("\n", " ").trim()) ){
+                		obocomponent.setStart("");
+            		}
+            		else {
+                		obocomponent.setStart(component.getStart().replace("\n", " ").trim());
+            		}
+            		
+            		if ( "TBD".equals(component.getEnd().replace("\n", " ").trim()) ){
+                		obocomponent.setEnd("");
+            		}
+            		else {
+                		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());
+            		}
+            		
+            		obocomponent.setPresent(component.getPresent());
+            		obocomponent.setStatusChange(component.getStatusChange().replace("\n", " ").trim());
+            		obocomponent.setStatusRule(component.getStatusRule().replace("\n", " ").trim());
 
-                  	// Add Relationships to component
-                  	while (iteratorComponentRelationship.hasNext()) {
-                  		ComponentRelationship componentrelationship = iteratorComponentRelationship.next();
+            		componentrelationships = componentrelationshipDAO.listByOboId(component.getId().replace("\n", " ").trim());
 
-                  		if ( !"".equals(componentrelationship.getParent()) ) {
-                      		obocomponent.addChildOf(componentrelationship.getParent());
-                  		}
-                  		if ( !"".equals(componentrelationship.getType()) ) {
-                      		obocomponent.addChildOfType(componentrelationship.getType());
-                  		}
-                  	}
+                	Iterator<ComponentRelationship> iteratorComponentRelationship = componentrelationships.iterator();
 
-               		// Get Comments for this Component
+                	while (iteratorComponentRelationship.hasNext()) {
+                		
+                		componentrelationship = iteratorComponentRelationship.next();
+
+                		obocomponent.addChildOf(componentrelationship.getParent().replace("\n", " ").trim());
+                		obocomponent.addChildOfType(componentrelationship.getType().replace("\n", " ").trim());
+                	}
+                	
+                	// Get Comments for this Component
                		ArrayList<ComponentComment> componentcomments = 
                				(ArrayList<ComponentComment>) componentcommentDAO.listByOboId(component.getId());
                		

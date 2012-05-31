@@ -25,5 +25,10 @@
 			<type>2</type>
 			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomyOBO/src</location>
 		</link>
+		<link>
+			<name>Usefulsrc</name>
+			<type>2</type>
+			<location>/Users/mwicks/GitMahost/Anatomy/UsefulJava/src</location>
+		</link>
 	</linkedResources>
 </projectDescription>

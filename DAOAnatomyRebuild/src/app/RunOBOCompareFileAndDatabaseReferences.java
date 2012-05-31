@@ -69,7 +69,7 @@ public class RunOBOCompareFileAndDatabaseReferences {
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( parseNewTermList, parseOldTermList, treebuilder);
+            new ValidateComponents( "mouse", parseNewTermList, parseOldTermList, treebuilder);
 
         //Report Success/Failure
     	System.out.println("");

@@ -122,7 +122,7 @@ public class RunDAOExtractOBOAndValidate {
 
             //check for rules violation
             ValidateComponents validatecomponents =
-                new ValidateComponents( parseNewTermList, parseOldTermList, treebuilder);
+                new ValidateComponents( "mouse", parseNewTermList, parseOldTermList, treebuilder);
             
             if ( validatecomponents.getProblemTermList().isEmpty() ) {
             	obofile.setValidation("VALIDATED");

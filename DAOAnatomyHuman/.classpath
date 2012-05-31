@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Usefulsrc"/>
 	<classpathentry kind="src" path="DAOsrc"/>
 	<classpathentry kind="src" path="OBOsrc"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="src/libs/commons-io-2.1.jar"/>
-	<classpathentry kind="lib" path="src/libs/iText-2.1.6.jar"/>
-	<classpathentry kind="lib" path="src/libs/oboedit.jar"/>
-	<classpathentry kind="lib" path="src/libs/org.geneontology.jar"/>
-	<classpathentry kind="lib" path="src/libs/UsefulJava.jar"/>
-	<classpathentry kind="lib" path="src/libs/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/iText-2.1.6.jar"/>
+	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/oboedit.jar"/>
+	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/org.geneontology.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

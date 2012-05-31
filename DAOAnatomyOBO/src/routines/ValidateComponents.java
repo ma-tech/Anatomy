@@ -44,6 +44,8 @@ import obomodel.OBOComponent;
 
 public class ValidateComponents {
 
+	private String species;
+	
     private OBOComponent abstractclassobocomponent; 
     private OBOComponent stageclassobocomponent; 
     private OBOComponent groupclassobocomponent; 
@@ -92,9 +94,10 @@ public class ValidateComponents {
 
     // Constructor ---------------------------------------------------------------------------------
     //  A - 2 Lists of Terms
-    public ValidateComponents(ArrayList<OBOComponent> newTermList, 
-                             ArrayList<OBOComponent> oldTermList, 
-                             TreeBuilder treebuilder ) {
+    public ValidateComponents(String species,
+    		ArrayList<OBOComponent> newTermList, 
+            ArrayList<OBOComponent> oldTermList, 
+            TreeBuilder treebuilder ) {
 
         //System.out.println("ValidateComponents Class: Constructor, 2 Lists ...");
 
@@ -107,23 +110,62 @@ public class ValidateComponents {
         // 4: group term class parameters
         this.grouptermclassobocomponent = new OBOComponent();
 
-        // 1: set abstract class parameters
-        this.abstractclassobocomponent.setName( "Abstract anatomy" );
-        this.abstractclassobocomponent.setID( "EMAPA:0" );
-        this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-        // 2: set stage class parameters
-        this.stageclassobocomponent.setName( "Theiler stage" );
-        this.stageclassobocomponent.setID( "TS:0" );
-        this.stageclassobocomponent.setNamespace( "theiler_stage" );
-        // 3: temporary new group class parameters
-        this.groupclassobocomponent.setName( "Tmp new group" );
-        this.groupclassobocomponent.setID( "Tmp_new_group" );
-        this.groupclassobocomponent.setNamespace( "new_group_namespace" );
-        // 4: group term class parameters
-        this.grouptermclassobocomponent.setName( "Group term" );
-        this.grouptermclassobocomponent.setID( "group_term" );
-        this.grouptermclassobocomponent.setNamespace( "group_term" );
+        this.species = species;
 
+        if ( "mouse".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract anatomy" );
+            this.abstractclassobocomponent.setID( "EMAPA:0" );
+            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Theiler stage" );
+            this.stageclassobocomponent.setID( "TS:0" );
+            this.stageclassobocomponent.setNamespace( "theiler_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "Tmp new group" );
+            this.groupclassobocomponent.setID( "Tmp_new_group" );
+            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "Group term" );
+            this.grouptermclassobocomponent.setID( "group_term" );
+            this.grouptermclassobocomponent.setNamespace( "group_term" );
+        }
+        if ( "chick".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract anatomy" );
+            this.abstractclassobocomponent.setID( "EMAPA:0" );
+            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Theiler stage" );
+            this.stageclassobocomponent.setID( "TS:0" );
+            this.stageclassobocomponent.setNamespace( "theiler_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "Tmp new group" );
+            this.groupclassobocomponent.setID( "Tmp_new_group" );
+            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "Group term" );
+            this.grouptermclassobocomponent.setID( "group_term" );
+            this.grouptermclassobocomponent.setNamespace( "group_term" );
+        }
+        if ( "human".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract anatomy" );
+            this.abstractclassobocomponent.setID( "EHDAA2:0" );
+            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Carnegie stage" );
+            this.stageclassobocomponent.setID( "CS:0" );
+            this.stageclassobocomponent.setNamespace( "carnegie_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "Tmp new group" );
+            this.groupclassobocomponent.setID( "Tmp_new_group" );
+            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "Group term" );
+            this.grouptermclassobocomponent.setID( "group_term" );
+            this.grouptermclassobocomponent.setNamespace( "group_term" );
+        }
         //clear all comments and status from original term list so that
         // children of
         // new groups with calculated common ancestor
@@ -198,8 +240,9 @@ public class ValidateComponents {
 
     // Constructor ---------------------------------------------------------------------------------
     //  B - 1 List of Terms
-    public ValidateComponents(ArrayList<OBOComponent> newTermList, 
-                             TreeBuilder treebuilder) {
+    public ValidateComponents(String species, 
+    		ArrayList<OBOComponent> newTermList, 
+    		TreeBuilder treebuilder) {
 
         //System.out.println("ValidateComponents Class: Constructor, 1 List ...");
 
@@ -211,23 +254,63 @@ public class ValidateComponents {
         this.groupclassobocomponent = new OBOComponent();
         // 4: group term class parameters
         this.grouptermclassobocomponent = new OBOComponent();
+        
+        this.species = species;
 
-        // 1: set abstract class parameters
-        this.abstractclassobocomponent.setName( "Abstract anatomy" );
-        this.abstractclassobocomponent.setID( "EMAPA:0" );
-        this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-        // 2: set stage class parameters
-        this.stageclassobocomponent.setName( "Theiler stage" );
-        this.stageclassobocomponent.setID( "TS:0" );
-        this.stageclassobocomponent.setNamespace( "theiler_stage" );
-        // 3: temporary new group class parameters
-        this.groupclassobocomponent.setName( "Tmp new group" );
-        this.groupclassobocomponent.setID( "Tmp_new_group" );
-        this.groupclassobocomponent.setNamespace( "new_group_namespace" );
-        // 4: group term class parameters
-        this.grouptermclassobocomponent.setName( "Group term" );
-        this.grouptermclassobocomponent.setID( "group_term" );
-        this.grouptermclassobocomponent.setNamespace( "group_term" );
+        if ( "mouse".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract anatomy" );
+            this.abstractclassobocomponent.setID( "EMAPA:0" );
+            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Theiler stage" );
+            this.stageclassobocomponent.setID( "TS:0" );
+            this.stageclassobocomponent.setNamespace( "theiler_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "Tmp new group" );
+            this.groupclassobocomponent.setID( "Tmp_new_group" );
+            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "Group term" );
+            this.grouptermclassobocomponent.setID( "group_term" );
+            this.grouptermclassobocomponent.setNamespace( "group_term" );
+        }
+        if ( "chick".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract anatomy" );
+            this.abstractclassobocomponent.setID( "EMAPA:0" );
+            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Theiler stage" );
+            this.stageclassobocomponent.setID( "TS:0" );
+            this.stageclassobocomponent.setNamespace( "theiler_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "Tmp new group" );
+            this.groupclassobocomponent.setID( "Tmp_new_group" );
+            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "Group term" );
+            this.grouptermclassobocomponent.setID( "group_term" );
+            this.grouptermclassobocomponent.setNamespace( "group_term" );
+        }
+        if ( "human".equals(this.species)) {
+            // 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract human developmental anatomy" );
+            this.abstractclassobocomponent.setID( "EHDAA2:0000000" );
+            this.abstractclassobocomponent.setNamespace( "human_developmental_anatomy" );
+            // 2: set stage class parameters
+            this.stageclassobocomponent.setName( "Carnegie stage" );
+            this.stageclassobocomponent.setID( "CS:0" );
+            this.stageclassobocomponent.setNamespace( "carnegie_stage" );
+            // 3: temporary new group class parameters
+            this.groupclassobocomponent.setName( "cell" );
+            this.groupclassobocomponent.setID( "CL:0000000" );
+            this.groupclassobocomponent.setNamespace( "cell" );
+            // 4: group term class parameters
+            this.grouptermclassobocomponent.setName( "anatomical entity" );
+            this.grouptermclassobocomponent.setID( "CARO:0000000" );
+            this.grouptermclassobocomponent.setNamespace( "http\\://www.xspan.org/obo.owl#" );
+        }
 
         //clear all comments and status from original term list
         // B-2
@@ -322,9 +405,29 @@ public class ValidateComponents {
         
         for(String emapID: roots){
             OBOComponent rootobocomponent = treebuilder.getComponent(emapID);
+            
             rootNameSpace = rootobocomponent.getNamespace();
             rootName = rootobocomponent.getName();
 
+            /*
+            System.out.println("emapID        = " + emapID);
+            System.out.println("rootNameSpace = " + rootNameSpace);
+            System.out.println("rootName      = " + rootName);
+
+            System.out.println("abstractclassobocomponent.getID()         = " + abstractclassobocomponent.getID());
+            System.out.println("abstractclassobocomponent.getNamespace()  = " + abstractclassobocomponent.getNamespace());
+            System.out.println("abstractclassobocomponent.getName()       = " + abstractclassobocomponent.getName());
+            System.out.println("stageclassobocomponent.getID()            = " + stageclassobocomponent.getID());
+            System.out.println("stageclassobocomponent.getNamespace()     = " + stageclassobocomponent.getNamespace());
+            System.out.println("stageclassobocomponent.getName()          = " + stageclassobocomponent.getName());
+            System.out.println("groupclassobocomponent.getID()            = " + groupclassobocomponent.getID());
+            System.out.println("groupclassobocomponent.getNamespace()     = " + groupclassobocomponent.getNamespace());
+            System.out.println("groupclassobocomponent.getName()          = " + groupclassobocomponent.getName());
+            System.out.println("grouptermclassobocomponent.getID()        = " + grouptermclassobocomponent.getID());
+            System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
+            System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
+        	*/
+        	
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             	abstractclassobocomponent.getName().equals( rootName ) ){
@@ -423,10 +526,19 @@ public class ValidateComponents {
                 if ( obocomponent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
                     abstractAnatomyChildren.add( obocomponent );
                 }
-                //is a new group term
-                if ( obocomponent.getNamespace().equals( groupclassobocomponent.getNamespace() ) &&
-                     !vRoots.contains( obocomponent.getID() ) ) {
-                    abstractAnatomyChildren.add( obocomponent );
+                if ( !"human".equals(this.species) ) {
+                    //is a new group term
+                    if ( obocomponent.getNamespace().equals( groupclassobocomponent.getNamespace() ) &&
+                         !vRoots.contains( obocomponent.getID() ) ) {
+                        abstractAnatomyChildren.add( obocomponent );
+                    }
+                }
+                if ( !"human".equals(this.species) ) {
+                    //is a new group term
+                    if ( obocomponent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
+                         !vRoots.contains( obocomponent.getID() ) ) {
+                        abstractAnatomyChildren.add( obocomponent );
+                    }
                 }
             }
 

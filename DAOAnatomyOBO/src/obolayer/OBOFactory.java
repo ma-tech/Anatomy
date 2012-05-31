@@ -113,15 +113,15 @@ public abstract class OBOFactory {
         if (strDebug.equals("true")) {
         	debug = true;
         	System.out.println("====== ");
-        	System.out.println("DEBUG: PROPERTY_OBO_IN_FILE            " + oboInFile);
-        	System.out.println("DEBUG: PROPERTY_OBO_OUT_FILE           " + oboOutFile);
-        	System.out.println("DEBUG: PROPERTY_OBO_OUT_FILE_VERSION   " + oboOutFileVersion);
-        	System.out.println("DEBUG: PROPERTY_OBO_OUT_FILE_NAMESPACE " + oboOutFileNameSpace);
-        	System.out.println("DEBUG: PROPERTY_OBO_OUT_FILE_SAVED_BY  " + oboOutFileSavedBy);
-        	System.out.println("DEBUG: PROPERTY_OBO_OUT_FILE_REMARK    " + oboOutFileRemark);
-        	System.out.println("DEBUG: PROPERTY_SUMMARY_REPORT         " + summaryReport);
-        	System.out.println("DEBUG: PROPERTY_SUMMARY_REPORT_PDF     " + summaryReportPdf);
-        	System.out.println("DEBUG: PROPERTY_DEBUG                  " + strDebug);
+        	System.out.println("DEBUG: oboinfile           : " + oboInFile);
+        	System.out.println("DEBUG: obooutfile          : " + oboOutFile);
+        	System.out.println("DEBUG: obooutfileversion   : " + oboOutFileVersion);
+        	System.out.println("DEBUG: obooutfilenamespace : " + oboOutFileNameSpace);
+        	System.out.println("DEBUG: obooutfilesavedby   : " + oboOutFileSavedBy);
+        	System.out.println("DEBUG: obooutfileremark    : " + oboOutFileRemark);
+        	System.out.println("DEBUG: summaryreport       : " + summaryReport);
+        	System.out.println("DEBUG: summaryreportpdf    : " + summaryReportPdf);
+        	System.out.println("DEBUG: debug               : " + strDebug);
         	System.out.println("====== ");
         }
         

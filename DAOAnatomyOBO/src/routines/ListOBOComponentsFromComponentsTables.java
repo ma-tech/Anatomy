@@ -55,7 +55,7 @@ import obomodel.OBOComponent;
 import utility.ObjectConverter;
 
 
-public class ImportComponents {
+public class ListOBOComponentsFromComponentsTables {
 
     // Properties ---------------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ public class ImportComponents {
 
     
     // Constructor --------------------------------------------------------------------------------
-    public ImportComponents() throws IOException {
+    public ListOBOComponentsFromComponentsTables() throws IOException {
     	
     	try {
             // Obtain DAOFactory.

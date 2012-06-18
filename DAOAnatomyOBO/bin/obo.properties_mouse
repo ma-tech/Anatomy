@@ -7,5 +7,5 @@ file.obooutfilesavedby = Mike Wicks
 file.obooutfileremark = This is an OBO file extracted from the Database using the Producer Class in the utility Package
 file.summaryreport = /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/OBOInput/Version009_Input_2012-03-29_ValidationReport.txt
 file.summaryreportpdf = /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/OBOInput/Version009_Input_2012-03-29_ValidationReport.pdf
-file.debug = true
+file.debug = false
 

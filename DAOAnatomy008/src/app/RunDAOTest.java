@@ -40,9 +40,8 @@ import utility.ObjectConverter;
 
 import daomodel.Node;
 
-import daolayer.DAOFactory;
 import daolayer.DAOException;
-
+import daolayer.DAOFactory;
 import daolayer.NodeDAO;
 
 public class RunDAOTest {

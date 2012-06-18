@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.RelationshipDAO;
 import daolayer.DAOException;
+import daolayer.RelationshipDAO;
 
 import daomodel.Relationship;
 import daomodel.TimedNode;

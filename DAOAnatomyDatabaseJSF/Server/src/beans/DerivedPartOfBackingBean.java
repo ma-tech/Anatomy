@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.DerivedPartOfDAO;
 import daolayer.DAOException;
+import daolayer.DerivedPartOfDAO;
 
 import daomodel.DerivedPartOf;
 

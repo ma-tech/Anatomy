@@ -42,7 +42,7 @@ import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 
-import routines.ImportComponents;
+import routines.ListOBOComponentsFromComponentsTables;
 import routines.MapBuilder;
 import routines.TreeBuilder;
 import routines.ValidateComponents;
@@ -54,7 +54,7 @@ public class RunOBOCheckComponentsReferenceTree {
     public static void run(String species) throws IOException {
 
         //import database components table contents into OBOComponent format
-        ImportComponents importcomponents = new ImportComponents();
+    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables();
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
         
@@ -71,11 +71,13 @@ public class RunOBOCheckComponentsReferenceTree {
 
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){
+        	
         	System.out.println("=======\nPASSED!\n=======\n" +
                 "Loading Default Reference Tree From Database Components Tables:\n" +
         		"All Components in the Reference Tree are OK!" );
         }
         else {
+        	
         	System.out.println("=======\nFAILED!\n=======\n" +
                 "Loading Default Reference Tree From Database Components Tables:\n" +
         		"Some components in the Reference Tree contain rule violations." );
@@ -87,7 +89,9 @@ public class RunOBOCheckComponentsReferenceTree {
           	Iterator<OBOComponent> iteratorComponent = problemTermList.iterator();
 
           	int i = 0;
+          	
           	while (iteratorComponent.hasNext()) {
+          		
           		i++;
           		OBOComponent obocomponent = iteratorComponent.next();
           		System.out.println("Problem Component #" + i + ": " + obocomponent.toString());

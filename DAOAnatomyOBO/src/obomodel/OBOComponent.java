@@ -1982,13 +1982,13 @@ public class OBOComponent {
         }
 
         if ( !obocomponent.getChildOfs().containsAll(this.getChildOfs()) ) {
-        	
+        	/*
         	if (this.getID().equals("EMAPA:16172")) {
                 System.out.println("HERE!");
                 System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
                 System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
         	}
-
+        	*/
             arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
                     obocomponent.getID() + " has parents " + 
                     this.getChildOfs());
@@ -2142,6 +2142,13 @@ public class OBOComponent {
                     }
                 }
             }
+
+            this.orderComment = "";
+
+            for ( int i=0; i < processedOrderArray.length; i++ ){
+                this.orderComment = this.orderComment + ", order=" + processedOrderArray[i];
+            }
+            
             return processedOrderArray;
         }
 

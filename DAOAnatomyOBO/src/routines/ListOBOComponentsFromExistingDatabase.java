@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      Anatomy
 *
-* Title:        ImportDatabase.java
+* Title:        ListOBOComponentsFromExistingDatabase.java
 *
 * Date:         2008
 *
@@ -56,7 +56,7 @@ import obomodel.OBOComponent;
 import obomodel.Relation;
 
 
-public class ImportDatabase {
+public class ListOBOComponentsFromExistingDatabase {
 
     // Properties ---------------------------------------------------------------------------------
     // global variables
@@ -64,7 +64,7 @@ public class ImportDatabase {
     private ArrayList <Relation> oborelationList = new ArrayList <Relation>();
     
     // Constructor --------------------------------------------------------------------------------
-    public ImportDatabase(boolean defaultroot, String project ) {
+    public ListOBOComponentsFromExistingDatabase(boolean defaultroot, String project ) {
     	
     	try {
             // Obtain DAOFactory.

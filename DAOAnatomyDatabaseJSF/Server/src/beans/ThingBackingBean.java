@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.ThingDAO;
 import daolayer.DAOException;
+import daolayer.ThingDAO;
 
 import daomodel.Thing;
 

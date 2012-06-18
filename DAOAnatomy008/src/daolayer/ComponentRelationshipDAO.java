@@ -88,6 +88,12 @@ public final class ComponentRelationshipDAO {
         "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
         "WHERE ACR_OBO_PARENT = ? ";
         
+    private static final String SQL_LIST_ALL_ALPHA_BY_PARENT =
+        "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
+        "FROM ANA_OBO_COMPONENT_RELATIONSHIP " +
+        "JOIN ANA_OBO_COMPONENT ON ACR_OBO_CHILD = AOC_OBO_ID " +
+        "ORDER BY ACR_OBO_PARENT, AOC_NAME";
+            
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT_RELATIONSHIP " +
         "(ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT ) " +
@@ -158,6 +164,14 @@ public final class ComponentRelationshipDAO {
     public List<ComponentRelationship> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
+     */
+    public List<ComponentRelationship> listAllAlphabeticWithinParentId() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ALPHA_BY_PARENT);
     }
     
     /*

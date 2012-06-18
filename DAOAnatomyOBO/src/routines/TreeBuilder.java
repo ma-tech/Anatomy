@@ -406,6 +406,8 @@ public class TreeBuilder {
     
     public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, OBOComponent obocomponent ){
 
+    	boolean groupNodeAsAncestor = false;
+    	
         //iterate thru each node in the path
         for ( DefaultMutableTreeNode currentNode: pathTo ){
             //check to see whether each node in the path contains a component
@@ -418,12 +420,14 @@ public class TreeBuilder {
                 //if ( !currentcomponent.getIsPrimary() && !currentcomponent.isComponentSameAs(obocomponent) ) {//MAZE:
                 //REPLACE isSamsAs with matching id, two obocomponents can be the same but have modified properties
                 //if ( !currentcomponent.getIsPrimary() && !currentcomponent.getID().equals(obocomponent.getID()) ){
-                if ( !currentcomponent.getIsGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
-                    return true;
+                //if ( !currentcomponent.getIsGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
+                if ( currentcomponent.getIsGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
+                    
+                	groupNodeAsAncestor = true;
                 }
             }
         }
-        return false;
+        return groupNodeAsAncestor;
     }
 
     public boolean isPathInNamespace( DefaultMutableTreeNode[] path, OBOComponent rootobocomponent ){

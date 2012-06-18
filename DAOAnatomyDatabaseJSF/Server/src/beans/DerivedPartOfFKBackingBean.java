@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.DerivedPartOfFKDAO;
 import daolayer.DAOException;
+import daolayer.DerivedPartOfFKDAO;
 
 import daomodel.DerivedPartOfFK;
 

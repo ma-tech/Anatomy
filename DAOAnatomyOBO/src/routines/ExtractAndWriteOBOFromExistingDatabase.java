@@ -34,7 +34,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +44,9 @@ import obomodel.OBOComponent;
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
 
-import routines.ImportComponents;
+import routines.ListOBOComponentsFromExistingDatabase;
 
-public class RunOBOExtractOBOFromComponentsTables {
+public class ExtractAndWriteOBOFromExistingDatabase {
 	/*
 	 * run Method
 	 */
@@ -56,15 +56,15 @@ public class RunOBOExtractOBOFromComponentsTables {
         OBOFactory obofactory = OBOFactory.getInstance("file");
         ComponentOBO componentOBO = obofactory.getComponentOBO();
         
-        //import database components table contents into OBOComponent format
-        ImportComponents importcomponents = new ImportComponents();
+        // Extract Components from RAW Database tables into OBOComponent format
+        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase(true, "EMAP" );
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
-        obocomponents = importcomponents.getTermList();
+        obocomponents = importdatabase.getTermList();
         
         // Write extracted OBOComponents into Obo File Format
         componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
-        componentOBO.createHumanRelationList();
-
+        componentOBO.createTemplateRelationList();
+        
         if ( componentOBO.writeAll() ) {
             System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile());
         }

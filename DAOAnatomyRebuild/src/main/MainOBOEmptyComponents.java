@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOLoadFileIntoDatabase.java
+* Title:        MainOBOEmptyComponents.java
 *
 * Date:         2012
 *
@@ -18,11 +18,7 @@
 *
 * Version: 1
 *
-* Description:  A Main Class that Reads an OBO File and Loads the Data into the Anatomy Database
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -39,40 +35,32 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import app.RunOBOLoadFileIntoDatabase;
+import routines.EmptyComponentsTables;
 
-public class MainOBOLoadFileIntoDatabase{
+public class MainOBOEmptyComponents {
 	/*
 	 * Main Class
 	 */
     public static void main(String[] args) throws Exception {
 
     	long startTime = System.currentTimeMillis();
-    	
     	Date startDate = new Date();
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-
-        System.out.println("=========   ---------------------------");
-        System.out.println("EXECUTING - MainOBOLoadFileIntoDatabase.java on " + parsed.toString());
-        System.out.println("=========   ---------------------------");
+        System.out.println("=========   ----------------------");
+        System.out.println("EXECUTING - MainOBOEmptyComponents.java on " + parsed.toString());
+        System.out.println("=========   ----------------------");
         System.out.println("");
 
-        System.out.println("args[0] = " + args[0]);
-
-        /*
-         * MAINLINE
-         */
-        RunOBOLoadFileIntoDatabase.run(args[0]);
-
+        EmptyComponentsTables.run();
+        
+        System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-
-        System.out.println("");
-        System.out.println("====       ---------------------------");
-        System.out.println("DONE ----- MainOBOLoadFileIntoDatabase.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ---------------------------");
+    	System.out.println("====        ----------------------");
+        System.out.println("DONE ------ MainOBOEmptyComponents.java took " + duration / 1000 + " seconds");
+        System.out.println("====        ----------------------");
 
     }
 }

@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.StageDAO;
 import daolayer.DAOException;
+import daolayer.StageDAO;
 
 import daomodel.Stage;
 import daomodel.TimedNode;

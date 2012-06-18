@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOExtractOBOFromExistingDatabase.java
+* Title:        ExtractAndWriteOBOFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import app.RunOBOExtractOBOFromComponentsTables;
+import routines.ExtractAndWriteOBOFromComponentsTables;
 
 public class MainOBOExtractOBOFromComponentsTables {
 	/*
@@ -49,18 +49,18 @@ public class MainOBOExtractOBOFromComponentsTables {
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
 
-        System.out.println("=========   -------------------------------------");
-        System.out.println("EXECUTING - MainOBOExtractOBOFromExistingDatabase.java on " + parsed.toString());
-        System.out.println("=========   -------------------------------------");
+        System.out.println("=========   --------------------------------------");
+        System.out.println("EXECUTING - ExtractAndWriteOBOFromComponentsTables.java on " + parsed.toString());
+        System.out.println("=========   --------------------------------------");
         System.out.println("");
 
-        RunOBOExtractOBOFromComponentsTables.run();
+        ExtractAndWriteOBOFromComponentsTables.run();
 
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-        System.out.println("=========   -------------------------------------");
-        System.out.println("DONE ------ MainOBOExtractOBOFromExistingDatabase.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   -------------------------------------");
+        System.out.println("=========   --------------------------------------");
+        System.out.println("DONE ------ ExtractAndWriteOBOFromComponentsTables.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   --------------------------------------");
     }
 }

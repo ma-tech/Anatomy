@@ -6,8 +6,8 @@ import java.util.List;
 import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
-import daolayer.PerspectiveAmbitDAO;
 import daolayer.DAOException;
+import daolayer.PerspectiveAmbitDAO;
 
 import daomodel.PerspectiveAmbit;
 

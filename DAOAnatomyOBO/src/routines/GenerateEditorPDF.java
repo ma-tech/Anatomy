@@ -42,7 +42,6 @@ import com.lowagie.text.pdf.PdfWriter;
 
 import java.awt.Color;
 
-import java.io.File;
 import java.io.FileOutputStream;
 
 import java.util.ArrayList;
@@ -53,10 +52,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import obomodel.OBOComponent;
-
-import obolayer.ComponentOBO;
-import obolayer.OBOException;
-import obolayer.OBOFactory;
 
 
 public class GenerateEditorPDF {
@@ -86,19 +81,21 @@ public class GenerateEditorPDF {
     
     private Document pdfDocument = new Document();
     private TreeBuilder treebuilder;
+    private String inputFileName;
+    private String outputFileName;
 
-    private String summaryReportNamePdf = "";
-    private String inputOboFileName = "";
-    
     private boolean isProcessed = false;
-
     
     //----------------------------------------------------------------------------------------------
     // Constructor ---------------------------------------------------------------------------------
 	public GenerateEditorPDF( ValidateComponents validatecomponents,
-            TreeBuilder treebuilder){
+            TreeBuilder treebuilder,
+            String inputFileName,
+            String outputFileName){
 
         this.treebuilder = treebuilder;
+        this.outputFileName = outputFileName;
+        this.inputFileName = inputFileName;
 
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
@@ -109,39 +106,15 @@ public class GenerateEditorPDF {
         this.sortChangedTerms( proposedTerms );        
         
     	try {
-    		
-            OBOFactory obofactory = OBOFactory.getInstance("file");
-            //System.out.println("OBOFactory successfully obtained: " + obofactory);
-
-            ComponentOBO componentOBO = obofactory.getComponentOBO();
-            //System.out.println("ComponentOBO successfully obtained: " + componentOBO);
-            
-            summaryReportNamePdf = componentOBO.summaryReportPdf();
-            
-            inputOboFileName = componentOBO.inputFile();
-
-
-            //check filepath exists
-            File file = new File(summaryReportNamePdf);
-
-            if (!file.isDirectory()){
-                file = file.getParentFile();
-
-            }
-            if (!file.exists()) {
-                return;
-            }
-
             //create pdf file
             PdfWriter.getInstance(pdfDocument,
-                    new FileOutputStream( summaryReportNamePdf ) );
+                    new FileOutputStream( outputFileName ) );
             pdfDocument.open();
             
             //pdf title
             Paragraph paraMainHeader = new Paragraph();
             Chunk chkMainHeader = 
-                    new Chunk( "Editor Report for \n Import of OBO File: \n" +
-                    		inputOboFileName,
+                    new Chunk( "Editor Report for \n Import of OBO File: \n",
                             new Font( Font.HELVETICA, 14, Font.BOLD ) );
 
             paraMainHeader.add( chkMainHeader );
@@ -196,122 +169,11 @@ public class GenerateEditorPDF {
             pdfDocument.close();
             
             this.isProcessed = true;
-            
-        }
-    	catch (OBOException oboexception) {
-    		oboexception.printStackTrace();
-            isProcessed = false;
-    	}
-        catch (Exception e){
-            e.printStackTrace();
-            isProcessed = false;
-        }
-
-    }
-
-    // Constructor ---------------------------------------------------------------------------------
-	public GenerateEditorPDF( ValidateComponents validatecomponents,
-            TreeBuilder treebuilder, 
-            String infile, 
-            String outfile){
-
-        this.treebuilder = treebuilder;
-
-        //sort terms from ValidateComponents class into categories
-        //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
-        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
-        
-        problemobocomponents = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
-        
-        this.sortChangedTerms( proposedTerms );        
-        
-    	try {
-            summaryReportNamePdf = outfile;
-            
-            inputOboFileName = infile;
-
-            //check filepath exists
-            File file = new File(summaryReportNamePdf);
-
-            if (!file.isDirectory()){
-                file = file.getParentFile();
-
-            }
-            if (!file.exists()) {
-                return;
-            }
-
-            //create pdf file
-            PdfWriter.getInstance(pdfDocument,
-                    new FileOutputStream( summaryReportNamePdf ) );
-            pdfDocument.open();
-            
-            //pdf title
-            Paragraph paraMainHeader = new Paragraph();
-            Chunk chkMainHeader = 
-                    new Chunk( "Editor Report for \n Import of OBO File: \n" +
-                    		inputOboFileName,
-                            new Font( Font.HELVETICA, 14, Font.BOLD ) );
-
-            paraMainHeader.add( chkMainHeader );
-            paraMainHeader.add( Chunk.NEWLINE );
-            paraMainHeader.add( Chunk.NEWLINE );
-            pdfDocument.add( paraMainHeader );
-            
-            //summary
-            writeReportSummary(validatecomponents);
-            writeSummaryTable( validatecomponents );
-            
-            //writing problem terms
-            //writeProblemTerms( problemobocomponents );
-            writeTerms( problemobocomponents,
-                    "CRITICAL COMPONENTS: REQUIRE REVISION",
-                    "Total Critical Components: ",
-                    Color.RED,
-                    "Problem OBOComponent ",
-                    "PROBLEM" );
-            
-            //writing new terms
-            pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( newTerms,
-                    "NEW COMPONENTS",
-                    "Total New Components: ",
-                    new Color(0,140,0),
-                    "New OBOComponent ",
-                    "NEW" );
-            
-            //writing modified terms
-            pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( modifiedTerms,
-                    "MODIFIED COMPONENTS",
-                    "Total Modified Components: ",
-                    new Color(0,140,0),
-                    "Modified OBOComponent ",
-                    "MODIFIED" );
-            
-            //writing deleted terms
-            pdfDocument.add( Chunk.NEXTPAGE );
-            writeTerms( deletedTerms,
-                    "DELETED COMPONENTS",
-                    "Total Deleted Components: ",
-                    new Color(0,140,0),
-                    "Deleted Components ",
-                    "DELETED" );
-            
-            //appendix
-            writeAppendix();
-            
-            //close pdf file
-            pdfDocument.close();
-            
-            this.isProcessed = true;
-            
         }
         catch (Exception e){
             e.printStackTrace();
             isProcessed = false;
         }
-
     }
 
     //----------------------------------------------------------------------------------------------
@@ -320,13 +182,15 @@ public class GenerateEditorPDF {
     public boolean getIsProcessed(){
         return isProcessed;
     }
-    public String getSummaryReportNamePdf(){
-        return summaryReportNamePdf;
+    public Document getPdfDocument(){
+        return pdfDocument;
     }
-    public String getInputOboFileName(){
-        return inputOboFileName;
+    public String inputFileName(){
+        return inputFileName;
     }
-
+    public String outputFileName(){
+        return outputFileName;
+    }
 
     // Private (Internal) Methods ------------------------------------------------------------------
     private void sortChangedTerms(ArrayList<OBOComponent> allTerms){
@@ -383,11 +247,10 @@ public class GenerateEditorPDF {
             }
         }
     }
-
-
     
     private void writeReportSummary(ValidateComponents validatecomponents){
-        try{
+
+    	try{
             
             Chunk chkSummaryTitle = new Chunk("REPORT UPDATE SUMMARY", 
                     new Font( Font.COURIER, 12, Font.UNDERLINE ) );
@@ -415,8 +278,6 @@ public class GenerateEditorPDF {
             e.printStackTrace();
         }
     }
-    
-
 
     private void writeSummaryTable( ValidateComponents validatecomponents ){
         
@@ -527,32 +388,27 @@ public class GenerateEditorPDF {
             e.printStackTrace();
             isProcessed = false;
         }
-
     }
-
 
     private Cell makeSummaryTableLabel(String label){
+
+        Cell cell = new Cell();
+        Chunk chkLabel = new Chunk( label,
+                new Font( Font.COURIER, 12, Font.BOLD ) );
+        cell.add( chkLabel );
         
-            Cell cell = new Cell();
-            Chunk chkLabel = new Chunk( label,
-                    new Font( Font.COURIER, 12, Font.BOLD ) );
-            cell.add( chkLabel );
-            
-            return cell;
-
+        return cell;
     }
-
 
     private Cell makeSummaryTableEntry(String entry, int style, Color color){
 
-            Cell cell = new Cell();
-            Chunk chkEntry = new Chunk( entry,
-                    new Font( Font.COURIER, 12, style, color ) );
-            cell.add( chkEntry );
-            return cell;
+        Cell cell = new Cell();
+        Chunk chkEntry = new Chunk( entry,
+                new Font( Font.COURIER, 12, style, color ) );
+        cell.add( chkEntry );
 
+        return cell;
     }
-
 
     private void addSummaryEntry( String label, String item,
             ValidateComponents validatecomponents ){
@@ -572,9 +428,7 @@ public class GenerateEditorPDF {
             e.printStackTrace();
             isProcessed = false;
         }
-    	
     }
-    
     
     private void makeComponentTable( OBOComponent obocomponent, String tableHeader, int counter, Color tableColor ){
     	
@@ -740,9 +594,7 @@ public class GenerateEditorPDF {
             e.printStackTrace();
             isProcessed = false;
         }
-        
     }
-
 
     private Cell makeLabel( String content ) throws BadElementException{
 
@@ -753,21 +605,18 @@ public class GenerateEditorPDF {
         Cell cell = new Cell( paraCell );
 
     	return cell;
-
     }
-
 
     private Cell makeEntry( String content ) throws BadElementException{
 
-            //Chunk chkCell = new Chunk( content,
-            //            new Font( Font.COURIER, 8, Font.NORMAL ) );
-            Paragraph paraCell = new Paragraph( 9, content,
-                    new Font( Font.COURIER, 10, Font.NORMAL ) );
-            Cell cell = new Cell ( paraCell );
-            return cell;
+        //Chunk chkCell = new Chunk( content,
+        //            new Font( Font.COURIER, 8, Font.NORMAL ) );
+        Paragraph paraCell = new Paragraph( 9, content,
+                new Font( Font.COURIER, 10, Font.NORMAL ) );
+        Cell cell = new Cell ( paraCell );
 
+        return cell;
     }
-
 
     private void writeTerms( ArrayList<OBOComponent> termList, 
             String strHeader,
@@ -853,9 +702,7 @@ public class GenerateEditorPDF {
             e.printStackTrace();
             isProcessed = false;
         }
-
     }
-
 
     private void writeAppendix(){  
     	
@@ -895,11 +742,5 @@ public class GenerateEditorPDF {
             e.printStackTrace();
             isProcessed = false;
         }
-
     }
-
 }
-
-
-
-

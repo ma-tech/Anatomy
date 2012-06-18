@@ -205,7 +205,7 @@ public final class OBOFileDAO {
      * Returns a list of ALL files, otherwise null.
      */
     public List<OBOFile> listAll() throws DAOException {
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

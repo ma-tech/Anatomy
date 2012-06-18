@@ -1,8 +1,9 @@
+ 
 /*
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainDAOExtractOBOAndValidate.java
+* Title:        MainOBOLoadComponents.java
 *
 * Date:         2012
 *
@@ -31,35 +32,35 @@
 
 package main;
 
-import app.RunDAOExtractOBOAndValidate;
+import java.text.SimpleDateFormat;
 
-public class MainDAOExtractOBOAndValidate {
+import java.util.Date;
+
+import routines.LoadComponentsTablesFromOBOFile;
+
+public class MainOBOLoadComponents {
 	/*
 	 * Main Class
 	 */
     public static void main(String[] args) throws Exception {
 
-    	System.out.println("args[0] = " + args[0]);
-    	
     	long startTime = System.currentTimeMillis();
-    	
-        System.out.println("=========   ----------------------------");
-        System.out.println("EXECUTING - MainDAOExtractOBOAndValidate.java on " + utility.MySQLDateTime.now());
-        System.out.println("=========   ----------------------------");
+    	Date startDate = new Date();
+    	String dateString = startDate.toString();
+    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+    	Date parsed = format.parse(dateString);
+        System.out.println("=========   ---------------------");
+        System.out.println("EXECUTING - MainOBOLoadComponents.java on " + parsed.toString());
+        System.out.println("=========   ---------------------");
         System.out.println("");
-        
-        /*
-         * MAINLINE
-         */
-        RunDAOExtractOBOAndValidate.run(args[0]);
 
+        LoadComponentsTablesFromOBOFile.run();
+        
+        System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-    	
-        System.out.println("");
-        System.out.println("====       ----------------------------");
-        System.out.println("DONE ----- MainDAOExtractOBOAndValidate.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ----------------------------");
-        
+        System.out.println("====        ---------------------");
+        System.out.println("DONE ------ MainOBOLoadComponents.java took " + duration / 1000 + " seconds");
+        System.out.println("====        ---------------------");
     }
 }

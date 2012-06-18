@@ -607,7 +607,7 @@ public class ValidateComponents {
                 
                 if ( isPrimaryPath ){
                     if ( obocomponent.getPrimaryPath() == null ) {
-                    	//obocomponent.setPrimaryPath(path);
+                    	obocomponent.setPrimaryPath(path);
                     }
                     else{
                     	obocomponent.setFlagLifeTime(true);
@@ -854,6 +854,13 @@ public class ValidateComponents {
 
                                 this.problemTermList.remove(obocomponent);
                                 this.problemTermList.add(obocomponent);
+                                
+                                /*
+                                if ( "EMAPA:16039".equals(parent.getID()) ) {
+                                	System.out.println("EMAPA:16039");
+                                	System.out.println(parent.toString());
+                                }
+                                */
            
                                 //withOutCount++;
                             }
@@ -1120,14 +1127,28 @@ public class ValidateComponents {
                 OBOComponent parentcomponent = tree.getComponent(parent);
                 
                 if ( parentcomponent.getIsPrimary() ) {
-                	
+
+                	/*
+                	if ("EMAPA:16039".equals(parentcomponent.getID())) {
+                    	System.out.println("primaryParent = " + parentcomponent.toString());
+                	}
+                	*/
+
                     primaryParents++;
                     primaryParentsList.add( parentcomponent.toString() );
                 }
             }
+            
+        	//System.out.println("No. of primaryParents = " + primaryParents);
+            
             if ( primaryParents > 1 ) {
 
             	obocomponent.setFlagLifeTime(true);
+            	//System.out.println("Component with more than 1 primary parent " + obocomponent.toString());
+            }
+            else {
+
+            	obocomponent.setFlagLifeTime(false);
             }
         }
     }
@@ -1218,11 +1239,13 @@ public class ValidateComponents {
                         	
                         }
 
+                        /*
                     	if (proposed.getID().equals("EMAPA:16172")) {
                             System.out.println("Changed component detected: " + proposed.getID());
                             System.out.println("proposed.toString() " + proposed.toString());
                             System.out.println("proposed.getCheckComments() " + proposed.getCheckComments());
                     	}
+                    	*/
                     	
 
                         this.changesTermList.add(proposed);

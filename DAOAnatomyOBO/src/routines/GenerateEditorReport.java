@@ -80,99 +80,13 @@ public class GenerateEditorReport {
     private ArrayList<OBOComponent> proposedTerms =
             new ArrayList<OBOComponent>();
 
-    private String summaryReportName = "";
-    private String inputOboFileName = "";
+    private String outputFileName = "";
+    private String inputFileName = "";
     
     private boolean isProcessed = false;
 
 
     //----------------------------------------------------------------------------------------------
-    // Constructor ---------------------------------------------------------------------------------
-	public GenerateEditorReport( ValidateComponents validatecomponents ){
-
-        //sort terms from ValidateComponents class into categories
-        //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
-        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
-        
-        problemTerms = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
-        
-        sortChangedTerms( proposedTerms );        
-        
-    	try {
-    		
-            OBOFactory obofactory = OBOFactory.getInstance("file");
-
-            ComponentOBO componentOBO = obofactory.getComponentOBO();
-            
-            summaryReportName = componentOBO.summaryReport();
-            inputOboFileName = componentOBO.inputFile();
-            
-            //check filepath exists
-            File file = new File(summaryReportName);
-            
-            if (!file.isDirectory()) {
-                file = file.getParentFile();
-            }
-            
-            if (!file.exists()) {
-                return;
-            }
-
-            //create text file
-            reportFile = new BufferedWriter( new FileWriter( summaryReportName ) );
-            reportFile.newLine();
-            
-            //title
-            reportFile.write("Editor Report for Import of OBO File: " +
-            		inputOboFileName);
-            reportFile.newLine();
-            reportFile.newLine();
-            
-            //summary
-            writeReportSummary(validatecomponents);
-            
-            //writing problem terms
-            writeProblemTerms( problemTerms );
-            reportFile.write( stringWriter.toString() );
-            
-            //writing new terms
-            flushStringWriter();
-            writeNewTerms( newTerms );
-            reportFile.write( stringWriter.toString() );
-            
-            //writing modified terms
-            flushStringWriter();
-            writeModifiedTerms( modifiedTerms );
-            reportFile.write( stringWriter.toString() ); 
-            
-            //writing deleted terms
-            flushStringWriter();
-            writeDeletedTerms( deletedTerms );
-            reportFile.write( stringWriter.toString() );
-            
-            //appendix
-            flushStringWriter();
-            writeAppendix();
-            reportFile.write( stringWriter.toString() );
-            
-            printWriter.close();
-            stringWriter.close();
-            reportFile.close();
-            
-            this.isProcessed = true;
-
-        }
-    	catch (OBOException oboexception) {
-    		oboexception.printStackTrace();
-            isProcessed = false;
-    	}
-        catch (Exception e){
-            e.printStackTrace();
-            isProcessed = false;
-        }
-
-    }
-
     // Constructor ---------------------------------------------------------------------------------
 	public GenerateEditorReport( ValidateComponents validatecomponents, String infile, String outfile ){
 
@@ -185,13 +99,11 @@ public class GenerateEditorReport {
         sortChangedTerms( proposedTerms );        
         
     	try {
-            summaryReportName = outfile;
-            
-            inputOboFileName = infile;
-
+            outputFileName = outfile;
+            inputFileName = infile;
             
             //check filepath exists
-            File file = new File(summaryReportName);
+            File file = new File(outputFileName);
             
             if (!file.isDirectory()) {
                 file = file.getParentFile();
@@ -202,12 +114,12 @@ public class GenerateEditorReport {
             }
 
             //create text file
-            reportFile = new BufferedWriter( new FileWriter( summaryReportName ) );
+            reportFile = new BufferedWriter( new FileWriter( outputFileName ) );
             reportFile.newLine();
             
             //title
             reportFile.write("Editor Report for Import of OBO File: " +
-            		inputOboFileName);
+            		inputFileName);
             reportFile.newLine();
             reportFile.newLine();
             
@@ -258,11 +170,11 @@ public class GenerateEditorReport {
     public boolean getIsProcessed(){
         return isProcessed;
     }
-    public String getSummaryReportName(){
-        return summaryReportName;
+    public String getOutputFileName(){
+        return outputFileName;
     }
-    public String getInputOboFileName(){
-        return inputOboFileName;
+    public String getInputFileName(){
+        return inputFileName;
     }
 
 

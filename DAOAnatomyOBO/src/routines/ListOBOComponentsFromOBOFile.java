@@ -43,19 +43,29 @@ import obolayer.ComponentOBO;
 import obolayer.OBOFactory;
 import obolayer.OBOException;
 
-public class ImportFile {
+public class ListOBOComponentsFromOBOFile {
 
     // Properties ---------------------------------------------------------------------------------
     // global variables
     private ArrayList<OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     
+    private String inputFileName;
+    private String inputFileContents;
+    private String outputReportName;
+    private String outputReportPDFName;
+    
     // Constructor --------------------------------------------------------------------------------
-    public ImportFile() throws IOException {
+    public ListOBOComponentsFromOBOFile() throws IOException {
     	
     	try {
             OBOFactory obofactory = OBOFactory.getInstance("file");
 
             ComponentOBO componentOBO = obofactory.getComponentOBO();
+            
+            inputFileName = obofactory.getComponentOBO().inputFile();
+            inputFileContents = obofactory.getComponentOBO().inputFileContents();
+            outputReportName = obofactory.getComponentOBO().summaryReport();
+            outputReportPDFName = obofactory.getComponentOBO().summaryReportPdf();
             
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
@@ -67,12 +77,26 @@ public class ImportFile {
         }
     }
 
-    public ImportFile(String filename) throws IOException{
+    // Constructor --------------------------------------------------------------------------------
+    public ListOBOComponentsFromOBOFile(String filename) throws IOException{
         Parser parser = new Parser(filename);
         obocomponentList = (ArrayList<OBOComponent>) parser.getComponents();
     }
 
+    // Getters ------------------------------------------------------------------------------------
     public ArrayList<OBOComponent> getTermList() {
         return obocomponentList;
+    }
+    public String getInputFileContents() {
+        return inputFileContents;
+    }
+    public String getInputFileName() {
+        return inputFileName;
+    }
+    public String getOutputReportName() {
+        return outputReportName;
+    }
+    public String getOutputReportPDFName() {
+        return outputReportPDFName;
     }
 }

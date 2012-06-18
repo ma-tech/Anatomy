@@ -38,7 +38,7 @@ import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 
-import routines.ImportDatabase;
+import routines.ListOBOComponentsFromExistingDatabase;
 import routines.MapBuilder;
 import routines.TreeBuilder;
 import routines.ValidateComponents;
@@ -49,7 +49,7 @@ public class RunOBOCheckDatabaseReferenceTree {
 	 */
     public static void run() throws Exception {
         //import database
-        ImportDatabase importdatabase = new ImportDatabase(true, "GUDMAP" );
+    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase(true, "GUDMAP" );
 
         ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
 

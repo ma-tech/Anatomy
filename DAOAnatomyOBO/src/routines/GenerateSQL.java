@@ -220,6 +220,8 @@ public class GenerateSQL {
 
         	component = this.proposedTermList.get(i);
 
+            //System.out.println("component.getStatusChange() " + component.getStatusChange() + " ; component.getStatusRule() " + component.getStatusRule());
+
             if ( component.getStatusChange().equals("NEW") ){
                 if ( component.getStatusRule().equals("FAILED") ) {
                     if (this.debug) {

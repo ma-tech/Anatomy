@@ -57,7 +57,7 @@ public class MainOBOCheckComponentsReferenceTreeMOUSE {
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
         System.out.println("=========   ----------------------------------------");
-        System.out.println("DONE ------ MainOBOCheckComponentsReferenceTreeMOUSE.java took " + duration / 1000 + " seconds");
+        System.out.println("DONE      - MainOBOCheckComponentsReferenceTreeMOUSE.java took " + duration / 1000 + " seconds");
         System.out.println("=========   ----------------------------------------");
     }
 }

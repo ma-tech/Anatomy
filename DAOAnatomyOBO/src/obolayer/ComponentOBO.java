@@ -193,6 +193,19 @@ public final class ComponentOBO {
     }
 
     /*
+     * Return the OBO Factory Input File name - from the OBO properties file
+     */
+    public String inputFileContents() throws OBOException, IOException {
+
+        try {
+            return oboFactory.getComponentContent();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
      * Return the OBO Factory Input File Version - from the OBO properties file
      */
     public String inputFileVersion() throws OBOException {

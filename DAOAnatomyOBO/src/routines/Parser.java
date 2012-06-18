@@ -31,6 +31,8 @@
 package routines;
 
 import java.io.IOException;
+import java.io.FileInputStream;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Iterator;
@@ -48,21 +50,28 @@ import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
 import obomodel.OBOComponent;
 
+import utility.StringStreamConverter;
+
 public class Parser {
 
-    private String strFile;
+    private String file;
+    private String fileContent;
     private ArrayList<OBOComponent> componentList;
     private OBOSession oboSession;
 
     public Parser(String txtFileName) throws IOException{
 
-        this.strFile = txtFileName.trim();
-        this.componentList = addComponents(this.strFile);
+        this.file = txtFileName.trim();
+        this.componentList = addComponents(this.file);
+        this.fileContent = StringStreamConverter.convertStreamToString(new FileInputStream(this.file));
     }
 
     // Getters ------------------------------------------------------------------------------------
     public String getFile(){
-        return this.strFile;
+        return this.file;
+    }
+    public String getFileContent(){
+        return this.fileContent;
     }
     public ArrayList<OBOComponent> getComponents(){
         return this.componentList;
@@ -72,8 +81,11 @@ public class Parser {
     }
     
     // Setters ------------------------------------------------------------------------------------
-    public void setFile(String strFile){
-        this.strFile = strFile;
+    public void setFile(String file){
+        this.file = file;
+    }
+    public void setFileContent(String fileContent){
+        this.fileContent = fileContent;
     }
     public void setComponents(ArrayList<OBOComponent> componentList){
         this.componentList = componentList;
@@ -117,10 +129,10 @@ public class Parser {
     }
     
     
-    private ArrayList<OBOComponent> addComponents(String strFile) 
+    private ArrayList<OBOComponent> addComponents(String file) 
     		throws IOException {
         
-    	OBOSession obosession = getSession(strFile);
+    	OBOSession obosession = getSession(file);
 
         this.setOboSession(obosession);
 
@@ -152,8 +164,22 @@ public class Parser {
             		ArrayList<String> synonyms = new ArrayList<String>();
             		ArrayList<String> userComments = new ArrayList<String>();
             		TreeSet<String> comments = new TreeSet<String>();
+            		
+            		String [] words = oboclassimpl.getComment().split("\n");
+            		String orderComments = "";
+            		
+                    for ( int i = 0; i < words.length; i++ ) {
+                		userComments.add(words[i]);
+                		orderComments = orderComments + " " + words[i];
+                    }
 
-            		OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
+                    /*
+                    if ( "EMAPA:31194".equals(oboclassimpl.getID()) ) {
+                        System.out.println("Comments for " + oboclassimpl.getID() + " : " + userComments.toString());
+                    }
+                    */
+
+                    OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
                     		oboclassimpl.getID(), 
                     		"TBD",
                     		"TBD",
@@ -170,7 +196,7 @@ public class Parser {
                     		childOfTypes,
                     		synonyms,
                     		userComments,
-                    		"",
+                    		orderComments,
                     		comments,
                     		alternativeIds);
             		
@@ -182,6 +208,7 @@ public class Parser {
                     while (iteratorSynonyms.hasNext() ){
                     	obocomponent.addSynonym(iteratorSynonyms.next().toString());
                     }
+
 
 					@SuppressWarnings("unchecked")
 					Set<String> altIds = (Set<String>) oboclassimpl.getSecondaryIDs();
@@ -208,10 +235,13 @@ public class Parser {
                         if (oborestrictionimpl.getType().getID().equals("part_of")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("PART_OF");
+                    		obocomponent.setGroup(false);
+                        	obocomponent.setIsPrimary(true);
                         }
                         else if (oborestrictionimpl.getType().getID().equals("group_part_of")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("PART_OF");
+                    		obocomponent.setGroup(true);
                         	obocomponent.setIsPrimary(false);
                         }
                         else if (oborestrictionimpl.getType().getID().equals("OBO_REL:is_a")){
@@ -222,6 +252,7 @@ public class Parser {
                         	else {
                         		obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                             	obocomponent.addChildOfType("IS_A");
+                        		obocomponent.setGroup(false);
                             	obocomponent.setIsPrimary(false);
                         	}
                         }

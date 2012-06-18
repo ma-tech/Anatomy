@@ -154,6 +154,7 @@ public abstract class OBOFactory {
      * package only.
      */
     abstract ArrayList<OBOComponent> getComponents() throws OBOException, IOException;
+    abstract String getComponentContent() throws OBOException, IOException;
     abstract Boolean writeComponents() throws OBOException;
     abstract Boolean isDebug();
     abstract String getSummaryReport();
@@ -226,6 +227,14 @@ class FileOBOFactory extends OBOFactory {
     	componentList = parser.getComponents();
     	
     	return componentList;
+    }
+    
+    String getComponentContent() throws OBOConfigurationException, IOException {
+    	
+    	Parser parser = new Parser(this.oboInFile);
+    	String componentContent = parser.getFileContent();
+    	
+    	return componentContent;
     }
     
     Boolean writeComponents() throws OBOConfigurationException {

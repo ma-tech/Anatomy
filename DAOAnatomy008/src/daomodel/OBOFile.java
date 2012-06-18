@@ -260,7 +260,7 @@ public class OBOFile {
      * Returns the String representation of this User. Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("Object [ oid=%d, name=%s, No Content Here!, contenttype=%s, contentlength=%d, contentdate=%s, validation=%s, author=%s, textreportname=%s, No Text Report Here!, textreporttype=%s, textreportlength=%d, textreportdate=%s, pdfreportname=%s, No PDF Report Here!, pdfreporttype=%s, pdfreportlength=%d, pdfreportdate=%s ]", 
+        return String.format("OBOFile [ oid=%d, name=%s, No Content Here!, contenttype=%s, contentlength=%d, contentdate=%s, validation=%s, author=%s, textreportname=%s, No Text Report Here!, textreporttype=%s, textreportlength=%d, textreportdate=%s, pdfreportname=%s, No PDF Report Here!, pdfreporttype=%s, pdfreportlength=%d, pdfreportdate=%s ]", 
             oid, name, contenttype, contentlength, contentdate, validation, author, textreportname, textreporttype, textreportlength, textreportdate, pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate);
     }
 }

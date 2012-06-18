@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOCompareFileAndDatabaseReferences.java
+* Title:        MainOBOLoadFileIntoDatabase.java
 *
 * Date:         2012
 *
@@ -18,8 +18,7 @@
 *
 * Version: 1
 *
-* Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-*                database with the extracted data.
+* Description:  A Main Class that Reads an OBO File and Loads the Data into the Anatomy Database
 *
 *               Required Files:
 *                1. dao.properties file contains the database access attributes
@@ -40,9 +39,10 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import app.RunOBOCompareFileAndDatabaseReferences;
+import app.RunListOBOFileContents;
 
-public class MainOBOCompareFileAndDatabaseReferences {
+
+public class MainListOBOFileContents{
 	/*
 	 * Main Class
 	 */
@@ -55,22 +55,23 @@ public class MainOBOCompareFileAndDatabaseReferences {
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
 
-        System.out.println("=========   ---------------------------------------");
-        System.out.println("EXECUTING - MainOBOCompareFileAndDatabaseReferences.java on " + parsed.toString());
-        System.out.println("=========   ---------------------------------------");
+        System.out.println("=========   -----------------------");
+        System.out.println("EXECUTING - MainListOBOFileContents.java on " + parsed.toString());
+        System.out.println("=========   -----------------------");
         System.out.println("");
 
         /*
          * MAINLINE
          */
-        RunOBOCompareFileAndDatabaseReferences.run();
+        RunListOBOFileContents.run();
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
 
         System.out.println("");
-        System.out.println("====       ---------------------------------------");
-        System.out.println("DONE ----- MainOBOCompareFileAndDatabaseReferences.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ---------------------------------------");
+        System.out.println("=========   -----------------------");
+        System.out.println("DONE      - MainListOBOFileContents.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   -----------------------");
+
     }
 }

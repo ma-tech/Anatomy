@@ -170,7 +170,8 @@ jQuery(document).ready(function(){
       document.getElementById("download").innerHTML = 
 	"<a href=\"text/" + stage + "GroupsTrailing.txt\">" + stage + ".txt </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.rtf\">" + stage + ".rtf </a>" +
-	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>";
+	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>" +
+	"<a href=\"text/AbstractVersion008.obo\">AbstractVersion008.obo </a>";
 
       $("#nav_selector").val(stage);
 
@@ -193,7 +194,7 @@ jQuery(document).ready(function(){
 					    "children": [{
                             			"attr": {
                                  			"ext_id": idMap.getItem(stage), 
-                                 			"id": "li.node.BRANCH.Abstract.id33", 
+                                 			"id": "li_node_ROOT_Abstract_id33", 
                                  			"name": "mouse",
 		    					"title": idMap.getItem(stage),
   				    	    	        "start" : "TS01",
@@ -261,7 +262,7 @@ jQuery(document).ready(function(){
 });
 
 function open_tree(){
-    $("#tree").jstree("open_node","#li.node.BRANCH.Abstract.id33");
+    $("#tree").jstree("open_node","#li_node_ROOT_Abstract_id33");
 }
 
 /*
@@ -288,17 +289,6 @@ function createDefaultMenu(obj){
    			window.open(url);
    		}	
    	},
-   	"Query GXD" : {
-		label : "Search GXD",
-	   	action : function (obj) {
-			var emapId = obj.attr("ext_id").replace(/EMAP:/,"");
-		   	if (emapId === "0") {
-		      		return;
-		   	}	
-		   	var url = 'http://www.informatics.jax.org/searches/expression_report.cgi?edinburghKey=' + emapId + '&sort=Gene%20symbol&returnType=assay%20results&substructures=structures';
-		   	window.open(url);
-	   	}
-   	},
    	"Query Google" : {
 	        label : "Search Google",
   	   	action : function (obj) {
@@ -321,7 +311,7 @@ function createDefaultMenu(obj){
 	      		if (obj.attr("ext_id") === "EMAP:0") {
 	         		return;
 	      		}  
-	      		popUpDetails( stageSeq, obj )
+			popUpAbstractDetails(obj)
 	   	},
 	   	"seperator_after" : false,
 	   	"seperator_before" : false

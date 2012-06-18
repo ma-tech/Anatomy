@@ -2,7 +2,12 @@
 // various effects for ema theiler stage and ontology pages
 $(document).ready(function() {
    $("#nav_selector").change(function() { 
-	window.location.href = "anatomy.html?stage=" + $("#nav_selector option:selected").text();
+	if ($("#nav_selector option:selected").text()=="Abstract"){
+	   window.location.href = "abstract.html";
+        }
+	else {
+	   window.location.href = "anatomy.html?stage=" + $("#nav_selector option:selected").text();
+	}
    });
 
    $("#navigation_toggle").toggle(function(){

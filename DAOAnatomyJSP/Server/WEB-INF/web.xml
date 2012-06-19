@@ -116,4 +116,13 @@
     <url-pattern>/listbytimedrootnamejsononly</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>listDerivedPartOfPerspectivesFKServlet</servlet-name>
+    <servlet-class>controller.ListDerivedPartOfPerspectivesFKServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listDerivedPartOfPerspectivesFKServlet</servlet-name>
+    <url-pattern>/listderivedpartofperspectivesfk</url-pattern>
+  </servlet-mapping>
+
 </web-app>

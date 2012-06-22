@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOCheckFileReferenceTree.java
+* Title:        CheckFileReferenceTree.java
 *
 * Date:         2012
 *
@@ -33,11 +33,13 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+
+import daolayer.DAOFactory;
 
 import obolayer.OBOFactory;
 import obolayer.OBOException;
@@ -45,19 +47,14 @@ import obolayer.ComponentOBO;
 
 import obomodel.OBOComponent;
 
-import routines.MapBuilder;
-import routines.TreeBuilder;
-import routines.ValidateComponents;
 
-public class RunOBOCheckFileReferenceTree {
+public class CheckFileReferenceTree {
 	/*
 	 * run Method
 	 */
-    public static void run() throws IOException {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws IOException {
 
     	try {
-            OBOFactory obofactory = OBOFactory.getInstance("file");
-
             ComponentOBO componentOBO = obofactory.getComponentOBO();
 
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();

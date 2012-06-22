@@ -1,9 +1,8 @@
- 
 /*
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOLoadComponents.java
+* Title:        ExtractAndWriteOBOFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -36,9 +35,12 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import routines.LoadComponentsTablesFromOBOFile;
+import obolayer.OBOFactory;
+import daolayer.DAOFactory;
 
-public class MainOBOLoadComponents {
+import routines.ExtractAndWriteOBOFromComponentsTables;
+
+public class MainExtractAndWriteOBOFromComponentsTables {
 	/*
 	 * Main Class
 	 */
@@ -49,18 +51,24 @@ public class MainOBOLoadComponents {
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-        System.out.println("=========   ---------------------");
-        System.out.println("EXECUTING - MainOBOLoadComponents.java on " + parsed.toString());
-        System.out.println("=========   ---------------------");
+
+        System.out.println("=========   --------------------------------------");
+        System.out.println("EXECUTING - ExtractAndWriteOBOFromComponentsTables.java on " + parsed.toString());
+        System.out.println("=========   --------------------------------------");
         System.out.println("");
 
-        LoadComponentsTablesFromOBOFile.run();
-        
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
+
+        ExtractAndWriteOBOFromComponentsTables.run(daofactory, obofactory);
+
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-        System.out.println("====        ---------------------");
-        System.out.println("DONE ------ MainOBOLoadComponents.java took " + duration / 1000 + " seconds");
-        System.out.println("====        ---------------------");
+        System.out.println("=========   --------------------------------------");
+        System.out.println("DONE ------ ExtractAndWriteOBOFromComponentsTables.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   --------------------------------------");
     }
 }

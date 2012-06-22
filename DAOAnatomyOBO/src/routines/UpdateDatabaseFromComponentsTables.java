@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOLoadComponentsTablesIntoDatabase.java
+* Title:        UpdateDatabaseFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -34,50 +34,56 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
+
+import obolayer.OBOFactory;
+
+import daolayer.DAOFactory;
 
 
-import routines.ListOBOComponentsFromComponentsTables;
-import routines.ListOBOComponentsFromExistingDatabase;
-import routines.MapBuilder;
-import routines.TreeBuilder;
-import routines.GenerateSQL;
-import routines.ValidateComponents;
-
-public class RunOBOLoadComponentsTablesIntoDatabase {
+public class UpdateDatabaseFromComponentsTables {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-        System.out.println("ListOBOComponentsFromComponentsTables");
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables();
+        if ( daofactory.getThingDAO().debug() ) {
+        	System.out.println("ListOBOComponentsFromComponentsTables");
+        }
+        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         MapBuilder newmapbuilder = new MapBuilder(importcomponents.getTermList());
         TreeBuilder newtreebuilder = new TreeBuilder(newmapbuilder);
 
         //import Database from dao.properties, anatomy008.url
-        System.out.println("ListOBOComponentsFromExistingDatabase");
-        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase(true, "EMAP" );
+        if ( daofactory.getThingDAO().debug() ) {
+        	System.out.println("ListOBOComponentsFromExistingDatabase");
+        }
+        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
         MapBuilder oldmapbuilder = new MapBuilder(importdatabase.getTermList());
         TreeBuilder oldtreebuilder = new TreeBuilder(oldmapbuilder);
 
         //check for rules violation
-        System.out.println("ValidateComponents");
+        if ( daofactory.getThingDAO().debug() ) {
+        	System.out.println("ValidateComponents");
+        }
         ValidateComponents validatecomponents =
-            new ValidateComponents( "mouse", importcomponents.getTermList(), importdatabase.getTermList(), newtreebuilder);
+            new ValidateComponents( obofactory.getComponentOBO().species(), importcomponents.getTermList(), importdatabase.getTermList(), newtreebuilder);
 
         // Update the Database
-        GenerateSQL generatesql = new GenerateSQL( true, validatecomponents.getProposedTermList(), newtreebuilder, oldtreebuilder, "mouse", "EMAP" );
-        
+        if ( daofactory.getThingDAO().debug() ) {
+        	System.out.println("GenerateSQL");
+        }
+        GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, validatecomponents.getProposedTermList(), newtreebuilder, oldtreebuilder );
+
         if ( generatesql.isProcessed()) {
-            System.out.println("======================");
+            System.out.println("----------------------");
             System.out.println("GenerateSQL - SUCCESS!");
-            System.out.println("======================");
+            System.out.println("----------------------");
         }
         else {
-            System.out.println("=====================");
+            System.out.println("----------------------");
         	System.out.println("GenerateSQL - FAILED!");
-            System.out.println("=====================");
+            System.out.println("----------------------");
         }
     }
 }

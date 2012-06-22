@@ -44,53 +44,88 @@ import daolayer.ComponentOrderDAO;
 
 import daolayer.DAOFactory;
 
+import obolayer.OBOFactory;
+
 
 public class EmptyComponentsTables {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-    	// Obtain DAOFactory.
-        DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
         // Obtain DAOs.
-        ComponentDAO componentDAO = anatomy008.getComponentDAO();
-        ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-        ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-        ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
-        ComponentOrderDAO componentorderDAO = anatomy008.getComponentOrderDAO();
+        ComponentDAO componentDAO = daofactory.getComponentDAO();
+        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
+        ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
+        ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
+        ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+        ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
 
-        int i = 0;
-
-        i = componentDAO.countAll();
-        if ( i > 0 ) {
-       		componentDAO.empty();
+        if ( obofactory.getComponentOBO().debug() ) {
+            System.out.println("---------------------------------------------------------------");
+            if ( componentDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT");
+           		componentDAO.empty();
+            }
+            else {
+                System.out.println("ANA_OBO_COMPONENT IS ALREADY EMPTY!");
+            }
+            if ( componentrelationshipDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT_RELATIONSHIP");
+           		componentrelationshipDAO.empty();
+            }
+            else {
+                System.out.println("==> ANA_OBO_COMPONENT_RELATIONSHIP IS ALREADY EMPTY!");
+            }
+            if ( componentcommentDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT_COMMENT");
+           		componentcommentDAO.empty();
+            }
+            else {
+                System.out.println("==> ANA_OBO_COMPONENT_COMMENT IS ALREADY EMPTY!");
+            }
+            if ( componentorderDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT_ORDER");
+           		componentorderDAO.empty();
+            }
+            else {
+                System.out.println("==> ANA_OBO_COMPONENT_ORDER IS ALREADY EMPTY!");
+            }
+            if ( componentsynonymDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT_SYNONYM");
+                componentsynonymDAO.empty();
+            }
+            else {
+                System.out.println("==> ANA_OBO_COMPONENT_SYNONYM IS ALREADY EMPTY!");
+            }
+            if ( componentalternativeDAO.countAll() > 0 ) {
+                System.out.println("EMPTYING ANA_OBO_COMPONENT_ALTERNATIVE");
+                componentalternativeDAO.empty();
+            }
+            else {
+                System.out.println("==> ANA_OBO_COMPONENT_ALTERNATIVE IS ALREADY EMPTY!");
+            }
+            System.out.println("---------------------------------------------------------------");
         }
-
-        i = componentrelationshipDAO.countAll();
-        if ( i > 0 ) {
-       		componentrelationshipDAO.empty();
-        }
-
-        i = componentcommentDAO.countAll();
-        if ( i > 0 ) {
-       		componentcommentDAO.empty();
-        }
-
-        i = componentsynonymDAO.countAll();
-        if ( i > 0 ) {
-            componentsynonymDAO.empty();
-        }
-
-        i = componentalternativeDAO.countAll();
-        if ( i > 0 ) {
-            componentalternativeDAO.empty();
-        }
-
-        i = componentorderDAO.countAll();
-        if ( i > 0 ) {
-            componentorderDAO.empty();
+        else {
+            if ( componentDAO.countAll() > 0 ) {
+           		componentDAO.empty();
+            }
+            if ( componentrelationshipDAO.countAll() > 0 ) {
+           		componentrelationshipDAO.empty();
+            }
+            if ( componentcommentDAO.countAll() > 0 ) {
+           		componentcommentDAO.empty();
+            }
+            if ( componentorderDAO.countAll() > 0 ) {
+           		componentorderDAO.empty();
+            }
+            if ( componentsynonymDAO.countAll() > 0 ) {
+                componentsynonymDAO.empty();
+            }
+            if ( componentalternativeDAO.countAll() > 0 ) {
+                componentalternativeDAO.empty();
+            }
         }
 
     }

@@ -142,7 +142,7 @@ public class Producer {
         	SimpleDateFormat format = new SimpleDateFormat("dd:MM:yyyy HH:mm");
         	String formattedDate = format.format(today);
             outputFile.write("date: " + formattedDate + "\n");
-            System.out.println("Today’s date and Time is: " + formattedDate);
+            //System.out.println("Today’s date and Time is: " + formattedDate);
 
             outputFile.write("saved-by: " + fileSavedBy + "\n");
             outputFile.write("default-namespace: " + fileNameSpace + "\n");
@@ -228,6 +228,10 @@ public class Producer {
 
                         if (obocomponentList.get(i).getIsGroup()) {
                             outputFile.write("relationship: is_a group_term\n");
+                        }
+
+                        if (!obocomponentList.get(i).getOrderComment().equals("")) {
+                            outputFile.write("comment: " + obocomponentList.get(i).getOrderComment() + "\n");
                         }
                     }
 

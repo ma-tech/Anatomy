@@ -35,6 +35,8 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
+import daolayer.DAOFactory;
+
 import app.RunDAOTest;
 
 public class MainDAOTest {
@@ -58,7 +60,10 @@ public class MainDAOTest {
         /*
          * MAINLINE
          */
-        RunDAOTest.run();
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+
+        RunDAOTest.run(daofactory);
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

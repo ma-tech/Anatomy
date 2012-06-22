@@ -116,6 +116,19 @@ public final class ThingDAO {
     
     // Actions ------------------------------------------------------------------------------------
     /*
+     * Return the OBO Factory Debug flag - from the OBO properties file
+     */
+    public boolean debug() throws DAOException {
+
+        try {
+            return daoFactory.isDebug();
+        } 
+        catch (DAOConfigurationException e) {
+            throw new DAOException(e);
+        } 
+    }
+
+    /*
      * Returns the maximum EMAPA id.
      */
     public int maximumOid() throws DAOException {

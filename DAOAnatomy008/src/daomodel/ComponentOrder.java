@@ -41,13 +41,15 @@ public class ComponentOrder {
      *   ACO_OBO_ID varchar(25) NOT NULL,
      *   ACO_OBO_PARENT varchar(25) NOT NULL,
      *   ACO_OBO_TYPE varchar(25) NOT NULL,
-     *   ACO_OBO_ORDER int(20) unsigned NULL,
+     *   ACO_OBO_ALPHA_ORDER int(20) unsigned NULL,
+     *   ACO_OBO_SPECIAL_ORDER int(20) unsigned NULL,
 	 */
     private Long oid;
     private String child;
     private String parent;
     private String type;
-    private Long order;
+    private Long alphaorder;
+    private Long specialorder;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -64,13 +66,15 @@ public class ComponentOrder {
     		String child, 
     		String parent,
     		String type,
-    		Long order) {
+    		Long alphaorder,
+    		Long specialorder) {
     	
     	this.oid = oid;
     	this.child = child;
         this.parent = parent;
         this.type = type;
-        this.order = order;
+        this.alphaorder = alphaorder;
+        this.specialorder = specialorder;
     }
     
     // Getters ------------------------------------------------------------------------------------
@@ -86,8 +90,11 @@ public class ComponentOrder {
     public String getType() {
         return this.type;
     }
-    public Long getOrder() {
-        return this.order;
+    public Long getAlphaorder() {
+        return this.alphaorder;
+    }
+    public Long getSpecialorder() {
+        return this.specialorder;
     }
 
     // Setters ------------------------------------------------------------------------------------
@@ -103,8 +110,11 @@ public class ComponentOrder {
     public void setType( String type ) {
         this.type = type;
     }
-    public void setOrder( Long order ) {
-        this.order = order;
+    public void setAlphaorder( Long alphaorder ) {
+        this.alphaorder = alphaorder;
+    }
+    public void setSpecialorder( Long specialorder ) {
+        this.specialorder = specialorder;
     }
     
     // Helpers ------------------------------------------------------------------------------------
@@ -118,7 +128,8 @@ public class ComponentOrder {
     	if ( this.getChild().equals(daocomponent.getChild()) && 
              this.getParent() == daocomponent.getParent() && 
              this.getType() == daocomponent.getType() && 
-             this.getOrder() == daocomponent.getOrder() ){
+             this.getAlphaorder() == daocomponent.getAlphaorder() && 
+             this.getSpecialorder() == daocomponent.getSpecialorder()){
 
         	return true;
         }
@@ -142,8 +153,8 @@ public class ComponentOrder {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("ComponentOrder [ oid=%d, child=%s, parent=%s, type=%s, order=%d ]", 
-        		oid, child, parent, type, order);
+        return String.format("ComponentOrder [ oid=%d, child=%s, parent=%s, type=%s, alphaorder=%d, specialorder=%d ]", 
+        		oid, child, parent, type, alphaorder, specialorder);
     }
 }
 	

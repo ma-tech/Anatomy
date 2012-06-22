@@ -270,6 +270,32 @@ public final class ComponentOBO {
         } 
     }
 
+    /*
+     * Return the OBO Factory Species - from the OBO properties file
+     */
+    public String species() throws OBOException {
+
+    	try {
+            return oboFactory.getSpecies();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory Project - from the OBO properties file
+     */
+    public String project() throws OBOException {
+
+    	try {
+            return oboFactory.getProject();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Add the extra OBO components to the component list for Stages, Relationships etc

@@ -47,7 +47,7 @@ import java.util.Properties;
 public class DAOProperties {
 
     // Constants ----------------------------------------------------------------------------------
-    private static final String PROPERTIES_FILE = "dao.properties.qa";
+    private static final String PROPERTIES_FILE = "dao.properties.test_mouse";
     private static final Properties PROPERTIES = new Properties();
 
     static {
@@ -102,5 +102,13 @@ public class DAOProperties {
         }
 
         return property;
+    }
+    
+    /*
+     * Returns the Name of the Input File containing the DAO Properties
+     */
+    public String getName() {
+        
+        return PROPERTIES_FILE;
     }
 }

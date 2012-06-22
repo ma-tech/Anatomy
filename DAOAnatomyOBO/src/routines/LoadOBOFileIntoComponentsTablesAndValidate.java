@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOLoadFileIntoComponentsAndValidate.java
+* Title:        LoadOBOFileIntoComponentsTablesAndValidate.java
 *
 * Date:         2012
 *
@@ -34,7 +34,7 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,38 +43,33 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import obolayer.OBOFactory;
+
 import daolayer.DAOFactory;
 import daolayer.OBOFileDAO;
 
 import daomodel.OBOFile;
 
 import utility.ObjectConverter;
-import utility.StringStreamConverter;
 
-import routines.GenerateEditorPDF;
-import routines.GenerateEditorReport;
-import routines.ValidateComponents;
-import routines.MapBuilder;
-import routines.TreeBuilder;
 
-import routines.LoadComponentsTablesFromOBOFile;
-import routines.ListOBOComponentsFromComponentsTables;
-import routines.ListOBOComponentsFromOBOFile;
-import routines.ListOBOComponentsFromExistingDatabase;
-
-public class RunOBOLoadFileIntoComponentsAndValidate {
+public class LoadOBOFileIntoComponentsTablesAndValidate {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-        System.out.println("Obtain DAO");
-	    // Obtain DAOFactory.
-	    DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-	    // Obtain DAOs.
-	    OBOFileDAO obofileDAO = anatomy008.getOBOFileDAO();
+        //ComponentOBO componentOBO = obofactory.getComponentOBO();
+        String inputFile = obofactory.getComponentOBO().inputFile();
+        String summaryReport = obofactory.getComponentOBO().summaryReport();
+        String summaryReportPdf = obofactory.getComponentOBO().summaryReportPdf();
         
-        System.out.println("Clear Out OBOFile Table");
+        // Obtain DAOs.
+	    OBOFileDAO obofileDAO = daofactory.getOBOFileDAO();
+        
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("Clear Out OBOFile Table");
+	    }
 	    List<OBOFile> obofiles = new ArrayList<OBOFile>();
         obofiles = obofileDAO.listAll();
         
@@ -89,31 +84,33 @@ public class RunOBOLoadFileIntoComponentsAndValidate {
         }
 
 	    //import Obo File from obo.properties, file.oboinfile
-        System.out.println("LoadComponentsTablesFromOBOFile");
-        LoadComponentsTablesFromOBOFile importfile = new LoadComponentsTablesFromOBOFile();
-        System.out.println("ListOBOComponentsFromOBOFile");
-        ListOBOComponentsFromOBOFile listfile = new ListOBOComponentsFromOBOFile();
-        
-        System.out.println("listfile.getInputFileName()       " + listfile.getInputFileName());
-        System.out.println("listfile.getOutputReportName()    " + listfile.getOutputReportName());
-        System.out.println("listfile.getOutputReportPDFName() " + listfile.getOutputReportPDFName());
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("LoadOBOFileIntoComponentsTables");
+	    }
+        LoadOBOFileIntoComponentsTables.run(daofactory, obofactory);
         
         //import Obo File from obo.properties, file.oboinfile
-        System.out.println("ListOBOComponentsFromComponentsTables");
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables();
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("ListOBOComponentsFromComponentsTables");
+	    }
+        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         MapBuilder newmapbuilder = new MapBuilder(importcomponents.getTermList());
         TreeBuilder newtreebuilder = new TreeBuilder(newmapbuilder);
 
         //import Database from dao.properties, anatomy008.url
-        System.out.println("ListOBOComponentsFromExistingDatabase");
-        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase(true, "EMAP" );
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("ListOBOComponentsFromExistingDatabase");
+	    }
+        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
         //MapBuilder oldmapbuilder = new MapBuilder(importdatabase.getTermList());
         //TreeBuilder oldtreebuilder = new TreeBuilder(oldmapbuilder);
 
         //check for rules violation
-        System.out.println("ValidateComponents");
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("ValidateComponents");
+	    }
         ValidateComponents validatecomponents =
-            new ValidateComponents( "mouse", importcomponents.getTermList(), importdatabase.getTermList(), newtreebuilder);
+            new ValidateComponents( obofactory.getComponentOBO().species(), importcomponents.getTermList(), importdatabase.getTermList(), newtreebuilder);
         
         String validation = "";
 
@@ -123,33 +120,37 @@ public class RunOBOLoadFileIntoComponentsAndValidate {
         else {
         	validation = "FAILED VALIDATION";
         }
-        System.out.println("Validated? " + validation);
+	    if ( obofactory.getComponentOBO().debug() ) {
+
+	    	System.out.println("Validated? " + validation);
+	    }
 
         //generate txt summary report
-        System.out.println("GenerateEditorReport");
-        GenerateEditorReport generateeditorreport = new GenerateEditorReport( validatecomponents, 
-        		listfile.getInputFileName(),
-        		listfile.getOutputReportName());
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("GenerateEditorReport");
+	    }
+        GenerateEditorReport generateeditorreport = new GenerateEditorReport( validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        System.out.println("GenerateEditorPDF");
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( validatecomponents, 
-        		newtreebuilder, 
-        		listfile.getInputFileName(),
-        		listfile.getOutputReportPDFName());
-
-        File infile = new File(listfile.getInputFileName());
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("GenerateEditorPDF");
+	    }
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
+        
+        File infile = new File(inputFile);
         InputStream inputstreamin = new FileInputStream(infile);
-        File txtfile = new File(listfile.getOutputReportName());
+        File txtfile = new File(summaryReport);
         InputStream inputstreamtxt = new FileInputStream(txtfile);
-        File pdffile = new File(listfile.getOutputReportPDFName());
+        File pdffile = new File(summaryReportPdf);
         InputStream inputstreampdf = new FileInputStream(pdffile);
         
-        System.out.println("Write to OBOFile");
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        System.out.println("Write to OBOFile Table");
+	    }
 	    // Create an OBOFile Object
 	    OBOFile obofile = new OBOFile(null,
 	    		// Input OBO File
-	    		listfile.getInputFileName(), 
+	    		inputFile, 
 	    		inputstreamin,
 	    		//null,
 	    		"UTF-8",
@@ -159,14 +160,14 @@ public class RunOBOLoadFileIntoComponentsAndValidate {
 	    		validation,
 	    		"SYSTEM", 
 	    		// Output Text Report
-	    		listfile.getOutputReportName(), 
+	    		summaryReport, 
 	    		inputstreamtxt,
 	    		//null,
 	    		"UTF-8",
 	    		ObjectConverter.convert(inputstreamtxt.available(), Long.class),
 	    		utility.MySQLDateTime.now(), 
 	    		// Output PDF Report
-	    		listfile.getOutputReportPDFName(), 
+	    		summaryReportPdf, 
 	    		inputstreampdf,
 	    		//null,
 	    		"UTF-8",
@@ -181,21 +182,20 @@ public class RunOBOLoadFileIntoComponentsAndValidate {
 
         int i = 0;
 
-        if ( obofiles.size() > 0 ) {
-            System.out.println("List ALL OBOFile Rows");
-            System.out.println("");
-            System.out.println("\t=============================================");
-            System.out.println("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()));
-            System.out.println("\t=============================================");
+	    if ( obofactory.getComponentOBO().debug() ) {
+	        if ( obofiles.size() > 0 ) {
+	            System.out.println("List ALL OBOFile Rows");
+	            System.out.println("");
+	            System.out.println("\t=============================================");
+	            System.out.println("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()));
+	            System.out.println("\t=============================================");
 
-            while (iteratorOBOFilePost.hasNext()) {
-            	OBOFile obofileListed = iteratorOBOFilePost.next();
-           		i++;
-           		System.out.println(Integer.toString(i) + obofileListed.toString());
-          	}
-
-        }
-
-
+	            while (iteratorOBOFilePost.hasNext()) {
+	            	OBOFile obofileListed = iteratorOBOFilePost.next();
+	           		i++;
+	           		System.out.println(Integer.toString(i) + obofileListed.toString());
+	          	}
+	        }
+	    }
     }
 }

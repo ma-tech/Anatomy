@@ -52,7 +52,7 @@ public final class ComponentOrderDAO {
 
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER  " +
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
         "WHERE ACO_OBO_PARENT LIKE ? " +
         "AND ACO_OBO_CHILD LIKE ? " +
@@ -70,41 +70,54 @@ public final class ComponentOrderDAO {
         "FROM ANA_OBO_COMPONENT_ORDER ";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER   " +
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
         "WHERE ACO_OID = ? ";
     
     private static final String SQL_LIST_ALL =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER  " +
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER ";
     
-    private static final String SQL_LIST_ALL_BY_OBO_ID =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER   " +
+    private static final String SQL_LIST_ALL_ORDER_BY_PARENT_SPECIAL_ORDER =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = 'PART_OF' " +
+        "ORDER BY ACO_OBO_PARENT, ACO_OBO_SPECIAL_ORDER ";
+    
+    private static final String SQL_LIST_ALL_ORDER_BY_PARENT_ALPHA_ORDER =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = 'PART_OF' " +
+        "ORDER BY ACO_OBO_PARENT, ACO_OBO_ALPHA_ORDER ";
+        
+    private static final String SQL_LIST_ALL_BY_CHILD =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
         "WHERE ACO_OBO_CHILD = ? ";
             
     private static final String SQL_LIST_ALL_BY_PARENT =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER   " +
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
         "WHERE ACO_OBO_PARENT = ? ";
         
     private static final String SQL_LIST_BY_CHILD_AND_PARENT =
-        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER   " +
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
         "WHERE ACO_OBO_CHILD = ? " +
         "AND ACO_OBO_PARENT = ? ";
             
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT_ORDER " +
-        "(ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ORDER ) " +
-        "VALUES (?, ?, ?, ?)";
+        "(ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER ) " +
+        "VALUES (?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_OBO_COMPONENT_ORDER SET " +
         "ACO_OBO_CHILD = ?, " +
         "ACO_OBO_PARENT = ?, " + 
         "ACO_OBO_TYPE = ?, " + 
-        "ACO_OBO_ORDER = ? " + 
+        "ACO_OBO_ALPHA_ORDER = ?, " + 
+        "ACO_OBO_SPECIAL_ORDER = ? " + 
         "WHERE ACO_OID = ?";
     
     private static final String SQL_DELETE =
@@ -144,6 +157,22 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
+    public List<ComponentOrder> listOrderByParentBySpecialOrder() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_PARENT_SPECIAL_ORDER);
+    }
+    
+    /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
+    public List<ComponentOrder> listOrderByParentByAlphaOrder() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_PARENT_ALPHA_ORDER);
+    }
+    
+    /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
     public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws DAOException {
     	
         return list(SQL_LIST_BY_CHILD_AND_PARENT, childId, parentId);
@@ -152,9 +181,9 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
      */
-    public List<ComponentOrder> listByOboId(String oboid) throws DAOException {
+    public List<ComponentOrder> listByChild(String child) throws DAOException {
     	
-        return list(SQL_LIST_ALL_BY_OBO_ID, oboid);
+        return list(SQL_LIST_ALL_BY_CHILD, child);
     }
     
     /*
@@ -270,7 +299,8 @@ public final class ComponentOrderDAO {
         	daocomponentorder.getChild(),
         	daocomponentorder.getParent(),
         	daocomponentorder.getType(),
-        	daocomponentorder.getOrder()
+        	daocomponentorder.getAlphaorder(),
+        	daocomponentorder.getSpecialorder()
         };
 
         Connection connection = null;
@@ -316,7 +346,8 @@ public final class ComponentOrderDAO {
           	daocomponentorder.getChild(),
            	daocomponentorder.getParent(),
            	daocomponentorder.getType(),
-           	daocomponentorder.getOrder(),
+           	daocomponentorder.getAlphaorder(),
+           	daocomponentorder.getSpecialorder(),
            	daocomponentorder.getOid()
         };
 
@@ -474,8 +505,11 @@ public final class ComponentOrderDAO {
         if (sortField.equals("type")) {
         	sqlSortField = "ACO_OBO_TYPE";         
         }
-        if (sortField.equals("order")) {
-        	sqlSortField = "ACO_OBO_ORDER";         
+        if (sortField.equals("specialorder")) {
+        	sqlSortField = "ACO_OBO_SPECIAL_ORDER";         
+        }
+        if (sortField.equals("alphaorder")) {
+        	sqlSortField = "ACO_OBO_ALPHA_ORDER";         
         }
         
         if (searchFirst.equals("")) {
@@ -621,7 +655,8 @@ public final class ComponentOrderDAO {
        		resultSet.getString("ACO_OBO_CHILD"), 
        		resultSet.getString("ACO_OBO_PARENT"),
        		resultSet.getString("ACO_OBO_TYPE"),
-      		resultSet.getLong("ACO_OBO_ORDER")
+      		resultSet.getLong("ACO_OBO_ALPHA_ORDER"),
+      		resultSet.getLong("ACO_OBO_SPECIAL_ORDER")
         );
     }
 }

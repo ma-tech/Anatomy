@@ -121,6 +121,8 @@ public abstract class DAOFactory {
 
         DAOProperties properties = new DAOProperties(name);
         
+        String filename = properties.getName();
+        
         String url = properties.getProperty(PROPERTY_URL, true);
         String driverClassName = properties.getProperty(PROPERTY_DRIVER, false);
         String password = properties.getProperty(PROPERTY_PASSWORD, false);
@@ -140,35 +142,37 @@ public abstract class DAOFactory {
         if (strDebug.equals("true")) {
         	debug = true;
         	System.out.println("=====");
-        	System.out.println("DEBUG url             : " + url);
-        	System.out.println("DEBUG driverClassName : " + driverClassName);
-        	System.out.println("DEBUG username        : " + username);
-        	System.out.println("DEBUG password        : " + password);
-        	System.out.println("DEBUG debug           : " + strDebug);
-        	System.out.println("DEBUG update          : " + strUpdate);
-        	System.out.println("DEBUG sqloutput       : " + sqloutput);
-        	System.out.println("=====");
+        	System.out.println("DEBUG: DAO Properties File : " + filename);
+        	System.out.println("-----");
+        	System.out.println("     : url                 : " + url);
+        	System.out.println("     : driverClassName     : " + driverClassName);
+        	System.out.println("     : username            : " + username);
+        	System.out.println("     : password            : " + password);
+        	System.out.println("     : debug               : " + strDebug);
+        	System.out.println("     : update              : " + strUpdate);
+        	System.out.println("     : sqloutput           : " + sqloutput);
         }
         
-        if (debug && sqloutput != null) {
-            String commandString1 = "rm " + sqloutput;
-            ArrayList<String> results = new ArrayList<String>();
-            
-    		results = ExecuteCommand.execute(commandString1);
+        if (debug ) {
+            if (sqloutput != null) {
+                String commandString1 = "rm " + sqloutput;
+                ArrayList<String> results = new ArrayList<String>();
+                
+        		results = ExecuteCommand.execute(commandString1);
 
-        	System.out.println("=====");
-        	System.out.println("Empty SQL Command Log File");
+            	System.out.println("-----");
+            	System.out.println("       Empty SQL Command Log File");
 
-       		System.out.println("Command: " + commandString1);
+           		System.out.println("       Command: " + commandString1);
 
-       		Iterator<String> iteratorresults = results.iterator();
+           		Iterator<String> iteratorresults = results.iterator();
 
-          	while (iteratorresults.hasNext()) {
-          		String result = iteratorresults.next();
+              	while (iteratorresults.hasNext()) {
+              		String result = iteratorresults.next();
 
-           		System.out.println("         " + result.toString());
-           		
-          	}
+               		System.out.println("                " + result.toString());
+              	}
+            }
         	System.out.println("=====");
         }
         
@@ -214,13 +218,9 @@ public abstract class DAOFactory {
      * package only.
      */
     abstract Connection getConnection() throws SQLException;
-
     abstract Boolean isDebug();
-
     abstract Boolean isUpdate();
-
     abstract String getUrl();
-
     abstract String getSqloutput();
     
     // DAO getters --------------------------------------------------------------------------------

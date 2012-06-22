@@ -41,6 +41,9 @@ import java.util.Date;
 
 import app.RunListOBOFileContents;
 
+import obolayer.OBOFactory;
+import daolayer.DAOFactory;
+
 
 public class MainListOBOFileContents{
 	/*
@@ -63,7 +66,12 @@ public class MainListOBOFileContents{
         /*
          * MAINLINE
          */
-        RunListOBOFileContents.run();
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
+
+        RunListOBOFileContents.run(daofactory, obofactory);
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

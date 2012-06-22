@@ -63,74 +63,30 @@ import daomodel.ComponentAlternative;
 
 import utility.ObjectConverter;
 
-public class LoadComponentsTablesFromOBOFile {
+import routines.EmptyComponentsTables;
+
+
+public class LoadOBOFileIntoComponentsTables {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("file");
         // Obtain DAOs.
         ComponentOBO componentOBO = obofactory.getComponentOBO();
 
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = componentOBO.listAll();
 
-        // Obtain DAOFactory.
-        DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
         // Obtain DAOs.
-        ComponentDAO componentDAO = anatomy008.getComponentDAO();
-        ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-        ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-        ComponentOrderDAO componentorderDAO = anatomy008.getComponentOrderDAO();
-        ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
+        ComponentDAO componentDAO = daofactory.getComponentDAO();
+        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
+        ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
+        ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
+        ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
+        ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
 
-        System.out.println("===============================================================");
-        if ( componentDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT");
-       		componentDAO.empty();
-        }
-        else {
-            System.out.println("ANA_OBO_COMPONENT IS ALREADY EMPTY!");
-        }
-        if ( componentrelationshipDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT_RELATIONSHIP");
-       		componentrelationshipDAO.empty();
-        }
-        else {
-            System.out.println("==> ANA_OBO_COMPONENT_RELATIONSHIP IS ALREADY EMPTY!");
-        }
-        if ( componentcommentDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT_COMMENT");
-       		componentcommentDAO.empty();
-        }
-        else {
-            System.out.println("==> ANA_OBO_COMPONENT_COMMENT IS ALREADY EMPTY!");
-        }
-        if ( componentorderDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT_ORDER");
-       		componentorderDAO.empty();
-        }
-        else {
-            System.out.println("==> ANA_OBO_COMPONENT_ORDER IS ALREADY EMPTY!");
-        }
-        if ( componentsynonymDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT_SYNONYM");
-            componentsynonymDAO.empty();
-        }
-        else {
-            System.out.println("==> ANA_OBO_COMPONENT_SYNONYM IS ALREADY EMPTY!");
-        }
-        if ( componentalternativeDAO.countAll() > 0 ) {
-            System.out.println("EMPTYING ANA_OBO_COMPONENT_ALTERNATIVE");
-            componentalternativeDAO.empty();
-        }
-        else {
-            System.out.println("==> ANA_OBO_COMPONENT_ALTERNATIVE IS ALREADY EMPTY!");
-        }
-        System.out.println("===============================================================");
+        EmptyComponentsTables.run(daofactory, obofactory);
 
       	Iterator<OBOComponent> iteratorComponent = obocomponents.iterator();
       	while (iteratorComponent.hasNext()) {
@@ -200,6 +156,7 @@ public class LoadComponentsTablesFromOBOFile {
                    				obocomponent.getID(),
                    	    		words[2],
                    	    		"PART_OF",
+                   	    		ObjectConverter.convert(words[0], Long.class),
                    	    		ObjectConverter.convert(words[0], Long.class));
                    		
                    		componentorderDAO.save(daocomponentorder);
@@ -222,25 +179,16 @@ public class LoadComponentsTablesFromOBOFile {
       	}
       	
         List<ComponentRelationship> componentrelationships = new ArrayList<ComponentRelationship>();
-        componentrelationships = componentrelationshipDAO.listAllAlphabeticWithinParentId();
+        componentrelationships = componentrelationshipDAO.listAllAlphabeticWithinParentIdPartOF();
         
         List<ComponentOrder> componentorders2 = new ArrayList<ComponentOrder>();
         componentorders2 = componentorderDAO.listAll();
-
-        /*
-        System.out.println("componentorders2.size() " + 
-                ObjectConverter.convert(componentorders2.size(), String.class));
-        System.out.println("componentrelationships.size() " + 
-                ObjectConverter.convert(componentrelationships.size(), String.class));
-        */
 
         Iterator<ComponentRelationship> iteratorComponentRelationship = componentrelationships.iterator();
       	
       	String oldParentId = "";
       	String newParentId = "";
       	int counter = -1;
-      	//int countInsert = 0;
-      	//int countUpdate = 0;
       	int typeInsert = 0;
       	int typeUpdate = 0;
 
@@ -279,16 +227,13 @@ public class LoadComponentsTablesFromOBOFile {
             			componentrelationship.getChild(),
             			componentrelationship.getParent(),
             			componentrelationship.getType(),
+           	    		ObjectConverter.convert(typeInsert, Long.class),
            	    		ObjectConverter.convert(typeInsert, Long.class));
 
       			componentorderDAO.save(componentorderInsert);
-      			
-      			//countInsert++;
       		}
 
       		if ( componentorders.size() > 0 ){
-
-      			//countUpdate++;
 
           		Iterator<ComponentOrder> iteratorComponentOrder = componentorders.iterator();
 
@@ -310,35 +255,47 @@ public class LoadComponentsTablesFromOBOFile {
           				typeUpdate = 0;
           			}
 
-              		componentorderUpdate.setOrder(ObjectConverter.convert(typeUpdate, Long.class));
+              		componentorderUpdate.setAlphaorder(ObjectConverter.convert(typeUpdate, Long.class));
 
-          			componentorderDAO.save(componentorderUpdate);
+              		componentorderDAO.save(componentorderUpdate);
               	}
-
       		}
+      	}
+      	
+        List<ComponentRelationship> componentrelationships2 = new ArrayList<ComponentRelationship>();
+        componentrelationships2 = componentrelationshipDAO.listAllAlphabeticWithinParentIdNotPartOf();
+
+        Iterator<ComponentRelationship> iteratorComponentRelationship2 = componentrelationships2.iterator();
+      	
+      	while (iteratorComponentRelationship2.hasNext()) {
+      		ComponentRelationship componentrelationship2 = iteratorComponentRelationship2.next();
+      	
+  			ComponentOrder componentorderIsa = new ComponentOrder(null,
+  					componentrelationship2.getChild(),
+  					componentrelationship2.getParent(),
+  					componentrelationship2.getType(),
+       	    		ObjectConverter.convert(0, Long.class),
+       	    		ObjectConverter.convert(0, Long.class));
+
+  			componentorderDAO.save(componentorderIsa);
 
       	}
 
-        /*
-        System.out.println("countInsert " + 
-                ObjectConverter.convert(countInsert, String.class));
-        System.out.println("countUpdate " + 
-                ObjectConverter.convert(countUpdate, String.class));
-        */
-
-        System.out.println("===============================================================");
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + 
-            ObjectConverter.convert(componentDAO.countAll(), String.class));
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + 
-            ObjectConverter.convert(componentrelationshipDAO.countAll(), String.class));
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + 
-            ObjectConverter.convert(componentcommentDAO.countAll(), String.class));
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ORDER        = " + 
-            ObjectConverter.convert(componentorderDAO.countAll(), String.class));
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + 
-            ObjectConverter.convert(componentsynonymDAO.countAll(), String.class));
-        System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + 
-            ObjectConverter.convert(componentalternativeDAO.countAll(), String.class));
-        System.out.println("===============================================================");
+      	if ( obofactory.getComponentOBO().debug() ) {
+            System.out.println("---------------------------------------------------------------");
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + 
+                ObjectConverter.convert(componentDAO.countAll(), String.class));
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + 
+                ObjectConverter.convert(componentrelationshipDAO.countAll(), String.class));
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + 
+                ObjectConverter.convert(componentcommentDAO.countAll(), String.class));
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ORDER        = " + 
+                ObjectConverter.convert(componentorderDAO.countAll(), String.class));
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + 
+                ObjectConverter.convert(componentsynonymDAO.countAll(), String.class));
+            System.out.println("The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + 
+                ObjectConverter.convert(componentalternativeDAO.countAll(), String.class));
+            System.out.println("---------------------------------------------------------------");
+      	}
     }
 }

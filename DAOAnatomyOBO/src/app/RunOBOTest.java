@@ -49,12 +49,9 @@ public class RunOBOTest {
 	/*
 	 * run Method
 	 */
-	public static void run () throws IOException {
+	public static void run (OBOFactory obofactory) throws IOException {
 
 		try {
-	        // Obtain OBOFactory.
-	        OBOFactory obofactory = OBOFactory.getInstance("file");
-
 	        // Obtain DAOs.
 	        ComponentOBO componentOBO = obofactory.getComponentOBO();
 

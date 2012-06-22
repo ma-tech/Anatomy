@@ -595,7 +595,6 @@ relationship: starts_at TS11 ! TS11
 id: EMAPA:16103
 name: organ system
 namespace: abstract_anatomy
-comment: order=0 for EMAPA:25765
 relationship: ends_at TS28 ! TS28
 relationship: part_of EMAPA:16039 ! embryo
 relationship: part_of EMAPA:25765 ! mouse
@@ -1756,7 +1755,6 @@ relationship: starts_at TS12 ! TS12
 id: EMAPA:16245
 name: visceral organ
 namespace: abstract_anatomy
-comment: order=0 for EMAPA:16103
 relationship: ends_at TS28 ! TS28
 relationship: part_of EMAPA:16103 ! organ system
 relationship: starts_at TS12 ! TS12
@@ -2737,7 +2735,6 @@ relationship: starts_at TS13 ! TS13
 id: EMAPA:16367
 name: genitourinary system
 namespace: abstract_anatomy
-comment: order=0 for EMAPA:16245
 synonym: "urogenital system" RELATED []
 relationship: ends_at TS18 ! TS18
 relationship: part_of EMAPA:16245 ! visceral organ
@@ -11023,7 +11020,6 @@ relationship: starts_at TS19 ! TS19
 id: EMAPA:17366
 name: urinary system
 namespace: abstract_anatomy
-comment: order=1 for EMAPA:16245
 relationship: ends_at TS28 ! TS28
 relationship: part_of EMAPA:16245 ! visceral organ
 relationship: starts_at TS19 ! TS19
@@ -11117,7 +11113,6 @@ relationship: starts_at TS19 ! TS19
 id: EMAPA:17381
 name: reproductive system
 namespace: abstract_anatomy
-comment: order=2 for EMAPA:16245
 relationship: ends_at TS28 ! TS28
 relationship: part_of EMAPA:16245 ! visceral organ
 relationship: starts_at TS19 ! TS19
@@ -36737,7 +36732,7 @@ relationship: starts_at TS20 ! TS20
 id: EMAPA:27690
 name: renal interstitium
 namespace: abstract_anatomy
-comment: order=12 for EMAPA:17373
+comment: order=12 for EMAPA:17373\norder=11 for EMAPA:28518
 relationship: ends_at TS21 ! TS21
 relationship: part_of EMAPA:17373 ! metanephros
 relationship: part_of EMAPA:28518 ! renal interstitium group
@@ -37003,7 +36998,7 @@ relationship: starts_at TS21 ! TS21
 id: EMAPA:27794
 name: developing vasculature of metanephros
 namespace: abstract_anatomy
-comment: order=13 for EMAPA:17373
+comment: order=13 for EMAPA:17373\norder=15 for EMAPA:28457
 relationship: ends_at TS21 ! TS21
 relationship: part_of EMAPA:17373 ! metanephros
 relationship: part_of EMAPA:28457 ! renal vasculature

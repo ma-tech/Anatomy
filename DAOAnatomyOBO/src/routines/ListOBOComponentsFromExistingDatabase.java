@@ -52,8 +52,12 @@ import daomodel.Synonym;
 import daomodel.Stage;
 import daomodel.Project;
 
+import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
 import obomodel.Relation;
+
+import utility.ObjectConverter;
 
 
 public class ListOBOComponentsFromExistingDatabase {
@@ -64,19 +68,16 @@ public class ListOBOComponentsFromExistingDatabase {
     private ArrayList <Relation> oborelationList = new ArrayList <Relation>();
     
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromExistingDatabase(boolean defaultroot, String project ) {
+    public ListOBOComponentsFromExistingDatabase(DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot ) throws Exception {
     	
     	try {
-            // Obtain DAOFactory.
-            DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-
             // Obtain DAOs.
-            NodeDAO nodeDAO = anatomy008.getNodeDAO();
+            NodeDAO nodeDAO = daofactory.getNodeDAO();
             JOINNodeRelationshipRelationshipProjectDAO nrrpjoinDAO = 
-            		anatomy008.getJOINNodeRelationshipRelationshipProjectDAO(); 
-            SynonymDAO synonymDAO = anatomy008.getSynonymDAO();
-            JOINTimedNodeStageDAO timednodestagejoinDAO = anatomy008.getJOINTimedNodeStageDAO();
-            StageDAO stageDAO = anatomy008.getStageDAO();
+            		daofactory.getJOINNodeRelationshipRelationshipProjectDAO(); 
+            SynonymDAO synonymDAO = daofactory.getSynonymDAO();
+            JOINTimedNodeStageDAO timednodestagejoinDAO = daofactory.getJOINTimedNodeStageDAO();
+            StageDAO stageDAO = daofactory.getStageDAO();
 
             // 1: abstract class---------------------------------------------------------------------------
             OBOComponent obocomponent;
@@ -106,13 +107,15 @@ public class ListOBOComponentsFromExistingDatabase {
 
                 // 1_2_2: query for the node's partOf relationship---------------------------------------------
                 List<JOINNodeRelationshipRelationshipProject> nrrpJoins = 
-                		nrrpjoinDAO.listAllByChildAndProject(Long.valueOf(obocomponent.getDBID()), project);
+                		nrrpjoinDAO.listAllByChildAndProject(Long.valueOf(obocomponent.getDBID()), obofactory.getComponentOBO().project());
                 
                 Iterator<JOINNodeRelationshipRelationshipProject> iteratorNrrpJoin = 
                    		nrrpJoins.iterator();
                     
                 while ( iteratorNrrpJoin.hasNext() ) {
                    	JOINNodeRelationshipRelationshipProject nrrpJoin = iteratorNrrpJoin.next();
+                   	
+                   	obocomponent.addOrderComment("order=" + ObjectConverter.convert(nrrpJoin.getSequenceFK(), String.class) + " for " + nrrpJoin.getPublicId());
                    	
                     obocomponent.addChildOf( nrrpJoin.getPublicId());
 
@@ -124,6 +127,30 @@ public class ListOBOComponentsFromExistingDatabase {
                     }
                     if ( nrrpJoin.getTypeFK().equals("derives-from") ) {
                     	obocomponent.addChildOfType( "DERIVES_FROM" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("develops_from") ) {
+                    	obocomponent.addChildOfType( "DEVELOPS_FROM" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("located_in") ) {
+                    	obocomponent.addChildOfType( "LOCATED_IN" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("develops_IN") ) {
+                    	obocomponent.addChildOfType( "DEVELOPS_IN" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("develops_in") ) {
+                    	obocomponent.addChildOfType( "DEVELOPS_IN" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("disjoint_from") ) {
+                    	obocomponent.addChildOfType( "DISJOINT_FROM" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("surrounds") ) {
+                    	obocomponent.addChildOfType( "SURROUNDS" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("attached_to") ) {
+                    	obocomponent.addChildOfType( "ATTACHED_TO" );
+                    }
+                    if ( nrrpJoin.getTypeFK().equals("has_part") ) {
+                    	obocomponent.addChildOfType( "HAS_PART" );
                     }
                 }
 
@@ -276,10 +303,10 @@ public class ListOBOComponentsFromExistingDatabase {
 
         try {
             // Obtain DAOFactory.
-            DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
+            DAOFactory daofactory = DAOFactory.getInstance("daofactory");
 
             // Obtain DAOs.
-            ProjectDAO projectDAO = anatomy008.getProjectDAO();
+            ProjectDAO projectDAO = daofactory.getProjectDAO();
             
             List<Project> projects = new ArrayList<Project>();
             projects = projectDAO.listAll();

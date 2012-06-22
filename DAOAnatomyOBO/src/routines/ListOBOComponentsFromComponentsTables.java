@@ -32,23 +32,26 @@
 
 package routines;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 //import daolayer.ComponentAlternativeDAO;
-import daolayer.ComponentCommentDAO;
 import daolayer.ComponentDAO;
 import daolayer.ComponentRelationshipDAO;
+import daolayer.ComponentOrderDAO;
 import daolayer.ComponentSynonymDAO;
+import daolayer.ComponentCommentDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
 import daomodel.Component;
-import daomodel.ComponentComment;
 import daomodel.ComponentRelationship;
+import daomodel.ComponentOrder;
 import daomodel.ComponentSynonym;
+import daomodel.ComponentComment;
+
+import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
@@ -64,28 +67,22 @@ public class ListOBOComponentsFromComponentsTables {
 
     
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromComponentsTables() throws IOException {
+    public ListOBOComponentsFromComponentsTables(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
     	try {
-            // Obtain DAOFactory.
-            DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-
             // Obtain DAOs.
-            ComponentDAO componentDAO = anatomy008.getComponentDAO();
-            ComponentRelationshipDAO componentrelationshipDAO = anatomy008.getComponentRelationshipDAO();
-            ComponentCommentDAO componentcommentDAO = anatomy008.getComponentCommentDAO();
-            ComponentSynonymDAO componentsynonymDAO = anatomy008.getComponentSynonymDAO();
-            //ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
+            ComponentDAO componentDAO = daofactory.getComponentDAO();
+            ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
+            ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
+            ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
+            ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
+            //ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
 
-            ArrayList<Component> components = (ArrayList<Component>) componentDAO.listAll(); 
-            List<ComponentRelationship> componentrelationships = new ArrayList<ComponentRelationship>();
-
-          	Iterator<Component> iteratorComponent = components.iterator();
+            ArrayList<Component> components = (ArrayList<Component>) componentDAO.listAllOrderByEMAPA(); 
+            Iterator<Component> iteratorComponent = components.iterator();
 
           	while (iteratorComponent.hasNext()) {
           		Component component = iteratorComponent.next();
-
-                ComponentRelationship componentrelationship = new ComponentRelationship();
 
            		if (component.getStatusChange().equals("DELETED") ) {
                     System.out.println("WARNING! obocomponent, = " + component.toString());
@@ -120,16 +117,32 @@ public class ListOBOComponentsFromComponentsTables {
             		obocomponent.setStatusChange(component.getStatusChange().replace("\n", " ").trim());
             		obocomponent.setStatusRule(component.getStatusRule().replace("\n", " ").trim());
 
-            		componentrelationships = componentrelationshipDAO.listByOboId(component.getId().replace("\n", " ").trim());
-
+            		List<ComponentRelationship> componentrelationships = componentrelationshipDAO.listByChild(component.getId().replace("\n", " ").trim());
                 	Iterator<ComponentRelationship> iteratorComponentRelationship = componentrelationships.iterator();
 
                 	while (iteratorComponentRelationship.hasNext()) {
                 		
-                		componentrelationship = iteratorComponentRelationship.next();
+                        ComponentRelationship componentrelationship = new ComponentRelationship();
+                        componentrelationship = iteratorComponentRelationship.next();
 
                 		obocomponent.addChildOf(componentrelationship.getParent().replace("\n", " ").trim());
                 		obocomponent.addChildOfType(componentrelationship.getType().replace("\n", " ").trim());
+                	}
+                	
+            		List<ComponentOrder> componentorders = componentorderDAO.listByChild(component.getId().replace("\n", " ").trim());
+                	Iterator<ComponentOrder> iteratorComponentOrder = componentorders.iterator();
+
+                	while (iteratorComponentOrder.hasNext()) {
+                		
+                		ComponentOrder componentorder = new ComponentOrder();
+                		componentorder = iteratorComponentOrder.next();
+
+                		if ( "EMAP".equals(obofactory.getComponentOBO().project() ) ) {
+                           	obocomponent.addOrderComment("order=" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + " for " + componentorder.getParent());
+                		}
+                		else {
+                           	obocomponent.addOrderComment("order=" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + " for " + componentorder.getParent());
+                		}
                 	}
                 	
                 	// Get Comments for this Component

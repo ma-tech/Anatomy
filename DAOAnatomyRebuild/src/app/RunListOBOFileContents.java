@@ -40,6 +40,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import obolayer.OBOFactory;
+
 import daolayer.DAOFactory;
 import daolayer.OBOFileDAO;
 
@@ -50,13 +52,10 @@ public class RunListOBOFileContents {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-        System.out.println("Obtain DAO");
-	    // Obtain DAOFactory.
-	    DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
 	    // Obtain DAOs.
-	    OBOFileDAO obofileDAO = anatomy008.getOBOFileDAO();
+	    OBOFileDAO obofileDAO = daofactory.getOBOFileDAO();
 
         List<OBOFile> obofiles = new ArrayList<OBOFile>();
         obofiles = obofileDAO.listAll();

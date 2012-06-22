@@ -34,6 +34,7 @@ package routines;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import daolayer.DAOException;
@@ -53,7 +54,19 @@ import daolayer.SynonymDAO;
 import daolayer.ThingDAO;
 import daolayer.TimedNodeDAO;
 import daolayer.VersionDAO;
+import daolayer.ComponentDAO;
+import daolayer.ComponentOrderDAO;
+import daolayer.ComponentRelationshipDAO;
+import daolayer.ComponentSynonymDAO;
+import daolayer.ComponentAlternativeDAO;
+import daolayer.ComponentCommentDAO;
 
+import daomodel.Component;
+import daomodel.ComponentOrder;
+import daomodel.ComponentRelationship;
+import daomodel.ComponentSynonym;
+import daomodel.ComponentAlternative;
+import daomodel.ComponentComment;
 import daomodel.JOINNodeRelationship;
 import daomodel.JOINNodeRelationshipNode;
 import daomodel.JOINNodeRelationshipRelationshipProject;
@@ -68,6 +81,8 @@ import daomodel.Synonym;
 import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.Version;
+
+import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
@@ -156,18 +171,22 @@ public class GenerateSQL {
     private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
     private JOINRelationshipProjectRelationshipDAO joinrelationshipprojectrelationshipDAO;
     private JOINTimedNodeStageDAO jointimednodestageDAO;
+    private ComponentDAO componentDAO;
+    private ComponentAlternativeDAO componentalternativeDAO;
+    private ComponentRelationshipDAO componentrelationshipDAO;
+    private ComponentOrderDAO componentorderDAO;
+    private ComponentSynonymDAO componentsynonymDAO;
+    private ComponentCommentDAO componentcommentDAO;
     
     // Constructors -------------------------------------------------------------------------------
-    public GenerateSQL(
-    		boolean debug,
+    public GenerateSQL(DAOFactory daofactory, 
+    		OBOFactory obofactory, 
             ArrayList<OBOComponent> proposedTermList,
             TreeBuilder treebuilder,
-            TreeBuilder refTreebuilder,
-            String species,
-            String project  ) {
+            TreeBuilder refTreebuilder ) throws Exception {
 
     	this.processed = true;
-        this.debug = debug;
+        this.debug = daofactory.getThingDAO().debug();
         
         if (this.debug) {
             System.out.println("===========");
@@ -191,7 +210,7 @@ public class GenerateSQL {
         this.diffDeleteSynList = new ArrayList<OBOComponent>();
 
         this.tree = treebuilder;
-        this.strSpecies = species;
+        this.strSpecies = obofactory.getComponentOBO().species();
         this.intCurrentPublicID = 0;
         this.intCurrentObjectID = 0;
         
@@ -202,7 +221,7 @@ public class GenerateSQL {
         this.abstractclassobocomponent.setName( "Abstract anatomy" );
         this.abstractclassobocomponent.setID( "EMAPA:0" );
         this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-        this.project = project;
+        this.project = obofactory.getComponentOBO().project();
 
         //internal termlists for data manipulation
         ArrayList<OBOComponent> newComponents =
@@ -263,7 +282,7 @@ public class GenerateSQL {
         if (processed) {
         	
         	// Obtain DAOFactory.
-            this.daofactory = DAOFactory.getInstance("anatomy008");
+            this.daofactory = daofactory;
 
             // Obtain DAOs.
             this.logDAO = daofactory.getLogDAO();
@@ -280,6 +299,12 @@ public class GenerateSQL {
             this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
             this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
             this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
+            this.componentDAO = daofactory.getComponentDAO();
+            this.componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+            this.componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
+            this.componentorderDAO = daofactory.getComponentOrderDAO();
+            this.componentsynonymDAO = daofactory.getComponentSynonymDAO();
+            this.componentcommentDAO = daofactory.getComponentCommentDAO();
 
             // 01
             //set version id
@@ -296,11 +321,11 @@ public class GenerateSQL {
 
             // BB
             //  AMENDED components
-            updates( changedComponents );
+            //updates( changedComponents );
             
             // CC
             //  DELETED components
-            deletes( deletedComponents );
+            //deletes( deletedComponents );
 
             setProcessed( true );
         }
@@ -479,11 +504,11 @@ public class GenerateSQL {
             
             //get components whose ordering have changed
             // 16
-            changedPropComponents = this.getChangedOrderTermList( changedComponents );
+            //changedPropComponents = this.getChangedOrderTermList( changedComponents );
 
             //perform reordering
             // 17
-            updateOrder( changedPropComponents );
+            //updateOrder( changedPropComponents );
         }
     }
     
@@ -548,7 +573,7 @@ public class GenerateSQL {
             
             //reorder siblings of deleted components that have order
             // 21
-            reorderANA_RELATIONSHIP( validDeletedComponents, this.project );
+            //reorderANA_RELATIONSHIP( validDeletedComponents, this.project );
     	}
     }
     
@@ -651,14 +676,268 @@ public class GenerateSQL {
                 	   this.tree.getComponent( component.getID()).setCheckComment(
                 			   "New EHDAA:ID generated: " + strANO_PUBLIC_ID);
                    }
+
+                   // Update the ANA_OBO_COMPONENT tables ...
+                   insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
+                   
                    // update new components with ano_oid
                    component.setDBID(Integer.toString(intANO_OID));
                    // update new component with generated emapa id
                    component.setID(strANO_PUBLIC_ID);
-
                }
            }
-            
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-05
+    //  Insert new rows into ANA_OBO_COMPONENT_ALTERNATIVE
+    private void insertANA_OBO_COMPONENT_ALTERNATIVE( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   ACS_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACS_OBO_ID varchar(25) NOT NULL,
+     *   ACS_OBO_ALT_ID varchar(25) NOT NULL,
+  	 */
+        if (this.debug) {
+            System.out.println("03-05 - insertANA_OBO_COMPONENT_ALTERNATIVE");
+        }
+        
+        try {
+        	ComponentAlternative componentalternative = new ComponentAlternative(null,
+        			newPublicId,
+        			oldPublicId);
+        	
+        	this.componentalternativeDAO.create(componentalternative);
+        	
+        	updateANA_OBO_COMPONENT( oldPublicId, newPublicId );
+        	updateANA_OBO_COMPONENT_SYNONYM( oldPublicId, newPublicId );
+        	updateANA_OBO_COMPONENT_COMMENT( oldPublicId, newPublicId );
+        	updateANA_OBO_COMPONENT_RELATIONSHIP( oldPublicId, newPublicId );
+        	updateANA_OBO_COMPONENT_ORDER( oldPublicId, newPublicId );
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-10
+    //  Update existing rows in ANA_OBO_COMPONENT
+    private void updateANA_OBO_COMPONENT( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   AOC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   AOC_NAME varchar(255) NOT NULL,
+     *   AOC_OBO_ID varchar(25) NOT NULL,
+     *   AOC_DB_ID varchar(25) NOT NULL,
+     *   AOC_NEW_ID varchar(25) NOT NULL,
+     *   AOC_NAMESPACE varchar(50) NOT NULL,
+     *   AOC_DEFINITION varchar(510) NOT NULL,
+     *   AOC_GROUP tinyint(1) NOT NULL,
+     *   AOC_START varchar(10) NOT NULL,
+     *   AOC_END varchar(10) NOT NULL,
+     *   AOC_PRESENT varchar(10) NOT NULL,
+     *   AOC_STATUS_CHANGE varchar(10) NOT NULL COMMENT 'UNCHANGED NEW CHANGED DELETED',
+     *   AOC_STATUS_RULE varchar(10) NOT NULL COMMENT 'UNCHECKED PASSED FAILED',
+  	 */
+        if (this.debug) {
+            System.out.println("03-10 - updateANA_OBO_COMPONENT");
+        }
+        
+        try {
+    		Component component = componentDAO.findByOboId(oldPublicId);
+    		
+    		component.setId(newPublicId);
+    		
+    		componentDAO.save(component);
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-15
+    //  Update existing rows in ANA_OBO_COMPONENT_SYNONYM
+    private void updateANA_OBO_COMPONENT_SYNONYM( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   ACS_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACS_OBO_ID varchar(25) NOT NULL,
+     *   ACS_OBO_TEXT varchar(1000) NOT NULL,
+  	 */
+        if (this.debug) {
+            System.out.println("03-15 - updateANA_OBO_COMPONENT_SYNONYM");
+        }
+        
+        try {
+    		List<ComponentSynonym> componentsynonyms = componentsynonymDAO.listByOboId(oldPublicId);
+        	Iterator<ComponentSynonym> iteratorComponentSynonym = componentsynonyms.iterator();
+
+        	while (iteratorComponentSynonym.hasNext()) {
+        		
+        		ComponentSynonym componentsynonym = iteratorComponentSynonym.next();
+        		
+        		componentsynonym.setId(newPublicId);
+        		
+        		componentsynonymDAO.save(componentsynonym);
+        	}
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-20
+    //  Update existing rows in ANA_OBO_COMPONENT_COMMENT
+    private void updateANA_OBO_COMPONENT_COMMENT( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   ACC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACC_OBO_ID varchar(25) NOT NULL,
+     *   ACC_OBO_GENERAL_COMMENT varchar(1000) NOT NULL,
+     *   ACC_OBO_USER_COMMENT varchar(1000) NOT NULL,
+     *   ACC_OBO_ORDER_COMMENT varchar(1000) NOT NULL,
+  	 */
+        if (this.debug) {
+            System.out.println("03-20 - updateANA_OBO_COMPONENT_COMMENT");
+        }
+        
+        try {
+    		List<ComponentComment> componentcomments = componentcommentDAO.listByOboId(oldPublicId);
+        	Iterator<ComponentComment> iteratorComponentComment = componentcomments.iterator();
+
+        	while (iteratorComponentComment.hasNext()) {
+        		
+        		ComponentComment componentcomment = iteratorComponentComment.next();
+        		
+        		componentcomment.setId(newPublicId);
+        		
+        		componentcommentDAO.save(componentcomment);
+        	}
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-25
+    //  Update existing rows in ANA_OBO_COMPONENT_RELATIONSHIP
+    private void updateANA_OBO_COMPONENT_RELATIONSHIP( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   ACR_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACR_OBO_ID varchar(25) NOT NULL,
+     *   ACR_OBO_CHILD_START int NOT NULL,
+     *   ACR_OBO_CHILD_STOP int NOT NULL,
+     *   ACR_OBO_TYPE varchar(25) NOT NULL,
+     *   ACR_OBO_PARENT varchar(25) NOT NULL,
+  	 */
+        if (this.debug) {
+            System.out.println("03-25 - updateANA_OBO_COMPONENT_RELATIONSHIP");
+        }
+        
+        try {
+    		List<ComponentRelationship> componentrelationshipchilds = componentrelationshipDAO.listByChild(oldPublicId);
+        	Iterator<ComponentRelationship> iteratorComponentRelationshipChild = componentrelationshipchilds.iterator();
+
+        	while (iteratorComponentRelationshipChild.hasNext()) {
+        		
+        		ComponentRelationship componentrelationship = iteratorComponentRelationshipChild.next();
+        		
+        		componentrelationship.setChild(newPublicId);
+        		
+        		componentrelationshipDAO.save(componentrelationship);
+        	}
+
+        	List<ComponentRelationship> componentrelationshipparents = componentrelationshipDAO.listByParent(oldPublicId);
+        	Iterator<ComponentRelationship> iteratorComponentRelationshipParent = componentrelationshipparents.iterator();
+
+        	while (iteratorComponentRelationshipParent.hasNext()) {
+        		
+        		ComponentRelationship componentrelationship = iteratorComponentRelationshipParent.next();
+        		
+        		componentrelationship.setParent(newPublicId);
+        		
+        		componentrelationshipDAO.save(componentrelationship);
+        	}
+        }
+        catch ( DAOException dao ) {
+        	setProcessed(false);
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	setProcessed(false);
+            ex.printStackTrace();
+        }
+    }
+    
+    // 03-30
+    //  Update existing rows in ANA_OBO_COMPONENT_ORDER
+    private void updateANA_OBO_COMPONENT_ORDER( String oldPublicId, String newPublicId ){
+   	/*
+     *  Columns:
+     *   ACO_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACO_OBO_ID varchar(25) NOT NULL,
+     *   ACO_OBO_PARENT varchar(25) NOT NULL,
+     *   ACO_OBO_TYPE varchar(25) NOT NULL,
+     *   ACO_OBO_ALPHA_ORDER int(20) unsigned NULL,
+     *   ACO_OBO_SPECIAL_ORDER int(20) unsigned NULL,
+  	 */
+        if (this.debug) {
+            System.out.println("03-30 - updateANA_OBO_COMPONENT_ORDER");
+        }
+        
+        try {
+    		List<ComponentOrder> componentorderchilds = componentorderDAO.listByChild(oldPublicId);
+        	Iterator<ComponentOrder> iteratorComponentOrderChild = componentorderchilds.iterator();
+
+        	while (iteratorComponentOrderChild.hasNext()) {
+        		
+        		ComponentOrder componentorder = iteratorComponentOrderChild.next();
+        		
+        		componentorder.setChild(newPublicId);
+        		
+        		componentorderDAO.save(componentorder);
+        	}
+
+        	List<ComponentOrder> componentorderparents = componentorderDAO.listByParent(oldPublicId);
+        	Iterator<ComponentOrder> iteratorComponentOrderParent = componentorderparents.iterator();
+
+        	while (iteratorComponentOrderParent.hasNext()) {
+        		
+        		ComponentOrder componentorder = iteratorComponentOrderParent.next();
+        		
+        		componentorder.setParent(newPublicId);
+        		
+        		componentorderDAO.save(componentorder);
+        	}
         }
         catch ( DAOException dao ) {
         	setProcessed(false);
@@ -1293,6 +1572,7 @@ public class GenerateSQL {
         }
     }
 
+    /*
     // 17
     private void updateOrder( ArrayList<OBOComponent> changedOrderTermList ){
 
@@ -1300,13 +1580,11 @@ public class GenerateSQL {
             System.out.println("17 - updateOrder");
         }
 
-        /*
-         * get all parents whose children have a changed order
-         *  for each parent 
-         *  get the children that have an order sequence 
-         *  line them up from 0 - max entry 
-         *  send collection of parents-orderedchildren to querymaker
-         */
+        // get all parents whose children have a changed order
+        //  for each parent 
+        //  get the children that have an order sequence 
+        //  line them up from 0 - max entry 
+        //  send collection of parents-orderedchildren to querymaker
         //parent-> child order 1, child2, child3
         HashMap<String, ArrayList<String>> mapOrderedChildren = new HashMap<String, ArrayList<String>>(); 
         ArrayList<String> parents = new ArrayList<String>();
@@ -1399,6 +1677,7 @@ public class GenerateSQL {
         // 17-1
         update_orderANA_RELATIONSHIP(mapOrderedChildren);
     }
+    */
 
     // 18
     private ArrayList<OBOComponent> validateDeleteTermList(ArrayList<OBOComponent> deletedTermList){
@@ -1858,15 +2137,15 @@ public class GenerateSQL {
         } 
     }
 
+    /*
     // 21
     private void reorderANA_RELATIONSHIP(ArrayList <OBOComponent> validDeleteTermList, String project){
-        /*
-         * Reorders a collection of siblings that have order sequence entries in the ANA_RELATIONSHIP
-         *   when one of the siblings have been deleted, re-ordering is based on original order and closes
-         *   the sequence gap left by the deleted sibling
-         * NOTE: function is obsolete if editor re-orders the remaining siblings, current rules
-         * checking do not allow database to be updated if the ordering has a gap anyway
-         */
+         
+         // Reorders a collection of siblings that have order sequence entries in the ANA_RELATIONSHIP
+         //   when one of the siblings have been deleted, re-ordering is based on original order and closes
+         //   the sequence gap left by the deleted sibling
+         // NOTE: function is obsolete if editor re-orders the remaining siblings, current rules
+         // checking do not allow database to be updated if the ordering has a gap anyway
 
         if (this.debug) {
             System.out.println("21 - reorderANA_RELATIONSHIP");
@@ -1952,6 +2231,7 @@ public class GenerateSQL {
             ex.printStackTrace();
         } 
     }
+    */
     
     // SUB Methods ------------------------------------------------------------------------------------
 
@@ -3060,13 +3340,13 @@ public class GenerateSQL {
         } 
     }
 
+    /*
     // 17-1 
 	private void update_orderANA_RELATIONSHIP( HashMap<String, ArrayList<String>> mapParentChildren){
 
         if (this.debug) {
             System.out.println("17-1 - update_orderANA_RELATIONSHIP");
         }
-
 
         String parent = "";
         int parentDBID = -1;
@@ -3201,6 +3481,7 @@ public class GenerateSQL {
         	ex.printStackTrace();
         } 
     }
+    */
 
     // 18-1
     @SuppressWarnings("null")
@@ -3392,6 +3673,7 @@ public class GenerateSQL {
     /*
      * method to sort through modified component list for changed synonyms
      */
+    /*
     // 16
     private ArrayList< OBOComponent > getChangedOrderTermList( ArrayList<OBOComponent> changedTermList ){
 
@@ -3407,5 +3689,6 @@ public class GenerateSQL {
         
         return termList;
     }
+    */
 
 }

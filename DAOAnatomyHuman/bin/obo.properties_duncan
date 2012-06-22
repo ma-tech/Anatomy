@@ -7,3 +7,5 @@ file.obooutfileversion = 1.2
 file.obooutfilenamespace = mouse_ontology
 file.obooutfilesavedby = Mike Wicks
 file.obooutfileremark = Jonathon Bard Human Ontology
+file.species = mouse
+file.project = EMAP

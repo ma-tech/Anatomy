@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOCheckDatabaseReferenceTree.java
+* Title:        CheckDatabaseReferenceTree.java
 *
 * Date:         2012
 *
@@ -32,24 +32,23 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
 
 import java.util.ArrayList;
 
 import obomodel.OBOComponent;
 
-import routines.ListOBOComponentsFromExistingDatabase;
-import routines.MapBuilder;
-import routines.TreeBuilder;
-import routines.ValidateComponents;
+import obolayer.OBOFactory;
+import daolayer.DAOFactory;
 
-public class RunOBOCheckDatabaseReferenceTree {
+
+public class CheckDatabaseReferenceTree {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
         //import database
-    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase(true, "GUDMAP" );
+    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
 
         ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
 

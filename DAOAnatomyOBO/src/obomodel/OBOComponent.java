@@ -1826,6 +1826,17 @@ public class OBOComponent {
     public void addPaths( DefaultMutableTreeNode[] path ){
         this.paths.add(path);
     }
+    public void addOrderComment( String s ){
+    	
+    	if (this.orderComment.equals("")) {
+    		
+    		this.orderComment = s;
+    	}
+    	else {
+
+    		this.orderComment = this.orderComment + "\\n" + s;
+    	}
+    }
 
     public Vector<DefaultMutableTreeNode[]> getShortenedPaths(){
 
@@ -1996,16 +2007,18 @@ public class OBOComponent {
 
         if ( !this.getChildOfs().containsAll(obocomponent.getChildOfs()) ) {
            	
+        	/*
            	if (this.getID().equals("EMAPA:16172")) {
                 System.out.println("THERE!");
                 System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
                 System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
            	}
+           	*/
 
-               arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
+            arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
                        obocomponent.getID() + " has parents " + 
                        obocomponent.getChildOfs().toString());
-           }
+        }
 
         if ( !this.getIsPrimary() == obocomponent.getIsPrimary() ) {
 

@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOCheckComponentsReferenceTree.java
+* Title:        CheckComponentsTablesReferenceTree.java
 *
 * Date:         2012
 *
@@ -33,28 +33,28 @@
 *----------------------------------------------------------------------------------------------
 */
 
-package app;
+package routines;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
 
-import routines.ListOBOComponentsFromComponentsTables;
-import routines.MapBuilder;
-import routines.TreeBuilder;
-import routines.ValidateComponents;
+import daolayer.DAOFactory;
 
-public class RunOBOCheckComponentsReferenceTree {
+
+
+public class CheckComponentsTablesReferenceTree {
 	/*
 	 * run Method
 	 */
-    public static void run(String species) throws IOException {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
         //import database components table contents into OBOComponent format
-    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables();
+    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables(daofactory, obofactory);
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
         
@@ -67,7 +67,7 @@ public class RunOBOCheckComponentsReferenceTree {
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( species, parseOldTermList, treebuilder);
+            new ValidateComponents( obofactory.getComponentOBO().species(), parseOldTermList, treebuilder);
 
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){

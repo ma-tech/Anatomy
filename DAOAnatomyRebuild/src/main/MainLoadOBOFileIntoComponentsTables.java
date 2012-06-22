@@ -1,8 +1,9 @@
+ 
 /*
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOEmptyComponents.java
+* Title:        MainLoadOBOFileIntoComponentsTables.java
 *
 * Date:         2012
 *
@@ -18,8 +19,8 @@
 *
 * Version: 1
 *
-* Description:  A Main Class 
-*
+* Description:  A Main Executable Class 
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,9 +36,14 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import routines.EmptyComponentsTables;
+import obolayer.OBOFactory;
 
-public class MainOBOEmptyComponents {
+import daolayer.DAOFactory;
+
+import routines.LoadOBOFileIntoComponentsTables;
+
+
+public class MainLoadOBOFileIntoComponentsTables {
 	/*
 	 * Main Class
 	 */
@@ -48,19 +54,23 @@ public class MainOBOEmptyComponents {
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-        System.out.println("=========   ----------------------");
-        System.out.println("EXECUTING - MainOBOEmptyComponents.java on " + parsed.toString());
-        System.out.println("=========   ----------------------");
+        System.out.println("=========   -----------------------------------");
+        System.out.println("EXECUTING - MainLoadOBOFileIntoComponentsTables.java on " + parsed.toString());
+        System.out.println("=========   -----------------------------------");
         System.out.println("");
 
-        EmptyComponentsTables.run();
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
+
+        LoadOBOFileIntoComponentsTables.run(daofactory, obofactory);
         
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-    	System.out.println("====        ----------------------");
-        System.out.println("DONE ------ MainOBOEmptyComponents.java took " + duration / 1000 + " seconds");
-        System.out.println("====        ----------------------");
-
+        System.out.println("=========   -----------------------------------");
+        System.out.println("DONE ------ MainLoadOBOFileIntoComponentsTables.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   -----------------------------------");
     }
 }

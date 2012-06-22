@@ -705,7 +705,7 @@ B. NEW COMPONENTS
     Name      : forelimb digit cartilage condensation
     Starts At : TS22
     Ends At   : TS22
-    Parents   : [TH:00136, TH:00129]
+    Parents   : [TH:00129, TH:00136]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -765,7 +765,7 @@ B. NEW COMPONENTS
     Name      : forelimb digit pre-cartilage condensation
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [TH:00136, TH:00128]
+    Parents   : [TH:00128, TH:00136]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -915,7 +915,7 @@ B. NEW COMPONENTS
     Name      : brain arachnoid mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00044, TH:00041]
+    Parents   : [TH:00041, TH:00044]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -925,7 +925,7 @@ B. NEW COMPONENTS
     Name      : brain meninges
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:16894, TH:00040]
+    Parents   : [TH:00040, EMAPA:16894]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -985,7 +985,7 @@ B. NEW COMPONENTS
     Name      : brain dura mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00042, TH:00044]
+    Parents   : [TH:00044, TH:00042]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -1465,7 +1465,7 @@ B. NEW COMPONENTS
     Name      : skeletal muscle
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00070, TH:00071]
+    Parents   : [TH:00071, TH:00070]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -1685,7 +1685,7 @@ B. NEW COMPONENTS
     Name      : epithelium
     Starts At : TS14
     Ends At   : TS26
-    Parents   : [EMAPA:25765, EMAPA:16039]
+    Parents   : [EMAPA:16039, EMAPA:25765]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -1725,7 +1725,7 @@ B. NEW COMPONENTS
     Name      : 4th ventricle choroid plexus
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [EMAPA:16916, TH:00020]
+    Parents   : [TH:00020, EMAPA:16916]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -2435,7 +2435,7 @@ B. NEW COMPONENTS
     Name      : parasympathetic ganglion
     Starts At : TS25
     Ends At   : TS26
-    Parents   : [EMAPA:17270, EMAPA:18221]
+    Parents   : [EMAPA:18221, EMAPA:17270]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -2445,7 +2445,7 @@ B. NEW COMPONENTS
     Name      : peripheral nervous system ganglion
     Starts At : TS15
     Ends At   : TS26
-    Parents   : [TH:00269, EMAPA:16665]
+    Parents   : [EMAPA:16665, TH:00269]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -2805,7 +2805,7 @@ B. NEW COMPONENTS
     Name      : metacarpus pre-cartilage condensation
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [TH:00133, TH:00137]
+    Parents   : [TH:00137, TH:00133]
     Synonyms  : []
     Change Check Status : NEW
     Rules Check Status  : PASSED
@@ -3914,7 +3914,7 @@ C. MODIFIED COMPONENTS
 
   9. EMAPA:17479 - interdigital region between hindlimb digits 2 and 3
        - Different Name - Referenced OBOComponent EMAPA:17479 has name [interdigital region between digits 2 and 3]
-       - Different Parents - Referenced OBOComponent EMAPA:17479 has parents [EMAPA:17459, TH:00159]
+       - Different Parents - Referenced OBOComponent EMAPA:17479 has parents [TH:00159, EMAPA:17459]
 
   10. EMAPA:16349 - outflow tract mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:16349 has name [mesenchyme]
@@ -3950,7 +3950,7 @@ C. MODIFIED COMPONENTS
 
   20. EMAPA:17482 - interdigital region between hindlimb digits 3 and 4
        - Different Name - Referenced OBOComponent EMAPA:17482 has name [interdigital region between digits 3 and 4]
-       - Different Parents - Referenced OBOComponent EMAPA:17482 has parents [EMAPA:17459, TH:00159]
+       - Different Parents - Referenced OBOComponent EMAPA:17482 has parents [TH:00159, EMAPA:17459]
 
   21. EMAPA:16352 - primitive ventricle endocardial tube
        - Different Name - Referenced OBOComponent EMAPA:16352 has name [endocardial tube]
@@ -4215,7 +4215,7 @@ C. MODIFIED COMPONENTS
 
   106. EMAPA:17429 - forelimb digit 1
        - Different Name - Referenced OBOComponent EMAPA:17429 has name [digit 1]
-       - Different Parents - Referenced OBOComponent EMAPA:17429 has parents [TH:00133, EMAPA:17428]
+       - Different Parents - Referenced OBOComponent EMAPA:17429 has parents [EMAPA:17428, TH:00133]
 
   107. EMAPA:17428 - handplate
        - Different Name - Referenced OBOComponent EMAPA:17428 has name [fore-paw]
@@ -4346,7 +4346,7 @@ C. MODIFIED COMPONENTS
 
   146. EMAPA:17469 - hindlimb digit 4
        - Different Name - Referenced OBOComponent EMAPA:17469 has name [digit 4]
-       - Different Parents - Referenced OBOComponent EMAPA:17469 has parents [TH:00149, EMAPA:17459]
+       - Different Parents - Referenced OBOComponent EMAPA:17469 has parents [EMAPA:17459, TH:00149]
        - Different Synonyms - Referenced OBOComponent EMAPA:17469 has synonyms [fourth toe]
 
   147. EMAPA:19010 - cruciate ligament
@@ -4372,7 +4372,7 @@ C. MODIFIED COMPONENTS
 
   154. EMAPA:17445 - interdigital region between forelimb digits 1 and 2
        - Different Name - Referenced OBOComponent EMAPA:17445 has name [interdigital region between digits 1 and 2]
-       - Different Parents - Referenced OBOComponent EMAPA:17445 has parents [EMAPA:17428, TH:00142]
+       - Different Parents - Referenced OBOComponent EMAPA:17445 has parents [TH:00142, EMAPA:17428]
 
   155. EMAPA:16397 - 2nd branchial groove ectoderm
        - Different Synonyms - Referenced OBOComponent EMAPA:16397 has synonyms [epithelium]
@@ -4410,7 +4410,7 @@ C. MODIFIED COMPONENTS
 
   165. EMAPA:17438 - forelimb digit 4
        - Different Name - Referenced OBOComponent EMAPA:17438 has name [digit 4]
-       - Different Parents - Referenced OBOComponent EMAPA:17438 has parents [TH:00133, EMAPA:17428]
+       - Different Parents - Referenced OBOComponent EMAPA:17438 has parents [EMAPA:17428, TH:00133]
        - Different Synonyms - Referenced OBOComponent EMAPA:17438 has synonyms [fourth finger]
 
   166. EMAPA:17456 - interdigital region between forelimb digits 4 and 5 mesenchyme
@@ -4431,14 +4431,14 @@ C. MODIFIED COMPONENTS
 
   171. EMAPA:17451 - interdigital region between forelimb digits 3 and 4
        - Different Name - Referenced OBOComponent EMAPA:17451 has name [interdigital region between digits 3 and 4]
-       - Different Parents - Referenced OBOComponent EMAPA:17451 has parents [EMAPA:17428, TH:00142]
+       - Different Parents - Referenced OBOComponent EMAPA:17451 has parents [TH:00142, EMAPA:17428]
 
   172. EMAPA:17450 - interdigital region between forelimb digits 2 and 3 mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:17450 has name [mesenchyme]
 
   173. EMAPA:17448 - interdigital region between forelimb digits 2 and 3
        - Different Name - Referenced OBOComponent EMAPA:17448 has name [interdigital region between digits 2 and 3]
-       - Different Parents - Referenced OBOComponent EMAPA:17448 has parents [TH:00142, EMAPA:17428]
+       - Different Parents - Referenced OBOComponent EMAPA:17448 has parents [EMAPA:17428, TH:00142]
 
   174. EMAPA:17449 - interdigital region between forelimb digits 2 and 3 epithelium
        - Different Name - Referenced OBOComponent EMAPA:17449 has name [epithelium]
@@ -4803,7 +4803,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16485 has name [floor plate]
 
   293. EMAPA:16484 - rhombomere 02
-       - Different Parents - Referenced OBOComponent EMAPA:16484 has parents [TH:00183, EMAPA:16478]
+       - Different Parents - Referenced OBOComponent EMAPA:16484 has parents [EMAPA:16478, TH:00183]
 
   294. EMAPA:16483 - rhombomere 01 roof plate
        - Different Name - Referenced OBOComponent EMAPA:16483 has name [roof plate]
@@ -4827,7 +4827,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16493 has name [floor plate]
 
   301. EMAPA:16492 - rhombomere 04
-       - Different Parents - Referenced OBOComponent EMAPA:16492 has parents [EMAPA:16478, TH:00183]
+       - Different Parents - Referenced OBOComponent EMAPA:16492 has parents [TH:00183, EMAPA:16478]
 
   302. EMAPA:16495 - rhombomere 04 roof plate
        - Different Name - Referenced OBOComponent EMAPA:16495 has name [roof plate]
@@ -4903,12 +4903,12 @@ C. MODIFIED COMPONENTS
 
   325. EMAPA:17513 - pancreas tail parenchyma
        - Different Name - Referenced OBOComponent EMAPA:17513 has name [parenchyma]
-       - Different Parents - Referenced OBOComponent EMAPA:17513 has parents [EMAPA:17511, TH:00171]
+       - Different Parents - Referenced OBOComponent EMAPA:17513 has parents [TH:00171, EMAPA:17511]
        - Different Synonyms - Referenced OBOComponent EMAPA:17513 has synonyms [associated mesenchyme]
 
   326. EMAPA:17512 - dorsal pancreatic duct of pancreas tail
        - Different Name - Referenced OBOComponent EMAPA:17512 has name [dorsal pancreatic duct]
-       - Different Parents - Referenced OBOComponent EMAPA:17512 has parents [EMAPA:17511, TH:00167]
+       - Different Parents - Referenced OBOComponent EMAPA:17512 has parents [TH:00167, EMAPA:17511]
 
   327. EMAPA:17515 - adenohypophysis pars anterior
        - Different Name - Referenced OBOComponent EMAPA:17515 has name [pars anterior]
@@ -5036,7 +5036,7 @@ C. MODIFIED COMPONENTS
 
   368. EMAPA:19100 - right hepatic duct extrahepatic part
        - Different Name - Referenced OBOComponent EMAPA:19100 has name [right]
-       - Different Parents - Referenced OBOComponent EMAPA:19100 has parents [TH:00349, EMAPA:16844]
+       - Different Parents - Referenced OBOComponent EMAPA:19100 has parents [EMAPA:16844, TH:00349]
 
   369. EMAPA:17556 - medulla oblongata alar plate ventricular layer
        - Different Name - Referenced OBOComponent EMAPA:17556 has name [ventricular layer]
@@ -5221,7 +5221,7 @@ C. MODIFIED COMPONENTS
 
   427. EMAPA:19053 - diencephalon subarachnoid space
        - Different Name - Referenced OBOComponent EMAPA:19053 has name [subarachnoid space]
-       - Different Parents - Referenced OBOComponent EMAPA:19053 has parents [TH:00048, EMAPA:17764]
+       - Different Parents - Referenced OBOComponent EMAPA:19053 has parents [EMAPA:17764, TH:00048]
 
   428. EMAPA:19054 - telencephalon subarachnoid space
        - Different Name - Referenced OBOComponent EMAPA:19054 has name [subarachnoid space]
@@ -5299,7 +5299,7 @@ C. MODIFIED COMPONENTS
 
   451. EMAPA:18374 - tail vertebra
        - Different Name - Referenced OBOComponent EMAPA:18374 has name [vertebra]
-       - Different Parents - Referenced OBOComponent EMAPA:18374 has parents [EMAPA:18043, TH:00028]
+       - Different Parents - Referenced OBOComponent EMAPA:18374 has parents [TH:00028, EMAPA:18043]
 
   452. EMAPA:18376 - hindgut diverticulum lumen
        - Different Name - Referenced OBOComponent EMAPA:18376 has name [lumen]
@@ -5451,7 +5451,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17511 has name [tail]
 
   499. EMAPA:17510 - ventral pancreatic duct
-       - Different Parents - Referenced OBOComponent EMAPA:17510 has parents [TH:00169, EMAPA:17507]
+       - Different Parents - Referenced OBOComponent EMAPA:17510 has parents [EMAPA:17507, TH:00169]
 
   500. EMAPA:19089 - gubernaculum
        - Different Synonyms - Referenced OBOComponent EMAPA:19089 has synonyms [caudal suspensory ligament]
@@ -5568,7 +5568,7 @@ C. MODIFIED COMPONENTS
 
   536. EMAPA:18304 - left hepatic duct intrahepatic part
        - Different Name - Referenced OBOComponent EMAPA:18304 has name [left]
-       - Different Parents - Referenced OBOComponent EMAPA:18304 has parents [EMAPA:16845, TH:00348]
+       - Different Parents - Referenced OBOComponent EMAPA:18304 has parents [TH:00348, EMAPA:16845]
 
   537. EMAPA:18305 - right hepatic duct intrahepatic part
        - Different Name - Referenced OBOComponent EMAPA:18305 has name [right]
@@ -5647,7 +5647,7 @@ C. MODIFIED COMPONENTS
        - Different Synonyms - Referenced OBOComponent EMAPA:16916 has synonyms [rhombencephalon]
 
   562. EMAPA:16917 - 4th ventricle
-       - Different Parents - Referenced OBOComponent EMAPA:16917 has parents [EMAPA:16916, TH:00036]
+       - Different Parents - Referenced OBOComponent EMAPA:16917 has parents [TH:00036, EMAPA:16916]
        - Different Synonyms - Referenced OBOComponent EMAPA:16917 has synonyms [rhombencephalic vesicle]
 
   563. EMAPA:16918 - rhombomere 01
@@ -5755,7 +5755,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16938 has name [roof plate]
 
   595. EMAPA:16939 - rhombomere 04
-       - Different Parents - Referenced OBOComponent EMAPA:16939 has parents [TH:00281, EMAPA:16916]
+       - Different Parents - Referenced OBOComponent EMAPA:16939 has parents [EMAPA:16916, TH:00281]
 
   596. EMAPA:16933 - rhombomere 03 floor plate
        - Different Name - Referenced OBOComponent EMAPA:16933 has name [floor plate]
@@ -5777,7 +5777,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16931 has name [roof plate]
 
   602. EMAPA:16932 - rhombomere 03
-       - Different Parents - Referenced OBOComponent EMAPA:16932 has parents [TH:00281, EMAPA:16916]
+       - Different Parents - Referenced OBOComponent EMAPA:16932 has parents [EMAPA:16916, TH:00281]
 
   603. EMAPA:16107 - allantois
        - Different Synonyms - Referenced OBOComponent EMAPA:16107 has synonyms [allantoic bud]
@@ -5832,7 +5832,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16954 has name [floor plate]
 
   620. EMAPA:16953 - rhombomere 06
-       - Different Parents - Referenced OBOComponent EMAPA:16953 has parents [TH:00281, EMAPA:16916]
+       - Different Parents - Referenced OBOComponent EMAPA:16953 has parents [EMAPA:16916, TH:00281]
 
   621. EMAPA:16952 - rhombomere 05 roof plate
        - Different Name - Referenced OBOComponent EMAPA:16952 has name [roof plate]
@@ -5859,7 +5859,7 @@ C. MODIFIED COMPONENTS
 
   628. EMAPA:16171 - head paraxial mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:16171 has name [paraxial mesenchyme]
-       - Different Parents - Referenced OBOComponent EMAPA:16171 has parents [TH:00001, EMAPA:16098]
+       - Different Parents - Referenced OBOComponent EMAPA:16171 has parents [EMAPA:16098, TH:00001]
 
   629. EMAPA:16172 - head somite group
        - Different Name - Referenced OBOComponent EMAPA:16172 has name [somite]
@@ -5878,7 +5878,7 @@ C. MODIFIED COMPONENTS
        - Different Parents - Referenced OBOComponent EMAPA:16174 has parents [EMAPA:16172, EMAPA:31169]
 
   634. EMAPA:16960 - rhombomere 07
-       - Different Parents - Referenced OBOComponent EMAPA:16960 has parents [TH:00281, EMAPA:16916]
+       - Different Parents - Referenced OBOComponent EMAPA:16960 has parents [EMAPA:16916, TH:00281]
 
   635. EMAPA:16179 - lateral plate mesenchyme
        - Different Synonyms - Referenced OBOComponent EMAPA:16179 has synonyms [lateral mesenchyme]
@@ -5887,7 +5887,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16961 has name [floor plate]
 
   637. EMAPA:16177 - trunk mesenchyme
-       - Different Parents - Referenced OBOComponent EMAPA:16177 has parents [EMAPA:31857, EMAPA:16097]
+       - Different Parents - Referenced OBOComponent EMAPA:16177 has parents [EMAPA:16097, EMAPA:31857]
 
   638. EMAPA:16178 - intermediate mesoderm
        - Different Synonyms - Referenced OBOComponent EMAPA:16178 has synonyms [intermediate plate]
@@ -5915,7 +5915,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16947 has name [floor plate]
 
   646. EMAPA:16946 - rhombomere 05
-       - Different Parents - Referenced OBOComponent EMAPA:16946 has parents [EMAPA:16916, TH:00281]
+       - Different Parents - Referenced OBOComponent EMAPA:16946 has parents [TH:00281, EMAPA:16916]
 
   647. EMAPA:16949 - rhombomere 05 mantle layer
        - Different Name - Referenced OBOComponent EMAPA:16949 has name [mantle layer]
@@ -5970,7 +5970,7 @@ C. MODIFIED COMPONENTS
 
   663. EMAPA:17677 - sacral vertebral pre-cartilage condensation
        - Different Name - Referenced OBOComponent EMAPA:17677 has name [vertebral pre-cartilage condensation]
-       - Different Parents - Referenced OBOComponent EMAPA:17677 has parents [TH:00031, EMAPA:17676]
+       - Different Parents - Referenced OBOComponent EMAPA:17677 has parents [EMAPA:17676, TH:00031]
 
   664. EMAPA:16975 - midbrain floor plate
        - Different Name - Referenced OBOComponent EMAPA:16975 has name [floor plate]
@@ -6113,7 +6113,7 @@ C. MODIFIED COMPONENTS
 
   709. EMAPA:17656 - left lung lobar bronchus
        - Different Name - Referenced OBOComponent EMAPA:17656 has name [lobar bronchus]
-       - Different Parents - Referenced OBOComponent EMAPA:17656 has parents [TH:00053, EMAPA:17653]
+       - Different Parents - Referenced OBOComponent EMAPA:17656 has parents [EMAPA:17653, TH:00053]
 
   710. EMAPA:16998 - otocyst other part associated mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:16998 has name [associated mesenchyme]
@@ -6187,7 +6187,7 @@ C. MODIFIED COMPONENTS
 
   733. EMAPA:16989 - spinal nerve
        - Different Name - Referenced OBOComponent EMAPA:16989 has name [nerve]
-       - Different Parents - Referenced OBOComponent EMAPA:16989 has parents [EMAPA:16666, TH:00270]
+       - Different Parents - Referenced OBOComponent EMAPA:16989 has parents [TH:00270, EMAPA:16666]
 
   734. EMAPA:17671 - nasopharynx associated mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:17671 has name [associated mesenchyme]
@@ -6217,7 +6217,7 @@ C. MODIFIED COMPONENTS
 
   742. EMAPA:17674 - cervical vertebra
        - Different Name - Referenced OBOComponent EMAPA:17674 has name [vertebra]
-       - Different Parents - Referenced OBOComponent EMAPA:17674 has parents [TH:00028, EMAPA:17215]
+       - Different Parents - Referenced OBOComponent EMAPA:17674 has parents [EMAPA:17215, TH:00028]
 
   743. EMAPA:17638 - maxillary process skeleton
        - Different Name - Referenced OBOComponent EMAPA:17638 has name [skeleton]
@@ -6939,7 +6939,7 @@ C. MODIFIED COMPONENTS
 
   975. EMAPA:17769 - lateral ventricle choroid plexus
        - Different Name - Referenced OBOComponent EMAPA:17769 has name [choroid plexus]
-       - Different Parents - Referenced OBOComponent EMAPA:17769 has parents [TH:00020, EMAPA:17548]
+       - Different Parents - Referenced OBOComponent EMAPA:17769 has parents [EMAPA:17548, TH:00020]
 
   976. EMAPA:17767 - diencephalon pia mater
        - Different Name - Referenced OBOComponent EMAPA:17767 has name [pia mater]
@@ -6947,11 +6947,11 @@ C. MODIFIED COMPONENTS
 
   977. EMAPA:17766 - diencephalon dura mater
        - Different Name - Referenced OBOComponent EMAPA:17766 has name [dura mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17766 has parents [EMAPA:17764, TH:00046]
+       - Different Parents - Referenced OBOComponent EMAPA:17766 has parents [TH:00046, EMAPA:17764]
 
   978. EMAPA:17765 - diencephalon arachnoid mater
        - Different Name - Referenced OBOComponent EMAPA:17765 has name [arachnoid mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17765 has parents [EMAPA:17764, TH:00045]
+       - Different Parents - Referenced OBOComponent EMAPA:17765 has parents [TH:00045, EMAPA:17764]
 
   979. EMAPA:17774 - telencephalon meninges
        - Different Name - Referenced OBOComponent EMAPA:17774 has name [meninges]
@@ -6975,7 +6975,7 @@ C. MODIFIED COMPONENTS
 
   985. EMAPA:17777 - telencephalon pia mater
        - Different Name - Referenced OBOComponent EMAPA:17777 has name [pia mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17777 has parents [EMAPA:17774, TH:00047]
+       - Different Parents - Referenced OBOComponent EMAPA:17777 has parents [TH:00047, EMAPA:17774]
 
   986. EMAPA:17776 - telencephalon dura mater
        - Different Name - Referenced OBOComponent EMAPA:17776 has name [dura mater]
@@ -6996,7 +6996,7 @@ C. MODIFIED COMPONENTS
 
   991. EMAPA:17784 - hindbrain arachnoid mater
        - Different Name - Referenced OBOComponent EMAPA:17784 has name [arachnoid mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17784 has parents [TH:00045, EMAPA:17783]
+       - Different Parents - Referenced OBOComponent EMAPA:17784 has parents [EMAPA:17783, TH:00045]
 
   992. EMAPA:17785 - hindbrain dura mater
        - Different Name - Referenced OBOComponent EMAPA:17785 has name [dura mater]
@@ -7018,14 +7018,14 @@ C. MODIFIED COMPONENTS
 
   997. EMAPA:17793 - midbrain dura mater
        - Different Name - Referenced OBOComponent EMAPA:17793 has name [dura mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17793 has parents [EMAPA:17791, TH:00046]
+       - Different Parents - Referenced OBOComponent EMAPA:17793 has parents [TH:00046, EMAPA:17791]
 
   998. EMAPA:17790 - cerebellum ventricular layer
        - Different Name - Referenced OBOComponent EMAPA:17790 has name [ventricular layer]
 
   999. EMAPA:17791 - midbrain meninges
        - Different Name - Referenced OBOComponent EMAPA:17791 has name [meninges]
-       - Different Parents - Referenced OBOComponent EMAPA:17791 has parents [TH:00044, EMAPA:16974]
+       - Different Parents - Referenced OBOComponent EMAPA:17791 has parents [EMAPA:16974, TH:00044]
 
   1000. EMAPA:17796 - facial VII nerve
        - Different Name - Referenced OBOComponent EMAPA:17796 has name [facial VII]
@@ -7080,7 +7080,7 @@ C. MODIFIED COMPONENTS
        - Different Synonyms - Referenced OBOComponent EMAPA:17723 has synonyms [phalangeal pre-cartilage condensation]
 
   1015. EMAPA:17724 - carpus pre-cartilage condensation
-       - Different Parents - Referenced OBOComponent EMAPA:17724 has parents [EMAPA:17457, TH:00128]
+       - Different Parents - Referenced OBOComponent EMAPA:17724 has parents [TH:00128, EMAPA:17457]
        - Different Synonyms - Referenced OBOComponent EMAPA:17724 has synonyms [carpal pre-cartilage condensation]
 
   1016. EMAPA:17725 - hindlimb digit 1 metatarsus pre-cartilage condensation
@@ -7183,8 +7183,8 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17748 has name [skeletal muscle]
 
   1045. EMAPA:17743 - vertebral axis muscle system
-       - Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:16039, EMAPA:25765]
        - Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:16039, TH:00070]
+       - Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:25765, EMAPA:16039]
 
   1046. EMAPA:27949 - maturing glomerular tuft
        - Different Synonyms - Referenced OBOComponent EMAPA:27949 has synonyms [maturing glomerulus]
@@ -7354,7 +7354,7 @@ C. MODIFIED COMPONENTS
 
   1099. EMAPA:18543 - 3rd ventricle choroid plexus
        - Different Name - Referenced OBOComponent EMAPA:18543 has name [choroid plexus]
-       - Different Parents - Referenced OBOComponent EMAPA:18543 has parents [EMAPA:18542, TH:00020]
+       - Different Parents - Referenced OBOComponent EMAPA:18543 has parents [TH:00020, EMAPA:18542]
 
   1100. EMAPA:18542 - epithalamic recess
        - Different Synonyms - Referenced OBOComponent EMAPA:18542 has synonyms [pineal recess]
@@ -7622,7 +7622,7 @@ C. MODIFIED COMPONENTS
 
   1184. EMAPA:19415 - cervical intervertebral disc
        - Different Name - Referenced OBOComponent EMAPA:19415 has name [intervertebral disc]
-       - Different Parents - Referenced OBOComponent EMAPA:19415 has parents [TH:00029, EMAPA:17215]
+       - Different Parents - Referenced OBOComponent EMAPA:19415 has parents [EMAPA:17215, TH:00029]
 
   1185. EMAPA:19416 - C1
        - Different Synonyms - Referenced OBOComponent EMAPA:19416 has synonyms [atlas]
@@ -7696,7 +7696,7 @@ C. MODIFIED COMPONENTS
 
   1207. EMAPA:19489 - thoracic intervertebral disc
        - Different Name - Referenced OBOComponent EMAPA:19489 has name [intervertebral disc]
-       - Different Parents - Referenced OBOComponent EMAPA:19489 has parents [EMAPA:17396, TH:00029]
+       - Different Parents - Referenced OBOComponent EMAPA:19489 has parents [TH:00029, EMAPA:17396]
 
   1208. EMAPA:16730 - left lung rudiment associated mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:16730 has name [associated mesenchyme]
@@ -7739,7 +7739,7 @@ C. MODIFIED COMPONENTS
 
   1221. EMAPA:19468 - lumbar intervertebral disc
        - Different Name - Referenced OBOComponent EMAPA:19468 has name [intervertebral disc]
-       - Different Parents - Referenced OBOComponent EMAPA:19468 has parents [TH:00029, EMAPA:17393]
+       - Different Parents - Referenced OBOComponent EMAPA:19468 has parents [EMAPA:17393, TH:00029]
 
   1222. EMAPA:27227 - anal canal rostral part submucosa
        - Different Name - Referenced OBOComponent EMAPA:27227 has name [submucosa]
@@ -7804,7 +7804,7 @@ C. MODIFIED COMPONENTS
 
   1242. EMAPA:17806 - spinal cord dura mater
        - Different Name - Referenced OBOComponent EMAPA:17806 has name [dura mater]
-       - Different Parents - Referenced OBOComponent EMAPA:17806 has parents [TH:00042, EMAPA:17804]
+       - Different Parents - Referenced OBOComponent EMAPA:17806 has parents [EMAPA:17804, TH:00042]
 
   1243. EMAPA:17807 - spinal cord pia mater
        - Different Name - Referenced OBOComponent EMAPA:17807 has name [pia mater]
@@ -7827,7 +7827,7 @@ C. MODIFIED COMPONENTS
 
   1249. EMAPA:17804 - spinal cord meninges
        - Different Name - Referenced OBOComponent EMAPA:17804 has name [meninges]
-       - Different Parents - Referenced OBOComponent EMAPA:17804 has parents [TH:00040, EMAPA:17577]
+       - Different Parents - Referenced OBOComponent EMAPA:17804 has parents [EMAPA:17577, TH:00040]
 
   1250. EMAPA:17805 - spinal cord arachnoid mater
        - Different Name - Referenced OBOComponent EMAPA:17805 has name [arachnoid mater]
@@ -7911,7 +7911,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17820 has name [epithelium]
 
   1276. EMAPA:17821 - lateral semicircular canal
-       - Different Parents - Referenced OBOComponent EMAPA:17821 has parents [TH:00290, EMAPA:17293]
+       - Different Parents - Referenced OBOComponent EMAPA:17821 has parents [EMAPA:17293, TH:00290]
 
   1277. EMAPA:17830 - inner canthus
        - Different Synonyms - Referenced OBOComponent EMAPA:17830 has synonyms [nasal canthus]
@@ -7960,24 +7960,24 @@ C. MODIFIED COMPONENTS
 
   1291. EMAPA:18822 - pancreas head parenchyma
        - Different Name - Referenced OBOComponent EMAPA:18822 has name [parenchyma]
-       - Different Parents - Referenced OBOComponent EMAPA:18822 has parents [TH:00172, EMAPA:18820]
+       - Different Parents - Referenced OBOComponent EMAPA:18822 has parents [EMAPA:18820, TH:00172]
 
   1292. EMAPA:18821 - ventral pancreatic duct
-       - Different Parents - Referenced OBOComponent EMAPA:18821 has parents [TH:00170, EMAPA:18820]
+       - Different Parents - Referenced OBOComponent EMAPA:18821 has parents [EMAPA:18820, TH:00170]
 
   1293. EMAPA:18824 - pancreas tail
        - Different Name - Referenced OBOComponent EMAPA:18824 has name [tail]
 
   1294. EMAPA:18826 - pancreas tail parenchyma
        - Different Name - Referenced OBOComponent EMAPA:18826 has name [parenchyma]
-       - Different Parents - Referenced OBOComponent EMAPA:18826 has parents [TH:00172, EMAPA:18824]
+       - Different Parents - Referenced OBOComponent EMAPA:18826 has parents [EMAPA:18824, TH:00172]
 
   1295. EMAPA:17072 - metencephalon lateral wall
        - Different Name - Referenced OBOComponent EMAPA:17072 has name [lateral wall]
 
   1296. EMAPA:18825 - dorsal pancreatic duct of pancreas tail
        - Different Name - Referenced OBOComponent EMAPA:18825 has name [dorsal pancreatic duct]
-       - Different Parents - Referenced OBOComponent EMAPA:18825 has parents [TH:00168, EMAPA:18824]
+       - Different Parents - Referenced OBOComponent EMAPA:18825 has parents [EMAPA:18824, TH:00168]
 
   1297. EMAPA:17073 - metencephalon alar plate
        - Different Name - Referenced OBOComponent EMAPA:17073 has name [alar plate]
@@ -8168,14 +8168,14 @@ C. MODIFIED COMPONENTS
 
   1358. EMAPA:18819 - pancreas body parenchyma
        - Different Name - Referenced OBOComponent EMAPA:18819 has name [parenchyma]
-       - Different Parents - Referenced OBOComponent EMAPA:18819 has parents [EMAPA:18817, TH:00172]
+       - Different Parents - Referenced OBOComponent EMAPA:18819 has parents [TH:00172, EMAPA:18817]
 
   1359. EMAPA:17043 - rest of midgut associated mesenchyme
        - Different Name - Referenced OBOComponent EMAPA:17043 has name [associated mesenchyme]
 
   1360. EMAPA:18818 - dorsal pancreatic duct of pancreas body
        - Different Name - Referenced OBOComponent EMAPA:18818 has name [dorsal pancreatic duct]
-       - Different Parents - Referenced OBOComponent EMAPA:18818 has parents [EMAPA:18817, TH:00168]
+       - Different Parents - Referenced OBOComponent EMAPA:18818 has parents [TH:00168, EMAPA:18817]
 
   1361. EMAPA:17894 - perineal body epithelium
        - Different Name - Referenced OBOComponent EMAPA:17894 has name [epithelium]
@@ -8498,7 +8498,7 @@ C. MODIFIED COMPONENTS
 
   1463. EMAPA:16892 - hindlimb bud apical ectodermal ridge
        - Different Name - Referenced OBOComponent EMAPA:16892 has name [apical ectodermal ridge]
-       - Different Parents - Referenced OBOComponent EMAPA:16892 has parents [TH:00023, EMAPA:16780]
+       - Different Parents - Referenced OBOComponent EMAPA:16892 has parents [EMAPA:16780, TH:00023]
        - Different Synonyms - Referenced OBOComponent EMAPA:16892 has synonyms [AER]
 
   1464. EMAPA:16890 - omental bursa mesothelium
@@ -8546,7 +8546,7 @@ C. MODIFIED COMPONENTS
 
   1478. EMAPA:19575 - sacral intervertebral disc
        - Different Name - Referenced OBOComponent EMAPA:19575 has name [intervertebral disc]
-       - Different Parents - Referenced OBOComponent EMAPA:19575 has parents [EMAPA:17676, TH:00029]
+       - Different Parents - Referenced OBOComponent EMAPA:19575 has parents [TH:00029, EMAPA:17676]
 
   1479. EMAPA:16090 - future brain neural fold
        - Different End Stage - Referenced OBOComponent EMAPA:16090 has End Stage TS11
@@ -8590,7 +8590,7 @@ C. MODIFIED COMPONENTS
 
   1491. EMAPA:19592 - tail intervertebral disc
        - Different Name - Referenced OBOComponent EMAPA:19592 has name [intervertebral disc]
-       - Different Parents - Referenced OBOComponent EMAPA:19592 has parents [EMAPA:18043, TH:00029]
+       - Different Parents - Referenced OBOComponent EMAPA:19592 has parents [TH:00029, EMAPA:18043]
 
   1492. EMAPA:16847 - hepatic primordium
        - Different Parents - Referenced OBOComponent EMAPA:16847 has parents [EMAPA:16363]
@@ -8611,7 +8611,7 @@ C. MODIFIED COMPONENTS
 
   1497. EMAPA:16860 - tail somite group
        - Different Name - Referenced OBOComponent EMAPA:16860 has name [somite]
-       - Different Parents - Referenced OBOComponent EMAPA:16860 has parents [EMAPA:16751, EMAPA:31169]
+       - Different Parents - Referenced OBOComponent EMAPA:16860 has parents [EMAPA:31169, EMAPA:16751]
 
   1498. EMAPA:16033 - one-cell stage
        - Different Synonyms - Referenced OBOComponent EMAPA:16033 has synonyms [fertilized egg]
@@ -8624,7 +8624,7 @@ C. MODIFIED COMPONENTS
 
   1501. EMAPA:17909 - lower lip
        - Different Name - Referenced OBOComponent EMAPA:17909 has name [lip]
-       - Different Parents - Referenced OBOComponent EMAPA:17909 has parents [EMAPA:17906, TH:00260]
+       - Different Parents - Referenced OBOComponent EMAPA:17909 has parents [TH:00260, EMAPA:17906]
 
   1502. EMAPA:17906 - lower jaw
        - Different Parents - Referenced OBOComponent EMAPA:17906 has parents [EMAPA:16262]
@@ -8686,7 +8686,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17112 has name [roof plate]
 
   1521. EMAPA:17113 - rhombomere 04
-       - Different Parents - Referenced OBOComponent EMAPA:17113 has parents [TH:00281, EMAPA:17082]
+       - Different Parents - Referenced OBOComponent EMAPA:17113 has parents [EMAPA:17082, TH:00281]
 
   1522. EMAPA:16069 - ectoderm
        - Different Synonyms - Referenced OBOComponent EMAPA:16069 has synonyms [epithelium]
@@ -8710,7 +8710,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16820 has name [right part]
 
   1529. EMAPA:17106 - rhombomere 03
-       - Different Parents - Referenced OBOComponent EMAPA:17106 has parents [TH:00281, EMAPA:17082]
+       - Different Parents - Referenced OBOComponent EMAPA:17106 has parents [EMAPA:17082, TH:00281]
 
   1530. EMAPA:16821 - common atrial chamber right part cardiac jelly
        - Different Name - Referenced OBOComponent EMAPA:16821 has name [cardiac jelly]
@@ -8800,7 +8800,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17937 has name [alveolar sulcus]
 
   1558. EMAPA:17127 - rhombomere 06
-       - Different Parents - Referenced OBOComponent EMAPA:17127 has parents [EMAPA:17082, TH:00281]
+       - Different Parents - Referenced OBOComponent EMAPA:17127 has parents [TH:00281, EMAPA:17082]
 
   1559. EMAPA:16800 - olfactory pit
        - Different Synonyms - Referenced OBOComponent EMAPA:16800 has synonyms [nasal pit]
@@ -8984,7 +8984,7 @@ C. MODIFIED COMPONENTS
        - Different Synonyms - Referenced OBOComponent EMAPA:28331 has synonyms [thick ascending limb]
 
   1616. EMAPA:17120 - rhombomere 05
-       - Different Parents - Referenced OBOComponent EMAPA:17120 has parents [TH:00281, EMAPA:17082]
+       - Different Parents - Referenced OBOComponent EMAPA:17120 has parents [EMAPA:17082, TH:00281]
 
   1617. EMAPA:17149 - neural tube alar columns
        - Different Name - Referenced OBOComponent EMAPA:17149 has name [alar columns]
@@ -9007,7 +9007,7 @@ C. MODIFIED COMPONENTS
 
   1623. EMAPA:18043 - axial skeleton tail region
        - Different Name - Referenced OBOComponent EMAPA:18043 has name [axial skeleton]
-       - Different Parents - Referenced OBOComponent EMAPA:18043 has parents [EMAPA:17214, EMAPA:18042]
+       - Different Parents - Referenced OBOComponent EMAPA:18043 has parents [EMAPA:18042, EMAPA:17214]
 
   1624. EMAPA:17917 - lower jaw tooth
        - Different Name - Referenced OBOComponent EMAPA:17917 has name [tooth]
@@ -9083,7 +9083,7 @@ C. MODIFIED COMPONENTS
 
   1646. EMAPA:17157 - sympathetic ganglion
        - Different Name - Referenced OBOComponent EMAPA:17157 has name [ganglion]
-       - Different Parents - Referenced OBOComponent EMAPA:17157 has parents [EMAPA:16985, EMAPA:18221]
+       - Different Parents - Referenced OBOComponent EMAPA:17157 has parents [EMAPA:18221, EMAPA:16985]
 
   1647. EMAPA:17156 - superior vagus X ganglion
        - Different Name - Referenced OBOComponent EMAPA:17156 has name [superior]
@@ -9334,7 +9334,7 @@ C. MODIFIED COMPONENTS
 
   1727. EMAPA:17193 - midgut duodenum
        - Different Name - Referenced OBOComponent EMAPA:17193 has name [duodenum]
-       - Different Parents - Referenced OBOComponent EMAPA:17193 has parents [EMAPA:16255, EMAPA:18852]
+       - Different Parents - Referenced OBOComponent EMAPA:17193 has parents [EMAPA:18852, EMAPA:16255]
 
   1728. EMAPA:17194 - duodenum caudal part
        - Different Name - Referenced OBOComponent EMAPA:17194 has name [caudal part]
@@ -9495,7 +9495,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17093 has name [floor plate]
 
   1780. EMAPA:17099 - rhombomere 02
-       - Different Parents - Referenced OBOComponent EMAPA:17099 has parents [TH:00281, EMAPA:17071]
+       - Different Parents - Referenced OBOComponent EMAPA:17099 has parents [EMAPA:17071, TH:00281]
 
   1781. EMAPA:17098 - rhombomere 01 roof plate
        - Different Name - Referenced OBOComponent EMAPA:17098 has name [roof plate]
@@ -9552,7 +9552,7 @@ C. MODIFIED COMPONENTS
 
   1798. EMAPA:18780 - lateral ventricle inferior horn choroid plexus
        - Different Name - Referenced OBOComponent EMAPA:18780 has name [choroid plexus]
-       - Different Parents - Referenced OBOComponent EMAPA:18780 has parents [EMAPA:17771, EMAPA:17769]
+       - Different Parents - Referenced OBOComponent EMAPA:18780 has parents [EMAPA:17769, EMAPA:17771]
 
   1799. EMAPA:18781 - posterior horn of lateral ventricle choroid plexus
        - Different Name - Referenced OBOComponent EMAPA:18781 has name [choroid plexus]
@@ -9673,7 +9673,7 @@ C. MODIFIED COMPONENTS
 
   1835. EMAPA:17216 - cervical vertebral pre-cartilage condensation
        - Different Name - Referenced OBOComponent EMAPA:17216 has name [vertebral pre-cartilage condensation]
-       - Different Parents - Referenced OBOComponent EMAPA:17216 has parents [TH:00031, EMAPA:17215]
+       - Different Parents - Referenced OBOComponent EMAPA:17216 has parents [EMAPA:17215, TH:00031]
 
   1836. EMAPA:17215 - axial skeleton cervical region
        - Different Name - Referenced OBOComponent EMAPA:17215 has name [cervical region]
@@ -9703,7 +9703,7 @@ C. MODIFIED COMPONENTS
 
   1844. EMAPA:19247 - pancreas head islets of Langerhans
        - Different Name - Referenced OBOComponent EMAPA:19247 has name [islets of Langerhans]
-       - Different Parents - Referenced OBOComponent EMAPA:19247 has parents [EMAPA:18822, TH:00173]
+       - Different Parents - Referenced OBOComponent EMAPA:19247 has parents [TH:00173, EMAPA:18822]
 
   1845. EMAPA:30819 - clitoris
        - Different Synonyms - Referenced OBOComponent EMAPA:30819 has synonyms [genital tubercle of female]
@@ -9730,8 +9730,8 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:19234 has name [inferior petrosal]
 
   1853. EMAPA:17213 - skeleton
-       - Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:16039, EMAPA:25765]
-       - Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:16039, TH:00070]
+       - Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:25765, EMAPA:16039]
+       - Different Parents - Referenced OBOComponent EMAPA:17213 has parents [TH:00070, EMAPA:16039]
 
   1854. EMAPA:28269 - part of afferent arteriole forming the juxtaglomerular complex
        - Different Synonyms - Referenced OBOComponent EMAPA:28269 has synonyms [renin-producing cell]
@@ -9759,13 +9759,13 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16509 has name [floor plate]
 
   1862. EMAPA:16508 - rhombomere 08
-       - Different Parents - Referenced OBOComponent EMAPA:16508 has parents [EMAPA:16478, TH:00183]
+       - Different Parents - Referenced OBOComponent EMAPA:16508 has parents [TH:00183, EMAPA:16478]
 
   1863. EMAPA:16501 - rhombomere 06 floor plate
        - Different Name - Referenced OBOComponent EMAPA:16501 has name [floor plate]
 
   1864. EMAPA:16500 - rhombomere 06
-       - Different Parents - Referenced OBOComponent EMAPA:16500 has parents [TH:00183, EMAPA:16478]
+       - Different Parents - Referenced OBOComponent EMAPA:16500 has parents [EMAPA:16478, TH:00183]
 
   1865. EMAPA:16503 - rhombomere 06 roof plate
        - Different Name - Referenced OBOComponent EMAPA:16503 has name [roof plate]
@@ -9777,7 +9777,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16505 has name [floor plate]
 
   1868. EMAPA:16504 - rhombomere 07
-       - Different Parents - Referenced OBOComponent EMAPA:16504 has parents [EMAPA:16478, TH:00183]
+       - Different Parents - Referenced OBOComponent EMAPA:16504 has parents [TH:00183, EMAPA:16478]
 
   1869. EMAPA:16507 - rhombomere 07 roof plate
        - Different Name - Referenced OBOComponent EMAPA:16507 has name [roof plate]
@@ -9819,7 +9819,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:16516 has name [floor plate]
 
   1882. EMAPA:16515 - 3rd ventricle
-       - Different Parents - Referenced OBOComponent EMAPA:16515 has parents [TH:00035, EMAPA:16514]
+       - Different Parents - Referenced OBOComponent EMAPA:16515 has parents [EMAPA:16514, TH:00035]
        - Different Synonyms - Referenced OBOComponent EMAPA:16515 has synonyms [diencephalic vesicle]
 
   1883. EMAPA:16520 - prosencephalon lateral wall
@@ -9970,7 +9970,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:27491 has name [gastric gland]
 
   1928. EMAPA:17299 - superior semicircular canal
-       - Different Parents - Referenced OBOComponent EMAPA:17299 has parents [TH:00290, EMAPA:17293]
+       - Different Parents - Referenced OBOComponent EMAPA:17299 has parents [EMAPA:17293, TH:00290]
 
   1929. EMAPA:17295 - utricle epithelium
        - Different Name - Referenced OBOComponent EMAPA:17295 has name [epithelium]
@@ -9990,7 +9990,7 @@ C. MODIFIED COMPONENTS
        - Different Parents - Referenced OBOComponent EMAPA:18103 has parents [EMAPA:18486]
 
   1934. EMAPA:18102 - carpus cartilage condensation
-       - Different Parents - Referenced OBOComponent EMAPA:18102 has parents [EMAPA:17457, TH:00129]
+       - Different Parents - Referenced OBOComponent EMAPA:18102 has parents [TH:00129, EMAPA:17457]
        - Different Synonyms - Referenced OBOComponent EMAPA:18102 has synonyms [carpal cartilage condensation]
 
   1935. EMAPA:18105 - handplate rest of skin epidermis
@@ -10076,7 +10076,7 @@ C. MODIFIED COMPONENTS
 
   1961. EMAPA:17263 - central nervous system nerve
        - Different Name - Referenced OBOComponent EMAPA:17263 has name [nerve]
-       - Different Parents - Referenced OBOComponent EMAPA:17263 has parents [EMAPA:16470, TH:00270]
+       - Different Parents - Referenced OBOComponent EMAPA:17263 has parents [TH:00270, EMAPA:16470]
        - Different Start Stage - Referenced OBOComponent EMAPA:17263 has Start Stage TS19
 
   1962. EMAPA:17262 - midbrain roof
@@ -10156,7 +10156,7 @@ C. MODIFIED COMPONENTS
 
   1987. EMAPA:17251 - hindlimb bud apical ectodermal ridge
        - Different Name - Referenced OBOComponent EMAPA:17251 has name [apical ectodermal ridge]
-       - Different Parents - Referenced OBOComponent EMAPA:17251 has parents [EMAPA:17250, TH:00023]
+       - Different Parents - Referenced OBOComponent EMAPA:17251 has parents [TH:00023, EMAPA:17250]
        - Different Synonyms - Referenced OBOComponent EMAPA:17251 has synonyms [AER]
 
   1988. EMAPA:17254 - leg ectoderm
@@ -10202,11 +10202,11 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17248 has name [mesenchyme]
 
   2002. EMAPA:17249 - footplate
-       - Different Parents - Referenced OBOComponent EMAPA:17249 has parents [EMAPA:16779, TH:00093]
+       - Different Parents - Referenced OBOComponent EMAPA:17249 has parents [TH:00093, EMAPA:16779]
 
   2003. EMAPA:17247 - forelimb bud apical ectodermal ridge
        - Different Name - Referenced OBOComponent EMAPA:17247 has name [apical ectodermal ridge]
-       - Different Parents - Referenced OBOComponent EMAPA:17247 has parents [TH:00023, EMAPA:17246]
+       - Different Parents - Referenced OBOComponent EMAPA:17247 has parents [EMAPA:17246, TH:00023]
        - Different Synonyms - Referenced OBOComponent EMAPA:17247 has synonyms [AER]
 
   2004. EMAPA:17246 - handplate ectoderm
@@ -10833,7 +10833,7 @@ C. MODIFIED COMPONENTS
        - Different Synonyms - Referenced OBOComponent EMAPA:16652 has synonyms [future cerebral hemisphere]
 
   2200. EMAPA:16653 - telencephalic vesicle
-       - Different Parents - Referenced OBOComponent EMAPA:16653 has parents [EMAPA:16652, TH:00035]
+       - Different Parents - Referenced OBOComponent EMAPA:16653 has parents [TH:00035, EMAPA:16652]
        - Different Synonyms - Referenced OBOComponent EMAPA:16653 has synonyms [future lateral ventricle]
 
   2201. EMAPA:16659 - cranial ganglion
@@ -10841,7 +10841,7 @@ C. MODIFIED COMPONENTS
 
   2202. EMAPA:16658 - central nervous system ganglion
        - Different Name - Referenced OBOComponent EMAPA:16658 has name [ganglion]
-       - Different Parents - Referenced OBOComponent EMAPA:16658 has parents [EMAPA:16470, TH:00269]
+       - Different Parents - Referenced OBOComponent EMAPA:16658 has parents [TH:00269, EMAPA:16470]
 
   2203. EMAPA:16657 - telencephalon roof plate
        - Different Name - Referenced OBOComponent EMAPA:16657 has name [roof plate]
@@ -10937,7 +10937,7 @@ C. MODIFIED COMPONENTS
        - Different Name - Referenced OBOComponent EMAPA:17300 has name [associated mesenchyme]
 
   2232. EMAPA:16642 - 3rd ventricle
-       - Different Parents - Referenced OBOComponent EMAPA:16642 has parents [EMAPA:16641, TH:00035]
+       - Different Parents - Referenced OBOComponent EMAPA:16642 has parents [TH:00035, EMAPA:16641]
        - Different Synonyms - Referenced OBOComponent EMAPA:16642 has synonyms [diencephalic vesicle]
 
   2233. EMAPA:17301 - superior semicircular canal epithelium
@@ -11226,7 +11226,7 @@ C. MODIFIED COMPONENTS
 
   2323. EMAPA:17394 - lumbar vertebral pre-cartilage condensation
        - Different Name - Referenced OBOComponent EMAPA:17394 has name [vertebral pre-cartilage condensation]
-       - Different Parents - Referenced OBOComponent EMAPA:17394 has parents [TH:00031, EMAPA:17393]
+       - Different Parents - Referenced OBOComponent EMAPA:17394 has parents [EMAPA:17393, TH:00031]
 
   2324. EMAPA:17396 - axial skeleton thoracic region
        - Different Name - Referenced OBOComponent EMAPA:17396 has name [thoracic region]
@@ -11236,7 +11236,7 @@ C. MODIFIED COMPONENTS
 
   2326. EMAPA:17398 - thoracic vertebral pre-cartilage condensation
        - Different Name - Referenced OBOComponent EMAPA:17398 has name [vertebral pre-cartilage condensation]
-       - Different Parents - Referenced OBOComponent EMAPA:17398 has parents [TH:00031, EMAPA:17396]
+       - Different Parents - Referenced OBOComponent EMAPA:17398 has parents [EMAPA:17396, TH:00031]
 
   2327. EMAPA:26969 - pharynx muscularis
        - Different Name - Referenced OBOComponent EMAPA:26969 has name [muscularis]
@@ -11306,7 +11306,7 @@ C. MODIFIED COMPONENTS
 
   2349. EMAPA:17388 - left lung rudiment lobar bronchus
        - Different Name - Referenced OBOComponent EMAPA:17388 has name [lobar bronchus]
-       - Different Parents - Referenced OBOComponent EMAPA:17388 has parents [EMAPA:16729, TH:00053]
+       - Different Parents - Referenced OBOComponent EMAPA:17388 has parents [TH:00053, EMAPA:16729]
 
   2350. EMAPA:18270 - gastro-oesophageal junction vascular element
        - Different Name - Referenced OBOComponent EMAPA:18270 has name [vascular element]
@@ -11480,7 +11480,7 @@ C. MODIFIED COMPONENTS
 
   2404. EMAPA:16667 - spinal ganglion
        - Different Name - Referenced OBOComponent EMAPA:16667 has name [ganglion]
-       - Different Parents - Referenced OBOComponent EMAPA:16667 has parents [EMAPA:16666, TH:00276]
+       - Different Parents - Referenced OBOComponent EMAPA:16667 has parents [TH:00276, EMAPA:16666]
 
   2405. EMAPA:16668 - dorsal root ganglion
        - Different Synonyms - Referenced OBOComponent EMAPA:16668 has synonyms [posterior root ganglion]
@@ -11647,13 +11647,13 @@ C. MODIFIED COMPONENTS
     Name      : interdigital region between hindlimb digits 2 and 3
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [EMAPA:17459, TH:00159]
+    Parents   : [TH:00159, EMAPA:17459]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17479 has name [interdigital region between digits 2 and 3]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17479 has parents [EMAPA:17459, TH:00159]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17479 has parents [TH:00159, EMAPA:17459]
 
    Modified OBOComponent 10
     ID        : EMAPA:16349
@@ -11782,13 +11782,13 @@ C. MODIFIED COMPONENTS
     Name      : interdigital region between hindlimb digits 3 and 4
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [EMAPA:17459, TH:00159]
+    Parents   : [TH:00159, EMAPA:17459]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17482 has name [interdigital region between digits 3 and 4]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17482 has parents [EMAPA:17459, TH:00159]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17482 has parents [TH:00159, EMAPA:17459]
 
    Modified OBOComponent 21
     ID        : EMAPA:16352
@@ -12179,7 +12179,7 @@ C. MODIFIED COMPONENTS
     Name      : anlage of loop of Henle
     Starts At : TS22
     Ends At   : TS27
-    Parents   : [EMAPA:31571, EMAPA:18976]
+    Parents   : [EMAPA:18976, EMAPA:31571]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -12821,13 +12821,13 @@ C. MODIFIED COMPONENTS
     Name      : forelimb digit 1
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00133, EMAPA:17428]
+    Parents   : [EMAPA:17428, TH:00133]
     Synonyms  : [first finger, pollex, thumb]
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17429 has name [digit 1]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17429 has parents [TH:00133, EMAPA:17428]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17429 has parents [EMAPA:17428, TH:00133]
 
    Modified OBOComponent 107
     ID        : EMAPA:17428
@@ -13312,13 +13312,13 @@ C. MODIFIED COMPONENTS
     Name      : hindlimb digit 4
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00149, EMAPA:17459]
+    Parents   : [EMAPA:17459, TH:00149]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17469 has name [digit 4]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17469 has parents [TH:00149, EMAPA:17459]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17469 has parents [EMAPA:17459, TH:00149]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:17469 has synonyms [fourth toe]
 
    Modified OBOComponent 147
@@ -13410,13 +13410,13 @@ C. MODIFIED COMPONENTS
     Name      : interdigital region between forelimb digits 1 and 2
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [EMAPA:17428, TH:00142]
+    Parents   : [TH:00142, EMAPA:17428]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17445 has name [interdigital region between digits 1 and 2]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17445 has parents [EMAPA:17428, TH:00142]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17445 has parents [TH:00142, EMAPA:17428]
 
    Modified OBOComponent 155
     ID        : EMAPA:16397
@@ -13547,13 +13547,13 @@ C. MODIFIED COMPONENTS
     Name      : forelimb digit 4
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00133, EMAPA:17428]
+    Parents   : [EMAPA:17428, TH:00133]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17438 has name [digit 4]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17438 has parents [TH:00133, EMAPA:17428]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17438 has parents [EMAPA:17428, TH:00133]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:17438 has synonyms [fourth finger]
 
    Modified OBOComponent 166
@@ -13622,13 +13622,13 @@ C. MODIFIED COMPONENTS
     Name      : interdigital region between forelimb digits 3 and 4
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [EMAPA:17428, TH:00142]
+    Parents   : [TH:00142, EMAPA:17428]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17451 has name [interdigital region between digits 3 and 4]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17451 has parents [EMAPA:17428, TH:00142]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17451 has parents [TH:00142, EMAPA:17428]
 
    Modified OBOComponent 172
     ID        : EMAPA:17450
@@ -13647,13 +13647,13 @@ C. MODIFIED COMPONENTS
     Name      : interdigital region between forelimb digits 2 and 3
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00142, EMAPA:17428]
+    Parents   : [EMAPA:17428, TH:00142]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17448 has name [interdigital region between digits 2 and 3]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17448 has parents [TH:00142, EMAPA:17428]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17448 has parents [EMAPA:17428, TH:00142]
 
    Modified OBOComponent 174
     ID        : EMAPA:17449
@@ -15093,12 +15093,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 02
     Starts At : TS14
     Ends At   : TS16
-    Parents   : [TH:00183, EMAPA:16478]
+    Parents   : [EMAPA:16478, TH:00183]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16484 has parents [TH:00183, EMAPA:16478]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16484 has parents [EMAPA:16478, TH:00183]
 
    Modified OBOComponent 294
     ID        : EMAPA:16483
@@ -15189,12 +15189,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 04
     Starts At : TS14
     Ends At   : TS16
-    Parents   : [EMAPA:16478, TH:00183]
+    Parents   : [TH:00183, EMAPA:16478]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16492 has parents [EMAPA:16478, TH:00183]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16492 has parents [TH:00183, EMAPA:16478]
 
    Modified OBOComponent 302
     ID        : EMAPA:16495
@@ -15480,13 +15480,13 @@ C. MODIFIED COMPONENTS
     Name      : pancreas tail parenchyma
     Starts At : TS20
     Ends At   : TS23
-    Parents   : [EMAPA:17511, TH:00171]
+    Parents   : [TH:00171, EMAPA:17511]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17513 has name [parenchyma]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17513 has parents [EMAPA:17511, TH:00171]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17513 has parents [TH:00171, EMAPA:17511]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:17513 has synonyms [associated mesenchyme]
 
    Modified OBOComponent 326
@@ -15494,13 +15494,13 @@ C. MODIFIED COMPONENTS
     Name      : dorsal pancreatic duct of pancreas tail
     Starts At : TS20
     Ends At   : TS23
-    Parents   : [EMAPA:17511, TH:00167]
+    Parents   : [TH:00167, EMAPA:17511]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17512 has name [dorsal pancreatic duct]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17512 has parents [EMAPA:17511, TH:00167]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17512 has parents [TH:00167, EMAPA:17511]
 
    Modified OBOComponent 327
     ID        : EMAPA:17515
@@ -16000,13 +16000,13 @@ C. MODIFIED COMPONENTS
     Name      : right hepatic duct extrahepatic part
     Starts At : TS22
     Ends At   : TS26
-    Parents   : [TH:00349, EMAPA:16844]
+    Parents   : [EMAPA:16844, TH:00349]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19100 has name [right]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19100 has parents [TH:00349, EMAPA:16844]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19100 has parents [EMAPA:16844, TH:00349]
 
    Modified OBOComponent 369
     ID        : EMAPA:17556
@@ -16716,13 +16716,13 @@ C. MODIFIED COMPONENTS
     Name      : diencephalon subarachnoid space
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00048, EMAPA:17764]
+    Parents   : [EMAPA:17764, TH:00048]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19053 has name [subarachnoid space]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19053 has parents [TH:00048, EMAPA:17764]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19053 has parents [EMAPA:17764, TH:00048]
 
    Modified OBOComponent 428
     ID        : EMAPA:19054
@@ -17010,13 +17010,13 @@ C. MODIFIED COMPONENTS
     Name      : tail vertebra
     Starts At : TS22
     Ends At   : TS26
-    Parents   : [EMAPA:18043, TH:00028]
+    Parents   : [TH:00028, EMAPA:18043]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18374 has name [vertebra]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18374 has parents [EMAPA:18043, TH:00028]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18374 has parents [TH:00028, EMAPA:18043]
 
    Modified OBOComponent 452
     ID        : EMAPA:18376
@@ -17595,19 +17595,19 @@ C. MODIFIED COMPONENTS
     Name      : ventral pancreatic duct
     Starts At : TS20
     Ends At   : TS23
-    Parents   : [TH:00169, EMAPA:17507]
+    Parents   : [EMAPA:17507, TH:00169]
     Synonyms  : [accessory pancreatic duct, Duct of Santorini]
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17510 has parents [TH:00169, EMAPA:17507]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17510 has parents [EMAPA:17507, TH:00169]
 
    Modified OBOComponent 500
     ID        : EMAPA:19089
     Name      : gubernaculum
     Starts At : TS23
     Ends At   : TS28
-    Parents   : [EMAPA:17968, EMAPA:28533]
+    Parents   : [EMAPA:28533, EMAPA:17968]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -17765,7 +17765,7 @@ C. MODIFIED COMPONENTS
     Name      : ureteric tip
     Starts At : TS21
     Ends At   : TS28
-    Parents   : [EMAPA:28407, EMAPA:28477, EMAPA:27721]
+    Parents   : [EMAPA:28477, EMAPA:28407, EMAPA:27721]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -17864,7 +17864,7 @@ C. MODIFIED COMPONENTS
     Name      : capillary loop renal corpuscle
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [EMAPA:17373, EMAPA:17954]
+    Parents   : [EMAPA:17954, EMAPA:17373]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -18044,13 +18044,13 @@ C. MODIFIED COMPONENTS
     Name      : left hepatic duct intrahepatic part
     Starts At : TS22
     Ends At   : TS26
-    Parents   : [EMAPA:16845, TH:00348]
+    Parents   : [TH:00348, EMAPA:16845]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18304 has name [left]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18304 has parents [EMAPA:16845, TH:00348]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18304 has parents [TH:00348, EMAPA:16845]
 
    Modified OBOComponent 537
     ID        : EMAPA:18305
@@ -18166,7 +18166,7 @@ C. MODIFIED COMPONENTS
     Name      : renal tubule
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [EMAPA:17954, EMAPA:17373]
+    Parents   : [EMAPA:17373, EMAPA:17954]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -18250,7 +18250,7 @@ C. MODIFIED COMPONENTS
     Name      : notochordal process
     Starts At : TS11
     Ends At   : TS11
-    Parents   : [EMAPA:16039, EMAPA:25765]
+    Parents   : [EMAPA:25765, EMAPA:16039]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -18358,12 +18358,12 @@ C. MODIFIED COMPONENTS
     Name      : 4th ventricle
     Starts At : TS17
     Ends At   : TS26
-    Parents   : [EMAPA:16916, TH:00036]
+    Parents   : [TH:00036, EMAPA:16916]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16917 has parents [EMAPA:16916, TH:00036]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16917 has parents [TH:00036, EMAPA:16916]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:16917 has synonyms [rhombencephalic vesicle]
 
    Modified OBOComponent 563
@@ -18763,12 +18763,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 04
     Starts At : TS17
     Ends At   : TS17
-    Parents   : [TH:00281, EMAPA:16916]
+    Parents   : [EMAPA:16916, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16939 has parents [TH:00281, EMAPA:16916]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16939 has parents [EMAPA:16916, TH:00281]
 
    Modified OBOComponent 596
     ID        : EMAPA:16933
@@ -18848,12 +18848,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 03
     Starts At : TS17
     Ends At   : TS17
-    Parents   : [TH:00281, EMAPA:16916]
+    Parents   : [EMAPA:16916, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16932 has parents [TH:00281, EMAPA:16916]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16932 has parents [EMAPA:16916, TH:00281]
 
    Modified OBOComponent 603
     ID        : EMAPA:16107
@@ -19065,12 +19065,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 06
     Starts At : TS17
     Ends At   : TS17
-    Parents   : [TH:00281, EMAPA:16916]
+    Parents   : [EMAPA:16916, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16953 has parents [TH:00281, EMAPA:16916]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16953 has parents [EMAPA:16916, TH:00281]
 
    Modified OBOComponent 621
     ID        : EMAPA:16952
@@ -19163,13 +19163,13 @@ C. MODIFIED COMPONENTS
     Name      : head paraxial mesenchyme
     Starts At : TS12
     Ends At   : TS14
-    Parents   : [TH:00001, EMAPA:16098]
+    Parents   : [EMAPA:16098, TH:00001]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16171 has name [paraxial mesenchyme]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16171 has parents [TH:00001, EMAPA:16098]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16171 has parents [EMAPA:16098, TH:00001]
 
    Modified OBOComponent 629
     ID        : EMAPA:16172
@@ -19237,12 +19237,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 07
     Starts At : TS17
     Ends At   : TS17
-    Parents   : [TH:00281, EMAPA:16916]
+    Parents   : [EMAPA:16916, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16960 has parents [TH:00281, EMAPA:16916]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16960 has parents [EMAPA:16916, TH:00281]
 
    Modified OBOComponent 635
     ID        : EMAPA:16179
@@ -19273,12 +19273,12 @@ C. MODIFIED COMPONENTS
     Name      : trunk mesenchyme
     Starts At : TS12
     Ends At   : TS26
-    Parents   : [EMAPA:31857, EMAPA:16097]
+    Parents   : [EMAPA:16097, EMAPA:31857]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16177 has parents [EMAPA:31857, EMAPA:16097]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16177 has parents [EMAPA:16097, EMAPA:31857]
 
    Modified OBOComponent 638
     ID        : EMAPA:16178
@@ -19382,12 +19382,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 05
     Starts At : TS17
     Ends At   : TS17
-    Parents   : [EMAPA:16916, TH:00281]
+    Parents   : [TH:00281, EMAPA:16916]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16946 has parents [EMAPA:16916, TH:00281]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16946 has parents [TH:00281, EMAPA:16916]
 
    Modified OBOComponent 647
     ID        : EMAPA:16949
@@ -19589,13 +19589,13 @@ C. MODIFIED COMPONENTS
     Name      : sacral vertebral pre-cartilage condensation
     Starts At : TS18
     Ends At   : TS20
-    Parents   : [TH:00031, EMAPA:17676]
+    Parents   : [EMAPA:17676, TH:00031]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17677 has name [vertebral pre-cartilage condensation]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17677 has parents [TH:00031, EMAPA:17676]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17677 has parents [EMAPA:17676, TH:00031]
 
    Modified OBOComponent 664
     ID        : EMAPA:16975
@@ -20146,13 +20146,13 @@ C. MODIFIED COMPONENTS
     Name      : left lung lobar bronchus
     Starts At : TS20
     Ends At   : TS26
-    Parents   : [TH:00053, EMAPA:17653]
+    Parents   : [EMAPA:17653, TH:00053]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17656 has name [lobar bronchus]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17656 has parents [TH:00053, EMAPA:17653]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17656 has parents [EMAPA:17653, TH:00053]
 
    Modified OBOComponent 710
     ID        : EMAPA:16998
@@ -20436,13 +20436,13 @@ C. MODIFIED COMPONENTS
     Name      : spinal nerve
     Starts At : TS17
     Ends At   : TS26
-    Parents   : [EMAPA:16666, TH:00270]
+    Parents   : [TH:00270, EMAPA:16666]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16989 has name [nerve]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16989 has parents [EMAPA:16666, TH:00270]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16989 has parents [TH:00270, EMAPA:16666]
 
    Modified OBOComponent 734
     ID        : EMAPA:17671
@@ -20547,13 +20547,13 @@ C. MODIFIED COMPONENTS
     Name      : cervical vertebra
     Starts At : TS22
     Ends At   : TS26
-    Parents   : [TH:00028, EMAPA:17215]
+    Parents   : [EMAPA:17215, TH:00028]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17674 has name [vertebra]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17674 has parents [TH:00028, EMAPA:17215]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17674 has parents [EMAPA:17215, TH:00028]
 
    Modified OBOComponent 743
     ID        : EMAPA:17638
@@ -21233,7 +21233,7 @@ C. MODIFIED COMPONENTS
     Name      : early distal tubule of capillary loop nephron
     Starts At : TS25
     Ends At   : TS27
-    Parents   : [EMAPA:31571, EMAPA:28390]
+    Parents   : [EMAPA:28390, EMAPA:31571]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -21488,7 +21488,7 @@ C. MODIFIED COMPONENTS
     Name      : penis
     Starts At : TS25
     Ends At   : TS28
-    Parents   : [EMAPA:17968, EMAPA:30977]
+    Parents   : [EMAPA:30977, EMAPA:17968]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -21500,7 +21500,7 @@ C. MODIFIED COMPONENTS
     Name      : ductus deferens
     Starts At : TS23
     Ends At   : TS28
-    Parents   : [EMAPA:28533, EMAPA:17968]
+    Parents   : [EMAPA:17968, EMAPA:28533]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -21596,7 +21596,7 @@ C. MODIFIED COMPONENTS
     Name      : early proximal tubule of capillary loop nephron
     Starts At : TS22
     Ends At   : TS24
-    Parents   : [EMAPA:28003, EMAPA:31571]
+    Parents   : [EMAPA:31571, EMAPA:28003]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -23366,13 +23366,13 @@ C. MODIFIED COMPONENTS
     Name      : lateral ventricle choroid plexus
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00020, EMAPA:17548]
+    Parents   : [EMAPA:17548, TH:00020]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17769 has name [choroid plexus]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17769 has parents [TH:00020, EMAPA:17548]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17769 has parents [EMAPA:17548, TH:00020]
 
    Modified OBOComponent 976
     ID        : EMAPA:17767
@@ -23392,26 +23392,26 @@ C. MODIFIED COMPONENTS
     Name      : diencephalon dura mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:17764, TH:00046]
+    Parents   : [TH:00046, EMAPA:17764]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17766 has name [dura mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17766 has parents [EMAPA:17764, TH:00046]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17766 has parents [TH:00046, EMAPA:17764]
 
    Modified OBOComponent 978
     ID        : EMAPA:17765
     Name      : diencephalon arachnoid mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:17764, TH:00045]
+    Parents   : [TH:00045, EMAPA:17764]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17765 has name [arachnoid mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17765 has parents [EMAPA:17764, TH:00045]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17765 has parents [TH:00045, EMAPA:17764]
 
    Modified OBOComponent 979
     ID        : EMAPA:17774
@@ -23492,13 +23492,13 @@ C. MODIFIED COMPONENTS
     Name      : telencephalon pia mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:17774, TH:00047]
+    Parents   : [TH:00047, EMAPA:17774]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17777 has name [pia mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17777 has parents [EMAPA:17774, TH:00047]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17777 has parents [TH:00047, EMAPA:17774]
 
    Modified OBOComponent 986
     ID        : EMAPA:17776
@@ -23567,13 +23567,13 @@ C. MODIFIED COMPONENTS
     Name      : hindbrain arachnoid mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00045, EMAPA:17783]
+    Parents   : [EMAPA:17783, TH:00045]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17784 has name [arachnoid mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17784 has parents [TH:00045, EMAPA:17783]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17784 has parents [EMAPA:17783, TH:00045]
 
    Modified OBOComponent 992
     ID        : EMAPA:17785
@@ -23643,13 +23643,13 @@ C. MODIFIED COMPONENTS
     Name      : midbrain dura mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:17791, TH:00046]
+    Parents   : [TH:00046, EMAPA:17791]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17793 has name [dura mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17793 has parents [EMAPA:17791, TH:00046]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17793 has parents [TH:00046, EMAPA:17791]
 
    Modified OBOComponent 998
     ID        : EMAPA:17790
@@ -23668,13 +23668,13 @@ C. MODIFIED COMPONENTS
     Name      : midbrain meninges
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00044, EMAPA:16974]
+    Parents   : [EMAPA:16974, TH:00044]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17791 has name [meninges]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17791 has parents [TH:00044, EMAPA:16974]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17791 has parents [EMAPA:16974, TH:00044]
 
    Modified OBOComponent 1000
     ID        : EMAPA:17796
@@ -23868,12 +23868,12 @@ C. MODIFIED COMPONENTS
     Name      : carpus pre-cartilage condensation
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [EMAPA:17457, TH:00128]
+    Parents   : [TH:00128, EMAPA:17457]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17724 has parents [EMAPA:17457, TH:00128]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17724 has parents [TH:00128, EMAPA:17457]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:17724 has synonyms [carpal pre-cartilage condensation]
 
    Modified OBOComponent 1016
@@ -24193,7 +24193,7 @@ C. MODIFIED COMPONENTS
     Name      : maturing renal corpuscle
     Starts At : TS22
     Ends At   : TS27
-    Parents   : [EMAPA:28485, EMAPA:28527, EMAPA:28445, EMAPA:17954, EMAPA:17952]
+    Parents   : [EMAPA:17954, EMAPA:28527, EMAPA:28485, EMAPA:17952, EMAPA:28445]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -24246,8 +24246,8 @@ C. MODIFIED COMPONENTS
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:16039, EMAPA:25765]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:16039, TH:00070]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:16039, TH:00070]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17743 has parents [EMAPA:25765, EMAPA:16039]
 
    Modified OBOComponent 1046
     ID        : EMAPA:27949
@@ -24897,13 +24897,13 @@ C. MODIFIED COMPONENTS
     Name      : 3rd ventricle choroid plexus
     Starts At : TS23
     Ends At   : TS26
-    Parents   : [EMAPA:18542, TH:00020]
+    Parents   : [TH:00020, EMAPA:18542]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18543 has name [choroid plexus]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18543 has parents [EMAPA:18542, TH:00020]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18543 has parents [TH:00020, EMAPA:18542]
 
    Modified OBOComponent 1100
     ID        : EMAPA:18542
@@ -25930,13 +25930,13 @@ C. MODIFIED COMPONENTS
     Name      : cervical intervertebral disc
     Starts At : TS22
     Ends At   : TS26
-    Parents   : [TH:00029, EMAPA:17215]
+    Parents   : [EMAPA:17215, TH:00029]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19415 has name [intervertebral disc]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19415 has parents [TH:00029, EMAPA:17215]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19415 has parents [EMAPA:17215, TH:00029]
 
    Modified OBOComponent 1185
     ID        : EMAPA:19416
@@ -26211,13 +26211,13 @@ C. MODIFIED COMPONENTS
     Name      : thoracic intervertebral disc
     Starts At : TS23
     Ends At   : TS26
-    Parents   : [EMAPA:17396, TH:00029]
+    Parents   : [TH:00029, EMAPA:17396]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19489 has name [intervertebral disc]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19489 has parents [EMAPA:17396, TH:00029]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19489 has parents [TH:00029, EMAPA:17396]
 
    Modified OBOComponent 1208
     ID        : EMAPA:16730
@@ -26380,13 +26380,13 @@ C. MODIFIED COMPONENTS
     Name      : lumbar intervertebral disc
     Starts At : TS23
     Ends At   : TS26
-    Parents   : [TH:00029, EMAPA:17393]
+    Parents   : [EMAPA:17393, TH:00029]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19468 has name [intervertebral disc]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19468 has parents [TH:00029, EMAPA:17393]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19468 has parents [EMAPA:17393, TH:00029]
 
    Modified OBOComponent 1222
     ID        : EMAPA:27227
@@ -26634,13 +26634,13 @@ C. MODIFIED COMPONENTS
     Name      : spinal cord dura mater
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00042, EMAPA:17804]
+    Parents   : [EMAPA:17804, TH:00042]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17806 has name [dura mater]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17806 has parents [TH:00042, EMAPA:17804]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17806 has parents [EMAPA:17804, TH:00042]
 
    Modified OBOComponent 1243
     ID        : EMAPA:17807
@@ -26720,13 +26720,13 @@ C. MODIFIED COMPONENTS
     Name      : spinal cord meninges
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00040, EMAPA:17577]
+    Parents   : [EMAPA:17577, TH:00040]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17804 has name [meninges]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17804 has parents [TH:00040, EMAPA:17577]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17804 has parents [EMAPA:17577, TH:00040]
 
    Modified OBOComponent 1250
     ID        : EMAPA:17805
@@ -27048,12 +27048,12 @@ C. MODIFIED COMPONENTS
     Name      : lateral semicircular canal
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [TH:00290, EMAPA:17293]
+    Parents   : [EMAPA:17293, TH:00290]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17821 has parents [TH:00290, EMAPA:17293]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17821 has parents [EMAPA:17293, TH:00290]
 
    Modified OBOComponent 1277
     ID        : EMAPA:17830
@@ -27231,25 +27231,25 @@ C. MODIFIED COMPONENTS
     Name      : pancreas head parenchyma
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [TH:00172, EMAPA:18820]
+    Parents   : [EMAPA:18820, TH:00172]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18822 has name [parenchyma]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18822 has parents [TH:00172, EMAPA:18820]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18822 has parents [EMAPA:18820, TH:00172]
 
    Modified OBOComponent 1292
     ID        : EMAPA:18821
     Name      : ventral pancreatic duct
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [TH:00170, EMAPA:18820]
+    Parents   : [EMAPA:18820, TH:00170]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:18821 has parents [TH:00170, EMAPA:18820]
+     1.  Different Parents - Referenced OBOComponent EMAPA:18821 has parents [EMAPA:18820, TH:00170]
 
    Modified OBOComponent 1293
     ID        : EMAPA:18824
@@ -27268,13 +27268,13 @@ C. MODIFIED COMPONENTS
     Name      : pancreas tail parenchyma
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [TH:00172, EMAPA:18824]
+    Parents   : [EMAPA:18824, TH:00172]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18826 has name [parenchyma]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18826 has parents [TH:00172, EMAPA:18824]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18826 has parents [EMAPA:18824, TH:00172]
 
    Modified OBOComponent 1295
     ID        : EMAPA:17072
@@ -27293,13 +27293,13 @@ C. MODIFIED COMPONENTS
     Name      : dorsal pancreatic duct of pancreas tail
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [TH:00168, EMAPA:18824]
+    Parents   : [EMAPA:18824, TH:00168]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18825 has name [dorsal pancreatic duct]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18825 has parents [TH:00168, EMAPA:18824]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18825 has parents [EMAPA:18824, TH:00168]
 
    Modified OBOComponent 1297
     ID        : EMAPA:17073
@@ -27813,7 +27813,7 @@ C. MODIFIED COMPONENTS
     Name      : ureteric trunk
     Starts At : TS21
     Ends At   : TS21
-    Parents   : [EMAPA:28477, EMAPA:17373]
+    Parents   : [EMAPA:17373, EMAPA:28477]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -28042,13 +28042,13 @@ C. MODIFIED COMPONENTS
     Name      : pancreas body parenchyma
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [EMAPA:18817, TH:00172]
+    Parents   : [TH:00172, EMAPA:18817]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18819 has name [parenchyma]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18819 has parents [EMAPA:18817, TH:00172]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18819 has parents [TH:00172, EMAPA:18817]
 
    Modified OBOComponent 1359
     ID        : EMAPA:17043
@@ -28067,13 +28067,13 @@ C. MODIFIED COMPONENTS
     Name      : dorsal pancreatic duct of pancreas body
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [EMAPA:18817, TH:00168]
+    Parents   : [TH:00168, EMAPA:18817]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18818 has name [dorsal pancreatic duct]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18818 has parents [EMAPA:18817, TH:00168]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18818 has parents [TH:00168, EMAPA:18817]
 
    Modified OBOComponent 1361
     ID        : EMAPA:17894
@@ -29317,13 +29317,13 @@ C. MODIFIED COMPONENTS
     Name      : hindlimb bud apical ectodermal ridge
     Starts At : TS17
     Ends At   : TS18
-    Parents   : [TH:00023, EMAPA:16780]
+    Parents   : [EMAPA:16780, TH:00023]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16892 has name [apical ectodermal ridge]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16892 has parents [TH:00023, EMAPA:16780]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16892 has parents [EMAPA:16780, TH:00023]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:16892 has synonyms [AER]
 
    Modified OBOComponent 1464
@@ -29500,13 +29500,13 @@ C. MODIFIED COMPONENTS
     Name      : sacral intervertebral disc
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [EMAPA:17676, TH:00029]
+    Parents   : [TH:00029, EMAPA:17676]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19575 has name [intervertebral disc]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19575 has parents [EMAPA:17676, TH:00029]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19575 has parents [TH:00029, EMAPA:17676]
 
    Modified OBOComponent 1479
     ID        : EMAPA:16090
@@ -29661,13 +29661,13 @@ C. MODIFIED COMPONENTS
     Name      : tail intervertebral disc
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [EMAPA:18043, TH:00029]
+    Parents   : [TH:00029, EMAPA:18043]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19592 has name [intervertebral disc]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19592 has parents [EMAPA:18043, TH:00029]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19592 has parents [TH:00029, EMAPA:18043]
 
    Modified OBOComponent 1492
     ID        : EMAPA:16847
@@ -29736,13 +29736,13 @@ C. MODIFIED COMPONENTS
     Name      : tail somite group
     Starts At : TS16
     Ends At   : TS22
-    Parents   : [EMAPA:16751, EMAPA:31169]
+    Parents   : [EMAPA:31169, EMAPA:16751]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16860 has name [somite]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16860 has parents [EMAPA:16751, EMAPA:31169]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16860 has parents [EMAPA:31169, EMAPA:16751]
 
    Modified OBOComponent 1498
     ID        : EMAPA:16033
@@ -29785,13 +29785,13 @@ C. MODIFIED COMPONENTS
     Name      : lower lip
     Starts At : TS21
     Ends At   : TS26
-    Parents   : [EMAPA:17906, TH:00260]
+    Parents   : [TH:00260, EMAPA:17906]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17909 has name [lip]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17909 has parents [EMAPA:17906, TH:00260]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17909 has parents [TH:00260, EMAPA:17906]
 
    Modified OBOComponent 1502
     ID        : EMAPA:17906
@@ -30028,12 +30028,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 04
     Starts At : TS18
     Ends At   : TS18
-    Parents   : [TH:00281, EMAPA:17082]
+    Parents   : [EMAPA:17082, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17113 has parents [TH:00281, EMAPA:17082]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17113 has parents [EMAPA:17082, TH:00281]
 
    Modified OBOComponent 1522
     ID        : EMAPA:16069
@@ -30064,7 +30064,7 @@ C. MODIFIED COMPONENTS
     Name      : endoderm
     Starts At : TS08
     Ends At   : TS17
-    Parents   : [EMAPA:25765, EMAPA:16039]
+    Parents   : [EMAPA:16039, EMAPA:25765]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -30124,12 +30124,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 03
     Starts At : TS18
     Ends At   : TS18
-    Parents   : [TH:00281, EMAPA:17082]
+    Parents   : [EMAPA:17082, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17106 has parents [TH:00281, EMAPA:17082]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17106 has parents [EMAPA:17082, TH:00281]
 
    Modified OBOComponent 1530
     ID        : EMAPA:16821
@@ -30475,12 +30475,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 06
     Starts At : TS18
     Ends At   : TS18
-    Parents   : [EMAPA:17082, TH:00281]
+    Parents   : [TH:00281, EMAPA:17082]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17127 has parents [EMAPA:17082, TH:00281]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17127 has parents [TH:00281, EMAPA:17082]
 
    Modified OBOComponent 1559
     ID        : EMAPA:16800
@@ -31181,12 +31181,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 05
     Starts At : TS18
     Ends At   : TS18
-    Parents   : [TH:00281, EMAPA:17082]
+    Parents   : [EMAPA:17082, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17120 has parents [TH:00281, EMAPA:17082]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17120 has parents [EMAPA:17082, TH:00281]
 
    Modified OBOComponent 1617
     ID        : EMAPA:17149
@@ -31266,13 +31266,13 @@ C. MODIFIED COMPONENTS
     Name      : axial skeleton tail region
     Starts At : TS19
     Ends At   : TS26
-    Parents   : [EMAPA:17214, EMAPA:18042]
+    Parents   : [EMAPA:18042, EMAPA:17214]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18043 has name [axial skeleton]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18043 has parents [EMAPA:17214, EMAPA:18042]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18043 has parents [EMAPA:18042, EMAPA:17214]
 
    Modified OBOComponent 1624
     ID        : EMAPA:17917
@@ -31474,7 +31474,7 @@ C. MODIFIED COMPONENTS
     Name      : inner medullary interstitium
     Starts At : TS25
     Ends At   : TS28
-    Parents   : [EMAPA:28349, EMAPA:28518]
+    Parents   : [EMAPA:28518, EMAPA:28349]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -31549,13 +31549,13 @@ C. MODIFIED COMPONENTS
     Name      : sympathetic ganglion
     Starts At : TS18
     Ends At   : TS26
-    Parents   : [EMAPA:16985, EMAPA:18221]
+    Parents   : [EMAPA:18221, EMAPA:16985]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17157 has name [ganglion]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17157 has parents [EMAPA:16985, EMAPA:18221]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17157 has parents [EMAPA:18221, EMAPA:16985]
 
    Modified OBOComponent 1647
     ID        : EMAPA:17156
@@ -32529,13 +32529,13 @@ C. MODIFIED COMPONENTS
     Name      : midgut duodenum
     Starts At : TS18
     Ends At   : TS23
-    Parents   : [EMAPA:16255, EMAPA:18852]
+    Parents   : [EMAPA:18852, EMAPA:16255]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17193 has name [duodenum]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17193 has parents [EMAPA:16255, EMAPA:18852]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17193 has parents [EMAPA:18852, EMAPA:16255]
 
    Modified OBOComponent 1728
     ID        : EMAPA:17194
@@ -32615,7 +32615,7 @@ C. MODIFIED COMPONENTS
     Name      : genital tubercle of male
     Starts At : TS20
     Ends At   : TS24
-    Parents   : [EMAPA:28533, EMAPA:30977, EMAPA:17968]
+    Parents   : [EMAPA:30977, EMAPA:17968, EMAPA:28533]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -33168,12 +33168,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 02
     Starts At : TS18
     Ends At   : TS18
-    Parents   : [TH:00281, EMAPA:17071]
+    Parents   : [EMAPA:17071, TH:00281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17099 has parents [TH:00281, EMAPA:17071]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17099 has parents [EMAPA:17071, TH:00281]
 
    Modified OBOComponent 1781
     ID        : EMAPA:17098
@@ -33386,13 +33386,13 @@ C. MODIFIED COMPONENTS
     Name      : lateral ventricle inferior horn choroid plexus
     Starts At : TS24
     Ends At   : TS26
-    Parents   : [EMAPA:17771, EMAPA:17769]
+    Parents   : [EMAPA:17769, EMAPA:17771]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:18780 has name [choroid plexus]
-     2.  Different Parents - Referenced OBOComponent EMAPA:18780 has parents [EMAPA:17771, EMAPA:17769]
+     2.  Different Parents - Referenced OBOComponent EMAPA:18780 has parents [EMAPA:17769, EMAPA:17771]
 
    Modified OBOComponent 1799
     ID        : EMAPA:18781
@@ -33669,7 +33669,7 @@ C. MODIFIED COMPONENTS
     Name      : trunk
     Starts At : TS12
     Ends At   : TS26
-    Parents   : [EMAPA:25765, EMAPA:16039]
+    Parents   : [EMAPA:16039, EMAPA:25765]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -33681,7 +33681,7 @@ C. MODIFIED COMPONENTS
     Name      : head
     Starts At : TS11
     Ends At   : TS26
-    Parents   : [EMAPA:25765, EMAPA:16039]
+    Parents   : [EMAPA:16039, EMAPA:25765]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -33816,7 +33816,7 @@ C. MODIFIED COMPONENTS
     Name      : renal proximal convoluted tubule
     Starts At : TS25
     Ends At   : TS28
-    Parents   : [EMAPA:28281, EMAPA:31566]
+    Parents   : [EMAPA:31566, EMAPA:28281]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -33840,13 +33840,13 @@ C. MODIFIED COMPONENTS
     Name      : cervical vertebral pre-cartilage condensation
     Starts At : TS15
     Ends At   : TS17
-    Parents   : [TH:00031, EMAPA:17215]
+    Parents   : [EMAPA:17215, TH:00031]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17216 has name [vertebral pre-cartilage condensation]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17216 has parents [TH:00031, EMAPA:17215]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17216 has parents [EMAPA:17215, TH:00031]
 
    Modified OBOComponent 1836
     ID        : EMAPA:17215
@@ -33951,20 +33951,20 @@ C. MODIFIED COMPONENTS
     Name      : pancreas head islets of Langerhans
     Starts At : TS26
     Ends At   : TS26
-    Parents   : [EMAPA:18822, TH:00173]
+    Parents   : [TH:00173, EMAPA:18822]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:19247 has name [islets of Langerhans]
-     2.  Different Parents - Referenced OBOComponent EMAPA:19247 has parents [EMAPA:18822, TH:00173]
+     2.  Different Parents - Referenced OBOComponent EMAPA:19247 has parents [TH:00173, EMAPA:18822]
 
    Modified OBOComponent 1845
     ID        : EMAPA:30819
     Name      : clitoris
     Starts At : TS28
     Ends At   : TS28
-    Parents   : [EMAPA:30984, EMAPA:17959]
+    Parents   : [EMAPA:17959, EMAPA:30984]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -34060,20 +34060,20 @@ C. MODIFIED COMPONENTS
     Name      : skeleton
     Starts At : TS15
     Ends At   : TS26
-    Parents   : [EMAPA:16039, TH:00070]
+    Parents   : [TH:00070, EMAPA:16039]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:16039, EMAPA:25765]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:16039, TH:00070]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17213 has parents [EMAPA:25765, EMAPA:16039]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17213 has parents [TH:00070, EMAPA:16039]
 
    Modified OBOComponent 1854
     ID        : EMAPA:28269
     Name      : part of afferent arteriole forming the juxtaglomerular complex
     Starts At : TS25
     Ends At   : TS28
-    Parents   : [EMAPA:28266, EMAPA:30449]
+    Parents   : [EMAPA:30449, EMAPA:28266]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -34170,12 +34170,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 08
     Starts At : TS14
     Ends At   : TS16
-    Parents   : [EMAPA:16478, TH:00183]
+    Parents   : [TH:00183, EMAPA:16478]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16508 has parents [EMAPA:16478, TH:00183]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16508 has parents [TH:00183, EMAPA:16478]
 
    Modified OBOComponent 1863
     ID        : EMAPA:16501
@@ -34194,12 +34194,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 06
     Starts At : TS14
     Ends At   : TS16
-    Parents   : [TH:00183, EMAPA:16478]
+    Parents   : [EMAPA:16478, TH:00183]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16500 has parents [TH:00183, EMAPA:16478]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16500 has parents [EMAPA:16478, TH:00183]
 
    Modified OBOComponent 1865
     ID        : EMAPA:16503
@@ -34242,12 +34242,12 @@ C. MODIFIED COMPONENTS
     Name      : rhombomere 07
     Starts At : TS14
     Ends At   : TS16
-    Parents   : [EMAPA:16478, TH:00183]
+    Parents   : [TH:00183, EMAPA:16478]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16504 has parents [EMAPA:16478, TH:00183]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16504 has parents [TH:00183, EMAPA:16478]
 
    Modified OBOComponent 1869
     ID        : EMAPA:16507
@@ -34410,12 +34410,12 @@ C. MODIFIED COMPONENTS
     Name      : 3rd ventricle
     Starts At : TS14
     Ends At   : TS14
-    Parents   : [TH:00035, EMAPA:16514]
+    Parents   : [EMAPA:16514, TH:00035]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16515 has parents [TH:00035, EMAPA:16514]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16515 has parents [EMAPA:16514, TH:00035]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:16515 has synonyms [diencephalic vesicle]
 
    Modified OBOComponent 1883
@@ -34975,12 +34975,12 @@ C. MODIFIED COMPONENTS
     Name      : superior semicircular canal
     Starts At : TS19
     Ends At   : TS26
-    Parents   : [TH:00290, EMAPA:17293]
+    Parents   : [EMAPA:17293, TH:00290]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17299 has parents [TH:00290, EMAPA:17293]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17299 has parents [EMAPA:17293, TH:00290]
 
    Modified OBOComponent 1929
     ID        : EMAPA:17295
@@ -35049,12 +35049,12 @@ C. MODIFIED COMPONENTS
     Name      : carpus cartilage condensation
     Starts At : TS22
     Ends At   : TS22
-    Parents   : [EMAPA:17457, TH:00129]
+    Parents   : [TH:00129, EMAPA:17457]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:18102 has parents [EMAPA:17457, TH:00129]
+     1.  Different Parents - Referenced OBOComponent EMAPA:18102 has parents [TH:00129, EMAPA:17457]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:18102 has synonyms [carpal cartilage condensation]
 
    Modified OBOComponent 1935
@@ -35377,13 +35377,13 @@ C. MODIFIED COMPONENTS
     Name      : central nervous system nerve
     Starts At : TS17
     Ends At   : TS26
-    Parents   : [EMAPA:16470, TH:00270]
+    Parents   : [TH:00270, EMAPA:16470]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17263 has name [nerve]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17263 has parents [EMAPA:16470, TH:00270]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17263 has parents [TH:00270, EMAPA:16470]
      3.  Different Start Stage - Referenced OBOComponent EMAPA:17263 has Start Stage TS19
 
    Modified OBOComponent 1962
@@ -35415,7 +35415,7 @@ C. MODIFIED COMPONENTS
     Name      : mature renal corpuscle
     Starts At : TS25
     Ends At   : TS28
-    Parents   : [EMAPA:17954, EMAPA:28491, EMAPA:17952]
+    Parents   : [EMAPA:28491, EMAPA:17952, EMAPA:17954]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -35691,13 +35691,13 @@ C. MODIFIED COMPONENTS
     Name      : hindlimb bud apical ectodermal ridge
     Starts At : TS19
     Ends At   : TS19
-    Parents   : [EMAPA:17250, TH:00023]
+    Parents   : [TH:00023, EMAPA:17250]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17251 has name [apical ectodermal ridge]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17251 has parents [EMAPA:17250, TH:00023]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17251 has parents [TH:00023, EMAPA:17250]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:17251 has synonyms [AER]
 
    Modified OBOComponent 1988
@@ -35873,25 +35873,25 @@ C. MODIFIED COMPONENTS
     Name      : footplate
     Starts At : TS19
     Ends At   : TS19
-    Parents   : [EMAPA:16779, TH:00093]
+    Parents   : [TH:00093, EMAPA:16779]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:17249 has parents [EMAPA:16779, TH:00093]
+     1.  Different Parents - Referenced OBOComponent EMAPA:17249 has parents [TH:00093, EMAPA:16779]
 
    Modified OBOComponent 2003
     ID        : EMAPA:17247
     Name      : forelimb bud apical ectodermal ridge
     Starts At : TS19
     Ends At   : TS19
-    Parents   : [TH:00023, EMAPA:17246]
+    Parents   : [EMAPA:17246, TH:00023]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17247 has name [apical ectodermal ridge]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17247 has parents [TH:00023, EMAPA:17246]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17247 has parents [EMAPA:17246, TH:00023]
      3.  Different Synonyms - Referenced OBOComponent EMAPA:17247 has synonyms [AER]
 
    Modified OBOComponent 2004
@@ -37882,7 +37882,7 @@ C. MODIFIED COMPONENTS
     Name      : renal cortical interstitium
     Starts At : TS22
     Ends At   : TS28
-    Parents   : [EMAPA:17952, EMAPA:28518]
+    Parents   : [EMAPA:28518, EMAPA:17952]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -37956,7 +37956,7 @@ C. MODIFIED COMPONENTS
     Name      : trunk myocoele group
     Starts At : TS14
     Ends At   : TS19
-    Parents   : [EMAPA:16184, EMAPA:31134]
+    Parents   : [EMAPA:31134, EMAPA:16184]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -38286,12 +38286,12 @@ C. MODIFIED COMPONENTS
     Name      : telencephalic vesicle
     Starts At : TS15
     Ends At   : TS16
-    Parents   : [EMAPA:16652, TH:00035]
+    Parents   : [TH:00035, EMAPA:16652]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16653 has parents [EMAPA:16652, TH:00035]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16653 has parents [TH:00035, EMAPA:16652]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:16653 has synonyms [future lateral ventricle]
 
    Modified OBOComponent 2201
@@ -38311,13 +38311,13 @@ C. MODIFIED COMPONENTS
     Name      : central nervous system ganglion
     Starts At : TS15
     Ends At   : TS26
-    Parents   : [EMAPA:16470, TH:00269]
+    Parents   : [TH:00269, EMAPA:16470]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16658 has name [ganglion]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16658 has parents [EMAPA:16470, TH:00269]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16658 has parents [TH:00269, EMAPA:16470]
 
    Modified OBOComponent 2203
     ID        : EMAPA:16657
@@ -38678,12 +38678,12 @@ C. MODIFIED COMPONENTS
     Name      : 3rd ventricle
     Starts At : TS15
     Ends At   : TS16
-    Parents   : [EMAPA:16641, TH:00035]
+    Parents   : [TH:00035, EMAPA:16641]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
-     1.  Different Parents - Referenced OBOComponent EMAPA:16642 has parents [EMAPA:16641, TH:00035]
+     1.  Different Parents - Referenced OBOComponent EMAPA:16642 has parents [TH:00035, EMAPA:16641]
      2.  Different Synonyms - Referenced OBOComponent EMAPA:16642 has synonyms [diencephalic vesicle]
 
    Modified OBOComponent 2233
@@ -39785,13 +39785,13 @@ C. MODIFIED COMPONENTS
     Name      : lumbar vertebral pre-cartilage condensation
     Starts At : TS17
     Ends At   : TS19
-    Parents   : [TH:00031, EMAPA:17393]
+    Parents   : [EMAPA:17393, TH:00031]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17394 has name [vertebral pre-cartilage condensation]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17394 has parents [TH:00031, EMAPA:17393]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17394 has parents [EMAPA:17393, TH:00031]
 
    Modified OBOComponent 2324
     ID        : EMAPA:17396
@@ -39822,13 +39822,13 @@ C. MODIFIED COMPONENTS
     Name      : thoracic vertebral pre-cartilage condensation
     Starts At : TS16
     Ends At   : TS18
-    Parents   : [TH:00031, EMAPA:17396]
+    Parents   : [EMAPA:17396, TH:00031]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17398 has name [vertebral pre-cartilage condensation]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17398 has parents [TH:00031, EMAPA:17396]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17398 has parents [EMAPA:17396, TH:00031]
 
    Modified OBOComponent 2327
     ID        : EMAPA:26969
@@ -40099,13 +40099,13 @@ C. MODIFIED COMPONENTS
     Name      : left lung rudiment lobar bronchus
     Starts At : TS19
     Ends At   : TS19
-    Parents   : [EMAPA:16729, TH:00053]
+    Parents   : [TH:00053, EMAPA:16729]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:17388 has name [lobar bronchus]
-     2.  Different Parents - Referenced OBOComponent EMAPA:17388 has parents [EMAPA:16729, TH:00053]
+     2.  Different Parents - Referenced OBOComponent EMAPA:17388 has parents [TH:00053, EMAPA:16729]
 
    Modified OBOComponent 2350
     ID        : EMAPA:18270
@@ -40768,13 +40768,13 @@ C. MODIFIED COMPONENTS
     Name      : spinal ganglion
     Starts At : TS15
     Ends At   : TS26
-    Parents   : [EMAPA:16666, TH:00276]
+    Parents   : [TH:00276, EMAPA:16666]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
     Changed Property    : 
      1.  Different Name - Referenced OBOComponent EMAPA:16667 has name [ganglion]
-     2.  Different Parents - Referenced OBOComponent EMAPA:16667 has parents [EMAPA:16666, TH:00276]
+     2.  Different Parents - Referenced OBOComponent EMAPA:16667 has parents [TH:00276, EMAPA:16666]
 
    Modified OBOComponent 2405
     ID        : EMAPA:16668
@@ -40805,7 +40805,7 @@ C. MODIFIED COMPONENTS
     Name      : bend of immature loop of Henle
     Starts At : TS22
     Ends At   : TS24
-    Parents   : [EMAPA:31414, EMAPA:28049]
+    Parents   : [EMAPA:28049, EMAPA:31414]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED
@@ -40829,7 +40829,7 @@ C. MODIFIED COMPONENTS
     Name      : renal medullary capillary
     Starts At : TS23
     Ends At   : TS28
-    Parents   : [EMAPA:28457, EMAPA:28157, EMAPA:31469, EMAPA:31443]
+    Parents   : [EMAPA:31443, EMAPA:28457, EMAPA:28157, EMAPA:31469]
     Synonyms  : []
     Change Check Status : CHANGED
     Rules Check Status  : PASSED

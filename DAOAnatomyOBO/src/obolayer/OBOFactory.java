@@ -85,6 +85,8 @@ public abstract class OBOFactory {
     private static final String PROPERTY_SUMMARY_REPORT = "summaryreport";
     private static final String PROPERTY_SUMMARY_REPORT_PDF = "summaryreportpdf";
     private static final String PROPERTY_DEBUG = "debug";
+    private static final String PROPERTY_SPECIES = "species";
+    private static final String PROPERTY_PROJECT = "project";
 
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -98,52 +100,62 @@ public abstract class OBOFactory {
 
         OBOProperties properties = new OBOProperties(name);
         
-        String oboInFile = properties.getProperty(PROPERTY_OBO_IN_FILE, true);
-        String oboOutFile = properties.getProperty(PROPERTY_OBO_OUT_FILE, false);
-        String oboOutFileVersion = properties.getProperty(PROPERTY_OBO_OUT_FILE_VERSION, false);
-        String oboOutFileNameSpace = properties.getProperty(PROPERTY_OBO_OUT_FILE_NAMESPACE, false);
-        String oboOutFileSavedBy = properties.getProperty(PROPERTY_OBO_OUT_FILE_SAVED_BY, false);
-        String oboOutFileRemark = properties.getProperty(PROPERTY_OBO_OUT_FILE_REMARK, false);
-        String summaryReport = properties.getProperty(PROPERTY_SUMMARY_REPORT, false);
-        String summaryReportPdf = properties.getProperty(PROPERTY_SUMMARY_REPORT_PDF, false);
+        String filename = properties.getName();
+
+        String strOboInFile = properties.getProperty(PROPERTY_OBO_IN_FILE, true);
+        String strOboOutFile = properties.getProperty(PROPERTY_OBO_OUT_FILE, false);
+        String strOboOutFileVersion = properties.getProperty(PROPERTY_OBO_OUT_FILE_VERSION, false);
+        String strOboOutFileNameSpace = properties.getProperty(PROPERTY_OBO_OUT_FILE_NAMESPACE, false);
+        String strOboOutFileSavedBy = properties.getProperty(PROPERTY_OBO_OUT_FILE_SAVED_BY, false);
+        String strOboOutFileRemark = properties.getProperty(PROPERTY_OBO_OUT_FILE_REMARK, false);
+        String strSummaryReport = properties.getProperty(PROPERTY_SUMMARY_REPORT, false);
+        String strSummaryReportPdf = properties.getProperty(PROPERTY_SUMMARY_REPORT_PDF, false);
         String strDebug = properties.getProperty(PROPERTY_DEBUG, true);
+        String strSpecies = properties.getProperty(PROPERTY_SPECIES, true);
+        String strProject = properties.getProperty(PROPERTY_PROJECT, true);
 
         Boolean debug = false;
         
         if (strDebug.equals("true")) {
         	debug = true;
-        	System.out.println("====== ");
-        	System.out.println("DEBUG: oboinfile           : " + oboInFile);
-        	System.out.println("DEBUG: obooutfile          : " + oboOutFile);
-        	System.out.println("DEBUG: obooutfileversion   : " + oboOutFileVersion);
-        	System.out.println("DEBUG: obooutfilenamespace : " + oboOutFileNameSpace);
-        	System.out.println("DEBUG: obooutfilesavedby   : " + oboOutFileSavedBy);
-        	System.out.println("DEBUG: obooutfileremark    : " + oboOutFileRemark);
-        	System.out.println("DEBUG: summaryreport       : " + summaryReport);
-        	System.out.println("DEBUG: summaryreportpdf    : " + summaryReportPdf);
-        	System.out.println("DEBUG: debug               : " + strDebug);
-        	System.out.println("====== ");
+        	System.out.println("=====");
+        	System.out.println("DEBUG: OBO Properties File : " + filename);
+        	System.out.println("-----");
+        	System.out.println("     : oboinfile           : " + strOboInFile);
+        	System.out.println("     : obooutfile          : " + strOboOutFile);
+        	System.out.println("     : obooutfileversion   : " + strOboOutFileVersion);
+        	System.out.println("     : obooutfilenamespace : " + strOboOutFileNameSpace);
+        	System.out.println("     : obooutfilesavedby   : " + strOboOutFileSavedBy);
+        	System.out.println("     : obooutfileremark    : " + strOboOutFileRemark);
+        	System.out.println("     : summaryreport       : " + strSummaryReport);
+        	System.out.println("     : summaryreportpdf    : " + strSummaryReportPdf);
+        	System.out.println("     : debug               : " + strDebug);
+        	System.out.println("     : species             : " + strSpecies);
+        	System.out.println("     : project             : " + strProject);
+        	System.out.println("=====");
         }
         
         OBOFactory instance;
 
-        File infile = new File (oboInFile);
+        File infile = new File (strOboInFile);
         
         // If driver is specified, then load it to let it register itself with DriverManager.
         if (infile.exists()) {
-            instance = new FileOBOFactory(oboInFile, 
-            		oboOutFile, 
-            		oboOutFileVersion, 
-            		oboOutFileNameSpace, 
-            		oboOutFileSavedBy, 
-            		oboOutFileRemark, 
+            instance = new FileOBOFactory(strOboInFile, 
+            		strOboOutFile, 
+            		strOboOutFileVersion, 
+            		strOboOutFileNameSpace, 
+            		strOboOutFileSavedBy, 
+            		strOboOutFileRemark, 
             		debug, 
-            		summaryReport, 
-            		summaryReportPdf);
+            		strSummaryReport, 
+            		strSummaryReportPdf, 
+            		strSpecies, 
+            		strProject);
         }
         else {
             throw new OBOConfigurationException(
-                    "OBO File '" + oboInFile + "' does NOT exist!");
+                    "OBO File '" + strOboInFile + "' does NOT exist!");
         }
 
         return instance;
@@ -165,6 +177,8 @@ public abstract class OBOFactory {
     abstract String getOutputFileNameSpace();
     abstract String getOutputFileSavedBy();
     abstract String getOutputFileRemark();
+    abstract String getSpecies();
+    abstract String getProject();
     abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
     abstract void setRelations(ArrayList<Relation> arrayrellist);
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
@@ -195,6 +209,8 @@ class FileOBOFactory extends OBOFactory {
     private Boolean debug;
 	private String summaryReport;
 	private String summaryReportPdf;
+	private String species;
+	private String project;
 	
     private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
@@ -207,7 +223,9 @@ class FileOBOFactory extends OBOFactory {
     		String oboOutFileRemark, 
     		Boolean debug, 
     		String summaryReport, 
-    		String summaryReportPdf) {
+    		String summaryReportPdf, 
+    		String species, 
+    		String project) {
     
     	this.oboInFile = oboInFile;
     	this.oboOutFile = oboOutFile;
@@ -218,6 +236,8 @@ class FileOBOFactory extends OBOFactory {
         this.debug = debug;
         this.summaryReport = summaryReport;
         this.summaryReportPdf = summaryReportPdf;
+        this.species = species;
+        this.project = project;
     }
 
     ArrayList<OBOComponent> getComponents() throws OBOConfigurationException, IOException {
@@ -254,6 +274,12 @@ class FileOBOFactory extends OBOFactory {
     
     Boolean isDebug() {
     	return debug;
+    }
+    String getSpecies() {
+    	return species;
+    }
+    String getProject() {
+    	return project;
     }
     String getSummaryReport() {
     	return summaryReport;

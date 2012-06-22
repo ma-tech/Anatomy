@@ -88,6 +88,10 @@ public final class ComponentDAO {
         "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
         "FROM ANA_OBO_COMPONENT ";
     
+    private static final String SQL_LIST_ALL_ORDER_BY_EMAPA =
+        "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
+        "FROM ANA_OBO_COMPONENT ";
+
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT " +
         "(AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE) " +
@@ -165,6 +169,14 @@ public final class ComponentDAO {
     public List<Component> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns a list of ALL components, otherwise null.
+     */
+    public List<Component> listAllOrderByEMAPA() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_EMAPA);
     }
     
     /*

@@ -43,29 +43,24 @@ import obolayer.ComponentOBO;
 import obolayer.OBOFactory;
 import obolayer.OBOException;
 
+import daolayer.DAOFactory;
+
+
 public class ListOBOComponentsFromOBOFile {
 
     // Properties ---------------------------------------------------------------------------------
     // global variables
     private ArrayList<OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     
-    private String inputFileName;
     private String inputFileContents;
-    private String outputReportName;
-    private String outputReportPDFName;
     
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromOBOFile() throws IOException {
+    public ListOBOComponentsFromOBOFile(DAOFactory daofactory, OBOFactory obofactory) throws IOException {
     	
     	try {
-            OBOFactory obofactory = OBOFactory.getInstance("file");
-
             ComponentOBO componentOBO = obofactory.getComponentOBO();
             
-            inputFileName = obofactory.getComponentOBO().inputFile();
             inputFileContents = obofactory.getComponentOBO().inputFileContents();
-            outputReportName = obofactory.getComponentOBO().summaryReport();
-            outputReportPDFName = obofactory.getComponentOBO().summaryReportPdf();
             
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
@@ -89,14 +84,5 @@ public class ListOBOComponentsFromOBOFile {
     }
     public String getInputFileContents() {
         return inputFileContents;
-    }
-    public String getInputFileName() {
-        return inputFileName;
-    }
-    public String getOutputReportName() {
-        return outputReportName;
-    }
-    public String getOutputReportPDFName() {
-        return outputReportPDFName;
     }
 }

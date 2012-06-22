@@ -39,38 +39,47 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import app.RunOBOLoadFileIntoComponentsAndValidate;
+import obolayer.OBOFactory;
 
-public class MainOBOLoadFileIntoComponentsAndValidate{
+import daolayer.DAOFactory;
+
+
+import routines.LoadOBOFileIntoComponentsTablesAndValidate;
+import routines.RunOBOCheckComponentsOrdering;
+
+
+public class MainLoadOBOFileIntoComponentsTablesAndValidate{
 	/*
 	 * Main Class
 	 */
     public static void main(String[] args) throws Exception {
 
     	long startTime = System.currentTimeMillis();
-    	
     	Date startDate = new Date();
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-
-        System.out.println("=========   ----------------------------------------");
-        System.out.println("EXECUTING - MainOBOLoadFileIntoComponentsAndValidate.java on " + parsed.toString());
-        System.out.println("=========   ----------------------------------------");
+        System.out.println("=========   ----------------------------------------------");
+        System.out.println("EXECUTING - MainLoadOBOFileIntoComponentsTablesAndValidate.java on " + parsed.toString());
+        System.out.println("=========   ----------------------------------------------");
         System.out.println("");
-
         /*
          * MAINLINE
          */
-        RunOBOLoadFileIntoComponentsAndValidate.run();
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
+
+        LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory, obofactory);
+        
+        RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-
         System.out.println("");
-        System.out.println("=========   ----------------------------------------");
-        System.out.println("DONE      - MainOBOLoadFileIntoComponentsAndValidate.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   ----------------------------------------");
-
+        System.out.println("=========   ----------------------------------------------");
+        System.out.println("DONE      - MainLoadOBOFileIntoComponentsTablesAndValidate.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   ----------------------------------------------");
     }
 }

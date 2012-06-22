@@ -105,4 +105,12 @@ public class OBOProperties {
 
         return property;
     }
+
+    /*
+     * Returns the Name of the Input File containing the OBO Properties
+     */
+    public String getName() {
+        
+        return PROPERTIES_FILE;
+    }
 }

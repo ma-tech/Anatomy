@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOTest.java
+* Title:        MainOBOCheckComponentsReferenceTree.java
 *
 * Date:         2012
 *
@@ -37,40 +37,37 @@ import java.util.Date;
 
 import obolayer.OBOFactory;
 
-import app.RunOBOTest;
+import daolayer.DAOFactory;
 
-public class MainOBOTest {
-	/*
-	 * Main Class
-	 */
-    public static void main(String[] args) throws Exception {
+import routines.CheckComponentsTablesOrdering;
+
+
+public class MainCheckComponentsTablesOrdering {
+
+	public static void main(String[] args) throws Exception {
 
     	long startTime = System.currentTimeMillis();
-    	
     	Date startDate = new Date();
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-
-        System.out.println("=========  ------------");
-        System.out.println("EXECUTING - MainOBOTest.java on " + parsed.toString());
-        System.out.println("=========  ------------");
+        System.out.println("=========   ---------------------------------");
+        System.out.println("EXECUTING - MainCheckComponentsTablesOrdering.java on " + parsed.toString());
+        System.out.println("=========   ---------------------------------");
         System.out.println("");
         
-        /*
-         * MAINLINE
-         */
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
         // Obtain OBOFactory.
         OBOFactory obofactory = OBOFactory.getInstance("file");
 
-        RunOBOTest.run(obofactory);
-
+        CheckComponentsTablesOrdering.run(daofactory, obofactory);
+        
+        System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-
-        System.out.println("");
-        System.out.println("====       ------------");
-        System.out.println("DONE ------ MainOBOTest.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ------------");
+        System.out.println("=========   ---------------------------------");
+        System.out.println("DONE      - MainCheckComponentsTablesOrdering.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   ---------------------------------");
     }
 }

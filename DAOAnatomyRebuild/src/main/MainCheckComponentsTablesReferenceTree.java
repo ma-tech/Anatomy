@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOCheckComponentsReferenceTree.java
+* Title:        MainCheckComponentsTablesReferenceTree.java
 *
 * Date:         2012
 *
@@ -35,9 +35,14 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import app.RunOBOCheckComponentsReferenceTree;
+import obolayer.OBOFactory;
 
-public class MainOBOCheckComponentsReferenceTreeMOUSE {
+import daolayer.DAOFactory;
+
+import routines.CheckComponentsTablesReferenceTree;
+
+
+public class MainCheckComponentsTablesReferenceTree {
 
 	public static void main(String[] args) throws Exception {
 
@@ -46,18 +51,23 @@ public class MainOBOCheckComponentsReferenceTreeMOUSE {
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-        System.out.println("=========   ----------------------------------------");
-        System.out.println("EXECUTING - MainOBOCheckComponentsReferenceTreeMOUSE.java on " + parsed.toString());
-        System.out.println("=========   ----------------------------------------");
+        System.out.println("=========   -------------------------------------");
+        System.out.println("EXECUTING - MainCheckComponentsTablesReferenceTree.java on " + parsed.toString());
+        System.out.println("=========   -------------------------------------");
         System.out.println("");
         
-        RunOBOCheckComponentsReferenceTree.run("mouse");
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
+
+        CheckComponentsTablesReferenceTree.run(daofactory, obofactory);
         
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-        System.out.println("=========   ----------------------------------------");
-        System.out.println("DONE      - MainOBOCheckComponentsReferenceTreeMOUSE.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   ----------------------------------------");
+        System.out.println("=========   -------------------------------------");
+        System.out.println("DONE      - MainCheckComponentsTablesReferenceTree.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   -------------------------------------");
     }
 }

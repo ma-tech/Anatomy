@@ -44,32 +44,43 @@ import obomodel.OBOComponent;
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
 
+import daolayer.DAOFactory;
+
 import routines.ListOBOComponentsFromComponentsTables;
+
 
 public class ExtractAndWriteOBOFromComponentsTables {
 	/*
 	 * run Method
 	 */
-    public static void run() throws Exception {
+    public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("file");
         ComponentOBO componentOBO = obofactory.getComponentOBO();
         
         //import database components table contents into OBOComponent format
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables();
+        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
         
         // Write extracted OBOComponents into Obo File Format
         componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
-        componentOBO.createTemplateRelationList();
 
+        if ( "mouse".equals(obofactory.getComponentOBO().species())) {
+            componentOBO.createTemplateRelationList();
+        }
+        if ( "human".equals(obofactory.getComponentOBO().species())) {
+            componentOBO.createHumanRelationList();
+        }
+        
         if ( componentOBO.writeAll() ) {
-            System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile());
+        	if ( obofactory.getComponentOBO().debug() ) {
+                System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project());
+        	}
         }
         else {
-            System.out.println("Obo File FAILED to write to " + componentOBO.outputFile());
+        	if ( obofactory.getComponentOBO().debug() ) {
+                System.out.println("Obo File FAILED written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project());
+        	}
         }
     }
 }

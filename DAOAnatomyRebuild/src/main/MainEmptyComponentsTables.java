@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOExtractOBOFromExistingDatabase.java
+* Title:        MainEmptyComponentsTables.java
 *
 * Date:         2012
 *
@@ -18,8 +18,8 @@
 *
 * Version: 1
 *
-* Description:  A Main Executable Class 
-* 
+* Description:  A Main Class 
+*
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,9 +35,13 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import routines.ExtractAndWriteOBOFromExistingDatabase;
+import routines.EmptyComponentsTables;
 
-public class MainOBOExtractOBOFromExistingDatabase {
+import obolayer.OBOFactory;
+import daolayer.DAOFactory;
+
+
+public class MainEmptyComponentsTables {
 	/*
 	 * Main Class
 	 */
@@ -48,19 +52,24 @@ public class MainOBOExtractOBOFromExistingDatabase {
     	String dateString = startDate.toString();
     	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
     	Date parsed = format.parse(dateString);
-        System.out.println("=========   -------------------------------------");
-        System.out.println("EXECUTING - MainOBOExtractOBOFromExistingDatabase.java on " + parsed.toString());
-        System.out.println("=========   -------------------------------------");
+        System.out.println("=========   -------------------------");
+        System.out.println("EXECUTING - MainEmptyComponentsTables.java on " + parsed.toString());
+        System.out.println("=========   -------------------------");
         System.out.println("");
 
-        ExtractAndWriteOBOFromExistingDatabase.run();
+        // Obtain DAOFactory.
+        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        // Obtain OBOFactory.
+        OBOFactory obofactory = OBOFactory.getInstance("file");
 
+        EmptyComponentsTables.run(daofactory, obofactory);
+        
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
-        System.out.println("=========   -------------------------------------");
-        System.out.println("DONE ------ MainOBOExtractOBOFromExistingDatabase.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   -------------------------------------");
-        
+        System.out.println("=========   -------------------------");
+        System.out.println("DONE      - MainEmptyComponentsTables.java took " + duration / 1000 + " seconds");
+        System.out.println("=========   -------------------------");
+
     }
 }

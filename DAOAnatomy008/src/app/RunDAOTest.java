@@ -48,29 +48,25 @@ public class RunDAOTest {
 	/*
 	 * run Method
 	 */
-	public static void run () throws IOException {
+	public static void run (DAOFactory daofactory) throws IOException {
 
 		try {
-	        // Obtain DAOFactory.
-	        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
-
 	        // Obtain DAOs.
 	        NodeDAO nodeDAO = daofactory.getNodeDAO();
 
 	        // Find Node with OID = 33
-	        
 	        int oid = 33;
 	        
-	        
 	        if ( nodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
-	            System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!");
+
+	        	System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!");
 		        Node node = nodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
 	            System.out.println(node.toString());
 	        }
 	        else {
-	            System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!");
+	            
+	        	System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!");
 	        }
-
 		}
 		catch (DAOException daoe) {
 			daoe.printStackTrace();

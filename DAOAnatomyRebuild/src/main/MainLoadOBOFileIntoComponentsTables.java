@@ -60,9 +60,9 @@ public class MainLoadOBOFileIntoComponentsTables {
         System.out.println("");
 
         // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        DAOFactory daofactory = DAOFactory.getInstance("humanAnatomy008LocalhostDebug");
         // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("file");
+        OBOFactory obofactory = OBOFactory.getInstance("humanOBOfile");
 
         LoadOBOFileIntoComponentsTables.run(daofactory, obofactory);
         

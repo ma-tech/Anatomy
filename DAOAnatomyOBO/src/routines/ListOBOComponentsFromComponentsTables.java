@@ -36,20 +36,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//import daolayer.ComponentAlternativeDAO;
 import daolayer.ComponentDAO;
 import daolayer.ComponentRelationshipDAO;
+import daolayer.ComponentCommentDAO;
 import daolayer.ComponentOrderDAO;
 import daolayer.ComponentSynonymDAO;
-import daolayer.ComponentCommentDAO;
+import daolayer.ComponentAlternativeDAO;
+
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
 import daomodel.Component;
 import daomodel.ComponentRelationship;
+import daomodel.ComponentComment;
 import daomodel.ComponentOrder;
 import daomodel.ComponentSynonym;
-import daomodel.ComponentComment;
+import daomodel.ComponentAlternative;
 
 import obolayer.OBOFactory;
 
@@ -76,7 +78,7 @@ public class ListOBOComponentsFromComponentsTables {
             ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
             ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
             ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
-            //ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+            ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
 
             ArrayList<Component> components = (ArrayList<Component>) componentDAO.listAllOrderByEMAPA(); 
             Iterator<Component> iteratorComponent = components.iterator();
@@ -176,6 +178,21 @@ public class ListOBOComponentsFromComponentsTables {
 
                   		if ( !"".equals(componentsynonym.getText()) ) {
                       		obocomponent.addSynonym(componentsynonym.getText());
+                  		}
+                  	}
+
+               		// Get Alternative Ids for this Component
+               		ArrayList<ComponentAlternative> componentalternatives = 
+               				(ArrayList<ComponentAlternative>) componentalternativeDAO.listByOboId(component.getId());
+
+                  	Iterator<ComponentAlternative> iteratorComponentAlternative = componentalternatives.iterator();
+
+                  	// Add Synonyms to component
+               		while (iteratorComponentAlternative.hasNext()) {
+               			ComponentAlternative componentalternative = iteratorComponentAlternative.next();
+
+                  		if ( !"".equals(componentalternative.getAltId()) ) {
+                      		obocomponent.addAlternative(componentalternative.getAltId());
                   		}
                   	}
 

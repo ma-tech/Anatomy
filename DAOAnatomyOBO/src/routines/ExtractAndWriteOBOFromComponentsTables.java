@@ -66,7 +66,7 @@ public class ExtractAndWriteOBOFromComponentsTables {
         componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
 
         if ( "mouse".equals(obofactory.getComponentOBO().species())) {
-            componentOBO.createTemplateRelationList();
+            componentOBO.createTemplateRelationList(daofactory);
         }
         if ( "human".equals(obofactory.getComponentOBO().species())) {
             componentOBO.createHumanRelationList();

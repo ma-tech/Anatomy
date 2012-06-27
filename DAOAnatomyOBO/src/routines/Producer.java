@@ -226,6 +226,11 @@ public class Producer {
                             		obocomponentList.get(i).getSynonyms().get(j) + "\" []\n");
                         }
 
+                        for (int k=0; k<obocomponentList.get(i).getAlternativeIds().size(); k++) {
+                            outputFile.write("alt_id: " +
+                            		obocomponentList.get(i).getAlternativeIds().get(k) + "\n");
+                        }
+
                         if (obocomponentList.get(i).getIsGroup()) {
                             outputFile.write("relationship: is_a group_term\n");
                         }

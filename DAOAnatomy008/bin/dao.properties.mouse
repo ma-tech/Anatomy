@@ -1,7 +1,0 @@
-anatomy008.url = jdbc:mysql://localhost:3306/anatomy008
-anatomy008.driver = com.mysql.jdbc.Driver
-anatomy008.username = root
-anatomy008.password = banana
-anatomy008.debug = false
-anatomy008.update = true
-anatomy008.sqloutput = 

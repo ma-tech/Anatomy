@@ -300,7 +300,7 @@ public final class ComponentOBO {
     /*
      * Add the extra OBO components to the component list for Stages, Relationships etc
      */
-    public void createTemplateRelationList() throws OBOException {
+    public void createTemplateRelationList(DAOFactory daofactory) throws OBOException {
     	
         ArrayList<Relation> oborelationList = new ArrayList<Relation>();
         OBOComponent obocomponent;
@@ -309,12 +309,8 @@ public final class ComponentOBO {
         Relation oborelation;
 
     	try {
-            // Obtain DAOFactory.
-            DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-            //System.out.println("DAOFactory successfully obtained: " + anatomy008);
-
             // Obtain DAOs.
-            StageDAO stageDAO = anatomy008.getStageDAO();
+            StageDAO stageDAO = daofactory.getStageDAO();
 
             // group obocomponents----------------------------------------------------------------------
             obocomponent = new OBOComponent();

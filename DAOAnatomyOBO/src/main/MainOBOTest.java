@@ -37,6 +37,8 @@ import java.util.Date;
 
 import obolayer.OBOFactory;
 
+import daolayer.DAOFactory;
+
 import app.RunOBOTest;
 
 public class MainOBOTest {
@@ -61,9 +63,10 @@ public class MainOBOTest {
          * MAINLINE
          */
         // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("file");
+        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
 
-        RunOBOTest.run(obofactory);
+        RunOBOTest.run(obofactory, daofactory);
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

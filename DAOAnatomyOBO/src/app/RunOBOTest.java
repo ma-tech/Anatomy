@@ -45,11 +45,14 @@ import obolayer.OBOException;
 
 import obolayer.ComponentOBO;
 
+import daolayer.DAOFactory;
+
+
 public class RunOBOTest {
 	/*
 	 * run Method
 	 */
-	public static void run (OBOFactory obofactory) throws IOException {
+	public static void run (OBOFactory obofactory, DAOFactory daofactory) throws IOException {
 
 		try {
 	        // Obtain DAOs.
@@ -63,7 +66,7 @@ public class RunOBOTest {
 
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
-	        componentOBO.createTemplateRelationList();
+	        componentOBO.createTemplateRelationList(daofactory);
 	        
 	        Boolean isProcessed = componentOBO.writeAll();
 

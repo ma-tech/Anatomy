@@ -58,9 +58,9 @@ public class MainExtractAndWriteOBOFromComponentsTables {
         System.out.println("");
 
         // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("anatomy008");
+        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
         // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("file");
+        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
 
         ExtractAndWriteOBOFromComponentsTables.run(daofactory, obofactory);
 

@@ -72,28 +72,28 @@ public final class RelationshipDAO {
     private static final String SQL_FIND_BY_OID =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
         "FROM ANA_RELATIONSHIP " +
-        "WHERE REL_OID = ?";
+        "WHERE REL_OID = ? ";
     
     private static final String SQL_LIST_BY_CHILD_FK =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
         "FROM ANA_RELATIONSHIP " +
-        "WHERE REL_CHILD_FK = ?";
+        "WHERE REL_CHILD_FK = ? ";
     
     private static final String SQL_LIST_BY_PARENT_FK =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
         "FROM ANA_RELATIONSHIP " +
-        "WHERE REL_PARENT_FK = ?";
+        "WHERE REL_PARENT_FK = ? ";
     
     private static final String SQL_LIST_BY_PARENT_FK_AND_CHILD_FK =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
         "FROM ANA_RELATIONSHIP " +
         "WHERE REL_PARENT_FK = ? " +
-        "AND REL_CHILD_FK = ?";
+        "AND REL_CHILD_FK = ? ";
         
     private static final String SQL_LIST_BY_RELATIONSHIP_TYPE_FK =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
         "FROM ANA_RELATIONSHIP " +
-        "WHERE REL_RELATIONSHIP_TYPE_FK = ?";
+        "WHERE REL_RELATIONSHIP_TYPE_FK = ? ";
         
     private static final String SQL_LIST_ALL =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
@@ -109,16 +109,16 @@ public final class RelationshipDAO {
         "REL_RELATIONSHIP_TYPE_FK = ?, " +
         "REL_CHILD_FK = ?, " +
         "REL_PARENT_FK = ? " + 
-        "WHERE REL_OID = ?";
+        "WHERE REL_OID = ? ";
     
     private static final String SQL_DELETE =
         "DELETE FROM ANA_RELATIONSHIP " +
-        "WHERE REL_OID = ?";
+        "WHERE REL_OID = ? ";
 
     private static final String SQL_EXIST_OID =
         "SELECT REL_OID " +
         "FROM ANA_RELATIONSHIP " +
-        "WHERE REL_OID = ?";
+        "WHERE REL_OID = ? ";
 
     
     // Vars ---------------------------------------------------------------------------------------

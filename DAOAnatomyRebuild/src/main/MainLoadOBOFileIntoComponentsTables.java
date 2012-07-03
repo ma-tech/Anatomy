@@ -40,7 +40,7 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import routines.LoadOBOFileIntoComponentsTables;
+import routinesaggregated.LoadOBOFileIntoComponentsTables;
 
 
 public class MainLoadOBOFileIntoComponentsTables {

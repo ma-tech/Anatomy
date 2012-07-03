@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import routines.CheckDatabaseReferenceTree;
+import routinesaggregated.CheckDatabaseReferenceTree;
 
 import obolayer.OBOFactory;
 

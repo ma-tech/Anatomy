@@ -32,11 +32,14 @@
 package obomodel;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import daomodel.OBOFile;
 
 public class OBOComponent {
 
@@ -1801,6 +1804,24 @@ public class OBOComponent {
     public void addChildOf( String childOf ) {
         this.childOfs.add( childOf ); 
     }
+    public int getChildOfIndex( String childOf ) {
+    	
+        Iterator<String> iteratorChildOfs = this.getChildOfs().iterator();
+        
+        int index = -1;
+
+        while (iteratorChildOfs.hasNext()) {
+        	
+        	String thisChildOf = iteratorChildOfs.next();
+        	index++;
+
+        	if ( thisChildOf.equals(childOf) ) {
+        		
+        		return index;
+        	}
+        }
+        return -1;
+    }
     public void addChildOfType( String childOfType ) {
         this.childOfTypes.add( childOfType ); 
     }
@@ -1968,56 +1989,107 @@ public class OBOComponent {
         if ( !this.getID().equals(obocomponent.getID()) ) {
         	
             arrDifferenceWith.add( "Different ID - Referenced OBOComponent " +
-                   "has ID [" + obocomponent.getID() + "]" );
+                   "has ID [" + this.getID() + "]" );
         }
 
         if ( !this.getName().equals(obocomponent.getName())) {
         	
             arrDifferenceWith.add( "Different Name - Referenced OBOComponent " +
-                    obocomponent.getID() + " has name [" +
-                    obocomponent.getName() + "]" );
+            		this.getID() + " has name [" +
+            		this.getName() + "]" );
         }
 
         if ( this.getStartSequence() != obocomponent.getStartSequence() ) {
         	
             arrDifferenceWith.add( "Different Start Stage - Referenced " +
-                    "OBOComponent " + obocomponent.getID() + " has Start Stage " +
-                    obocomponent.getStart() );
+                    "OBOComponent " + this.getID() + " has Start Stage " +
+                    this.getStart() );
         }
 
         if ( this.getEndSequence() != obocomponent.getEndSequence() ) {
         	
             arrDifferenceWith.add( "Different End Stage - Referenced " +
-                    "OBOComponent " + obocomponent.getID() + " has End Stage " +
-                    obocomponent.getEnd() );
+                    "OBOComponent " + this.getID() + " has End Stage " +
+                    this.getEnd() );
         }
 
+       	if (this.getID().equals("EMAPA:18305")) {
+            System.out.println("OBOComponent.java");
+            System.out.println("------------");
+            System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
+            System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
+            System.out.println("------------");
+       	}
+       	
+       	ArrayList<String> newParents = new ArrayList<String>();
+        //System.out.println("Finding NEW PARENTS");
+        String thisChildOf = "";
+        String thatChildOf = "";
+        
+        Iterator<String> iteratorThisChildOfs = this.getChildOfs().iterator();
+        Iterator<String> iteratorThatChildOfs = obocomponent.getChildOfs().iterator();
+
+        if ( this.getChildOfs().size() > 0 && 
+        	obocomponent.getChildOfs().size() > 0 ) {
+        	
+            while (iteratorThisChildOfs.hasNext()) {
+            	
+            	thisChildOf = iteratorThisChildOfs.next();
+            	
+            	while ( iteratorThatChildOfs.hasNext() ){
+
+                	thatChildOf = iteratorThatChildOfs.next();
+
+                	if ( thisChildOf.equals(thatChildOf) ) {
+
+                        //System.out.println("MATCH Found!");
+                        //System.out.println("thisChildOf = " + thisChildOf);
+                        //System.out.println("thatChildOf = " + thatChildOf);
+                        newParents.add(thisChildOf);
+                	}
+                	else {
+                		
+                        //System.out.println("MIS-MATCH Found!");
+                        //System.out.println("thisChildOf = " + thisChildOf);
+                        //System.out.println("thatChildOf = " + thatChildOf);
+                	}
+            	}
+            	
+            	iteratorThatChildOfs = obocomponent.getChildOfs().iterator();
+          	}
+
+            if (  newParents.size() > 0 ) {
+            	
+            	arrDifferenceWith.add( "New Parents - Referenced OBOComponent " +
+            			this.getID() + " New has parents " + 
+                        newParents.toString());
+            }
+        }
+        
         if ( !obocomponent.getChildOfs().containsAll(this.getChildOfs()) ) {
+
         	/*
-        	if (this.getID().equals("EMAPA:16172")) {
+           	if (this.getID().equals("EMAPA:18305")) {
                 System.out.println("HERE!");
-                System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
-                System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
-        	}
-        	*/
-            arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
-                    obocomponent.getID() + " has parents " + 
-                    this.getChildOfs());
+           	}
+           	*/
+        	arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
+        			this.getID() + " has parents " + 
+                    this.getChildOfs().toString());
+                    //obocomponent.getChildOfs().toString());
         }
 
         if ( !this.getChildOfs().containsAll(obocomponent.getChildOfs()) ) {
            	
         	/*
-           	if (this.getID().equals("EMAPA:16172")) {
+           	if (this.getID().equals("EMAPA:18305")) {
                 System.out.println("THERE!");
-                System.out.println("this.getChildOfs().toString() " + this.getChildOfs().toString());
-                System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
            	}
            	*/
-
             arrDifferenceWith.add( "Different Parents - Referenced OBOComponent " +
-                       obocomponent.getID() + " has parents " + 
-                       obocomponent.getChildOfs().toString());
+            		this.getID() + " has parents " + 
+                       this.getChildOfs().toString());
+                       //obocomponent.getChildOfs().toString());
         }
 
         if ( !this.getIsPrimary() == obocomponent.getIsPrimary() ) {
@@ -2040,8 +2112,8 @@ public class OBOComponent {
              !obocomponent.getSynonyms().containsAll(this.getSynonyms()) ) {
         	
             arrDifferenceWith.add( "Different Synonyms - Referenced OBOComponent " + 
-                    obocomponent.getID() + " has synonyms " + 
-                    obocomponent.getSynonyms().toString() );
+            		this.getID() + " has synonyms " + 
+            		this.getSynonyms().toString() );
         }
 
         arrDiffOrder = this.compareOrderComments(obocomponent, arrDiffOrder);

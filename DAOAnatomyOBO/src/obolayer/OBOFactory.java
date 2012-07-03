@@ -71,8 +71,8 @@ import java.util.ArrayList;
 import obomodel.OBOComponent;
 import obomodel.Relation;
 
-import routines.Parser;
-import routines.Producer;
+import routinesbase.Parser;
+import routinesbase.Producer;
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
@@ -119,19 +119,19 @@ public abstract class OBOFactory {
         if (strDebug.equals("true")) {
         	debug = true;
         	System.out.println("=====");
-        	System.out.println("DEBUG: OBO Properties File : " + filename);
+        	System.out.println("DEBUG : OBO Properties File : " + filename);
         	System.out.println("-----");
-        	System.out.println("     : oboinfile           : " + strOboInFile);
-        	System.out.println("     : obooutfile          : " + strOboOutFile);
-        	System.out.println("     : obooutfileversion   : " + strOboOutFileVersion);
-        	System.out.println("     : obooutfilenamespace : " + strOboOutFileNameSpace);
-        	System.out.println("     : obooutfilesavedby   : " + strOboOutFileSavedBy);
-        	System.out.println("     : obooutfileremark    : " + strOboOutFileRemark);
-        	System.out.println("     : summaryreport       : " + strSummaryReport);
-        	System.out.println("     : summaryreportpdf    : " + strSummaryReportPdf);
-        	System.out.println("     : debug               : " + strDebug);
-        	System.out.println("     : species             : " + strSpecies);
-        	System.out.println("     : project             : " + strProject);
+        	System.out.println("      : oboinfile           : " + strOboInFile);
+        	System.out.println("      : obooutfile          : " + strOboOutFile);
+        	System.out.println("      : obooutfileversion   : " + strOboOutFileVersion);
+        	System.out.println("      : obooutfilenamespace : " + strOboOutFileNameSpace);
+        	System.out.println("      : obooutfilesavedby   : " + strOboOutFileSavedBy);
+        	System.out.println("      : obooutfileremark    : " + strOboOutFileRemark);
+        	System.out.println("      : summaryreport       : " + strSummaryReport);
+        	System.out.println("      : summaryreportpdf    : " + strSummaryReportPdf);
+        	System.out.println("      : debug               : " + strDebug);
+        	System.out.println("      : species             : " + strSpecies);
+        	System.out.println("      : project             : " + strProject);
         	System.out.println("=====");
         }
         
@@ -243,7 +243,11 @@ class FileOBOFactory extends OBOFactory {
     ArrayList<OBOComponent> getComponents() throws OBOConfigurationException, IOException {
     	
     	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
-    	Parser parser = new Parser(this.oboInFile);
+    	
+    	Parser parser = new Parser(
+    			this.debug, 
+    			this.oboInFile);
+    	
     	componentList = parser.getComponents();
     	
     	return componentList;
@@ -251,7 +255,10 @@ class FileOBOFactory extends OBOFactory {
     
     String getComponentContent() throws OBOConfigurationException, IOException {
     	
-    	Parser parser = new Parser(this.oboInFile);
+    	Parser parser = new Parser(
+    			this.debug, 
+    			this.oboInFile);
+    	
     	String componentContent = parser.getFileContent();
     	
     	return componentContent;
@@ -259,7 +266,9 @@ class FileOBOFactory extends OBOFactory {
     
     Boolean writeComponents() throws OBOConfigurationException {
     	
-    	Producer producer = new Producer(this.oboOutFile, 
+    	Producer producer = new Producer(
+    			this.debug, 
+    			this.oboOutFile, 
     			this.oboOutFileVersion,
     			this.oboOutFileNameSpace,
     			this.oboOutFileSavedBy,

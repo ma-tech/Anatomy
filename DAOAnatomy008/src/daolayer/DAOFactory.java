@@ -142,15 +142,15 @@ public abstract class DAOFactory {
         if (strDebug.equals("true")) {
         	debug = true;
         	System.out.println("=====");
-        	System.out.println("DEBUG: DAO Properties File : " + filename);
+        	System.out.println("DEBUG : DAO Properties File : " + filename);
         	System.out.println("-----");
-        	System.out.println("     : url                 : " + url);
-        	System.out.println("     : driverClassName     : " + driverClassName);
-        	System.out.println("     : username            : " + username);
-        	System.out.println("     : password            : " + password);
-        	System.out.println("     : debug               : " + strDebug);
-        	System.out.println("     : update              : " + strUpdate);
-        	System.out.println("     : sqloutput           : " + sqloutput);
+        	System.out.println("      : url                 : " + url);
+        	System.out.println("      : driverClassName     : " + driverClassName);
+        	System.out.println("      : username            : " + username);
+        	System.out.println("      : password            : " + password);
+        	System.out.println("      : debug               : " + strDebug);
+        	System.out.println("      : update              : " + strUpdate);
+        	System.out.println("      : sqloutput           : " + sqloutput);
         }
         
         if (debug ) {
@@ -161,16 +161,16 @@ public abstract class DAOFactory {
         		results = ExecuteCommand.execute(commandString1);
 
             	System.out.println("-----");
-            	System.out.println("       Empty SQL Command Log File");
+            	System.out.println("        Empty SQL Command Log File");
 
-           		System.out.println("       Command: " + commandString1);
+           		System.out.println("        Command: " + commandString1);
 
            		Iterator<String> iteratorresults = results.iterator();
 
               	while (iteratorresults.hasNext()) {
               		String result = iteratorresults.next();
 
-               		System.out.println("                " + result.toString());
+               		System.out.println("                 " + result.toString());
               	}
             }
         	System.out.println("=====");

@@ -44,8 +44,8 @@ import obolayer.OBOFactory;
 import daolayer.DAOFactory;
 
 
-import routines.LoadOBOFileIntoComponentsTablesAndValidate;
-import routines.RunOBOCheckComponentsOrdering;
+import routinesaggregated.LoadOBOFileIntoComponentsTablesAndValidate;
+import routinesaggregated.RunOBOCheckComponentsOrdering;
 
 
 public class MainLoadOBOFileIntoComponentsTablesAndValidate{
@@ -67,7 +67,7 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
          * MAINLINE
          */
         // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
+        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008Localhost");
         // Obtain OBOFactory.
         OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
 

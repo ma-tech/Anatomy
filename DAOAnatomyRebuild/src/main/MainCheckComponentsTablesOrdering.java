@@ -39,7 +39,7 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import routines.CheckComponentsTablesOrdering;
+import routinesaggregated.CheckComponentsTablesOrdering;
 
 
 public class MainCheckComponentsTablesOrdering {

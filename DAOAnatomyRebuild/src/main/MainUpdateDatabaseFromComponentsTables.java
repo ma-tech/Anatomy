@@ -1,6 +1,6 @@
-/*
+	/*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+ls* Project:      DAOAnatomyRebuild
 *
 * Title:        MainUpdateDatabaseFromComponentsTables.java
 *
@@ -41,7 +41,7 @@ import java.util.Date;
 
 import obolayer.OBOFactory;
 
-import routines.UpdateDatabaseFromComponentsTables;
+import routinesaggregated.UpdateDatabaseFromComponentsTables;
 
 import daolayer.DAOFactory;
 
@@ -67,7 +67,7 @@ public class MainUpdateDatabaseFromComponentsTables{
         // Obtain DAOFactory.
         DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
         // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfileDebug");
 
         UpdateDatabaseFromComponentsTables.run(daofactory, obofactory);
 

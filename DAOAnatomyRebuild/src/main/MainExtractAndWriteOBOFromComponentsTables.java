@@ -38,7 +38,8 @@ import java.util.Date;
 import obolayer.OBOFactory;
 import daolayer.DAOFactory;
 
-import routines.ExtractAndWriteOBOFromComponentsTables;
+import routinesaggregated.ExtractAndWriteOBOFromComponentsTables;
+
 
 public class MainExtractAndWriteOBOFromComponentsTables {
 	/*

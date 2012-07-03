@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+	* Project:      DAOAnatomyRebuild
 *
 * Title:        MainExtractAndWriteOBOFromExistingDatabase.java
 *
@@ -38,7 +38,8 @@ import java.util.Date;
 import obolayer.OBOFactory;
 import daolayer.DAOFactory;
 
-import routines.ExtractAndWriteOBOFromExistingDatabase;
+import routinesaggregated.ExtractAndWriteOBOFromExistingDatabase;
+
 
 public class MainExtractAndWriteOBOFromExistingDatabase {
 	/*
@@ -59,7 +60,7 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         // Obtain DAOFactory.
         DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
         // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfileDebug");
 
         ExtractAndWriteOBOFromExistingDatabase.run(daofactory, obofactory);
 

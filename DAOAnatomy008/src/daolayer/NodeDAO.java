@@ -111,21 +111,21 @@ public final class NodeDAO {
         "ANO_IS_GROUP = ?, " +
         "ANO_PUBLIC_ID = ?, " +
         "ANO_DESCRIPTION = ? " + 
-        "WHERE ANO_OID = ?";
+        "WHERE ANO_OID = ? ";
     
     private static final String SQL_DELETE =
         "DELETE FROM ANA_NODE " +
-        "WHERE ANO_OID = ?";
+        "WHERE ANO_OID = ? ";
 
     private static final String SQL_EXIST_OID =
         "SELECT ANO_OID " +
         "FROM ANA_NODE " +
-        "WHERE ANO_OID = ?";
+        "WHERE ANO_OID = ? ";
 
     private static final String SQL_EXIST_BY_PUBLIC_ID =
         "SELECT ANO_OID " +
         "FROM ANA_NODE " +
-        "WHERE ANO_PUBLIC_ID = ?";
+        "WHERE ANO_PUBLIC_ID = ? ";
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;

@@ -72,7 +72,7 @@ public final class ThingDAO {
     private static final String SQL_FIND_BY_OID =
         "SELECT OBJ_OID, OBJ_CREATION_DATETIME, OBJ_CREATOR_FK, OBJ_DESCRIPTION, OBJ_TABLE " +
         "FROM ANA_OBJECT " +
-        "WHERE OBJ_OID = ?";
+        "WHERE OBJ_OID = ? ";
     
     private static final String SQL_LIST_ALL =
         "SELECT OBJ_OID, OBJ_CREATION_DATETIME, OBJ_CREATOR_FK, OBJ_DESCRIPTION, OBJ_TABLE " +
@@ -89,16 +89,16 @@ public final class ThingDAO {
         "OBJ_CREATOR_FK = ?, " + 
         "OBJ_DESCRIPTION = ?, " +
         "OBJ_TABLE = ? " + 
-        "WHERE OBJ_OID = ?";
+        "WHERE OBJ_OID = ? ";
     
     private static final String SQL_DELETE =
         "DELETE FROM ANA_OBJECT " +
-        "WHERE OBJ_OID = ?";
+        "WHERE OBJ_OID = ? ";
 
     private static final String SQL_EXIST_OID =
         "SELECT OBJ_OID " +
         "FROM ANA_OBJECT " +
-        "WHERE OBJ_OID = ?";
+        "WHERE OBJ_OID = ? ";
 
     
     // Vars ---------------------------------------------------------------------------------------

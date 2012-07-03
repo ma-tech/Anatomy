@@ -39,7 +39,7 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import routines.CheckComponentsTablesReferenceTree;
+import routinesaggregated.CheckComponentsTablesReferenceTree;
 
 
 public class MainCheckComponentsTablesReferenceTree {

@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
-import routines.EmptyComponentsTables;
+import routinesaggregated.EmptyComponentsTables;
 
 import obolayer.OBOFactory;
 import daolayer.DAOFactory;

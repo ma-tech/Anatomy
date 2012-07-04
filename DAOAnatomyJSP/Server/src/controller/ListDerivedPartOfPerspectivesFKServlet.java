@@ -61,8 +61,8 @@ public class ListDerivedPartOfPerspectivesFKServlet extends HttpServlet {
         
         // Postback.
         java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/json");           
-        //response.setContentType("text/html");           
+        //response.setContentType("text/json");           
+        response.setContentType("text/html");           
         response.setHeader("Cache-Control", "no-cache");
         
         //System.out.println(outString);

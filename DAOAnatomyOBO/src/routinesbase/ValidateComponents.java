@@ -1298,7 +1298,7 @@ public class ValidateComponents {
                         
                         	proposed.setCheckComment( diff );
                         }
-                        
+                        /*
                     	if (proposed.getID().equals("EMAPA:18305")) {
                             System.out.println("ValidateComponents.java");
                             System.out.println("------------------");
@@ -1316,7 +1316,7 @@ public class ValidateComponents {
                             System.out.println("reference.getCheckComments() " + reference.getCheckComments());
                             System.out.println("------------------");
                     	}
-
+                    	*/
                         this.changesTermList.add(proposed);
                         //<=== this is the component arraylist to generate SQL queries!!!
                     }

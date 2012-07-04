@@ -2013,6 +2013,7 @@ public class OBOComponent {
                     this.getEnd() );
         }
 
+        /*
        	if (this.getID().equals("EMAPA:18305")) {
             System.out.println("OBOComponent.java");
             System.out.println("------------");
@@ -2020,6 +2021,7 @@ public class OBOComponent {
             System.out.println("obocomponent.getChildOfs().toString() " + obocomponent.getChildOfs().toString());
             System.out.println("------------");
        	}
+       	*/
        	
        	ArrayList<String> newParents = new ArrayList<String>();
         //System.out.println("Finding NEW PARENTS");

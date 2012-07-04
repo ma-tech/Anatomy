@@ -61,15 +61,21 @@ public class MainUpdateDatabaseFromComponentsTables{
         System.out.println("EXECUTING - MainUpdateDatabaseFromComponentsTables.java on " + parsed.toString());
         System.out.println("=========   --------------------------------------");
         System.out.println("");
+
         /*
          * MAINLINE
          */
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfileDebug");
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        UpdateDatabaseFromComponentsTables.run(daofactory, obofactory);
+            UpdateDatabaseFromComponentsTables.run(daofactory, obofactory);
+
+        }
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

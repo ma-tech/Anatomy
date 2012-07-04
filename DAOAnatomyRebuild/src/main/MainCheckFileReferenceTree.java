@@ -61,15 +61,20 @@ public class MainCheckFileReferenceTree {
         System.out.println("EXECUTING - MainCheckFileReferenceTree.java on " + parsed.toString());
         System.out.println("=========   --------------------------");
         System.out.println("");
+
         /*
          * MAINLINE
          */
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        CheckFileReferenceTree.run(daofactory, obofactory);
+            CheckFileReferenceTree.run(daofactory, obofactory);
+        }
         
         System.out.println("");
     	long endTime = System.currentTimeMillis();

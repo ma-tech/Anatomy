@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-	* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainExtractAndWriteOBOFromExistingDatabase.java
 *
@@ -57,12 +57,19 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         System.out.println("=========   ------------------------------------------");
         System.out.println("");
 
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfileDebug");
+        /*
+         * MAINLINE
+         */
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        ExtractAndWriteOBOFromExistingDatabase.run(daofactory, obofactory);
+            ExtractAndWriteOBOFromExistingDatabase.run(daofactory, obofactory);
+        }
 
         System.out.println("");
     	long endTime = System.currentTimeMillis();

@@ -59,18 +59,25 @@ public class MainLoadOBOFileIntoComponentsTables {
         System.out.println("=========   -----------------------------------");
         System.out.println("");
 
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("humanAnatomy008LocalhostDebug");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("humanOBOfile");
+        /*
+         * MAINLINE
+         */
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        LoadOBOFileIntoComponentsTables.run(daofactory, obofactory);
+            LoadOBOFileIntoComponentsTables.run(daofactory, obofactory);
+        }
         
         System.out.println("");
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
         System.out.println("=========   -----------------------------------");
-        System.out.println("DONE ------ MainLoadOBOFileIntoComponentsTables.java took " + duration / 1000 + " seconds");
+        System.out.println("DONE      - MainLoadOBOFileIntoComponentsTables.java took " + duration / 1000 + " seconds");
         System.out.println("=========   -----------------------------------");
     }
 }

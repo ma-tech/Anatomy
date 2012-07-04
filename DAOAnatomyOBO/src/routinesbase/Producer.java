@@ -182,6 +182,7 @@ public class Producer {
                         !obocomponentList.get(i).getNamespace().equals("group_term") &&
                         !obocomponentList.get(i).getName().equals("Abstract anatomy") ){
 
+                    	/*
                     	if (obocomponentList.get(i).getID().equals("EMAPA:18305")) {
                             System.out.println("Producer.java");
                             System.out.println("-------------");
@@ -193,7 +194,7 @@ public class Producer {
                             System.out.println("component.getChildOfTypes().toString()" + obocomponentList.get(i).getChildOfTypes().toString());
                             System.out.println("-------------");
                     	}
-
+                        */
                         // part_of relationships
                         for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
                         	

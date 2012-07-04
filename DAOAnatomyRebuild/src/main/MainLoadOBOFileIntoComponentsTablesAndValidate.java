@@ -63,17 +63,22 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
         System.out.println("EXECUTING - MainLoadOBOFileIntoComponentsTablesAndValidate.java on " + parsed.toString());
         System.out.println("=========   ----------------------------------------------");
         System.out.println("");
+
         /*
          * MAINLINE
          */
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008Localhost");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory, obofactory);
-        
-        RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
+            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory, obofactory);
+            
+            RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
+        }
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

@@ -65,14 +65,18 @@ public class MainValidateComponentsTablesAgainstExistingDatabase{
         /*
          * MAINLINE
          */
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
-        // Obtain OBOFactory.
-        OBOFactory obofactory = OBOFactory.getInstance("mouseOBOfile");
+        if (args.length != 2) {
+        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+        }
+        else {
+            // Obtain OBOFactory.
+            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-        ValidateComponentsTablesAgainstExistingDatabase.run(daofactory, obofactory);
-        
-        RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
+            ValidateComponentsTablesAgainstExistingDatabase.run(daofactory, obofactory);
+            
+            RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
+        }
 
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;

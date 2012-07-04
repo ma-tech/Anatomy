@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 03:07:2012 16:22
+date: 04:07:2012 12:12
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: This is an OBO file extracted from the Database using the Producer Class in the utility Package
@@ -1833,7 +1833,7 @@ relationship: part_of EMAPA:16185
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16185\norder=4 for EMAPA:29695
+comment: order=0 for EMAPA:16185\norder=5 for EMAPA:29695
 
 [Term]
 id: EMAPA:16415
@@ -1843,7 +1843,7 @@ relationship: part_of EMAPA:16185
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16185\norder=3 for EMAPA:31119
+comment: order=1 for EMAPA:16185\norder=20 for EMAPA:31119
 
 [Term]
 id: EMAPA:16416
@@ -1853,7 +1853,7 @@ relationship: part_of EMAPA:16185
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16185\norder=4 for EMAPA:31144
+comment: order=2 for EMAPA:16185\norder=19 for EMAPA:31144
 
 [Term]
 id: EMAPA:16186
@@ -1872,7 +1872,7 @@ relationship: part_of EMAPA:16186
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16186\norder=13 for EMAPA:29695
+comment: order=0 for EMAPA:16186\norder=10 for EMAPA:29695
 
 [Term]
 id: EMAPA:16418
@@ -1882,7 +1882,7 @@ relationship: part_of EMAPA:16186
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16186\norder=18 for EMAPA:31119
+comment: order=1 for EMAPA:16186\norder=5 for EMAPA:31119
 
 [Term]
 id: EMAPA:16419
@@ -1892,7 +1892,7 @@ relationship: part_of EMAPA:16186
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16186\norder=23 for EMAPA:31144
+comment: order=2 for EMAPA:16186\norder=25 for EMAPA:31144
 
 [Term]
 id: EMAPA:16187
@@ -1911,7 +1911,7 @@ relationship: part_of EMAPA:16187
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16187\norder=12 for EMAPA:29695
+comment: order=0 for EMAPA:16187\norder=1 for EMAPA:29695
 
 [Term]
 id: EMAPA:16421
@@ -1921,7 +1921,7 @@ relationship: part_of EMAPA:16187
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16187\norder=10 for EMAPA:31119
+comment: order=1 for EMAPA:16187\norder=4 for EMAPA:31119
 
 [Term]
 id: EMAPA:16422
@@ -1931,7 +1931,7 @@ relationship: part_of EMAPA:16187
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16187\norder=13 for EMAPA:31144
+comment: order=2 for EMAPA:16187\norder=17 for EMAPA:31144
 
 [Term]
 id: EMAPA:16188
@@ -1950,7 +1950,7 @@ relationship: part_of EMAPA:16188
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16188\norder=8 for EMAPA:29695
+comment: order=0 for EMAPA:16188\norder=0 for EMAPA:29695
 
 [Term]
 id: EMAPA:16424
@@ -1960,7 +1960,7 @@ relationship: part_of EMAPA:16188
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16188\norder=6 for EMAPA:31119
+comment: order=1 for EMAPA:16188\norder=3 for EMAPA:31119
 
 [Term]
 id: EMAPA:16425
@@ -1970,7 +1970,7 @@ relationship: part_of EMAPA:16188
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16188\norder=17 for EMAPA:31144
+comment: order=2 for EMAPA:16188\norder=10 for EMAPA:31144
 
 [Term]
 id: EMAPA:16313
@@ -1989,7 +1989,7 @@ relationship: part_of EMAPA:16313
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16313\norder=16 for EMAPA:29695
+comment: order=0 for EMAPA:16313\norder=14 for EMAPA:29695
 
 [Term]
 id: EMAPA:16427
@@ -1999,7 +1999,7 @@ relationship: part_of EMAPA:16313
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16313\norder=1 for EMAPA:31119
+comment: order=1 for EMAPA:16313\norder=6 for EMAPA:31119
 
 [Term]
 id: EMAPA:16428
@@ -2028,7 +2028,7 @@ relationship: part_of EMAPA:16314
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16314\norder=10 for EMAPA:29695
+comment: order=0 for EMAPA:16314\norder=23 for EMAPA:29695
 
 [Term]
 id: EMAPA:16430
@@ -2038,7 +2038,7 @@ relationship: part_of EMAPA:16314
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16314\norder=14 for EMAPA:31119
+comment: order=1 for EMAPA:16314\norder=16 for EMAPA:31119
 
 [Term]
 id: EMAPA:16431
@@ -2048,7 +2048,7 @@ relationship: part_of EMAPA:16314
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16314\norder=20 for EMAPA:31144
+comment: order=2 for EMAPA:16314\norder=23 for EMAPA:31144
 
 [Term]
 id: EMAPA:16315
@@ -2067,7 +2067,7 @@ relationship: part_of EMAPA:16315
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=0 for EMAPA:16315\norder=0 for EMAPA:29695
+comment: order=0 for EMAPA:16315\norder=18 for EMAPA:29695
 
 [Term]
 id: EMAPA:16433
@@ -2077,7 +2077,7 @@ relationship: part_of EMAPA:16315
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=1 for EMAPA:16315\norder=21 for EMAPA:31119
+comment: order=1 for EMAPA:16315\norder=24 for EMAPA:31119
 
 [Term]
 id: EMAPA:16434
@@ -2087,7 +2087,7 @@ relationship: part_of EMAPA:16315
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS17
-comment: order=2 for EMAPA:16315\norder=21 for EMAPA:31144
+comment: order=2 for EMAPA:16315\norder=4 for EMAPA:31144
 
 [Term]
 id: EMAPA:16316
@@ -2106,7 +2106,7 @@ relationship: part_of EMAPA:16316
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16316\norder=7 for EMAPA:29695
+comment: order=0 for EMAPA:16316\norder=19 for EMAPA:29695
 
 [Term]
 id: EMAPA:16436
@@ -2116,7 +2116,7 @@ relationship: part_of EMAPA:16316
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16316\norder=7 for EMAPA:31119
+comment: order=1 for EMAPA:16316\norder=13 for EMAPA:31119
 
 [Term]
 id: EMAPA:16437
@@ -2126,7 +2126,7 @@ relationship: part_of EMAPA:16316
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16316\norder=18 for EMAPA:31144
+comment: order=2 for EMAPA:16316\norder=11 for EMAPA:31144
 
 [Term]
 id: EMAPA:16317
@@ -2145,7 +2145,7 @@ relationship: part_of EMAPA:16317
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16317\norder=18 for EMAPA:29695
+comment: order=0 for EMAPA:16317\norder=16 for EMAPA:29695
 
 [Term]
 id: EMAPA:16439
@@ -2155,7 +2155,7 @@ relationship: part_of EMAPA:16317
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16317\norder=4 for EMAPA:31119
+comment: order=1 for EMAPA:16317\norder=12 for EMAPA:31119
 
 [Term]
 id: EMAPA:16440
@@ -2184,7 +2184,7 @@ relationship: part_of EMAPA:16441
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16441\norder=15 for EMAPA:29695
+comment: order=0 for EMAPA:16441\norder=25 for EMAPA:29695
 
 [Term]
 id: EMAPA:16443
@@ -2194,7 +2194,7 @@ relationship: part_of EMAPA:16441
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16441\norder=17 for EMAPA:31119
+comment: order=1 for EMAPA:16441\norder=18 for EMAPA:31119
 
 [Term]
 id: EMAPA:16444
@@ -2204,7 +2204,7 @@ relationship: part_of EMAPA:16441
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16441\norder=22 for EMAPA:31144
+comment: order=2 for EMAPA:16441\norder=6 for EMAPA:31144
 
 [Term]
 id: EMAPA:16445
@@ -2223,7 +2223,7 @@ relationship: part_of EMAPA:16445
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16445\norder=24 for EMAPA:29695
+comment: order=0 for EMAPA:16445\norder=8 for EMAPA:29695
 
 [Term]
 id: EMAPA:16447
@@ -2233,7 +2233,7 @@ relationship: part_of EMAPA:16445
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16445\norder=0 for EMAPA:31119
+comment: order=1 for EMAPA:16445\norder=15 for EMAPA:31119
 
 [Term]
 id: EMAPA:16448
@@ -2243,7 +2243,7 @@ relationship: part_of EMAPA:16445
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16445\norder=6 for EMAPA:31144
+comment: order=2 for EMAPA:16445\norder=20 for EMAPA:31144
 
 [Term]
 id: EMAPA:16449
@@ -2262,7 +2262,7 @@ relationship: part_of EMAPA:16449
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16449\norder=22 for EMAPA:29695
+comment: order=0 for EMAPA:16449\norder=21 for EMAPA:29695
 
 [Term]
 id: EMAPA:16451
@@ -2272,7 +2272,7 @@ relationship: part_of EMAPA:16449
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16449\norder=11 for EMAPA:31119
+comment: order=1 for EMAPA:16449\norder=1 for EMAPA:31119
 
 [Term]
 id: EMAPA:16452
@@ -2282,7 +2282,7 @@ relationship: part_of EMAPA:16449
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16449\norder=3 for EMAPA:31144
+comment: order=2 for EMAPA:16449\norder=2 for EMAPA:31144
 
 [Term]
 id: EMAPA:16453
@@ -2301,7 +2301,7 @@ relationship: part_of EMAPA:16453
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16453\norder=23 for EMAPA:29695
+comment: order=0 for EMAPA:16453\norder=9 for EMAPA:29695
 
 [Term]
 id: EMAPA:16455
@@ -2311,7 +2311,7 @@ relationship: part_of EMAPA:16453
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16453\norder=15 for EMAPA:31119
+comment: order=1 for EMAPA:16453\norder=9 for EMAPA:31119
 
 [Term]
 id: EMAPA:16456
@@ -2321,7 +2321,7 @@ relationship: part_of EMAPA:16453
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16453\norder=24 for EMAPA:31144
+comment: order=2 for EMAPA:16453\norder=13 for EMAPA:31144
 
 [Term]
 id: EMAPA:16457
@@ -2340,7 +2340,7 @@ relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16457\norder=14 for EMAPA:29695
+comment: order=0 for EMAPA:16457\norder=11 for EMAPA:29695
 
 [Term]
 id: EMAPA:16459
@@ -2350,7 +2350,7 @@ relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16457\norder=23 for EMAPA:31119
+comment: order=1 for EMAPA:16457\norder=10 for EMAPA:31119
 
 [Term]
 id: EMAPA:16460
@@ -2360,7 +2360,7 @@ relationship: part_of EMAPA:16457
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16457\norder=12 for EMAPA:31144
+comment: order=2 for EMAPA:16457\norder=16 for EMAPA:31144
 
 [Term]
 id: EMAPA:16461
@@ -2379,7 +2379,7 @@ relationship: part_of EMAPA:16461
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16461\norder=6 for EMAPA:29695
+comment: order=0 for EMAPA:16461\norder=7 for EMAPA:29695
 
 [Term]
 id: EMAPA:16463
@@ -2389,7 +2389,7 @@ relationship: part_of EMAPA:16461
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16461\norder=9 for EMAPA:31119
+comment: order=1 for EMAPA:16461\norder=23 for EMAPA:31119
 
 [Term]
 id: EMAPA:16464
@@ -2399,7 +2399,7 @@ relationship: part_of EMAPA:16461
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16461\norder=1 for EMAPA:31144
+comment: order=2 for EMAPA:16461\norder=18 for EMAPA:31144
 
 [Term]
 id: EMAPA:16465
@@ -2418,7 +2418,7 @@ relationship: part_of EMAPA:16465
 relationship: part_of EMAPA:29695
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16465\norder=19 for EMAPA:29695
+comment: order=0 for EMAPA:16465\norder=17 for EMAPA:29695
 
 [Term]
 id: EMAPA:16467
@@ -2428,7 +2428,7 @@ relationship: part_of EMAPA:16465
 relationship: part_of EMAPA:31119
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16465\norder=12 for EMAPA:31119
+comment: order=1 for EMAPA:16465\norder=7 for EMAPA:31119
 
 [Term]
 id: EMAPA:16468
@@ -2438,7 +2438,7 @@ relationship: part_of EMAPA:16465
 relationship: part_of EMAPA:31144
 relationship: starts_at TS14
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16465\norder=19 for EMAPA:31144
+comment: order=2 for EMAPA:16465\norder=22 for EMAPA:31144
 
 [Term]
 id: EMAPA:16600
@@ -2457,7 +2457,7 @@ relationship: part_of EMAPA:16600
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16600\norder=20 for EMAPA:29695
+comment: order=0 for EMAPA:16600\norder=2 for EMAPA:29695
 
 [Term]
 id: EMAPA:16602
@@ -2467,7 +2467,7 @@ relationship: part_of EMAPA:16600
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16600\norder=22 for EMAPA:31119
+comment: order=1 for EMAPA:16600\norder=25 for EMAPA:31119
 
 [Term]
 id: EMAPA:16603
@@ -2477,7 +2477,7 @@ relationship: part_of EMAPA:16600
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16600\norder=2 for EMAPA:31144
+comment: order=2 for EMAPA:16600\norder=21 for EMAPA:31144
 
 [Term]
 id: EMAPA:16604
@@ -2496,7 +2496,7 @@ relationship: part_of EMAPA:16604
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16604\norder=5 for EMAPA:29695
+comment: order=0 for EMAPA:16604\norder=6 for EMAPA:29695
 
 [Term]
 id: EMAPA:16606
@@ -2506,7 +2506,7 @@ relationship: part_of EMAPA:16604
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16604\norder=20 for EMAPA:31119
+comment: order=1 for EMAPA:16604\norder=21 for EMAPA:31119
 
 [Term]
 id: EMAPA:16607
@@ -2516,7 +2516,7 @@ relationship: part_of EMAPA:16604
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16604\norder=5 for EMAPA:31144
+comment: order=2 for EMAPA:16604\norder=24 for EMAPA:31144
 
 [Term]
 id: EMAPA:16608
@@ -2535,7 +2535,7 @@ relationship: part_of EMAPA:16608
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16608\norder=2 for EMAPA:29695
+comment: order=0 for EMAPA:16608\norder=4 for EMAPA:29695
 
 [Term]
 id: EMAPA:16610
@@ -2545,7 +2545,7 @@ relationship: part_of EMAPA:16608
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16608\norder=5 for EMAPA:31119
+comment: order=1 for EMAPA:16608\norder=2 for EMAPA:31119
 
 [Term]
 id: EMAPA:16611
@@ -2555,7 +2555,7 @@ relationship: part_of EMAPA:16608
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16608\norder=0 for EMAPA:31144
+comment: order=2 for EMAPA:16608\norder=12 for EMAPA:31144
 
 [Term]
 id: EMAPA:16612
@@ -2574,7 +2574,7 @@ relationship: part_of EMAPA:16612
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16612\norder=9 for EMAPA:29695
+comment: order=0 for EMAPA:16612\norder=22 for EMAPA:29695
 
 [Term]
 id: EMAPA:16614
@@ -2594,7 +2594,7 @@ relationship: part_of EMAPA:16612
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16612\norder=25 for EMAPA:31144
+comment: order=2 for EMAPA:16612\norder=14 for EMAPA:31144
 
 [Term]
 id: EMAPA:16616
@@ -2613,7 +2613,7 @@ relationship: part_of EMAPA:16616
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=0 for EMAPA:16616\norder=1 for EMAPA:29695
+comment: order=0 for EMAPA:16616\norder=3 for EMAPA:29695
 
 [Term]
 id: EMAPA:16618
@@ -2623,7 +2623,7 @@ relationship: part_of EMAPA:16616
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=1 for EMAPA:16616\norder=8 for EMAPA:31119
+comment: order=1 for EMAPA:16616\norder=22 for EMAPA:31119
 
 [Term]
 id: EMAPA:16619
@@ -2633,7 +2633,7 @@ relationship: part_of EMAPA:16616
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16616\norder=14 for EMAPA:31144
+comment: order=2 for EMAPA:16616\norder=0 for EMAPA:31144
 
 [Term]
 id: EMAPA:16620
@@ -2652,7 +2652,7 @@ relationship: part_of EMAPA:16620
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16620\norder=11 for EMAPA:29695
+comment: order=0 for EMAPA:16620\norder=24 for EMAPA:29695
 
 [Term]
 id: EMAPA:16622
@@ -2662,7 +2662,7 @@ relationship: part_of EMAPA:16620
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16620\norder=13 for EMAPA:31119
+comment: order=1 for EMAPA:16620\norder=8 for EMAPA:31119
 
 [Term]
 id: EMAPA:16623
@@ -2672,7 +2672,7 @@ relationship: part_of EMAPA:16620
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16620\norder=15 for EMAPA:31144
+comment: order=2 for EMAPA:16620\norder=3 for EMAPA:31144
 
 [Term]
 id: EMAPA:16624
@@ -2691,7 +2691,7 @@ relationship: part_of EMAPA:16624
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16624\norder=21 for EMAPA:29695
+comment: order=0 for EMAPA:16624\norder=20 for EMAPA:29695
 
 [Term]
 id: EMAPA:16626
@@ -2701,7 +2701,7 @@ relationship: part_of EMAPA:16624
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16624\norder=24 for EMAPA:31119
+comment: order=1 for EMAPA:16624\norder=14 for EMAPA:31119
 
 [Term]
 id: EMAPA:16627
@@ -2711,7 +2711,7 @@ relationship: part_of EMAPA:16624
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16624\norder=16 for EMAPA:31144
+comment: order=2 for EMAPA:16624\norder=7 for EMAPA:31144
 
 [Term]
 id: EMAPA:16628
@@ -2730,7 +2730,7 @@ relationship: part_of EMAPA:16628
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16628\norder=25 for EMAPA:29695
+comment: order=0 for EMAPA:16628\norder=12 for EMAPA:29695
 
 [Term]
 id: EMAPA:16630
@@ -2740,7 +2740,7 @@ relationship: part_of EMAPA:16628
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16628\norder=16 for EMAPA:31119
+comment: order=1 for EMAPA:16628\norder=17 for EMAPA:31119
 
 [Term]
 id: EMAPA:16631
@@ -2750,7 +2750,7 @@ relationship: part_of EMAPA:16628
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16628\norder=7 for EMAPA:31144
+comment: order=2 for EMAPA:16628\norder=5 for EMAPA:31144
 
 [Term]
 id: EMAPA:16632
@@ -2769,7 +2769,7 @@ relationship: part_of EMAPA:16632
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16632\norder=3 for EMAPA:29695
+comment: order=0 for EMAPA:16632\norder=13 for EMAPA:29695
 
 [Term]
 id: EMAPA:16634
@@ -2779,7 +2779,7 @@ relationship: part_of EMAPA:16632
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16632\norder=25 for EMAPA:31119
+comment: order=1 for EMAPA:16632\norder=11 for EMAPA:31119
 
 [Term]
 id: EMAPA:16635
@@ -2789,7 +2789,7 @@ relationship: part_of EMAPA:16632
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16632\norder=10 for EMAPA:31144
+comment: order=2 for EMAPA:16632\norder=1 for EMAPA:31144
 
 [Term]
 id: EMAPA:16636
@@ -2808,7 +2808,7 @@ relationship: part_of EMAPA:16636
 relationship: part_of EMAPA:29695
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16636\norder=17 for EMAPA:29695
+comment: order=0 for EMAPA:16636\norder=15 for EMAPA:29695
 
 [Term]
 id: EMAPA:16638
@@ -2818,7 +2818,7 @@ relationship: part_of EMAPA:16636
 relationship: part_of EMAPA:31119
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16636\norder=2 for EMAPA:31119
+comment: order=1 for EMAPA:16636\norder=0 for EMAPA:31119
 
 [Term]
 id: EMAPA:16639
@@ -2828,7 +2828,7 @@ relationship: part_of EMAPA:16636
 relationship: part_of EMAPA:31144
 relationship: starts_at TS15
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16636\norder=11 for EMAPA:31144
+comment: order=2 for EMAPA:16636\norder=15 for EMAPA:31144
 
 [Term]
 id: EMAPA:16189
@@ -16837,7 +16837,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:17954
 relationship: starts_at TS20
 relationship: ends_at TS21
-comment: order=4 for EMAPA:17373\norder=3 for EMAPA:17954
+comment: order=4 for EMAPA:17373\norder=2 for EMAPA:17954
 
 [Term]
 id: EMAPA:27684
@@ -17132,7 +17132,7 @@ relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
-comment: order=0 for EMAPA:28500\norder=2 for EMAPA:17954\norder=1 for EMAPA:17952
+comment: order=0 for EMAPA:28500\norder=3 for EMAPA:17954\norder=1 for EMAPA:17952
 
 [Term]
 id: EMAPA:27841
@@ -17318,7 +17318,7 @@ relationship: part_of EMAPA:27949
 relationship: part_of EMAPA:28518
 relationship: starts_at TS22
 relationship: ends_at TS27
-comment: order=2 for EMAPA:27949\norder=3 for EMAPA:28518
+comment: order=2 for EMAPA:27949\norder=2 for EMAPA:28518
 
 [Term]
 id: EMAPA:27967
@@ -17573,7 +17573,7 @@ relationship: part_of EMAPA:28239
 relationship: part_of EMAPA:28518
 relationship: starts_at TS25
 relationship: ends_at TS28
-comment: order=2 for EMAPA:28239\norder=2 for EMAPA:28518
+comment: order=2 for EMAPA:28239\norder=3 for EMAPA:28518
 
 [Term]
 id: EMAPA:28251
@@ -18007,7 +18007,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28477
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=29 for EMAPA:17373\norder=1 for EMAPA:28477
+comment: order=28 for EMAPA:17373\norder=1 for EMAPA:28477
 
 [Term]
 id: EMAPA:17378
@@ -20755,7 +20755,7 @@ relationship: part_of EMAPA:17765
 relationship: part_of EMAPA:32666
 relationship: starts_at TS26
 relationship: ends_at TS26
-comment: order=0 for EMAPA:17765\norder=1 for EMAPA:32666
+comment: order=0 for EMAPA:17765\norder=0 for EMAPA:32666
 
 [Term]
 id: EMAPA:25081
@@ -20794,7 +20794,7 @@ relationship: part_of EMAPA:17764
 relationship: part_of EMAPA:32666
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=3 for EMAPA:17764\norder=0 for EMAPA:32666
+comment: order=3 for EMAPA:17764\norder=1 for EMAPA:32666
 
 [Term]
 id: EMAPA:19057
@@ -30491,7 +30491,7 @@ relationship: part_of EMAPA:16861
 relationship: part_of EMAPA:29703
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16861\norder=13 for EMAPA:29703
+comment: order=0 for EMAPA:16861\norder=25 for EMAPA:29703
 
 [Term]
 id: EMAPA:16863
@@ -30501,7 +30501,7 @@ relationship: part_of EMAPA:16861
 relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16861\norder=13 for EMAPA:31126
+comment: order=1 for EMAPA:16861\norder=17 for EMAPA:31126
 
 [Term]
 id: EMAPA:16864
@@ -30511,7 +30511,7 @@ relationship: part_of EMAPA:16861
 relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16861\norder=19 for EMAPA:31151
+comment: order=2 for EMAPA:16861\norder=4 for EMAPA:31151
 
 [Term]
 id: EMAPA:16865
@@ -30530,7 +30530,7 @@ relationship: part_of EMAPA:16865
 relationship: part_of EMAPA:29703
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16865\norder=21 for EMAPA:29703
+comment: order=0 for EMAPA:16865\norder=23 for EMAPA:29703
 
 [Term]
 id: EMAPA:16867
@@ -30540,7 +30540,7 @@ relationship: part_of EMAPA:16865
 relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16865\norder=10 for EMAPA:31126
+comment: order=1 for EMAPA:16865\norder=13 for EMAPA:31126
 
 [Term]
 id: EMAPA:16868
@@ -30550,7 +30550,7 @@ relationship: part_of EMAPA:16865
 relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16865\norder=13 for EMAPA:31151
+comment: order=2 for EMAPA:16865\norder=28 for EMAPA:31151
 
 [Term]
 id: EMAPA:16869
@@ -30569,7 +30569,7 @@ relationship: part_of EMAPA:16869
 relationship: part_of EMAPA:29703
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=0 for EMAPA:16869\norder=24 for EMAPA:29703
+comment: order=0 for EMAPA:16869\norder=6 for EMAPA:29703
 
 [Term]
 id: EMAPA:16871
@@ -30579,7 +30579,7 @@ relationship: part_of EMAPA:16869
 relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16869\norder=19 for EMAPA:31126
+comment: order=1 for EMAPA:16869\norder=3 for EMAPA:31126
 
 [Term]
 id: EMAPA:16872
@@ -30589,7 +30589,7 @@ relationship: part_of EMAPA:16869
 relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16869\norder=9 for EMAPA:31151
+comment: order=2 for EMAPA:16869\norder=27 for EMAPA:31151
 
 [Term]
 id: EMAPA:16873
@@ -30618,7 +30618,7 @@ relationship: part_of EMAPA:16873
 relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=1 for EMAPA:16873\norder=17 for EMAPA:31126
+comment: order=1 for EMAPA:16873\norder=23 for EMAPA:31126
 
 [Term]
 id: EMAPA:16876
@@ -30628,7 +30628,7 @@ relationship: part_of EMAPA:16873
 relationship: part_of EMAPA:31151
 relationship: starts_at TS16
 relationship: ends_at TS19
-comment: order=2 for EMAPA:16873\norder=8 for EMAPA:31151
+comment: order=2 for EMAPA:16873\norder=13 for EMAPA:31151
 
 [Term]
 id: EMAPA:16877
@@ -30647,7 +30647,7 @@ relationship: part_of EMAPA:16877
 relationship: part_of EMAPA:29703
 relationship: starts_at TS16
 relationship: ends_at TS20
-comment: order=0 for EMAPA:16877\norder=25 for EMAPA:29703
+comment: order=0 for EMAPA:16877\norder=27 for EMAPA:29703
 
 [Term]
 id: EMAPA:16879
@@ -30657,7 +30657,7 @@ relationship: part_of EMAPA:16877
 relationship: part_of EMAPA:31126
 relationship: starts_at TS16
 relationship: ends_at TS20
-comment: order=1 for EMAPA:16877\norder=3 for EMAPA:31126
+comment: order=1 for EMAPA:16877\norder=2 for EMAPA:31126
 
 [Term]
 id: EMAPA:16880
@@ -30696,7 +30696,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17049\norder=15 for EMAPA:31126
+comment: order=1 for EMAPA:17049\norder=21 for EMAPA:31126
 
 [Term]
 id: EMAPA:17052
@@ -30706,7 +30706,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17049\norder=7 for EMAPA:31151
+comment: order=2 for EMAPA:17049\norder=29 for EMAPA:31151
 
 [Term]
 id: EMAPA:17053
@@ -30725,7 +30725,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17053\norder=2 for EMAPA:29703
+comment: order=0 for EMAPA:17053\norder=14 for EMAPA:29703
 
 [Term]
 id: EMAPA:17055
@@ -30735,7 +30735,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17053\norder=8 for EMAPA:31126
+comment: order=1 for EMAPA:17053\norder=9 for EMAPA:31126
 
 [Term]
 id: EMAPA:17056
@@ -30745,7 +30745,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17053\norder=11 for EMAPA:31151
+comment: order=2 for EMAPA:17053\norder=16 for EMAPA:31151
 
 [Term]
 id: EMAPA:17057
@@ -30764,7 +30764,7 @@ relationship: part_of EMAPA:17057
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17057\norder=9 for EMAPA:29703
+comment: order=0 for EMAPA:17057\norder=10 for EMAPA:29703
 
 [Term]
 id: EMAPA:17059
@@ -30774,7 +30774,7 @@ relationship: part_of EMAPA:17057
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17057\norder=6 for EMAPA:31126
+comment: order=1 for EMAPA:17057\norder=24 for EMAPA:31126
 
 [Term]
 id: EMAPA:17060
@@ -30803,7 +30803,7 @@ relationship: part_of EMAPA:17061
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17061\norder=27 for EMAPA:29703
+comment: order=0 for EMAPA:17061\norder=7 for EMAPA:29703
 
 [Term]
 id: EMAPA:17063
@@ -30813,7 +30813,7 @@ relationship: part_of EMAPA:17061
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17061\norder=14 for EMAPA:31126
+comment: order=1 for EMAPA:17061\norder=20 for EMAPA:31126
 
 [Term]
 id: EMAPA:17064
@@ -30823,7 +30823,7 @@ relationship: part_of EMAPA:17061
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17061\norder=15 for EMAPA:31151
+comment: order=2 for EMAPA:17061\norder=0 for EMAPA:31151
 
 [Term]
 id: EMAPA:17217
@@ -30852,7 +30852,7 @@ relationship: part_of EMAPA:17217
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17217\norder=2 for EMAPA:31126
+comment: order=1 for EMAPA:17217\norder=1 for EMAPA:31126
 
 [Term]
 id: EMAPA:17220
@@ -30862,7 +30862,7 @@ relationship: part_of EMAPA:17217
 relationship: part_of EMAPA:31151
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=2 for EMAPA:17217\norder=4 for EMAPA:31151
+comment: order=2 for EMAPA:17217\norder=8 for EMAPA:31151
 
 [Term]
 id: EMAPA:17221
@@ -30881,7 +30881,7 @@ relationship: part_of EMAPA:17221
 relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=0 for EMAPA:17221\norder=0 for EMAPA:29703
+comment: order=0 for EMAPA:17221\norder=13 for EMAPA:29703
 
 [Term]
 id: EMAPA:17223
@@ -30891,7 +30891,7 @@ relationship: part_of EMAPA:17221
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17221\norder=24 for EMAPA:31126
+comment: order=1 for EMAPA:17221\norder=8 for EMAPA:31126
 
 [Term]
 id: EMAPA:17224
@@ -30901,7 +30901,7 @@ relationship: part_of EMAPA:17221
 relationship: part_of EMAPA:31151
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=2 for EMAPA:17221\norder=1 for EMAPA:31151
+comment: order=2 for EMAPA:17221\norder=2 for EMAPA:31151
 
 [Term]
 id: EMAPA:17225
@@ -30920,7 +30920,7 @@ relationship: part_of EMAPA:17225
 relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=0 for EMAPA:17225\norder=5 for EMAPA:29703
+comment: order=0 for EMAPA:17225\norder=3 for EMAPA:29703
 
 [Term]
 id: EMAPA:17227
@@ -30930,7 +30930,7 @@ relationship: part_of EMAPA:17225
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17225\norder=26 for EMAPA:31126
+comment: order=1 for EMAPA:17225\norder=16 for EMAPA:31126
 
 [Term]
 id: EMAPA:17228
@@ -30940,7 +30940,7 @@ relationship: part_of EMAPA:17225
 relationship: part_of EMAPA:31151
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=2 for EMAPA:17225\norder=18 for EMAPA:31151
+comment: order=2 for EMAPA:17225\norder=19 for EMAPA:31151
 
 [Term]
 id: EMAPA:17229
@@ -30959,7 +30959,7 @@ relationship: part_of EMAPA:17229
 relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=0 for EMAPA:17229\norder=6 for EMAPA:29703
+comment: order=0 for EMAPA:17229\norder=4 for EMAPA:29703
 
 [Term]
 id: EMAPA:17231
@@ -30969,7 +30969,7 @@ relationship: part_of EMAPA:17229
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17229\norder=23 for EMAPA:31126
+comment: order=1 for EMAPA:17229\norder=10 for EMAPA:31126
 
 [Term]
 id: EMAPA:17232
@@ -30979,7 +30979,7 @@ relationship: part_of EMAPA:17229
 relationship: part_of EMAPA:31151
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=2 for EMAPA:17229\norder=12 for EMAPA:31151
+comment: order=2 for EMAPA:17229\norder=3 for EMAPA:31151
 
 [Term]
 id: EMAPA:17233
@@ -31008,7 +31008,7 @@ relationship: part_of EMAPA:17233
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17233\norder=29 for EMAPA:31126
+comment: order=1 for EMAPA:17233\norder=19 for EMAPA:31126
 
 [Term]
 id: EMAPA:17236
@@ -31037,7 +31037,7 @@ relationship: part_of EMAPA:17237
 relationship: part_of EMAPA:29703
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=0 for EMAPA:17237\norder=4 for EMAPA:29703
+comment: order=0 for EMAPA:17237\norder=18 for EMAPA:29703
 
 [Term]
 id: EMAPA:17239
@@ -31047,7 +31047,7 @@ relationship: part_of EMAPA:17237
 relationship: part_of EMAPA:31126
 relationship: starts_at TS18
 relationship: ends_at TS21
-comment: order=1 for EMAPA:17237\norder=12 for EMAPA:31126
+comment: order=1 for EMAPA:17237\norder=15 for EMAPA:31126
 
 [Term]
 id: EMAPA:17240
@@ -31076,7 +31076,7 @@ relationship: part_of EMAPA:17399
 relationship: part_of EMAPA:29703
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17399\norder=16 for EMAPA:29703
+comment: order=0 for EMAPA:17399\norder=19 for EMAPA:29703
 
 [Term]
 id: EMAPA:17401
@@ -31086,7 +31086,7 @@ relationship: part_of EMAPA:17399
 relationship: part_of EMAPA:31126
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=1 for EMAPA:17399\norder=11 for EMAPA:31126
+comment: order=1 for EMAPA:17399\norder=29 for EMAPA:31126
 
 [Term]
 id: EMAPA:17402
@@ -31096,7 +31096,7 @@ relationship: part_of EMAPA:17399
 relationship: part_of EMAPA:31151
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17399\norder=3 for EMAPA:31151
+comment: order=2 for EMAPA:17399\norder=5 for EMAPA:31151
 
 [Term]
 id: EMAPA:17403
@@ -31115,7 +31115,7 @@ relationship: part_of EMAPA:17403
 relationship: part_of EMAPA:29703
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17403\norder=26 for EMAPA:29703
+comment: order=0 for EMAPA:17403\norder=16 for EMAPA:29703
 
 [Term]
 id: EMAPA:17405
@@ -31125,7 +31125,7 @@ relationship: part_of EMAPA:17403
 relationship: part_of EMAPA:31126
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=1 for EMAPA:17403\norder=21 for EMAPA:31126
+comment: order=1 for EMAPA:17403\norder=4 for EMAPA:31126
 
 [Term]
 id: EMAPA:17406
@@ -31135,7 +31135,7 @@ relationship: part_of EMAPA:17403
 relationship: part_of EMAPA:31151
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17403\norder=27 for EMAPA:31151
+comment: order=2 for EMAPA:17403\norder=26 for EMAPA:31151
 
 [Term]
 id: EMAPA:17407
@@ -31154,7 +31154,7 @@ relationship: part_of EMAPA:17407
 relationship: part_of EMAPA:29703
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17407\norder=19 for EMAPA:29703
+comment: order=0 for EMAPA:17407\norder=21 for EMAPA:29703
 
 [Term]
 id: EMAPA:17409
@@ -31174,7 +31174,7 @@ relationship: part_of EMAPA:17407
 relationship: part_of EMAPA:31151
 relationship: starts_at TS19
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17407\norder=24 for EMAPA:31151
+comment: order=2 for EMAPA:17407\norder=7 for EMAPA:31151
 
 [Term]
 id: EMAPA:17684
@@ -31203,7 +31203,7 @@ relationship: part_of EMAPA:17684
 relationship: part_of EMAPA:31126
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=1 for EMAPA:17684\norder=27 for EMAPA:31126
+comment: order=1 for EMAPA:17684\norder=18 for EMAPA:31126
 
 [Term]
 id: EMAPA:17687
@@ -31213,7 +31213,7 @@ relationship: part_of EMAPA:17684
 relationship: part_of EMAPA:31151
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17684\norder=6 for EMAPA:31151
+comment: order=2 for EMAPA:17684\norder=10 for EMAPA:31151
 
 [Term]
 id: EMAPA:17688
@@ -31232,7 +31232,7 @@ relationship: part_of EMAPA:17688
 relationship: part_of EMAPA:29703
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17688\norder=3 for EMAPA:29703
+comment: order=0 for EMAPA:17688\norder=17 for EMAPA:29703
 
 [Term]
 id: EMAPA:17690
@@ -31242,7 +31242,7 @@ relationship: part_of EMAPA:17688
 relationship: part_of EMAPA:31126
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=1 for EMAPA:17688\norder=25 for EMAPA:31126
+comment: order=1 for EMAPA:17688\norder=28 for EMAPA:31126
 
 [Term]
 id: EMAPA:17691
@@ -31252,7 +31252,7 @@ relationship: part_of EMAPA:17688
 relationship: part_of EMAPA:31151
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17688\norder=2 for EMAPA:31151
+comment: order=2 for EMAPA:17688\norder=18 for EMAPA:31151
 
 [Term]
 id: EMAPA:17692
@@ -31271,7 +31271,7 @@ relationship: part_of EMAPA:17692
 relationship: part_of EMAPA:29703
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17692\norder=20 for EMAPA:29703
+comment: order=0 for EMAPA:17692\norder=22 for EMAPA:29703
 
 [Term]
 id: EMAPA:17694
@@ -31291,7 +31291,7 @@ relationship: part_of EMAPA:17692
 relationship: part_of EMAPA:31151
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17692\norder=25 for EMAPA:31151
+comment: order=2 for EMAPA:17692\norder=24 for EMAPA:31151
 
 [Term]
 id: EMAPA:17696
@@ -31310,7 +31310,7 @@ relationship: part_of EMAPA:17696
 relationship: part_of EMAPA:29703
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=0 for EMAPA:17696\norder=8 for EMAPA:29703
+comment: order=0 for EMAPA:17696\norder=9 for EMAPA:29703
 
 [Term]
 id: EMAPA:17698
@@ -31320,7 +31320,7 @@ relationship: part_of EMAPA:17696
 relationship: part_of EMAPA:31126
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=1 for EMAPA:17696\norder=9 for EMAPA:31126
+comment: order=1 for EMAPA:17696\norder=11 for EMAPA:31126
 
 [Term]
 id: EMAPA:17699
@@ -31330,7 +31330,7 @@ relationship: part_of EMAPA:17696
 relationship: part_of EMAPA:31151
 relationship: starts_at TS20
 relationship: ends_at TS22
-comment: order=2 for EMAPA:17696\norder=16 for EMAPA:31151
+comment: order=2 for EMAPA:17696\norder=1 for EMAPA:31151
 
 [Term]
 id: EMAPA:18030
@@ -31349,7 +31349,7 @@ relationship: part_of EMAPA:18030
 relationship: part_of EMAPA:29703
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18030\norder=17 for EMAPA:29703
+comment: order=0 for EMAPA:18030\norder=20 for EMAPA:29703
 
 [Term]
 id: EMAPA:18032
@@ -31359,7 +31359,7 @@ relationship: part_of EMAPA:18030
 relationship: part_of EMAPA:31126
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18030\norder=4 for EMAPA:31126
+comment: order=1 for EMAPA:18030\norder=26 for EMAPA:31126
 
 [Term]
 id: EMAPA:18033
@@ -31388,7 +31388,7 @@ relationship: part_of EMAPA:18034
 relationship: part_of EMAPA:29703
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18034\norder=14 for EMAPA:29703
+comment: order=0 for EMAPA:18034\norder=2 for EMAPA:29703
 
 [Term]
 id: EMAPA:18036
@@ -31408,7 +31408,7 @@ relationship: part_of EMAPA:18034
 relationship: part_of EMAPA:31151
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18034\norder=29 for EMAPA:31151
+comment: order=2 for EMAPA:18034\norder=12 for EMAPA:31151
 
 [Term]
 id: EMAPA:18038
@@ -31427,7 +31427,7 @@ relationship: part_of EMAPA:18038
 relationship: part_of EMAPA:29703
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18038\norder=7 for EMAPA:29703
+comment: order=0 for EMAPA:18038\norder=8 for EMAPA:29703
 
 [Term]
 id: EMAPA:18040
@@ -31437,7 +31437,7 @@ relationship: part_of EMAPA:18038
 relationship: part_of EMAPA:31126
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18038\norder=20 for EMAPA:31126
+comment: order=1 for EMAPA:18038\norder=25 for EMAPA:31126
 
 [Term]
 id: EMAPA:18041
@@ -31447,7 +31447,7 @@ relationship: part_of EMAPA:18038
 relationship: part_of EMAPA:31151
 relationship: starts_at TS21
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18038\norder=10 for EMAPA:31151
+comment: order=2 for EMAPA:18038\norder=15 for EMAPA:31151
 
 [Term]
 id: EMAPA:18350
@@ -31466,7 +31466,7 @@ relationship: part_of EMAPA:18350
 relationship: part_of EMAPA:29703
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18350\norder=10 for EMAPA:29703
+comment: order=0 for EMAPA:18350\norder=0 for EMAPA:29703
 
 [Term]
 id: EMAPA:18352
@@ -31476,7 +31476,7 @@ relationship: part_of EMAPA:18350
 relationship: part_of EMAPA:31126
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18350\norder=18 for EMAPA:31126
+comment: order=1 for EMAPA:18350\norder=6 for EMAPA:31126
 
 [Term]
 id: EMAPA:18353
@@ -31486,7 +31486,7 @@ relationship: part_of EMAPA:18350
 relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18350\norder=0 for EMAPA:31151
+comment: order=2 for EMAPA:18350\norder=14 for EMAPA:31151
 
 [Term]
 id: EMAPA:18354
@@ -31505,7 +31505,7 @@ relationship: part_of EMAPA:18354
 relationship: part_of EMAPA:29703
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18354\norder=18 for EMAPA:29703
+comment: order=0 for EMAPA:18354\norder=5 for EMAPA:29703
 
 [Term]
 id: EMAPA:18356
@@ -31515,7 +31515,7 @@ relationship: part_of EMAPA:18354
 relationship: part_of EMAPA:31126
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18354\norder=1 for EMAPA:31126
+comment: order=1 for EMAPA:18354\norder=14 for EMAPA:31126
 
 [Term]
 id: EMAPA:18357
@@ -31525,7 +31525,7 @@ relationship: part_of EMAPA:18354
 relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18354\norder=5 for EMAPA:31151
+comment: order=2 for EMAPA:18354\norder=9 for EMAPA:31151
 
 [Term]
 id: EMAPA:18358
@@ -31554,7 +31554,7 @@ relationship: part_of EMAPA:18358
 relationship: part_of EMAPA:31126
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18358\norder=22 for EMAPA:31126
+comment: order=1 for EMAPA:18358\norder=27 for EMAPA:31126
 
 [Term]
 id: EMAPA:18361
@@ -31564,7 +31564,7 @@ relationship: part_of EMAPA:18358
 relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18358\norder=28 for EMAPA:31151
+comment: order=2 for EMAPA:18358\norder=11 for EMAPA:31151
 
 [Term]
 id: EMAPA:18362
@@ -31583,7 +31583,7 @@ relationship: part_of EMAPA:18362
 relationship: part_of EMAPA:29703
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18362\norder=23 for EMAPA:29703
+comment: order=0 for EMAPA:18362\norder=26 for EMAPA:29703
 
 [Term]
 id: EMAPA:18364
@@ -31593,7 +31593,7 @@ relationship: part_of EMAPA:18362
 relationship: part_of EMAPA:31126
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18362\norder=16 for EMAPA:31126
+comment: order=1 for EMAPA:18362\norder=22 for EMAPA:31126
 
 [Term]
 id: EMAPA:18365
@@ -31603,7 +31603,7 @@ relationship: part_of EMAPA:18362
 relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18362\norder=26 for EMAPA:31151
+comment: order=2 for EMAPA:18362\norder=25 for EMAPA:31151
 
 [Term]
 id: EMAPA:18366
@@ -31622,7 +31622,7 @@ relationship: part_of EMAPA:18366
 relationship: part_of EMAPA:29703
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=0 for EMAPA:18366\norder=22 for EMAPA:29703
+comment: order=0 for EMAPA:18366\norder=24 for EMAPA:29703
 
 [Term]
 id: EMAPA:18368
@@ -31632,7 +31632,7 @@ relationship: part_of EMAPA:18366
 relationship: part_of EMAPA:31126
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=1 for EMAPA:18366\norder=28 for EMAPA:31126
+comment: order=1 for EMAPA:18366\norder=12 for EMAPA:31126
 
 [Term]
 id: EMAPA:18369
@@ -31642,7 +31642,7 @@ relationship: part_of EMAPA:18366
 relationship: part_of EMAPA:31151
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=2 for EMAPA:18366\norder=14 for EMAPA:31151
+comment: order=2 for EMAPA:18366\norder=6 for EMAPA:31151
 
 [Term]
 id: EMAPA:16753
@@ -41870,7 +41870,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28407
 relationship: starts_at TS22
 relationship: ends_at TS28
-comment: order=28 for EMAPA:17373\norder=2 for EMAPA:28407
+comment: order=29 for EMAPA:17373\norder=2 for EMAPA:28407
 
 [Term]
 id: EMAPA:28500
@@ -46713,7 +46713,7 @@ relationship: part_of EMAPA:28284
 relationship: part_of EMAPA:31570
 relationship: starts_at TS25
 relationship: ends_at TS27
-comment: order=1 for EMAPA:28284\norder=3 for EMAPA:31570
+comment: order=1 for EMAPA:28284\norder=2 for EMAPA:31570
 
 [Term]
 id: EMAPA:31513
@@ -46998,7 +46998,7 @@ relationship: part_of EMAPA:28003
 relationship: part_of EMAPA:31570
 relationship: starts_at TS22
 relationship: ends_at TS24
-comment: order=1 for EMAPA:28003\norder=2 for EMAPA:31570
+comment: order=1 for EMAPA:28003\norder=3 for EMAPA:31570
 
 [Term]
 id: EMAPA:31543
@@ -47008,7 +47008,7 @@ relationship: part_of EMAPA:28284
 relationship: part_of EMAPA:31571
 relationship: starts_at TS25
 relationship: ends_at TS27
-comment: order=0 for EMAPA:28284\norder=3 for EMAPA:31571
+comment: order=0 for EMAPA:28284\norder=4 for EMAPA:31571
 
 [Term]
 id: EMAPA:31544
@@ -47018,7 +47018,7 @@ relationship: part_of EMAPA:28003
 relationship: part_of EMAPA:31571
 relationship: starts_at TS22
 relationship: ends_at TS24
-comment: order=0 for EMAPA:28003\norder=4 for EMAPA:31571
+comment: order=0 for EMAPA:28003\norder=3 for EMAPA:31571
 
 [Term]
 id: EMAPA:31545
@@ -48352,11 +48352,11 @@ comment: order=1 for EMAPA:32637
 id: EMAPA:32639
 name: forelimb phalanx pre-cartilage condensation
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32646
 relationship: part_of EMAPA:32642
+relationship: is_a EMAPA:32646
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=0 for EMAPA:32646\norder=5 for EMAPA:32642
+comment: order=5 for EMAPA:32642\norder=0 for EMAPA:32646
 
 [Term]
 id: EMAPA:32640
@@ -48408,11 +48408,11 @@ comment: order=11 for EMAPA:17428
 id: EMAPA:32645
 name: forelimb digit mesenchyme
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32642
 relationship: part_of EMAPA:17457
+relationship: part_of EMAPA:32642
 relationship: starts_at TS20
 relationship: ends_at TS26
-comment: order=1 for EMAPA:32642\norder=3 for EMAPA:17457
+comment: order=3 for EMAPA:17457\norder=1 for EMAPA:32642
 
 [Term]
 id: EMAPA:32646
@@ -48527,11 +48527,11 @@ comment: order=0 for EMAPA:17488
 id: EMAPA:32658
 name: forelimb phalanx cartilage condensation
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32640
 relationship: part_of EMAPA:32642
+relationship: is_a EMAPA:32640
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=0 for EMAPA:32640\norder=4 for EMAPA:32642
+comment: order=4 for EMAPA:32642\norder=0 for EMAPA:32640
 
 [Term]
 id: EMAPA:32659
@@ -48555,21 +48555,21 @@ comment: order=6 for EMAPA:16470
 id: EMAPA:32661
 name: brain arachnoid mater
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32662
 relationship: part_of EMAPA:32659
+relationship: part_of EMAPA:32662
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=0 for EMAPA:32662\norder=0 for EMAPA:32659
+comment: order=0 for EMAPA:32659\norder=0 for EMAPA:32662
 
 [Term]
 id: EMAPA:32662
 name: brain meninges
 namespace: abstract_anatomy
-relationship: part_of EMAPA:16894
 relationship: part_of EMAPA:32660
+relationship: part_of EMAPA:16894
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=3 for EMAPA:16894\norder=1 for EMAPA:32660
+comment: order=1 for EMAPA:32660\norder=3 for EMAPA:16894
 
 [Term]
 id: EMAPA:32663
@@ -48611,21 +48611,21 @@ comment: order=3 for EMAPA:32662
 id: EMAPA:32667
 name: brain pia mater
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32663
 relationship: part_of EMAPA:32662
+relationship: part_of EMAPA:32663
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=0 for EMAPA:32663\norder=2 for EMAPA:32662
+comment: order=2 for EMAPA:32662\norder=0 for EMAPA:32663
 
 [Term]
 id: EMAPA:32668
 name: brain dura mater
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32664
 relationship: part_of EMAPA:32662
+relationship: part_of EMAPA:32664
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=0 for EMAPA:32664\norder=1 for EMAPA:32662
+comment: order=1 for EMAPA:32662\norder=0 for EMAPA:32664
 
 [Term]
 id: EMAPA:32669
@@ -49472,11 +49472,11 @@ comment: order=0 for EMAPA:31857
 id: EMAPA:32762
 name: mesendoderm
 namespace: abstract_anatomy
-relationship: part_of EMAPA:25765
 relationship: part_of EMAPA:16039
+relationship: part_of EMAPA:25765
 relationship: starts_at TS10
 relationship: ends_at TS11
-comment: order=16 for EMAPA:25765\norder=12 for EMAPA:16039
+comment: order=12 for EMAPA:16039\norder=16 for EMAPA:25765
 
 [Term]
 id: EMAPA:32763
@@ -49932,11 +49932,11 @@ comment: order=1 for EMAPA:18815
 id: EMAPA:32813
 name: parasympathetic ganglion
 namespace: abstract_anatomy
-relationship: is_a EMAPA:18221
 relationship: part_of EMAPA:17270
+relationship: is_a EMAPA:18221
 relationship: starts_at TS25
 relationship: ends_at TS26
-comment: order=0 for EMAPA:18221\norder=0 for EMAPA:17270
+comment: order=0 for EMAPA:17270\norder=0 for EMAPA:18221
 
 [Term]
 id: EMAPA:32814
@@ -50268,11 +50268,11 @@ comment: order=0 for EMAPA:32640\norder=7 for EMAPA:32642
 id: EMAPA:32850
 name: metacarpus pre-cartilage condensation
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32642
 relationship: is_a EMAPA:32646
+relationship: part_of EMAPA:32642
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=8 for EMAPA:32642\norder=0 for EMAPA:32646
+comment: order=0 for EMAPA:32646\norder=8 for EMAPA:32642
 
 [Term]
 id: EMAPA:32851
@@ -50620,11 +50620,11 @@ comment: order=1 for EMAPA:32903
 id: EMAPA:32889
 name: incisor
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32905
 relationship: is_a EMAPA:32906
+relationship: part_of EMAPA:32905
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=1 for EMAPA:32905\norder=0 for EMAPA:32906
+comment: order=0 for EMAPA:32906\norder=1 for EMAPA:32905
 
 [Term]
 id: EMAPA:32890
@@ -50693,11 +50693,11 @@ comment: order=0 for EMAPA:32890
 id: EMAPA:32897
 name: molar
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32906
 relationship: part_of EMAPA:32905
+relationship: is_a EMAPA:32906
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=0 for EMAPA:32906\norder=6 for EMAPA:32905
+comment: order=6 for EMAPA:32905\norder=0 for EMAPA:32906
 
 [Term]
 id: EMAPA:32898
@@ -51153,11 +51153,11 @@ comment: order=1 for EMAPA:32649
 id: EMAPA:32948
 name: hindlimb phalanx cartilage condensation
 namespace: abstract_anatomy
-relationship: part_of EMAPA:32649
 relationship: is_a EMAPA:32939
+relationship: part_of EMAPA:32649
 relationship: starts_at TS22
 relationship: ends_at TS22
-comment: order=4 for EMAPA:32649\norder=0 for EMAPA:32939
+comment: order=0 for EMAPA:32939\norder=4 for EMAPA:32649
 
 [Term]
 id: EMAPA:32949
@@ -51201,21 +51201,21 @@ comment: order=6 for EMAPA:17503
 id: EMAPA:32953
 name: dorsal pancreatic duct
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32952
 relationship: part_of EMAPA:17503
+relationship: is_a EMAPA:32952
 relationship: starts_at TS20
 relationship: ends_at TS23
-comment: order=0 for EMAPA:32952\norder=0 for EMAPA:17503
+comment: order=0 for EMAPA:17503\norder=0 for EMAPA:32952
 
 [Term]
 id: EMAPA:32954
 name: dorsal pancreatic duct
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32924
 relationship: part_of EMAPA:18816
+relationship: is_a EMAPA:32924
 relationship: starts_at TS24
 relationship: ends_at TS26
-comment: order=0 for EMAPA:32924\norder=0 for EMAPA:18816
+comment: order=0 for EMAPA:18816\norder=0 for EMAPA:32924
 
 [Term]
 id: EMAPA:32955
@@ -51230,11 +51230,11 @@ comment: order=1 for EMAPA:32945
 id: EMAPA:32956
 name: metatarsus pre-cartilage condensation
 namespace: abstract_anatomy
-relationship: is_a EMAPA:32938
 relationship: part_of EMAPA:32649
+relationship: is_a EMAPA:32938
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=0 for EMAPA:32938\norder=8 for EMAPA:32649
+comment: order=8 for EMAPA:32649\norder=0 for EMAPA:32938
 
 [Term]
 id: EMAPA:32957

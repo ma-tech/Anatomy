@@ -308,6 +308,7 @@ public class GenerateSQL {
                 }
                 else if ( component.getStatusRule().equals("PASSED") ) {
                 	
+                	/*
                 	if (component.getID().equals("EMAPA:18305")) {
                         System.out.println("GenerateSQL.java");
                         System.out.println("----------------");
@@ -317,7 +318,7 @@ public class GenerateSQL {
                         System.out.println("component.getCheckComments() " + component.getCheckComments());
                         System.out.println("----------------");
                 	}
-
+                	*/
                     setProcessed(true);
                 }
                 else {
@@ -330,9 +331,371 @@ public class GenerateSQL {
             }
             else if ( !component.getStatusChange().equals("UNCHANGED") ) {
 
-                System.out.println("UNKNOWN Component StatusChange Value = " + component.getStatusChange());
-                System.out.println("component.toString() = " + component.toString());
-                setProcessed(false);
+            	if ( component.getID().equals("group_term")) {
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("Tmp_new_group") ) { 
+                    setProcessed(true);
+            	}
+            	else if (component.getID().equals("EMAPA:0") ) {
+                    setProcessed(true);
+            	}
+            	else if (component.getID().equals("EMAPA:25765") ) {
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS:0") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS01") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS02") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS03") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS04") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS05") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS06") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS07") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS08") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS09") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS10") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS11") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS12") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS13") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS14") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS15") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS16") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS17") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS18") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS19") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS20") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS21") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS22") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS23") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS24") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS25") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS26") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS27") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("TS28") ) { 
+                    setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS01")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS02")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS03")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS04")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS05a")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS05b")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS05c")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS06a")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS06b")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS07")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS08")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS09")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS10")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS11")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS12")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS13")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS14")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS15")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS16")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS17")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS18")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS19")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS20")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS21")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS22")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("CS23")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-I")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-II")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-III")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-IV")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-V")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-VI")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-VII")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-VIII")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-IX")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-X")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-XI")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-XII")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-XIII")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("EGK-XIV")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH02")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH03")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH04")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH05")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH06")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH07")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH08")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH09")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH10")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH11")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH12")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH13")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH14")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH15")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH16")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH17")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH18")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH19")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH20")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH21")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH22")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH23")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH24")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH25")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH26")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH27")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH28")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH29")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH30")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH31")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH32")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH33")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH34")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH35")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH36")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH37")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH38")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH39")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH40")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH41")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH42")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH43")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH44")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH45")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH46")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH47")) {
+            		setProcessed(true);
+            	}
+            	else if ( component.getID().equals("HH48")) {
+            		setProcessed(true);
+            	}
+            	else {
+                	System.out.println("UNKNOWN Component StatusChange Value = " + component.getStatusChange());
+                    System.out.println("component.toString() = " + component.toString());
+                    setProcessed(false);
+            	}
             }
         }
 
@@ -4336,7 +4699,8 @@ public class GenerateSQL {
         	if ( component.hasDifferenceComment("New Parents") ) {
         		
         		termList.add( component );
-        		
+
+        		/*
             	if (component.getID().equals("EMAPA:18305")) {
                     System.out.println("GenerateSQL.java");
                     System.out.println("----------------");
@@ -4348,7 +4712,7 @@ public class GenerateSQL {
                     System.out.println("component.getChildOfTypes().toString()" + component.getChildOfTypes().toString());
                     System.out.println("----------------");
             	}
-
+            	*/
             }
         }
         

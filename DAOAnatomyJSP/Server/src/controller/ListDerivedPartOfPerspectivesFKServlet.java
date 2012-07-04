@@ -51,18 +51,14 @@ public class ListDerivedPartOfPerspectivesFKServlet extends HttpServlet {
         // Process request and get result.
         List<DerivedPartOfPerspectivesFK> derivedpartofperspectivesfks = derivedpartofperspectivesfkForm.listDerivedPartOfPerspectivesFKsByStageAndSearchTerm(request);
 
-        Iterator<DerivedPartOfPerspectivesFK> iteratorDerivedPartOfPerspectivesFK = derivedpartofperspectivesfks.iterator();
-
-        while (iteratorDerivedPartOfPerspectivesFK.hasNext()) {
-        	DerivedPartOfPerspectivesFK derivedpartofperspectivesfk = iteratorDerivedPartOfPerspectivesFK.next();
-       		outString = outString + derivedpartofperspectivesfk.getFullPathJson() + ";\n";
-      	}
-
+        outString = derivedpartofperspectivesfkForm.convertDerivedPartOfPerspectivesFKListToStringJson(derivedpartofperspectivesfks).replaceAll("\'", "\"");
+        
+        //System.out.println("outString = " + outString);
         
         // Postback.
         java.io.PrintWriter out = response.getWriter();
-        //response.setContentType("text/json");           
-        response.setContentType("text/html");           
+        response.setContentType("text/json");           
+        //response.setContentType("text/html");           
         response.setHeader("Cache-Control", "no-cache");
         
         //System.out.println(outString);

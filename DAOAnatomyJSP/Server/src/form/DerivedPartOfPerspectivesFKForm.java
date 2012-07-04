@@ -3,6 +3,7 @@ package form;
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import daolayer.DAOException;
@@ -38,6 +39,41 @@ public final class DerivedPartOfPerspectivesFKForm extends Form {
 
     
     // Form actions -------------------------------------------------------------------------------
+
+    /*
+     * Convert the Leaf ResultSet to JSON.
+     */
+    public String convertDerivedPartOfPerspectivesFKListToStringJson(List<DerivedPartOfPerspectivesFK> derivedpartofperspectivesfks) {
+
+	    String returnString = "";
+
+        Iterator<DerivedPartOfPerspectivesFK> iteratorDerivedPartOfPerspectivesFK = derivedpartofperspectivesfks.iterator();
+
+        int count = 1;
+
+    	//System.out.println("derivedpartofperspectivesfks.size() = " + derivedpartofperspectivesfks.size());
+        
+    	while (iteratorDerivedPartOfPerspectivesFK.hasNext()) {
+        	
+        	DerivedPartOfPerspectivesFK derivedpartofperspectivesfk = iteratorDerivedPartOfPerspectivesFK.next();
+        	
+        	//System.out.println("derivedpartofperspectivesfk.getFullPathJson() = " + derivedpartofperspectivesfk.getFullPathJson());
+        	
+        	if (count == 1) {
+        		returnString = "[" + derivedpartofperspectivesfk.getFullPathJson() + ",\n";
+        	}
+        	if ( count < derivedpartofperspectivesfks.size()) {
+        		returnString = returnString + derivedpartofperspectivesfk.getFullPathJson() + ",\n";	
+        	}
+        	if ( count == derivedpartofperspectivesfks.size()) {
+        		returnString = returnString + derivedpartofperspectivesfk.getFullPathJson() + "]";	
+        	}
+        	count++;
+      	}
+
+        return returnString;
+    }
+
     /**
      * Returns the DerivedPartOfPerspectivesFKs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the DerivedPartOfPerspectivesFK DAO 

@@ -43,16 +43,12 @@ public class ListByRootNameJsonOnlyAggregatedServlet extends HttpServlet {
         LeafForm leafForm = new LeafForm(leafDAO);
     	String leafTree = "";
 
-        //System.out.println("ListByRootNameJsonOnlyServlet leafForm.listLeafsByRootNameByChildDesc");
-
-        // Process request and get result.
         // Process request and get result.
         String outString = leafForm.checkLeafsByRootName(request);
         
         if ( outString.equals("SUCCESS!")) {
             List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
             leafTree = leafDAO.convertLeafListToStringJsonAggregate(leafs);
-            //leafTree = timedleafDAO.convertLeafListToStringJsonAggregate(timedleafs);
         }
         else {
         	leafTree = outString;

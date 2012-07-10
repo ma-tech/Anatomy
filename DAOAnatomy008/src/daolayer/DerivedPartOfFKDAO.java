@@ -88,7 +88,8 @@ public final class DerivedPartOfFKDAO {
         "JOIN ANA_STAGE a on a.STG_OID = APO_NODE_START_STAGE_FK " +
         "JOIN ANA_STAGE b on b.STG_OID = APO_NODE_END_STAGE_FK " +
         "JOIN ANA_STAGE c on c.STG_OID = APO_PATH_START_STAGE_FK " +
-        "JOIN ANA_STAGE d on d.STG_OID = APO_PATH_END_STAGE_FK " +"JOIN ANA_NODE e on e.ANO_OID = APO_NODE_FK " +
+        "JOIN ANA_STAGE d on d.STG_OID = APO_PATH_END_STAGE_FK " +
+        "JOIN ANA_NODE e on e.ANO_OID = APO_NODE_FK " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK = ?";
     

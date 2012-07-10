@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import daomodel.Leaf;
 import daomodel.TimedLeaf;
 
 /*
@@ -89,7 +90,9 @@ public final class TimedLeafDAO {
         " JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
         " WHERE ANAV_NAME_1 = ? " +
         " AND STG_NAME = ? " +
-        " ORDER BY CHILD_DESC ";
+        "ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+        //" ORDER BY CHILD_ID ";
+        //" ORDER BY CHILD_DESC ";
 
     private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
         "SELECT  " +
@@ -267,114 +270,124 @@ public final class TimedLeafDAO {
 
     
     /*
-     * Convert the Leaf ResultSet to JSON.
+     * Convert the Leaf ResultSet to JSON for Ajax calls
      */
-    public String convertLeafListToStringJson(List<TimedLeaf> timedleafs) {
+    public String convertLeafListToStringJsonChildren(List<TimedLeaf> timedleafs) {
 
-	    String returnString = "";
+	    String returnString = "[";
 
-        int rowCount = 0;
-        int grandChildCount = 1;
+	    TimedLeaf leaf = new TimedLeaf();
+	    TimedLeaf prevleaf = new TimedLeaf();
+	    TimedLeaf rootLeaf = new TimedLeaf();
+
+		int rowCount = 0;
+
+        Iterator<TimedLeaf> iteratorleaf = timedleafs.iterator();
+
+        String prevChildName = "";
+        String leafType = "ROOT";
+        int countChildNames = 0;
         
-        boolean lastLeaf = false;
+        while (iteratorleaf.hasNext()) {
 
-        TimedLeaf savedLeaf = new TimedLeaf();
+        	prevleaf = leaf;
+  			leaf = iteratorleaf.next();
 
-        if (timedleafs.size() > 0) {
-        	Iterator<TimedLeaf> iterator = timedleafs.iterator();
-        	while (iterator.hasNext()) {
-        		TimedLeaf timedleaf = iterator.next();
-  		        if ( rowCount == 0) {
-  		        	returnString = returnString + 
-  		        		"\"children\": [\n{\n\"attr\": {\n\"ext_id\": \"" +
-  		        		timedleaf.getRootName() + 
-                        "\", \"id\": \"li_node_ROOT_Timed_id" +
-                        timedleaf.getRootOid() +
+  			rowCount++;
+
+  			if (rowCount == 1 ) {
+  				
+  				rootLeaf = leaf;
+  				
+  	  			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+  	  				rootLeaf.getRootName() + 
+  			        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+  			        rootLeaf.getRootOid() +
+ 	    	        "\",\"stage\": \"" + 
+ 	    	        rootLeaf.getStage() +
+  			 	    "\",\"name\": \"" + 
+  			 	    rootLeaf.getRootDescription() + 
+  			 	    "\"},\"children\": [";
+  			}
+  			
+  			if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+       			if ( leaf.getChildId().equals("LEAF")) {
+   					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              			prevleaf.getChildName() + 
+      		        	"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	prevleaf.getChildOid() +
  	    	            "\",\"stage\": \"" + 
-        	            timedleaf.getStage() +
-                        "\", \"name\": \"" +
-                        timedleaf.getRootDescription() +
-                        "\"},\n\"children\": [\n";
-  		        }
-  		        if ( timedleaf.getChildId().equals("LEAF")) {
-  		        	if ( rowCount == 1 ){
-  	        	        returnString = returnString + 
-  	                          ",";
-  		        	}
-        	        returnString = returnString + 
-                        "{\n\"attr\": {\n\"ext_id\": \"" +
-                        timedleaf.getChildName() + 
-        	            "\",\n\"id\": \"li_node_LEAF_Timed_id" + 
-        	            timedleaf.getChildOid() +
+ 	    	            prevleaf.getStage() +
+      		 	    	"\",\"name\": \"" + 
+      		 	    	prevleaf.getChildDescription() + 
+      		 	    	"\"},\"data\": \"" +
+      		 	    	prevleaf.getChildDescription() + 
+      		            "\"},";
+       			}
+       			else {
+   					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              			prevleaf.getChildName() + 
+      		        	"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	prevleaf.getChildId() +
  	    	            "\",\"stage\": \"" + 
-        	            timedleaf.getStage() +
- 	    	            "\",\n\"name\": \"" + 
- 	    	            timedleaf.getChildDescription() + 
- 	    	            "\"\n},\n\"data\": \"" +
- 	    	            timedleaf.getChildDescription() + 
-                        "\"\n},";
-        	            lastLeaf = true;
-  		        }
-  		        else {
-  		        	if (timedleaf.getChildName().equals(savedLeaf.getChildName())) {
-  		        		grandChildCount = grandChildCount + 1;
-  		        	}
-  		        	else {
-  		        		if (lastLeaf == false){
-  		  		  	        returnString = returnString + 
-   	                            ",\n{\n\"attr\": {\n\"ext_id\": \"" +
-  		  		                savedLeaf.getChildName() + 
-  		        	            "\",\n\"id\": \"li_node_BRANCH_Timed_id" + 
-  		 	    	            savedLeaf.getChildId() +
-        	    	            "\",\"stage\": \"" + 
-                	            savedLeaf.getStage() +
-  		 	    	            "\",\n\"name\": \"" + 
-  		 	    	            savedLeaf.getChildDescription() + 
-  		 	    	            "\"\n},\n\"data\": \"" +
-  		                        savedLeaf.getChildDescription() + 
-  		                        "(" + 
-  		                        Integer.toString(grandChildCount) + 
-  		                        ")\"\n},";
-  		        		}
-  		        		else {
-  		        			lastLeaf = false;
-  		        		}
- 	  	                grandChildCount = 1;
-  		        	}
-  		        }
-  		        rowCount = rowCount + 1;
- 		        savedLeaf = timedleaf;
-        	}
-	        if ( !savedLeaf.getChildId().equals("LEAF")) {
-                returnString = returnString + 
-                ",\n{\n\"attr\": {\n\"ext_id\": \"" +
-	  		    savedLeaf.getChildName() + 
-	        	"\",\n\"id\": \"li_node_BRANCH_Timed_id" + 
-	 	    	savedLeaf.getChildId() +
+ 	    	            prevleaf.getStage() +
+      		 	    	"\",\"name\": \"" + 
+      		 	    	prevleaf.getChildDescription() + 
+      		 	    	"\"},\"data\": \"" +
+      		 	    	prevleaf.getChildDescription() + 
+      		            "\"},";
+      			}
+       			countChildNames = 0;
+       		}
+       		prevChildName = leaf.getChildName();
+   			countChildNames++;
+   			
+      	}
+
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+	        	leaf.getChildOid() +
  	    	    "\",\"stage\": \"" + 
-        	    savedLeaf.getStage() +
-	 	    	"\",\n\"name\": \"" + 
-	 	    	savedLeaf.getChildDescription() + 
-	 	    	"\"\n},\n\"data\": \"" +
-	            savedLeaf.getChildDescription() + 
+ 	    	    leaf.getStage() +
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
+	            "\"}";
+		}
+		else {
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+	        	leaf.getChildOid() +
+ 	    	    "\",\"stage\": \"" + 
+ 	    	    leaf.getStage() +
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
 	            "(" + 
-	            Integer.toString(grandChildCount) + 
-	            ")\"\n}\n],\n\"data\": \"" +
-                savedLeaf.getRootDescription() +
-                "\"\n}\n],";
-	        }
-	        else {
-                returnString = returnString + 
-       	            "\n],\n\"data\": \"" +
-                    savedLeaf.getRootDescription() +
-                    "\"\n}\n],";
-	        }
-        }
+	            countChildNames + 
+	            ")\"}";
+		}
+		
+		if ( rowCount == timedleafs.size()) {
+			returnString = returnString + "]";
+		}
+		else {
+			returnString = returnString + ",";
+		}
+        
+		returnString = returnString + ", \"data\": \"" +
+		 	rootLeaf.getRootDescription() + 
+		    "\"}]";
         
         return returnString;
-    
     }
 
+    
     /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
@@ -390,39 +403,47 @@ public final class TimedLeafDAO {
         TimedLeaf savedLeaf = new TimedLeaf();
 
         if (timedleafs.size() > 0) {
+        	
         	Iterator<TimedLeaf> iterator = timedleafs.iterator();
+        	
         	while (iterator.hasNext()) {
-        		TimedLeaf timedleaf = iterator.next();
-  		        if ( timedleaf.getChildId().equals("LEAF")) {
+        	
+        		TimedLeaf leaf = iterator.next();
+  		        
+        		if ( leaf.getChildId().equals("LEAF")) {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
-                        timedleaf.getChildName() + 
-        	            "\",\"id\": \"li_node_LEAF_Timed_id" + 
-        	            timedleaf.getChildOid() +
- 	    	            "\",\"stage\": \"" + 
-        	            timedleaf.getStage() +
+  		                leaf.getChildName() + 
+        	            "\",\"id\": \"li_node_ROOT_Timed_id" + 
+ 	    	            leaf.getChildOid() +
  	    	            "\",\"name\": \"" + 
-   	    	            timedleaf.getChildDescription() + 
+ 	    	            leaf.getChildDescription() + 
+            	    	"\",\"stage\": \"" + 
+            	    	leaf.getStage() +
  	    	            "\"},\"data\": \"" +
- 	    	            timedleaf.getChildDescription() + 
+                        leaf.getChildDescription() + 
                         "\"};";
         	            lastLeaf = true;
   		        }
   		        else {
-  		        	if (timedleaf.getChildName().equals(savedLeaf.getChildName())) {
+  		        
+  		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
+  		        	
   		        		grandChildCount = grandChildCount + 1;
   		        	}
   		        	else {
+  		        		
   		        		if (lastLeaf == false){
-  		  		  	        returnString = returnString + 
+  		  		  	    
+  		        			returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li_node_BRANCH_Timed_id" + 
+  		        	            "\",\"id\": \"li_node_ROOT_Timed_id" + 
   		 	    	            savedLeaf.getChildId() +
-        	    	            "\",\"stage\": \"" + 
-                	            savedLeaf.getStage() +
   		 	    	            "\",\"name\": \"" + 
   		 	    	            savedLeaf.getChildDescription() + 
+            	    	        "\",\"stage\": \"" + 
+            	    	        savedLeaf.getStage() +
   		 	    	            "\"},\"data\": \"" +
   		                        savedLeaf.getChildDescription() + 
   		                        "(" + 
@@ -430,24 +451,29 @@ public final class TimedLeafDAO {
   		                        ")\"};";
   		        		}
   		        		else {
+  		        		
   		        			lastLeaf = false;
   		        		}
+  		        		
  	  	                grandChildCount = 1;
   		        	}
   		        }
+        		
   		        rowCount = rowCount + 1;
- 		        savedLeaf = timedleaf;
+ 		        savedLeaf = leaf;
         	}
+        	
 	        if ( !savedLeaf.getChildId().equals("LEAF")) {
-    	  		returnString = returnString + 
+    	  	
+	        	returnString = returnString + 
                 "{\"attr\": {\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
-	        	"\",\"id\": \"li_node_BRANCH_Timed_id" + 
+	        	"\",\"id\": \"li_node_ROOT_Timed_id" + 
 	 	    	savedLeaf.getChildId() +
-   	            "\",\"stage\": \"" + 
-   	            savedLeaf.getStage() +
 	 	    	"\",\"name\": \"" + 
 	 	    	savedLeaf.getChildDescription() + 
+            	"\",\"stage\": \"" + 
+            	savedLeaf.getStage() +
 	 	    	"\"},\"data\": \"" +
 	            savedLeaf.getChildDescription() + 
 	            "(" + 
@@ -457,7 +483,6 @@ public final class TimedLeafDAO {
         }
         
         return returnString;
-    
     }
 
 
@@ -466,91 +491,140 @@ public final class TimedLeafDAO {
      */
     public String convertLeafListToStringJsonAggregate(List<TimedLeaf> timedleafs) {
 
+        Iterator<TimedLeaf> iteratortimedleaf = timedleafs.iterator();
+
+		TimedLeaf timedleaf = new TimedLeaf();
+    	TimedLeaf prevleaf = new TimedLeaf();
+
+		int rowCount = 0;
+        int countChildNames = 0;
+
+        String prevChildName = "";
+        String leafType = "";
 	    String returnString = "[";
 
-        int rowCount = 0;
-        int grandChildCount = 1;
-        
-        boolean lastLeaf = false;
+        while (iteratortimedleaf.hasNext()) {
 
-        TimedLeaf savedLeaf = new TimedLeaf();
+        	prevleaf = timedleaf;
+  			timedleaf = iteratortimedleaf.next();
 
-        if (timedleafs.size() > 0) {
-        	Iterator<TimedLeaf> iterator = timedleafs.iterator();
-        	
-        	while (iterator.hasNext()) {
-        		TimedLeaf timedleaf = iterator.next();
-  		        rowCount = rowCount + 1;
+  			rowCount++;
+       		
+       		if (!timedleaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+       			
+       			if ( timedleaf.getChildId().equals("LEAF")) {
+       				if ( prevleaf.getChildId().equals("LEAF")) {
+       					leafType = "LEAF";
 
-  		        if ( timedleaf.getChildId().equals("LEAF") ) {
-        	        returnString = returnString + 
-                        "{\"attr\": {\"ext_id\": \"" +
-                        timedleaf.getChildName() + 
-        	            "\",\"id\": \"li_node_LEAF_Timed_id" + 
-        	            timedleaf.getChildOid() +
- 	    	            "\",\"stage\": \"" + 
-        	            timedleaf.getStage() +
- 	    	            "\",\"name\": \"" + 
-   	    	            timedleaf.getChildDescription() + 
- 	    	            "\"},\"data\": \"" +
- 	    	            timedleaf.getChildDescription() + 
-                        "\"}";
-        	            if ( timedleafs.size() != rowCount ) {
-  	        	            returnString = returnString + ",";
-  		        	    }
-        	            lastLeaf = true;
-  		        }
-  		        
-  		        if ( !timedleaf.getChildId().equals("LEAF") ) {
-  		        	if (timedleaf.getChildName().equals(savedLeaf.getChildName())) {
-  		        		grandChildCount = grandChildCount + 1;
-  		        	}
-  		        	else {
-  		        		if (lastLeaf == false && rowCount > 1){
-  		  		  	        returnString = returnString + 
-   	                            "{\"attr\": {\"ext_id\": \"" +
-  		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li_node_BRANCH_Timed_id" + 
-  		 	    	            savedLeaf.getChildId() +
-        	    	            "\",\"stage\": \"" + 
-                	            savedLeaf.getStage() +
-  		 	    	            "\",\"name\": \"" + 
-  		 	    	            savedLeaf.getChildDescription() + 
-  		 	    	            "\"},\"data\": \"" +
-  		                        savedLeaf.getChildDescription() + 
-  		                        "(" + 
-  		                        Integer.toString(grandChildCount) + 
-  		                        ")\",\"state\": \"closed\"},";
-  		        		}
-  		        		else {
-  		        			lastLeaf = false;
-  		        		}
- 	  	                grandChildCount = 1;
-  		        	}
-  	 		        savedLeaf = timedleaf;
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              					prevleaf.getChildName() + 
+      		        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	          prevleaf.getChildOid() +
+            	    	            "\",\"stage\": \"" + 
+            	    	            prevleaf.getStage() +
+      		 	    	            "\",\"name\": \"" + 
+      		 	    	         prevleaf.getChildDescription() + 
+      		 	    	            "\"},\"data\": \"" +
+      		 	    	         prevleaf.getChildDescription() + 
+      		                        "\",\"state\": \"closed\"},";
+       				}
+       				else {
+       					leafType = "BRANCH";
+              			
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              					prevleaf.getChildName() + 
+      		        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	          prevleaf.getChildOid() +
+            	    	            "\",\"stage\": \"" + 
+            	    	            prevleaf.getStage() +
+      		 	    	            "\",\"name\": \"" + 
+      		 	    	         prevleaf.getChildDescription() + 
+      		 	    	            "\"},\"data\": \"" +
+      		 	    	         prevleaf.getChildDescription() + 
+      		                        "(" + 
+      		                        countChildNames + 
+      		                        ")\",\"state\": \"closed\"},";
+       				}
+       			}
+       			else {
+       				if ( prevleaf.getChildId().equals("LEAF")) {
+       					leafType = "LEAF";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              					prevleaf.getChildName() + 
+      		        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	          prevleaf.getChildId() +
+            	    	            "\",\"stage\": \"" + 
+            	    	            prevleaf.getStage() +
+      		 	    	            "\",\"name\": \"" + 
+      		 	    	         prevleaf.getChildDescription() + 
+      		 	    	            "\"},\"data\": \"" +
+      		 	    	         prevleaf.getChildDescription() + 
+      		                        "\",\"state\": \"closed\"},";
+       				}
+       				else {
+       					leafType = "BRANCH";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              					prevleaf.getChildName() + 
+      		        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+      		        	          prevleaf.getChildId() +
+            	    	            "\",\"stage\": \"" + 
+            	    	            prevleaf.getStage() +
+      		 	    	            "\",\"name\": \"" + 
+      		 	    	         prevleaf.getChildDescription() + 
+      		 	    	            "\"},\"data\": \"" +
+      		 	    	         prevleaf.getChildDescription() + 
+      		                        "(" + 
+      		                        countChildNames + 
+      		                        ")\",\"state\": \"closed\"},";
+       				}
+      			}
 
-    		        if ( rowCount == timedleafs.size()) {
-        	  		    returnString = returnString + 
-                        "{\"attr\": {\"ext_id\": \"" +
-	  		            savedLeaf.getChildName() + 
-	        	        "\",\"id\": \"li_node_BRANCH_Timed_id" + 
-	 	    	        savedLeaf.getChildId() +
-      	                "\",\"stage\": \"" + 
-      	                savedLeaf.getStage() +
-	    	    	    "\",\"name\": \"" + 
-	 	         	    savedLeaf.getChildDescription() + 
-	 	    	        "\"},\"data\": \"" +
-	                    savedLeaf.getChildDescription() + 
-    	                "(" + 
-	                    Integer.toString(grandChildCount) + 
-  		                ")\",\"state\": \"closed\"}";
-  		            }
+       			countChildNames = 0;
+       		}
+       		prevChildName = timedleaf.getChildName();
+   			countChildNames++;
+      	}
 
- 		        }
-        	}
-        }
-        
-        return returnString + "]";
-    
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			leafType = "LEAF";
+			
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   					timedleaf.getChildName() + 
+	        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+	        	          timedleaf.getChildOid() +
+	    	            "\",\"stage\": \"" + 
+	    	            timedleaf.getStage() +
+	 	    	            "\",\"name\": \"" + 
+	 	    	         timedleaf.getChildDescription() + 
+	 	    	            "\"},\"data\": \"" +
+	 	    	         timedleaf.getChildDescription() + 
+	                        "\",\"state\": \"closed\"}";
+		}
+		else {
+			leafType = "BRANCH";
+			
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   					timedleaf.getChildName() + 
+	        	            "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+	        	          timedleaf.getChildOid() +
+	    	            "\",\"stage\": \"" + 
+	    	            timedleaf.getStage() +
+	 	    	            "\",\"name\": \"" + 
+	 	    	         timedleaf.getChildDescription() + 
+	 	    	            "\"},\"data\": \"" +
+	 	    	         timedleaf.getChildDescription() + 
+	                        "(" + 
+	                        countChildNames + 
+	                        ")\",\"state\": \"closed\"}";
+		}
+
+			if ( rowCount == timedleafs.size()) {
+				returnString = returnString + "]";
+			}
+			else {
+				returnString = returnString + ",";
+			}
+		
+		return returnString;
     }
 }

@@ -7,6 +7,7 @@
         $.ajax({
                 async : false,
                 type: 'GET',
+                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/findleafsbyemapandstage",
                 url: "http://localhost:8080/DAOAnatomyJSP/findleafsbyemapandstage",
                 dataType: "text",
                 data : {

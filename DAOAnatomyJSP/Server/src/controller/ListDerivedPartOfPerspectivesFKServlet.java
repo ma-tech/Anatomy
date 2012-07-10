@@ -46,14 +46,10 @@ public class ListDerivedPartOfPerspectivesFKServlet extends HttpServlet {
     	
     	DerivedPartOfPerspectivesFKForm derivedpartofperspectivesfkForm = new DerivedPartOfPerspectivesFKForm(derivedpartofperspectivesfkDAO);
 
-        //System.out.println("ListDerivedPartOfPerspectivesFKServlet derivedpartofperspectivesfkForm.listDerivedPartOfPerspectivesFKsByStageAndSearchTerm");
-
         // Process request and get result.
         List<DerivedPartOfPerspectivesFK> derivedpartofperspectivesfks = derivedpartofperspectivesfkForm.listDerivedPartOfPerspectivesFKsByStageAndSearchTerm(request);
 
-        outString = derivedpartofperspectivesfkForm.convertDerivedPartOfPerspectivesFKListToStringJson(derivedpartofperspectivesfks).replaceAll("\'", "\"");
-        
-        //System.out.println("outString = " + outString);
+        outString = derivedpartofperspectivesfkForm.convertDerivedPartOfPerspectivesFKListToStringJson(derivedpartofperspectivesfks).replaceAll("\'", "\\'");
         
         // Postback.
         java.io.PrintWriter out = response.getWriter();
@@ -63,7 +59,6 @@ public class ListDerivedPartOfPerspectivesFKServlet extends HttpServlet {
         
         //System.out.println(outString);
         out.println(outString);
-
     }
 
 }

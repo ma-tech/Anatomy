@@ -29,6 +29,7 @@ public class Config implements ServletContextListener {
         // Obtain the DAOFactory and put the Config self in the application scope.
         ServletContext servletContext = event.getServletContext();
         String databaseName = servletContext.getInitParameter("database.name");
+
         this.daoFactory = DAOFactory.getInstance(databaseName);
         servletContext.setAttribute(ATTRIBUTE_CONFIG, this);
     }

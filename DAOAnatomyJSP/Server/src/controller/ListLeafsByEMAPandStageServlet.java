@@ -43,8 +43,6 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
     	String leafTree = "";
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
-        //System.out.println("ListLeafsByEMAPandStageServlet timedleafForm.checkTimedLeafsByRootNameByChildDesc");
-        
         // Process request and get result.
         String outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
         

@@ -42,8 +42,6 @@ public class FindByEMAPServlet extends HttpServlet {
     {
     	TimedNodeForm timednodeForm = new TimedNodeForm(extratimednodeDAO);
 
-        //System.out.println("FindByEMAPServlet timednodeForm.findTimedNodeByEmap");
-
         // Process request and get result.
         String outString = timednodeForm.findTimedNodeByEmap(request);
 

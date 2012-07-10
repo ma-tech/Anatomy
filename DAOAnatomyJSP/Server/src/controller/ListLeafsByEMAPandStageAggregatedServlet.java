@@ -43,8 +43,6 @@ public class ListLeafsByEMAPandStageAggregatedServlet extends HttpServlet {
     	String leafTree = "";
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
-        //System.out.println("ListLeafsByEMAPandStageAggregatedServlet timedleafForm.listTimedLeafsByRootNameByChildDesc");
-        
         // Process request and get result.
         String outString = timedleafForm.checkTimedLeafsByRootName(request);
         
@@ -57,13 +55,11 @@ public class ListLeafsByEMAPandStageAggregatedServlet extends HttpServlet {
         }
         
         java.io.PrintWriter out = response.getWriter();
-        //response.setContentType("text/json");           
-        response.setContentType("text/html");           
+        response.setContentType("text/json");           
+        //response.setContentType("text/html");           
         response.setHeader("Cache-Control", "no-cache");
         
-        //System.out.println(leafTree);
         out.println(leafTree);
-        
     }
 
 }

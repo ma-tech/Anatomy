@@ -10,7 +10,9 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url: "listbytimedrootnamejsononly",
+                url: "http://localhost:8080/DAOAnatomyJSP/listbytimedrootnamejsononly",
+                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbytimedrootnamejsononly",
+                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listbytimedrootnamejsononly",
                 dataType: "text",
                 data : {
                     "rootName" : rootname ,

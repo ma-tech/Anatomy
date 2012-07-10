@@ -38,6 +38,7 @@
         $.ajax({
                 async : false,
                 type: 'GET',
+                //url : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
                 url: "http://localhost:8080/DAOAnatomyJSP/listleafsbyemapandstage",
                 dataType: "text",
                 data : {
@@ -84,6 +85,7 @@
 		$.ajax({
             async : false,
             type: 'GET',
+            //url : "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
             url: "http://localhost:8080/DAOAnatomyJSP/findbyemapaidandstage",
             dataType: "text",
             data : {
@@ -125,6 +127,7 @@
 		$.ajax({
             async : false,
             type: 'GET',
+            //url : "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
             url: "http://localhost:8080/DAOAnatomyJSP/findbyemapid",
             dataType: "text",
             data : {

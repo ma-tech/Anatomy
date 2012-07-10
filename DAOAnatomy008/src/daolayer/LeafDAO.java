@@ -307,122 +307,134 @@ public final class LeafDAO {
 
     
     /*
-     * Convert the Leaf ResultSet to JSON.
+     * Convert the Leaf ResultSet to JSON for Ajax calls
      */
-    public String convertLeafListToStringJson(List<Leaf> leafs) {
+    public String convertLeafListToStringJsonChildren(List<Leaf> leafs) {
 
-	    String returnString = "";
+	    String returnString = "[";
 
-        int rowCount = 0;
-        int grandChildCount = 1;
+    	Leaf leaf = new Leaf();
+    	Leaf prevleaf = new Leaf();
+    	Leaf rootLeaf = new Leaf();
+
+		int rowCount = 0;
+
+        Iterator<Leaf> iteratorleaf = leafs.iterator();
+
+        String prevChildName = "";
+        String leafType = "ROOT";
+        int countChildNames = 0;
         
-        boolean lastLeaf = false;
+        while (iteratorleaf.hasNext()) {
 
-        Leaf savedLeaf = new Leaf();
+        	prevleaf = leaf;
+  			leaf = iteratorleaf.next();
 
-        if (leafs.size() > 0) {
-        	Iterator<Leaf> iterator = leafs.iterator();
-        	while (iterator.hasNext()) {
-        		Leaf leaf = iterator.next();
-  		        if ( rowCount == 0) {
-  		        	returnString = returnString + 
-  		        		"\"children\": [\n{\n\"attr\": {\n\"ext_id\": \"" +
-                        leaf.getRootName() + 
-                        "\", \"id\": \"li_node_ROOT_Abstract_id" +
-                        leaf.getRootOid() +
-                        "\", \"name\": \"" +
-                        leaf.getRootDescription() +
-                        "\", \"start\": \"" +
-                        leaf.getRootStart() +
-                        "\", \"end\": \"" +
-                        leaf.getRootEnd() +
-                        "\"},\n\"children\": [\n";
-  		        }
-  		        if ( leaf.getChildId().equals("LEAF")) {
-  		        	if ( rowCount == 1 ){
-  	        	        returnString = returnString + 
-  	                          ",";
-  		        	}
-        	        returnString = returnString + 
-                        "{\n\"attr\": {\n\"ext_id\": \"" +
-  		                leaf.getChildName() + 
-        	            "\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
- 	    	            leaf.getChildOid() +
- 	    	            "\",\n\"name\": \"" + 
- 	    	            leaf.getChildDescription() + 
- 	    	            "\",\n\"start\": \"" + 
- 	    	            leaf.getChildStart() + 
- 	    	            "\",\n\"end\": \"" + 
- 	    	            leaf.getChildEnd() + 
- 	    	            "\"\n},\n\"data\": \"" +
-                        leaf.getChildDescription() + 
-                        "\"\n},";
-        	            lastLeaf = true;
-  		        }
-  		        else {
-  		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
-  		        		grandChildCount = grandChildCount + 1;
-  		        	}
-  		        	else {
-  		        		if (lastLeaf == false){
-  		  		  	        returnString = returnString + 
-   	                            ",\n{\n\"attr\": {\n\"ext_id\": \"" +
-  		  		                savedLeaf.getChildName() + 
-  		        	            "\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
-  		 	    	            savedLeaf.getChildId() +
-  		 	    	            "\",\n\"name\": \"" + 
-  		 	    	            savedLeaf.getChildDescription() + 
-  		 	    	            "\",\n\"start\": \"" + 
-  		 	    	            savedLeaf.getChildStart() + 
-  		 	    	            "\",\n\"end\": \"" + 
-  		 	    	            savedLeaf.getChildEnd() + 
-  		 	    	            "\"\n},\n\"data\": \"" +
-  		                        savedLeaf.getChildDescription() + 
-  		                        "(" + 
-  		                        Integer.toString(grandChildCount) + 
-  		                        ")\"\n},";
-  		        		}
-  		        		else {
-  		        			lastLeaf = false;
-  		        		}
- 	  	                grandChildCount = 1;
-  		        	}
-  		        }
-  		        rowCount = rowCount + 1;
- 		        savedLeaf = leaf;
-        	}
-	        if ( !savedLeaf.getChildId().equals("LEAF")) {
-                returnString = returnString + 
-                ",\n{\n\"attr\": {\n\"ext_id\": \"" +
-	  		    savedLeaf.getChildName() + 
-	        	"\",\n\"id\": \"li_node_ROOT_Abstract_id" + 
-	 	    	savedLeaf.getChildId() +
-	 	    	"\",\n\"name\": \"" + 
-	 	    	savedLeaf.getChildDescription() + 
-	 	    	"\",\n\"start\": \"" + 
-	 	    	savedLeaf.getChildStart() + 
-	 	    	"\",\n\"end\": \"" + 
-	 	    	savedLeaf.getChildEnd() + 
-	 	    	"\"\n},\n\"data\": \"" +
-	            savedLeaf.getChildDescription() + 
+  			rowCount++;
+
+  			if (rowCount == 1 ) {
+  				
+  				rootLeaf = leaf;
+  				
+  	  			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+  	  				rootLeaf.getRootName() + 
+  			        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+  			        	  rootLeaf.getRootOid() +
+  			        	    "\",\n\"start\": \"" + 
+  			        	  rootLeaf.getRootStart() + 
+  			        	    "\",\n\"end\": \"" + 
+  			        	  rootLeaf.getRootEnd() + 
+  			 	    	    "\",\"name\": \"" + 
+  			 	    	 rootLeaf.getRootDescription() + 
+  			 	    	    "\"},\"children\": [";
+  			}
+  			
+  			if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+       			if ( leaf.getChildId().equals("LEAF")) {
+   					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildOid() +
+      		        	    "\",\n\"start\": \"" + 
+      		        	    prevleaf.getChildStart() + 
+      		        	    "\",\n\"end\": \"" + 
+                            prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "\"},";
+       			}
+       			else {
+   					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildId() +
+ 	    	                "\",\n\"start\": \"" + 
+ 	    	                prevleaf.getChildStart() + 
+ 	    	                "\",\n\"end\": \"" + 
+ 	    	                prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "\"},";
+      			}
+       			countChildNames = 0;
+       		}
+       		prevChildName = leaf.getChildName();
+   			countChildNames++;
+   			
+      	}
+
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+	        	leaf.getChildOid() +
+    	            "\",\n\"start\": \"" + 
+    	            leaf.getChildStart() + 
+    	            "\",\n\"end\": \"" + 
+    	            leaf.getChildEnd() + 
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
+	            "\"}";
+		}
+		else {
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+	        	leaf.getChildOid() +
+    	            "\",\n\"start\": \"" + 
+    	            leaf.getChildStart() + 
+    	            "\",\n\"end\": \"" + 
+    	            leaf.getChildEnd() + 
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
 	            "(" + 
-	            Integer.toString(grandChildCount) + 
-	            ")\"\n}\n],\n\"data\": \"" +
-                savedLeaf.getRootDescription() +
-                "\"\n}\n],";
-	        }
-	        else {
-                returnString = returnString + 
-       	            "\n],\n\"data\": \"" +
-                    savedLeaf.getRootDescription() +
-                    "\"\n}\n],";
-	        }
-        }
+	            countChildNames + 
+	            ")\"}";
+		}
+		
+		if ( rowCount == leafs.size()) {
+			returnString = returnString + "]";
+		}
+		else {
+			returnString = returnString + ",";
+		}
+        
+		returnString = returnString + ", \"data\": \"" +
+		 	    	 rootLeaf.getRootDescription() + 
+		                "\"}]";
         
         return returnString;
-    
     }
 
+    
     /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
@@ -438,10 +450,14 @@ public final class LeafDAO {
         Leaf savedLeaf = new Leaf();
 
         if (leafs.size() > 0) {
+        	
         	Iterator<Leaf> iterator = leafs.iterator();
+        	
         	while (iterator.hasNext()) {
+        	
         		Leaf leaf = iterator.next();
-  		        if ( leaf.getChildId().equals("LEAF")) {
+  		        
+        		if ( leaf.getChildId().equals("LEAF")) {
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
   		                leaf.getChildName() + 
@@ -459,12 +475,16 @@ public final class LeafDAO {
         	            lastLeaf = true;
   		        }
   		        else {
+  		        
   		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
+  		        	
   		        		grandChildCount = grandChildCount + 1;
   		        	}
   		        	else {
+  		        		
   		        		if (lastLeaf == false){
-  		  		  	        returnString = returnString + 
+  		  		  	    
+  		        			returnString = returnString + 
    	                            "{\"attr\": {\"ext_id\": \"" +
   		  		                savedLeaf.getChildName() + 
   		        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
@@ -482,16 +502,21 @@ public final class LeafDAO {
   		                        ")\"};";
   		        		}
   		        		else {
+  		        		
   		        			lastLeaf = false;
   		        		}
+  		        		
  	  	                grandChildCount = 1;
   		        	}
   		        }
+        		
   		        rowCount = rowCount + 1;
  		        savedLeaf = leaf;
         	}
+        	
 	        if ( !savedLeaf.getChildId().equals("LEAF")) {
-    	  		returnString = returnString + 
+    	  	
+	        	returnString = returnString + 
                 "{\"attr\": {\"ext_id\": \"" +
 	  		    savedLeaf.getChildName() + 
 	        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
@@ -511,7 +536,6 @@ public final class LeafDAO {
         }
         
         return returnString;
-    
     }
 
     /*
@@ -521,93 +545,146 @@ public final class LeafDAO {
 
 	    String returnString = "[";
 
-        int rowCount = 0;
-        int grandChildCount = 1;
+    	Leaf leaf = new Leaf();
+    	Leaf prevleaf = new Leaf();
+
+		int rowCount = 0;
+
+        Iterator<Leaf> iteratorleaf = leafs.iterator();
+
+        String prevChildName = "";
+        String leafType = "";
+        int countChildNames = 0;
         
-        boolean lastLeaf = false;
+        while (iteratorleaf.hasNext()) {
 
-        Leaf savedLeaf = new Leaf();
+        	prevleaf = leaf;
+  			leaf = iteratorleaf.next();
 
-        if (leafs.size() > 0) {
-        	Iterator<Leaf> iterator = leafs.iterator();
-        	
-        	while (iterator.hasNext()) {
-        		Leaf leaf = iterator.next();
-            	rowCount = rowCount + 1; 
+  			rowCount++;
+       		
+       		if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+       			if ( leaf.getChildId().equals("LEAF")) {
+       				if ( prevleaf.getChildId().equals("LEAF")) {
+       					leafType = "LEAF";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildOid() +
+      		        	    "\",\n\"start\": \"" + 
+      		        	    prevleaf.getChildStart() + 
+      		        	    "\",\n\"end\": \"" + 
+                            prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "\",\"state\": \"closed\"},";
+       				}
+       				else {
+       					leafType = "BRANCH";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildOid() +
+ 	    	                "\",\n\"start\": \"" + 
+ 	    	                prevleaf.getChildStart() + 
+ 	    	                "\",\n\"end\": \"" + 
+ 	    	                prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "(" + 
+      		                countChildNames + 
+      		                ")\",\"state\": \"closed\"},";
+       				}
+       			}
+       			else {
+       				if ( prevleaf.getChildId().equals("LEAF")) {
+       					leafType = "LEAF";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildId() +
+ 	    	                "\",\n\"start\": \"" + 
+ 	    	                prevleaf.getChildStart() + 
+ 	    	                "\",\n\"end\": \"" + 
+ 	    	                prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "\",\"state\": \"closed\"},";
+       				}
+       				else {
+       					leafType = "BRANCH";
+       					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+              				prevleaf.getChildName() + 
+      		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+      		        	    prevleaf.getChildId() +
+ 	    	                "\",\n\"start\": \"" + 
+ 	    	                prevleaf.getChildStart() + 
+ 	    	                "\",\n\"end\": \"" + 
+ 	    	                prevleaf.getChildEnd() + 
+      		 	    	    "\",\"name\": \"" + 
+      		 	    	    prevleaf.getChildDescription() + 
+      		 	    	    "\"},\"data\": \"" +
+      		 	    	    prevleaf.getChildDescription() + 
+      		                "(" + 
+      		                countChildNames + 
+      		                ")\",\"state\": \"closed\"},";
+       				}
+      			}
+       			countChildNames = 0;
+       		}
+       		prevChildName = leaf.getChildName();
+   			countChildNames++;
+   			
+      	}
 
-            	if ( leaf.getChildId().equals("LEAF")) {
-        	        returnString = returnString + 
-                        "{\"attr\": {\"ext_id\": \"" +
-  		                leaf.getChildName() + 
-        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
- 	    	            leaf.getChildOid() +
- 	    	            "\",\"name\": \"" + 
- 	    	            leaf.getChildDescription() + 
- 	    	            "\",\"start\": \"" + 
- 	    	            leaf.getChildStart() + 
- 	    	            "\",\"end\": \"" + 
- 	    	            leaf.getChildEnd() + 
- 	    	            "\"},\"data\": \"" +
-                        leaf.getChildDescription() + 
-                        "\"}";
-        	            if ( leafs.size() != rowCount ) {
-	        	            returnString = returnString + ",";
-		        	    }
-        	        lastLeaf = true;
-  		        }
-            	
-            	if ( !leaf.getChildId().equals("LEAF")) {
-  		        	if (leaf.getChildName().equals(savedLeaf.getChildName())) {
-  		        		grandChildCount = grandChildCount + 1;
-  		        	}
-  		        	else {
-  		        		if (lastLeaf == false && rowCount > 1){
-  		  		  	        returnString = returnString + 
-   	                            "{\"attr\": {\"ext_id\": \"" +
-  		  		                savedLeaf.getChildName() + 
-  		        	            "\",\"id\": \"li_node_ROOT_Abstract_id" + 
-  		 	    	            savedLeaf.getChildId() +
-  		 	    	            "\",\"name\": \"" + 
-  		 	    	            savedLeaf.getChildDescription() + 
-  		 	    	            "\",\"start\": \"" + 
-  		 	    	            savedLeaf.getChildStart() + 
-  		 	    	            "\",\"end\": \"" + 
-  		 	    	            savedLeaf.getChildEnd() + 
-  		 	    	            "\"},\"data\": \"" +
-  		                        savedLeaf.getChildDescription() + 
-  		                        "(" + 
-  		                        Integer.toString(grandChildCount) + 
-  		                        ")\",\"state\": \"closed\"},";  		        		}
-  		        		else {
-  		        			lastLeaf = false;
-  		        		}
- 	  	                grandChildCount = 1;
-  		        	}
-  	 		        savedLeaf = leaf;
-  	 		        
-  	 		        if ( rowCount == leafs.size() ) {
-  	 	    	  		returnString = returnString + 
-  	 	                "{\"attr\": {\"ext_id\": \"" +
-  	 		  		    savedLeaf.getChildName() + 
-  	 		        	"\",\"id\": \"li_node_ROOT_Abstract_id" + 
-  	 		 	    	savedLeaf.getChildId() +
-  	 		 	    	"\",\"name\": \"" + 
-  	 		 	    	savedLeaf.getChildDescription() + 
-  	 		 	    	"\",\"start\": \"" + 
-  	 		 	    	savedLeaf.getChildStart() + 
-  	 		 	    	"\",\"end\": \"" + 
-  	 		 	    	savedLeaf.getChildEnd() + 
-  	 		 	    	"\"},\"data\": \"" +
-  	 		            savedLeaf.getChildDescription() + 
-  	 		            "(" + 
-  	 		            Integer.toString(grandChildCount) + 
-  	 		            ")\",\"state\": \"closed\"}";
-  	 	        	}
-  		        }
-    	  	}
-        }
-        
-        return returnString + "]";
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			leafType = "LEAF";
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+	        	leaf.getChildOid() +
+    	            "\",\n\"start\": \"" + 
+    	            leaf.getChildStart() + 
+    	            "\",\n\"end\": \"" + 
+    	            leaf.getChildEnd() + 
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
+	            "\",\"state\": \"closed\"}";
+		}
+		else {
+			leafType = "BRANCH";
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+   				leaf.getChildName() + 
+	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
+	        	leaf.getChildOid() +
+    	            "\",\n\"start\": \"" + 
+    	            leaf.getChildStart() + 
+    	            "\",\n\"end\": \"" + 
+    	            leaf.getChildEnd() + 
+	 	    	"\",\"name\": \"" + 
+	 	    	leaf.getChildDescription() + 
+	 	    	"\"},\"data\": \"" +
+	 	    	leaf.getChildDescription() + 
+	            "(" + 
+	            countChildNames + 
+	            ")\",\"state\": \"closed\"}";
+		}
+		
+		if ( rowCount == leafs.size()) {
+			returnString = returnString + "]";
+		}
+		else {
+			returnString = returnString + ",";
+		}
     
+        return returnString;
     }
 }

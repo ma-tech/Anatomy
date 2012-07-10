@@ -42,8 +42,6 @@ public class FindByEMAPAAndStageServlet extends HttpServlet {
     {
     	TimedNodeForm timednodeForm = new TimedNodeForm(extratimednodeDAO);
 
-        //System.out.println("FindByEMAPAAndStageServlet timednodeForm.findTimedNodeByEmapaAndStage");
-
         // Process request and get result.
         String outString = timednodeForm.findTimedNodeByEmapaAndStage(request);
 

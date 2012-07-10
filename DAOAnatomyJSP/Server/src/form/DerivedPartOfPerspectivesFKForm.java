@@ -51,13 +51,9 @@ public final class DerivedPartOfPerspectivesFKForm extends Form {
 
         int count = 1;
 
-    	//System.out.println("derivedpartofperspectivesfks.size() = " + derivedpartofperspectivesfks.size());
-        
     	while (iteratorDerivedPartOfPerspectivesFK.hasNext()) {
         	
         	DerivedPartOfPerspectivesFK derivedpartofperspectivesfk = iteratorDerivedPartOfPerspectivesFK.next();
-        	
-        	//System.out.println("derivedpartofperspectivesfk.getFullPathJson() = " + derivedpartofperspectivesfk.getFullPathJson());
         	
         	if (count == 1) {
         		returnString = "[" + derivedpartofperspectivesfk.getFullPathJson() + ",\n";

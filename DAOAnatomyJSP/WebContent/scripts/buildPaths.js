@@ -55,7 +55,9 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url: "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
+                url: "http://localhost:8080/DAOAnatomyJSP/listbyrootnamejsononly",
+                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
+                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
                 dataType: "text",
                 data : {
                     "rootName" : rootname
@@ -92,7 +94,9 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url: "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
+                url: "http://localhost:8080/DAOAnatomyJSP/listleafsbyemapandstage",
+                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
+                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
                 dataType: "text",
                 data : {
                     "rootName" : emapId,
@@ -139,7 +143,9 @@
 		$.ajax({
             async : false,
             type: 'GET',
-            url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
+            url: "http://localhost:8080/DAOAnatomyJSP/findbyemapaidandstage",
+            //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
+            //url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
             dataType: "text",
             data : {
                 "publicEmapaId" : publicEmapaId, 
@@ -181,7 +187,9 @@
         $.ajax({
             async : false,
             type: 'GET',
-            url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
+            url: "http://localhost:8080/DAOAnatomyJSP/findbyemapid",
+            //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
+            //url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
             dataType: "text",
             data : {
                 "publicEmapId" : publicEmapId

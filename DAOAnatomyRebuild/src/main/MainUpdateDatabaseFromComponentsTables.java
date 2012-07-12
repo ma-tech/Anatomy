@@ -1,6 +1,6 @@
 	/*
 *----------------------------------------------------------------------------------------------
-ls* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainUpdateDatabaseFromComponentsTables.java
 *

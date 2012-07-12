@@ -51,24 +51,26 @@
 "children":[
 {"data":"yolk sac endoderm","attr":{"id":"li.node.TS10.id37","ext_id":"EMAP:145","name":"yolk sac endoderm"}},
 {"data":"yolk sac mesoderm","attr":{"id":"li.node.TS10.id38","ext_id":"EMAP:146","name":"yolk sac mesoderm"}}]}]},
-{"data":"mesoderm","attr":{"id":"li.node.TS10.id39","ext_id":"EMAP:115","name":"mesoderm"}},
-{"data":"primitive streak","attr":{"id":"li.node.TS10.id40","ext_id":"EMAP:116","name":"primitive streak"},
+{"data":"mesendoderm","attr":{"id":"li.node.TS10.id39","ext_id":"EMAP:33851","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS10.id40","ext_id":"EMAP:115","name":"mesoderm"}},
+{"data":"primitive streak","attr":{"id":"li.node.TS10.id41","ext_id":"EMAP:116","name":"primitive streak"},
 "children":[
-{"data":"node","attr":{"id":"li.node.TS10.id41","ext_id":"EMAP:117","name":"node"}}}]}},
-{"data":"embryo","attr":{"id":"li.node.TS10.id42","ext_id":"EMAP:106","name":"embryo"},
+{"data":"node","attr":{"id":"li.node.TS10.id42","ext_id":"EMAP:117","name":"node"}}}]}},
+{"data":"embryo","attr":{"id":"li.node.TS10.id43","ext_id":"EMAP:106","name":"embryo"},
 "children":[
-{"data":"cavities and their linings","attr":{"id":"li.node.TS10.id43","ext_id":"EMAP:107","name":"cavities and their linings"},
+{"data":"cavities and their linings","attr":{"id":"li.node.TS10.id44","ext_id":"EMAP:107","name":"cavities and their linings"},
 "children":[
-{"data":"embryonic component of the proamniotic cavity","attr":{"id":"li.node.TS10.id44","ext_id":"EMAP:108","name":"embryonic component of the proamniotic cavity"}}]},
-{"data":"ectoderm","attr":{"id":"li.node.TS10.id45","ext_id":"EMAP:109","name":"ectoderm"},
+{"data":"embryonic component of the proamniotic cavity","attr":{"id":"li.node.TS10.id45","ext_id":"EMAP:108","name":"embryonic component of the proamniotic cavity"}}]},
+{"data":"ectoderm","attr":{"id":"li.node.TS10.id46","ext_id":"EMAP:109","name":"ectoderm"},
 "children":[
-{"data":"neural ectoderm","attr":{"id":"li.node.TS10.id46","ext_id":"EMAP:110","name":"neural ectoderm"}},
-{"data":"non-neural ectoderm","attr":{"id":"li.node.TS10.id47","ext_id":"EMAP:111","name":"non-neural ectoderm"}}]},
-{"data":"endoderm","attr":{"id":"li.node.TS10.id48","ext_id":"EMAP:112","name":"endoderm"},
+{"data":"neural ectoderm","attr":{"id":"li.node.TS10.id47","ext_id":"EMAP:110","name":"neural ectoderm"}},
+{"data":"non-neural ectoderm","attr":{"id":"li.node.TS10.id48","ext_id":"EMAP:111","name":"non-neural ectoderm"}}]},
+{"data":"endoderm","attr":{"id":"li.node.TS10.id49","ext_id":"EMAP:112","name":"endoderm"},
 "children":[
-{"data":"definitive endoderm","attr":{"id":"li.node.TS10.id49","ext_id":"EMAP:113","name":"definitive endoderm"}},
-{"data":"primitive endoderm","attr":{"id":"li.node.TS10.id50","ext_id":"EMAP:114","name":"primitive endoderm"}}]},
-{"data":"mesoderm","attr":{"id":"li.node.TS10.id51","ext_id":"EMAP:115","name":"mesoderm"}},
-{"data":"primitive streak","attr":{"id":"li.node.TS10.id52","ext_id":"EMAP:116","name":"primitive streak"},
+{"data":"definitive endoderm","attr":{"id":"li.node.TS10.id50","ext_id":"EMAP:113","name":"definitive endoderm"}},
+{"data":"primitive endoderm","attr":{"id":"li.node.TS10.id51","ext_id":"EMAP:114","name":"primitive endoderm"}}]},
+{"data":"mesendoderm","attr":{"id":"li.node.TS10.id52","ext_id":"EMAP:33851","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS10.id53","ext_id":"EMAP:115","name":"mesoderm"}},
+{"data":"primitive streak","attr":{"id":"li.node.TS10.id54","ext_id":"EMAP:116","name":"primitive streak"},
 "children":[
-{"data":"node","attr":{"id":"li.node.TS10.id53","ext_id":"EMAP:117","name":"node"}}]}]}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}
+{"data":"node","attr":{"id":"li.node.TS10.id55","ext_id":"EMAP:117","name":"node"}}]}]}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

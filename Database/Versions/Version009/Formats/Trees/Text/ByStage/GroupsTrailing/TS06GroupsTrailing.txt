@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 8, 2011-01-18 10:34:49 =====
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
 ===========================================================
 
 
@@ -16,12 +16,12 @@ Stage TS06
 TS06 Whole mouse Excluding Groups
 
 EMAP:25771   mouse
-EMAP:32      + epiblast (syn: primitive ectoderm)
+EMAP:32      + epiblast
 EMAP:34      + extraembryonic component
 EMAP:35      | + cavities and their linings
 EMAP:36      | | \ blastocoelic cavity
 EMAP:37      | + extraembryonic endoderm
-EMAP:38      | | \ parietal endoderm (syn: distal endoderm)
+EMAP:38      | | \ parietal endoderm
 EMAP:39      | \ trophectoderm
 EMAP:40      |   + mural trophectoderm
 EMAP:41      |   \ polar trophectoderm
@@ -45,5 +45,5 @@ Second column indicates the path's group status.
 
 EMAP:25771   mouse
 EMAP:31    G \ embryo
-EMAP:32    >   + epiblast (syn: primitive ectoderm)
+EMAP:32    >   + epiblast
 EMAP:33    >   \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)

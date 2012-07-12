@@ -36,9 +36,39 @@
 					<groupPathStatus emapId="EMAP:2">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:2">
-						fertilized egg
-					</synonym>
+				</timedComponent>
+				<timedComponent emapId="EMAP:31909">
+					<name emapId="EMAP:31909">
+						polar body group
+					</name>
+					<emapaId emapId="EMAP:31909">
+						EMAPA:31859
+					</emapaId>
+					<groupPathStatus emapId="EMAP:31909">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:1">
+						<name emapId="EMAP:1">
+							first polar body
+						</name>
+						<emapaId emapId="EMAP:1">
+							EMAPA:16032
+						</emapaId>
+						<groupPathStatus emapId="EMAP:1">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:3">
+						<name emapId="EMAP:3">
+							second polar body
+						</name>
+						<emapaId emapId="EMAP:3">
+							EMAPA:16034
+						</emapaId>
+						<groupPathStatus emapId="EMAP:3">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
 				</timedComponent>
 				<timedComponent emapId="EMAP:3">
 					<name emapId="EMAP:3">
@@ -89,43 +119,10 @@
 				<groupPathStatus emapId="EMAP:25766">
 					notInGroupPath
 				</groupPathStatus>
-				<timedComponent emapId="EMAP:31909">
-					<name emapId="EMAP:31909">
-						polar body GROUP
-					</name>
-					<emapaId emapId="EMAP:31909">
-						EMAPA:31859
-					</emapaId>
-					<groupPathStatus emapId="EMAP:31909">
-						isGroup
-					</groupPathStatus>
-					<timedComponent emapId="EMAP:1">
-						<name emapId="EMAP:1">
-							first polar body
-						</name>
-						<emapaId emapId="EMAP:1">
-							EMAPA:16032
-						</emapaId>
-						<groupPathStatus emapId="EMAP:1">
-							isGroupDirectDescendant
-						</groupPathStatus>
-					</timedComponent>
-					<timedComponent emapId="EMAP:3">
-						<name emapId="EMAP:3">
-							second polar body
-						</name>
-						<emapaId emapId="EMAP:3">
-							EMAPA:16034
-						</emapaId>
-						<groupPathStatus emapId="EMAP:3">
-							isGroupDirectDescendant
-						</groupPathStatus>
-					</timedComponent>
-				</timedComponent>
 			</timedComponent>
 		</onlyGroupsTree>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2011-01-18 10:34:49" number="8"/>
+	<anatomyDatabaseVersion date="2012-07-12 14:22:55" number="9"/>
 	<perspective>
 		Whole mouse
 	</perspective>

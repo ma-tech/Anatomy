@@ -60,9 +60,6 @@
 				<groupPathStatus emapId="EMAP:109">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:109">
-					epithelium
-				</synonym>
 				<timedComponent emapId="EMAP:110">
 					<name emapId="EMAP:110">
 						neural ectoderm
@@ -128,9 +125,6 @@
 					<groupPathStatus emapId="EMAP:109">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:109">
-						epithelium
-					</synonym>
 					<timedComponent emapId="EMAP:110">
 						<name emapId="EMAP:110">
 							neural ectoderm
@@ -174,9 +168,6 @@
 						<groupPathStatus emapId="EMAP:113">
 							isGroupIndirectDescendant
 						</groupPathStatus>
-						<synonym emapId="EMAP:113">
-							embryonic endoderm
-						</synonym>
 					</timedComponent>
 					<timedComponent emapId="EMAP:114">
 						<name emapId="EMAP:114">
@@ -201,6 +192,17 @@
 							visceral endoderm
 						</synonym>
 					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33851">
+					<name emapId="EMAP:33851">
+						mesendoderm
+					</name>
+					<emapaId emapId="EMAP:33851">
+						EMAPA:32762
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33851">
+						isGroupDirectDescendant
+					</groupPathStatus>
 				</timedComponent>
 				<timedComponent emapId="EMAP:115">
 					<name emapId="EMAP:115">
@@ -233,9 +235,6 @@
 						<groupPathStatus emapId="EMAP:117">
 							isGroupIndirectDescendant
 						</groupPathStatus>
-						<synonym emapId="EMAP:117">
-							Hensen's node
-						</synonym>
 					</timedComponent>
 				</timedComponent>
 			</timedComponent>
@@ -259,9 +258,6 @@
 					<groupPathStatus emapId="EMAP:113">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:113">
-						embryonic endoderm
-					</synonym>
 				</timedComponent>
 				<timedComponent emapId="EMAP:114">
 					<name emapId="EMAP:114">
@@ -307,9 +303,6 @@
 					<groupPathStatus emapId="EMAP:15232">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:15232">
-						allantoic bud
-					</synonym>
 					<timedComponent emapId="EMAP:15233">
 						<name emapId="EMAP:15233">
 							allantois mesoderm
@@ -408,9 +401,6 @@
 						<groupPathStatus emapId="EMAP:125">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:125">
-							extra-embryonic coelomic cavity
-						</synonym>
 					</timedComponent>
 					<timedComponent emapId="EMAP:126">
 						<name emapId="EMAP:126">
@@ -477,9 +467,6 @@
 						<groupPathStatus emapId="EMAP:132">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:132">
-							distal endoderm
-						</synonym>
 						<timedComponent emapId="EMAP:133">
 							<name emapId="EMAP:133">
 								Reichert's membrane
@@ -534,9 +521,6 @@
 							<groupPathStatus emapId="EMAP:139">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:139">
-								primary trophoblastic giant cells
-							</synonym>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:140">
@@ -618,6 +602,17 @@
 					</timedComponent>
 				</timedComponent>
 			</timedComponent>
+			<timedComponent emapId="EMAP:33851">
+				<name emapId="EMAP:33851">
+					mesendoderm
+				</name>
+				<emapaId emapId="EMAP:33851">
+					EMAPA:32762
+				</emapaId>
+				<groupPathStatus emapId="EMAP:33851">
+					notInGroupPath
+				</groupPathStatus>
+			</timedComponent>
 			<timedComponent emapId="EMAP:115">
 				<name emapId="EMAP:115">
 					mesoderm
@@ -649,14 +644,11 @@
 					<groupPathStatus emapId="EMAP:117">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:117">
-						Hensen's node
-					</synonym>
 				</timedComponent>
 			</timedComponent>
 		</timedComponent>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2011-01-18 10:34:49" number="8"/>
+	<anatomyDatabaseVersion date="2012-07-12 14:22:55" number="9"/>
 	<perspective>
 		Whole mouse
 	</perspective>

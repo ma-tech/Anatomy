@@ -1,0 +1,9 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS03.id1","ext_id":"EMAP:25768","name":"mouse"},
+"children":[
+{"data":"4-8 cell stage","attr":{"id":"li.node.TS03.id2","ext_id":"EMAP:8","name":"4-8 cell stage"},
+"children":[
+{"data":"4-cell stage","attr":{"id":"li.node.TS03.id3","ext_id":"EMAP:31922","name":"4-cell stage"}},
+{"data":"8-cell stage","attr":{"id":"li.node.TS03.id4","ext_id":"EMAP:31923","name":"8-cell stage"}}]},
+{"data":"compacted morula","attr":{"id":"li.node.TS03.id5","ext_id":"EMAP:9","name":"compacted morula"}},
+{"data":"second polar body","attr":{"id":"li.node.TS03.id6","ext_id":"EMAP:10","name":"second polar body"}},
+{"data":"zona pellucida","attr":{"id":"li.node.TS03.id7","ext_id":"EMAP:11","name":"zona pellucida"}}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

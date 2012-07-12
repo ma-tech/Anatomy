@@ -1,0 +1,76 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS10.id1","ext_id":"EMAP:25775","name":"mouse"},
+"children":[
+{"data":"cavities and their linings","attr":{"id":"li.node.TS10.id2","ext_id":"EMAP:107","name":"cavities and their linings"},
+"children":[
+{"data":"embryonic component of the proamniotic cavity","attr":{"id":"li.node.TS10.id3","ext_id":"EMAP:108","name":"embryonic component of the proamniotic cavity"}}]},
+{"data":"ectoderm","attr":{"id":"li.node.TS10.id4","ext_id":"EMAP:109","name":"ectoderm"},
+"children":[
+{"data":"neural ectoderm","attr":{"id":"li.node.TS10.id5","ext_id":"EMAP:110","name":"neural ectoderm"}},
+{"data":"non-neural ectoderm","attr":{"id":"li.node.TS10.id6","ext_id":"EMAP:111","name":"non-neural ectoderm"}}]},
+{"data":"embryo","attr":{"id":"li.node.TS10.id7","ext_id":"EMAP:106","name":"embryo"},
+"children":[
+{"data":"cavities and their linings","attr":{"id":"li.node.TS10.id8","ext_id":"EMAP:107","name":"cavities and their linings"},
+"children":[
+{"data":"embryonic component of the proamniotic cavity","attr":{"id":"li.node.TS10.id9","ext_id":"EMAP:108","name":"embryonic component of the proamniotic cavity"}}]},
+{"data":"ectoderm","attr":{"id":"li.node.TS10.id10","ext_id":"EMAP:109","name":"ectoderm"},
+"children":[
+{"data":"neural ectoderm","attr":{"id":"li.node.TS10.id11","ext_id":"EMAP:110","name":"neural ectoderm"}},
+{"data":"non-neural ectoderm","attr":{"id":"li.node.TS10.id12","ext_id":"EMAP:111","name":"non-neural ectoderm"}}]},
+{"data":"endoderm","attr":{"id":"li.node.TS10.id13","ext_id":"EMAP:112","name":"endoderm"},
+"children":[
+{"data":"definitive endoderm","attr":{"id":"li.node.TS10.id14","ext_id":"EMAP:113","name":"definitive endoderm"}},
+{"data":"primitive endoderm","attr":{"id":"li.node.TS10.id15","ext_id":"EMAP:114","name":"primitive endoderm"}}]},
+{"data":"mesendoderm","attr":{"id":"li.node.TS10.id16","ext_id":"EMAP:33851","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS10.id17","ext_id":"EMAP:115","name":"mesoderm"}},
+{"data":"primitive streak","attr":{"id":"li.node.TS10.id18","ext_id":"EMAP:116","name":"primitive streak"},
+"children":[
+{"data":"node","attr":{"id":"li.node.TS10.id19","ext_id":"EMAP:117","name":"node"}}]}]},
+{"data":"endoderm","attr":{"id":"li.node.TS10.id20","ext_id":"EMAP:112","name":"endoderm"},
+"children":[
+{"data":"definitive endoderm","attr":{"id":"li.node.TS10.id21","ext_id":"EMAP:113","name":"definitive endoderm"}},
+{"data":"primitive endoderm","attr":{"id":"li.node.TS10.id22","ext_id":"EMAP:114","name":"primitive endoderm"}}]},
+{"data":"extraembryonic component","attr":{"id":"li.node.TS10.id23","ext_id":"EMAP:118","name":"extraembryonic component"},
+"children":[
+{"data":"allantois","attr":{"id":"li.node.TS10.id24","ext_id":"EMAP:15232","name":"allantois"},
+"children":[
+{"data":"allantois mesoderm","attr":{"id":"li.node.TS10.id25","ext_id":"EMAP:15233","name":"allantois mesoderm"}}]},
+{"data":"amniotic fold","attr":{"id":"li.node.TS10.id26","ext_id":"EMAP:119","name":"amniotic fold"},
+"children":[
+{"data":"amniotic fold ectoderm","attr":{"id":"li.node.TS10.id27","ext_id":"EMAP:120","name":"amniotic fold ectoderm"}},
+{"data":"amniotic fold mesoderm","attr":{"id":"li.node.TS10.id28","ext_id":"EMAP:121","name":"amniotic fold mesoderm"}}]},
+{"data":"extraembryonic component cavities","attr":{"id":"li.node.TS10.id29","ext_id":"EMAP:122","name":"extraembryonic component cavities"},
+"children":[
+{"data":"amniotic cavity","attr":{"id":"li.node.TS10.id30","ext_id":"EMAP:123","name":"amniotic cavity"}},
+{"data":"cavity within amniotic fold","attr":{"id":"li.node.TS10.id31","ext_id":"EMAP:127","name":"cavity within amniotic fold"}},
+{"data":"ectoplacental cavity","attr":{"id":"li.node.TS10.id32","ext_id":"EMAP:124","name":"ectoplacental cavity"}},
+{"data":"exocoelomic cavity","attr":{"id":"li.node.TS10.id33","ext_id":"EMAP:125","name":"exocoelomic cavity"}},
+{"data":"proamniotic cavity extraembryonic part","attr":{"id":"li.node.TS10.id34","ext_id":"EMAP:126","name":"proamniotic cavity extraembryonic part"}},
+{"data":"yolk sac cavity","attr":{"id":"li.node.TS10.id35","ext_id":"EMAP:128","name":"yolk sac cavity"}}]},
+{"data":"extraembryonic ectoderm","attr":{"id":"li.node.TS10.id36","ext_id":"EMAP:129","name":"extraembryonic ectoderm"}},
+{"data":"extraembryonic endoderm","attr":{"id":"li.node.TS10.id37","ext_id":"EMAP:130","name":"extraembryonic endoderm"},
+"children":[
+{"data":"intermediate endoderm","attr":{"id":"li.node.TS10.id38","ext_id":"EMAP:131","name":"intermediate endoderm"}},
+{"data":"parietal endoderm","attr":{"id":"li.node.TS10.id39","ext_id":"EMAP:132","name":"parietal endoderm"},
+"children":[
+{"data":"Reichert's membrane","attr":{"id":"li.node.TS10.id40","ext_id":"EMAP:133","name":"Reichert's membrane"}}]},
+{"data":"visceral endoderm","attr":{"id":"li.node.TS10.id41","ext_id":"EMAP:134","name":"visceral endoderm"}}]},
+{"data":"trophectoderm","attr":{"id":"li.node.TS10.id42","ext_id":"EMAP:137","name":"trophectoderm"},
+"children":[
+{"data":"mural trophectoderm","attr":{"id":"li.node.TS10.id43","ext_id":"EMAP:138","name":"mural trophectoderm"},
+"children":[
+{"data":"primary trophoblast giant cells","attr":{"id":"li.node.TS10.id44","ext_id":"EMAP:139","name":"primary trophoblast giant cells"}}]},
+{"data":"polar trophectoderm","attr":{"id":"li.node.TS10.id45","ext_id":"EMAP:140","name":"polar trophectoderm"},
+"children":[
+{"data":"ectoplacental cone","attr":{"id":"li.node.TS10.id46","ext_id":"EMAP:141","name":"ectoplacental cone"},
+"children":[
+{"data":"cytotrophoblast","attr":{"id":"li.node.TS10.id47","ext_id":"EMAP:142","name":"cytotrophoblast"}},
+{"data":"syncytiotrophoblast","attr":{"id":"li.node.TS10.id48","ext_id":"EMAP:143","name":"syncytiotrophoblast"}}]}]}]},
+{"data":"yolk sac","attr":{"id":"li.node.TS10.id49","ext_id":"EMAP:144","name":"yolk sac"},
+"children":[
+{"data":"yolk sac endoderm","attr":{"id":"li.node.TS10.id50","ext_id":"EMAP:145","name":"yolk sac endoderm"}},
+{"data":"yolk sac mesoderm","attr":{"id":"li.node.TS10.id51","ext_id":"EMAP:146","name":"yolk sac mesoderm"}}]}]},
+{"data":"mesendoderm","attr":{"id":"li.node.TS10.id52","ext_id":"EMAP:33851","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS10.id53","ext_id":"EMAP:115","name":"mesoderm"}},
+{"data":"primitive streak","attr":{"id":"li.node.TS10.id54","ext_id":"EMAP:116","name":"primitive streak"},
+"children":[
+{"data":"node","attr":{"id":"li.node.TS10.id55","ext_id":"EMAP:117","name":"node"}}]}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

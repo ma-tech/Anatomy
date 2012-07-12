@@ -1,0 +1,5 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS02.id1","ext_id":"EMAP:25767","name":"mouse"},
+"children":[
+{"data":"second polar body","attr":{"id":"li.node.TS02.id2","ext_id":"EMAP:5","name":"second polar body"}},
+{"data":"two-cell stage","attr":{"id":"li.node.TS02.id3","ext_id":"EMAP:6","name":"two-cell stage"}},
+{"data":"zona pellucida","attr":{"id":"li.node.TS02.id4","ext_id":"EMAP:7","name":"zona pellucida"}}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

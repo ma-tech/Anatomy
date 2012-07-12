@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 8, 2011-01-18 10:34:49 =====
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
 ===========================================================
 
 
@@ -22,8 +22,8 @@ Second column indicates the path's group status.
 
 EMAP:25768   mouse
 EMAP:8       + 4-8 cell stage
-EMAP:31922   | + 4-cell stage (syn: 4-cell embryo)
-EMAP:31923   | \ 8-cell stage (syn: 8-cell embryo)
+EMAP:31922   | + 4-cell stage
+EMAP:31923   | \ 8-cell stage
 EMAP:9       + compacted morula
 EMAP:10      + second polar body
 EMAP:11      \ zona pellucida

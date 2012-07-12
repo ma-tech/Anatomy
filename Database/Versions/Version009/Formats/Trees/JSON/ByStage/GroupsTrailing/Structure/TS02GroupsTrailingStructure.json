@@ -1,0 +1,5 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"node":{"nodeId":"1"},
+"children":[
+{"node":{"nodeId":"2"}},
+{"node":{"nodeId":"3"}},
+{"node":{"nodeId":"4"}}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

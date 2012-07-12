@@ -1,0 +1,166 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS11.id1","ext_id":"EMAP:25776","name":"mouse"},
+"children":[
+{"data":"cavities and their linings","attr":{"id":"li.node.TS11.id2","ext_id":"EMAP:148","name":"cavities and their linings"},
+"children":[
+{"data":"intraembryonic coelom","attr":{"id":"li.node.TS11.id3","ext_id":"EMAP:149","name":"intraembryonic coelom"}}]},
+{"data":"ectoderm","attr":{"id":"li.node.TS11.id4","ext_id":"EMAP:150","name":"ectoderm"},
+"children":[
+{"data":"neural ectoderm","attr":{"id":"li.node.TS11.id5","ext_id":"EMAP:151","name":"neural ectoderm"},
+"children":[
+{"data":"future brain","attr":{"id":"li.node.TS11.id6","ext_id":"EMAP:152","name":"future brain"},
+"children":[
+{"data":"future brain neural fold","attr":{"id":"li.node.TS11.id7","ext_id":"EMAP:153","name":"future brain neural fold"},
+"children":[
+{"data":"future brain neural crest","attr":{"id":"li.node.TS11.id8","ext_id":"EMAP:154","name":"future brain neural crest"}}]}]},
+{"data":"future spinal cord","attr":{"id":"li.node.TS11.id9","ext_id":"EMAP:155","name":"future spinal cord"},
+"children":[
+{"data":"future spinal cord neural fold","attr":{"id":"li.node.TS11.id10","ext_id":"EMAP:156","name":"future spinal cord neural fold"},
+"children":[
+{"data":"future spinal cord neural crest","attr":{"id":"li.node.TS11.id11","ext_id":"EMAP:157","name":"future spinal cord neural crest"}}]},
+{"data":"neural plate","attr":{"id":"li.node.TS11.id12","ext_id":"EMAP:158","name":"neural plate"}}]},
+{"data":"neural fold","attr":{"id":"li.node.TS11.id13","ext_id":"EMAP:33607","name":"neural fold"},
+"children":[
+{"data":"neural crest","attr":{"id":"li.node.TS11.id14","ext_id":"EMAP:33650","name":"neural crest"}}]}]},
+{"data":"surface ectoderm","attr":{"id":"li.node.TS11.id15","ext_id":"EMAP:159","name":"surface ectoderm"}}]},
+{"data":"embryo","attr":{"id":"li.node.TS11.id16","ext_id":"EMAP:147","name":"embryo"},
+"children":[
+{"data":"cavities and their linings","attr":{"id":"li.node.TS11.id17","ext_id":"EMAP:148","name":"cavities and their linings"},
+"children":[
+{"data":"intraembryonic coelom","attr":{"id":"li.node.TS11.id18","ext_id":"EMAP:149","name":"intraembryonic coelom"}}]},
+{"data":"ectoderm","attr":{"id":"li.node.TS11.id19","ext_id":"EMAP:150","name":"ectoderm"},
+"children":[
+{"data":"neural ectoderm","attr":{"id":"li.node.TS11.id20","ext_id":"EMAP:151","name":"neural ectoderm"},
+"children":[
+{"data":"future brain","attr":{"id":"li.node.TS11.id21","ext_id":"EMAP:152","name":"future brain"},
+"children":[
+{"data":"future brain neural fold","attr":{"id":"li.node.TS11.id22","ext_id":"EMAP:153","name":"future brain neural fold"},
+"children":[
+{"data":"future brain neural crest","attr":{"id":"li.node.TS11.id23","ext_id":"EMAP:154","name":"future brain neural crest"}}]}]},
+{"data":"future spinal cord","attr":{"id":"li.node.TS11.id24","ext_id":"EMAP:155","name":"future spinal cord"},
+"children":[
+{"data":"future spinal cord neural fold","attr":{"id":"li.node.TS11.id25","ext_id":"EMAP:156","name":"future spinal cord neural fold"},
+"children":[
+{"data":"future spinal cord neural crest","attr":{"id":"li.node.TS11.id26","ext_id":"EMAP:157","name":"future spinal cord neural crest"}}]},
+{"data":"neural plate","attr":{"id":"li.node.TS11.id27","ext_id":"EMAP:158","name":"neural plate"}}]},
+{"data":"neural fold","attr":{"id":"li.node.TS11.id28","ext_id":"EMAP:33607","name":"neural fold"},
+"children":[
+{"data":"neural crest","attr":{"id":"li.node.TS11.id29","ext_id":"EMAP:33650","name":"neural crest"}}]}]},
+{"data":"surface ectoderm","attr":{"id":"li.node.TS11.id30","ext_id":"EMAP:159","name":"surface ectoderm"}}]},
+{"data":"endoderm","attr":{"id":"li.node.TS11.id31","ext_id":"EMAP:160","name":"endoderm"},
+"children":[
+{"data":"definitive endoderm","attr":{"id":"li.node.TS11.id32","ext_id":"EMAP:161","name":"definitive endoderm"}},
+{"data":"primitive endoderm","attr":{"id":"li.node.TS11.id33","ext_id":"EMAP:162","name":"primitive endoderm"}}]},
+{"data":"head","attr":{"id":"li.node.TS11.id34","ext_id":"EMAP:34991","name":"head"},
+"children":[
+{"data":"head mesenchyme","attr":{"id":"li.node.TS11.id35","ext_id":"EMAP:164","name":"head mesenchyme"},
+"children":[
+{"data":"head mesenchyme derived from neural-crest","attr":{"id":"li.node.TS11.id36","ext_id":"EMAP:166","name":"head mesenchyme derived from neural-crest"}},
+{"data":"mesenchyme derived from head mesoderm","attr":{"id":"li.node.TS11.id37","ext_id":"EMAP:165","name":"mesenchyme derived from head mesoderm"},
+"children":[
+{"data":"mesenchyme derived from somites 01-04","attr":{"id":"li.node.TS11.id38","ext_id":"EMAP:15246","name":"mesenchyme derived from somites 01-04"}}]}]}]},
+{"data":"mesenchyme","attr":{"id":"li.node.TS11.id39","ext_id":"EMAP:163","name":"mesenchyme"},
+"children":[
+{"data":"head mesenchyme","attr":{"id":"li.node.TS11.id40","ext_id":"EMAP:164","name":"head mesenchyme"},
+"children":[
+{"data":"head mesenchyme derived from neural-crest","attr":{"id":"li.node.TS11.id41","ext_id":"EMAP:166","name":"head mesenchyme derived from neural-crest"}},
+{"data":"mesenchyme derived from head mesoderm","attr":{"id":"li.node.TS11.id42","ext_id":"EMAP:165","name":"mesenchyme derived from head mesoderm"},
+"children":[
+{"data":"mesenchyme derived from somites 01-04","attr":{"id":"li.node.TS11.id43","ext_id":"EMAP:15246","name":"mesenchyme derived from somites 01-04"}}]}]},
+{"data":"mesenchyme derived from neural crest","attr":{"id":"li.node.TS11.id44","ext_id":"EMAP:33626","name":"mesenchyme derived from neural crest"}}]},
+{"data":"mesendoderm","attr":{"id":"li.node.TS11.id45","ext_id":"EMAP:33852","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS11.id46","ext_id":"EMAP:167","name":"mesoderm"}},
+{"data":"notochordal plate","attr":{"id":"li.node.TS11.id47","ext_id":"EMAP:168","name":"notochordal plate"}},
+{"data":"notochordal process","attr":{"id":"li.node.TS11.id48","ext_id":"EMAP:169","name":"notochordal process"}},
+{"data":"organ system","attr":{"id":"li.node.TS11.id49","ext_id":"EMAP:170","name":"organ system"},
+"children":[
+{"data":"cardiovascular system","attr":{"id":"li.node.TS11.id50","ext_id":"EMAP:171","name":"cardiovascular system"},
+"children":[
+{"data":"heart","attr":{"id":"li.node.TS11.id51","ext_id":"EMAP:172","name":"heart"},
+"children":[
+{"data":"cardiogenic plate","attr":{"id":"li.node.TS11.id52","ext_id":"EMAP:173","name":"cardiogenic plate"}}]}]}]},
+{"data":"primitive streak","attr":{"id":"li.node.TS11.id53","ext_id":"EMAP:174","name":"primitive streak"},
+"children":[
+{"data":"node","attr":{"id":"li.node.TS11.id54","ext_id":"EMAP:175","name":"node"}}]}]},
+{"data":"endoderm","attr":{"id":"li.node.TS11.id55","ext_id":"EMAP:160","name":"endoderm"},
+"children":[
+{"data":"definitive endoderm","attr":{"id":"li.node.TS11.id56","ext_id":"EMAP:161","name":"definitive endoderm"}},
+{"data":"primitive endoderm","attr":{"id":"li.node.TS11.id57","ext_id":"EMAP:162","name":"primitive endoderm"}}]},
+{"data":"extraembryonic component","attr":{"id":"li.node.TS11.id58","ext_id":"EMAP:176","name":"extraembryonic component"},
+"children":[
+{"data":"allantois","attr":{"id":"li.node.TS11.id59","ext_id":"EMAP:177","name":"allantois"},
+"children":[
+{"data":"allantois mesoderm","attr":{"id":"li.node.TS11.id60","ext_id":"EMAP:178","name":"allantois mesoderm"}}]},
+{"data":"amnion","attr":{"id":"li.node.TS11.id61","ext_id":"EMAP:179","name":"amnion"},
+"children":[
+{"data":"amnion ectoderm","attr":{"id":"li.node.TS11.id62","ext_id":"EMAP:180","name":"amnion ectoderm"}},
+{"data":"amnion mesoderm","attr":{"id":"li.node.TS11.id63","ext_id":"EMAP:181","name":"amnion mesoderm"}}]},
+{"data":"chorion","attr":{"id":"li.node.TS11.id64","ext_id":"EMAP:187","name":"chorion"},
+"children":[
+{"data":"chorion ectoderm","attr":{"id":"li.node.TS11.id65","ext_id":"EMAP:188","name":"chorion ectoderm"}},
+{"data":"chorion mesenchyme","attr":{"id":"li.node.TS11.id66","ext_id":"EMAP:32107","name":"chorion mesenchyme"}},
+{"data":"chorion mesoderm","attr":{"id":"li.node.TS11.id67","ext_id":"EMAP:189","name":"chorion mesoderm"}}]},
+{"data":"extraembryonic component cavities","attr":{"id":"li.node.TS11.id68","ext_id":"EMAP:182","name":"extraembryonic component cavities"},
+"children":[
+{"data":"amniotic cavity","attr":{"id":"li.node.TS11.id69","ext_id":"EMAP:183","name":"amniotic cavity"}},
+{"data":"ectoplacental cavity","attr":{"id":"li.node.TS11.id70","ext_id":"EMAP:184","name":"ectoplacental cavity"}},
+{"data":"exocoelomic cavity","attr":{"id":"li.node.TS11.id71","ext_id":"EMAP:185","name":"exocoelomic cavity"}},
+{"data":"yolk sac cavity","attr":{"id":"li.node.TS11.id72","ext_id":"EMAP:186","name":"yolk sac cavity"}}]},
+{"data":"extraembryonic ectoderm","attr":{"id":"li.node.TS11.id73","ext_id":"EMAP:32167","name":"extraembryonic ectoderm"}},
+{"data":"extraembryonic endoderm","attr":{"id":"li.node.TS11.id74","ext_id":"EMAP:190","name":"extraembryonic endoderm"},
+"children":[
+{"data":"intermediate endoderm","attr":{"id":"li.node.TS11.id75","ext_id":"EMAP:191","name":"intermediate endoderm"}},
+{"data":"parietal endoderm","attr":{"id":"li.node.TS11.id76","ext_id":"EMAP:192","name":"parietal endoderm"},
+"children":[
+{"data":"Reichert's membrane","attr":{"id":"li.node.TS11.id77","ext_id":"EMAP:193","name":"Reichert's membrane"}}]},
+{"data":"visceral endoderm","attr":{"id":"li.node.TS11.id78","ext_id":"EMAP:194","name":"visceral endoderm"}}]},
+{"data":"extraembryonic mesenchyme","attr":{"id":"li.node.TS11.id79","ext_id":"EMAP:31917","name":"extraembryonic mesenchyme"}},
+{"data":"extraembryonic mesoderm","attr":{"id":"li.node.TS11.id80","ext_id":"EMAP:31916","name":"extraembryonic mesoderm"}},
+{"data":"trophectoderm","attr":{"id":"li.node.TS11.id81","ext_id":"EMAP:195","name":"trophectoderm"},
+"children":[
+{"data":"mural trophectoderm","attr":{"id":"li.node.TS11.id82","ext_id":"EMAP:196","name":"mural trophectoderm"},
+"children":[
+{"data":"primary trophoblast giant cells","attr":{"id":"li.node.TS11.id83","ext_id":"EMAP:197","name":"primary trophoblast giant cells"}}]},
+{"data":"polar trophectoderm","attr":{"id":"li.node.TS11.id84","ext_id":"EMAP:198","name":"polar trophectoderm"},
+"children":[
+{"data":"ectoplacental cone","attr":{"id":"li.node.TS11.id85","ext_id":"EMAP:199","name":"ectoplacental cone"},
+"children":[
+{"data":"cytotrophoblast","attr":{"id":"li.node.TS11.id86","ext_id":"EMAP:200","name":"cytotrophoblast"}},
+{"data":"syncytiotrophoblast","attr":{"id":"li.node.TS11.id87","ext_id":"EMAP:201","name":"syncytiotrophoblast"}}]}]}]},
+{"data":"yolk sac","attr":{"id":"li.node.TS11.id88","ext_id":"EMAP:202","name":"yolk sac"},
+"children":[
+{"data":"yolk sac endoderm","attr":{"id":"li.node.TS11.id89","ext_id":"EMAP:203","name":"yolk sac endoderm"}},
+{"data":"yolk sac mesoderm","attr":{"id":"li.node.TS11.id90","ext_id":"EMAP:204","name":"yolk sac mesoderm"},
+"children":[
+{"data":"blood island","attr":{"id":"li.node.TS11.id91","ext_id":"EMAP:205","name":"blood island"}},
+{"data":"primordial germ cells","attr":{"id":"li.node.TS11.id92","ext_id":"EMAP:206","name":"primordial germ cells"}}]}]}]},
+{"data":"head","attr":{"id":"li.node.TS11.id93","ext_id":"EMAP:34991","name":"head"},
+"children":[
+{"data":"head mesenchyme","attr":{"id":"li.node.TS11.id94","ext_id":"EMAP:164","name":"head mesenchyme"},
+"children":[
+{"data":"head mesenchyme derived from neural-crest","attr":{"id":"li.node.TS11.id95","ext_id":"EMAP:166","name":"head mesenchyme derived from neural-crest"}},
+{"data":"mesenchyme derived from head mesoderm","attr":{"id":"li.node.TS11.id96","ext_id":"EMAP:165","name":"mesenchyme derived from head mesoderm"},
+"children":[
+{"data":"mesenchyme derived from somites 01-04","attr":{"id":"li.node.TS11.id97","ext_id":"EMAP:15246","name":"mesenchyme derived from somites 01-04"}}]}]}]},
+{"data":"mesenchyme","attr":{"id":"li.node.TS11.id98","ext_id":"EMAP:163","name":"mesenchyme"},
+"children":[
+{"data":"head mesenchyme","attr":{"id":"li.node.TS11.id99","ext_id":"EMAP:164","name":"head mesenchyme"},
+"children":[
+{"data":"head mesenchyme derived from neural-crest","attr":{"id":"li.node.TS11.id100","ext_id":"EMAP:166","name":"head mesenchyme derived from neural-crest"}},
+{"data":"mesenchyme derived from head mesoderm","attr":{"id":"li.node.TS11.id101","ext_id":"EMAP:165","name":"mesenchyme derived from head mesoderm"},
+"children":[
+{"data":"mesenchyme derived from somites 01-04","attr":{"id":"li.node.TS11.id102","ext_id":"EMAP:15246","name":"mesenchyme derived from somites 01-04"}}]}]},
+{"data":"mesenchyme derived from neural crest","attr":{"id":"li.node.TS11.id103","ext_id":"EMAP:33626","name":"mesenchyme derived from neural crest"}}]},
+{"data":"mesendoderm","attr":{"id":"li.node.TS11.id104","ext_id":"EMAP:33852","name":"mesendoderm"}},
+{"data":"mesoderm","attr":{"id":"li.node.TS11.id105","ext_id":"EMAP:167","name":"mesoderm"}},
+{"data":"notochordal plate","attr":{"id":"li.node.TS11.id106","ext_id":"EMAP:168","name":"notochordal plate"}},
+{"data":"notochordal process","attr":{"id":"li.node.TS11.id107","ext_id":"EMAP:169","name":"notochordal process"}},
+{"data":"organ system","attr":{"id":"li.node.TS11.id108","ext_id":"EMAP:170","name":"organ system"},
+"children":[
+{"data":"cardiovascular system","attr":{"id":"li.node.TS11.id109","ext_id":"EMAP:171","name":"cardiovascular system"},
+"children":[
+{"data":"heart","attr":{"id":"li.node.TS11.id110","ext_id":"EMAP:172","name":"heart"},
+"children":[
+{"data":"cardiogenic plate","attr":{"id":"li.node.TS11.id111","ext_id":"EMAP:173","name":"cardiogenic plate"}}]}]}]},
+{"data":"primitive streak","attr":{"id":"li.node.TS11.id112","ext_id":"EMAP:174","name":"primitive streak"},
+"children":[
+{"data":"node","attr":{"id":"li.node.TS11.id113","ext_id":"EMAP:175","name":"node"}}]}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

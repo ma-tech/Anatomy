@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 8, 2011-01-18 10:34:49 =====
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
 ===========================================================
 
 
@@ -22,9 +22,9 @@ Second column indicates the path's group status.
 
 EMAP:25766   mouse
 EMAP:1       + first polar body
-EMAP:2       + one-cell stage (syn: fertilized egg)
-EMAP:31909 G + polar body GROUP
-EMAP:1     > | + first polar body
-EMAP:3     > | \ second polar body
+EMAP:2       + one-cell stage
+EMAP:31909   + polar body group
+EMAP:1       | + first polar body
+EMAP:3       | \ second polar body
 EMAP:3       + second polar body
 EMAP:4       \ zona pellucida

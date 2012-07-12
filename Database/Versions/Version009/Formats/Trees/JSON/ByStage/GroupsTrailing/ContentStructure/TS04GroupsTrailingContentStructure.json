@@ -1,0 +1,19 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS04.id1","ext_id":"EMAP:25769","name":"mouse"},
+"children":[
+{"data":"compacted morula","attr":{"id":"li.node.TS04.id2","ext_id":"EMAP:13","name":"compacted morula"}},
+{"data":"extraembryonic component","attr":{"id":"li.node.TS04.id3","ext_id":"EMAP:15","name":"extraembryonic component"},
+"children":[
+{"data":"cavities and their linings","attr":{"id":"li.node.TS04.id4","ext_id":"EMAP:16","name":"cavities and their linings"},
+"children":[
+{"data":"blastocoelic cavity","attr":{"id":"li.node.TS04.id5","ext_id":"EMAP:17","name":"blastocoelic cavity"}}]},
+{"data":"second polar body","attr":{"id":"li.node.TS04.id6","ext_id":"EMAP:18","name":"second polar body"}},
+{"data":"trophectoderm","attr":{"id":"li.node.TS04.id7","ext_id":"EMAP:19","name":"trophectoderm"},
+"children":[
+{"data":"mural trophectoderm","attr":{"id":"li.node.TS04.id8","ext_id":"EMAP:20","name":"mural trophectoderm"}},
+{"data":"polar trophectoderm","attr":{"id":"li.node.TS04.id9","ext_id":"EMAP:21","name":"polar trophectoderm"}}]},
+{"data":"zona pellucida","attr":{"id":"li.node.TS04.id10","ext_id":"EMAP:22","name":"zona pellucida"}}]},
+{"data":"inner cell mass","attr":{"id":"li.node.TS04.id11","ext_id":"EMAP:14","name":"inner cell mass"}},
+{"data":"embryo","attr":{"id":"li.node.TS04.id12","ext_id":"EMAP:12","name":"embryo"},
+"children":[
+{"data":"compacted morula","attr":{"id":"li.node.TS04.id13","ext_id":"EMAP:13","name":"compacted morula"}},
+{"data":"inner cell mass","attr":{"id":"li.node.TS04.id14","ext_id":"EMAP:14","name":"inner cell mass"}}]}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

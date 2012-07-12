@@ -28,916 +28,6 @@
 			<groupPathStatus emapId="EMAP:25777">
 				notInGroupPath
 			</groupPathStatus>
-			<timedComponent emapId="EMAP:297">
-				<name emapId="EMAP:297">
-					organ system
-				</name>
-				<emapaId emapId="EMAP:297">
-					EMAPA:16103
-				</emapaId>
-				<groupPathStatus emapId="EMAP:297">
-					notInGroupPath
-				</groupPathStatus>
-				<timedComponent emapId="EMAP:354">
-					<name emapId="EMAP:354">
-						visceral organ
-					</name>
-					<emapaId emapId="EMAP:354">
-						EMAPA:16245
-					</emapaId>
-					<groupPathStatus emapId="EMAP:354">
-						notInGroupPath
-					</groupPathStatus>
-					<timedComponent emapId="EMAP:355">
-						<name emapId="EMAP:355">
-							alimentary system
-						</name>
-						<emapaId emapId="EMAP:355">
-							EMAPA:16246
-						</emapaId>
-						<groupPathStatus emapId="EMAP:355">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:356">
-							<name emapId="EMAP:356">
-								gut
-							</name>
-							<emapaId emapId="EMAP:356">
-								EMAPA:16247
-							</emapaId>
-							<groupPathStatus emapId="EMAP:356">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:357">
-								<name emapId="EMAP:357">
-									foregut diverticulum
-								</name>
-								<emapaId emapId="EMAP:357">
-									EMAPA:16248
-								</emapaId>
-								<groupPathStatus emapId="EMAP:357">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:357">
-									foregut pocket
-								</synonym>
-								<timedComponent emapId="EMAP:358">
-									<name emapId="EMAP:358">
-										associated mesenchyme
-									</name>
-									<emapaId emapId="EMAP:358">
-										EMAPA:16249
-									</emapaId>
-									<groupPathStatus emapId="EMAP:358">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:359">
-									<name emapId="EMAP:359">
-										endoderm
-									</name>
-									<emapaId emapId="EMAP:359">
-										EMAPA:16250
-									</emapaId>
-									<groupPathStatus emapId="EMAP:359">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:6902">
-									<name emapId="EMAP:6902">
-										lumen
-									</name>
-									<emapaId emapId="EMAP:6902">
-										EMAPA:18375
-									</emapaId>
-									<groupPathStatus emapId="EMAP:6902">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:360">
-								<name emapId="EMAP:360">
-									hindgut diverticulum
-								</name>
-								<emapaId emapId="EMAP:360">
-									EMAPA:16251
-								</emapaId>
-								<groupPathStatus emapId="EMAP:360">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:360">
-									hindgut pocket
-								</synonym>
-								<timedComponent emapId="EMAP:361">
-									<name emapId="EMAP:361">
-										associated mesenchyme
-									</name>
-									<emapaId emapId="EMAP:361">
-										EMAPA:16252
-									</emapaId>
-									<groupPathStatus emapId="EMAP:361">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:362">
-									<name emapId="EMAP:362">
-										endoderm
-									</name>
-									<emapaId emapId="EMAP:362">
-										EMAPA:16253
-									</emapaId>
-									<groupPathStatus emapId="EMAP:362">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:6904">
-									<name emapId="EMAP:6904">
-										lumen
-									</name>
-									<emapaId emapId="EMAP:6904">
-										EMAPA:18376
-									</emapaId>
-									<groupPathStatus emapId="EMAP:6904">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:363">
-									<name emapId="EMAP:363">
-										primordial germ cells
-									</name>
-									<emapaId emapId="EMAP:363">
-										EMAPA:16254
-									</emapaId>
-									<groupPathStatus emapId="EMAP:363">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:364">
-								<name emapId="EMAP:364">
-									midgut
-								</name>
-								<emapaId emapId="EMAP:364">
-									EMAPA:16255
-								</emapaId>
-								<groupPathStatus emapId="EMAP:364">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:365">
-									<name emapId="EMAP:365">
-										associated mesenchyme
-									</name>
-									<emapaId emapId="EMAP:365">
-										EMAPA:16256
-									</emapaId>
-									<groupPathStatus emapId="EMAP:365">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:366">
-									<name emapId="EMAP:366">
-										endoderm
-									</name>
-									<emapaId emapId="EMAP:366">
-										EMAPA:16257
-									</emapaId>
-									<groupPathStatus emapId="EMAP:366">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:6913">
-									<name emapId="EMAP:6913">
-										lumen
-									</name>
-									<emapaId emapId="EMAP:6913">
-										EMAPA:18377
-									</emapaId>
-									<groupPathStatus emapId="EMAP:6913">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:367">
-							<name emapId="EMAP:367">
-								mouth-foregut junction
-							</name>
-							<emapaId emapId="EMAP:367">
-								EMAPA:16258
-							</emapaId>
-							<groupPathStatus emapId="EMAP:367">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:368">
-								<name emapId="EMAP:368">
-									buccopharyngeal membrane
-								</name>
-								<emapaId emapId="EMAP:368">
-									EMAPA:16259
-								</emapaId>
-								<groupPathStatus emapId="EMAP:368">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:369">
-									<name emapId="EMAP:369">
-										ectoderm
-									</name>
-									<emapaId emapId="EMAP:369">
-										EMAPA:16260
-									</emapaId>
-									<groupPathStatus emapId="EMAP:369">
-										notInGroupPath
-									</groupPathStatus>
-									<synonym emapId="EMAP:369">
-										epithelium
-									</synonym>
-								</timedComponent>
-								<timedComponent emapId="EMAP:370">
-									<name emapId="EMAP:370">
-										endoderm
-									</name>
-									<emapaId emapId="EMAP:370">
-										EMAPA:16261
-									</emapaId>
-									<groupPathStatus emapId="EMAP:370">
-										notInGroupPath
-									</groupPathStatus>
-									<synonym emapId="EMAP:370">
-										endothelium
-									</synonym>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:371">
-							<name emapId="EMAP:371">
-								oral region
-							</name>
-							<emapaId emapId="EMAP:371">
-								EMAPA:16262
-							</emapaId>
-							<groupPathStatus emapId="EMAP:371">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:372">
-								<name emapId="EMAP:372">
-									stomatodaeum
-								</name>
-								<emapaId emapId="EMAP:372">
-									EMAPA:16263
-								</emapaId>
-								<groupPathStatus emapId="EMAP:372">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:372">
-									mouth pit
-								</synonym>
-								<synonym emapId="EMAP:372">
-									oral pit
-								</synonym>
-								<synonym emapId="EMAP:372">
-									stomatodeum
-								</synonym>
-								<synonym emapId="EMAP:372">
-									stomodaeum
-								</synonym>
-								<synonym emapId="EMAP:372">
-									stomodeum
-								</synonym>
-							</timedComponent>
-						</timedComponent>
-					</timedComponent>
-				</timedComponent>
-				<timedComponent emapId="EMAP:307">
-					<name emapId="EMAP:307">
-						cardiovascular system
-					</name>
-					<emapaId emapId="EMAP:307">
-						EMAPA:16104
-					</emapaId>
-					<groupPathStatus emapId="EMAP:307">
-						notInGroupPath
-					</groupPathStatus>
-					<timedComponent emapId="EMAP:308">
-						<name emapId="EMAP:308">
-							arterial system
-						</name>
-						<emapaId emapId="EMAP:308">
-							EMAPA:16201
-						</emapaId>
-						<groupPathStatus emapId="EMAP:308">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:311">
-							<name emapId="EMAP:311">
-								dorsal aorta
-							</name>
-							<emapaId emapId="EMAP:311">
-								EMAPA:16204
-							</emapaId>
-							<groupPathStatus emapId="EMAP:311">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:312">
-								<name emapId="EMAP:312">
-									left
-								</name>
-								<emapaId emapId="EMAP:312">
-									EMAPA:16205
-								</emapaId>
-								<groupPathStatus emapId="EMAP:312">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-							<timedComponent emapId="EMAP:313">
-								<name emapId="EMAP:313">
-									right
-								</name>
-								<emapaId emapId="EMAP:313">
-									EMAPA:16206
-								</emapaId>
-								<groupPathStatus emapId="EMAP:313">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:314">
-							<name emapId="EMAP:314">
-								vitelline artery
-							</name>
-							<emapaId emapId="EMAP:314">
-								EMAPA:16207
-							</emapaId>
-							<groupPathStatus emapId="EMAP:314">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-					</timedComponent>
-					<timedComponent emapId="EMAP:315">
-						<name emapId="EMAP:315">
-							heart
-						</name>
-						<emapaId emapId="EMAP:315">
-							EMAPA:16105
-						</emapaId>
-						<groupPathStatus emapId="EMAP:315">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:316">
-							<name emapId="EMAP:316">
-								cardiogenic plate
-							</name>
-							<emapaId emapId="EMAP:316">
-								EMAPA:16106
-							</emapaId>
-							<groupPathStatus emapId="EMAP:316">
-								notInGroupPath
-							</groupPathStatus>
-							<synonym emapId="EMAP:316">
-								heart rudiment
-							</synonym>
-							<synonym emapId="EMAP:316">
-								myocardial plate
-							</synonym>
-						</timedComponent>
-						<timedComponent emapId="EMAP:317">
-							<name emapId="EMAP:317">
-								early primitive heart tube
-							</name>
-							<emapaId emapId="EMAP:317">
-								EMAPA:16208
-							</emapaId>
-							<groupPathStatus emapId="EMAP:317">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:318">
-								<name emapId="EMAP:318">
-									cardiac jelly
-								</name>
-								<emapaId emapId="EMAP:318">
-									EMAPA:16209
-								</emapaId>
-								<groupPathStatus emapId="EMAP:318">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-							<timedComponent emapId="EMAP:320">
-								<name emapId="EMAP:320">
-									cardiac muscle
-								</name>
-								<emapaId emapId="EMAP:320">
-									EMAPA:16211
-								</emapaId>
-								<groupPathStatus emapId="EMAP:320">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:320">
-									myocardium
-								</synonym>
-							</timedComponent>
-							<timedComponent emapId="EMAP:319">
-								<name emapId="EMAP:319">
-									endocardial tube
-								</name>
-								<emapaId emapId="EMAP:319">
-									EMAPA:16210
-								</emapaId>
-								<groupPathStatus emapId="EMAP:319">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:321">
-							<name emapId="EMAP:321">
-								mesentery
-							</name>
-							<emapaId emapId="EMAP:321">
-								EMAPA:16212
-							</emapaId>
-							<groupPathStatus emapId="EMAP:321">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:322">
-								<name emapId="EMAP:322">
-									dorsal mesocardium
-								</name>
-								<emapaId emapId="EMAP:322">
-									EMAPA:16213
-								</emapaId>
-								<groupPathStatus emapId="EMAP:322">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:322">
-									dorsal mesentery of heart
-								</synonym>
-								<timedComponent emapId="EMAP:323">
-									<name emapId="EMAP:323">
-										transverse pericardial sinus
-									</name>
-									<emapaId emapId="EMAP:323">
-										EMAPA:16214
-									</emapaId>
-									<groupPathStatus emapId="EMAP:323">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:324">
-							<name emapId="EMAP:324">
-								primitive heart tube
-							</name>
-							<emapaId emapId="EMAP:324">
-								EMAPA:16215
-							</emapaId>
-							<groupPathStatus emapId="EMAP:324">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:325">
-								<name emapId="EMAP:325">
-									bulbus cordis
-								</name>
-								<emapaId emapId="EMAP:325">
-									EMAPA:16216
-								</emapaId>
-								<groupPathStatus emapId="EMAP:325">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:326">
-									<name emapId="EMAP:326">
-										caudal half
-									</name>
-									<emapaId emapId="EMAP:326">
-										EMAPA:16217
-									</emapaId>
-									<groupPathStatus emapId="EMAP:326">
-										notInGroupPath
-									</groupPathStatus>
-									<timedComponent emapId="EMAP:327">
-										<name emapId="EMAP:327">
-											cardiac jelly
-										</name>
-										<emapaId emapId="EMAP:327">
-											EMAPA:16218
-										</emapaId>
-										<groupPathStatus emapId="EMAP:327">
-											notInGroupPath
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:329">
-										<name emapId="EMAP:329">
-											cardiac muscle
-										</name>
-										<emapaId emapId="EMAP:329">
-											EMAPA:16220
-										</emapaId>
-										<groupPathStatus emapId="EMAP:329">
-											notInGroupPath
-										</groupPathStatus>
-										<synonym emapId="EMAP:329">
-											myocardium
-										</synonym>
-									</timedComponent>
-									<timedComponent emapId="EMAP:328">
-										<name emapId="EMAP:328">
-											endocardial tube
-										</name>
-										<emapaId emapId="EMAP:328">
-											EMAPA:16219
-										</emapaId>
-										<groupPathStatus emapId="EMAP:328">
-											notInGroupPath
-										</groupPathStatus>
-									</timedComponent>
-								</timedComponent>
-								<timedComponent emapId="EMAP:330">
-									<name emapId="EMAP:330">
-										rostral half
-									</name>
-									<emapaId emapId="EMAP:330">
-										EMAPA:16221
-									</emapaId>
-									<groupPathStatus emapId="EMAP:330">
-										notInGroupPath
-									</groupPathStatus>
-									<synonym emapId="EMAP:330">
-										conotruncus
-									</synonym>
-									<timedComponent emapId="EMAP:331">
-										<name emapId="EMAP:331">
-											cardiac jelly
-										</name>
-										<emapaId emapId="EMAP:331">
-											EMAPA:16222
-										</emapaId>
-										<groupPathStatus emapId="EMAP:331">
-											notInGroupPath
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:333">
-										<name emapId="EMAP:333">
-											cardiac muscle
-										</name>
-										<emapaId emapId="EMAP:333">
-											EMAPA:16224
-										</emapaId>
-										<groupPathStatus emapId="EMAP:333">
-											notInGroupPath
-										</groupPathStatus>
-										<synonym emapId="EMAP:333">
-											myocardium
-										</synonym>
-									</timedComponent>
-									<timedComponent emapId="EMAP:332">
-										<name emapId="EMAP:332">
-											endocardial tube
-										</name>
-										<emapaId emapId="EMAP:332">
-											EMAPA:16223
-										</emapaId>
-										<groupPathStatus emapId="EMAP:332">
-											notInGroupPath
-										</groupPathStatus>
-									</timedComponent>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:334">
-								<name emapId="EMAP:334">
-									common atrial chamber
-								</name>
-								<emapaId emapId="EMAP:334">
-									EMAPA:16225
-								</emapaId>
-								<groupPathStatus emapId="EMAP:334">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:335">
-									<name emapId="EMAP:335">
-										cardiac jelly
-									</name>
-									<emapaId emapId="EMAP:335">
-										EMAPA:16226
-									</emapaId>
-									<groupPathStatus emapId="EMAP:335">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:337">
-									<name emapId="EMAP:337">
-										cardiac muscle
-									</name>
-									<emapaId emapId="EMAP:337">
-										EMAPA:16228
-									</emapaId>
-									<groupPathStatus emapId="EMAP:337">
-										notInGroupPath
-									</groupPathStatus>
-									<synonym emapId="EMAP:337">
-										myocardium
-									</synonym>
-								</timedComponent>
-								<timedComponent emapId="EMAP:336">
-									<name emapId="EMAP:336">
-										endocardial tube
-									</name>
-									<emapaId emapId="EMAP:336">
-										EMAPA:16227
-									</emapaId>
-									<groupPathStatus emapId="EMAP:336">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:338">
-								<name emapId="EMAP:338">
-									outflow tract
-								</name>
-								<emapaId emapId="EMAP:338">
-									EMAPA:16229
-								</emapaId>
-								<groupPathStatus emapId="EMAP:338">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:339">
-									<name emapId="EMAP:339">
-										cardiac jelly
-									</name>
-									<emapaId emapId="EMAP:339">
-										EMAPA:16230
-									</emapaId>
-									<groupPathStatus emapId="EMAP:339">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:340">
-									<name emapId="EMAP:340">
-										endocardial tube
-									</name>
-									<emapaId emapId="EMAP:340">
-										EMAPA:16231
-									</emapaId>
-									<groupPathStatus emapId="EMAP:340">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:341">
-									<name emapId="EMAP:341">
-										mesenchyme
-									</name>
-									<emapaId emapId="EMAP:341">
-										EMAPA:16232
-									</emapaId>
-									<groupPathStatus emapId="EMAP:341">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:342">
-								<name emapId="EMAP:342">
-									primitive ventricle
-								</name>
-								<emapaId emapId="EMAP:342">
-									EMAPA:16233
-								</emapaId>
-								<groupPathStatus emapId="EMAP:342">
-									notInGroupPath
-								</groupPathStatus>
-								<synonym emapId="EMAP:342">
-									future left ventricle
-								</synonym>
-								<timedComponent emapId="EMAP:343">
-									<name emapId="EMAP:343">
-										cardiac jelly
-									</name>
-									<emapaId emapId="EMAP:343">
-										EMAPA:16234
-									</emapaId>
-									<groupPathStatus emapId="EMAP:343">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:345">
-									<name emapId="EMAP:345">
-										cardiac muscle
-									</name>
-									<emapaId emapId="EMAP:345">
-										EMAPA:16236
-									</emapaId>
-									<groupPathStatus emapId="EMAP:345">
-										notInGroupPath
-									</groupPathStatus>
-									<synonym emapId="EMAP:345">
-										myocardium
-									</synonym>
-								</timedComponent>
-								<timedComponent emapId="EMAP:344">
-									<name emapId="EMAP:344">
-										endocardial tube
-									</name>
-									<emapaId emapId="EMAP:344">
-										EMAPA:16235
-									</emapaId>
-									<groupPathStatus emapId="EMAP:344">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:346">
-							<name emapId="EMAP:346">
-								sinus venosus
-							</name>
-							<emapaId emapId="EMAP:346">
-								EMAPA:16237
-							</emapaId>
-							<groupPathStatus emapId="EMAP:346">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:347">
-								<name emapId="EMAP:347">
-									left horn
-								</name>
-								<emapaId emapId="EMAP:347">
-									EMAPA:16238
-								</emapaId>
-								<groupPathStatus emapId="EMAP:347">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-							<timedComponent emapId="EMAP:348">
-								<name emapId="EMAP:348">
-									right horn
-								</name>
-								<emapaId emapId="EMAP:348">
-									EMAPA:16239
-								</emapaId>
-								<groupPathStatus emapId="EMAP:348">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
-					</timedComponent>
-					<timedComponent emapId="EMAP:349">
-						<name emapId="EMAP:349">
-							venous system
-						</name>
-						<emapaId emapId="EMAP:349">
-							EMAPA:16240
-						</emapaId>
-						<groupPathStatus emapId="EMAP:349">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:350">
-							<name emapId="EMAP:350">
-								anterior cardinal vein
-							</name>
-							<emapaId emapId="EMAP:350">
-								EMAPA:16241
-							</emapaId>
-							<groupPathStatus emapId="EMAP:350">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-						<timedComponent emapId="EMAP:351">
-							<name emapId="EMAP:351">
-								primary head vein
-							</name>
-							<emapaId emapId="EMAP:351">
-								EMAPA:16242
-							</emapaId>
-							<groupPathStatus emapId="EMAP:351">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-						<timedComponent emapId="EMAP:352">
-							<name emapId="EMAP:352">
-								umbilical vein embryonic part
-							</name>
-							<emapaId emapId="EMAP:352">
-								EMAPA:16243
-							</emapaId>
-							<groupPathStatus emapId="EMAP:352">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-						<timedComponent emapId="EMAP:353">
-							<name emapId="EMAP:353">
-								vitelline vein embryonic part
-							</name>
-							<emapaId emapId="EMAP:353">
-								EMAPA:16244
-							</emapaId>
-							<groupPathStatus emapId="EMAP:353">
-								notInGroupPath
-							</groupPathStatus>
-							<synonym emapId="EMAP:353">
-								omphalomesenteric vein
-							</synonym>
-						</timedComponent>
-					</timedComponent>
-				</timedComponent>
-				<timedComponent emapId="EMAP:298">
-					<name emapId="EMAP:298">
-						sensory organ
-					</name>
-					<emapaId emapId="EMAP:298">
-						EMAPA:16192
-					</emapaId>
-					<groupPathStatus emapId="EMAP:298">
-						notInGroupPath
-					</groupPathStatus>
-					<timedComponent emapId="EMAP:299">
-						<name emapId="EMAP:299">
-							ear
-						</name>
-						<emapaId emapId="EMAP:299">
-							EMAPA:16193
-						</emapaId>
-						<groupPathStatus emapId="EMAP:299">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:300">
-							<name emapId="EMAP:300">
-								inner ear
-							</name>
-							<emapaId emapId="EMAP:300">
-								EMAPA:16194
-							</emapaId>
-							<groupPathStatus emapId="EMAP:300">
-								notInGroupPath
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:301">
-								<name emapId="EMAP:301">
-									otic placode
-								</name>
-								<emapaId emapId="EMAP:301">
-									EMAPA:16195
-								</emapaId>
-								<groupPathStatus emapId="EMAP:301">
-									notInGroupPath
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:302">
-									<name emapId="EMAP:302">
-										associated mesenchyme
-									</name>
-									<emapaId emapId="EMAP:302">
-										EMAPA:16196
-									</emapaId>
-									<groupPathStatus emapId="EMAP:302">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-								<timedComponent emapId="EMAP:303">
-									<name emapId="EMAP:303">
-										epithelium
-									</name>
-									<emapaId emapId="EMAP:303">
-										EMAPA:16197
-									</emapaId>
-									<groupPathStatus emapId="EMAP:303">
-										notInGroupPath
-									</groupPathStatus>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-					</timedComponent>
-					<timedComponent emapId="EMAP:304">
-						<name emapId="EMAP:304">
-							eye
-						</name>
-						<emapaId emapId="EMAP:304">
-							EMAPA:16198
-						</emapaId>
-						<groupPathStatus emapId="EMAP:304">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:305">
-							<name emapId="EMAP:305">
-								optic sulcus
-							</name>
-							<emapaId emapId="EMAP:305">
-								EMAPA:16199
-							</emapaId>
-							<groupPathStatus emapId="EMAP:305">
-								notInGroupPath
-							</groupPathStatus>
-							<synonym emapId="EMAP:305">
-								optic evagination
-							</synonym>
-							<timedComponent emapId="EMAP:306">
-								<name emapId="EMAP:306">
-									neural ectoderm
-								</name>
-								<emapaId emapId="EMAP:306">
-									EMAPA:16200
-								</emapaId>
-								<groupPathStatus emapId="EMAP:306">
-									notInGroupPath
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
-					</timedComponent>
-				</timedComponent>
-			</timedComponent>
 			<timedComponent emapId="EMAP:208">
 				<name emapId="EMAP:208">
 					branchial arch
@@ -948,9 +38,6 @@
 				<groupPathStatus emapId="EMAP:208">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:208">
-					pharyngeal arch
-				</synonym>
 				<timedComponent emapId="EMAP:209">
 					<name emapId="EMAP:209">
 						1st branchial arch
@@ -971,9 +58,6 @@
 						<groupPathStatus emapId="EMAP:217">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:217">
-							epithelium
-						</synonym>
 					</timedComponent>
 					<timedComponent emapId="EMAP:218">
 						<name emapId="EMAP:218">
@@ -985,9 +69,39 @@
 						<groupPathStatus emapId="EMAP:218">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:218">
-							endothelium
-						</synonym>
+					</timedComponent>
+					<timedComponent emapId="EMAP:219">
+						<name emapId="EMAP:219">
+							1st branchial arch mesenchyme
+						</name>
+						<emapaId emapId="EMAP:219">
+							EMAPA:16128
+						</emapaId>
+						<groupPathStatus emapId="EMAP:219">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:221">
+							<name emapId="EMAP:221">
+								1st branchial arch mesenchyme derived from head mesoderm
+							</name>
+							<emapaId emapId="EMAP:221">
+								EMAPA:16130
+							</emapaId>
+							<groupPathStatus emapId="EMAP:221">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:220">
+							<name emapId="EMAP:220">
+								1st branchial arch mesenchyme derived from neural crest
+							</name>
+							<emapaId emapId="EMAP:220">
+								EMAPA:16129
+							</emapaId>
+							<groupPathStatus emapId="EMAP:220">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:210">
 						<name emapId="EMAP:210">
@@ -1009,9 +123,6 @@
 							<groupPathStatus emapId="EMAP:211">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:211">
-								epithelium
-							</synonym>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:212">
@@ -1034,9 +145,6 @@
 							<groupPathStatus emapId="EMAP:213">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:213">
-								epithelium
-							</synonym>
 						</timedComponent>
 						<timedComponent emapId="EMAP:214">
 							<name emapId="EMAP:214">
@@ -1048,9 +156,6 @@
 							<groupPathStatus emapId="EMAP:214">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:214">
-								endothelium
-							</synonym>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:215">
@@ -1073,44 +178,96 @@
 							<groupPathStatus emapId="EMAP:216">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:216">
-								endothelium
-							</synonym>
 						</timedComponent>
 					</timedComponent>
-					<timedComponent emapId="EMAP:219">
-						<name emapId="EMAP:219">
-							mesenchyme
+				</timedComponent>
+				<timedComponent emapId="EMAP:33781">
+					<name emapId="EMAP:33781">
+						branchial arch ectoderm
+					</name>
+					<emapaId emapId="EMAP:33781">
+						EMAPA:32753
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33781">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33789">
+					<name emapId="EMAP:33789">
+						branchial arch endoderm
+					</name>
+					<emapaId emapId="EMAP:33789">
+						EMAPA:32754
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33789">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33749">
+					<name emapId="EMAP:33749">
+						branchial arch membrane
+					</name>
+					<emapaId emapId="EMAP:33749">
+						EMAPA:32749
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33749">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33797">
+					<name emapId="EMAP:33797">
+						branchial arch mesenchyme
+					</name>
+					<emapaId emapId="EMAP:33797">
+						EMAPA:32755
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33797">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:33765">
+						<name emapId="EMAP:33765">
+							branchial arch mesenchyme derived from head mesoderm
 						</name>
-						<emapaId emapId="EMAP:219">
-							EMAPA:16128
+						<emapaId emapId="EMAP:33765">
+							EMAPA:32751
 						</emapaId>
-						<groupPathStatus emapId="EMAP:219">
+						<groupPathStatus emapId="EMAP:33765">
 							notInGroupPath
 						</groupPathStatus>
-						<timedComponent emapId="EMAP:221">
-							<name emapId="EMAP:221">
-								mesenchyme derived from head mesoderm
-							</name>
-							<emapaId emapId="EMAP:221">
-								EMAPA:16130
-							</emapaId>
-							<groupPathStatus emapId="EMAP:221">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-						<timedComponent emapId="EMAP:220">
-							<name emapId="EMAP:220">
-								mesenchyme derived from neural crest
-							</name>
-							<emapaId emapId="EMAP:220">
-								EMAPA:16129
-							</emapaId>
-							<groupPathStatus emapId="EMAP:220">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
 					</timedComponent>
+					<timedComponent emapId="EMAP:33805">
+						<name emapId="EMAP:33805">
+							branchial arch mesenchyme derived from neural crest
+						</name>
+						<emapaId emapId="EMAP:33805">
+							EMAPA:32756
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33805">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33757">
+					<name emapId="EMAP:33757">
+						branchial groove
+					</name>
+					<emapaId emapId="EMAP:33757">
+						EMAPA:32750
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33757">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33773">
+					<name emapId="EMAP:33773">
+						branchial pouch
+					</name>
+					<emapaId emapId="EMAP:33773">
+						EMAPA:32752
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33773">
+						notInGroupPath
+					</groupPathStatus>
 				</timedComponent>
 			</timedComponent>
 			<timedComponent emapId="EMAP:222">
@@ -1133,9 +290,17 @@
 					<groupPathStatus emapId="EMAP:223">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:223">
-						future pericardial component
-					</synonym>
+					<timedComponent emapId="EMAP:34238">
+						<name emapId="EMAP:34238">
+							mesothelium
+						</name>
+						<emapaId emapId="EMAP:34238">
+							EMAPA:32856
+						</emapaId>
+						<groupPathStatus emapId="EMAP:34238">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
 					<timedComponent emapId="EMAP:224">
 						<name emapId="EMAP:224">
 							pericardial component
@@ -1148,7 +313,7 @@
 						</groupPathStatus>
 						<timedComponent emapId="EMAP:225">
 							<name emapId="EMAP:225">
-								cavity
+								pericardial component cavity
 							</name>
 							<emapaId emapId="EMAP:225">
 								EMAPA:16132
@@ -1159,7 +324,7 @@
 						</timedComponent>
 						<timedComponent emapId="EMAP:226">
 							<name emapId="EMAP:226">
-								mesothelium
+								pericardial component mesothelium
 							</name>
 							<emapaId emapId="EMAP:226">
 								EMAPA:16133
@@ -1181,7 +346,7 @@
 						</groupPathStatus>
 						<timedComponent emapId="EMAP:228">
 							<name emapId="EMAP:228">
-								cavity
+								pericardio-peritoneal component cavity
 							</name>
 							<emapaId emapId="EMAP:228">
 								EMAPA:16135
@@ -1192,7 +357,7 @@
 						</timedComponent>
 						<timedComponent emapId="EMAP:229">
 							<name emapId="EMAP:229">
-								mesothelium
+								pericardio-peritoneal component mesothelium
 							</name>
 							<emapaId emapId="EMAP:229">
 								EMAPA:16136
@@ -1214,7 +379,7 @@
 						</groupPathStatus>
 						<timedComponent emapId="EMAP:231">
 							<name emapId="EMAP:231">
-								cavity
+								peritoneal component cavity
 							</name>
 							<emapaId emapId="EMAP:231">
 								EMAPA:16138
@@ -1225,7 +390,7 @@
 						</timedComponent>
 						<timedComponent emapId="EMAP:232">
 							<name emapId="EMAP:232">
-								mesothelium
+								peritoneal component mesothelium
 							</name>
 							<emapaId emapId="EMAP:232">
 								EMAPA:16139
@@ -1247,9 +412,6 @@
 				<groupPathStatus emapId="EMAP:233">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:233">
-					epithelium
-				</synonym>
 				<timedComponent emapId="EMAP:234">
 					<name emapId="EMAP:234">
 						neural ectoderm
@@ -1270,6 +432,28 @@
 						<groupPathStatus emapId="EMAP:235">
 							notInGroupPath
 						</groupPathStatus>
+						<timedComponent emapId="EMAP:34970">
+							<name emapId="EMAP:34970">
+								future brain neural fold
+							</name>
+							<emapaId emapId="EMAP:34970">
+								EMAPA:16090
+							</emapaId>
+							<groupPathStatus emapId="EMAP:34970">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:34972">
+								<name emapId="EMAP:34972">
+									future brain neural crest
+								</name>
+								<emapaId emapId="EMAP:34972">
+									EMAPA:16091
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34972">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
 						<timedComponent emapId="EMAP:236">
 							<name emapId="EMAP:236">
 								future midbrain
@@ -1280,12 +464,9 @@
 							<groupPathStatus emapId="EMAP:236">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:236">
-								future mesencephalon
-							</synonym>
 							<timedComponent emapId="EMAP:237">
 								<name emapId="EMAP:237">
-									floor plate
+									future midbrain floor plate
 								</name>
 								<emapaId emapId="EMAP:237">
 									EMAPA:16141
@@ -1296,7 +477,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:238">
 								<name emapId="EMAP:238">
-									neural fold
+									future midbrain neural fold
 								</name>
 								<emapaId emapId="EMAP:238">
 									EMAPA:16142
@@ -1306,7 +487,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:239">
 									<name emapId="EMAP:239">
-										neural crest
+										future midbrain neural crest
 									</name>
 									<emapaId emapId="EMAP:239">
 										EMAPA:16143
@@ -1327,12 +508,9 @@
 							<groupPathStatus emapId="EMAP:240">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:240">
-								future forebrain
-							</synonym>
 							<timedComponent emapId="EMAP:241">
 								<name emapId="EMAP:241">
-									floor plate
+									future prosencephalon floor plate
 								</name>
 								<emapaId emapId="EMAP:241">
 									EMAPA:16145
@@ -1343,7 +521,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:242">
 								<name emapId="EMAP:242">
-									neural fold
+									future prosencephalon neural fold
 								</name>
 								<emapaId emapId="EMAP:242">
 									EMAPA:16146
@@ -1353,7 +531,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:243">
 									<name emapId="EMAP:243">
-										neural crest
+										future prosencephalon neural crest
 									</name>
 									<emapaId emapId="EMAP:243">
 										EMAPA:16147
@@ -1374,9 +552,6 @@
 							<groupPathStatus emapId="EMAP:244">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:244">
-								future hindbrain
-							</synonym>
 							<timedComponent emapId="EMAP:245">
 								<name emapId="EMAP:245">
 									anterior pro-rhombomere
@@ -1395,7 +570,7 @@
 								</synonym>
 								<timedComponent emapId="EMAP:246">
 									<name emapId="EMAP:246">
-										floor plate
+										anterior pro-rhombomere floor plate
 									</name>
 									<emapaId emapId="EMAP:246">
 										EMAPA:16150
@@ -1406,7 +581,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:247">
 									<name emapId="EMAP:247">
-										neural fold
+										anterior pro-rhombomere neural fold
 									</name>
 									<emapaId emapId="EMAP:247">
 										EMAPA:16151
@@ -1416,7 +591,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:248">
 										<name emapId="EMAP:248">
-											neural crest
+											anterior pro-rhombomere neural crest
 										</name>
 										<emapaId emapId="EMAP:248">
 											EMAPA:16152
@@ -1439,7 +614,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:250">
 									<name emapId="EMAP:250">
-										floor plate
+										early hindbrain floor plate
 									</name>
 									<emapaId emapId="EMAP:250">
 										EMAPA:16154
@@ -1450,7 +625,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:251">
 									<name emapId="EMAP:251">
-										neural fold
+										early hindbrain neural fold
 									</name>
 									<emapaId emapId="EMAP:251">
 										EMAPA:16155
@@ -1460,7 +635,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:252">
 										<name emapId="EMAP:252">
-											neural crest
+											early hindbrain neural crest
 										</name>
 										<emapaId emapId="EMAP:252">
 											EMAPA:16156
@@ -1470,6 +645,28 @@
 										</groupPathStatus>
 									</timedComponent>
 								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34804">
+								<name emapId="EMAP:34804">
+									future rhombencephalon floor plate
+								</name>
+								<emapaId emapId="EMAP:34804">
+									EMAPA:32936
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34804">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:33610">
+								<name emapId="EMAP:33610">
+									future rhombencephalon neural fold
+								</name>
+								<emapaId emapId="EMAP:33610">
+									EMAPA:32733
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33610">
+									notInGroupPath
+								</groupPathStatus>
 							</timedComponent>
 							<timedComponent emapId="EMAP:253">
 								<name emapId="EMAP:253">
@@ -1489,7 +686,7 @@
 								</synonym>
 								<timedComponent emapId="EMAP:254">
 									<name emapId="EMAP:254">
-										floor plate
+										posterior pro-rhombomere floor plate
 									</name>
 									<emapaId emapId="EMAP:254">
 										EMAPA:16158
@@ -1500,7 +697,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:255">
 									<name emapId="EMAP:255">
-										neural fold
+										posterior pro-rhombomere neural fold
 									</name>
 									<emapaId emapId="EMAP:255">
 										EMAPA:16159
@@ -1510,7 +707,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:256">
 										<name emapId="EMAP:256">
-											neural crest
+											posterior pro-rhombomere neural crest
 										</name>
 										<emapaId emapId="EMAP:256">
 											EMAPA:16160
@@ -1532,6 +729,17 @@
 									notInGroupPath
 								</groupPathStatus>
 							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:34227">
+							<name emapId="EMAP:34227">
+								midbrain-hindbrain junction
+							</name>
+							<emapaId emapId="EMAP:34227">
+								EMAPA:32854
+							</emapaId>
+							<groupPathStatus emapId="EMAP:34227">
+								notInGroupPath
+							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:258">
@@ -1556,7 +764,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:260">
 								<name emapId="EMAP:260">
-									neural fold
+									future spinal cord neural fold
 								</name>
 								<emapaId emapId="EMAP:260">
 									EMAPA:16162
@@ -1566,7 +774,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:261">
 									<name emapId="EMAP:261">
-										neural crest
+										future spinal cord neural crest
 									</name>
 									<emapaId emapId="EMAP:261">
 										EMAPA:16163
@@ -1589,7 +797,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:263">
 								<name emapId="EMAP:263">
-									floor plate
+									future spinal cord floor plate
 								</name>
 								<emapaId emapId="EMAP:263">
 									EMAPA:16165
@@ -1600,7 +808,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:264">
 								<name emapId="EMAP:264">
-									lateral wall
+									future spinal cord lateral wall
 								</name>
 								<emapaId emapId="EMAP:264">
 									EMAPA:16166
@@ -1611,7 +819,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:265">
 								<name emapId="EMAP:265">
-									neural lumen
+									future spinal cord neural lumen
 								</name>
 								<emapaId emapId="EMAP:265">
 									EMAPA:16167
@@ -1622,7 +830,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:266">
 								<name emapId="EMAP:266">
-									roof plate
+									future spinal cord roof plate
 								</name>
 								<emapaId emapId="EMAP:266">
 									EMAPA:16168
@@ -1631,6 +839,28 @@
 									notInGroupPath
 								</groupPathStatus>
 							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33608">
+						<name emapId="EMAP:33608">
+							neural fold
+						</name>
+						<emapaId emapId="EMAP:33608">
+							EMAPA:32732
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33608">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:33651">
+							<name emapId="EMAP:33651">
+								neural crest
+							</name>
+							<emapaId emapId="EMAP:33651">
+								EMAPA:32737
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33651">
+								notInGroupPath
+							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
 				</timedComponent>
@@ -1644,9 +874,6 @@
 					<groupPathStatus emapId="EMAP:267">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:267">
-						surface epithelium
-					</synonym>
 				</timedComponent>
 			</timedComponent>
 			<timedComponent emapId="EMAP:207">
@@ -1669,9 +896,6 @@
 					<groupPathStatus emapId="EMAP:208">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:208">
-						pharyngeal arch
-					</synonym>
 					<timedComponent emapId="EMAP:209">
 						<name emapId="EMAP:209">
 							1st branchial arch
@@ -1692,9 +916,6 @@
 							<groupPathStatus emapId="EMAP:217">
 								isGroupIndirectDescendant
 							</groupPathStatus>
-							<synonym emapId="EMAP:217">
-								epithelium
-							</synonym>
 						</timedComponent>
 						<timedComponent emapId="EMAP:218">
 							<name emapId="EMAP:218">
@@ -1706,9 +927,39 @@
 							<groupPathStatus emapId="EMAP:218">
 								isGroupIndirectDescendant
 							</groupPathStatus>
-							<synonym emapId="EMAP:218">
-								endothelium
-							</synonym>
+						</timedComponent>
+						<timedComponent emapId="EMAP:219">
+							<name emapId="EMAP:219">
+								1st branchial arch mesenchyme
+							</name>
+							<emapaId emapId="EMAP:219">
+								EMAPA:16128
+							</emapaId>
+							<groupPathStatus emapId="EMAP:219">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:221">
+								<name emapId="EMAP:221">
+									1st branchial arch mesenchyme derived from head mesoderm
+								</name>
+								<emapaId emapId="EMAP:221">
+									EMAPA:16130
+								</emapaId>
+								<groupPathStatus emapId="EMAP:221">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:220">
+								<name emapId="EMAP:220">
+									1st branchial arch mesenchyme derived from neural crest
+								</name>
+								<emapaId emapId="EMAP:220">
+									EMAPA:16129
+								</emapaId>
+								<groupPathStatus emapId="EMAP:220">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:210">
 							<name emapId="EMAP:210">
@@ -1730,9 +981,6 @@
 								<groupPathStatus emapId="EMAP:211">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:211">
-									epithelium
-								</synonym>
 							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:212">
@@ -1755,9 +1003,6 @@
 								<groupPathStatus emapId="EMAP:213">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:213">
-									epithelium
-								</synonym>
 							</timedComponent>
 							<timedComponent emapId="EMAP:214">
 								<name emapId="EMAP:214">
@@ -1769,9 +1014,6 @@
 								<groupPathStatus emapId="EMAP:214">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:214">
-									endothelium
-								</synonym>
 							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:215">
@@ -1794,44 +1036,96 @@
 								<groupPathStatus emapId="EMAP:216">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:216">
-									endothelium
-								</synonym>
 							</timedComponent>
 						</timedComponent>
-						<timedComponent emapId="EMAP:219">
-							<name emapId="EMAP:219">
-								mesenchyme
+					</timedComponent>
+					<timedComponent emapId="EMAP:33781">
+						<name emapId="EMAP:33781">
+							branchial arch ectoderm
+						</name>
+						<emapaId emapId="EMAP:33781">
+							EMAPA:32753
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33781">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33789">
+						<name emapId="EMAP:33789">
+							branchial arch endoderm
+						</name>
+						<emapaId emapId="EMAP:33789">
+							EMAPA:32754
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33789">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33749">
+						<name emapId="EMAP:33749">
+							branchial arch membrane
+						</name>
+						<emapaId emapId="EMAP:33749">
+							EMAPA:32749
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33749">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33797">
+						<name emapId="EMAP:33797">
+							branchial arch mesenchyme
+						</name>
+						<emapaId emapId="EMAP:33797">
+							EMAPA:32755
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33797">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:33765">
+							<name emapId="EMAP:33765">
+								branchial arch mesenchyme derived from head mesoderm
 							</name>
-							<emapaId emapId="EMAP:219">
-								EMAPA:16128
+							<emapaId emapId="EMAP:33765">
+								EMAPA:32751
 							</emapaId>
-							<groupPathStatus emapId="EMAP:219">
+							<groupPathStatus emapId="EMAP:33765">
 								isGroupIndirectDescendant
 							</groupPathStatus>
-							<timedComponent emapId="EMAP:221">
-								<name emapId="EMAP:221">
-									mesenchyme derived from head mesoderm
-								</name>
-								<emapaId emapId="EMAP:221">
-									EMAPA:16130
-								</emapaId>
-								<groupPathStatus emapId="EMAP:221">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-							</timedComponent>
-							<timedComponent emapId="EMAP:220">
-								<name emapId="EMAP:220">
-									mesenchyme derived from neural crest
-								</name>
-								<emapaId emapId="EMAP:220">
-									EMAPA:16129
-								</emapaId>
-								<groupPathStatus emapId="EMAP:220">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-							</timedComponent>
 						</timedComponent>
+						<timedComponent emapId="EMAP:33805">
+							<name emapId="EMAP:33805">
+								branchial arch mesenchyme derived from neural crest
+							</name>
+							<emapaId emapId="EMAP:33805">
+								EMAPA:32756
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33805">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33757">
+						<name emapId="EMAP:33757">
+							branchial groove
+						</name>
+						<emapaId emapId="EMAP:33757">
+							EMAPA:32750
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33757">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33773">
+						<name emapId="EMAP:33773">
+							branchial pouch
+						</name>
+						<emapaId emapId="EMAP:33773">
+							EMAPA:32752
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33773">
+							isGroupIndirectDescendant
+						</groupPathStatus>
 					</timedComponent>
 				</timedComponent>
 				<timedComponent emapId="EMAP:222">
@@ -1854,9 +1148,17 @@
 						<groupPathStatus emapId="EMAP:223">
 							isGroupIndirectDescendant
 						</groupPathStatus>
-						<synonym emapId="EMAP:223">
-							future pericardial component
-						</synonym>
+						<timedComponent emapId="EMAP:34238">
+							<name emapId="EMAP:34238">
+								mesothelium
+							</name>
+							<emapaId emapId="EMAP:34238">
+								EMAPA:32856
+							</emapaId>
+							<groupPathStatus emapId="EMAP:34238">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
 						<timedComponent emapId="EMAP:224">
 							<name emapId="EMAP:224">
 								pericardial component
@@ -1869,7 +1171,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:225">
 								<name emapId="EMAP:225">
-									cavity
+									pericardial component cavity
 								</name>
 								<emapaId emapId="EMAP:225">
 									EMAPA:16132
@@ -1880,7 +1182,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:226">
 								<name emapId="EMAP:226">
-									mesothelium
+									pericardial component mesothelium
 								</name>
 								<emapaId emapId="EMAP:226">
 									EMAPA:16133
@@ -1902,7 +1204,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:228">
 								<name emapId="EMAP:228">
-									cavity
+									pericardio-peritoneal component cavity
 								</name>
 								<emapaId emapId="EMAP:228">
 									EMAPA:16135
@@ -1913,7 +1215,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:229">
 								<name emapId="EMAP:229">
-									mesothelium
+									pericardio-peritoneal component mesothelium
 								</name>
 								<emapaId emapId="EMAP:229">
 									EMAPA:16136
@@ -1935,7 +1237,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:231">
 								<name emapId="EMAP:231">
-									cavity
+									peritoneal component cavity
 								</name>
 								<emapaId emapId="EMAP:231">
 									EMAPA:16138
@@ -1946,7 +1248,7 @@
 							</timedComponent>
 							<timedComponent emapId="EMAP:232">
 								<name emapId="EMAP:232">
-									mesothelium
+									peritoneal component mesothelium
 								</name>
 								<emapaId emapId="EMAP:232">
 									EMAPA:16139
@@ -1968,9 +1270,6 @@
 					<groupPathStatus emapId="EMAP:233">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:233">
-						epithelium
-					</synonym>
 					<timedComponent emapId="EMAP:234">
 						<name emapId="EMAP:234">
 							neural ectoderm
@@ -1991,6 +1290,28 @@
 							<groupPathStatus emapId="EMAP:235">
 								isGroupIndirectDescendant
 							</groupPathStatus>
+							<timedComponent emapId="EMAP:34970">
+								<name emapId="EMAP:34970">
+									future brain neural fold
+								</name>
+								<emapaId emapId="EMAP:34970">
+									EMAPA:16090
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34970">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:34972">
+									<name emapId="EMAP:34972">
+										future brain neural crest
+									</name>
+									<emapaId emapId="EMAP:34972">
+										EMAPA:16091
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34972">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
 							<timedComponent emapId="EMAP:236">
 								<name emapId="EMAP:236">
 									future midbrain
@@ -2001,12 +1322,9 @@
 								<groupPathStatus emapId="EMAP:236">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:236">
-									future mesencephalon
-								</synonym>
 								<timedComponent emapId="EMAP:237">
 									<name emapId="EMAP:237">
-										floor plate
+										future midbrain floor plate
 									</name>
 									<emapaId emapId="EMAP:237">
 										EMAPA:16141
@@ -2017,7 +1335,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:238">
 									<name emapId="EMAP:238">
-										neural fold
+										future midbrain neural fold
 									</name>
 									<emapaId emapId="EMAP:238">
 										EMAPA:16142
@@ -2027,7 +1345,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:239">
 										<name emapId="EMAP:239">
-											neural crest
+											future midbrain neural crest
 										</name>
 										<emapaId emapId="EMAP:239">
 											EMAPA:16143
@@ -2048,12 +1366,9 @@
 								<groupPathStatus emapId="EMAP:240">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:240">
-									future forebrain
-								</synonym>
 								<timedComponent emapId="EMAP:241">
 									<name emapId="EMAP:241">
-										floor plate
+										future prosencephalon floor plate
 									</name>
 									<emapaId emapId="EMAP:241">
 										EMAPA:16145
@@ -2064,7 +1379,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:242">
 									<name emapId="EMAP:242">
-										neural fold
+										future prosencephalon neural fold
 									</name>
 									<emapaId emapId="EMAP:242">
 										EMAPA:16146
@@ -2074,7 +1389,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:243">
 										<name emapId="EMAP:243">
-											neural crest
+											future prosencephalon neural crest
 										</name>
 										<emapaId emapId="EMAP:243">
 											EMAPA:16147
@@ -2095,9 +1410,6 @@
 								<groupPathStatus emapId="EMAP:244">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:244">
-									future hindbrain
-								</synonym>
 								<timedComponent emapId="EMAP:245">
 									<name emapId="EMAP:245">
 										anterior pro-rhombomere
@@ -2116,7 +1428,7 @@
 									</synonym>
 									<timedComponent emapId="EMAP:246">
 										<name emapId="EMAP:246">
-											floor plate
+											anterior pro-rhombomere floor plate
 										</name>
 										<emapaId emapId="EMAP:246">
 											EMAPA:16150
@@ -2127,7 +1439,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:247">
 										<name emapId="EMAP:247">
-											neural fold
+											anterior pro-rhombomere neural fold
 										</name>
 										<emapaId emapId="EMAP:247">
 											EMAPA:16151
@@ -2137,7 +1449,7 @@
 										</groupPathStatus>
 										<timedComponent emapId="EMAP:248">
 											<name emapId="EMAP:248">
-												neural crest
+												anterior pro-rhombomere neural crest
 											</name>
 											<emapaId emapId="EMAP:248">
 												EMAPA:16152
@@ -2160,7 +1472,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:250">
 										<name emapId="EMAP:250">
-											floor plate
+											early hindbrain floor plate
 										</name>
 										<emapaId emapId="EMAP:250">
 											EMAPA:16154
@@ -2171,7 +1483,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:251">
 										<name emapId="EMAP:251">
-											neural fold
+											early hindbrain neural fold
 										</name>
 										<emapaId emapId="EMAP:251">
 											EMAPA:16155
@@ -2181,7 +1493,7 @@
 										</groupPathStatus>
 										<timedComponent emapId="EMAP:252">
 											<name emapId="EMAP:252">
-												neural crest
+												early hindbrain neural crest
 											</name>
 											<emapaId emapId="EMAP:252">
 												EMAPA:16156
@@ -2191,6 +1503,28 @@
 											</groupPathStatus>
 										</timedComponent>
 									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EMAP:34804">
+									<name emapId="EMAP:34804">
+										future rhombencephalon floor plate
+									</name>
+									<emapaId emapId="EMAP:34804">
+										EMAPA:32936
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34804">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:33610">
+									<name emapId="EMAP:33610">
+										future rhombencephalon neural fold
+									</name>
+									<emapaId emapId="EMAP:33610">
+										EMAPA:32733
+									</emapaId>
+									<groupPathStatus emapId="EMAP:33610">
+										isGroupIndirectDescendant
+									</groupPathStatus>
 								</timedComponent>
 								<timedComponent emapId="EMAP:253">
 									<name emapId="EMAP:253">
@@ -2210,7 +1544,7 @@
 									</synonym>
 									<timedComponent emapId="EMAP:254">
 										<name emapId="EMAP:254">
-											floor plate
+											posterior pro-rhombomere floor plate
 										</name>
 										<emapaId emapId="EMAP:254">
 											EMAPA:16158
@@ -2221,7 +1555,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:255">
 										<name emapId="EMAP:255">
-											neural fold
+											posterior pro-rhombomere neural fold
 										</name>
 										<emapaId emapId="EMAP:255">
 											EMAPA:16159
@@ -2231,7 +1565,7 @@
 										</groupPathStatus>
 										<timedComponent emapId="EMAP:256">
 											<name emapId="EMAP:256">
-												neural crest
+												posterior pro-rhombomere neural crest
 											</name>
 											<emapaId emapId="EMAP:256">
 												EMAPA:16160
@@ -2253,6 +1587,17 @@
 										isGroupIndirectDescendant
 									</groupPathStatus>
 								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34227">
+								<name emapId="EMAP:34227">
+									midbrain-hindbrain junction
+								</name>
+								<emapaId emapId="EMAP:34227">
+									EMAPA:32854
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34227">
+									isGroupIndirectDescendant
+								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:258">
@@ -2277,7 +1622,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:260">
 									<name emapId="EMAP:260">
-										neural fold
+										future spinal cord neural fold
 									</name>
 									<emapaId emapId="EMAP:260">
 										EMAPA:16162
@@ -2287,7 +1632,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:261">
 										<name emapId="EMAP:261">
-											neural crest
+											future spinal cord neural crest
 										</name>
 										<emapaId emapId="EMAP:261">
 											EMAPA:16163
@@ -2310,7 +1655,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:263">
 									<name emapId="EMAP:263">
-										floor plate
+										future spinal cord floor plate
 									</name>
 									<emapaId emapId="EMAP:263">
 										EMAPA:16165
@@ -2321,7 +1666,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:264">
 									<name emapId="EMAP:264">
-										lateral wall
+										future spinal cord lateral wall
 									</name>
 									<emapaId emapId="EMAP:264">
 										EMAPA:16166
@@ -2332,7 +1677,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:265">
 									<name emapId="EMAP:265">
-										neural lumen
+										future spinal cord neural lumen
 									</name>
 									<emapaId emapId="EMAP:265">
 										EMAPA:16167
@@ -2343,7 +1688,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:266">
 									<name emapId="EMAP:266">
-										roof plate
+										future spinal cord roof plate
 									</name>
 									<emapaId emapId="EMAP:266">
 										EMAPA:16168
@@ -2352,6 +1697,28 @@
 										isGroupIndirectDescendant
 									</groupPathStatus>
 								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:33608">
+							<name emapId="EMAP:33608">
+								neural fold
+							</name>
+							<emapaId emapId="EMAP:33608">
+								EMAPA:32732
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33608">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:33651">
+								<name emapId="EMAP:33651">
+									neural crest
+								</name>
+								<emapaId emapId="EMAP:33651">
+									EMAPA:32737
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33651">
+									isGroupIndirectDescendant
+								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
 					</timedComponent>
@@ -2365,9 +1732,6 @@
 						<groupPathStatus emapId="EMAP:267">
 							isGroupIndirectDescendant
 						</groupPathStatus>
-						<synonym emapId="EMAP:267">
-							surface epithelium
-						</synonym>
 					</timedComponent>
 				</timedComponent>
 				<timedComponent emapId="EMAP:268">
@@ -2414,20 +1778,6 @@
 					<groupPathStatus emapId="EMAP:31894">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:31894">
-						head region
-					</synonym>
-				</timedComponent>
-				<timedComponent emapId="EMAP:270">
-					<name emapId="EMAP:270">
-						mesenchyme
-					</name>
-					<emapaId emapId="EMAP:270">
-						EMAPA:16097
-					</emapaId>
-					<groupPathStatus emapId="EMAP:270">
-						isGroupDirectDescendant
-					</groupPathStatus>
 					<timedComponent emapId="EMAP:271">
 						<name emapId="EMAP:271">
 							head mesenchyme
@@ -2438,31 +1788,9 @@
 						<groupPathStatus emapId="EMAP:271">
 							isGroupIndirectDescendant
 						</groupPathStatus>
-						<timedComponent emapId="EMAP:272">
-							<name emapId="EMAP:272">
-								mesenchyme derived from head mesoderm
-							</name>
-							<emapaId emapId="EMAP:272">
-								EMAPA:16099
-							</emapaId>
-							<groupPathStatus emapId="EMAP:272">
-								isGroupIndirectDescendant
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:15247">
-								<name emapId="EMAP:15247">
-									mesenchyme derived from somites 01-04
-								</name>
-								<emapaId emapId="EMAP:15247">
-									EMAPA:25356
-								</emapaId>
-								<groupPathStatus emapId="EMAP:15247">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
 						<timedComponent emapId="EMAP:273">
 							<name emapId="EMAP:273">
-								mesenchyme derived from neural crest
+								head mesenchyme derived from neural crest
 							</name>
 							<emapaId emapId="EMAP:273">
 								EMAPA:16169
@@ -2484,7 +1812,7 @@
 						</timedComponent>
 						<timedComponent emapId="EMAP:275">
 							<name emapId="EMAP:275">
-								paraxial mesenchyme
+								head paraxial mesenchyme
 							</name>
 							<emapaId emapId="EMAP:275">
 								EMAPA:16171
@@ -2494,7 +1822,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:276">
 								<name emapId="EMAP:276">
-									somite
+									head somite group
 								</name>
 								<emapaId emapId="EMAP:276">
 									EMAPA:16172
@@ -2548,70 +1876,372 @@
 								</timedComponent>
 							</timedComponent>
 						</timedComponent>
-					</timedComponent>
-					<timedComponent emapId="EMAP:281">
-						<name emapId="EMAP:281">
-							trunk mesenchyme
-						</name>
-						<emapaId emapId="EMAP:281">
-							EMAPA:16177
-						</emapaId>
-						<groupPathStatus emapId="EMAP:281">
-							isGroupIndirectDescendant
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:282">
-							<name emapId="EMAP:282">
-								intermediate mesoderm
+						<timedComponent emapId="EMAP:272">
+							<name emapId="EMAP:272">
+								mesenchyme derived from head mesoderm
 							</name>
-							<emapaId emapId="EMAP:282">
-								EMAPA:16178
+							<emapaId emapId="EMAP:272">
+								EMAPA:16099
 							</emapaId>
-							<groupPathStatus emapId="EMAP:282">
+							<groupPathStatus emapId="EMAP:272">
 								isGroupIndirectDescendant
 							</groupPathStatus>
-							<synonym emapId="EMAP:282">
-								intermediate plate
-							</synonym>
-						</timedComponent>
-						<timedComponent emapId="EMAP:283">
-							<name emapId="EMAP:283">
-								lateral plate mesenchyme
-							</name>
-							<emapaId emapId="EMAP:283">
-								EMAPA:16179
-							</emapaId>
-							<groupPathStatus emapId="EMAP:283">
-								isGroupIndirectDescendant
-							</groupPathStatus>
-							<synonym emapId="EMAP:283">
-								lateral mesenchyme
-							</synonym>
-							<timedComponent emapId="EMAP:284">
-								<name emapId="EMAP:284">
-									somatopleure
+							<timedComponent emapId="EMAP:15247">
+								<name emapId="EMAP:15247">
+									mesenchyme derived from somites 01-04
 								</name>
-								<emapaId emapId="EMAP:284">
-									EMAPA:16180
+								<emapaId emapId="EMAP:15247">
+									EMAPA:25356
 								</emapaId>
-								<groupPathStatus emapId="EMAP:284">
+								<groupPathStatus emapId="EMAP:15247">
 									isGroupIndirectDescendant
 								</groupPathStatus>
 							</timedComponent>
-							<timedComponent emapId="EMAP:285">
-								<name emapId="EMAP:285">
-									splanchnopleure
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:270">
+					<name emapId="EMAP:270">
+						mesenchyme
+					</name>
+					<emapaId emapId="EMAP:270">
+						EMAPA:16097
+					</emapaId>
+					<groupPathStatus emapId="EMAP:270">
+						isGroupDirectDescendant
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:271">
+						<name emapId="EMAP:271">
+							head mesenchyme
+						</name>
+						<emapaId emapId="EMAP:271">
+							EMAPA:16098
+						</emapaId>
+						<groupPathStatus emapId="EMAP:271">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:273">
+							<name emapId="EMAP:273">
+								head mesenchyme derived from neural crest
+							</name>
+							<emapaId emapId="EMAP:273">
+								EMAPA:16169
+							</emapaId>
+							<groupPathStatus emapId="EMAP:273">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:274">
+								<name emapId="EMAP:274">
+									trigeminal neural crest
 								</name>
-								<emapaId emapId="EMAP:285">
-									EMAPA:16181
+								<emapaId emapId="EMAP:274">
+									EMAPA:16170
 								</emapaId>
-								<groupPathStatus emapId="EMAP:285">
+								<groupPathStatus emapId="EMAP:274">
 									isGroupIndirectDescendant
 								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:275">
+							<name emapId="EMAP:275">
+								head paraxial mesenchyme
+							</name>
+							<emapaId emapId="EMAP:275">
+								EMAPA:16171
+							</emapaId>
+							<groupPathStatus emapId="EMAP:275">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:276">
+								<name emapId="EMAP:276">
+									head somite group
+								</name>
+								<emapaId emapId="EMAP:276">
+									EMAPA:16172
+								</emapaId>
+								<groupPathStatus emapId="EMAP:276">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:277">
+									<name emapId="EMAP:277">
+										somite 01
+									</name>
+									<emapaId emapId="EMAP:277">
+										EMAPA:16173
+									</emapaId>
+									<groupPathStatus emapId="EMAP:277">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:278">
+									<name emapId="EMAP:278">
+										somite 02
+									</name>
+									<emapaId emapId="EMAP:278">
+										EMAPA:16174
+									</emapaId>
+									<groupPathStatus emapId="EMAP:278">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:279">
+									<name emapId="EMAP:279">
+										somite 03
+									</name>
+									<emapaId emapId="EMAP:279">
+										EMAPA:16175
+									</emapaId>
+									<groupPathStatus emapId="EMAP:279">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:280">
+									<name emapId="EMAP:280">
+										somite 04
+									</name>
+									<emapaId emapId="EMAP:280">
+										EMAPA:16176
+									</emapaId>
+									<groupPathStatus emapId="EMAP:280">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:272">
+							<name emapId="EMAP:272">
+								mesenchyme derived from head mesoderm
+							</name>
+							<emapaId emapId="EMAP:272">
+								EMAPA:16099
+							</emapaId>
+							<groupPathStatus emapId="EMAP:272">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:15247">
+								<name emapId="EMAP:15247">
+									mesenchyme derived from somites 01-04
+								</name>
+								<emapaId emapId="EMAP:15247">
+									EMAPA:25356
+								</emapaId>
+								<groupPathStatus emapId="EMAP:15247">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33627">
+						<name emapId="EMAP:33627">
+							mesenchyme derived from neural crest
+						</name>
+						<emapaId emapId="EMAP:33627">
+							EMAPA:32735
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33627">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33813">
+						<name emapId="EMAP:33813">
+							paraxial mesenchyme
+						</name>
+						<emapaId emapId="EMAP:33813">
+							EMAPA:32757
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33813">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:275">
+							<name emapId="EMAP:275">
+								head paraxial mesenchyme
+							</name>
+							<emapaId emapId="EMAP:275">
+								EMAPA:16171
+							</emapaId>
+							<groupPathStatus emapId="EMAP:275">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:276">
+								<name emapId="EMAP:276">
+									head somite group
+								</name>
+								<emapaId emapId="EMAP:276">
+									EMAPA:16172
+								</emapaId>
+								<groupPathStatus emapId="EMAP:276">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:277">
+									<name emapId="EMAP:277">
+										somite 01
+									</name>
+									<emapaId emapId="EMAP:277">
+										EMAPA:16173
+									</emapaId>
+									<groupPathStatus emapId="EMAP:277">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:278">
+									<name emapId="EMAP:278">
+										somite 02
+									</name>
+									<emapaId emapId="EMAP:278">
+										EMAPA:16174
+									</emapaId>
+									<groupPathStatus emapId="EMAP:278">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:279">
+									<name emapId="EMAP:279">
+										somite 03
+									</name>
+									<emapaId emapId="EMAP:279">
+										EMAPA:16175
+									</emapaId>
+									<groupPathStatus emapId="EMAP:279">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:280">
+									<name emapId="EMAP:280">
+										somite 04
+									</name>
+									<emapaId emapId="EMAP:280">
+										EMAPA:16176
+									</emapaId>
+									<groupPathStatus emapId="EMAP:280">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:31170">
+							<name emapId="EMAP:31170">
+								somite group
+							</name>
+							<emapaId emapId="EMAP:31170">
+								EMAPA:31169
+							</emapaId>
+							<groupPathStatus emapId="EMAP:31170">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:276">
+								<name emapId="EMAP:276">
+									head somite group
+								</name>
+								<emapaId emapId="EMAP:276">
+									EMAPA:16172
+								</emapaId>
+								<groupPathStatus emapId="EMAP:276">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:277">
+									<name emapId="EMAP:277">
+										somite 01
+									</name>
+									<emapaId emapId="EMAP:277">
+										EMAPA:16173
+									</emapaId>
+									<groupPathStatus emapId="EMAP:277">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:278">
+									<name emapId="EMAP:278">
+										somite 02
+									</name>
+									<emapaId emapId="EMAP:278">
+										EMAPA:16174
+									</emapaId>
+									<groupPathStatus emapId="EMAP:278">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:279">
+									<name emapId="EMAP:279">
+										somite 03
+									</name>
+									<emapaId emapId="EMAP:279">
+										EMAPA:16175
+									</emapaId>
+									<groupPathStatus emapId="EMAP:279">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:280">
+									<name emapId="EMAP:280">
+										somite 04
+									</name>
+									<emapaId emapId="EMAP:280">
+										EMAPA:16176
+									</emapaId>
+									<groupPathStatus emapId="EMAP:280">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:288">
+								<name emapId="EMAP:288">
+									trunk somite group
+								</name>
+								<emapaId emapId="EMAP:288">
+									EMAPA:16184
+								</emapaId>
+								<groupPathStatus emapId="EMAP:288">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:289">
+									<name emapId="EMAP:289">
+										somite 05
+									</name>
+									<emapaId emapId="EMAP:289">
+										EMAPA:16185
+									</emapaId>
+									<groupPathStatus emapId="EMAP:289">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:290">
+									<name emapId="EMAP:290">
+										somite 06
+									</name>
+									<emapaId emapId="EMAP:290">
+										EMAPA:16186
+									</emapaId>
+									<groupPathStatus emapId="EMAP:290">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:291">
+									<name emapId="EMAP:291">
+										somite 07
+									</name>
+									<emapaId emapId="EMAP:291">
+										EMAPA:16187
+									</emapaId>
+									<groupPathStatus emapId="EMAP:291">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:292">
+									<name emapId="EMAP:292">
+										somite 08
+									</name>
+									<emapaId emapId="EMAP:292">
+										EMAPA:16188
+									</emapaId>
+									<groupPathStatus emapId="EMAP:292">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
 							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:287">
 							<name emapId="EMAP:287">
-								paraxial mesenchyme
+								trunk paraxial mesenchyme
 							</name>
 							<emapaId emapId="EMAP:287">
 								EMAPA:16183
@@ -2621,7 +2251,7 @@
 							</groupPathStatus>
 							<timedComponent emapId="EMAP:288">
 								<name emapId="EMAP:288">
-									somite
+									trunk somite group
 								</name>
 								<emapaId emapId="EMAP:288">
 									EMAPA:16184
@@ -2684,9 +2314,61 @@
 								<groupPathStatus emapId="EMAP:293">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:293">
-									presomitic mesenchyme
-								</synonym>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:281">
+						<name emapId="EMAP:281">
+							trunk mesenchyme
+						</name>
+						<emapaId emapId="EMAP:281">
+							EMAPA:16177
+						</emapaId>
+						<groupPathStatus emapId="EMAP:281">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:282">
+							<name emapId="EMAP:282">
+								intermediate mesoderm
+							</name>
+							<emapaId emapId="EMAP:282">
+								EMAPA:16178
+							</emapaId>
+							<groupPathStatus emapId="EMAP:282">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:283">
+							<name emapId="EMAP:283">
+								lateral plate mesenchyme
+							</name>
+							<emapaId emapId="EMAP:283">
+								EMAPA:16179
+							</emapaId>
+							<groupPathStatus emapId="EMAP:283">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:284">
+								<name emapId="EMAP:284">
+									somatopleure
+								</name>
+								<emapaId emapId="EMAP:284">
+									EMAPA:16180
+								</emapaId>
+								<groupPathStatus emapId="EMAP:284">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:285">
+								<name emapId="EMAP:285">
+									splanchnopleure
+								</name>
+								<emapaId emapId="EMAP:285">
+									EMAPA:16181
+								</emapaId>
+								<groupPathStatus emapId="EMAP:285">
+									isGroupIndirectDescendant
+								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
 						<timedComponent emapId="EMAP:294">
@@ -2699,6 +2381,83 @@
 							<groupPathStatus emapId="EMAP:294">
 								isGroupIndirectDescendant
 							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:287">
+							<name emapId="EMAP:287">
+								trunk paraxial mesenchyme
+							</name>
+							<emapaId emapId="EMAP:287">
+								EMAPA:16183
+							</emapaId>
+							<groupPathStatus emapId="EMAP:287">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:288">
+								<name emapId="EMAP:288">
+									trunk somite group
+								</name>
+								<emapaId emapId="EMAP:288">
+									EMAPA:16184
+								</emapaId>
+								<groupPathStatus emapId="EMAP:288">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:289">
+									<name emapId="EMAP:289">
+										somite 05
+									</name>
+									<emapaId emapId="EMAP:289">
+										EMAPA:16185
+									</emapaId>
+									<groupPathStatus emapId="EMAP:289">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:290">
+									<name emapId="EMAP:290">
+										somite 06
+									</name>
+									<emapaId emapId="EMAP:290">
+										EMAPA:16186
+									</emapaId>
+									<groupPathStatus emapId="EMAP:290">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:291">
+									<name emapId="EMAP:291">
+										somite 07
+									</name>
+									<emapaId emapId="EMAP:291">
+										EMAPA:16187
+									</emapaId>
+									<groupPathStatus emapId="EMAP:291">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:292">
+									<name emapId="EMAP:292">
+										somite 08
+									</name>
+									<emapaId emapId="EMAP:292">
+										EMAPA:16188
+									</emapaId>
+									<groupPathStatus emapId="EMAP:292">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:293">
+								<name emapId="EMAP:293">
+									unsegmented mesenchyme
+								</name>
+								<emapaId emapId="EMAP:293">
+									EMAPA:16189
+								</emapaId>
+								<groupPathStatus emapId="EMAP:293">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 						</timedComponent>
 					</timedComponent>
 				</timedComponent>
@@ -2734,275 +2493,6 @@
 					<groupPathStatus emapId="EMAP:297">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<timedComponent emapId="EMAP:354">
-						<name emapId="EMAP:354">
-							visceral organ
-						</name>
-						<emapaId emapId="EMAP:354">
-							EMAPA:16245
-						</emapaId>
-						<groupPathStatus emapId="EMAP:354">
-							isGroupIndirectDescendant
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:355">
-							<name emapId="EMAP:355">
-								alimentary system
-							</name>
-							<emapaId emapId="EMAP:355">
-								EMAPA:16246
-							</emapaId>
-							<groupPathStatus emapId="EMAP:355">
-								isGroupIndirectDescendant
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:356">
-								<name emapId="EMAP:356">
-									gut
-								</name>
-								<emapaId emapId="EMAP:356">
-									EMAPA:16247
-								</emapaId>
-								<groupPathStatus emapId="EMAP:356">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:357">
-									<name emapId="EMAP:357">
-										foregut diverticulum
-									</name>
-									<emapaId emapId="EMAP:357">
-										EMAPA:16248
-									</emapaId>
-									<groupPathStatus emapId="EMAP:357">
-										isGroupIndirectDescendant
-									</groupPathStatus>
-									<synonym emapId="EMAP:357">
-										foregut pocket
-									</synonym>
-									<timedComponent emapId="EMAP:358">
-										<name emapId="EMAP:358">
-											associated mesenchyme
-										</name>
-										<emapaId emapId="EMAP:358">
-											EMAPA:16249
-										</emapaId>
-										<groupPathStatus emapId="EMAP:358">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:359">
-										<name emapId="EMAP:359">
-											endoderm
-										</name>
-										<emapaId emapId="EMAP:359">
-											EMAPA:16250
-										</emapaId>
-										<groupPathStatus emapId="EMAP:359">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:6902">
-										<name emapId="EMAP:6902">
-											lumen
-										</name>
-										<emapaId emapId="EMAP:6902">
-											EMAPA:18375
-										</emapaId>
-										<groupPathStatus emapId="EMAP:6902">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-								</timedComponent>
-								<timedComponent emapId="EMAP:360">
-									<name emapId="EMAP:360">
-										hindgut diverticulum
-									</name>
-									<emapaId emapId="EMAP:360">
-										EMAPA:16251
-									</emapaId>
-									<groupPathStatus emapId="EMAP:360">
-										isGroupIndirectDescendant
-									</groupPathStatus>
-									<synonym emapId="EMAP:360">
-										hindgut pocket
-									</synonym>
-									<timedComponent emapId="EMAP:361">
-										<name emapId="EMAP:361">
-											associated mesenchyme
-										</name>
-										<emapaId emapId="EMAP:361">
-											EMAPA:16252
-										</emapaId>
-										<groupPathStatus emapId="EMAP:361">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:362">
-										<name emapId="EMAP:362">
-											endoderm
-										</name>
-										<emapaId emapId="EMAP:362">
-											EMAPA:16253
-										</emapaId>
-										<groupPathStatus emapId="EMAP:362">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:6904">
-										<name emapId="EMAP:6904">
-											lumen
-										</name>
-										<emapaId emapId="EMAP:6904">
-											EMAPA:18376
-										</emapaId>
-										<groupPathStatus emapId="EMAP:6904">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:363">
-										<name emapId="EMAP:363">
-											primordial germ cells
-										</name>
-										<emapaId emapId="EMAP:363">
-											EMAPA:16254
-										</emapaId>
-										<groupPathStatus emapId="EMAP:363">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-								</timedComponent>
-								<timedComponent emapId="EMAP:364">
-									<name emapId="EMAP:364">
-										midgut
-									</name>
-									<emapaId emapId="EMAP:364">
-										EMAPA:16255
-									</emapaId>
-									<groupPathStatus emapId="EMAP:364">
-										isGroupIndirectDescendant
-									</groupPathStatus>
-									<timedComponent emapId="EMAP:365">
-										<name emapId="EMAP:365">
-											associated mesenchyme
-										</name>
-										<emapaId emapId="EMAP:365">
-											EMAPA:16256
-										</emapaId>
-										<groupPathStatus emapId="EMAP:365">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:366">
-										<name emapId="EMAP:366">
-											endoderm
-										</name>
-										<emapaId emapId="EMAP:366">
-											EMAPA:16257
-										</emapaId>
-										<groupPathStatus emapId="EMAP:366">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-									<timedComponent emapId="EMAP:6913">
-										<name emapId="EMAP:6913">
-											lumen
-										</name>
-										<emapaId emapId="EMAP:6913">
-											EMAPA:18377
-										</emapaId>
-										<groupPathStatus emapId="EMAP:6913">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-									</timedComponent>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:367">
-								<name emapId="EMAP:367">
-									mouth-foregut junction
-								</name>
-								<emapaId emapId="EMAP:367">
-									EMAPA:16258
-								</emapaId>
-								<groupPathStatus emapId="EMAP:367">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:368">
-									<name emapId="EMAP:368">
-										buccopharyngeal membrane
-									</name>
-									<emapaId emapId="EMAP:368">
-										EMAPA:16259
-									</emapaId>
-									<groupPathStatus emapId="EMAP:368">
-										isGroupIndirectDescendant
-									</groupPathStatus>
-									<timedComponent emapId="EMAP:369">
-										<name emapId="EMAP:369">
-											ectoderm
-										</name>
-										<emapaId emapId="EMAP:369">
-											EMAPA:16260
-										</emapaId>
-										<groupPathStatus emapId="EMAP:369">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-										<synonym emapId="EMAP:369">
-											epithelium
-										</synonym>
-									</timedComponent>
-									<timedComponent emapId="EMAP:370">
-										<name emapId="EMAP:370">
-											endoderm
-										</name>
-										<emapaId emapId="EMAP:370">
-											EMAPA:16261
-										</emapaId>
-										<groupPathStatus emapId="EMAP:370">
-											isGroupIndirectDescendant
-										</groupPathStatus>
-										<synonym emapId="EMAP:370">
-											endothelium
-										</synonym>
-									</timedComponent>
-								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:371">
-								<name emapId="EMAP:371">
-									oral region
-								</name>
-								<emapaId emapId="EMAP:371">
-									EMAPA:16262
-								</emapaId>
-								<groupPathStatus emapId="EMAP:371">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-								<timedComponent emapId="EMAP:372">
-									<name emapId="EMAP:372">
-										stomatodaeum
-									</name>
-									<emapaId emapId="EMAP:372">
-										EMAPA:16263
-									</emapaId>
-									<groupPathStatus emapId="EMAP:372">
-										isGroupIndirectDescendant
-									</groupPathStatus>
-									<synonym emapId="EMAP:372">
-										mouth pit
-									</synonym>
-									<synonym emapId="EMAP:372">
-										oral pit
-									</synonym>
-									<synonym emapId="EMAP:372">
-										stomatodeum
-									</synonym>
-									<synonym emapId="EMAP:372">
-										stomodaeum
-									</synonym>
-									<synonym emapId="EMAP:372">
-										stomodeum
-									</synonym>
-								</timedComponent>
-							</timedComponent>
-						</timedComponent>
-					</timedComponent>
 					<timedComponent emapId="EMAP:307">
 						<name emapId="EMAP:307">
 							cardiovascular system
@@ -3035,7 +2525,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:312">
 									<name emapId="EMAP:312">
-										left
+										left dorsal aorta
 									</name>
 									<emapaId emapId="EMAP:312">
 										EMAPA:16205
@@ -3046,7 +2536,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:313">
 									<name emapId="EMAP:313">
-										right
+										right dorsal aorta
 									</name>
 									<emapaId emapId="EMAP:313">
 										EMAPA:16206
@@ -3068,6 +2558,17 @@
 								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
+						<timedComponent emapId="EMAP:33690">
+							<name emapId="EMAP:33690">
+								blood vessel
+							</name>
+							<emapaId emapId="EMAP:33690">
+								EMAPA:32743
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33690">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
 						<timedComponent emapId="EMAP:315">
 							<name emapId="EMAP:315">
 								heart
@@ -3078,6 +2579,28 @@
 							<groupPathStatus emapId="EMAP:315">
 								isGroupIndirectDescendant
 							</groupPathStatus>
+							<timedComponent emapId="EMAP:33337">
+								<name emapId="EMAP:33337">
+									cardiac jelly
+								</name>
+								<emapaId emapId="EMAP:33337">
+									EMAPA:32687
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33337">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:33343">
+								<name emapId="EMAP:33343">
+									cardiac muscle
+								</name>
+								<emapaId emapId="EMAP:33343">
+									EMAPA:32688
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33343">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 							<timedComponent emapId="EMAP:316">
 								<name emapId="EMAP:316">
 									cardiogenic plate
@@ -3107,7 +2630,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:318">
 									<name emapId="EMAP:318">
-										cardiac jelly
+										early primitive heart tube cardiac jelly
 									</name>
 									<emapaId emapId="EMAP:318">
 										EMAPA:16209
@@ -3118,7 +2641,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:320">
 									<name emapId="EMAP:320">
-										cardiac muscle
+										early primitive heart tube cardiac muscle
 									</name>
 									<emapaId emapId="EMAP:320">
 										EMAPA:16211
@@ -3126,13 +2649,10 @@
 									<groupPathStatus emapId="EMAP:320">
 										isGroupIndirectDescendant
 									</groupPathStatus>
-									<synonym emapId="EMAP:320">
-										myocardium
-									</synonym>
 								</timedComponent>
 								<timedComponent emapId="EMAP:319">
 									<name emapId="EMAP:319">
-										endocardial tube
+										early primitive heart tube endocardial tube
 									</name>
 									<emapaId emapId="EMAP:319">
 										EMAPA:16210
@@ -3142,9 +2662,20 @@
 									</groupPathStatus>
 								</timedComponent>
 							</timedComponent>
+							<timedComponent emapId="EMAP:33328">
+								<name emapId="EMAP:33328">
+									endocardial tube
+								</name>
+								<emapaId emapId="EMAP:33328">
+									EMAPA:32685
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33328">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 							<timedComponent emapId="EMAP:321">
 								<name emapId="EMAP:321">
-									mesentery
+									heart mesentery
 								</name>
 								<emapaId emapId="EMAP:321">
 									EMAPA:16212
@@ -3162,9 +2693,6 @@
 									<groupPathStatus emapId="EMAP:322">
 										isGroupIndirectDescendant
 									</groupPathStatus>
-									<synonym emapId="EMAP:322">
-										dorsal mesentery of heart
-									</synonym>
 									<timedComponent emapId="EMAP:323">
 										<name emapId="EMAP:323">
 											transverse pericardial sinus
@@ -3200,7 +2728,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:326">
 										<name emapId="EMAP:326">
-											caudal half
+											bulbus cordis caudal half
 										</name>
 										<emapaId emapId="EMAP:326">
 											EMAPA:16217
@@ -3210,7 +2738,7 @@
 										</groupPathStatus>
 										<timedComponent emapId="EMAP:327">
 											<name emapId="EMAP:327">
-												cardiac jelly
+												bulbus cordis caudal half cardiac jelly
 											</name>
 											<emapaId emapId="EMAP:327">
 												EMAPA:16218
@@ -3221,7 +2749,7 @@
 										</timedComponent>
 										<timedComponent emapId="EMAP:329">
 											<name emapId="EMAP:329">
-												cardiac muscle
+												bulbus cordis caudal half cardiac muscle
 											</name>
 											<emapaId emapId="EMAP:329">
 												EMAPA:16220
@@ -3229,13 +2757,10 @@
 											<groupPathStatus emapId="EMAP:329">
 												isGroupIndirectDescendant
 											</groupPathStatus>
-											<synonym emapId="EMAP:329">
-												myocardium
-											</synonym>
 										</timedComponent>
 										<timedComponent emapId="EMAP:328">
 											<name emapId="EMAP:328">
-												endocardial tube
+												bulbus cordis caudal half endocardial tube
 											</name>
 											<emapaId emapId="EMAP:328">
 												EMAPA:16219
@@ -3247,7 +2772,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:330">
 										<name emapId="EMAP:330">
-											rostral half
+											bulbus cordis rostral half
 										</name>
 										<emapaId emapId="EMAP:330">
 											EMAPA:16221
@@ -3255,12 +2780,9 @@
 										<groupPathStatus emapId="EMAP:330">
 											isGroupIndirectDescendant
 										</groupPathStatus>
-										<synonym emapId="EMAP:330">
-											conotruncus
-										</synonym>
 										<timedComponent emapId="EMAP:331">
 											<name emapId="EMAP:331">
-												cardiac jelly
+												bulbus cordis rostral half cardiac jelly
 											</name>
 											<emapaId emapId="EMAP:331">
 												EMAPA:16222
@@ -3271,7 +2793,7 @@
 										</timedComponent>
 										<timedComponent emapId="EMAP:333">
 											<name emapId="EMAP:333">
-												cardiac muscle
+												bulbus cordis rostral half cardiac muscle
 											</name>
 											<emapaId emapId="EMAP:333">
 												EMAPA:16224
@@ -3279,13 +2801,10 @@
 											<groupPathStatus emapId="EMAP:333">
 												isGroupIndirectDescendant
 											</groupPathStatus>
-											<synonym emapId="EMAP:333">
-												myocardium
-											</synonym>
 										</timedComponent>
 										<timedComponent emapId="EMAP:332">
 											<name emapId="EMAP:332">
-												endocardial tube
+												bulbus cordis rostral half endocardial tube
 											</name>
 											<emapaId emapId="EMAP:332">
 												EMAPA:16223
@@ -3308,7 +2827,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:335">
 										<name emapId="EMAP:335">
-											cardiac jelly
+											common atrial chamber cardiac jelly
 										</name>
 										<emapaId emapId="EMAP:335">
 											EMAPA:16226
@@ -3319,7 +2838,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:337">
 										<name emapId="EMAP:337">
-											cardiac muscle
+											common atrial chamber cardiac muscle
 										</name>
 										<emapaId emapId="EMAP:337">
 											EMAPA:16228
@@ -3327,13 +2846,10 @@
 										<groupPathStatus emapId="EMAP:337">
 											isGroupIndirectDescendant
 										</groupPathStatus>
-										<synonym emapId="EMAP:337">
-											myocardium
-										</synonym>
 									</timedComponent>
 									<timedComponent emapId="EMAP:336">
 										<name emapId="EMAP:336">
-											endocardial tube
+											common atrial chamber endocardial tube
 										</name>
 										<emapaId emapId="EMAP:336">
 											EMAPA:16227
@@ -3355,7 +2871,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:339">
 										<name emapId="EMAP:339">
-											cardiac jelly
+											outflow tract cardiac jelly
 										</name>
 										<emapaId emapId="EMAP:339">
 											EMAPA:16230
@@ -3366,7 +2882,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:340">
 										<name emapId="EMAP:340">
-											endocardial tube
+											outflow tract endocardial tube
 										</name>
 										<emapaId emapId="EMAP:340">
 											EMAPA:16231
@@ -3377,7 +2893,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:341">
 										<name emapId="EMAP:341">
-											mesenchyme
+											outflow tract mesenchyme
 										</name>
 										<emapaId emapId="EMAP:341">
 											EMAPA:16232
@@ -3397,12 +2913,9 @@
 									<groupPathStatus emapId="EMAP:342">
 										isGroupIndirectDescendant
 									</groupPathStatus>
-									<synonym emapId="EMAP:342">
-										future left ventricle
-									</synonym>
 									<timedComponent emapId="EMAP:343">
 										<name emapId="EMAP:343">
-											cardiac jelly
+											primitive ventricle cardiac jelly
 										</name>
 										<emapaId emapId="EMAP:343">
 											EMAPA:16234
@@ -3413,7 +2926,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:345">
 										<name emapId="EMAP:345">
-											cardiac muscle
+											primitive ventricle cardiac muscle
 										</name>
 										<emapaId emapId="EMAP:345">
 											EMAPA:16236
@@ -3421,13 +2934,10 @@
 										<groupPathStatus emapId="EMAP:345">
 											isGroupIndirectDescendant
 										</groupPathStatus>
-										<synonym emapId="EMAP:345">
-											myocardium
-										</synonym>
 									</timedComponent>
 									<timedComponent emapId="EMAP:344">
 										<name emapId="EMAP:344">
-											endocardial tube
+											primitive ventricle endocardial tube
 										</name>
 										<emapaId emapId="EMAP:344">
 											EMAPA:16235
@@ -3450,7 +2960,7 @@
 								</groupPathStatus>
 								<timedComponent emapId="EMAP:347">
 									<name emapId="EMAP:347">
-										left horn
+										sinus venosus left horn
 									</name>
 									<emapaId emapId="EMAP:347">
 										EMAPA:16238
@@ -3461,7 +2971,7 @@
 								</timedComponent>
 								<timedComponent emapId="EMAP:348">
 									<name emapId="EMAP:348">
-										right horn
+										sinus venosus right horn
 									</name>
 									<emapaId emapId="EMAP:348">
 										EMAPA:16239
@@ -3525,9 +3035,6 @@
 								<groupPathStatus emapId="EMAP:353">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:353">
-									omphalomesenteric vein
-								</synonym>
 							</timedComponent>
 						</timedComponent>
 					</timedComponent>
@@ -3551,6 +3058,17 @@
 							<groupPathStatus emapId="EMAP:299">
 								isGroupIndirectDescendant
 							</groupPathStatus>
+							<timedComponent emapId="EMAP:33952">
+								<name emapId="EMAP:33952">
+									ear epithelium
+								</name>
+								<emapaId emapId="EMAP:33952">
+									EMAPA:32800
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33952">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 							<timedComponent emapId="EMAP:300">
 								<name emapId="EMAP:300">
 									inner ear
@@ -3561,6 +3079,28 @@
 								<groupPathStatus emapId="EMAP:300">
 									isGroupIndirectDescendant
 								</groupPathStatus>
+								<timedComponent emapId="EMAP:34452">
+									<name emapId="EMAP:34452">
+										inner ear associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:34452">
+										EMAPA:32885
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34452">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:34429">
+									<name emapId="EMAP:34429">
+										inner ear epithelium
+									</name>
+									<emapaId emapId="EMAP:34429">
+										EMAPA:32883
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34429">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
 								<timedComponent emapId="EMAP:301">
 									<name emapId="EMAP:301">
 										otic placode
@@ -3573,7 +3113,7 @@
 									</groupPathStatus>
 									<timedComponent emapId="EMAP:302">
 										<name emapId="EMAP:302">
-											associated mesenchyme
+											otic placode associated mesenchyme
 										</name>
 										<emapaId emapId="EMAP:302">
 											EMAPA:16196
@@ -3584,7 +3124,7 @@
 									</timedComponent>
 									<timedComponent emapId="EMAP:303">
 										<name emapId="EMAP:303">
-											epithelium
+											otic placode epithelium
 										</name>
 										<emapaId emapId="EMAP:303">
 											EMAPA:16197
@@ -3616,12 +3156,9 @@
 								<groupPathStatus emapId="EMAP:305">
 									isGroupIndirectDescendant
 								</groupPathStatus>
-								<synonym emapId="EMAP:305">
-									optic evagination
-								</synonym>
 								<timedComponent emapId="EMAP:306">
 									<name emapId="EMAP:306">
-										neural ectoderm
+										optic sulcus neural ectoderm
 									</name>
 									<emapaId emapId="EMAP:306">
 										EMAPA:16200
@@ -3629,6 +3166,318 @@
 									<groupPathStatus emapId="EMAP:306">
 										isGroupIndirectDescendant
 									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:354">
+						<name emapId="EMAP:354">
+							visceral organ
+						</name>
+						<emapaId emapId="EMAP:354">
+							EMAPA:16245
+						</emapaId>
+						<groupPathStatus emapId="EMAP:354">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:355">
+							<name emapId="EMAP:355">
+								alimentary system
+							</name>
+							<emapaId emapId="EMAP:355">
+								EMAPA:16246
+							</emapaId>
+							<groupPathStatus emapId="EMAP:355">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:34467">
+								<name emapId="EMAP:34467">
+									alimentary system associated mesenchyme
+								</name>
+								<emapaId emapId="EMAP:34467">
+									EMAPA:32886
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34467">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:33300">
+								<name emapId="EMAP:33300">
+									alimentary system epithelium
+								</name>
+								<emapaId emapId="EMAP:33300">
+									EMAPA:32683
+								</emapaId>
+								<groupPathStatus emapId="EMAP:33300">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:356">
+								<name emapId="EMAP:356">
+									gut
+								</name>
+								<emapaId emapId="EMAP:356">
+									EMAPA:16247
+								</emapaId>
+								<groupPathStatus emapId="EMAP:356">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:357">
+									<name emapId="EMAP:357">
+										foregut diverticulum
+									</name>
+									<emapaId emapId="EMAP:357">
+										EMAPA:16248
+									</emapaId>
+									<groupPathStatus emapId="EMAP:357">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:358">
+										<name emapId="EMAP:358">
+											foregut diverticulum associated mesenchyme
+										</name>
+										<emapaId emapId="EMAP:358">
+											EMAPA:16249
+										</emapaId>
+										<groupPathStatus emapId="EMAP:358">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:359">
+										<name emapId="EMAP:359">
+											foregut diverticulum endoderm
+										</name>
+										<emapaId emapId="EMAP:359">
+											EMAPA:16250
+										</emapaId>
+										<groupPathStatus emapId="EMAP:359">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:6902">
+										<name emapId="EMAP:6902">
+											foregut diverticulum lumen
+										</name>
+										<emapaId emapId="EMAP:6902">
+											EMAPA:18375
+										</emapaId>
+										<groupPathStatus emapId="EMAP:6902">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EMAP:34617">
+									<name emapId="EMAP:34617">
+										gut associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:34617">
+										EMAPA:32909
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34617">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:34788">
+									<name emapId="EMAP:34788">
+										gut endoderm
+									</name>
+									<emapaId emapId="EMAP:34788">
+										EMAPA:32930
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34788">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:34602">
+									<name emapId="EMAP:34602">
+										gut lumen
+									</name>
+									<emapaId emapId="EMAP:34602">
+										EMAPA:32908
+									</emapaId>
+									<groupPathStatus emapId="EMAP:34602">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:360">
+									<name emapId="EMAP:360">
+										hindgut diverticulum
+									</name>
+									<emapaId emapId="EMAP:360">
+										EMAPA:16251
+									</emapaId>
+									<groupPathStatus emapId="EMAP:360">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:361">
+										<name emapId="EMAP:361">
+											hindgut diverticulum associated mesenchyme
+										</name>
+										<emapaId emapId="EMAP:361">
+											EMAPA:16252
+										</emapaId>
+										<groupPathStatus emapId="EMAP:361">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:362">
+										<name emapId="EMAP:362">
+											hindgut diverticulum endoderm
+										</name>
+										<emapaId emapId="EMAP:362">
+											EMAPA:16253
+										</emapaId>
+										<groupPathStatus emapId="EMAP:362">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:6904">
+										<name emapId="EMAP:6904">
+											hindgut diverticulum lumen
+										</name>
+										<emapaId emapId="EMAP:6904">
+											EMAPA:18376
+										</emapaId>
+										<groupPathStatus emapId="EMAP:6904">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:363">
+										<name emapId="EMAP:363">
+											hindgut diverticulum primordial germ cell
+										</name>
+										<emapaId emapId="EMAP:363">
+											EMAPA:16254
+										</emapaId>
+										<groupPathStatus emapId="EMAP:363">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EMAP:364">
+									<name emapId="EMAP:364">
+										midgut
+									</name>
+									<emapaId emapId="EMAP:364">
+										EMAPA:16255
+									</emapaId>
+									<groupPathStatus emapId="EMAP:364">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:365">
+										<name emapId="EMAP:365">
+											midgut associated mesenchyme
+										</name>
+										<emapaId emapId="EMAP:365">
+											EMAPA:16256
+										</emapaId>
+										<groupPathStatus emapId="EMAP:365">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:366">
+										<name emapId="EMAP:366">
+											midgut endoderm
+										</name>
+										<emapaId emapId="EMAP:366">
+											EMAPA:16257
+										</emapaId>
+										<groupPathStatus emapId="EMAP:366">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:6913">
+										<name emapId="EMAP:6913">
+											midgut lumen
+										</name>
+										<emapaId emapId="EMAP:6913">
+											EMAPA:18377
+										</emapaId>
+										<groupPathStatus emapId="EMAP:6913">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:367">
+								<name emapId="EMAP:367">
+									mouth-foregut junction
+								</name>
+								<emapaId emapId="EMAP:367">
+									EMAPA:16258
+								</emapaId>
+								<groupPathStatus emapId="EMAP:367">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:368">
+									<name emapId="EMAP:368">
+										buccopharyngeal membrane
+									</name>
+									<emapaId emapId="EMAP:368">
+										EMAPA:16259
+									</emapaId>
+									<groupPathStatus emapId="EMAP:368">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:369">
+										<name emapId="EMAP:369">
+											buccopharyngeal membrane ectoderm
+										</name>
+										<emapaId emapId="EMAP:369">
+											EMAPA:16260
+										</emapaId>
+										<groupPathStatus emapId="EMAP:369">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:370">
+										<name emapId="EMAP:370">
+											buccopharyngeal membrane endoderm
+										</name>
+										<emapaId emapId="EMAP:370">
+											EMAPA:16261
+										</emapaId>
+										<groupPathStatus emapId="EMAP:370">
+											isGroupIndirectDescendant
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:371">
+								<name emapId="EMAP:371">
+									oral region
+								</name>
+								<emapaId emapId="EMAP:371">
+									EMAPA:16262
+								</emapaId>
+								<groupPathStatus emapId="EMAP:371">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:372">
+									<name emapId="EMAP:372">
+										stomatodaeum
+									</name>
+									<emapaId emapId="EMAP:372">
+										EMAPA:16263
+									</emapaId>
+									<groupPathStatus emapId="EMAP:372">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+									<synonym emapId="EMAP:372">
+										mouth pit
+									</synonym>
+									<synonym emapId="EMAP:372">
+										oral pit
+									</synonym>
+									<synonym emapId="EMAP:372">
+										stomatodeum
+									</synonym>
+									<synonym emapId="EMAP:372">
+										stomodaeum
+									</synonym>
+									<synonym emapId="EMAP:372">
+										stomodeum
+									</synonym>
 								</timedComponent>
 							</timedComponent>
 						</timedComponent>
@@ -3644,6 +3493,17 @@
 					<groupPathStatus emapId="EMAP:373">
 						isGroupDirectDescendant
 					</groupPathStatus>
+					<timedComponent emapId="EMAP:34968">
+						<name emapId="EMAP:34968">
+							node
+						</name>
+						<emapaId emapId="EMAP:34968">
+							EMAPA:16075
+						</emapaId>
+						<groupPathStatus emapId="EMAP:34968">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+					</timedComponent>
 				</timedComponent>
 				<timedComponent emapId="EMAP:31879">
 					<name emapId="EMAP:31879">
@@ -3655,9 +3515,149 @@
 					<groupPathStatus emapId="EMAP:31879">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:31879">
-						body
-					</synonym>
+					<timedComponent emapId="EMAP:281">
+						<name emapId="EMAP:281">
+							trunk mesenchyme
+						</name>
+						<emapaId emapId="EMAP:281">
+							EMAPA:16177
+						</emapaId>
+						<groupPathStatus emapId="EMAP:281">
+							isGroupIndirectDescendant
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:282">
+							<name emapId="EMAP:282">
+								intermediate mesoderm
+							</name>
+							<emapaId emapId="EMAP:282">
+								EMAPA:16178
+							</emapaId>
+							<groupPathStatus emapId="EMAP:282">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:283">
+							<name emapId="EMAP:283">
+								lateral plate mesenchyme
+							</name>
+							<emapaId emapId="EMAP:283">
+								EMAPA:16179
+							</emapaId>
+							<groupPathStatus emapId="EMAP:283">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:284">
+								<name emapId="EMAP:284">
+									somatopleure
+								</name>
+								<emapaId emapId="EMAP:284">
+									EMAPA:16180
+								</emapaId>
+								<groupPathStatus emapId="EMAP:284">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:285">
+								<name emapId="EMAP:285">
+									splanchnopleure
+								</name>
+								<emapaId emapId="EMAP:285">
+									EMAPA:16181
+								</emapaId>
+								<groupPathStatus emapId="EMAP:285">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:294">
+							<name emapId="EMAP:294">
+								primordial germ cells
+							</name>
+							<emapaId emapId="EMAP:294">
+								EMAPA:16190
+							</emapaId>
+							<groupPathStatus emapId="EMAP:294">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:287">
+							<name emapId="EMAP:287">
+								trunk paraxial mesenchyme
+							</name>
+							<emapaId emapId="EMAP:287">
+								EMAPA:16183
+							</emapaId>
+							<groupPathStatus emapId="EMAP:287">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:288">
+								<name emapId="EMAP:288">
+									trunk somite group
+								</name>
+								<emapaId emapId="EMAP:288">
+									EMAPA:16184
+								</emapaId>
+								<groupPathStatus emapId="EMAP:288">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:289">
+									<name emapId="EMAP:289">
+										somite 05
+									</name>
+									<emapaId emapId="EMAP:289">
+										EMAPA:16185
+									</emapaId>
+									<groupPathStatus emapId="EMAP:289">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:290">
+									<name emapId="EMAP:290">
+										somite 06
+									</name>
+									<emapaId emapId="EMAP:290">
+										EMAPA:16186
+									</emapaId>
+									<groupPathStatus emapId="EMAP:290">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:291">
+									<name emapId="EMAP:291">
+										somite 07
+									</name>
+									<emapaId emapId="EMAP:291">
+										EMAPA:16187
+									</emapaId>
+									<groupPathStatus emapId="EMAP:291">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:292">
+									<name emapId="EMAP:292">
+										somite 08
+									</name>
+									<emapaId emapId="EMAP:292">
+										EMAPA:16188
+									</emapaId>
+									<groupPathStatus emapId="EMAP:292">
+										isGroupIndirectDescendant
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:293">
+								<name emapId="EMAP:293">
+									unsegmented mesenchyme
+								</name>
+								<emapaId emapId="EMAP:293">
+									EMAPA:16189
+								</emapaId>
+								<groupPathStatus emapId="EMAP:293">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
 				</timedComponent>
 			</timedComponent>
 			<timedComponent emapId="EMAP:268">
@@ -3714,9 +3714,6 @@
 					<groupPathStatus emapId="EMAP:375">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:375">
-						allantoic bud
-					</synonym>
 					<timedComponent emapId="EMAP:376">
 						<name emapId="EMAP:376">
 							allantois mesenchyme
@@ -3826,9 +3823,6 @@
 						<groupPathStatus emapId="EMAP:382">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:382">
-							extra-embryonic coelomic cavity
-						</synonym>
 					</timedComponent>
 					<timedComponent emapId="EMAP:383">
 						<name emapId="EMAP:383">
@@ -3873,9 +3867,6 @@
 						<groupPathStatus emapId="EMAP:388">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:388">
-							distal endoderm
-						</synonym>
 						<timedComponent emapId="EMAP:389">
 							<name emapId="EMAP:389">
 								Reichert's membrane
@@ -3941,9 +3932,6 @@
 							<groupPathStatus emapId="EMAP:393">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:393">
-								primary trophoblastic giant cells
-							</synonym>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:394">
@@ -4046,20 +4034,6 @@
 				<groupPathStatus emapId="EMAP:31894">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:31894">
-					head region
-				</synonym>
-			</timedComponent>
-			<timedComponent emapId="EMAP:270">
-				<name emapId="EMAP:270">
-					mesenchyme
-				</name>
-				<emapaId emapId="EMAP:270">
-					EMAPA:16097
-				</emapaId>
-				<groupPathStatus emapId="EMAP:270">
-					notInGroupPath
-				</groupPathStatus>
 				<timedComponent emapId="EMAP:271">
 					<name emapId="EMAP:271">
 						head mesenchyme
@@ -4070,31 +4044,9 @@
 					<groupPathStatus emapId="EMAP:271">
 						notInGroupPath
 					</groupPathStatus>
-					<timedComponent emapId="EMAP:272">
-						<name emapId="EMAP:272">
-							mesenchyme derived from head mesoderm
-						</name>
-						<emapaId emapId="EMAP:272">
-							EMAPA:16099
-						</emapaId>
-						<groupPathStatus emapId="EMAP:272">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:15247">
-							<name emapId="EMAP:15247">
-								mesenchyme derived from somites 01-04
-							</name>
-							<emapaId emapId="EMAP:15247">
-								EMAPA:25356
-							</emapaId>
-							<groupPathStatus emapId="EMAP:15247">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-					</timedComponent>
 					<timedComponent emapId="EMAP:273">
 						<name emapId="EMAP:273">
-							mesenchyme derived from neural crest
+							head mesenchyme derived from neural crest
 						</name>
 						<emapaId emapId="EMAP:273">
 							EMAPA:16169
@@ -4116,7 +4068,7 @@
 					</timedComponent>
 					<timedComponent emapId="EMAP:275">
 						<name emapId="EMAP:275">
-							paraxial mesenchyme
+							head paraxial mesenchyme
 						</name>
 						<emapaId emapId="EMAP:275">
 							EMAPA:16171
@@ -4126,7 +4078,7 @@
 						</groupPathStatus>
 						<timedComponent emapId="EMAP:276">
 							<name emapId="EMAP:276">
-								somite
+								head somite group
 							</name>
 							<emapaId emapId="EMAP:276">
 								EMAPA:16172
@@ -4180,70 +4132,372 @@
 							</timedComponent>
 						</timedComponent>
 					</timedComponent>
-				</timedComponent>
-				<timedComponent emapId="EMAP:281">
-					<name emapId="EMAP:281">
-						trunk mesenchyme
-					</name>
-					<emapaId emapId="EMAP:281">
-						EMAPA:16177
-					</emapaId>
-					<groupPathStatus emapId="EMAP:281">
-						notInGroupPath
-					</groupPathStatus>
-					<timedComponent emapId="EMAP:282">
-						<name emapId="EMAP:282">
-							intermediate mesoderm
+					<timedComponent emapId="EMAP:272">
+						<name emapId="EMAP:272">
+							mesenchyme derived from head mesoderm
 						</name>
-						<emapaId emapId="EMAP:282">
-							EMAPA:16178
+						<emapaId emapId="EMAP:272">
+							EMAPA:16099
 						</emapaId>
-						<groupPathStatus emapId="EMAP:282">
+						<groupPathStatus emapId="EMAP:272">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:282">
-							intermediate plate
-						</synonym>
-					</timedComponent>
-					<timedComponent emapId="EMAP:283">
-						<name emapId="EMAP:283">
-							lateral plate mesenchyme
-						</name>
-						<emapaId emapId="EMAP:283">
-							EMAPA:16179
-						</emapaId>
-						<groupPathStatus emapId="EMAP:283">
-							notInGroupPath
-						</groupPathStatus>
-						<synonym emapId="EMAP:283">
-							lateral mesenchyme
-						</synonym>
-						<timedComponent emapId="EMAP:284">
-							<name emapId="EMAP:284">
-								somatopleure
+						<timedComponent emapId="EMAP:15247">
+							<name emapId="EMAP:15247">
+								mesenchyme derived from somites 01-04
 							</name>
-							<emapaId emapId="EMAP:284">
-								EMAPA:16180
+							<emapaId emapId="EMAP:15247">
+								EMAPA:25356
 							</emapaId>
-							<groupPathStatus emapId="EMAP:284">
+							<groupPathStatus emapId="EMAP:15247">
 								notInGroupPath
 							</groupPathStatus>
 						</timedComponent>
-						<timedComponent emapId="EMAP:285">
-							<name emapId="EMAP:285">
-								splanchnopleure
+					</timedComponent>
+				</timedComponent>
+			</timedComponent>
+			<timedComponent emapId="EMAP:270">
+				<name emapId="EMAP:270">
+					mesenchyme
+				</name>
+				<emapaId emapId="EMAP:270">
+					EMAPA:16097
+				</emapaId>
+				<groupPathStatus emapId="EMAP:270">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EMAP:271">
+					<name emapId="EMAP:271">
+						head mesenchyme
+					</name>
+					<emapaId emapId="EMAP:271">
+						EMAPA:16098
+					</emapaId>
+					<groupPathStatus emapId="EMAP:271">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:273">
+						<name emapId="EMAP:273">
+							head mesenchyme derived from neural crest
+						</name>
+						<emapaId emapId="EMAP:273">
+							EMAPA:16169
+						</emapaId>
+						<groupPathStatus emapId="EMAP:273">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:274">
+							<name emapId="EMAP:274">
+								trigeminal neural crest
 							</name>
-							<emapaId emapId="EMAP:285">
-								EMAPA:16181
+							<emapaId emapId="EMAP:274">
+								EMAPA:16170
 							</emapaId>
-							<groupPathStatus emapId="EMAP:285">
+							<groupPathStatus emapId="EMAP:274">
 								notInGroupPath
 							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:275">
+						<name emapId="EMAP:275">
+							head paraxial mesenchyme
+						</name>
+						<emapaId emapId="EMAP:275">
+							EMAPA:16171
+						</emapaId>
+						<groupPathStatus emapId="EMAP:275">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:276">
+							<name emapId="EMAP:276">
+								head somite group
+							</name>
+							<emapaId emapId="EMAP:276">
+								EMAPA:16172
+							</emapaId>
+							<groupPathStatus emapId="EMAP:276">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:277">
+								<name emapId="EMAP:277">
+									somite 01
+								</name>
+								<emapaId emapId="EMAP:277">
+									EMAPA:16173
+								</emapaId>
+								<groupPathStatus emapId="EMAP:277">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:278">
+								<name emapId="EMAP:278">
+									somite 02
+								</name>
+								<emapaId emapId="EMAP:278">
+									EMAPA:16174
+								</emapaId>
+								<groupPathStatus emapId="EMAP:278">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:279">
+								<name emapId="EMAP:279">
+									somite 03
+								</name>
+								<emapaId emapId="EMAP:279">
+									EMAPA:16175
+								</emapaId>
+								<groupPathStatus emapId="EMAP:279">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:280">
+								<name emapId="EMAP:280">
+									somite 04
+								</name>
+								<emapaId emapId="EMAP:280">
+									EMAPA:16176
+								</emapaId>
+								<groupPathStatus emapId="EMAP:280">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:272">
+						<name emapId="EMAP:272">
+							mesenchyme derived from head mesoderm
+						</name>
+						<emapaId emapId="EMAP:272">
+							EMAPA:16099
+						</emapaId>
+						<groupPathStatus emapId="EMAP:272">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:15247">
+							<name emapId="EMAP:15247">
+								mesenchyme derived from somites 01-04
+							</name>
+							<emapaId emapId="EMAP:15247">
+								EMAPA:25356
+							</emapaId>
+							<groupPathStatus emapId="EMAP:15247">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33627">
+					<name emapId="EMAP:33627">
+						mesenchyme derived from neural crest
+					</name>
+					<emapaId emapId="EMAP:33627">
+						EMAPA:32735
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33627">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+				<timedComponent emapId="EMAP:33813">
+					<name emapId="EMAP:33813">
+						paraxial mesenchyme
+					</name>
+					<emapaId emapId="EMAP:33813">
+						EMAPA:32757
+					</emapaId>
+					<groupPathStatus emapId="EMAP:33813">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:275">
+						<name emapId="EMAP:275">
+							head paraxial mesenchyme
+						</name>
+						<emapaId emapId="EMAP:275">
+							EMAPA:16171
+						</emapaId>
+						<groupPathStatus emapId="EMAP:275">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:276">
+							<name emapId="EMAP:276">
+								head somite group
+							</name>
+							<emapaId emapId="EMAP:276">
+								EMAPA:16172
+							</emapaId>
+							<groupPathStatus emapId="EMAP:276">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:277">
+								<name emapId="EMAP:277">
+									somite 01
+								</name>
+								<emapaId emapId="EMAP:277">
+									EMAPA:16173
+								</emapaId>
+								<groupPathStatus emapId="EMAP:277">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:278">
+								<name emapId="EMAP:278">
+									somite 02
+								</name>
+								<emapaId emapId="EMAP:278">
+									EMAPA:16174
+								</emapaId>
+								<groupPathStatus emapId="EMAP:278">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:279">
+								<name emapId="EMAP:279">
+									somite 03
+								</name>
+								<emapaId emapId="EMAP:279">
+									EMAPA:16175
+								</emapaId>
+								<groupPathStatus emapId="EMAP:279">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:280">
+								<name emapId="EMAP:280">
+									somite 04
+								</name>
+								<emapaId emapId="EMAP:280">
+									EMAPA:16176
+								</emapaId>
+								<groupPathStatus emapId="EMAP:280">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:31170">
+						<name emapId="EMAP:31170">
+							somite group
+						</name>
+						<emapaId emapId="EMAP:31170">
+							EMAPA:31169
+						</emapaId>
+						<groupPathStatus emapId="EMAP:31170">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:276">
+							<name emapId="EMAP:276">
+								head somite group
+							</name>
+							<emapaId emapId="EMAP:276">
+								EMAPA:16172
+							</emapaId>
+							<groupPathStatus emapId="EMAP:276">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:277">
+								<name emapId="EMAP:277">
+									somite 01
+								</name>
+								<emapaId emapId="EMAP:277">
+									EMAPA:16173
+								</emapaId>
+								<groupPathStatus emapId="EMAP:277">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:278">
+								<name emapId="EMAP:278">
+									somite 02
+								</name>
+								<emapaId emapId="EMAP:278">
+									EMAPA:16174
+								</emapaId>
+								<groupPathStatus emapId="EMAP:278">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:279">
+								<name emapId="EMAP:279">
+									somite 03
+								</name>
+								<emapaId emapId="EMAP:279">
+									EMAPA:16175
+								</emapaId>
+								<groupPathStatus emapId="EMAP:279">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:280">
+								<name emapId="EMAP:280">
+									somite 04
+								</name>
+								<emapaId emapId="EMAP:280">
+									EMAPA:16176
+								</emapaId>
+								<groupPathStatus emapId="EMAP:280">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:288">
+							<name emapId="EMAP:288">
+								trunk somite group
+							</name>
+							<emapaId emapId="EMAP:288">
+								EMAPA:16184
+							</emapaId>
+							<groupPathStatus emapId="EMAP:288">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:289">
+								<name emapId="EMAP:289">
+									somite 05
+								</name>
+								<emapaId emapId="EMAP:289">
+									EMAPA:16185
+								</emapaId>
+								<groupPathStatus emapId="EMAP:289">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:290">
+								<name emapId="EMAP:290">
+									somite 06
+								</name>
+								<emapaId emapId="EMAP:290">
+									EMAPA:16186
+								</emapaId>
+								<groupPathStatus emapId="EMAP:290">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:291">
+								<name emapId="EMAP:291">
+									somite 07
+								</name>
+								<emapaId emapId="EMAP:291">
+									EMAPA:16187
+								</emapaId>
+								<groupPathStatus emapId="EMAP:291">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:292">
+								<name emapId="EMAP:292">
+									somite 08
+								</name>
+								<emapaId emapId="EMAP:292">
+									EMAPA:16188
+								</emapaId>
+								<groupPathStatus emapId="EMAP:292">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:287">
 						<name emapId="EMAP:287">
-							paraxial mesenchyme
+							trunk paraxial mesenchyme
 						</name>
 						<emapaId emapId="EMAP:287">
 							EMAPA:16183
@@ -4253,7 +4507,7 @@
 						</groupPathStatus>
 						<timedComponent emapId="EMAP:288">
 							<name emapId="EMAP:288">
-								somite
+								trunk somite group
 							</name>
 							<emapaId emapId="EMAP:288">
 								EMAPA:16184
@@ -4316,9 +4570,61 @@
 							<groupPathStatus emapId="EMAP:293">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:293">
-								presomitic mesenchyme
-							</synonym>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:281">
+					<name emapId="EMAP:281">
+						trunk mesenchyme
+					</name>
+					<emapaId emapId="EMAP:281">
+						EMAPA:16177
+					</emapaId>
+					<groupPathStatus emapId="EMAP:281">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:282">
+						<name emapId="EMAP:282">
+							intermediate mesoderm
+						</name>
+						<emapaId emapId="EMAP:282">
+							EMAPA:16178
+						</emapaId>
+						<groupPathStatus emapId="EMAP:282">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:283">
+						<name emapId="EMAP:283">
+							lateral plate mesenchyme
+						</name>
+						<emapaId emapId="EMAP:283">
+							EMAPA:16179
+						</emapaId>
+						<groupPathStatus emapId="EMAP:283">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:284">
+							<name emapId="EMAP:284">
+								somatopleure
+							</name>
+							<emapaId emapId="EMAP:284">
+								EMAPA:16180
+							</emapaId>
+							<groupPathStatus emapId="EMAP:284">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:285">
+							<name emapId="EMAP:285">
+								splanchnopleure
+							</name>
+							<emapaId emapId="EMAP:285">
+								EMAPA:16181
+							</emapaId>
+							<groupPathStatus emapId="EMAP:285">
+								notInGroupPath
+							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:294">
@@ -4331,6 +4637,83 @@
 						<groupPathStatus emapId="EMAP:294">
 							notInGroupPath
 						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:287">
+						<name emapId="EMAP:287">
+							trunk paraxial mesenchyme
+						</name>
+						<emapaId emapId="EMAP:287">
+							EMAPA:16183
+						</emapaId>
+						<groupPathStatus emapId="EMAP:287">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:288">
+							<name emapId="EMAP:288">
+								trunk somite group
+							</name>
+							<emapaId emapId="EMAP:288">
+								EMAPA:16184
+							</emapaId>
+							<groupPathStatus emapId="EMAP:288">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:289">
+								<name emapId="EMAP:289">
+									somite 05
+								</name>
+								<emapaId emapId="EMAP:289">
+									EMAPA:16185
+								</emapaId>
+								<groupPathStatus emapId="EMAP:289">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:290">
+								<name emapId="EMAP:290">
+									somite 06
+								</name>
+								<emapaId emapId="EMAP:290">
+									EMAPA:16186
+								</emapaId>
+								<groupPathStatus emapId="EMAP:290">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:291">
+								<name emapId="EMAP:291">
+									somite 07
+								</name>
+								<emapaId emapId="EMAP:291">
+									EMAPA:16187
+								</emapaId>
+								<groupPathStatus emapId="EMAP:291">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:292">
+								<name emapId="EMAP:292">
+									somite 08
+								</name>
+								<emapaId emapId="EMAP:292">
+									EMAPA:16188
+								</emapaId>
+								<groupPathStatus emapId="EMAP:292">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:293">
+							<name emapId="EMAP:293">
+								unsegmented mesenchyme
+							</name>
+							<emapaId emapId="EMAP:293">
+								EMAPA:16189
+							</emapaId>
+							<groupPathStatus emapId="EMAP:293">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
 					</timedComponent>
 				</timedComponent>
 			</timedComponent>
@@ -4356,6 +4739,1006 @@
 					notInGroupPath
 				</groupPathStatus>
 			</timedComponent>
+			<timedComponent emapId="EMAP:297">
+				<name emapId="EMAP:297">
+					organ system
+				</name>
+				<emapaId emapId="EMAP:297">
+					EMAPA:16103
+				</emapaId>
+				<groupPathStatus emapId="EMAP:297">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EMAP:307">
+					<name emapId="EMAP:307">
+						cardiovascular system
+					</name>
+					<emapaId emapId="EMAP:307">
+						EMAPA:16104
+					</emapaId>
+					<groupPathStatus emapId="EMAP:307">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:308">
+						<name emapId="EMAP:308">
+							arterial system
+						</name>
+						<emapaId emapId="EMAP:308">
+							EMAPA:16201
+						</emapaId>
+						<groupPathStatus emapId="EMAP:308">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:311">
+							<name emapId="EMAP:311">
+								dorsal aorta
+							</name>
+							<emapaId emapId="EMAP:311">
+								EMAPA:16204
+							</emapaId>
+							<groupPathStatus emapId="EMAP:311">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:312">
+								<name emapId="EMAP:312">
+									left dorsal aorta
+								</name>
+								<emapaId emapId="EMAP:312">
+									EMAPA:16205
+								</emapaId>
+								<groupPathStatus emapId="EMAP:312">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:313">
+								<name emapId="EMAP:313">
+									right dorsal aorta
+								</name>
+								<emapaId emapId="EMAP:313">
+									EMAPA:16206
+								</emapaId>
+								<groupPathStatus emapId="EMAP:313">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:314">
+							<name emapId="EMAP:314">
+								vitelline artery
+							</name>
+							<emapaId emapId="EMAP:314">
+								EMAPA:16207
+							</emapaId>
+							<groupPathStatus emapId="EMAP:314">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:33690">
+						<name emapId="EMAP:33690">
+							blood vessel
+						</name>
+						<emapaId emapId="EMAP:33690">
+							EMAPA:32743
+						</emapaId>
+						<groupPathStatus emapId="EMAP:33690">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:315">
+						<name emapId="EMAP:315">
+							heart
+						</name>
+						<emapaId emapId="EMAP:315">
+							EMAPA:16105
+						</emapaId>
+						<groupPathStatus emapId="EMAP:315">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:33337">
+							<name emapId="EMAP:33337">
+								cardiac jelly
+							</name>
+							<emapaId emapId="EMAP:33337">
+								EMAPA:32687
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33337">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:33343">
+							<name emapId="EMAP:33343">
+								cardiac muscle
+							</name>
+							<emapaId emapId="EMAP:33343">
+								EMAPA:32688
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33343">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:316">
+							<name emapId="EMAP:316">
+								cardiogenic plate
+							</name>
+							<emapaId emapId="EMAP:316">
+								EMAPA:16106
+							</emapaId>
+							<groupPathStatus emapId="EMAP:316">
+								notInGroupPath
+							</groupPathStatus>
+							<synonym emapId="EMAP:316">
+								heart rudiment
+							</synonym>
+							<synonym emapId="EMAP:316">
+								myocardial plate
+							</synonym>
+						</timedComponent>
+						<timedComponent emapId="EMAP:317">
+							<name emapId="EMAP:317">
+								early primitive heart tube
+							</name>
+							<emapaId emapId="EMAP:317">
+								EMAPA:16208
+							</emapaId>
+							<groupPathStatus emapId="EMAP:317">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:318">
+								<name emapId="EMAP:318">
+									early primitive heart tube cardiac jelly
+								</name>
+								<emapaId emapId="EMAP:318">
+									EMAPA:16209
+								</emapaId>
+								<groupPathStatus emapId="EMAP:318">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:320">
+								<name emapId="EMAP:320">
+									early primitive heart tube cardiac muscle
+								</name>
+								<emapaId emapId="EMAP:320">
+									EMAPA:16211
+								</emapaId>
+								<groupPathStatus emapId="EMAP:320">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:319">
+								<name emapId="EMAP:319">
+									early primitive heart tube endocardial tube
+								</name>
+								<emapaId emapId="EMAP:319">
+									EMAPA:16210
+								</emapaId>
+								<groupPathStatus emapId="EMAP:319">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:33328">
+							<name emapId="EMAP:33328">
+								endocardial tube
+							</name>
+							<emapaId emapId="EMAP:33328">
+								EMAPA:32685
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33328">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:321">
+							<name emapId="EMAP:321">
+								heart mesentery
+							</name>
+							<emapaId emapId="EMAP:321">
+								EMAPA:16212
+							</emapaId>
+							<groupPathStatus emapId="EMAP:321">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:322">
+								<name emapId="EMAP:322">
+									dorsal mesocardium
+								</name>
+								<emapaId emapId="EMAP:322">
+									EMAPA:16213
+								</emapaId>
+								<groupPathStatus emapId="EMAP:322">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:323">
+									<name emapId="EMAP:323">
+										transverse pericardial sinus
+									</name>
+									<emapaId emapId="EMAP:323">
+										EMAPA:16214
+									</emapaId>
+									<groupPathStatus emapId="EMAP:323">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:324">
+							<name emapId="EMAP:324">
+								primitive heart tube
+							</name>
+							<emapaId emapId="EMAP:324">
+								EMAPA:16215
+							</emapaId>
+							<groupPathStatus emapId="EMAP:324">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:325">
+								<name emapId="EMAP:325">
+									bulbus cordis
+								</name>
+								<emapaId emapId="EMAP:325">
+									EMAPA:16216
+								</emapaId>
+								<groupPathStatus emapId="EMAP:325">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:326">
+									<name emapId="EMAP:326">
+										bulbus cordis caudal half
+									</name>
+									<emapaId emapId="EMAP:326">
+										EMAPA:16217
+									</emapaId>
+									<groupPathStatus emapId="EMAP:326">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:327">
+										<name emapId="EMAP:327">
+											bulbus cordis caudal half cardiac jelly
+										</name>
+										<emapaId emapId="EMAP:327">
+											EMAPA:16218
+										</emapaId>
+										<groupPathStatus emapId="EMAP:327">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:329">
+										<name emapId="EMAP:329">
+											bulbus cordis caudal half cardiac muscle
+										</name>
+										<emapaId emapId="EMAP:329">
+											EMAPA:16220
+										</emapaId>
+										<groupPathStatus emapId="EMAP:329">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:328">
+										<name emapId="EMAP:328">
+											bulbus cordis caudal half endocardial tube
+										</name>
+										<emapaId emapId="EMAP:328">
+											EMAPA:16219
+										</emapaId>
+										<groupPathStatus emapId="EMAP:328">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EMAP:330">
+									<name emapId="EMAP:330">
+										bulbus cordis rostral half
+									</name>
+									<emapaId emapId="EMAP:330">
+										EMAPA:16221
+									</emapaId>
+									<groupPathStatus emapId="EMAP:330">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EMAP:331">
+										<name emapId="EMAP:331">
+											bulbus cordis rostral half cardiac jelly
+										</name>
+										<emapaId emapId="EMAP:331">
+											EMAPA:16222
+										</emapaId>
+										<groupPathStatus emapId="EMAP:331">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:333">
+										<name emapId="EMAP:333">
+											bulbus cordis rostral half cardiac muscle
+										</name>
+										<emapaId emapId="EMAP:333">
+											EMAPA:16224
+										</emapaId>
+										<groupPathStatus emapId="EMAP:333">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+									<timedComponent emapId="EMAP:332">
+										<name emapId="EMAP:332">
+											bulbus cordis rostral half endocardial tube
+										</name>
+										<emapaId emapId="EMAP:332">
+											EMAPA:16223
+										</emapaId>
+										<groupPathStatus emapId="EMAP:332">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:334">
+								<name emapId="EMAP:334">
+									common atrial chamber
+								</name>
+								<emapaId emapId="EMAP:334">
+									EMAPA:16225
+								</emapaId>
+								<groupPathStatus emapId="EMAP:334">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:335">
+									<name emapId="EMAP:335">
+										common atrial chamber cardiac jelly
+									</name>
+									<emapaId emapId="EMAP:335">
+										EMAPA:16226
+									</emapaId>
+									<groupPathStatus emapId="EMAP:335">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:337">
+									<name emapId="EMAP:337">
+										common atrial chamber cardiac muscle
+									</name>
+									<emapaId emapId="EMAP:337">
+										EMAPA:16228
+									</emapaId>
+									<groupPathStatus emapId="EMAP:337">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:336">
+									<name emapId="EMAP:336">
+										common atrial chamber endocardial tube
+									</name>
+									<emapaId emapId="EMAP:336">
+										EMAPA:16227
+									</emapaId>
+									<groupPathStatus emapId="EMAP:336">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:338">
+								<name emapId="EMAP:338">
+									outflow tract
+								</name>
+								<emapaId emapId="EMAP:338">
+									EMAPA:16229
+								</emapaId>
+								<groupPathStatus emapId="EMAP:338">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:339">
+									<name emapId="EMAP:339">
+										outflow tract cardiac jelly
+									</name>
+									<emapaId emapId="EMAP:339">
+										EMAPA:16230
+									</emapaId>
+									<groupPathStatus emapId="EMAP:339">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:340">
+									<name emapId="EMAP:340">
+										outflow tract endocardial tube
+									</name>
+									<emapaId emapId="EMAP:340">
+										EMAPA:16231
+									</emapaId>
+									<groupPathStatus emapId="EMAP:340">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:341">
+									<name emapId="EMAP:341">
+										outflow tract mesenchyme
+									</name>
+									<emapaId emapId="EMAP:341">
+										EMAPA:16232
+									</emapaId>
+									<groupPathStatus emapId="EMAP:341">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:342">
+								<name emapId="EMAP:342">
+									primitive ventricle
+								</name>
+								<emapaId emapId="EMAP:342">
+									EMAPA:16233
+								</emapaId>
+								<groupPathStatus emapId="EMAP:342">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:343">
+									<name emapId="EMAP:343">
+										primitive ventricle cardiac jelly
+									</name>
+									<emapaId emapId="EMAP:343">
+										EMAPA:16234
+									</emapaId>
+									<groupPathStatus emapId="EMAP:343">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:345">
+									<name emapId="EMAP:345">
+										primitive ventricle cardiac muscle
+									</name>
+									<emapaId emapId="EMAP:345">
+										EMAPA:16236
+									</emapaId>
+									<groupPathStatus emapId="EMAP:345">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:344">
+									<name emapId="EMAP:344">
+										primitive ventricle endocardial tube
+									</name>
+									<emapaId emapId="EMAP:344">
+										EMAPA:16235
+									</emapaId>
+									<groupPathStatus emapId="EMAP:344">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:346">
+							<name emapId="EMAP:346">
+								sinus venosus
+							</name>
+							<emapaId emapId="EMAP:346">
+								EMAPA:16237
+							</emapaId>
+							<groupPathStatus emapId="EMAP:346">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:347">
+								<name emapId="EMAP:347">
+									sinus venosus left horn
+								</name>
+								<emapaId emapId="EMAP:347">
+									EMAPA:16238
+								</emapaId>
+								<groupPathStatus emapId="EMAP:347">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:348">
+								<name emapId="EMAP:348">
+									sinus venosus right horn
+								</name>
+								<emapaId emapId="EMAP:348">
+									EMAPA:16239
+								</emapaId>
+								<groupPathStatus emapId="EMAP:348">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:349">
+						<name emapId="EMAP:349">
+							venous system
+						</name>
+						<emapaId emapId="EMAP:349">
+							EMAPA:16240
+						</emapaId>
+						<groupPathStatus emapId="EMAP:349">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:350">
+							<name emapId="EMAP:350">
+								anterior cardinal vein
+							</name>
+							<emapaId emapId="EMAP:350">
+								EMAPA:16241
+							</emapaId>
+							<groupPathStatus emapId="EMAP:350">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:351">
+							<name emapId="EMAP:351">
+								primary head vein
+							</name>
+							<emapaId emapId="EMAP:351">
+								EMAPA:16242
+							</emapaId>
+							<groupPathStatus emapId="EMAP:351">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:352">
+							<name emapId="EMAP:352">
+								umbilical vein embryonic part
+							</name>
+							<emapaId emapId="EMAP:352">
+								EMAPA:16243
+							</emapaId>
+							<groupPathStatus emapId="EMAP:352">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:353">
+							<name emapId="EMAP:353">
+								vitelline vein embryonic part
+							</name>
+							<emapaId emapId="EMAP:353">
+								EMAPA:16244
+							</emapaId>
+							<groupPathStatus emapId="EMAP:353">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:298">
+					<name emapId="EMAP:298">
+						sensory organ
+					</name>
+					<emapaId emapId="EMAP:298">
+						EMAPA:16192
+					</emapaId>
+					<groupPathStatus emapId="EMAP:298">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:299">
+						<name emapId="EMAP:299">
+							ear
+						</name>
+						<emapaId emapId="EMAP:299">
+							EMAPA:16193
+						</emapaId>
+						<groupPathStatus emapId="EMAP:299">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:33952">
+							<name emapId="EMAP:33952">
+								ear epithelium
+							</name>
+							<emapaId emapId="EMAP:33952">
+								EMAPA:32800
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33952">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:300">
+							<name emapId="EMAP:300">
+								inner ear
+							</name>
+							<emapaId emapId="EMAP:300">
+								EMAPA:16194
+							</emapaId>
+							<groupPathStatus emapId="EMAP:300">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:34452">
+								<name emapId="EMAP:34452">
+									inner ear associated mesenchyme
+								</name>
+								<emapaId emapId="EMAP:34452">
+									EMAPA:32885
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34452">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34429">
+								<name emapId="EMAP:34429">
+									inner ear epithelium
+								</name>
+								<emapaId emapId="EMAP:34429">
+									EMAPA:32883
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34429">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:301">
+								<name emapId="EMAP:301">
+									otic placode
+								</name>
+								<emapaId emapId="EMAP:301">
+									EMAPA:16195
+								</emapaId>
+								<groupPathStatus emapId="EMAP:301">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:302">
+									<name emapId="EMAP:302">
+										otic placode associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:302">
+										EMAPA:16196
+									</emapaId>
+									<groupPathStatus emapId="EMAP:302">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:303">
+									<name emapId="EMAP:303">
+										otic placode epithelium
+									</name>
+									<emapaId emapId="EMAP:303">
+										EMAPA:16197
+									</emapaId>
+									<groupPathStatus emapId="EMAP:303">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:304">
+						<name emapId="EMAP:304">
+							eye
+						</name>
+						<emapaId emapId="EMAP:304">
+							EMAPA:16198
+						</emapaId>
+						<groupPathStatus emapId="EMAP:304">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:305">
+							<name emapId="EMAP:305">
+								optic sulcus
+							</name>
+							<emapaId emapId="EMAP:305">
+								EMAPA:16199
+							</emapaId>
+							<groupPathStatus emapId="EMAP:305">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:306">
+								<name emapId="EMAP:306">
+									optic sulcus neural ectoderm
+								</name>
+								<emapaId emapId="EMAP:306">
+									EMAPA:16200
+								</emapaId>
+								<groupPathStatus emapId="EMAP:306">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:354">
+					<name emapId="EMAP:354">
+						visceral organ
+					</name>
+					<emapaId emapId="EMAP:354">
+						EMAPA:16245
+					</emapaId>
+					<groupPathStatus emapId="EMAP:354">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:355">
+						<name emapId="EMAP:355">
+							alimentary system
+						</name>
+						<emapaId emapId="EMAP:355">
+							EMAPA:16246
+						</emapaId>
+						<groupPathStatus emapId="EMAP:355">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:34467">
+							<name emapId="EMAP:34467">
+								alimentary system associated mesenchyme
+							</name>
+							<emapaId emapId="EMAP:34467">
+								EMAPA:32886
+							</emapaId>
+							<groupPathStatus emapId="EMAP:34467">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:33300">
+							<name emapId="EMAP:33300">
+								alimentary system epithelium
+							</name>
+							<emapaId emapId="EMAP:33300">
+								EMAPA:32683
+							</emapaId>
+							<groupPathStatus emapId="EMAP:33300">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:356">
+							<name emapId="EMAP:356">
+								gut
+							</name>
+							<emapaId emapId="EMAP:356">
+								EMAPA:16247
+							</emapaId>
+							<groupPathStatus emapId="EMAP:356">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:357">
+								<name emapId="EMAP:357">
+									foregut diverticulum
+								</name>
+								<emapaId emapId="EMAP:357">
+									EMAPA:16248
+								</emapaId>
+								<groupPathStatus emapId="EMAP:357">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:358">
+									<name emapId="EMAP:358">
+										foregut diverticulum associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:358">
+										EMAPA:16249
+									</emapaId>
+									<groupPathStatus emapId="EMAP:358">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:359">
+									<name emapId="EMAP:359">
+										foregut diverticulum endoderm
+									</name>
+									<emapaId emapId="EMAP:359">
+										EMAPA:16250
+									</emapaId>
+									<groupPathStatus emapId="EMAP:359">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:6902">
+									<name emapId="EMAP:6902">
+										foregut diverticulum lumen
+									</name>
+									<emapaId emapId="EMAP:6902">
+										EMAPA:18375
+									</emapaId>
+									<groupPathStatus emapId="EMAP:6902">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34617">
+								<name emapId="EMAP:34617">
+									gut associated mesenchyme
+								</name>
+								<emapaId emapId="EMAP:34617">
+									EMAPA:32909
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34617">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34788">
+								<name emapId="EMAP:34788">
+									gut endoderm
+								</name>
+								<emapaId emapId="EMAP:34788">
+									EMAPA:32930
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34788">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:34602">
+								<name emapId="EMAP:34602">
+									gut lumen
+								</name>
+								<emapaId emapId="EMAP:34602">
+									EMAPA:32908
+								</emapaId>
+								<groupPathStatus emapId="EMAP:34602">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:360">
+								<name emapId="EMAP:360">
+									hindgut diverticulum
+								</name>
+								<emapaId emapId="EMAP:360">
+									EMAPA:16251
+								</emapaId>
+								<groupPathStatus emapId="EMAP:360">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:361">
+									<name emapId="EMAP:361">
+										hindgut diverticulum associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:361">
+										EMAPA:16252
+									</emapaId>
+									<groupPathStatus emapId="EMAP:361">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:362">
+									<name emapId="EMAP:362">
+										hindgut diverticulum endoderm
+									</name>
+									<emapaId emapId="EMAP:362">
+										EMAPA:16253
+									</emapaId>
+									<groupPathStatus emapId="EMAP:362">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:6904">
+									<name emapId="EMAP:6904">
+										hindgut diverticulum lumen
+									</name>
+									<emapaId emapId="EMAP:6904">
+										EMAPA:18376
+									</emapaId>
+									<groupPathStatus emapId="EMAP:6904">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:363">
+									<name emapId="EMAP:363">
+										hindgut diverticulum primordial germ cell
+									</name>
+									<emapaId emapId="EMAP:363">
+										EMAPA:16254
+									</emapaId>
+									<groupPathStatus emapId="EMAP:363">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EMAP:364">
+								<name emapId="EMAP:364">
+									midgut
+								</name>
+								<emapaId emapId="EMAP:364">
+									EMAPA:16255
+								</emapaId>
+								<groupPathStatus emapId="EMAP:364">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:365">
+									<name emapId="EMAP:365">
+										midgut associated mesenchyme
+									</name>
+									<emapaId emapId="EMAP:365">
+										EMAPA:16256
+									</emapaId>
+									<groupPathStatus emapId="EMAP:365">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:366">
+									<name emapId="EMAP:366">
+										midgut endoderm
+									</name>
+									<emapaId emapId="EMAP:366">
+										EMAPA:16257
+									</emapaId>
+									<groupPathStatus emapId="EMAP:366">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:6913">
+									<name emapId="EMAP:6913">
+										midgut lumen
+									</name>
+									<emapaId emapId="EMAP:6913">
+										EMAPA:18377
+									</emapaId>
+									<groupPathStatus emapId="EMAP:6913">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:367">
+							<name emapId="EMAP:367">
+								mouth-foregut junction
+							</name>
+							<emapaId emapId="EMAP:367">
+								EMAPA:16258
+							</emapaId>
+							<groupPathStatus emapId="EMAP:367">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:368">
+								<name emapId="EMAP:368">
+									buccopharyngeal membrane
+								</name>
+								<emapaId emapId="EMAP:368">
+									EMAPA:16259
+								</emapaId>
+								<groupPathStatus emapId="EMAP:368">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EMAP:369">
+									<name emapId="EMAP:369">
+										buccopharyngeal membrane ectoderm
+									</name>
+									<emapaId emapId="EMAP:369">
+										EMAPA:16260
+									</emapaId>
+									<groupPathStatus emapId="EMAP:369">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EMAP:370">
+									<name emapId="EMAP:370">
+										buccopharyngeal membrane endoderm
+									</name>
+									<emapaId emapId="EMAP:370">
+										EMAPA:16261
+									</emapaId>
+									<groupPathStatus emapId="EMAP:370">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:371">
+							<name emapId="EMAP:371">
+								oral region
+							</name>
+							<emapaId emapId="EMAP:371">
+								EMAPA:16262
+							</emapaId>
+							<groupPathStatus emapId="EMAP:371">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:372">
+								<name emapId="EMAP:372">
+									stomatodaeum
+								</name>
+								<emapaId emapId="EMAP:372">
+									EMAPA:16263
+								</emapaId>
+								<groupPathStatus emapId="EMAP:372">
+									notInGroupPath
+								</groupPathStatus>
+								<synonym emapId="EMAP:372">
+									mouth pit
+								</synonym>
+								<synonym emapId="EMAP:372">
+									oral pit
+								</synonym>
+								<synonym emapId="EMAP:372">
+									stomatodeum
+								</synonym>
+								<synonym emapId="EMAP:372">
+									stomodaeum
+								</synonym>
+								<synonym emapId="EMAP:372">
+									stomodeum
+								</synonym>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+			</timedComponent>
 			<timedComponent emapId="EMAP:373">
 				<name emapId="EMAP:373">
 					primitive streak
@@ -4366,103 +5749,15 @@
 				<groupPathStatus emapId="EMAP:373">
 					notInGroupPath
 				</groupPathStatus>
-			</timedComponent>
-			<timedComponent emapId="EMAP:31170">
-				<name emapId="EMAP:31170">
-					somite group
-				</name>
-				<emapaId emapId="EMAP:31170">
-					EMAPA:31169
-				</emapaId>
-				<groupPathStatus emapId="EMAP:31170">
-					isGroup
-				</groupPathStatus>
-				<timedComponent emapId="EMAP:277">
-					<name emapId="EMAP:277">
-						somite 01
+				<timedComponent emapId="EMAP:34968">
+					<name emapId="EMAP:34968">
+						node
 					</name>
-					<emapaId emapId="EMAP:277">
-						EMAPA:16173
+					<emapaId emapId="EMAP:34968">
+						EMAPA:16075
 					</emapaId>
-					<groupPathStatus emapId="EMAP:277">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:278">
-					<name emapId="EMAP:278">
-						somite 02
-					</name>
-					<emapaId emapId="EMAP:278">
-						EMAPA:16174
-					</emapaId>
-					<groupPathStatus emapId="EMAP:278">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:279">
-					<name emapId="EMAP:279">
-						somite 03
-					</name>
-					<emapaId emapId="EMAP:279">
-						EMAPA:16175
-					</emapaId>
-					<groupPathStatus emapId="EMAP:279">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:280">
-					<name emapId="EMAP:280">
-						somite 04
-					</name>
-					<emapaId emapId="EMAP:280">
-						EMAPA:16176
-					</emapaId>
-					<groupPathStatus emapId="EMAP:280">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:289">
-					<name emapId="EMAP:289">
-						somite 05
-					</name>
-					<emapaId emapId="EMAP:289">
-						EMAPA:16185
-					</emapaId>
-					<groupPathStatus emapId="EMAP:289">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:290">
-					<name emapId="EMAP:290">
-						somite 06
-					</name>
-					<emapaId emapId="EMAP:290">
-						EMAPA:16186
-					</emapaId>
-					<groupPathStatus emapId="EMAP:290">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:291">
-					<name emapId="EMAP:291">
-						somite 07
-					</name>
-					<emapaId emapId="EMAP:291">
-						EMAPA:16187
-					</emapaId>
-					<groupPathStatus emapId="EMAP:291">
-						isGroupDirectDescendant
-					</groupPathStatus>
-				</timedComponent>
-				<timedComponent emapId="EMAP:292">
-					<name emapId="EMAP:292">
-						somite 08
-					</name>
-					<emapaId emapId="EMAP:292">
-						EMAPA:16188
-					</emapaId>
-					<groupPathStatus emapId="EMAP:292">
-						isGroupDirectDescendant
+					<groupPathStatus emapId="EMAP:34968">
+						notInGroupPath
 					</groupPathStatus>
 				</timedComponent>
 			</timedComponent>
@@ -4476,13 +5771,153 @@
 				<groupPathStatus emapId="EMAP:31879">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:31879">
-					body
-				</synonym>
+				<timedComponent emapId="EMAP:281">
+					<name emapId="EMAP:281">
+						trunk mesenchyme
+					</name>
+					<emapaId emapId="EMAP:281">
+						EMAPA:16177
+					</emapaId>
+					<groupPathStatus emapId="EMAP:281">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:282">
+						<name emapId="EMAP:282">
+							intermediate mesoderm
+						</name>
+						<emapaId emapId="EMAP:282">
+							EMAPA:16178
+						</emapaId>
+						<groupPathStatus emapId="EMAP:282">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:283">
+						<name emapId="EMAP:283">
+							lateral plate mesenchyme
+						</name>
+						<emapaId emapId="EMAP:283">
+							EMAPA:16179
+						</emapaId>
+						<groupPathStatus emapId="EMAP:283">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:284">
+							<name emapId="EMAP:284">
+								somatopleure
+							</name>
+							<emapaId emapId="EMAP:284">
+								EMAPA:16180
+							</emapaId>
+							<groupPathStatus emapId="EMAP:284">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:285">
+							<name emapId="EMAP:285">
+								splanchnopleure
+							</name>
+							<emapaId emapId="EMAP:285">
+								EMAPA:16181
+							</emapaId>
+							<groupPathStatus emapId="EMAP:285">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:294">
+						<name emapId="EMAP:294">
+							primordial germ cells
+						</name>
+						<emapaId emapId="EMAP:294">
+							EMAPA:16190
+						</emapaId>
+						<groupPathStatus emapId="EMAP:294">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EMAP:287">
+						<name emapId="EMAP:287">
+							trunk paraxial mesenchyme
+						</name>
+						<emapaId emapId="EMAP:287">
+							EMAPA:16183
+						</emapaId>
+						<groupPathStatus emapId="EMAP:287">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:288">
+							<name emapId="EMAP:288">
+								trunk somite group
+							</name>
+							<emapaId emapId="EMAP:288">
+								EMAPA:16184
+							</emapaId>
+							<groupPathStatus emapId="EMAP:288">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:289">
+								<name emapId="EMAP:289">
+									somite 05
+								</name>
+								<emapaId emapId="EMAP:289">
+									EMAPA:16185
+								</emapaId>
+								<groupPathStatus emapId="EMAP:289">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:290">
+								<name emapId="EMAP:290">
+									somite 06
+								</name>
+								<emapaId emapId="EMAP:290">
+									EMAPA:16186
+								</emapaId>
+								<groupPathStatus emapId="EMAP:290">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:291">
+								<name emapId="EMAP:291">
+									somite 07
+								</name>
+								<emapaId emapId="EMAP:291">
+									EMAPA:16187
+								</emapaId>
+								<groupPathStatus emapId="EMAP:291">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:292">
+								<name emapId="EMAP:292">
+									somite 08
+								</name>
+								<emapaId emapId="EMAP:292">
+									EMAPA:16188
+								</emapaId>
+								<groupPathStatus emapId="EMAP:292">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:293">
+							<name emapId="EMAP:293">
+								unsegmented mesenchyme
+							</name>
+							<emapaId emapId="EMAP:293">
+								EMAPA:16189
+							</emapaId>
+							<groupPathStatus emapId="EMAP:293">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
 			</timedComponent>
 		</timedComponent>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2011-01-18 10:34:49" number="8"/>
+	<anatomyDatabaseVersion date="2012-07-12 14:22:55" number="9"/>
 	<perspective>
 		Whole mouse
 	</perspective>

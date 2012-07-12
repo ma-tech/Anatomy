@@ -1,0 +1,10 @@
+{"json_data":{"data":[{"data":"Anatomy","attr":{"id":"li.node.ts01.root","ext_id":"EMAP:0","name":"Anatomy"},"children":[{"data":"mouse","attr":{"id":"li.node.TS01.id1","ext_id":"EMAP:25766","name":"mouse"},
+"children":[
+{"data":"first polar body","attr":{"id":"li.node.TS01.id2","ext_id":"EMAP:1","name":"first polar body"}},
+{"data":"one-cell stage","attr":{"id":"li.node.TS01.id3","ext_id":"EMAP:2","name":"one-cell stage"}},
+{"data":"polar body group","attr":{"id":"li.node.TS01.id4","ext_id":"EMAP:31909","name":"polar body group"},
+"children":[
+{"data":"first polar body","attr":{"id":"li.node.TS01.id5","ext_id":"EMAP:1","name":"first polar body"}},
+{"data":"second polar body","attr":{"id":"li.node.TS01.id6","ext_id":"EMAP:3","name":"second polar body"}}]},
+{"data":"second polar body","attr":{"id":"li.node.TS01.id7","ext_id":"EMAP:3","name":"second polar body"}},
+{"data":"zona pellucida","attr":{"id":"li.node.TS01.id8","ext_id":"EMAP:4","name":"zona pellucida"}}]}],"state":"closed"}],"progressive_render":true},"plugins":["themes","json_data","ui"]}

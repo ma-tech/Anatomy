@@ -25,9 +25,6 @@
 					<groupPathStatus emapId="EMAP:43">
 						notInGroupPath
 					</groupPathStatus>
-					<synonym emapId="EMAP:43">
-						primitive ectoderm
-					</synonym>
 				</timedComponent>
 				<timedComponent emapId="EMAP:45">
 					<name emapId="EMAP:45">
@@ -61,6 +58,17 @@
 							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
+					<timedComponent emapId="EMAP:34975">
+						<name emapId="EMAP:34975">
+							extraembryonic ectoderm
+						</name>
+						<emapaId emapId="EMAP:34975">
+							EMAPA:16065
+						</emapaId>
+						<groupPathStatus emapId="EMAP:34975">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
 					<timedComponent emapId="EMAP:48">
 						<name emapId="EMAP:48">
 							extraembryonic endoderm
@@ -92,9 +100,6 @@
 							<groupPathStatus emapId="EMAP:50">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:50">
-								distal endoderm
-							</synonym>
 							<timedComponent emapId="EMAP:51">
 								<name emapId="EMAP:51">
 									Reichert's membrane
@@ -234,9 +239,6 @@
 						<groupPathStatus emapId="EMAP:43">
 							isGroupDirectDescendant
 						</groupPathStatus>
-						<synonym emapId="EMAP:43">
-							primitive ectoderm
-						</synonym>
 					</timedComponent>
 					<timedComponent emapId="EMAP:44">
 						<name emapId="EMAP:44">
@@ -265,7 +267,7 @@
 			</timedComponent>
 		</onlyGroupsTree>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2011-01-18 10:34:49" number="8"/>
+	<anatomyDatabaseVersion date="2012-07-12 14:22:55" number="9"/>
 	<perspective>
 		Whole mouse
 	</perspective>

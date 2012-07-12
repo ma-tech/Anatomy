@@ -98,10 +98,10 @@ def _addToKnowledge(anatApo, deferReverse = False ):
 
     if anatApo.isPrimaryPath():
         nodeOid = anatApo.getNodeOid()
-        if nodeOid in _primaryPathByNodeOid:
-            Util.fatalError([
-                "Node OID " + str(nodeOid) + " occurs more than once " +
-                "in " + AnadPartOfDb.TABLE_NAME])
+        #if nodeOid in _primaryPathByNodeOid:
+        #    Util.fatalError([
+        #        "Node OID " + str(nodeOid) + " occurs more than once " +
+        #        "in " + AnadPartOfDb.TABLE_NAME])
         _primaryPathByNodeOid[nodeOid] = anatApo
 
     if not deferReverse:
@@ -117,7 +117,7 @@ def _initialise(initMethod):
     """
     Initialise this table, based on initMethod:
       __READ_TABLE read already existing records from the table
-      __DERIVE_TABLE regenerate the contents of the table.
+      __#DERIVE_TABLE regenerate the contents of the table.
     """
     global _partOfInReverseSequence
     _initialiseGlobals()
@@ -253,6 +253,9 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     
     for childRel in childRels:
         childOid = childRel.getChildOid()
+        
+        #print "childOid = %s" % childOid
+        
         # Filter out children that are outside current path's stage range
         childStartStage, childEndStage = Nodes.getStageWindowForNodeOid(childOid)
         childStart = childStartStage.getSequence()

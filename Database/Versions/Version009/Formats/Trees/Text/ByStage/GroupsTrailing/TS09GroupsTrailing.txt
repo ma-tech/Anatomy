@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 8, 2011-01-18 10:34:49 =====
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
 ===========================================================
 
 
@@ -18,9 +18,9 @@ TS09 Whole mouse Excluding Groups
 EMAP:25774   mouse
 EMAP:81      + cavities and their linings
 EMAP:82      | \ embryonic component of the proamniotic cavity
-EMAP:83      + ectoderm (syn: epithelium)
+EMAP:83      + ectoderm
 EMAP:84      + endoderm
-EMAP:85      | + definitive endoderm (syn: embryonic endoderm)
+EMAP:85      | + definitive endoderm
 EMAP:86      | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
 EMAP:89      + extraembryonic component
 EMAP:90      | + extraembryonic component cavities
@@ -29,12 +29,12 @@ EMAP:92      | | \ yolk sac cavity
 EMAP:93      | + extraembryonic ectoderm
 EMAP:94      | + extraembryonic endoderm
 EMAP:95      | | + intermediate endoderm
-EMAP:96      | | + parietal endoderm (syn: distal endoderm)
+EMAP:96      | | + parietal endoderm
 EMAP:97      | | | \ Reichert's membrane
 EMAP:98      | | \ visceral endoderm
 EMAP:99      | \ trophectoderm
 EMAP:100     |   + mural trophectoderm
-EMAP:101     |   | \ primary trophoblast giant cells (syn: primary trophoblastic giant cells)
+EMAP:101     |   | \ primary trophoblast giant cells
 EMAP:102     |   \ polar trophectoderm
 EMAP:103     |     \ ectoplacental cone
 EMAP:104     |       + cytotrophoblast
@@ -62,9 +62,9 @@ EMAP:25774   mouse
 EMAP:80    G \ embryo
 EMAP:81    >   + cavities and their linings
 EMAP:82    ~   | \ embryonic component of the proamniotic cavity
-EMAP:83    >   + ectoderm (syn: epithelium)
+EMAP:83    >   + ectoderm
 EMAP:84    >   + endoderm
-EMAP:85    ~   | + definitive endoderm (syn: embryonic endoderm)
+EMAP:85    ~   | + definitive endoderm
 EMAP:86    ~   | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
 EMAP:87    >   + mesoderm
 EMAP:88    >   \ primitive streak

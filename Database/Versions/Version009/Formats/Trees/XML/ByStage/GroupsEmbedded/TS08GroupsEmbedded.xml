@@ -126,9 +126,6 @@
 					<groupPathStatus emapId="EMAP:62">
 						isGroupDirectDescendant
 					</groupPathStatus>
-					<synonym emapId="EMAP:62">
-						primitive ectoderm
-					</synonym>
 				</timedComponent>
 			</timedComponent>
 			<timedComponent emapId="EMAP:60">
@@ -175,9 +172,6 @@
 				<groupPathStatus emapId="EMAP:62">
 					notInGroupPath
 				</groupPathStatus>
-				<synonym emapId="EMAP:62">
-					primitive ectoderm
-				</synonym>
 			</timedComponent>
 			<timedComponent emapId="EMAP:63">
 				<name emapId="EMAP:63">
@@ -264,9 +258,6 @@
 						<groupPathStatus emapId="EMAP:70">
 							notInGroupPath
 						</groupPathStatus>
-						<synonym emapId="EMAP:70">
-							distal endoderm
-						</synonym>
 						<timedComponent emapId="EMAP:71">
 							<name emapId="EMAP:71">
 								Reichert's membrane
@@ -321,9 +312,6 @@
 							<groupPathStatus emapId="EMAP:75">
 								notInGroupPath
 							</groupPathStatus>
-							<synonym emapId="EMAP:75">
-								primary trophoblastic giant cells
-							</synonym>
 						</timedComponent>
 					</timedComponent>
 					<timedComponent emapId="EMAP:76">
@@ -374,7 +362,7 @@
 			</timedComponent>
 		</timedComponent>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2011-01-18 10:34:49" number="8"/>
+	<anatomyDatabaseVersion date="2012-07-12 14:22:55" number="9"/>
 	<perspective>
 		Whole mouse
 	</perspective>

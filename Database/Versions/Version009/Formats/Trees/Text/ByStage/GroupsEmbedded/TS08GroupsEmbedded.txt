@@ -1,6 +1,6 @@
 
 ===========================================================
-===== Anatomy Database Version 8, 2011-01-18 10:34:49 =====
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
 ===========================================================
 
 
@@ -28,10 +28,10 @@ EMAP:58    > | + cavities and their linings
 EMAP:59    ~ | | \ embryonic component of the proamniotic cavity
 EMAP:60    > | + endoderm
 EMAP:61    ~ | | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
-EMAP:62    > | \ epiblast (syn: primitive ectoderm)
+EMAP:62    > | \ epiblast
 EMAP:60      + endoderm
 EMAP:61      | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
-EMAP:62      + epiblast (syn: primitive ectoderm)
+EMAP:62      + epiblast
 EMAP:63      \ extraembryonic component
 EMAP:64        + extraembryonic component cavities
 EMAP:65        | + proamniotic cavity extraembryonic part
@@ -39,12 +39,12 @@ EMAP:66        | \ yolk sac cavity
 EMAP:67        + extraembryonic ectoderm
 EMAP:68        + extraembryonic endoderm
 EMAP:69        | + intermediate endoderm
-EMAP:70        | + parietal endoderm (syn: distal endoderm)
+EMAP:70        | + parietal endoderm
 EMAP:71        | | \ Reichert's membrane
 EMAP:72        | \ visceral endoderm
 EMAP:73        \ trophectoderm
 EMAP:74          + mural trophectoderm
-EMAP:75          | \ primary trophoblast giant cells (syn: primary trophoblastic giant cells)
+EMAP:75          | \ primary trophoblast giant cells
 EMAP:76          \ polar trophectoderm
 EMAP:77            \ ectoplacental cone
 EMAP:78              + cytotrophoblast

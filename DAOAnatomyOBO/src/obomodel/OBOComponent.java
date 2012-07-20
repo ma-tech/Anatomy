@@ -43,6 +43,24 @@ import daomodel.OBOFile;
 
 public class OBOComponent {
 
+	// CONSTANTS
+    private static final int ERROR_STAGE = -1;
+    private static final String ERROR_STAGE_STR = "UNKNOWN";
+    
+    private static final int MIN_MOUSE_STAGE = 0;
+    private static final int MIN_HUMAN_STAGE = 0;
+    private static final int MIN_CHICK_STAGE = 0;
+    private static final String MIN_MOUSE_STAGE_STR = "TS01";
+    private static final String MIN_HUMAN_STAGE_STR = "CS01";
+    private static final String MIN_CHICK_STAGE_STR = "EGK-I";
+    
+    private static final int MAX_MOUSE_STAGE = 27;
+    private static final int MAX_HUMAN_STAGE = 25;
+    private static final int MAX_CHICK_STAGE = 60;
+    private static final String MAX_MOUSE_STAGE_STR = "TS28";
+    private static final String MAX_HUMAN_STAGE_STR = "CS23";
+    private static final String MAX_CHICK_STAGE_STR = "HH48";
+
     // obocomponent fields
     private String name;
     private String id;
@@ -680,12 +698,35 @@ public class OBOComponent {
     		this.startSequence = 60;
     	}
     	else {
-    		this.startSequence = -1;
+    		this.startSequence = ERROR_STAGE;
     	}
     }
+    
+    public void setStartSequenceMin(String species) {
+
+        if (species.equals("mouse")) {
+        	this.startSequence = MIN_MOUSE_STAGE;
+    	    this.start = MIN_MOUSE_STAGE_STR;
+        }
+        else if (species.equals("human")) {
+        	this.startSequence = MIN_HUMAN_STAGE;
+    	    this.start = MIN_HUMAN_STAGE_STR;
+        }
+        else if (species.equals("chick")) {
+        	this.startSequence = MIN_CHICK_STAGE;
+    	    this.start = MIN_CHICK_STAGE_STR;
+        }
+        else  {
+        	this.startSequence = ERROR_STAGE;
+    	    this.start = ERROR_STAGE_STR;
+        }
+    }
+
     public void setStartSequence( int startSequence, String species ) {
+    	
         this.startSequence = startSequence;
-    	if (species.equals("mouse")) {
+    	
+        if (species.equals("mouse")) {
             if (startSequence == 0) {
         	    this.start = "TS01";
         	}
@@ -1038,11 +1079,14 @@ public class OBOComponent {
         	}
     	}
     	else {
-    		this.start = "UNKNOWN";
+    		this.start = ERROR_STAGE_STR;
     	}
     }
+    
     public void setEnd( String end ) {
+    	
     	this.end = end;
+    	
     	if (this.end.equals("TS01")) {
     		this.endSequence = 0;
     	}
@@ -1389,12 +1433,35 @@ public class OBOComponent {
     		this.endSequence = 60;
     	}
     	else {
-    		this.endSequence = -1;
+    		this.endSequence = ERROR_STAGE;
     	}
     }
+    
+    public void setEndSequenceMax(String species) {
+
+        if (species.equals("mouse")) {
+        	this.endSequence = MAX_MOUSE_STAGE;
+    	    this.end = MAX_MOUSE_STAGE_STR;
+        }
+        else if (species.equals("human")) {
+        	this.endSequence = MAX_HUMAN_STAGE;
+    	    this.end = MAX_HUMAN_STAGE_STR;
+        }
+        else if (species.equals("chick")) {
+        	this.endSequence = MAX_CHICK_STAGE;
+    	    this.end = MAX_CHICK_STAGE_STR;
+        }
+        else  {
+        	this.endSequence = ERROR_STAGE;
+    	    this.end = ERROR_STAGE_STR;
+        }
+    }
+
     public void setEndSequence( int endSequence, String species ) {
+    	
         this.endSequence = endSequence;
-    	if (species.equals("mouse")) {
+    	
+        if (species.equals("mouse")) {
             if (endSequence == 0) {
         	    this.end = "TS01";
         	}
@@ -1747,9 +1814,10 @@ public class OBOComponent {
         	}
     	}
     	else {
-    		this.end = "UNKNOWN";
+    		this.end = ERROR_STAGE_STR;
     	}
     }
+    
     public void setPresent( int present ){
         this.present = present;
     }

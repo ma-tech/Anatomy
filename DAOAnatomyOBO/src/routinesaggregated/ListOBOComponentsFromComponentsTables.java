@@ -102,14 +102,14 @@ public class ListOBOComponentsFromComponentsTables {
             		obocomponent.setGroup(ObjectConverter.convert(component.getGroup(), Boolean.class));
             		
             		if ( "TBD".equals(component.getStart().replace("\n", " ").trim()) ){
-                		obocomponent.setStart("");
+            			obocomponent.setStartSequenceMin( obofactory.getComponentOBO().species() );
             		}
             		else {
                 		obocomponent.setStart(component.getStart().replace("\n", " ").trim());
             		}
             		
             		if ( "TBD".equals(component.getEnd().replace("\n", " ").trim()) ){
-                		obocomponent.setEnd("");
+            			obocomponent.setEndSequenceMax( obofactory.getComponentOBO().species() );
             		}
             		else {
                 		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());

@@ -1,7 +1,7 @@
 #! /bin/bash
 #########################################################################
 # Project:      Anatomy
-# Title:        Extract OBO File from existing Database - Version009 and on
+# Title:        Reload Anatomy Database - Human009 and on
 # Date:         April 2012
 # Author:       Mike Wicks
 # Copyright:    2009 Medical Research Council, UK.
@@ -15,5 +15,6 @@
 
 # /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/Scripts
 
-echo 'Extract OBO File from existing Database'
-java -jar ../../../../DAOAnatomyRebuild/MainOBOExtractOBOFromExistingDatabase.jar 
+echo 'Reload Anatomy Database'
+echo 'drop database human009; create database human009;' | mysql -uroot -pbanana human009
+mysql -uroot -pbanana human009 < ../../../Versions/Human009/Formats/Dumps/mySqlSchemaOldDataRoutinesDump.sql

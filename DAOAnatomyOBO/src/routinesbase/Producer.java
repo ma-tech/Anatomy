@@ -198,18 +198,16 @@ public class Producer {
                         // part_of relationships
                         for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
                         	
-                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("SURROUNDS")) {
-                                outputFile.write("relationship: surrounds " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DERIVES_FROM")) {
-                                outputFile.write("relationship: derives_from " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_FROM")) {
+                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_FROM")) {
                                 outputFile.write("relationship: develops_from " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
+                        	/*
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("SURROUNDS")) {
+                                outputFile.write("relationship: surrounds " +
+                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
+                            }
+                            */
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("LOCATED_IN")) {
                                 outputFile.write("relationship: located_in " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");

@@ -204,6 +204,28 @@ public class Parser {
                     }
                     */
 
+                    /*
+                    public OBOComponent(String name, 
+			    		String id,
+			    		String dbID,
+			    		String newid,
+			    		String namespace,
+			    		String definition,
+			    		Boolean group,
+			    		String start,
+			    		String end,
+			    		Integer present, 
+			    		String statusChange, 
+			    		String statusRule,
+			    		ArrayList<String> childOfs,
+			    		ArrayList<String> childOfTypes,
+			    		ArrayList<String> synonyms, 
+			    		ArrayList<String> userComments,
+			    		String orderComment,
+			    		TreeSet<String> comments,
+			    		ArrayList<String> alternativeIds
+			    	)
+                    */
                     OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
                     		oboclassimpl.getID(), 
                     		"TBD",
@@ -311,10 +333,12 @@ public class Parser {
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("DISJOINT_FROM");
                         }
+                        /*
                         else if (oborestrictionimpl.getType().getID().equals("surrounds")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("SURROUNDS");
                         }
+                        */
                         else if (oborestrictionimpl.getType().getID().equals("attached_to")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("ATTACHED_TO");
@@ -346,6 +370,28 @@ public class Parser {
             	ArrayList<String> userComments = new ArrayList<String>();
             	TreeSet<String> comments = new TreeSet<String>();
 
+                /*
+                public OBOComponent(String name, 
+		    		String id,
+		    		String dbID,
+		    		String newid,
+		    		String namespace,
+		    		String definition,
+		    		Boolean group,
+		    		String start,
+		    		String end,
+		    		Integer present, 
+		    		String statusChange, 
+		    		String statusRule,
+		    		ArrayList<String> childOfs,
+		    		ArrayList<String> childOfTypes,
+		    		ArrayList<String> synonyms, 
+		    		ArrayList<String> userComments,
+		    		String orderComment,
+		    		TreeSet<String> comments,
+		    		ArrayList<String> alternativeIds
+		    	)
+                */
             	OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
             		oboclassimpl.getID(), 
                     "TBD",

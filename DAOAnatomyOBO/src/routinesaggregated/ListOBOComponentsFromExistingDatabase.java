@@ -140,9 +140,11 @@ public class ListOBOComponentsFromExistingDatabase {
                     else if ( nrrpJoin.getTypeFK().equals("disjoint_from") ) {
                     	obocomponent.addChildOfType( "DISJOINT_FROM" );
                     }
+                    /*
                     else if ( nrrpJoin.getTypeFK().equals("surrounds") ) {
                     	obocomponent.addChildOfType( "SURROUNDS" );
                     }
+                    */
                     else if ( nrrpJoin.getTypeFK().equals("attached-to") ) {
                     	obocomponent.addChildOfType( "ATTACHED_TO" );
                     }

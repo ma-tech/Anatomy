@@ -13,8 +13,8 @@
 # Maintenance:  Log changes below, with most recent at top of list.
 #########################################################################
 
-# /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/Scripts
+# /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion009/Scripts
 
 # BACKUP Anatomy Database'
 echo 'BACKUP Anatomy Database'
-mysqldump -uroot -pbanana --routines anatomy008 > ../../../Versions/Version009/Formats/Dumps/mySqlSchemaOldDataRoutinesDump.sql
+mysqldump -uroot -pbanana --routines anatomy009 > ../../../Versions/Version009/Formats/Dumps/mySqlSchemaOldDataRoutinesDump.sql

@@ -44,13 +44,26 @@ import obomodel.OBOComponent;
 
 public class ValidateComponents {
 
-	private String species;
+	// CONSTANTS
+    private static final int ERROR_STAGE = -1;
+	private static final int MIN_MOUSE_STAGE = 0;
+    private static final int MIN_HUMAN_STAGE = 0;
+    private static final int MIN_CHICK_STAGE = 0;
+    private static final int MAX_MOUSE_STAGE = 27;
+    private static final int MAX_HUMAN_STAGE = 25;
+    private static final int MAX_CHICK_STAGE = 60;
+
+    // Attributes
+    private String species;
 	
     private OBOComponent abstractclassobocomponent; 
     private OBOComponent stageclassobocomponent; 
     private OBOComponent groupclassobocomponent; 
     private OBOComponent grouptermclassobocomponent; 
 	
+    private int minStartSequence; 
+    private int maxEndSequence; 
+
     private ArrayList<OBOComponent> proposedTermList = null; 
     //new OBO file <= all checks are appended to this file,
     // used to build maps+trees
@@ -123,6 +136,8 @@ public class ValidateComponents {
         this.species = species;
 
         if ( "mouse".equals(this.species)) {
+            this.minStartSequence = MIN_MOUSE_STAGE;
+            this.maxEndSequence = MAX_MOUSE_STAGE; 
             // 1: set abstract class parameters
             this.abstractclassobocomponent.setName( "Abstract anatomy" );
             this.abstractclassobocomponent.setID( "EMAPA:0" );
@@ -141,6 +156,8 @@ public class ValidateComponents {
             this.grouptermclassobocomponent.setNamespace( "group_term" );
         }
         if ( "chick".equals(this.species)) {
+            this.minStartSequence = MIN_CHICK_STAGE; 
+            this.maxEndSequence = MAX_CHICK_STAGE; 
             // 1: set abstract class parameters
             this.abstractclassobocomponent.setName( "Abstract anatomy" );
             this.abstractclassobocomponent.setID( "EMAPA:0" );
@@ -159,22 +176,24 @@ public class ValidateComponents {
             this.grouptermclassobocomponent.setNamespace( "group_term" );
         }
         if ( "human".equals(this.species)) {
-            // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract anatomy" );
-            this.abstractclassobocomponent.setID( "EHDAA2:0" );
-            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            this.minStartSequence = MIN_HUMAN_STAGE;
+            this.maxEndSequence = MAX_HUMAN_STAGE;
+        	// 1: set abstract class parameters
+            this.abstractclassobocomponent.setName( "Abstract human developmental anatomy" );
+            this.abstractclassobocomponent.setID( "EHDAA2:0000000" );
+            this.abstractclassobocomponent.setNamespace( "human_developmental_anatomy" );
             // 2: set stage class parameters
             this.stageclassobocomponent.setName( "Carnegie stage" );
             this.stageclassobocomponent.setID( "CS:0" );
             this.stageclassobocomponent.setNamespace( "carnegie_stage" );
             // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "Tmp new group" );
-            this.groupclassobocomponent.setID( "Tmp_new_group" );
-            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            this.groupclassobocomponent.setName( "cell" );
+            this.groupclassobocomponent.setID( "CL:0000000" );
+            this.groupclassobocomponent.setNamespace( "cell" );
             // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "Group term" );
-            this.grouptermclassobocomponent.setID( "group_term" );
-            this.grouptermclassobocomponent.setNamespace( "group_term" );
+            this.grouptermclassobocomponent.setName( "anatomical entity" );
+            this.grouptermclassobocomponent.setID( "CARO:0000000" );
+            this.grouptermclassobocomponent.setNamespace( "http\\://www.xspan.org/obo.owl#" );
         }
         //clear all comments and status from original term list so that
         // children of
@@ -327,7 +346,7 @@ public class ValidateComponents {
             // 4: group term class parameters
             this.grouptermclassobocomponent.setName( "anatomical entity" );
             this.grouptermclassobocomponent.setID( "CARO:0000000" );
-            this.grouptermclassobocomponent.setNamespace( "http\\://www.xspan.org/obo.owl#" );
+            this.grouptermclassobocomponent.setNamespace( "http://www.xspan.org/obo.owl" );
         }
 
         //clear all comments and status from original term list
@@ -438,28 +457,38 @@ public class ValidateComponents {
             rootName = rootobocomponent.getName();
 
             /*
+            System.out.println("=============");
             System.out.println("emapID        = " + emapID);
             System.out.println("rootNameSpace = " + rootNameSpace);
             System.out.println("rootName      = " + rootName);
-
+            System.out.println("=============");
             System.out.println("abstractclassobocomponent.getID()         = " + abstractclassobocomponent.getID());
             System.out.println("abstractclassobocomponent.getNamespace()  = " + abstractclassobocomponent.getNamespace());
             System.out.println("abstractclassobocomponent.getName()       = " + abstractclassobocomponent.getName());
+            System.out.println("-------------");
             System.out.println("stageclassobocomponent.getID()            = " + stageclassobocomponent.getID());
             System.out.println("stageclassobocomponent.getNamespace()     = " + stageclassobocomponent.getNamespace());
             System.out.println("stageclassobocomponent.getName()          = " + stageclassobocomponent.getName());
+            System.out.println("-------------");
             System.out.println("groupclassobocomponent.getID()            = " + groupclassobocomponent.getID());
             System.out.println("groupclassobocomponent.getNamespace()     = " + groupclassobocomponent.getNamespace());
             System.out.println("groupclassobocomponent.getName()          = " + groupclassobocomponent.getName());
+            System.out.println("-------------");
             System.out.println("grouptermclassobocomponent.getID()        = " + grouptermclassobocomponent.getID());
             System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
             System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
+            System.out.println("=============");
         	*/
-        	
+            
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             	abstractclassobocomponent.getName().equals( rootName ) ){
 
+            	/*
+                System.out.println("-------------");
+                System.out.println("PASSED - abstractclassobocomponent");
+                System.out.println("-------------");
+                */
             	abstractclassobocomponent.setStatusRule("PASSED"); 
                 //note not the tree component - but gui ref component
                 //set abstract anatomy tree roots
@@ -470,6 +499,11 @@ public class ValidateComponents {
             		stageclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		stageclassobocomponent.getName().equals( rootName ) ) {
                 
+            	/*
+                System.out.println("-------------");
+                System.out.println("PASSED - stageclassobocomponent");
+                System.out.println("-------------");
+                */
             	stageclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false 
                 //  to exclude primary paths leading back to this term from
@@ -482,6 +516,11 @@ public class ValidateComponents {
             		groupclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		groupclassobocomponent.getName().equals( rootName ) ){
                 
+            	/*
+                System.out.println("-------------");
+                System.out.println("PASSED - groupclassobocomponent");
+                System.out.println("-------------");
+                */
             	groupclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
@@ -492,6 +531,11 @@ public class ValidateComponents {
             		grouptermclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		grouptermclassobocomponent.getName().equals( rootName ) ){
                 
+            	/*
+                System.out.println("-------------");
+                System.out.println("PASSED - grouptermclassobocomponent");
+                System.out.println("-------------");
+                */
             	grouptermclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
@@ -501,6 +545,12 @@ public class ValidateComponents {
             else if ( rootobocomponent.commentsContain("INFO: Obsolete Term") ){
                 //obsolete terms appear as roots
                 //don't allow to fail
+
+                /*
+                System.out.println("-------------");
+                System.out.println("PASSED - INFO: Obsolete Term");
+                System.out.println("-------------");
+                */
                 rootobocomponent.setStatusRule("PASSED");
                 rootobocomponent.setCheckComment("Component has been deleted " +
                         "correctly from OBO File and can be scheduled for " +
@@ -514,6 +564,11 @@ public class ValidateComponents {
                 } 
             }
             else {
+            	/*
+                System.out.println("-------------");
+                System.out.println("FAILED - ALL");
+                System.out.println("-------------");
+                */
                 rootobocomponent.setStatusRule("FAILED");
                 rootobocomponent.setCheckComment("INFO: Root node not defined " +
                     "by OBO2DB NameSpace Configurations.");
@@ -692,46 +747,87 @@ public class ValidateComponents {
         //for (int i = 0; i < this.proposedTermList.size(); i++) {
         //    obocomponent = this.proposedTermList.get(i);
         for (int i = 0; i < this.abstractTermList.size(); i++){
+        	
             obocomponent = this.abstractTermList.get(i);
             
         	obocomponent.setStatusRule("PASSED");
             
-            if (obocomponent.getEndSequence() == -1 ) {
+            if (obocomponent.getEndSequence() == ERROR_STAGE && 
+                obocomponent.getStartSequence() == ERROR_STAGE ) {
 
-            	System.out.println(obocomponent.getID() + ": " +
-                 "Relation: Ends At -- Missing ends_at stage!");
-                
-            	obocomponent.setFlagMissingRel(true);
-                obocomponent.setCheckComment("Relation: ends_at -- " +
-                    "Missing ends at stage - Component's stage range " +
-                    "cannot be determined.");
-
-                obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
+            	obocomponent.setStartSequenceMin(species);
+            	obocomponent.setEndSequenceMax(species);
             }
-
-            else if (obocomponent.getStartSequence() == -1 ) {
+            else if (obocomponent.getEndSequence() != ERROR_STAGE && 
+                    obocomponent.getStartSequence() == ERROR_STAGE ) {
 
             	System.out.println(obocomponent.getID() + ": " +
-                 "Relation: Starts At -- Missing starts_at stage!");
-                
-            	obocomponent.setFlagMissingRel(true);
+                        "Relation: Starts At -- Missing starts_at stage!");
+                       
+                obocomponent.setFlagMissingRel(true);
                 obocomponent.setCheckComment("Relation: starts_at -- Missing " +
-                    "starts at stage - Component's stage range cannot be " +
-                    "determined.");
+                           "starts at stage - Component's stage range cannot be " +
+                           "determined.");
 
                 obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
             }
+            else if (obocomponent.getEndSequence() == ERROR_STAGE && 
+                    obocomponent.getStartSequence() != ERROR_STAGE ) {
+
+            	System.out.println(obocomponent.getID() + ": " +
+                        "Relation: Ends At -- Missing ends_at stage!");
+                       
+                obocomponent.setFlagMissingRel(true);
+                obocomponent.setCheckComment("Relation: ends_at -- " +
+                           "Missing ends at stage - Component's stage range " +
+                           "cannot be determined.");
+
+                obocomponent.setStatusRule("FAILED");
+            }
+            else if (obocomponent.getEndSequence() != ERROR_STAGE && 
+                    obocomponent.getStartSequence() != ERROR_STAGE ) {
+            	
+                if ( obocomponent.getEndSequence() < obocomponent.getStartSequence() ) {
+                	
+                    //check whether end after (or same stage as) start
+                    
+                	System.out.println(obocomponent.getID() + ": " +
+                     "Relation: Ends At + Starts At -- Ends_at stage " +
+                     "earlier than Starts_at stage!");
+                    
+                    obocomponent.setFlagMissingRel(true);
+                    obocomponent.setCheckComment("Relation: starts_at, ends_at " +
+                        "-- Ends at stage earlier than starts at stage.");
+
+                    obocomponent.setStatusRule("FAILED");
+                }
+                else if ( (obocomponent.getStartSequence() < minStartSequence ) ||
+                         (obocomponent.getEndSequence() > maxEndSequence ) ) {
+                    	
+                    //check whether stages are out of range
+
+                	System.out.println(obocomponent.getID() + ": " +
+                            "Relation: Stages are out of range! [Start: " +
+                            Integer.toString(obocomponent.getStartSequence()) + ", Ends: " +
+                            Integer.toString(obocomponent.getEndSequence()) + "]");
+                        
+                    obocomponent.setFlagMissingRel(true);
+                    obocomponent.setCheckComment("Relation: starts_at, ends_at " +
+                            "-- Stages are out of range! [Start Stage:" +
+                            obocomponent.getStart() +
+                            ", End Stage:" +
+                            obocomponent.getEnd() +
+                            "] OBOComponent cannot exist "+
+                            "earlier than First Stage or later than " +
+                            "Last Stage.");
+                        
+                    obocomponent.setStatusRule("FAILED");
+                }
+            }
+
 
             //check missing part_of link
-            else if (obocomponent.getChildOfs().isEmpty() ){
+            if (obocomponent.getChildOfs().isEmpty() ){
             	
                 System.out.println(obocomponent.getID() + ": " +
                  "Relation: Part Of -- No parent entry!");
@@ -742,61 +838,13 @@ public class ValidateComponents {
                     "parents.");
                 
                 obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
             }
-            
-            //check whether end after (or same stage as) start
-            else if ( obocomponent.getEndSequence() < obocomponent.getStartSequence() ) {
-            	
-                System.out.println(obocomponent.getID() + ": " +
-                 "Relation: Ends At + Starts At -- Ends_at stage " +
-                 "earlier than Starts_at stage!");
-                
-                obocomponent.setFlagMissingRel(true);
-                obocomponent.setCheckComment("Relation: starts_at, ends_at " +
-                    "-- Ends at stage earlier than starts at stage.");
-
-                obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
-            }
-
-            //check whether stages are out of range
-            else if ( (obocomponent.getStartSequence() < 0) ||
-                     (obocomponent.getEndSequence() > 27) ) {
-                	
-                System.out.println(obocomponent.getID() + ": " +
-                        "Relation: Stages are out of range! [Start: " +
-                        Integer.toString(obocomponent.getStartSequence()) + ", Ends: " +
-                        Integer.toString(obocomponent.getEndSequence()) + "]");
-                    
-                obocomponent.setFlagMissingRel(true);
-                obocomponent.setCheckComment("Relation: starts_at, ends_at " +
-                        "-- Stages are out of range! [Start Stage:" +
-                        obocomponent.getStart() +
-                        ", End Stage:" +
-                        obocomponent.getEnd() +
-                        "] OBOComponent cannot exist "+
-                        "earlier than First Stage or later than " +
-                        "Last Stage.");
-                    
-                obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
-           }
 
             //check whether component is linked to a phantom parent
             // (marked already by mapbuilder)
             //if ( obocomponent.getCheckComments().contains(
             //    "Broken Link: Phantom parent") ){
-            else if ( obocomponent.commentsContain("Broken Link: Phantom parent") ){
+            if ( obocomponent.commentsContain("Broken Link: Phantom parent") ){
                 System.out.println(obocomponent.getID() + ": " +
                  "Relation: Part Of -- Parent has been deleted from " +
                  "file!");
@@ -809,10 +857,6 @@ public class ValidateComponents {
                     "terms for this component in the OBO tree!");
 
                 obocomponent.setStatusRule("FAILED");
-
-                this.passRedTermList.remove(obocomponent);
-                this.problemTermList.remove(obocomponent);
-                this.problemTermList.add(obocomponent);
             }
 
             //check whether each component has been assigned a primary
@@ -821,21 +865,19 @@ public class ValidateComponents {
             //check whether there are any invalid order comments that 
             // can't be picked up in order validation because they are
             // invalid
-            else if ( obocomponent.hasIncorrectOrderComments() ){
+            if ( obocomponent.hasIncorrectOrderComments() ){
 
             	obocomponent.setFlagMissingRel(true);
+                obocomponent.setStatusRule("FAILED");
+            }
+            
+            if ( obocomponent.getStatusRule().equals("FAILED") ) {
 
                 this.passRedTermList.remove(obocomponent);
                 this.problemTermList.remove(obocomponent);
                 this.problemTermList.add(obocomponent);
-
-                obocomponent.setStatusRule("FAILED");
             }
-            else {
-                obocomponent.setStatusRule("PASSED");
-            }
-
-        }
+         }
     }
 
     

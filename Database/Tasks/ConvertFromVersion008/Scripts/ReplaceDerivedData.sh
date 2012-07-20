@@ -16,4 +16,4 @@
 # /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromVersion008/Scripts
 
 echo 'Replace Derived Data'
-mysql -uroot -pbanana anatomy008 < ../SQLFiles/PostProcessing/replaceDerivedData.sql
+mysql -uroot -pbanana anatomy009 < ../SQLFiles/PostProcessing/replaceDerivedData.sql

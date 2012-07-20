@@ -1677,10 +1677,12 @@ public class GenerateSQL {
                         	
                             strREL_RELATIONSHIP_TYPE_FK = "disjoint-from";
                         }
+                        /*
                         else if ( insertRelObject.getChildOfTypes().get(0).equals("SURROUNDS")) {
                         	
                             strREL_RELATIONSHIP_TYPE_FK = "surrounds";
                         }
+                        */
                         else if ( insertRelObject.getChildOfTypes().get(0).equals("ATTACHED_TO")) {
                         	
                             strREL_RELATIONSHIP_TYPE_FK = "attached-to";
@@ -3844,10 +3846,12 @@ public class GenerateSQL {
                    	
                     	databasecomponent.addChildOfType("disjoint-from");
                     }
+                    /*
                     else if ( joinnoderelationship.getTypeFK().equals("SURROUNDS")) {
                    	
                     	databasecomponent.addChildOfType("surrounds");
                     }
+                    */
                     else if ( joinnoderelationship.getTypeFK().equals("ATTACHED_TO")) {
                    	
                     	databasecomponent.addChildOfType("attached-to");
@@ -4168,10 +4172,12 @@ public class GenerateSQL {
                            	
                             	deleteRelComponent.addChildOfType("DISJOINT_FROM");
                             }
+                            /*
                             else if ( relationship.getTypeFK().equals("surrounds")) {
                            	
                             	deleteRelComponent.addChildOfType("SURROUNDS");
                             }
+                            */
                             else if ( relationship.getTypeFK().equals("attached-to")) {
                            	
                             	deleteRelComponent.addChildOfType("ATTACHED_TO");

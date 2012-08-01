@@ -38,22 +38,40 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-//import javax.swing.tree.TreePath;
+
+import daolayer.DAOException;
 
 import obomodel.OBOComponent;
+
+import obolayer.OBOFactory;
+
+import obolayer.OBOException;
+
 
 public class ValidateComponents {
 
 	// CONSTANTS
     private static final int ERROR_STAGE = -1;
-	private static final int MIN_MOUSE_STAGE = 0;
-    private static final int MIN_HUMAN_STAGE = 0;
-    private static final int MIN_CHICK_STAGE = 0;
-    private static final int MAX_MOUSE_STAGE = 27;
-    private static final int MAX_HUMAN_STAGE = 25;
-    private static final int MAX_CHICK_STAGE = 60;
-
+    
     // Attributes
+    private OBOFactory obofactory; 
+
+    private String AbstractClassName; 
+    private String AbstractClassId; 
+    private String AbstractClassNamespace; 
+
+    private String StageClassName; 
+    private String StageClassId; 
+    private String StageClassNamespace; 
+
+    private String GroupClassName; 
+    private String GroupClassId; 
+    private String GroupClassNamespace; 
+
+    private String GroupTermClassName; 
+    private String GroupTermClassId; 
+    private String GroupTermClassNamespace; 
+
     private String species;
 	
     private OBOComponent abstractclassobocomponent; 
@@ -109,294 +127,274 @@ public class ValidateComponents {
 
     // Constructor ---------------------------------------------------------------------------------
     //  A - 2 Lists of Terms
-    public ValidateComponents(Boolean debug, 
-    		String species,
+    public ValidateComponents(OBOFactory obofactory,
     		ArrayList<OBOComponent> newTermList, 
             ArrayList<OBOComponent> oldTermList, 
             TreeBuilder treebuilder ) {
 
-        this.debug = debug;
-        
-        if (this.debug) {
+    	try {
+        	this.obofactory = obofactory;
         	
-            System.out.println("==================");
-            System.out.println("ValidateComponents - Constructor #1 - 2 Lists");
-            System.out.println("==================");
-        }
+            this.debug = obofactory.getComponentOBO().debug();
+            
+            if (this.debug) {
+            	
+                System.out.println("==================");
+                System.out.println("ValidateComponents - Constructor #1 - 2 Lists");
+                System.out.println("==================");
+            }
 
-    	// 1: set abstract class parameters
-        this.abstractclassobocomponent = new OBOComponent();
-        // 2: set stage class parameters
-        this.stageclassobocomponent = new OBOComponent();
-        // 3: temporary new group class parameters
-        this.groupclassobocomponent = new OBOComponent();
-        // 4: group term class parameters
-        this.grouptermclassobocomponent = new OBOComponent();
-
-        this.species = species;
-
-        if ( "mouse".equals(this.species)) {
-            this.minStartSequence = MIN_MOUSE_STAGE;
-            this.maxEndSequence = MAX_MOUSE_STAGE; 
-            // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract anatomy" );
-            this.abstractclassobocomponent.setID( "EMAPA:0" );
-            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-            // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Theiler stage" );
-            this.stageclassobocomponent.setID( "TS:0" );
-            this.stageclassobocomponent.setNamespace( "theiler_stage" );
-            // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "Tmp new group" );
-            this.groupclassobocomponent.setID( "Tmp_new_group" );
-            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
-            // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "Group term" );
-            this.grouptermclassobocomponent.setID( "group_term" );
-            this.grouptermclassobocomponent.setNamespace( "group_term" );
-        }
-        if ( "chick".equals(this.species)) {
-            this.minStartSequence = MIN_CHICK_STAGE; 
-            this.maxEndSequence = MAX_CHICK_STAGE; 
-            // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract anatomy" );
-            this.abstractclassobocomponent.setID( "EMAPA:0" );
-            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-            // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Theiler stage" );
-            this.stageclassobocomponent.setID( "TS:0" );
-            this.stageclassobocomponent.setNamespace( "theiler_stage" );
-            // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "Tmp new group" );
-            this.groupclassobocomponent.setID( "Tmp_new_group" );
-            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
-            // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "Group term" );
-            this.grouptermclassobocomponent.setID( "group_term" );
-            this.grouptermclassobocomponent.setNamespace( "group_term" );
-        }
-        if ( "human".equals(this.species)) {
-            this.minStartSequence = MIN_HUMAN_STAGE;
-            this.maxEndSequence = MAX_HUMAN_STAGE;
         	// 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract human developmental anatomy" );
-            this.abstractclassobocomponent.setID( "EHDAA2:0000000" );
-            this.abstractclassobocomponent.setNamespace( "human_developmental_anatomy" );
+            this.abstractclassobocomponent = new OBOComponent();
             // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Carnegie stage" );
-            this.stageclassobocomponent.setID( "CS:0" );
-            this.stageclassobocomponent.setNamespace( "carnegie_stage" );
+            this.stageclassobocomponent = new OBOComponent();
             // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "cell" );
-            this.groupclassobocomponent.setID( "CL:0000000" );
-            this.groupclassobocomponent.setNamespace( "cell" );
+            this.groupclassobocomponent = new OBOComponent();
             // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "anatomical entity" );
-            this.grouptermclassobocomponent.setID( "CARO:0000000" );
-            this.grouptermclassobocomponent.setNamespace( "http\\://www.xspan.org/obo.owl#" );
+            this.grouptermclassobocomponent = new OBOComponent();
+
+            this.species = obofactory.getComponentOBO().species();
+
+            this.AbstractClassName = obofactory.getComponentOBO().abstractClassName(); 
+            this.AbstractClassId = obofactory.getComponentOBO().abstractClassId(); 
+            this.AbstractClassNamespace = obofactory.getComponentOBO().abstractClassNamespace(); 
+            this.abstractclassobocomponent.setName(this.AbstractClassName);
+            this.abstractclassobocomponent.setID(this.AbstractClassId);
+            this.abstractclassobocomponent.setNamespace(this.AbstractClassNamespace);
+            
+            this.StageClassName = obofactory.getComponentOBO().stageClassName(); 
+            this.StageClassId = obofactory.getComponentOBO().stageClassId(); 
+            this.StageClassNamespace = obofactory.getComponentOBO().stageClassNamespace(); 
+            this.stageclassobocomponent.setName(this.StageClassName);
+            this.stageclassobocomponent.setID(this.StageClassId);
+            this.stageclassobocomponent.setNamespace(this.StageClassNamespace);
+
+            this.GroupClassName = obofactory.getComponentOBO().groupClassName(); 
+            this.GroupClassId = obofactory.getComponentOBO().groupClassId(); 
+            this.GroupClassNamespace = obofactory.getComponentOBO().groupClassNamespace(); 
+            this.groupclassobocomponent.setName(this.GroupClassName);
+            this.groupclassobocomponent.setID(this.GroupClassId);
+            this.groupclassobocomponent.setNamespace(this.GroupClassNamespace);
+
+            this.GroupTermClassName = obofactory.getComponentOBO().groupTermClassName(); 
+            this.GroupTermClassId = obofactory.getComponentOBO().groupTermClassId(); 
+            this.GroupTermClassNamespace = obofactory.getComponentOBO().groupTermClassNamespace(); 
+            this.grouptermclassobocomponent.setName(this.GroupTermClassName);
+            this.grouptermclassobocomponent.setID(this.GroupTermClassId);
+            this.grouptermclassobocomponent.setNamespace(this.GroupTermClassNamespace);
+            
+            this.minStartSequence = obofactory.getComponentOBO().minStageSequence();
+            this.maxEndSequence = obofactory.getComponentOBO().maxStageSequence(); 
+            
+            /*
+            System.out.println("this.minStartSequence = " + this.minStartSequence );
+            System.out.println("obofactory.getComponentOBO().minStageSequence() = " + obofactory.getComponentOBO().minStageSequence() );
+            System.out.println("this.maxStartSequence = " + this.maxEndSequence );
+            System.out.println("obofactory.getComponentOBO().maxStageSequence() = " + obofactory.getComponentOBO().maxStageSequence() );
+            */
+
+            //clear all comments and status from original term list so that
+            // children of
+            // new groups with calculated common ancestor
+            //  will not have any rule violations anymore
+            // A-2
+            clearStatusComments( newTermList );
+
+            //instantiate term lists
+            this.proposedTermList = newTermList;
+            this.referenceTermList = oldTermList;
+            this.passRedTermList = new ArrayList<OBOComponent>();
+            this.passBlueTermList = new ArrayList<OBOComponent>();
+            this.changesTermList = new ArrayList<OBOComponent>();
+            this.problemTermList = new ArrayList<OBOComponent>();
+            this.groupTermList = new ArrayList<OBOComponent>(); 
+            this.abstractTermList = new ArrayList<OBOComponent>();
+
+            //this.passedRed = false;
+            //this.passedBlue = false;
+            //not in use yet
+            this.proceed = true;
+
+            //prepare abstract anatomy term list
+            // check that roots of tree are same as configuration,
+            //  also detect correctly deleted components, all other changes are
+            //   detected in checkchanges
+            this.abstractRootList = new ArrayList<OBOComponent>();
+
+            // A-3
+            validateConfiguredRoots(treebuilder);
+
+            // A-4
+            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
+
+            // A-5
+            //set and validate primary + alternate paths to abstract anatomy terms
+            validatePaths(treebuilder);
+
+            //perform checks on abstract anatomy terms
+            if ( this.proceed ){
+                // A-6
+            	//check for missing/incorrect relationships
+                checkAbstractAnatomyLinks();
+
+                // A-7
+                //check for only one primary parent
+                checkAbstractAnatomyParents( treebuilder );
+
+                // A-8
+                //check that component is within life time of primary parent
+                //int i = checkAbstractAnatomyStages();
+                checkAbstractAnatomyStages();
+                
+                //System.out.println("checkAbstractAnatomyStages Failure Count " + i);
+                
+                // A-9
+                //check ordering //block temporary to process jane's old file
+                
+                //TEMPORARY CHANGE!!!!
+                
+                //checkOrdering( treebuilder);
+
+                //check for changes with referenced file - changed and new;
+                // deleted is found in validateConfigureRoots
+                // A-10
+                checkChanges();
+            }
+
+            //System.out.println("ValidateComponents Class: Constructor, 2 Lists ... checking rules and changes completed.");
+    	}
+        catch ( OBOException obo ) {
+        	
+            obo.printStackTrace();
         }
-        //clear all comments and status from original term list so that
-        // children of
-        // new groups with calculated common ancestor
-        //  will not have any rule violations anymore
-        // A-2
-        clearStatusComments( newTermList );
-
-        //instantiate term lists
-        this.proposedTermList = newTermList;
-        this.referenceTermList = oldTermList;
-        this.passRedTermList = new ArrayList<OBOComponent>();
-        this.passBlueTermList = new ArrayList<OBOComponent>();
-        this.changesTermList = new ArrayList<OBOComponent>();
-        this.problemTermList = new ArrayList<OBOComponent>();
-        this.groupTermList = new ArrayList<OBOComponent>(); 
-        this.abstractTermList = new ArrayList<OBOComponent>();
-
-        //this.passedRed = false;
-        //this.passedBlue = false;
-        //not in use yet
-        this.proceed = true;
-
-        //prepare abstract anatomy term list
-        // check that roots of tree are same as configuration,
-        //  also detect correctly deleted components, all other changes are
-        //   detected in checkchanges
-        this.abstractRootList = new ArrayList<OBOComponent>();
-
-        // A-3
-        validateConfiguredRoots(treebuilder);
-
-        // A-4
-        this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
-
-        // A-5
-        //set and validate primary + alternate paths to abstract anatomy terms
-        validatePaths(treebuilder);
-
-        //perform checks on abstract anatomy terms
-        if ( this.proceed ){
-            // A-6
-        	//check for missing/incorrect relationships
-            checkAbstractAnatomyLinks();
-
-            // A-7
-            //check for only one primary parent
-            checkAbstractAnatomyParents( treebuilder );
-
-            // A-8
-            //check that component is within life time of primary parent
-            //int i = checkAbstractAnatomyStages();
-            checkAbstractAnatomyStages();
-            
-            //System.out.println("checkAbstractAnatomyStages Failure Count " + i);
-            
-            // A-9
-            //check ordering //block temporary to process jane's old file
-            
-            //TEMPORARY CHANGE!!!!
-            
-            //checkOrdering( treebuilder);
-
-            //check for changes with referenced file - changed and new;
-            // deleted is found in validateConfigureRoots
-            // A-10
-            checkChanges();
+        catch ( Exception ex ) {
+        	
+            ex.printStackTrace();
         }
 
-        //System.out.println("ValidateComponents Class: Constructor, 2 Lists ... checking rules and changes completed.");
     }
 
 
     // Constructor ---------------------------------------------------------------------------------
     //  B - 1 List of Terms
-    public ValidateComponents(Boolean debug,
-    		String species, 
+    public ValidateComponents(OBOFactory obofactory, 
     		ArrayList<OBOComponent> newTermList, 
     		TreeBuilder treebuilder) {
 
-        this.debug = debug;
-        
-        if (this.debug) {
+    	try {
+        	this.obofactory = obofactory;
         	
-            System.out.println("==================");
-            System.out.println("ValidateComponents - Constructor #2 - 1 List");
-            System.out.println("==================");
-        }
+            this.debug = obofactory.getComponentOBO().debug();
+    	
+            if (this.debug) {
+            	
+                System.out.println("==================");
+                System.out.println("ValidateComponents - Constructor #2 - 1 List");
+                System.out.println("==================");
+            }
 
-        // 1: set abstract class parameters
-        this.abstractclassobocomponent = new OBOComponent();
-        // 2: set stage class parameters
-        this.stageclassobocomponent = new OBOComponent();
-        // 3: temporary new group class parameters
-        this.groupclassobocomponent = new OBOComponent();
-        // 4: group term class parameters
-        this.grouptermclassobocomponent = new OBOComponent();
-        
-        this.species = species;
-
-        if ( "mouse".equals(this.species)) {
             // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract anatomy" );
-            this.abstractclassobocomponent.setID( "EMAPA:0" );
-            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
+            this.abstractclassobocomponent = new OBOComponent();
             // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Theiler stage" );
-            this.stageclassobocomponent.setID( "TS:0" );
-            this.stageclassobocomponent.setNamespace( "theiler_stage" );
+            this.stageclassobocomponent = new OBOComponent();
             // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "Tmp new group" );
-            this.groupclassobocomponent.setID( "Tmp_new_group" );
-            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
+            this.groupclassobocomponent = new OBOComponent();
             // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "Group term" );
-            this.grouptermclassobocomponent.setID( "group_term" );
-            this.grouptermclassobocomponent.setNamespace( "group_term" );
+            this.grouptermclassobocomponent = new OBOComponent();
+            
+            this.species = obofactory.getComponentOBO().species();
+
+            this.AbstractClassName = obofactory.getComponentOBO().abstractClassName(); 
+            this.AbstractClassId = obofactory.getComponentOBO().abstractClassId(); 
+            this.AbstractClassNamespace = obofactory.getComponentOBO().abstractClassNamespace(); 
+            this.abstractclassobocomponent.setName(this.AbstractClassName);
+            this.abstractclassobocomponent.setID(this.AbstractClassId);
+            this.abstractclassobocomponent.setNamespace(this.AbstractClassNamespace);
+            
+            this.StageClassName = obofactory.getComponentOBO().stageClassName(); 
+            this.StageClassId = obofactory.getComponentOBO().stageClassId(); 
+            this.StageClassNamespace = obofactory.getComponentOBO().stageClassNamespace(); 
+            this.stageclassobocomponent.setName(this.StageClassName);
+            this.stageclassobocomponent.setID(this.StageClassId);
+            this.stageclassobocomponent.setNamespace(this.StageClassNamespace);
+
+            this.GroupClassName = obofactory.getComponentOBO().groupClassName(); 
+            this.GroupClassId = obofactory.getComponentOBO().groupClassId(); 
+            this.GroupClassNamespace = obofactory.getComponentOBO().groupClassNamespace(); 
+            this.groupclassobocomponent.setName(this.GroupClassName);
+            this.groupclassobocomponent.setID(this.GroupClassId);
+            this.groupclassobocomponent.setNamespace(this.GroupClassNamespace);
+
+            this.GroupTermClassName = obofactory.getComponentOBO().groupTermClassName(); 
+            this.GroupTermClassId = obofactory.getComponentOBO().groupTermClassId(); 
+            this.GroupTermClassNamespace = obofactory.getComponentOBO().groupTermClassNamespace(); 
+            this.grouptermclassobocomponent.setName(this.GroupTermClassName);
+            this.grouptermclassobocomponent.setID(this.GroupTermClassId);
+            this.grouptermclassobocomponent.setNamespace(this.GroupTermClassNamespace);
+            
+            this.minStartSequence = obofactory.getComponentOBO().minStageSequence();
+            this.maxEndSequence = obofactory.getComponentOBO().maxStageSequence(); 
+
+            //clear all comments and status from original term list
+            // B-2
+            clearStatusComments( newTermList );
+
+            //instantiate term lists        
+            this.proposedTermList = newTermList;
+            this.passRedTermList = new ArrayList<OBOComponent>();
+            this.passBlueTermList = new ArrayList<OBOComponent>();
+            this.problemTermList = new ArrayList<OBOComponent>();
+            this.groupTermList = new ArrayList<OBOComponent>(); 
+            this.abstractTermList = new ArrayList<OBOComponent>();
+
+            //this.passedRed = false;
+            //this.passedBlue = false;
+
+            //not in use yet
+            this.proceed = true;
+
+            //prepare abstract anatomy term list
+            // check that roots of tree are same as configuration
+            this.abstractRootList = new ArrayList<OBOComponent>();
+            
+            // B-3
+            validateConfiguredRoots(treebuilder);
+            
+            // B-4
+            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
+
+            //set and validate primary + alternate paths to abstract anatomy terms
+            // B-5
+            validatePaths(treebuilder);
+
+            //perform checks on abstract anatomy terms
+            if ( this.proceed ){
+                // B-6
+                //check for missing/incorrect relationships
+                checkAbstractAnatomyLinks();
+                // B-7
+                //check that component is within life time of primary parent
+                //checkAbstractAnatomyStages();
+                // B-8
+                //check ordering //block temporarily to process jane's old file
+                //checkOrdering( treebuilder );
+                //no reference file
+                //checkChanges();
+            }
+
+            //System.out.println("ValidateComponents Class: Constructor, 1 List ... checking rules completed.");
+
+    	}
+        catch ( OBOException obo ) {
+        	
+            obo.printStackTrace();
         }
-        if ( "chick".equals(this.species)) {
-            // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract anatomy" );
-            this.abstractclassobocomponent.setID( "EMAPA:0" );
-            this.abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-            // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Theiler stage" );
-            this.stageclassobocomponent.setID( "TS:0" );
-            this.stageclassobocomponent.setNamespace( "theiler_stage" );
-            // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "Tmp new group" );
-            this.groupclassobocomponent.setID( "Tmp_new_group" );
-            this.groupclassobocomponent.setNamespace( "new_group_namespace" );
-            // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "Group term" );
-            this.grouptermclassobocomponent.setID( "group_term" );
-            this.grouptermclassobocomponent.setNamespace( "group_term" );
-        }
-        if ( "human".equals(this.species)) {
-            // 1: set abstract class parameters
-            this.abstractclassobocomponent.setName( "Abstract human developmental anatomy" );
-            this.abstractclassobocomponent.setID( "EHDAA2:0000000" );
-            this.abstractclassobocomponent.setNamespace( "human_developmental_anatomy" );
-            // 2: set stage class parameters
-            this.stageclassobocomponent.setName( "Carnegie stage" );
-            this.stageclassobocomponent.setID( "CS:0" );
-            this.stageclassobocomponent.setNamespace( "carnegie_stage" );
-            // 3: temporary new group class parameters
-            this.groupclassobocomponent.setName( "cell" );
-            this.groupclassobocomponent.setID( "CL:0000000" );
-            this.groupclassobocomponent.setNamespace( "cell" );
-            // 4: group term class parameters
-            this.grouptermclassobocomponent.setName( "anatomical entity" );
-            this.grouptermclassobocomponent.setID( "CARO:0000000" );
-            this.grouptermclassobocomponent.setNamespace( "http://www.xspan.org/obo.owl" );
+        catch ( Exception ex ) {
+        	
+            ex.printStackTrace();
         }
 
-        //clear all comments and status from original term list
-        // B-2
-        clearStatusComments( newTermList );
-
-        //instantiate term lists        
-        this.proposedTermList = newTermList;
-        this.passRedTermList = new ArrayList<OBOComponent>();
-        this.passBlueTermList = new ArrayList<OBOComponent>();
-        this.problemTermList = new ArrayList<OBOComponent>();
-        this.groupTermList = new ArrayList<OBOComponent>(); 
-        this.abstractTermList = new ArrayList<OBOComponent>();
-
-        //this.passedRed = false;
-        //this.passedBlue = false;
-
-        //not in use yet
-        this.proceed = true;
-
-        //prepare abstract anatomy term list
-        // check that roots of tree are same as configuration
-        this.abstractRootList = new ArrayList<OBOComponent>();
-        
-        // B-3
-        validateConfiguredRoots(treebuilder);
-        
-        // B-4
-        this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
-
-        //set and validate primary + alternate paths to abstract anatomy terms
-        // B-5
-        validatePaths(treebuilder);
-
-        //perform checks on abstract anatomy terms
-        if ( this.proceed ){
-            // B-6
-            //check for missing/incorrect relationships
-            checkAbstractAnatomyLinks();
-            // B-7
-            //check that component is within life time of primary parent
-            //checkAbstractAnatomyStages();
-            // B-8
-            //check ordering //block temporarily to process jane's old file
-            //checkOrdering( treebuilder );
-            //no reference file
-            //checkChanges();
-        }
-
-        //System.out.println("ValidateComponents Class: Constructor, 1 List ... checking rules completed.");
+       
 
     }
 
@@ -478,7 +476,7 @@ public class ValidateComponents {
             System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
             System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
             System.out.println("=============");
-        	*/
+            */
             
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
@@ -489,7 +487,8 @@ public class ValidateComponents {
                 System.out.println("PASSED - abstractclassobocomponent");
                 System.out.println("-------------");
                 */
-            	abstractclassobocomponent.setStatusRule("PASSED"); 
+
+                abstractclassobocomponent.setStatusRule("PASSED"); 
                 //note not the tree component - but gui ref component
                 //set abstract anatomy tree roots
                 this.abstractRootList.add( rootobocomponent );
@@ -503,8 +502,9 @@ public class ValidateComponents {
                 System.out.println("-------------");
                 System.out.println("PASSED - stageclassobocomponent");
                 System.out.println("-------------");
-                */
-            	stageclassobocomponent.setStatusRule("PASSED");
+                 */
+
+                stageclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false 
                 //  to exclude primary paths leading back to this term from
                 //   pool of
@@ -520,8 +520,9 @@ public class ValidateComponents {
                 System.out.println("-------------");
                 System.out.println("PASSED - groupclassobocomponent");
                 System.out.println("-------------");
-                */
-            	groupclassobocomponent.setStatusRule("PASSED");
+                 */
+
+                groupclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
                 rootobocomponent.setIsPrimary(false);
@@ -535,8 +536,9 @@ public class ValidateComponents {
                 System.out.println("-------------");
                 System.out.println("PASSED - grouptermclassobocomponent");
                 System.out.println("-------------");
-                */
-            	grouptermclassobocomponent.setStatusRule("PASSED");
+                 */
+
+                grouptermclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
                 rootobocomponent.setIsPrimary(false);
@@ -546,11 +548,12 @@ public class ValidateComponents {
                 //obsolete terms appear as roots
                 //don't allow to fail
 
-                /*
+            	/*
                 System.out.println("-------------");
                 System.out.println("PASSED - INFO: Obsolete Term");
                 System.out.println("-------------");
-                */
+                 */
+
                 rootobocomponent.setStatusRule("PASSED");
                 rootobocomponent.setCheckComment("Component has been deleted " +
                         "correctly from OBO File and can be scheduled for " +
@@ -564,11 +567,11 @@ public class ValidateComponents {
                 } 
             }
             else {
-            	/*
-                System.out.println("-------------");
+
+            	System.out.println("-------------");
                 System.out.println("FAILED - ALL");
                 System.out.println("-------------");
-                */
+
                 rootobocomponent.setStatusRule("FAILED");
                 rootobocomponent.setCheckComment("INFO: Root node not defined " +
                     "by OBO2DB NameSpace Configurations.");
@@ -614,6 +617,7 @@ public class ValidateComponents {
                 if ( obocomponent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
                     abstractAnatomyChildren.add( obocomponent );
                 }
+                /*
                 if ( !"human".equals(this.species) ) {
                     //is a new group term
                     if ( obocomponent.getNamespace().equals( groupclassobocomponent.getNamespace() ) &&
@@ -627,6 +631,17 @@ public class ValidateComponents {
                          !vRoots.contains( obocomponent.getID() ) ) {
                         abstractAnatomyChildren.add( obocomponent );
                     }
+                }
+                */
+                //is a new group term
+                if ( obocomponent.getNamespace().equals( groupclassobocomponent.getNamespace() ) &&
+                     !vRoots.contains( obocomponent.getID() ) ) {
+                    abstractAnatomyChildren.add( obocomponent );
+                }
+                //is a new group term
+                if ( obocomponent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
+                     !vRoots.contains( obocomponent.getID() ) ) {
+                    abstractAnatomyChildren.add( obocomponent );
                 }
             }
 
@@ -805,7 +820,6 @@ public class ValidateComponents {
                          (obocomponent.getEndSequence() > maxEndSequence ) ) {
                     	
                     //check whether stages are out of range
-
                 	System.out.println(obocomponent.getID() + ": " +
                             "Relation: Stages are out of range! [Start: " +
                             Integer.toString(obocomponent.getStartSequence()) + ", Ends: " +
@@ -1340,8 +1354,9 @@ public class ValidateComponents {
                         
                         	proposed.setCheckComment( diff );
                         }
+                        
                         /*
-                    	if (proposed.getID().equals("EMAPA:18305")) {
+                    	if (reference.getID().equals("EHDAA:0")) {
                             System.out.println("ValidateComponents.java");
                             System.out.println("------------------");
                             for ( String diff: arrDifference ) {
@@ -1359,7 +1374,8 @@ public class ValidateComponents {
                             System.out.println("------------------");
                     	}
                     	*/
-                        this.changesTermList.add(proposed);
+
+                    	this.changesTermList.add(proposed);
                         //<=== this is the component arraylist to generate SQL queries!!!
                     }
                     //change flag to found so that iterator stops
@@ -1391,20 +1407,67 @@ public class ValidateComponents {
         	
             reference = i.next();
 
-            flagFound = false;
+            //System.out.println(reference.toString());
+            
+            /*
+        	if (reference.getID().equals("EHDAA:0")) {
+        		
+                System.out.println("ValidateComponents.java");
+                System.out.println("------------------");
+                System.out.println("reference");
+                System.out.println("reference.toString() " + reference.toString());
+                System.out.println("reference.getCheckComments() " + reference.getCheckComments());
+                System.out.println("------------------");
+        	}
+        	*/
 
-            //look for component in newTermList
-            for (Iterator<OBOComponent> k = this.proposedTermList.iterator(); k.hasNext()
-                 && !flagFound;) {
+            if ( reference.getName().equals(abstractclassobocomponent.getName() ) || 
+            	reference.getNamespace().equals(stageclassobocomponent.getNamespace() ) ) {
+
+            	flagFound = true;
+            }
+            //else if ( reference.getName().equals( this.species ) ) { 
+            else if ( reference.getName().equals( AbstractClassName ) ) { 
             	
-                proposed = k.next();
+            	flagFound = true;
 
-                //if found,
-                if (reference.getID().equals(proposed.getID())) {
+            	if ( this.species.equals("human") && reference.getName().equals(this.species) ) {
+            		
+            		reference.setName("human conceptus");
+            	}
+            }
+            else {
+
+            	flagFound = false;
+
+                //look for component in newTermList
+                for (Iterator<OBOComponent> k = this.proposedTermList.iterator(); k.hasNext()
+                     && !flagFound;) {
                 	
-                    //set flagFound true to stop iterator
-                    flagFound = true;
-                    
+                    proposed = k.next();
+
+                    /*
+                	if (proposed.getID().equals("CL:0000003")) {
+                		
+                        System.out.println("ValidateComponents.java");
+                        System.out.println("------------------");
+                        System.out.println("proposed");
+                        System.out.println("proposed.toString() " + proposed.toString());
+                        System.out.println("proposed.getCheckComments() " + proposed.getCheckComments());
+                        System.out.println("proposed.getChildOfs() " + proposed.getChildOfs());
+                        System.out.println("proposed.getChildOfTypes() " + proposed.getChildOfTypes());
+                        System.out.println("------------------");
+                	}
+                	*/
+
+                	//if found,
+                    if (reference.getID().equals(proposed.getID())) {
+                    	
+                        //set flagFound true to stop iterator
+                        flagFound = true;
+
+                        //System.out.println(proposed.toString());
+                    }
                 }
             }
 
@@ -1417,7 +1480,17 @@ public class ValidateComponents {
                 reference.setStatusRule("FAILED");   
                 reference.setCheckComment("INFO: OBOComponent was deleted from OBO file bypassing obsolete procedures.");
                 
-                reference.setFlagMissingRel(true);
+            	if (reference.getID().equals("EHDAA:0")) {
+            		
+                    System.out.println("ValidateComponents.java");
+                    System.out.println("------------------");
+                    System.out.println("reference");
+                    System.out.println("reference.toString() " + reference.toString());
+                    System.out.println("reference.getCheckComments() " + reference.getCheckComments());
+                    System.out.println("------------------");
+            	}
+
+            	reference.setFlagMissingRel(true);
  
                 //add comment for parents in reference file
                 ArrayList<String> formerParents = reference.getChildOfs();
@@ -1438,6 +1511,8 @@ public class ValidateComponents {
 
                 System.out.println("checkChanges");
                 System.out.println("Failed OBOComponent = " + reference.getID());
+
+                System.out.println(reference.toString());
 
                 this.changesTermList.add(reference); //<=== this is the component arraylist to generate SQL queries!!!
 

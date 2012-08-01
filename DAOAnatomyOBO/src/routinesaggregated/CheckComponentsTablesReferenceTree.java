@@ -70,8 +70,7 @@ public class CheckComponentsTablesReferenceTree {
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( obofactory.getComponentOBO().debug(), 
-            		obofactory.getComponentOBO().species(), 
+            new ValidateComponents( obofactory, 
             		parseOldTermList, 
             		treebuilder);
 

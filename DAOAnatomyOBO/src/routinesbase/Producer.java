@@ -45,6 +45,15 @@ import obomodel.Relation;
 
 public class Producer {
 
+    private static String HUMAN_STAGE =  "carnegie stage";
+    private static String MOUSE_STAGE =  "theiler stage";
+    private static String CHICK_STAGE =  "theiler stage";
+
+    private static String HUMAN_NAME = "Abstract human developmental anatomy";
+    private static String MOUSE_NAME = "Abstract anatomy";
+    private static String CHICK_NAME = "Abstract anatomy";
+
+
     // Attributes ---------------------------------------------------------------------------------
     private String fileName;
     private String fileVersion;
@@ -174,31 +183,24 @@ public class Producer {
                 	outputFile.write("[Term]\n");
                     outputFile.write("id: " + obocomponentList.get(i).getID() + "\n");
                     outputFile.write("name: " + obocomponentList.get(i).getName() + "\n");
-                    outputFile.write("namespace: " +
-                    		obocomponentList.get(i).getNamespace() + "\n");
-
-                    if ( !obocomponentList.get(i).getNamespace().equals("theiler_stage") ||
+                    outputFile.write("namespace: " + obocomponentList.get(i).getNamespace() + "\n");
+                    
+                    if ( !obocomponentList.get(i).getNamespace().equals(MOUSE_STAGE) ||
+                    	!obocomponentList.get(i).getNamespace().equals(HUMAN_STAGE) ||
+                    	!obocomponentList.get(i).getNamespace().equals(CHICK_STAGE) ||
+                    		
                         !obocomponentList.get(i).getNamespace().equals("new_group_namespace") &&
                         !obocomponentList.get(i).getNamespace().equals("group_term") &&
-                        !obocomponentList.get(i).getName().equals("Abstract anatomy") ){
+                        
+                        !obocomponentList.get(i).getName().equals(MOUSE_NAME) &&
+                        !obocomponentList.get(i).getName().equals(HUMAN_NAME) &&
+                        !obocomponentList.get(i).getName().equals(CHICK_NAME) ){
 
-                    	/*
-                    	if (obocomponentList.get(i).getID().equals("EMAPA:18305")) {
-                            System.out.println("Producer.java");
-                            System.out.println("-------------");
-                            System.out.println("Changed getNewParentsTermList: " + obocomponentList.get(i).getID());
-                            System.out.println("component");
-                            System.out.println("obocomponentList.get(i).toString() " + obocomponentList.get(i).toString());
-                            System.out.println("obocomponentList.get(i).getCheckComments() " + obocomponentList.get(i).getCheckComments());
-                            System.out.println("obocomponentList.get(i).get(i).getChildOfs().toString()" + obocomponentList.get(i).getChildOfs().toString());
-                            System.out.println("component.getChildOfTypes().toString()" + obocomponentList.get(i).getChildOfTypes().toString());
-                            System.out.println("-------------");
-                    	}
-                        */
-                        // part_of relationships
+                    	// part_of relationships
                         for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
                         	
                         	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_FROM")) {
+                        		
                                 outputFile.write("relationship: develops_from " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
@@ -209,34 +211,42 @@ public class Producer {
                             }
                             */
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("LOCATED_IN")) {
+                        		
                                 outputFile.write("relationship: located_in " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_IN")) {
+                        		
                                 outputFile.write("relationship: develops_in " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("HAS_PART")) {
+                        		
                                 outputFile.write("relationship: has_part " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("ATTACHED_TO")) {
+                        		
                                 outputFile.write("relationship: attached_to " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DISJOINT_FROM")) {
+                        		
                                 outputFile.write("relationship: disjoint_from " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("PART_OF")) {
+                        		
                                 outputFile.write("relationship: part_of " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("IS_A")) {
+                        		
                                 outputFile.write("relationship: is_a " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("GROUP_PART_OF")) {
+                        		
                                 outputFile.write("relationship: group_part_of " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }

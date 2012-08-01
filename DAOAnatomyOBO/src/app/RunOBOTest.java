@@ -66,7 +66,6 @@ public class RunOBOTest {
 
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
-	        componentOBO.createTemplateRelationList(daofactory);
 	        
 	        Boolean isProcessed = componentOBO.writeAll();
 

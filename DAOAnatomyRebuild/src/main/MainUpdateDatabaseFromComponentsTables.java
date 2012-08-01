@@ -61,7 +61,6 @@ public class MainUpdateDatabaseFromComponentsTables{
         System.out.println("EXECUTING - MainUpdateDatabaseFromComponentsTables.java on " + parsed.toString());
         System.out.println("=========   --------------------------------------");
         System.out.println("");
-
         /*
          * MAINLINE
          */

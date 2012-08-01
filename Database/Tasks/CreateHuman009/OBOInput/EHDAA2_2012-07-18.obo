@@ -7,6 +7,44 @@ remark: Jonathon Bard Human Ontology
 remark: this version corrects the namespace and includes some flybase alt_IDs
 
 [Term]
+id: EHDAA:0
+name: Abstract human developmental anatomy
+namespace: human_developmental_anatomy
+
+[Term]
+id: EHDAA:1
+name: human
+namespace: human_developmental_anatomy
+relationship: is_a EHDAA:0
+
+[Term]
+id: CARO:0000000
+name: anatomical entity
+namespace: http\://www.xspan.org/obo.owl#
+alt_id: UBERON:0001062
+def: "Biological entity that is either an individual member of a biological species or constitutes the structural organization of an individual member of a biological species." [CARO:MAH]
+relationship: is_a EHDAA:1
+
+[Term]
+id: EHDAA2:0000001
+name: human conceptus
+namespace: human_developmental_anatomy
+is_a: AEO:0000194 ! conceptus
+is_a: EHDAA:1
+relationship: ends_at CS20 ! CS20
+relationship: starts_at CS01 ! CS01
+
+[Term]
+id: CL:0000000
+name: cell
+namespace: cell
+def: "Anatomical structure that has as its parts a maximally connected cell compartment surrounded by a plasma membrane." [CARO:mah]
+relationship: is_a EHDAA:1
+
+
+
+
+[Term]
 id: AEO:0000013
 name: single-cell tissue
 namespace: http\://www.xspan.org/obo.owl#
@@ -1102,12 +1140,6 @@ namespace: http\://www.xspan.org/obo.owl#
 def: "A group of cells capable of regenerating themselves and also of producing one or more populations of differentiated cells." [AEO:JB]
 is_a: CARO:0000043 ! simple tissue
 
-[Term]
-id: CARO:0000000
-name: anatomical entity
-namespace: http\://www.xspan.org/obo.owl#
-alt_id: UBERON:0001062
-def: "Biological entity that is either an individual member of a biological species or constitutes the structural organization of an individual member of a biological species." [CARO:MAH]
 
 [Term]
 id: CARO:0000003
@@ -1444,12 +1476,6 @@ name: epithelial cell
 namespace: http\://www.xspan.org/obo.owl#
 def: "Cell which has as its part a cytoskeleton that allows for tight cell to cell contact and which has apical-basal cell polarity." [CARO:MAH, CL:0000066]
 is_a: CARO:0000013 ! cell
-
-[Term]
-id: CL:0000000
-name: cell
-namespace: cell
-def: "Anatomical structure that has as its parts a maximally connected cell compartment surrounded by a plasma membrane." [CARO:mah]
 
 [Term]
 id: CL:0000003
@@ -2150,19 +2176,6 @@ id: CS:0
 name: Carnegie stage
 namespace: carnegie_stage
 
-[Term]
-id: EHDAA2:0000000
-name: Abstract human developmental anatomy
-namespace: human_developmental_anatomy
-
-[Term]
-id: EHDAA2:0000001
-name: human conceptus
-namespace: human_developmental_anatomy
-is_a: AEO:0000194 ! conceptus
-is_a: EHDAA2:0000000 ! Abstract human developmental anatomy
-relationship: ends_at CS20 ! CS20
-relationship: starts_at CS01 ! CS01
 
 [Term]
 id: EHDAA2:0000002

@@ -295,432 +295,187 @@ public final class ComponentOBO {
             throw new OBOException(e);
         } 
     }
-
-    // Helpers ------------------------------------------------------------------------------------
+    
     /*
-     * Add the extra OBO components to the component list for Stages, Relationships etc
+     * Return the OBO Factory AbstractClassName - from the OBO properties file
      */
-    public void createTemplateRelationList(DAOFactory daofactory) throws OBOException {
-    	
-        ArrayList<Relation> oborelationList = new ArrayList<Relation>();
-        OBOComponent obocomponent;
-
-        ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
-        Relation oborelation;
+    public String abstractClassName() throws OBOException {
 
     	try {
-            // Obtain DAOs.
-            StageDAO stageDAO = daofactory.getStageDAO();
-
-            // group obocomponents----------------------------------------------------------------------
-            obocomponent = new OBOComponent();
-            obocomponent.setName( "Group term" );
-            obocomponent.setID( "group_term" );
-            obocomponent.setNamespace( "group_term" );
-            obocomponent.setDBID( "-1" );
-            obocomponentList.add( obocomponent );
-
-            // stage class------------------------------------------------------------------------------
-            obocomponent = new OBOComponent();
-            obocomponent.setName( "Theiler stage" );
-            obocomponent.setID( "TS:0" );
-            obocomponent.setNamespace( "theiler_stage" );
-            obocomponent.setDBID( "-1" );
-            obocomponentList.add( obocomponent );
-
-            // rest from db---------------------------------------------------------------------------
-            List<Stage> stages = new ArrayList<Stage>();
-            stages = stageDAO.listAll();
-            Iterator<Stage> iteratorStage = stages.iterator();
-                
-          	while (iteratorStage.hasNext()) {
-          		
-                // query for the stages-----------------------------------------------------------------
-          		Stage stage = iteratorStage.next();
-
-          		obocomponent = new OBOComponent();
-                obocomponent.setName( stage.getName() );
-                obocomponent.setID( stage.getName() );
-                obocomponent.setDBID( String.valueOf(stage.getOid()) );
-
-                obocomponent.addChildOf( "TS:0" );
-                obocomponent.addChildOfType( "IS_A" );
-
-                obocomponent.setNamespace( "theiler_stage" );
-                obocomponentList.add( obocomponent );
-          	}
-
-            // new group class
-            obocomponent = new OBOComponent();
-            obocomponent.setName( "Tmp new group" );
-            obocomponent.setID( "Tmp_new_group" );
-            obocomponent.setNamespace( "new_group_namespace" );
-            obocomponent.setDBID( "-1" );
-            obocomponentList.add( obocomponent );
-
-            // starts at
-            oborelation = new Relation();
-            oborelation.setName( "starts at" );
-            oborelation.setID( "starts_at" );
-            oborelationList.add( oborelation );
-
-            // ends at
-            oborelation = new Relation();
-            oborelation.setName( "ends at" );
-            oborelation.setID( "ends_at" );
-            oborelationList.add( oborelation );
-
-            // partOf
-            oborelation = new Relation();
-            oborelation.setName( "part of" );
-            oborelation.setID( "part_of" );
-            oborelation.setTransitive( "true" );
-            oborelationList.add( oborelation );
-
-            // groupPartOf
-            oborelation = new Relation();
-            oborelation.setName( "group part of" );
-            oborelation.setID( "group_part_of" );
-            oborelation.setTransitive( "true" );
-            oborelationList.add( oborelation );
-
-            // isA
-            oborelation = new Relation();
-            oborelation.setName( "is a" );
-            oborelation.setID( "is_a" );
-            oborelation.setTransitive( "true" );
-            oborelationList.add( oborelation );
-    	}
-    	catch (DAOException ex) {
-    		ex.printStackTrace();
-    	}
-
-    	oboFactory.setRelations(oborelationList);
-
-    	oboFactory.addComponents(obocomponentList);
+            return oboFactory.getAbstractClassName();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
     }
 
     /*
-     * Add the extra OBO components to the component list for Stages, Relationships etc
+     * Return the OBO Factory AbstractClassId - from the OBO properties file
      */
-    public void createHumanRelationList() throws OBOException {
-    	
-        ArrayList<Relation> oborelationList = new ArrayList<Relation>();
-        OBOComponent obocomponent;
+    public String abstractClassId() throws OBOException {
 
-        ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
-        Relation oborelation;
-
-
-        // stage class------------------------------------------------------------------------------
-        
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "Carnegie stage" );
-        obocomponent.setID( "CS:0" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponent.setDBID( "-1" );
-        obocomponentList.add( obocomponent );
-        
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS01" );
-        obocomponent.setID( "CS01" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS02" );
-        obocomponent.setID( "CS02" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS03" );
-        obocomponent.setID( "CS03" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS04" );
-        obocomponent.setID( "CS04" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS05a" );
-        obocomponent.setID( "CS05a" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS05b" );
-        obocomponent.setID( "CS05b" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS05c" );
-        obocomponent.setID( "CS05c" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS06a" );
-        obocomponent.setID( "CS06a" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS06b" );
-        obocomponent.setID( "CS06b" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS07" );
-        obocomponent.setID( "CS07" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS08" );
-        obocomponent.setID( "CS08" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS09" );
-        obocomponent.setID( "CS09" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS10" );
-        obocomponent.setID( "CS10" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS11" );
-        obocomponent.setID( "CS11" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS12" );
-        obocomponent.setID( "CS12" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS13" );
-        obocomponent.setID( "CS13" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS14" );
-        obocomponent.setID( "CS01" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS15" );
-        obocomponent.setID( "CS15" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS16" );
-        obocomponent.setID( "CS16" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS17" );
-        obocomponent.setID( "CS01" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS18" );
-        obocomponent.setID( "CS18" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS19" );
-        obocomponent.setID( "CS19" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS20" );
-        obocomponent.setID( "CS20" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS21" );
-        obocomponent.setID( "CS21" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS22" );
-        obocomponent.setID( "CS22" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        obocomponent = new OBOComponent();
-        obocomponent.setName( "CS23" );
-        obocomponent.setID( "CS23" );
-        obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "CS:0" );
-        obocomponent.addChildOfType( "IS_A" );
-        obocomponent.setNamespace( "carnegie_stage" );
-        obocomponentList.add( obocomponent );
-
-        // starts at
-        oborelation = new Relation();
-        oborelation.setName( "starts_at" );
-        oborelation.setID( "starts_at" );
-        oborelationList.add( oborelation );
-
-        // ends at
-        oborelation = new Relation();
-        oborelation.setName( "ends_at" );
-        oborelation.setID( "ends_at" );
-        oborelationList.add( oborelation );
-
-        // partOf
-        oborelation = new Relation();
-        oborelation.setName( "part_of" );
-        oborelation.setID( "part_of" );
-        oborelation.setTransitive( "true" );
-        oborelationList.add( oborelation );
-
-        // isA
-        oborelation = new Relation();
-        oborelation.setName( "is_a" );
-        oborelation.setID( "is_a" );
-        oborelation.setTransitive( "true" );
-        oborelationList.add( oborelation );
-
-        // DevelopsFrom
-        oborelation = new Relation();
-        oborelation.setName( "develops_from" );
-        oborelation.setID( "develops_from" );
-        oborelation.setTransitive( "true" );
-        oborelationList.add( oborelation );
-
-        // DevelopsIn
-        oborelation = new Relation();
-        oborelation.setName( "develops_in" );
-        oborelation.setID( "develops_in" );
-        oborelationList.add( oborelation );
-
-        // AttachedTo
-        oborelation = new Relation();
-        oborelation.setName( "attached_to" );
-        oborelation.setID( "attached_to" );
-        oborelationList.add( oborelation );
-
-        // LocatedIn
-        oborelation = new Relation();
-        oborelation.setName( "located_in" );
-        oborelation.setID( "located_in" );
-        oborelationList.add( oborelation );
-
-        // HasPart
-        oborelation = new Relation();
-        oborelation.setName( "has_part" );
-        oborelation.setID( "has_part" );
-        oborelation.setTransitive( "true" );
-        oborelationList.add( oborelation );
-
-        // HasPart
-        oborelation = new Relation();
-        oborelation.setName( "disjoint_from" );
-        oborelation.setID( "disjoint_from" );
-        oborelationList.add( oborelation );
-
-    	oboFactory.setRelations(oborelationList);
-
-    	oboFactory.addComponents(obocomponentList);
+    	try {
+            return oboFactory.getAbstractClassId();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
     }
+
+    /*
+     * Return the OBO Factory AbstractClassNamespace - from the OBO properties file
+     */
+    public String abstractClassNamespace() throws OBOException {
+
+    	try {
+            return oboFactory.getAbstractClassNamespace();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory StageClassName - from the OBO properties file
+     */
+    public String stageClassName() throws OBOException {
+
+    	try {
+            return oboFactory.getStageClassName();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory StageClassId - from the OBO properties file
+     */
+    public String stageClassId() throws OBOException {
+
+    	try {
+            return oboFactory.getStageClassId();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory StageClassNamespace - from the OBO properties file
+     */
+    public String stageClassNamespace() throws OBOException {
+
+    	try {
+            return oboFactory.getStageClassNamespace();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupClassName - from the OBO properties file
+     */
+    public String groupClassName() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupClassName();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupClassId - from the OBO properties file
+     */
+    public String groupClassId() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupClassId();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupClassNamespace - from the OBO properties file
+     */
+    public String groupClassNamespace() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupClassNamespace();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupTermClassName - from the OBO properties file
+     */
+    public String groupTermClassName() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupTermClassName();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupTermClassId - from the OBO properties file
+     */
+    public String groupTermClassId() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupTermClassId();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory GroupTermClassNamespace - from the OBO properties file
+     */
+    public String groupTermClassNamespace() throws OBOException {
+
+    	try {
+            return oboFactory.getGroupTermClassNamespace();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+    
+    /*
+     * Return the OBO Factory MinStageSequence - from the OBO properties file
+     */
+    public int minStageSequence() throws OBOException {
+
+    	try {
+            return oboFactory.getMinStageSequence();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+
+    /*
+     * Return the OBO Factory MaxStageSequence - from the OBO properties file
+     */
+    public int maxStageSequence() throws OBOException {
+
+    	try {
+            return oboFactory.getMaxStageSequence();
+        } 
+        catch (OBOConfigurationException e) {
+            throw new OBOException(e);
+        } 
+    }
+    
 }

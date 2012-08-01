@@ -56,7 +56,6 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         System.out.println("EXECUTING - MainExtractAndWriteOBOFromExistingDatabase.java on " + parsed.toString());
         System.out.println("=========   ------------------------------------------");
         System.out.println("");
-
         /*
          * MAINLINE
          */

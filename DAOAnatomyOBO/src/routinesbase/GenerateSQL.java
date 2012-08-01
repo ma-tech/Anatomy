@@ -83,14 +83,34 @@ import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.Version;
 
+import obolayer.OBOException;
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
 
 public class GenerateSQL {
+
 	// Properties ---------------------------------------------------------------------------------
-    
+    private OBOFactory obofactory; 
+    private DAOFactory daofactory; 
+
+    private String AbstractClassName; 
+    private String AbstractClassId; 
+    private String AbstractClassNamespace; 
+
+    private String StageClassName; 
+    private String StageClassId; 
+    private String StageClassNamespace; 
+
+    private String GroupClassName; 
+    private String GroupClassId; 
+    private String GroupClassNamespace; 
+
+    private String GroupTermClassName; 
+    private String GroupTermClassId; 
+    private String GroupTermClassNamespace; 
+
 	// A flag to print comments to System.out
 	boolean debug; 
 	
@@ -152,7 +172,10 @@ public class GenerateSQL {
     private boolean processed;
     
     //abstract class configuration
-    private OBOComponent abstractclassobocomponent;
+    private OBOComponent abstractclassobocomponent; 
+    private OBOComponent stageclassobocomponent; 
+    private OBOComponent groupclassobocomponent; 
+    private OBOComponent grouptermclassobocomponent; 
     
     //Data Access Object Factory
     //private DAOFactory daofactory;
@@ -187,594 +210,654 @@ public class GenerateSQL {
             TreeBuilder refTreebuilder ) throws Exception {
 
     	processed = true;
-    	//this.daofactory = daofactory;
-        debug = daofactory.getThingDAO().debug();
-        
-        if (debug) {
-        	
-            System.out.println("===========");
-            System.out.println("GenerateSQL - Constructor");
-            System.out.println("===========");
-        }
-        
-        //this.proposedTermList = proposedTermList;
-        
-        //System.out.println("-- proposedTermList.size() " + proposedTermList.size() + " --");
 
-        timedCompList = new ArrayList<OBOComponent>();
-        synonymCompList = new ArrayList<OBOComponent>();
-        unDeletedCompList = new ArrayList<OBOComponent>();
-        unModifiedCompList = new ArrayList<OBOComponent>();
-        diffCreateTimedCompList = new ArrayList<OBOComponent>();
-        diffDeleteTimedCompList = new ArrayList<OBOComponent>();
-        diffCreateRelList = new ArrayList<OBOComponent>();
-        diffDeleteRelList = new ArrayList<OBOComponent>();
-        diffCreateSynList = new ArrayList<OBOComponent>();
-        diffDeleteSynList = new ArrayList<OBOComponent>();
+    	try {
+        	this.obofactory = obofactory;
+        	this.daofactory = daofactory;
 
-        tree = treebuilder;
-        strSpecies = obofactory.getComponentOBO().species();
-        intCurrentPublicID = 0;
-        intCurrentObjectID = 0;
-        
-    	// set abstract class parameters
-        abstractclassobocomponent = new OBOComponent();
+        	debug = daofactory.getThingDAO().debug();
 
-        // 1: set abstract class parameters
-        abstractclassobocomponent.setName( "Abstract anatomy" );
-        abstractclassobocomponent.setID( "EMAPA:0" );
-        abstractclassobocomponent.setNamespace( "abstract_anatomy" );
-        project = obofactory.getComponentOBO().project();
-
-        //internal termlists for data manipulation
-        ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
-
-        ArrayList<OBOComponent> deletedComponents = new ArrayList<OBOComponent>();
-        
-        ArrayList<OBOComponent> changedComponents = new ArrayList<OBOComponent>();
-        
-        //construct internal arraylists
-        OBOComponent component = new OBOComponent();
-        
-        for (int i = 0; i<proposedTermList.size(); i++) {
-
-        	component = proposedTermList.get(i);
-
-            if ( component.getStatusChange().equals("NEW") ) {
+            if (debug) {
             	
-                if ( component.getStatusRule().equals("FAILED") ) {
-                	
-                    if (debug) {
-                    	
-                        System.out.println(
-                                "--SQL queries for New OBOComponent " +
-                                component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!" );
-                    }
-                    
-                    setProcessed(false);
-                }
-                else if ( component.getStatusRule().equals("PASSED") ) {
-                	
-                    setProcessed(true);
-                }
-                else {
-                	
-                    System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
-                    setProcessed(false);
-                }
-                
-                newComponents.add( component );
+                System.out.println("===========");
+                System.out.println("GenerateSQL - Constructor");
+                System.out.println("===========");
             }
-            else if ( component.getStatusChange().equals("DELETED") ) {
-            	
-            	if ( component.getStatusRule().equals("FAILED") ) {
-            		
-                    if (debug) {
+            
+            //this.proposedTermList = proposedTermList;
+            
+            //System.out.println("-- proposedTermList.size() " + proposedTermList.size() + " --");
+
+            timedCompList = new ArrayList<OBOComponent>();
+            synonymCompList = new ArrayList<OBOComponent>();
+            unDeletedCompList = new ArrayList<OBOComponent>();
+            unModifiedCompList = new ArrayList<OBOComponent>();
+            diffCreateTimedCompList = new ArrayList<OBOComponent>();
+            diffDeleteTimedCompList = new ArrayList<OBOComponent>();
+            diffCreateRelList = new ArrayList<OBOComponent>();
+            diffDeleteRelList = new ArrayList<OBOComponent>();
+            diffCreateSynList = new ArrayList<OBOComponent>();
+            diffDeleteSynList = new ArrayList<OBOComponent>();
+
+            tree = treebuilder;
+            strSpecies = obofactory.getComponentOBO().species();
+            intCurrentPublicID = 0;
+            intCurrentObjectID = 0;
+            
+        	// 1: set abstract class parameters
+            abstractclassobocomponent = new OBOComponent();
+            // 2: set stage class parameters
+            stageclassobocomponent = new OBOComponent();
+            // 3: temporary new group class parameters
+            groupclassobocomponent = new OBOComponent();
+            // 4: group term class parameters
+            grouptermclassobocomponent = new OBOComponent();
+
+            this.AbstractClassName = obofactory.getComponentOBO().abstractClassName(); 
+            this.AbstractClassId = obofactory.getComponentOBO().abstractClassId(); 
+            this.AbstractClassNamespace = obofactory.getComponentOBO().abstractClassNamespace(); 
+            this.abstractclassobocomponent.setName(this.AbstractClassName);
+            this.abstractclassobocomponent.setID(this.AbstractClassId);
+            this.abstractclassobocomponent.setNamespace(this.AbstractClassNamespace);
+            
+            this.StageClassName = obofactory.getComponentOBO().stageClassName(); 
+            this.StageClassId = obofactory.getComponentOBO().stageClassId(); 
+            this.StageClassNamespace = obofactory.getComponentOBO().stageClassNamespace(); 
+            this.stageclassobocomponent.setName(this.StageClassName);
+            this.stageclassobocomponent.setID(this.StageClassId);
+            this.stageclassobocomponent.setNamespace(this.StageClassNamespace);
+
+            this.GroupClassName = obofactory.getComponentOBO().groupClassName(); 
+            this.GroupClassId = obofactory.getComponentOBO().groupClassId(); 
+            this.GroupClassNamespace = obofactory.getComponentOBO().groupClassNamespace(); 
+            this.groupclassobocomponent.setName(this.GroupClassName);
+            this.groupclassobocomponent.setID(this.GroupClassId);
+            this.groupclassobocomponent.setNamespace(this.GroupClassNamespace);
+
+            this.GroupTermClassName = obofactory.getComponentOBO().groupTermClassName(); 
+            this.GroupTermClassId = obofactory.getComponentOBO().groupTermClassId(); 
+            this.GroupTermClassNamespace = obofactory.getComponentOBO().groupTermClassNamespace(); 
+            this.grouptermclassobocomponent.setName(this.GroupTermClassName);
+            this.grouptermclassobocomponent.setID(this.GroupTermClassId);
+            this.grouptermclassobocomponent.setNamespace(this.GroupTermClassNamespace);
+            
+            project = obofactory.getComponentOBO().project();
+
+            //internal termlists for data manipulation
+            ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
+
+            ArrayList<OBOComponent> deletedComponents = new ArrayList<OBOComponent>();
+            
+            ArrayList<OBOComponent> changedComponents = new ArrayList<OBOComponent>();
+            
+            //construct internal arraylists
+            OBOComponent component = new OBOComponent();
+            
+            for (int i = 0; i<proposedTermList.size(); i++) {
+
+            	component = proposedTermList.get(i);
+
+                if ( component.getStatusChange().equals("NEW") ) {
+                	
+                    if ( component.getStatusRule().equals("FAILED") ) {
                     	
-                        System.out.println( 
-                                "--SQL queries for Deleted OBOComponent " +
-                                component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!");
+                        if (debug) {
+                        	
+                            System.out.println(
+                                    "--SQL queries for New OBOComponent " +
+                                    component.getID() + " " + component.getName() +
+                                    " with rule violation have been generated!" );
+                        }
+                        
+                        setProcessed(false);
+                    }
+                    else if ( component.getStatusRule().equals("PASSED") ) {
+                    	
+                        setProcessed(true);
+                    }
+                    else {
+                    	
+                        System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
+                        setProcessed(false);
                     }
                     
-                    setProcessed(false);
+                    newComponents.add( component );
                 }
-                else if ( component.getStatusRule().equals("PASSED") ) {
+                else if ( component.getStatusChange().equals("DELETED") ) {
                 	
-                    setProcessed(true);
-                }
-                else {
-                	
-                    System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
-                    setProcessed(false);
-                }
-            	
-                deletedComponents.add( component );
-            }
-            else if ( component.getStatusChange().equals("CHANGED") ) {
-            	
-                if ( component.getStatusRule().equals("FAILED") ) {
-                	
-                    if (debug) {
-                    	
-                        System.out.println( 
-                                "--SQL queries for Changed OBOComponent " +
-                                component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!");
+                	if ( component.getStatusRule().equals("FAILED") ) {
+                		
+                        if (debug) {
+                        	
+                            System.out.println( 
+                                    "--SQL queries for Deleted OBOComponent " +
+                                    component.getID() + " " + component.getName() +
+                                    " with rule violation have been generated!");
+                        }
+                        
+                        setProcessed(false);
                     }
-                    
-                    setProcessed(false);
-                }
-                else if ( component.getStatusRule().equals("PASSED") ) {
+                    else if ( component.getStatusRule().equals("PASSED") ) {
+                    	
+                        setProcessed(true);
+                    }
+                    else {
+                    	
+                        System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
+                        setProcessed(false);
+                    }
                 	
-                	/*
-                	if (component.getID().equals("EMAPA:18305")) {
-                        System.out.println("GenerateSQL.java");
-                        System.out.println("----------------");
-                        System.out.println("Changed component detected: " + component.getID());
-                        System.out.println("component");
-                        System.out.println("component.toString() " + component.toString());
-                        System.out.println("component.getCheckComments() " + component.getCheckComments());
-                        System.out.println("----------------");
+                    deletedComponents.add( component );
+                }
+                else if ( component.getStatusChange().equals("CHANGED") ) {
+                	
+                    if ( component.getStatusRule().equals("FAILED") ) {
+                    	
+                        if (debug) {
+                        	
+                            System.out.println( 
+                                    "--SQL queries for Changed OBOComponent " +
+                                    component.getID() + " " + component.getName() +
+                                    " with rule violation have been generated!");
+                        }
+                        
+                        setProcessed(false);
+                    }
+                    else if ( component.getStatusRule().equals("PASSED") ) {
+                    	
+                    	/*
+                    	if (component.getID().equals("EMAPA:18305")) {
+                            System.out.println("GenerateSQL.java");
+                            System.out.println("----------------");
+                            System.out.println("Changed component detected: " + component.getID());
+                            System.out.println("component");
+                            System.out.println("component.toString() " + component.toString());
+                            System.out.println("component.getCheckComments() " + component.getCheckComments());
+                            System.out.println("----------------");
+                    	}
+                    	*/
+                        setProcessed(true);
+                    }
+                    else {
+                    	
+                        System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
+                        setProcessed(false);
+                    }
+     
+                    changedComponents.add( component );
+                }
+                else if ( !component.getStatusChange().equals("UNCHANGED") ) {
+
+                	if ( component.getID().equals("group_term")) {
+                        setProcessed(true);
                 	}
-                	*/
-                    setProcessed(true);
+                	else if ( component.getID().equals("Tmp_new_group") ) { 
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EMAPA:0") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EMAPA:25765") ) {
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS:0") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS01") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS02") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS03") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS04") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS05") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS06") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS07") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS08") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS09") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS10") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS11") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS12") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS13") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS14") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS15") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS16") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS17") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS18") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS19") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS20") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS21") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS22") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS23") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS24") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS25") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS26") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS27") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("TS28") ) { 
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EHDAA:0") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EHDAA:1") ) {
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS:0") ) { 
+                        setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS01")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS02")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS03")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS04")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS05a")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS05b")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS05c")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS06a")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS06b")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS07")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS08")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS09")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS10")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS11")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS12")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS13")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS14")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS15")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS16")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS17")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS18")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS19")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS20")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS21")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS22")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("CS23")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-I")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-II")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-III")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-IV")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-V")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-VI")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-VII")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-VIII")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-IX")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-X")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-XI")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-XII")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-XIII")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("EGK-XIV")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH02")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH03")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH04")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH05")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH06")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH07")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH08")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH09")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH10")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH11")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH12")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH13")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH14")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH15")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH16")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH17")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH18")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH19")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH20")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH21")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH22")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH23")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH24")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH25")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH26")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH27")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH28")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH29")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH30")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH31")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH32")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH33")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH34")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH35")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH36")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH37")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH38")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH39")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH40")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH41")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH42")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH43")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH44")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH45")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH46")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH47")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH48")) {
+                		setProcessed(true);
+                	}
                 }
-                else {
-                	
-                    System.out.println("UNKNOWN Component getStatusRule Value = " + component.getStatusRule());
-                    setProcessed(false);
-                }
- 
-                changedComponents.add( component );
-            }
-            else if ( !component.getStatusChange().equals("UNCHANGED") ) {
-
-            	if ( component.getID().equals("group_term")) {
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("Tmp_new_group") ) { 
-                    setProcessed(true);
-            	}
-            	else if (component.getID().equals("EMAPA:0") ) {
-                    setProcessed(true);
-            	}
-            	else if (component.getID().equals("EMAPA:25765") ) {
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS:0") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS01") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS02") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS03") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS04") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS05") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS06") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS07") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS08") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS09") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS10") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS11") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS12") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS13") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS14") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS15") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS16") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS17") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS18") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS19") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS20") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS21") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS22") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS23") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS24") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS25") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS26") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS27") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("TS28") ) { 
-                    setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS01")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS02")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS03")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS04")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS05a")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS05b")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS05c")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS06a")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS06b")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS07")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS08")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS09")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS10")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS11")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS12")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS13")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS14")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS15")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS16")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS17")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS18")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS19")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS20")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS21")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS22")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("CS23")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-I")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-II")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-III")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-IV")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-V")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-VI")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-VII")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-VIII")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-IX")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-X")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-XI")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-XII")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-XIII")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("EGK-XIV")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH02")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH03")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH04")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH05")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH06")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH07")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH08")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH09")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH10")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH11")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH12")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH13")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH14")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH15")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH16")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH17")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH18")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH19")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH20")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH21")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH22")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH23")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH24")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH25")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH26")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH27")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH28")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH29")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH30")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH31")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH32")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH33")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH34")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH35")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH36")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH37")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH38")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH39")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH40")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH41")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH42")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH43")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH44")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH45")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH46")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH47")) {
-            		setProcessed(true);
-            	}
-            	else if ( component.getID().equals("HH48")) {
-            		setProcessed(true);
-            	}
             	else {
                 	System.out.println("UNKNOWN Component StatusChange Value = " + component.getStatusChange());
                     System.out.println("component.toString() = " + component.toString());
                     setProcessed(false);
             	}
+             }
+
+            if (processed) {
+            	
+            	// Obtain DAOFactory.
+            	//this.daofactory = daofactory;
+
+                // Obtain DAOs.
+                logDAO = 
+                		daofactory.getLogDAO();
+                nodeDAO = 
+                		daofactory.getNodeDAO();
+                relationshipDAO = 
+                		daofactory.getRelationshipDAO();
+                relationshipprojectDAO = 
+                		daofactory.getRelationshipProjectDAO();
+                stageDAO = 
+                		daofactory.getStageDAO();
+                synonymDAO = 
+                		daofactory.getSynonymDAO();
+                thingDAO = 
+                		daofactory.getThingDAO();
+                timednodeDAO = 
+                		daofactory.getTimedNodeDAO();
+                versionDAO = 
+                		daofactory.getVersionDAO();
+                joinnoderelationshipDAO = 
+                		daofactory.getJOINNodeRelationshipDAO();
+                joinnoderelationshipnodeDAO = 
+                		daofactory.getJOINNodeRelationshipNodeDAO();
+                /*
+                joinnoderelationshiprelationshipprojectDAO = 
+                		daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
+                joinrelationshipprojectrelationshipDAO = 
+                		daofactory.getJOINRelationshipProjectRelationshipDAO();
+                */
+                jointimednodestageDAO = 
+                		daofactory.getJOINTimedNodeStageDAO();
+                componentDAO = 
+                		daofactory.getComponentDAO();
+                componentalternativeDAO =
+                		daofactory.getComponentAlternativeDAO();
+                componentrelationshipDAO = 
+                		daofactory.getComponentRelationshipDAO();
+                componentorderDAO = 
+                		daofactory.getComponentOrderDAO();
+                componentsynonymDAO = 
+                		daofactory.getComponentSynonymDAO();
+                componentcommentDAO = 
+                		daofactory.getComponentCommentDAO();
+
+                // 01
+                //set version id
+                initialiseVersionID();
+                
+                // 02
+                //set a version record in ANA_VERSION for this update
+                insertANA_VERSION( intCurrentVersionID, newComponents,
+                        deletedComponents, changedComponents );
+
+                // AA
+                //  INSERT components
+                inserts( newComponents );
+
+                // BB
+                //  AMENDED components
+                updates( changedComponents );
+                
+                // CC
+                //  DELETED components
+                deletes( deletedComponents );
+
+                // DD
+                //  rebuild ANA_RELATIONSHIP_PROJECT
+                rebuildANA_RELATIONSHIP_PROJECT();
+
+                setProcessed( true );
             }
-        }
-
-        if (processed) {
+    	}
+        catch ( OBOException obo ) {
         	
-        	// Obtain DAOFactory.
-        	//this.daofactory = daofactory;
-
-            // Obtain DAOs.
-            logDAO = 
-            		daofactory.getLogDAO();
-            nodeDAO = 
-            		daofactory.getNodeDAO();
-            relationshipDAO = 
-            		daofactory.getRelationshipDAO();
-            relationshipprojectDAO = 
-            		daofactory.getRelationshipProjectDAO();
-            stageDAO = 
-            		daofactory.getStageDAO();
-            synonymDAO = 
-            		daofactory.getSynonymDAO();
-            thingDAO = 
-            		daofactory.getThingDAO();
-            timednodeDAO = 
-            		daofactory.getTimedNodeDAO();
-            versionDAO = 
-            		daofactory.getVersionDAO();
-            joinnoderelationshipDAO = 
-            		daofactory.getJOINNodeRelationshipDAO();
-            joinnoderelationshipnodeDAO = 
-            		daofactory.getJOINNodeRelationshipNodeDAO();
-            /*
-            joinnoderelationshiprelationshipprojectDAO = 
-            		daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
-            joinrelationshipprojectrelationshipDAO = 
-            		daofactory.getJOINRelationshipProjectRelationshipDAO();
-            */
-            jointimednodestageDAO = 
-            		daofactory.getJOINTimedNodeStageDAO();
-            componentDAO = 
-            		daofactory.getComponentDAO();
-            componentalternativeDAO =
-            		daofactory.getComponentAlternativeDAO();
-            componentrelationshipDAO = 
-            		daofactory.getComponentRelationshipDAO();
-            componentorderDAO = 
-            		daofactory.getComponentOrderDAO();
-            componentsynonymDAO = 
-            		daofactory.getComponentSynonymDAO();
-            componentcommentDAO = 
-            		daofactory.getComponentCommentDAO();
-
-            // 01
-            //set version id
-            initialiseVersionID();
-            
-            // 02
-            //set a version record in ANA_VERSION for this update
-            insertANA_VERSION( intCurrentVersionID, newComponents,
-                    deletedComponents, changedComponents );
-
-            // AA
-            //  INSERT components
-            inserts( newComponents );
-
-            // BB
-            //  AMENDED components
-            updates( changedComponents );
-            
-            // CC
-            //  DELETED components
-            deletes( deletedComponents );
-
-            // DD
-            //  rebuild ANA_RELATIONSHIP_PROJECT
-            rebuildANA_RELATIONSHIP_PROJECT();
-
-            setProcessed( true );
+            setProcessed( false );
+            obo.printStackTrace();
         }
+        catch ( DAOException dao ) {
+        	
+            setProcessed( false );
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	
+            setProcessed( false );
+            ex.printStackTrace();
+        }
+
     }
     
     
@@ -1121,7 +1204,7 @@ public class GenerateSQL {
                    }
                    else if (strSpecies.equals("human")) {
                 	   
-                	   strANO_PUBLIC_ID = "EDHAA:" + 
+                	   strANO_PUBLIC_ID = "EHDAA:" + 
                                Integer.toString( ++intCurrentPublicID );
                    }
                    else {
@@ -1476,6 +1559,9 @@ public class GenerateSQL {
             System.out.println("04 - insertANA_RELATIONSHIP - called from = " + calledFrom);
         }
 
+        //System.out.println("04 - insertANA_RELATIONSHIP - called from = " + calledFrom);
+        //System.out.println("newTermList.size() = " + newTermList.size());
+        
         ArrayList<OBOComponent> insertRelObjects = new ArrayList<OBOComponent>();
         OBOComponent component;
 
@@ -1530,6 +1616,8 @@ public class GenerateSQL {
                     //check whether component has any parents, if none issue warning, no need to proceed with insert
                     if ( parents.size() == 0 ) {
                     	
+                    	//System.out.println("NO PARENTS!");
+                        
                         flagInsert = false;
                     } 
 
@@ -1545,7 +1633,9 @@ public class GenerateSQL {
                         //check whether parent has been deleted from obo file, do not allow insertion
                         if ( parent == null ) {
                         	
-                             flagInsert = false;
+                        	//System.out.println("NO PARENT IN OBO FILE!");
+                            
+                            flagInsert = false;
                         }
                         else {
                         	
@@ -1554,9 +1644,13 @@ public class GenerateSQL {
 
                         	if (joinnoderelationshipnodes.size() == 0) {
                             
+                        		//System.out.println("joinnoderelationshipnodes.size() = 0");
+                                
                         		flagInsert = true;
                         	}
                         	else {
+                                
+                        		//System.out.println("!joinnoderelationshipnodes.size() = 0");
                                 
                         		flagInsert = false;
                         	}
@@ -1565,22 +1659,65 @@ public class GenerateSQL {
                         //UPDATED CODE: deleted components are now marked in proposed file as well and appear in the tree under its own root outside abstract anatomy
                         if ( parent.getStatusChange().equals("DELETED") ) {
                             
-                        	flagInsert = false;
+                        	//System.out.println("parent.getStatusChange().equals(\"DELETED\")");
+
+                            flagInsert = false;
                         }
 
                         //check whether any rules broken for each parent and print warning
                         //ignore any kind of rule violation for relationship record insertion except missing parent
                         else if ( parent.getStatusRule().equals("FAILED") ) {
                             
+                        	//System.out.println("parent.getStatusChange().equals(\"FAILED\")");
+
                         	flagInsert = true;
                         }
                         
                         //if parent is root Tmp new group don't treat as relationship
-                        else if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
-                            
+                        if ("mouse".equals(strSpecies)) {
+
+                            if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
+                                
+                            	/*
+                                System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace()");
+                                System.out.println(" parent.getNamespace() = " + parent.getNamespace());
+                                System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                                */
+                            	flagInsert = false;
+                            }
+                        }
+                        if ("human".equals(strSpecies)) {
+
+                            if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) &&
+                            	!parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
+                            	!parent.getNamespace().equals( groupclassobocomponent.getNamespace() ) ) {
+                                
+                            	/*
+                            	if ( parent.getName().equals("cell") ) {
+                            		
+                                	System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace() && ");
+                                    System.out.println("!parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() && ");
+                                    System.out.println("!parent.getNamespace().equals( groupclassobocomponent.getNamespace()");
+                                    System.out.println(" parent.getNamespace() = " + parent.getNamespace());
+                                    System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                                    System.out.println(" grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
+                            	}
+                            	*/
+
+                                flagInsert = false;
+                            }
+                        }
+                        if ("chick".equals(strSpecies)) {
+                        	/*
+                            System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace()");
+                            System.out.println(" parent.getNamespace() = " + parent.getNamespace());
+                            System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                            */
                         	flagInsert = false;
                         }
-                    
+
+                        //System.out.println("flagInsert = " + flagInsert);
+                        
                         //proceed with insertion 
                         if (flagInsert) {
                             
@@ -1633,6 +1770,8 @@ public class GenerateSQL {
                     }
                 }
                 // END OF "for ( int i = 0; i< newTermList.size(); i++)"
+
+                //System.out.println("insertRelObjects.size() = " + insertRelObjects.size());
 
                 //INSERT INTO ANA_RELATIONSHIP
                 if ( !insertRelObjects.isEmpty() ) {
@@ -1725,6 +1864,8 @@ public class GenerateSQL {
 
                         Relationship relationship = new Relationship((long) intREL_OID, strREL_RELATIONSHIP_TYPE_FK, (long) intREL_CHILD_FK, (long) intREL_PARENT_FK);
                 
+                        //System.out.println("insertANA_RELATIONSHIP = " + relationship.toString());
+                        
                         relationshipDAO.create(relationship);
                         
                         //insertANA_RELATIONSHIP_PROJECT( insertRelObject, intREL_OID, calledFrom );

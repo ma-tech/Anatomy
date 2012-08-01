@@ -108,8 +108,7 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
 	        System.out.println("ValidateComponents");
 	    }
         ValidateComponents validatecomponents =
-            new ValidateComponents( obofactory.getComponentOBO().debug(), 
-            		obofactory.getComponentOBO().species(), 
+            new ValidateComponents( obofactory, 
             		importcomponents.getTermList(), 
             		importdatabase.getTermList(), 
             		newtreebuilder);

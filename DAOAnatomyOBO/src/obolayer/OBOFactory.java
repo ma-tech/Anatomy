@@ -74,6 +74,9 @@ import obomodel.Relation;
 import routinesbase.Parser;
 import routinesbase.Producer;
 
+import utility.ObjectConverter;
+
+
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
     private static final String PROPERTY_OBO_IN_FILE = "oboinfile";
@@ -87,6 +90,20 @@ public abstract class OBOFactory {
     private static final String PROPERTY_DEBUG = "debug";
     private static final String PROPERTY_SPECIES = "species";
     private static final String PROPERTY_PROJECT = "project";
+    private static final String PROPERTY_ABSTRACT_CLASS_NAME = "AbstractClassName";
+    private static final String PROPERTY_ABSTRACT_CLASS_ID = "AbstractClassId";
+    private static final String PROPERTY_ABSTRACT_CLASS_NAMESPACE = "AbstractClassNamespace";
+    private static final String PROPERTY_STAGE_CLASS_NAME = "StageClassName";
+    private static final String PROPERTY_STAGE_CLASS_ID = "StageClassId";
+    private static final String PROPERTY_STAGE_CLASS_NAMESPACE = "StageClassNamespace";
+    private static final String PROPERTY_GROUP_CLASS_NAME = "GroupClassName";
+    private static final String PROPERTY_GROUP_CLASS_ID = "GroupClassId";
+    private static final String PROPERTY_GROUP_CLASS_NAMESPACE = "GroupClassNamespace";
+    private static final String PROPERTY_GROUP_TERM_CLASS_NAME = "GroupTermClassName";
+    private static final String PROPERTY_GROUP_TERM_CLASS_ID = "GroupTermClassId";
+    private static final String PROPERTY_GROUP_TERM_CLASS_NAMESPACE = "GroupTermClassNamespace";
+    private static final String PROPERTY_MIN_STAGE_SEQUENCE = "MinStageSequence";
+    private static final String PROPERTY_MAX_STAGE_SEQUENCE = "MaxStageSequence";
 
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -113,7 +130,24 @@ public abstract class OBOFactory {
         String strDebug = properties.getProperty(PROPERTY_DEBUG, true);
         String strSpecies = properties.getProperty(PROPERTY_SPECIES, true);
         String strProject = properties.getProperty(PROPERTY_PROJECT, true);
+        String strAbstractClassName = properties.getProperty(PROPERTY_ABSTRACT_CLASS_NAME, false);
+        String strAbstractClassId = properties.getProperty(PROPERTY_ABSTRACT_CLASS_ID, false);
+        String strAbstractClassNamespace = properties.getProperty(PROPERTY_ABSTRACT_CLASS_NAMESPACE, false);
+        String strStageClassName = properties.getProperty(PROPERTY_STAGE_CLASS_NAME, false);
+        String strStageClassId = properties.getProperty(PROPERTY_STAGE_CLASS_ID, false);
+        String strStageClassNamespace = properties.getProperty(PROPERTY_STAGE_CLASS_NAMESPACE, false);
+        String strGroupClassName = properties.getProperty(PROPERTY_GROUP_CLASS_NAME, false);
+        String strGroupClassId = properties.getProperty(PROPERTY_GROUP_CLASS_ID, false);
+        String strGroupClassNamespace = properties.getProperty(PROPERTY_GROUP_CLASS_NAMESPACE, false);
+        String strGroupTermClassName = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_NAME, false);
+        String strGroupTermClassId = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_ID, false);
+        String strGroupTermClassNamespace = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_NAMESPACE, false);
+        String strMinStageSequence = properties.getProperty(PROPERTY_MIN_STAGE_SEQUENCE, true);
+        String strMaxStageSequence = properties.getProperty(PROPERTY_MAX_STAGE_SEQUENCE, true);
 
+        int minStageSequence  = ObjectConverter.convert(strMinStageSequence, Integer.class);
+        int maxStageSequence  = ObjectConverter.convert(strMaxStageSequence, Integer.class);
+        
         Boolean debug = false;
         
         if (strDebug.equals("true")) {
@@ -121,17 +155,31 @@ public abstract class OBOFactory {
         	System.out.println("=====");
         	System.out.println("DEBUG : OBO Properties File : " + filename);
         	System.out.println("-----");
-        	System.out.println("      : oboinfile           : " + strOboInFile);
-        	System.out.println("      : obooutfile          : " + strOboOutFile);
-        	System.out.println("      : obooutfileversion   : " + strOboOutFileVersion);
-        	System.out.println("      : obooutfilenamespace : " + strOboOutFileNameSpace);
-        	System.out.println("      : obooutfilesavedby   : " + strOboOutFileSavedBy);
-        	System.out.println("      : obooutfileremark    : " + strOboOutFileRemark);
-        	System.out.println("      : summaryreport       : " + strSummaryReport);
-        	System.out.println("      : summaryreportpdf    : " + strSummaryReportPdf);
-        	System.out.println("      : debug               : " + strDebug);
-        	System.out.println("      : species             : " + strSpecies);
-        	System.out.println("      : project             : " + strProject);
+        	System.out.println("      : oboinfile               : " + strOboInFile);
+        	System.out.println("      : obooutfile              : " + strOboOutFile);
+        	System.out.println("      : obooutfileversion       : " + strOboOutFileVersion);
+        	System.out.println("      : obooutfilenamespace     : " + strOboOutFileNameSpace);
+        	System.out.println("      : obooutfilesavedby       : " + strOboOutFileSavedBy);
+        	System.out.println("      : obooutfileremark        : " + strOboOutFileRemark);
+        	System.out.println("      : summaryreport           : " + strSummaryReport);
+        	System.out.println("      : summaryreportpdf        : " + strSummaryReportPdf);
+        	System.out.println("      : debug                   : " + strDebug);
+        	System.out.println("      : species                 : " + strSpecies);
+        	System.out.println("      : project                 : " + strProject);
+        	System.out.println("      : AbstractClassName       : " + strAbstractClassName);
+        	System.out.println("      : AbstractClassId         : " + strAbstractClassId);
+        	System.out.println("      : AbstractClassNamespace  : " + strAbstractClassNamespace);
+        	System.out.println("      : StageClassName          : " + strStageClassName);
+        	System.out.println("      : StageClassId            : " + strStageClassId);
+        	System.out.println("      : StageClassNamespace     : " + strStageClassNamespace);
+        	System.out.println("      : GroupClassName          : " + strGroupClassName);
+        	System.out.println("      : GroupClassId            : " + strGroupClassId);
+        	System.out.println("      : GroupClassNamespace     : " + strGroupClassNamespace);
+        	System.out.println("      : GroupTermClassName      : " + strGroupTermClassName);
+        	System.out.println("      : GroupTermClassId        : " + strGroupTermClassId);
+        	System.out.println("      : GroupTermClassNamespace : " + strGroupTermClassNamespace);
+        	System.out.println("      : MinStageSequence        : " + strMinStageSequence);
+        	System.out.println("      : MaxStageSequence        : " + strMaxStageSequence);
         	System.out.println("=====");
         }
         
@@ -151,7 +199,21 @@ public abstract class OBOFactory {
             		strSummaryReport, 
             		strSummaryReportPdf, 
             		strSpecies, 
-            		strProject);
+            		strProject,
+            		strAbstractClassName, 
+            		strAbstractClassId, 
+            		strAbstractClassNamespace, 
+            		strStageClassName, 
+            		strStageClassId, 
+            		strStageClassNamespace, 
+            		strGroupClassName, 
+            		strGroupClassId, 
+            		strGroupClassNamespace, 
+            		strGroupTermClassName, 
+            		strGroupTermClassId, 
+            		strGroupTermClassNamespace,
+            		minStageSequence,
+            		maxStageSequence);
         }
         else {
             throw new OBOConfigurationException(
@@ -179,7 +241,21 @@ public abstract class OBOFactory {
     abstract String getOutputFileRemark();
     abstract String getSpecies();
     abstract String getProject();
-    abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
+    abstract String getAbstractClassName(); 
+	abstract String getAbstractClassId(); 
+	abstract String getAbstractClassNamespace(); 
+	abstract String getStageClassName(); 
+	abstract String getStageClassId(); 
+	abstract String getStageClassNamespace(); 
+	abstract String getGroupClassName(); 
+	abstract String getGroupClassId(); 
+	abstract String getGroupClassNamespace(); 
+	abstract String getGroupTermClassName(); 
+	abstract String getGroupTermClassId(); 
+	abstract String getGroupTermClassNamespace();
+	abstract int getMinStageSequence();
+	abstract int getMaxStageSequence();
+	abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
     abstract void setRelations(ArrayList<Relation> arrayrellist);
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
     
@@ -211,6 +287,20 @@ class FileOBOFactory extends OBOFactory {
 	private String summaryReportPdf;
 	private String species;
 	private String project;
+	private String abstractClassName;
+	private String abstractClassId;
+    private String abstractClassNamespace;
+    private String stageClassName;
+    private String stageClassId;
+    private String stageClassNamespace;
+    private String groupClassName;
+    private String groupClassId;
+    private String groupClassNamespace;
+    private String groupTermClassName;
+    private String groupTermClassId;
+    private String groupTermClassNamespace;
+    private int minStageSequence;
+    private int maxStageSequence;
 	
     private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
@@ -225,7 +315,21 @@ class FileOBOFactory extends OBOFactory {
     		String summaryReport, 
     		String summaryReportPdf, 
     		String species, 
-    		String project) {
+    		String project,
+    		String abstractClassName, 
+    		String abstractClassId, 
+    		String abstractClassNamespace, 
+    		String stageClassName, 
+    		String stageClassId, 
+    		String stageClassNamespace, 
+    		String groupClassName, 
+    		String groupClassId, 
+    		String groupClassNamespace, 
+    		String groupTermClassName, 
+    		String groupTermClassId, 
+    		String groupTermClassNamespace,
+    		int minStageSequence,
+    		int maxStageSequence) {
     
     	this.oboInFile = oboInFile;
     	this.oboOutFile = oboOutFile;
@@ -238,6 +342,20 @@ class FileOBOFactory extends OBOFactory {
         this.summaryReportPdf = summaryReportPdf;
         this.species = species;
         this.project = project;
+    	this.abstractClassName = abstractClassName;
+		this.abstractClassId = abstractClassId;
+	    this.abstractClassNamespace = abstractClassNamespace;
+	    this.stageClassName = stageClassName;
+	    this.stageClassId = stageClassId;
+	    this.stageClassNamespace = stageClassNamespace;
+	    this.groupClassName = groupClassName;
+	    this.groupClassId = groupClassId;
+	    this.groupClassNamespace = groupClassNamespace;
+	    this.groupTermClassName = groupTermClassName;
+	    this.groupTermClassId = groupTermClassId;
+	    this.groupTermClassNamespace = groupTermClassNamespace;
+	    this.minStageSequence = minStageSequence;
+	    this.maxStageSequence = maxStageSequence;
     }
 
     ArrayList<OBOComponent> getComponents() throws OBOConfigurationException, IOException {
@@ -313,6 +431,48 @@ class FileOBOFactory extends OBOFactory {
     }
     String getOutputFileRemark() {
     	return oboOutFileRemark;
+    }
+    String getAbstractClassName(){
+    	return abstractClassName;
+    } 
+    String getAbstractClassId(){
+     	return abstractClassId;
+    } 
+    String getAbstractClassNamespace(){
+    	return abstractClassNamespace;
+    } 
+    String getStageClassName(){    	
+    	return stageClassName;
+    } 
+    String getStageClassId(){    	
+    	return stageClassId;
+    } 
+    String getStageClassNamespace(){    	
+    	return stageClassNamespace;
+    } 
+    String getGroupClassName(){    	
+    	return groupClassName;
+    } 
+    String getGroupClassId(){    	
+    	return groupClassId;
+    } 
+    String getGroupClassNamespace(){    	
+    	return groupClassNamespace;
+    } 
+    String getGroupTermClassName(){    	
+    	return groupTermClassName;
+    } 
+    String getGroupTermClassId(){    	
+    	return groupTermClassId;
+    } 
+    String getGroupTermClassNamespace(){    	
+    	return groupTermClassNamespace;
+    }
+    int getMinStageSequence(){    	
+    	return minStageSequence;
+    }
+    int getMaxStageSequence(){    	
+    	return maxStageSequence;
     }
     void setComponents(ArrayList<OBOComponent> obocomponentList) {
     	this.obocomponentList = obocomponentList;

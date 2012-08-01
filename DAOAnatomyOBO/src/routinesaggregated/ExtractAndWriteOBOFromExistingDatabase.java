@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import obomodel.OBOComponent;
+import obomodel.Relation;
 
 import obolayer.OBOFactory;
 import obolayer.ComponentOBO;
@@ -57,18 +58,16 @@ public class ExtractAndWriteOBOFromExistingDatabase {
         
         // Extract Components from RAW Database tables into OBOComponent format
         ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
+        
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importdatabase.getTermList();
         
+        List<Relation> relations = new ArrayList<Relation>();
+        relations = importdatabase.getRelationList();
+        
         // Write extracted OBOComponents into Obo File Format
         componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
-        
-        if ( "mouse".equals(obofactory.getComponentOBO().species())) {
-            componentOBO.createTemplateRelationList(daofactory);
-        }
-        if ( "human".equals(obofactory.getComponentOBO().species())) {
-            componentOBO.createHumanRelationList();
-        }
+        componentOBO.setRelationList((ArrayList<Relation>) relations);
         
         if ( componentOBO.writeAll() ) {
         	if ( obofactory.getComponentOBO().debug() ) {

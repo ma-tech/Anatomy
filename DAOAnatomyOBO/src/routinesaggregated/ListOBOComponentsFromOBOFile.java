@@ -88,7 +88,8 @@ public class ListOBOComponentsFromOBOFile {
 
     // Constructor --------------------------------------------------------------------------------
     public ListOBOComponentsFromOBOFile(Boolean debug,
-    		String filename) throws IOException{
+    		String filename,
+    		Boolean boolAlternatives) throws IOException{
 
         this.debug = debug;
         
@@ -99,7 +100,7 @@ public class ListOBOComponentsFromOBOFile {
             System.out.println("============================");
         }
 
-        Parser parser = new Parser(this.debug, filename);
+        Parser parser = new Parser(this.debug, filename, boolAlternatives);
         obocomponentList = (ArrayList<OBOComponent>) parser.getComponents();
     }
 

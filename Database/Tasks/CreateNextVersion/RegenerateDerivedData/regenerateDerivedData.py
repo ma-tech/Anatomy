@@ -12,6 +12,10 @@ from hgu import Util
 from hgu.db import DbAccess
 from hgu.anatomyDb.version006 import Anatomy # High level anatomy DB access
 
+sys.setrecursionlimit(4000)
+
+print "sys.getrecursionlimit = %s" % sys.getrecursionlimit()
+
 # List of expected configuration parameters
 config = {
     "DB_HOST":          None,
@@ -31,6 +35,7 @@ if config["PROJECT"].lower() not in ["emap", "gudmap"]:
 
 
 Util.statusMessage(["Reading in anatomy database."])
+
 
 Anatomy.initialise(sortProject = config["PROJECT"],
                    dbHost = config["DB_HOST"], 

@@ -85,6 +85,8 @@ public class OBOComponent {
     
     private ArrayList<String> alternativeIds;
 
+    private ArrayList<String> timedComponents;
+
     //missing relationships, starts < end
     private boolean flagMissingRel;
     
@@ -133,6 +135,8 @@ public class OBOComponent {
         this.comments = new TreeSet<String>();
         
         this.alternativeIds = new ArrayList<String>();
+
+        this.timedComponents = new ArrayList<String>();
     }
 
     /*
@@ -248,6 +252,35 @@ public class OBOComponent {
         this.alternativeIds = alternativeIds;
     }
     
+    /*
+     * Even MORE Fuller constructor. Contains required and optional fields.
+     */
+    public OBOComponent(String name, 
+    		String id,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		Boolean group,
+    		String start,
+    		String end,
+    		Integer present, 
+    		String statusChange, 
+    		String statusRule,
+    		ArrayList<String> childOfs,
+    		ArrayList<String> childOfTypes,
+    		ArrayList<String> synonyms, 
+    		ArrayList<String> userComments,
+    		String orderComment,
+    		TreeSet<String> comments,
+    		ArrayList<String> alternativeIds,
+    		ArrayList<String> timedComponents) {
+    	
+    	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
+
+        this.timedComponents = timedComponents;
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public String getID() {
         return this.id;
@@ -302,6 +335,9 @@ public class OBOComponent {
     }
     public ArrayList<String> getAlternativeIds() {
         return this.alternativeIds;
+    }
+    public ArrayList<String> getTimedComponents() {
+        return this.timedComponents;
     }
 
     public boolean getFlagMissingRel(){
@@ -1865,6 +1901,13 @@ public class OBOComponent {
         this.primaryPath = path;
     }
     
+    public void setTimedComponents( ArrayList<String> timedComponents ){
+        this.timedComponents = timedComponents;
+    }
+    public void addTimedComponent( String timedComponent ){
+        this.timedComponents.add( timedComponent );
+    }
+
     // Helpers ------------------------------------------------------------------------------------
     public void addAlternative( String alternative ) {
         this.alternativeIds.add( alternative ); 
@@ -1895,6 +1938,9 @@ public class OBOComponent {
     }
     public void removeAlternative( String alternative ){
         this.alternativeIds.remove( alternative );
+    }
+    public void removeTimedComponent( String timedComponent ){
+        this.timedComponents.remove( timedComponent );
     }
     public void removeChildOf( String childOf ){
         this.childOfs.remove( childOf );

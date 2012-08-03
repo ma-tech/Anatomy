@@ -65,21 +65,26 @@ public class Producer {
 
     private boolean isProcessed;
 
-    private boolean debug;
+    private boolean boolDebug;
+
+    private boolean boolAlternatives;
+    private boolean boolTimedComponents;
 
     // Constructor --------------------------------------------------------------------------------
-    public Producer(Boolean debug,
+    public Producer(Boolean boolDebug,
     		String fileName, 
     		String fileVersion,
     		String fileNameSpace,
     		String fileSavedBy,
     		String fileRemark,
     		ArrayList<OBOComponent> obocomponentList, 
-    		ArrayList<Relation> oborelationList){
+    		ArrayList<Relation> oborelationList,
+    		Boolean boolAlternatives,
+    		Boolean boolTimedComponents){
     	
-        this.debug = debug;
+        this.boolDebug = boolDebug;
         
-        if (this.debug) {
+        if (this.boolDebug) {
         	
             System.out.println("========");
             System.out.println("Producer - Constructor");
@@ -93,6 +98,9 @@ public class Producer {
         this.fileRemark = fileRemark.trim();
         this.obocomponentList = obocomponentList;
         this.oborelationList = oborelationList;
+
+        this.boolAlternatives = boolAlternatives;
+        this.boolTimedComponents = boolTimedComponents;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -120,6 +128,12 @@ public class Producer {
     public Boolean getIsProcessed(){
         return this.isProcessed;
     }
+    public Boolean getAlternatives(){
+        return this.boolAlternatives;
+    }
+    public Boolean geTimedComponents(){
+        return this.boolTimedComponents;
+    }
     
     // Setters ------------------------------------------------------------------------------------
     public void setFile(String file){
@@ -146,11 +160,17 @@ public class Producer {
     public void setIsProcessed(Boolean isProcessed){
         this.isProcessed = isProcessed;
     }
+    public void setAlternatives(Boolean boolAlternatives){
+        this.boolAlternatives = boolAlternatives;
+    }
+    public void setTimedComponents(Boolean boolTimedComponents){
+        this.boolTimedComponents = boolTimedComponents;
+    }
     
     // Methods ------------------------------------------------------------------------------------
     public Boolean writeOboFile(){
 
-        if (this.debug) {
+        if (this.boolDebug) {
         	
             System.out.println("writeOboFile");
         }
@@ -275,9 +295,19 @@ public class Producer {
                             		obocomponentList.get(i).getSynonyms().get(j) + "\" []\n");
                         }
 
-                        for (int k=0; k<obocomponentList.get(i).getAlternativeIds().size(); k++) {
-                            outputFile.write("alt_id: " +
-                            		obocomponentList.get(i).getAlternativeIds().get(k) + "\n");
+                        if ( this.boolAlternatives ) {
+                            for (int k=0; k<obocomponentList.get(i).getAlternativeIds().size(); k++) {
+                                outputFile.write("alt_id: " +
+                                		obocomponentList.get(i).getAlternativeIds().get(k) + "\n");
+                            }
+                        }
+
+                        if ( this.boolTimedComponents ) {
+                            for (int l=0; l<obocomponentList.get(i).getTimedComponents().size(); l++) {
+                                //outputFile.write("relationship: has_timed_component " +
+                                outputFile.write("alt_id: " +
+                                		obocomponentList.get(i).getTimedComponents().get(l) + "\n");
+                            }
                         }
 
                         if (obocomponentList.get(i).getIsGroup()) {

@@ -41,12 +41,14 @@ import daolayer.DAOFactory;
 import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
 import daolayer.JOINTimedNodeStageDAO;
 import daolayer.NodeDAO;
+import daolayer.TimedNodeDAO;
 import daolayer.SynonymDAO;
 import daolayer.ComponentAlternativeDAO;
 
 import daomodel.JOINNodeRelationshipRelationshipProject;
 import daomodel.JOINTimedNodeStage;
 import daomodel.Node;
+import daomodel.TimedNode;
 import daomodel.Synonym;
 import daomodel.ComponentAlternative;
 
@@ -104,6 +106,7 @@ public class ListOBOComponentsFromExistingDatabase {
     	try {
             // Obtain DAOs.
             NodeDAO nodeDAO = daofactory.getNodeDAO();
+            TimedNodeDAO timednodeDAO = daofactory.getTimedNodeDAO();
             SynonymDAO synonymDAO = daofactory.getSynonymDAO();
             ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
 
@@ -243,6 +246,18 @@ public class ListOBOComponentsFromExistingDatabase {
                   		ComponentAlternative componentalternative = iteratorComponentAlternative.next();
                   		
                   		obocomponent.addAlternative( componentalternative.getAltId() );
+                    }
+
+                    // query for the node's Timed Components --------------------------------------------------------
+                    List<TimedNode> timednodes = timednodeDAO.listByNodeFK( node.getOid() );
+                    
+                    Iterator<TimedNode> iteratorTimedNode = timednodes.iterator();
+                        
+                  	while (iteratorTimedNode.hasNext()) {
+                  		
+                  		TimedNode timednode = iteratorTimedNode.next();
+
+                  		obocomponent.addTimedComponent( timednode.getPublicId() );
                     }
 
                     // query for the node's start and end stage---------------------------------------------

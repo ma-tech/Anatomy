@@ -59,8 +59,11 @@ public class Parser {
     private ArrayList<OBOComponent> componentList;
     private OBOSession oboSession;
     private Boolean debug;
+    private Boolean boolAlternatives;
 
-    public Parser(Boolean debug, String txtFileName) throws IOException{
+    public Parser(Boolean debug, 
+    		String txtFileName,
+    		Boolean boolAlternatives) throws IOException{
 
         this.debug = debug;
         
@@ -72,11 +75,16 @@ public class Parser {
         }
 
         this.file = txtFileName.trim();
+        this.boolAlternatives = boolAlternatives;
+
         this.componentList = addComponents(this.file);
         this.fileContent = StringStreamConverter.convertStreamToString(new FileInputStream(this.file));
     }
 
     // Getters ------------------------------------------------------------------------------------
+    public Boolean getAlternatives(){
+        return this.boolAlternatives;
+    }
     public String getFile(){
         return this.file;
     }
@@ -91,6 +99,9 @@ public class Parser {
     }
     
     // Setters ------------------------------------------------------------------------------------
+    public void setAlternatives(Boolean boolAlternatives){
+        this.boolAlternatives = boolAlternatives;
+    }
     public void setFile(String file){
         this.file = file;
     }
@@ -169,6 +180,11 @@ public class Parser {
         	
             System.out.println("addComponents");
         }
+
+		if ( !this.boolAlternatives ) {
+            
+            System.out.println("IGNORING Alternative Ids");
+		}
 
      	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
         			
@@ -260,11 +276,16 @@ public class Parser {
 					@SuppressWarnings("unchecked")
 					Set<String> altIds = (Set<String>) oboclassimpl.getSecondaryIDs();
 
+					
 					Iterator<String> iteratorAltIds = altIds.iterator();
 
-                    while (iteratorAltIds.hasNext() ){
-                		obocomponent.addAlternative(iteratorAltIds.next());
-                    }
+					if ( boolAlternatives ) {
+	                
+						while (iteratorAltIds.hasNext() ){
+	                	
+							obocomponent.addAlternative(iteratorAltIds.next());
+	                    }
+					}
 
                     /*
                      * set obocomponent relationships
@@ -346,6 +367,9 @@ public class Parser {
                         else if (oborestrictionimpl.getType().getID().equals("has_part")){
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("HAS_PART");
+                        }
+                        else if (oborestrictionimpl.getType().getID().equals("has_timed_component")){
+                            System.out.println("IGNORING Timed Component = " + oborestrictionimpl.getParent().getID() );
                         }
                         else {
                             System.out.println("UNKNOWN Relationship Type = " + oborestrictionimpl.getType().getID());

@@ -25,10 +25,12 @@ import java.io.ByteArrayInputStream;
 import java.io.CharArrayReader;
 import java.io.Closeable;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -47,6 +49,15 @@ public final class FileUtil {
 
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
+    // Constants ----------------------------------------------------------------------------------
+    private static final long ONE_BYTE   = 1L;
+    private static final long KILO_BYTE  = 1024L;
+    private static final long MEGA_BYTE  = 1048576L;
+    private static final long GIGA_BYTE  = 1073741824L;
+    private static final long TERRA_BYTE = 1099511627776L;
+    private static final long PETTA_BYTE = 1125899906842624L;
+
+    
     // Constructors -------------------------------------------------------------------------------
 
     private FileUtil() {
@@ -488,4 +499,206 @@ public final class FileUtil {
         }
     }
     
+    
+    // Others -------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+    /**
+     * Display the file size (long) in a useful String format.
+     * @param the size of the file in question.
+     */
+    public static String roundObjectSize(long longObjectSize) {
+
+        String strObjectSizeOut = "";
+        
+		if ( longObjectSize == 0 ) {
+			
+			strObjectSizeOut = "0 Bytes";
+		}
+		else if ( longObjectSize > 0 && longObjectSize < KILO_BYTE - 1 ) {
+			
+			long longObjectSizeDivOne   = longObjectSize / ONE_BYTE;
+			
+			if ( longObjectSizeDivOne <= 1000 ) {
+
+				strObjectSizeOut = ObjectConverter.convert(longObjectSizeDivOne, String.class) + " Bytes";
+			}
+			else {
+				
+				strObjectSizeOut = "1,00 KB";
+			}
+		}
+		else if ( longObjectSize >= KILO_BYTE && longObjectSize < MEGA_BYTE - 1 ) {
+			
+			long longObjectSizeDivKilo  = longObjectSize / KILO_BYTE;
+
+			if ( longObjectSizeDivKilo <= 1000 ) {
+
+				strObjectSizeOut = ObjectConverter.convert(longObjectSizeDivKilo, String.class) + " KB";
+			}
+			else {
+				
+				strObjectSizeOut = "1,00 MB";
+			}
+		}
+		else if ( longObjectSize >= MEGA_BYTE && longObjectSize < GIGA_BYTE - 1 ) {
+			
+			long longObjectSizeDivMega  = longObjectSize / MEGA_BYTE;
+
+			if ( longObjectSizeDivMega <= 1000 ) {
+
+				strObjectSizeOut = ObjectConverter.convert(longObjectSizeDivMega, String.class) + " MB";
+			}
+			else {
+				
+				strObjectSizeOut = "1,00 GB";
+			}
+		}
+		else if ( longObjectSize >= GIGA_BYTE && longObjectSize < TERRA_BYTE - 1 ) {
+			
+			long longObjectSizeDivGiga  = longObjectSize / GIGA_BYTE;
+
+			if ( longObjectSizeDivGiga <= 1000 ) {
+
+				strObjectSizeOut = ObjectConverter.convert(longObjectSizeDivGiga, String.class) + " GB";
+			}
+			else {
+				
+				strObjectSizeOut = "1,00 TB";
+			}
+		}
+		else if ( longObjectSize >= TERRA_BYTE && longObjectSize < PETTA_BYTE - 1 ) {
+			
+			long longObjectSizeDivTerra = longObjectSize / TERRA_BYTE;
+
+			if ( longObjectSizeDivTerra <= 1000 ) {
+
+				strObjectSizeOut = ObjectConverter.convert(longObjectSizeDivTerra, String.class) + " TB";
+			}
+			else {
+				
+				strObjectSizeOut = "1,00 PB";
+			}
+		}
+
+		return strObjectSizeOut;
+   }
+    
+    /**
+     * Return an array of Strings that contain all the filenames, hidden and unhidden, for a supplied directory name.
+     * @param the directory to be listed.
+     */
+    public static String[] listAllFilenamesInDirectory(String directory) {
+    	
+        String[] files = null;
+        
+        File dir = new File(directory);
+
+        if ( dir.exists() ) {
+
+            files = dir.list();
+
+            if (files == null) {
+
+            	files[0] = "EMPTY Directory!";
+            } 
+        }
+        else {
+        	
+            files[0] = "Directory DOES NOT Exist!";
+        }
+
+        return files;
+   }
+
+
+    /**
+     * Return an array of Strings that contain all the filenames, unhidden, for a supplied directory name.
+     * @param the directory to be listed.
+     */
+    public static String[] listAllUnhiddenFilenamesInDirectory(String directory) {
+    	
+    	
+        String[] files = null;
+        
+        File dir = new File(directory);
+
+        if ( dir.exists() ) {
+
+        	FilenameFilter filter = new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return !name.startsWith(".");
+                }
+            };
+            
+            files = dir.list(filter);
+
+            if (files == null) {
+
+            	files[0] = "No UnHidden Files!";
+            }
+        }
+        else {
+        	
+            files[0] = "Directory DOES NOT Exist!";
+        }
+
+        return files;
+   }
+
+
+    /**
+     * Return an array of File Objects that contain all the sub-directories within a supplied directory name.
+     * @param the directory to be listed.
+     */
+    public static File[] listAllDirectoriesInDirectory(String directory) {
+    	
+        File dir = new File(directory);
+
+        // The list of files can also be retrieved as File objects
+        File[] directories = null;
+
+        if ( dir.exists() ) {
+
+        	// This filter only returns directories
+            FileFilter fileFilter = new FileFilter() {
+                public boolean accept(File file) {
+                    return file.isDirectory();
+                }
+            };
+            
+            directories = dir.listFiles(fileFilter);
+            
+        }
+
+        return directories;
+   }
+
+
+    /**
+     * Return an array of File Objects that contain all the files within a supplied directory name.
+     * @param the directory to be listed.
+     */
+    public static File[] listAllFilesInDirectory(String directory) {
+    	
+        File dir = new File(directory);
+
+        // The list of files can also be retrieved as File objects
+        File[] directories = null;
+
+        if ( dir.exists() ) {
+
+        	// This filter only returns directories
+            FileFilter fileFilter = new FileFilter() {
+                public boolean accept(File file) {
+                    return !file.isDirectory();
+                }
+            };
+            
+            directories = dir.listFiles(fileFilter);
+            
+        }
+
+        return directories;
+   }
+
 }

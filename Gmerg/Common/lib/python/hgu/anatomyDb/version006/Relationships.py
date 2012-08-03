@@ -31,8 +31,15 @@ import TimedNodes
 # CONSTANTS / REFERENCE DATA
 # ------------------------------------------------------------------
 
-PART_OF = "part-of" # :TODO: put in AnaRelationshipTypeDb if and when we create it.
-IS_A    = "is-a" # :TODO: put in AnaRelationshipTypeDb if and when we create it.
+PART_OF       = "part-of"       # :TODO: put in AnaRelationshipTypeDb if and when we create it.
+IS_A          = "is-a"          # :TODO: put in AnaRelationshipTypeDb if and when we create it.
+DERIVES_FROM  = "derives-from"
+DEVELOPS_FROM = "develops-from"
+LOCATED_IN    = "located-in"
+DEVELOPS_IN   = "develops-in"
+DISJOINT_FROM = "disjoint-from"
+ATTACHED_TO   = "attached-to"
+HAS_PART      = "has-part"
 
 
 
@@ -123,7 +130,7 @@ def _relCmp(rel1, rel2):
             return +1
     else:
         # sequence same, sort based on name.
-        if relType1 == PART_OF or relType1 == IS_A:
+        if relType1 == PART_OF or relType1 == IS_A or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
             return cmp(Nodes.getByOid(rel1.getChildOid()).getComponentName(),
                        Nodes.getByOid(rel2.getChildOid()).getComponentName())
         else:

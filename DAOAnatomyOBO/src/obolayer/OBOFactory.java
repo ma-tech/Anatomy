@@ -90,20 +90,22 @@ public abstract class OBOFactory {
     private static final String PROPERTY_DEBUG = "debug";
     private static final String PROPERTY_SPECIES = "species";
     private static final String PROPERTY_PROJECT = "project";
-    private static final String PROPERTY_ABSTRACT_CLASS_NAME = "AbstractClassName";
-    private static final String PROPERTY_ABSTRACT_CLASS_ID = "AbstractClassId";
-    private static final String PROPERTY_ABSTRACT_CLASS_NAMESPACE = "AbstractClassNamespace";
-    private static final String PROPERTY_STAGE_CLASS_NAME = "StageClassName";
-    private static final String PROPERTY_STAGE_CLASS_ID = "StageClassId";
-    private static final String PROPERTY_STAGE_CLASS_NAMESPACE = "StageClassNamespace";
-    private static final String PROPERTY_GROUP_CLASS_NAME = "GroupClassName";
-    private static final String PROPERTY_GROUP_CLASS_ID = "GroupClassId";
-    private static final String PROPERTY_GROUP_CLASS_NAMESPACE = "GroupClassNamespace";
-    private static final String PROPERTY_GROUP_TERM_CLASS_NAME = "GroupTermClassName";
-    private static final String PROPERTY_GROUP_TERM_CLASS_ID = "GroupTermClassId";
-    private static final String PROPERTY_GROUP_TERM_CLASS_NAMESPACE = "GroupTermClassNamespace";
-    private static final String PROPERTY_MIN_STAGE_SEQUENCE = "MinStageSequence";
-    private static final String PROPERTY_MAX_STAGE_SEQUENCE = "MaxStageSequence";
+    private static final String PROPERTY_ABSTRACT_CLASS_NAME = "abstractclassname";
+    private static final String PROPERTY_ABSTRACT_CLASS_ID = "abstractclassid";
+    private static final String PROPERTY_ABSTRACT_CLASS_NAMESPACE = "abstractclassnamespace";
+    private static final String PROPERTY_STAGE_CLASS_NAME = "stageclassname";
+    private static final String PROPERTY_STAGE_CLASS_ID = "stageclassid";
+    private static final String PROPERTY_STAGE_CLASS_NAMESPACE = "stageclassnamespace";
+    private static final String PROPERTY_GROUP_CLASS_NAME = "groupclassname";
+    private static final String PROPERTY_GROUP_CLASS_ID = "groupclassid";
+    private static final String PROPERTY_GROUP_CLASS_NAMESPACE = "groupclassnamespace";
+    private static final String PROPERTY_GROUP_TERM_CLASS_NAME = "grouptermclassname";
+    private static final String PROPERTY_GROUP_TERM_CLASS_ID = "grouptermclassid";
+    private static final String PROPERTY_GROUP_TERM_CLASS_NAMESPACE = "grouptermclassnamespace";
+    private static final String PROPERTY_MIN_STAGE_SEQUENCE = "minstagesequence";
+    private static final String PROPERTY_MAX_STAGE_SEQUENCE = "maxstagesequence";
+    private static final String PROPERTY_ALTERNATIVES = "alternatives";
+    private static final String PROPERTY_TIMED_COMPONENTS = "timedcomponents";
 
     // Actions ------------------------------------------------------------------------------------
     /*
@@ -144,14 +146,26 @@ public abstract class OBOFactory {
         String strGroupTermClassNamespace = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_NAMESPACE, false);
         String strMinStageSequence = properties.getProperty(PROPERTY_MIN_STAGE_SEQUENCE, true);
         String strMaxStageSequence = properties.getProperty(PROPERTY_MAX_STAGE_SEQUENCE, true);
+        String strAlternatives = properties.getProperty(PROPERTY_ALTERNATIVES, true);
+        String strTimedComponents = properties.getProperty(PROPERTY_TIMED_COMPONENTS, true);
 
-        int minStageSequence  = ObjectConverter.convert(strMinStageSequence, Integer.class);
-        int maxStageSequence  = ObjectConverter.convert(strMaxStageSequence, Integer.class);
+        int intMinStageSequence = ObjectConverter.convert(strMinStageSequence, Integer.class);
+        int intMaxStageSequence = ObjectConverter.convert(strMaxStageSequence, Integer.class);
         
-        Boolean debug = false;
+        Boolean boolDebug = false;
+        Boolean boolAlternatives = false;
+        Boolean boolTimedComponents = false;
+        
+        if (strAlternatives.equals("true")) {
+        	boolAlternatives = true;
+        }
+        
+        if (strTimedComponents.equals("true")) {
+        	boolTimedComponents = true;
+        }
         
         if (strDebug.equals("true")) {
-        	debug = true;
+        	boolDebug = true;
         	System.out.println("=====");
         	System.out.println("DEBUG : OBO Properties File : " + filename);
         	System.out.println("-----");
@@ -180,6 +194,8 @@ public abstract class OBOFactory {
         	System.out.println("      : GroupTermClassNamespace : " + strGroupTermClassNamespace);
         	System.out.println("      : MinStageSequence        : " + strMinStageSequence);
         	System.out.println("      : MaxStageSequence        : " + strMaxStageSequence);
+        	System.out.println("      : Alternatives            : " + strAlternatives);
+        	System.out.println("      : TimedComponents         : " + strTimedComponents);
         	System.out.println("=====");
         }
         
@@ -195,7 +211,7 @@ public abstract class OBOFactory {
             		strOboOutFileNameSpace, 
             		strOboOutFileSavedBy, 
             		strOboOutFileRemark, 
-            		debug, 
+            		boolDebug, 
             		strSummaryReport, 
             		strSummaryReportPdf, 
             		strSpecies, 
@@ -212,8 +228,10 @@ public abstract class OBOFactory {
             		strGroupTermClassName, 
             		strGroupTermClassId, 
             		strGroupTermClassNamespace,
-            		minStageSequence,
-            		maxStageSequence);
+            		intMinStageSequence,
+            		intMaxStageSequence,
+            		boolAlternatives,
+            		boolTimedComponents);
         }
         else {
             throw new OBOConfigurationException(
@@ -255,6 +273,8 @@ public abstract class OBOFactory {
 	abstract String getGroupTermClassNamespace();
 	abstract int getMinStageSequence();
 	abstract int getMaxStageSequence();
+    abstract Boolean isAlternatives();
+    abstract Boolean isTimedComponents();
 	abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
     abstract void setRelations(ArrayList<Relation> arrayrellist);
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
@@ -282,7 +302,7 @@ class FileOBOFactory extends OBOFactory {
 	private String oboOutFileNameSpace;
 	private String oboOutFileSavedBy;
 	private String oboOutFileRemark;
-    private Boolean debug;
+    private Boolean boolDebug;
 	private String summaryReport;
 	private String summaryReportPdf;
 	private String species;
@@ -299,8 +319,10 @@ class FileOBOFactory extends OBOFactory {
     private String groupTermClassName;
     private String groupTermClassId;
     private String groupTermClassNamespace;
-    private int minStageSequence;
-    private int maxStageSequence;
+    private int intMinStageSequence;
+    private int intMaxStageSequence;
+    private Boolean boolAlternatives;
+    private Boolean boolTimedComponents;
 	
     private ArrayList<OBOComponent> obocomponentList;
     private ArrayList <Relation> oborelationList;
@@ -311,7 +333,7 @@ class FileOBOFactory extends OBOFactory {
     		String oboOutFileNameSpace, 
     		String oboOutFileSavedBy, 
     		String oboOutFileRemark, 
-    		Boolean debug, 
+    		Boolean boolDebug, 
     		String summaryReport, 
     		String summaryReportPdf, 
     		String species, 
@@ -328,8 +350,10 @@ class FileOBOFactory extends OBOFactory {
     		String groupTermClassName, 
     		String groupTermClassId, 
     		String groupTermClassNamespace,
-    		int minStageSequence,
-    		int maxStageSequence) {
+    		int intMinStageSequence,
+    		int intMaxStageSequence, 
+    		Boolean boolAlternatives,  
+    		Boolean boolTimedComponents) {
     
     	this.oboInFile = oboInFile;
     	this.oboOutFile = oboOutFile;
@@ -337,7 +361,7 @@ class FileOBOFactory extends OBOFactory {
     	this.oboOutFileNameSpace = oboOutFileNameSpace;
     	this.oboOutFileSavedBy = oboOutFileSavedBy;
     	this.oboOutFileRemark = oboOutFileRemark;
-        this.debug = debug;
+        this.boolDebug = boolDebug;
         this.summaryReport = summaryReport;
         this.summaryReportPdf = summaryReportPdf;
         this.species = species;
@@ -354,8 +378,10 @@ class FileOBOFactory extends OBOFactory {
 	    this.groupTermClassName = groupTermClassName;
 	    this.groupTermClassId = groupTermClassId;
 	    this.groupTermClassNamespace = groupTermClassNamespace;
-	    this.minStageSequence = minStageSequence;
-	    this.maxStageSequence = maxStageSequence;
+	    this.intMinStageSequence = intMinStageSequence;
+	    this.intMaxStageSequence = intMaxStageSequence;
+        this.boolAlternatives = boolAlternatives;
+        this.boolTimedComponents = boolTimedComponents;
     }
 
     ArrayList<OBOComponent> getComponents() throws OBOConfigurationException, IOException {
@@ -363,8 +389,9 @@ class FileOBOFactory extends OBOFactory {
     	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
     	
     	Parser parser = new Parser(
-    			this.debug, 
-    			this.oboInFile);
+    			this.boolDebug, 
+    			this.oboInFile,
+    			this.boolAlternatives);
     	
     	componentList = parser.getComponents();
     	
@@ -374,8 +401,9 @@ class FileOBOFactory extends OBOFactory {
     String getComponentContent() throws OBOConfigurationException, IOException {
     	
     	Parser parser = new Parser(
-    			this.debug, 
-    			this.oboInFile);
+    			this.boolDebug, 
+    			this.oboInFile,
+    			this.boolAlternatives);
     	
     	String componentContent = parser.getFileContent();
     	
@@ -385,14 +413,16 @@ class FileOBOFactory extends OBOFactory {
     Boolean writeComponents() throws OBOConfigurationException {
     	
     	Producer producer = new Producer(
-    			this.debug, 
+    			this.boolDebug, 
     			this.oboOutFile, 
     			this.oboOutFileVersion,
     			this.oboOutFileNameSpace,
     			this.oboOutFileSavedBy,
     			this.oboOutFileRemark,
     			this.obocomponentList, 
-    			this.oborelationList);
+    			this.oborelationList,
+    			this.boolAlternatives,
+    			this.boolTimedComponents);
     	
     	Boolean isProcessed = producer.writeOboFile();
     	
@@ -400,7 +430,7 @@ class FileOBOFactory extends OBOFactory {
     }
     
     Boolean isDebug() {
-    	return debug;
+    	return boolDebug;
     }
     String getSpecies() {
     	return species;
@@ -469,10 +499,16 @@ class FileOBOFactory extends OBOFactory {
     	return groupTermClassNamespace;
     }
     int getMinStageSequence(){    	
-    	return minStageSequence;
+    	return intMinStageSequence;
     }
     int getMaxStageSequence(){    	
-    	return maxStageSequence;
+    	return intMaxStageSequence;
+    }
+    Boolean isAlternatives() {
+    	return boolAlternatives;
+    }
+    Boolean isTimedComponents() {
+    	return boolTimedComponents;
     }
     void setComponents(ArrayList<OBOComponent> obocomponentList) {
     	this.obocomponentList = obocomponentList;

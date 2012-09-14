@@ -1,0 +1,142 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS08
+
+
+CS08 Whole Human Excluding Groups
+
+EHDA:12      human
+EHDA:8124    \ human conceptus
+EHDA:8190      + human conceptus extraembryonic component
+EHDA:8816      | + allantoic diverticulum
+EHDA:7093      | | + allantoic diverticulum eithelium
+EHDA:7090      | | \ allantoic diverticulum mesenchyme
+EHDA:5548      | + extraembryonic cavities
+EHDA:16888     | | + amniotic cavity
+EHDA:16717     | | | + amniotic duct
+EHDA:16717     | | | \ amniotic duct
+EHDA:11947     | | + chorionic cavity
+EHDA:13614     | | \ secondary yolk sac cavity
+EHDA:11244     | + connecting stalk
+EHDA:7543      | | + connecting stalk blood islands
+EHDA:11204     | | | \ connecting stalk blood vessels
+EHDA:11204     | | + connecting stalk blood vessels
+EHDA:11220     | | \ connecting stalk mesenchyme
+EHDA:7543      | |   \ connecting stalk blood islands
+EHDA:11204     | |     \ connecting stalk blood vessels
+EHDA:5538      | + extraembryonic endoderm
+EHDA:6919      | \ extraembryonic membranes
+EHDA:17114     |   + amnion
+EHDA:17212     |   | + amnion ectoderm
+EHDA:17164     |   | \ amnion mesenchyme
+EHDA:11966     |   + chorion
+EHDA:7528      |   | + chorion cytotrophoblast
+EHDA:7099      |   | | \ chorionic villus cytotrophoblast
+EHDA:11947     |   | + chorionic cavity
+EHDA:7511      |   | + chorion mesenchyme
+EHDA:7008      |   | | \ chorionic villus mesenchyme
+EHDA:10318     |   | + chorion syncytiotrophoblast
+EHDA:7410      |   | | + chorion lacunae
+EHDA:7024      |   | | \ chorionic villus syncytiotropbalst
+EHDA:6992      |   | \ chorionic villus
+EHDA:7099      |   |   + chorionic villus cytotrophoblast
+EHDA:7008      |   |   + chorionic villus mesenchyme
+EHDA:7024      |   |   \ chorionic villus syncytiotropbalst
+EHDA:9924      |   \ secondary yolk sac
+EHDA:8816      |     + allantoic diverticulum
+EHDA:7093      |     | + allantoic diverticulum eithelium
+EHDA:7090      |     | \ allantoic diverticulum mesenchyme
+EHDA:13614     |     + secondary yolk sac cavity
+EHDA:9897      |     + secondary yolk sac endoderm
+EHDA:7093      |     | \ allantoic diverticulum eithelium
+EHDA:9876      |     \ secondary yolk sac mesenchyme
+EHDA:7090      |       + allantoic diverticulum mesenchyme
+EHDA:13759     |       + angioblast clusters
+EHDA:9302      |       + yolk sac primordial germ cells
+EHDA:18415     |       + yolk sac blood islands
+EHDA:13759     |       | + angioblast clusters
+EHDA:14354     |       | + haematoblasts
+EHDA:7547      |       | | \ blood cells
+EHDA:14354     |       | \ haematoblasts
+EHDA:7547      |       |   \ blood cells
+EHDA:18415     |       \ yolk sac blood islands
+EHDA:13759     |         + angioblast clusters
+EHDA:14354     |         + haematoblasts
+EHDA:7547      |         | \ blood cells
+EHDA:14354     |         \ haematoblasts
+EHDA:7547      |           \ blood cells
+EHDA:8156      \ human embryo
+EHDA:8394        + ectoderm
+EHDA:9302        | + yolk sac primordial germ cells
+EHDA:12523       | + neural ectoderm
+EHDA:12523       | \ neural ectoderm
+EHDA:8009        + endoderm
+EHDA:8543        | + prechordal plate
+EHDA:8543        | \ prechordal plate
+EHDA:9365        + mesenchyme
+EHDA:11611       | + head mesenchyme
+EHDA:18930       | \ trunk and cervical mesenchyme
+EHDA:13600       |   \ septum transversum
+EHDA:8971        + mesoderm
+EHDA:9365        | + mesenchyme
+EHDA:11611       | | + head mesenchyme
+EHDA:18930       | | \ trunk and cervical mesenchyme
+EHDA:13600       | |   \ septum transversum
+EHDA:13600       | + septum transversum
+EHDA:7501        | + mesoderm blood islands
+EHDA:18256       | | \ blood
+EHDA:7547        | |   \ blood cells
+EHDA:7501        | \ mesoderm blood islands
+EHDA:18256       |   \ blood
+EHDA:7547        |     \ blood cells
+EHDA:12828       + notochordal plate
+EHDA:17237       + organ system group
+EHDA:14664       | + cardiovascular system
+EHDA:15744       | | + cardiac system
+EHDA:14692       | | | \ pericardial cavity lumen
+EHDA:13859       | | \ vascular system
+EHDA:18256       | |   + blood
+EHDA:7547        | |   | \ blood cells
+EHDA:7501        | |   \ mesoderm blood islands
+EHDA:18256       | |     \ blood
+EHDA:7547        | |       \ blood cells
+EHDA:10944       | + haemolymphoid system
+EHDA:18256       | | \ blood
+EHDA:7547        | |   \ blood cells
+EHDA:12527       | + nervous system
+EHDA:15050       | | + central nervous system
+EHDA:12523       | | \ neural ectoderm
+EHDA:4874        | \ urinary system
+EHDA:9610        \ primitive streak
+EHDA:12852         + primitive node
+EHDA:8941          + primitive groove
+EHDA:8941          + primitive groove
+EHDA:9663          + primitive pit
+EHDA:9663          \ primitive pit
+
+
+
+==================================================================
+
+
+
+CS08 Whole Human Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

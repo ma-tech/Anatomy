@@ -33,7 +33,15 @@ from hgu.anatomyDb.version006 import Stages
 __READ_TABLE   = "READ TABLE"
 __DERIVE_TABLE = "DERIVE TABLE"
 
-
+PART_OF       = "part-of"       # :TODO: put in AnaRelationshipTypeDb if and when we create it.
+IS_A          = "is-a"          # :TODO: put in AnaRelationshipTypeDb if and when we create it.
+DERIVES_FROM  = "derives-from"
+DEVELOPS_FROM = "develops-from"
+LOCATED_IN    = "located-in"
+DEVELOPS_IN   = "develops-in"
+DISJOINT_FROM = "disjoint-from"
+ATTACHED_TO   = "attached-to"
+HAS_PART      = "has-part"
 
 # ------------------------------------------------------------------
 # GLOBALS
@@ -132,8 +140,11 @@ def _initialise(initMethod):
     elif initMethod == __DERIVE_TABLE:
         # Walk the tree depth first, left to right
         deleteAll()
-        _processNode(node = Nodes.getRoot(), parentApo = None,
-                     rank = 0, depth = 0, isPrimaryPath = True)
+        _processNode(node = Nodes.getRoot(), 
+                     parentApo = None,
+                     rank = 0, 
+                     depth = 0, 
+                     isPrimaryPath = True)
     else:
         Util.fatalError([
             "Unrecognised initMethod: " + initMethod])
@@ -164,12 +175,12 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     Generate part of records for an anatomy node, and all its children.
     """
 
-    if Util.debugging():
-        Util.debugMessage([
-            "In _processnode.",
-            "Node: " + node.getPublicId() + " '" +
-            node.getComponentName() + "'",
-            "Rank: " + str(rank) + "  Depth: " + str(depth)])
+    #if Util.debugging():
+    #Util.debugMessage([
+    #        "In _processnode.",
+    #        "Node: " + node.getPublicId() + " '" +
+    #        node.getComponentName() + "'",
+    #        "Rank: " + str(rank) + "  Depth: " + str(depth)])
 
     # Generate record for this node.
     anatApo = AnadPartOfDb.AnadPartOfDbRecord()
@@ -223,13 +234,17 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     # for what stages.
     pathStartStage = nodeStartStage
     pathEndStage   = nodeEndStage
+    
     if parentApo:
         parentPathStartStage = Stages.getByOid(parentApo.getPathStartStageOid())
         parentPathEndStage   = Stages.getByOid(parentApo.getPathEndStageOid())
+    
         if pathStartStage.getSequence() < parentPathStartStage.getSequence():
             pathStartStage = parentPathStartStage
+        
         if pathEndStage.getSequence() > parentPathEndStage.getSequence():
             pathEndStage = parentPathEndStage
+    
     anatApo.setPathStartStageOid(pathStartStage.getOid())
     anatApo.setPathEndStageOid(pathEndStage.getOid())
 
@@ -247,8 +262,6 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     # Generate records, recursively, depth first, left to right, for all
     # its children.
     childIsPrimary = isPrimaryPath and node.isPrimary()
-    #childRels = Relationships.getByParentOidRelType(node.getOid(),
-    #                                                Relationships.PART_OF)
     childRels = Relationships.getByParentOid(node.getOid())
     
     for childRel in childRels:
@@ -260,14 +273,17 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
         childStartStage, childEndStage = Nodes.getStageWindowForNodeOid(childOid)
         childStart = childStartStage.getSequence()
         childEnd   = childEndStage.getSequence()
+        childRel   = childRel.getRelationshipType()
         pathStart  = Stages.getByOid(anatApo.getPathStartStageOid()).getSequence()
         pathEnd    = Stages.getByOid(anatApo.getPathEndStageOid()).getSequence()
+
         if (   (childStart >= pathStart and childStart <= pathEnd)
             or (childEnd   >= pathStart and childEnd   <= pathEnd)
             or (childStart <  pathStart and childEnd   >  pathEnd)):
             rank = _processNode(node = Nodes.getByOid(childOid),
                                 parentApo = anatApo,
-                                rank = rank, depth = depth + 1,
+                                rank = rank, 
+                                depth = depth + 1,
                                 isPrimaryPath = childIsPrimary)
 
     return rank
@@ -349,9 +365,11 @@ class PerspectiveReverseSequenceIterator:
         Get the next ANAD_PART_OF record in this iterator's perspective.
         """
         apo = self.__seqIter.next() # may raise a StopIteration
+        
         while not PartOfPerspectives.apoOidInPerspective(apo.getOid(),
                                                          self.__perspectiveName):
             apo = self.__seqIter.next() # may raise a StopIteration
+        
         return apo
 
 
@@ -400,10 +418,11 @@ def getByParentOid(parentApoOid):
     given parent APO.  Returns the empty list if it has no children.
     """
     kidApos = _byParentOid.get(parentApoOid)
+    
     if kidApos == None:
         kidApos = []
+    
     return kidApos
-
 
 
 def deleteAll():

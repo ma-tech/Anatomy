@@ -298,9 +298,7 @@ public class GenerateSQL {
             	component = proposedTermList.get(i);
 
                 if ( component.getStatusChange().equals("NEW") ) {
-                	
                     if ( component.getStatusRule().equals("FAILED") ) {
-                    	
                         if (debug) {
                         	
                             System.out.println(
@@ -323,10 +321,9 @@ public class GenerateSQL {
                     
                     newComponents.add( component );
                 }
-                else if ( component.getStatusChange().equals("DELETED") ) {
-                	
+                
+                if ( component.getStatusChange().equals("DELETED") ) {
                 	if ( component.getStatusRule().equals("FAILED") ) {
-                		
                         if (debug) {
                         	
                             System.out.println( 
@@ -349,10 +346,9 @@ public class GenerateSQL {
                 	
                     deletedComponents.add( component );
                 }
-                else if ( component.getStatusChange().equals("CHANGED") ) {
-                	
+                
+                if ( component.getStatusChange().equals("CHANGED") ) {
                     if ( component.getStatusRule().equals("FAILED") ) {
-                    	
                         if (debug) {
                         	
                             System.out.println( 
@@ -365,17 +361,6 @@ public class GenerateSQL {
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
                     	
-                    	/*
-                    	if (component.getID().equals("EMAPA:18305")) {
-                            System.out.println("GenerateSQL.java");
-                            System.out.println("----------------");
-                            System.out.println("Changed component detected: " + component.getID());
-                            System.out.println("component");
-                            System.out.println("component.toString() " + component.toString());
-                            System.out.println("component.getCheckComments() " + component.getCheckComments());
-                            System.out.println("----------------");
-                    	}
-                    	*/
                         setProcessed(true);
                     }
                     else {
@@ -386,7 +371,10 @@ public class GenerateSQL {
      
                     changedComponents.add( component );
                 }
-                else if ( !component.getStatusChange().equals("UNCHANGED") ) {
+                
+                if ( !component.getStatusChange().equals("NEW") || 
+                	!component.getStatusChange().equals("DELETED") || 
+                	!component.getStatusChange().equals("CHANGED") ) {
 
                 	if ( component.getID().equals("group_term")) {
                         setProcessed(true);
@@ -398,6 +386,18 @@ public class GenerateSQL {
                         setProcessed(true);
                 	}
                 	else if (component.getID().equals("EMAPA:25765") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EHDAA:0") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("EHDAA:1") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("ECAPA:0") ) {
+                        setProcessed(true);
+                	}
+                	else if (component.getID().equals("ECAPA:1") ) {
                         setProcessed(true);
                 	}
                 	else if ( component.getID().equals("TS:0") ) { 
@@ -487,12 +487,6 @@ public class GenerateSQL {
                 	else if ( component.getID().equals("TS28") ) { 
                         setProcessed(true);
                 	}
-                	else if (component.getID().equals("EHDAA:0") ) {
-                        setProcessed(true);
-                	}
-                	else if (component.getID().equals("EHDAA:1") ) {
-                        setProcessed(true);
-                	}
                 	else if ( component.getID().equals("CS:0") ) { 
                         setProcessed(true);
                 	}
@@ -574,6 +568,9 @@ public class GenerateSQL {
                 	else if ( component.getID().equals("CS23")) {
                 		setProcessed(true);
                 	}
+                	else if ( component.getID().equals("HH:0")) {
+                		setProcessed(true);
+                	}
                 	else if ( component.getID().equals("EGK-I")) {
                 		setProcessed(true);
                 	}
@@ -614,6 +611,9 @@ public class GenerateSQL {
                 		setProcessed(true);
                 	}
                 	else if ( component.getID().equals("EGK-XIV")) {
+                		setProcessed(true);
+                	}
+                	else if ( component.getID().equals("HH01")) {
                 		setProcessed(true);
                 	}
                 	else if ( component.getID().equals("HH02")) {
@@ -758,7 +758,7 @@ public class GenerateSQL {
                 		setProcessed(true);
                 	}
                 }
-            	else {
+                else {
                 	System.out.println("UNKNOWN Component StatusChange Value = " + component.getStatusChange());
                     System.out.println("component.toString() = " + component.toString());
                     setProcessed(false);
@@ -1829,6 +1829,10 @@ public class GenerateSQL {
                         else if ( insertRelObject.getChildOfTypes().get(0).equals("HAS_PART")) {
                         	
                             strREL_RELATIONSHIP_TYPE_FK = "has-part";
+                        }
+                        else if ( insertRelObject.getChildOfTypes().get(0).equals("CONNECTED_TO")) {
+                        	
+                            strREL_RELATIONSHIP_TYPE_FK = "connected-to";
                         }
                         else {
                             System.out.println("UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0));
@@ -4001,6 +4005,10 @@ public class GenerateSQL {
                    	
                     	databasecomponent.addChildOfType("has-part");
                     }
+                    else if ( joinnoderelationship.getTypeFK().equals("CONNECTED_TO")) {
+                    	
+                    	databasecomponent.addChildOfType("connected-to");
+                    }
                     else {
                         System.out.println("UNKNOWN Relationship Type = " + joinnoderelationship.getTypeFK());
                     }
@@ -4326,6 +4334,10 @@ public class GenerateSQL {
                             else if ( relationship.getTypeFK().equals("has-part")) {
                            	
                             	deleteRelComponent.addChildOfType("HAS_PART");
+                            }
+                            else if ( relationship.getTypeFK().equals("connected-to")) {
+                               	
+                            	deleteRelComponent.addChildOfType("CONNECTED_TO");
                             }
                             else {
                                 System.out.println("UNKNOWN Relationship Type = " + relationship.getTypeFK());

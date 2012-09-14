@@ -1,0 +1,54 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS05a
+
+
+CS05a Whole Human Excluding Groups
+
+EHDA:6       human
+EHDA:8118    \ human conceptus
+EHDA:8184      + human conceptus extraembryonic component
+EHDA:5542      | + extraembryonic cavities
+EHDA:16882     | | + amniotic cavity
+EHDA:18249     | | \ blastocoel
+EHDA:6913      | \ extraembryonic membranes
+EHDA:18958     |   \ trophectoderm
+EHDA:11406     |     + mural trophectoderm cytotrophoblast
+EHDA:11404     |     + polar trophectoderm cytotrophoblast
+EHDA:10293     |     + polar trophectoderm syncytiotrophoblast
+EHDA:11981     |     + mural trophectoderm
+EHDA:11406     |     | \ mural trophectoderm cytotrophoblast
+EHDA:11981     |     \ mural trophectoderm
+EHDA:11406     |       \ mural trophectoderm cytotrophoblast
+EHDA:8150      \ human embryo
+EHDA:8258        + epiblast
+EHDA:17131       | + amnioblasts
+EHDA:17131       | \ amnioblasts
+EHDA:10976       \ hypoblast
+
+
+
+==================================================================
+
+
+
+CS05a Whole Human Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

@@ -1,0 +1,23 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS21
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EHDA:26      human

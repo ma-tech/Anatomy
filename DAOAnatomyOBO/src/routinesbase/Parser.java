@@ -368,6 +368,10 @@ public class Parser {
                         	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
                         	obocomponent.addChildOfType("HAS_PART");
                         }
+                        else if (oborestrictionimpl.getType().getID().equals("connected_to")){
+                        	obocomponent.addChildOf(oborestrictionimpl.getParent().getID());
+                        	obocomponent.addChildOfType("CONNECTED_TO");
+                        }
                         else if (oborestrictionimpl.getType().getID().equals("has_timed_component")){
                             System.out.println("IGNORING Timed Component = " + oborestrictionimpl.getParent().getID() );
                         }

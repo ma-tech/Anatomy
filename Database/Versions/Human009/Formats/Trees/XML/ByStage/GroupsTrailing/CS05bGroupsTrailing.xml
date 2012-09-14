@@ -1,0 +1,459 @@
+<?xml version="1.0" ?>
+<request>
+	<mouseAnatomyReport>
+		<stage>
+			CS05b
+		</stage>
+		<excludingGroupsTree>
+			<timedComponent emapId="EHDA:7">
+				<name emapId="EHDA:7">
+					human
+				</name>
+				<emapaId emapId="EHDA:7">
+					EHDAA:1
+				</emapaId>
+				<groupPathStatus emapId="EHDA:7">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EHDA:8119">
+					<name emapId="EHDA:8119">
+						human conceptus
+					</name>
+					<emapaId emapId="EHDA:8119">
+						EHDAA:1003
+					</emapaId>
+					<groupPathStatus emapId="EHDA:8119">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EHDA:8185">
+						<name emapId="EHDA:8185">
+							human conceptus extraembryonic component
+						</name>
+						<emapaId emapId="EHDA:8185">
+							EHDAA:1007
+						</emapaId>
+						<groupPathStatus emapId="EHDA:8185">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:5543">
+							<name emapId="EHDA:5543">
+								extraembryonic cavities
+							</name>
+							<emapaId emapId="EHDA:5543">
+								EHDAA:550
+							</emapaId>
+							<groupPathStatus emapId="EHDA:5543">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:16883">
+								<name emapId="EHDA:16883">
+									amniotic cavity
+								</name>
+								<emapaId emapId="EHDA:16883">
+									EHDAA:2408
+								</emapaId>
+								<groupPathStatus emapId="EHDA:16883">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:18250">
+								<name emapId="EHDA:18250">
+									blastocoel
+								</name>
+								<emapaId emapId="EHDA:18250">
+									EHDAA:2516
+								</emapaId>
+								<groupPathStatus emapId="EHDA:18250">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:8808">
+									<name emapId="EHDA:8808">
+										primary yolk sac cavity
+									</name>
+									<emapaId emapId="EHDA:8808">
+										EHDAA:1129
+									</emapaId>
+									<groupPathStatus emapId="EHDA:8808">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:5173">
+									<name emapId="EHDA:5173">
+										reticulum
+									</name>
+									<emapaId emapId="EHDA:5173">
+										EHDAA:466
+									</emapaId>
+									<groupPathStatus emapId="EHDA:5173">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:7560">
+										<name emapId="EHDA:7560">
+											primary yolk sac mesenchyme
+										</name>
+										<emapaId emapId="EHDA:7560">
+											EHDAA:889
+										</emapaId>
+										<groupPathStatus emapId="EHDA:7560">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:8808">
+								<name emapId="EHDA:8808">
+									primary yolk sac cavity
+								</name>
+								<emapaId emapId="EHDA:8808">
+									EHDAA:1129
+								</emapaId>
+								<groupPathStatus emapId="EHDA:8808">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:5533">
+							<name emapId="EHDA:5533">
+								extraembryonic endoderm
+							</name>
+							<emapaId emapId="EHDA:5533">
+								EHDAA:549
+							</emapaId>
+							<groupPathStatus emapId="EHDA:5533">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:7541">
+								<name emapId="EHDA:7541">
+									primary yolk sac endoderm
+								</name>
+								<emapaId emapId="EHDA:7541">
+									EHDAA:886
+								</emapaId>
+								<groupPathStatus emapId="EHDA:7541">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:6914">
+							<name emapId="EHDA:6914">
+								extraembryonic membranes
+							</name>
+							<emapaId emapId="EHDA:6914">
+								EHDAA:781
+							</emapaId>
+							<groupPathStatus emapId="EHDA:6914">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:17109">
+								<name emapId="EHDA:17109">
+									amnion
+								</name>
+								<emapaId emapId="EHDA:17109">
+									EHDAA:2424
+								</emapaId>
+								<groupPathStatus emapId="EHDA:17109">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:17207">
+									<name emapId="EHDA:17207">
+										amnion ectoderm
+									</name>
+									<emapaId emapId="EHDA:17207">
+										EHDAA:2431
+									</emapaId>
+									<groupPathStatus emapId="EHDA:17207">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:7412">
+								<name emapId="EHDA:7412">
+									primary yolk sac
+								</name>
+								<emapaId emapId="EHDA:7412">
+									EHDAA:870
+								</emapaId>
+								<groupPathStatus emapId="EHDA:7412">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:8808">
+									<name emapId="EHDA:8808">
+										primary yolk sac cavity
+									</name>
+									<emapaId emapId="EHDA:8808">
+										EHDAA:1129
+									</emapaId>
+									<groupPathStatus emapId="EHDA:8808">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:7541">
+									<name emapId="EHDA:7541">
+										primary yolk sac endoderm
+									</name>
+									<emapaId emapId="EHDA:7541">
+										EHDAA:886
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7541">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:7560">
+									<name emapId="EHDA:7560">
+										primary yolk sac mesenchyme
+									</name>
+									<emapaId emapId="EHDA:7560">
+										EHDAA:889
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7560">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:18959">
+								<name emapId="EHDA:18959">
+									trophectoderm
+								</name>
+								<emapaId emapId="EHDA:18959">
+									EHDAA:2598
+								</emapaId>
+								<groupPathStatus emapId="EHDA:18959">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:11407">
+									<name emapId="EHDA:11407">
+										mural trophectoderm cytotrophoblast
+									</name>
+									<emapaId emapId="EHDA:11407">
+										EHDAA:1609
+									</emapaId>
+									<groupPathStatus emapId="EHDA:11407">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:6938">
+										<name emapId="EHDA:6938">
+											mural trophectoderm syncytiotrophoblast
+										</name>
+										<emapaId emapId="EHDA:6938">
+											EHDAA:785
+										</emapaId>
+										<groupPathStatus emapId="EHDA:6938">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EHDA:6938">
+									<name emapId="EHDA:6938">
+										mural trophectoderm syncytiotrophoblast
+									</name>
+									<emapaId emapId="EHDA:6938">
+										EHDAA:785
+									</emapaId>
+									<groupPathStatus emapId="EHDA:6938">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:11405">
+									<name emapId="EHDA:11405">
+										polar trophectoderm cytotrophoblast
+									</name>
+									<emapaId emapId="EHDA:11405">
+										EHDAA:1608
+									</emapaId>
+									<groupPathStatus emapId="EHDA:11405">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:10294">
+									<name emapId="EHDA:10294">
+										polar trophectoderm syncytiotrophoblast
+									</name>
+									<emapaId emapId="EHDA:10294">
+										EHDAA:1400
+									</emapaId>
+									<groupPathStatus emapId="EHDA:10294">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:6935">
+										<name emapId="EHDA:6935">
+											trophoblastic lacunae
+										</name>
+										<emapaId emapId="EHDA:6935">
+											EHDAA:783
+										</emapaId>
+										<groupPathStatus emapId="EHDA:6935">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:5173">
+							<name emapId="EHDA:5173">
+								reticulum
+							</name>
+							<emapaId emapId="EHDA:5173">
+								EHDAA:466
+							</emapaId>
+							<groupPathStatus emapId="EHDA:5173">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:7560">
+								<name emapId="EHDA:7560">
+									primary yolk sac mesenchyme
+								</name>
+								<emapaId emapId="EHDA:7560">
+									EHDAA:889
+								</emapaId>
+								<groupPathStatus emapId="EHDA:7560">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EHDA:8151">
+						<name emapId="EHDA:8151">
+							human embryo
+						</name>
+						<emapaId emapId="EHDA:8151">
+							EHDAA:1005
+						</emapaId>
+						<groupPathStatus emapId="EHDA:8151">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:8259">
+							<name emapId="EHDA:8259">
+								epiblast
+							</name>
+							<emapaId emapId="EHDA:8259">
+								EHDAA:1018
+							</emapaId>
+							<groupPathStatus emapId="EHDA:8259">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:5173">
+								<name emapId="EHDA:5173">
+									reticulum
+								</name>
+								<emapaId emapId="EHDA:5173">
+									EHDAA:466
+								</emapaId>
+								<groupPathStatus emapId="EHDA:5173">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7560">
+									<name emapId="EHDA:7560">
+										primary yolk sac mesenchyme
+									</name>
+									<emapaId emapId="EHDA:7560">
+										EHDAA:889
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7560">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:17132">
+								<name emapId="EHDA:17132">
+									amnioblasts
+								</name>
+								<emapaId emapId="EHDA:17132">
+									EHDAA:2426
+								</emapaId>
+								<groupPathStatus emapId="EHDA:17132">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:17207">
+									<name emapId="EHDA:17207">
+										amnion ectoderm
+									</name>
+									<emapaId emapId="EHDA:17207">
+										EHDAA:2431
+									</emapaId>
+									<groupPathStatus emapId="EHDA:17207">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:17132">
+								<name emapId="EHDA:17132">
+									amnioblasts
+								</name>
+								<emapaId emapId="EHDA:17132">
+									EHDAA:2426
+								</emapaId>
+								<groupPathStatus emapId="EHDA:17132">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:17207">
+									<name emapId="EHDA:17207">
+										amnion ectoderm
+									</name>
+									<emapaId emapId="EHDA:17207">
+										EHDAA:2431
+									</emapaId>
+									<groupPathStatus emapId="EHDA:17207">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:10977">
+							<name emapId="EHDA:10977">
+								hypoblast
+							</name>
+							<emapaId emapId="EHDA:10977">
+								EHDAA:1532
+							</emapaId>
+							<groupPathStatus emapId="EHDA:10977">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:5533">
+								<name emapId="EHDA:5533">
+									extraembryonic endoderm
+								</name>
+								<emapaId emapId="EHDA:5533">
+									EHDAA:549
+								</emapaId>
+								<groupPathStatus emapId="EHDA:5533">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7541">
+									<name emapId="EHDA:7541">
+										primary yolk sac endoderm
+									</name>
+									<emapaId emapId="EHDA:7541">
+										EHDAA:886
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7541">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+			</timedComponent>
+		</excludingGroupsTree>
+		<onlyGroupsTree>
+			<groupStatusKey>
+				<groupStatus status="notInGroupPath">
+					Term is not a group nor is it contained in a group.
+				</groupStatus>
+				<groupStatus status="isGroup">
+					Term a group
+				</groupStatus>
+				<groupStatus status="isGroupDirectDescendant">
+					Term is directly contained in a group.
+				</groupStatus>
+				<groupStatus status="isGroupIndirectDescendant">
+					Term is indirectly contained in a group.
+				</groupStatus>
+			</groupStatusKey>
+		</onlyGroupsTree>
+	</mouseAnatomyReport>
+	<anatomyDatabaseVersion date="2012-09-13 10:31:41" number="2"/>
+	<perspective>
+		Whole Human
+	</perspective>
+</request>

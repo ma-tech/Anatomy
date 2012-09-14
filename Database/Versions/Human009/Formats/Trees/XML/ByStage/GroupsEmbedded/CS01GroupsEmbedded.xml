@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<request>
+	<mouseAnatomyReport>
+		<stage>
+			CS01
+		</stage>
+		<groupStatusKey>
+			<groupStatus status="notInGroupPath">
+				Term is not a group nor is it contained in a group.
+			</groupStatus>
+			<groupStatus status="isGroup">
+				Term a group
+			</groupStatus>
+			<groupStatus status="isGroupDirectDescendant">
+				Term is directly contained in a group.
+			</groupStatus>
+			<groupStatus status="isGroupIndirectDescendant">
+				Term is indirectly contained in a group.
+			</groupStatus>
+		</groupStatusKey>
+		<timedComponent emapId="EHDA:2">
+			<name emapId="EHDA:2">
+				human
+			</name>
+			<emapaId emapId="EHDA:2">
+				EHDAA:1
+			</emapaId>
+			<groupPathStatus emapId="EHDA:2">
+				notInGroupPath
+			</groupPathStatus>
+			<timedComponent emapId="EHDA:8114">
+				<name emapId="EHDA:8114">
+					human conceptus
+				</name>
+				<emapaId emapId="EHDA:8114">
+					EHDAA:1003
+				</emapaId>
+				<groupPathStatus emapId="EHDA:8114">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EHDA:8180">
+					<name emapId="EHDA:8180">
+						human conceptus extraembryonic component
+					</name>
+					<emapaId emapId="EHDA:8180">
+						EHDAA:1007
+					</emapaId>
+					<groupPathStatus emapId="EHDA:8180">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EHDA:6932">
+						<name emapId="EHDA:6932">
+							polar bodies
+						</name>
+						<emapaId emapId="EHDA:6932">
+							EHDAA:782
+						</emapaId>
+						<groupPathStatus emapId="EHDA:6932">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:4694">
+							<name emapId="EHDA:4694">
+								first polar body
+							</name>
+							<emapaId emapId="EHDA:4694">
+								EHDAA:395
+							</emapaId>
+							<groupPathStatus emapId="EHDA:4694">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EHDA:13627">
+							<name emapId="EHDA:13627">
+								second polar body
+							</name>
+							<emapaId emapId="EHDA:13627">
+								EHDAA:1902
+							</emapaId>
+							<groupPathStatus emapId="EHDA:13627">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EHDA:14211">
+							<name emapId="EHDA:14211">
+								third polar body
+							</name>
+							<emapaId emapId="EHDA:14211">
+								EHDAA:2002
+							</emapaId>
+							<groupPathStatus emapId="EHDA:14211">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EHDA:9689">
+						<name emapId="EHDA:9689">
+							zona pellucida
+						</name>
+						<emapaId emapId="EHDA:9689">
+							EHDAA:1325
+						</emapaId>
+						<groupPathStatus emapId="EHDA:9689">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EHDA:14210">
+					<name emapId="EHDA:14210">
+						zygote
+					</name>
+					<emapaId emapId="EHDA:14210">
+						EHDAA:2001
+					</emapaId>
+					<groupPathStatus emapId="EHDA:14210">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+			</timedComponent>
+		</timedComponent>
+	</mouseAnatomyReport>
+	<anatomyDatabaseVersion date="2012-09-13 10:31:41" number="2"/>
+	<perspective>
+		Whole Human
+	</perspective>
+</request>

@@ -130,12 +130,22 @@ def _relCmp(rel1, rel2):
             return +1
     else:
         # sequence same, sort based on name.
+        #if relType1 == IS_A:
         if relType1 == PART_OF or relType1 == IS_A or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
+        #if relType1 == PART_OF or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
+            #Util.statusMessage(["HERE!"])
+            #Util.statusMessage(["Relationship 1: " + str(rel1.getOid()) + "\n" +
+            #                "Type 1: " + relType1 + "\n" +
+            #                "Sequence 1: " + str(seq1) + "\n" +
+            #                "Project: " + _sortProject])
+            #Util.statusMessage(["Relationship 2: " + str(rel2.getOid()) + "\n" +
+            #                "Type 2: " + relType2 + "\n" +
+            #                "Sequence 2: " + str(seq2) + "\n" + 
+            #                "Project: " + _sortProject])
             return cmp(Nodes.getByOid(rel1.getChildOid()).getComponentName(),
                        Nodes.getByOid(rel2.getChildOid()).getComponentName())
         else:
             # assume relationship is between timed nodes.
-            """
             Util.statusMessage(["THERE"])
             Util.statusMessage(["Relationship 1: " + str(rel1.getOid()) + "\n" +
                             "Type 1: " + relType1 + "\n" +
@@ -145,12 +155,11 @@ def _relCmp(rel1, rel2):
                             "Type 2: " + relType2 + "\n" +
                             "Sequence 2: " + str(seq2) + "\n" + 
                             "Project: " + _sortProject])
-            """
             nodeOid1 = TimedNodes.getByOid(rel1.getChildOid()).getNodeOid()
             nodeOid2 = TimedNodes.getByOid(rel2.getChildOid()).getNodeOid()
             return cmp(Nodes.getByOid(nodeOid1).getComponentName(),
                        Nodes.getByOid(nodeOid2).getComponentName())
-
+     
 
 def _addRelToKnowledge(rel, sortWithSiblings = True):
     """
@@ -170,40 +179,53 @@ def _addRelToKnowledge(rel, sortWithSiblings = True):
 
     # add rel to unique dictionaries
     _byOid[relOid] = rel
-    if all3Tuple in _byParentChildOidsRelType:
-        Util.fatalError([
-            "Same relationship exists more than once.  Should not happen.",
-            "Parent OID: " + str(parentOid),
-            "Child OID:  " + str(childOid),
-            "Rel Type:   " + relType])
-    _byParentChildOidsRelType[all3Tuple] = rel
+    
+    #if relType == IS_A:
+    if relType == PART_OF or relType == IS_A or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+    #if relType == PART_OF or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+        if all3Tuple in _byParentChildOidsRelType:
+            Util.fatalError([
+                "Same relationship exists more than once.  Should not happen.",
+                "Parent OID: " + str(parentOid),
+                "Child OID:  " + str(childOid),
+                "Rel Type:   " + relType])
+        _byParentChildOidsRelType[all3Tuple] = rel
 
-    # add rel to what we know about parent
-    whereParentRels = _byParentOidRelType.get(parentTuple)
-    if whereParentRels == None:
-        _byParentOidRelType[parentTuple] = []
-    _byParentOidRelType[parentTuple].append(rel)
-    if sortWithSiblings:
-        # sort the children of each parent.
-        _byParentOidRelType[parentTuple].sort(_relCmp)
+        # add rel to what we know about parent
+        whereParentRels = _byParentOidRelType.get(parentTuple)
+    
+        if whereParentRels == None:
+             _byParentOidRelType[parentTuple] = []
+    
+        _byParentOidRelType[parentTuple].append(rel)
+    
+        if sortWithSiblings:
+            # sort the children of each parent.
+            _byParentOidRelType[parentTuple].sort(_relCmp)
 
-    # add rel to what we know about parent
-    whereParentOnlyRels = _byParentOids.get(parentOnlyTuple)
-    if whereParentOnlyRels == None:
-        _byParentOids[parentOnlyTuple] = []
-    _byParentOids[parentOnlyTuple].append(rel)
-    if sortWithSiblings:
-        # sort the children of each parent.
-        _byParentOids[parentOnlyTuple].sort(_relCmp)
+        # add rel to what we know about parent
+        whereParentOnlyRels = _byParentOids.get(parentOnlyTuple)
+    
+        if whereParentOnlyRels == None:
+            _byParentOids[parentOnlyTuple] = []
+    
+        _byParentOids[parentOnlyTuple].append(rel)
+    
+        if sortWithSiblings:
+            # sort the children of each parent.
+            _byParentOids[parentOnlyTuple].sort(_relCmp)
 
-    # add rel to what we know about child
-    whereChildRels = _byChildOidRelType.get(childTuple)
-    if whereChildRels == None:
-        _byChildOidRelType[childTuple] = []
-    _byChildOidRelType[childTuple].append(rel)
+        # add rel to what we know about child
+        whereChildRels = _byChildOidRelType.get(childTuple)
+    
+        if whereChildRels == None:
+            _byChildOidRelType[childTuple] = []
+    
+        _byChildOidRelType[childTuple].append(rel)
 
-    if relType == PART_OF:
-        _partOfs.add(rel)
+        if relType == PART_OF or relType == IS_A or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+        #if relType == PART_OF or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+            _partOfs.add(rel)
 
     return None
 
@@ -282,8 +304,10 @@ def getByParentOid(parentOid):
     If no such relationships exist then the empty list is returned.
     """
     rels = _byParentOids.get((parentOid))
+    
     if rels == None:
         rels = []
+    
     return rels
 
 
@@ -295,8 +319,10 @@ def getByParentOidRelType(parentOid, relType):
     If no such relationships exist then the empty list is returned.
     """
     rels = _byParentOidRelType.get((parentOid, relType))
+    
     if rels == None:
         rels = []
+    
     return rels
 
 
@@ -306,8 +332,10 @@ def getByChildOidRelType(childOid, relType):
     If no such relationships exist then the empty list is returned.
     """
     rels = _byChildOidRelType.get((childOid, relType))
+    
     if rels == None:
         rels = []
+    
     return rels
 
 

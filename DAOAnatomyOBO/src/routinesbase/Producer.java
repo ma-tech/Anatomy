@@ -270,6 +270,11 @@ public class Producer {
                                 outputFile.write("relationship: group_part_of " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("CONNECTED_TO")) {
+                        		
+                                outputFile.write("relationship: connected_to " +
+                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
+                            }
                             else {
                                 System.out.println("UNKNOWN Relationship Type = " + obocomponentList.get(i).getChildOfTypes().get(j));
                             }

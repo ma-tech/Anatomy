@@ -79,23 +79,23 @@ public class ListOBOComponentsFromExistingDatabase {
 
     private static String HUMAN_ID =  "EHDAA:0";
     private static String MOUSE_ID =  "EMAPA:0";
-    private static String CHICK_ID =  "EMAPA:0";
+    private static String CHICK_ID =  "ECAPA:0";
 
     private static String HUMAN_STAGE =  "carnegie stage";
     private static String MOUSE_STAGE =  "theiler stage";
-    private static String CHICK_STAGE =  "theiler stage";
+    private static String CHICK_STAGE =  "hamburger hamilton stage";
 
-    private static String HUMAN_STAGE_UPPER =  "Carnegie stage";
-    private static String MOUSE_STAGE_UPPER =  "Theiler stage";
-    private static String CHICK_STAGE_UPPER =  "Theiler stage";
+    private static String HUMAN_STAGE_UPPER = "Carnegie stage";
+    private static String MOUSE_STAGE_UPPER = "Theiler stage";
+    private static String CHICK_STAGE_UPPER = "Hamburger Hamilton stage";
 
     private static String HUMAN_STAGE_MAX =  "CS23";
     private static String MOUSE_STAGE_MAX =  "TS28";
-    private static String CHICK_STAGE_MAX =  "TS28";
+    private static String CHICK_STAGE_MAX =  "HH48";
 
     private static String HUMAN_STAGE_MIN =  "CS01";
     private static String MOUSE_STAGE_MIN =  "TS01";
-    private static String CHICK_STAGE_MIN =  "TS01";
+    private static String CHICK_STAGE_MIN =  "EGK-I";
 
     
     // Constructor --------------------------------------------------------------------------------
@@ -218,6 +218,9 @@ public class ListOBOComponentsFromExistingDatabase {
                         }
                         else if ( nrrpJoin.getTypeFK().equals("has-part") ) {
                         	obocomponent.addChildOfType( "HAS_PART" );
+                        }
+                        else if ( nrrpJoin.getTypeFK().equals("connected_to") ) {
+                        	obocomponent.addChildOfType( "CONNECTED_TO" );
                         }
                         else {
                             System.out.println("UNKNOWN Relationship Type = " + nrrpJoin.getTypeFK());
@@ -906,35 +909,66 @@ public class ListOBOComponentsFromExistingDatabase {
 
         // starts at
         Relation relation = new Relation();
-        relation.setName( "starts at" );
+        relation.setName( "starts_at" );
         relation.setID( "starts_at" );
         relationList.add( relation );
 
         // ends at
         relation = new Relation();
-        relation.setName( "ends at" );
+        relation.setName( "ends_at" );
         relation.setID( "ends_at" );
         relationList.add( relation );
 
         // partOf
         relation = new Relation();
-        relation.setName( "part of" );
+        relation.setName( "part_of" );
         relation.setID( "part_of" );
-        relation.setTransitive( "true" );
-        relationList.add( relation );
-
-        // groupPartOf
-        relation = new Relation();
-        relation.setName( "group part of" );
-        relation.setID( "group_part_of" );
         relation.setTransitive( "true" );
         relationList.add( relation );
 
         // isA
         relation = new Relation();
-        relation.setName( "is a" );
+        relation.setName( "is_a" );
         relation.setID( "is_a" );
         relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsFrom
+        relation = new Relation();
+        relation.setName( "develops_from" );
+        relation.setID( "develops_from" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsIn
+        relation = new Relation();
+        relation.setName( "develops_in" );
+        relation.setID( "develops_in" );
+        relationList.add( relation );
+
+        // AttachedTo
+        relation = new Relation();
+        relation.setName( "attached_to" );
+        relation.setID( "attached_to" );
+        relationList.add( relation );
+
+        // LocatedIn
+        relation = new Relation();
+        relation.setName( "located_in" );
+        relation.setID( "located_in" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "has_part" );
+        relation.setID( "has_part" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "disjoint_from" );
+        relation.setID( "disjoint_from" );
         relationList.add( relation );
     }
     
@@ -963,235 +997,509 @@ public class ListOBOComponentsFromExistingDatabase {
         // stage class------------------------------------------------------------------------------
         obocomponent = new OBOComponent();
         obocomponent.setName( CHICK_STAGE_UPPER );
-        obocomponent.setID( "TS:0" );
+        obocomponent.setID( "HH:0" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponent.setDBID( "-1" );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS01" );
-        obocomponent.setID( "TS01" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-I" );
+        obocomponent.setID( "EGK-I" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS02" );
-        obocomponent.setID( "TS02" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-II" );
+        obocomponent.setID( "EGK-II" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS03" );
-        obocomponent.setID( "TS03" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-III" );
+        obocomponent.setID( "EGK-III" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS04" );
-        obocomponent.setID( "TS04" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-IV" );
+        obocomponent.setID( "EGK-IV" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS05" );
-        obocomponent.setID( "TS05" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-V" );
+        obocomponent.setID( "EGK-V" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS06" );
-        obocomponent.setID( "TS06" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-VI" );
+        obocomponent.setID( "EGK-VI" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS07" );
-        obocomponent.setID( "TS07" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-VII" );
+        obocomponent.setID( "EGK-VII" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS08" );
-        obocomponent.setID( "TS08" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-VIII" );
+        obocomponent.setID( "EGK-VIII" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS09" );
-        obocomponent.setID( "TS09" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-IX" );
+        obocomponent.setID( "EGK-IX" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS10" );
-        obocomponent.setID( "TS10" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-X" );
+        obocomponent.setID( "EGK-X" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS11" );
-        obocomponent.setID( "TS11" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-XI" );
+        obocomponent.setID( "EGK-XI" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS12" );
-        obocomponent.setID( "TS12" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-XII" );
+        obocomponent.setID( "EGK-XII" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS13" );
-        obocomponent.setID( "TS13" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-XIII" );
+        obocomponent.setID( "EGK-XIII" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS14" );
-        obocomponent.setID( "TS14" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "EGK-XIV" );
+        obocomponent.setID( "EGK-XIV" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS15" );
-        obocomponent.setID( "TS15" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH01" );
+        obocomponent.setID( "HH01" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS16" );
-        obocomponent.setID( "TS16" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH02" );
+        obocomponent.setID( "HH02" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS17" );
-        obocomponent.setID( "TS17" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH03" );
+        obocomponent.setID( "HH03" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS18" );
-        obocomponent.setID( "TS18" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH04" );
+        obocomponent.setID( "HH04" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS19" );
-        obocomponent.setID( "TS19" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH05" );
+        obocomponent.setID( "HH05" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS20" );
-        obocomponent.setID( "TS20" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH06" );
+        obocomponent.setID( "HH06" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS21" );
-        obocomponent.setID( "TS21" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH07" );
+        obocomponent.setID( "HH07" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS22" );
-        obocomponent.setID( "TS22" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH08" );
+        obocomponent.setID( "HH08" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS23" );
-        obocomponent.setID( "TS23" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH09" );
+        obocomponent.setID( "HH09" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS24" );
-        obocomponent.setID( "TS24" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH10" );
+        obocomponent.setID( "HH10" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS25" );
-        obocomponent.setID( "TS25" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH11" );
+        obocomponent.setID( "HH11" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS26" );
-        obocomponent.setID( "TS26" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH12" );
+        obocomponent.setID( "HH12" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS27" );
-        obocomponent.setID( "TS27" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.setName( "HH13" );
+        obocomponent.setID( "HH13" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
 
         obocomponent = new OBOComponent();
-        obocomponent.setName( "TS28" );
-        obocomponent.setID( "TS28" );
+        obocomponent.setName( "HH14" );
+        obocomponent.setID( "HH14" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH15" );
+        obocomponent.setID( "HH15" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH16" );
+        obocomponent.setID( "HH16" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH17" );
+        obocomponent.setID( "HH17" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH18" );
+        obocomponent.setID( "HH18" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH19" );
+        obocomponent.setID( "HH19" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH20" );
+        obocomponent.setID( "HH20" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH21" );
+        obocomponent.setID( "HH21" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH22" );
+        obocomponent.setID( "HH22" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH23" );
+        obocomponent.setID( "HH23" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH24" );
+        obocomponent.setID( "HH24" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH25" );
+        obocomponent.setID( "HH25" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH26" );
+        obocomponent.setID( "HH26" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH27" );
+        obocomponent.setID( "HH27" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH28" );
+        obocomponent.setID( "HH28" );
         obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( "TS:0" );
+        obocomponent.addChildOf( "HH:0" );
         obocomponent.addChildOfType( "IS_A" );
         obocomponent.setNamespace( CHICK_STAGE );
         obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH29" );
+        obocomponent.setID( "HH29" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH30" );
+        obocomponent.setID( "HH30" );
+        obocomponent.setDBID( "-1" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH31" );
+        obocomponent.setID( "HH31" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH32" );
+        obocomponent.setID( "HH32" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH33" );
+        obocomponent.setID( "HH33" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH34" );
+        obocomponent.setID( "HH34" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH35" );
+        obocomponent.setID( "HH35" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH36" );
+        obocomponent.setID( "HH36" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH37" );
+        obocomponent.setID( "HH37" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH38" );
+        obocomponent.setID( "HH38" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH39" );
+        obocomponent.setID( "HH39" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH40" );
+        obocomponent.setID( "HH40" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH41" );
+        obocomponent.setID( "HH41" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH42" );
+        obocomponent.setID( "HH42" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH43" );
+        obocomponent.setID( "HH43" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH44" );
+        obocomponent.setID( "HH44" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH45" );
+        obocomponent.setID( "HH45" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH46" );
+        obocomponent.setID( "HH46" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH47" );
+        obocomponent.setID( "HH47" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "HH48" );
+        obocomponent.setID( "HH48" );
+        obocomponent.addChildOf( "HH:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
 
         // new group class
         obocomponent = new OBOComponent();
@@ -1203,35 +1511,66 @@ public class ListOBOComponentsFromExistingDatabase {
 
         // starts at
         Relation relation = new Relation();
-        relation.setName( "starts at" );
+        relation.setName( "starts_at" );
         relation.setID( "starts_at" );
         relationList.add( relation );
 
         // ends at
         relation = new Relation();
-        relation.setName( "ends at" );
+        relation.setName( "ends_at" );
         relation.setID( "ends_at" );
         relationList.add( relation );
 
         // partOf
         relation = new Relation();
-        relation.setName( "part of" );
+        relation.setName( "part_of" );
         relation.setID( "part_of" );
-        relation.setTransitive( "true" );
-        relationList.add( relation );
-
-        // groupPartOf
-        relation = new Relation();
-        relation.setName( "group part of" );
-        relation.setID( "group_part_of" );
         relation.setTransitive( "true" );
         relationList.add( relation );
 
         // isA
         relation = new Relation();
-        relation.setName( "is a" );
+        relation.setName( "is_a" );
         relation.setID( "is_a" );
         relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsFrom
+        relation = new Relation();
+        relation.setName( "develops_from" );
+        relation.setID( "develops_from" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsIn
+        relation = new Relation();
+        relation.setName( "develops_in" );
+        relation.setID( "develops_in" );
+        relationList.add( relation );
+
+        // AttachedTo
+        relation = new Relation();
+        relation.setName( "attached_to" );
+        relation.setID( "attached_to" );
+        relationList.add( relation );
+
+        // LocatedIn
+        relation = new Relation();
+        relation.setName( "located_in" );
+        relation.setID( "located_in" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "has_part" );
+        relation.setID( "has_part" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "disjoint_from" );
+        relation.setID( "disjoint_from" );
         relationList.add( relation );
     }
 }

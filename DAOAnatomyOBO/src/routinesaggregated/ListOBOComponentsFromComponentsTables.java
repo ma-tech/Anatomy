@@ -197,6 +197,11 @@ public class ListOBOComponentsFromComponentsTables {
                   	}
 
                		obocomponentList.add(obocomponent);
+               		/*
+               		if ( "HH".equals(obocomponent.getName().substring(0, 2)) ) {
+                   		System.out.println("obocomponent.toString() = " + obocomponent.toString());
+               		}
+               		*/
            			
            		}
           	}

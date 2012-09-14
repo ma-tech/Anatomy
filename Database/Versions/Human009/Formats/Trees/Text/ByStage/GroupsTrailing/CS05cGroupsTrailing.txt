@@ -1,0 +1,67 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS05c
+
+
+CS05c Whole Human Excluding Groups
+
+EHDA:8       human
+EHDA:8120    \ human conceptus
+EHDA:8186      + human conceptus extraembryonic component
+EHDA:5544      | + extraembryonic cavities
+EHDA:16884     | | + amniotic cavity
+EHDA:11943     | | + chorionic cavity
+EHDA:13610     | | \ secondary yolk sac cavity
+EHDA:5534      | + extraembryonic endoderm
+EHDA:6915      | + extraembryonic membranes
+EHDA:17110     | | + amnion
+EHDA:17208     | | | + amnion ectoderm
+EHDA:17160     | | | \ amnion mesenchyme
+EHDA:11962     | | + chorion
+EHDA:7524      | | | + chorion cytotrophoblast
+EHDA:11943     | | | + chorionic cavity
+EHDA:7507      | | | + chorion mesenchyme
+EHDA:10314     | | | \ chorion syncytiotrophoblast
+EHDA:9920      | | \ secondary yolk sac
+EHDA:13610     | |   + secondary yolk sac cavity
+EHDA:9893      | |   + secondary yolk sac endoderm
+EHDA:9872      | |   \ secondary yolk sac mesenchyme
+EHDA:5561      | \ extraembryonic mesoderm
+EHDA:17160     |   + amnion mesenchyme
+EHDA:7507      |   \ chorion mesenchyme
+EHDA:8152      \ human embryo
+EHDA:8260        + epiblast
+EHDA:17133       | + amnioblasts
+EHDA:17208       | | \ amnion ectoderm
+EHDA:17133       | \ amnioblasts
+EHDA:17208       |   \ amnion ectoderm
+EHDA:10978       \ hypoblast
+EHDA:5534          + extraembryonic endoderm
+EHDA:9893          \ secondary yolk sac endoderm
+
+
+
+==================================================================
+
+
+
+CS05c Whole Human Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

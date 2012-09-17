@@ -69,7 +69,7 @@ public class ExtractAndWriteOBOFromComponentsTables {
         componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
         //componentOBO.setRelationList((ArrayList<Relation>) relations);
         
-        if ( componentOBO.writeAll() ) {
+        if ( componentOBO.writeAll( "Abstract" ) ) {
         	if ( obofactory.getComponentOBO().debug() ) {
                 System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project());
         	}

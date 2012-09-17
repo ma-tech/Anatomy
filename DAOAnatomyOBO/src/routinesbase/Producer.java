@@ -168,7 +168,7 @@ public class Producer {
     }
     
     // Methods ------------------------------------------------------------------------------------
-    public Boolean writeOboFile(){
+    public Boolean writeOboFile( String stage ){
 
         if (this.boolDebug) {
         	
@@ -178,9 +178,11 @@ public class Producer {
         isProcessed = false;
 
     	try {
+    		String newFileName = fileName.substring(0, fileName.indexOf(".")) + "_" + stage + ".obo";
+    		
             //System.out.println("saveOBOFile #1");
             BufferedWriter outputFile =
-                        new BufferedWriter(new FileWriter(fileName));
+                        new BufferedWriter(new FileWriter(newFileName));
 
             outputFile.write("format-version: " + fileVersion + "\n");
 

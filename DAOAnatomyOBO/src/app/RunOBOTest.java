@@ -67,7 +67,7 @@ public class RunOBOTest {
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        
-	        Boolean isProcessed = componentOBO.writeAll();
+	        Boolean isProcessed = componentOBO.writeAll( "Abstract" );
 
 	        if (isProcessed) {
 	            System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile());

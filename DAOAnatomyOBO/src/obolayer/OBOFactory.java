@@ -247,7 +247,7 @@ public abstract class OBOFactory {
      */
     abstract ArrayList<OBOComponent> getComponents() throws OBOException, IOException;
     abstract String getComponentContent() throws OBOException, IOException;
-    abstract Boolean writeComponents() throws OBOException;
+    abstract Boolean writeComponents( String stage ) throws OBOException;
     abstract Boolean isDebug();
     abstract String getSummaryReport();
     abstract String getSummaryReportPdf();
@@ -410,7 +410,7 @@ class FileOBOFactory extends OBOFactory {
     	return componentContent;
     }
     
-    Boolean writeComponents() throws OBOConfigurationException {
+    Boolean writeComponents( String stage ) throws OBOConfigurationException {
     	
     	Producer producer = new Producer(
     			this.boolDebug, 
@@ -424,7 +424,7 @@ class FileOBOFactory extends OBOFactory {
     			this.boolAlternatives,
     			this.boolTimedComponents);
     	
-    	Boolean isProcessed = producer.writeOboFile();
+    	Boolean isProcessed = producer.writeOboFile( stage );
     	
     	return isProcessed;
     }

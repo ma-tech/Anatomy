@@ -61,6 +61,17 @@ public final class JOINTimedNodeNodeStageDAO {
         "JOIN ANA_NODE ON ANO_OID = ATN_NODE_FK " +
         "JOIN ANA_STAGE ON STG_OID = ATN_STAGE_FK";
         
+    private static final String SQL_LIST_ALL_BY_STAGE_NAME =
+        "SELECT " +
+        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
+        "ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, " +
+        "STG_OID, STG_SPECIES_FK, STG_NAME, STG_SEQUENCE, STG_DESCRIPTION, STG_SHORT_EXTRA_TEXT, STG_PUBLIC_ID " +
+        "FROM ANA_TIMED_NODE " +
+        "JOIN ANA_NODE ON ANO_OID = ATN_NODE_FK " +
+        "JOIN ANA_STAGE ON STG_OID = ATN_STAGE_FK " +
+        "WHERE STG_NAME = ? " +
+        "ORDER BY ATN_OID ";
+            
     private static final String SQL_FIND_BY_EMAP =
     	"SELECT " +
         "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
@@ -88,14 +99,14 @@ public final class JOINTimedNodeNodeStageDAO {
     
     // Actions ------------------------------------------------------------------------------------
     /**
-     * Returns the timednodesnodestages from the database matching the EMAP ID, otherwise null.
+     * Returns the jointimednodenodestage from the database matching the EMAP ID, otherwise null.
      */
     public JOINTimedNodeNodeStage findByEmap(String emapId) throws DAOException {
         return find(SQL_FIND_BY_EMAP, emapId);
     }
 
     /**
-     * Returns the timednodesnodestages from the database matching the given 
+     * Returns the jointimednodenodestage from the database matching the given 
      *  SQL query with the given values.
      */
     private JOINTimedNodeNodeStage find(String sql, Object... values) throws DAOException {
@@ -103,7 +114,7 @@ public final class JOINTimedNodeNodeStageDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        JOINTimedNodeNodeStage extratimednode = null;
+        JOINTimedNodeNodeStage jointimednodenodestage = null;
 
         try {
             connection = daoFactory.getConnection();
@@ -114,7 +125,7 @@ public final class JOINTimedNodeNodeStageDAO {
             resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
-                extratimednode = mapJOINTimedNodeNodeStage(resultSet);
+            	jointimednodenodestage = mapJOINTimedNodeNodeStage(resultSet);
             }
         }
         catch (SQLException e) {
@@ -124,12 +135,12 @@ public final class JOINTimedNodeNodeStageDAO {
             close(connection, preparedStatement, resultSet);
         }
 
-        return extratimednode;
+        return jointimednodenodestage;
     }
 
 
     /*
-     * Returns a list of ALL timednodesnodestages, otherwise null.
+     * Returns a list of ALL jointimednodenodestages, otherwise null.
      */
     public List<JOINTimedNodeNodeStage> listAll() throws DAOException {
     	
@@ -137,15 +148,23 @@ public final class JOINTimedNodeNodeStageDAO {
     }
     
     /*
-     * Returns a list of all timednodesnodestages from the database. 
-     *  The list is never null and is empty when the database does not contain any timednodesnodestages.
+     * Returns a list of ALL jointimednodenodestages, otherwise null.
+     */
+    public List<JOINTimedNodeNodeStage> listAllByStageName( String stage ) throws DAOException {
+    	
+        return list(SQL_LIST_ALL_BY_STAGE_NAME, stage);
+    }
+    
+    /*
+     * Returns a list of all jointimednodenodestages from the database. 
+     *  The list is never null and is empty when the database does not contain any jointimednodenodestages.
      */
     public List<JOINTimedNodeNodeStage> list(String sql, Object... values) throws DAOException {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<JOINTimedNodeNodeStage> timednodes = new ArrayList<JOINTimedNodeNodeStage>();
+        List<JOINTimedNodeNodeStage> jointimednodenodestages = new ArrayList<JOINTimedNodeNodeStage>();
 
         try {
             connection = daoFactory.getConnection();
@@ -153,7 +172,7 @@ public final class JOINTimedNodeNodeStageDAO {
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
-                timednodes.add(mapJOINTimedNodeNodeStage(resultSet));
+            	jointimednodenodestages.add(mapJOINTimedNodeNodeStage(resultSet));
             }
         } 
         catch (SQLException e) {
@@ -163,7 +182,7 @@ public final class JOINTimedNodeNodeStageDAO {
             close(connection, preparedStatement, resultSet);
         }
 
-        return timednodes;
+        return jointimednodenodestages;
     }
 
     // Helpers ------------------------------------------------------------------------------------

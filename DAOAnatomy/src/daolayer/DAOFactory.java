@@ -322,6 +322,9 @@ public abstract class DAOFactory {
     public JOINTimedNodeStageDAO getJOINTimedNodeStageDAO() {
         return new JOINTimedNodeStageDAO(this);
     }
+    public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO() {
+        return new JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO(this);
+    }
 
     public LeafDAO getLeafDAO() {
         return new LeafDAO(this);

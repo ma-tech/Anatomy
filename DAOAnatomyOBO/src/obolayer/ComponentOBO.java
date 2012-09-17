@@ -119,20 +119,20 @@ public final class ComponentOBO {
     /*
      * Within the OBOFactory, write ALL the OBO OBOComponents in the existing OBO Factory list to File 
      */
-    public Boolean writeAll() throws OBOException {
+    public Boolean writeAll(String stage) throws OBOException {
     	
-        return write();
+        return write( stage );
     }
     
     /*
      * write OBO OBOComponents
      */
-    public Boolean write() throws OBOException {
+    public Boolean write( String stage ) throws OBOException {
       
         Boolean isProcessed = false; 
         		
         try {
-        	isProcessed = oboFactory.writeComponents();
+        	isProcessed = oboFactory.writeComponents( stage );
         } 
         catch (OBOConfigurationException e) {
             throw new OBOException(e);

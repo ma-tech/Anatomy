@@ -1,0 +1,173 @@
+format-version: 1.2
+date: 17:09:2012 12:55
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Global Name Changes by Terry Hayamizu 29th August 2012
+
+[Term]
+id: EMAP:0
+name: Timed anatomy
+namespace: timed_anatomy
+relationship: is_a EMAPA:0
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler stage
+
+[Term]
+id: TS07
+name: TS07
+namespace: theiler stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25772
+name: mouse
+namespace: timed_anatomy
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:42
+name: embryo
+namespace: abstract_anatomy
+relationship: part_of EMAP:25772
+
+[Term]
+id: EMAP:43
+name: epiblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:25772
+relationship: part_of EMAP:42
+
+[Term]
+id: EMAP:44
+name: primitive endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:25772
+relationship: part_of EMAP:42
+
+[Term]
+id: EMAP:45
+name: extraembryonic component
+namespace: abstract_anatomy
+relationship: part_of EMAP:25772
+
+[Term]
+id: EMAP:53
+name: trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:54
+name: mural trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:53
+
+[Term]
+id: EMAP:55
+name: polar trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:53
+
+[Term]
+id: EMAP:56
+name: ectoplacental cone
+namespace: abstract_anatomy
+relationship: part_of EMAP:55
+
+[Term]
+id: EMAP:48
+name: extraembryonic endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:50
+name: parietal endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:51
+name: Reichert's membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:50
+
+[Term]
+id: EMAP:49
+name: intermediate endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:52
+name: visceral endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:46
+name: extraembryonic component cavities
+namespace: abstract_anatomy
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:47
+name: yolk sac cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:46
+
+[Term]
+id: EMAP:34975
+name: extraembryonic ectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:45
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

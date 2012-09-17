@@ -38,19 +38,25 @@ import java.util.Iterator;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
+import daolayer.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
 import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
 import daolayer.JOINTimedNodeStageDAO;
+import daolayer.JOINTimedNodeNodeStageDAO;
 import daolayer.NodeDAO;
 import daolayer.TimedNodeDAO;
 import daolayer.SynonymDAO;
 import daolayer.ComponentAlternativeDAO;
 
+import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
 import daomodel.JOINNodeRelationshipRelationshipProject;
 import daomodel.JOINTimedNodeStage;
+import daomodel.JOINTimedNodeNodeStage;
 import daomodel.Node;
 import daomodel.TimedNode;
 import daomodel.Synonym;
 import daomodel.ComponentAlternative;
+
 
 import obolayer.OBOFactory;
 
@@ -72,14 +78,23 @@ public class ListOBOComponentsFromExistingDatabase {
     private static String HUMAN_NAME_SPACE = "human_developmental_anatomy";
     private static String MOUSE_NAME_SPACE = "abstract_anatomy";
     private static String CHICK_NAME_SPACE = "abstract_anatomy";
+    private static String HUMAN_TIMED_NAME_SPACE = "human_developmental_anatomy";
+    private static String MOUSE_TIMED_NAME_SPACE = "timed_anatomy";
+    private static String CHICK_TIMED_NAME_SPACE = "timed_anatomy";
     
     private static String HUMAN_NAME = "Abstract human developmental anatomy";
     private static String MOUSE_NAME = "Abstract anatomy";
     private static String CHICK_NAME = "Abstract anatomy";
+    private static String HUMAN_TIMED_NAME = "Timed human developmental anatomy";
+    private static String MOUSE_TIMED_NAME = "Timed anatomy";
+    private static String CHICK_TIMED_NAME = "Timed anatomy";
 
-    private static String HUMAN_ID =  "EHDAA:0";
-    private static String MOUSE_ID =  "EMAPA:0";
-    private static String CHICK_ID =  "ECAPA:0";
+    private static String HUMAN_ID = "EHDAA:0";
+    private static String MOUSE_ID = "EMAPA:0";
+    private static String CHICK_ID = "ECAPA:0";
+    private static String HUMAN_TIMED_ID = "EHDA:0";
+    private static String MOUSE_TIMED_ID = "EMAP:0";
+    private static String CHICK_TIMED_ID = "ECAP:0";
 
     private static String HUMAN_STAGE =  "carnegie stage";
     private static String MOUSE_STAGE =  "theiler stage";
@@ -117,13 +132,13 @@ public class ListOBOComponentsFromExistingDatabase {
             OBOComponent obocomponent;
 
       		if ( "mouse".equals(obofactory.getComponentOBO().species()) ) {
-      			addMouseDetails();
+      			addAbstractMouseDetails();
       		}
       		if ( "chick".equals(obofactory.getComponentOBO().species()) ) {
-      			addChickDetails();
+      			addAbstractChickDetails();
       		}
       		if ( "human".equals(obofactory.getComponentOBO().species()) ) {
-      			addHumanDetails();
+      			addAbstractHumanDetails();
       		}
 
       		List<Node> nodes = new ArrayList<Node>();
@@ -317,6 +332,145 @@ public class ListOBOComponentsFromExistingDatabase {
         }
     }
 
+    public ListOBOComponentsFromExistingDatabase(DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot, String stage ) throws Exception {
+    	
+    	this.defaultroot = defaultroot;
+    	
+    	try {
+            // Obtain DAOs.
+
+            JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO tnnsrntnsjoinDAO = daofactory.getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO(); 
+            JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = daofactory.getJOINTimedNodeNodeStageDAO();
+
+            // 1: abstract class---------------------------------------------------------------------------
+            OBOComponent obocomponent;
+
+      		if ( "mouse".equals(obofactory.getComponentOBO().species()) ) {
+      			addTimedMouseDetails( stage );
+      		}
+      		if ( "chick".equals(obofactory.getComponentOBO().species()) ) {
+      			addTimedChickDetails( stage );
+      		}
+      		if ( "human".equals(obofactory.getComponentOBO().species()) ) {
+      			addTimedHumanDetails( stage );
+      		}
+
+      		List<JOINTimedNodeNodeStage> jointimednodenodestages = new ArrayList<JOINTimedNodeNodeStage>();
+      		jointimednodenodestages = jointimednodenodestageDAO.listAllByStageName(stage);
+            
+            Iterator<JOINTimedNodeNodeStage> iteratorJOINTimedNodeNodeStage = jointimednodenodestages.iterator();
+                
+          	while (iteratorJOINTimedNodeNodeStage.hasNext()) {
+          	
+          		JOINTimedNodeNodeStage jointimednodenodestage = iteratorJOINTimedNodeNodeStage.next();
+
+                obocomponent = new OBOComponent();
+                
+                if ( jointimednodenodestage.getComponentName().equals(obofactory.getComponentOBO().species()) ) {
+                	
+                    obocomponent.setName( jointimednodenodestage.getComponentName());
+                    obocomponent.setID( jointimednodenodestage.getPublicTimedNodeId() );
+                    
+              		if ( "mouse".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace( MOUSE_TIMED_NAME_SPACE );
+                        obocomponent.addChildOf( MOUSE_TIMED_ID );
+              		}
+              		if ( "chick".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace( CHICK_TIMED_NAME_SPACE );
+                        obocomponent.addChildOf( CHICK_TIMED_ID );
+              		}
+              		if ( "human".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace( HUMAN_TIMED_NAME_SPACE );
+                        obocomponent.addChildOf( HUMAN_TIMED_ID );
+              		}
+
+              		obocomponent.addChildOfType( "IS_A" );
+                }
+                else {
+                
+                    obocomponent.setName( jointimednodenodestage.getComponentName());
+              		if ( "mouse".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace(MOUSE_NAME_SPACE);
+              		}
+              		if ( "chick".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace(CHICK_NAME_SPACE);
+              		}
+              		if ( "human".equals(obofactory.getComponentOBO().species()) ) {
+                        obocomponent.setNamespace(HUMAN_NAME_SPACE);
+              		}
+
+                    obocomponent.setID( jointimednodenodestage.getPublicTimedNodeId() );
+                    obocomponent.setDBID( Long.toString(jointimednodenodestage.getOidNode()) );
+                    obocomponent.setIsPrimary( jointimednodenodestage.isPrimary() );
+
+                    // query for the node's partOf relationship---------------------------------------------
+                    List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> tnnsrntnsjoins = 
+                    		tnnsrntnsjoinDAO.listAllStageNameAndParent(stage, stage, jointimednodenodestage.getPublicTimedNodeId());
+                    
+                    Iterator<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> iteratorTnnsrntnsJoin = tnnsrntnsjoins.iterator();
+                        
+                    while ( iteratorTnnsrntnsJoin.hasNext() ) {
+                    	
+                    	JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage tnnsrntnsJoin = iteratorTnnsrntnsJoin.next();
+                       	
+                        obocomponent.addChildOf( tnnsrntnsJoin.getPublicTimedNodeIdII() );
+
+                        if ( tnnsrntnsJoin.getTypeFK().equals("part-of") ) {
+                            obocomponent.addChildOfType( "PART_OF" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("is-a") ) {
+                            obocomponent.addChildOfType( "IS_A" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("derives-from") ) {
+                        	obocomponent.addChildOfType( "DERIVES_FROM" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("develops-from") ) {
+                        	obocomponent.addChildOfType( "DEVELOPS_FROM" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("located-in") ) {
+                        	obocomponent.addChildOfType( "LOCATED_IN" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("develops-in") ) {
+                        	obocomponent.addChildOfType( "DEVELOPS_IN" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("disjoint-from") ) {
+                        	obocomponent.addChildOfType( "DISJOINT_FROM" );
+                        }
+                        /*
+                        else if ( nrrpJoin.getTypeFK().equals("surrounds") ) {
+                        	obocomponent.addChildOfType( "SURROUNDS" );
+                        }
+                        */
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("attached-to") ) {
+                        	obocomponent.addChildOfType( "ATTACHED_TO" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("has-part") ) {
+                        	obocomponent.addChildOfType( "HAS_PART" );
+                        }
+                        else if ( tnnsrntnsJoin.getTypeFK().equals("connected_to") ) {
+                        	obocomponent.addChildOfType( "CONNECTED_TO" );
+                        }
+                        else {
+                            System.out.println("UNKNOWN Relationship Type = " + tnnsrntnsJoin.getTypeFK());
+                        }
+                    }
+
+                }
+
+              	obocomponentList.add( obocomponent );
+            }
+    	}
+
+        catch ( DAOException dao ) {
+        	
+            dao.printStackTrace();
+        }
+        catch ( Exception ex ) {
+        	
+            ex.printStackTrace();
+        }
+    }
+
     public ArrayList<OBOComponent> getTermList() {
         return obocomponentList;
     }
@@ -325,7 +479,7 @@ public class ListOBOComponentsFromExistingDatabase {
         return relationList;
     }
     
-    public void addHumanDetails() {
+    public void addAbstractHumanDetails() {
 
     	OBOComponent obocomponent = new OBOComponent();
         obocomponent.setName( HUMAN_NAME );
@@ -644,7 +798,107 @@ public class ListOBOComponentsFromExistingDatabase {
         relationList.add( relation );
     }
     
-    public void addMouseDetails() {
+    public void addTimedHumanDetails(String stage) {
+
+    	OBOComponent obocomponent = new OBOComponent();
+        obocomponent.setName( HUMAN_TIMED_NAME );
+        obocomponent.setID( HUMAN_TIMED_ID );
+        obocomponent.setNamespace( HUMAN_TIMED_NAME_SPACE );
+        obocomponent.setDBID( "-1" );
+        //obocomponent.addChildOf( HUMAN_ID  );
+        //obocomponent.addChildOfType( "IS_A" );
+        
+        if ( defaultroot ) {
+            obocomponentList.add( obocomponent );
+        }
+        
+        // group obocomponents----------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Group term" );
+        obocomponent.setID( "group_term" );
+        obocomponent.setNamespace( "group_term" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // stage class------------------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( HUMAN_STAGE_UPPER );
+        obocomponent.setID( "TS:0" );
+        obocomponent.setNamespace( HUMAN_STAGE );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( stage );
+        obocomponent.setID( stage );
+        obocomponent.addChildOf( "TS:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( HUMAN_STAGE );
+        obocomponentList.add( obocomponent );
+
+
+        // new group class
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Tmp new group" );
+        obocomponent.setID( "Tmp_new_group" );
+        obocomponent.setNamespace( "new_group_namespace" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // partOf
+        Relation relation = new Relation();
+        relation.setName( "part_of" );
+        relation.setID( "part_of" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // isA
+        relation = new Relation();
+        relation.setName( "is_a" );
+        relation.setID( "is_a" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsFrom
+        relation = new Relation();
+        relation.setName( "develops_from" );
+        relation.setID( "develops_from" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsIn
+        relation = new Relation();
+        relation.setName( "develops_in" );
+        relation.setID( "develops_in" );
+        relationList.add( relation );
+
+        // AttachedTo
+        relation = new Relation();
+        relation.setName( "attached_to" );
+        relation.setID( "attached_to" );
+        relationList.add( relation );
+
+        // LocatedIn
+        relation = new Relation();
+        relation.setName( "located_in" );
+        relation.setID( "located_in" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "has_part" );
+        relation.setID( "has_part" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "disjoint_from" );
+        relation.setID( "disjoint_from" );
+        relationList.add( relation );
+    }
+    
+    public void addAbstractMouseDetails() {
 
     	OBOComponent obocomponent = new OBOComponent();
         obocomponent.setName( MOUSE_NAME );
@@ -972,7 +1226,107 @@ public class ListOBOComponentsFromExistingDatabase {
         relationList.add( relation );
     }
     
-    public void addChickDetails() {
+    public void addTimedMouseDetails(String stage) {
+
+    	OBOComponent obocomponent = new OBOComponent();
+        obocomponent.setName( MOUSE_TIMED_NAME );
+        obocomponent.setID( MOUSE_TIMED_ID );
+        obocomponent.setNamespace( MOUSE_TIMED_NAME_SPACE );
+        obocomponent.setDBID( "-1" );
+        //obocomponent.addChildOf( MOUSE_ID  );
+        //obocomponent.addChildOfType( "IS_A" );
+        
+        if ( defaultroot ) {
+            obocomponentList.add( obocomponent );
+        }
+        
+        // group obocomponents----------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Group term" );
+        obocomponent.setID( "group_term" );
+        obocomponent.setNamespace( "group_term" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // stage class------------------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( MOUSE_STAGE_UPPER );
+        obocomponent.setID( "TS:0" );
+        obocomponent.setNamespace( MOUSE_STAGE );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( stage );
+        obocomponent.setID( stage );
+        obocomponent.addChildOf( "TS:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( MOUSE_STAGE );
+        obocomponentList.add( obocomponent );
+
+
+        // new group class
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Tmp new group" );
+        obocomponent.setID( "Tmp_new_group" );
+        obocomponent.setNamespace( "new_group_namespace" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // partOf
+        Relation relation = new Relation();
+        relation.setName( "part_of" );
+        relation.setID( "part_of" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // isA
+        relation = new Relation();
+        relation.setName( "is_a" );
+        relation.setID( "is_a" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsFrom
+        relation = new Relation();
+        relation.setName( "develops_from" );
+        relation.setID( "develops_from" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsIn
+        relation = new Relation();
+        relation.setName( "develops_in" );
+        relation.setID( "develops_in" );
+        relationList.add( relation );
+
+        // AttachedTo
+        relation = new Relation();
+        relation.setName( "attached_to" );
+        relation.setID( "attached_to" );
+        relationList.add( relation );
+
+        // LocatedIn
+        relation = new Relation();
+        relation.setName( "located_in" );
+        relation.setID( "located_in" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "has_part" );
+        relation.setID( "has_part" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "disjoint_from" );
+        relation.setID( "disjoint_from" );
+        relationList.add( relation );
+    }
+    
+    public void addAbstractChickDetails() {
 
     	OBOComponent obocomponent = new OBOComponent();
         obocomponent.setName( CHICK_NAME );
@@ -1573,4 +1927,105 @@ public class ListOBOComponentsFromExistingDatabase {
         relation.setID( "disjoint_from" );
         relationList.add( relation );
     }
+    
+    public void addTimedChickDetails(String stage) {
+
+    	OBOComponent obocomponent = new OBOComponent();
+        obocomponent.setName( CHICK_TIMED_NAME );
+        obocomponent.setID( CHICK_TIMED_ID );
+        obocomponent.setNamespace( CHICK_TIMED_NAME_SPACE );
+        obocomponent.setDBID( "-1" );
+        //obocomponent.addChildOf( CHICK_ID  );
+        //obocomponent.addChildOfType( "IS_A" );
+        
+        if ( defaultroot ) {
+            obocomponentList.add( obocomponent );
+        }
+        
+        // group obocomponents----------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Group term" );
+        obocomponent.setID( "group_term" );
+        obocomponent.setNamespace( "group_term" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // stage class------------------------------------------------------------------------------
+        obocomponent = new OBOComponent();
+        obocomponent.setName( CHICK_STAGE_UPPER );
+        obocomponent.setID( "TS:0" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        obocomponent = new OBOComponent();
+        obocomponent.setName( stage );
+        obocomponent.setID( stage );
+        obocomponent.addChildOf( "TS:0" );
+        obocomponent.addChildOfType( "IS_A" );
+        obocomponent.setNamespace( CHICK_STAGE );
+        obocomponentList.add( obocomponent );
+
+
+        // new group class
+        obocomponent = new OBOComponent();
+        obocomponent.setName( "Tmp new group" );
+        obocomponent.setID( "Tmp_new_group" );
+        obocomponent.setNamespace( "new_group_namespace" );
+        obocomponent.setDBID( "-1" );
+        obocomponentList.add( obocomponent );
+
+        // partOf
+        Relation relation = new Relation();
+        relation.setName( "part_of" );
+        relation.setID( "part_of" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // isA
+        relation = new Relation();
+        relation.setName( "is_a" );
+        relation.setID( "is_a" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsFrom
+        relation = new Relation();
+        relation.setName( "develops_from" );
+        relation.setID( "develops_from" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // DevelopsIn
+        relation = new Relation();
+        relation.setName( "develops_in" );
+        relation.setID( "develops_in" );
+        relationList.add( relation );
+
+        // AttachedTo
+        relation = new Relation();
+        relation.setName( "attached_to" );
+        relation.setID( "attached_to" );
+        relationList.add( relation );
+
+        // LocatedIn
+        relation = new Relation();
+        relation.setName( "located_in" );
+        relation.setID( "located_in" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "has_part" );
+        relation.setID( "has_part" );
+        relation.setTransitive( "true" );
+        relationList.add( relation );
+
+        // HasPart
+        relation = new Relation();
+        relation.setName( "disjoint_from" );
+        relation.setID( "disjoint_from" );
+        relationList.add( relation );
+    }
+
 }

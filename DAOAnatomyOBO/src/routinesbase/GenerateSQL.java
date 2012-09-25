@@ -320,6 +320,7 @@ public class GenerateSQL {
                     }
                     
                     newComponents.add( component );
+                    //System.out.println("NEW Component = " + component.toString());
                 }
                 
                 if ( component.getStatusChange().equals("DELETED") ) {
@@ -1677,13 +1678,13 @@ public class GenerateSQL {
                         if ("mouse".equals(strSpecies)) {
 
                             if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
-                                
-                            	/*
-                                System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace()");
-                                System.out.println(" parent.getNamespace() = " + parent.getNamespace());
+                                /*
+                                System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace() )");
+                                System.out.println(" parent.getNamespace() =                    " + parent.getNamespace());
                                 System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
                                 */
-                            	flagInsert = false;
+
+                                flagInsert = false;
                             }
                         }
                         if ("human".equals(strSpecies)) {
@@ -1691,15 +1692,14 @@ public class GenerateSQL {
                             if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) &&
                             	!parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
                             	!parent.getNamespace().equals( groupclassobocomponent.getNamespace() ) ) {
-                                
-                            	/*
+                                /*
                             	if ( parent.getName().equals("cell") ) {
                             		
                                 	System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace() && ");
                                     System.out.println("!parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() && ");
                                     System.out.println("!parent.getNamespace().equals( groupclassobocomponent.getNamespace()");
-                                    System.out.println(" parent.getNamespace() = " + parent.getNamespace());
-                                    System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                                    System.out.println(" parent.getNamespace() =                     " + parent.getNamespace());
+                                    System.out.println(" abstractclassobocomponent.getNamespace() =  " + abstractclassobocomponent.getNamespace());
                                     System.out.println(" grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
                             	}
                             	*/
@@ -1708,12 +1708,18 @@ public class GenerateSQL {
                             }
                         }
                         if ("chick".equals(strSpecies)) {
-                        	/*
-                            System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace()");
-                            System.out.println(" parent.getNamespace() = " + parent.getNamespace());
-                            System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
-                            */
-                        	flagInsert = false;
+
+                            if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) &&
+                                	!parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
+                                	!parent.getNamespace().equals( groupclassobocomponent.getNamespace() ) ) {
+                            	/*
+                            	System.out.println("!parent.getNamespace().equals( abstractclassobocomponent.getNamespace()");
+                                System.out.println(" parent.getNamespace() =                    " + parent.getNamespace());
+                                System.out.println(" abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                                */
+
+                                flagInsert = false;
+                            }
                         }
 
                         //System.out.println("flagInsert = " + flagInsert);
@@ -1872,7 +1878,7 @@ public class GenerateSQL {
                         
                         relationshipDAO.create(relationship);
                         
-                        //insertANA_RELATIONSHIP_PROJECT( insertRelObject, intREL_OID, calledFrom );
+                        insertANA_RELATIONSHIP_PROJECT( insertRelObject, intREL_OID, calledFrom );
                     }
                 }
             }
@@ -2092,6 +2098,8 @@ public class GenerateSQL {
                     String strATN_PUBLIC_ID = component.getID();
                     
                     TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID);
+
+                    //System.out.println("timednode.toString() = " + timednode.toString());
 
                     timednodeDAO.create(timednode);
 
@@ -3335,35 +3343,29 @@ public class GenerateSQL {
             if (flagInsert) {
          	   
                 //make a time component record for each stage
-                for (int j = component.getStartSequence(); j <= component.getEndSequence(); j++ ) {
-
-                    String strStage = component.getStart();
+                for (int j = component.getStartSequence(); j <= component.getEndSequence() + 1; j++ ) {
 
                     OBOComponent timedCompie = new OBOComponent();
+                    		
                     timedCompie.setNamespace( component.getDBID() ); //current component
-
-                    timedCompie.setStart( strStage );
+                    timedCompie.setStartSequence(j, strSpecies);
 
                     if (strSpecies.equals("mouse")) {
                  	   
-                        timedCompie.setID( "EMAP:" +
-                                Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "EMAP:" + Integer.toString( ++intCurrentPublicID ) );
                     }
                     
                     if (strSpecies.equals("human")) {
                  	   
-                        timedCompie.setID( "EHDA:" +
-                                Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "EHDA:" + Integer.toString( ++intCurrentPublicID ) );
                     }
                     
                     if (strSpecies.equals("chick")) {
                  	   
-                        timedCompie.setID( "ECAP:" +
-                                Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "ECAP:" + Integer.toString( ++intCurrentPublicID ) );
                     }
 
                     timedComps.add(timedCompie);
-                    //object_counter++;
                 }
             }
         }

@@ -124,6 +124,8 @@ def getByOid(nodeOid):
     """
     Return the node with the given OID.  Fails if no node has that OID.
     """
+    #print nodeOid
+    
     return _byOid[nodeOid]
 
 

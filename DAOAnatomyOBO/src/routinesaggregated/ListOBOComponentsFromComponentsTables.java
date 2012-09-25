@@ -197,11 +197,11 @@ public class ListOBOComponentsFromComponentsTables {
                   	}
 
                		obocomponentList.add(obocomponent);
-               		/*
-               		if ( "HH".equals(obocomponent.getName().substring(0, 2)) ) {
+               		
+               		if ( "part_of".equals(obocomponent.getName()) ) {
                    		System.out.println("obocomponent.toString() = " + obocomponent.toString());
                		}
-               		*/
+               		
            			
            		}
           	}

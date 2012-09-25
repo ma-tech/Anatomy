@@ -54,6 +54,15 @@ import utility.StringStreamConverter;
 
 public class Parser {
 
+    private static final String MIN_MOUSE_STAGE_STR = "TS01";
+    private static final String MIN_HUMAN_STAGE_STR = "CS01";
+    private static final String MIN_CHICK_STAGE_STR = "EGK-I";
+    
+    private static final String MAX_MOUSE_STAGE_STR = "TS28";
+    private static final String MAX_HUMAN_STAGE_STR = "CS23";
+    private static final String MAX_CHICK_STAGE_STR = "HH48";
+
+    private String species;
     private String file;
     private String fileContent;
     private ArrayList<OBOComponent> componentList;
@@ -63,7 +72,8 @@ public class Parser {
 
     public Parser(Boolean debug, 
     		String txtFileName,
-    		Boolean boolAlternatives) throws IOException{
+    		Boolean boolAlternatives,
+    		String species) throws IOException{
 
         this.debug = debug;
         
@@ -75,6 +85,7 @@ public class Parser {
         }
 
         this.file = txtFileName.trim();
+        this.species = species;
         this.boolAlternatives = boolAlternatives;
 
         this.componentList = addComponents(this.file);
@@ -208,7 +219,23 @@ public class Parser {
             		
             		String [] words = oboclassimpl.getComment().split("\n");
             		String orderComments = "";
+
+            		String maxStage = "";
+            		String minStage = "";
             		
+                    if (species.equals("mouse")) {
+                    	minStage = MIN_MOUSE_STAGE_STR;
+                    	maxStage = MAX_MOUSE_STAGE_STR;
+                    }
+                    else if (species.equals("human")) {
+                    	minStage = MIN_HUMAN_STAGE_STR;
+                    	maxStage = MAX_HUMAN_STAGE_STR;
+                    }
+                    else if (species.equals("chick")) {
+                    	minStage = MIN_CHICK_STAGE_STR;
+                    	maxStage = MAX_CHICK_STAGE_STR;
+                    }
+
                     for ( int i = 0; i < words.length; i++ ) {
                 		userComments.add(words[i]);
                 		orderComments = orderComments + " " + words[i];
@@ -249,8 +276,8 @@ public class Parser {
                     		oboclassimpl.getNamespace().toString(),
                     		oboclassimpl.getDefinition().toString(),
                     		false,
-                    		"TBD",
-                    		"TBD",
+                    		minStage,
+                    		maxStage,
                     		0,
                     		"",
                     		//"UNCHANGED",

@@ -87,6 +87,7 @@ public class ListOBOComponentsFromOBOFile {
     }
 
     // Constructor --------------------------------------------------------------------------------
+    /*
     public ListOBOComponentsFromOBOFile(Boolean debug,
     		String filename,
     		Boolean boolAlternatives) throws IOException{
@@ -111,4 +112,5 @@ public class ListOBOComponentsFromOBOFile {
     public String getInputFileContents() {
         return inputFileContents;
     }
+    */
 }

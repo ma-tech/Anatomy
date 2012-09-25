@@ -391,7 +391,8 @@ class FileOBOFactory extends OBOFactory {
     	Parser parser = new Parser(
     			this.boolDebug, 
     			this.oboInFile,
-    			this.boolAlternatives);
+    			this.boolAlternatives,
+    			this.species);
     	
     	componentList = parser.getComponents();
     	
@@ -403,7 +404,8 @@ class FileOBOFactory extends OBOFactory {
     	Parser parser = new Parser(
     			this.boolDebug, 
     			this.oboInFile,
-    			this.boolAlternatives);
+    			this.boolAlternatives,
+    			this.species);
     	
     	String componentContent = parser.getFileContent();
     	

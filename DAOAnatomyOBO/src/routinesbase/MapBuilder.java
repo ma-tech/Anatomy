@@ -156,6 +156,9 @@ public class MapBuilder {
                      Display under a dummy component called 'missing parent'
                       this code takes place in TreeBuilder
                     */
+                    
+               		System.out.println("obocomponent.toString() = " + obocomponent.toString());
+
                 }
 
                 Vector<String> v = this.treeChildren.get(parent);

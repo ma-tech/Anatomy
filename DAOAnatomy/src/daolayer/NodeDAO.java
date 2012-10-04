@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daomodel.Node;
+import daomodel.TimedNode;
 
 public final class NodeDAO {
 
@@ -98,6 +99,11 @@ public final class NodeDAO {
         "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
         "FROM ANA_NODE ";
     
+    private static final String SQL_LIST_ALL_ORDER_BY_PUBLIC_ID =
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "FROM ANA_NODE " +
+        "ORDER BY CAST( SUBSTRING(ANO_PUBLIC_ID, 7) AS SIGNED ) ";
+        
     private static final String SQL_INSERT =
         "INSERT INTO ANA_NODE " +
         "(ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION) " +
@@ -180,6 +186,14 @@ public final class NodeDAO {
     public List<Node> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns a list of ALL timednodes, otherwise null.
+     */
+    public List<Node> listAllOrderByPublicId() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_PUBLIC_ID);
     }
     
     /*

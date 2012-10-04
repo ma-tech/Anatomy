@@ -93,6 +93,11 @@ public final class TimedNodeDAO {
         "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE ";
         
+    private static final String SQL_LIST_ALL_ORDER_BY_PUBLIC_ID =
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "FROM ANA_TIMED_NODE " +
+        "ORDER BY CAST( SUBSTRING(ATN_PUBLIC_ID, 6) AS SIGNED ) ";
+            
     private static final String SQL_INSERT =
         "INSERT INTO ANA_TIMED_NODE " +
         "(ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID) " +
@@ -182,6 +187,14 @@ public final class TimedNodeDAO {
     public List<TimedNode> listAll() throws DAOException {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns a list of ALL timednodes, otherwise null.
+     */
+    public List<TimedNode> listAllOrderByPublicId() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_PUBLIC_ID);
     }
     
     /*

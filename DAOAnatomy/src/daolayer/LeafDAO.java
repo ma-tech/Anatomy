@@ -9,9 +9,12 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
+import daomodel.JsonNode;
 import daomodel.Leaf;
+import daomodel.TimedLeaf;
 
 /*
  * This class represents a SQL Database Access Object for the {@link Relation} DTO. 
@@ -541,7 +544,7 @@ public final class LeafDAO {
     /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
      */
-    public String convertLeafListToStringJsonAggregate(List<Leaf> leafs) {
+    public String convertLeafListToStringJsonAggregateOld(List<Leaf> leafs) {
 
 	    String returnString = "[";
 
@@ -687,4 +690,78 @@ public final class LeafDAO {
     
         return returnString;
     }
+	/*
+	 * Convert the Leaf ResultSet to JSON for Ajax calls
+	 */
+	public String convertLeafListToStringJsonAggregate(List<Leaf> leafs) {
+
+		Iterator<Leaf> iteratorleaf = leafs.iterator();
+
+		Leaf leaf = new Leaf();
+		LinkedHashMap <String,JsonNode> jsonNodes = new LinkedHashMap<String,JsonNode> ();
+
+		String returnString = "[";
+
+		while (iteratorleaf.hasNext()) {
+
+			leaf = iteratorleaf.next();
+
+			
+			System.out.println("##PS## LeafDAO leaf.getRootOid() " + leaf.getRootOid());
+			System.out.println("##PS## LeafDAO leaf.getRootName() " + leaf.getRootName());
+			System.out.println("##PS## LeafDAO leaf.getRootDescription() " + leaf.getRootDescription());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildStart() " + leaf.getChildStart());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildEnd() " + leaf.getChildEnd());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildOid() " + leaf.getChildOid());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildId() " + leaf.getChildId());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildName() " + leaf.getChildName());
+			System.out.println("##PS## LeafDAO leaf.leaf.getChildDescription() " + leaf.getChildDescription());
+			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildId() " + leaf.getGrandChildId());
+			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildName() " + leaf.getGrandChildName());
+			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildDescription() " + leaf.getGrandChildDescription());			
+			System.out.println(" ");			
+						
+			String extID = leaf.getChildName();
+			
+			//Seen this node before - increment its child count
+			if (jsonNodes.containsKey(extID)) {
+				jsonNodes.get(extID).setChildCount(jsonNodes.get(extID).getChildCount()+1);
+			}
+			//not seen this node before - make a new one
+			else {
+				String jsonID;
+				int childCount;
+				if (leaf.getChildId().equals("LEAF") ) {
+					if ( !leaf.getGrandChildName().equals("No Children")) {
+						//LEAFs should have no children!
+						System.out.println("##PS## WARNING LEAF CONFLICT! ");
+					}
+					jsonID = "li_node_LEAF_Timed_id" + leaf.getChildOid();
+					childCount = 0;
+				}
+				else {
+					jsonID = "li_node_BRANCH_Timed_id" + leaf.getChildOid();
+					childCount = 1;
+				}
+				String startStage = leaf.getChildStart();
+				String endStage = leaf.getChildEnd();
+				String name = leaf.getChildDescription();	
+				jsonNodes.put(extID, new JsonNode(extID,jsonID,startStage,endStage,name,childCount));
+			}
+		}
+		
+		Iterator<String> iteratorJsonNodes = jsonNodes.keySet().iterator();
+		while (iteratorJsonNodes.hasNext()) {
+			String extID = iteratorJsonNodes.next();
+			returnString = returnString + jsonNodes.get(extID).printJsonNodeAbstract();
+		}
+
+		//knock off the last "," and replace with "]" to make nice JSON
+		returnString = returnString.substring(0, returnString.lastIndexOf(","));
+		returnString = returnString + "]";
+		
+		//System.out.println("##PS## return " + returnString);
+		
+		return returnString;
+	}
 }

@@ -61,7 +61,7 @@ public class MainDAOTest {
          * MAINLINE
          */
         // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008LocalhostDebug");
+        DAOFactory daofactory = DAOFactory.getInstance("mouseAnatomy008Caperdonich");
 
         RunDAOTest.run(daofactory);
 

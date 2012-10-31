@@ -37,12 +37,12 @@
 		<link>
 			<name>DAOsrc</name>
 			<type>2</type>
-			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomy/src</location>
+			<location>/net/mahost/export/edofficewg1/peters/git/Anatomy/DAOAnatomy/src</location>
 		</link>
 		<link>
 			<name>Usefulsrc</name>
 			<type>2</type>
-			<location>/Users/mwicks/GitMahost/Anatomy/UsefulJava/src</location>
+			<location>/net/mahost/export/edofficewg1/peters/git/Anatomy/UsefulJava/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -477,14 +477,15 @@ public class ValidateComponents {
             System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
             System.out.println("=============");
             */
+
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             	abstractclassobocomponent.getName().equals( rootName ) ){
-                /*
-            	System.out.println("-------------");
+            	
+            	System.out.println("------");
                 System.out.println("PASSED - abstractclassobocomponent");
-                System.out.println("-------------");
-                */
+            	System.out.println("------");
+
                 abstractclassobocomponent.setStatusRule("PASSED"); 
                 //note not the tree component - but gui ref component
                 //set abstract anatomy tree roots
@@ -494,11 +495,11 @@ public class ValidateComponents {
             else if ( stageclassobocomponent.getID().equals( emapID ) && 
             		stageclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		stageclassobocomponent.getName().equals( rootName ) ) {
-                /*
-            	System.out.println("-------------");
+
+            	System.out.println("------");
                 System.out.println("PASSED - stageclassobocomponent");
-                System.out.println("-------------");
-                */
+            	System.out.println("------");
+
                 stageclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false 
                 //  to exclude primary paths leading back to this term from
@@ -510,11 +511,11 @@ public class ValidateComponents {
             else if ( groupclassobocomponent.getID().equals( emapID ) && 
             		groupclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		groupclassobocomponent.getName().equals( rootName ) ){
-                /*
-            	System.out.println("-------------");
+
+            	System.out.println("------");
                 System.out.println("PASSED - groupclassobocomponent");
-                System.out.println("-------------");
-                */
+            	System.out.println("------");
+
                 groupclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
@@ -524,11 +525,11 @@ public class ValidateComponents {
             else if ( grouptermclassobocomponent.getID().equals( emapID ) && 
             		grouptermclassobocomponent.getNamespace().equals( rootNameSpace ) && 
             		grouptermclassobocomponent.getName().equals( rootName ) ){
-                /*
-            	System.out.println("-------------");
+
+            	System.out.println("------");
                 System.out.println("PASSED - grouptermclassobocomponent");
-                System.out.println("-------------");
-                */
+            	System.out.println("------");
+
                 grouptermclassobocomponent.setStatusRule("PASSED");
                 //set root group_term to isPrimary = false to exclude primary paths 
                 // leading back to this term from pool of possible primary paths
@@ -538,11 +539,11 @@ public class ValidateComponents {
             else if ( rootobocomponent.commentsContain("INFO: Obsolete Term") ){
                 //obsolete terms appear as roots
                 //don't allow to fail
-                /*
-            	System.out.println("-------------");
+
+            	System.out.println("------");
                 System.out.println("PASSED - INFO: Obsolete Term");
-                System.out.println("-------------");
-                */
+            	System.out.println("------");
+
                 rootobocomponent.setStatusRule("PASSED");
                 rootobocomponent.setCheckComment("Component has been deleted " +
                         "correctly from OBO File and can be scheduled for " +

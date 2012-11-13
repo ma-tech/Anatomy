@@ -12,8 +12,8 @@ import re
 
 from hgu import Util
 
-from hgu.anatomyDb.version006 import AnaTimedNodeDb
-from hgu.anatomyDb.version006 import Stages
+from hgu.anatomyDb.version010 import AnaTimedNodeDb
+from hgu.anatomyDb.version010 import Stages
 
 import ReportTree
 

@@ -202,8 +202,6 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
                             node.getComponentName())
         anatApo.setFullPathOids(parentApo.getFullPathOids() + "." +
                             str(node.getOid()))
-        anatApo.setFullPathEmapas(parentApo.getFullPathEmapas() + "." +
-                            str(node.getPublicId()))
         anatApo.setFullPathJsonHead(parentApo.getFullPathJsonHead() + 
                                 '{\"attr\": { \"ext_id\": \"' + node.getPublicId() + 
                                 '\", \"id\": \"li.node.BRANCH.Abstract.id' + str(node.getOid()) + 
@@ -216,7 +214,6 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     else:
         anatApo.setFullPath(node.getComponentName())
         anatApo.setFullPathOids(str(node.getOid()))
-        anatApo.setFullPathEmapas(str(node.getPublicId()))
         anatApo.setFullPathJsonHead(
                                 '{\"attr\": { \"ext_id\": \"' + node.getPublicId() + 
                                 '\", \"id\": \"li.node.BRANCH.Abstract.id' + str(node.getOid()) + 

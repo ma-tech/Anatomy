@@ -1,2 +1,2 @@
-#cd ~/GitMahost/Anatomy/Database/Versions/Mouse009/Formats/Dumps/
-echo 'create database mouse010;' | mysql -uroot -pbanana -hlocalhost 
+#cd ~/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps/
+echo 'create database mouse011;' | mysql -uroot -pbanana -hlocalhost 

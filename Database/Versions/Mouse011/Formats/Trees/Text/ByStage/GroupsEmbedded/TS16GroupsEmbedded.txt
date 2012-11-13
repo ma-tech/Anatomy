@@ -1,0 +1,3329 @@
+
+============================================================
+===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS16
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025781   mouse
+EMAP:0001462   + branchial arch
+EMAP:0001463   | + 1st branchial arch
+EMAP:0032046   | | + 1st branchial arch ectoderm
+EMAP:0034910   | | + 1st branchial arch endoderm
+EMAP:0001471   | | + 1st branchial arch mandibular component
+EMAP:0001472   | | | + 1st branchial arch mandibular component ectoderm
+EMAP:0001473   | | | + 1st branchial arch mandibular component endoderm
+EMAP:0001474   | | | \ 1st branchial arch mandibular component mesenchyme
+EMAP:0001475   | | |   + 1st branchial arch mandibular component mesenchyme derived from head mesoderm
+EMAP:0001476   | | |   \ 1st branchial arch mandibular component mesenchyme derived from neural crest
+EMAP:0001477   | | + 1st branchial arch maxillary component
+EMAP:0001478   | | | + 1st branchial arch maxillary component ectoderm
+EMAP:0001479   | | | + 1st branchial arch maxillary component endoderm
+EMAP:0001480   | | | \ 1st branchial arch maxillary component mesenchyme
+EMAP:0001481   | | |   + 1st branchial arch maxillary component mesenchyme derived from head mesoderm
+EMAP:0001482   | | |   \ 1st branchial arch maxillary component mesenchyme derived from neural crest
+EMAP:0001483   | | + 1st branchial arch maxillary-mandibular groove
+EMAP:0001484   | | | \ 1st branchial arch maxillary-mandibular groove ectoderm
+EMAP:0032050   | | + 1st branchial arch mesenchyme
+EMAP:0032042   | | | + 1st branchial arch mesenchyme derived from head mesoderm
+EMAP:0032054   | | | \ 1st branchial arch mesenchyme derived from neural crest
+EMAP:0001464   | | + 1st branchial groove
+EMAP:0001465   | | | \ 1st branchial groove ectoderm
+EMAP:0001466   | | + 1st branchial membrane
+EMAP:0001467   | | | + 1st branchial membrane ectoderm
+EMAP:0001468   | | | \ 1st branchial membrane endoderm
+EMAP:0001469   | | \ 1st branchial pouch
+EMAP:0001470   | |   \ 1st branchial pouch endoderm
+EMAP:0001485   | + 2nd branchial arch
+EMAP:0001493   | | + 2nd branchial arch ectoderm
+EMAP:0001494   | | + 2nd branchial arch endoderm
+EMAP:0001495   | | + 2nd branchial arch mesenchyme
+EMAP:0001496   | | | + 2nd branchial arch mesenchyme derived from head mesoderm
+EMAP:0001497   | | | \ 2nd branchial arch mesenchyme derived from neural crest
+EMAP:0001486   | | + 2nd branchial groove
+EMAP:0001487   | | | \ 2nd branchial groove ectoderm
+EMAP:0001488   | | + 2nd branchial membrane
+EMAP:0001489   | | | + 2nd branchial membrane ectoderm
+EMAP:0001490   | | | \ 2nd branchial membrane endoderm
+EMAP:0001491   | | \ 2nd branchial pouch
+EMAP:0001492   | |   \ 2nd branchial pouch endoderm
+EMAP:0001498   | + 3rd branchial arch
+EMAP:0001508   | | + 3rd branchial arch ectoderm
+EMAP:0001509   | | + 3rd branchial arch endoderm
+EMAP:0001510   | | + 3rd branchial arch mesenchyme
+EMAP:0001511   | | | + 3rd branchial arch mesenchyme derived from head mesoderm
+EMAP:0001512   | | | \ 3rd branchial arch mesenchyme derived from neural crest
+EMAP:0001499   | | + 3rd branchial groove
+EMAP:0001500   | | | \ 3rd branchial groove ectoderm
+EMAP:0001501   | | + 3rd branchial membrane
+EMAP:0001502   | | | + 3rd branchial membrane ectoderm
+EMAP:0001503   | | | \ 3rd branchial membrane endoderm
+EMAP:0001504   | | \ 3rd branchial pouch
+EMAP:0001505   | |   \ 3rd branchial pouch endoderm
+EMAP:0001506   | |     + 3rd branchial pouch dorsal endoderm
+EMAP:0001507   | |     \ 3rd branchial pouch ventral endoderm
+EMAP:0001513   | + 4th branchial arch
+EMAP:0001521   | | + 4th branchial arch ectoderm
+EMAP:0001522   | | + 4th branchial arch endoderm
+EMAP:0001523   | | + 4th branchial arch mesenchyme
+EMAP:0001524   | | | + 4th branchial arch mesenchyme derived from head mesoderm
+EMAP:0001525   | | | \ 4th branchial arch mesenchyme derived from neural crest
+EMAP:0001514   | | + 4th branchial groove
+EMAP:0001515   | | | \ 4th branchial groove ectoderm
+EMAP:0001516   | | + 4th branchial membrane
+EMAP:0001517   | | | + 4th branchial membrane ectoderm
+EMAP:0001518   | | | \ 4th branchial membrane endoderm
+EMAP:0001519   | | \ 4th branchial pouch
+EMAP:0001520   | |   \ 4th branchial pouch endoderm
+EMAP:0033785   | + branchial arch ectoderm
+EMAP:0033793   | + branchial arch endoderm
+EMAP:0033753   | + branchial arch membrane
+EMAP:0033801   | + branchial arch mesenchyme
+EMAP:0033769   | | + branchial arch mesenchyme derived from head mesoderm
+EMAP:0033809   | | \ branchial arch mesenchyme derived from neural crest
+EMAP:0033761   | + branchial groove
+EMAP:0033777   | \ branchial pouch
+EMAP:0001526   + cavities and their linings
+EMAP:0001527   | \ intraembryonic coelom
+EMAP:0001528   |   + intraembryonic coelom pericardial component
+EMAP:0001529   |   | + pericardial component cavity
+EMAP:0001530   |   | \ pericardial component mesothelium
+EMAP:0001531   |   |   + pericardial component parietal mesothelium
+EMAP:0001532   |   |   \ pericardial component visceral mesothelium
+EMAP:0001537   |   + intraembryonic coelom peritoneal component
+EMAP:0001538   |   | + peritoneal component cavity
+EMAP:0001539   |   | \ peritoneal component mesothelium
+EMAP:0001540   |   |   + peritoneal component parietal mesothelium
+EMAP:0001541   |   |   \ peritoneal component visceral mesothelium
+EMAP:0001542   |   + intraembryonic coelom pleural component
+EMAP:0001543   |   | + pleural component cavity
+EMAP:0001544   |   | \ pleural component mesothelium
+EMAP:0001545   |   |   + pleural component parietal mesothelium
+EMAP:0001546   |   |   \ pleural component visceral mesothelium
+EMAP:0034242   |   + mesothelium
+EMAP:0001533   |   + pericardio-peritoneal canal
+EMAP:0001534   |   | + pericardio-peritoneal canal cavity
+EMAP:0001535   |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0001536   |   |   \ pericardio-peritoneal canal parietal mesothelium
+EMAP:0014734   |   \ pleuro-peritoneal canal
+EMAP:0014749   |     + pleuro-peritoneal canal cavity
+EMAP:0014739   |     \ pleuro-peritoneal canal mesothelium
+EMAP:0014744   |       \ pleuro-peritoneal canal parietal mesothelium
+EMAP:0001547   + ectoderm
+EMAP:0001548   | \ surface ectoderm
+EMAP:0001461 G + embryo
+EMAP:0001462 > | + branchial arch
+EMAP:0001463 ~ | | + 1st branchial arch
+EMAP:0032046 ~ | | | + 1st branchial arch ectoderm
+EMAP:0034910 ~ | | | + 1st branchial arch endoderm
+EMAP:0001471 ~ | | | + 1st branchial arch mandibular component
+EMAP:0001472 ~ | | | | + 1st branchial arch mandibular component ectoderm
+EMAP:0001473 ~ | | | | + 1st branchial arch mandibular component endoderm
+EMAP:0001474 ~ | | | | \ 1st branchial arch mandibular component mesenchyme
+EMAP:0001475 ~ | | | |   + 1st branchial arch mandibular component mesenchyme derived from head mesoderm
+EMAP:0001476 ~ | | | |   \ 1st branchial arch mandibular component mesenchyme derived from neural crest
+EMAP:0001477 ~ | | | + 1st branchial arch maxillary component
+EMAP:0001478 ~ | | | | + 1st branchial arch maxillary component ectoderm
+EMAP:0001479 ~ | | | | + 1st branchial arch maxillary component endoderm
+EMAP:0001480 ~ | | | | \ 1st branchial arch maxillary component mesenchyme
+EMAP:0001481 ~ | | | |   + 1st branchial arch maxillary component mesenchyme derived from head mesoderm
+EMAP:0001482 ~ | | | |   \ 1st branchial arch maxillary component mesenchyme derived from neural crest
+EMAP:0001483 ~ | | | + 1st branchial arch maxillary-mandibular groove
+EMAP:0001484 ~ | | | | \ 1st branchial arch maxillary-mandibular groove ectoderm
+EMAP:0032050 ~ | | | + 1st branchial arch mesenchyme
+EMAP:0032042 ~ | | | | + 1st branchial arch mesenchyme derived from head mesoderm
+EMAP:0032054 ~ | | | | \ 1st branchial arch mesenchyme derived from neural crest
+EMAP:0001464 ~ | | | + 1st branchial groove
+EMAP:0001465 ~ | | | | \ 1st branchial groove ectoderm
+EMAP:0001466 ~ | | | + 1st branchial membrane
+EMAP:0001467 ~ | | | | + 1st branchial membrane ectoderm
+EMAP:0001468 ~ | | | | \ 1st branchial membrane endoderm
+EMAP:0001469 ~ | | | \ 1st branchial pouch
+EMAP:0001470 ~ | | |   \ 1st branchial pouch endoderm
+EMAP:0001485 ~ | | + 2nd branchial arch
+EMAP:0001493 ~ | | | + 2nd branchial arch ectoderm
+EMAP:0001494 ~ | | | + 2nd branchial arch endoderm
+EMAP:0001495 ~ | | | + 2nd branchial arch mesenchyme
+EMAP:0001496 ~ | | | | + 2nd branchial arch mesenchyme derived from head mesoderm
+EMAP:0001497 ~ | | | | \ 2nd branchial arch mesenchyme derived from neural crest
+EMAP:0001486 ~ | | | + 2nd branchial groove
+EMAP:0001487 ~ | | | | \ 2nd branchial groove ectoderm
+EMAP:0001488 ~ | | | + 2nd branchial membrane
+EMAP:0001489 ~ | | | | + 2nd branchial membrane ectoderm
+EMAP:0001490 ~ | | | | \ 2nd branchial membrane endoderm
+EMAP:0001491 ~ | | | \ 2nd branchial pouch
+EMAP:0001492 ~ | | |   \ 2nd branchial pouch endoderm
+EMAP:0001498 ~ | | + 3rd branchial arch
+EMAP:0001508 ~ | | | + 3rd branchial arch ectoderm
+EMAP:0001509 ~ | | | + 3rd branchial arch endoderm
+EMAP:0001510 ~ | | | + 3rd branchial arch mesenchyme
+EMAP:0001511 ~ | | | | + 3rd branchial arch mesenchyme derived from head mesoderm
+EMAP:0001512 ~ | | | | \ 3rd branchial arch mesenchyme derived from neural crest
+EMAP:0001499 ~ | | | + 3rd branchial groove
+EMAP:0001500 ~ | | | | \ 3rd branchial groove ectoderm
+EMAP:0001501 ~ | | | + 3rd branchial membrane
+EMAP:0001502 ~ | | | | + 3rd branchial membrane ectoderm
+EMAP:0001503 ~ | | | | \ 3rd branchial membrane endoderm
+EMAP:0001504 ~ | | | \ 3rd branchial pouch
+EMAP:0001505 ~ | | |   \ 3rd branchial pouch endoderm
+EMAP:0001506 ~ | | |     + 3rd branchial pouch dorsal endoderm
+EMAP:0001507 ~ | | |     \ 3rd branchial pouch ventral endoderm
+EMAP:0001513 ~ | | + 4th branchial arch
+EMAP:0001521 ~ | | | + 4th branchial arch ectoderm
+EMAP:0001522 ~ | | | + 4th branchial arch endoderm
+EMAP:0001523 ~ | | | + 4th branchial arch mesenchyme
+EMAP:0001524 ~ | | | | + 4th branchial arch mesenchyme derived from head mesoderm
+EMAP:0001525 ~ | | | | \ 4th branchial arch mesenchyme derived from neural crest
+EMAP:0001514 ~ | | | + 4th branchial groove
+EMAP:0001515 ~ | | | | \ 4th branchial groove ectoderm
+EMAP:0001516 ~ | | | + 4th branchial membrane
+EMAP:0001517 ~ | | | | + 4th branchial membrane ectoderm
+EMAP:0001518 ~ | | | | \ 4th branchial membrane endoderm
+EMAP:0001519 ~ | | | \ 4th branchial pouch
+EMAP:0001520 ~ | | |   \ 4th branchial pouch endoderm
+EMAP:0033785 ~ | | + branchial arch ectoderm
+EMAP:0033793 ~ | | + branchial arch endoderm
+EMAP:0033753 ~ | | + branchial arch membrane
+EMAP:0033801 ~ | | + branchial arch mesenchyme
+EMAP:0033769 ~ | | | + branchial arch mesenchyme derived from head mesoderm
+EMAP:0033809 ~ | | | \ branchial arch mesenchyme derived from neural crest
+EMAP:0033761 ~ | | + branchial groove
+EMAP:0033777 ~ | | \ branchial pouch
+EMAP:0001526 > | + cavities and their linings
+EMAP:0001527 ~ | | \ intraembryonic coelom
+EMAP:0001528 ~ | |   + intraembryonic coelom pericardial component
+EMAP:0001529 ~ | |   | + pericardial component cavity
+EMAP:0001530 ~ | |   | \ pericardial component mesothelium
+EMAP:0001531 ~ | |   |   + pericardial component parietal mesothelium
+EMAP:0001532 ~ | |   |   \ pericardial component visceral mesothelium
+EMAP:0001537 ~ | |   + intraembryonic coelom peritoneal component
+EMAP:0001538 ~ | |   | + peritoneal component cavity
+EMAP:0001539 ~ | |   | \ peritoneal component mesothelium
+EMAP:0001540 ~ | |   |   + peritoneal component parietal mesothelium
+EMAP:0001541 ~ | |   |   \ peritoneal component visceral mesothelium
+EMAP:0001542 ~ | |   + intraembryonic coelom pleural component
+EMAP:0001543 ~ | |   | + pleural component cavity
+EMAP:0001544 ~ | |   | \ pleural component mesothelium
+EMAP:0001545 ~ | |   |   + pleural component parietal mesothelium
+EMAP:0001546 ~ | |   |   \ pleural component visceral mesothelium
+EMAP:0034242 ~ | |   + mesothelium
+EMAP:0001533 ~ | |   + pericardio-peritoneal canal
+EMAP:0001534 ~ | |   | + pericardio-peritoneal canal cavity
+EMAP:0001535 ~ | |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0001536 ~ | |   |   \ pericardio-peritoneal canal parietal mesothelium
+EMAP:0014734 ~ | |   \ pleuro-peritoneal canal
+EMAP:0014749 ~ | |     + pleuro-peritoneal canal cavity
+EMAP:0014739 ~ | |     \ pleuro-peritoneal canal mesothelium
+EMAP:0014744 ~ | |       \ pleuro-peritoneal canal parietal mesothelium
+EMAP:0001547 > | + ectoderm
+EMAP:0001548 ~ | | \ surface ectoderm
+EMAP:0034979 > | + endoderm
+EMAP:0033655 > | + epithelium
+EMAP:0031898 > | + head
+EMAP:0001558 ~ | | \ head mesenchyme
+EMAP:0001560 ~ | |   + head mesenchyme derived from neural crest
+EMAP:0001559 ~ | |   \ mesenchyme derived from head mesoderm
+EMAP:0015251 ~ | |     \ mesenchyme derived from somites 01-04
+EMAP:0001549 > | + limb
+EMAP:0001550 ~ | | + forelimb bud
+EMAP:0001551 ~ | | | + forelimb bud ectoderm
+EMAP:0001552 ~ | | | | \ forelimb bud apical ectodermal ridge
+EMAP:0001553 ~ | | | \ forelimb bud mesenchyme
+EMAP:0001554 ~ | | + hindlimb bud
+EMAP:0001555 ~ | | | + hindlimb bud ectoderm
+EMAP:0001556 ~ | | | \ hindlimb bud mesenchyme
+EMAP:0033458 ~ | | + limb ectoderm
+EMAP:0033705 ~ | | | \ apical ectodermal ridge
+EMAP:0001552 ~ | | |   \ forelimb bud apical ectodermal ridge
+EMAP:0033441 ~ | | \ limb mesenchyme
+EMAP:0001557 > | + mesenchyme
+EMAP:0001558 ~ | | + head mesenchyme
+EMAP:0001560 ~ | | | + head mesenchyme derived from neural crest
+EMAP:0001559 ~ | | | \ mesenchyme derived from head mesoderm
+EMAP:0015251 ~ | | |   \ mesenchyme derived from somites 01-04
+EMAP:0033631 ~ | | + mesenchyme derived from neural crest
+EMAP:0033817 ~ | | + paraxial mesenchyme
+EMAP:0031174 ~ | | | + somite group
+EMAP:0031112 ~ | | | | + dermomyotome group
+EMAP:0034138 ~ | | | | | + dermatome
+EMAP:0034159 ~ | | | | | + myotome
+EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
+EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
+EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
+EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
+EMAP:0029698 ~ | | | | | \ trunk dermomyotome group
+EMAP:0001570 ~ | | | | |   + somite 05 dermomyotome
+EMAP:0001574 ~ | | | | |   + somite 06 dermomyotome
+EMAP:0001578 ~ | | | | |   + somite 07 dermomyotome
+EMAP:0001582 ~ | | | | |   + somite 08 dermomyotome
+EMAP:0001586 ~ | | | | |   + somite 09 dermomyotome
+EMAP:0001590 ~ | | | | |   + somite 10 dermomyotome
+EMAP:0001594 ~ | | | | |   + somite 11 dermomyotome
+EMAP:0001598 ~ | | | | |   + somite 12 dermomyotome
+EMAP:0001602 ~ | | | | |   + somite 13 dermomyotome
+EMAP:0001606 ~ | | | | |   + somite 14 dermomyotome
+EMAP:0001610 ~ | | | | |   + somite 15 dermomyotome
+EMAP:0001614 ~ | | | | |   + somite 16 dermomyotome
+EMAP:0001618 ~ | | | | |   + somite 17 dermomyotome
+EMAP:0001622 ~ | | | | |   + somite 18 dermomyotome
+EMAP:0001626 ~ | | | | |   + somite 19 dermomyotome
+EMAP:0001630 ~ | | | | |   + somite 20 dermomyotome
+EMAP:0001634 ~ | | | | |   + somite 21 dermomyotome
+EMAP:0001638 ~ | | | | |   + somite 22 dermomyotome
+EMAP:0001642 ~ | | | | |   + somite 23 dermomyotome
+EMAP:0001646 ~ | | | | |   + somite 24 dermomyotome
+EMAP:0001650 ~ | | | | |   + somite 25 dermomyotome
+EMAP:0001654 ~ | | | | |   + somite 26 dermomyotome
+EMAP:0001658 ~ | | | | |   + somite 27 dermomyotome
+EMAP:0001662 ~ | | | | |   + somite 28 dermomyotome
+EMAP:0001666 ~ | | | | |   + somite 29 dermomyotome
+EMAP:0001670 ~ | | | | |   + somite 30 dermomyotome
+EMAP:0034153 ~ | | | | |   + trunk dermatome
+EMAP:0034175 ~ | | | | |   \ trunk myotome
+EMAP:0031162 ~ | | | | + sclerotome group
+EMAP:0031152 ~ | | | | | + tail sclerotome group
+EMAP:0001975 ~ | | | | | | + somite 31 sclerotome
+EMAP:0001979 ~ | | | | | | + somite 32 sclerotome
+EMAP:0001983 ~ | | | | | | + somite 33 sclerotome
+EMAP:0001987 ~ | | | | | | + somite 34 sclerotome
+EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
+EMAP:0031147 ~ | | | | | \ trunk sclerotome group
+EMAP:0001572 ~ | | | | |   + somite 05 sclerotome
+EMAP:0001576 ~ | | | | |   + somite 06 sclerotome
+EMAP:0001580 ~ | | | | |   + somite 07 sclerotome
+EMAP:0001584 ~ | | | | |   + somite 08 sclerotome
+EMAP:0001588 ~ | | | | |   + somite 09 sclerotome
+EMAP:0001592 ~ | | | | |   + somite 10 sclerotome
+EMAP:0001596 ~ | | | | |   + somite 11 sclerotome
+EMAP:0001600 ~ | | | | |   + somite 12 sclerotome
+EMAP:0001604 ~ | | | | |   + somite 13 sclerotome
+EMAP:0001608 ~ | | | | |   + somite 14 sclerotome
+EMAP:0001612 ~ | | | | |   + somite 15 sclerotome
+EMAP:0001616 ~ | | | | |   + somite 16 sclerotome
+EMAP:0001620 ~ | | | | |   + somite 17 sclerotome
+EMAP:0001624 ~ | | | | |   + somite 18 sclerotome
+EMAP:0001628 ~ | | | | |   + somite 19 sclerotome
+EMAP:0001632 ~ | | | | |   + somite 20 sclerotome
+EMAP:0001636 ~ | | | | |   + somite 21 sclerotome
+EMAP:0001640 ~ | | | | |   + somite 22 sclerotome
+EMAP:0001644 ~ | | | | |   + somite 23 sclerotome
+EMAP:0001648 ~ | | | | |   + somite 24 sclerotome
+EMAP:0001652 ~ | | | | |   + somite 25 sclerotome
+EMAP:0001656 ~ | | | | |   + somite 26 sclerotome
+EMAP:0001660 ~ | | | | |   + somite 27 sclerotome
+EMAP:0001664 ~ | | | | |   + somite 28 sclerotome
+EMAP:0001668 ~ | | | | |   + somite 29 sclerotome
+EMAP:0001672 ~ | | | | |   \ somite 30 sclerotome
+EMAP:0001971 ~ | | | | + tail somite group
+EMAP:0001972 ~ | | | | | + somite 31
+EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001975 ~ | | | | | | \ somite 31 sclerotome
+EMAP:0001976 ~ | | | | | + somite 32
+EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
+EMAP:0001978 ~ | | | | | | + somite 32 myocoele
+EMAP:0001979 ~ | | | | | | \ somite 32 sclerotome
+EMAP:0001980 ~ | | | | | + somite 33
+EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
+EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001983 ~ | | | | | | \ somite 33 sclerotome
+EMAP:0001984 ~ | | | | | + somite 34
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
+EMAP:0001986 ~ | | | | | | + somite 34 myocoele
+EMAP:0001987 ~ | | | | | | \ somite 34 sclerotome
+EMAP:0001988 ~ | | | | | + somite 35
+EMAP:0001989 ~ | | | | | | + somite 35 dermomyotome
+EMAP:0001990 ~ | | | | | | + somite 35 myocoele
+EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
+EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
+EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
+EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
+EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
+EMAP:0031127 ~ | | | | | + tail myocoele group
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001978 ~ | | | | | | + somite 32 myocoele
+EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001986 ~ | | | | | | + somite 34 myocoele
+EMAP:0001990 ~ | | | | | | \ somite 35 myocoele
+EMAP:0031152 ~ | | | | | \ tail sclerotome group
+EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
+EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
+EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
+EMAP:0001987 ~ | | | | |   + somite 34 sclerotome
+EMAP:0001991 ~ | | | | |   \ somite 35 sclerotome
+EMAP:0001568 ~ | | | | \ trunk somite group
+EMAP:0001569 ~ | | | |   + somite 05
+EMAP:0001570 ~ | | | |   | + somite 05 dermomyotome
+EMAP:0001571 ~ | | | |   | + somite 05 myocoele
+EMAP:0001572 ~ | | | |   | \ somite 05 sclerotome
+EMAP:0001573 ~ | | | |   + somite 06
+EMAP:0001574 ~ | | | |   | + somite 06 dermomyotome
+EMAP:0001575 ~ | | | |   | + somite 06 myocoele
+EMAP:0001576 ~ | | | |   | \ somite 06 sclerotome
+EMAP:0001577 ~ | | | |   + somite 07
+EMAP:0001578 ~ | | | |   | + somite 07 dermomyotome
+EMAP:0001579 ~ | | | |   | + somite 07 myocoele
+EMAP:0001580 ~ | | | |   | \ somite 07 sclerotome
+EMAP:0001581 ~ | | | |   + somite 08
+EMAP:0001582 ~ | | | |   | + somite 08 dermomyotome
+EMAP:0001583 ~ | | | |   | + somite 08 myocoele
+EMAP:0001584 ~ | | | |   | \ somite 08 sclerotome
+EMAP:0001585 ~ | | | |   + somite 09
+EMAP:0001586 ~ | | | |   | + somite 09 dermomyotome
+EMAP:0001587 ~ | | | |   | + somite 09 myocoele
+EMAP:0001588 ~ | | | |   | \ somite 09 sclerotome
+EMAP:0001589 ~ | | | |   + somite 10
+EMAP:0001590 ~ | | | |   | + somite 10 dermomyotome
+EMAP:0001591 ~ | | | |   | + somite 10 myocoele
+EMAP:0001592 ~ | | | |   | \ somite 10 sclerotome
+EMAP:0001593 ~ | | | |   + somite 11
+EMAP:0001594 ~ | | | |   | + somite 11 dermomyotome
+EMAP:0001595 ~ | | | |   | + somite 11 myocoele
+EMAP:0001596 ~ | | | |   | \ somite 11 sclerotome
+EMAP:0001597 ~ | | | |   + somite 12
+EMAP:0001598 ~ | | | |   | + somite 12 dermomyotome
+EMAP:0001599 ~ | | | |   | + somite 12 myocoele
+EMAP:0001600 ~ | | | |   | \ somite 12 sclerotome
+EMAP:0001601 ~ | | | |   + somite 13
+EMAP:0001602 ~ | | | |   | + somite 13 dermomyotome
+EMAP:0001603 ~ | | | |   | + somite 13 myocoele
+EMAP:0001604 ~ | | | |   | \ somite 13 sclerotome
+EMAP:0001605 ~ | | | |   + somite 14
+EMAP:0001606 ~ | | | |   | + somite 14 dermomyotome
+EMAP:0001607 ~ | | | |   | + somite 14 myocoele
+EMAP:0001608 ~ | | | |   | \ somite 14 sclerotome
+EMAP:0001609 ~ | | | |   + somite 15
+EMAP:0001610 ~ | | | |   | + somite 15 dermomyotome
+EMAP:0001611 ~ | | | |   | + somite 15 myocoele
+EMAP:0001612 ~ | | | |   | \ somite 15 sclerotome
+EMAP:0001613 ~ | | | |   + somite 16
+EMAP:0001614 ~ | | | |   | + somite 16 dermomyotome
+EMAP:0001615 ~ | | | |   | + somite 16 myocoele
+EMAP:0001616 ~ | | | |   | \ somite 16 sclerotome
+EMAP:0001617 ~ | | | |   + somite 17
+EMAP:0001618 ~ | | | |   | + somite 17 dermomyotome
+EMAP:0001619 ~ | | | |   | + somite 17 myocoele
+EMAP:0001620 ~ | | | |   | \ somite 17 sclerotome
+EMAP:0001621 ~ | | | |   + somite 18
+EMAP:0001622 ~ | | | |   | + somite 18 dermomyotome
+EMAP:0001623 ~ | | | |   | + somite 18 myocoele
+EMAP:0001624 ~ | | | |   | \ somite 18 sclerotome
+EMAP:0001625 ~ | | | |   + somite 19
+EMAP:0001626 ~ | | | |   | + somite 19 dermomyotome
+EMAP:0001627 ~ | | | |   | + somite 19 myocoele
+EMAP:0001628 ~ | | | |   | \ somite 19 sclerotome
+EMAP:0001629 ~ | | | |   + somite 20
+EMAP:0001630 ~ | | | |   | + somite 20 dermomyotome
+EMAP:0001631 ~ | | | |   | + somite 20 myocoele
+EMAP:0001632 ~ | | | |   | \ somite 20 sclerotome
+EMAP:0001633 ~ | | | |   + somite 21
+EMAP:0001634 ~ | | | |   | + somite 21 dermomyotome
+EMAP:0001635 ~ | | | |   | + somite 21 myocoele
+EMAP:0001636 ~ | | | |   | \ somite 21 sclerotome
+EMAP:0001637 ~ | | | |   + somite 22
+EMAP:0001638 ~ | | | |   | + somite 22 dermomyotome
+EMAP:0001639 ~ | | | |   | + somite 22 myocoele
+EMAP:0001640 ~ | | | |   | \ somite 22 sclerotome
+EMAP:0001641 ~ | | | |   + somite 23
+EMAP:0001642 ~ | | | |   | + somite 23 dermomyotome
+EMAP:0001643 ~ | | | |   | + somite 23 myocoele
+EMAP:0001644 ~ | | | |   | \ somite 23 sclerotome
+EMAP:0001645 ~ | | | |   + somite 24
+EMAP:0001646 ~ | | | |   | + somite 24 dermomyotome
+EMAP:0001647 ~ | | | |   | + somite 24 myocoele
+EMAP:0001648 ~ | | | |   | \ somite 24 sclerotome
+EMAP:0001649 ~ | | | |   + somite 25
+EMAP:0001650 ~ | | | |   | + somite 25 dermomyotome
+EMAP:0001651 ~ | | | |   | + somite 25 myocoele
+EMAP:0001652 ~ | | | |   | \ somite 25 sclerotome
+EMAP:0001653 ~ | | | |   + somite 26
+EMAP:0001654 ~ | | | |   | + somite 26 dermomyotome
+EMAP:0001655 ~ | | | |   | + somite 26 myocoele
+EMAP:0001656 ~ | | | |   | \ somite 26 sclerotome
+EMAP:0001657 ~ | | | |   + somite 27
+EMAP:0001658 ~ | | | |   | + somite 27 dermomyotome
+EMAP:0001659 ~ | | | |   | + somite 27 myocoele
+EMAP:0001660 ~ | | | |   | \ somite 27 sclerotome
+EMAP:0001661 ~ | | | |   + somite 28
+EMAP:0001662 ~ | | | |   | + somite 28 dermomyotome
+EMAP:0001663 ~ | | | |   | + somite 28 myocoele
+EMAP:0001664 ~ | | | |   | \ somite 28 sclerotome
+EMAP:0001665 ~ | | | |   + somite 29
+EMAP:0001666 ~ | | | |   | + somite 29 dermomyotome
+EMAP:0001667 ~ | | | |   | + somite 29 myocoele
+EMAP:0001668 ~ | | | |   | \ somite 29 sclerotome
+EMAP:0001669 ~ | | | |   + somite 30
+EMAP:0001670 ~ | | | |   | + somite 30 dermomyotome
+EMAP:0001671 ~ | | | |   | + somite 30 myocoele
+EMAP:0001672 ~ | | | |   | \ somite 30 sclerotome
+EMAP:0029698 ~ | | | |   + trunk dermomyotome group
+EMAP:0001570 ~ | | | |   | + somite 05 dermomyotome
+EMAP:0001574 ~ | | | |   | + somite 06 dermomyotome
+EMAP:0001578 ~ | | | |   | + somite 07 dermomyotome
+EMAP:0001582 ~ | | | |   | + somite 08 dermomyotome
+EMAP:0001586 ~ | | | |   | + somite 09 dermomyotome
+EMAP:0001590 ~ | | | |   | + somite 10 dermomyotome
+EMAP:0001594 ~ | | | |   | + somite 11 dermomyotome
+EMAP:0001598 ~ | | | |   | + somite 12 dermomyotome
+EMAP:0001602 ~ | | | |   | + somite 13 dermomyotome
+EMAP:0001606 ~ | | | |   | + somite 14 dermomyotome
+EMAP:0001610 ~ | | | |   | + somite 15 dermomyotome
+EMAP:0001614 ~ | | | |   | + somite 16 dermomyotome
+EMAP:0001618 ~ | | | |   | + somite 17 dermomyotome
+EMAP:0001622 ~ | | | |   | + somite 18 dermomyotome
+EMAP:0001626 ~ | | | |   | + somite 19 dermomyotome
+EMAP:0001630 ~ | | | |   | + somite 20 dermomyotome
+EMAP:0001634 ~ | | | |   | + somite 21 dermomyotome
+EMAP:0001638 ~ | | | |   | + somite 22 dermomyotome
+EMAP:0001642 ~ | | | |   | + somite 23 dermomyotome
+EMAP:0001646 ~ | | | |   | + somite 24 dermomyotome
+EMAP:0001650 ~ | | | |   | + somite 25 dermomyotome
+EMAP:0001654 ~ | | | |   | + somite 26 dermomyotome
+EMAP:0001658 ~ | | | |   | + somite 27 dermomyotome
+EMAP:0001662 ~ | | | |   | + somite 28 dermomyotome
+EMAP:0001666 ~ | | | |   | + somite 29 dermomyotome
+EMAP:0001670 ~ | | | |   | + somite 30 dermomyotome
+EMAP:0034153 ~ | | | |   | + trunk dermatome
+EMAP:0034175 ~ | | | |   | \ trunk myotome
+EMAP:0031181 ~ | | | |   + trunk myocoele group
+EMAP:0001571 ~ | | | |   | + somite 05 myocoele
+EMAP:0001575 ~ | | | |   | + somite 06 myocoele
+EMAP:0001579 ~ | | | |   | + somite 07 myocoele
+EMAP:0001583 ~ | | | |   | + somite 08 myocoele
+EMAP:0001587 ~ | | | |   | + somite 09 myocoele
+EMAP:0001591 ~ | | | |   | + somite 10 myocoele
+EMAP:0001595 ~ | | | |   | + somite 11 myocoele
+EMAP:0001599 ~ | | | |   | + somite 12 myocoele
+EMAP:0001603 ~ | | | |   | + somite 13 myocoele
+EMAP:0001607 ~ | | | |   | + somite 14 myocoele
+EMAP:0001611 ~ | | | |   | + somite 15 myocoele
+EMAP:0001615 ~ | | | |   | + somite 16 myocoele
+EMAP:0001619 ~ | | | |   | + somite 17 myocoele
+EMAP:0001623 ~ | | | |   | + somite 18 myocoele
+EMAP:0001627 ~ | | | |   | + somite 19 myocoele
+EMAP:0001631 ~ | | | |   | + somite 20 myocoele
+EMAP:0001635 ~ | | | |   | + somite 21 myocoele
+EMAP:0001639 ~ | | | |   | + somite 22 myocoele
+EMAP:0001643 ~ | | | |   | + somite 23 myocoele
+EMAP:0001647 ~ | | | |   | + somite 24 myocoele
+EMAP:0001651 ~ | | | |   | + somite 25 myocoele
+EMAP:0001655 ~ | | | |   | + somite 26 myocoele
+EMAP:0001659 ~ | | | |   | + somite 27 myocoele
+EMAP:0001663 ~ | | | |   | + somite 28 myocoele
+EMAP:0001667 ~ | | | |   | + somite 29 myocoele
+EMAP:0001671 ~ | | | |   | \ somite 30 myocoele
+EMAP:0031147 ~ | | | |   \ trunk sclerotome group
+EMAP:0001572 ~ | | | |     + somite 05 sclerotome
+EMAP:0001576 ~ | | | |     + somite 06 sclerotome
+EMAP:0001580 ~ | | | |     + somite 07 sclerotome
+EMAP:0001584 ~ | | | |     + somite 08 sclerotome
+EMAP:0001588 ~ | | | |     + somite 09 sclerotome
+EMAP:0001592 ~ | | | |     + somite 10 sclerotome
+EMAP:0001596 ~ | | | |     + somite 11 sclerotome
+EMAP:0001600 ~ | | | |     + somite 12 sclerotome
+EMAP:0001604 ~ | | | |     + somite 13 sclerotome
+EMAP:0001608 ~ | | | |     + somite 14 sclerotome
+EMAP:0001612 ~ | | | |     + somite 15 sclerotome
+EMAP:0001616 ~ | | | |     + somite 16 sclerotome
+EMAP:0001620 ~ | | | |     + somite 17 sclerotome
+EMAP:0001624 ~ | | | |     + somite 18 sclerotome
+EMAP:0001628 ~ | | | |     + somite 19 sclerotome
+EMAP:0001632 ~ | | | |     + somite 20 sclerotome
+EMAP:0001636 ~ | | | |     + somite 21 sclerotome
+EMAP:0001640 ~ | | | |     + somite 22 sclerotome
+EMAP:0001644 ~ | | | |     + somite 23 sclerotome
+EMAP:0001648 ~ | | | |     + somite 24 sclerotome
+EMAP:0001652 ~ | | | |     + somite 25 sclerotome
+EMAP:0001656 ~ | | | |     + somite 26 sclerotome
+EMAP:0001660 ~ | | | |     + somite 27 sclerotome
+EMAP:0001664 ~ | | | |     + somite 28 sclerotome
+EMAP:0001668 ~ | | | |     + somite 29 sclerotome
+EMAP:0001672 ~ | | | |     \ somite 30 sclerotome
+EMAP:0001970 ~ | | | + tail paraxial mesenchyme
+EMAP:0001971 ~ | | | | + tail somite group
+EMAP:0001972 ~ | | | | | + somite 31
+EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001975 ~ | | | | | | \ somite 31 sclerotome
+EMAP:0001976 ~ | | | | | + somite 32
+EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
+EMAP:0001978 ~ | | | | | | + somite 32 myocoele
+EMAP:0001979 ~ | | | | | | \ somite 32 sclerotome
+EMAP:0001980 ~ | | | | | + somite 33
+EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
+EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001983 ~ | | | | | | \ somite 33 sclerotome
+EMAP:0001984 ~ | | | | | + somite 34
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
+EMAP:0001986 ~ | | | | | | + somite 34 myocoele
+EMAP:0001987 ~ | | | | | | \ somite 34 sclerotome
+EMAP:0001988 ~ | | | | | + somite 35
+EMAP:0001989 ~ | | | | | | + somite 35 dermomyotome
+EMAP:0001990 ~ | | | | | | + somite 35 myocoele
+EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
+EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
+EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
+EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
+EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
+EMAP:0031127 ~ | | | | | + tail myocoele group
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001978 ~ | | | | | | + somite 32 myocoele
+EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001986 ~ | | | | | | + somite 34 myocoele
+EMAP:0001990 ~ | | | | | | \ somite 35 myocoele
+EMAP:0031152 ~ | | | | | \ tail sclerotome group
+EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
+EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
+EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
+EMAP:0001987 ~ | | | | |   + somite 34 sclerotome
+EMAP:0001991 ~ | | | | |   \ somite 35 sclerotome
+EMAP:0001992 ~ | | | | \ unsegmented mesenchyme
+EMAP:0001567 ~ | | | \ trunk paraxial mesenchyme
+EMAP:0001568 ~ | | |   \ trunk somite group
+EMAP:0001569 ~ | | |     + somite 05
+EMAP:0001570 ~ | | |     | + somite 05 dermomyotome
+EMAP:0001571 ~ | | |     | + somite 05 myocoele
+EMAP:0001572 ~ | | |     | \ somite 05 sclerotome
+EMAP:0001573 ~ | | |     + somite 06
+EMAP:0001574 ~ | | |     | + somite 06 dermomyotome
+EMAP:0001575 ~ | | |     | + somite 06 myocoele
+EMAP:0001576 ~ | | |     | \ somite 06 sclerotome
+EMAP:0001577 ~ | | |     + somite 07
+EMAP:0001578 ~ | | |     | + somite 07 dermomyotome
+EMAP:0001579 ~ | | |     | + somite 07 myocoele
+EMAP:0001580 ~ | | |     | \ somite 07 sclerotome
+EMAP:0001581 ~ | | |     + somite 08
+EMAP:0001582 ~ | | |     | + somite 08 dermomyotome
+EMAP:0001583 ~ | | |     | + somite 08 myocoele
+EMAP:0001584 ~ | | |     | \ somite 08 sclerotome
+EMAP:0001585 ~ | | |     + somite 09
+EMAP:0001586 ~ | | |     | + somite 09 dermomyotome
+EMAP:0001587 ~ | | |     | + somite 09 myocoele
+EMAP:0001588 ~ | | |     | \ somite 09 sclerotome
+EMAP:0001589 ~ | | |     + somite 10
+EMAP:0001590 ~ | | |     | + somite 10 dermomyotome
+EMAP:0001591 ~ | | |     | + somite 10 myocoele
+EMAP:0001592 ~ | | |     | \ somite 10 sclerotome
+EMAP:0001593 ~ | | |     + somite 11
+EMAP:0001594 ~ | | |     | + somite 11 dermomyotome
+EMAP:0001595 ~ | | |     | + somite 11 myocoele
+EMAP:0001596 ~ | | |     | \ somite 11 sclerotome
+EMAP:0001597 ~ | | |     + somite 12
+EMAP:0001598 ~ | | |     | + somite 12 dermomyotome
+EMAP:0001599 ~ | | |     | + somite 12 myocoele
+EMAP:0001600 ~ | | |     | \ somite 12 sclerotome
+EMAP:0001601 ~ | | |     + somite 13
+EMAP:0001602 ~ | | |     | + somite 13 dermomyotome
+EMAP:0001603 ~ | | |     | + somite 13 myocoele
+EMAP:0001604 ~ | | |     | \ somite 13 sclerotome
+EMAP:0001605 ~ | | |     + somite 14
+EMAP:0001606 ~ | | |     | + somite 14 dermomyotome
+EMAP:0001607 ~ | | |     | + somite 14 myocoele
+EMAP:0001608 ~ | | |     | \ somite 14 sclerotome
+EMAP:0001609 ~ | | |     + somite 15
+EMAP:0001610 ~ | | |     | + somite 15 dermomyotome
+EMAP:0001611 ~ | | |     | + somite 15 myocoele
+EMAP:0001612 ~ | | |     | \ somite 15 sclerotome
+EMAP:0001613 ~ | | |     + somite 16
+EMAP:0001614 ~ | | |     | + somite 16 dermomyotome
+EMAP:0001615 ~ | | |     | + somite 16 myocoele
+EMAP:0001616 ~ | | |     | \ somite 16 sclerotome
+EMAP:0001617 ~ | | |     + somite 17
+EMAP:0001618 ~ | | |     | + somite 17 dermomyotome
+EMAP:0001619 ~ | | |     | + somite 17 myocoele
+EMAP:0001620 ~ | | |     | \ somite 17 sclerotome
+EMAP:0001621 ~ | | |     + somite 18
+EMAP:0001622 ~ | | |     | + somite 18 dermomyotome
+EMAP:0001623 ~ | | |     | + somite 18 myocoele
+EMAP:0001624 ~ | | |     | \ somite 18 sclerotome
+EMAP:0001625 ~ | | |     + somite 19
+EMAP:0001626 ~ | | |     | + somite 19 dermomyotome
+EMAP:0001627 ~ | | |     | + somite 19 myocoele
+EMAP:0001628 ~ | | |     | \ somite 19 sclerotome
+EMAP:0001629 ~ | | |     + somite 20
+EMAP:0001630 ~ | | |     | + somite 20 dermomyotome
+EMAP:0001631 ~ | | |     | + somite 20 myocoele
+EMAP:0001632 ~ | | |     | \ somite 20 sclerotome
+EMAP:0001633 ~ | | |     + somite 21
+EMAP:0001634 ~ | | |     | + somite 21 dermomyotome
+EMAP:0001635 ~ | | |     | + somite 21 myocoele
+EMAP:0001636 ~ | | |     | \ somite 21 sclerotome
+EMAP:0001637 ~ | | |     + somite 22
+EMAP:0001638 ~ | | |     | + somite 22 dermomyotome
+EMAP:0001639 ~ | | |     | + somite 22 myocoele
+EMAP:0001640 ~ | | |     | \ somite 22 sclerotome
+EMAP:0001641 ~ | | |     + somite 23
+EMAP:0001642 ~ | | |     | + somite 23 dermomyotome
+EMAP:0001643 ~ | | |     | + somite 23 myocoele
+EMAP:0001644 ~ | | |     | \ somite 23 sclerotome
+EMAP:0001645 ~ | | |     + somite 24
+EMAP:0001646 ~ | | |     | + somite 24 dermomyotome
+EMAP:0001647 ~ | | |     | + somite 24 myocoele
+EMAP:0001648 ~ | | |     | \ somite 24 sclerotome
+EMAP:0001649 ~ | | |     + somite 25
+EMAP:0001650 ~ | | |     | + somite 25 dermomyotome
+EMAP:0001651 ~ | | |     | + somite 25 myocoele
+EMAP:0001652 ~ | | |     | \ somite 25 sclerotome
+EMAP:0001653 ~ | | |     + somite 26
+EMAP:0001654 ~ | | |     | + somite 26 dermomyotome
+EMAP:0001655 ~ | | |     | + somite 26 myocoele
+EMAP:0001656 ~ | | |     | \ somite 26 sclerotome
+EMAP:0001657 ~ | | |     + somite 27
+EMAP:0001658 ~ | | |     | + somite 27 dermomyotome
+EMAP:0001659 ~ | | |     | + somite 27 myocoele
+EMAP:0001660 ~ | | |     | \ somite 27 sclerotome
+EMAP:0001661 ~ | | |     + somite 28
+EMAP:0001662 ~ | | |     | + somite 28 dermomyotome
+EMAP:0001663 ~ | | |     | + somite 28 myocoele
+EMAP:0001664 ~ | | |     | \ somite 28 sclerotome
+EMAP:0001665 ~ | | |     + somite 29
+EMAP:0001666 ~ | | |     | + somite 29 dermomyotome
+EMAP:0001667 ~ | | |     | + somite 29 myocoele
+EMAP:0001668 ~ | | |     | \ somite 29 sclerotome
+EMAP:0001669 ~ | | |     + somite 30
+EMAP:0001670 ~ | | |     | + somite 30 dermomyotome
+EMAP:0001671 ~ | | |     | + somite 30 myocoele
+EMAP:0001672 ~ | | |     | \ somite 30 sclerotome
+EMAP:0029698 ~ | | |     + trunk dermomyotome group
+EMAP:0001570 ~ | | |     | + somite 05 dermomyotome
+EMAP:0001574 ~ | | |     | + somite 06 dermomyotome
+EMAP:0001578 ~ | | |     | + somite 07 dermomyotome
+EMAP:0001582 ~ | | |     | + somite 08 dermomyotome
+EMAP:0001586 ~ | | |     | + somite 09 dermomyotome
+EMAP:0001590 ~ | | |     | + somite 10 dermomyotome
+EMAP:0001594 ~ | | |     | + somite 11 dermomyotome
+EMAP:0001598 ~ | | |     | + somite 12 dermomyotome
+EMAP:0001602 ~ | | |     | + somite 13 dermomyotome
+EMAP:0001606 ~ | | |     | + somite 14 dermomyotome
+EMAP:0001610 ~ | | |     | + somite 15 dermomyotome
+EMAP:0001614 ~ | | |     | + somite 16 dermomyotome
+EMAP:0001618 ~ | | |     | + somite 17 dermomyotome
+EMAP:0001622 ~ | | |     | + somite 18 dermomyotome
+EMAP:0001626 ~ | | |     | + somite 19 dermomyotome
+EMAP:0001630 ~ | | |     | + somite 20 dermomyotome
+EMAP:0001634 ~ | | |     | + somite 21 dermomyotome
+EMAP:0001638 ~ | | |     | + somite 22 dermomyotome
+EMAP:0001642 ~ | | |     | + somite 23 dermomyotome
+EMAP:0001646 ~ | | |     | + somite 24 dermomyotome
+EMAP:0001650 ~ | | |     | + somite 25 dermomyotome
+EMAP:0001654 ~ | | |     | + somite 26 dermomyotome
+EMAP:0001658 ~ | | |     | + somite 27 dermomyotome
+EMAP:0001662 ~ | | |     | + somite 28 dermomyotome
+EMAP:0001666 ~ | | |     | + somite 29 dermomyotome
+EMAP:0001670 ~ | | |     | + somite 30 dermomyotome
+EMAP:0034153 ~ | | |     | + trunk dermatome
+EMAP:0034175 ~ | | |     | \ trunk myotome
+EMAP:0031181 ~ | | |     + trunk myocoele group
+EMAP:0001571 ~ | | |     | + somite 05 myocoele
+EMAP:0001575 ~ | | |     | + somite 06 myocoele
+EMAP:0001579 ~ | | |     | + somite 07 myocoele
+EMAP:0001583 ~ | | |     | + somite 08 myocoele
+EMAP:0001587 ~ | | |     | + somite 09 myocoele
+EMAP:0001591 ~ | | |     | + somite 10 myocoele
+EMAP:0001595 ~ | | |     | + somite 11 myocoele
+EMAP:0001599 ~ | | |     | + somite 12 myocoele
+EMAP:0001603 ~ | | |     | + somite 13 myocoele
+EMAP:0001607 ~ | | |     | + somite 14 myocoele
+EMAP:0001611 ~ | | |     | + somite 15 myocoele
+EMAP:0001615 ~ | | |     | + somite 16 myocoele
+EMAP:0001619 ~ | | |     | + somite 17 myocoele
+EMAP:0001623 ~ | | |     | + somite 18 myocoele
+EMAP:0001627 ~ | | |     | + somite 19 myocoele
+EMAP:0001631 ~ | | |     | + somite 20 myocoele
+EMAP:0001635 ~ | | |     | + somite 21 myocoele
+EMAP:0001639 ~ | | |     | + somite 22 myocoele
+EMAP:0001643 ~ | | |     | + somite 23 myocoele
+EMAP:0001647 ~ | | |     | + somite 24 myocoele
+EMAP:0001651 ~ | | |     | + somite 25 myocoele
+EMAP:0001655 ~ | | |     | + somite 26 myocoele
+EMAP:0001659 ~ | | |     | + somite 27 myocoele
+EMAP:0001663 ~ | | |     | + somite 28 myocoele
+EMAP:0001667 ~ | | |     | + somite 29 myocoele
+EMAP:0001671 ~ | | |     | \ somite 30 myocoele
+EMAP:0031147 ~ | | |     \ trunk sclerotome group
+EMAP:0001572 ~ | | |       + somite 05 sclerotome
+EMAP:0001576 ~ | | |       + somite 06 sclerotome
+EMAP:0001580 ~ | | |       + somite 07 sclerotome
+EMAP:0001584 ~ | | |       + somite 08 sclerotome
+EMAP:0001588 ~ | | |       + somite 09 sclerotome
+EMAP:0001592 ~ | | |       + somite 10 sclerotome
+EMAP:0001596 ~ | | |       + somite 11 sclerotome
+EMAP:0001600 ~ | | |       + somite 12 sclerotome
+EMAP:0001604 ~ | | |       + somite 13 sclerotome
+EMAP:0001608 ~ | | |       + somite 14 sclerotome
+EMAP:0001612 ~ | | |       + somite 15 sclerotome
+EMAP:0001616 ~ | | |       + somite 16 sclerotome
+EMAP:0001620 ~ | | |       + somite 17 sclerotome
+EMAP:0001624 ~ | | |       + somite 18 sclerotome
+EMAP:0001628 ~ | | |       + somite 19 sclerotome
+EMAP:0001632 ~ | | |       + somite 20 sclerotome
+EMAP:0001636 ~ | | |       + somite 21 sclerotome
+EMAP:0001640 ~ | | |       + somite 22 sclerotome
+EMAP:0001644 ~ | | |       + somite 23 sclerotome
+EMAP:0001648 ~ | | |       + somite 24 sclerotome
+EMAP:0001652 ~ | | |       + somite 25 sclerotome
+EMAP:0001656 ~ | | |       + somite 26 sclerotome
+EMAP:0001660 ~ | | |       + somite 27 sclerotome
+EMAP:0001664 ~ | | |       + somite 28 sclerotome
+EMAP:0001668 ~ | | |       + somite 29 sclerotome
+EMAP:0001672 ~ | | |       \ somite 30 sclerotome
+EMAP:0033639 ~ | | + pre-cartilage condensation
+EMAP:0001968 ~ | | + tail mesenchyme
+EMAP:0001969 ~ | | | + tail mesenchyme derived from neural crest
+EMAP:0001970 ~ | | | \ tail paraxial mesenchyme
+EMAP:0001971 ~ | | |   + tail somite group
+EMAP:0001972 ~ | | |   | + somite 31
+EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001975 ~ | | |   | | \ somite 31 sclerotome
+EMAP:0001976 ~ | | |   | + somite 32
+EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
+EMAP:0001978 ~ | | |   | | + somite 32 myocoele
+EMAP:0001979 ~ | | |   | | \ somite 32 sclerotome
+EMAP:0001980 ~ | | |   | + somite 33
+EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
+EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001983 ~ | | |   | | \ somite 33 sclerotome
+EMAP:0001984 ~ | | |   | + somite 34
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
+EMAP:0001986 ~ | | |   | | + somite 34 myocoele
+EMAP:0001987 ~ | | |   | | \ somite 34 sclerotome
+EMAP:0001988 ~ | | |   | + somite 35
+EMAP:0001989 ~ | | |   | | + somite 35 dermomyotome
+EMAP:0001990 ~ | | |   | | + somite 35 myocoele
+EMAP:0001991 ~ | | |   | | \ somite 35 sclerotome
+EMAP:0031106 ~ | | |   | + tail dermomyotome group
+EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
+EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
+EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
+EMAP:0001989 ~ | | |   | | \ somite 35 dermomyotome
+EMAP:0031127 ~ | | |   | + tail myocoele group
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001978 ~ | | |   | | + somite 32 myocoele
+EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001986 ~ | | |   | | + somite 34 myocoele
+EMAP:0001990 ~ | | |   | | \ somite 35 myocoele
+EMAP:0031152 ~ | | |   | \ tail sclerotome group
+EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
+EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
+EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
+EMAP:0001987 ~ | | |   |   + somite 34 sclerotome
+EMAP:0001991 ~ | | |   |   \ somite 35 sclerotome
+EMAP:0001992 ~ | | |   \ unsegmented mesenchyme
+EMAP:0001561 ~ | | \ trunk mesenchyme
+EMAP:0001565 ~ | |   + mesenchyme derived from somatopleure
+EMAP:0001566 ~ | |   + mesenchyme derived from splanchnopleure
+EMAP:0001673 ~ | |   + septum transversum
+EMAP:0001674 ~ | |   | \ septum transversum non-hepatic component
+EMAP:0014757 ~ | |   |   \ future central tendon
+EMAP:0001562 ~ | |   + trunk mesenchyme derived from neural crest
+EMAP:0001563 ~ | |   | + trunk mesenchyme derived from neural crest lateral migration pathway
+EMAP:0001564 ~ | |   | + trunk mesenchyme derived from neural crest medial migration pathway
+EMAP:0015242 ~ | |   | \ trunk mesenchyme derived from neural crest non-migrating cells
+EMAP:0001567 ~ | |   \ trunk paraxial mesenchyme
+EMAP:0001568 ~ | |     \ trunk somite group
+EMAP:0001569 ~ | |       + somite 05
+EMAP:0001570 ~ | |       | + somite 05 dermomyotome
+EMAP:0001571 ~ | |       | + somite 05 myocoele
+EMAP:0001572 ~ | |       | \ somite 05 sclerotome
+EMAP:0001573 ~ | |       + somite 06
+EMAP:0001574 ~ | |       | + somite 06 dermomyotome
+EMAP:0001575 ~ | |       | + somite 06 myocoele
+EMAP:0001576 ~ | |       | \ somite 06 sclerotome
+EMAP:0001577 ~ | |       + somite 07
+EMAP:0001578 ~ | |       | + somite 07 dermomyotome
+EMAP:0001579 ~ | |       | + somite 07 myocoele
+EMAP:0001580 ~ | |       | \ somite 07 sclerotome
+EMAP:0001581 ~ | |       + somite 08
+EMAP:0001582 ~ | |       | + somite 08 dermomyotome
+EMAP:0001583 ~ | |       | + somite 08 myocoele
+EMAP:0001584 ~ | |       | \ somite 08 sclerotome
+EMAP:0001585 ~ | |       + somite 09
+EMAP:0001586 ~ | |       | + somite 09 dermomyotome
+EMAP:0001587 ~ | |       | + somite 09 myocoele
+EMAP:0001588 ~ | |       | \ somite 09 sclerotome
+EMAP:0001589 ~ | |       + somite 10
+EMAP:0001590 ~ | |       | + somite 10 dermomyotome
+EMAP:0001591 ~ | |       | + somite 10 myocoele
+EMAP:0001592 ~ | |       | \ somite 10 sclerotome
+EMAP:0001593 ~ | |       + somite 11
+EMAP:0001594 ~ | |       | + somite 11 dermomyotome
+EMAP:0001595 ~ | |       | + somite 11 myocoele
+EMAP:0001596 ~ | |       | \ somite 11 sclerotome
+EMAP:0001597 ~ | |       + somite 12
+EMAP:0001598 ~ | |       | + somite 12 dermomyotome
+EMAP:0001599 ~ | |       | + somite 12 myocoele
+EMAP:0001600 ~ | |       | \ somite 12 sclerotome
+EMAP:0001601 ~ | |       + somite 13
+EMAP:0001602 ~ | |       | + somite 13 dermomyotome
+EMAP:0001603 ~ | |       | + somite 13 myocoele
+EMAP:0001604 ~ | |       | \ somite 13 sclerotome
+EMAP:0001605 ~ | |       + somite 14
+EMAP:0001606 ~ | |       | + somite 14 dermomyotome
+EMAP:0001607 ~ | |       | + somite 14 myocoele
+EMAP:0001608 ~ | |       | \ somite 14 sclerotome
+EMAP:0001609 ~ | |       + somite 15
+EMAP:0001610 ~ | |       | + somite 15 dermomyotome
+EMAP:0001611 ~ | |       | + somite 15 myocoele
+EMAP:0001612 ~ | |       | \ somite 15 sclerotome
+EMAP:0001613 ~ | |       + somite 16
+EMAP:0001614 ~ | |       | + somite 16 dermomyotome
+EMAP:0001615 ~ | |       | + somite 16 myocoele
+EMAP:0001616 ~ | |       | \ somite 16 sclerotome
+EMAP:0001617 ~ | |       + somite 17
+EMAP:0001618 ~ | |       | + somite 17 dermomyotome
+EMAP:0001619 ~ | |       | + somite 17 myocoele
+EMAP:0001620 ~ | |       | \ somite 17 sclerotome
+EMAP:0001621 ~ | |       + somite 18
+EMAP:0001622 ~ | |       | + somite 18 dermomyotome
+EMAP:0001623 ~ | |       | + somite 18 myocoele
+EMAP:0001624 ~ | |       | \ somite 18 sclerotome
+EMAP:0001625 ~ | |       + somite 19
+EMAP:0001626 ~ | |       | + somite 19 dermomyotome
+EMAP:0001627 ~ | |       | + somite 19 myocoele
+EMAP:0001628 ~ | |       | \ somite 19 sclerotome
+EMAP:0001629 ~ | |       + somite 20
+EMAP:0001630 ~ | |       | + somite 20 dermomyotome
+EMAP:0001631 ~ | |       | + somite 20 myocoele
+EMAP:0001632 ~ | |       | \ somite 20 sclerotome
+EMAP:0001633 ~ | |       + somite 21
+EMAP:0001634 ~ | |       | + somite 21 dermomyotome
+EMAP:0001635 ~ | |       | + somite 21 myocoele
+EMAP:0001636 ~ | |       | \ somite 21 sclerotome
+EMAP:0001637 ~ | |       + somite 22
+EMAP:0001638 ~ | |       | + somite 22 dermomyotome
+EMAP:0001639 ~ | |       | + somite 22 myocoele
+EMAP:0001640 ~ | |       | \ somite 22 sclerotome
+EMAP:0001641 ~ | |       + somite 23
+EMAP:0001642 ~ | |       | + somite 23 dermomyotome
+EMAP:0001643 ~ | |       | + somite 23 myocoele
+EMAP:0001644 ~ | |       | \ somite 23 sclerotome
+EMAP:0001645 ~ | |       + somite 24
+EMAP:0001646 ~ | |       | + somite 24 dermomyotome
+EMAP:0001647 ~ | |       | + somite 24 myocoele
+EMAP:0001648 ~ | |       | \ somite 24 sclerotome
+EMAP:0001649 ~ | |       + somite 25
+EMAP:0001650 ~ | |       | + somite 25 dermomyotome
+EMAP:0001651 ~ | |       | + somite 25 myocoele
+EMAP:0001652 ~ | |       | \ somite 25 sclerotome
+EMAP:0001653 ~ | |       + somite 26
+EMAP:0001654 ~ | |       | + somite 26 dermomyotome
+EMAP:0001655 ~ | |       | + somite 26 myocoele
+EMAP:0001656 ~ | |       | \ somite 26 sclerotome
+EMAP:0001657 ~ | |       + somite 27
+EMAP:0001658 ~ | |       | + somite 27 dermomyotome
+EMAP:0001659 ~ | |       | + somite 27 myocoele
+EMAP:0001660 ~ | |       | \ somite 27 sclerotome
+EMAP:0001661 ~ | |       + somite 28
+EMAP:0001662 ~ | |       | + somite 28 dermomyotome
+EMAP:0001663 ~ | |       | + somite 28 myocoele
+EMAP:0001664 ~ | |       | \ somite 28 sclerotome
+EMAP:0001665 ~ | |       + somite 29
+EMAP:0001666 ~ | |       | + somite 29 dermomyotome
+EMAP:0001667 ~ | |       | + somite 29 myocoele
+EMAP:0001668 ~ | |       | \ somite 29 sclerotome
+EMAP:0001669 ~ | |       + somite 30
+EMAP:0001670 ~ | |       | + somite 30 dermomyotome
+EMAP:0001671 ~ | |       | + somite 30 myocoele
+EMAP:0001672 ~ | |       | \ somite 30 sclerotome
+EMAP:0029698 ~ | |       + trunk dermomyotome group
+EMAP:0001570 ~ | |       | + somite 05 dermomyotome
+EMAP:0001574 ~ | |       | + somite 06 dermomyotome
+EMAP:0001578 ~ | |       | + somite 07 dermomyotome
+EMAP:0001582 ~ | |       | + somite 08 dermomyotome
+EMAP:0001586 ~ | |       | + somite 09 dermomyotome
+EMAP:0001590 ~ | |       | + somite 10 dermomyotome
+EMAP:0001594 ~ | |       | + somite 11 dermomyotome
+EMAP:0001598 ~ | |       | + somite 12 dermomyotome
+EMAP:0001602 ~ | |       | + somite 13 dermomyotome
+EMAP:0001606 ~ | |       | + somite 14 dermomyotome
+EMAP:0001610 ~ | |       | + somite 15 dermomyotome
+EMAP:0001614 ~ | |       | + somite 16 dermomyotome
+EMAP:0001618 ~ | |       | + somite 17 dermomyotome
+EMAP:0001622 ~ | |       | + somite 18 dermomyotome
+EMAP:0001626 ~ | |       | + somite 19 dermomyotome
+EMAP:0001630 ~ | |       | + somite 20 dermomyotome
+EMAP:0001634 ~ | |       | + somite 21 dermomyotome
+EMAP:0001638 ~ | |       | + somite 22 dermomyotome
+EMAP:0001642 ~ | |       | + somite 23 dermomyotome
+EMAP:0001646 ~ | |       | + somite 24 dermomyotome
+EMAP:0001650 ~ | |       | + somite 25 dermomyotome
+EMAP:0001654 ~ | |       | + somite 26 dermomyotome
+EMAP:0001658 ~ | |       | + somite 27 dermomyotome
+EMAP:0001662 ~ | |       | + somite 28 dermomyotome
+EMAP:0001666 ~ | |       | + somite 29 dermomyotome
+EMAP:0001670 ~ | |       | + somite 30 dermomyotome
+EMAP:0034153 ~ | |       | + trunk dermatome
+EMAP:0034175 ~ | |       | \ trunk myotome
+EMAP:0031181 ~ | |       + trunk myocoele group
+EMAP:0001571 ~ | |       | + somite 05 myocoele
+EMAP:0001575 ~ | |       | + somite 06 myocoele
+EMAP:0001579 ~ | |       | + somite 07 myocoele
+EMAP:0001583 ~ | |       | + somite 08 myocoele
+EMAP:0001587 ~ | |       | + somite 09 myocoele
+EMAP:0001591 ~ | |       | + somite 10 myocoele
+EMAP:0001595 ~ | |       | + somite 11 myocoele
+EMAP:0001599 ~ | |       | + somite 12 myocoele
+EMAP:0001603 ~ | |       | + somite 13 myocoele
+EMAP:0001607 ~ | |       | + somite 14 myocoele
+EMAP:0001611 ~ | |       | + somite 15 myocoele
+EMAP:0001615 ~ | |       | + somite 16 myocoele
+EMAP:0001619 ~ | |       | + somite 17 myocoele
+EMAP:0001623 ~ | |       | + somite 18 myocoele
+EMAP:0001627 ~ | |       | + somite 19 myocoele
+EMAP:0001631 ~ | |       | + somite 20 myocoele
+EMAP:0001635 ~ | |       | + somite 21 myocoele
+EMAP:0001639 ~ | |       | + somite 22 myocoele
+EMAP:0001643 ~ | |       | + somite 23 myocoele
+EMAP:0001647 ~ | |       | + somite 24 myocoele
+EMAP:0001651 ~ | |       | + somite 25 myocoele
+EMAP:0001655 ~ | |       | + somite 26 myocoele
+EMAP:0001659 ~ | |       | + somite 27 myocoele
+EMAP:0001663 ~ | |       | + somite 28 myocoele
+EMAP:0001667 ~ | |       | + somite 29 myocoele
+EMAP:0001671 ~ | |       | \ somite 30 myocoele
+EMAP:0031147 ~ | |       \ trunk sclerotome group
+EMAP:0001572 ~ | |         + somite 05 sclerotome
+EMAP:0001576 ~ | |         + somite 06 sclerotome
+EMAP:0001580 ~ | |         + somite 07 sclerotome
+EMAP:0001584 ~ | |         + somite 08 sclerotome
+EMAP:0001588 ~ | |         + somite 09 sclerotome
+EMAP:0001592 ~ | |         + somite 10 sclerotome
+EMAP:0001596 ~ | |         + somite 11 sclerotome
+EMAP:0001600 ~ | |         + somite 12 sclerotome
+EMAP:0001604 ~ | |         + somite 13 sclerotome
+EMAP:0001608 ~ | |         + somite 14 sclerotome
+EMAP:0001612 ~ | |         + somite 15 sclerotome
+EMAP:0001616 ~ | |         + somite 16 sclerotome
+EMAP:0001620 ~ | |         + somite 17 sclerotome
+EMAP:0001624 ~ | |         + somite 18 sclerotome
+EMAP:0001628 ~ | |         + somite 19 sclerotome
+EMAP:0001632 ~ | |         + somite 20 sclerotome
+EMAP:0001636 ~ | |         + somite 21 sclerotome
+EMAP:0001640 ~ | |         + somite 22 sclerotome
+EMAP:0001644 ~ | |         + somite 23 sclerotome
+EMAP:0001648 ~ | |         + somite 24 sclerotome
+EMAP:0001652 ~ | |         + somite 25 sclerotome
+EMAP:0001656 ~ | |         + somite 26 sclerotome
+EMAP:0001660 ~ | |         + somite 27 sclerotome
+EMAP:0001664 ~ | |         + somite 28 sclerotome
+EMAP:0001668 ~ | |         + somite 29 sclerotome
+EMAP:0001672 ~ | |         \ somite 30 sclerotome
+EMAP:0001675 > | + notochord
+EMAP:0001676 > | + organ system
+EMAP:0001809 ~ | | + cardiovascular system
+EMAP:0001810 ~ | | | + arterial system
+EMAP:0001811 ~ | | | | + branchial arch artery (syn: aortic arch artery; pharyngeal arch artery)
+EMAP:0001812 ~ | | | | | + 1st arch artery (syn: 1st aortic arch artery; 1st branchial arch artery; 1st pharyngeal arch artery)
+EMAP:0001813 ~ | | | | | + 2nd arch artery (syn: 2nd aortic arch artery; 2nd branchial arch artery; 2nd pharyngeal arch artery)
+EMAP:0001814 ~ | | | | | \ 3rd arch artery (syn: 3rd aortic arch artery; 3rd branchial arch artery; 3rd pharyngeal arch artery)
+EMAP:0001815 ~ | | | | + dorsal aorta
+EMAP:0001816 ~ | | | | | + common dorsal aorta
+EMAP:0001817 ~ | | | | | + left dorsal aorta
+EMAP:0001818 ~ | | | | | \ right dorsal aorta
+EMAP:0001819 ~ | | | | + internal carotid artery
+EMAP:0015266 ~ | | | | + intersegmental artery
+EMAP:0001820 ~ | | | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:0001821 ~ | | | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:0001822 ~ | | | | + umbilical artery embryonic part
+EMAP:0001823 ~ | | | | | + left umbilical artery
+EMAP:0001824 ~ | | | | | \ right umbilical artery
+EMAP:0001825 ~ | | | | \ vitelline artery
+EMAP:0001826 ~ | | | + blood
+EMAP:0033694 ~ | | | + blood vessel
+EMAP:0001827 ~ | | | + heart
+EMAP:0001828 ~ | | | | + atrio-ventricular canal
+EMAP:0001829 ~ | | | | + atrium
+EMAP:0033722 ~ | | | | | + atrium cardiac muscle
+EMAP:0033710 ~ | | | | | + atrium endocardial lining
+EMAP:0001830 ~ | | | | | \ common atrial chamber
+EMAP:0035025 ~ | | | | |   + common atrial chamber cardiac jelly
+EMAP:0035019 ~ | | | | |   + common atrial chamber cardiac muscle
+EMAP:0035022 ~ | | | | |   + common atrial chamber endocardial lining
+EMAP:0001831 ~ | | | | |   + common atrial chamber left part
+EMAP:0001832 ~ | | | | |   | + common atrial chamber left part cardiac jelly
+EMAP:0001837 ~ | | | | |   | + common atrial chamber left part cardiac muscle
+EMAP:0001833 ~ | | | | |   | + common atrial chamber left part endocardial lining
+EMAP:0001834 ~ | | | | |   | \ left auricular region
+EMAP:0001836 ~ | | | | |   |   + left auricular region cardiac muscle
+EMAP:0001835 ~ | | | | |   |   \ left auricular region endocardial lining
+EMAP:0001838 ~ | | | | |   \ common atrial chamber right part
+EMAP:0001839 ~ | | | | |     + common atrial chamber right part cardiac jelly
+EMAP:0001841 ~ | | | | |     + common atrial chamber right part cardiac muscle
+EMAP:0001840 ~ | | | | |     + common atrial chamber right part endocardial lining
+EMAP:0001842 ~ | | | | |     \ right auricular region
+EMAP:0001844 ~ | | | | |       + right auricular region cardiac muscle
+EMAP:0001843 ~ | | | | |       \ right auricular region endocardial lining
+EMAP:0001845 ~ | | | | + bulboventricular groove (syn: bulbo-ventricular sulcus; ependymal groove; ependymal sulcus)
+EMAP:0001846 ~ | | | | + bulbus cordis
+EMAP:0001847 ~ | | | | | + bulbus cordis caudal half
+EMAP:0001848 ~ | | | | | | + bulbus cordis caudal half cardiac jelly
+EMAP:0001850 ~ | | | | | | + bulbus cordis caudal half cardiac muscle
+EMAP:0001849 ~ | | | | | | \ bulbus cordis caudal half endocardial lining
+EMAP:0001851 ~ | | | | | \ bulbus cordis rostral half
+EMAP:0001852 ~ | | | | |   + bulbus cordis rostral half cardiac jelly
+EMAP:0001854 ~ | | | | |   + bulbus cordis rostral half cardiac muscle
+EMAP:0001853 ~ | | | | |   \ bulbus cordis rostral half endocardial lining
+EMAP:0033341 ~ | | | | + cardiac jelly
+EMAP:0033347 ~ | | | | + cardiac muscle
+EMAP:0001855 ~ | | | | + endocardial cushion tissue
+EMAP:0033332 ~ | | | | + endocardial lining
+EMAP:0001856 ~ | | | | + heart mesentery
+EMAP:0001857 ~ | | | | | \ dorsal mesocardium
+EMAP:0001858 ~ | | | | |   \ transverse pericardial sinus
+EMAP:0001859 ~ | | | | + outflow tract
+EMAP:0001860 ~ | | | | | + aortico-pulmonary spiral septum
+EMAP:0001861 ~ | | | | | + outflow tract cardiac jelly
+EMAP:0001862 ~ | | | | | + outflow tract endocardial tube
+EMAP:0001863 ~ | | | | | \ outflow tract mesenchyme
+EMAP:0001864 ~ | | | | + primitive ventricle
+EMAP:0001865 ~ | | | | | + primitive ventricle cardiac jelly
+EMAP:0001867 ~ | | | | | + primitive ventricle cardiac muscle
+EMAP:0001866 ~ | | | | | \ primitive ventricle endocardial lining
+EMAP:0001868 ~ | | | | \ sinus venosus
+EMAP:0001869 ~ | | | |   + sinus venosus left horn
+EMAP:0001870 ~ | | | |   \ sinus venosus right horn
+EMAP:0001871 ~ | | | \ venous system
+EMAP:0001872 ~ | | |   + cardinal vein
+EMAP:0001873 ~ | | |   | + anterior cardinal vein
+EMAP:0001874 ~ | | |   | + common cardinal vein (syn: Duct of Cuvier; future coronary sinus)
+EMAP:0001875 ~ | | |   | \ posterior cardinal vein
+EMAP:0001876 ~ | | |   + inter-subcardinal venous anastomosis
+EMAP:0001877 ~ | | |   + primary head vein
+EMAP:0001878 ~ | | |   + subcardinal vein
+EMAP:0001879 ~ | | |   + supracardinal vein
+EMAP:0001880 ~ | | |   + umbilical vein embryonic part
+EMAP:0001881 ~ | | |   | \ left umbilical vein embryonic part
+EMAP:0001882 ~ | | |   \ vitelline vein embryonic part
+EMAP:0001883 ~ | | |     + left vitelline vein embryonic part
+EMAP:0001884 ~ | | |     \ right vitelline vein embryonic part
+EMAP:0034883 ~ | | + gland
+EMAP:0033937 ~ | | | \ pituitary gland
+EMAP:0033500 ~ | | + musculoskeletal system
+EMAP:0013222 ~ | | | \ skeleton
+EMAP:0013223 ~ | | |   \ axial skeleton
+EMAP:0013224 ~ | | |     + axial skeleton cervical region
+EMAP:0013225 ~ | | |     | \ cervical vertebral pre-cartilage condensation
+EMAP:0013226 ~ | | |     |   + C1 vertebral pre-cartilage condensation
+EMAP:0013227 ~ | | |     |   + C2 vertebral pre-cartilage condensation
+EMAP:0013228 ~ | | |     |   + C3 vertebral pre-cartilage condensation
+EMAP:0013229 ~ | | |     |   + C4 vertebral pre-cartilage condensation
+EMAP:0013230 ~ | | |     |   + C5 vertebral pre-cartilage condensation
+EMAP:0013231 ~ | | |     |   + C6 vertebral pre-cartilage condensation
+EMAP:0013232 ~ | | |     |   \ C7 vertebral pre-cartilage condensation
+EMAP:0013233 ~ | | |     + axial skeleton thoracic region
+EMAP:0013234 ~ | | |     | \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235 ~ | | |     |   + T1 vertebral pre-cartilage condensation
+EMAP:0013236 ~ | | |     |   + T2 vertebral pre-cartilage condensation
+EMAP:0013237 ~ | | |     |   + T3 vertebral pre-cartilage condensation
+EMAP:0013238 ~ | | |     |   + T4 vertebral pre-cartilage condensation
+EMAP:0013239 ~ | | |     |   \ T5 vertebral pre-cartilage condensation
+EMAP:0033214 ~ | | |     \ vertebral pre-cartilage condensation
+EMAP:0013225 ~ | | |       + cervical vertebral pre-cartilage condensation
+EMAP:0013226 ~ | | |       | + C1 vertebral pre-cartilage condensation
+EMAP:0013227 ~ | | |       | + C2 vertebral pre-cartilage condensation
+EMAP:0013228 ~ | | |       | + C3 vertebral pre-cartilage condensation
+EMAP:0013229 ~ | | |       | + C4 vertebral pre-cartilage condensation
+EMAP:0013230 ~ | | |       | + C5 vertebral pre-cartilage condensation
+EMAP:0013231 ~ | | |       | + C6 vertebral pre-cartilage condensation
+EMAP:0013232 ~ | | |       | \ C7 vertebral pre-cartilage condensation
+EMAP:0013234 ~ | | |       \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235 ~ | | |         + T1 vertebral pre-cartilage condensation
+EMAP:0013236 ~ | | |         + T2 vertebral pre-cartilage condensation
+EMAP:0013237 ~ | | |         + T3 vertebral pre-cartilage condensation
+EMAP:0013238 ~ | | |         + T4 vertebral pre-cartilage condensation
+EMAP:0013239 ~ | | |         \ T5 vertebral pre-cartilage condensation
+EMAP:0001683 ~ | | + nervous system
+EMAP:0001684 ~ | | | + central nervous system
+EMAP:0001769 ~ | | | | + central nervous system ganglion
+EMAP:0001770 ~ | | | | | \ cranial ganglion
+EMAP:0001771 ~ | | | | |   + facio-acoustic VII-VIII ganglion complex
+EMAP:0001772 ~ | | | | |   + glossopharyngeal IX ganglion
+EMAP:0001773 ~ | | | | |   + glossopharyngeal-vagus IX-X ganglion complex
+EMAP:0001774 ~ | | | | |   + trigeminal V ganglion
+EMAP:0001775 ~ | | | | |   \ vagus X ganglion
+EMAP:0033317 ~ | | | | + floor plate
+EMAP:0001685 ~ | | | | + future brain
+EMAP:0033247 ~ | | | | | + brain ventricle
+EMAP:0001697 ~ | | | | | | + 3rd ventricle
+EMAP:0001698 ~ | | | | | | | + diencephalic part of interventricular foramen
+EMAP:0001699 ~ | | | | | | | \ optic recess
+EMAP:0001720 ~ | | | | | | + 4th ventricle
+EMAP:0001706 ~ | | | | | | \ telencephalic vesicle
+EMAP:0001707 ~ | | | | | |   \ telencephalic part of interventricular foramen
+EMAP:0033260 ~ | | | | | + future brain floor plate
+EMAP:0001686 ~ | | | | | + future forebrain
+EMAP:0001687 ~ | | | | | | + diencephalon
+EMAP:0001697 ~ | | | | | | | + 3rd ventricle
+EMAP:0001698 ~ | | | | | | | | + diencephalic part of interventricular foramen
+EMAP:0001699 ~ | | | | | | | | \ optic recess
+EMAP:0001700 ~ | | | | | | | + diencephalon floor plate
+EMAP:0001688 ~ | | | | | | | + diencephalon gland
+EMAP:0001689 ~ | | | | | | | | \ pituitary
+EMAP:0001690 ~ | | | | | | | |   \ infundibular recess of 3rd ventricle
+EMAP:0001702 ~ | | | | | | | + diencephalon lateral wall
+EMAP:0001703 ~ | | | | | | | | \ diencephalon ventricular layer
+EMAP:0001704 ~ | | | | | | | + diencephalon roof plate
+EMAP:0001701 ~ | | | | | | | \ lamina terminalis
+EMAP:0034720 ~ | | | | | | + future forebrain floor plate
+EMAP:0034807 ~ | | | | | | + future forebrain lateral wall
+EMAP:0034803 ~ | | | | | | + future forebrain roof plate
+EMAP:0001705 ~ | | | | | | \ telencephalon
+EMAP:0001706 ~ | | | | | |   + telencephalic vesicle
+EMAP:0001707 ~ | | | | | |   | \ telencephalic part of interventricular foramen
+EMAP:0001709 ~ | | | | | |   + telencephalon floor plate
+EMAP:0001710 ~ | | | | | |   + telencephalon lateral wall
+EMAP:0001711 ~ | | | | | |   | \ telencephalon ventricular layer
+EMAP:0001712 ~ | | | | | |   \ telencephalon roof plate
+EMAP:0001713 ~ | | | | | + future midbrain
+EMAP:0001714 ~ | | | | | | + future midbrain floor plate
+EMAP:0001715 ~ | | | | | | + future midbrain lateral wall
+EMAP:0001716 ~ | | | | | | | \ future midbrain ventricular layer
+EMAP:0001718 ~ | | | | | | + future midbrain roof plate
+EMAP:0001717 ~ | | | | | | \ mesencephalic vesicle
+EMAP:0001719 ~ | | | | | + future rhombencephalon
+EMAP:0001720 ~ | | | | | | + 4th ventricle
+EMAP:0034798 ~ | | | | | | + rhombomere
+EMAP:0034801 ~ | | | | | | | + rhombomere floor plate
+EMAP:0034792 ~ | | | | | | | + rhombomere lateral wall
+EMAP:0034795 ~ | | | | | | | | \ rhombomere ventricular layer
+EMAP:0034787 ~ | | | | | | | + rhombomere roof plate
+EMAP:0001721 ~ | | | | | | | + rhombomere 01
+EMAP:0001722 ~ | | | | | | | | + rhombomere 01 floor plate
+EMAP:0001723 ~ | | | | | | | | + rhombomere 01 lateral wall
+EMAP:0001724 ~ | | | | | | | | | \ rhombomere 01 ventricular layer
+EMAP:0001725 ~ | | | | | | | | \ rhombomere 01 roof plate
+EMAP:0001726 ~ | | | | | | | + rhombomere 02
+EMAP:0001727 ~ | | | | | | | | + rhombomere 02 floor plate
+EMAP:0001728 ~ | | | | | | | | + rhombomere 02 lateral wall
+EMAP:0001729 ~ | | | | | | | | | \ rhombomere 02 ventricular layer
+EMAP:0001730 ~ | | | | | | | | \ rhombomere 02 roof plate
+EMAP:0001731 ~ | | | | | | | + rhombomere 03
+EMAP:0001732 ~ | | | | | | | | + rhombomere 03 floor plate
+EMAP:0001733 ~ | | | | | | | | + rhombomere 03 lateral wall
+EMAP:0001734 ~ | | | | | | | | | \ rhombomere 03 ventricular layer
+EMAP:0001735 ~ | | | | | | | | \ rhombomere 03 roof plate
+EMAP:0001736 ~ | | | | | | | + rhombomere 04
+EMAP:0001737 ~ | | | | | | | | + rhombomere 04 floor plate
+EMAP:0001738 ~ | | | | | | | | + rhombomere 04 lateral wall
+EMAP:0001739 ~ | | | | | | | | | \ rhombomere 04 ventricular layer
+EMAP:0001740 ~ | | | | | | | | \ rhombomere 04 roof plate
+EMAP:0001741 ~ | | | | | | | + rhombomere 05
+EMAP:0001742 ~ | | | | | | | | + rhombomere 05 floor plate
+EMAP:0001743 ~ | | | | | | | | + rhombomere 05 lateral wall
+EMAP:0001744 ~ | | | | | | | | | \ rhombomere 05 ventricular layer
+EMAP:0001745 ~ | | | | | | | | \ rhombomere 05 roof plate
+EMAP:0001746 ~ | | | | | | | + rhombomere 06
+EMAP:0001747 ~ | | | | | | | | + rhombomere 06 floor plate
+EMAP:0001748 ~ | | | | | | | | + rhombomere 06 lateral wall
+EMAP:0001749 ~ | | | | | | | | | \ rhombomere 06 ventricular layer
+EMAP:0001750 ~ | | | | | | | | \ rhombomere 06 roof plate
+EMAP:0001751 ~ | | | | | | | + rhombomere 07
+EMAP:0001752 ~ | | | | | | | | + rhombomere 07 floor plate
+EMAP:0001753 ~ | | | | | | | | + rhombomere 07 lateral wall
+EMAP:0001754 ~ | | | | | | | | | \ rhombomere 07 ventricular layer
+EMAP:0001755 ~ | | | | | | | | \ rhombomere 07 roof plate
+EMAP:0001756 ~ | | | | | | | \ rhombomere 08
+EMAP:0001758 ~ | | | | | | |   + rhombomere 08 floor plate
+EMAP:0001759 ~ | | | | | | |   + rhombomere 08 lateral wall
+EMAP:0001760 ~ | | | | | | |   | \ rhombomere 08 ventricular layer
+EMAP:0001757 ~ | | | | | | |   \ rhombomere 08 roof plate
+EMAP:0001721 ~ | | | | | | + rhombomere 01
+EMAP:0001722 ~ | | | | | | | + rhombomere 01 floor plate
+EMAP:0001723 ~ | | | | | | | + rhombomere 01 lateral wall
+EMAP:0001724 ~ | | | | | | | | \ rhombomere 01 ventricular layer
+EMAP:0001725 ~ | | | | | | | \ rhombomere 01 roof plate
+EMAP:0001726 ~ | | | | | | + rhombomere 02
+EMAP:0001727 ~ | | | | | | | + rhombomere 02 floor plate
+EMAP:0001728 ~ | | | | | | | + rhombomere 02 lateral wall
+EMAP:0001729 ~ | | | | | | | | \ rhombomere 02 ventricular layer
+EMAP:0001730 ~ | | | | | | | \ rhombomere 02 roof plate
+EMAP:0001731 ~ | | | | | | + rhombomere 03
+EMAP:0001732 ~ | | | | | | | + rhombomere 03 floor plate
+EMAP:0001733 ~ | | | | | | | + rhombomere 03 lateral wall
+EMAP:0001734 ~ | | | | | | | | \ rhombomere 03 ventricular layer
+EMAP:0001735 ~ | | | | | | | \ rhombomere 03 roof plate
+EMAP:0001736 ~ | | | | | | + rhombomere 04
+EMAP:0001737 ~ | | | | | | | + rhombomere 04 floor plate
+EMAP:0001738 ~ | | | | | | | + rhombomere 04 lateral wall
+EMAP:0001739 ~ | | | | | | | | \ rhombomere 04 ventricular layer
+EMAP:0001740 ~ | | | | | | | \ rhombomere 04 roof plate
+EMAP:0001741 ~ | | | | | | + rhombomere 05
+EMAP:0001742 ~ | | | | | | | + rhombomere 05 floor plate
+EMAP:0001743 ~ | | | | | | | + rhombomere 05 lateral wall
+EMAP:0001744 ~ | | | | | | | | \ rhombomere 05 ventricular layer
+EMAP:0001745 ~ | | | | | | | \ rhombomere 05 roof plate
+EMAP:0001746 ~ | | | | | | + rhombomere 06
+EMAP:0001747 ~ | | | | | | | + rhombomere 06 floor plate
+EMAP:0001748 ~ | | | | | | | + rhombomere 06 lateral wall
+EMAP:0001749 ~ | | | | | | | | \ rhombomere 06 ventricular layer
+EMAP:0001750 ~ | | | | | | | \ rhombomere 06 roof plate
+EMAP:0001751 ~ | | | | | | + rhombomere 07
+EMAP:0001752 ~ | | | | | | | + rhombomere 07 floor plate
+EMAP:0001753 ~ | | | | | | | + rhombomere 07 lateral wall
+EMAP:0001754 ~ | | | | | | | | \ rhombomere 07 ventricular layer
+EMAP:0001755 ~ | | | | | | | \ rhombomere 07 roof plate
+EMAP:0001756 ~ | | | | | | \ rhombomere 08
+EMAP:0001758 ~ | | | | | |   + rhombomere 08 floor plate
+EMAP:0001759 ~ | | | | | |   + rhombomere 08 lateral wall
+EMAP:0001760 ~ | | | | | |   | \ rhombomere 08 ventricular layer
+EMAP:0001757 ~ | | | | | |   \ rhombomere 08 roof plate
+EMAP:0034226 ~ | | | | | \ midbrain-hindbrain junction
+EMAP:0001761 ~ | | | | \ future spinal cord
+EMAP:0001762 ~ | | | |   + caudal neuropore
+EMAP:0001763 ~ | | | |   \ neural tube
+EMAP:0001766 ~ | | | |     + neural lumen
+EMAP:0001767 ~ | | | |     | \ neural luminal occlusion
+EMAP:0001764 ~ | | | |     + neural tube floor plate
+EMAP:0001765 ~ | | | |     + neural tube lateral wall
+EMAP:0001768 ~ | | | |     \ neural tube roof plate
+EMAP:0034187 ~ | | | + ganglion
+EMAP:0001769 ~ | | | | + central nervous system ganglion
+EMAP:0001770 ~ | | | | | \ cranial ganglion
+EMAP:0001771 ~ | | | | |   + facio-acoustic VII-VIII ganglion complex
+EMAP:0001772 ~ | | | | |   + glossopharyngeal IX ganglion
+EMAP:0001773 ~ | | | | |   + glossopharyngeal-vagus IX-X ganglion complex
+EMAP:0001774 ~ | | | | |   + trigeminal V ganglion
+EMAP:0001775 ~ | | | | |   \ vagus X ganglion
+EMAP:0034028 ~ | | | | \ peripheral nervous system ganglion
+EMAP:0001778 ~ | | | |   \ spinal ganglion
+EMAP:0001779 ~ | | | |     \ dorsal root ganglion
+EMAP:0014976 ~ | | | |       \ C1 dorsal root ganglion
+EMAP:0001776 ~ | | | \ peripheral nervous system
+EMAP:0034028 ~ | | |   + peripheral nervous system ganglion
+EMAP:0001778 ~ | | |   | \ spinal ganglion
+EMAP:0001779 ~ | | |   |   \ dorsal root ganglion
+EMAP:0014976 ~ | | |   |     \ C1 dorsal root ganglion
+EMAP:0001777 ~ | | |   \ spinal
+EMAP:0001778 ~ | | |     \ spinal ganglion
+EMAP:0001779 ~ | | |       \ dorsal root ganglion
+EMAP:0014976 ~ | | |         \ C1 dorsal root ganglion
+EMAP:0001780 ~ | | + sensory organ
+EMAP:0001781 ~ | | | + ear
+EMAP:0033956 ~ | | | | + ear epithelium
+EMAP:0001782 ~ | | | | \ inner ear
+EMAP:0034456 ~ | | | |   + inner ear associated mesenchyme
+EMAP:0034433 ~ | | | |   + inner ear epithelium
+EMAP:0001783 ~ | | | |   \ otocyst
+EMAP:0001784 ~ | | | |     + otocyst associated mesenchyme
+EMAP:0001785 ~ | | | |     + otocyst epithelium
+EMAP:0015262 ~ | | | |     \ otocyst lumen
+EMAP:0001786 ~ | | | + eye
+EMAP:0001788 ~ | | | | + eye mesenchyme
+EMAP:0001787 ~ | | | | + lens pit
+EMAP:0001789 ~ | | | | + optic cup
+EMAP:0001790 ~ | | | | | + optic cup inner layer (syn: future neural epithelium; future neural layer)
+EMAP:0001791 ~ | | | | | + optic cup intraretinal space
+EMAP:0001792 ~ | | | | | \ optic cup outer layer (syn: future pigmented layer; future pigmented retinal epithelium; future PRE)
+EMAP:0001793 ~ | | | | \ optic stalk
+EMAP:0001794 ~ | | | \ nose
+EMAP:0001798 ~ | | |   + nasal process
+EMAP:0001799 ~ | | |   | \ fronto-nasal process
+EMAP:0001800 ~ | | |   |   + frontal process
+EMAP:0001801 ~ | | |   |   | + frontal process ectoderm
+EMAP:0001802 ~ | | |   |   | \ frontal process mesenchyme
+EMAP:0035033 ~ | | |   |   + fronto-nasal process ectoderm
+EMAP:0035028 ~ | | |   |   + fronto-nasal process mesenchyme
+EMAP:0001803 ~ | | |   |   + latero-nasal process
+EMAP:0001804 ~ | | |   |   | + latero-nasal process ectoderm
+EMAP:0001805 ~ | | |   |   | \ latero-nasal process mesenchyme
+EMAP:0001806 ~ | | |   |   \ medial-nasal process
+EMAP:0001807 ~ | | |   |     + medial-nasal process ectoderm
+EMAP:0001808 ~ | | |   |     \ medial-nasal process mesenchyme
+EMAP:0001795 ~ | | |   + naso-lacrimal groove
+EMAP:0001796 ~ | | |   \ olfactory pit
+EMAP:0001797 ~ | | |     \ nasal epithelium
+EMAP:0001677 ~ | | \ visceral organ
+EMAP:0001678 ~ | |   + alimentary system
+EMAP:0034471 ~ | |   | + alimentary system associated mesenchyme
+EMAP:0033304 ~ | |   | + alimentary system epithelium
+EMAP:0001885 ~ | |   | + anal region
+EMAP:0001886 ~ | |   | | \ cloacal membrane
+EMAP:0001691 ~ | |   | + gut
+EMAP:0001692 ~ | |   | | + foregut
+EMAP:0034753 ~ | |   | | | + foregut associated mesenchyme
+EMAP:0034743 ~ | |   | | | + foregut epithelium
+EMAP:0001693 ~ | |   | | | + foregut gland
+EMAP:0001694 ~ | |   | | | | \ thyroid primordium
+EMAP:0001695 ~ | |   | | | |   + thyroid primordium associated mesenchyme
+EMAP:0001696 ~ | |   | | | |   \ thyroid primordium endoderm
+EMAP:0001887 ~ | |   | | | + oesophagus
+EMAP:0001888 ~ | |   | | | | + oesophagus associated mesenchyme
+EMAP:0001889 ~ | |   | | | | + oesophagus epithelium
+EMAP:0006930 ~ | |   | | | | + oesophagus lumen
+EMAP:0001890 ~ | |   | | | | + oesophagus mesentery
+EMAP:0001891 ~ | |   | | | | | \ dorsal meso-oesophagus
+EMAP:0001892 ~ | |   | | | | \ oesophagus vascular element (syn: artery; vein)
+EMAP:0001893 ~ | |   | | | + pharynx
+EMAP:0001894 ~ | |   | | | | + pharynx associated mesenchyme
+EMAP:0001895 ~ | |   | | | | + pharynx epithelium
+EMAP:0006938 ~ | |   | | | | + pharynx lumen
+EMAP:0001896 ~ | |   | | | | \ pharynx vascular element (syn: artery; vein)
+EMAP:0001897 ~ | |   | | | \ rest of foregut
+EMAP:0001898 ~ | |   | | |   + rest of foregut associated mesenchyme
+EMAP:0001899 ~ | |   | | |   + rest of foregut epithelium
+EMAP:0007014 ~ | |   | | |   + rest of foregut lumen
+EMAP:0001901 ~ | |   | | |   + rest of foregut mesentery
+EMAP:0001902 ~ | |   | | |   | + rest of foregut dorsal mesentery
+EMAP:0001903 ~ | |   | | |   | \ rest of foregut ventral mesentery
+EMAP:0001900 ~ | |   | | |   \ rest of foregut vascular element (syn: artery; vein)
+EMAP:0001904 ~ | |   | | + foregut-midgut junction
+EMAP:0001905 ~ | |   | | | + foregut-midgut junction associated mesenchyme
+EMAP:0001906 ~ | |   | | | + foregut-midgut junction epithelium
+EMAP:0006959 ~ | |   | | | + foregut-midgut junction lumen
+EMAP:0001908 ~ | |   | | | + foregut-midgut junction mesentery
+EMAP:0001909 ~ | |   | | | | + foregut-midgut junction dorsal mesentery
+EMAP:0001910 ~ | |   | | | | \ foregut-midgut junction ventral mesentery
+EMAP:0001907 ~ | |   | | | + foregut-midgut junction vascular element (syn: artery; vein)
+EMAP:0001935 ~ | |   | | | \ hepatic primordium
+EMAP:0001936 ~ | |   | | |   \ hepatic primordium parenchyma
+EMAP:0034621 ~ | |   | | + gut associated mesenchyme
+EMAP:0034774 ~ | |   | | + gut epithelium
+EMAP:0034951 ~ | |   | | + gut gland
+EMAP:0034606 ~ | |   | | + gut lumen
+EMAP:0034649 ~ | |   | | + gut mesentery
+EMAP:0034635 ~ | |   | | | \ gut dorsal mesentery
+EMAP:0001915 ~ | |   | | + hindgut
+EMAP:0001916 ~ | |   | | | + hindgut associated mesenchyme
+EMAP:0001917 ~ | |   | | | + hindgut epithelium
+EMAP:0006996 ~ | |   | | | + hindgut lumen
+EMAP:0001918 ~ | |   | | | + hindgut mesentery
+EMAP:0001919 ~ | |   | | | | \ hindgut dorsal mesentery (syn: dorsal mesocolon; dorsal mesorectum)
+EMAP:0001920 ~ | |   | | | \ hindgut vascular element (syn: artery; vein)
+EMAP:0001911 ~ | |   | | + hindgut diverticulum
+EMAP:0001912 ~ | |   | | | + hindgut diverticulum associated mesenchyme
+EMAP:0001913 ~ | |   | | | + hindgut diverticulum epithelium
+EMAP:0006908 ~ | |   | | | + hindgut diverticulum lumen
+EMAP:0001914 ~ | |   | | | \ hindgut diverticulum vascular element (syn: artery; vein)
+EMAP:0001921 ~ | |   | | \ midgut
+EMAP:0001922 ~ | |   | |   + midgut associated mesenchyme
+EMAP:0001923 ~ | |   | |   + midgut epithelium
+EMAP:0006917 ~ | |   | |   + midgut lumen
+EMAP:0001924 ~ | |   | |   + midgut mesentery
+EMAP:0001925 ~ | |   | |   | \ midgut dorsal mesentery
+EMAP:0001926 ~ | |   | |   \ midgut vascular element (syn: artery; vein)
+EMAP:0001679 ~ | |   | \ oral region
+EMAP:0001927 ~ | |   |   + oral epithelium
+EMAP:0007010 ~ | |   |   + oral region cavity
+EMAP:0001680 ~ | |   |   \ oral region gland
+EMAP:0001681 ~ | |   |     \ pituitary
+EMAP:0001682 ~ | |   |       \ Rathke's pouch
+EMAP:0014768 ~ | |   |         + Rathke's pouch lumen
+EMAP:0014763 ~ | |   |         \ Rathke's pouch wall
+EMAP:0001957 ~ | |   + genitourinary system
+EMAP:0035018 ~ | |   | + cloaca
+EMAP:0027561 ~ | |   | + genitourinary system associated mesenchyme
+EMAP:0001958 ~ | |   | + gonad
+EMAP:0001960 ~ | |   | | \ primordial germ cells
+EMAP:0001961 ~ | |   | + mesonephros
+EMAP:0001964 ~ | |   | | + mesonephric tubule
+EMAP:0001962 ~ | |   | | + mesonephros associated mesenchyme
+EMAP:0001963 ~ | |   | | \ mesonephros non-tubular part
+EMAP:0001965 ~ | |   | + nephric cord
+EMAP:0001966 ~ | |   | \ nephric duct
+EMAP:0001928 ~ | |   + liver and biliary system
+EMAP:0001929 ~ | |   | + cystic duct
+EMAP:0001930 ~ | |   | + gall bladder primordium
+EMAP:0001931 ~ | |   | + hepatic duct
+EMAP:0001932 ~ | |   | | + hepatic duct extrahepatic part
+EMAP:0001933 ~ | |   | | \ hepatic duct intrahepatic part
+EMAP:0001934 ~ | |   | \ liver
+EMAP:0001937 ~ | |   \ respiratory system
+EMAP:0001938 ~ | |     + lung
+EMAP:0001939 ~ | |     | + left lung rudiment
+EMAP:0001940 ~ | |     | | + left lung rudiment associated mesenchyme
+EMAP:0001941 ~ | |     | | + left lung rudiment epithelium
+EMAP:0001942 ~ | |     | | \ left lung rudiment vascular element (syn: artery; vein)
+EMAP:0034314 ~ | |     | + lung associated mesenchyme
+EMAP:0034274 ~ | |     | + lung epithelium
+EMAP:0034326 ~ | |     | + lung vascular element
+EMAP:0001943 ~ | |     | \ right lung rudiment
+EMAP:0001944 ~ | |     |   + right lung rudiment associated mesenchyme
+EMAP:0001945 ~ | |     |   + right lung rudiment epithelium
+EMAP:0001946 ~ | |     |   \ right lung rudiment vascular element (syn: artery; vein)
+EMAP:0034071 ~ | |     + respiratory system epithelium
+EMAP:0001947 ~ | |     \ respiratory tract
+EMAP:0001948 ~ | |       + lower respiratory tract
+EMAP:0028870 ~ | |       | + laryngo-tracheal groove
+EMAP:0001949 ~ | |       | + main bronchus
+EMAP:0001950 ~ | |       | | + main bronchus associated mesenchyme
+EMAP:0001951 ~ | |       | | + main bronchus epithelium
+EMAP:0001952 ~ | |       | | \ main bronchus vascular element (syn: artery; vein)
+EMAP:0001953 ~ | |       | \ trachea
+EMAP:0001954 ~ | |       |   + trachea associated mesenchyme
+EMAP:0001955 ~ | |       |   + trachea epithelium
+EMAP:0001956 ~ | |       |   \ trachea vascular element (syn: artery; vein)
+EMAP:0034083 ~ | |       \ respiratory tract epithelium
+EMAP:0013222 > | + skeleton
+EMAP:0013223 ~ | | \ axial skeleton
+EMAP:0013224 ~ | |   + axial skeleton cervical region
+EMAP:0013225 ~ | |   | \ cervical vertebral pre-cartilage condensation
+EMAP:0013226 ~ | |   |   + C1 vertebral pre-cartilage condensation
+EMAP:0013227 ~ | |   |   + C2 vertebral pre-cartilage condensation
+EMAP:0013228 ~ | |   |   + C3 vertebral pre-cartilage condensation
+EMAP:0013229 ~ | |   |   + C4 vertebral pre-cartilage condensation
+EMAP:0013230 ~ | |   |   + C5 vertebral pre-cartilage condensation
+EMAP:0013231 ~ | |   |   + C6 vertebral pre-cartilage condensation
+EMAP:0013232 ~ | |   |   \ C7 vertebral pre-cartilage condensation
+EMAP:0013233 ~ | |   + axial skeleton thoracic region
+EMAP:0013234 ~ | |   | \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235 ~ | |   |   + T1 vertebral pre-cartilage condensation
+EMAP:0013236 ~ | |   |   + T2 vertebral pre-cartilage condensation
+EMAP:0013237 ~ | |   |   + T3 vertebral pre-cartilage condensation
+EMAP:0013238 ~ | |   |   + T4 vertebral pre-cartilage condensation
+EMAP:0013239 ~ | |   |   \ T5 vertebral pre-cartilage condensation
+EMAP:0033214 ~ | |   \ vertebral pre-cartilage condensation
+EMAP:0013225 ~ | |     + cervical vertebral pre-cartilage condensation
+EMAP:0013226 ~ | |     | + C1 vertebral pre-cartilage condensation
+EMAP:0013227 ~ | |     | + C2 vertebral pre-cartilage condensation
+EMAP:0013228 ~ | |     | + C3 vertebral pre-cartilage condensation
+EMAP:0013229 ~ | |     | + C4 vertebral pre-cartilage condensation
+EMAP:0013230 ~ | |     | + C5 vertebral pre-cartilage condensation
+EMAP:0013231 ~ | |     | + C6 vertebral pre-cartilage condensation
+EMAP:0013232 ~ | |     | \ C7 vertebral pre-cartilage condensation
+EMAP:0013234 ~ | |     \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235 ~ | |       + T1 vertebral pre-cartilage condensation
+EMAP:0013236 ~ | |       + T2 vertebral pre-cartilage condensation
+EMAP:0013237 ~ | |       + T3 vertebral pre-cartilage condensation
+EMAP:0013238 ~ | |       + T4 vertebral pre-cartilage condensation
+EMAP:0013239 ~ | |       \ T5 vertebral pre-cartilage condensation
+EMAP:0001967 > | + tail
+EMAP:0033874 ~ | | + tail ectoderm
+EMAP:0001968 ~ | | + tail mesenchyme
+EMAP:0001969 ~ | | | + tail mesenchyme derived from neural crest
+EMAP:0001970 ~ | | | \ tail paraxial mesenchyme
+EMAP:0001971 ~ | | |   + tail somite group
+EMAP:0001972 ~ | | |   | + somite 31
+EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001975 ~ | | |   | | \ somite 31 sclerotome
+EMAP:0001976 ~ | | |   | + somite 32
+EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
+EMAP:0001978 ~ | | |   | | + somite 32 myocoele
+EMAP:0001979 ~ | | |   | | \ somite 32 sclerotome
+EMAP:0001980 ~ | | |   | + somite 33
+EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
+EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001983 ~ | | |   | | \ somite 33 sclerotome
+EMAP:0001984 ~ | | |   | + somite 34
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
+EMAP:0001986 ~ | | |   | | + somite 34 myocoele
+EMAP:0001987 ~ | | |   | | \ somite 34 sclerotome
+EMAP:0001988 ~ | | |   | + somite 35
+EMAP:0001989 ~ | | |   | | + somite 35 dermomyotome
+EMAP:0001990 ~ | | |   | | + somite 35 myocoele
+EMAP:0001991 ~ | | |   | | \ somite 35 sclerotome
+EMAP:0031106 ~ | | |   | + tail dermomyotome group
+EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
+EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
+EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
+EMAP:0001989 ~ | | |   | | \ somite 35 dermomyotome
+EMAP:0031127 ~ | | |   | + tail myocoele group
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001978 ~ | | |   | | + somite 32 myocoele
+EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001986 ~ | | |   | | + somite 34 myocoele
+EMAP:0001990 ~ | | |   | | \ somite 35 myocoele
+EMAP:0031152 ~ | | |   | \ tail sclerotome group
+EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
+EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
+EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
+EMAP:0001987 ~ | | |   |   + somite 34 sclerotome
+EMAP:0001991 ~ | | |   |   \ somite 35 sclerotome
+EMAP:0001992 ~ | | |   \ unsegmented mesenchyme
+EMAP:0001993 ~ | | \ tail nervous system
+EMAP:0001994 ~ | |   \ tail central nervous system
+EMAP:0001995 ~ | |     \ tail future spinal cord
+EMAP:0001996 ~ | |       + neural plate
+EMAP:0001997 ~ | |       | \ tail neural crest
+EMAP:0015265 ~ | |       \ tail neural tube
+EMAP:0033947 ~ | |         \ tail neural tube floor plate
+EMAP:0031883 > | \ trunk
+EMAP:0001561 ~ |   \ trunk mesenchyme
+EMAP:0001565 ~ |     + mesenchyme derived from somatopleure
+EMAP:0001566 ~ |     + mesenchyme derived from splanchnopleure
+EMAP:0001673 ~ |     + septum transversum
+EMAP:0001674 ~ |     | \ septum transversum non-hepatic component
+EMAP:0014757 ~ |     |   \ future central tendon
+EMAP:0001562 ~ |     + trunk mesenchyme derived from neural crest
+EMAP:0001563 ~ |     | + trunk mesenchyme derived from neural crest lateral migration pathway
+EMAP:0001564 ~ |     | + trunk mesenchyme derived from neural crest medial migration pathway
+EMAP:0015242 ~ |     | \ trunk mesenchyme derived from neural crest non-migrating cells
+EMAP:0001567 ~ |     \ trunk paraxial mesenchyme
+EMAP:0001568 ~ |       \ trunk somite group
+EMAP:0001569 ~ |         + somite 05
+EMAP:0001570 ~ |         | + somite 05 dermomyotome
+EMAP:0001571 ~ |         | + somite 05 myocoele
+EMAP:0001572 ~ |         | \ somite 05 sclerotome
+EMAP:0001573 ~ |         + somite 06
+EMAP:0001574 ~ |         | + somite 06 dermomyotome
+EMAP:0001575 ~ |         | + somite 06 myocoele
+EMAP:0001576 ~ |         | \ somite 06 sclerotome
+EMAP:0001577 ~ |         + somite 07
+EMAP:0001578 ~ |         | + somite 07 dermomyotome
+EMAP:0001579 ~ |         | + somite 07 myocoele
+EMAP:0001580 ~ |         | \ somite 07 sclerotome
+EMAP:0001581 ~ |         + somite 08
+EMAP:0001582 ~ |         | + somite 08 dermomyotome
+EMAP:0001583 ~ |         | + somite 08 myocoele
+EMAP:0001584 ~ |         | \ somite 08 sclerotome
+EMAP:0001585 ~ |         + somite 09
+EMAP:0001586 ~ |         | + somite 09 dermomyotome
+EMAP:0001587 ~ |         | + somite 09 myocoele
+EMAP:0001588 ~ |         | \ somite 09 sclerotome
+EMAP:0001589 ~ |         + somite 10
+EMAP:0001590 ~ |         | + somite 10 dermomyotome
+EMAP:0001591 ~ |         | + somite 10 myocoele
+EMAP:0001592 ~ |         | \ somite 10 sclerotome
+EMAP:0001593 ~ |         + somite 11
+EMAP:0001594 ~ |         | + somite 11 dermomyotome
+EMAP:0001595 ~ |         | + somite 11 myocoele
+EMAP:0001596 ~ |         | \ somite 11 sclerotome
+EMAP:0001597 ~ |         + somite 12
+EMAP:0001598 ~ |         | + somite 12 dermomyotome
+EMAP:0001599 ~ |         | + somite 12 myocoele
+EMAP:0001600 ~ |         | \ somite 12 sclerotome
+EMAP:0001601 ~ |         + somite 13
+EMAP:0001602 ~ |         | + somite 13 dermomyotome
+EMAP:0001603 ~ |         | + somite 13 myocoele
+EMAP:0001604 ~ |         | \ somite 13 sclerotome
+EMAP:0001605 ~ |         + somite 14
+EMAP:0001606 ~ |         | + somite 14 dermomyotome
+EMAP:0001607 ~ |         | + somite 14 myocoele
+EMAP:0001608 ~ |         | \ somite 14 sclerotome
+EMAP:0001609 ~ |         + somite 15
+EMAP:0001610 ~ |         | + somite 15 dermomyotome
+EMAP:0001611 ~ |         | + somite 15 myocoele
+EMAP:0001612 ~ |         | \ somite 15 sclerotome
+EMAP:0001613 ~ |         + somite 16
+EMAP:0001614 ~ |         | + somite 16 dermomyotome
+EMAP:0001615 ~ |         | + somite 16 myocoele
+EMAP:0001616 ~ |         | \ somite 16 sclerotome
+EMAP:0001617 ~ |         + somite 17
+EMAP:0001618 ~ |         | + somite 17 dermomyotome
+EMAP:0001619 ~ |         | + somite 17 myocoele
+EMAP:0001620 ~ |         | \ somite 17 sclerotome
+EMAP:0001621 ~ |         + somite 18
+EMAP:0001622 ~ |         | + somite 18 dermomyotome
+EMAP:0001623 ~ |         | + somite 18 myocoele
+EMAP:0001624 ~ |         | \ somite 18 sclerotome
+EMAP:0001625 ~ |         + somite 19
+EMAP:0001626 ~ |         | + somite 19 dermomyotome
+EMAP:0001627 ~ |         | + somite 19 myocoele
+EMAP:0001628 ~ |         | \ somite 19 sclerotome
+EMAP:0001629 ~ |         + somite 20
+EMAP:0001630 ~ |         | + somite 20 dermomyotome
+EMAP:0001631 ~ |         | + somite 20 myocoele
+EMAP:0001632 ~ |         | \ somite 20 sclerotome
+EMAP:0001633 ~ |         + somite 21
+EMAP:0001634 ~ |         | + somite 21 dermomyotome
+EMAP:0001635 ~ |         | + somite 21 myocoele
+EMAP:0001636 ~ |         | \ somite 21 sclerotome
+EMAP:0001637 ~ |         + somite 22
+EMAP:0001638 ~ |         | + somite 22 dermomyotome
+EMAP:0001639 ~ |         | + somite 22 myocoele
+EMAP:0001640 ~ |         | \ somite 22 sclerotome
+EMAP:0001641 ~ |         + somite 23
+EMAP:0001642 ~ |         | + somite 23 dermomyotome
+EMAP:0001643 ~ |         | + somite 23 myocoele
+EMAP:0001644 ~ |         | \ somite 23 sclerotome
+EMAP:0001645 ~ |         + somite 24
+EMAP:0001646 ~ |         | + somite 24 dermomyotome
+EMAP:0001647 ~ |         | + somite 24 myocoele
+EMAP:0001648 ~ |         | \ somite 24 sclerotome
+EMAP:0001649 ~ |         + somite 25
+EMAP:0001650 ~ |         | + somite 25 dermomyotome
+EMAP:0001651 ~ |         | + somite 25 myocoele
+EMAP:0001652 ~ |         | \ somite 25 sclerotome
+EMAP:0001653 ~ |         + somite 26
+EMAP:0001654 ~ |         | + somite 26 dermomyotome
+EMAP:0001655 ~ |         | + somite 26 myocoele
+EMAP:0001656 ~ |         | \ somite 26 sclerotome
+EMAP:0001657 ~ |         + somite 27
+EMAP:0001658 ~ |         | + somite 27 dermomyotome
+EMAP:0001659 ~ |         | + somite 27 myocoele
+EMAP:0001660 ~ |         | \ somite 27 sclerotome
+EMAP:0001661 ~ |         + somite 28
+EMAP:0001662 ~ |         | + somite 28 dermomyotome
+EMAP:0001663 ~ |         | + somite 28 myocoele
+EMAP:0001664 ~ |         | \ somite 28 sclerotome
+EMAP:0001665 ~ |         + somite 29
+EMAP:0001666 ~ |         | + somite 29 dermomyotome
+EMAP:0001667 ~ |         | + somite 29 myocoele
+EMAP:0001668 ~ |         | \ somite 29 sclerotome
+EMAP:0001669 ~ |         + somite 30
+EMAP:0001670 ~ |         | + somite 30 dermomyotome
+EMAP:0001671 ~ |         | + somite 30 myocoele
+EMAP:0001672 ~ |         | \ somite 30 sclerotome
+EMAP:0029698 ~ |         + trunk dermomyotome group
+EMAP:0001570 ~ |         | + somite 05 dermomyotome
+EMAP:0001574 ~ |         | + somite 06 dermomyotome
+EMAP:0001578 ~ |         | + somite 07 dermomyotome
+EMAP:0001582 ~ |         | + somite 08 dermomyotome
+EMAP:0001586 ~ |         | + somite 09 dermomyotome
+EMAP:0001590 ~ |         | + somite 10 dermomyotome
+EMAP:0001594 ~ |         | + somite 11 dermomyotome
+EMAP:0001598 ~ |         | + somite 12 dermomyotome
+EMAP:0001602 ~ |         | + somite 13 dermomyotome
+EMAP:0001606 ~ |         | + somite 14 dermomyotome
+EMAP:0001610 ~ |         | + somite 15 dermomyotome
+EMAP:0001614 ~ |         | + somite 16 dermomyotome
+EMAP:0001618 ~ |         | + somite 17 dermomyotome
+EMAP:0001622 ~ |         | + somite 18 dermomyotome
+EMAP:0001626 ~ |         | + somite 19 dermomyotome
+EMAP:0001630 ~ |         | + somite 20 dermomyotome
+EMAP:0001634 ~ |         | + somite 21 dermomyotome
+EMAP:0001638 ~ |         | + somite 22 dermomyotome
+EMAP:0001642 ~ |         | + somite 23 dermomyotome
+EMAP:0001646 ~ |         | + somite 24 dermomyotome
+EMAP:0001650 ~ |         | + somite 25 dermomyotome
+EMAP:0001654 ~ |         | + somite 26 dermomyotome
+EMAP:0001658 ~ |         | + somite 27 dermomyotome
+EMAP:0001662 ~ |         | + somite 28 dermomyotome
+EMAP:0001666 ~ |         | + somite 29 dermomyotome
+EMAP:0001670 ~ |         | + somite 30 dermomyotome
+EMAP:0034153 ~ |         | + trunk dermatome
+EMAP:0034175 ~ |         | \ trunk myotome
+EMAP:0031181 ~ |         + trunk myocoele group
+EMAP:0001571 ~ |         | + somite 05 myocoele
+EMAP:0001575 ~ |         | + somite 06 myocoele
+EMAP:0001579 ~ |         | + somite 07 myocoele
+EMAP:0001583 ~ |         | + somite 08 myocoele
+EMAP:0001587 ~ |         | + somite 09 myocoele
+EMAP:0001591 ~ |         | + somite 10 myocoele
+EMAP:0001595 ~ |         | + somite 11 myocoele
+EMAP:0001599 ~ |         | + somite 12 myocoele
+EMAP:0001603 ~ |         | + somite 13 myocoele
+EMAP:0001607 ~ |         | + somite 14 myocoele
+EMAP:0001611 ~ |         | + somite 15 myocoele
+EMAP:0001615 ~ |         | + somite 16 myocoele
+EMAP:0001619 ~ |         | + somite 17 myocoele
+EMAP:0001623 ~ |         | + somite 18 myocoele
+EMAP:0001627 ~ |         | + somite 19 myocoele
+EMAP:0001631 ~ |         | + somite 20 myocoele
+EMAP:0001635 ~ |         | + somite 21 myocoele
+EMAP:0001639 ~ |         | + somite 22 myocoele
+EMAP:0001643 ~ |         | + somite 23 myocoele
+EMAP:0001647 ~ |         | + somite 24 myocoele
+EMAP:0001651 ~ |         | + somite 25 myocoele
+EMAP:0001655 ~ |         | + somite 26 myocoele
+EMAP:0001659 ~ |         | + somite 27 myocoele
+EMAP:0001663 ~ |         | + somite 28 myocoele
+EMAP:0001667 ~ |         | + somite 29 myocoele
+EMAP:0001671 ~ |         | \ somite 30 myocoele
+EMAP:0031147 ~ |         \ trunk sclerotome group
+EMAP:0001572 ~ |           + somite 05 sclerotome
+EMAP:0001576 ~ |           + somite 06 sclerotome
+EMAP:0001580 ~ |           + somite 07 sclerotome
+EMAP:0001584 ~ |           + somite 08 sclerotome
+EMAP:0001588 ~ |           + somite 09 sclerotome
+EMAP:0001592 ~ |           + somite 10 sclerotome
+EMAP:0001596 ~ |           + somite 11 sclerotome
+EMAP:0001600 ~ |           + somite 12 sclerotome
+EMAP:0001604 ~ |           + somite 13 sclerotome
+EMAP:0001608 ~ |           + somite 14 sclerotome
+EMAP:0001612 ~ |           + somite 15 sclerotome
+EMAP:0001616 ~ |           + somite 16 sclerotome
+EMAP:0001620 ~ |           + somite 17 sclerotome
+EMAP:0001624 ~ |           + somite 18 sclerotome
+EMAP:0001628 ~ |           + somite 19 sclerotome
+EMAP:0001632 ~ |           + somite 20 sclerotome
+EMAP:0001636 ~ |           + somite 21 sclerotome
+EMAP:0001640 ~ |           + somite 22 sclerotome
+EMAP:0001644 ~ |           + somite 23 sclerotome
+EMAP:0001648 ~ |           + somite 24 sclerotome
+EMAP:0001652 ~ |           + somite 25 sclerotome
+EMAP:0001656 ~ |           + somite 26 sclerotome
+EMAP:0001660 ~ |           + somite 27 sclerotome
+EMAP:0001664 ~ |           + somite 28 sclerotome
+EMAP:0001668 ~ |           + somite 29 sclerotome
+EMAP:0001672 ~ |           \ somite 30 sclerotome
+EMAP:0034979   + endoderm
+EMAP:0033655   + epithelium
+EMAP:0001998   + extraembryonic component
+EMAP:0032089   | + amnion
+EMAP:0032075   | | \ amnion ectoderm
+EMAP:0031993   | + chorioallantoic placenta
+EMAP:0031979   | | \ chorionic plate
+EMAP:0032060   | + chorion
+EMAP:0032199   | + extraembryonic component cavities
+EMAP:0032128   | | + amniotic cavity
+EMAP:0032122   | | + exocoelomic cavity
+EMAP:0032185   | | \ yolk sac cavity
+EMAP:0032227   | + extraembryonic endoderm
+EMAP:0032213   | | \ parietal endoderm
+EMAP:0032247   | |   \ Reichert's membrane
+EMAP:0001999   | + extraembryonic vascular system
+EMAP:0002000   | | + extraembryonic arterial system
+EMAP:0002001   | | | \ umbilical artery extraembryonic part
+EMAP:0002002   | | |   \ common umbilical artery
+EMAP:0033615   | | + extraembryonic blood vessel
+EMAP:0002003   | | \ extraembryonic venous system
+EMAP:0002004   | |   \ umbilical vein extraembryonic part
+EMAP:0002005   | |     \ common umbilical vein
+EMAP:0032142   | + trophectoderm
+EMAP:0032030   | | + labyrinthine zone
+EMAP:0032156   | | + polar trophectoderm
+EMAP:0032241   | | | \ ectoplacental cone
+EMAP:0032179   | | |   + cytotrophoblast
+EMAP:0032173   | | |   \ syncytiotrophoblast
+EMAP:0032013   | | \ spongiotrophoblast
+EMAP:0026116   | + umbilical cord
+EMAP:0026128   | | + umbilical cord mesenchyme
+EMAP:0026140   | | \ vitelline duct
+EMAP:0026152   | |   \ vitelline vein vitelline duct part
+EMAP:0031067   | \ yolk sac
+EMAP:0031927   |   + yolk sac blood vessel
+EMAP:0031081   |   + yolk sac endoderm
+EMAP:0031095   |   \ yolk sac mesenchyme
+EMAP:0031898   + head
+EMAP:0001558   | \ head mesenchyme
+EMAP:0001560   |   + head mesenchyme derived from neural crest
+EMAP:0001559   |   \ mesenchyme derived from head mesoderm
+EMAP:0015251   |     \ mesenchyme derived from somites 01-04
+EMAP:0001549   + limb
+EMAP:0001550   | + forelimb bud
+EMAP:0001551   | | + forelimb bud ectoderm
+EMAP:0001552   | | | \ forelimb bud apical ectodermal ridge
+EMAP:0001553   | | \ forelimb bud mesenchyme
+EMAP:0001554   | + hindlimb bud
+EMAP:0001555   | | + hindlimb bud ectoderm
+EMAP:0001556   | | \ hindlimb bud mesenchyme
+EMAP:0033458   | + limb ectoderm
+EMAP:0033705   | | \ apical ectodermal ridge
+EMAP:0001552   | |   \ forelimb bud apical ectodermal ridge
+EMAP:0033441   | \ limb mesenchyme
+EMAP:0001557   + mesenchyme
+EMAP:0001558   | + head mesenchyme
+EMAP:0001560   | | + head mesenchyme derived from neural crest
+EMAP:0001559   | | \ mesenchyme derived from head mesoderm
+EMAP:0015251   | |   \ mesenchyme derived from somites 01-04
+EMAP:0033631   | + mesenchyme derived from neural crest
+EMAP:0033817   | + paraxial mesenchyme
+EMAP:0031174   | | + somite group
+EMAP:0031112   | | | + dermomyotome group
+EMAP:0034138   | | | | + dermatome
+EMAP:0034159   | | | | + myotome
+EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001973 > | | | | | + somite 31 dermomyotome
+EMAP:0001977 > | | | | | + somite 32 dermomyotome
+EMAP:0001981 > | | | | | + somite 33 dermomyotome
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
+EMAP:0001989 > | | | | | \ somite 35 dermomyotome
+EMAP:0029698   | | | | \ trunk dermomyotome group
+EMAP:0001570   | | | |   + somite 05 dermomyotome
+EMAP:0001574   | | | |   + somite 06 dermomyotome
+EMAP:0001578   | | | |   + somite 07 dermomyotome
+EMAP:0001582   | | | |   + somite 08 dermomyotome
+EMAP:0001586   | | | |   + somite 09 dermomyotome
+EMAP:0001590   | | | |   + somite 10 dermomyotome
+EMAP:0001594   | | | |   + somite 11 dermomyotome
+EMAP:0001598   | | | |   + somite 12 dermomyotome
+EMAP:0001602   | | | |   + somite 13 dermomyotome
+EMAP:0001606   | | | |   + somite 14 dermomyotome
+EMAP:0001610   | | | |   + somite 15 dermomyotome
+EMAP:0001614   | | | |   + somite 16 dermomyotome
+EMAP:0001618   | | | |   + somite 17 dermomyotome
+EMAP:0001622   | | | |   + somite 18 dermomyotome
+EMAP:0001626   | | | |   + somite 19 dermomyotome
+EMAP:0001630   | | | |   + somite 20 dermomyotome
+EMAP:0001634   | | | |   + somite 21 dermomyotome
+EMAP:0001638   | | | |   + somite 22 dermomyotome
+EMAP:0001642   | | | |   + somite 23 dermomyotome
+EMAP:0001646   | | | |   + somite 24 dermomyotome
+EMAP:0001650   | | | |   + somite 25 dermomyotome
+EMAP:0001654   | | | |   + somite 26 dermomyotome
+EMAP:0001658   | | | |   + somite 27 dermomyotome
+EMAP:0001662   | | | |   + somite 28 dermomyotome
+EMAP:0001666   | | | |   + somite 29 dermomyotome
+EMAP:0001670   | | | |   + somite 30 dermomyotome
+EMAP:0034153   | | | |   + trunk dermatome
+EMAP:0034175   | | | |   \ trunk myotome
+EMAP:0031162   | | | + sclerotome group
+EMAP:0031152 G | | | | + tail sclerotome group
+EMAP:0001975 > | | | | | + somite 31 sclerotome
+EMAP:0001979 > | | | | | + somite 32 sclerotome
+EMAP:0001983 > | | | | | + somite 33 sclerotome
+EMAP:0001987 > | | | | | + somite 34 sclerotome
+EMAP:0001991 > | | | | | \ somite 35 sclerotome
+EMAP:0031147   | | | | \ trunk sclerotome group
+EMAP:0001572   | | | |   + somite 05 sclerotome
+EMAP:0001576   | | | |   + somite 06 sclerotome
+EMAP:0001580   | | | |   + somite 07 sclerotome
+EMAP:0001584   | | | |   + somite 08 sclerotome
+EMAP:0001588   | | | |   + somite 09 sclerotome
+EMAP:0001592   | | | |   + somite 10 sclerotome
+EMAP:0001596   | | | |   + somite 11 sclerotome
+EMAP:0001600   | | | |   + somite 12 sclerotome
+EMAP:0001604   | | | |   + somite 13 sclerotome
+EMAP:0001608   | | | |   + somite 14 sclerotome
+EMAP:0001612   | | | |   + somite 15 sclerotome
+EMAP:0001616   | | | |   + somite 16 sclerotome
+EMAP:0001620   | | | |   + somite 17 sclerotome
+EMAP:0001624   | | | |   + somite 18 sclerotome
+EMAP:0001628   | | | |   + somite 19 sclerotome
+EMAP:0001632   | | | |   + somite 20 sclerotome
+EMAP:0001636   | | | |   + somite 21 sclerotome
+EMAP:0001640   | | | |   + somite 22 sclerotome
+EMAP:0001644   | | | |   + somite 23 sclerotome
+EMAP:0001648   | | | |   + somite 24 sclerotome
+EMAP:0001652   | | | |   + somite 25 sclerotome
+EMAP:0001656   | | | |   + somite 26 sclerotome
+EMAP:0001660   | | | |   + somite 27 sclerotome
+EMAP:0001664   | | | |   + somite 28 sclerotome
+EMAP:0001668   | | | |   + somite 29 sclerotome
+EMAP:0001672   | | | |   \ somite 30 sclerotome
+EMAP:0001971   | | | + tail somite group
+EMAP:0001972   | | | | + somite 31
+EMAP:0001973   | | | | | + somite 31 dermomyotome
+EMAP:0001974   | | | | | + somite 31 myocoele
+EMAP:0001975   | | | | | \ somite 31 sclerotome
+EMAP:0001976   | | | | + somite 32
+EMAP:0001977   | | | | | + somite 32 dermomyotome
+EMAP:0001978   | | | | | + somite 32 myocoele
+EMAP:0001979   | | | | | \ somite 32 sclerotome
+EMAP:0001980   | | | | + somite 33
+EMAP:0001981   | | | | | + somite 33 dermomyotome
+EMAP:0001982   | | | | | + somite 33 myocoele
+EMAP:0001983   | | | | | \ somite 33 sclerotome
+EMAP:0001984   | | | | + somite 34
+EMAP:0001985   | | | | | + somite 34 dermomyotome
+EMAP:0001986   | | | | | + somite 34 myocoele
+EMAP:0001987   | | | | | \ somite 34 sclerotome
+EMAP:0001988   | | | | + somite 35
+EMAP:0001989   | | | | | + somite 35 dermomyotome
+EMAP:0001990   | | | | | + somite 35 myocoele
+EMAP:0001991   | | | | | \ somite 35 sclerotome
+EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001973 > | | | | | + somite 31 dermomyotome
+EMAP:0001977 > | | | | | + somite 32 dermomyotome
+EMAP:0001981 > | | | | | + somite 33 dermomyotome
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
+EMAP:0001989 > | | | | | \ somite 35 dermomyotome
+EMAP:0031127 G | | | | + tail myocoele group
+EMAP:0001974 > | | | | | + somite 31 myocoele
+EMAP:0001978 > | | | | | + somite 32 myocoele
+EMAP:0001982 > | | | | | + somite 33 myocoele
+EMAP:0001986 > | | | | | + somite 34 myocoele
+EMAP:0001990 > | | | | | \ somite 35 myocoele
+EMAP:0031152 G | | | | \ tail sclerotome group
+EMAP:0001975 > | | | |   + somite 31 sclerotome
+EMAP:0001979 > | | | |   + somite 32 sclerotome
+EMAP:0001983 > | | | |   + somite 33 sclerotome
+EMAP:0001987 > | | | |   + somite 34 sclerotome
+EMAP:0001991 > | | | |   \ somite 35 sclerotome
+EMAP:0001568   | | | \ trunk somite group
+EMAP:0001569   | | |   + somite 05
+EMAP:0001570   | | |   | + somite 05 dermomyotome
+EMAP:0001571   | | |   | + somite 05 myocoele
+EMAP:0001572   | | |   | \ somite 05 sclerotome
+EMAP:0001573   | | |   + somite 06
+EMAP:0001574   | | |   | + somite 06 dermomyotome
+EMAP:0001575   | | |   | + somite 06 myocoele
+EMAP:0001576   | | |   | \ somite 06 sclerotome
+EMAP:0001577   | | |   + somite 07
+EMAP:0001578   | | |   | + somite 07 dermomyotome
+EMAP:0001579   | | |   | + somite 07 myocoele
+EMAP:0001580   | | |   | \ somite 07 sclerotome
+EMAP:0001581   | | |   + somite 08
+EMAP:0001582   | | |   | + somite 08 dermomyotome
+EMAP:0001583   | | |   | + somite 08 myocoele
+EMAP:0001584   | | |   | \ somite 08 sclerotome
+EMAP:0001585   | | |   + somite 09
+EMAP:0001586   | | |   | + somite 09 dermomyotome
+EMAP:0001587   | | |   | + somite 09 myocoele
+EMAP:0001588   | | |   | \ somite 09 sclerotome
+EMAP:0001589   | | |   + somite 10
+EMAP:0001590   | | |   | + somite 10 dermomyotome
+EMAP:0001591   | | |   | + somite 10 myocoele
+EMAP:0001592   | | |   | \ somite 10 sclerotome
+EMAP:0001593   | | |   + somite 11
+EMAP:0001594   | | |   | + somite 11 dermomyotome
+EMAP:0001595   | | |   | + somite 11 myocoele
+EMAP:0001596   | | |   | \ somite 11 sclerotome
+EMAP:0001597   | | |   + somite 12
+EMAP:0001598   | | |   | + somite 12 dermomyotome
+EMAP:0001599   | | |   | + somite 12 myocoele
+EMAP:0001600   | | |   | \ somite 12 sclerotome
+EMAP:0001601   | | |   + somite 13
+EMAP:0001602   | | |   | + somite 13 dermomyotome
+EMAP:0001603   | | |   | + somite 13 myocoele
+EMAP:0001604   | | |   | \ somite 13 sclerotome
+EMAP:0001605   | | |   + somite 14
+EMAP:0001606   | | |   | + somite 14 dermomyotome
+EMAP:0001607   | | |   | + somite 14 myocoele
+EMAP:0001608   | | |   | \ somite 14 sclerotome
+EMAP:0001609   | | |   + somite 15
+EMAP:0001610   | | |   | + somite 15 dermomyotome
+EMAP:0001611   | | |   | + somite 15 myocoele
+EMAP:0001612   | | |   | \ somite 15 sclerotome
+EMAP:0001613   | | |   + somite 16
+EMAP:0001614   | | |   | + somite 16 dermomyotome
+EMAP:0001615   | | |   | + somite 16 myocoele
+EMAP:0001616   | | |   | \ somite 16 sclerotome
+EMAP:0001617   | | |   + somite 17
+EMAP:0001618   | | |   | + somite 17 dermomyotome
+EMAP:0001619   | | |   | + somite 17 myocoele
+EMAP:0001620   | | |   | \ somite 17 sclerotome
+EMAP:0001621   | | |   + somite 18
+EMAP:0001622   | | |   | + somite 18 dermomyotome
+EMAP:0001623   | | |   | + somite 18 myocoele
+EMAP:0001624   | | |   | \ somite 18 sclerotome
+EMAP:0001625   | | |   + somite 19
+EMAP:0001626   | | |   | + somite 19 dermomyotome
+EMAP:0001627   | | |   | + somite 19 myocoele
+EMAP:0001628   | | |   | \ somite 19 sclerotome
+EMAP:0001629   | | |   + somite 20
+EMAP:0001630   | | |   | + somite 20 dermomyotome
+EMAP:0001631   | | |   | + somite 20 myocoele
+EMAP:0001632   | | |   | \ somite 20 sclerotome
+EMAP:0001633   | | |   + somite 21
+EMAP:0001634   | | |   | + somite 21 dermomyotome
+EMAP:0001635   | | |   | + somite 21 myocoele
+EMAP:0001636   | | |   | \ somite 21 sclerotome
+EMAP:0001637   | | |   + somite 22
+EMAP:0001638   | | |   | + somite 22 dermomyotome
+EMAP:0001639   | | |   | + somite 22 myocoele
+EMAP:0001640   | | |   | \ somite 22 sclerotome
+EMAP:0001641   | | |   + somite 23
+EMAP:0001642   | | |   | + somite 23 dermomyotome
+EMAP:0001643   | | |   | + somite 23 myocoele
+EMAP:0001644   | | |   | \ somite 23 sclerotome
+EMAP:0001645   | | |   + somite 24
+EMAP:0001646   | | |   | + somite 24 dermomyotome
+EMAP:0001647   | | |   | + somite 24 myocoele
+EMAP:0001648   | | |   | \ somite 24 sclerotome
+EMAP:0001649   | | |   + somite 25
+EMAP:0001650   | | |   | + somite 25 dermomyotome
+EMAP:0001651   | | |   | + somite 25 myocoele
+EMAP:0001652   | | |   | \ somite 25 sclerotome
+EMAP:0001653   | | |   + somite 26
+EMAP:0001654   | | |   | + somite 26 dermomyotome
+EMAP:0001655   | | |   | + somite 26 myocoele
+EMAP:0001656   | | |   | \ somite 26 sclerotome
+EMAP:0001657   | | |   + somite 27
+EMAP:0001658   | | |   | + somite 27 dermomyotome
+EMAP:0001659   | | |   | + somite 27 myocoele
+EMAP:0001660   | | |   | \ somite 27 sclerotome
+EMAP:0001661   | | |   + somite 28
+EMAP:0001662   | | |   | + somite 28 dermomyotome
+EMAP:0001663   | | |   | + somite 28 myocoele
+EMAP:0001664   | | |   | \ somite 28 sclerotome
+EMAP:0001665   | | |   + somite 29
+EMAP:0001666   | | |   | + somite 29 dermomyotome
+EMAP:0001667   | | |   | + somite 29 myocoele
+EMAP:0001668   | | |   | \ somite 29 sclerotome
+EMAP:0001669   | | |   + somite 30
+EMAP:0001670   | | |   | + somite 30 dermomyotome
+EMAP:0001671   | | |   | + somite 30 myocoele
+EMAP:0001672   | | |   | \ somite 30 sclerotome
+EMAP:0029698   | | |   + trunk dermomyotome group
+EMAP:0001570   | | |   | + somite 05 dermomyotome
+EMAP:0001574   | | |   | + somite 06 dermomyotome
+EMAP:0001578   | | |   | + somite 07 dermomyotome
+EMAP:0001582   | | |   | + somite 08 dermomyotome
+EMAP:0001586   | | |   | + somite 09 dermomyotome
+EMAP:0001590   | | |   | + somite 10 dermomyotome
+EMAP:0001594   | | |   | + somite 11 dermomyotome
+EMAP:0001598   | | |   | + somite 12 dermomyotome
+EMAP:0001602   | | |   | + somite 13 dermomyotome
+EMAP:0001606   | | |   | + somite 14 dermomyotome
+EMAP:0001610   | | |   | + somite 15 dermomyotome
+EMAP:0001614   | | |   | + somite 16 dermomyotome
+EMAP:0001618   | | |   | + somite 17 dermomyotome
+EMAP:0001622   | | |   | + somite 18 dermomyotome
+EMAP:0001626   | | |   | + somite 19 dermomyotome
+EMAP:0001630   | | |   | + somite 20 dermomyotome
+EMAP:0001634   | | |   | + somite 21 dermomyotome
+EMAP:0001638   | | |   | + somite 22 dermomyotome
+EMAP:0001642   | | |   | + somite 23 dermomyotome
+EMAP:0001646   | | |   | + somite 24 dermomyotome
+EMAP:0001650   | | |   | + somite 25 dermomyotome
+EMAP:0001654   | | |   | + somite 26 dermomyotome
+EMAP:0001658   | | |   | + somite 27 dermomyotome
+EMAP:0001662   | | |   | + somite 28 dermomyotome
+EMAP:0001666   | | |   | + somite 29 dermomyotome
+EMAP:0001670   | | |   | + somite 30 dermomyotome
+EMAP:0034153   | | |   | + trunk dermatome
+EMAP:0034175   | | |   | \ trunk myotome
+EMAP:0031181   | | |   + trunk myocoele group
+EMAP:0001571   | | |   | + somite 05 myocoele
+EMAP:0001575   | | |   | + somite 06 myocoele
+EMAP:0001579   | | |   | + somite 07 myocoele
+EMAP:0001583   | | |   | + somite 08 myocoele
+EMAP:0001587   | | |   | + somite 09 myocoele
+EMAP:0001591   | | |   | + somite 10 myocoele
+EMAP:0001595   | | |   | + somite 11 myocoele
+EMAP:0001599   | | |   | + somite 12 myocoele
+EMAP:0001603   | | |   | + somite 13 myocoele
+EMAP:0001607   | | |   | + somite 14 myocoele
+EMAP:0001611   | | |   | + somite 15 myocoele
+EMAP:0001615   | | |   | + somite 16 myocoele
+EMAP:0001619   | | |   | + somite 17 myocoele
+EMAP:0001623   | | |   | + somite 18 myocoele
+EMAP:0001627   | | |   | + somite 19 myocoele
+EMAP:0001631   | | |   | + somite 20 myocoele
+EMAP:0001635   | | |   | + somite 21 myocoele
+EMAP:0001639   | | |   | + somite 22 myocoele
+EMAP:0001643   | | |   | + somite 23 myocoele
+EMAP:0001647   | | |   | + somite 24 myocoele
+EMAP:0001651   | | |   | + somite 25 myocoele
+EMAP:0001655   | | |   | + somite 26 myocoele
+EMAP:0001659   | | |   | + somite 27 myocoele
+EMAP:0001663   | | |   | + somite 28 myocoele
+EMAP:0001667   | | |   | + somite 29 myocoele
+EMAP:0001671   | | |   | \ somite 30 myocoele
+EMAP:0031147   | | |   \ trunk sclerotome group
+EMAP:0001572   | | |     + somite 05 sclerotome
+EMAP:0001576   | | |     + somite 06 sclerotome
+EMAP:0001580   | | |     + somite 07 sclerotome
+EMAP:0001584   | | |     + somite 08 sclerotome
+EMAP:0001588   | | |     + somite 09 sclerotome
+EMAP:0001592   | | |     + somite 10 sclerotome
+EMAP:0001596   | | |     + somite 11 sclerotome
+EMAP:0001600   | | |     + somite 12 sclerotome
+EMAP:0001604   | | |     + somite 13 sclerotome
+EMAP:0001608   | | |     + somite 14 sclerotome
+EMAP:0001612   | | |     + somite 15 sclerotome
+EMAP:0001616   | | |     + somite 16 sclerotome
+EMAP:0001620   | | |     + somite 17 sclerotome
+EMAP:0001624   | | |     + somite 18 sclerotome
+EMAP:0001628   | | |     + somite 19 sclerotome
+EMAP:0001632   | | |     + somite 20 sclerotome
+EMAP:0001636   | | |     + somite 21 sclerotome
+EMAP:0001640   | | |     + somite 22 sclerotome
+EMAP:0001644   | | |     + somite 23 sclerotome
+EMAP:0001648   | | |     + somite 24 sclerotome
+EMAP:0001652   | | |     + somite 25 sclerotome
+EMAP:0001656   | | |     + somite 26 sclerotome
+EMAP:0001660   | | |     + somite 27 sclerotome
+EMAP:0001664   | | |     + somite 28 sclerotome
+EMAP:0001668   | | |     + somite 29 sclerotome
+EMAP:0001672   | | |     \ somite 30 sclerotome
+EMAP:0001970   | | + tail paraxial mesenchyme
+EMAP:0001971   | | | + tail somite group
+EMAP:0001972   | | | | + somite 31
+EMAP:0001973   | | | | | + somite 31 dermomyotome
+EMAP:0001974   | | | | | + somite 31 myocoele
+EMAP:0001975   | | | | | \ somite 31 sclerotome
+EMAP:0001976   | | | | + somite 32
+EMAP:0001977   | | | | | + somite 32 dermomyotome
+EMAP:0001978   | | | | | + somite 32 myocoele
+EMAP:0001979   | | | | | \ somite 32 sclerotome
+EMAP:0001980   | | | | + somite 33
+EMAP:0001981   | | | | | + somite 33 dermomyotome
+EMAP:0001982   | | | | | + somite 33 myocoele
+EMAP:0001983   | | | | | \ somite 33 sclerotome
+EMAP:0001984   | | | | + somite 34
+EMAP:0001985   | | | | | + somite 34 dermomyotome
+EMAP:0001986   | | | | | + somite 34 myocoele
+EMAP:0001987   | | | | | \ somite 34 sclerotome
+EMAP:0001988   | | | | + somite 35
+EMAP:0001989   | | | | | + somite 35 dermomyotome
+EMAP:0001990   | | | | | + somite 35 myocoele
+EMAP:0001991   | | | | | \ somite 35 sclerotome
+EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001973 > | | | | | + somite 31 dermomyotome
+EMAP:0001977 > | | | | | + somite 32 dermomyotome
+EMAP:0001981 > | | | | | + somite 33 dermomyotome
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
+EMAP:0001989 > | | | | | \ somite 35 dermomyotome
+EMAP:0031127 G | | | | + tail myocoele group
+EMAP:0001974 > | | | | | + somite 31 myocoele
+EMAP:0001978 > | | | | | + somite 32 myocoele
+EMAP:0001982 > | | | | | + somite 33 myocoele
+EMAP:0001986 > | | | | | + somite 34 myocoele
+EMAP:0001990 > | | | | | \ somite 35 myocoele
+EMAP:0031152 G | | | | \ tail sclerotome group
+EMAP:0001975 > | | | |   + somite 31 sclerotome
+EMAP:0001979 > | | | |   + somite 32 sclerotome
+EMAP:0001983 > | | | |   + somite 33 sclerotome
+EMAP:0001987 > | | | |   + somite 34 sclerotome
+EMAP:0001991 > | | | |   \ somite 35 sclerotome
+EMAP:0001992   | | | \ unsegmented mesenchyme
+EMAP:0001567   | | \ trunk paraxial mesenchyme
+EMAP:0001568   | |   \ trunk somite group
+EMAP:0001569   | |     + somite 05
+EMAP:0001570   | |     | + somite 05 dermomyotome
+EMAP:0001571   | |     | + somite 05 myocoele
+EMAP:0001572   | |     | \ somite 05 sclerotome
+EMAP:0001573   | |     + somite 06
+EMAP:0001574   | |     | + somite 06 dermomyotome
+EMAP:0001575   | |     | + somite 06 myocoele
+EMAP:0001576   | |     | \ somite 06 sclerotome
+EMAP:0001577   | |     + somite 07
+EMAP:0001578   | |     | + somite 07 dermomyotome
+EMAP:0001579   | |     | + somite 07 myocoele
+EMAP:0001580   | |     | \ somite 07 sclerotome
+EMAP:0001581   | |     + somite 08
+EMAP:0001582   | |     | + somite 08 dermomyotome
+EMAP:0001583   | |     | + somite 08 myocoele
+EMAP:0001584   | |     | \ somite 08 sclerotome
+EMAP:0001585   | |     + somite 09
+EMAP:0001586   | |     | + somite 09 dermomyotome
+EMAP:0001587   | |     | + somite 09 myocoele
+EMAP:0001588   | |     | \ somite 09 sclerotome
+EMAP:0001589   | |     + somite 10
+EMAP:0001590   | |     | + somite 10 dermomyotome
+EMAP:0001591   | |     | + somite 10 myocoele
+EMAP:0001592   | |     | \ somite 10 sclerotome
+EMAP:0001593   | |     + somite 11
+EMAP:0001594   | |     | + somite 11 dermomyotome
+EMAP:0001595   | |     | + somite 11 myocoele
+EMAP:0001596   | |     | \ somite 11 sclerotome
+EMAP:0001597   | |     + somite 12
+EMAP:0001598   | |     | + somite 12 dermomyotome
+EMAP:0001599   | |     | + somite 12 myocoele
+EMAP:0001600   | |     | \ somite 12 sclerotome
+EMAP:0001601   | |     + somite 13
+EMAP:0001602   | |     | + somite 13 dermomyotome
+EMAP:0001603   | |     | + somite 13 myocoele
+EMAP:0001604   | |     | \ somite 13 sclerotome
+EMAP:0001605   | |     + somite 14
+EMAP:0001606   | |     | + somite 14 dermomyotome
+EMAP:0001607   | |     | + somite 14 myocoele
+EMAP:0001608   | |     | \ somite 14 sclerotome
+EMAP:0001609   | |     + somite 15
+EMAP:0001610   | |     | + somite 15 dermomyotome
+EMAP:0001611   | |     | + somite 15 myocoele
+EMAP:0001612   | |     | \ somite 15 sclerotome
+EMAP:0001613   | |     + somite 16
+EMAP:0001614   | |     | + somite 16 dermomyotome
+EMAP:0001615   | |     | + somite 16 myocoele
+EMAP:0001616   | |     | \ somite 16 sclerotome
+EMAP:0001617   | |     + somite 17
+EMAP:0001618   | |     | + somite 17 dermomyotome
+EMAP:0001619   | |     | + somite 17 myocoele
+EMAP:0001620   | |     | \ somite 17 sclerotome
+EMAP:0001621   | |     + somite 18
+EMAP:0001622   | |     | + somite 18 dermomyotome
+EMAP:0001623   | |     | + somite 18 myocoele
+EMAP:0001624   | |     | \ somite 18 sclerotome
+EMAP:0001625   | |     + somite 19
+EMAP:0001626   | |     | + somite 19 dermomyotome
+EMAP:0001627   | |     | + somite 19 myocoele
+EMAP:0001628   | |     | \ somite 19 sclerotome
+EMAP:0001629   | |     + somite 20
+EMAP:0001630   | |     | + somite 20 dermomyotome
+EMAP:0001631   | |     | + somite 20 myocoele
+EMAP:0001632   | |     | \ somite 20 sclerotome
+EMAP:0001633   | |     + somite 21
+EMAP:0001634   | |     | + somite 21 dermomyotome
+EMAP:0001635   | |     | + somite 21 myocoele
+EMAP:0001636   | |     | \ somite 21 sclerotome
+EMAP:0001637   | |     + somite 22
+EMAP:0001638   | |     | + somite 22 dermomyotome
+EMAP:0001639   | |     | + somite 22 myocoele
+EMAP:0001640   | |     | \ somite 22 sclerotome
+EMAP:0001641   | |     + somite 23
+EMAP:0001642   | |     | + somite 23 dermomyotome
+EMAP:0001643   | |     | + somite 23 myocoele
+EMAP:0001644   | |     | \ somite 23 sclerotome
+EMAP:0001645   | |     + somite 24
+EMAP:0001646   | |     | + somite 24 dermomyotome
+EMAP:0001647   | |     | + somite 24 myocoele
+EMAP:0001648   | |     | \ somite 24 sclerotome
+EMAP:0001649   | |     + somite 25
+EMAP:0001650   | |     | + somite 25 dermomyotome
+EMAP:0001651   | |     | + somite 25 myocoele
+EMAP:0001652   | |     | \ somite 25 sclerotome
+EMAP:0001653   | |     + somite 26
+EMAP:0001654   | |     | + somite 26 dermomyotome
+EMAP:0001655   | |     | + somite 26 myocoele
+EMAP:0001656   | |     | \ somite 26 sclerotome
+EMAP:0001657   | |     + somite 27
+EMAP:0001658   | |     | + somite 27 dermomyotome
+EMAP:0001659   | |     | + somite 27 myocoele
+EMAP:0001660   | |     | \ somite 27 sclerotome
+EMAP:0001661   | |     + somite 28
+EMAP:0001662   | |     | + somite 28 dermomyotome
+EMAP:0001663   | |     | + somite 28 myocoele
+EMAP:0001664   | |     | \ somite 28 sclerotome
+EMAP:0001665   | |     + somite 29
+EMAP:0001666   | |     | + somite 29 dermomyotome
+EMAP:0001667   | |     | + somite 29 myocoele
+EMAP:0001668   | |     | \ somite 29 sclerotome
+EMAP:0001669   | |     + somite 30
+EMAP:0001670   | |     | + somite 30 dermomyotome
+EMAP:0001671   | |     | + somite 30 myocoele
+EMAP:0001672   | |     | \ somite 30 sclerotome
+EMAP:0029698   | |     + trunk dermomyotome group
+EMAP:0001570   | |     | + somite 05 dermomyotome
+EMAP:0001574   | |     | + somite 06 dermomyotome
+EMAP:0001578   | |     | + somite 07 dermomyotome
+EMAP:0001582   | |     | + somite 08 dermomyotome
+EMAP:0001586   | |     | + somite 09 dermomyotome
+EMAP:0001590   | |     | + somite 10 dermomyotome
+EMAP:0001594   | |     | + somite 11 dermomyotome
+EMAP:0001598   | |     | + somite 12 dermomyotome
+EMAP:0001602   | |     | + somite 13 dermomyotome
+EMAP:0001606   | |     | + somite 14 dermomyotome
+EMAP:0001610   | |     | + somite 15 dermomyotome
+EMAP:0001614   | |     | + somite 16 dermomyotome
+EMAP:0001618   | |     | + somite 17 dermomyotome
+EMAP:0001622   | |     | + somite 18 dermomyotome
+EMAP:0001626   | |     | + somite 19 dermomyotome
+EMAP:0001630   | |     | + somite 20 dermomyotome
+EMAP:0001634   | |     | + somite 21 dermomyotome
+EMAP:0001638   | |     | + somite 22 dermomyotome
+EMAP:0001642   | |     | + somite 23 dermomyotome
+EMAP:0001646   | |     | + somite 24 dermomyotome
+EMAP:0001650   | |     | + somite 25 dermomyotome
+EMAP:0001654   | |     | + somite 26 dermomyotome
+EMAP:0001658   | |     | + somite 27 dermomyotome
+EMAP:0001662   | |     | + somite 28 dermomyotome
+EMAP:0001666   | |     | + somite 29 dermomyotome
+EMAP:0001670   | |     | + somite 30 dermomyotome
+EMAP:0034153   | |     | + trunk dermatome
+EMAP:0034175   | |     | \ trunk myotome
+EMAP:0031181   | |     + trunk myocoele group
+EMAP:0001571   | |     | + somite 05 myocoele
+EMAP:0001575   | |     | + somite 06 myocoele
+EMAP:0001579   | |     | + somite 07 myocoele
+EMAP:0001583   | |     | + somite 08 myocoele
+EMAP:0001587   | |     | + somite 09 myocoele
+EMAP:0001591   | |     | + somite 10 myocoele
+EMAP:0001595   | |     | + somite 11 myocoele
+EMAP:0001599   | |     | + somite 12 myocoele
+EMAP:0001603   | |     | + somite 13 myocoele
+EMAP:0001607   | |     | + somite 14 myocoele
+EMAP:0001611   | |     | + somite 15 myocoele
+EMAP:0001615   | |     | + somite 16 myocoele
+EMAP:0001619   | |     | + somite 17 myocoele
+EMAP:0001623   | |     | + somite 18 myocoele
+EMAP:0001627   | |     | + somite 19 myocoele
+EMAP:0001631   | |     | + somite 20 myocoele
+EMAP:0001635   | |     | + somite 21 myocoele
+EMAP:0001639   | |     | + somite 22 myocoele
+EMAP:0001643   | |     | + somite 23 myocoele
+EMAP:0001647   | |     | + somite 24 myocoele
+EMAP:0001651   | |     | + somite 25 myocoele
+EMAP:0001655   | |     | + somite 26 myocoele
+EMAP:0001659   | |     | + somite 27 myocoele
+EMAP:0001663   | |     | + somite 28 myocoele
+EMAP:0001667   | |     | + somite 29 myocoele
+EMAP:0001671   | |     | \ somite 30 myocoele
+EMAP:0031147   | |     \ trunk sclerotome group
+EMAP:0001572   | |       + somite 05 sclerotome
+EMAP:0001576   | |       + somite 06 sclerotome
+EMAP:0001580   | |       + somite 07 sclerotome
+EMAP:0001584   | |       + somite 08 sclerotome
+EMAP:0001588   | |       + somite 09 sclerotome
+EMAP:0001592   | |       + somite 10 sclerotome
+EMAP:0001596   | |       + somite 11 sclerotome
+EMAP:0001600   | |       + somite 12 sclerotome
+EMAP:0001604   | |       + somite 13 sclerotome
+EMAP:0001608   | |       + somite 14 sclerotome
+EMAP:0001612   | |       + somite 15 sclerotome
+EMAP:0001616   | |       + somite 16 sclerotome
+EMAP:0001620   | |       + somite 17 sclerotome
+EMAP:0001624   | |       + somite 18 sclerotome
+EMAP:0001628   | |       + somite 19 sclerotome
+EMAP:0001632   | |       + somite 20 sclerotome
+EMAP:0001636   | |       + somite 21 sclerotome
+EMAP:0001640   | |       + somite 22 sclerotome
+EMAP:0001644   | |       + somite 23 sclerotome
+EMAP:0001648   | |       + somite 24 sclerotome
+EMAP:0001652   | |       + somite 25 sclerotome
+EMAP:0001656   | |       + somite 26 sclerotome
+EMAP:0001660   | |       + somite 27 sclerotome
+EMAP:0001664   | |       + somite 28 sclerotome
+EMAP:0001668   | |       + somite 29 sclerotome
+EMAP:0001672   | |       \ somite 30 sclerotome
+EMAP:0033639   | + pre-cartilage condensation
+EMAP:0001968   | + tail mesenchyme
+EMAP:0001969   | | + tail mesenchyme derived from neural crest
+EMAP:0001970   | | \ tail paraxial mesenchyme
+EMAP:0001971   | |   + tail somite group
+EMAP:0001972   | |   | + somite 31
+EMAP:0001973   | |   | | + somite 31 dermomyotome
+EMAP:0001974   | |   | | + somite 31 myocoele
+EMAP:0001975   | |   | | \ somite 31 sclerotome
+EMAP:0001976   | |   | + somite 32
+EMAP:0001977   | |   | | + somite 32 dermomyotome
+EMAP:0001978   | |   | | + somite 32 myocoele
+EMAP:0001979   | |   | | \ somite 32 sclerotome
+EMAP:0001980   | |   | + somite 33
+EMAP:0001981   | |   | | + somite 33 dermomyotome
+EMAP:0001982   | |   | | + somite 33 myocoele
+EMAP:0001983   | |   | | \ somite 33 sclerotome
+EMAP:0001984   | |   | + somite 34
+EMAP:0001985   | |   | | + somite 34 dermomyotome
+EMAP:0001986   | |   | | + somite 34 myocoele
+EMAP:0001987   | |   | | \ somite 34 sclerotome
+EMAP:0001988   | |   | + somite 35
+EMAP:0001989   | |   | | + somite 35 dermomyotome
+EMAP:0001990   | |   | | + somite 35 myocoele
+EMAP:0001991   | |   | | \ somite 35 sclerotome
+EMAP:0031106 G | |   | + tail dermomyotome group
+EMAP:0001973 > | |   | | + somite 31 dermomyotome
+EMAP:0001977 > | |   | | + somite 32 dermomyotome
+EMAP:0001981 > | |   | | + somite 33 dermomyotome
+EMAP:0001985 > | |   | | + somite 34 dermomyotome
+EMAP:0001989 > | |   | | \ somite 35 dermomyotome
+EMAP:0031127 G | |   | + tail myocoele group
+EMAP:0001974 > | |   | | + somite 31 myocoele
+EMAP:0001978 > | |   | | + somite 32 myocoele
+EMAP:0001982 > | |   | | + somite 33 myocoele
+EMAP:0001986 > | |   | | + somite 34 myocoele
+EMAP:0001990 > | |   | | \ somite 35 myocoele
+EMAP:0031152 G | |   | \ tail sclerotome group
+EMAP:0001975 > | |   |   + somite 31 sclerotome
+EMAP:0001979 > | |   |   + somite 32 sclerotome
+EMAP:0001983 > | |   |   + somite 33 sclerotome
+EMAP:0001987 > | |   |   + somite 34 sclerotome
+EMAP:0001991 > | |   |   \ somite 35 sclerotome
+EMAP:0001992   | |   \ unsegmented mesenchyme
+EMAP:0001561   | \ trunk mesenchyme
+EMAP:0001565   |   + mesenchyme derived from somatopleure
+EMAP:0001566   |   + mesenchyme derived from splanchnopleure
+EMAP:0001673   |   + septum transversum
+EMAP:0001674   |   | \ septum transversum non-hepatic component
+EMAP:0014757   |   |   \ future central tendon
+EMAP:0001562   |   + trunk mesenchyme derived from neural crest
+EMAP:0001563   |   | + trunk mesenchyme derived from neural crest lateral migration pathway
+EMAP:0001564   |   | + trunk mesenchyme derived from neural crest medial migration pathway
+EMAP:0015242   |   | \ trunk mesenchyme derived from neural crest non-migrating cells
+EMAP:0001567   |   \ trunk paraxial mesenchyme
+EMAP:0001568   |     \ trunk somite group
+EMAP:0001569   |       + somite 05
+EMAP:0001570   |       | + somite 05 dermomyotome
+EMAP:0001571   |       | + somite 05 myocoele
+EMAP:0001572   |       | \ somite 05 sclerotome
+EMAP:0001573   |       + somite 06
+EMAP:0001574   |       | + somite 06 dermomyotome
+EMAP:0001575   |       | + somite 06 myocoele
+EMAP:0001576   |       | \ somite 06 sclerotome
+EMAP:0001577   |       + somite 07
+EMAP:0001578   |       | + somite 07 dermomyotome
+EMAP:0001579   |       | + somite 07 myocoele
+EMAP:0001580   |       | \ somite 07 sclerotome
+EMAP:0001581   |       + somite 08
+EMAP:0001582   |       | + somite 08 dermomyotome
+EMAP:0001583   |       | + somite 08 myocoele
+EMAP:0001584   |       | \ somite 08 sclerotome
+EMAP:0001585   |       + somite 09
+EMAP:0001586   |       | + somite 09 dermomyotome
+EMAP:0001587   |       | + somite 09 myocoele
+EMAP:0001588   |       | \ somite 09 sclerotome
+EMAP:0001589   |       + somite 10
+EMAP:0001590   |       | + somite 10 dermomyotome
+EMAP:0001591   |       | + somite 10 myocoele
+EMAP:0001592   |       | \ somite 10 sclerotome
+EMAP:0001593   |       + somite 11
+EMAP:0001594   |       | + somite 11 dermomyotome
+EMAP:0001595   |       | + somite 11 myocoele
+EMAP:0001596   |       | \ somite 11 sclerotome
+EMAP:0001597   |       + somite 12
+EMAP:0001598   |       | + somite 12 dermomyotome
+EMAP:0001599   |       | + somite 12 myocoele
+EMAP:0001600   |       | \ somite 12 sclerotome
+EMAP:0001601   |       + somite 13
+EMAP:0001602   |       | + somite 13 dermomyotome
+EMAP:0001603   |       | + somite 13 myocoele
+EMAP:0001604   |       | \ somite 13 sclerotome
+EMAP:0001605   |       + somite 14
+EMAP:0001606   |       | + somite 14 dermomyotome
+EMAP:0001607   |       | + somite 14 myocoele
+EMAP:0001608   |       | \ somite 14 sclerotome
+EMAP:0001609   |       + somite 15
+EMAP:0001610   |       | + somite 15 dermomyotome
+EMAP:0001611   |       | + somite 15 myocoele
+EMAP:0001612   |       | \ somite 15 sclerotome
+EMAP:0001613   |       + somite 16
+EMAP:0001614   |       | + somite 16 dermomyotome
+EMAP:0001615   |       | + somite 16 myocoele
+EMAP:0001616   |       | \ somite 16 sclerotome
+EMAP:0001617   |       + somite 17
+EMAP:0001618   |       | + somite 17 dermomyotome
+EMAP:0001619   |       | + somite 17 myocoele
+EMAP:0001620   |       | \ somite 17 sclerotome
+EMAP:0001621   |       + somite 18
+EMAP:0001622   |       | + somite 18 dermomyotome
+EMAP:0001623   |       | + somite 18 myocoele
+EMAP:0001624   |       | \ somite 18 sclerotome
+EMAP:0001625   |       + somite 19
+EMAP:0001626   |       | + somite 19 dermomyotome
+EMAP:0001627   |       | + somite 19 myocoele
+EMAP:0001628   |       | \ somite 19 sclerotome
+EMAP:0001629   |       + somite 20
+EMAP:0001630   |       | + somite 20 dermomyotome
+EMAP:0001631   |       | + somite 20 myocoele
+EMAP:0001632   |       | \ somite 20 sclerotome
+EMAP:0001633   |       + somite 21
+EMAP:0001634   |       | + somite 21 dermomyotome
+EMAP:0001635   |       | + somite 21 myocoele
+EMAP:0001636   |       | \ somite 21 sclerotome
+EMAP:0001637   |       + somite 22
+EMAP:0001638   |       | + somite 22 dermomyotome
+EMAP:0001639   |       | + somite 22 myocoele
+EMAP:0001640   |       | \ somite 22 sclerotome
+EMAP:0001641   |       + somite 23
+EMAP:0001642   |       | + somite 23 dermomyotome
+EMAP:0001643   |       | + somite 23 myocoele
+EMAP:0001644   |       | \ somite 23 sclerotome
+EMAP:0001645   |       + somite 24
+EMAP:0001646   |       | + somite 24 dermomyotome
+EMAP:0001647   |       | + somite 24 myocoele
+EMAP:0001648   |       | \ somite 24 sclerotome
+EMAP:0001649   |       + somite 25
+EMAP:0001650   |       | + somite 25 dermomyotome
+EMAP:0001651   |       | + somite 25 myocoele
+EMAP:0001652   |       | \ somite 25 sclerotome
+EMAP:0001653   |       + somite 26
+EMAP:0001654   |       | + somite 26 dermomyotome
+EMAP:0001655   |       | + somite 26 myocoele
+EMAP:0001656   |       | \ somite 26 sclerotome
+EMAP:0001657   |       + somite 27
+EMAP:0001658   |       | + somite 27 dermomyotome
+EMAP:0001659   |       | + somite 27 myocoele
+EMAP:0001660   |       | \ somite 27 sclerotome
+EMAP:0001661   |       + somite 28
+EMAP:0001662   |       | + somite 28 dermomyotome
+EMAP:0001663   |       | + somite 28 myocoele
+EMAP:0001664   |       | \ somite 28 sclerotome
+EMAP:0001665   |       + somite 29
+EMAP:0001666   |       | + somite 29 dermomyotome
+EMAP:0001667   |       | + somite 29 myocoele
+EMAP:0001668   |       | \ somite 29 sclerotome
+EMAP:0001669   |       + somite 30
+EMAP:0001670   |       | + somite 30 dermomyotome
+EMAP:0001671   |       | + somite 30 myocoele
+EMAP:0001672   |       | \ somite 30 sclerotome
+EMAP:0029698   |       + trunk dermomyotome group
+EMAP:0001570   |       | + somite 05 dermomyotome
+EMAP:0001574   |       | + somite 06 dermomyotome
+EMAP:0001578   |       | + somite 07 dermomyotome
+EMAP:0001582   |       | + somite 08 dermomyotome
+EMAP:0001586   |       | + somite 09 dermomyotome
+EMAP:0001590   |       | + somite 10 dermomyotome
+EMAP:0001594   |       | + somite 11 dermomyotome
+EMAP:0001598   |       | + somite 12 dermomyotome
+EMAP:0001602   |       | + somite 13 dermomyotome
+EMAP:0001606   |       | + somite 14 dermomyotome
+EMAP:0001610   |       | + somite 15 dermomyotome
+EMAP:0001614   |       | + somite 16 dermomyotome
+EMAP:0001618   |       | + somite 17 dermomyotome
+EMAP:0001622   |       | + somite 18 dermomyotome
+EMAP:0001626   |       | + somite 19 dermomyotome
+EMAP:0001630   |       | + somite 20 dermomyotome
+EMAP:0001634   |       | + somite 21 dermomyotome
+EMAP:0001638   |       | + somite 22 dermomyotome
+EMAP:0001642   |       | + somite 23 dermomyotome
+EMAP:0001646   |       | + somite 24 dermomyotome
+EMAP:0001650   |       | + somite 25 dermomyotome
+EMAP:0001654   |       | + somite 26 dermomyotome
+EMAP:0001658   |       | + somite 27 dermomyotome
+EMAP:0001662   |       | + somite 28 dermomyotome
+EMAP:0001666   |       | + somite 29 dermomyotome
+EMAP:0001670   |       | + somite 30 dermomyotome
+EMAP:0034153   |       | + trunk dermatome
+EMAP:0034175   |       | \ trunk myotome
+EMAP:0031181   |       + trunk myocoele group
+EMAP:0001571   |       | + somite 05 myocoele
+EMAP:0001575   |       | + somite 06 myocoele
+EMAP:0001579   |       | + somite 07 myocoele
+EMAP:0001583   |       | + somite 08 myocoele
+EMAP:0001587   |       | + somite 09 myocoele
+EMAP:0001591   |       | + somite 10 myocoele
+EMAP:0001595   |       | + somite 11 myocoele
+EMAP:0001599   |       | + somite 12 myocoele
+EMAP:0001603   |       | + somite 13 myocoele
+EMAP:0001607   |       | + somite 14 myocoele
+EMAP:0001611   |       | + somite 15 myocoele
+EMAP:0001615   |       | + somite 16 myocoele
+EMAP:0001619   |       | + somite 17 myocoele
+EMAP:0001623   |       | + somite 18 myocoele
+EMAP:0001627   |       | + somite 19 myocoele
+EMAP:0001631   |       | + somite 20 myocoele
+EMAP:0001635   |       | + somite 21 myocoele
+EMAP:0001639   |       | + somite 22 myocoele
+EMAP:0001643   |       | + somite 23 myocoele
+EMAP:0001647   |       | + somite 24 myocoele
+EMAP:0001651   |       | + somite 25 myocoele
+EMAP:0001655   |       | + somite 26 myocoele
+EMAP:0001659   |       | + somite 27 myocoele
+EMAP:0001663   |       | + somite 28 myocoele
+EMAP:0001667   |       | + somite 29 myocoele
+EMAP:0001671   |       | \ somite 30 myocoele
+EMAP:0031147   |       \ trunk sclerotome group
+EMAP:0001572   |         + somite 05 sclerotome
+EMAP:0001576   |         + somite 06 sclerotome
+EMAP:0001580   |         + somite 07 sclerotome
+EMAP:0001584   |         + somite 08 sclerotome
+EMAP:0001588   |         + somite 09 sclerotome
+EMAP:0001592   |         + somite 10 sclerotome
+EMAP:0001596   |         + somite 11 sclerotome
+EMAP:0001600   |         + somite 12 sclerotome
+EMAP:0001604   |         + somite 13 sclerotome
+EMAP:0001608   |         + somite 14 sclerotome
+EMAP:0001612   |         + somite 15 sclerotome
+EMAP:0001616   |         + somite 16 sclerotome
+EMAP:0001620   |         + somite 17 sclerotome
+EMAP:0001624   |         + somite 18 sclerotome
+EMAP:0001628   |         + somite 19 sclerotome
+EMAP:0001632   |         + somite 20 sclerotome
+EMAP:0001636   |         + somite 21 sclerotome
+EMAP:0001640   |         + somite 22 sclerotome
+EMAP:0001644   |         + somite 23 sclerotome
+EMAP:0001648   |         + somite 24 sclerotome
+EMAP:0001652   |         + somite 25 sclerotome
+EMAP:0001656   |         + somite 26 sclerotome
+EMAP:0001660   |         + somite 27 sclerotome
+EMAP:0001664   |         + somite 28 sclerotome
+EMAP:0001668   |         + somite 29 sclerotome
+EMAP:0001672   |         \ somite 30 sclerotome
+EMAP:0031137 G + myocoele group
+EMAP:0031127 > | + tail myocoele group
+EMAP:0001974 ~ | | + somite 31 myocoele
+EMAP:0001978 ~ | | + somite 32 myocoele
+EMAP:0001982 ~ | | + somite 33 myocoele
+EMAP:0001986 ~ | | + somite 34 myocoele
+EMAP:0001990 ~ | | \ somite 35 myocoele
+EMAP:0031181 > | \ trunk myocoele group
+EMAP:0001571 ~ |   + somite 05 myocoele
+EMAP:0001575 ~ |   + somite 06 myocoele
+EMAP:0001579 ~ |   + somite 07 myocoele
+EMAP:0001583 ~ |   + somite 08 myocoele
+EMAP:0001587 ~ |   + somite 09 myocoele
+EMAP:0001591 ~ |   + somite 10 myocoele
+EMAP:0001595 ~ |   + somite 11 myocoele
+EMAP:0001599 ~ |   + somite 12 myocoele
+EMAP:0001603 ~ |   + somite 13 myocoele
+EMAP:0001607 ~ |   + somite 14 myocoele
+EMAP:0001611 ~ |   + somite 15 myocoele
+EMAP:0001615 ~ |   + somite 16 myocoele
+EMAP:0001619 ~ |   + somite 17 myocoele
+EMAP:0001623 ~ |   + somite 18 myocoele
+EMAP:0001627 ~ |   + somite 19 myocoele
+EMAP:0001631 ~ |   + somite 20 myocoele
+EMAP:0001635 ~ |   + somite 21 myocoele
+EMAP:0001639 ~ |   + somite 22 myocoele
+EMAP:0001643 ~ |   + somite 23 myocoele
+EMAP:0001647 ~ |   + somite 24 myocoele
+EMAP:0001651 ~ |   + somite 25 myocoele
+EMAP:0001655 ~ |   + somite 26 myocoele
+EMAP:0001659 ~ |   + somite 27 myocoele
+EMAP:0001663 ~ |   + somite 28 myocoele
+EMAP:0001667 ~ |   + somite 29 myocoele
+EMAP:0001671 ~ |   \ somite 30 myocoele
+EMAP:0001675   + notochord
+EMAP:0001676   + organ system
+EMAP:0001809   | + cardiovascular system
+EMAP:0001810   | | + arterial system
+EMAP:0001811   | | | + branchial arch artery (syn: aortic arch artery; pharyngeal arch artery)
+EMAP:0001812   | | | | + 1st arch artery (syn: 1st aortic arch artery; 1st branchial arch artery; 1st pharyngeal arch artery)
+EMAP:0001813   | | | | + 2nd arch artery (syn: 2nd aortic arch artery; 2nd branchial arch artery; 2nd pharyngeal arch artery)
+EMAP:0001814   | | | | \ 3rd arch artery (syn: 3rd aortic arch artery; 3rd branchial arch artery; 3rd pharyngeal arch artery)
+EMAP:0001815   | | | + dorsal aorta
+EMAP:0001816   | | | | + common dorsal aorta
+EMAP:0001817   | | | | + left dorsal aorta
+EMAP:0001818   | | | | \ right dorsal aorta
+EMAP:0001819   | | | + internal carotid artery
+EMAP:0015266   | | | + intersegmental artery
+EMAP:0001820   | | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:0001821   | | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:0001822   | | | + umbilical artery embryonic part
+EMAP:0001823   | | | | + left umbilical artery
+EMAP:0001824   | | | | \ right umbilical artery
+EMAP:0001825   | | | \ vitelline artery
+EMAP:0001826   | | + blood
+EMAP:0033694   | | + blood vessel
+EMAP:0001827   | | + heart
+EMAP:0001828   | | | + atrio-ventricular canal
+EMAP:0001829   | | | + atrium
+EMAP:0033722   | | | | + atrium cardiac muscle
+EMAP:0033710   | | | | + atrium endocardial lining
+EMAP:0001830   | | | | \ common atrial chamber
+EMAP:0035025   | | | |   + common atrial chamber cardiac jelly
+EMAP:0035019   | | | |   + common atrial chamber cardiac muscle
+EMAP:0035022   | | | |   + common atrial chamber endocardial lining
+EMAP:0001831   | | | |   + common atrial chamber left part
+EMAP:0001832   | | | |   | + common atrial chamber left part cardiac jelly
+EMAP:0001837   | | | |   | + common atrial chamber left part cardiac muscle
+EMAP:0001833   | | | |   | + common atrial chamber left part endocardial lining
+EMAP:0001834   | | | |   | \ left auricular region
+EMAP:0001836   | | | |   |   + left auricular region cardiac muscle
+EMAP:0001835   | | | |   |   \ left auricular region endocardial lining
+EMAP:0001838   | | | |   \ common atrial chamber right part
+EMAP:0001839   | | | |     + common atrial chamber right part cardiac jelly
+EMAP:0001841   | | | |     + common atrial chamber right part cardiac muscle
+EMAP:0001840   | | | |     + common atrial chamber right part endocardial lining
+EMAP:0001842   | | | |     \ right auricular region
+EMAP:0001844   | | | |       + right auricular region cardiac muscle
+EMAP:0001843   | | | |       \ right auricular region endocardial lining
+EMAP:0001845   | | | + bulboventricular groove (syn: bulbo-ventricular sulcus; ependymal groove; ependymal sulcus)
+EMAP:0001846   | | | + bulbus cordis
+EMAP:0001847   | | | | + bulbus cordis caudal half
+EMAP:0001848   | | | | | + bulbus cordis caudal half cardiac jelly
+EMAP:0001850   | | | | | + bulbus cordis caudal half cardiac muscle
+EMAP:0001849   | | | | | \ bulbus cordis caudal half endocardial lining
+EMAP:0001851   | | | | \ bulbus cordis rostral half
+EMAP:0001852   | | | |   + bulbus cordis rostral half cardiac jelly
+EMAP:0001854   | | | |   + bulbus cordis rostral half cardiac muscle
+EMAP:0001853   | | | |   \ bulbus cordis rostral half endocardial lining
+EMAP:0033341   | | | + cardiac jelly
+EMAP:0033347   | | | + cardiac muscle
+EMAP:0001855   | | | + endocardial cushion tissue
+EMAP:0033332   | | | + endocardial lining
+EMAP:0001856   | | | + heart mesentery
+EMAP:0001857   | | | | \ dorsal mesocardium
+EMAP:0001858   | | | |   \ transverse pericardial sinus
+EMAP:0001859   | | | + outflow tract
+EMAP:0001860   | | | | + aortico-pulmonary spiral septum
+EMAP:0001861   | | | | + outflow tract cardiac jelly
+EMAP:0001862   | | | | + outflow tract endocardial tube
+EMAP:0001863   | | | | \ outflow tract mesenchyme
+EMAP:0001864   | | | + primitive ventricle
+EMAP:0001865   | | | | + primitive ventricle cardiac jelly
+EMAP:0001867   | | | | + primitive ventricle cardiac muscle
+EMAP:0001866   | | | | \ primitive ventricle endocardial lining
+EMAP:0001868   | | | \ sinus venosus
+EMAP:0001869   | | |   + sinus venosus left horn
+EMAP:0001870   | | |   \ sinus venosus right horn
+EMAP:0001871   | | \ venous system
+EMAP:0001872   | |   + cardinal vein
+EMAP:0001873   | |   | + anterior cardinal vein
+EMAP:0001874   | |   | + common cardinal vein (syn: Duct of Cuvier; future coronary sinus)
+EMAP:0001875   | |   | \ posterior cardinal vein
+EMAP:0001876   | |   + inter-subcardinal venous anastomosis
+EMAP:0001877   | |   + primary head vein
+EMAP:0001878   | |   + subcardinal vein
+EMAP:0001879   | |   + supracardinal vein
+EMAP:0001880   | |   + umbilical vein embryonic part
+EMAP:0001881   | |   | \ left umbilical vein embryonic part
+EMAP:0001882   | |   \ vitelline vein embryonic part
+EMAP:0001883   | |     + left vitelline vein embryonic part
+EMAP:0001884   | |     \ right vitelline vein embryonic part
+EMAP:0034883   | + gland
+EMAP:0033937   | | \ pituitary gland
+EMAP:0033500   | + musculoskeletal system
+EMAP:0013222   | | \ skeleton
+EMAP:0013223   | |   \ axial skeleton
+EMAP:0013224   | |     + axial skeleton cervical region
+EMAP:0013225   | |     | \ cervical vertebral pre-cartilage condensation
+EMAP:0013226   | |     |   + C1 vertebral pre-cartilage condensation
+EMAP:0013227   | |     |   + C2 vertebral pre-cartilage condensation
+EMAP:0013228   | |     |   + C3 vertebral pre-cartilage condensation
+EMAP:0013229   | |     |   + C4 vertebral pre-cartilage condensation
+EMAP:0013230   | |     |   + C5 vertebral pre-cartilage condensation
+EMAP:0013231   | |     |   + C6 vertebral pre-cartilage condensation
+EMAP:0013232   | |     |   \ C7 vertebral pre-cartilage condensation
+EMAP:0013233   | |     + axial skeleton thoracic region
+EMAP:0013234   | |     | \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235   | |     |   + T1 vertebral pre-cartilage condensation
+EMAP:0013236   | |     |   + T2 vertebral pre-cartilage condensation
+EMAP:0013237   | |     |   + T3 vertebral pre-cartilage condensation
+EMAP:0013238   | |     |   + T4 vertebral pre-cartilage condensation
+EMAP:0013239   | |     |   \ T5 vertebral pre-cartilage condensation
+EMAP:0033214   | |     \ vertebral pre-cartilage condensation
+EMAP:0013225   | |       + cervical vertebral pre-cartilage condensation
+EMAP:0013226   | |       | + C1 vertebral pre-cartilage condensation
+EMAP:0013227   | |       | + C2 vertebral pre-cartilage condensation
+EMAP:0013228   | |       | + C3 vertebral pre-cartilage condensation
+EMAP:0013229   | |       | + C4 vertebral pre-cartilage condensation
+EMAP:0013230   | |       | + C5 vertebral pre-cartilage condensation
+EMAP:0013231   | |       | + C6 vertebral pre-cartilage condensation
+EMAP:0013232   | |       | \ C7 vertebral pre-cartilage condensation
+EMAP:0013234   | |       \ thoracic vertebral pre-cartilage condensation
+EMAP:0013235   | |         + T1 vertebral pre-cartilage condensation
+EMAP:0013236   | |         + T2 vertebral pre-cartilage condensation
+EMAP:0013237   | |         + T3 vertebral pre-cartilage condensation
+EMAP:0013238   | |         + T4 vertebral pre-cartilage condensation
+EMAP:0013239   | |         \ T5 vertebral pre-cartilage condensation
+EMAP:0001683   | + nervous system
+EMAP:0001684   | | + central nervous system
+EMAP:0001769   | | | + central nervous system ganglion
+EMAP:0001770   | | | | \ cranial ganglion
+EMAP:0001771   | | | |   + facio-acoustic VII-VIII ganglion complex
+EMAP:0001772   | | | |   + glossopharyngeal IX ganglion
+EMAP:0001773   | | | |   + glossopharyngeal-vagus IX-X ganglion complex
+EMAP:0001774   | | | |   + trigeminal V ganglion
+EMAP:0001775   | | | |   \ vagus X ganglion
+EMAP:0033317   | | | + floor plate
+EMAP:0001685   | | | + future brain
+EMAP:0033247   | | | | + brain ventricle
+EMAP:0001697   | | | | | + 3rd ventricle
+EMAP:0001698   | | | | | | + diencephalic part of interventricular foramen
+EMAP:0001699   | | | | | | \ optic recess
+EMAP:0001720   | | | | | + 4th ventricle
+EMAP:0001706   | | | | | \ telencephalic vesicle
+EMAP:0001707   | | | | |   \ telencephalic part of interventricular foramen
+EMAP:0033260   | | | | + future brain floor plate
+EMAP:0001686   | | | | + future forebrain
+EMAP:0001687   | | | | | + diencephalon
+EMAP:0001697   | | | | | | + 3rd ventricle
+EMAP:0001698   | | | | | | | + diencephalic part of interventricular foramen
+EMAP:0001699   | | | | | | | \ optic recess
+EMAP:0001700   | | | | | | + diencephalon floor plate
+EMAP:0001688   | | | | | | + diencephalon gland
+EMAP:0001689   | | | | | | | \ pituitary
+EMAP:0001690   | | | | | | |   \ infundibular recess of 3rd ventricle
+EMAP:0001702   | | | | | | + diencephalon lateral wall
+EMAP:0001703   | | | | | | | \ diencephalon ventricular layer
+EMAP:0001704   | | | | | | + diencephalon roof plate
+EMAP:0001701   | | | | | | \ lamina terminalis
+EMAP:0034720   | | | | | + future forebrain floor plate
+EMAP:0034807   | | | | | + future forebrain lateral wall
+EMAP:0034803   | | | | | + future forebrain roof plate
+EMAP:0001705   | | | | | \ telencephalon
+EMAP:0001706   | | | | |   + telencephalic vesicle
+EMAP:0001707   | | | | |   | \ telencephalic part of interventricular foramen
+EMAP:0001709   | | | | |   + telencephalon floor plate
+EMAP:0001710   | | | | |   + telencephalon lateral wall
+EMAP:0001711   | | | | |   | \ telencephalon ventricular layer
+EMAP:0001712   | | | | |   \ telencephalon roof plate
+EMAP:0001713   | | | | + future midbrain
+EMAP:0001714   | | | | | + future midbrain floor plate
+EMAP:0001715   | | | | | + future midbrain lateral wall
+EMAP:0001716   | | | | | | \ future midbrain ventricular layer
+EMAP:0001718   | | | | | + future midbrain roof plate
+EMAP:0001717   | | | | | \ mesencephalic vesicle
+EMAP:0001719   | | | | + future rhombencephalon
+EMAP:0001720   | | | | | + 4th ventricle
+EMAP:0034798   | | | | | + rhombomere
+EMAP:0034801   | | | | | | + rhombomere floor plate
+EMAP:0034792   | | | | | | + rhombomere lateral wall
+EMAP:0034795   | | | | | | | \ rhombomere ventricular layer
+EMAP:0034787   | | | | | | + rhombomere roof plate
+EMAP:0001721   | | | | | | + rhombomere 01
+EMAP:0001722   | | | | | | | + rhombomere 01 floor plate
+EMAP:0001723   | | | | | | | + rhombomere 01 lateral wall
+EMAP:0001724   | | | | | | | | \ rhombomere 01 ventricular layer
+EMAP:0001725   | | | | | | | \ rhombomere 01 roof plate
+EMAP:0001726   | | | | | | + rhombomere 02
+EMAP:0001727   | | | | | | | + rhombomere 02 floor plate
+EMAP:0001728   | | | | | | | + rhombomere 02 lateral wall
+EMAP:0001729   | | | | | | | | \ rhombomere 02 ventricular layer
+EMAP:0001730   | | | | | | | \ rhombomere 02 roof plate
+EMAP:0001731   | | | | | | + rhombomere 03
+EMAP:0001732   | | | | | | | + rhombomere 03 floor plate
+EMAP:0001733   | | | | | | | + rhombomere 03 lateral wall
+EMAP:0001734   | | | | | | | | \ rhombomere 03 ventricular layer
+EMAP:0001735   | | | | | | | \ rhombomere 03 roof plate
+EMAP:0001736   | | | | | | + rhombomere 04
+EMAP:0001737   | | | | | | | + rhombomere 04 floor plate
+EMAP:0001738   | | | | | | | + rhombomere 04 lateral wall
+EMAP:0001739   | | | | | | | | \ rhombomere 04 ventricular layer
+EMAP:0001740   | | | | | | | \ rhombomere 04 roof plate
+EMAP:0001741   | | | | | | + rhombomere 05
+EMAP:0001742   | | | | | | | + rhombomere 05 floor plate
+EMAP:0001743   | | | | | | | + rhombomere 05 lateral wall
+EMAP:0001744   | | | | | | | | \ rhombomere 05 ventricular layer
+EMAP:0001745   | | | | | | | \ rhombomere 05 roof plate
+EMAP:0001746   | | | | | | + rhombomere 06
+EMAP:0001747   | | | | | | | + rhombomere 06 floor plate
+EMAP:0001748   | | | | | | | + rhombomere 06 lateral wall
+EMAP:0001749   | | | | | | | | \ rhombomere 06 ventricular layer
+EMAP:0001750   | | | | | | | \ rhombomere 06 roof plate
+EMAP:0001751   | | | | | | + rhombomere 07
+EMAP:0001752   | | | | | | | + rhombomere 07 floor plate
+EMAP:0001753   | | | | | | | + rhombomere 07 lateral wall
+EMAP:0001754   | | | | | | | | \ rhombomere 07 ventricular layer
+EMAP:0001755   | | | | | | | \ rhombomere 07 roof plate
+EMAP:0001756   | | | | | | \ rhombomere 08
+EMAP:0001758   | | | | | |   + rhombomere 08 floor plate
+EMAP:0001759   | | | | | |   + rhombomere 08 lateral wall
+EMAP:0001760   | | | | | |   | \ rhombomere 08 ventricular layer
+EMAP:0001757   | | | | | |   \ rhombomere 08 roof plate
+EMAP:0001721   | | | | | + rhombomere 01
+EMAP:0001722   | | | | | | + rhombomere 01 floor plate
+EMAP:0001723   | | | | | | + rhombomere 01 lateral wall
+EMAP:0001724   | | | | | | | \ rhombomere 01 ventricular layer
+EMAP:0001725   | | | | | | \ rhombomere 01 roof plate
+EMAP:0001726   | | | | | + rhombomere 02
+EMAP:0001727   | | | | | | + rhombomere 02 floor plate
+EMAP:0001728   | | | | | | + rhombomere 02 lateral wall
+EMAP:0001729   | | | | | | | \ rhombomere 02 ventricular layer
+EMAP:0001730   | | | | | | \ rhombomere 02 roof plate
+EMAP:0001731   | | | | | + rhombomere 03
+EMAP:0001732   | | | | | | + rhombomere 03 floor plate
+EMAP:0001733   | | | | | | + rhombomere 03 lateral wall
+EMAP:0001734   | | | | | | | \ rhombomere 03 ventricular layer
+EMAP:0001735   | | | | | | \ rhombomere 03 roof plate
+EMAP:0001736   | | | | | + rhombomere 04
+EMAP:0001737   | | | | | | + rhombomere 04 floor plate
+EMAP:0001738   | | | | | | + rhombomere 04 lateral wall
+EMAP:0001739   | | | | | | | \ rhombomere 04 ventricular layer
+EMAP:0001740   | | | | | | \ rhombomere 04 roof plate
+EMAP:0001741   | | | | | + rhombomere 05
+EMAP:0001742   | | | | | | + rhombomere 05 floor plate
+EMAP:0001743   | | | | | | + rhombomere 05 lateral wall
+EMAP:0001744   | | | | | | | \ rhombomere 05 ventricular layer
+EMAP:0001745   | | | | | | \ rhombomere 05 roof plate
+EMAP:0001746   | | | | | + rhombomere 06
+EMAP:0001747   | | | | | | + rhombomere 06 floor plate
+EMAP:0001748   | | | | | | + rhombomere 06 lateral wall
+EMAP:0001749   | | | | | | | \ rhombomere 06 ventricular layer
+EMAP:0001750   | | | | | | \ rhombomere 06 roof plate
+EMAP:0001751   | | | | | + rhombomere 07
+EMAP:0001752   | | | | | | + rhombomere 07 floor plate
+EMAP:0001753   | | | | | | + rhombomere 07 lateral wall
+EMAP:0001754   | | | | | | | \ rhombomere 07 ventricular layer
+EMAP:0001755   | | | | | | \ rhombomere 07 roof plate
+EMAP:0001756   | | | | | \ rhombomere 08
+EMAP:0001758   | | | | |   + rhombomere 08 floor plate
+EMAP:0001759   | | | | |   + rhombomere 08 lateral wall
+EMAP:0001760   | | | | |   | \ rhombomere 08 ventricular layer
+EMAP:0001757   | | | | |   \ rhombomere 08 roof plate
+EMAP:0034226   | | | | \ midbrain-hindbrain junction
+EMAP:0001761   | | | \ future spinal cord
+EMAP:0001762   | | |   + caudal neuropore
+EMAP:0001763   | | |   \ neural tube
+EMAP:0001766   | | |     + neural lumen
+EMAP:0001767   | | |     | \ neural luminal occlusion
+EMAP:0001764   | | |     + neural tube floor plate
+EMAP:0001765   | | |     + neural tube lateral wall
+EMAP:0001768   | | |     \ neural tube roof plate
+EMAP:0034187   | | + ganglion
+EMAP:0001769   | | | + central nervous system ganglion
+EMAP:0001770   | | | | \ cranial ganglion
+EMAP:0001771   | | | |   + facio-acoustic VII-VIII ganglion complex
+EMAP:0001772   | | | |   + glossopharyngeal IX ganglion
+EMAP:0001773   | | | |   + glossopharyngeal-vagus IX-X ganglion complex
+EMAP:0001774   | | | |   + trigeminal V ganglion
+EMAP:0001775   | | | |   \ vagus X ganglion
+EMAP:0034028   | | | \ peripheral nervous system ganglion
+EMAP:0001778   | | |   \ spinal ganglion
+EMAP:0001779   | | |     \ dorsal root ganglion
+EMAP:0014976   | | |       \ C1 dorsal root ganglion
+EMAP:0001776   | | \ peripheral nervous system
+EMAP:0034028   | |   + peripheral nervous system ganglion
+EMAP:0001778   | |   | \ spinal ganglion
+EMAP:0001779   | |   |   \ dorsal root ganglion
+EMAP:0014976   | |   |     \ C1 dorsal root ganglion
+EMAP:0001777   | |   \ spinal
+EMAP:0001778   | |     \ spinal ganglion
+EMAP:0001779   | |       \ dorsal root ganglion
+EMAP:0014976   | |         \ C1 dorsal root ganglion
+EMAP:0001780   | + sensory organ
+EMAP:0001781   | | + ear
+EMAP:0033956   | | | + ear epithelium
+EMAP:0001782   | | | \ inner ear
+EMAP:0034456   | | |   + inner ear associated mesenchyme
+EMAP:0034433   | | |   + inner ear epithelium
+EMAP:0001783   | | |   \ otocyst
+EMAP:0001784   | | |     + otocyst associated mesenchyme
+EMAP:0001785   | | |     + otocyst epithelium
+EMAP:0015262   | | |     \ otocyst lumen
+EMAP:0001786   | | + eye
+EMAP:0001788   | | | + eye mesenchyme
+EMAP:0001787   | | | + lens pit
+EMAP:0001789   | | | + optic cup
+EMAP:0001790   | | | | + optic cup inner layer (syn: future neural epithelium; future neural layer)
+EMAP:0001791   | | | | + optic cup intraretinal space
+EMAP:0001792   | | | | \ optic cup outer layer (syn: future pigmented layer; future pigmented retinal epithelium; future PRE)
+EMAP:0001793   | | | \ optic stalk
+EMAP:0001794   | | \ nose
+EMAP:0001798   | |   + nasal process
+EMAP:0001799   | |   | \ fronto-nasal process
+EMAP:0001800   | |   |   + frontal process
+EMAP:0001801   | |   |   | + frontal process ectoderm
+EMAP:0001802   | |   |   | \ frontal process mesenchyme
+EMAP:0035033   | |   |   + fronto-nasal process ectoderm
+EMAP:0035028   | |   |   + fronto-nasal process mesenchyme
+EMAP:0001803   | |   |   + latero-nasal process
+EMAP:0001804   | |   |   | + latero-nasal process ectoderm
+EMAP:0001805   | |   |   | \ latero-nasal process mesenchyme
+EMAP:0001806   | |   |   \ medial-nasal process
+EMAP:0001807   | |   |     + medial-nasal process ectoderm
+EMAP:0001808   | |   |     \ medial-nasal process mesenchyme
+EMAP:0001795   | |   + naso-lacrimal groove
+EMAP:0001796   | |   \ olfactory pit
+EMAP:0001797   | |     \ nasal epithelium
+EMAP:0001677   | \ visceral organ
+EMAP:0001678   |   + alimentary system
+EMAP:0034471   |   | + alimentary system associated mesenchyme
+EMAP:0033304   |   | + alimentary system epithelium
+EMAP:0001885   |   | + anal region
+EMAP:0001886   |   | | \ cloacal membrane
+EMAP:0001691   |   | + gut
+EMAP:0001692   |   | | + foregut
+EMAP:0034753   |   | | | + foregut associated mesenchyme
+EMAP:0034743   |   | | | + foregut epithelium
+EMAP:0001693   |   | | | + foregut gland
+EMAP:0001694   |   | | | | \ thyroid primordium
+EMAP:0001695   |   | | | |   + thyroid primordium associated mesenchyme
+EMAP:0001696   |   | | | |   \ thyroid primordium endoderm
+EMAP:0001887   |   | | | + oesophagus
+EMAP:0001888   |   | | | | + oesophagus associated mesenchyme
+EMAP:0001889   |   | | | | + oesophagus epithelium
+EMAP:0006930   |   | | | | + oesophagus lumen
+EMAP:0001890   |   | | | | + oesophagus mesentery
+EMAP:0001891   |   | | | | | \ dorsal meso-oesophagus
+EMAP:0001892   |   | | | | \ oesophagus vascular element (syn: artery; vein)
+EMAP:0001893   |   | | | + pharynx
+EMAP:0001894   |   | | | | + pharynx associated mesenchyme
+EMAP:0001895   |   | | | | + pharynx epithelium
+EMAP:0006938   |   | | | | + pharynx lumen
+EMAP:0001896   |   | | | | \ pharynx vascular element (syn: artery; vein)
+EMAP:0001897   |   | | | \ rest of foregut
+EMAP:0001898   |   | | |   + rest of foregut associated mesenchyme
+EMAP:0001899   |   | | |   + rest of foregut epithelium
+EMAP:0007014   |   | | |   + rest of foregut lumen
+EMAP:0001901   |   | | |   + rest of foregut mesentery
+EMAP:0001902   |   | | |   | + rest of foregut dorsal mesentery
+EMAP:0001903   |   | | |   | \ rest of foregut ventral mesentery
+EMAP:0001900   |   | | |   \ rest of foregut vascular element (syn: artery; vein)
+EMAP:0001904   |   | | + foregut-midgut junction
+EMAP:0001905   |   | | | + foregut-midgut junction associated mesenchyme
+EMAP:0001906   |   | | | + foregut-midgut junction epithelium
+EMAP:0006959   |   | | | + foregut-midgut junction lumen
+EMAP:0001908   |   | | | + foregut-midgut junction mesentery
+EMAP:0001909   |   | | | | + foregut-midgut junction dorsal mesentery
+EMAP:0001910   |   | | | | \ foregut-midgut junction ventral mesentery
+EMAP:0001907   |   | | | + foregut-midgut junction vascular element (syn: artery; vein)
+EMAP:0001935   |   | | | \ hepatic primordium
+EMAP:0001936   |   | | |   \ hepatic primordium parenchyma
+EMAP:0034621   |   | | + gut associated mesenchyme
+EMAP:0034774   |   | | + gut epithelium
+EMAP:0034951   |   | | + gut gland
+EMAP:0034606   |   | | + gut lumen
+EMAP:0034649   |   | | + gut mesentery
+EMAP:0034635   |   | | | \ gut dorsal mesentery
+EMAP:0001915   |   | | + hindgut
+EMAP:0001916   |   | | | + hindgut associated mesenchyme
+EMAP:0001917   |   | | | + hindgut epithelium
+EMAP:0006996   |   | | | + hindgut lumen
+EMAP:0001918   |   | | | + hindgut mesentery
+EMAP:0001919   |   | | | | \ hindgut dorsal mesentery (syn: dorsal mesocolon; dorsal mesorectum)
+EMAP:0001920   |   | | | \ hindgut vascular element (syn: artery; vein)
+EMAP:0001911   |   | | + hindgut diverticulum
+EMAP:0001912   |   | | | + hindgut diverticulum associated mesenchyme
+EMAP:0001913   |   | | | + hindgut diverticulum epithelium
+EMAP:0006908   |   | | | + hindgut diverticulum lumen
+EMAP:0001914   |   | | | \ hindgut diverticulum vascular element (syn: artery; vein)
+EMAP:0001921   |   | | \ midgut
+EMAP:0001922   |   | |   + midgut associated mesenchyme
+EMAP:0001923   |   | |   + midgut epithelium
+EMAP:0006917   |   | |   + midgut lumen
+EMAP:0001924   |   | |   + midgut mesentery
+EMAP:0001925   |   | |   | \ midgut dorsal mesentery
+EMAP:0001926   |   | |   \ midgut vascular element (syn: artery; vein)
+EMAP:0001679   |   | \ oral region
+EMAP:0001927   |   |   + oral epithelium
+EMAP:0007010   |   |   + oral region cavity
+EMAP:0001680   |   |   \ oral region gland
+EMAP:0001681   |   |     \ pituitary
+EMAP:0001682   |   |       \ Rathke's pouch
+EMAP:0014768   |   |         + Rathke's pouch lumen
+EMAP:0014763   |   |         \ Rathke's pouch wall
+EMAP:0001957   |   + genitourinary system
+EMAP:0035018   |   | + cloaca
+EMAP:0027561   |   | + genitourinary system associated mesenchyme
+EMAP:0001958   |   | + gonad
+EMAP:0001960   |   | | \ primordial germ cells
+EMAP:0001961   |   | + mesonephros
+EMAP:0001964   |   | | + mesonephric tubule
+EMAP:0001962   |   | | + mesonephros associated mesenchyme
+EMAP:0001963   |   | | \ mesonephros non-tubular part
+EMAP:0001965   |   | + nephric cord
+EMAP:0001966   |   | \ nephric duct
+EMAP:0001928   |   + liver and biliary system
+EMAP:0001929   |   | + cystic duct
+EMAP:0001930   |   | + gall bladder primordium
+EMAP:0001931   |   | + hepatic duct
+EMAP:0001932   |   | | + hepatic duct extrahepatic part
+EMAP:0001933   |   | | \ hepatic duct intrahepatic part
+EMAP:0001934   |   | \ liver
+EMAP:0001937   |   \ respiratory system
+EMAP:0001938   |     + lung
+EMAP:0001939   |     | + left lung rudiment
+EMAP:0001940   |     | | + left lung rudiment associated mesenchyme
+EMAP:0001941   |     | | + left lung rudiment epithelium
+EMAP:0001942   |     | | \ left lung rudiment vascular element (syn: artery; vein)
+EMAP:0034314   |     | + lung associated mesenchyme
+EMAP:0034274   |     | + lung epithelium
+EMAP:0034326   |     | + lung vascular element
+EMAP:0001943   |     | \ right lung rudiment
+EMAP:0001944   |     |   + right lung rudiment associated mesenchyme
+EMAP:0001945   |     |   + right lung rudiment epithelium
+EMAP:0001946   |     |   \ right lung rudiment vascular element (syn: artery; vein)
+EMAP:0034071   |     + respiratory system epithelium
+EMAP:0001947   |     \ respiratory tract
+EMAP:0001948   |       + lower respiratory tract
+EMAP:0028870   |       | + laryngo-tracheal groove
+EMAP:0001949   |       | + main bronchus
+EMAP:0001950   |       | | + main bronchus associated mesenchyme
+EMAP:0001951   |       | | + main bronchus epithelium
+EMAP:0001952   |       | | \ main bronchus vascular element (syn: artery; vein)
+EMAP:0001953   |       | \ trachea
+EMAP:0001954   |       |   + trachea associated mesenchyme
+EMAP:0001955   |       |   + trachea epithelium
+EMAP:0001956   |       |   \ trachea vascular element (syn: artery; vein)
+EMAP:0034083   |       \ respiratory tract epithelium
+EMAP:0001967   + tail
+EMAP:0033874   | + tail ectoderm
+EMAP:0001968   | + tail mesenchyme
+EMAP:0001969   | | + tail mesenchyme derived from neural crest
+EMAP:0001970   | | \ tail paraxial mesenchyme
+EMAP:0001971   | |   + tail somite group
+EMAP:0001972   | |   | + somite 31
+EMAP:0001973   | |   | | + somite 31 dermomyotome
+EMAP:0001974   | |   | | + somite 31 myocoele
+EMAP:0001975   | |   | | \ somite 31 sclerotome
+EMAP:0001976   | |   | + somite 32
+EMAP:0001977   | |   | | + somite 32 dermomyotome
+EMAP:0001978   | |   | | + somite 32 myocoele
+EMAP:0001979   | |   | | \ somite 32 sclerotome
+EMAP:0001980   | |   | + somite 33
+EMAP:0001981   | |   | | + somite 33 dermomyotome
+EMAP:0001982   | |   | | + somite 33 myocoele
+EMAP:0001983   | |   | | \ somite 33 sclerotome
+EMAP:0001984   | |   | + somite 34
+EMAP:0001985   | |   | | + somite 34 dermomyotome
+EMAP:0001986   | |   | | + somite 34 myocoele
+EMAP:0001987   | |   | | \ somite 34 sclerotome
+EMAP:0001988   | |   | + somite 35
+EMAP:0001989   | |   | | + somite 35 dermomyotome
+EMAP:0001990   | |   | | + somite 35 myocoele
+EMAP:0001991   | |   | | \ somite 35 sclerotome
+EMAP:0031106 G | |   | + tail dermomyotome group
+EMAP:0001973 > | |   | | + somite 31 dermomyotome
+EMAP:0001977 > | |   | | + somite 32 dermomyotome
+EMAP:0001981 > | |   | | + somite 33 dermomyotome
+EMAP:0001985 > | |   | | + somite 34 dermomyotome
+EMAP:0001989 > | |   | | \ somite 35 dermomyotome
+EMAP:0031127 G | |   | + tail myocoele group
+EMAP:0001974 > | |   | | + somite 31 myocoele
+EMAP:0001978 > | |   | | + somite 32 myocoele
+EMAP:0001982 > | |   | | + somite 33 myocoele
+EMAP:0001986 > | |   | | + somite 34 myocoele
+EMAP:0001990 > | |   | | \ somite 35 myocoele
+EMAP:0031152 G | |   | \ tail sclerotome group
+EMAP:0001975 > | |   |   + somite 31 sclerotome
+EMAP:0001979 > | |   |   + somite 32 sclerotome
+EMAP:0001983 > | |   |   + somite 33 sclerotome
+EMAP:0001987 > | |   |   + somite 34 sclerotome
+EMAP:0001991 > | |   |   \ somite 35 sclerotome
+EMAP:0001992   | |   \ unsegmented mesenchyme
+EMAP:0001993   | \ tail nervous system
+EMAP:0001994   |   \ tail central nervous system
+EMAP:0001995   |     \ tail future spinal cord
+EMAP:0001996   |       + neural plate
+EMAP:0001997   |       | \ tail neural crest
+EMAP:0015265   |       \ tail neural tube
+EMAP:0033947   |         \ tail neural tube floor plate
+EMAP:0031883   \ trunk
+EMAP:0001561     \ trunk mesenchyme
+EMAP:0001565       + mesenchyme derived from somatopleure
+EMAP:0001566       + mesenchyme derived from splanchnopleure
+EMAP:0001673       + septum transversum
+EMAP:0001674       | \ septum transversum non-hepatic component
+EMAP:0014757       |   \ future central tendon
+EMAP:0001562       + trunk mesenchyme derived from neural crest
+EMAP:0001563       | + trunk mesenchyme derived from neural crest lateral migration pathway
+EMAP:0001564       | + trunk mesenchyme derived from neural crest medial migration pathway
+EMAP:0015242       | \ trunk mesenchyme derived from neural crest non-migrating cells
+EMAP:0001567       \ trunk paraxial mesenchyme
+EMAP:0001568         \ trunk somite group
+EMAP:0001569           + somite 05
+EMAP:0001570           | + somite 05 dermomyotome
+EMAP:0001571           | + somite 05 myocoele
+EMAP:0001572           | \ somite 05 sclerotome
+EMAP:0001573           + somite 06
+EMAP:0001574           | + somite 06 dermomyotome
+EMAP:0001575           | + somite 06 myocoele
+EMAP:0001576           | \ somite 06 sclerotome
+EMAP:0001577           + somite 07
+EMAP:0001578           | + somite 07 dermomyotome
+EMAP:0001579           | + somite 07 myocoele
+EMAP:0001580           | \ somite 07 sclerotome
+EMAP:0001581           + somite 08
+EMAP:0001582           | + somite 08 dermomyotome
+EMAP:0001583           | + somite 08 myocoele
+EMAP:0001584           | \ somite 08 sclerotome
+EMAP:0001585           + somite 09
+EMAP:0001586           | + somite 09 dermomyotome
+EMAP:0001587           | + somite 09 myocoele
+EMAP:0001588           | \ somite 09 sclerotome
+EMAP:0001589           + somite 10
+EMAP:0001590           | + somite 10 dermomyotome
+EMAP:0001591           | + somite 10 myocoele
+EMAP:0001592           | \ somite 10 sclerotome
+EMAP:0001593           + somite 11
+EMAP:0001594           | + somite 11 dermomyotome
+EMAP:0001595           | + somite 11 myocoele
+EMAP:0001596           | \ somite 11 sclerotome
+EMAP:0001597           + somite 12
+EMAP:0001598           | + somite 12 dermomyotome
+EMAP:0001599           | + somite 12 myocoele
+EMAP:0001600           | \ somite 12 sclerotome
+EMAP:0001601           + somite 13
+EMAP:0001602           | + somite 13 dermomyotome
+EMAP:0001603           | + somite 13 myocoele
+EMAP:0001604           | \ somite 13 sclerotome
+EMAP:0001605           + somite 14
+EMAP:0001606           | + somite 14 dermomyotome
+EMAP:0001607           | + somite 14 myocoele
+EMAP:0001608           | \ somite 14 sclerotome
+EMAP:0001609           + somite 15
+EMAP:0001610           | + somite 15 dermomyotome
+EMAP:0001611           | + somite 15 myocoele
+EMAP:0001612           | \ somite 15 sclerotome
+EMAP:0001613           + somite 16
+EMAP:0001614           | + somite 16 dermomyotome
+EMAP:0001615           | + somite 16 myocoele
+EMAP:0001616           | \ somite 16 sclerotome
+EMAP:0001617           + somite 17
+EMAP:0001618           | + somite 17 dermomyotome
+EMAP:0001619           | + somite 17 myocoele
+EMAP:0001620           | \ somite 17 sclerotome
+EMAP:0001621           + somite 18
+EMAP:0001622           | + somite 18 dermomyotome
+EMAP:0001623           | + somite 18 myocoele
+EMAP:0001624           | \ somite 18 sclerotome
+EMAP:0001625           + somite 19
+EMAP:0001626           | + somite 19 dermomyotome
+EMAP:0001627           | + somite 19 myocoele
+EMAP:0001628           | \ somite 19 sclerotome
+EMAP:0001629           + somite 20
+EMAP:0001630           | + somite 20 dermomyotome
+EMAP:0001631           | + somite 20 myocoele
+EMAP:0001632           | \ somite 20 sclerotome
+EMAP:0001633           + somite 21
+EMAP:0001634           | + somite 21 dermomyotome
+EMAP:0001635           | + somite 21 myocoele
+EMAP:0001636           | \ somite 21 sclerotome
+EMAP:0001637           + somite 22
+EMAP:0001638           | + somite 22 dermomyotome
+EMAP:0001639           | + somite 22 myocoele
+EMAP:0001640           | \ somite 22 sclerotome
+EMAP:0001641           + somite 23
+EMAP:0001642           | + somite 23 dermomyotome
+EMAP:0001643           | + somite 23 myocoele
+EMAP:0001644           | \ somite 23 sclerotome
+EMAP:0001645           + somite 24
+EMAP:0001646           | + somite 24 dermomyotome
+EMAP:0001647           | + somite 24 myocoele
+EMAP:0001648           | \ somite 24 sclerotome
+EMAP:0001649           + somite 25
+EMAP:0001650           | + somite 25 dermomyotome
+EMAP:0001651           | + somite 25 myocoele
+EMAP:0001652           | \ somite 25 sclerotome
+EMAP:0001653           + somite 26
+EMAP:0001654           | + somite 26 dermomyotome
+EMAP:0001655           | + somite 26 myocoele
+EMAP:0001656           | \ somite 26 sclerotome
+EMAP:0001657           + somite 27
+EMAP:0001658           | + somite 27 dermomyotome
+EMAP:0001659           | + somite 27 myocoele
+EMAP:0001660           | \ somite 27 sclerotome
+EMAP:0001661           + somite 28
+EMAP:0001662           | + somite 28 dermomyotome
+EMAP:0001663           | + somite 28 myocoele
+EMAP:0001664           | \ somite 28 sclerotome
+EMAP:0001665           + somite 29
+EMAP:0001666           | + somite 29 dermomyotome
+EMAP:0001667           | + somite 29 myocoele
+EMAP:0001668           | \ somite 29 sclerotome
+EMAP:0001669           + somite 30
+EMAP:0001670           | + somite 30 dermomyotome
+EMAP:0001671           | + somite 30 myocoele
+EMAP:0001672           | \ somite 30 sclerotome
+EMAP:0029698           + trunk dermomyotome group
+EMAP:0001570           | + somite 05 dermomyotome
+EMAP:0001574           | + somite 06 dermomyotome
+EMAP:0001578           | + somite 07 dermomyotome
+EMAP:0001582           | + somite 08 dermomyotome
+EMAP:0001586           | + somite 09 dermomyotome
+EMAP:0001590           | + somite 10 dermomyotome
+EMAP:0001594           | + somite 11 dermomyotome
+EMAP:0001598           | + somite 12 dermomyotome
+EMAP:0001602           | + somite 13 dermomyotome
+EMAP:0001606           | + somite 14 dermomyotome
+EMAP:0001610           | + somite 15 dermomyotome
+EMAP:0001614           | + somite 16 dermomyotome
+EMAP:0001618           | + somite 17 dermomyotome
+EMAP:0001622           | + somite 18 dermomyotome
+EMAP:0001626           | + somite 19 dermomyotome
+EMAP:0001630           | + somite 20 dermomyotome
+EMAP:0001634           | + somite 21 dermomyotome
+EMAP:0001638           | + somite 22 dermomyotome
+EMAP:0001642           | + somite 23 dermomyotome
+EMAP:0001646           | + somite 24 dermomyotome
+EMAP:0001650           | + somite 25 dermomyotome
+EMAP:0001654           | + somite 26 dermomyotome
+EMAP:0001658           | + somite 27 dermomyotome
+EMAP:0001662           | + somite 28 dermomyotome
+EMAP:0001666           | + somite 29 dermomyotome
+EMAP:0001670           | + somite 30 dermomyotome
+EMAP:0034153           | + trunk dermatome
+EMAP:0034175           | \ trunk myotome
+EMAP:0031181           + trunk myocoele group
+EMAP:0001571           | + somite 05 myocoele
+EMAP:0001575           | + somite 06 myocoele
+EMAP:0001579           | + somite 07 myocoele
+EMAP:0001583           | + somite 08 myocoele
+EMAP:0001587           | + somite 09 myocoele
+EMAP:0001591           | + somite 10 myocoele
+EMAP:0001595           | + somite 11 myocoele
+EMAP:0001599           | + somite 12 myocoele
+EMAP:0001603           | + somite 13 myocoele
+EMAP:0001607           | + somite 14 myocoele
+EMAP:0001611           | + somite 15 myocoele
+EMAP:0001615           | + somite 16 myocoele
+EMAP:0001619           | + somite 17 myocoele
+EMAP:0001623           | + somite 18 myocoele
+EMAP:0001627           | + somite 19 myocoele
+EMAP:0001631           | + somite 20 myocoele
+EMAP:0001635           | + somite 21 myocoele
+EMAP:0001639           | + somite 22 myocoele
+EMAP:0001643           | + somite 23 myocoele
+EMAP:0001647           | + somite 24 myocoele
+EMAP:0001651           | + somite 25 myocoele
+EMAP:0001655           | + somite 26 myocoele
+EMAP:0001659           | + somite 27 myocoele
+EMAP:0001663           | + somite 28 myocoele
+EMAP:0001667           | + somite 29 myocoele
+EMAP:0001671           | \ somite 30 myocoele
+EMAP:0031147           \ trunk sclerotome group
+EMAP:0001572             + somite 05 sclerotome
+EMAP:0001576             + somite 06 sclerotome
+EMAP:0001580             + somite 07 sclerotome
+EMAP:0001584             + somite 08 sclerotome
+EMAP:0001588             + somite 09 sclerotome
+EMAP:0001592             + somite 10 sclerotome
+EMAP:0001596             + somite 11 sclerotome
+EMAP:0001600             + somite 12 sclerotome
+EMAP:0001604             + somite 13 sclerotome
+EMAP:0001608             + somite 14 sclerotome
+EMAP:0001612             + somite 15 sclerotome
+EMAP:0001616             + somite 16 sclerotome
+EMAP:0001620             + somite 17 sclerotome
+EMAP:0001624             + somite 18 sclerotome
+EMAP:0001628             + somite 19 sclerotome
+EMAP:0001632             + somite 20 sclerotome
+EMAP:0001636             + somite 21 sclerotome
+EMAP:0001640             + somite 22 sclerotome
+EMAP:0001644             + somite 23 sclerotome
+EMAP:0001648             + somite 24 sclerotome
+EMAP:0001652             + somite 25 sclerotome
+EMAP:0001656             + somite 26 sclerotome
+EMAP:0001660             + somite 27 sclerotome
+EMAP:0001664             + somite 28 sclerotome
+EMAP:0001668             + somite 29 sclerotome
+EMAP:0001672             \ somite 30 sclerotome

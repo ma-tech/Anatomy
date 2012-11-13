@@ -6,7 +6,10 @@ Module initialisation for the anatomy Generate Tree Reports package.
 """
 
 __all__ = [
-    "generateTreeReports"
-    "ReportFile"
-    "ReportTree"
+    "generateTreeReports",
+    "ReportFile",
+    "ReportTree",
+    "generateTreeReports011",
+    "ReportFile011",
+    "ReportTree011"
     ]

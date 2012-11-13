@@ -271,6 +271,7 @@ public class Parser {
                     */
                     OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
                     		oboclassimpl.getID(), 
+                    		"",
                     		"TBD",
                     		"TBD",
                     		oboclassimpl.getNamespace().toString(),
@@ -449,6 +450,7 @@ public class Parser {
                 */
             	OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
             		oboclassimpl.getID(), 
+            		"",
                     "TBD",
                     "TBD",
                     oboclassimpl.getNamespace().toString(),

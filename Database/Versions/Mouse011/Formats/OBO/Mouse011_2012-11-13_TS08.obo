@@ -1,0 +1,215 @@
+format-version: 1.2
+date: 13:11:2012 11:59
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Timed anatomy
+namespace: timed_anatomy
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS08
+name: TS08
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25773
+name: mouse
+namespace: timed_anatomy
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:57
+name: embryo
+namespace: abstract_anatomy
+relationship: part_of EMAP:25773
+
+[Term]
+id: EMAP:62
+name: epiblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:25773
+relationship: part_of EMAP:57
+
+[Term]
+id: EMAP:58
+name: cavities and their linings
+namespace: abstract_anatomy
+relationship: part_of EMAP:25773
+relationship: part_of EMAP:57
+
+[Term]
+id: EMAP:59
+name: embryonic component of the proamniotic cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:58
+
+[Term]
+id: EMAP:60
+name: endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:25773
+relationship: part_of EMAP:57
+
+[Term]
+id: EMAP:61
+name: primitive endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:60
+
+[Term]
+id: EMAP:63
+name: extraembryonic component
+namespace: abstract_anatomy
+relationship: part_of EMAP:25773
+
+[Term]
+id: EMAP:73
+name: trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:63
+
+[Term]
+id: EMAP:74
+name: mural trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:73
+
+[Term]
+id: EMAP:75
+name: primary trophoblast giant cells
+namespace: abstract_anatomy
+relationship: part_of EMAP:74
+
+[Term]
+id: EMAP:76
+name: polar trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:73
+
+[Term]
+id: EMAP:77
+name: ectoplacental cone
+namespace: abstract_anatomy
+relationship: part_of EMAP:76
+
+[Term]
+id: EMAP:78
+name: cytotrophoblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:77
+
+[Term]
+id: EMAP:79
+name: syncytiotrophoblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:77
+
+[Term]
+id: EMAP:68
+name: extraembryonic endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:63
+
+[Term]
+id: EMAP:70
+name: parietal endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:68
+
+[Term]
+id: EMAP:71
+name: Reichert's membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:70
+
+[Term]
+id: EMAP:69
+name: intermediate endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:68
+
+[Term]
+id: EMAP:72
+name: visceral endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:68
+
+[Term]
+id: EMAP:64
+name: extraembryonic component cavities
+namespace: abstract_anatomy
+relationship: part_of EMAP:63
+
+[Term]
+id: EMAP:66
+name: yolk sac cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:64
+
+[Term]
+id: EMAP:65
+name: proamniotic cavity extraembryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:64
+
+[Term]
+id: EMAP:67
+name: extraembryonic ectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:63
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

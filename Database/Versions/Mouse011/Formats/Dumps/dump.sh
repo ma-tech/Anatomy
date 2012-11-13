@@ -1,3 +1,2 @@
-#cd ~/GitMahost/Anatomy/Database/Versions/Mouse010/Formats/Dumps/
-#echo 'create database mouse010;' | mysql -uroot -pbanana -hlocalhost 
-mysqldump -uroot -pbanana -hlocalhost mouse010 --routines > mySqlSchemaAndDataAndRoutinesDump.sql
+#cd ~/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps/
+mysqldump -uroot -pbanana -hlocalhost mouse011 --routines > mySqlSchemaAndDataAndRoutinesDump.sql

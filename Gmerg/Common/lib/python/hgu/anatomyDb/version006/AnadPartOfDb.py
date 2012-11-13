@@ -29,7 +29,6 @@ SEQUENCE_COLUMN               = "APO_SEQUENCE"
 DEPTH_COLUMN                  = "APO_DEPTH"
 FULL_PATH_COLUMN              = "APO_FULL_PATH"
 FULL_PATH_OIDS_COLUMN         = "APO_FULL_PATH_OIDS"
-FULL_PATH_EMAPAS_COLUMN       = "APO_FULL_PATH_EMAPAS"
 FULL_PATH_JSON_HEAD_COLUMN    = "APO_FULL_PATH_JSON_HEAD"
 FULL_PATH_JSON_TAIL_COLUMN    = "APO_FULL_PATH_JSON_TAIL"
 IS_PRIMARY_COLUMN             = "APO_IS_PRIMARY" # depreacted in V4
@@ -238,19 +237,6 @@ class AnadPartOfDbRecord:
         return self.getDbRecord().setColumnValue(FULL_PATH_OIDS_COLUMN, fullPathOids)
 
 
-    def getFullPathEmapas(self):
-        """
-        Return the full path node EMAPAs of this record from the root of the tree.
-        """
-        return self.getDbRecord().getColumnValue(FULL_PATH_EMAPAS_COLUMN)
-
-    def setFullPathEmapas(self, fullPathEmapas):
-        """
-        Set the full path node EMAPAs of this record from the root of the tree.
-        """
-        return self.getDbRecord().setColumnValue(FULL_PATH_EMAPAS_COLUMN, fullPathEmapas)
-
-
     def getFullPathJsonHead(self):
         """
         Return the full path of this record from the root of the tree.
@@ -424,7 +410,6 @@ _table.registerColumn(SEQUENCE_COLUMN,             DbTable.IS_NOT_KEY)
 _table.registerColumn(DEPTH_COLUMN,                DbTable.IS_NOT_KEY)
 _table.registerColumn(FULL_PATH_COLUMN,            DbTable.IS_NOT_KEY)
 _table.registerColumn(FULL_PATH_OIDS_COLUMN,       DbTable.IS_NOT_KEY)
-_table.registerColumn(FULL_PATH_EMAPAS_COLUMN,     DbTable.IS_NOT_KEY)
 _table.registerColumn(FULL_PATH_JSON_HEAD_COLUMN,  DbTable.IS_NOT_KEY)
 _table.registerColumn(FULL_PATH_JSON_TAIL_COLUMN,  DbTable.IS_NOT_KEY)
 _table.registerColumn(IS_PRIMARY_COLUMN,           DbTable.IS_NOT_KEY)

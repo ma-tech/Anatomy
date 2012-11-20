@@ -131,7 +131,8 @@ def _relCmp(rel1, rel2):
     else:
         # sequence same, sort based on name.
         #if relType1 == IS_A:
-        if relType1 == PART_OF or relType1 == IS_A or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
+        #if relType1 == PART_OF or relType1 == IS_A or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
+        if relType1 == PART_OF or relType1 == IS_A or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
         #if relType1 == PART_OF or relType1 == DERIVES_FROM or relType1 == DEVELOPS_FROM or relType1 == LOCATED_IN or relType1 == DEVELOPS_IN or relType1 == DISJOINT_FROM or relType1 == ATTACHED_TO or relType1 == HAS_PART:
             #Util.statusMessage(["HERE!"])
             #Util.statusMessage(["Relationship 1: " + str(rel1.getOid()) + "\n" +
@@ -181,7 +182,8 @@ def _addRelToKnowledge(rel, sortWithSiblings = True):
     _byOid[relOid] = rel
     
     #if relType == IS_A:
-    if relType == PART_OF or relType == IS_A or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+    if relType == PART_OF or relType == IS_A or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
+    #if relType == PART_OF or relType == IS_A or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
     #if relType == PART_OF or relType == DERIVES_FROM or relType == DEVELOPS_FROM or relType == LOCATED_IN or relType == DEVELOPS_IN or relType == DISJOINT_FROM or relType == ATTACHED_TO or relType == HAS_PART:
         if all3Tuple in _byParentChildOidsRelType:
             Util.fatalError([

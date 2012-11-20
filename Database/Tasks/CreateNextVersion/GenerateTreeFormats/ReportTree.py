@@ -11,11 +11,11 @@ import sets
 
 from hgu import Util
 
-from hgu.anatomyDb.version006 import Nodes
-from hgu.anatomyDb.version006 import PartOfs
-from hgu.anatomyDb.version006 import Stages
-from hgu.anatomyDb.version006 import AnaSynonymDb
-from hgu.anatomyDb.version006 import AnaVersionDb
+from hgu.anatomyDb.version010 import Nodes
+from hgu.anatomyDb.version010 import PartOfs
+from hgu.anatomyDb.version010 import Stages
+from hgu.anatomyDb.version010 import AnaSynonymDb
+from hgu.anatomyDb.version010 import AnaVersionDb
 
 # ALSO SEE IMPORTS BELOW GLOBAL SECTION
 

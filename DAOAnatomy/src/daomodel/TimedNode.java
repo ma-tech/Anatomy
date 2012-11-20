@@ -43,12 +43,14 @@ public class TimedNode {
      *   3. ATN_STAGE_FK          - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
      *   5. ATN_PUBLIC_ID         - varchar(20)      
+     *   6. ATN_DISPLAY_ID        - varchar(20)      
 	 */
     private Long oid; 
     private Long nodeFK; 
     private Long stageFK; 
     private String stageModifierFK;
     private String publicId;
+    private String displayId;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -65,13 +67,15 @@ public class TimedNode {
     		Long nodeFK, 
     		Long stageFK,
     		String stageModifierFK,
-    		String publicId) {
+    		String publicId,
+    		String displayId) {
     	
         this.oid = oid;
         this.nodeFK = nodeFK; 
         this.stageFK = stageFK; 
         this.stageModifierFK = stageModifierFK;
         this.publicId = publicId;
+        this.displayId = displayId;
     }
 
     /*
@@ -97,6 +101,9 @@ public class TimedNode {
     public String getPublicId() {
         return publicId;
     }
+    public String getDisplayId() {
+        return displayId;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {
@@ -113,6 +120,9 @@ public class TimedNode {
     }
     public void setPublicId(String publicId) {
         this.publicId = publicId;
+    }
+    public void setDisplayId(String displayId) {
+        this.displayId = displayId;
     }
 
     // Override -----------------------------------------------------------------------------------
@@ -131,7 +141,7 @@ public class TimedNode {
      *  Not required, it just makes reading logs easier
      */
     public String toString() {
-        return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s ]", 
-            oid, nodeFK, stageFK, stageModifierFK, publicId);
+        return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s ]", 
+            oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
     }
 }

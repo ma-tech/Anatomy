@@ -10,11 +10,7 @@ import sys
 
 from hgu import Util
 from hgu.db import DbAccess
-from hgu.anatomyDb.version006 import Anatomy # High level anatomy DB access
-
-#sys.setrecursionlimit(3000)
-
-#print "sys.getrecursionlimit = %s" % sys.getrecursionlimit()
+from hgu.anatomyDb.version011 import Anatomy # High level anatomy DB access
 
 # List of expected configuration parameters
 config = {

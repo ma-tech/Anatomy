@@ -8,6 +8,8 @@
 
 __all__ = [
     "version003",
-    "version004" 
+    "version004", 
     "version006",
+    "version010",
+    "version011"
     ]

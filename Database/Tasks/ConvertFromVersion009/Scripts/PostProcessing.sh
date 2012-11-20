@@ -30,7 +30,7 @@ cd ../../CreateNextVersion/RegenerateDerivedData
 
 # 3. Apply Derived Data
 echo '3. Apply Derived Data'
-mysql -uroot -pbanana anatomy009 < ../../ConvertFromVersion009/SQLFiles/PostProcessing/replaceDerivedData.sql
+mysql -uroot -pbanana mouse010 < ../../ConvertFromVersion009/SQLFiles/PostProcessing/replaceDerivedData.sql
 
 # 4. Update ANA_OBJECT (Index Entries)
 echo '4. Update ANA_OBJECT (Index Entries)'
@@ -48,10 +48,10 @@ cd ../../../../GenerateTreeFormats
 echo '6. Rebuild ANA_PERSPECTIVE_LINK'
 cd ../ConvertFromVersion009/SQLFiles/PostProcessing/002AnaNodePerspectiveLink
 #pwd
-mysql -uroot -pbanana anatomy009 < createAnaNodePerspectiveLinkData.sql > AnaNodePerspectiveLink.csv
-mysql -uroot -pbanana anatomy009 < NewPerspectiveNodeLinkTable.sql 
-mysql -uroot -pbanana anatomy009 < createAnaNodePerspectiveLinkData.sql > update/inputAnaNodePerspectiveLinkData.sql 
-mysql -uroot -pbanana anatomy009 < update/inputAnaNodePerspectiveLinkData.sql 
+mysql -uroot -pbanana mouse010 < createAnaNodePerspectiveLinkData.sql > AnaNodePerspectiveLink.csv
+mysql -uroot -pbanana mouse010 < NewPerspectiveNodeLinkTable.sql 
+mysql -uroot -pbanana mouse010 < createAnaNodePerspectiveLinkData.sql > update/inputAnaNodePerspectiveLinkData.sql 
+mysql -uroot -pbanana mouse010 < update/inputAnaNodePerspectiveLinkData.sql 
 
 # 7. Generate OBO File
 echo '7. Generate OBO File'

@@ -1,0 +1,36 @@
+
+============================================================
+===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS04
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025769   mouse
+EMAP:0000013   + compacted morula
+EMAP:0000012 G + embryo
+EMAP:0000013 > | + compacted morula
+EMAP:0000014 > | \ inner cell mass
+EMAP:0000015   + extraembryonic component
+EMAP:0000016   | + extraembryonic cavities and their linings
+EMAP:0000017   | | \ blastocoelic cavity
+EMAP:0000018   | + second polar body
+EMAP:0000019   | + trophectoderm
+EMAP:0000020   | | + mural trophectoderm
+EMAP:0000021   | | \ polar trophectoderm
+EMAP:0000022   | \ zona pellucida
+EMAP:0000014   \ inner cell mass

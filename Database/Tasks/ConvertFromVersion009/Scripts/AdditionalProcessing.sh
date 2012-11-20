@@ -23,15 +23,15 @@ cd ../SQLFiles/AdditionalProcessing/001SetUp/
 #pwd
 
 echo 'A. Drop Existing Materialised Views'
-mysql -uroot -pbanana anatomy009 < 001createAbstractEdgeTable.sql
-mysql -uroot -pbanana anatomy009 < 002createTimedEdgeTable.sql
+mysql -uroot -pbanana mouse010 < 001createAbstractEdgeTable.sql
+mysql -uroot -pbanana mouse010 < 002createTimedEdgeTable.sql
 echo 'A. Drop Existing Materialised Views - DONE'
 echo 'B. Build Data Files'
-mysql -uroot -pbanana anatomy009 < 009inputAbstractEdgeSP.sql > update/011buildAbstractEdge.sql
-mysql -uroot -pbanana anatomy009 < 010inputTimedEdgeSP.sql > update/012buildTimedEdge.sql
+mysql -uroot -pbanana mouse010 < 009inputAbstractEdgeSP.sql > update/011buildAbstractEdge.sql
+mysql -uroot -pbanana mouse010 < 010inputTimedEdgeSP.sql > update/012buildTimedEdge.sql
 echo 'B. Build Data Files - DONE'
 echo 'C. Insert Data Files'
-mysql -uroot -pbanana anatomy009 < update/011buildAbstractEdge.sql > /log/011buildAbstractEdge.log
-mysql -uroot -pbanana anatomy009 < update/012buildTimedEdge.sql > /log/012buildTimedEdge.log
+mysql -uroot -pbanana mouse010 < update/011buildAbstractEdge.sql > log/011buildAbstractEdge.log
+mysql -uroot -pbanana mouse010 < update/012buildTimedEdge.sql > log/012buildTimedEdge.log
 echo 'C. Insert Data Files - DONE'
 echo '1. Rebuild Materialised Views - ALL DONE'

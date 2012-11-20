@@ -20,7 +20,7 @@ import sys
 
 from hgu import Util
 
-from hgu.anatomyDb.version006 import Anatomy
+from hgu.anatomyDb.version010 import Anatomy
 
 import ReportTree
 import ReportFile

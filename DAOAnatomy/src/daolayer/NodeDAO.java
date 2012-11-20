@@ -57,7 +57,7 @@ public final class NodeDAO {
         "FROM ANA_NODE";
 
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "WHERE ANO_PUBLIC_ID LIKE ? " +
         "AND ANO_DESCRIPTION LIKE ? " +
@@ -65,7 +65,7 @@ public final class NodeDAO {
         "LIMIT ?, ?";
 
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
@@ -81,33 +81,43 @@ public final class NodeDAO {
         "FROM ANA_NODE ";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "WHERE ANO_OID = ? ";
     
     private static final String SQL_FIND_BY_PUBLIC_ID =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "WHERE ANO_PUBLIC_ID = ? ";
     
+    private static final String SQL_FIND_BY_DISPLAY_ID =
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
+        "FROM ANA_NODE " +
+        "WHERE ANO_DISPLAY_ID = ? ";
+        
     private static final String SQL_FIND_BY_COMPONENT_NAME =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "WHERE ANO_COMPONENT_NAME = ? ";
         
     private static final String SQL_LIST_ALL =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE ";
     
     private static final String SQL_LIST_ALL_ORDER_BY_PUBLIC_ID =
-        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION " +
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
         "ORDER BY CAST( SUBSTRING(ANO_PUBLIC_ID, 7) AS SIGNED ) ";
         
+    private static final String SQL_LIST_ALL_ORDER_BY_DISPLAY_ID =
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
+        "FROM ANA_NODE " +
+        "ORDER BY ANO_DISPLAY_ID ";
+            
     private static final String SQL_INSERT =
         "INSERT INTO ANA_NODE " +
-        "(ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION) " +
-        "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        "(ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_NODE SET " +
@@ -116,7 +126,8 @@ public final class NodeDAO {
         "ANO_IS_PRIMARY = ?, " +
         "ANO_IS_GROUP = ?, " +
         "ANO_PUBLIC_ID = ?, " +
-        "ANO_DESCRIPTION = ? " + 
+        "ANO_DESCRIPTION = ?, " + 
+        "ANO_DISPLAY_ID = ? " +
         "WHERE ANO_OID = ? ";
     
     private static final String SQL_DELETE =
@@ -132,6 +143,11 @@ public final class NodeDAO {
         "SELECT ANO_OID " +
         "FROM ANA_NODE " +
         "WHERE ANO_PUBLIC_ID = ? ";
+
+    private static final String SQL_EXIST_BY_DISPLAY_ID =
+        "SELECT ANO_OID " +
+        "FROM ANA_NODE " +
+        "WHERE ANO_DISPLAY_ID = ? ";
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -173,6 +189,14 @@ public final class NodeDAO {
     }
 
     /*
+     * Returns the node from the database matching the given displayId, otherwise null.
+     */
+    public Node findByDisplayId(String displayId) throws DAOException {
+    	
+        return find(SQL_FIND_BY_DISPLAY_ID, displayId);
+    }
+
+    /*
      * Returns the node from the database matching the given componentName, otherwise null.
      */
     public Node findByComponentName(String componentName) throws DAOException {
@@ -197,6 +221,14 @@ public final class NodeDAO {
     }
     
     /*
+     * Returns a list of ALL timednodes, otherwise null.
+     */
+    public List<Node> listAllOrderByDisplayId() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_DISPLAY_ID);
+    }
+    
+    /*
      * Returns true if the given node OID exists in the database.
      */
     public boolean existOid(Long oid) throws DAOException {
@@ -205,11 +237,19 @@ public final class NodeDAO {
     }
 
     /*
-     * Returns true if the given node OID exists in the database.
+     * Returns true if the given node publicId exists in the database.
      */
     public boolean existPublicId(String publicId) throws DAOException {
     	
         return exist(SQL_EXIST_BY_PUBLIC_ID, publicId);
+    }
+
+    /*
+     * Returns true if the given node publicId exists in the database.
+     */
+    public boolean existDisplayId(String displayId) throws DAOException {
+    	
+        return exist(SQL_EXIST_BY_DISPLAY_ID, displayId);
     }
 
     /*
@@ -305,7 +345,8 @@ public final class NodeDAO {
         	node.isPrimary(),
         	node.isGroup(),
         	node.getPublicId(),
-        	node.getDescription()
+        	node.getDescription(),
+        	node.getDisplayId()
         };
 
         Connection connection = null;
@@ -356,6 +397,7 @@ public final class NodeDAO {
            	node.isGroup(),
            	node.getPublicId(),
            	node.getDescription(),
+           	node.getDisplayId(),
             node.getOid()
         };
 
@@ -503,6 +545,9 @@ public final class NodeDAO {
         }
         if (sortField.equals("description")) {
         	sqlSortField = "ANO_DESCRIPTION";         
+        }
+        if (sortField.equals("displayId")) {
+        	sqlSortField = "ANO_DISPLAY_ID";         
         }
         
         String sortDirection = sortAscending ? "ASC" : "DESC";
@@ -659,7 +704,8 @@ public final class NodeDAO {
        		resultSet.getBoolean("ANO_IS_PRIMARY"),
        		resultSet.getBoolean("ANO_IS_GROUP"), 
        		resultSet.getString("ANO_PUBLIC_ID"), 
-       		resultSet.getString("ANO_DESCRIPTION")
+       		resultSet.getString("ANO_DESCRIPTION"), 
+       		resultSet.getString("ANO_DISPLAY_ID")
         );
     }
 }

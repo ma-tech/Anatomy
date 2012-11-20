@@ -64,6 +64,7 @@ public class OBOComponent {
     // obocomponent fields
     private String name;
     private String id;
+    private String displayId;
     private String dbID;
     private String newid;
     private String namespace;
@@ -106,6 +107,7 @@ public class OBOComponent {
     	
     	this.name = "";
     	this.id = "";
+    	this.displayId = "";
     	this.dbID = "";
     	this.newid = "";
     	this.namespace = "";
@@ -144,6 +146,7 @@ public class OBOComponent {
      */
     public OBOComponent(String name, 
     		String id,
+    		String displayId,
     		String dbID,
     		String newid,
     		String namespace,
@@ -157,6 +160,7 @@ public class OBOComponent {
     	
     	this.name = name;
     	this.id = id;
+    	this.displayId = displayId;
     	this.dbID = dbID;
     	this.newid = newid;
     	this.namespace = namespace;
@@ -191,6 +195,7 @@ public class OBOComponent {
      */
     public OBOComponent(String name, 
     		String id,
+    		String displayId,
     		String dbID,
     		String newid,
     		String namespace,
@@ -208,7 +213,7 @@ public class OBOComponent {
     		String orderComment,
     		TreeSet<String> comments) {
     	
-    	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
         this.childOfTypes = childOfTypes;
@@ -223,6 +228,7 @@ public class OBOComponent {
      */
     public OBOComponent(String name, 
     		String id,
+    		String displayId,
     		String dbID,
     		String newid,
     		String namespace,
@@ -241,7 +247,7 @@ public class OBOComponent {
     		TreeSet<String> comments,
     		ArrayList<String> alternativeIds) {
     	
-    	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
         this.childOfTypes = childOfTypes;
@@ -257,6 +263,7 @@ public class OBOComponent {
      */
     public OBOComponent(String name, 
     		String id,
+    		String displayId,
     		String dbID,
     		String newid,
     		String namespace,
@@ -276,7 +283,7 @@ public class OBOComponent {
     		ArrayList<String> alternativeIds,
     		ArrayList<String> timedComponents) {
     	
-    	this(name, id, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
 
         this.timedComponents = timedComponents;
     }
@@ -284,6 +291,9 @@ public class OBOComponent {
     // Getters ------------------------------------------------------------------------------------
     public String getID() {
         return this.id;
+    }
+    public String getDisplayId() {
+        return this.displayId;
     }
     public String getDBID() {
         return this.dbID;
@@ -370,6 +380,9 @@ public class OBOComponent {
     // Setters ------------------------------------------------------------------------------------
     public void setID( String id ) {
         this.id = id;
+    }
+    public void setDisplayId( String displayId ) {
+        this.displayId = displayId;
     }
     public void setDBID( String dbID ) {
         this.dbID = dbID;
@@ -2039,6 +2052,7 @@ public class OBOComponent {
         OBOComponent copyobocomponent = new OBOComponent();
         
         copyobocomponent.setID( this.getID() );
+        copyobocomponent.setDisplayId( this.getDisplayId() );
         copyobocomponent.setDBID( this.getDBID() );
         copyobocomponent.setName( this.getName() );
         copyobocomponent.setNamespace( this.getNamespace() );

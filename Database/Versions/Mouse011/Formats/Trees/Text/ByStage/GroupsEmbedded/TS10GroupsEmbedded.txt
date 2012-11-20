@@ -1,0 +1,77 @@
+
+============================================================
+===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS10
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025775   mouse
+EMAP:0000107   + cavities and their linings
+EMAP:0000108   | \ embryonic component of the proamniotic cavity
+EMAP:0000109   + ectoderm
+EMAP:0000110   | + neural ectoderm
+EMAP:0000111   | \ non-neural ectoderm
+EMAP:0000106 G + embryo
+EMAP:0000107 > | + cavities and their linings
+EMAP:0000108 ~ | | \ embryonic component of the proamniotic cavity
+EMAP:0000109 > | + ectoderm
+EMAP:0000110 ~ | | + neural ectoderm
+EMAP:0000111 ~ | | \ non-neural ectoderm
+EMAP:0000112 > | + endoderm
+EMAP:0000113 ~ | | + definitive endoderm
+EMAP:0000114 ~ | | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0033851 > | + mesendoderm
+EMAP:0000115 > | + mesoderm
+EMAP:0000116 > | \ primitive streak
+EMAP:0000117 ~ |   \ node
+EMAP:0000112   + endoderm
+EMAP:0000113   | + definitive endoderm
+EMAP:0000114   | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0000118   + extraembryonic component
+EMAP:0015232   | + allantois
+EMAP:0015233   | | \ allantois mesoderm
+EMAP:0000119   | + amniotic fold
+EMAP:0000120   | | + amniotic fold ectoderm
+EMAP:0000121   | | \ amniotic fold mesoderm
+EMAP:0000122   | + extraembryonic component cavities
+EMAP:0000123   | | + amniotic cavity
+EMAP:0000127   | | + cavity within amniotic fold
+EMAP:0000124   | | + ectoplacental cavity
+EMAP:0000125   | | + exocoelomic cavity
+EMAP:0000126   | | + proamniotic cavity extraembryonic part
+EMAP:0000128   | | \ yolk sac cavity
+EMAP:0000129   | + extraembryonic ectoderm
+EMAP:0000130   | + extraembryonic endoderm
+EMAP:0000131   | | + intermediate endoderm
+EMAP:0000132   | | + parietal endoderm
+EMAP:0000133   | | | \ Reichert's membrane
+EMAP:0000134   | | \ visceral endoderm
+EMAP:0000137   | + trophectoderm
+EMAP:0000138   | | + mural trophectoderm
+EMAP:0000139   | | | \ primary trophoblast giant cells
+EMAP:0000140   | | \ polar trophectoderm
+EMAP:0000141   | |   \ ectoplacental cone
+EMAP:0000142   | |     + cytotrophoblast
+EMAP:0000143   | |     \ syncytiotrophoblast
+EMAP:0000144   | \ yolk sac
+EMAP:0000145   |   + yolk sac endoderm
+EMAP:0000146   |   \ yolk sac mesoderm
+EMAP:0033851   + mesendoderm
+EMAP:0000115   + mesoderm
+EMAP:0000116   \ primitive streak
+EMAP:0000117     \ node

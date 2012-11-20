@@ -31,6 +31,8 @@
 
 package routinesbase;
 
+import utility.StringPad;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,8 +45,7 @@ import daolayer.DAOFactory;
 
 import daolayer.JOINNodeRelationshipDAO;
 import daolayer.JOINNodeRelationshipNodeDAO;
-//import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
-//import daolayer.JOINRelationshipProjectRelationshipDAO;
+
 import daolayer.JOINTimedNodeStageDAO;
 import daolayer.LogDAO;
 import daolayer.NodeDAO;
@@ -70,8 +71,7 @@ import daomodel.ComponentAlternative;
 import daomodel.ComponentComment;
 import daomodel.JOINNodeRelationship;
 import daomodel.JOINNodeRelationshipNode;
-//import daomodel.JOINNodeRelationshipRelationshipProject;
-//import daomodel.JOINRelationshipProjectRelationship;
+
 import daomodel.JOINTimedNodeStage;
 import daomodel.Log;
 import daomodel.Node;
@@ -1141,6 +1141,7 @@ public class GenerateSQL {
          *   5. ANO_IS_GROUP       - tinyint(1)       
          *   6. ANO_PUBLIC_ID      - varchar(20)      
          *   7. ANO_DESCRIPTION    - varchar(2000)    
+         *   8. ANO_DISPLAY_ID     - varchar(20)      
     	 */
         if (debug) {
         	
@@ -1154,6 +1155,7 @@ public class GenerateSQL {
         boolean boolANO_IS_GROUP = false;
         String strANO_PUBLIC_ID = "";
         String strANO_DESCRIPTION = "";
+        String strANO_DISPLAY_ID = "";
 
         OBOComponent component;
 
@@ -1192,21 +1194,24 @@ public class GenerateSQL {
                 	   boolANO_IS_GROUP = true;
                    }
                    
+                   intCurrentPublicID = intCurrentPublicID + 1;
+                   
+            	   char padChar = 0;
                    // Column 6
                    if (strSpecies.equals("mouse")) {
                 	   
-                	   strANO_PUBLIC_ID = "EMAPA:" + 
-                               Integer.toString( ++intCurrentPublicID );
+                	   strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
+                	   strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
                    }
                    else if (strSpecies.equals("chick")) {
                 	   
-                	   strANO_PUBLIC_ID = "ECAPA:" + 
-                               Integer.toString( ++intCurrentPublicID );
+                	   strANO_PUBLIC_ID = "ECAPA:" + Integer.toString( intCurrentPublicID );
+                	   strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
                    }
                    else if (strSpecies.equals("human")) {
                 	   
-                	   strANO_PUBLIC_ID = "EHDAA:" + 
-                               Integer.toString( ++intCurrentPublicID );
+                	   strANO_PUBLIC_ID = "EHDAA:" + Integer.toString( intCurrentPublicID );
+                	   strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
                    }
                    else {
                 	   
@@ -1215,7 +1220,7 @@ public class GenerateSQL {
                    // Column 7
                    strANO_DESCRIPTION = "";
                    
-                   Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION);
+                   Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
                    
                    nodeDAO.create(node);
                    
@@ -2047,6 +2052,7 @@ public class GenerateSQL {
          *   3. ATN_STAGE_FK          - int(10) unsigned 
          *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
          *   5. ATN_PUBLIC_ID         - varchar(20)      
+         *   6. ATN_DISPLAY_ID        - varchar(20)      
     	 */
 
     	if (debug) {
@@ -2059,8 +2065,6 @@ public class GenerateSQL {
         try {
         	
         	//03-1
-            intCurrentPublicID = getMaxPublicID();
-            
             //create timed components in ANA_OBJECT
             // 05-1
             timedCompList = createTimeComponents(newTermList, calledFrom);
@@ -2096,8 +2100,9 @@ public class GenerateSQL {
                     
                     //String strATN_STAGE_MODIFIER_FK //default null
                     String strATN_PUBLIC_ID = component.getID();
+                    String strATN_DISPLAY_ID = component.getDisplayId();
                     
-                    TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID);
+                    TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID, strATN_DISPLAY_ID);
 
                     //System.out.println("timednode.toString() = " + timednode.toString());
 
@@ -3350,19 +3355,26 @@ public class GenerateSQL {
                     timedCompie.setNamespace( component.getDBID() ); //current component
                     timedCompie.setStartSequence(j, strSpecies);
 
+                    intCurrentPublicID = intCurrentPublicID + 1;
+                    
+                    char padChar = 0;
+                    
                     if (strSpecies.equals("mouse")) {
                  	   
-                        timedCompie.setID( "EMAP:" + Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "EMAP:" + Integer.toString( intCurrentPublicID ) );
+                        timedCompie.setDisplayId( "EMAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                     }
                     
                     if (strSpecies.equals("human")) {
                  	   
-                        timedCompie.setID( "EHDA:" + Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "EHDA:" + Integer.toString( intCurrentPublicID ) );
+                        timedCompie.setDisplayId( "EHDA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                     }
                     
                     if (strSpecies.equals("chick")) {
                  	   
-                        timedCompie.setID( "ECAP:" + Integer.toString( ++intCurrentPublicID ) );
+                        timedCompie.setID( "ECAP:" + Integer.toString( intCurrentPublicID ) );
+                        timedCompie.setDisplayId( "ECAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                     }
 
                     timedComps.add(timedCompie);

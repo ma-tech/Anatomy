@@ -45,6 +45,7 @@ public class Node {
      *   5. ANO_IS_GROUP       - tinyint(1)       
      *   6. ANO_PUBLIC_ID      - varchar(20)      
      *   7. ANO_DESCRIPTION    - varchar(2000)    
+     *   8. ANO_DISPLAY_ID     - varchar(20)      
 	 */
     private Long oid; 
     private String speciesFK; 
@@ -53,6 +54,7 @@ public class Node {
     private Boolean group;
     private String publicId; 
     private String description; 
+    private String displayId; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -78,7 +80,8 @@ public class Node {
     	    Boolean primary,
     	    Boolean group,
     	    String publicId,
-    	    String description) {
+    	    String description,
+    	    String displayId) {
     	
         this.oid = oid;
 	    this.speciesFK = speciesFK;
@@ -87,6 +90,7 @@ public class Node {
 	    this.group = group;
 	    this.publicId = publicId;
 	    this.description = description;
+	    this.displayId = displayId;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -127,6 +131,9 @@ public class Node {
     public String getDescription() {
         return description;
     }
+    public String getDisplayId() {
+        return displayId;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {
@@ -150,6 +157,9 @@ public class Node {
     public void setDescription(String description) {
         this.description = description;
     }
+    public void setDisplayId(String displayId) {
+        this.displayId = displayId;
+    }
 
     // Override -----------------------------------------------------------------------------------
     /*
@@ -167,7 +177,7 @@ public class Node {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
-        return String.format("Node [ oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s ]", 
-            oid, speciesFK, componentName, primary, group, publicId, description); 
+        return String.format("Node [ oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s, displayId=%s ]", 
+            oid, speciesFK, componentName, primary, group, publicId, description, displayId); 
     }
 }

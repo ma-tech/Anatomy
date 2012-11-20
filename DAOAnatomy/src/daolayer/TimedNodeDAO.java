@@ -52,7 +52,7 @@ public final class TimedNodeDAO {
 
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_NODE_FK LIKE ? " +
         "AND ATN_PUBLIC_ID LIKE ? " +
@@ -70,45 +70,56 @@ public final class TimedNodeDAO {
         "FROM ANA_TIMED_NODE";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_OID = ?";
     
     private static final String SQL_LIST_BY_NODE_FK =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_NODE_FK = ?";
     
     private static final String SQL_LIST_BY_STAGE_FK =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_STAGE_FK = ?";
         
     private static final String SQL_LIST_BY_PUBLIC_ID =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_PUBLIC_ID = ?";
         
+    private static final String SQL_LIST_BY_DISPLAY_ID =
+            "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
+            "FROM ANA_TIMED_NODE " +
+            "WHERE ATN_DISPLAY_ID = ?";
+            
     private static final String SQL_LIST_ALL =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE ";
         
     private static final String SQL_LIST_ALL_ORDER_BY_PUBLIC_ID =
-        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID " +
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
         "FROM ANA_TIMED_NODE " +
         "ORDER BY CAST( SUBSTRING(ATN_PUBLIC_ID, 6) AS SIGNED ) ";
             
+    private static final String SQL_LIST_ALL_ORDER_BY_DISPLAY_ID =
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
+        "FROM ANA_TIMED_NODE " +
+        "ORDER BY ATN_DISPLAY_ID ";
+                
     private static final String SQL_INSERT =
         "INSERT INTO ANA_TIMED_NODE " +
-        "(ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID) " +
-        "VALUES (?, ?, ?, ?, ?)";
+        "(ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID) " +
+        "VALUES (?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_TIMED_NODE SET " +
         "ATN_NODE_FK = ?, " +
         "ATN_STAGE_FK = ?, " + 
         "ATN_STAGE_MODIFIER_FK = ?, " +
-        "ATN_PUBLIC_ID = ? " + 
+        "ATN_PUBLIC_ID = ?, " + 
+        "ATN_DISPLAY_ID = ? " + 
         "WHERE ATN_OID = ?";
     
     private static final String SQL_DELETE =
@@ -124,6 +135,16 @@ public final class TimedNodeDAO {
         "SELECT ATN_OID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_OID = ?";
+
+    private static final String SQL_EXIST_BY_PUBLIC_ID =
+        "SELECT ATN_OID " +
+        "FROM ANA_TIMED_NODE " +
+        "WHERE ATN_PUBLIC_ID = ?";
+
+    private static final String SQL_EXIST_BY_DISPLAY_ID =
+        "SELECT ATN_OID " +
+        "FROM ANA_TIMED_NODE " +
+        "WHERE ATN_DISPLAY_ID = ?";
 
     
     // Vars ---------------------------------------------------------------------------------------
@@ -182,6 +203,14 @@ public final class TimedNodeDAO {
     }
     
     /*
+     * Returns a list of ALL timednodes By Display Id, otherwise null.
+     */
+    public List<TimedNode> listByDisplayId() throws DAOException {
+    	
+        return list(SQL_LIST_BY_DISPLAY_ID);
+    }
+    
+    /*
      * Returns a list of ALL timednodes, otherwise null.
      */
     public List<TimedNode> listAll() throws DAOException {
@@ -198,11 +227,35 @@ public final class TimedNodeDAO {
     }
     
     /*
+     * Returns a list of ALL timednodes, otherwise null.
+     */
+    public List<TimedNode> listAllOrderByDisplayId() throws DAOException {
+    	
+        return list(SQL_LIST_ALL_ORDER_BY_DISPLAY_ID);
+    }
+    
+    /*
      * Returns true if the given timednode OID exists in the database.
      */
     public boolean existOid(Long oid) throws DAOException {
     	
         return exist(SQL_EXIST_OID, oid);
+    }
+
+    /*
+     * Returns true if the given timednode publicId exists in the database.
+     */
+    public boolean existPublicId(String publicId) throws DAOException {
+    	
+        return exist(SQL_EXIST_BY_PUBLIC_ID, publicId);
+    }
+
+    /*
+     * Returns true if the given timednode displayId exists in the database.
+     */
+    public boolean existDisplayId(String displayId) throws DAOException {
+    	
+        return exist(SQL_EXIST_BY_DISPLAY_ID, displayId);
     }
 
     /*
@@ -297,7 +350,8 @@ public final class TimedNodeDAO {
    			timednode.getNodeFK(),
    			timednode.getStageFK(),
    			timednode.getStageModifierFK(),
-   			timednode.getPublicId()
+   			timednode.getPublicId(),
+   			timednode.getDisplayId()
         };
 
         Connection connection = null;
@@ -347,6 +401,7 @@ public final class TimedNodeDAO {
    			timednode.getStageFK(),
    			timednode.getStageModifierFK(),
   			timednode.getPublicId(),
+  			timednode.getDisplayId(),
   			timednode.getOid()
         };
 
@@ -515,6 +570,9 @@ public final class TimedNodeDAO {
         if (sortField.equals("publicId")) {
         	sqlSortField = "ATN_PUBLIC_ID";         
         }
+        if (sortField.equals("displayId")) {
+        	sqlSortField = "ATN_DISPLAY_ID";         
+        }
         
         if (searchFirst.equals("")) {
         	searchFirstWithWildCards = "%" + searchFirst + "%";
@@ -662,7 +720,8 @@ public final class TimedNodeDAO {
        		resultSet.getLong("ATN_NODE_FK"), 
        		resultSet.getLong("ATN_STAGE_FK"), 
        		resultSet.getString("ATN_STAGE_MODIFIER_FK"),
-       		resultSet.getString("ATN_PUBLIC_ID")
+       		resultSet.getString("ATN_PUBLIC_ID"),
+       		resultSet.getString("ATN_DISPLAY_ID")
         );
     }
 }

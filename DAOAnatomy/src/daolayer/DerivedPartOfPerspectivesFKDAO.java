@@ -74,7 +74,8 @@ public final class DerivedPartOfPerspectivesFKDAO {
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
-    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE =
+    ////////////////////////////////////////
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_OLD =
         "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
   		"FROM ANAD_PART_OF_PERSPECTIVE " +
    		"JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
@@ -85,21 +86,67 @@ public final class DerivedPartOfPerspectivesFKDAO {
         "AND d.STG_SEQUENCE = ? " + 
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
-
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
+      		"FROM ANAD_PART_OF_PERSPECTIVE " +
+       		"JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+       		"JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+       		"JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
+       		"JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND d.STG_SEQUENCE = ? " + 
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_NOSTAGE =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, null AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, null AS EMAP_PUBLIC_ID " +
+      		"FROM ANAD_PART_OF_PERSPECTIVE " +
+       		"JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+       		"JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
+    ////////////////////////////////////////
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_OLD =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
+            "JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND a.APO_FULL_PATH LIKE ? " +
+            "AND d.STG_SEQUENCE = ? " + 
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH =
-        "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
-        "FROM ANAD_PART_OF_PERSPECTIVE " +
-        "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
-        "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
-        "JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
-        "JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
-        "WHERE POP_PERSPECTIVE_FK = ? " +
-        "AND a.APO_FULL_PATH LIKE ? " +
-        "AND d.STG_SEQUENCE = ? " + 
-        "ORDER BY %s %s "+
-        "LIMIT ?, ?";
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
+            "JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND a.APO_FULL_PATH LIKE ? " +
+            "AND d.STG_SEQUENCE = ? " + 
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_NOSTAGE =   
+    		"SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, null AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, null AS EMAP_PUBLIC_ID " +
+    		"FROM ANAD_PART_OF_PERSPECTIVE " +
+    		"JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+    		"JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+    		"WHERE POP_PERSPECTIVE_FK = ? " +
+    		"AND a.APO_FULL_PATH LIKE ? " +
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
 
-    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID =
+    ////////////////////////////////////////
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID_OLD =
         "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +
         "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
@@ -112,8 +159,33 @@ public final class DerivedPartOfPerspectivesFKDAO {
         "AND d.STG_SEQUENCE = ? " + 
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
+            "JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND (b.ANO_PUBLIC_ID LIKE ? " +
+            "OR c.ATN_PUBLIC_ID LIKE ? ) " +
+            "AND d.STG_SEQUENCE = ? " + 
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID_NOSTAGE =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, null AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, null AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND b.ANO_PUBLIC_ID LIKE ? " +
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
 
-    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID =
+    ////////////////////////////////////////
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID_OLD =
         "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +
         "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
@@ -127,6 +199,32 @@ public final class DerivedPartOfPerspectivesFKDAO {
         "AND d.STG_SEQUENCE = ? " + 
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, CONCAT(a.APO_FULL_PATH_JSON_HEAD, a.APO_FULL_PATH_JSON_TAIL) AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, c.ATN_PUBLIC_ID AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "JOIN ANA_TIMED_NODE c ON c.ATN_NODE_FK = b.ANO_OID " + 
+            "JOIN ANA_STAGE d ON d.STG_OID = c.ATN_STAGE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND ( a.APO_FULL_PATH LIKE ? " +
+            "OR b.ANO_PUBLIC_ID LIKE ? " +
+            "OR c.ATN_PUBLIC_ID LIKE ? ) " +
+            "AND d.STG_SEQUENCE = ? " + 
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
+    
+    private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID_NOSTAGE =
+            "SELECT POP_PERSPECTIVE_FK, a.APO_FULL_PATH AS FULL_PATH, a.APO_FULL_PATH_OIDS as FULL_PATH_OIDS, null AS FULL_PATH_JSON, POP_IS_ANCESTOR, b.ANO_PUBLIC_ID AS EMAPA_PUBLIC_ID, null AS EMAP_PUBLIC_ID " +
+            "FROM ANAD_PART_OF_PERSPECTIVE " +
+            "JOIN ANAD_PART_OF a ON a.APO_OID = POP_APO_FK " +
+            "JOIN ANA_NODE b ON b.ANO_OID = POP_NODE_FK " +
+            "WHERE POP_PERSPECTIVE_FK = ? " +
+            "AND ( a.APO_FULL_PATH LIKE ? " +
+            "OR b.ANO_PUBLIC_ID LIKE ? )" +
+            "ORDER BY %s %s "+
+            "LIMIT ?, ?";
 
     
     // Vars ---------------------------------------------------------------------------------------
@@ -150,7 +248,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
     public List<DerivedPartOfPerspectivesFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective)
         throws DAOException
     {
-
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -170,6 +268,9 @@ public final class DerivedPartOfPerspectivesFKDAO {
         }
         if (sortField.equals("fullPath")) {
         	sqlSortField = "FULL_PATH";       
+        }
+        if (sortField.equals("fullPathOids")) {
+        	sqlSortField = "FULL_PATH_OIDS";       
         }
         if (sortField.equals("fullPathJson")) {
         	sqlSortField = "FULL_PATH_JSON";       
@@ -210,17 +311,30 @@ public final class DerivedPartOfPerspectivesFKDAO {
 
         String sortDirection = sortAscending ? "ASC" : "DESC";
         String sql = "";
+        Object[] values = null;
 
         if (searchTerm.equals("") && searchId.equals("")){
 
-        	sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE, sqlSortField, sortDirection);
+        	//no stage => abstract ontology
+        	if (searchStartStage.equals("0")) {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_NOSTAGE, sqlSortField, sortDirection);
 
-        	Object[] values = {
-            		searchPerspective,
-            		searchStartStage,
-                    firstRow, 
-                    rowCount
-            };
+        		values = new Object[3];
+        		values[0] = searchPerspective;
+        		values[1] = firstRow;
+        		values[2] = rowCount;
+        	}
+        	else {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE, sqlSortField, sortDirection);
+        		
+        		values = new Object[4];
+        		values[0] = searchPerspective;
+        		values[1] = searchStartStage;
+        		values[2] = firstRow;
+        		values[3] = rowCount;
+        	}        	
+
+        	
             try {
                 connection = daoFactory.getConnection();
 
@@ -245,17 +359,28 @@ public final class DerivedPartOfPerspectivesFKDAO {
         }
         
         if (searchTerm.equals("") && !searchId.equals("")){
-
-        	sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID, sqlSortField, sortDirection);
-            
-        	Object[] values = {
-            		searchPerspective,
-            		searchEMAPAIdWithWildCards,
-            		searchEMAPIdWithWildCards,
-            		searchStartStage,
-                    firstRow, 
-                    rowCount
-            };
+        	
+        	//no stage => abstract ontology
+        	if (searchStartStage.equals("0")) {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID_NOSTAGE, sqlSortField, sortDirection);
+        		
+        		values = new Object[4];
+        		values[0] = searchPerspective;
+        		values[1] = searchEMAPAIdWithWildCards;
+        		values[2] = firstRow;
+        		values[3] = rowCount;
+        	}
+        	else {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID, sqlSortField, sortDirection);
+        		
+        		values = new Object[6];
+        		values[0] = searchPerspective;
+        		values[1] = searchEMAPAIdWithWildCards;
+        		values[2] = searchEMAPIdWithWildCards;
+        		values[3] = searchStartStage;
+        		values[4] = firstRow;
+        		values[5] = rowCount;
+        	}	
 
             try {
                 connection = daoFactory.getConnection();
@@ -282,15 +407,27 @@ public final class DerivedPartOfPerspectivesFKDAO {
 
         if (!searchTerm.equals("") && searchId.equals("")){
 
-        	sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH, sqlSortField, sortDirection);
+        	//no stage => abstract ontology
+        	if (searchStartStage.equals("0")) {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_NOSTAGE, sqlSortField, sortDirection);
 
-        	Object[] values = {
-            		searchPerspective,
-            		searchTermWithWildCards,
-            		searchStartStage,
-                    firstRow, 
-                    rowCount
-            };
+        		values = new Object[4];
+        		values[0] = searchPerspective;
+        		values[1] = searchTermWithWildCards;
+        		values[2] = firstRow;
+        		values[3] = rowCount;
+        	}
+        	else {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH, sqlSortField, sortDirection);
+
+        		values = new Object[5];
+        		values[0] = searchPerspective;
+        		values[1] = searchTermWithWildCards;
+        		values[2] = searchStartStage;
+        		values[3] = firstRow;
+        		values[4] = rowCount;
+        	}    	
+
 
             try {
                 connection = daoFactory.getConnection();
@@ -316,17 +453,32 @@ public final class DerivedPartOfPerspectivesFKDAO {
         }
         
         if (!searchTerm.equals("") && !searchId.equals("")){
+        	
+        	//no stage => abstract ontology
+        	if (searchStartStage.equals("0")) {
 
-        	sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID, sqlSortField, sortDirection);
-            Object[] values = {
-            		searchPerspective,
-            		searchTermWithWildCards,
-            		searchEMAPAIdWithWildCards,
-            		searchEMAPIdWithWildCards,
-            		searchStartStage,
-                    firstRow, 
-                    rowCount
-            };
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID_NOSTAGE, sqlSortField, sortDirection);
+        		
+        		values = new Object[5];
+        		values[0] = searchPerspective;
+        		values[1] = searchTermWithWildCards;
+        		values[2] = searchEMAPAIdWithWildCards;
+        		values[3] = firstRow;
+        		values[4] = rowCount;
+
+        	}
+        	else {
+        		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_AND_ID, sqlSortField, sortDirection);
+        		
+        		values = new Object[7];
+        		values[0] = searchPerspective;
+        		values[1] = searchTermWithWildCards;
+        		values[2] = searchEMAPAIdWithWildCards;
+        		values[3] = searchEMAPIdWithWildCards;
+        		values[4] = searchStartStage;
+        		values[5] = firstRow;
+        		values[6] = rowCount;
+        	}   
 
             try {
                 connection = daoFactory.getConnection();
@@ -346,7 +498,6 @@ public final class DerivedPartOfPerspectivesFKDAO {
             finally {
                 close(connection, preparedStatement, resultSet);
             }
-
 
         }
 
@@ -524,6 +675,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
         return new DerivedPartOfPerspectivesFK(
        		resultSet.getString("POP_PERSPECTIVE_FK"), 
        		resultSet.getString("FULL_PATH"), 
+       		resultSet.getString("FULL_PATH_OIDS"),
        		resultSet.getString("FULL_PATH_JSON"), 
        		resultSet.getInt("POP_IS_ANCESTOR"), 
        		resultSet.getString("EMAPA_PUBLIC_ID"), 

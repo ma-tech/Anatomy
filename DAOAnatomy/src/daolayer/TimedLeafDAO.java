@@ -23,8 +23,8 @@ import daomodel.JsonNode;
  */
 public final class TimedLeafDAO {
 
-	// Constants ----------------------------------------------------------------------------------
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_OLD =
 			"SELECT  " +
 					"  ANAV_STAGE AS STAGE, " +
 					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
@@ -59,7 +59,8 @@ public final class TimedLeafDAO {
 					" AND STG_NAME = ? " +
 					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
 
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC =
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC_OLD =
 			"SELECT  " +
 					"  ANAV_STAGE AS STAGE, " +
 					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
@@ -93,10 +94,9 @@ public final class TimedLeafDAO {
 					" WHERE ANAV_NAME_1 = ? " +
 					" AND STG_NAME = ? " +
 					"ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
-	//" ORDER BY CHILD_ID ";
-	//" ORDER BY CHILD_DESC ";
 
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_OLD =
 			"SELECT  " +
 					"  ANAV_STAGE AS STAGE, " +
 					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
@@ -130,8 +130,8 @@ public final class TimedLeafDAO {
 					" WHERE ANAV_DESC_1 = ? " +
 					" AND STG_NAME = ? " +
 					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
-
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC =
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC_OLD =
 			"SELECT  " +
 					"  ANAV_STAGE AS STAGE, " +
 					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
@@ -159,9 +159,187 @@ public final class TimedLeafDAO {
 					"  ANAV_DESC_2, " +
 					"  ANAV_ID_3, " +
 					"  ANAV_NAME_3, " +
-					"  ANAV_DESC_3 " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK " +
 					" FROM ANAV_TIMED_GRAND_RELATION " +
 					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_DESC ";
+	
+	//////////////////////////////////////////////////////////////////
+	//##PS modified to return ANO_OID (node ID)
+	/////////////////////////////////////////////////////////////////
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					"ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+	//" ORDER BY CHILD_ID ";
+	//" ORDER BY CHILD_DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
 					" WHERE ANAV_DESC_1 = ? " +
 					" AND STG_NAME = ? " +
 					" ORDER BY CHILD_DESC ";
@@ -267,7 +445,9 @@ public final class TimedLeafDAO {
 				resultSet.getString("CHILD_DESC"), 
 				resultSet.getString("GRAND_CHILD_ID"), 
 				resultSet.getString("GRAND_CHILD_NAME"),
-				resultSet.getString("GRAND_CHILD_DESC"));
+				resultSet.getString("GRAND_CHILD_DESC"),
+				resultSet.getString("NODE_ID"),
+				resultSet.getString("ABSTRACT_NAME"));
 	}
 
 
@@ -664,9 +844,12 @@ public final class TimedLeafDAO {
 			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildDescription() " + timedleaf.getChildDescription());
 			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildId() " + timedleaf.getGrandChildId());
 			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildName() " + timedleaf.getGrandChildName());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildDescription() " + timedleaf.getGrandChildDescription());			
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildDescription() " + timedleaf.getGrandChildDescription());	
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getNodeID() " + timedleaf.getNodeID());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getAbstractName() " + timedleaf.getAbstractName());
 			System.out.println(" ");
 			*/
+						
 						
 			String extID = timedleaf.getChildName();
 			
@@ -683,16 +866,19 @@ public final class TimedLeafDAO {
 						//LEAFs should have no children!
 						System.out.println("##PS## WARNING LEAF CONFLICT! ");
 					}
-					jsonID = "li_node_LEAF_Timed_id" + timedleaf.getChildOid();
+					//jsonID = "li_node_LEAF_Timed_id" + timedleaf.getChildOid();
+					jsonID = "li_node_id_" + timedleaf.getNodeID();
 					childCount = 0;
 				}
 				else {
-					jsonID = "li_node_BRANCH_Timed_id" + timedleaf.getChildOid();
+					//jsonID = "li_node_BRANCH_Timed_id" + timedleaf.getChildOid();
+					jsonID = "li_node_id_" + timedleaf.getNodeID();
 					childCount = 1;
 				}
+				String abstractName = timedleaf.getAbstractName();
 				String stage = timedleaf.getStage();
 				String name = timedleaf.getChildDescription();	
-				jsonNodes.put(extID, new JsonNode(extID,jsonID,stage,name,childCount));
+				jsonNodes.put(extID, new JsonNode(extID,jsonID,abstractName,stage,name,childCount));
 			}
 		}
 		

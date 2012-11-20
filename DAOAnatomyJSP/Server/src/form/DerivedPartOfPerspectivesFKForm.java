@@ -45,29 +45,37 @@ public final class DerivedPartOfPerspectivesFKForm extends Form {
      */
     public String convertDerivedPartOfPerspectivesFKListToStringJson(List<DerivedPartOfPerspectivesFK> derivedpartofperspectivesfks) {
 
-	    String returnString = "";
+	    //String returnString = "[";
+	    String fullPathJson = "";
+	    String fullPathOidJson = "";
 
         Iterator<DerivedPartOfPerspectivesFK> iteratorDerivedPartOfPerspectivesFK = derivedpartofperspectivesfks.iterator();
 
-        int count = 1;
-
     	while (iteratorDerivedPartOfPerspectivesFK.hasNext()) {
         	
-        	DerivedPartOfPerspectivesFK derivedpartofperspectivesfk = iteratorDerivedPartOfPerspectivesFK.next();
+        	DerivedPartOfPerspectivesFK derivedpartofperspectivesfk = iteratorDerivedPartOfPerspectivesFK.next();        	
         	
-        	if (count == 1) {
-        		returnString = "[" + derivedpartofperspectivesfk.getFullPathJson() + ",\n";
-        	}
-        	if ( count < derivedpartofperspectivesfks.size()) {
-        		returnString = returnString + derivedpartofperspectivesfk.getFullPathJson() + ",\n";	
-        	}
-        	if ( count == derivedpartofperspectivesfks.size()) {
-        		returnString = returnString + derivedpartofperspectivesfk.getFullPathJson() + "]";	
-        	}
-        	count++;
+        	/*
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson jsonpath=" + derivedpartofperspectivesfk.getFullPathJson());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson fullpath=" + derivedpartofperspectivesfk.getFullPath());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson fullpathOids=" + derivedpartofperspectivesfk.getFullPathOids());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson nodeemap=" + derivedpartofperspectivesfk.getNodeEmap());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson nodeemapa=" + derivedpartofperspectivesfk.getNodeEmapa());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson perspectivefk=" + derivedpartofperspectivesfk.getPerspectiveFK());
+        	System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson ancestor=" + derivedpartofperspectivesfk.getAncestor());
+        	*/
+        	
+        	fullPathJson = fullPathJson + "\"" + derivedpartofperspectivesfk.getFullPath() + "\",";
+        	fullPathOidJson = fullPathOidJson + "\"" + derivedpartofperspectivesfk.getFullPathOids() + "\",";
       	}
+    	fullPathJson = fullPathJson.substring(0, fullPathJson.lastIndexOf(","));
+    	fullPathOidJson = fullPathOidJson.substring(0, fullPathOidJson.lastIndexOf(","));
 
-        return returnString;
+		//System.out.println("##PS## ");
+		//System.out.println("##PS## convertDerivedPartOfPerspectivesFKListToStringJson returnString=" + "[[" + fullPathJson + "],[" + fullPathOidJson + "]]");
+		//System.out.println("##PS## ");
+		
+        return "[[" + fullPathJson + "],[" + fullPathOidJson + "]]";
     }
 
     /**

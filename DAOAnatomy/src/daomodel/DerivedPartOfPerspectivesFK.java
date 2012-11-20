@@ -12,13 +12,15 @@ public class DerivedPartOfPerspectivesFK {
      *  Columns:
      *   1. POP_PERSPECTIVE_FK => varchar(25)
      *   2. FULL_PATH          => varchar(1000)
-     *   2. FULL_PATH_JSON     => varchar(3000)
-     *   3. POP_IS_ANCESTOR    => tinyint
-     *   4. EMAPA_PUBLIC_ID    => varchar(25)
-     *   5. EMAP_PUBLIC_ID     => varchar(25)
+     *   3. FULL_PATH_OIDS     => varchar(500)
+     *   4. FULL_PATH_JSON     => varchar(3000)
+     *   5. POP_IS_ANCESTOR    => tinyint
+     *   6. EMAPA_PUBLIC_ID    => varchar(25)
+     *   7. EMAP_PUBLIC_ID     => varchar(25)
 	 */
     private String perspectiveFK; 
     private String fullPath; 
+    private String fullPathOids;
     private String fullPathJson; 
     private int ancestor;
     private String nodeEmapa; 
@@ -40,6 +42,7 @@ public class DerivedPartOfPerspectivesFK {
      */
     public DerivedPartOfPerspectivesFK(String perspectiveFK,
     		String fullPath, 
+    		String fullPathOids,
     		String fullPathJson, 
     		int ancestor,    		
     		String nodeEmapa,
@@ -48,6 +51,7 @@ public class DerivedPartOfPerspectivesFK {
     	
     	this.perspectiveFK = perspectiveFK;
     	this.fullPath = fullPath;
+    	this.fullPathOids = fullPathOids;
     	this.fullPathJson = fullPathJson;
     	this.ancestor = ancestor;
     	this.nodeEmapa = nodeEmapa;
@@ -60,6 +64,9 @@ public class DerivedPartOfPerspectivesFK {
     } 
     public String getFullPath() {
         return fullPath;
+    }
+    public String getFullPathOids() {
+        return fullPathOids;
     }
     public String getFullPathJson() {
         return fullPathJson;
@@ -81,6 +88,9 @@ public class DerivedPartOfPerspectivesFK {
     public void setFullPath(String fullPath) {
         this.fullPath = fullPath;
     } 
+    public void setFullPathOids(String fullPathOids) {
+        this.fullPathOids = fullPathOids;
+    }
     public void setFullPathJson(String fullPathJson) {
         this.fullPathJson = fullPathJson;
     } 

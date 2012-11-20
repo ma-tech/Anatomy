@@ -87,6 +87,10 @@ public class TimedLeaf {
     private String grandChildDescription;
       // What the Grand-Child actually is! eg. 'compacted morula'
       //  OR 'No Children' for Non-Leaf Nodes
+    private String nodeID;
+    // ANO_OID from ANA_NODE table
+    private String abstractName;
+    // ANO_PUBLIC_ID from ANA_NODE table
 
     // Constructors -------------------------------------------------------------------------------
     /**
@@ -110,7 +114,9 @@ public class TimedLeaf {
     		String childDescription, 
     		String grandChildId,
     		String grandChildName, 
-    		String grandChildDescription) {
+    		String grandChildDescription,
+    		String nodeID,
+    		String abstractName) {
     	
         this.stage = stage;
         this.rootOid = rootOid;
@@ -123,6 +129,8 @@ public class TimedLeaf {
         this.grandChildId = grandChildId;
         this.grandChildName = grandChildName;
         this.grandChildDescription = grandChildDescription;
+        this.nodeID = nodeID;
+        this.abstractName = abstractName;
     }
 
     /**
@@ -166,6 +174,12 @@ public class TimedLeaf {
     public String getGrandChildDescription() {
         return grandChildDescription;
     }
+    public String getNodeID() {
+        return nodeID;
+    }
+    public String getAbstractName() {
+        return abstractName;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setStage(String stage) {
@@ -201,14 +215,20 @@ public class TimedLeaf {
     public void setGrandChildDescription(String grandChildDescription) {
         this.grandChildDescription = grandChildDescription;
     }
+    public void setNodeID(String nodeID) {
+        this.nodeID = nodeID;
+    }
+    public void setAbstractName(String abstractName) {
+        this.abstractName = abstractName;
+    }
 
     // Override -----------------------------------------------------------------------------------
     /**
      * Returns the String representation of this User. Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("Leaf [ stage=%s, rootOid=%s, rootName=%s, rootDescription=%s, childOid=%s, childId=%s, childName=%s, childDescription=%s, grandChildId=%s, grandChildName=%s, grandChildDescription=%s ]\n", 
-                                     stage, rootOid, rootName, rootDescription, childOid, childId, childName, childDescription, grandChildId, grandChildName, grandChildDescription);
+        return String.format("Leaf [ stage=%s, rootOid=%s, rootName=%s, rootDescription=%s, childOid=%s, childId=%s, childName=%s, childDescription=%s, grandChildId=%s, grandChildName=%s, grandChildDescription=%s, nodeID=%s, abstractName=%s ]\n", 
+                                     stage, rootOid, rootName, rootDescription, childOid, childId, childName, childDescription, grandChildId, grandChildName, grandChildDescription, nodeID, abstractName);
 
     }
 

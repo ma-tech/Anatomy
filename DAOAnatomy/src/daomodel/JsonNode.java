@@ -7,6 +7,7 @@ public class JsonNode {
     
     private String ID;
     private String extID;
+    private String abstractID;
     private String timedStage;
     private String startStage;
     private String endStage;
@@ -24,9 +25,10 @@ public class JsonNode {
     /**
      * Constructor for timed nodes
      */
-    public JsonNode(String extID, String ID, String timedStage, String name, int childCount) {        
+    public JsonNode(String extID, String ID, String abstractID, String timedStage, String name, int childCount) {        
         this.extID = extID;
         this.ID = ID;
+        this.abstractID = abstractID;
         this.timedStage = timedStage; 
         this.name = name;
         this.childCount = childCount;
@@ -35,9 +37,10 @@ public class JsonNode {
     /**
      * Constructor for abstract nodes
      */
-    public JsonNode(String extID, String ID, String startStage, String endStage, String name, int childCount) {        
+    public JsonNode(String extID, String ID, String abstractID, String startStage, String endStage, String name, int childCount) {        
         this.extID = extID;
         this.ID = ID;
+        this.abstractID = abstractID;
         this.startStage = startStage; 
         this.endStage = endStage;
         this.name = name;
@@ -46,27 +49,32 @@ public class JsonNode {
     
     //
     public String printJsonNodeTimed() {
-    
+        //make closed node if we know there are children
     	if (childCount>0) {
     		return "{\"attr\": {\"ext_id\": \"" +
     				  extID +
     				  "\",\"id\": \"" +
     				  ID +
-    				  "\",\"stage\": \"" + 
+    				  "\",\"abstract_id\": \"" + 
+    				  abstractID +
+    				  "\",\"stage\": \"" +
     				  timedStage +
     				  "\",\"name\": \"" +
     				  name +
     				  "\"},\"data\": \"" +
     				  name +
-    				  "(" + 
-    				  childCount +
-    				  ")\",\"state\": \"closed\"},";
+    				  //"(" + 
+    				  //childCount +
+    				  //")\"," +
+    				  "\", \"state\": \"closed\"},";
     	}
     	else {
     		return "{\"attr\": {\"ext_id\": \"" +
   				  extID +
   				  "\",\"id\": \"" +
   				  ID +
+  				  "\",\"abstract_id\": \"" + 
+    			  abstractID +
   				  "\",\"stage\": \"" + 
   				  timedStage +
   				  "\",\"name\": \"" +
@@ -94,9 +102,10 @@ public class JsonNode {
     				  name +
     				  "\"},\"data\": \"" +
     				  name +
-    				  "(" + 
-    				  childCount +
-    				  ")\",\"state\": \"closed\"},";
+    				  //"(" + 
+    				  //childCount +
+    				  //")\"," +
+    				  "\", \"state\": \"closed\"},";
     	}
     	else {
     		return "{\"attr\": {\"ext_id\": \"" +

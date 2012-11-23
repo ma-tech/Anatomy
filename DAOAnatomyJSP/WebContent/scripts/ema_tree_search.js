@@ -196,19 +196,10 @@ jQuery(document).ready(function(){
       }
 
       //insert stage dependent html snippets
-      document.getElementById("tree_title").innerHTML = "" + stage + "<span id=\"version\">Anatomy Ontology Version 008</span>";
+      document.getElementById("tree_title").innerHTML = "" + stage;
       document.getElementById("stage_definition").innerHTML = 
 	"Stage Definition: <a href=\"../theiler_stages/StageDefinition/" + stage.toLowerCase() + "definition.html\">" + stage + "</a>";
       document.getElementById("text_tree").src = "text/" + stage + "GroupsTrailing.txt";
-
-     /* 
-      $("#text_tree_text").append('<pre>');
-      var url = "/emap/ema/DAOAnatomyJSP/text/" + stage + "GroupsTrailing.txt";
-      $.get(url, function(data) {
-         $("#text_tree_text > pre").text(data);
-      });
-      */
-
       document.getElementById("download").innerHTML = 
 	"<a href=\"text/" + stage + "GroupsTrailing.txt\">" + stage + ".txt </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.rtf\">" + stage + ".rtf </a>" +
@@ -227,7 +218,7 @@ jQuery(document).ready(function(){
 				    {
 				    	"data" : stage,
 					    "attr" : { 
-					    	"id" : "li_node_id_0", 
+					    	"id" : "li_node_BASE_Timed_id0", 
 			                	"ext_id" : "EMAP:0",
 					    	"name" : "Anatomy",
   				    	    	"stage" : stage
@@ -235,7 +226,7 @@ jQuery(document).ready(function(){
 					    "children": [{
                             			"attr": {
                                  			"ext_id": idMap.getItem(stage), 
-                                 			"id": "li_node_id_33", 
+                                 			"id": "li_node_BRANCH_Timed_id34", 
                                  			"name": "mouse",
 		    					"title": idMap.getItem(stage),
        				    	     		"stage" : stage
@@ -303,8 +294,9 @@ jQuery(document).ready(function(){
 });
 
 function open_tree(){
-    $("#tree").jstree("open_node","#li_node_id_33");
+    $("#tree").jstree("open_node","#li_node_BRANCH_Timed_id34");
 }
+
 
 /*
  * Create the Right Click Menu for each item in the Tree
@@ -317,50 +309,34 @@ function createDefaultMenu(obj){
 
    var stageSeq = "0";
    var emapId = "";
-
-   var nodeName=obj.attr("name");
-   var timedID=obj.attr("ext_id");
-   var abstractID=obj.attr("abstract_id");
 		
   return {
-  	"Name" : {
-   		label : nodeName
-   	},
-  	"Timed ID Info" : {
-   		label : timedID,
-   		action : function (obj) {
-   		}	
-   	},
-  	"Abstract ID Info" : {
-   		label : abstractID,
-   		action : function (obj) {
-   		},	
-	   	separator_after : true
-   	},
   	"Query EMAGE" : {
    		label : "Search EMAGE",
    		action : function (obj) {
-   			if (timedID === "EMAP:0") {
+   			var emapId = obj.attr("ext_id");
+   			if (emapId === "EMAP:0") {
       				return;
    			}
-   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + timedID + '&exactmatchstructures=true&includestructuresynonyms=true';
+   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + emapId + '&exactmatchstructures=true&includestructuresynonyms=true';
    			window.open(url);
    		}	
    	},
    	"Query GXD" : {
 		label : "Search GXD",
 	   	action : function (obj) {
-			timedID = timedID.replace(/EMAP:/,"");
-		   	if (timedID === "0") {
+			var emapId = obj.attr("ext_id").replace(/EMAP:/,"");
+		   	if (emapId === "0") {
 		      		return;
 		   	}	
-		   	var url = 'http://www.informatics.jax.org/searches/expression_report.cgi?edinburghKey=' + timedID + '&sort=Gene%20symbol&returnType=assay%20results&substructures=structures';
+		   	var url = 'http://www.informatics.jax.org/searches/expression_report.cgi?edinburghKey=' + emapId + '&sort=Gene%20symbol&returnType=assay%20results&substructures=structures';
 		   	window.open(url);
 	   	}
    	},
    	"Query Google" : {
 	        label : "Search Google",
   	   	action : function (obj) {
+		   	var nodeName = obj.attr("name");
 		   	var url = 'http://www.google.co.uk/search?q=' + nodeName;
 		   	window.open(url);
 	   	}
@@ -368,9 +344,22 @@ function createDefaultMenu(obj){
    	"Query Wikipedia" : {
 	   	label : "Search Wikipedia",
   	   	action : function (obj) {
+    		   	var nodeName = obj.attr("name");
 		   	var url = 'http://en.wikipedia.org/wiki/' + nodeName;
 		   	window.open(url);
 	   	}
+   	},
+   	"ID info" : {
+           	label : "ID information",
+	   	action : function (obj) {
+	      		if (obj.attr("ext_id") === "EMAP:0") {
+	         		return;
+	      		}  
+	      		popUpDetails( stageSeq, obj )
+	   	},
+	   	"seperator_after" : false,
+	   	"seperator_before" : false
    	}
     }
 }
+

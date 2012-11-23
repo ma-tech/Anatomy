@@ -163,7 +163,7 @@ jQuery(document).ready(function(){
       var stage="Abstract";
 
       //insert stage dependent html snippets
-      document.getElementById("tree_title").innerHTML = "" + stage;
+      document.getElementById("tree_title").innerHTML = "" + stage + "<span id=\"version\">Anatomy Ontology Version 008</span>";
       document.getElementById("stage_definition").innerHTML = 
 	"Stage Definition: <a href=\"../theiler_stages/StageDefinition/" + stage.toLowerCase() + "definition.html\">" + stage + "</a>";
       document.getElementById("text_tree").src = "text/" + stage + "GroupsTrailing.txt";
@@ -185,7 +185,7 @@ jQuery(document).ready(function(){
 				    {
 				    	"data" : stage,
 					    "attr" : { 
-					    	"id" : "li_node_BASE_Abstract_id0", 
+					    	"id" : "li_node_id_0", 
 			                	"ext_id" : "EMAPA:0",
 					    	"name" : "Anatomy",
   				    	    	"start" : "TS01",
@@ -194,7 +194,7 @@ jQuery(document).ready(function(){
 					    "children": [{
                             			"attr": {
                                  			"ext_id": idMap.getItem(stage), 
-                                 			"id": "li_node_ROOT_Abstract_id33", 
+                                 			"id": "li_node_id_33", 
                                  			"name": "mouse",
 		    					"title": idMap.getItem(stage),
   				    	    	        "start" : "TS01",
@@ -210,9 +210,7 @@ jQuery(document).ready(function(){
 			    "ajax" : { 
 				    async : false,
 				    type : 'GET',
-				    url : "http://localhost:8080/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
-				    //url : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
-				    //url : "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
+				    "url" : "/DAOAnatomyJSP/listbyrootnamejsononlyaggregated",
 				    dataType : "text",
 				    data : function (n) { 
 					    var emap_id = n.attr("ext_id");
@@ -231,6 +229,7 @@ jQuery(document).ready(function(){
 					   }
 					   for (var i = 0; i < obj.length; i++) {
 					      obj[i].attr.title = obj[i].attr.ext_id;
+					      obj[i].data = obj[i].data + " (" + obj[i].attr.start + "-" + obj[i].attr.end + ")";
 					   }
 					   return obj;
 	 			    },
@@ -264,7 +263,7 @@ jQuery(document).ready(function(){
 });
 
 function open_tree(){
-    $("#tree").jstree("open_node","#li_node_ROOT_Abstract_id33");
+    $("#tree").jstree("open_node","#li_node_id_33");
 }
 
 /*
@@ -278,23 +277,40 @@ function createDefaultMenu(obj){
 
    var stageSeq = "0";
    var emapId = "";
+
+   var nodeName=obj.attr("name");
+   var abstractID=obj.attr("ext_id");
+   var startStage=obj.attr("start");
+   var endStage=obj.attr("end");
+   var stageRange = startStage + " - " + endStage; 
 		
   return {
+         "Name" : {
+	        label : nodeName
+	 },
+         "Abstract ID Info" : {
+               	label : abstractID,
+               	action : function (obj) {
+               	},
+        },
+         "Range" : {
+	        label : stageRange,
+               	separator_after : true
+	 },
   	"Query EMAGE" : {
    		label : "Search EMAGE",
    		action : function (obj) {
-   			var emapId = obj.attr("ext_id");
-   			if (emapId === "EMAP:0") {
+   			var abstractID = obj.attr("ext_id");
+   			if (abstractID === "EMAP:0") {
       				return;
    			}
-   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + emapId + '&exactmatchstructures=true&includestructuresynonyms=true';
+   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + abstractID + '&exactmatchstructures=true&includestructuresynonyms=true';
    			window.open(url);
    		}	
    	},
    	"Query Google" : {
 	        label : "Search Google",
   	   	action : function (obj) {
-		   	var nodeName = obj.attr("name");
 		   	var url = 'http://www.google.co.uk/search?q=' + nodeName;
 		   	window.open(url);
 	   	}
@@ -302,21 +318,9 @@ function createDefaultMenu(obj){
    	"Query Wikipedia" : {
 	   	label : "Search Wikipedia",
   	   	action : function (obj) {
-    		   	var nodeName = obj.attr("name");
 		   	var url = 'http://en.wikipedia.org/wiki/' + nodeName;
 		   	window.open(url);
 	   	}
-   	},
-   	"ID info" : {
-           	label : "ID information",
-	   	action : function (obj) {
-	      		if (obj.attr("ext_id") === "EMAP:0") {
-	         		return;
-	      		}  
-			popUpAbstractDetails(obj)
-	   	},
-	   	"seperator_after" : false,
-	   	"seperator_before" : false
    	}
     }
 }

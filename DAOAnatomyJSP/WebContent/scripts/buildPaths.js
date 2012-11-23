@@ -21,9 +21,10 @@
     function popUpDetails( stageSeq, obj ) {
 		
      	var nodeId = obj.attr("id");
-		var nodeName = obj.attr("ext_id");
-		var start = obj.attr("start");
-		var end = obj.attr("end");
+	var nodeName = obj.attr("ext_id");
+	var abstractName = obj.attr("abstract_id");
+	var start = obj.attr("start");
+	var end = obj.attr("end");
     	var arrayStr = nodeId.split("_");
     	var treeType = arrayStr[3];
     	var emapId = "";
@@ -55,9 +56,7 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url: "http://localhost:8080/DAOAnatomyJSP/listbyrootnamejsononly",
-                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
-                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
+                url: "/DAOAnatomyJSP/listbyrootnamejsononly",
                 dataType: "text",
                 data : {
                     "rootName" : rootname
@@ -94,9 +93,7 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url: "http://localhost:8080/DAOAnatomyJSP/listleafsbyemapandstage",
-                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
-                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstage",
+                url: "/DAOAnatomyJSP/listleafsbyemapandstage",
                 dataType: "text",
                 data : {
                     "rootName" : emapId,
@@ -143,9 +140,7 @@
 		$.ajax({
             async : false,
             type: 'GET',
-            url: "http://localhost:8080/DAOAnatomyJSP/findbyemapaidandstage",
-            //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
-            //url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapaidandstage",
+            url: "/DAOAnatomyJSP/findbyemapaidandstage",
             dataType: "text",
             data : {
                 "publicEmapaId" : publicEmapaId, 
@@ -187,9 +182,7 @@
         $.ajax({
             async : false,
             type: 'GET',
-            url: "http://localhost:8080/DAOAnatomyJSP/findbyemapid",
-            //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
-            //url: "http://www.emouseatlas.org/DAOAnatomyJSP/findbyemapid",
+            url: "/DAOAnatomyJSP/findbyemapid",
             dataType: "text",
             data : {
                 "publicEmapId" : publicEmapId

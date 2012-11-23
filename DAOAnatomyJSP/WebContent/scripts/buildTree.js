@@ -8,9 +8,7 @@
         $.ajax({
                 async : false,
                 type: 'GET',
-                url : "http://localhost:8080/DAOAnatomyJSP/listbyrootnamejsononly",
-                //url: "http://testwww.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
-                //url: "http://www.emouseatlas.org/DAOAnatomyJSP/listbyrootnamejsononly",
+                url: "listbyrootnamejsononly",
                 dataType: "text",
                 data : {
                     "rootName" : rootname

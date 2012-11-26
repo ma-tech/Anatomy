@@ -209,10 +209,11 @@ $(document).ready(function() {
 	    this_node = $(selector);
 	 }
          //open the tree node
-         $("#tree").jstree("open_node", this_node);
+	 if (i < nodes.length-1){
+            $("#tree").jstree("open_node", this_node);
+	 }
 	 //highlight the tree node link
 	 this_node.children('a').attr("class","search_highlight");
-	 //this_node.children('a').attr("class","jstree-clicked jstree-hovered");
 	 previous_node = this_node;
       }
        

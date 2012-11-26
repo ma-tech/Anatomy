@@ -161,6 +161,16 @@ emouseatlas.emap.emaTree = function() {
 // JavaScript Document
 jQuery(document).ready(function(){
       var stage="Abstract";
+      var tissue;
+      var nvPairs = window.location.search.substring(1).split("&");
+      for (var i = 0; i < nvPairs.length; i++) {
+         var nvPair = nvPairs[i].split("=");
+         if (nvPair[0] === "tissue") {
+            tissue = nvPair[1];
+	    //make space chars appear nicely
+	    tissue=tissue.replace(/%20/g," "); 
+         }
+      }
 
       //insert stage dependent html snippets
       document.getElementById("tree_title").innerHTML = "" + stage + "<span id=\"version\">Anatomy Ontology Version 008</span>";
@@ -173,6 +183,8 @@ jQuery(document).ready(function(){
 	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>" +
 	"<a href=\"text/AbstractVersion008.obo\">AbstractVersion008.obo </a>";
 
+      //set the search value and stage on the form
+      $("#search_ontology_input").val(tissue);
       $("#nav_selector").val(stage);
 
       var idMap = emouseatlas.emap.emaTree.getEmbryoIdMap();
@@ -254,6 +266,10 @@ jQuery(document).ready(function(){
 		        "contextmenu"
 		    ]
   	})
+	.on('loaded.jstree', function() {
+	    open_tree();
+	    $("#search_ontology_go").click();
+	});
 	/*
   	.bind("select_node.jstree", function (event, data) {
 		popUpDetails( "6", data.rslt.obj );

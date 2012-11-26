@@ -187,11 +187,17 @@ emouseatlas.emap.emaTree = function() {
 // JavaScript Document
 jQuery(document).ready(function(){
       var stage;
+      var tissue;
       var nvPairs = window.location.search.substring(1).split("&");
       for (var i = 0; i < nvPairs.length; i++) {
          var nvPair = nvPairs[i].split("=");
 	 if (nvPair[0] === "stage") {
 	    stage = nvPair[1];
+	 }
+	 else if (nvPair[0] === "tissue") {
+	    tissue = nvPair[1];
+	    //make space chars appear nicely
+	    tissue=tissue.replace(/%20/g," ");
 	 }
       }
 
@@ -201,20 +207,13 @@ jQuery(document).ready(function(){
 	"Stage Definition: <a href=\"../theiler_stages/StageDefinition/" + stage.toLowerCase() + "definition.html\">" + stage + "</a>";
       document.getElementById("text_tree").src = "text/" + stage + "GroupsTrailing.txt";
 
-     /* 
-      $("#text_tree_text").append('<pre>');
-      var url = "/emap/ema/DAOAnatomyJSP/text/" + stage + "GroupsTrailing.txt";
-      $.get(url, function(data) {
-         $("#text_tree_text > pre").text(data);
-      });
-      */
-
       document.getElementById("download").innerHTML = 
 	"<a href=\"text/" + stage + "GroupsTrailing.txt\">" + stage + ".txt </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.rtf\">" + stage + ".rtf </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>";
 
-      //set the navigation selector drop down
+      //set the search value and stage on the form
+      $("#search_ontology_input").val(tissue);
       $("#nav_selector").val(stage);
 
       var idMap = emouseatlas.emap.emaTree.getEmbryoIdMap();
@@ -294,6 +293,11 @@ jQuery(document).ready(function(){
 		        "contextmenu"
 		    ]
   	})
+	.on('loaded.jstree', function() {
+	   open_tree();
+	   $("#search_ontology_go").click();
+	});
+  	//});
 	/*
   	.bind("select_node.jstree", function (event, data) {
 		popUpDetails( "6", data.rslt.obj );

@@ -79,16 +79,26 @@ $(document).ready(function() {
 	     }
 
 	     if (search_data_name != 'none') {
+	        var last_index=search_data_name.length;
 	        var el;
 	        el = $('<button id="first_result" type="button" disabled="disabled">').text('First');
 	        $("#search_result_nav").append(el);
 	        el = $('<button id="previous_result" type="button" disabled="disabled">').text('Previous');
 	        $("#search_result_nav").append(el);
-	        el = $('<button id="next_result" type="button">').text('Next');
+		if (last_index == 1) {
+	           el = $('<button id="next_result" type="button" disabled="disabled">').text('Next');
+		}
+		else {
+	           el = $('<button id="next_result" type="button">').text('Next');
+		}
 	        $("#search_result_nav").append(el);
-	        el = $('<button id="last_result" type="button">').text('Last');
+		if (last_index == 1) {
+	           el = $('<button id="last_result" type="button" disabled="disabled">').text('Last');
+		}
+		else {
+	           el = $('<button id="last_result" type="button">').text('Last');
+		}
 	        $("#search_result_nav").append(el);
-	        var last_index=search_data_name.length;
 	        $("#search_result_nav").
 		   append('&nbsp;&nbsp;Result <span id="result_first_index">' + (current_index+1) + 
 		      '</span> of <span id="result_last_index">' + last_index + '</span>');

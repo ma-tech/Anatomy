@@ -298,12 +298,11 @@ public final class DerivedPartOfPerspectivesFKDAO {
         	//searchTermWithWildCards = "%." + searchTerm + ".%";
         }
 
-        int start = 0;
+        int start = -1;
         
         if (WhatIsThisString.isItNumeric(searchStartStage)){
             start = Integer.parseInt(searchStartStage);
         }
-
 		searchStartStage = Integer.toString(start);
 
         searchEMAPAIdWithWildCards = "EMAPA:" + searchId;
@@ -316,7 +315,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
         if (searchTerm.equals("") && searchId.equals("")){
 
         	//no stage => abstract ontology
-        	if (searchStartStage.equals("0")) {
+        	if (searchStartStage.equals("-1")) {
         		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_NOSTAGE, sqlSortField, sortDirection);
 
         		values = new Object[3];
@@ -361,7 +360,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
         if (searchTerm.equals("") && !searchId.equals("")){
         	
         	//no stage => abstract ontology
-        	if (searchStartStage.equals("0")) {
+        	if (searchStartStage.equals("-1")) {
         		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_ID_NOSTAGE, sqlSortField, sortDirection);
         		
         		values = new Object[4];
@@ -408,7 +407,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
         if (!searchTerm.equals("") && searchId.equals("")){
 
         	//no stage => abstract ontology
-        	if (searchStartStage.equals("0")) {
+        	if (searchStartStage.equals("-1")) {
         		sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND_PATH_NOSTAGE, sqlSortField, sortDirection);
 
         		values = new Object[4];

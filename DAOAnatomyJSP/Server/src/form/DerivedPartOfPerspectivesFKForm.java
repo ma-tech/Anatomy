@@ -123,7 +123,7 @@ public final class DerivedPartOfPerspectivesFKForm extends Form {
     /**
      * Process and validate the Name which is to be associated with the given DerivedPartOfPerspectivesFK.
      */
-    public int convertStage(String stage) {
+    public int convertStage(String stage) {    	
         
     	int outStage = 0;
 
@@ -475,7 +475,7 @@ public final class DerivedPartOfPerspectivesFKForm extends Form {
     	else {
     		outStage = -1;
     	}
-
+    	
     	return outStage;
     }
 

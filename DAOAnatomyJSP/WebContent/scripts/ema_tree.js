@@ -295,9 +295,10 @@ jQuery(document).ready(function(){
   	})
 	.on('loaded.jstree', function() {
 	   open_tree();
-	   $("#search_ontology_go").click();
+	   if (tissue && stage){
+	      $("#search_ontology_go").click();
+	   }
 	});
-  	//});
 	/*
   	.bind("select_node.jstree", function (event, data) {
 		popUpDetails( "6", data.rslt.obj );

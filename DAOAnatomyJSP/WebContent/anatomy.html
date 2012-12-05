@@ -11,12 +11,16 @@
 
   <script type="text/javascript" src="./scripts/buildPaths.js"></script>
   <script type="text/javascript" src="./scripts/ema_tree.js"></script>
-  <script type="text/javascript" src="./scripts/ema_ts.js"></script>
+  <script type="text/javascript" src="./scripts/ema_ts_search.js"></script>
   <link href="css/ontology.css" rel="stylesheet" type="text/css" />
 
    <!-- InstanceEndEditable -->
    <link rel="shortcut icon" href="http://www.emouseatlas.org/emage/images/emage.ico" />
    <link href="../../css/ema.css" rel="stylesheet" type="text/css" />
+   <link href="../../css/cookiecuttr.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+   <script type="text/javascript" src="../../javascript/jquery.cookie.js"></script>
+   <script type="text/javascript" src="../../javascript/jquery.cookiecuttr.js"></script>   
    <script type="text/javascript">
    var addressBar = window.location.href;
    function popupCenterFixedURL(w,h)
@@ -119,6 +123,7 @@
                        <li><a href="../../help/site_map.html">Site&nbsp;Map</a></li>
                        <li><a href="../../help/contact.html">Contact&nbsp;EMAP</a></li>
 					   <li><a href="../../help/compatibility.html">Browser&nbsp;Compatibility</a></li>
+                   	   <li><a href="../../help/cookies_policy.html">Cookies&nbsp;and&nbsp;Privacy</a></li>
                    </ul>
                 </li>
               </ul>
@@ -134,20 +139,16 @@
   <!-- START OF GENERAL CONTENT --------------------------->
    <div id="content">
      <!-- InstanceBeginEditable name="General Content" -->
-  <br />
-  <div id="tree_title"></div>
-  <p></p>
-  <div id="version">Anatomy Ontology Version 008</div>
-  <p></p>
 
-  <fieldset class="fieldset"> 
+  <div id="tree_title"></div>
+
+  <fieldset class="ontology_fieldset"> 
      <legend>Theiler Stage Navigation</legend>
      <div id="navigation_toggle">
         <img src="/emap/ema/images/common/hide.png"/>
         <span class="small_toggle">hide navigation</span>
      </div>	  
      <div id="navigation_container">
-        <p></p>
         <div id="stage_selector">Ontology Selector: 
 	   <select id="nav_selector" >
 	      <option value="TS01">TS01</option>
@@ -179,27 +180,39 @@
 	      <option value="Abstract">Abstract</option>
            </select>
         </div>
-        <p></p>
         <div id="stage_index">Theiler Stages: <a href="../theiler_stages/StageDefinition/stagedefinition.html">All Stages Summary Table</a></div>
-        <p></p>
         <div id="stage_definition">inserted by ema_tree.js</div>
-        <p></p>
      </div>
   </fieldset> 
 
-  <fieldset class="fieldset">
+  <fieldset class="ontology_fieldset">
+     <legend>Search Tree </legend>
+     <div id="search_toggle">
+        <img src="/emap/ema/images/common/hide.png"/>
+        <span class="small_toggle">hide search</span>
+     </div>	  
+     <div id="search_container">
+        <div id="search_ontology_input_div">
+	   Search Ontology: <input type="text" id="search_ontology_input" />
+	   <button id="search_ontology_go" type="button">Go</button> 
+        </div>
+        <div id="search_result_nav">
+        </div>
+     </div>
+  </fieldset> 
+
+  <fieldset class="ontology_fieldset">
      <legend>Interactive Tree <span class="small_legend">(right click for menu options)</span></legend>
      <div id="interactive_tree_toggle">
         <img src="/emap/ema/images/common/hide.png"/>
         <span class="small_toggle">hide tree</span>
      </div>
-     <br />
      <div id="interactive_tree_container">
         <div id="tree"></div>
      </div>
   </fieldset> 
 
-  <fieldset class="fieldset">
+  <fieldset class="ontology_fieldset">
      <legend>Text Tree</legend>
      <div id="text_tree_toggle">
         <img src="/emap/ema/images/common/hide.png"/>
@@ -212,7 +225,7 @@
      </div>
   </fieldset> 
 
-  <fieldset class="fieldset">
+  <fieldset class="ontology_fieldset">
   <legend>Download</legend>	  
   <div id="download"></div>
   </fieldset> 

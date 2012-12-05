@@ -220,7 +220,7 @@ public final class LeafDAO {
         "  ANAV_DESC_1, " +
         "  a.STG_NAME AS STG_MIN_1, " +
         "  b.STG_NAME AS STG_MAX_1, " + 
-        "  CAST(ANAV_OID_2 as CHAR), " +
+       "  CAST(ANAV_OID_2 as CHAR), " +
         "  ANAV_NAME_2, " +
         "  ANAV_ID_2, " +
         "  ANAV_DESC_2, " +
@@ -236,6 +236,7 @@ public final class LeafDAO {
         "  JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
         " WHERE ANAV_DESC_1 = ? " +
         "ORDER BY ROOT_DESC, CHILD_DESC";
+
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -757,7 +758,7 @@ public final class LeafDAO {
 		while (iteratorleaf.hasNext()) {
 
 			leaf = iteratorleaf.next();
-			
+
 			String extID = leaf.getChildName();
 			
 			//Seen this node before - increment its child count
@@ -777,18 +778,19 @@ public final class LeafDAO {
 						
 						//LEAFs should have no children!
 					}
-					jsonID = "li_node_LEAF_Timed_id" + leaf.getChildOid();
+					//jsonID = "li_node_LEAF_Timed_id" + leaf.getChildOid();
+					jsonID = "li_node_id_" + leaf.getChildOid();
 					childCount = 0;
 				}
 				else {
-					
-					jsonID = "li_node_BRANCH_Timed_id" + leaf.getChildOid();
+
+					jsonID = "li_node_id_" + leaf.getChildId();
 					childCount = 1;
 				}
 				String startStage = leaf.getChildStart();
 				String endStage = leaf.getChildEnd();
 				String name = leaf.getChildDescription();	
-				jsonNodes.put(extID, new JsonNode(extID,jsonID,startStage,endStage,name,childCount));
+				jsonNodes.put(extID, new JsonNode(extID,jsonID,extID,startStage,endStage,name,childCount));
 			}
 		}
 		

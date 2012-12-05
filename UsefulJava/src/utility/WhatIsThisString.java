@@ -55,7 +55,7 @@ public class WhatIsThisString{
 		 */
 		boolean isValid = false;
 		
-        String expression = "[0-9]*[0-9]+$";  
+        String expression = "[-+]?[0-9]*[0-9]+$";  
         CharSequence inputStr = number;  
            
         Pattern pattern = Pattern.compile(expression);  

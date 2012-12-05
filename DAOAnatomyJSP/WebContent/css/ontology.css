@@ -13,11 +13,37 @@ body, p, legend, label, input {
 #tree_title {
    font-size: 16pt;
 }
-#stage_selector,#version,#stage_index,#stage_definition,#download {
+#version {
+   font-size: 10pt;
+   margin-left: 30pt;
+}
+#stage_selector,#download {
+   float: left;
    font-size: 10pt;
 }
+#stage_index,#stage_definition {
+   float: left;
+   font-size: 10pt;
+   margin-left: 30pt;
+}
+
 #stage_selector,#download a {
    padding-right: 3pt;
+}
+
+#search_ontology_input_div {
+   float: left;
+}
+#search_result_nav {
+   padding-left: 30pt;
+   float: left;
+}
+#search_result_path {
+   clear: both;
+}
+
+.search_highlight {
+   background-color: #94D6E7;
 }
 
 .small_legend {
@@ -28,7 +54,17 @@ body, p, legend, label, input {
    font-size: 8pt;
 }
 
-.fieldset {
+.ontology_fieldset {
+   clear: left;
+   font-size: 10pt;
    border-width: 2pt;
+}
+
+pre {
+   font-size: 12px;
+}
+#interactive_tree_container {
+   max-height: 400px;
+   overflow-y:scroll;
 }
 

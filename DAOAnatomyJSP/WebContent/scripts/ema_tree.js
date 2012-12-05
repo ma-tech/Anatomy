@@ -187,25 +187,33 @@ emouseatlas.emap.emaTree = function() {
 // JavaScript Document
 jQuery(document).ready(function(){
       var stage;
+      var tissue;
       var nvPairs = window.location.search.substring(1).split("&");
       for (var i = 0; i < nvPairs.length; i++) {
          var nvPair = nvPairs[i].split("=");
 	 if (nvPair[0] === "stage") {
 	    stage = nvPair[1];
 	 }
+	 else if (nvPair[0] === "tissue") {
+	    tissue = nvPair[1];
+	    //make space chars appear nicely
+	    tissue=tissue.replace(/%20/g," ");
+	 }
       }
 
       //insert stage dependent html snippets
-      document.getElementById("tree_title").innerHTML = "" + stage;
+      document.getElementById("tree_title").innerHTML = "" + stage + "<span id=\"version\">Anatomy Ontology Version 008</span>";
       document.getElementById("stage_definition").innerHTML = 
 	"Stage Definition: <a href=\"../theiler_stages/StageDefinition/" + stage.toLowerCase() + "definition.html\">" + stage + "</a>";
       document.getElementById("text_tree").src = "text/" + stage + "GroupsTrailing.txt";
+
       document.getElementById("download").innerHTML = 
 	"<a href=\"text/" + stage + "GroupsTrailing.txt\">" + stage + ".txt </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.rtf\">" + stage + ".rtf </a>" +
 	"<a href=\"text/" + stage + "GroupsTrailing.xml\">" + stage + ".xml </a>";
 
-      //set the navigation selector drop down
+      //set the search value and stage on the form
+      $("#search_ontology_input").val(tissue);
       $("#nav_selector").val(stage);
 
       var idMap = emouseatlas.emap.emaTree.getEmbryoIdMap();
@@ -218,7 +226,7 @@ jQuery(document).ready(function(){
 				    {
 				    	"data" : stage,
 					    "attr" : { 
-					    	"id" : "li_node_BASE_Timed_id0", 
+					    	"id" : "li_node_id_0", 
 			                	"ext_id" : "EMAP:0",
 					    	"name" : "Anatomy",
   				    	    	"stage" : stage
@@ -226,7 +234,7 @@ jQuery(document).ready(function(){
 					    "children": [{
                             			"attr": {
                                  			"ext_id": idMap.getItem(stage), 
-                                 			"id": "li_node_BRANCH_Timed_id34", 
+                                 			"id": "li_node_id_33", 
                                  			"name": "mouse",
 		    					"title": idMap.getItem(stage),
        				    	     		"stage" : stage
@@ -241,9 +249,7 @@ jQuery(document).ready(function(){
 			    "ajax" : { 
 				    async : false,
 				    type : 'GET',
-				    url : "http://localhost:8080/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
-				    //url : "http://testwww.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
-				    //url : "http://www.emouseatlas.org/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
+				    "url" : "/DAOAnatomyJSP/listleafsbyemapandstageaggregated",
 				    dataType : "text",
 				    data : function (n) { 
 					    var emap_id = n.attr("ext_id").replace(/EMAP:/,"");
@@ -287,6 +293,12 @@ jQuery(document).ready(function(){
 		        "contextmenu"
 		    ]
   	})
+	.on('loaded.jstree', function() {
+	   open_tree();
+	   if (tissue && stage){
+	      $("#search_ontology_go").click();
+	   }
+	});
 	/*
   	.bind("select_node.jstree", function (event, data) {
 		popUpDetails( "6", data.rslt.obj );
@@ -296,7 +308,7 @@ jQuery(document).ready(function(){
 });
 
 function open_tree(){
-    $("#tree").jstree("open_node","#li_node_BRANCH_Timed_id34");
+    $("#tree").jstree("open_node","#li_node_id_33");
 }
 
 /*
@@ -310,34 +322,50 @@ function createDefaultMenu(obj){
 
    var stageSeq = "0";
    var emapId = "";
+
+   var nodeName=obj.attr("name");
+   var timedID=obj.attr("ext_id");
+   var abstractID=obj.attr("abstract_id");
 		
   return {
+  	"Name" : {
+   		label : nodeName
+   	},
+  	"Timed ID Info" : {
+   		label : timedID,
+   		action : function (obj) {
+   		}	
+   	},
+  	"Abstract ID Info" : {
+   		label : abstractID,
+   		action : function (obj) {
+   		},	
+	   	separator_after : true
+   	},
   	"Query EMAGE" : {
    		label : "Search EMAGE",
    		action : function (obj) {
-   			var emapId = obj.attr("ext_id");
-   			if (emapId === "EMAP:0") {
+   			if (timedID === "EMAP:0") {
       				return;
    			}
-   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + emapId + '&exactmatchstructures=true&includestructuresynonyms=true';
+   			var url = 'http://www.emouseatlas.org/emagewebapp/pages/emage_general_query_result.jsf?structures=' + timedID + '&exactmatchstructures=true&includestructuresynonyms=true';
    			window.open(url);
    		}	
    	},
    	"Query GXD" : {
 		label : "Search GXD",
 	   	action : function (obj) {
-			var emapId = obj.attr("ext_id").replace(/EMAP:/,"");
-		   	if (emapId === "0") {
+			timedID = timedID.replace(/EMAP:/,"");
+		   	if (timedID === "0") {
 		      		return;
 		   	}	
-		   	var url = 'http://www.informatics.jax.org/searches/expression_report.cgi?edinburghKey=' + emapId + '&sort=Gene%20symbol&returnType=assay%20results&substructures=structures';
+		   	var url = 'http://www.informatics.jax.org/searches/expression_report.cgi?edinburghKey=' + timedID + '&sort=Gene%20symbol&returnType=assay%20results&substructures=structures';
 		   	window.open(url);
 	   	}
    	},
    	"Query Google" : {
 	        label : "Search Google",
   	   	action : function (obj) {
-		   	var nodeName = obj.attr("name");
 		   	var url = 'http://www.google.co.uk/search?q=' + nodeName;
 		   	window.open(url);
 	   	}
@@ -345,21 +373,9 @@ function createDefaultMenu(obj){
    	"Query Wikipedia" : {
 	   	label : "Search Wikipedia",
   	   	action : function (obj) {
-    		   	var nodeName = obj.attr("name");
 		   	var url = 'http://en.wikipedia.org/wiki/' + nodeName;
 		   	window.open(url);
 	   	}
-   	},
-   	"ID info" : {
-           	label : "ID information",
-	   	action : function (obj) {
-	      		if (obj.attr("ext_id") === "EMAP:0") {
-	         		return;
-	      		}  
-	      		popUpDetails( stageSeq, obj )
-	   	},
-	   	"seperator_after" : false,
-	   	"seperator_before" : false
    	}
     }
 }

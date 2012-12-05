@@ -1,7 +1,0 @@
-INDEX VERSION 1.126
-/Users/mwicks/GitMahost/Anatomy/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/954949528.index
-/DAOAnatomyUpload/Server/src
-/Users/mwicks/GitMahost/Anatomy/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2670049510.index
-/DAOAnatomyUpload/Server/src
-/Users/mwicks/GitMahost/Anatomy/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1570973684.index
-/DAOAnatomyDatabaseJSF/Server/src

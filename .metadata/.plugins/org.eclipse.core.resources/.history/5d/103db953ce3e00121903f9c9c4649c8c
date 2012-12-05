@@ -1,0 +1,961 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        TimedLeafDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Timed Leaf DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Timed Leaf DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+package daolayer;
+
+import static daolayer.DAOUtil.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import daomodel.TimedLeaf;
+import daomodel.JsonNode;
+
+public final class TimedLeafDAO {
+<<<<<<< HEAD
+	// Constants ----------------------------------------------------------------------------------
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
+=======
+
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_OLD =
+>>>>>>> origin/master
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3 " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC_OLD =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3 " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					"ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_OLD =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3 " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+	// DEPRECATED!!
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC_OLD =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_DESC ";
+	
+	//////////////////////////////////////////////////////////////////
+	//##PS modified to return ANO_OID (node ID)
+	/////////////////////////////////////////////////////////////////
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_NAME_1 = ? " +
+					" AND STG_NAME = ? " +
+					"ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+	//" ORDER BY CHILD_ID ";
+	//" ORDER BY CHILD_DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
+
+	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC =
+			"SELECT  " +
+					"  ANAV_STAGE AS STAGE, " +
+					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
+					"  ANAV_NAME_1 AS ROOT_NAME, " +
+					"  ANAV_DESC_1 AS ROOT_DESC, " +
+					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
+					"  'LEAF' AS CHILD_ID, " +
+					"  ANAV_NAME_2 AS CHILD_NAME, " + 
+					"  ANAV_DESC_2 AS CHILD_DESC, " + 
+					"  'No Children' AS GRAND_CHILD_ID, " + 
+					"  'No Children' AS GRAND_CHILD_NAME, " +
+					"  'No Children' AS GRAND_CHILD_DESC, " +
+					" ATN_NODE_FK AS NODE_ID, " +
+					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
+					" FROM ANAV_TIMED_LEAF_RELATION " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ?  " +
+					" AND ANAV_STAGE = ?  " +
+					"UNION " +
+					"SELECT " +
+					"  STG_NAME AS STAGE, " +
+					"  ANAV_ID_1, " +
+					"  ANAV_NAME_1, " + 
+					"  ANAV_DESC_1, " +
+					"  CAST(ANAV_OID_2 AS CHAR), " + 
+					"  ANAV_ID_2, " +
+					"  ANAV_NAME_2, " +
+					"  ANAV_DESC_2, " +
+					"  ANAV_ID_3, " +
+					"  ANAV_NAME_3, " +
+					"  ANAV_DESC_3, " +
+					"  ATN_NODE_FK, " +
+					"  ANO_PUBLIC_ID " +
+					" FROM ANAV_TIMED_GRAND_RELATION " +
+					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
+					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
+					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
+					" WHERE ANAV_DESC_1 = ? " +
+					" AND STG_NAME = ? " +
+					" ORDER BY CHILD_DESC ";
+
+	// Vars ---------------------------------------------------------------------------------------
+	private DAOFactory daoFactory;
+
+	// Constructors -------------------------------------------------------------------------------
+	/*
+	 * Construct an Leaf DAO for the given DAOFactory.
+	 *  Package private so that it can be constructed inside the DAO package only.
+	 */
+	TimedLeafDAO(DAOFactory daoFactory) {
+		this.daoFactory = daoFactory;
+	}
+
+	// Actions ------------------------------------------------------------------------------------
+	// LIST    ------------------------------------------------------------------------------------
+	/*
+	 * Returns a list of All Leafs for the given Root Name, otherwise null.
+	 */
+	public List<TimedLeaf> listAllTimedNodesByRootName(String rootName1, String stage1, String rootName2, String stage2) 
+			throws Exception {
+		
+		return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME, rootName1, stage1, rootName2, stage2);
+	}
+
+	/*
+	 * Returns a list of All Leafs for the given Root Description, otherwise null.
+	 */
+	public List<TimedLeaf> listAllTimedNodesByRootDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
+			throws Exception {
+		
+		return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC, rootDesc1, stage1, rootDesc2, stage2);
+	}
+
+	/*
+	 * Returns a list of All Leafs for the given Root Name, otherwise null.
+	 */
+	public List<TimedLeaf> listAllTimedNodesByRootNameByChildDesc(String rootName1, String stage1, String rootName2, String stage2) 
+			throws Exception {
+		
+		return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC, rootName1, stage1, rootName2, stage2);
+	}
+
+	/*
+	 * Returns a list of All Leafs for the given Root Description, otherwise null.
+	 */
+	public List<TimedLeaf> listAllTimedNodesByRootDescByChildDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
+			throws Exception {
+		
+		return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC, rootDesc1, stage1, rootDesc2, stage2);
+	}
+
+	/*
+	 * Returns a list of Leafs from the database.
+	 *  The list is never null and is empty when the database does not contain any 
+	 *  Leafs.
+	 */
+	public List<TimedLeaf> list(String sql, Object... values) 
+			throws Exception {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
+
+		try {
+			
+			connection = daoFactory.getConnection();
+			preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				
+				timedleafs.add(mapTimedLeaf(resultSet));
+			}
+		}
+		catch (SQLException e) {
+			
+			throw new DAOException(e);
+		}
+		finally {
+			
+			close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+		}
+
+		return timedleafs;
+	}
+
+	// Helpers ------------------------------------------------------------------------------------
+	/*
+	 * Map the current row of the given ResultSet to a Leaf.
+	 */
+	private static TimedLeaf mapTimedLeaf(ResultSet resultSet) 
+			throws SQLException {
+
+		return new TimedLeaf(
+				resultSet.getString("STAGE"), 
+				resultSet.getString("ROOT_OID"), 
+				resultSet.getString("ROOT_NAME"),
+				resultSet.getString("ROOT_DESC"), 
+				resultSet.getString("CHILD_OID"), 
+				resultSet.getString("CHILD_ID"), 
+				resultSet.getString("CHILD_NAME"),      		
+				resultSet.getString("CHILD_DESC"), 
+				resultSet.getString("GRAND_CHILD_ID"), 
+				resultSet.getString("GRAND_CHILD_NAME"),
+<<<<<<< HEAD
+				resultSet.getString("GRAND_CHILD_DESC")
+		);
+=======
+				resultSet.getString("GRAND_CHILD_DESC"),
+				resultSet.getString("NODE_ID"),
+				resultSet.getString("ABSTRACT_NAME"));
+>>>>>>> origin/master
+	}
+
+	/*
+	 * Convert the Leaf ResultSet to JSON for Ajax calls
+	 */
+	public String convertLeafListToStringJsonChildren(List<TimedLeaf> timedleafs) {
+
+		String returnString = "[";
+
+		TimedLeaf leaf = new TimedLeaf();
+		TimedLeaf prevleaf = new TimedLeaf();
+		TimedLeaf rootLeaf = new TimedLeaf();
+
+		int rowCount = 0;
+
+		Iterator<TimedLeaf> iteratorleaf = timedleafs.iterator();
+
+		String prevChildName = "";
+		String leafType = "ROOT";
+		int countChildNames = 0;
+
+		while (iteratorleaf.hasNext()) {
+
+			prevleaf = leaf;
+			leaf = iteratorleaf.next();
+
+			rowCount++;
+
+			if (rowCount == 1 ) {
+
+				rootLeaf = leaf;
+
+				returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+						rootLeaf.getRootName() + 
+						"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+						rootLeaf.getRootOid() +
+						"\",\"stage\": \"" + 
+						rootLeaf.getStage() +
+						"\",\"name\": \"" + 
+						rootLeaf.getRootDescription() + 
+						"\"},\"children\": [";
+			}
+
+			if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+				
+				if ( leaf.getChildId().equals("LEAF")) {
+					
+					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+							prevleaf.getChildName() + 
+							"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+							prevleaf.getChildOid() +
+							"\",\"stage\": \"" + 
+							prevleaf.getStage() +
+							"\",\"name\": \"" + 
+							prevleaf.getChildDescription() + 
+							"\"},\"data\": \"" +
+							prevleaf.getChildDescription() + 
+							"\"},";
+				}
+				else {
+					
+					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+							prevleaf.getChildName() + 
+							"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+							prevleaf.getChildId() +
+							"\",\"stage\": \"" + 
+							prevleaf.getStage() +
+							"\",\"name\": \"" + 
+							prevleaf.getChildDescription() + 
+							"\"},\"data\": \"" +
+							prevleaf.getChildDescription() + 
+							"\"},";
+				}
+				countChildNames = 0;
+			}
+			
+			prevChildName = leaf.getChildName();
+			countChildNames++;
+		}
+
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+					leaf.getChildName() + 
+					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+					leaf.getChildOid() +
+					"\",\"stage\": \"" + 
+					leaf.getStage() +
+					"\",\"name\": \"" + 
+					leaf.getChildDescription() + 
+					"\"},\"data\": \"" +
+					leaf.getChildDescription() + 
+					"\"}";
+		}
+		else {
+			
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+					leaf.getChildName() + 
+					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+					leaf.getChildOid() +
+					"\",\"stage\": \"" + 
+					leaf.getStage() +
+					"\",\"name\": \"" + 
+					leaf.getChildDescription() + 
+					"\"},\"data\": \"" +
+					leaf.getChildDescription() + 
+					"(" + 
+					countChildNames + 
+					")\"}";
+		}
+
+		if ( rowCount == timedleafs.size()) {
+			
+			returnString = returnString + "]";
+		}
+		else {
+			
+			returnString = returnString + ",";
+		}
+
+		returnString = returnString + ", \"data\": \"" +
+				rootLeaf.getRootDescription() + 
+				"\"}]";
+
+		return returnString;
+	}
+
+	/*
+	 * Convert the Leaf ResultSet to JSON for Ajax calls
+	 */
+	public String convertLeafListToStringJsonLines(List<TimedLeaf> timedleafs) {
+
+		String returnString = "";
+
+		int rowCount = 0;
+		int grandChildCount = 1;
+
+		boolean lastLeaf = false;
+
+		TimedLeaf savedLeaf = new TimedLeaf();
+
+		if (timedleafs.size() > 0) {
+
+			Iterator<TimedLeaf> iterator = timedleafs.iterator();
+
+			while (iterator.hasNext()) {
+
+				TimedLeaf leaf = iterator.next();
+
+				if ( leaf.getChildId().equals("LEAF")) {
+					
+					returnString = returnString + 
+							"{\"attr\": {\"ext_id\": \"" +
+							leaf.getChildName() + 
+							"\",\"id\": \"li_node_ROOT_Timed_id" + 
+							leaf.getChildOid() +
+							"\",\"name\": \"" + 
+							leaf.getChildDescription() + 
+							"\",\"stage\": \"" + 
+							leaf.getStage() +
+							"\"},\"data\": \"" +
+							leaf.getChildDescription() + 
+							"\"};";
+					lastLeaf = true;
+				}
+				else {
+
+					if (leaf.getChildName().equals(savedLeaf.getChildName())) {
+
+						grandChildCount = grandChildCount + 1;
+					}
+					else {
+
+						if (lastLeaf == false){
+
+							returnString = returnString + 
+									"{\"attr\": {\"ext_id\": \"" +
+											savedLeaf.getChildName() + 
+											"\",\"id\": \"li_node_ROOT_Timed_id" + 
+											savedLeaf.getChildId() +
+											"\",\"name\": \"" + 
+											savedLeaf.getChildDescription() + 
+											"\",\"stage\": \"" + 
+											savedLeaf.getStage() +
+											"\"},\"data\": \"" +
+											savedLeaf.getChildDescription() + 
+											"(" + 
+											Integer.toString(grandChildCount) + 
+											")\"};";
+						}
+						else {
+
+							lastLeaf = false;
+						}
+
+						grandChildCount = 1;
+					}
+				}
+
+				rowCount = rowCount + 1;
+				savedLeaf = leaf;
+			}
+
+			if ( !savedLeaf.getChildId().equals("LEAF")) {
+
+				returnString = returnString + 
+						"{\"attr\": {\"ext_id\": \"" +
+						savedLeaf.getChildName() + 
+						"\",\"id\": \"li_node_ROOT_Timed_id" + 
+						savedLeaf.getChildId() +
+						"\",\"name\": \"" + 
+						savedLeaf.getChildDescription() + 
+						"\",\"stage\": \"" + 
+						savedLeaf.getStage() +
+						"\"},\"data\": \"" +
+						savedLeaf.getChildDescription() + 
+						"(" + 
+						Integer.toString(grandChildCount) + 
+						")\"};";
+			}
+		}
+
+		return returnString;
+	}
+
+	/*
+	 * Convert the Leaf ResultSet to JSON for Ajax calls
+	 */
+	public String convertLeafListToStringJsonAggregateOld(List<TimedLeaf> timedleafs) {
+
+		Iterator<TimedLeaf> iteratortimedleaf = timedleafs.iterator();
+
+		TimedLeaf timedleaf = new TimedLeaf();
+		TimedLeaf prevleaf = new TimedLeaf();
+
+		int rowCount = 0;
+		int countChildNames = 0;
+
+		String prevChildName = "";
+		String leafType = "";
+		String returnString = "[";
+
+		while (iteratortimedleaf.hasNext()) {
+
+			prevleaf = timedleaf;
+			timedleaf = iteratortimedleaf.next();
+
+			rowCount++;
+
+			if (!timedleaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+
+				if ( timedleaf.getChildId().equals("LEAF")) {
+					
+					if ( prevleaf.getChildId().equals("LEAF")) {
+						
+						leafType = "LEAF";
+
+						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+								prevleaf.getChildName() + 
+								"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+								prevleaf.getChildOid() +
+								"\",\"stage\": \"" + 
+								prevleaf.getStage() +
+								"\",\"name\": \"" + 
+								prevleaf.getChildDescription() + 
+								"\"},\"data\": \"" +
+								prevleaf.getChildDescription() + 
+								"\",\"state\": \"closed\"},";
+					}
+					else {
+						
+						leafType = "BRANCH";
+
+						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+								prevleaf.getChildName() + 
+								"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+								prevleaf.getChildOid() +
+								"\",\"stage\": \"" + 
+								prevleaf.getStage() +
+								"\",\"name\": \"" + 
+								prevleaf.getChildDescription() + 
+								"\"},\"data\": \"" +
+								prevleaf.getChildDescription() + 
+								"(" + 
+								countChildNames + 
+								")\",\"state\": \"closed\"},";
+					}
+				}
+				else {
+					
+					if ( prevleaf.getChildId().equals("LEAF")) {
+						
+						leafType = "LEAF";
+						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+								prevleaf.getChildName() + 
+								"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+								prevleaf.getChildId() +
+								"\",\"stage\": \"" + 
+								prevleaf.getStage() +
+								"\",\"name\": \"" + 
+								prevleaf.getChildDescription() + 
+								"\"},\"data\": \"" +
+								prevleaf.getChildDescription() + 
+								"\",\"state\": \"closed\"},";
+					}
+					else {
+						
+						leafType = "BRANCH";
+						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+								prevleaf.getChildName() + 
+								"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+								prevleaf.getChildId() +
+								"\",\"stage\": \"" + 
+								prevleaf.getStage() +
+								"\",\"name\": \"" + 
+								prevleaf.getChildDescription() + 
+								"\"},\"data\": \"" +
+								prevleaf.getChildDescription() + 
+								"(" + 
+								countChildNames + 
+								")\",\"state\": \"closed\"},";
+					}
+				}
+
+				countChildNames = 0;
+			}
+			prevChildName = timedleaf.getChildName();
+			countChildNames++;
+		}
+
+		if ( prevleaf.getChildId().equals("LEAF")) {
+			
+			leafType = "LEAF";
+
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+					timedleaf.getChildName() + 
+					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+					timedleaf.getChildOid() +
+					"\",\"stage\": \"" + 
+					timedleaf.getStage() +
+					"\",\"name\": \"" + 
+					timedleaf.getChildDescription() + 
+					"\"},\"data\": \"" +
+					timedleaf.getChildDescription() + 
+					"\",\"state\": \"closed\"}";
+		}
+		else {
+			
+			leafType = "BRANCH";
+
+			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
+					timedleaf.getChildName() + 
+					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+					timedleaf.getChildOid() +
+					"\",\"stage\": \"" + 
+					timedleaf.getStage() +
+					"\",\"name\": \"" + 
+					timedleaf.getChildDescription() + 
+					"\"},\"data\": \"" +
+					timedleaf.getChildDescription() + 
+					"(" + 
+					countChildNames + 
+					")\",\"state\": \"closed\"}";
+		}
+
+		if ( rowCount == timedleafs.size()) {
+			
+			returnString = returnString + "]";
+		}
+		else {
+			
+			returnString = returnString + ",";
+		}
+
+		return returnString;
+	}
+
+	/*
+	 * Convert the Leaf ResultSet to JSON for Ajax calls
+	 */
+	public String convertLeafListToStringJsonAggregate(List<TimedLeaf> timedleafs) {
+
+		Iterator<TimedLeaf> iteratortimedleaf = timedleafs.iterator();
+
+		TimedLeaf timedleaf = new TimedLeaf();
+		LinkedHashMap <String,JsonNode> jsonNodes = new LinkedHashMap<String,JsonNode> ();
+
+		String returnString = "[";
+
+		while (iteratortimedleaf.hasNext()) {
+
+			timedleaf = iteratortimedleaf.next();
+
+<<<<<<< HEAD
+=======
+			/*
+			System.out.println("##PS## TimedLeafDAO timedleaf.getRootOid() " + timedleaf.getRootOid());
+			System.out.println("##PS## TimedLeafDAO timedleaf.getRootName() " + timedleaf.getRootName());
+			System.out.println("##PS## TimedLeafDAO timedleaf.getRootDescription() " + timedleaf.getRootDescription());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildOid() " + timedleaf.getChildOid());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildId() " + timedleaf.getChildId());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildName() " + timedleaf.getChildName());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildDescription() " + timedleaf.getChildDescription());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildId() " + timedleaf.getGrandChildId());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildName() " + timedleaf.getGrandChildName());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildDescription() " + timedleaf.getGrandChildDescription());	
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getNodeID() " + timedleaf.getNodeID());
+			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getAbstractName() " + timedleaf.getAbstractName());
+			System.out.println(" ");
+			*/
+						
+						
+>>>>>>> origin/master
+			String extID = timedleaf.getChildName();
+			
+			//Seen this node before - increment its child count
+			if (jsonNodes.containsKey(extID)) {
+				
+				jsonNodes.get(extID).setChildCount(jsonNodes.get(extID).getChildCount()+1);
+			}
+			//not seen this node before - make a new one
+			else {
+				
+				String jsonID;
+				int childCount;
+				
+				if (timedleaf.getChildId().equals("LEAF") ) {
+					
+					if ( !timedleaf.getGrandChildName().equals("No Children")) {
+						
+						//LEAFs should have no children!
+					}
+					//jsonID = "li_node_LEAF_Timed_id" + timedleaf.getChildOid();
+					jsonID = "li_node_id_" + timedleaf.getNodeID();
+					childCount = 0;
+				}
+				else {
+<<<<<<< HEAD
+					
+					jsonID = "li_node_BRANCH_Timed_id" + timedleaf.getChildOid();
+=======
+					//jsonID = "li_node_BRANCH_Timed_id" + timedleaf.getChildOid();
+					jsonID = "li_node_id_" + timedleaf.getNodeID();
+>>>>>>> origin/master
+					childCount = 1;
+				}
+				String abstractName = timedleaf.getAbstractName();
+				String stage = timedleaf.getStage();
+				String name = timedleaf.getChildDescription();	
+				jsonNodes.put(extID, new JsonNode(extID,jsonID,abstractName,stage,name,childCount));
+			}
+		}
+		
+		Iterator<String> iteratorJsonNodes = jsonNodes.keySet().iterator();
+		
+		while (iteratorJsonNodes.hasNext()) {
+			
+			String extID = iteratorJsonNodes.next();
+			returnString = returnString + jsonNodes.get(extID).printJsonNodeTimed();
+		}
+
+		//knock off the last "," and replace with "]" to make nice JSON
+		returnString = returnString.substring(0, returnString.lastIndexOf(","));
+		returnString = returnString + "]";
+		
+		return returnString;
+	}
+}

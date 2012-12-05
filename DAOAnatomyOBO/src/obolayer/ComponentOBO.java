@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
-* Title:        OBOComponentOBO.java
+* Title:        ComponentOBO.java
 *
 * Date:         2012
 *
@@ -28,25 +28,17 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package obolayer;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import daolayer.DAOException;
-import daolayer.DAOFactory;
-import daolayer.StageDAO;
-
-import daomodel.Stage;
 
 import obomodel.OBOComponent;
 import obomodel.Relation;
 
 public final class ComponentOBO {
-
     // Constants ----------------------------------------------------------------------------------
 
     // Vars ---------------------------------------------------------------------------------------
@@ -84,6 +76,7 @@ public final class ComponentOBO {
         	obocomponents = oboFactory.getComponents();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
 
@@ -135,8 +128,10 @@ public final class ComponentOBO {
         	isProcessed = oboFactory.writeComponents( stage );
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
+        
         return isProcessed;
     }
 
@@ -149,6 +144,7 @@ public final class ComponentOBO {
             return oboFactory.isDebug();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -162,6 +158,7 @@ public final class ComponentOBO {
         	return oboFactory.getSummaryReport();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -175,6 +172,7 @@ public final class ComponentOBO {
             return oboFactory.getSummaryReportPdf();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -188,6 +186,7 @@ public final class ComponentOBO {
             return oboFactory.getInputFile();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -201,6 +200,7 @@ public final class ComponentOBO {
             return oboFactory.getComponentContent();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -214,6 +214,7 @@ public final class ComponentOBO {
             return oboFactory.getOutputFileVersion();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -227,6 +228,7 @@ public final class ComponentOBO {
             return oboFactory.getOutputFileNameSpace();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -240,6 +242,7 @@ public final class ComponentOBO {
             return oboFactory.getOutputFileSavedBy();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -253,6 +256,7 @@ public final class ComponentOBO {
             return oboFactory.getOutputFileRemark();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -266,6 +270,7 @@ public final class ComponentOBO {
             return oboFactory.getOutputFile();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -279,6 +284,7 @@ public final class ComponentOBO {
             return oboFactory.getSpecies();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -292,6 +298,7 @@ public final class ComponentOBO {
             return oboFactory.getProject();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -305,6 +312,7 @@ public final class ComponentOBO {
             return oboFactory.getAbstractClassName();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -318,6 +326,7 @@ public final class ComponentOBO {
             return oboFactory.getAbstractClassId();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -331,6 +340,7 @@ public final class ComponentOBO {
             return oboFactory.getAbstractClassNamespace();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -344,6 +354,7 @@ public final class ComponentOBO {
             return oboFactory.getStageClassName();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -357,6 +368,7 @@ public final class ComponentOBO {
             return oboFactory.getStageClassId();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -370,6 +382,7 @@ public final class ComponentOBO {
             return oboFactory.getStageClassNamespace();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -383,6 +396,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupClassName();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -396,6 +410,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupClassId();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -409,6 +424,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupClassNamespace();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -422,6 +438,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupTermClassName();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -435,6 +452,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupTermClassId();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -448,6 +466,7 @@ public final class ComponentOBO {
             return oboFactory.getGroupTermClassNamespace();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -461,6 +480,7 @@ public final class ComponentOBO {
             return oboFactory.getMinStageSequence();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
@@ -474,8 +494,8 @@ public final class ComponentOBO {
             return oboFactory.getMaxStageSequence();
         } 
         catch (OBOConfigurationException e) {
+        	
             throw new OBOException(e);
         } 
     }
-    
 }

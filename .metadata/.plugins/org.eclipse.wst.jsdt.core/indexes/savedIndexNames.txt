@@ -1,0 +1,8 @@
+INDEX VERSION 1.122+/Users/mwicks/GitMahost/Anatomy/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4146866362.index
+829525191.index
+1614487090.index
+3855329827.index
+930123803.index
+1991747033.index
+531359317.index

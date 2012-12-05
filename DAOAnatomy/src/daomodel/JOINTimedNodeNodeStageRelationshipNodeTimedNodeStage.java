@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage.java
 *
@@ -20,7 +20,25 @@
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage "Table".
-*
+*                
+*                ANA_TIMED_NODE   - I
+*                ANA_NODE         - I
+*                ANA_STAGE        - I
+*                ANA_RELATIONSHIP 
+*                ANA_NODE         - II
+*                ANA_TIMED_NODE   - II 
+*                ANA_STAGE        - II
+*                
+*                Joined on 
+*                
+*                 FROM ANA_TIMED_NODE   a 
+*        		  JOIN ANA_NODE         b  ON b.ANO_OID       = a.ATN_NODE_FK
+*                 JOIN ANA_STAGE        c  ON c.STG_OID       = a.ATN_STAGE_FK
+*                 JOIN ANA_RELATIONSHIP d  ON d.REL_CHILD_FK  = b.ANO_OID
+*                 JOIN ANA_NODE         f  ON d.REL_PARENT_FK = f.ANO_OID
+*                 JOIN ANA_TIMED_NODE   e  ON f.ANO_OID       = e.ATN_NODE_FK
+*                 JOIN ANA_STAGE        g  ON g.STG_OID       = e.ATN_STAGE_FK
+*                 
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,64 +49,59 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_TIMED_NODE & ANA_NODE & ANA_STAGE & ANA_RELATIONSHIP & ANA_NODE & ANA_TIMED_NODE & ANA_STAGE 
-	 *  
-     *  Columns:
-     *   1. ATN_OID               - int(10) unsigned 
-     *   2. ATN_NODE_FK           - int(10) unsigned 
-     *   3. ATN_STAGE_FK          - int(10) unsigned 
-     *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
-     *   5. ATN_PUBLIC_ID         - varchar(20)
+     *   1. ATN_OID                  - int(10) unsigned 
+     *   2. ATN_NODE_FK              - int(10) unsigned 
+     *   3. ATN_STAGE_FK             - int(10) unsigned 
+     *   4. ATN_STAGE_MODIFIER_FK    - varchar(20)      
+     *   5. ATN_PUBLIC_ID            - varchar(20)
      *         
-     *   1. ANO_OID            - int(10) unsigned 
-     *   2. ANO_SPECIES_FK     - varchar(20)      
-     *   3. ANO_COMPONENT_NAME - varchar(255)     
-     *   4. ANO_IS_PRIMARY     - tinyint(1)       
-     *   5. ANO_IS_GROUP       - tinyint(1)       
-     *   6. ANO_PUBLIC_ID      - varchar(20)      
-     *   7. ANO_DESCRIPTION    - varchar(2000)    
+     *   1. ANO_OID                  - int(10) unsigned 
+     *   2. ANO_SPECIES_FK           - varchar(20)      
+     *   3. ANO_COMPONENT_NAME       - varchar(255)     
+     *   4. ANO_IS_PRIMARY           - tinyint(1)       
+     *   5. ANO_IS_GROUP             - tinyint(1)       
+     *   6. ANO_PUBLIC_ID            - varchar(20)      
+     *   7. ANO_DESCRIPTION          - varchar(2000)    
      *   
-     *   1. STG_OID              - int(10) unsigned
-     *   2. STG_SPECIES_FK       - varchar(20)      
-     *   3. STG_NAME             - varchar(20)      
-     *   4. STG_SEQUENCE         - int(10) unsigned 
-     *   5. STG_DESCRIPTION      - varchar(2000)    
-     *   6. STG_SHORT_EXTRA_TEXT - varchar(25)      
-     *   7. STG_PUBLIC_ID        - varchar(20)
+     *   1. STG_OID                  - int(10) unsigned
+     *   2. STG_SPECIES_FK           - varchar(20)      
+     *   3. STG_NAME                 - varchar(20)      
+     *   4. STG_SEQUENCE             - int(10) unsigned 
+     *   5. STG_DESCRIPTION          - varchar(2000)    
+     *   6. STG_SHORT_EXTRA_TEXT     - varchar(25)      
+     *   7. STG_PUBLIC_ID            - varchar(20)
      *         
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
      *   4. REL_PARENT_FK            - int(10) unsigned
      *    
-     *   1. ATN_OID               - int(10) unsigned 
-     *   2. ATN_NODE_FK           - int(10) unsigned 
-     *   3. ATN_STAGE_FK          - int(10) unsigned 
-     *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
-     *   5. ATN_PUBLIC_ID         - varchar(20)
+     *   1. ATN_OID                  - int(10) unsigned 
+     *   2. ATN_NODE_FK              - int(10) unsigned 
+     *   3. ATN_STAGE_FK             - int(10) unsigned 
+     *   4. ATN_STAGE_MODIFIER_FK    - varchar(20)      
+     *   5. ATN_PUBLIC_ID            - varchar(20)
      *         
-     *   1. ANO_OID            - int(10) unsigned 
-     *   2. ANO_SPECIES_FK     - varchar(20)      
-     *   3. ANO_COMPONENT_NAME - varchar(255)     
-     *   4. ANO_IS_PRIMARY     - tinyint(1)       
-     *   5. ANO_IS_GROUP       - tinyint(1)       
-     *   6. ANO_PUBLIC_ID      - varchar(20)      
-     *   7. ANO_DESCRIPTION    - varchar(2000)
+     *   1. ANO_OID                  - int(10) unsigned 
+     *   2. ANO_SPECIES_FK           - varchar(20)      
+     *   3. ANO_COMPONENT_NAME       - varchar(255)     
+     *   4. ANO_IS_PRIMARY           - tinyint(1)       
+     *   5. ANO_IS_GROUP             - tinyint(1)       
+     *   6. ANO_PUBLIC_ID            - varchar(20)      
+     *   7. ANO_DESCRIPTION          - varchar(2000)
      *
-     *   1. STG_OID              - int(10) unsigned
-     *   2. STG_SPECIES_FK       - varchar(20)      
-     *   3. STG_NAME             - varchar(20)      
-     *   4. STG_SEQUENCE         - int(10) unsigned 
-     *   5. STG_DESCRIPTION      - varchar(2000)    
-     *   6. STG_SHORT_EXTRA_TEXT - varchar(25)      
-     *   7. STG_PUBLIC_ID        - varchar(20)
-     *         
+     *   1. STG_OID                  - int(10) unsigned
+     *   2. STG_SPECIES_FK           - varchar(20)      
+     *   3. STG_NAME                 - varchar(20)      
+     *   4. STG_SEQUENCE             - int(10) unsigned 
+     *   5. STG_DESCRIPTION          - varchar(2000)    
+     *   6. STG_SHORT_EXTRA_TEXT     - varchar(25)      
+     *   7. STG_PUBLIC_ID            - varchar(20)
      */
     private Long oidTimedNodeI; 
     private Long nodeFKI; 
@@ -229,13 +242,6 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     	this.extraTextII = extraTextII;
     	this.publicStageIdII = publicStageIdII;
     }
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
-     */
 
     // Getters ------------------------------------------------------------------------------------
     public Long getOidTimedNodeI() {
@@ -505,20 +511,77 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
         this.publicStageIdII = publicStageIdII;
     }
     
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage the same as the 
+     *  Supplied JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage?
+     */
+    public boolean isSameAs(JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage daojointimednodenodestagerelationshipnodetimednodestage){
+
+    	if (this.getOidTimedNodeI() == daojointimednodenodestagerelationshipnodetimednodestage.getOidTimedNodeI() &&
+    		this.getNodeFKI() == daojointimednodenodestagerelationshipnodetimednodestage.getNodeFKI() &&
+    		this.getStageFKI() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKI() &&
+    		this.getStageModifierFKI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKI()) && 
+    		this.getPublicTimedNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdI()) && 
+    		this.getOidNodeI() == daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeI() &&
+    		this.getSpeciesFKNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKNodeI()) && 
+    		this.getComponentNameI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getComponentNameI()) && 
+    		this.isPrimaryI() == daojointimednodenodestagerelationshipnodetimednodestage.isPrimaryI() &&
+    		this.isGroupI() == daojointimednodenodestagerelationshipnodetimednodestage.isGroupI() &&
+    		this.getPublicNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicNodeIdI()) && 
+    		this.getDescriptionNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionNodeI()) && 
+    		this.getOidStageI() == daojointimednodenodestagerelationshipnodetimednodestage.getOidStageI() &&
+    		this.getSpeciesFKStageI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKStageI()) && 
+    		this.getNameI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getNameI()) && 
+    		this.getSequenceI() == daojointimednodenodestagerelationshipnodetimednodestage.getSequenceI() &&
+    		this.getDescriptionStageI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionStageI()) && 
+    		this.getExtraTextI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getExtraTextI()) && 
+    		this.getPublicStageIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicStageIdI()) && 
+    		this.getOidRel() == daojointimednodenodestagerelationshipnodetimednodestage.getOidRel() &&
+    		this.getTypeFK().equals(daojointimednodenodestagerelationshipnodetimednodestage.getTypeFK()) && 
+    		this.getChildFK() == daojointimednodenodestagerelationshipnodetimednodestage.getChildFK() &&
+    		this.getParentFK() == daojointimednodenodestagerelationshipnodetimednodestage.getParentFK() &&
+    		this.getOidNodeII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeII() &&
+    		this.getSpeciesFKNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKNodeII()) && 
+    		this.getComponentNameII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getComponentNameII()) && 
+    		this.isPrimaryII() == daojointimednodenodestagerelationshipnodetimednodestage.isPrimaryII() &&
+    		this.isGroupII() == daojointimednodenodestagerelationshipnodetimednodestage.isGroupII() &&
+    		this.getPublicNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicNodeIdII()) && 
+    		this.getDescriptionNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionNodeII()) && 
+    		this.getOidTimedNodeII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidTimedNodeII() &&
+    		this.getNodeFKII() == daojointimednodenodestagerelationshipnodetimednodestage.getNodeFKII() &&
+    		this.getStageFKII() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKII() &&
+    		this.getStageModifierFKII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKII()) && 
+    		this.getPublicTimedNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdII()) && 
+    		this.getOidStageII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidStageII() &&
+    		this.getSpeciesFKStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKStageII()) && 
+    		this.getNameII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getNameII()) && 
+    		this.getSequenceII() == daojointimednodenodestagerelationshipnodetimednodestage.getSequenceII() &&
+    		this.getDescriptionStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionStageII()) && 
+    		this.getExtraTextII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getExtraTextII()) && 
+    		this.getPublicStageIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicStageIdII()) ) {
+    		
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
 
     /*
      * Returns the String representation of this JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage.
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage\n" +
-        		"TimedNodeI [ oidTimedNodeI=%d, nodeFKI=%d, stageFKI=%d, stageModifierFKI=%s, publicTimedNodeIdI=%s ]" +
-        		"NodeI [ oidNodeI=%d, speciesFKI=%s, componentNameI=%s, primaryI=%b, groupI=%b, publicIdI=%s, descriptionNodeI=%s ]" +
-        		"StageI [ oidStageI=%d, speciesFKI=%s, nameI=%s, sequenceI=%d, descriptionStageI=%s, extraTextI=%s, publicStageIdI=%s  ]" + 
-                "Relationship [ oidRel=%d, typeFK=%s, childFK=%d, parentFK=%d ]" + 
-        		"TimedNodeII [ oidTimedNodeII=%d, nodeFKII=%d, stageFKII=%d, stageModifierFKII=%s, publicTimedNodeIdII=%s ]" +
-        		"NodeII [ oidNodeII=%d, speciesFKII=%s, componentNameII=%s, primaryII=%b, groupII=%b, publicIdII=%s, descriptionNodeII=%s ]" +
+        		"TimedNodeI [ oidTimedNodeI=%d, nodeFKI=%d, stageFKI=%d, stageModifierFKI=%s, publicTimedNodeIdI=%s ]\n" +
+        		"NodeI [ oidNodeI=%d, speciesFKI=%s, componentNameI=%s, primaryI=%b, groupI=%b, publicIdI=%s, descriptionNodeI=%s ]\n" +
+        		"StageI [ oidStageI=%d, speciesFKI=%s, nameI=%s, sequenceI=%d, descriptionStageI=%s, extraTextI=%s, publicStageIdI=%s  ]\n" + 
+                "Relationship [ oidRel=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n" + 
+        		"TimedNodeII [ oidTimedNodeII=%d, nodeFKII=%d, stageFKII=%d, stageModifierFKII=%s, publicTimedNodeIdII=%s ]\n" +
+        		"NodeII [ oidNodeII=%d, speciesFKII=%s, componentNameII=%s, primaryII=%b, groupII=%b, publicIdII=%s, descriptionNodeII=%s ]\n" +
         		"StageII [ oidStageII=%d, speciesFKII=%s, nameII=%s, sequenceII=%d, descriptionStageII=%s, extraTextII=%s, publicStageIdII=%s ]", 
         		oidTimedNodeI, nodeFKI, stageFKI, stageModifierFKI, publicTimedNodeIdI, 
         		oidNodeI, speciesFKNodeI, componentNameI, primaryI, groupI, publicNodeIdI, descriptionNodeI,
@@ -528,5 +591,4 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
         		oidNodeII, speciesFKNodeII, componentNameII, primaryII, groupII, publicNodeIdII, descriptionNodeII,
         		oidStageII, speciesFKStageII, nameII, sequenceII, descriptionStageII, extraTextII, publicStageIdII);
     }
-
 }

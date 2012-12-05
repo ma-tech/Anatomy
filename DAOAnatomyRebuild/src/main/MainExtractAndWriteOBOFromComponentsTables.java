@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        ExtractAndWriteOBOFromComponentsTables.java
+* Title:        MainExtractAndWriteOBOFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -28,55 +28,34 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import obolayer.OBOFactory;
+
 import daolayer.DAOFactory;
 
-import routinesaggregated.ExtractAndWriteOBOFromComponentsTables;
-
+import routines.runnable.ExtractAndWriteOBOFromComponentsTables;
 
 public class MainExtractAndWriteOBOFromComponentsTables {
-	/*
-	 * Main Class
-	 */
-    public static void main(String[] args) throws Exception {
 
-    	long startTime = System.currentTimeMillis();
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	Date parsed = format.parse(dateString);
+	public static void main(String[] args) throws Exception {
 
-        System.out.println("=========   --------------------------------------");
-        System.out.println("EXECUTING - ExtractAndWriteOBOFromComponentsTables.java on " + parsed.toString());
-        System.out.println("=========   --------------------------------------");
-        System.out.println("");
+    	long startTime = Wrapper.printPrologue("HIGH", Wrapper.getExecutingClass());
 
-        /*
-         * MAINLINE
-         */
-        if (args.length != 2) {
-        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+		if (args.length != 2) {
+			
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "HIGH", "HIGH");
         }
         else {
-            // Obtain OBOFactory.
-            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+        
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            ExtractAndWriteOBOFromComponentsTables.run(daofactory, obofactory);
+            ExtractAndWriteOBOFromComponentsTables.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
         }
 
-        System.out.println("");
-    	long endTime = System.currentTimeMillis();
-    	long duration = endTime - startTime;
-        System.out.println("=========   --------------------------------------");
-        System.out.println("DONE ------ ExtractAndWriteOBOFromComponentsTables.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   --------------------------------------");
+        Wrapper.printEpilogue("HIGH", Wrapper.getExecutingClass(), startTime);
     }
 }

@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        DerivedPartOfDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the DerivedPartOf DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the DerivedPartOf DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -12,16 +47,7 @@ import java.util.List;
 
 import daomodel.DerivedPartOfFK;
 
-/**
- * This class represents a SQL Database Access Object for the DerivedPartOf DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the DerivedPartOf DTO and a SQL database.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class DerivedPartOfFKDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT APO_OID, APO_SPECIES_FK, " +
@@ -102,27 +128,29 @@ public final class DerivedPartOfFKDAO {
     private DAOFactory daoFactory;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct a DerivedPartOf DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     DerivedPartOfFKDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
     // Actions ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns the relationship from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOfFK find(Long oid) throws DAOException {
+    public DerivedPartOfFK find(Long oid) throws Exception {
+    	
         return find(SQL_FIND_BY_OID, oid);
     }
 
-    /**
+    /*
      * Returns the relationship from the database matching the given 
      *  SQL query with the given values.
      */
-    private DerivedPartOfFK find(String sql, Object... values) throws DAOException {
+    private DerivedPartOfFK find(String sql, Object... values) throws Exception {
 
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -130,37 +158,42 @@ public final class DerivedPartOfFKDAO {
         DerivedPartOfFK relationship = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
+            	
                 relationship = mapDerivedPartOfFK(resultSet);
                 
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return relationship;
     }
 
-    /**
+    /*
      * Returns a list of relationship matching the given Node FK, otherwise null.
      */
-    public List<DerivedPartOfFK> listAllByNodeFK(String nodeFK) throws DAOException {
+    public List<DerivedPartOfFK> listAllByNodeFK(String nodeFK) throws Exception {
+    	
         return list(SQL_LIST_BY_NODE_FK, nodeFK);
     }
     
-    /**
+    /*
      * Returns a list of all derivedpartofs from the database. 
      *  The list is never null and is empty when the database does not contain any derivedpartofs.
      */
-    public List<DerivedPartOfFK> list(String sql, Object... values) throws DAOException {
+    public List<DerivedPartOfFK> list(String sql, Object... values) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -169,66 +202,73 @@ public final class DerivedPartOfFKDAO {
         List<DerivedPartOfFK> derivedpartofs = new ArrayList<DerivedPartOfFK>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
+            	
                 derivedpartofs.add(mapDerivedPartOfFK(resultSet));
-                
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedpartofs;
     }
 
     
-    /**
+    /*
      * Returns true if the given relationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
+    	
         return exist(SQL_EXIST_OID, oid);
     }
 
-    /**
+    /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
     }
 
-    /**
+    /*
      * Returns list of DerivedPartOfs for Display purposes
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
     public List<DerivedPartOfFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm)
-        throws DAOException
-    {
+        throws Exception {
 
     	String sqlSortField = "APO_OID";
     	
@@ -292,28 +332,31 @@ public final class DerivedPartOfFKDAO {
             List<DerivedPartOfFK> dataList = new ArrayList<DerivedPartOfFK>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfFK(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
         else {
+        	
             sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
             Object[] values = {
             		searchWithWildCards,
@@ -327,35 +370,35 @@ public final class DerivedPartOfFKDAO {
             List<DerivedPartOfFK> dataList = new ArrayList<DerivedPartOfFK>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfFK(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
-
-
     }
 
-    /**
+    /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm) throws DAOException {
+    public int count(String searchTerm) throws Exception {
 
         //String searchWithWildCards = "%" + searchTerm + "%";
         String searchWithWildCards = "%" + searchTerm;
@@ -370,38 +413,43 @@ public final class DerivedPartOfFKDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
 
             if (searchTerm.equals("")){
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+            	
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
             }
             else {
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
+            	
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
     }
 
-
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to an User.
      */
     private static DerivedPartOfFK mapDerivedPartOfFK(ResultSet resultSet) throws SQLException {
+    	
         return new DerivedPartOfFK(
       		resultSet.getLong("APO_OID"), 
        		resultSet.getString("APO_SPECIES_FK"), 
@@ -421,5 +469,4 @@ public final class DerivedPartOfFKDAO {
        		resultSet.getLong("APO_PARENT_APO_FK")
         );
     }
-
 }

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        RelationshipProject.java
 *
@@ -31,16 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class RelationshipProject {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_RELATIONSHIP_PROJECT 
-	 *   All RelationshipProjects between ABSTRACT Nodes in the Anatomy DAG
-     *  
-     *  Columns:
      *   1. RLP_OID             - int(10) unsigned 
      *   2. RLP_RELATIONSHIP_FK - int(10) unsigned      
      *   3. RLP_PROJECT_FK      - char(30)
@@ -105,10 +100,28 @@ public class RelationshipProject {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this RelationshipProject the same as the Supplied RelationshipProject?
+     */
+    public boolean isSameAs(RelationshipProject daorelationshipproject){
+
+    	if (this.getRelationshipFK() == daorelationshipproject.getRelationshipFK() &&
+    		this.getProjectFK().equals(daorelationshipproject.getProjectFK()) &&
+    		this.getSequence() == daorelationshipproject.getSequence() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The RelationshipProject OID is unique for each RelationshipProject. 
      *  So this should compare RelationshipProject by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof RelationshipProject) && (oid != null) 
         		? oid.equals(((RelationshipProject) other).oid) 
         		: (other == this);
@@ -119,6 +132,7 @@ public class RelationshipProject {
      *  Not required, it just aids log reading.
      */
     public String toString() {
+    	
         return String.format("RelationshipProject [ oid=%d, relationshipFK=%d, projectFK=%s, sequence=%d ]", 
             oid, relationshipFK, projectFK, sequence);
     }

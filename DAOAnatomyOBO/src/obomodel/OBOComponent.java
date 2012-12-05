@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
-* Title:        OBOOBOComponent.java
+* Title:        OBOComponent.java
 *
 * Date:         2012
 *
@@ -28,7 +28,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package obomodel;
 
 import java.util.ArrayList;
@@ -38,8 +37,6 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-
-import daomodel.OBOFile;
 
 public class OBOComponent {
 
@@ -754,18 +751,22 @@ public class OBOComponent {
     public void setStartSequenceMin(String species) {
 
         if (species.equals("mouse")) {
+        	
         	this.startSequence = MIN_MOUSE_STAGE;
     	    this.start = MIN_MOUSE_STAGE_STR;
         }
         else if (species.equals("human")) {
+        	
         	this.startSequence = MIN_HUMAN_STAGE;
     	    this.start = MIN_HUMAN_STAGE_STR;
         }
         else if (species.equals("chick")) {
+        	
         	this.startSequence = MIN_CHICK_STAGE;
     	    this.start = MIN_CHICK_STAGE_STR;
         }
         else  {
+        	
         	this.startSequence = ERROR_STAGE;
     	    this.start = ERROR_STAGE_STR;
         }
@@ -1489,18 +1490,22 @@ public class OBOComponent {
     public void setEndSequenceMax(String species) {
 
         if (species.equals("mouse")) {
+        	
         	this.endSequence = MAX_MOUSE_STAGE;
     	    this.end = MAX_MOUSE_STAGE_STR;
         }
         else if (species.equals("human")) {
+        	
         	this.endSequence = MAX_HUMAN_STAGE;
     	    this.end = MAX_HUMAN_STAGE_STR;
         }
+        
         else if (species.equals("chick")) {
         	this.endSequence = MAX_CHICK_STAGE;
     	    this.end = MAX_CHICK_STAGE_STR;
         }
         else  {
+        	
         	this.endSequence = ERROR_STAGE;
     	    this.end = ERROR_STAGE_STR;
         }
@@ -2009,26 +2014,30 @@ public class OBOComponent {
                             longPath.length - 1);
                     
             		shortPaths.add(shortPath);
-            		
                 }
             }
         }
+
         return shortPaths;
     }
     
     public DefaultMutableTreeNode[] getShortenedPrimaryPath(){
         
         if (this.primaryPath != null){
+        	
             DefaultMutableTreeNode[] longPath = this.primaryPath;        
             DefaultMutableTreeNode[] shortPath =
                     new DefaultMutableTreeNode[longPath.length - 1];
             System.arraycopy(longPath, 1, shortPath, 0, longPath.length - 1); 
+            
             return shortPath;
         }
         else {
+        	
             DefaultMutableTreeNode nullNode = new DefaultMutableTreeNode("N/A");
             DefaultMutableTreeNode[] shortPath = new DefaultMutableTreeNode[1];
             shortPath[0] = nullNode;
+            
             return shortPath;
         }
     }
@@ -2070,6 +2079,7 @@ public class OBOComponent {
         Set<String> copyComments = this.getCheckComments();       
         
         for (String s: copyComments){
+        	
         	copyobocomponent.setCheckComment(s);
         }
         
@@ -2092,6 +2102,13 @@ public class OBOComponent {
 
         orderdiff =  this.compareOrderComments(obocomponent, orderdiff);
 
+        if ( this.getID().equals("EMAPA:35041") ) {
+        	
+            System.out.println("orderdiff               : " + orderdiff );
+            System.out.println("this.toString()         : " + this.toString());
+            System.out.println("obocomponent.toString() : " + obocomponent.toString());
+        }
+        
         if ( this.getID().equals(obocomponent.getID()) && 
              this.getName().equals(obocomponent.getName()) &&
              this.getStartSequence() == obocomponent.getStartSequence() &&
@@ -2105,6 +2122,7 @@ public class OBOComponent {
         	return true;
         }
         else {
+        	
         	return false;
         }
     }
@@ -2227,9 +2245,11 @@ public class OBOComponent {
         	String strPrimary = "";
             
         	if ( this.getIsPrimary()){
+        		
                 strPrimary = "Primary";
             }
             else {
+            	
                 strPrimary = "Group";
             }
 
@@ -2249,6 +2269,7 @@ public class OBOComponent {
         arrDiffOrder = this.compareOrderComments(obocomponent, arrDiffOrder);
 
         if ( arrDiffOrder!=null ){
+        	
             arrDifferenceWith.addAll(arrDiffOrder);
         }
 
@@ -2264,10 +2285,13 @@ public class OBOComponent {
         Set<String> changedComments = new TreeSet<String>();
         
         for (String s: allComments){
+        	
             if (s.startsWith("Different")){
+            	
                 changedComments.add(s);
             } 
         }
+        
         return changedComments;
     }
 
@@ -2279,10 +2303,13 @@ public class OBOComponent {
         Set<String> allComments = this.getCheckComments();
 
         for (String s: allComments){
+        	
             if ( s.startsWith(strDifferent) ) {
+            	
             	return true;
             }
         }
+        
         return false;
     }
 
@@ -2294,10 +2321,13 @@ public class OBOComponent {
         Set<String> strComments = this.getCheckComments();
 
         for( String s: strComments ){
+        	
             if ( s.contains(fragment) ) {
+            	
                 return true;
             }
         } 
+        
         return false;
     }
 

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Thing.java
 *
@@ -35,13 +35,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Thing {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1. OBJ_OID               - int(10) unsigned 
      *   2. OBJ_CREATION_DATETIME - datetime         
      *   3. OBJ_CREATOR_FK        - int(10) unsigned 
@@ -64,13 +62,6 @@ public class Thing {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public Thing(Long oid, 
     		String creationDateTime, 
@@ -121,10 +112,29 @@ public class Thing {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this Thing the same as the Supplied Thing?
+     */
+    public boolean isSameAs(Thing daothing){
+
+    	if (this.getCreationDateTime().equals(daothing.getCreationDateTime()) &&
+    		this.getCreatorFK() == daothing.getCreatorFK() &&
+    		this.getTable().equals(daothing.getTable()) &&
+    		this.getDescription().equals(daothing.getDescription()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation OID is unique for each Thing. 
      *  So this should compare Thing by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Thing) && (oid != null) 
         		? oid.equals(((Thing) other).oid) 
         		: (other == this);
@@ -135,6 +145,7 @@ public class Thing {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("Object [ oid=%d, creationDateTime=%s, creatorFK=%d, table=%s, description=%s ]", 
             oid, creationDateTime, creatorFK, table, description);
     }

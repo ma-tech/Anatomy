@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentOrderDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -46,10 +45,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.ComponentOrder;
 
 public final class ComponentOrderDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
@@ -149,7 +149,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public ComponentOrder findByOid(Long oid) throws DAOException {
+    public ComponentOrder findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -157,7 +157,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public List<ComponentOrder> listOrderByParentBySpecialOrder() throws DAOException {
+    public List<ComponentOrder> listOrderByParentBySpecialOrder() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_PARENT_SPECIAL_ORDER);
     }
@@ -165,7 +165,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public List<ComponentOrder> listOrderByParentByAlphaOrder() throws DAOException {
+    public List<ComponentOrder> listOrderByParentByAlphaOrder() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_PARENT_ALPHA_ORDER);
     }
@@ -173,7 +173,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws DAOException {
+    public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws Exception {
     	
         return list(SQL_LIST_BY_CHILD_AND_PARENT, childId, parentId);
     }
@@ -181,7 +181,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
      */
-    public List<ComponentOrder> listByChild(String child) throws DAOException {
+    public List<ComponentOrder> listByChild(String child) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD, child);
     }
@@ -189,7 +189,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns the daocomponentorders from the database matching the given OBI Name, otherwise null.
      */
-    public List<ComponentOrder> listByParent(String parent) throws DAOException {
+    public List<ComponentOrder> listByParent(String parent) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT, parent);
     }
@@ -197,7 +197,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns a list of ALL componentorders, otherwise null.
      */
-    public List<ComponentOrder> listAll() throws DAOException {
+    public List<ComponentOrder> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -205,7 +205,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns true if the given daocomponentorder OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -217,12 +217,14 @@ public final class ComponentOrderDAO {
      *   then it will invoke "create(ComponentOrder)", 
      *   else it will invoke "update(ComponentOrder)".
      */
-    public void save(ComponentOrder daocomponentorder) throws DAOException {
+    public void save(ComponentOrder daocomponentorder) throws Exception {
      
     	if (daocomponentorder.getOid() == null) {
+    		
             create(daocomponentorder);
         }
     	else {
+    		
             update(daocomponentorder);
         }
     }
@@ -231,7 +233,7 @@ public final class ComponentOrderDAO {
      * Returns the daocomponentorder from the database matching the given 
      *  SQL query with the given values.
      */
-    private ComponentOrder find(String sql, Object... values) throws DAOException {
+    private ComponentOrder find(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -239,19 +241,23 @@ public final class ComponentOrderDAO {
         ComponentOrder daocomponentorder = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 daocomponentorder = mapComponentOrder(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return daocomponentorder;
@@ -261,7 +267,7 @@ public final class ComponentOrderDAO {
      * Returns a list of all componentorders from the database. 
      *  The list is never null and is empty when the database does not contain any componentorders.
      */
-    public List<ComponentOrder> list(String sql, Object... values) throws DAOException {
+    public List<ComponentOrder> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -269,19 +275,23 @@ public final class ComponentOrderDAO {
         List<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 componentorders.add(mapComponentOrder(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return componentorders;
@@ -293,7 +303,7 @@ public final class ComponentOrderDAO {
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder).
      *   After creating, the DAO will set the obtained ID in the given daocomponentorder.
      */
-    public void create(ComponentOrder daocomponentorder) throws IllegalArgumentException, DAOException {
+    public void create(ComponentOrder daocomponentorder) throws IllegalArgumentException, Exception {
 
     	Object[] values = {
         	daocomponentorder.getChild(),
@@ -308,26 +318,31 @@ public final class ComponentOrderDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating ComponentOrder failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_OBO_COMPONENT_ORDER Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_ORDER Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -336,9 +351,10 @@ public final class ComponentOrderDAO {
      *  The daocomponentorder OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder)}.
      */
-    public void update(ComponentOrder daocomponentorder) throws DAOException {
+    public void update(ComponentOrder daocomponentorder) throws Exception {
     	
         if (daocomponentorder.getOid() == null) {
+        	
             throw new IllegalArgumentException("ComponentOrder is not created yet, so the daocomponentorder OID cannot be null.");
         }
 
@@ -355,29 +371,35 @@ public final class ComponentOrderDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating ComponentOrder failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponentorder.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_OBO_COMPONENT_ORDER Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_ORDER Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -385,7 +407,7 @@ public final class ComponentOrderDAO {
      *  Delete the given daocomponentorder from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
      */
-    public void delete(ComponentOrder daocomponentorder) throws DAOException {
+    public void delete(ComponentOrder daocomponentorder) throws Exception {
     	
         Object[] values = { 
         	daocomponentorder.getOid() 
@@ -395,29 +417,35 @@ public final class ComponentOrderDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting ComponentOrder failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponentorder.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -425,39 +453,44 @@ public final class ComponentOrderDAO {
      *  Delete the given daocomponentorder from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
      */
-    public void empty() throws DAOException {
+    public void empty() throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting ALL ComponentOrders failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT_ORDER Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -465,16 +498,19 @@ public final class ComponentOrderDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -486,7 +522,7 @@ public final class ComponentOrderDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<ComponentOrder> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -543,20 +579,24 @@ public final class ComponentOrderDAO {
         List<ComponentOrder> dataList = new ArrayList<ComponentOrder>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapComponentOrder(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -565,7 +605,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -595,20 +635,24 @@ public final class ComponentOrderDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -617,7 +661,7 @@ public final class ComponentOrderDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws DAOException {
+    public int countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -625,20 +669,24 @@ public final class ComponentOrderDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

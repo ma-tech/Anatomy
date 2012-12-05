@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        DerivedPartOfPerspectivesFKDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the DerivedPartOfPerspectivesFK DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the DerivedPartOfPerspectivesFK DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -15,16 +50,7 @@ import utility.WhatIsThisString;
 
 import daomodel.DerivedPartOfPerspectivesFK;
 
-/**
- * This class represents a SQL Database Access Object for the DerivedPartOf DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the DerivedPartOf DTO and a SQL database.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class DerivedPartOfPerspectivesFKDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE =
         "SELECT COUNT(*) AS VALUE " +
@@ -138,6 +164,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     DerivedPartOfPerspectivesFKDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
@@ -148,8 +175,7 @@ public final class DerivedPartOfPerspectivesFKDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<DerivedPartOfPerspectivesFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective)
-        throws DAOException
-    {
+        throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -219,29 +245,32 @@ public final class DerivedPartOfPerspectivesFKDAO {
             		searchPerspective,
             		searchStartStage,
                     firstRow, 
-                    rowCount
-            };
+                    rowCount};
+        	
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesFK(resultSet));
                 }
                 
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
         
         if (searchTerm.equals("") && !searchId.equals("")){
@@ -258,26 +287,28 @@ public final class DerivedPartOfPerspectivesFKDAO {
             };
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesFK(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
 
         if (!searchTerm.equals("") && searchId.equals("")){
@@ -289,30 +320,31 @@ public final class DerivedPartOfPerspectivesFKDAO {
             		searchTermWithWildCards,
             		searchStartStage,
                     firstRow, 
-                    rowCount
-            };
+                    rowCount};
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesFK(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
         
         if (!searchTerm.equals("") && !searchId.equals("")){
@@ -325,39 +357,38 @@ public final class DerivedPartOfPerspectivesFKDAO {
             		searchEMAPIdWithWildCards,
             		searchStartStage,
                     firstRow, 
-                    rowCount
-            };
+                    rowCount};
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesFK(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-
-
         }
 
         return dataList;
-
     }
 
-    /**
+    /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective) throws DAOException {
+    public int count(String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective) throws Exception {
 
         String searchTermWithWildCards = "";
         String searchEMAPAIdWithWildCards = "";
@@ -398,28 +429,29 @@ public final class DerivedPartOfPerspectivesFKDAO {
         	
             Object[] values = {
             		searchPerspective,
-            		searchStartStage
-            };
+            		searchStartStage};
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-        	
         }
         
         if (searchTerm.equals("") && !searchId.equals("")) {
@@ -428,28 +460,29 @@ public final class DerivedPartOfPerspectivesFKDAO {
             		searchPerspective,
             		searchEMAPAIdWithWildCards,
                		searchEMAPIdWithWildCards,
-               	 	searchStartStage
-            };
+               	 	searchStartStage};
 
         	try {
+        		
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_ID, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_ID, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-
         }
         	
         if (!searchTerm.equals("") && searchId.equals("")){
@@ -457,28 +490,29 @@ public final class DerivedPartOfPerspectivesFKDAO {
             Object[] values = {
             		searchPerspective,
             		searchTermWithWildCards,
-            		searchStartStage
-            };
+            		searchStartStage};
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-        	
         }
         
         if (!searchTerm.equals("") && !searchId.equals("")) {
@@ -488,39 +522,40 @@ public final class DerivedPartOfPerspectivesFKDAO {
             		searchTermWithWildCards,
             		searchEMAPAIdWithWildCards,
                		searchEMAPIdWithWildCards,
-            		searchStartStage
-            };
+            		searchStartStage};
 
         	try {
+        		
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH_AND_ID, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH_AND_ID, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-
         }
         	
         return count;
     }
 
-
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to an User.
      */
     private static DerivedPartOfPerspectivesFK mapDerivedPartOfPerspectivesFK(ResultSet resultSet) throws SQLException {
+    	
         return new DerivedPartOfPerspectivesFK(
        		resultSet.getString("POP_PERSPECTIVE_FK"), 
        		resultSet.getString("FULL_PATH"), 
@@ -530,5 +565,4 @@ public final class DerivedPartOfPerspectivesFKDAO {
        		resultSet.getString("EMAP_PUBLIC_ID")
         );
     }
-
 }

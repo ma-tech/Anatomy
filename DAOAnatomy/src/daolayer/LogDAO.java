@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        LogDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.Log;
 
-public final class LogDAO {
+import utility.Wrapper;
 
+public final class LogDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS " +
@@ -110,11 +110,9 @@ public final class LogDAO {
         "FROM ANA_LOG " +
         "WHERE LOG_OID = ?";
 
-
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
-    
     // Constructors -------------------------------------------------------------------------------
     /*
      * Construct a Log DAO for the given DAOFactory.
@@ -130,7 +128,7 @@ public final class LogDAO {
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws DAOException {
+    public int maximumOid() throws Exception {
     	
         return maximum(SQL_MAX_OID);
     }
@@ -138,7 +136,7 @@ public final class LogDAO {
     /*
      * Returns the maximum Logged Oid.
      */
-    public int maximumLoggedOid() throws DAOException {
+    public int maximumLoggedOid() throws Exception {
     	
         return maximum(SQL_MAX_LOGGED_OID);
     }
@@ -146,7 +144,7 @@ public final class LogDAO {
     /*
      * Returns the log from the database matching the given OID, otherwise null.
      */
-    public Log findByOid(Long oid) throws DAOException {
+    public Log findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -154,7 +152,7 @@ public final class LogDAO {
     /*
      * Returns the log from the database matching the given Logged OID, otherwise null.
      */
-    public Log findByLoggedOid(Long loggedOid) throws DAOException {
+    public Log findByLoggedOid(Long loggedOid) throws Exception {
     	
         return find(SQL_FIND_BY_LOGGED_OID, loggedOid);
     }
@@ -162,7 +160,7 @@ public final class LogDAO {
     /*
      * Returns a list of ALL logs, otherwise null.
      */
-    public List<Log> listAll() throws DAOException {
+    public List<Log> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -170,7 +168,7 @@ public final class LogDAO {
     /*
      * Returns true if the given log OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -182,12 +180,14 @@ public final class LogDAO {
      *   then it will invoke "create(Log)", 
      *   else it will invoke "update(Log)".
      */
-    public void save(Log log) throws DAOException {
+    public void save(Log log) throws Exception {
      
     	if (log.getOid() == null) {
+    		
             create(log);
         }
     	else {
+    		
             update(log);
         }
     }
@@ -196,7 +196,7 @@ public final class LogDAO {
      * Returns the log from the database matching the given 
      *  SQL query with the given values.
      */
-    private Log find(String sql, Object... values) throws DAOException {
+    private Log find(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -204,19 +204,23 @@ public final class LogDAO {
         Log log = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 log = mapLog(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return log;
@@ -226,7 +230,7 @@ public final class LogDAO {
      * Returns a list of all logs from the database. 
      *  The list is never null and is empty when the database does not contain any logs.
      */
-    public List<Log> list(String sql, Object... values) throws DAOException {
+    public List<Log> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -234,19 +238,23 @@ public final class LogDAO {
         List<Log> logs = new ArrayList<Log>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 logs.add(mapLog(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return logs;
@@ -259,7 +267,7 @@ public final class LogDAO {
      *  If the log OID value is unknown, rather use save(Log).
      *   After creating, the DAO will set the obtained ID in the given log.
      */
-    public void create(Log log) throws IllegalArgumentException, DAOException {
+    public void create(Log log) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
         	log.getOid(),
@@ -275,26 +283,31 @@ public final class LogDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Log failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_LOG Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -304,9 +317,10 @@ public final class LogDAO {
      *  The log OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the log OID value is unknown, rather use save(Log)}.
      */
-    public void update(Log log) throws DAOException {
+    public void update(Log log) throws Exception {
     	
         if (log.getOid() == null) {
+        	
             throw new IllegalArgumentException("Log is not created yet, so the log OID cannot be null.");
         }
 
@@ -323,29 +337,35 @@ public final class LogDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Log failed, no rows affected.");
                 } 
                 else {
+                	
                 	log.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_LOG Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -354,7 +374,7 @@ public final class LogDAO {
      *  
      *  After deleting, the DAO will set the ID of the given log to null.
      */
-    public void delete(Log log) throws DAOException {
+    public void delete(Log log) throws Exception {
     	
         Object[] values = { 
         	log.getOid() 
@@ -364,37 +384,43 @@ public final class LogDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting Log failed, no rows affected.");
                 } 
                 else {
+                	
                 	log.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_LOG Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
             }
 
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -402,16 +428,19 @@ public final class LogDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -423,7 +452,7 @@ public final class LogDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Log> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -480,20 +509,24 @@ public final class LogDAO {
         List<Log> dataList = new ArrayList<Log>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapLog(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -502,7 +535,7 @@ public final class LogDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -532,21 +565,25 @@ public final class LogDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -555,7 +592,7 @@ public final class LogDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -563,21 +600,25 @@ public final class LogDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

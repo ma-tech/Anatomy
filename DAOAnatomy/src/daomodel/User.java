@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        User.java
 *
@@ -18,8 +18,8 @@
 *
 * Version: 1
 *
-* Description:  This class represents a SQL Database Transfer Object for the Log Table.
-*                ANA_LOG
+* Description:  This class represents a SQL Database Transfer Object for the OBO User Table.
+*                ANA_OBO_USER
 *
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
@@ -31,11 +31,9 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class User {
-
     // Properties ---------------------------------------------------------------------------------
     private Long oid;
     private String username;
@@ -105,11 +103,32 @@ public class User {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this User the same as the Supplied User?
+     */
+    public boolean isSameAs(User daouser){
+
+    	if (this.getUsername().equals(daouser.getUsername()) &&
+    		this.getPassword().equals(daouser.getPassword()) &&
+    		this.getEmail().equals(daouser.getEmail()) &&
+    		this.getOrganisation().equals(daouser.getOrganisation()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The user OID is unique for each User. 
      *  So this should compare User by OID only.
      */
     public boolean equals(Object other) {
-        return (other instanceof User) && (oid != null) ? oid.equals(((User) other).oid) : (other == this);
+    	
+        return (other instanceof User) && (oid != null) 
+        		? oid.equals(((User) other).oid) 
+        				: (other == this);
     }
 
     /*
@@ -117,16 +136,16 @@ public class User {
      *  So User with same OID should return same hashcode.
      */
     public int hashCode() {
+    	
         return (oid != null) ? (this.getClass().hashCode() + oid.hashCode()) : super.hashCode();
     }
 
     /*
      * Returns the String representation of this User. Not required, it just pleases reading logs.
-     * @see java.lang.Object#toString()
      */
     public String toString() {
+    	
         return String.format("User [ oid=%d, username=%s, password=%s, email=%s, organisation=%s]", 
             oid, username, password, email, organisation);
     }
-
 }

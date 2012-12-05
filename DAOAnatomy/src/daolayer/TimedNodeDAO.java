@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        TimedNodeDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.TimedNode;
 
-public final class TimedNodeDAO {
+import utility.Wrapper;
 
+public final class TimedNodeDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
@@ -90,9 +90,9 @@ public final class TimedNodeDAO {
         "WHERE ATN_PUBLIC_ID = ?";
         
     private static final String SQL_LIST_BY_DISPLAY_ID =
-            "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
-            "FROM ANA_TIMED_NODE " +
-            "WHERE ATN_DISPLAY_ID = ?";
+        "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
+        "FROM ANA_TIMED_NODE " +
+        "WHERE ATN_DISPLAY_ID = ?";
             
     private static final String SQL_LIST_ALL =
         "SELECT ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID " +
@@ -145,7 +145,6 @@ public final class TimedNodeDAO {
         "SELECT ATN_OID " +
         "FROM ANA_TIMED_NODE " +
         "WHERE ATN_DISPLAY_ID = ?";
-
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -165,7 +164,7 @@ public final class TimedNodeDAO {
     /*
      * Returns the maximum EMAP id.
      */
-    public int maximumEmap() throws DAOException {
+    public int maximumEmap() throws Exception {
     	
         return maximum(SQL_MAX_EMAP);
     }
@@ -173,7 +172,7 @@ public final class TimedNodeDAO {
     /*
      * Returns the TimedNode from the database matching the given OID, otherwise null.
      */
-    public TimedNode findByOid(Long oid) throws DAOException {
+    public TimedNode findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -181,7 +180,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByNodeFK(Long nodeFK) throws DAOException {
+    public List<TimedNode> listByNodeFK(Long nodeFK) throws Exception {
     	
         return list(SQL_LIST_BY_NODE_FK, nodeFK);
     }
@@ -189,7 +188,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByStageFK(Long stageFK) throws DAOException {
+    public List<TimedNode> listByStageFK(Long stageFK) throws Exception {
     	
         return list(SQL_LIST_BY_STAGE_FK, stageFK);
     }
@@ -197,7 +196,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByPublicID(String publicID) throws DAOException {
+    public List<TimedNode> listByPublicID(String publicID) throws Exception {
     	
         return list(SQL_LIST_BY_PUBLIC_ID, publicID);
     }
@@ -205,7 +204,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes By Display Id, otherwise null.
      */
-    public List<TimedNode> listByDisplayId() throws DAOException {
+    public List<TimedNode> listByDisplayId() throws Exception {
     	
         return list(SQL_LIST_BY_DISPLAY_ID);
     }
@@ -213,7 +212,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes, otherwise null.
      */
-    public List<TimedNode> listAll() throws DAOException {
+    public List<TimedNode> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -221,7 +220,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes, otherwise null.
      */
-    public List<TimedNode> listAllOrderByPublicId() throws DAOException {
+    public List<TimedNode> listAllOrderByPublicId() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_PUBLIC_ID);
     }
@@ -229,7 +228,7 @@ public final class TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes, otherwise null.
      */
-    public List<TimedNode> listAllOrderByDisplayId() throws DAOException {
+    public List<TimedNode> listAllOrderByDisplayId() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_DISPLAY_ID);
     }
@@ -237,7 +236,7 @@ public final class TimedNodeDAO {
     /*
      * Returns true if the given timednode OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -245,7 +244,7 @@ public final class TimedNodeDAO {
     /*
      * Returns true if the given timednode publicId exists in the database.
      */
-    public boolean existPublicId(String publicId) throws DAOException {
+    public boolean existPublicId(String publicId) throws Exception {
     	
         return exist(SQL_EXIST_BY_PUBLIC_ID, publicId);
     }
@@ -253,7 +252,7 @@ public final class TimedNodeDAO {
     /*
      * Returns true if the given timednode displayId exists in the database.
      */
-    public boolean existDisplayId(String displayId) throws DAOException {
+    public boolean existDisplayId(String displayId) throws Exception {
     	
         return exist(SQL_EXIST_BY_DISPLAY_ID, displayId);
     }
@@ -265,12 +264,14 @@ public final class TimedNodeDAO {
      *   then it will invoke "create(TimedNode)", 
      *   else it will invoke "update(TimedNode)".
      */
-    public void save(TimedNode timednode) throws DAOException {
+    public void save(TimedNode timednode) throws Exception {
      
     	if (timednode.getOid() == null) {
+    		
             create(timednode);
         }
     	else {
+    		
             update(timednode);
         }
     }
@@ -279,7 +280,7 @@ public final class TimedNodeDAO {
      * Returns the timednode from the database matching the given 
      *  SQL query with the given values.
      */
-    private TimedNode find(String sql, Object... values) throws DAOException {
+    private TimedNode find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -287,19 +288,23 @@ public final class TimedNodeDAO {
         TimedNode timednode = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 timednode = mapTimedNode(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return timednode;
@@ -310,7 +315,7 @@ public final class TimedNodeDAO {
      * 
      *  The list is never null and is empty when the database does not contain any timednodes.
      */
-    public List<TimedNode> list(String sql, Object... values) throws DAOException {
+    public List<TimedNode> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -318,19 +323,23 @@ public final class TimedNodeDAO {
         List<TimedNode> timednodes = new ArrayList<TimedNode>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 timednodes.add(mapTimedNode(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return timednodes;
@@ -343,7 +352,7 @@ public final class TimedNodeDAO {
      *  If the timednode OID value is unknown, rather use save(TimedNode).
      *   After creating, the DAO will set the obtained ID in the given timednode.
      */
-    public void create(TimedNode timednode) throws IllegalArgumentException, DAOException {
+    public void create(TimedNode timednode) throws IllegalArgumentException, Exception {
     	
     	Object[] values = {
    			timednode.getOid(),
@@ -359,27 +368,31 @@ public final class TimedNodeDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating TimedNode failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_TIMED_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
-
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
         
     }
@@ -390,7 +403,7 @@ public final class TimedNodeDAO {
      *  The timednode OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the timednode OID value is unknown, rather use save(TimedNode).
      */
-    public void update(TimedNode timednode) throws DAOException {
+    public void update(TimedNode timednode) throws Exception {
     	
         if (timednode.getOid() == null) {
             throw new IllegalArgumentException("TimedNode is not created yet, so the timednode OID cannot be null.");
@@ -409,30 +422,35 @@ public final class TimedNodeDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating TimedNode failed, no rows affected.");
                 } 
                 else {
+                	
                 	timednode.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_TIMED_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -441,7 +459,7 @@ public final class TimedNodeDAO {
      * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
-    public void delete(TimedNode timednode) throws DAOException {
+    public void delete(TimedNode timednode) throws Exception {
     	
         Object[] values = { 
         	timednode.getOid() 
@@ -451,29 +469,35 @@ public final class TimedNodeDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting timednode failed, no rows affected.");
                 } 
                 else {
+                	
                 	timednode.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_TIMED_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -482,7 +506,7 @@ public final class TimedNodeDAO {
      * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
-    public void deleteByNodeAndStage(Long nodeFK, Long stageFK) throws DAOException {
+    public void deleteByNodeAndStage(Long nodeFK, Long stageFK) throws Exception {
     	
         Object[] values = { 
         	nodeFK, 
@@ -493,33 +517,38 @@ public final class TimedNodeDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE_BY_NODE_AND_STAGE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE_BY_NODE_AND_STAGE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting timednode failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_TIMED_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -527,16 +556,19 @@ public final class TimedNodeDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -548,7 +580,7 @@ public final class TimedNodeDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<TimedNode> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -605,21 +637,25 @@ public final class TimedNodeDAO {
         List<TimedNode> dataList = new ArrayList<TimedNode>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapTimedNode(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -628,7 +664,7 @@ public final class TimedNodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -658,21 +694,25 @@ public final class TimedNodeDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -681,7 +721,7 @@ public final class TimedNodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -689,21 +729,25 @@ public final class TimedNodeDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

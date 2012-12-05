@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Component.java
 *
@@ -31,26 +31,24 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Component {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   AOC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   AOC_NAME varchar(255) NOT NULL,
-     *   AOC_OBO_ID varchar(25) NOT NULL,
-     *   AOC_DB_ID varchar(25) NOT NULL,
-     *   AOC_NEW_ID varchar(25) NOT NULL,
-     *   AOC_NAMESPACE varchar(50) NOT NULL,
-     *   AOC_DEFINITION varchar(510) NOT NULL,
-     *   AOC_GROUP tinyint(1) NOT NULL,
-     *   AOC_START varchar(10) NOT NULL,
-     *   AOC_END varchar(10) NOT NULL,
-     *   AOC_PRESENT varchar(10) NOT NULL,
-     *   AOC_STATUS_CHANGE varchar(10) NOT NULL COMMENT 'UNCHANGED NEW CHANGED DELETED',
-     *   AOC_STATUS_RULE varchar(10) NOT NULL COMMENT 'UNCHECKED PASSED FAILED',
+     *   AOC_OID           - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   AOC_NAME          - varchar(255) NOT NULL,
+     *   AOC_OBO_ID        - varchar(25) NOT NULL,
+     *   AOC_DB_ID         - varchar(25) NOT NULL,
+     *   AOC_NEW_ID        - varchar(25) NOT NULL,
+     *   AOC_NAMESPACE     - varchar(50) NOT NULL,
+     *   AOC_DEFINITION    - varchar(510) NOT NULL,
+     *   AOC_GROUP         - tinyint(1) NOT NULL,
+     *   AOC_START         - varchar(10) NOT NULL,
+     *   AOC_END           - varchar(10) NOT NULL,
+     *   AOC_PRESENT       - varchar(10) NOT NULL,
+     *   AOC_STATUS_CHANGE - varchar(10) NOT NULL COMMENT 'UNCHANGED NEW CHANGED DELETED',
+     *   AOC_STATUS_RULE   - varchar(10) NOT NULL COMMENT 'UNCHECKED PASSED FAILED',
 	 */
     private Long oid;
     private String name;
@@ -192,17 +190,26 @@ public class Component {
     /*
      * Is this Component the same as the Supplied Component?
      */
-    public boolean isComponentSameAs(Component daocomponent){
+    public boolean isSameAs(Component daocomponent){
 
     	if ( this.getId().equals(daocomponent.getId()) && 
-             this.getName().equals(daocomponent.getName()) &&
-             this.getStart() == daocomponent.getStart() &&
-             this.getEnd() == daocomponent.getEnd() ){
+    	    this.getDbId().equals(daocomponent.getDbId()) && 
+    	    this.getNewId().equals(daocomponent.getNewId()) && 
+    	    this.getName().equals(daocomponent.getName()) && 
+    	    this.getNamespace().equals(daocomponent.getNamespace()) && 
+    	    this.getDefinition().equals(daocomponent.getDefinition()) && 
+    	    this.getGroup() == daocomponent.getGroup() && 
+    	    this.getStart().equals(daocomponent.getStart()) && 
+    	    this.getEnd().equals(daocomponent.getEnd()) && 
+    	    this.getPresent() == daocomponent.getPresent() && 
+    	    this.getStatusChange().equals(daocomponent.getStatusChange()) && 
+    	    this.getStatusRule().equals(daocomponent.getStatusRule())) {
 
         	return true;
         }
         else {
-            return false;
+
+        	return false;
         }
     }
 
@@ -211,6 +218,7 @@ public class Component {
      *  So this should compare Component by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Component) && (oid != null) 
         		? oid.equals(((Component) other).oid) 
         		: (other == this);
@@ -221,6 +229,7 @@ public class Component {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("Component [ oid=%d, id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, definition=%s, group=%b, start=%s, end=%s, present=%d ]", 
         		oid, id, name, statuschange, statusrule, dbid, newid, namespace, definition, group, start, end, present);
     }

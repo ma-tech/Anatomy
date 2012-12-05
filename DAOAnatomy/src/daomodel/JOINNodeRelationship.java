@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINNodeRelationship.java
 *
@@ -20,7 +20,13 @@
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINNodeRelationship "Table".
-*
+*                
+*                ANA_NODE & ANA_RELATIONSHIP
+*                
+*                Joined on 
+*                 FROM ANA_NODE 
+*                 JOIN ANA_RELATIONSHIP   ON REL_CHILD_FK  = a.ANO_OID
+*                 
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,15 +37,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINNodeRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE & ANA_RELATIONSHIP 
-     *  
-     *  Columns:
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
      *   3. ANO_COMPONENT_NAME       - varchar(255)     
@@ -47,6 +49,7 @@ public class JOINNodeRelationship {
      *   5. ANO_IS_GROUP             - tinyint(1)       
      *   6. ANO_PUBLIC_ID            - varchar(20)      
      *   7. ANO_DESCRIPTION          - varchar(2000)    
+     *   
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
@@ -74,13 +77,6 @@ public class JOINNodeRelationship {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public JOINNodeRelationship(Long oidNode, 
     	    String speciesFK,
@@ -179,12 +175,38 @@ public class JOINNodeRelationship {
         this.parentFK = parentFK;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this JOINNodeRelationship the same as the Supplied JOINNodeRelationship?
+     */
+    public boolean isSameAs(JOINNodeRelationship daojoinoderelationship){
+
+    	if ( this.getOidNode() == daojoinoderelationship.getOidNode() &&
+    		this.getSpeciesFK().equals(daojoinoderelationship.getSpeciesFK()) &&
+    		this.getComponentName().equals(daojoinoderelationship.getComponentName()) &&
+    		this.isPrimary() == daojoinoderelationship.isPrimary() &&
+    		this.isGroup() == daojoinoderelationship.isGroup() &&
+    		this.getPublicId().equals(daojoinoderelationship.getPublicId()) &&
+    		this.getDescription().equals(daojoinoderelationship.getDescription()) &&
+    		this.getOidRelationship() == daojoinoderelationship.getOidRelationship() &&
+    		this.getTypeFK().equals(daojoinoderelationship.getTypeFK()) &&
+    		this.getChildFK() == daojoinoderelationship.getChildFK() &&
+    		this.getParentFK() == daojoinoderelationship.getParentFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The Node oid is unique for each JOINNodeRelationship.
      *  So this should compare JOINNodeRelationship by Node oid only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof JOINNodeRelationship) && (oidNode != null) 
         		? oidNode.equals(((JOINNodeRelationship) other).oidNode) 
         		: (other == this);
@@ -195,9 +217,11 @@ public class JOINNodeRelationship {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINNodeRelationship\n" +
         	"Node [ oidNode=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s ]\n" +
         	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n", 
-            oidNode, speciesFK, componentName, primary, group, publicId, description, oidRelationship, typeFK, childFK, parentFK); 
+            oidNode, speciesFK, componentName, primary, group, publicId, description, 
+            oidRelationship, typeFK, childFK, parentFK); 
     }
 }

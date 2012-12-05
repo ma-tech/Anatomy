@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentRelationship.java
 *
@@ -36,13 +36,12 @@ package daomodel;
 public class ComponentRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   ACR_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACR_OBO_ID varchar(25) NOT NULL,
-     *   ACR_OBO_CHILD_START int NOT NULL,
-     *   ACR_OBO_CHILD_STOP int NOT NULL,
-     *   ACR_OBO_TYPE varchar(25) NOT NULL,
-     *   ACR_OBO_PARENT varchar(25) NOT NULL,
+     *   ACR_OID             - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACR_OBO_ID          - varchar(25) NOT NULL,
+     *   ACR_OBO_CHILD_START - int NOT NULL,
+     *   ACR_OBO_CHILD_STOP  - int NOT NULL,
+     *   ACR_OBO_TYPE        - varchar(25) NOT NULL,
+     *   ACR_OBO_PARENT      - varchar(25) NOT NULL,
 	 */
     private Long oid;
     private String child;
@@ -121,18 +120,19 @@ public class ComponentRelationship {
     /*
      * Is this ComponentRelationship the same as the Supplied ComponentRelationship?
      */
-    public boolean isComponentRelationshipSameAs(ComponentRelationship daocomponent){
+    public boolean isSameAs(ComponentRelationship daocomponent){
     	
-        //EMAP id, description, start stage, end stage, parents, synonyms
-
     	if ( this.getChild().equals(daocomponent.getChild()) && 
-             this.getType() == daocomponent.getType() &&
-             this.getParent() == daocomponent.getParent() ){
-
+    		this.getChildStart() == daocomponent.getChildStart() && 
+    		this.getChildStop() == daocomponent.getChildStop() && 
+    		this.getType().equals(daocomponent.getType()) && 
+    		this.getParent().equals(daocomponent.getParent()) ) {
+    			 
         	return true;
         }
         else {
-            return false;
+            
+        	return false;
         }
     }
 
@@ -141,6 +141,7 @@ public class ComponentRelationship {
      *  So this should compare ComponentRelationship by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ComponentRelationship) && (oid != null) 
         		? oid.equals(((ComponentRelationship) other).oid) 
         		: (other == this);
@@ -151,6 +152,7 @@ public class ComponentRelationship {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ComponentRelationship [ oid=%d, child=%s, childStart=%d, childStop=%d, type=%s, parent=%s ]", 
         		oid, child, childStart, childStop, type, parent);
     }

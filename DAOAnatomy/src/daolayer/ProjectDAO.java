@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ProjectDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,7 +48,6 @@ import java.util.List;
 import daomodel.Project;
 
 public final class ProjectDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT AJP_NAME " +
@@ -72,17 +70,16 @@ public final class ProjectDAO {
     /*
      * Returns a list of ALL versions, otherwise null.
      */
-    public List<Project> listAll() throws DAOException {
+    public List<Project> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
-        
     }
     
     /*
      * Returns a list of all versions from the database. 
      *  The list is never null and is empty when the database does not contain any versions.
      */
-    public List<Project> list(String sql, Object... values) throws DAOException {
+    public List<Project> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -90,19 +87,23 @@ public final class ProjectDAO {
         List<Project> versions = new ArrayList<Project>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 versions.add(mapProject(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return versions;

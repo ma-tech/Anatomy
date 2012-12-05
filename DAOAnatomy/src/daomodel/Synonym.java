@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Synonym.java
 *
@@ -31,13 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Synonym {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1. SYN_OID         - int(10) unsigned
      *   2. SYN_OBJECT_FK   - int(10) unsigned
      *   3. SYN_SYNONYM     - varchar(100)
@@ -56,13 +54,6 @@ public class Synonym {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public Synonym(Long oid, 
     		Long thingFK,
@@ -97,10 +88,27 @@ public class Synonym {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this Synonym the same as the Supplied Synonym?
+     */
+    public boolean isSameAs(Synonym daosynonym){
+
+    	if (this.getThingFK() == daosynonym.getThingFK() &&
+    		this.getName().equals(daosynonym.getName()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The OID is unique for each Synonym.
      *  So this should compare Synonym by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Synonym) && (oid != null) 
         		? oid.equals(((Synonym) other).oid) 
         		: (other == this);
@@ -111,6 +119,7 @@ public class Synonym {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("Synonym [ oid=%d, thingFK=%d, name=%s ]", 
             oid, thingFK, name); 
     }

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="">
+		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+	</section>
+	<section name="DialogBounds_SearchDialog">
+		<item value="716" key="DIALOG_WIDTH"/>
+		<item value="305" key="DIALOG_Y_ORIGIN"/>
+		<item value="472" key="DIALOG_HEIGHT"/>
+		<item value="602" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="Search">
+		<list key="Search.processedPageIds">
+			<item value="org.eclipse.rse.internal.files.ui.search.searchPage"/>
+			<item value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
+			<item value="org.eclipse.mylyn.tasks.ui.search.page"/>
+			<item value="org.eclipse.jdt.ui.JavaSearchPage"/>
+			<item value="org.eclipse.wst.jsdt.ui.JavaSearchPage"/>
+			<item value="org.eclipse.pde.internal.ui.search.SearchPage"/>
+		</list>
+		<list key="Search.enabledPageIds">
+			<item value="org.eclipse.rse.internal.files.ui.search.searchPage"/>
+			<item value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
+			<item value="org.eclipse.mylyn.tasks.ui.search.page"/>
+			<item value="org.eclipse.jdt.ui.JavaSearchPage"/>
+			<item value="org.eclipse.wst.jsdt.ui.JavaSearchPage"/>
+			<item value="org.eclipse.pde.internal.ui.search.SearchPage"/>
+		</list>
+	</section>
+	<section name="org.eclipse.search.text.FileSearchResultPage">
+		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+	</section>
+	<section name="TextSearchPage">
+		<item value="true" key="CASE_SENSITIVE"/>
+		<item value="false" key="REG_EX_SEARCH"/>
+		<item value="false" key="SEARCH_DERIVED"/>
+		<item value="12" key="HISTORY_SIZE"/>
+		<section name="HISTORY11">
+			<item value="false" key="isRegExSearch"/>
+			<item value="if (args.length != 3) {" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="EXTENSIONS">
+			<item value="preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);" key="2"/>
+			<item value="connection, daoFactory.getSqloutput(), daoFactory.isDebug(), false, preparedStatement = prepareStatement(daoFactory.getLevel(), sql, values);" key="1"/>
+			<item value="*" key="0"/>
+		</section>
+		<section name="HISTORY10">
+			<item value="false" key="isRegExSearch"/>
+			<item value="OBOFactory obofactory = OBOFactory.getInstance(args[2]);" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item value="false" key="isRegExSearch"/>
+			<item value="DAOFactory daofactory = DAOFactory.getInstance(args[1]);" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item value="false" key="isRegExSearch"/>
+			<item value="Wrapper.printMessage(&quot; ERROR! There MUST be 2 Command Line Arguments passed to this program&quot;, &quot;HIGH&quot;, requestMsgLevel);" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isRegExSearch"/>
+			<item value="Wrapper.printEpilogue(requestMsgLevel, Wrapper.getExecutingClass(), startTime);" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item value="false" key="isRegExSearch"/>
+			<item value=".run(requestMsgLevel, daofactory, obofactory)" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
+			<item value="String requestMsgLevel = args[0];" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="long startTime = Wrapper.printPrologue(requestMsgLevel, Wrapper.getExecutingClass());" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+				<item value="Fred"/>
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item value="false" key="isRegExSearch"/>
+			<item value="preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="false" key="isRegExSearch"/>
+			<item value="debug" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY0">
+			<item value="false" key="isRegExSearch"/>
+			<item value="System.out.println" key="textPattern"/>
+			<item value="2" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+				<item value="Bill"/>
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isRegExSearch"/>
+			<item value="preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.isDebug(), " key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+	<section name="ReplaceDialog2">
+		<list key="replace_with">
+			<item value="preparedStatement = prepareStatement(daoFactory.getLevel(), "/>
+			<item value="preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);"/>
+			<item value=".run(daofactory.getThingDAO().getLevel(), daofactory, obofactory)"/>
+			<item value="Wrapper.printEpilogue(&quot;HIGH&quot;, Wrapper.getExecutingClass(), startTime);"/>
+			<item value="long startTime = Wrapper.printPrologue(&quot;HIGH&quot;, Wrapper.getExecutingClass());"/>
+			<item value=""/>
+			<item value="Wrapper.printMessage(&quot; ERROR! There MUST be 2 Command Line Arguments passed to this program&quot;, &quot;HIGH&quot;, &quot;HIGH&quot;);"/>
+		</list>
+	</section>
+	<section name="SearchDialog.ScopePart">
+		<item value="2" key="scope"/>
+		<list key="lastUsedWorkingSetNames">
+			<item value="Bill"/>
+		</list>
+	</section>
+</section>

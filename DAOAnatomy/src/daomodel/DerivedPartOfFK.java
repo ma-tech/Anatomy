@@ -1,24 +1,50 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        DerivedPartOfFK.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a Data Transfer Object for the 
+*                DerivedPartOf Table - ANAD_PART_OF with Foreign Keys materialised
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
-/**
- * This class represents a Data Transfer Object for the DerivedPartOfFK. 
- */
 public class DerivedPartOfFK {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_DerivedPartOfFK - All DerivedPartOfFKs between ABSTRACT Nodes in the Anatomy DAG
-     *  
-     *  Columns:
-     *   1.  APO_OID             => int(10)
-     *   2.  APO_SPECIES_FK      => varchar(20)
-     *   3.  NODE_START_STAGE    => varchar(255)
-     *   4.  NODE_END_STAGE      => varchar(255)
-     *   5.  PATH_START_STAGE    => varchar(255)
-     *   6.  PATH_END_STAGE      => varchar(255)
-     *   7.  NODE_ID             => int(10)
-     *   8.  APO_SEQUENCE        => int(10)
-     *   9.  APO_DEPTH           => int(10)
+     *   1.  APO_OID                 => int(10)
+     *   2.  APO_SPECIES_FK          => varchar(20)
+     *   3.  NODE_START_STAGE        => varchar(255)
+     *   4.  NODE_END_STAGE          => varchar(255)
+     *   5.  PATH_START_STAGE        => varchar(255)
+     *   6.  PATH_END_STAGE          => varchar(255)
+     *   7.  NODE_ID                 => int(10)
+     *   8.  APO_SEQUENCE            => int(10)
+     *   9.  APO_DEPTH               => int(10)
      *   10. APO_FULL_PATH           => varchar(500)
      *   11. APO_FULL_PATH_OIDS      => varchar(500)
      *   12. APO_FULL_PATH_JSON_HEAD => varchar(3000)
@@ -45,14 +71,14 @@ public class DerivedPartOfFK {
     private Long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public DerivedPartOfFK() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      * Full constructor. Contains required and optional fields.
      *  The Full Constructor is the Minimal Constructor
@@ -199,23 +225,53 @@ public class DerivedPartOfFK {
     } 
 
     // Override -----------------------------------------------------------------------------------
-    /**
+    /*
+     * Is this DerivedPartOfFK the same as the Supplied DerivedPartOfFK?
+     */
+    public boolean isSameAs(DerivedPartOfFK daoderivedpartoffk){
+
+    	if ( this.getSpeciesFK().equals(daoderivedpartoffk.getSpeciesFK()) &&  
+    		this.getNodeStart().equals(daoderivedpartoffk.getNodeStart()) &&  
+    		this.getNodeStop().equals(daoderivedpartoffk.getNodeStop()) &&  
+    		this.getPathStart().equals(daoderivedpartoffk.getPathStart()) &&  
+    		this.getPathStop().equals(daoderivedpartoffk.getPathStop()) &&  
+    		this.getNode().equals(daoderivedpartoffk.getNode()) &&  
+    		this.getSequence() == daoderivedpartoffk.getSequence() &&  
+    		this.getDepth() == daoderivedpartoffk.getDepth() &&  
+    		this.getFullPath().equals(daoderivedpartoffk.getFullPath()) &&  
+    		this.getFullPathOids().equals(daoderivedpartoffk.getFullPathOids()) &&  
+    		this.getFullPathJsonHead().equals(daoderivedpartoffk.getFullPathJsonHead()) &&  
+    		this.getFullPathJsonTail().equals(daoderivedpartoffk.getFullPathJsonTail()) &&  
+    		this.getPrimary() == daoderivedpartoffk.getPrimary() &&  
+    		this.getPrimaryPath() == daoderivedpartoffk.getPrimaryPath() &&  
+    		this.getParentFK() == daoderivedpartoffk.getParentFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+    
+    /*
      * The relation ID is unique for each DerivedPartOfFK. 
      *  So this should compare DerivedPartOfFK by ID only.
      */
     public boolean equals(Object other) {
-        return (other instanceof DerivedPartOfFK) && (oid != null) 
+      
+    	return (other instanceof DerivedPartOfFK) && (oid != null) 
         		? oid.equals(((DerivedPartOfFK) other).oid) 
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this DerivedPartOfFK.
      *  Not required, it just aids log reading.
      */
     public String toString() {
-        return String.format("DerivedPartOfFK [ oid=%d, speciesFK=%s, nodeStart=%s, nodeStop=%s, pathStart=%s, pathStop=%s, node=%s, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%d, primaryPath=%d, parentFK=%d ]", 
+      
+    	return String.format("DerivedPartOfFK [ oid=%d, speciesFK=%s, nodeStart=%s, nodeStop=%s, pathStart=%s, pathStop=%s, node=%s, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%d, primaryPath=%d, parentFK=%d ]", 
         		oid, speciesFK, nodeStart, nodeStop, pathStart, pathStop, node, sequence, depth, fullPath, fullPathOids, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
-
     }
 }

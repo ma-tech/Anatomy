@@ -1,8 +1,7 @@
 package testapp;
 
-import java.text.SimpleDateFormat;
+import utility.Wrapper;
 
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,19 +16,8 @@ public class TestCSVUtil {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   -------------------");
-            System.out.println("EXECUTING - TestCSVUtil.java on " + parsed.toString());
-            System.out.println("=========   -------------------");
-            System.out.println("");
-
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
             
             // Create CSV.
             List<List<String>> csvList = new ArrayList<List<String>>();
@@ -43,19 +31,11 @@ public class TestCSVUtil {
             // Save CSV.
             FileUtil.write(new File("/Users/mwicks/Desktop/test.csv"), csvInput);
 
-            long endTime = System.currentTimeMillis();
-        	long duration = endTime - startTime;
-
-            System.out.println("");
-            System.out.println("====       ---------------------");
-            System.out.println("DONE ----- TestCSVUtil.java took " + duration + " milliseconds");
-            System.out.println("====       ---------------------");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

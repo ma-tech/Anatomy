@@ -1,20 +1,43 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      UsefulJava
+*
+* Title:        WhatIsThisString.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Java class to verify Strings using Regular Expressions
+* 
+*               With Thanks to: 
+*                http://www.zparacha.com/best-way-to-check-if-a-java-string-is-a-number/
+*                http://www.zparacha.com/ultimate-java-regular-expression-to-validate-email-address/
+*                http://www.zparacha.com/validate-email-ssn-phone-number-using-java-regular-expression/
+*                http://www.zparacha.com/how-to-validate-date-using-java-regular-expression/
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; January 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package utility;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-/*
- * A Java class to verify Strings using Regular Expressions
- * 
- * With Thanks to: 
- * http://www.zparacha.com/best-way-to-check-if-a-java-string-is-a-number/
- * http://www.zparacha.com/ultimate-java-regular-expression-to-validate-email-address/
- * http://www.zparacha.com/validate-email-ssn-phone-number-using-java-regular-expression/
- * http://www.zparacha.com/how-to-validate-date-using-java-regular-expression/
- * 
- * M Wicks, 27/01/2012
- * 
- */
 
 public class WhatIsThisString{  
 
@@ -149,7 +172,5 @@ public class WhatIsThisString{
         }
         
         return isValid;  
-    }  
-
-
+    }
 }  

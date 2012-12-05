@@ -1,8 +1,6 @@
 package testapp;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import utility.PasswordEncryptionService;
 
@@ -10,18 +8,8 @@ public class TestPasswordEncryptionService {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   ------------");
-            System.out.println("EXECUTING - TestPassword.java on " + parsed.toString());
-            System.out.println("=========   ------------");
-            System.out.println("");
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
 
             // generate Salt
             byte[] salt = new byte[8]; 
@@ -67,20 +55,11 @@ public class TestPasswordEncryptionService {
             	System.out.println("FAILURE: Password " + attemptedPassword1 + " DID NOT MATCH encrypted password " + encryptedPassword2);
             }
             
-            
-            long endTime = System.currentTimeMillis();
-        	long duration = endTime - startTime;
-
-            System.out.println("");
-            System.out.println("=========   ------------");
-            System.out.println("DONE ----- TestPassword.java took " + duration + " milliseconds");
-            System.out.println("=========   ------------");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

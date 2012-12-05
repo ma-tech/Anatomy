@@ -1,15 +1,42 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        PerspectiveAmbit.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the PerspectiveAmbit Table.
+*                ANA_PERSPECTIVE_AMBIT
+*                 A List of all the Start and Stop nodes for Each Perspective 
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
-/**
- * This class represents a Data Transfer Object for the Node (Abstract - EMAPA)
- */
 public class PerspectiveAmbit {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_PERSPECTIVE_AMBIT - A List of all the Start and Stop nodes for Each Perspective 
-	 *  
-     *  Columns:
      *   1. PAM_OID            - int(10) unsigned
      *   2. PAM_PERSPECTIVE_FK - varchar(25)
      *   3. PAM_NODE_FK        - int(10) unsigned
@@ -25,22 +52,15 @@ public class PerspectiveAmbit {
     private String comments; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public PerspectiveAmbit() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /**
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public PerspectiveAmbit(Long oid, 
     	    String perspectiveFK,  
@@ -98,22 +118,41 @@ public class PerspectiveAmbit {
     }
 
     // Override -----------------------------------------------------------------------------------
-    /**
+    /*
+     * Is this PerspectiveAmbit the same as the Supplied PerspectiveAmbit?
+     */
+    public boolean isSameAs(PerspectiveAmbit daoperspectiveambit){
+
+    	if (this.getPerspectiveFK().equals(daoperspectiveambit.getPerspectiveFK()) &&
+    		this.getNodeFK() == daoperspectiveambit.getNodeFK() &&
+    		this.getIsStart() == daoperspectiveambit.getIsStart() &&
+    		this.getIsStop() == daoperspectiveambit.getIsStop() &&
+    		this.getComments().equals(daoperspectiveambit.getComments()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation ID is unique for each Node. So this should compare Node by ID only.
      */
     public boolean equals(Object other) {
-        return (other instanceof PerspectiveAmbit) && (oid != null) 
+      
+    	return (other instanceof PerspectiveAmbit) && (oid != null) 
         		? oid.equals(((PerspectiveAmbit) other).oid) 
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this Node. Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("PerspectiveAmbit [ oid=%d, perspectiveFK=%s, nodeFK=%s, isStart=%d, isStop=%d, comments=%s ]", 
+        
+    	return String.format("PerspectiveAmbit [ oid=%d, perspectiveFK=%s, nodeFK=%s, isStart=%d, isStop=%d, comments=%s ]", 
             oid, perspectiveFK, nodeFK, isStart, isStop, comments); 
-
     }
-
 }

@@ -1,0 +1,186 @@
+-- MOUSE VERSION011 LOCALHOST
+mouse011Localhost.url = jdbc:mysql://localhost:3306/mouse011
+mouse011Localhost.driver = com.mysql.jdbc.Driver
+mouse011Localhost.username = root
+mouse011Localhost.password = banana
+mouse011Localhost.debug = false
+mouse011Localhost.update = true
+mouse011Localhost.sqloutput = /tmp/sqlout.log
+mouse011Localhost.msglevel = LOW
+
+-- MOUSE VERSION011 LOCALHOST DEBUG
+mouse011LocalhostDebug.url = jdbc:mysql://localhost:3306/mouse011
+mouse011LocalhostDebug.driver = com.mysql.jdbc.Driver
+mouse011LocalhostDebug.username = root
+mouse011LocalhostDebug.password = banana
+mouse011LocalhostDebug.debug = true
+mouse011LocalhostDebug.update = true
+mouse011LocalhostDebug.sqloutput = /tmp/sqlout.log
+mouse011Localhost.msglevel = LOW
+
+
+-- MOUSE VERSION010 LOCALHOST
+mouse010Localhost.url = jdbc:mysql://localhost:3306/mouse010
+mouse010Localhost.driver = com.mysql.jdbc.Driver
+mouse010Localhost.username = root
+mouse010Localhost.password = banana
+mouse010Localhost.debug = false
+mouse010Localhost.update = true
+mouse010Localhost.sqloutput = /tmp/sqlout.log
+mouse011Localhost.msglevel = LOW
+
+-- MOUSE VERSION010 LOCALHOST DEBUG
+mouse010LocalhostDebug.url = jdbc:mysql://localhost:3306/mouse010
+mouse010LocalhostDebug.driver = com.mysql.jdbc.Driver
+mouse010LocalhostDebug.username = root
+mouse010LocalhostDebug.password = banana
+mouse010LocalhostDebug.debug = true
+mouse010LocalhostDebug.update = true
+mouse010LocalhostDebug.sqloutput = /tmp/sqlout.log
+mouse010LocalhostDebug.msglevel = LOW
+
+
+-- MOUSE VERSION009 CAPERDONICH DEBUG
+mouseAnatomy009CaperdonichDebug.url = jdbc:mysql://caperdonich:33061/anatomy009
+mouseAnatomy009CaperdonichDebug.driver = com.mysql.jdbc.Driver
+mouseAnatomy009CaperdonichDebug.username = jacobson
+mouseAnatomy009CaperdonichDebug.password = vomeronasal
+mouseAnatomy009CaperdonichDebug.debug = true
+mouseAnatomy009CaperdonichDebug.update = true
+mouseAnatomy009CaperdonichDebug.sqloutput = /tmp/sqlout.log
+mouseAnatomy009CaperdonichDebug.msglevel = LOW
+
+-- MOUSE VERSION009 CAPERDONICH
+mouseAnatomy009Caperdonich.url = jdbc:mysql://caperdonich:33061/anatomy009
+mouseAnatomy009Caperdonich.driver = com.mysql.jdbc.Driver
+mouseAnatomy009Caperdonich.username = jacobson
+mouseAnatomy009Caperdonich.password = vomeronasal
+mouseAnatomy009Caperdonich.debug = false
+mouseAnatomy009Caperdonich.update = true
+mouseAnatomy009Caperdonich.sqloutput =
+mouseAnatomy009Caperdonich.msglevel = LOW
+
+
+-- MOUSE VERSION009 LOCALHOST
+mouseAnatomy009Localhost.url = jdbc:mysql://localhost:3306/anatomy009
+mouseAnatomy009Localhost.driver = com.mysql.jdbc.Driver
+mouseAnatomy009Localhost.username = root
+mouseAnatomy009Localhost.password = banana
+mouseAnatomy009Localhost.debug = false
+mouseAnatomy009Localhost.update = true
+mouseAnatomy009Localhost.sqloutput = 
+mouseAnatomy009Localhost.msglevel = LOW
+
+-- MOUSE VERSION009 LOCALHOST DEBUG
+mouseAnatomy009LocalhostDebug.url = jdbc:mysql://localhost:3306/anatomy009
+mouseAnatomy009LocalhostDebug.driver = com.mysql.jdbc.Driver
+mouseAnatomy009LocalhostDebug.username = root
+mouseAnatomy009LocalhostDebug.password = banana
+mouseAnatomy009LocalhostDebug.debug = true
+mouseAnatomy009LocalhostDebug.update = true
+mouseAnatomy009LocalhostDebug.sqloutput = /tmp/sqlout.log
+mouseAnatomy009LocalhostDebug.msglevel = LOW
+
+
+-- MOUSE VERSION008 CAPERDONICH DEBUG
+mouseAnatomy008CaperdonichDebug.url = jdbc:mysql://caperdonich:33061/anatomy008
+mouseAnatomy008CaperdonichDebug.driver = com.mysql.jdbc.Driver
+mouseAnatomy008CaperdonichDebug.username = jacobson
+mouseAnatomy008CaperdonichDebug.password = vomeronasal
+mouseAnatomy008CaperdonichDebug.debug = true
+mouseAnatomy008CaperdonichDebug.update = true
+mouseAnatomy008CaperdonichDebug.sqloutput = /tmp/sqlout.log
+mouseAnatomy008CaperdonichDebug.msglevel = LOW
+
+-- MOUSE VERSION008 CAPERDONICH
+mouseAnatomy008Caperdonich.url = jdbc:mysql://caperdonich:33061/anatomy008
+mouseAnatomy008Caperdonich.driver = com.mysql.jdbc.Driver
+mouseAnatomy008Caperdonich.username = jacobson
+mouseAnatomy008Caperdonich.password = vomeronasal
+mouseAnatomy008Caperdonich.debug = false
+mouseAnatomy008Caperdonich.update = true
+mouseAnatomy008Caperdonich.sqloutput =
+mouseAnatomy008Caperdonich.msglevel = LOW
+
+
+-- MOUSE VERSION008 LOCALHOST
+mouseAnatomy008Localhost.url = jdbc:mysql://localhost:3306/anatomy008
+mouseAnatomy008Localhost.driver = com.mysql.jdbc.Driver
+mouseAnatomy008Localhost.username = root
+mouseAnatomy008Localhost.password = banana
+mouseAnatomy008Localhost.debug = false
+mouseAnatomy008Localhost.update = true
+mouseAnatomy008Localhost.sqloutput = 
+mouseAnatomy008Localhost.msglevel = LOW
+
+-- MOUSE VERSION008 LOCALHOST DEBUG
+mouseAnatomy008LocalhostDebug.url = jdbc:mysql://localhost:3306/anatomy008
+mouseAnatomy008LocalhostDebug.driver = com.mysql.jdbc.Driver
+mouseAnatomy008LocalhostDebug.username = root
+mouseAnatomy008LocalhostDebug.password = banana
+mouseAnatomy008LocalhostDebug.debug = true
+mouseAnatomy008LocalhostDebug.update = true
+mouseAnatomy008LocalhostDebug.sqloutput = /tmp/sqlout.log
+mouseAnatomy008LocalhostDebug.msglevel = LOW
+
+
+-- HUMAN LOCALHOST DEBUG
+humanAnatomy009LocalhostDebug.url = jdbc:mysql://localhost:3306/human009
+humanAnatomy009LocalhostDebug.driver = com.mysql.jdbc.Driver
+humanAnatomy009LocalhostDebug.username = root
+humanAnatomy009LocalhostDebug.password = banana
+humanAnatomy009LocalhostDebug.debug = true
+humanAnatomy009LocalhostDebug.update = true
+humanAnatomy009LocalhostDebug.sqloutput = /tmp/sqlout.log
+humanAnatomy009LocalhostDebug.msglevel = LOW
+
+-- HUMAN LOCALHOST LOG
+humanAnatomy009LocalhostLog.url = jdbc:mysql://localhost:3306/human009
+humanAnatomy009LocalhostLog.driver = com.mysql.jdbc.Driver
+humanAnatomy009LocalhostLog.username = root
+humanAnatomy009LocalhostLog.password = banana
+humanAnatomy009LocalhostLog.debug = false
+humanAnatomy009LocalhostLog.update = true
+humanAnatomy009LocalhostLog.sqloutput = /tmp/sqlout.log
+humanAnatomy009LocalhostLog.msglevel = LOW
+
+-- HUMAN LOCALHOST
+humanAnatomy009Localhost.url = jdbc:mysql://localhost:3306/human009
+humanAnatomy009Localhost.driver = com.mysql.jdbc.Driver
+humanAnatomy009Localhost.username = root
+humanAnatomy009Localhost.password = banana
+humanAnatomy009Localhost.debug = false
+humanAnatomy009Localhost.update = true
+humanAnatomy009Localhost.sqloutput = /tmp/sqlout.log
+humanAnatomy009Localhost.msglevel = LOW
+
+
+-- CHICK LOCALHOST DEBUG
+chickAnatomy009LocalhostDebug.url = jdbc:mysql://localhost:3306/chick009
+chickAnatomy009LocalhostDebug.driver = com.mysql.jdbc.Driver
+chickAnatomy009LocalhostDebug.username = root
+chickAnatomy009LocalhostDebug.password = banana
+chickAnatomy009LocalhostDebug.debug = true
+chickAnatomy009LocalhostDebug.update = true
+chickAnatomy009LocalhostDebug.sqloutput = /tmp/sqlout.log
+chickAnatomy009LocalhostDebug.msglevel = LOW
+
+-- CHICK LOCALHOST LOG
+chickAnatomy009LocalhostLog.url = jdbc:mysql://localhost:3306/chick009
+chickAnatomy009LocalhostLog.driver = com.mysql.jdbc.Driver
+chickAnatomy009LocalhostLog.username = root
+chickAnatomy009LocalhostLog.password = banana
+chickAnatomy009LocalhostLog.debug = false
+chickAnatomy009LocalhostLog.update = true
+chickAnatomy009LocalhostLog.sqloutput = /tmp/sqlout.log
+chickAnatomy009LocalhostLog.msglevel = LOW
+
+-- CHICK LOCALHOST
+chickAnatomy009Localhost.url = jdbc:mysql://localhost:3306/chick009
+chickAnatomy009Localhost.driver = com.mysql.jdbc.Driver
+chickAnatomy009Localhost.username = root
+chickAnatomy009Localhost.password = banana
+chickAnatomy009Localhost.debug = false
+chickAnatomy009Localhost.update = true
+chickAnatomy009Localhost.sqloutput = /tmp/sqlout.log
+chickAnatomy009Localhost.msglevel = LOW

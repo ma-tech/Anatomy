@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOLoadFileIntoDatabase.java
+* Title:        MainLoadOBOFileIntoComponentsTablesAndValidate.java
 *
 * Date:         2012
 *
@@ -18,7 +18,8 @@
 *
 * Version: 1
 *
-* Description:  A Main Class that Reads an OBO File and Loads the Data into the Anatomy Database
+* Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
+*                against the existing anatomy database
 *
 *               Required Files:
 *                1. dao.properties file contains the database access attributes
@@ -32,58 +33,36 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
-
-import obolayer.OBOFactory;
+import utility.Wrapper;
 
 import daolayer.DAOFactory;
 
+import obolayer.OBOFactory;
 
-import routinesaggregated.LoadOBOFileIntoComponentsTablesAndValidate;
-import routinesaggregated.RunOBOCheckComponentsOrdering;
-
+import routines.runnable.LoadOBOFileIntoComponentsTablesAndValidate;
+import routines.runnable.RunOBOCheckComponentsOrdering;
 
 public class MainLoadOBOFileIntoComponentsTablesAndValidate{
-	/*
-	 * Main Class
-	 */
-    public static void main(String[] args) throws Exception {
 
-    	long startTime = System.currentTimeMillis();
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	Date parsed = format.parse(dateString);
-        System.out.println("=========   ----------------------------------------------");
-        System.out.println("EXECUTING - MainLoadOBOFileIntoComponentsTablesAndValidate.java on " + parsed.toString());
-        System.out.println("=========   ----------------------------------------------");
-        System.out.println("");
-        /*
-         * MAINLINE
-         */
-        if (args.length != 2) {
-        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+	public static void main(String[] args) throws Exception {
+
+    	long startTime = Wrapper.printPrologue("HIGH", Wrapper.getExecutingClass());
+
+		if (args.length != 2) {
+			
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "HIGH", "HIGH");
         }
         else {
-            // Obtain OBOFactory.
-            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+        
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
-
-            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory, obofactory);
             
-            RunOBOCheckComponentsOrdering.run(daofactory, obofactory);
+            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
+            RunOBOCheckComponentsOrdering.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
         }
 
-    	long endTime = System.currentTimeMillis();
-    	long duration = endTime - startTime;
-        System.out.println("");
-        System.out.println("=========   ----------------------------------------------");
-        System.out.println("DONE      - MainLoadOBOFileIntoComponentsTablesAndValidate.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   ----------------------------------------------");
+        Wrapper.printEpilogue("HIGH", Wrapper.getExecutingClass(), startTime);
     }
 }

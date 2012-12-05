@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
-* Title:        Synonym.java
+* Title:        StageRange.java
 *
 * Date:         2012
 *
@@ -30,7 +30,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class StageRange {
@@ -64,13 +63,6 @@ public class StageRange {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public StageRange(String childId, 
     		String childName, 
@@ -149,6 +141,7 @@ public class StageRange {
      *  Not required, it just makes reading logs easier
      */
     public String toString() {
+    	
         return String.format("StageRange [ childId=%s, childName=%s, childStart=%s, childEnd=%s, parentId=%s, parentName=%s, parentStart=%s, parentEnd=%s ]", 
         		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd);
     }
@@ -157,6 +150,7 @@ public class StageRange {
      * Returns Another the String representation of this StageRange.
      */
     public String reportStageRange() {
+    	
     	return String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
         		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd);
     }

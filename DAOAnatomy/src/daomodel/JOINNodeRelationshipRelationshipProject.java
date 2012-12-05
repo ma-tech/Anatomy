@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINNodeRelationshipRelationshipProject.java
 *
@@ -21,6 +21,13 @@
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINNodeRelationshipRelationshipProject "Table".
 *
+*                ANA_NODE & ANA_RELATIONSHIP & ANA_RELATIONSHIP_PROJECT
+*                
+*                Joined on 
+*                 FROM ANA_RELATIONSHIP
+*                 JOIN ANA_NODE                  ON REL_PARENT_FK = ANO_OID 
+*                 JOIN ANA_RELATIONSHIP_PROJECT  ON REL_OID       = RLP_RELATIONSHIP_FK 
+*                 
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,15 +38,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINNodeRelationshipRelationshipProject {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE & ANA_RELATIONSHIP & ANA_RELATIONSHIP_PROJECT
-     *  
-     *  Columns:
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
      *   3. ANO_COMPONENT_NAME       - varchar(255)     
@@ -47,10 +50,12 @@ public class JOINNodeRelationshipRelationshipProject {
      *   5. ANO_IS_GROUP             - tinyint(1)       
      *   6. ANO_PUBLIC_ID            - varchar(20)      
      *   7. ANO_DESCRIPTION          - varchar(2000)    
+     *   
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
-     *   4. REL_PARENT_FK            - int(10) unsigned 
+     *   4. REL_PARENT_FK            - int(10) unsigned
+     *    
      *   1. RLP_OID                  - int(10) unsigned
      *   2. RLP_RELATIONSHIP_FK      - int(10)
      *   3. RLP_PROJECT_FK           - char(30)
@@ -82,13 +87,6 @@ public class JOINNodeRelationshipRelationshipProject {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public JOINNodeRelationshipRelationshipProject(Long oidNode, 
     	    String speciesFK,
@@ -221,12 +219,42 @@ public class JOINNodeRelationshipRelationshipProject {
         this.sequenceFK = sequenceFK;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this JOINNodeRelationshipRelationshipProject the same as the Supplied JOINNodeRelationshipRelationshipProject?
+     */
+    public boolean isSameAs(JOINNodeRelationshipRelationshipProject daojoinnoderelationshiprelationshipproject){
+
+    	if (this.getOidNode() == daojoinnoderelationshiprelationshipproject.getOidNode() && 
+    		this.getSpeciesFK().equals(daojoinnoderelationshiprelationshipproject.getSpeciesFK()) && 
+    		this.getComponentName().equals(daojoinnoderelationshiprelationshipproject.getComponentName()) && 
+    		this.isPrimary() == daojoinnoderelationshiprelationshipproject.isPrimary() && 
+    		this.isGroup() == daojoinnoderelationshiprelationshipproject.isGroup() && 
+    		this.getPublicId().equals(daojoinnoderelationshiprelationshipproject.getPublicId()) && 
+    		this.getDescription().equals(daojoinnoderelationshiprelationshipproject.getDescription()) && 
+    		this.getOidRelationship() == daojoinnoderelationshiprelationshipproject.getOidRelationship() && 
+    		this.getTypeFK().equals(daojoinnoderelationshiprelationshipproject.getTypeFK()) && 
+    		this.getChildFK() == daojoinnoderelationshiprelationshipproject.getChildFK() && 
+    		this.getParentFK() == daojoinnoderelationshiprelationshipproject.getParentFK() && 
+    		this.getOidRelationshipProject() == daojoinnoderelationshiprelationshipproject.getOidRelationshipProject() && 
+    		this.getRelationshipFK() == daojoinnoderelationshiprelationshipproject.getRelationshipFK() && 
+    		this.getProjectFK().equals(daojoinnoderelationshiprelationshipproject.getProjectFK()) && 
+    		this.getSequenceFK() == daojoinnoderelationshiprelationshipproject.getSequenceFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The Node OID is unique for each JOINNodeRelationshipRelationshipProject.
      *  So this should compare JOINNodeRelationshipRelationshipProject by Node OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof JOINNodeRelationshipRelationshipProject) && (oidNode != null) 
         		? oidNode.equals(((JOINNodeRelationshipRelationshipProject) other).oidNode) 
         		: (other == this);
@@ -237,10 +265,13 @@ public class JOINNodeRelationshipRelationshipProject {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINNodeRelationshipRelationshipProject\n" +
         	"Node [ oidNode=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s ]\n" +
         	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n" +
         	"RelationshipProject [ oidRelationshipProject=%d, relationshipFK=%d, projectFK=%s, sequenceFK=%d ]", 
-            oidNode, speciesFK, componentName, primary, group, publicId, description, oidRelationship, typeFK, childFK, parentFK, oidRelationshipProject, relationshipFK, projectFK, sequenceFK); 
+            oidNode, speciesFK, componentName, primary, group, publicId, description, 
+            oidRelationship, typeFK, childFK, parentFK, 
+            oidRelationshipProject, relationshipFK, projectFK, sequenceFK); 
     }
 }

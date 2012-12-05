@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINTimedNodeNodeStage.java
 *
@@ -21,6 +21,14 @@
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINTimedNodeNodeStage "Table".
 *
+*                ANA_TIMED_NODE, ANA_NODE, ANA_STAGE
+*                
+*                Joined on 
+*                
+*                 FROM ANA_TIMED_NODE   
+*        		  JOIN ANA_NODE         ON ANO_OID = ATN_NODE_FK
+*                 JOIN ANA_STAGE        ON STG_OID = ATN_STAGE_FK
+*                 
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,34 +39,32 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINTimedNodeNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_TIMED_NODE & ANA_STAGE & ANA_NODE
-	 *  
-     *  Columns:
      *   1. ATN_OID               - int(10) unsigned 
      *   2. ATN_NODE_FK           - int(10) unsigned 
      *   3. ATN_STAGE_FK          - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
-     *   5. ATN_PUBLIC_ID         - varchar(20)      
-     *   1. ANO_OID            - int(10) unsigned 
-     *   2. ANO_SPECIES_FK     - varchar(20)      
-     *   3. ANO_COMPONENT_NAME - varchar(255)     
-     *   4. ANO_IS_PRIMARY     - tinyint(1)       
-     *   5. ANO_IS_GROUP       - tinyint(1)       
-     *   6. ANO_PUBLIC_ID      - varchar(20)      
-     *   7. ANO_DESCRIPTION    - varchar(2000)    
-     *   1. STG_OID              - int(10) unsigned
-     *   2. STG_SPECIES_FK       - varchar(20)      
-     *   3. STG_NAME             - varchar(20)      
-     *   4. STG_SEQUENCE         - int(10) unsigned 
-     *   5. STG_DESCRIPTION      - varchar(2000)    
-     *   6. STG_SHORT_EXTRA_TEXT - varchar(25)      
-     *   7. STG_PUBLIC_ID        - varchar(20)      
+     *   5. ATN_PUBLIC_ID         - varchar(20)     
+     *   
+     *   1. ANO_OID               - int(10) unsigned 
+     *   2. ANO_SPECIES_FK        - varchar(20)      
+     *   3. ANO_COMPONENT_NAME    - varchar(255)     
+     *   4. ANO_IS_PRIMARY        - tinyint(1)       
+     *   5. ANO_IS_GROUP          - tinyint(1)       
+     *   6. ANO_PUBLIC_ID         - varchar(20)      
+     *   7. ANO_DESCRIPTION       - varchar(2000)    
+     *   
+     *   1. STG_OID               - int(10) unsigned
+     *   2. STG_SPECIES_FK        - varchar(20)      
+     *   3. STG_NAME              - varchar(20)      
+     *   4. STG_SEQUENCE          - int(10) unsigned 
+     *   5. STG_DESCRIPTION       - varchar(2000)    
+     *   6. STG_SHORT_EXTRA_TEXT  - varchar(25)      
+     *   7. STG_PUBLIC_ID         - varchar(20)      
 	 */
     private Long oidTimedNode; 
     private Long nodeFK; 
@@ -131,13 +137,6 @@ public class JOINTimedNodeNodeStage {
         this.extraText = extraText; 
         this.publicStageId = publicStageId; 
     }
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
-     */
 
     // Getters ------------------------------------------------------------------------------------
     public Long getOidTimedNode() {
@@ -263,10 +262,44 @@ public class JOINTimedNodeNodeStage {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this JOINTimedNodeNodeStage the same as the Supplied JOINTimedNodeNodeStage?
+     */
+    public boolean isSameAs(JOINTimedNodeNodeStage daojointimednodenodestage){
+
+    	if (this.getOidTimedNode() == daojointimednodenodestage.getOidTimedNode() &&
+    		this.getNodeFK() == daojointimednodenodestage.getNodeFK() &&
+    		this.getStageFK() == daojointimednodenodestage.getStageFK() &&
+    		this.getStageModifierFK().equals(daojointimednodenodestage.getStageModifierFK()) && 
+    		this.getPublicTimedNodeId().equals(daojointimednodenodestage.getPublicTimedNodeId()) && 
+    		this.getOidNode() == daojointimednodenodestage.getOidNode() &&
+    		this.getSpeciesFKNode().equals(daojointimednodenodestage.getSpeciesFKNode()) && 
+    		this.getComponentName().equals(daojointimednodenodestage.getComponentName()) && 
+    		this.isPrimary() == daojointimednodenodestage.isPrimary() &&
+    		this.isGroup() == daojointimednodenodestage.isGroup() &&
+    		this.getPublicNodeId().equals(daojointimednodenodestage.getPublicNodeId()) && 
+    		this.getDescriptionNode().equals(daojointimednodenodestage.getDescriptionNode()) && 
+    		this.getOidStage() == daojointimednodenodestage.getOidStage() &&
+    		this.getSpeciesFKStage().equals(daojointimednodenodestage.getSpeciesFKStage()) && 
+    		this.getName().equals(daojointimednodenodestage.getName()) && 
+    		this.getSequence() == daojointimednodenodestage.getSequence() &&
+    		this.getDescriptionStage().equals(daojointimednodenodestage.getDescriptionStage()) && 
+    		this.getExtraText().equals(daojointimednodenodestage.getExtraText()) && 
+    		this.getPublicStageId().equals(daojointimednodenodestage.getPublicStageId())  ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The TimedNode OID is unique for each JOINTimedNodeNodeStage.
      *  So this should compare JOINTimedNodeNodeStage by TimedNode OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof JOINTimedNodeNodeStage) && (oidTimedNode != null) 
         		? oidTimedNode.equals(((JOINTimedNodeNodeStage) other).oidTimedNode) 
         		: (other == this);
@@ -277,9 +310,10 @@ public class JOINTimedNodeNodeStage {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINTimedNodeNodeStage\n" +
-        		"TimedNode [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s ]" +
-        		"Node [ oidNode=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, descriptionNode=%s ]" +
+        		"TimedNode [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s ]\n" +
+        		"Node [ oidNode=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, descriptionNode=%s ]\n" +
         		"Stage [ oidStage=%d, speciesFK=%s, name=%s, sequence=%d, descriptionStage=%s, extraText=%s, publicStageId=%s  ]", 
         		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, 
         		oidNode, speciesFKNode, componentName, primary, group, publicNodeId, descriptionNode,

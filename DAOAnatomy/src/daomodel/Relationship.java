@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Relationship.java
 *
@@ -31,15 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Relationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_RELATIONSHIP - All Relationships between ABSTRACT Nodes in the Anatomy DAG
-     *  
-     *  Columns:
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
@@ -104,10 +100,28 @@ public class Relationship {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this Relationship the same as the Supplied Relationship?
+     */
+    public boolean isSameAs(Relationship daorelationship){
+
+    	if (this.getTypeFK().equals(daorelationship.getTypeFK()) &&
+    		this.getChildFK() == daorelationship.getChildFK() &&
+    		this.getParentFK() == daorelationship.getParentFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation OID is unique for each Relationship. 
      *  So this should compare Relationship by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Relationship) && (oid != null) 
         		? oid.equals(((Relationship) other).oid) 
         		: (other == this);
@@ -118,6 +132,7 @@ public class Relationship {
      *  Not required, it just aids log reading.
      */
     public String toString() {
+    	
         return String.format("Relationship [ oid=%d, typeFK=%s, childFK=%d, parentFK=%d ]", 
             oid, typeFK, childFK, parentFK);
     }

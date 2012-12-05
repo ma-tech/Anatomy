@@ -1,15 +1,41 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        Source.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the Source Table.
+*                ANA_SOURCE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
-/**
- * This class represents a Data Transfer Object for the Node (Abstract - EMAPA)
- */
 public class Source {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_Source - Source Materials for the Anatomy Database
-     *  
-     *  Columns:
      *   1. SRC_OID       - int(10) unsigned
      *   2. SRC_NAME      - varchar(255)
      *   3. SRC_AUTHORS   - varchar(255)
@@ -23,22 +49,15 @@ public class Source {
     private Long year;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public Source() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /**
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public Source(Long oid, 
     	    String name,
@@ -87,23 +106,41 @@ public class Source {
         this.year = year;
     }
 
-    // Override -----------------------------------------------------------------------------------
-    /**
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this Source the same as the Supplied Source?
+     */
+    public boolean isSameAs(Source daosource){
+
+    	if (this.getName().equals(daosource.getName()) && 
+    		this.getAuthors().equals(daosource.getAuthors()) &&
+    		this.getFormatFK().equals(daosource.getFormatFK()) &&
+    		this.getYear() == daosource.getYear() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation ID is unique for each Node. So this should compare Node by ID only.
      */
     public boolean equals(Object other) {
-        return (other instanceof Source) && (oid != null) 
+      
+    	return (other instanceof Source) && (oid != null) 
         		? oid.equals(((Source) other).oid) 
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this Node. Not required, it just pleases reading logs.
      */
     public String toString() {
-        return String.format("Source [ oid=%d, name=%s, authors=%s, formatFK=%d, year=%d ]", 
+      
+    	return String.format("Source [ oid=%d, name=%s, authors=%s, formatFK=%d, year=%d ]", 
             oid, name, authors, formatFK, year); 
-
     }
-
 }

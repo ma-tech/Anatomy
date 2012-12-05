@@ -1,3 +1,39 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        PerspectiveAmbitDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the 
+*                PerspectiveAmbit DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the PerspectiveAmbit DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -12,16 +48,7 @@ import java.util.List;
 
 import daomodel.PerspectiveAmbit;
 
-/**
- * This class represents a SQL Database Access Object for the PerspectiveAmbit DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the PerspectiveAmbit DTO and a SQL database.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class PerspectiveAmbitDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT PAM_OID, PAM_PERSPECTIVE_FK, PAM_NODE_FK, PAM_IS_START, PAM_IS_STOP, PAM_COMMENTS " +
@@ -73,93 +100,107 @@ public final class PerspectiveAmbitDAO {
     private DAOFactory daoFactory;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct a PerspectiveAmbit DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     PerspectiveAmbitDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
     // Actions ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns the perspectiveAmbit from the database matching the given OID, otherwise null.
      */
-    public PerspectiveAmbit find(Long oid) throws DAOException {
+    public PerspectiveAmbit find(Long oid) throws Exception {
+    	
         return find(SQL_FIND_BY_OID, oid);
     }
 
-    /**
+    /*
      * Returns the perspectiveAmbit from the database matching the given 
      *  SQL query with the given values.
      */
-    private PerspectiveAmbit find(String sql, Object... values) throws DAOException {
+    private PerspectiveAmbit find(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         PerspectiveAmbit perspectiveAmbit = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
+            
             if (resultSet.next()) {
+            	
                 perspectiveAmbit = mapPerspectiveAmbit(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return perspectiveAmbit;
     }
 
-    /**
+    /*
      * Returns a list of ALL perspectiveAmbits, otherwise null.
      */
-    public List<PerspectiveAmbit> listAll() throws DAOException {
+    public List<PerspectiveAmbit> listAll() throws Exception {
+    	
         return list(SQL_LIST_ALL, (Object[]) null);
     }
     
-    /**
+    /*
      * Returns a list of all perspectiveAmbits from the database. 
      *  The list is never null and is empty when the database does not contain any perspectiveAmbits.
      */
-    public List<PerspectiveAmbit> list(String sql, Object... values) throws DAOException {
+    public List<PerspectiveAmbit> list(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<PerspectiveAmbit> perspectiveAmbits = new ArrayList<PerspectiveAmbit>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
+            
             while (resultSet.next()) {
+            	
                 perspectiveAmbits.add(mapPerspectiveAmbit(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return perspectiveAmbits;
     }
 
-    /**
+    /*
      * Create the given perspectiveAmbit in the database. 
      * The perspectiveAmbit OID must be null, otherwise it will throw IllegalArgumentException.
      * If the perspectiveAmbit OID value is unknown, rather use save(PerspectiveAmbit).
      * After creating, the DAO will set the obtained ID in the given perspectiveAmbit.
      */
-     
-    public void create(PerspectiveAmbit perspectiveAmbit) throws IllegalArgumentException, DAOException {
+    public void create(PerspectiveAmbit perspectiveAmbit) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
         	perspectiveAmbit.getOid(),
@@ -175,30 +216,35 @@ public final class PerspectiveAmbitDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Creating perspectiveAmbit failed, no rows affected.");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
-    /**
+    /*
      * Update the given perspectiveAmbit in the database.
      *  The perspectiveAmbit OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the perspectiveAmbit OID value is unknown, rather use save(PerspectiveAmbit)}.
      */
-    public void update(PerspectiveAmbit perspectiveAmbit) throws DAOException {
+    public void update(PerspectiveAmbit perspectiveAmbit) throws Exception {
     	
         if (perspectiveAmbit.getOid() == null) {
+        	
             throw new IllegalArgumentException("PerspectiveAmbit is not created yet, so the perspectiveAmbit OID cannot be null.");
         }
 
@@ -215,28 +261,31 @@ public final class PerspectiveAmbitDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Updating perspectiveAmbit failed, no rows affected.");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
-     
-    /**
+    /*
      * Delete the given perspectiveAmbit from the database. 
      *  After deleting, the DAO will set the ID of the given perspectiveAmbit to null.
      */
-    public void delete(PerspectiveAmbit perspectiveAmbit) throws DAOException {
+    public void delete(PerspectiveAmbit perspectiveAmbit) throws Exception {
     	
         Object[] values = { 
         	perspectiveAmbit.getOid() 
@@ -246,66 +295,75 @@ public final class PerspectiveAmbitDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Deleting perspectiveAmbit failed, no rows affected.");
             } 
             else {
+            	
             	perspectiveAmbit.setOid(null);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
-    
-    /**
+    /*
      * Returns true if the given perspectiveAmbit OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
+    	
         return exist(SQL_EXIST_OID, oid);
     }
-
-    /**
+    
+    /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
     }
 
-    /**
+    /*
      * Returns list of Synonyms for Display purposes
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
     public List<PerspectiveAmbit> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchExtra)
-        throws DAOException
-    {
+        throws Exception {
+    	
     	String sqlSortField = "PAM_OID";
 
     	if (sortField.equals("oid")) {
@@ -363,30 +421,34 @@ public final class PerspectiveAmbitDAO {
         List<PerspectiveAmbit> dataList = new ArrayList<PerspectiveAmbit>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapPerspectiveAmbit(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
     }
 
-    /**
+    /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchExtra) throws DAOException {
+    public int count(String searchTerm, String searchExtra) throws Exception {
 
         String searchWithWildCards = "";
         String extraWithWildCards = "";
@@ -418,32 +480,36 @@ public final class PerspectiveAmbitDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
     }
 
-
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to an User.
      */
     private static PerspectiveAmbit mapPerspectiveAmbit(ResultSet resultSet) throws SQLException {
+    	
         return new PerspectiveAmbit(
       		resultSet.getLong("PAM_OID"), 
        		resultSet.getString("PAM_PERSPECTIVE_FK"), 
@@ -453,5 +519,4 @@ public final class PerspectiveAmbitDAO {
        		resultSet.getString("PAM_COMMENTS")
         );
     }
-
 }

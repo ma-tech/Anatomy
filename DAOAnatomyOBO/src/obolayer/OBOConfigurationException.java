@@ -1,8 +1,8 @@
 /*
 *---------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
-* Title:        ComponentOBO.java
+* Title:        OBOConfigurationException.java
 *
 * Date:         2012
 *
@@ -32,10 +32,8 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package obolayer;
 
-@SuppressWarnings("serial")
 public class OBOConfigurationException extends RuntimeException {
     // Constructors -------------------------------------------------------------------------------
     /*

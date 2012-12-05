@@ -1,30 +1,55 @@
 /*
- * net/balusc/util/CalendarUtil.java
- * 
- * Copyright (C) 2007 BalusC
- * 
- * This program is free software: you can redistribute it and/or modify it under the terms of the
- * GNU Lesser General Public License as published by the Free Software Foundation, either version 3
- * of the License, or (at your option) any later version.
- * 
- * This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
- * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public License along with this library.
- * If not, see <http://www.gnu.org/licenses/>.
- */
-
+*----------------------------------------------------------------------------------------------
+* Project:      UsefulJava
+*
+* Title:        CalendarUtil.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:   Useful Calendar utilities.
+*
+* @author BalusC
+* @link http://balusc.blogspot.com/2007/09/calendarutil.html
+* 
+* net/balusc/util/CalendarUtil.java
+* 
+* Copyright (C) 2007 BalusC
+* 
+* This program is free software: you can redistribute it and/or modify it under the terms of the
+* GNU Lesser General Public License as published by the Free Software Foundation, either version 3
+* of the License, or (at your option) any later version.
+* 
+* This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+* even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Lesser General Public License for more details.
+* 
+* You should have received a copy of the GNU Lesser General Public License along with this library.
+* If not, see <http://www.gnu.org/licenses/>.
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; November 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package utility;
 
 import java.util.Calendar;
 
-/**
- * Useful Calendar utilities.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2007/09/calendarutil.html
- */
 public final class CalendarUtil {
 
     // Init ---------------------------------------------------------------------------------------
@@ -34,8 +59,7 @@ public final class CalendarUtil {
     }
 
     // Validators ---------------------------------------------------------------------------------
-
-    /**
+    /*
      * Checks whether the given day, month and year combination is a valid date or not.
      * @param year The year part of the date.
      * @param month The month part of the date.
@@ -43,10 +67,11 @@ public final class CalendarUtil {
      * @return True if the given day, month and year combination is a valid date.
      */
     public static boolean isValidDate(int year, int month, int day) {
+    	
         return isValidDate(year, month, day, 0, 0, 0);
     }
 
-    /**
+    /*
      * Checks whether the given hour, minute and second combination is a valid time or not.
      * @param hour The hour part of the time.
      * @param minute The minute part of the time.
@@ -54,10 +79,11 @@ public final class CalendarUtil {
      * @return True if the given hour, minute and second combination is a valid time.
      */
     public static boolean isValidTime(int hour, int minute, int second) {
+    	
         return isValidDate(1, 1, 1, hour, minute, second);
     }
 
-    /**
+    /*
      * Checks whether the given day, month, year, hour, minute and second combination is a valid
      * date or not.
      * @param year The year part of the date.
@@ -69,18 +95,20 @@ public final class CalendarUtil {
      * @return True if the given day, month, year, hour, minute and second combination is a valid
      * date.
      */
-    public static boolean isValidDate(
-        int year, int month, int day, int hour, int minute, int second)
-    {
-        try {
+    public static boolean isValidDate( int year, int month, int day, int hour, int minute, int second ) {
+        
+    	try {
             getValidCalendar(year, month, day, hour, minute, second);
+        
             return true;
-        } catch (IllegalArgumentException e) {
-            return false;
+        }
+    	catch (IllegalArgumentException e) {
+            
+    		return false;
         }
     }
 
-    /**
+    /*
      * Validate the actual date of the given date elements and returns a calendar instance based on
      * the given date elements. The time is forced to 00:00:00.
      * @param year The year part of the date.
@@ -90,10 +118,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the given date elements does not represent a valid date.
      */
     public static Calendar getValidCalendar(int year, int month, int day) {
+    	
         return getValidCalendar(year, month, day, 0, 0, 0);
     }
 
-    /**
+    /*
      * Validate the actual date of the given date elements and returns a calendar instance based on
      * the given date elements.
      * @param year The year part of the date.
@@ -105,20 +134,19 @@ public final class CalendarUtil {
      * @return A Calendar instance prefilled with the given date elements.
      * @throws IllegalArgumentException If the given date elements does not represent a valid date.
      */
-    public static Calendar getValidCalendar(
-        int year, int month, int day, int hour, int minute, int second)
-    {
+    public static Calendar getValidCalendar( int year, int month, int day, int hour, int minute, int second ) {
+    	
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
         calendar.setLenient(false); // Don't automatically convert invalid date.
         calendar.set(year, month - 1, day, hour, minute, second);
         calendar.getTimeInMillis(); // Lazy update, throws IllegalArgumentException if invalid date.
+        
         return calendar;
     }
 
     // Changers -----------------------------------------------------------------------------------
-
-    /**
+    /*
      * Add the given amount of years to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of years to.
@@ -126,10 +154,11 @@ public final class CalendarUtil {
      * allowed, it will just go back in time.
      */
     public static void addYears(Calendar calendar, int years) {
+    	
         calendar.add(Calendar.YEAR, years);
     }
 
-    /**
+    /*
      * Add the given amount of months to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of months to.
@@ -137,10 +166,11 @@ public final class CalendarUtil {
      * also allowed, it will just go back in time.
      */
     public static void addMonths(Calendar calendar, int months) {
+    	
         calendar.add(Calendar.MONTH, months);
     }
 
-    /**
+    /*
      * Add the given amount of days to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of days to.
@@ -148,10 +178,11 @@ public final class CalendarUtil {
      * allowed, it will just go back in time.
      */
     public static void addDays(Calendar calendar, int days) {
+    	
         calendar.add(Calendar.DATE, days);
     }
 
-    /**
+    /*
      * Add the given amount of hours to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of hours to.
@@ -159,10 +190,11 @@ public final class CalendarUtil {
      * allowed, it will just go back in time.
      */
     public static void addHours(Calendar calendar, int hours) {
+    	
         calendar.add(Calendar.HOUR, hours);
     }
 
-    /**
+    /*
      * Add the given amount of minutes to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of minutes to.
@@ -170,10 +202,11 @@ public final class CalendarUtil {
      * also allowed, it will just go back in time.
      */
     public static void addMinutes(Calendar calendar, int minutes) {
+    	
         calendar.add(Calendar.MINUTE, minutes);
     }
 
-    /**
+    /*
      * Add the given amount of seconds to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of seconds to.
@@ -181,10 +214,11 @@ public final class CalendarUtil {
      * also allowed, it will just go back in time.
      */
     public static void addSeconds(Calendar calendar, int seconds) {
+    	
         calendar.add(Calendar.SECOND, seconds);
     }
 
-    /**
+    /*
      * Add the given amount of millis to the given calendar. The changes are reflected in the given
      * calendar.
      * @param calendar The calendar to add the given amount of millis to.
@@ -192,42 +226,46 @@ public final class CalendarUtil {
      * also allowed, it will just go back in time.
      */
     public static void addMillis(Calendar calendar, int millis) {
+    	
         calendar.add(Calendar.MILLISECOND, millis);
     }
 
     // Comparators --------------------------------------------------------------------------------
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year.
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year.
      */
     public static boolean sameYear(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.YEAR) == two.get(Calendar.YEAR);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year and month.
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year and month.
      */
     public static boolean sameMonth(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.MONTH) == two.get(Calendar.MONTH) && sameYear(one, two);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month and day.
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year, month and day.
      */
     public static boolean sameDay(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.DATE) == two.get(Calendar.DATE) && sameMonth(one, two);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day and
      * hour.
      * @param one The one calendar.
@@ -235,10 +273,11 @@ public final class CalendarUtil {
      * @return True if the two given calendars are dated on the same year, month, day and hour.
      */
     public static boolean sameHour(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.HOUR_OF_DAY) == two.get(Calendar.HOUR_OF_DAY) && sameDay(one, two);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day,
      * hour and minute.
      * @param one The one calendar.
@@ -247,10 +286,11 @@ public final class CalendarUtil {
      * minute.
      */
     public static boolean sameMinute(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.MINUTE) == two.get(Calendar.MINUTE) && sameHour(one, two);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day,
      * hour, minute and second.
      * @param one The one calendar.
@@ -259,10 +299,11 @@ public final class CalendarUtil {
      * and second.
      */
     public static boolean sameSecond(Calendar one, Calendar two) {
+    	
         return one.get(Calendar.SECOND) == two.get(Calendar.SECOND) && sameMinute(one, two);
     }
 
-    /**
+    /*
      * Returns <tt>true</tt> if the two given calendars are dated on the same time. The difference
      * from <tt>one.equals(two)</tt> is that this method does not respect the time zone.
      * @param one The one calendar.
@@ -270,12 +311,13 @@ public final class CalendarUtil {
      * @return True if the two given calendars are dated on the same time.
      */
     public static boolean sameTime(Calendar one, Calendar two) {
+    	
         return one.getTimeInMillis() == two.getTimeInMillis();
     }
 
     // Calculators --------------------------------------------------------------------------------
 
-    /**
+    /*
      * Retrieve the amount of elapsed years between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -283,10 +325,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedYears(Calendar before, Calendar after) {
+    	
         return elapsed(before, after, Calendar.YEAR);
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed months between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -294,10 +337,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedMonths(Calendar before, Calendar after) {
+    	
         return elapsed(before, after, Calendar.MONTH);
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed days between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -305,10 +349,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedDays(Calendar before, Calendar after) {
+    	
         return elapsed(before, after, Calendar.DATE);
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed hours between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -316,10 +361,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedHours(Calendar before, Calendar after) {
+    	
         return (int) elapsedMillis(before, after, 3600000); // 1h = 60m = 3600s = 3600000ms
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed minutes between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -327,10 +373,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedMinutes(Calendar before, Calendar after) {
+    	
         return (int) elapsedMillis(before, after, 60000); // 1m = 60s = 60000ms
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed seconds between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -338,10 +385,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int elapsedSeconds(Calendar before, Calendar after) {
+    	
         return (int) elapsedMillis(before, after, 1000); // 1sec = 1000ms.
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed milliseconds between the two given calendars.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
@@ -349,10 +397,11 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static long elapsedMillis(Calendar before, Calendar after) {
+    	
         return elapsedMillis(before, after, 1); // 1ms is apparently 1ms.
     }
 
-    /**
+    /*
      * Calculate the total of elapsed time from years up to seconds between the two given calendars.
      * It returns an int array with the elapsed years, months, days, hours, minutes and seconds
      * respectively.
@@ -363,6 +412,7 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     public static int[] elapsedTime(Calendar before, Calendar after) {
+    	
         int[] elapsedTime = new int[6];
         Calendar clone = (Calendar) before.clone(); // Otherwise changes are been reflected.
 
@@ -388,7 +438,7 @@ public final class CalendarUtil {
 
     // Helpers ------------------------------------------------------------------------------------
 
-    /**
+    /*
      * Retrieve the amount of elapsed time between the two given calendars based on the given
      * calendar field as definied in the Calendar constants, e.g. <tt>Calendar.MONTH</tt>.
      * @param before The first calendar with expected date before the second calendar.
@@ -399,17 +449,21 @@ public final class CalendarUtil {
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     private static int elapsed(Calendar before, Calendar after, int field) {
+    	
         checkBeforeAfter(before, after);
         Calendar clone = (Calendar) before.clone(); // Otherwise changes are been reflected.
         int elapsed = -1;
+        
         while (!clone.after(after)) {
+        	
             clone.add(field, 1);
             elapsed++;
         }
+        
         return elapsed;
     }
 
-    /**
+    /*
      * Retrieve the amount of elapsed milliseconds between the two given calendars and directly
      * divide the outcome by the given factor. E.g.: if the division factor is 1, then you will get
      * the elapsed milliseconds unchanged; if the division factor is 1000, then the elapsed
@@ -424,25 +478,30 @@ public final class CalendarUtil {
      * if the division factor is less than 1.
      */
     private static long elapsedMillis(Calendar before, Calendar after, int factor) {
+    	
         checkBeforeAfter(before, after);
+        
         if (factor < 1) {
+        	
             throw new IllegalArgumentException(
                 "Division factor '" + factor + "' should not be less than 1.");
         }
+        
         return (after.getTimeInMillis() - before.getTimeInMillis()) / factor;
     }
 
-    /**
+    /*
      * Check if the first calendar is actually dated before the second calendar.
      * @param before The first calendar with expected date before the second calendar.
      * @param after The second calendar with expected date after the first calendar.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     private static void checkBeforeAfter(Calendar before, Calendar after) {
+    	
         if (before.after(after)) {
+        	
             throw new IllegalArgumentException(
                 "The first calendar should be dated before the second calendar.");
         }
     }
-
 }

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        DAOException.java
 *
@@ -31,10 +31,8 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
-@SuppressWarnings("serial")
 public class DAOException extends Exception {
     // Constructors -------------------------------------------------------------------------------
     /*

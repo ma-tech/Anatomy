@@ -1,8 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        JsonNode.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a Node formatted in JSON
+*               This class represents an object that represents JSON node values
+*                especially for using with AJAX calls from jsTree
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
-/**
- * This class represents an object that represents JSON node values
- * especially for using with AJAX calls from jsTree
- */
+
 public class JsonNode {
     
     private String ID;
@@ -14,15 +44,15 @@ public class JsonNode {
     private int childCount;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public JsonNode() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
-     * Constructor for timed nodes
+    /*
+     * Constructor for Timed JsonNode
      */
     public JsonNode(String extID, String ID, String timedStage, String name, int childCount) {        
         this.extID = extID;
@@ -32,8 +62,8 @@ public class JsonNode {
         this.childCount = childCount;
     }
     
-    /**
-     * Constructor for abstract nodes
+    /*
+     * Constructor for Abstract JsonNode
      */
     public JsonNode(String extID, String ID, String startStage, String endStage, String name, int childCount) {        
         this.extID = extID;
@@ -44,78 +74,6 @@ public class JsonNode {
         this.childCount = childCount;
     }
     
-    //
-    public String printJsonNodeTimed() {
-    
-    	if (childCount>0) {
-    		return "{\"attr\": {\"ext_id\": \"" +
-    				  extID +
-    				  "\",\"id\": \"" +
-    				  ID +
-    				  "\",\"stage\": \"" + 
-    				  timedStage +
-    				  "\",\"name\": \"" +
-    				  name +
-    				  "\"},\"data\": \"" +
-    				  name +
-    				  "(" + 
-    				  childCount +
-    				  ")\",\"state\": \"closed\"},";
-    	}
-    	else {
-    		return "{\"attr\": {\"ext_id\": \"" +
-  				  extID +
-  				  "\",\"id\": \"" +
-  				  ID +
-  				  "\",\"stage\": \"" + 
-  				  timedStage +
-  				  "\",\"name\": \"" +
-  				  name +
-  				  "\"},\"data\": \"" +
-  				  name +
-  				  "\"},";
-    	}
-    	
-    }
-    
-    //
-    public String printJsonNodeAbstract() {
-    
-    	if (childCount>0) {
-    		return "{\"attr\": {\"ext_id\": \"" +
-    				  extID +
-    				  "\",\"id\": \"" +
-    				  ID +
-    				  "\",\"start\": \"" + 
-    				  startStage +
-    				  "\",\"end\": \"" + 
-    				  endStage +
-    				  "\",\"name\": \"" +
-    				  name +
-    				  "\"},\"data\": \"" +
-    				  name +
-    				  "(" + 
-    				  childCount +
-    				  ")\",\"state\": \"closed\"},";
-    	}
-    	else {
-    		return "{\"attr\": {\"ext_id\": \"" +
-  				  extID +
-  				  "\",\"id\": \"" +
-  				  ID +
-  				  "\",\"start\": \"" + 
-  				  startStage +
-  				  "\",\"end\": \"" + 
-    			  endStage +
-  				  "\",\"name\": \"" +
-  				  name +
-  				  "\"},\"data\": \"" +
-  				  name +
-  				  "\"},";
-    	}
-    	
-    }
-
     // Getters ------------------------------------------------------------------------------------
     public String getExtID() {
         return extID;
@@ -160,5 +118,84 @@ public class JsonNode {
     }
     public void setChildCount(int childCount) {
         this.childCount = childCount;
+    }
+    
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Print a TIMED Json Node
+     */
+    public String printJsonNodeTimed() {
+        
+    	if (this.childCount>0) {
+    		
+    		return "{\"attr\": {\"ext_id\": \"" +
+    				  this.extID +
+    				  "\",\"id\": \"" +
+    				  this.ID +
+    				  "\",\"stage\": \"" + 
+    				  this.timedStage +
+    				  "\",\"name\": \"" +
+    				  this.name +
+    				  "\"},\"data\": \"" +
+    				  this.name +
+    				  "(" + 
+    				  this.childCount +
+    				  ")\",\"state\": \"closed\"},";
+    	}
+    	else {
+    		
+    		return "{\"attr\": {\"ext_id\": \"" +
+    			  this.extID +
+  				  "\",\"id\": \"" +
+  				  this.ID +
+  				  "\",\"stage\": \"" + 
+  				  this.timedStage +
+  				  "\",\"name\": \"" +
+  				  this.name +
+  				  "\"},\"data\": \"" +
+  				  this.name +
+  				  "\"},";
+    	}
+    }
+    
+    /*
+     * Print an ABSTRACT Json Node
+     */
+    public String printJsonNodeAbstract() {
+    
+    	if (this.childCount>0) {
+    		
+    		return "{\"attr\": {\"ext_id\": \"" +
+    				  this.extID +
+    				  "\",\"id\": \"" +
+    				  this.ID +
+    				  "\",\"start\": \"" + 
+    				  this.startStage +
+    				  "\",\"end\": \"" + 
+    				  this.endStage +
+    				  "\",\"name\": \"" +
+    				  this.name +
+    				  "\"},\"data\": \"" +
+    				  this.name +
+    				  "(" + 
+    				  this.childCount +
+    				  ")\",\"state\": \"closed\"},";
+    	}
+    	else {
+    		
+    		return "{\"attr\": {\"ext_id\": \"" +
+  				  this.extID +
+  				  "\",\"id\": \"" +
+  				  this.ID +
+  				  "\",\"start\": \"" + 
+  				  this.startStage +
+  				  "\",\"end\": \"" + 
+  				  this.endStage +
+  				  "\",\"name\": \"" +
+  				  this.name +
+  				  "\"},\"data\": \"" +
+  				  this.name +
+  				  "\"},";
+    	}
     }
 }

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINNodeRelationshipNodeDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,7 +48,6 @@ import java.util.List;
 import daomodel.JOINNodeRelationshipNode;
 
 public final class JOINNodeRelationshipNodeDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
@@ -83,7 +81,6 @@ public final class JOINNodeRelationshipNodeDAO {
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -99,7 +96,7 @@ public final class JOINNodeRelationshipNodeDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipNode> listAll() throws DAOException {
+    public List<JOINNodeRelationshipNode> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -107,7 +104,7 @@ public final class JOINNodeRelationshipNodeDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipNode> listAllByParentId(String parentId) throws DAOException {
+    public List<JOINNodeRelationshipNode> listAllByParentId(String parentId) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT_ID, parentId);
     }
@@ -115,7 +112,7 @@ public final class JOINNodeRelationshipNodeDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipNode> listAllByChildIdAndParentId(String childId, String parentId) throws DAOException {
+    public List<JOINNodeRelationshipNode> listAllByChildIdAndParentId(String childId, String parentId) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD_ID_AND_PARENT_ID, childId, parentId);
     }
@@ -124,7 +121,7 @@ public final class JOINNodeRelationshipNodeDAO {
      * Returns a list of all noderelationshipnodes from the database. 
      *  The list is never null and is empty when the database does not contain any noderelationshipnodes.
      */
-    public List<JOINNodeRelationshipNode> list(String sql, Object... values) throws DAOException {
+    public List<JOINNodeRelationshipNode> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -132,19 +129,23 @@ public final class JOINNodeRelationshipNodeDAO {
         List<JOINNodeRelationshipNode> noderelationshipnodes = new ArrayList<JOINNodeRelationshipNode>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 noderelationshipnodes.add(mapJOINNodeRelationshipNode(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return noderelationshipnodes;

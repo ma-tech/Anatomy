@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
 * Title:        RunOBOTest.java
 *
@@ -31,10 +31,8 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,12 +45,11 @@ import obolayer.ComponentOBO;
 
 import daolayer.DAOFactory;
 
+import utility.Wrapper;
 
 public class RunOBOTest {
-	/*
-	 * run Method
-	 */
-	public static void run (OBOFactory obofactory, DAOFactory daofactory) throws IOException {
+
+	public static void run ( String requestMsgLevel, OBOFactory obofactory, DAOFactory daofactory) throws Exception {
 
 		try {
 	        // Obtain DAOs.
@@ -62,23 +59,28 @@ public class RunOBOTest {
 	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 	        obocomponents = componentOBO.listAll();
 	        
-            System.out.println("Number of File Components Read In = " + Integer.toString(obocomponents.size()));
+	        Wrapper.printMessage("Number of File Components Read In = " + Integer.toString(obocomponents.size()), "LOW", requestMsgLevel);
 
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        
-	        Boolean isProcessed = componentOBO.writeAll( "Abstract" );
+	        if (componentOBO.writeAll( "Abstract" )) {
 
-	        if (isProcessed) {
-	            System.out.println("Obo File SUCCESSFULLY written to " + componentOBO.outputFile());
+	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + componentOBO.outputFile(), "LOW", requestMsgLevel);
 	        }
 	        else {
-	            System.out.println("Obo File FAILED to write to " + componentOBO.outputFile());
+	            
+	        	Wrapper.printMessage("Obo File FAILED to write to " + componentOBO.outputFile(), "LOW", requestMsgLevel);
 	        }
 	        
 		}
 		catch (OBOException oboexception) {
+
 			oboexception.printStackTrace();
+		}
+		catch (Exception exception) {
+			
+			exception.printStackTrace();
 		}
 	}
 }

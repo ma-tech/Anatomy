@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        OBOFileDAO.java
 *
@@ -34,7 +34,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -50,7 +49,6 @@ import java.util.List;
 import daomodel.OBOFile;
 
 public final class OBOFileDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT AOF_OID, AOF_FILE_NAME, AOF_FILE_CONTENT, AOF_FILE_CONTENT_TYPE, AOF_FILE_CONTENT_LENGTH, AOF_FILE_CONTENT_DATE, AOF_FILE_VALIDATION, AOF_FILE_AUTHOR, AOF_TEXT_REPORT_NAME, AOF_TEXT_REPORT, AOF_TEXT_REPORT_TYPE, AOF_TEXT_REPORT_LENGTH, AOF_TEXT_REPORT_DATE, AOF_PDF_REPORT_NAME, AOF_PDF_REPORT, AOF_PDF_REPORT_TYPE, AOF_PDF_REPORT_LENGTH, AOF_PDF_REPORT_DATE " +
@@ -123,6 +121,7 @@ public final class OBOFileDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     OBOFileDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
@@ -130,14 +129,16 @@ public final class OBOFileDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile find(Long oid) throws DAOException {
+    public OBOFile find(Long oid) throws Exception {
+    	
         return find(SQL_FIND_BY_OID, oid);
     }
 
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile findWithBinary(Long oid) throws DAOException {
+    public OBOFile findWithBinary(Long oid) throws Exception {
+    	
         return findWithBinary(SQL_FIND_BY_OID, oid);
     }
 
@@ -145,15 +146,17 @@ public final class OBOFileDAO {
      * Returns the obofile from the database matching the given 
      *  SQL query with the given values.
      */
-    private OBOFile find(String sql, Object... values) throws DAOException {
+    private OBOFile find(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         OBOFile obofile = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
@@ -162,10 +165,12 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return obofile;
@@ -175,15 +180,17 @@ public final class OBOFileDAO {
      * Returns the obofile from the database matching the given 
      *  SQL query with the given values.
      */
-    private OBOFile findWithBinary(String sql, Object... values) throws DAOException {
+    private OBOFile findWithBinary(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         OBOFile obofile = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
@@ -192,10 +199,12 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return obofile;
@@ -204,14 +213,16 @@ public final class OBOFileDAO {
     /*
      * Returns a list of ALL files, otherwise null.
      */
-    public List<OBOFile> listAll() throws DAOException {
+    public List<OBOFile> listAll() throws Exception {
+    	
         return list(SQL_LIST_ALL);
     }
     
     /*
      * Returns a list of ALL files, otherwise null.
      */
-    public List<OBOFile> listAllWithBinary() throws DAOException {
+    public List<OBOFile> listAllWithBinary() throws Exception {
+    	
         return listWithBinary(SQL_LIST_ALL, (Object[]) null);
     }
     
@@ -219,15 +230,17 @@ public final class OBOFileDAO {
      * Returns a list of all files from the database. 
      *  The list is never null and is empty when the database does not contain any files.
      */
-    public List<OBOFile> list(String sql, Object... values) throws DAOException {
+    public List<OBOFile> list(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<OBOFile> files = new ArrayList<OBOFile>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             
             while (resultSet.next()) {
@@ -236,10 +249,12 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return files;
@@ -249,15 +264,17 @@ public final class OBOFileDAO {
      * Returns a list of all files from the database. 
      *  The list is never null and is empty when the database does not contain any files.
      */
-    public List<OBOFile> listWithBinary(String sql, Object... values) throws DAOException {
+    public List<OBOFile> listWithBinary(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<OBOFile> files = new ArrayList<OBOFile>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             
             while (resultSet.next()) {
@@ -266,10 +283,12 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return files;
@@ -282,9 +301,10 @@ public final class OBOFileDAO {
      *  
      * After creating, the DAO will set the obtained ID in the given obofile.
      */
-    public void create(OBOFile obofile) throws IllegalArgumentException, DAOException {
+    public void create(OBOFile obofile) throws IllegalArgumentException, Exception {
     	
         if (obofile.getOid() != null) {
+        	
             throw new IllegalArgumentException("OBOFile has already been created, as the obofile OID is not null.");
         }
         
@@ -318,8 +338,9 @@ public final class OBOFileDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             int affectedRows = preparedStatement.executeUpdate();
             
@@ -329,10 +350,12 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -341,9 +364,10 @@ public final class OBOFileDAO {
      *  The obofile OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the obofile OID value is unknown, rather use save(OBOFile).
      */
-    public void update(OBOFile obofile) throws DAOException {
+    public void update(OBOFile obofile) throws Exception {
     	
         if (obofile.getOid() == null) {
+        	
             throw new IllegalArgumentException("OBOFile is not created yet, so the obofile OID cannot be null.");
         }
 
@@ -372,8 +396,9 @@ public final class OBOFileDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
             
             int affectedRows = preparedStatement.executeUpdate();
             
@@ -383,13 +408,14 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
-    
      
     /*
      * Save the given obofile in the database.
@@ -397,22 +423,23 @@ public final class OBOFileDAO {
      *   it will invoke create(OBOFile), else 
      *   it will invoke update(OBOFile).
      */
-    public void save(OBOFile obofile) throws DAOException {
+    public void save(OBOFile obofile) throws Exception {
     	
         if (obofile.getOid() == null) {
+        	
             create(obofile);
         } 
         else {
+        	
             update(obofile);
         }
     }
     
-
     /*
      * Delete the given obofile from the database. 
      *  After deleting, the DAO will set the ID of the given obofile to null.
      */
-    public void delete(OBOFile obofile) throws DAOException {
+    public void delete(OBOFile obofile) throws Exception {
     	
         Object[] values = { 
         	obofile.getOid() 
@@ -422,8 +449,9 @@ public final class OBOFileDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
@@ -436,41 +464,47 @@ public final class OBOFileDAO {
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
-    
     
     /*
      * Returns true if the given obofile OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
+    	
         return exist(SQL_EXIST_OID, oid);
     }
 
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -479,22 +513,25 @@ public final class OBOFileDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public Long findMaxOid() throws DAOException {
+    public Long findMaxOid() throws Exception {
+    	
         return value(SQL_GET_MAX_OID);
     }
 
     /*
      * Returns a value if the given SQL query with the given values returns at least one row.
      */
-    private Long value(String sql) throws DAOException {
+    private Long value(String sql) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Long value;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -502,10 +539,12 @@ public final class OBOFileDAO {
             value = resultSet.getLong("VALUE");
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return value;
@@ -518,8 +557,8 @@ public final class OBOFileDAO {
      */
 
     public List<OBOFile> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchTable)
-        throws DAOException
-    {
+        throws Exception {
+    	
     	String sqlSortField = "AOF_OID";
 
         if (sortField.equals("AOF_OID")) {
@@ -588,8 +627,9 @@ public final class OBOFileDAO {
         List<OBOFile> dataList = new ArrayList<OBOFile>();
         
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
@@ -600,10 +640,12 @@ public final class OBOFileDAO {
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -612,7 +654,7 @@ public final class OBOFileDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchTable) throws DAOException {
+    public int count(String searchTerm, String searchTable) throws Exception {
 
         String searchWithWildCards = "%" + searchTerm + "%";
         String tableWithWildCards = "%" + searchTable + "%";
@@ -628,8 +670,9 @@ public final class OBOFileDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_BY_ORDER_AND_LIMIT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_BY_ORDER_AND_LIMIT, false, values);
             
             resultSet = preparedStatement.executeQuery();
 
@@ -637,18 +680,18 @@ public final class OBOFileDAO {
             	
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
     }
-
 
     // Helpers ------------------------------------------------------------------------------------
     /*

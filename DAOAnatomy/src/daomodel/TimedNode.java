@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        TimedNode.java
 *
@@ -31,13 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class TimedNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1. ATN_OID               - int(10) unsigned 
      *   2. ATN_NODE_FK           - int(10) unsigned 
      *   3. ATN_STAGE_FK          - int(10) unsigned 
@@ -77,13 +75,6 @@ public class TimedNode {
         this.publicId = publicId;
         this.displayId = displayId;
     }
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
-     */
 
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
@@ -125,12 +116,32 @@ public class TimedNode {
         this.displayId = displayId;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this TimedNode the same as the Supplied TimedNode?
+     */
+    public boolean isSameAs(TimedNode daotimednode){
+
+    	if (this.getNodeFK() == daotimednode.getNodeFK() &&
+    		this.getStageFK() == daotimednode.getStageFK() &&
+    		this.getStageModifierFK().equals(daotimednode.getStageModifierFK()) &&
+    		this.getPublicId().equals(daotimednode.getPublicId()) &&
+    		this.getDisplayId().equals(daotimednode.getDisplayId()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The Timed Node OID is unique for each Timed Node.
      *  So this should compare Timed Node by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof TimedNode) && (oid != null) 
         		? oid.equals(((TimedNode) other).oid) 
         		: (other == this);
@@ -141,6 +152,7 @@ public class TimedNode {
      *  Not required, it just makes reading logs easier
      */
     public String toString() {
+    	
         return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s ]", 
             oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
     }

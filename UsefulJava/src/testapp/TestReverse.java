@@ -1,7 +1,6 @@
 package testapp;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import utility.Wrapper;
 
 import utility.StringReverse;
 
@@ -9,18 +8,8 @@ public class TestReverse {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   ===========");
-            System.out.println("EXECUTING - TestReverse.java on " + parsed.toString());
-            System.out.println("=========   ===========");
-            System.out.println("");
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
 
             String inString = "The quick brown fox jumps over the lazy dog";
             String outString = "";
@@ -88,21 +77,11 @@ public class TestReverse {
     		System.out.println("DONE reverse7 took " + timeDiff + " milliseconds");
             System.out.println("");
 
-            System.out.println("");
-
-        	long endTime = System.currentTimeMillis();
-        	
-        	long duration = endTime - startTime;
-
-            System.out.println("====       ===========");
-            System.out.println("DONE ----- TestReverse.java took " + duration + " milliseconds");
-            System.out.println("====       ===========");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

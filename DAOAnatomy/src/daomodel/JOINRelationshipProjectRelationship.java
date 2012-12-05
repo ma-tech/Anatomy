@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINRelationshipProjectRelationship.java
 *
@@ -21,6 +21,12 @@
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINRelationshipProjectRelationship "Table".
 *
+*                ANA_RELATIONSHIP_PROJECT & ANA_RELATIONSHIP
+*                
+*                Joined on 
+*                 FROM ANA_RELATIONSHIP 
+*                 JOIN ANA_RELATIONSHIP_PROJECT ON REL_OID = RLP_RELATIONSHIP_FK
+*                 
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,19 +37,16 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINRelationshipProjectRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_RELATIONSHIP_PROJECT & ANA_RELATIONSHIP
-     *  
-     *  Columns:
      *   1. RLP_OID                  - int(10) unsigned
      *   2. RLP_RELATIONSHIP_FK      - int(10)
      *   3. RLP_PROJECT_FK           - char(30)
      *   4. RLP_SEQUENCE             - int(10)
+     *   
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
@@ -65,10 +68,6 @@ public class JOINRelationshipProjectRelationship {
     public JOINRelationshipProjectRelationship() {
         // Always keep the default constructor alive in a Javabean class.
     }
-
-    /*
-     * Minimal constructor. Contains required fields.
-     */
 
     /*
      * Full constructor. Contains required and optional fields.
@@ -151,10 +150,33 @@ public class JOINRelationshipProjectRelationship {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this JOINRelationshipProjectRelationship the same as the Supplied JOINRelationshipProjectRelationship?
+     */
+    public boolean isSameAs(JOINRelationshipProjectRelationship daojoinrelationshipprojectrelationship){
+
+    	if ( this.getOidRelationshipProject() == daojoinrelationshipprojectrelationship.getOidRelationshipProject() && 
+    		this.getRelationshipFK() == daojoinrelationshipprojectrelationship.getRelationshipFK() && 
+    		this.getProjectFK().equals(daojoinrelationshipprojectrelationship.getProjectFK()) && 
+    		this.getSequenceFK() == daojoinrelationshipprojectrelationship.getSequenceFK() && 
+    		this.getOidRelationship() == daojoinrelationshipprojectrelationship.getOidRelationship() && 
+    		this.getTypeFK().equals(daojoinrelationshipprojectrelationship.getTypeFK()) && 
+    		this.getChildFK() == daojoinrelationshipprojectrelationship.getChildFK() && 
+    		this.getParentFK() == daojoinrelationshipprojectrelationship.getParentFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The RelationshipProject OID is unique for each JOINRelationshipProjectRelationship. 
      * So this should compare JOINRelationshipProjectRelationship by RelationshipProject OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof JOINRelationshipProjectRelationship) && (oidRelationshipProject != null) 
         		? oidRelationshipProject.equals(((JOINRelationshipProjectRelationship) other).oidRelationshipProject) 
         		: (other == this);
@@ -165,9 +187,11 @@ public class JOINRelationshipProjectRelationship {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINRelationshipProjectRelationship\n" +
-        	"RelationshipProject [ oidRelationshipProject=%d, relationshipFK=%d, projectFK=%s, sequenceFK=%d ]" +
-        	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n",
-            oidRelationshipProject, relationshipFK, projectFK, sequenceFK, oidRelationship, typeFK, childFK, parentFK); 
+        	"RelationshipProject [ oidRelationshipProject=%d, relationshipFK=%d, projectFK=%s, sequenceFK=%d ]\n" +
+        	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]",
+            oidRelationshipProject, relationshipFK, projectFK, sequenceFK, 
+            oidRelationship, typeFK, childFK, parentFK); 
     }
 }

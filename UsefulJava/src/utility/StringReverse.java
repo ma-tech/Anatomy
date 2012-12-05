@@ -1,9 +1,33 @@
 /*
- * A Java class to reverse Strings - in 7 different ways!
- * 
- * M Wicks, 05/03/2012
- * 
- */
+*----------------------------------------------------------------------------------------------
+* Project:      UsefulJava
+*
+* Title:        StringReverse.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Java class to reverse Strings - in 7 different ways! 
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package utility;
 
 import java.util.Stack;
@@ -13,8 +37,10 @@ public class StringReverse{
     public static String reverse1(String s) {
 		 
 	    int length = s.length();
-		if (length <= 1) {
-		    return s;
+		
+	    if (length <= 1) {
+		   
+	    	return s;
 		}
 
 		String left = s.substring(0, length / 2);
@@ -29,8 +55,10 @@ public class StringReverse{
 		String reverse = "";
 		
 		for (int i = 0; i < length; i++) {
+			
 			reverse = s.charAt(i) + reverse;
 		}
+		
         return reverse;
 	}
 		 
@@ -40,17 +68,16 @@ public class StringReverse{
 		String reverse = "";
 		
 		for (int i = array.length - 1; i >= 0; i--) {
+			
 			reverse += array[i];
 		}
 		 
 		return reverse;
-		
 	}
 		 
 	public static String reverse4(String s) {
 	
 		return new StringBuffer(s).reverse().toString();
-
 	}
 		 
 	public static String reverse5(String orig) {
@@ -60,13 +87,13 @@ public class StringReverse{
 		int halfLength = n / 2;
 
 		for (int i = 0; i <= halfLength; i++) {
+			
 			char temp = s[i];
 		    s[i] = s[n - i];
 		    s[n - i] = temp;
 		}
 		
 		return new String(s);
-		
 	}
 		 
 	public static String reverse6(String s) {
@@ -77,7 +104,8 @@ public class StringReverse{
 		int end = s.length() - 1;
 		 
 		while (begin < end) {
-		    str[begin] = (char) (str[begin] ^ str[end]);
+		    
+			str[begin] = (char) (str[begin] ^ str[end]);
 		    str[end] = (char) (str[begin] ^ str[end]);
 		    str[begin] = (char) (str[end] ^ str[begin]);
 		    begin++;
@@ -85,7 +113,6 @@ public class StringReverse{
 		}
 		 
 		return new String(str);
-		
 	}
 		 
 	public static String reverse7(String s) {
@@ -94,17 +121,17 @@ public class StringReverse{
 		Stack<Character> stack = new Stack<Character>();
 		
 		for (int i = 0; i < str.length; i++) {
+			
 			stack.push(str[i]);
 		}
 		 
 		String reversed = "";
 
 		for (int i = 0; i < str.length; i++) {
+			
 			reversed += stack.pop();
 		}
 
 		return reversed;
-		
 	}
-
 }  

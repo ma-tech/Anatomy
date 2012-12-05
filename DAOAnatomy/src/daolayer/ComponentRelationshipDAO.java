@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentRelationshipDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.ComponentRelationship;
 
-public final class ComponentRelationshipDAO {
+import utility.Wrapper;
 
+public final class ComponentRelationshipDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT ACR_OID, ACR_OBO_CHILD, ACR_OBO_CHILD_START, ACR_OBO_CHILD_STOP, ACR_OBO_TYPE, ACR_OBO_PARENT " +
@@ -145,7 +145,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
      */
-    public ComponentRelationship findByOid(Long oid) throws DAOException {
+    public ComponentRelationship findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -153,7 +153,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns the daocomponentrelationships from the database matching the given OBO ID, otherwise null.
      */
-    public List<ComponentRelationship> listByChild(String child) throws DAOException {
+    public List<ComponentRelationship> listByChild(String child) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD, child);
     }
@@ -161,7 +161,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns the daocomponentrelationships from the database matching the given OBI Name, otherwise null.
      */
-    public List<ComponentRelationship> listByParent(String parent) throws DAOException {
+    public List<ComponentRelationship> listByParent(String parent) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT, parent);
     }
@@ -169,7 +169,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns a list of ALL componentrelationships, otherwise null.
      */
-    public List<ComponentRelationship> listAll() throws DAOException {
+    public List<ComponentRelationship> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -177,7 +177,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
      */
-    public List<ComponentRelationship> listAllAlphabeticWithinParentIdPartOF() throws DAOException {
+    public List<ComponentRelationship> listAllAlphabeticWithinParentIdPartOF() throws Exception {
     	
         return list(SQL_LIST_ALL_ALPHA_BY_PARENT_PART_OF);
     }
@@ -185,7 +185,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
      */
-    public List<ComponentRelationship> listAllAlphabeticWithinParentIdNotPartOf() throws DAOException {
+    public List<ComponentRelationship> listAllAlphabeticWithinParentIdNotPartOf() throws Exception {
     	
         return list(SQL_LIST_ALL_ALPHA_BY_PARENT_NOT_PART_OF);
     }
@@ -193,7 +193,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns true if the given daocomponentrelationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -205,12 +205,14 @@ public final class ComponentRelationshipDAO {
      *   then it will invoke "create(ComponentRelationship)", 
      *   else it will invoke "update(ComponentRelationship)".
      */
-    public void save(ComponentRelationship daocomponentrelationship) throws DAOException {
+    public void save(ComponentRelationship daocomponentrelationship) throws Exception {
      
     	if (daocomponentrelationship.getOid() == null) {
+    		
             create(daocomponentrelationship);
         }
     	else {
+    		
             update(daocomponentrelationship);
         }
     }
@@ -219,7 +221,7 @@ public final class ComponentRelationshipDAO {
      * Returns the daocomponentrelationship from the database matching the given 
      *  SQL query with the given values.
      */
-    private ComponentRelationship find(String sql, Object... values) throws DAOException {
+    private ComponentRelationship find(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -227,19 +229,23 @@ public final class ComponentRelationshipDAO {
         ComponentRelationship daocomponentrelationship = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 daocomponentrelationship = mapComponentRelationship(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return daocomponentrelationship;
@@ -249,7 +255,7 @@ public final class ComponentRelationshipDAO {
      * Returns a list of all componentrelationships from the database. 
      *  The list is never null and is empty when the database does not contain any componentrelationships.
      */
-    public List<ComponentRelationship> list(String sql, Object... values) throws DAOException {
+    public List<ComponentRelationship> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -257,19 +263,23 @@ public final class ComponentRelationshipDAO {
         List<ComponentRelationship> componentrelationships = new ArrayList<ComponentRelationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 componentrelationships.add(mapComponentRelationship(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return componentrelationships;
@@ -281,7 +291,7 @@ public final class ComponentRelationshipDAO {
      *  If the daocomponentrelationship OID value is unknown, rather use save(ComponentRelationship).
      *   After creating, the DAO will set the obtained ID in the given daocomponentrelationship.
      */
-    public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, DAOException {
+    public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, Exception {
 
     	Object[] values = {
         	daocomponentrelationship.getChild(),
@@ -296,26 +306,31 @@ public final class ComponentRelationshipDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating ComponentRelationship failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -324,7 +339,7 @@ public final class ComponentRelationshipDAO {
      *  The daocomponentrelationship OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the daocomponentrelationship OID value is unknown, rather use save(ComponentRelationship)}.
      */
-    public void update(ComponentRelationship daocomponentrelationship) throws DAOException {
+    public void update(ComponentRelationship daocomponentrelationship) throws Exception {
     	
         if (daocomponentrelationship.getOid() == null) {
             throw new IllegalArgumentException("ComponentRelationship is not created yet, so the daocomponentrelationship OID cannot be null.");
@@ -343,29 +358,35 @@ public final class ComponentRelationshipDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating ComponentRelationship failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponentrelationship.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -373,7 +394,7 @@ public final class ComponentRelationshipDAO {
      *  Delete the given daocomponentrelationship from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
      */
-    public void delete(ComponentRelationship daocomponentrelationship) throws DAOException {
+    public void delete(ComponentRelationship daocomponentrelationship) throws Exception {
     	
         Object[] values = { 
         	daocomponentrelationship.getOid() 
@@ -383,29 +404,35 @@ public final class ComponentRelationshipDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting ComponentRelationship failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponentrelationship.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -413,39 +440,44 @@ public final class ComponentRelationshipDAO {
      *  Delete the given daocomponentrelationship from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
      */
-    public void empty() throws DAOException {
+    public void empty() throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting ALL ComponentRelationships failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -453,16 +485,19 @@ public final class ComponentRelationshipDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -474,7 +509,7 @@ public final class ComponentRelationshipDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<ComponentRelationship> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -531,20 +566,24 @@ public final class ComponentRelationshipDAO {
         List<ComponentRelationship> dataList = new ArrayList<ComponentRelationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapComponentRelationship(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -553,7 +592,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -583,20 +622,24 @@ public final class ComponentRelationshipDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -605,7 +648,7 @@ public final class ComponentRelationshipDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws DAOException {
+    public int countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -613,20 +656,24 @@ public final class ComponentRelationshipDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

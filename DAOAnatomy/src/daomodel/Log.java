@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Log.java
 *
@@ -31,22 +31,17 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Log {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_Log - A Log of all Updates to the Anatomy Database
-     *  
-     *  Columns:
      *   1.  LOG_OID         => int(10) unsigned
      *   2.  LOG_LOGGED_OID  => int(10) unsigned
      *   3.  LOG_VERSION_FK  => int(10) unsigned
      *   4.  LOG_COLUMN_NAME => varchar(64)
      *   5.  LOG_OLD_VALUE   => varchar(255)
      *   6.  LOG_COMMENTS    => varchar(255)
-     *   
 	 */
     private Long oid; 
     private Long loggedOid; 
@@ -65,8 +60,6 @@ public class Log {
 
     /*
      * Minimal constructor. Contains required fields.
-     * Full constructor. Contains required and optional fields.
-     *  The Full Constructor is the Minimal Constructor
      */
     public Log(Long oid,
     		   Long loggedOid, 
@@ -125,10 +118,31 @@ public class Log {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this Log the same as the Supplied Log?
+     */
+    public boolean isSameAs(Log daolog){
+
+    	if (this.getOid() == daolog.getOid() &&
+    		this.getLoggedOid() == daolog.getLoggedOid() &&
+    		this.getVersionFK() == daolog.getVersionFK() &&
+    		this.getColumnName().equals(daolog.getColumnName()) &&
+    		this.getOldValue().equals(daolog.getOldValue()) &&
+    		this.getComments().equals(daolog.getComments()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The Log OID is unique for each Log. 
      *  So this should compare Log by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Log) && (oid != null) 
         		? oid.equals(((Log) other).oid) 
         		: (other == this);
@@ -139,6 +153,7 @@ public class Log {
      *  Not required, it just aids log reading.
      */
     public String toString() {
+    	
         return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s ]", 
         		oid, loggedOid, versionFK, columnName, oldValue, comments);
     }

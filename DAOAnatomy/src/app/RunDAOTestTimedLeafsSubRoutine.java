@@ -51,7 +51,7 @@ public class RunDAOTestTimedLeafsSubRoutine {
 	/*
 	 * run Method
 	 */
-	public static void run (DAOFactory daofactory, String emapId, String stage) throws IOException {
+	public static void run (DAOFactory daofactory, String emapId, String stage) throws Exception {
 
 		try {
 			TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINNodeRelationshipNode.java
 *
@@ -21,6 +21,13 @@
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINNodeRelationshipNode "Table".
 *
+*                ANA_NODE & ANA_RELATIONSHIP & ANA_NODE
+*                
+*                Joined on 
+*                 FROM ANA_NODE a 
+*                 JOIN ANA_RELATIONSHIP   ON REL_CHILD_FK  = a.ANO_OID
+*                 JOIN ANA_NODE         b ON REL_PARENT_FK = b.ANO_OID  
+*
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -31,15 +38,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class JOINNodeRelationshipNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_NODE & ANA_RELATIONSHIP & ANA_NODE 
-	 *  
-     *  Columns:
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
      *   3. ANO_COMPONENT_NAME       - varchar(255)     
@@ -47,10 +50,12 @@ public class JOINNodeRelationshipNode {
      *   5. ANO_IS_GROUP             - tinyint(1)       
      *   6. ANO_PUBLIC_ID            - varchar(20)      
      *   7. ANO_DESCRIPTION          - varchar(2000)    
+     *   
      *   1. REL_OID                  - int(10) unsigned 
      *   2. REL_RELATIONSHIP_TYPE_FK - varchar(20)      
      *   3. REL_CHILD_FK             - int(10) unsigned 
-     *   4. REL_PARENT_FK            - int(10) unsigned 
+     *   4. REL_PARENT_FK            - int(10) unsigned
+     *    
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
      *   3. ANO_COMPONENT_NAME       - varchar(255)     
@@ -88,13 +93,6 @@ public class JOINNodeRelationshipNode {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public JOINNodeRelationshipNode(Long AoidNode, 
     	    String AspeciesFK,
@@ -253,10 +251,43 @@ public class JOINNodeRelationshipNode {
     
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this JOINNodeRelationshipNode the same as the Supplied JOINNodeRelationshipNode?
+     */
+    public boolean isSameAs(JOINNodeRelationshipNode daojoinnoderelationshipnode){
+
+    	if ( this.getAOidNode() == daojoinnoderelationshipnode.getAOidNode() &&
+    		this.getASpeciesFK().equals(daojoinnoderelationshipnode.getASpeciesFK()) &&
+    		this.getAComponentName().equals(daojoinnoderelationshipnode.getAComponentName()) &&
+    		this.isAPrimary() == daojoinnoderelationshipnode.isAPrimary() &&
+    		this.isAGroup() == daojoinnoderelationshipnode.isAGroup() &&
+    		this.getAPublicId().equals(daojoinnoderelationshipnode.getAPublicId()) &&
+    		this.getADescription().equals(daojoinnoderelationshipnode.getADescription()) &&
+    		this.getOidRelationship() == daojoinnoderelationshipnode.getOidRelationship() &&
+    		this.getTypeFK().equals(daojoinnoderelationshipnode.getTypeFK()) &&
+    		this.getChildFK() == daojoinnoderelationshipnode.getChildFK() &&
+    		this.getParentFK() == daojoinnoderelationshipnode.getParentFK() &&
+    		this.getBOidNode() == daojoinnoderelationshipnode.getBOidNode() &&
+    		this.getBSpeciesFK().equals(daojoinnoderelationshipnode.getBSpeciesFK()) &&
+    		this.getBComponentName().equals(daojoinnoderelationshipnode.getBComponentName()) &&
+    		this.isBPrimary() == daojoinnoderelationshipnode.isBPrimary() &&
+    		this.isBGroup() == daojoinnoderelationshipnode.isBGroup() &&
+    		this.getBPublicId().equals(daojoinnoderelationshipnode.getBPublicId()) &&
+    		this.getBDescription().equals(daojoinnoderelationshipnode.getBDescription()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The A.Node OID is unique for each JOINNodeRelationshipNode. 
      *  So this should compare JOINNodeRelationshipNode by A.Node OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof JOINNodeRelationshipNode) && (AoidNode != null) 
         		? AoidNode.equals(((JOINNodeRelationshipNode) other).AoidNode) 
         		: (other == this);
@@ -267,6 +298,7 @@ public class JOINNodeRelationshipNode {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("JOINNodeRelationshipNode\n" +
         	"A Node [ AoidNode=%d, AspeciesFK=%s, AcomponentName=%s, Aprimary=%b, Agroup=%b, ApublicId=%s, Adescription=%s ]\n" +
         	"Relationship [ oidRelationship=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n" +

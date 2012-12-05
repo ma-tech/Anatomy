@@ -1,4 +1,3 @@
-
 /*
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
@@ -32,11 +31,10 @@
 
 package main;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import app.RunOBOBardUpdateComponent;
+
 
 public class MainOBOBardUpdateComponent {
 	/*
@@ -44,31 +42,13 @@ public class MainOBOBardUpdateComponent {
 	 */
     public static void main(String[] args) throws Exception {
 
-    	long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	Date parsed = format.parse(dateString);
+    	long startTime = Wrapper.printPrologue(Wrapper.getExecutingClass());
 
-        System.out.println("=========   --------------------------");
-        System.out.println("EXECUTING - MainOBOBardUpdateComponent.java on " + parsed.toString());
-        System.out.println("=========   --------------------------");
-        System.out.println("");
-        
         /*
          * MAINLINE
          */
         RunOBOBardUpdateComponent.run();
         
-        System.out.println("");
-
-    	long endTime = System.currentTimeMillis();
-    	
-    	long duration = endTime - startTime;
-
-        System.out.println("=========   --------------------------");
-        System.out.println("DONE ------ MainOBOBardUpdateComponent.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   --------------------------");
+    	Wrapper.printEpilogue(Wrapper.getExecutingClass(), startTime);
     }
 }

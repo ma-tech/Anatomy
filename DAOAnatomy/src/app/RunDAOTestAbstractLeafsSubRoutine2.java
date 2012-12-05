@@ -51,7 +51,7 @@ public class RunDAOTestAbstractLeafsSubRoutine2 {
 	/*
 	 * run Method
 	 */
-	public static void run (DAOFactory daofactory, String emapaId ) throws IOException {
+	public static void run (DAOFactory daofactory, String emapaId ) throws Exception {
 
 		try {
 	        String leafRootName = emapaId;

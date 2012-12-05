@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        SynonymDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.Synonym;
 
-public final class SynonymDAO {
+import utility.Wrapper;
 
+public final class SynonymDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT SYN_OID, SYN_OBJECT_FK, SYN_SYNONYM " +
@@ -122,7 +122,7 @@ public final class SynonymDAO {
     /*
      * Returns the Synonym from the database matching the given OID, otherwise null.
      */
-    public Synonym findByOid(Long oid) throws DAOException {
+    public Synonym findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -130,7 +130,7 @@ public final class SynonymDAO {
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFKAndSynonym(Long objectFK, String synonym) throws DAOException {
+    public List<Synonym> listByObjectFKAndSynonym(Long objectFK, String synonym) throws Exception {
     	
         return list(SQL_LIST_BY_OBJECT_FK_AND_SYNONYM, objectFK, synonym);
     }
@@ -138,7 +138,7 @@ public final class SynonymDAO {
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFK(Long objectFK) throws DAOException {
+    public List<Synonym> listByObjectFK(Long objectFK) throws Exception {
     	
         return list(SQL_LIST_BY_OBJECT_FK, objectFK);
     }
@@ -146,7 +146,7 @@ public final class SynonymDAO {
     /*
      * Returns a list of ALL synonyms, otherwise null.
      */
-    public List<Synonym> listAll() throws DAOException {
+    public List<Synonym> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -154,7 +154,7 @@ public final class SynonymDAO {
     /*
      * Returns true if the given synonym OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -166,12 +166,14 @@ public final class SynonymDAO {
      *   then it will invoke "create(Synonym)", 
      *   else it will invoke "update(Synonym)".
      */
-    public void save(Synonym synonym) throws DAOException {
+    public void save(Synonym synonym) throws Exception {
      
     	if (synonym.getOid() == null) {
+    		
             create(synonym);
         }
     	else {
+    		
             update(synonym);
         }
     }
@@ -180,7 +182,7 @@ public final class SynonymDAO {
      * Returns the synonym from the database matching the given 
      *  SQL query with the given values.
      */
-    private Synonym find(String sql, Object... values) throws DAOException {
+    private Synonym find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -188,19 +190,23 @@ public final class SynonymDAO {
         Synonym synonym = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 synonym = mapSynonym(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return synonym;
@@ -210,7 +216,7 @@ public final class SynonymDAO {
      * Returns a list of all synonyms from the database. 
      *  The list is never null and is empty when the database does not contain any synonyms.
      */
-    public List<Synonym> list(String sql, Object... values) throws DAOException {
+    public List<Synonym> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -218,19 +224,23 @@ public final class SynonymDAO {
         List<Synonym> synonyms = new ArrayList<Synonym>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 synonyms.add(mapSynonym(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return synonyms;
@@ -243,7 +253,7 @@ public final class SynonymDAO {
      *  If the synonym OID value is unknown, rather use save(Synonym).
      *   After creating, the DAO will set the obtained ID in the given synonym.
      */
-    public void create(Synonym synonym) throws IllegalArgumentException, DAOException {
+    public void create(Synonym synonym) throws IllegalArgumentException, Exception {
     	
     	Object[] values = {
        		synonym.getOid(),
@@ -256,26 +266,31 @@ public final class SynonymDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Synonym failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_SYNONYM Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -285,9 +300,10 @@ public final class SynonymDAO {
      *  The synonym OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the synonym OID value is unknown, rather use save(Synonym)}.
      */
-    public void update(Synonym synonym) throws DAOException {
+    public void update(Synonym synonym) throws Exception {
     	
         if (synonym.getOid() == null) {
+        	
             throw new IllegalArgumentException("Synonym is not created yet, so the synonym OID cannot be null.");
         }
 
@@ -301,29 +317,35 @@ public final class SynonymDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Synonym failed, no rows affected.");
                 } 
                 else {
+                	
                 	synonym.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_SYNONYM Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -331,7 +353,7 @@ public final class SynonymDAO {
      * Delete the given synonym from the database. 
      *  After deleting, the DAO will set the ID of the given synonym to null.
      */
-    public void delete(Synonym synonym) throws DAOException {
+    public void delete(Synonym synonym) throws Exception {
     	
         Object[] values = { 
         	synonym.getOid() 
@@ -341,36 +363,42 @@ public final class SynonymDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting synonym failed, no rows affected.");
                 } 
                 else {
+                	
                 	synonym.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_SYNONYM Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -378,16 +406,19 @@ public final class SynonymDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -399,7 +430,7 @@ public final class SynonymDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Synonym> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -447,20 +478,24 @@ public final class SynonymDAO {
         List<Synonym> dataList = new ArrayList<Synonym>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapSynonym(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -469,7 +504,7 @@ public final class SynonymDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -499,21 +534,25 @@ public final class SynonymDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Version.java
 *
@@ -31,20 +31,15 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Version {
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_VERSION - A record of all the versions of the Anatomy Database
-     *  
-     *  Columns:
      *   1. VER_OID      - int(10) unsigned
      *   2. VER_NUMBER   - int(10) unsigned
      *   3. VER_DATE     - datetime
      *   4. VER_COMMENTS - varchar(2000)
-     *   
 	 */
     private Long oid; 
     private Long number; 
@@ -58,10 +53,6 @@ public class Version {
     public Version() {
         // Always keep the default constructor alive in a Javabean class.
     }
-
-    /*
-     * Minimal constructor. Contains required fields.
-     */
 
     /*
      * Full constructor. Contains required and optional fields.
@@ -108,12 +99,31 @@ public class Version {
         this.comments = comments;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this Version the same as the Supplied Version?
+     */
+    public boolean isSameAs(Version daoversion){
+
+
+    	if ( this.getNumber() == daoversion.getNumber() &&
+    		this.getDate().equals(daoversion.getDate())  &&
+    		this.getComments().equals(daoversion.getComments()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The relation ID is unique for each Version. 
      *  So this should compare Version by ID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Version) && (oid != null) 
         		? oid.equals(((Version) other).oid) 
         		: (other == this);
@@ -124,6 +134,7 @@ public class Version {
      *  Not required, it just make reading logs easier.
      */
     public String toString() {
+    	
         return String.format("Version [ oid=%d, number=%s, date=%s, comments=%s ]", 
             oid, number, date, comments); 
     }

@@ -1,25 +1,55 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        ExtraTimedNode.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                Timed Node Table - ANA_TIMED_NODE
+*                 With Extra Joined Fields from:
+*                  ANA_NODE
+*                  ANA_STAGE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
-/**
- * This class represents a Data Transfer Object for the Timed Node (Staged - EMAP)
- */
 public class ExtraTimedNode {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_TIMED_NODE - 
-	 *  
-     *  Columns:
-     *   1.  ATN_OID               - int(10) unsigned 
-     *   2.  ATN_NODE_FK           - int(10) unsigned 
-     *   3.  ATN_STAGE_FK          - int(10) unsigned 
-     *   4.  ATN_STAGE_MODIFIER_FK - varchar(20)      
-     *   5.  ATN_PUBLIC_ID         - varchar(20)
-     *   6.  ANO_PUBLIC_ID         - varchar(20)
-     *   7.  STG_NAME              - varchar(20)
-     *   8.  STG_SEQUENCE          - int(10) unsigned 
-     *   9.  STAGE_MIN             - varchar(20)
-     *   10. STAGE_MAX             - varchar(20)
+     *   1. ATN_OID               - int(10) unsigned 
+     *   2. ATN_NODE_FK           - int(10) unsigned 
+     *   3. ATN_STAGE_FK          - int(10) unsigned 
+     *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
+     *   5. ATN_PUBLIC_ID         - varchar(20)
+     *   6. ANO_PUBLIC_ID         - varchar(20)
+     *   
+     *   1. STG_NAME              - varchar(20)
+     *   2. STG_SEQUENCE          - int(10) unsigned 
+     *   3. STAGE_MIN             - varchar(20)
+     *   4. STAGE_MAX             - varchar(20)
 	 */
     private Long oid; 
     private Long nodeFK; 
@@ -33,14 +63,14 @@ public class ExtraTimedNode {
     private String stageMaxName;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public ExtraTimedNode() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      */
     public ExtraTimedNode(Long oid, 
@@ -66,13 +96,6 @@ public class ExtraTimedNode {
         this.stageMinName = stageMinName;
         this.stageMaxName = stageMaxName;
     }
-
-    /**
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
-     */
 
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
@@ -139,22 +162,45 @@ public class ExtraTimedNode {
     }
 
     // Override -----------------------------------------------------------------------------------
+    /*
+     * Is this ExtraTimedNode the same as the Supplied ExtraTimedNode?
+     */
+    public boolean isSameAs(ExtraTimedNode daoextratimednode){
 
-    /**
+    	if ( this.getNodeFK() == daoextratimednode.getNodeFK() &&
+    		this.getStageFK() == daoextratimednode.getStageFK() &&
+    		this.getStageModifierFK().equals(daoextratimednode.getStageModifierFK()) &&
+    		this.getPublicEmapId().equals(daoextratimednode.getPublicEmapId()) &&
+    		this.getPublicEmapaId().equals(daoextratimednode.getPublicEmapaId()) &&
+    		this.getStageName().equals(daoextratimednode.getStageName()) &&
+    		this.getStageSeq() == daoextratimednode.getStageSeq() &&
+    		this.getStageMinName().equals(daoextratimednode.getStageMinName()) &&
+    		this.getStageMaxName().equals(daoextratimednode.getStageMaxName()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation ID is unique for each Relation. So this should compare Relation by ID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ExtraTimedNode) && (oid != null) 
         		? oid.equals(((ExtraTimedNode) other).oid) 
         		: (other == this);
     }
 
-    /**
+    /*
      * Returns the String representation of this User. Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ExtraTimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicEmapId=%s, publicEmapaId=%s, stageName=%s, stageSeq=%d, stageMaxName=%s, stageMaxName=%s ]", 
             oid, nodeFK, stageFK, stageModifierFK, publicEmapId, publicEmapaId, stageName, stageSeq, stageMinName, stageMaxName);
     }
-
 }

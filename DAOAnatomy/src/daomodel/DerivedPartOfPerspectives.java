@@ -1,15 +1,41 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        DerivedPartOfPerspectives.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a Data Transfer Object for the 
+*                DerivedPartOfPerspectives Table - ANAD_PART_OF_PERSPECTIVE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
-/**
- * This class represents a Data Transfer Object for the DerivedPartOfPerspectives. 
- */
 public class DerivedPartOfPerspectives {
-
     // Properties ---------------------------------------------------------------------------------
 	/*
-	 *  ANA_DerivedPartOfPerspectives - All DerivedPartOfPerspectivess between ABSTRACT Nodes in the Anatomy DAG
-     *  
-     *  Columns:
      *   1. POP_PERSPECTIVE_FK => varchar(25)
      *   2. POP_APO_FK         => int(10)
      *   3. POP_IS_ANCESTOR    => tinyint
@@ -21,14 +47,14 @@ public class DerivedPartOfPerspectives {
     private Long nodeFK; 
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Default constructor.
      */
     public DerivedPartOfPerspectives() {
         // Always keep the default constructor alive in a Javabean class.
     }
 
-    /**
+    /*
      * Minimal constructor. Contains required fields.
      * Full constructor. Contains required and optional fields.
      *  The Full Constructor is the Minimal Constructor
@@ -75,13 +101,32 @@ public class DerivedPartOfPerspectives {
     } 
 
     // Override -----------------------------------------------------------------------------------
-    /**
+    /*
+     * Is this DerivedPartOfPerspectives the same as the Supplied DerivedPartOfPerspectives?
+     */
+    public boolean isSameAs(DerivedPartOfPerspectives daoderivedpartofperspectives){
+
+
+    	if ( this.getPerspectiveFK().equals(daoderivedpartofperspectives.getPerspectiveFK()) &&  
+    		this.getPartOfFK() == daoderivedpartofperspectives.getPartOfFK() &&  
+    		this.getNodeFK() == daoderivedpartofperspectives.getNodeFK() &&  
+    		this.getAncestor() == daoderivedpartofperspectives.getAncestor() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * Returns the String representation of this DerivedPartOfPerspectives.
      *  Not required, it just aids log reading.
      */
     public String toString() {
+    	
         return String.format("DerivedPartOfPerspectives [ perspectiveFK=%s, partOfFK=%d, nodeFK=%d, ancestor=%d ]", 
         		perspectiveFK, partOfFK, nodeFK, ancestor);
-
     }
 }

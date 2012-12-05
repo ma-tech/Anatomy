@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        UserDAO.java
 *
@@ -18,10 +18,10 @@
 *
 * Version: 1
 *
-* Description:  This class represents a SQL Database Access Object for the Project DTO.
+* Description:  This class represents a SQL Database Access Object for the User DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
-*                the Project DTO and a SQL database.
+*                the User DTO and a SQL database.
 *
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,25 +48,28 @@ import java.util.List;
 import daomodel.User;
 
 public final class UserDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_FIND_BY_ID =
         "SELECT AOU_OID, AOU_NAME, AOU_PASSWORD, AOU_EMAIL, AOU_ORGANISATION " +
         "FROM ANA_OBO_USER " +
         "WHERE AOU_OID = ?";
+    
     private static final String SQL_FIND_BY_USERNAME_AND_PASSWORD =
         "SELECT AOU_OID, AOU_NAME, AOU_PASSWORD, AOU_EMAIL, AOU_ORGANISATION " +
         "FROM ANA_OBO_USER " +
         "WHERE AOU_NAME = ? " +
         "AND AOU_PASSWORD = ?";
+    
     private static final String SQL_LIST_ORDER_BY_ID =
         "SELECT AOU_OID, AOU_NAME, AOU_PASSWORD, AOU_EMAIL, AOU_ORGANISATION " +
         "FROM ANA_OBO_USER " +
         "ORDER BY AOU_OID";
+    
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_USER " +
         "(AOU_NAME, AOU_PASSWORD, AOU_EMAIL, AOU_ORGANISATION) " +
         "VALUES (?, ?, ?, ?)";
+    
     private static final String SQL_UPDATE =
         "UPDATE ANA_OBO_USER " +
         "SET AOU_NAME = ?, " +
@@ -75,20 +77,22 @@ public final class UserDAO {
         "AOU_EMAIL = ?, " +
         "AOU_ORGANISATION = ? " +
         "WHERE AOU_OID = ?";
+    
     private static final String SQL_DELETE =
         "DELETE FROM ANA_OBO_USER " +
         "WHERE AOU_OID = ?";
+    
     private static final String SQL_EXIST_USERNAME =
         "SELECT AOU_OID " +
         "FROM ANA_OBO_USER " +
         "WHERE AOU_NAME = ?";
+    
     private static final String SQL_EXIST_EMAIL =
         "SELECT AOU_OID " +
         "FROM ANA_OBO_USER " +
         "WHERE AOU_EMAIL = ?";
 
     // Vars ---------------------------------------------------------------------------------------
-
     private DAOFactory daoFactory;
 
     // Constructors -------------------------------------------------------------------------------
@@ -105,7 +109,7 @@ public final class UserDAO {
     /*
      * Returns the user from the database matching the given OID, otherwise null.
      */
-    public User find(Long oid) throws DAOException {
+    public User find(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_ID, oid);
     }
@@ -113,7 +117,7 @@ public final class UserDAO {
     /*
      * Returns the user from the database matching the given username and password, otherwise null.
      */
-    public User find(String username, String password) throws DAOException {
+    public User find(String username, String password) throws Exception {
     	
         return find(SQL_FIND_BY_USERNAME_AND_PASSWORD, username, hashMD5(password));
     }
@@ -121,7 +125,7 @@ public final class UserDAO {
     /*
      * Returns the user from the database matching the given SQL query with the given values.
      */
-    private User find(String sql, Object... values) throws DAOException {
+    private User find(String sql, Object... values) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -129,18 +133,23 @@ public final class UserDAO {
         User user = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
+            
             if (resultSet.next()) {
+            	
                 user = mapUser(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return user;
@@ -150,7 +159,7 @@ public final class UserDAO {
      * Returns a list of all users from the database ordered by user OID. 
      *  The list is never null and is empty when the database does not contain any user.
      */
-    public List<User> list() throws DAOException {
+    public List<User> list() throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -158,18 +167,23 @@ public final class UserDAO {
         List<User> users = new ArrayList<User>();
 
         try {
+        	
             connection = daoFactory.getConnection();
             preparedStatement = connection.prepareStatement(SQL_LIST_ORDER_BY_ID);
             resultSet = preparedStatement.executeQuery();
+            
             while (resultSet.next()) {
+            	
                 users.add(mapUser(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return users;
@@ -182,9 +196,10 @@ public final class UserDAO {
      *  If the user OID value is unknown, rather use save(User).
      *  After creating, the DAO will set the obtained OID in the given user.
      */
-    public void create(User user) throws IllegalArgumentException, DAOException {
+    public void create(User user) throws IllegalArgumentException, Exception {
         
     	if (user.getOid() != null) {
+    		
             throw new IllegalArgumentException("User is already created, the user OID is not null.");
         }
 
@@ -200,27 +215,33 @@ public final class UserDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Creating user failed, no rows affected.");
             }
             generatedKeys = preparedStatement.getGeneratedKeys();
             
             if (generatedKeys.next()) {
+            	
                 user.setOid(generatedKeys.getLong(1));
             } 
             else {
+            	
                 throw new DAOException("Creating user failed, no generated key obtained.");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
 
@@ -229,9 +250,10 @@ public final class UserDAO {
      *  The user OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the user OID value is unknown, rather use save(User).
      */
-    public void update(User user) throws DAOException {
+    public void update(User user) throws Exception {
     	
         if (user.getOid() == null) {
+        	
             throw new IllegalArgumentException("User is not created yet, the user OID is null.");
         }
 
@@ -247,19 +269,23 @@ public final class UserDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Updating user failed, no rows affected.");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         }
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
 
@@ -267,12 +293,14 @@ public final class UserDAO {
      * Save the given user in the database. 
      *  If the user OID is null, then it will invoke create(User), else it will invoke update(User).
      */
-    public void save(User user) throws DAOException {
+    public void save(User user) throws Exception {
     	
         if (user.getOid() == null) {
-            create(user);
+        
+        	create(user);
         } 
         else {
+        	
             update(user);
         }
     }
@@ -281,7 +309,7 @@ public final class UserDAO {
      * Delete the given user from the database. 
      *  After deleting, the DAO will set the ID of the given user to null.
      */
-    public void delete(User user) throws DAOException {
+    public void delete(User user) throws Exception {
 
     	Object[] values = { user.getOid() };
 
@@ -289,29 +317,34 @@ public final class UserDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
             int affectedRows = preparedStatement.executeUpdate();
             
             if (affectedRows == 0) {
+            	
                 throw new DAOException("Deleting user failed, no rows affected.");
             }
             else {
+            	
                 user.setOid(null);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         }
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
 
     /*
      * Returns true if the given username exist in the database.
      */
-    public boolean existUsername(String username) throws DAOException {
+    public boolean existUsername(String username) throws Exception {
 
     	return exist(SQL_EXIST_USERNAME, username);
     }
@@ -319,7 +352,7 @@ public final class UserDAO {
     /*
      * Returns true if the given email address exist in the database.
      */
-    public boolean existEmail(String email) throws DAOException {
+    public boolean existEmail(String email) throws Exception {
 
     	return exist(SQL_EXIST_EMAIL, email);
     }
@@ -327,7 +360,7 @@ public final class UserDAO {
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
 
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -335,16 +368,19 @@ public final class UserDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         }
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -372,5 +408,4 @@ public final class UserDAO {
             resultSet.getString("AOU_ORGANISATION")
         );
     }
-
 }

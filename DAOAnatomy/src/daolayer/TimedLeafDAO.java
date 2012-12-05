@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        TimedLeafDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Timed Leaf DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Timed Leaf DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -12,17 +47,10 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import daomodel.Leaf;
 import daomodel.TimedLeaf;
 import daomodel.JsonNode;
 
-/*
- * This class represents a SQL Database Access Object for the {@link Relation} DTO. 
- *  This DAO should be used as a central point for the mapping between the 
- *  Relation DTO and a SQL database.
- */
 public final class TimedLeafDAO {
-
 	// Constants ----------------------------------------------------------------------------------
 	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
 			"SELECT  " +
@@ -169,7 +197,6 @@ public final class TimedLeafDAO {
 	// Vars ---------------------------------------------------------------------------------------
 	private DAOFactory daoFactory;
 
-
 	// Constructors -------------------------------------------------------------------------------
 	/*
 	 * Construct an Leaf DAO for the given DAOFactory.
@@ -179,14 +206,14 @@ public final class TimedLeafDAO {
 		this.daoFactory = daoFactory;
 	}
 
-
 	// Actions ------------------------------------------------------------------------------------
 	// LIST    ------------------------------------------------------------------------------------
 	/*
 	 * Returns a list of All Leafs for the given Root Name, otherwise null.
 	 */
 	public List<TimedLeaf> listAllTimedNodesByRootName(String rootName1, String stage1, String rootName2, String stage2) 
-			throws DAOException {
+			throws Exception {
+		
 		return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME, rootName1, stage1, rootName2, stage2);
 	}
 
@@ -194,7 +221,8 @@ public final class TimedLeafDAO {
 	 * Returns a list of All Leafs for the given Root Description, otherwise null.
 	 */
 	public List<TimedLeaf> listAllTimedNodesByRootDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
-			throws DAOException {
+			throws Exception {
+		
 		return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC, rootDesc1, stage1, rootDesc2, stage2);
 	}
 
@@ -202,7 +230,8 @@ public final class TimedLeafDAO {
 	 * Returns a list of All Leafs for the given Root Name, otherwise null.
 	 */
 	public List<TimedLeaf> listAllTimedNodesByRootNameByChildDesc(String rootName1, String stage1, String rootName2, String stage2) 
-			throws DAOException {
+			throws Exception {
+		
 		return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC, rootName1, stage1, rootName2, stage2);
 	}
 
@@ -210,10 +239,10 @@ public final class TimedLeafDAO {
 	 * Returns a list of All Leafs for the given Root Description, otherwise null.
 	 */
 	public List<TimedLeaf> listAllTimedNodesByRootDescByChildDesc(String rootDesc1, String stage1, String rootDesc2, String stage2) 
-			throws DAOException {
+			throws Exception {
+		
 		return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC, rootDesc1, stage1, rootDesc2, stage2);
 	}
-
 
 	/*
 	 * Returns a list of Leafs from the database.
@@ -221,7 +250,7 @@ public final class TimedLeafDAO {
 	 *  Leafs.
 	 */
 	public List<TimedLeaf> list(String sql, Object... values) 
-			throws DAOException {
+			throws Exception {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -229,25 +258,28 @@ public final class TimedLeafDAO {
 		List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
 
 		try {
+			
 			connection = daoFactory.getConnection();
-			preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+			preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
+				
 				timedleafs.add(mapTimedLeaf(resultSet));
 			}
 		}
 		catch (SQLException e) {
+			
 			throw new DAOException(e);
 		}
 		finally {
-			close(connection, preparedStatement, resultSet);
+			
+			close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
 		}
 
 		return timedleafs;
 	}
-
 
 	// Helpers ------------------------------------------------------------------------------------
 	/*
@@ -267,9 +299,9 @@ public final class TimedLeafDAO {
 				resultSet.getString("CHILD_DESC"), 
 				resultSet.getString("GRAND_CHILD_ID"), 
 				resultSet.getString("GRAND_CHILD_NAME"),
-				resultSet.getString("GRAND_CHILD_DESC"));
+				resultSet.getString("GRAND_CHILD_DESC")
+		);
 	}
-
 
 	/*
 	 * Convert the Leaf ResultSet to JSON for Ajax calls
@@ -313,7 +345,9 @@ public final class TimedLeafDAO {
 			}
 
 			if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+				
 				if ( leaf.getChildId().equals("LEAF")) {
+					
 					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 							prevleaf.getChildName() + 
 							"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
@@ -327,6 +361,7 @@ public final class TimedLeafDAO {
 							"\"},";
 				}
 				else {
+					
 					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 							prevleaf.getChildName() + 
 							"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
@@ -341,12 +376,13 @@ public final class TimedLeafDAO {
 				}
 				countChildNames = 0;
 			}
+			
 			prevChildName = leaf.getChildName();
 			countChildNames++;
-
 		}
 
 		if ( prevleaf.getChildId().equals("LEAF")) {
+			
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 					leaf.getChildName() + 
 					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
@@ -360,6 +396,7 @@ public final class TimedLeafDAO {
 					"\"}";
 		}
 		else {
+			
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 					leaf.getChildName() + 
 					"\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
@@ -376,9 +413,11 @@ public final class TimedLeafDAO {
 		}
 
 		if ( rowCount == timedleafs.size()) {
+			
 			returnString = returnString + "]";
 		}
 		else {
+			
 			returnString = returnString + ",";
 		}
 
@@ -388,7 +427,6 @@ public final class TimedLeafDAO {
 
 		return returnString;
 	}
-
 
 	/*
 	 * Convert the Leaf ResultSet to JSON for Ajax calls
@@ -413,6 +451,7 @@ public final class TimedLeafDAO {
 				TimedLeaf leaf = iterator.next();
 
 				if ( leaf.getChildId().equals("LEAF")) {
+					
 					returnString = returnString + 
 							"{\"attr\": {\"ext_id\": \"" +
 							leaf.getChildName() + 
@@ -487,7 +526,6 @@ public final class TimedLeafDAO {
 		return returnString;
 	}
 
-
 	/*
 	 * Convert the Leaf ResultSet to JSON for Ajax calls
 	 */
@@ -515,7 +553,9 @@ public final class TimedLeafDAO {
 			if (!timedleaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
 
 				if ( timedleaf.getChildId().equals("LEAF")) {
+					
 					if ( prevleaf.getChildId().equals("LEAF")) {
+						
 						leafType = "LEAF";
 
 						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
@@ -529,10 +569,9 @@ public final class TimedLeafDAO {
 								"\"},\"data\": \"" +
 								prevleaf.getChildDescription() + 
 								"\",\"state\": \"closed\"},";
-
-						System.out.println("##PS## returnString 1=" + returnString);
 					}
 					else {
+						
 						leafType = "BRANCH";
 
 						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
@@ -548,11 +587,12 @@ public final class TimedLeafDAO {
 								"(" + 
 								countChildNames + 
 								")\",\"state\": \"closed\"},";
-						System.out.println("##PS## returnString 2=" + returnString);
 					}
 				}
 				else {
+					
 					if ( prevleaf.getChildId().equals("LEAF")) {
+						
 						leafType = "LEAF";
 						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 								prevleaf.getChildName() + 
@@ -565,9 +605,9 @@ public final class TimedLeafDAO {
 								"\"},\"data\": \"" +
 								prevleaf.getChildDescription() + 
 								"\",\"state\": \"closed\"},";
-						System.out.println("##PS## returnString 3=" + returnString);
 					}
 					else {
+						
 						leafType = "BRANCH";
 						returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
 								prevleaf.getChildName() + 
@@ -582,7 +622,6 @@ public final class TimedLeafDAO {
 								"(" + 
 								countChildNames + 
 								")\",\"state\": \"closed\"},";
-						System.out.println("##PS## returnString 4=" + returnString);
 					}
 				}
 
@@ -592,8 +631,8 @@ public final class TimedLeafDAO {
 			countChildNames++;
 		}
 
-
 		if ( prevleaf.getChildId().equals("LEAF")) {
+			
 			leafType = "LEAF";
 
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
@@ -607,9 +646,9 @@ public final class TimedLeafDAO {
 					"\"},\"data\": \"" +
 					timedleaf.getChildDescription() + 
 					"\",\"state\": \"closed\"}";
-			System.out.println("##PS## returnString 5=" + returnString);
 		}
 		else {
+			
 			leafType = "BRANCH";
 
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
@@ -625,19 +664,20 @@ public final class TimedLeafDAO {
 					"(" + 
 					countChildNames + 
 					")\",\"state\": \"closed\"}";
-			System.out.println("##PS## returnString 6=" + returnString);
 		}
 
-
 		if ( rowCount == timedleafs.size()) {
+			
 			returnString = returnString + "]";
 		}
 		else {
+			
 			returnString = returnString + ",";
 		}
 
 		return returnString;
 	}
+
 	/*
 	 * Convert the Leaf ResultSet to JSON for Ajax calls
 	 */
@@ -654,39 +694,30 @@ public final class TimedLeafDAO {
 
 			timedleaf = iteratortimedleaf.next();
 
-			/*
-			System.out.println("##PS## TimedLeafDAO timedleaf.getRootOid() " + timedleaf.getRootOid());
-			System.out.println("##PS## TimedLeafDAO timedleaf.getRootName() " + timedleaf.getRootName());
-			System.out.println("##PS## TimedLeafDAO timedleaf.getRootDescription() " + timedleaf.getRootDescription());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildOid() " + timedleaf.getChildOid());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildId() " + timedleaf.getChildId());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildName() " + timedleaf.getChildName());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getChildDescription() " + timedleaf.getChildDescription());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildId() " + timedleaf.getGrandChildId());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildName() " + timedleaf.getGrandChildName());
-			System.out.println("##PS## TimedLeafDAO timedleaf.timedleaf.getGrandChildDescription() " + timedleaf.getGrandChildDescription());			
-			System.out.println(" ");
-			*/
-						
 			String extID = timedleaf.getChildName();
 			
 			//Seen this node before - increment its child count
 			if (jsonNodes.containsKey(extID)) {
+				
 				jsonNodes.get(extID).setChildCount(jsonNodes.get(extID).getChildCount()+1);
 			}
 			//not seen this node before - make a new one
 			else {
+				
 				String jsonID;
 				int childCount;
+				
 				if (timedleaf.getChildId().equals("LEAF") ) {
+					
 					if ( !timedleaf.getGrandChildName().equals("No Children")) {
+						
 						//LEAFs should have no children!
-						System.out.println("##PS## WARNING LEAF CONFLICT! ");
 					}
 					jsonID = "li_node_LEAF_Timed_id" + timedleaf.getChildOid();
 					childCount = 0;
 				}
 				else {
+					
 					jsonID = "li_node_BRANCH_Timed_id" + timedleaf.getChildOid();
 					childCount = 1;
 				}
@@ -697,7 +728,9 @@ public final class TimedLeafDAO {
 		}
 		
 		Iterator<String> iteratorJsonNodes = jsonNodes.keySet().iterator();
+		
 		while (iteratorJsonNodes.hasNext()) {
+			
 			String extID = iteratorJsonNodes.next();
 			returnString = returnString + jsonNodes.get(extID).printJsonNodeTimed();
 		}
@@ -705,8 +738,6 @@ public final class TimedLeafDAO {
 		//knock off the last "," and replace with "]" to make nice JSON
 		returnString = returnString.substring(0, returnString.lastIndexOf(","));
 		returnString = returnString + "]";
-		
-		//System.out.println("##PS## return " + returnString);
 		
 		return returnString;
 	}

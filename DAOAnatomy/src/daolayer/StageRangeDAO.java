@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        StageRangeDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,7 +48,6 @@ import java.util.List;
 import daomodel.StageRange;
 
 public final class StageRangeDAO {
-
     // Constants ----------------------------------------------------------------------------------
     //Check Existing Child Stage Range is within Existing Parent Stage Range
     private static final String SQL_LIST_EXISTING_CHILD_EXISTING_PARENT =
@@ -273,13 +271,12 @@ public final class StageRangeDAO {
 
     	this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     /*
      * Returns a list of ALL stages ranges by existing child and existing parent, otherwise null
      */
-    public List<StageRange> listByExistingChildExistingParent() throws DAOException {
+    public List<StageRange> listByExistingChildExistingParent() throws Exception {
     	
         return list(SQL_LIST_EXISTING_CHILD_EXISTING_PARENT);
     }
@@ -287,7 +284,7 @@ public final class StageRangeDAO {
     /*
      * Returns a list of ALL stages ranges by existing child and existing parent, otherwise null, PART_OFs ONLY
      */
-    public List<StageRange> listByExistingChildPartOfExistingParent() throws DAOException {
+    public List<StageRange> listByExistingChildPartOfExistingParent() throws Exception {
     	
         return list(SQL_LIST_EXISTING_CHILD_PART_OF_EXISTING_PARENT);
     }
@@ -295,7 +292,7 @@ public final class StageRangeDAO {
     /*
      * Returns a list of ALL stages ranges by existing child and proposed parent, otherwise null
      */
-    public List<StageRange> listByExistingChildProposedParent() throws DAOException {
+    public List<StageRange> listByExistingChildProposedParent() throws Exception {
     	
         return list(SQL_LIST_EXISTING_CHILD_PROPOSED_PARENT);
     }
@@ -303,7 +300,7 @@ public final class StageRangeDAO {
     /*
      * Returns a list of ALL stages ranges by proposed child and proposed parent, otherwise null
      */
-    public List<StageRange> listByProposedChildProposedParent() throws DAOException {
+    public List<StageRange> listByProposedChildProposedParent() throws Exception {
     	
         return list(SQL_LIST_PROPOSED_CHILD_PROPOSED_PARENT);
     }
@@ -311,7 +308,7 @@ public final class StageRangeDAO {
     /*
      * Returns a list of ALL stages ranges by proposed child and existing parent, otherwise null
      */
-    public List<StageRange> listByProposedChildExistingParent() throws DAOException {
+    public List<StageRange> listByProposedChildExistingParent() throws Exception {
     	
         return list(SQL_LIST_PROPOSED_CHILD_EXISTING_PARENT);
     }
@@ -320,7 +317,7 @@ public final class StageRangeDAO {
      * Returns a list of ALL stages ranges by existing child and existing parent from the 
      *  current database, otherwise null
      */
-    public List<StageRange> listByExistingChildExistingParentDatabase() throws DAOException {
+    public List<StageRange> listByExistingChildExistingParentDatabase() throws Exception {
     	
         return list(SQL_LIST_EXISTING_CHILD_EXISTING_PARENT_DB);
     }
@@ -328,7 +325,7 @@ public final class StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by existing child and existing parent
      */
-    public int countByExistingChildExistingParent() throws DAOException {
+    public int countByExistingChildExistingParent() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT);
     }
@@ -336,7 +333,7 @@ public final class StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by existing child and proposed parent
      */
-    public int countByExistingChildProposedParent() throws DAOException {
+    public int countByExistingChildProposedParent() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_PROPOSED_PARENT);
     }
@@ -344,7 +341,7 @@ public final class StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by proposed child and proposed parent
      */
-    public int countByProposedChildProposedParent() throws DAOException {
+    public int countByProposedChildProposedParent() throws Exception {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_PROPOSED_PARENT);
     }
@@ -352,7 +349,7 @@ public final class StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by proposed child and existing parent
      */
-    public int countlistByProposedChildExistingParent() throws DAOException {
+    public int countlistByProposedChildExistingParent() throws Exception {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_EXISTING_PARENT);
     }
@@ -361,7 +358,7 @@ public final class StageRangeDAO {
      * Returns a count of ALL stages ranges by existing child and existing parent from the 
      *  current database
      */
-    public int countlistByExistingChildExistingParentDatabase() throws DAOException {
+    public int countlistByExistingChildExistingParentDatabase() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT_DB);
     }
@@ -371,7 +368,7 @@ public final class StageRangeDAO {
      * 
      *  The list is never null and is empty when the database does not contain any stages.
      */
-    public List<StageRange> list(String sql, Object... values) throws DAOException {
+    public List<StageRange> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -379,19 +376,23 @@ public final class StageRangeDAO {
         List<StageRange> stages = new ArrayList<StageRange>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 stages.add(mapStageRange(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return stages;
@@ -400,7 +401,7 @@ public final class StageRangeDAO {
     /*
      * Returns a of the number of rows in query.
      */
-    public int count(String sql) throws DAOException {
+    public int count(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -408,21 +409,25 @@ public final class StageRangeDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

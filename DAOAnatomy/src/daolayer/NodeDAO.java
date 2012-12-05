@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
-* Title:        VersionDAO.java
+* Title:        NodeDAO.java
 *
 * Date:         2012
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,8 +48,9 @@ import java.util.List;
 import daomodel.Node;
 import daomodel.TimedNode;
 
-public final class NodeDAO {
+import utility.Wrapper;
 
+public final class NodeDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_MAX_EMAPA =
         "SELECT MAX(CAST( SUBSTRING(ANO_PUBLIC_ID, 7) AS SIGNED )) AS MAXIMUM " +
@@ -167,7 +167,7 @@ public final class NodeDAO {
     /*
      * Returns the maximum EMAPA id.
      */
-    public int maximumEmapa() throws DAOException {
+    public int maximumEmapa() throws Exception {
     	
         return maximum(SQL_MAX_EMAPA);
     }
@@ -175,7 +175,7 @@ public final class NodeDAO {
     /*
      * Returns the node from the database matching the given OID, otherwise null.
      */
-    public Node findByOid(Long oid) throws DAOException {
+    public Node findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -183,7 +183,7 @@ public final class NodeDAO {
     /*
      * Returns the node from the database matching the given publicId, otherwise null.
      */
-    public Node findByPublicId(String publicId) throws DAOException {
+    public Node findByPublicId(String publicId) throws Exception {
     	
         return find(SQL_FIND_BY_PUBLIC_ID, publicId);
     }
@@ -191,7 +191,7 @@ public final class NodeDAO {
     /*
      * Returns the node from the database matching the given displayId, otherwise null.
      */
-    public Node findByDisplayId(String displayId) throws DAOException {
+    public Node findByDisplayId(String displayId) throws Exception {
     	
         return find(SQL_FIND_BY_DISPLAY_ID, displayId);
     }
@@ -199,7 +199,7 @@ public final class NodeDAO {
     /*
      * Returns the node from the database matching the given componentName, otherwise null.
      */
-    public Node findByComponentName(String componentName) throws DAOException {
+    public Node findByComponentName(String componentName) throws Exception {
     	
         return find(SQL_FIND_BY_COMPONENT_NAME, componentName);
     }
@@ -207,7 +207,7 @@ public final class NodeDAO {
     /*
      * Returns a list of ALL nodes, otherwise null.
      */
-    public List<Node> listAll() throws DAOException {
+    public List<Node> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -215,7 +215,7 @@ public final class NodeDAO {
     /*
      * Returns a list of ALL timednodes, otherwise null.
      */
-    public List<Node> listAllOrderByPublicId() throws DAOException {
+    public List<Node> listAllOrderByPublicId() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_PUBLIC_ID);
     }
@@ -223,7 +223,7 @@ public final class NodeDAO {
     /*
      * Returns a list of ALL timednodes, otherwise null.
      */
-    public List<Node> listAllOrderByDisplayId() throws DAOException {
+    public List<Node> listAllOrderByDisplayId() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_DISPLAY_ID);
     }
@@ -231,7 +231,7 @@ public final class NodeDAO {
     /*
      * Returns true if the given node OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -239,7 +239,7 @@ public final class NodeDAO {
     /*
      * Returns true if the given node publicId exists in the database.
      */
-    public boolean existPublicId(String publicId) throws DAOException {
+    public boolean existPublicId(String publicId) throws Exception {
     	
         return exist(SQL_EXIST_BY_PUBLIC_ID, publicId);
     }
@@ -247,7 +247,7 @@ public final class NodeDAO {
     /*
      * Returns true if the given node publicId exists in the database.
      */
-    public boolean existDisplayId(String displayId) throws DAOException {
+    public boolean existDisplayId(String displayId) throws Exception {
     	
         return exist(SQL_EXIST_BY_DISPLAY_ID, displayId);
     }
@@ -259,12 +259,14 @@ public final class NodeDAO {
      *   then it will invoke "create(Node)", 
      *   else it will invoke "update(Node)".
      */
-    public void save(Node node) throws DAOException {
+    public void save(Node node) throws Exception {
      
     	if (node.getOid() == null) {
+    		
             create(node);
         }
     	else {
+    		
             update(node);
         }
     }
@@ -273,7 +275,7 @@ public final class NodeDAO {
      * Returns the node from the database matching the given 
      *  SQL query with the given values.
      */
-    private Node find(String sql, Object... values) throws DAOException {
+    private Node find(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -281,19 +283,23 @@ public final class NodeDAO {
         Node node = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 node = mapNode(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return node;
@@ -303,7 +309,7 @@ public final class NodeDAO {
      * Returns a list of all nodes from the database. 
      *  The list is never null and is empty when the database does not contain any nodes.
      */
-    public List<Node> list(String sql, Object... values) throws DAOException {
+    public List<Node> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -311,19 +317,23 @@ public final class NodeDAO {
         List<Node> nodes = new ArrayList<Node>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 nodes.add(mapNode(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return nodes;
@@ -336,7 +346,7 @@ public final class NodeDAO {
      *   If the node OID value is unknown, rather use save(Node).
      *    After creating, the DAO will set the obtained ID in the given node.
      */
-    public void create(Node node) throws IllegalArgumentException, DAOException {
+    public void create(Node node) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
             node.getOid(),
@@ -354,27 +364,31 @@ public final class NodeDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Node failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
-
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -384,9 +398,10 @@ public final class NodeDAO {
      *  The node OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the node OID value is unknown, rather use save(Node)}.
      */
-    public void update(Node node) throws DAOException {
+    public void update(Node node) throws Exception {
     	
         if (node.getOid() == null) {
+        	
             throw new IllegalArgumentException("Node is not created yet, so the node OID cannot be null.");
         }
 
@@ -405,29 +420,35 @@ public final class NodeDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Node failed, no rows affected.");
                 } 
                 else {
+                	
                 	node.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -436,7 +457,7 @@ public final class NodeDAO {
      *  
      *  After deleting, the DAO will set the ID of the given node to null.
      */
-    public void delete(Node node) throws DAOException {
+    public void delete(Node node) throws Exception {
     	
         Object[] values = { 
         	node.getOid() 
@@ -446,36 +467,42 @@ public final class NodeDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting Node failed, no rows affected.");
                 } 
                 else {
+                	
                 	node.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_NODE Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -483,16 +510,19 @@ public final class NodeDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -504,7 +534,7 @@ public final class NodeDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Node> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -559,18 +589,21 @@ public final class NodeDAO {
         List<Node> dataList = new ArrayList<Node>();
 
         try {
+        	
             connection = daoFactory.getConnection();
             
             if ( searchFirst.equals("")) {
+            	
                 Object[] values = {
                         firstRow, 
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             }
             else {
+            	
                 Object[] values = {
                     	searchFirstWithWildCards, 
                     	searchSecondWithWildCards,
@@ -578,21 +611,24 @@ public final class NodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapNode(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -601,7 +637,7 @@ public final class NodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -631,30 +667,36 @@ public final class NodeDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
 
             if ( searchFirst.equals("")) {
+            	
                 String sql = SQL_ROW_COUNT;
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             }
             else {
+            	
                 String sql = SQL_ROW_COUNT_WHERE;
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -663,7 +705,7 @@ public final class NodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -671,21 +713,25 @@ public final class NodeDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        DAOConfigurationException.java
 *
@@ -32,16 +32,9 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
-/*
- *
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
-@SuppressWarnings("serial")
 public class DAOConfigurationException extends RuntimeException {
-	
     // Constructors -------------------------------------------------------------------------------
     /*
      * Constructs a DAOConfigurationException with the given detail message.

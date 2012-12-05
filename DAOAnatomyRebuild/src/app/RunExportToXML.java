@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        OBOValidateComponents.java
+* Title:        RunExportToXML.java
 *
 * Date:         2012
 *
@@ -18,21 +18,16 @@
 *
 * Version: 1
 *
-* Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
-*                tables in the Anatomy database .
-*
-*               Required Files:
-*                1. dao.properties file contains the database access nodeAttributes
+* Description:  A Main Class that exports the anatomy database to GraphML Format (XML)
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
-* Mike Wicks; February 2012; Create Class
+* Mike Wicks; November 2012; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
 import java.util.List;
@@ -51,6 +46,7 @@ import daomodel.Node;
 import daomodel.Relationship;
 
 import java.io.File;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -64,12 +60,11 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import utility.Wrapper;
 
 public class RunExportToXML {
-	/*
-	 * run Method
-	 */
-    public static void run (OBOFactory obofactory, DAOFactory daofactory) {
+
+	public static void run ( String requestMsgLevel, OBOFactory obofactory, DAOFactory daofactory ) {
     	
     	try {
             // Obtain DAOs.
@@ -219,6 +214,7 @@ public class RunExportToXML {
     		graphElement.setAttributeNode(graphAttr1);
 
             while (iteratorNode.hasNext()) {
+            	
             	Node node = iteratorNode.next();
 
         		// node element
@@ -287,6 +283,7 @@ public class RunExportToXML {
             }
 
             while (iteratorRelationship.hasNext()) {
+            	
             	Relationship relationship = iteratorRelationship.next();
 
         		// edge element
@@ -322,16 +319,23 @@ public class RunExportToXML {
      
     		transformer.transform(source, result);
      
-    		System.out.println("File saved!");
+    	    Wrapper.printMessage("File saved from RunExportToXML!", "LOW", requestMsgLevel);
     	}
 		catch (DAOException daoexception) {
+			
 			daoexception.printStackTrace();
 		}
     	catch (ParserConfigurationException pce) {
+    		
     		pce.printStackTrace();
     	}
     	catch (TransformerException tfe) {
+    		
     		tfe.printStackTrace();
+    	}
+    	catch (Exception ex) {
+    		
+    		ex.printStackTrace();
     	}
     }
 }

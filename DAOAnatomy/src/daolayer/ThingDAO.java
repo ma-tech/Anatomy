@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ThingDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.Thing;
 
-public final class ThingDAO {
+import utility.Wrapper;
 
+public final class ThingDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT OBJ_OID, OBJ_CREATION_DATETIME, OBJ_CREATOR_FK, OBJ_DESCRIPTION, OBJ_TABLE " +
@@ -99,7 +99,6 @@ public final class ThingDAO {
         "SELECT OBJ_OID " +
         "FROM ANA_OBJECT " +
         "WHERE OBJ_OID = ? ";
-
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -118,12 +117,14 @@ public final class ThingDAO {
     /*
      * Return the OBO Factory Debug flag - from the OBO properties file
      */
-    public boolean debug() throws DAOException {
+    public String getLevel() throws Exception {
 
         try {
-            return daoFactory.isDebug();
+        	
+            return daoFactory.getLevel();
         } 
         catch (DAOConfigurationException e) {
+        	
             throw new DAOException(e);
         } 
     }
@@ -131,7 +132,7 @@ public final class ThingDAO {
     /*
      * Returns the maximum EMAPA id.
      */
-    public int maximumOid() throws DAOException {
+    public int maximumOid() throws Exception {
     	
         return maximum(SQL_MAX_OID);
     }
@@ -139,7 +140,7 @@ public final class ThingDAO {
     /*
      * Returns the Thing from the database matching the given OID, otherwise null.
      */
-    public Thing findByOid(Long oid) throws DAOException {
+    public Thing findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -147,7 +148,7 @@ public final class ThingDAO {
     /*
      * Returns a list of ALL things, otherwise null.
      */
-    public List<Thing> listAll() throws DAOException {
+    public List<Thing> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -155,7 +156,7 @@ public final class ThingDAO {
     /*
      * Returns true if the given thing OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -167,12 +168,14 @@ public final class ThingDAO {
      *   then it will invoke "create(Thing)", 
      *   else it will invoke "update(Thing)".
      */
-    public void save(Thing thing) throws DAOException {
+    public void save(Thing thing) throws Exception {
      
     	if (thing.getOid() == null) {
+    		
             create(thing);
         }
     	else {
+    		
             update(thing);
         }
     }
@@ -181,7 +184,7 @@ public final class ThingDAO {
      * Returns the thing from the database matching the given 
      *  SQL query with the given values.
      */
-    private Thing find(String sql, Object... values) throws DAOException {
+    private Thing find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -189,19 +192,23 @@ public final class ThingDAO {
         Thing thing = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 thing = mapThing(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return thing;
@@ -211,7 +218,7 @@ public final class ThingDAO {
      * Returns a list of all things from the database. 
      *  The list is never null and is empty when the database does not contain any things.
      */
-    public List<Thing> list(String sql, Object... values) throws DAOException {
+    public List<Thing> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -219,19 +226,23 @@ public final class ThingDAO {
         List<Thing> things = new ArrayList<Thing>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 things.add(mapThing(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return things;
@@ -244,7 +255,7 @@ public final class ThingDAO {
      *  If the thing OID value is unknown, rather use save(Thing).
      *   After creating, the DAO will set the obtained ID in the given thing.
      */
-    public void create(Thing thing) throws IllegalArgumentException, DAOException {
+    public void create(Thing thing) throws IllegalArgumentException, Exception {
     	
     	Object[] values = {
     		thing.getOid(),
@@ -259,27 +270,31 @@ public final class ThingDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Thing failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_OBJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
-
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -289,7 +304,7 @@ public final class ThingDAO {
      *  The thing OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the thing OID value is unknown, rather use save(Thing)}.
      */
-    public void update(Thing thing) throws DAOException {
+    public void update(Thing thing) throws Exception {
     	
         if (thing.getOid() == null) {
             throw new IllegalArgumentException("Thing is not created yet, so the thing OID cannot be null.");
@@ -307,29 +322,35 @@ public final class ThingDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Thing failed, no rows affected.");
                 } 
                 else {
+                	
                 	thing.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_OBJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -338,7 +359,7 @@ public final class ThingDAO {
      * 
      *  After deleting, the DAO will set the ID of the given thing to null.
      */
-    public void delete(Thing thing) throws DAOException {
+    public void delete(Thing thing) throws Exception {
     	
         Object[] values = { 
         	thing.getOid() 
@@ -348,36 +369,42 @@ public final class ThingDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting thing failed, no rows affected.");
                 } 
                 else {
+                	
                 	thing.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_OBJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -385,16 +412,19 @@ public final class ThingDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -406,7 +436,7 @@ public final class ThingDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Thing> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -460,21 +490,25 @@ public final class ThingDAO {
         List<Thing> dataList = new ArrayList<Thing>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapThing(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -483,7 +517,7 @@ public final class ThingDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -513,21 +547,25 @@ public final class ThingDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -536,7 +574,7 @@ public final class ThingDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -544,21 +582,25 @@ public final class ThingDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

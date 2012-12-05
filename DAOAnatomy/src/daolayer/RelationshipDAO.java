@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        RelationshipDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.Relationship;
 
-public final class RelationshipDAO {
+import utility.Wrapper;
 
+public final class RelationshipDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK " +
@@ -139,7 +139,7 @@ public final class RelationshipDAO {
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws DAOException {
+    public int maximumOid() throws Exception {
     	
         return maximum(SQL_MAX_OID);
     }
@@ -147,7 +147,7 @@ public final class RelationshipDAO {
     /*
      * Returns the Relationship from the database matching the given OID, otherwise null.
      */
-    public Relationship findByOid(Long oid) throws DAOException {
+    public Relationship findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -155,7 +155,7 @@ public final class RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Parent FK, otherwise null.
      */
-    public List<Relationship> listByParentFK(Long parentFK) throws DAOException {
+    public List<Relationship> listByParentFK(Long parentFK) throws Exception {
     	
         return list(SQL_LIST_BY_PARENT_FK, parentFK);
     }
@@ -163,7 +163,7 @@ public final class RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Child FK, otherwise null.
      */
-    public List<Relationship> listByChildFK(Long childFK) throws DAOException {
+    public List<Relationship> listByChildFK(Long childFK) throws Exception {
     	
         return list(SQL_LIST_BY_CHILD_FK, childFK);
     }
@@ -171,7 +171,7 @@ public final class RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Parent FK AND Child FK, otherwise null.
      */
-    public List<Relationship> listByParentFKAndChildFK(Long parentFK, Long childFK) throws DAOException {
+    public List<Relationship> listByParentFKAndChildFK(Long parentFK, Long childFK) throws Exception {
     	
         return list(SQL_LIST_BY_PARENT_FK_AND_CHILD_FK, parentFK, childFK);
     }
@@ -179,7 +179,7 @@ public final class RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Relationship Type FK, otherwise null.
      */
-    public List<Relationship> listByRelationshipTypeFK(String relationshipTypeFK) throws DAOException {
+    public List<Relationship> listByRelationshipTypeFK(String relationshipTypeFK) throws Exception {
     	
         return list(SQL_LIST_BY_RELATIONSHIP_TYPE_FK, relationshipTypeFK);
     }
@@ -187,7 +187,7 @@ public final class RelationshipDAO {
     /*
      * Returns a list of ALL relationships, otherwise null.
      */
-    public List<Relationship> listAll() throws DAOException {
+    public List<Relationship> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -195,7 +195,7 @@ public final class RelationshipDAO {
     /*
      * Returns true if the given relationship OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -207,12 +207,14 @@ public final class RelationshipDAO {
      *   then it will invoke "create(Relationship)", 
      *   else it will invoke "update(Relationship)".
      */
-    public void save(Relationship relationship) throws DAOException {
+    public void save(Relationship relationship) throws Exception {
      
     	if (relationship.getOid() == null) {
+    		
             create(relationship);
         }
     	else {
+    		
             update(relationship);
         }
     }
@@ -221,7 +223,7 @@ public final class RelationshipDAO {
      * Returns the relationship from the database matching the given 
      *  SQL query with the given values.
      */
-    private Relationship find(String sql, Object... values) throws DAOException {
+    private Relationship find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -229,19 +231,23 @@ public final class RelationshipDAO {
         Relationship relationship = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 relationship = mapRelationship(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return relationship;
@@ -251,7 +257,7 @@ public final class RelationshipDAO {
      * Returns a list of all relationships from the database. 
      *  The list is never null and is empty when the database does not contain any relationships.
      */
-    public List<Relationship> list(String sql, Object... values) throws DAOException {
+    public List<Relationship> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -259,19 +265,23 @@ public final class RelationshipDAO {
         List<Relationship> relationships = new ArrayList<Relationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 relationships.add(mapRelationship(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return relationships;
@@ -283,7 +293,7 @@ public final class RelationshipDAO {
      *  If the relationship OID value is unknown, rather use save(Relationship).
      *   After creating, the DAO will set the obtained ID in the given relationship.
      */
-    public void create(Relationship relationship) throws IllegalArgumentException, DAOException {
+    public void create(Relationship relationship) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
        		relationship.getOid(),
@@ -298,25 +308,29 @@ public final class RelationshipDAO {
 
         try {
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Relationship failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -326,7 +340,7 @@ public final class RelationshipDAO {
      *  The relationship OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the relationship OID value is unknown, rather use save(Relationship)}.
      */
-    public void update(Relationship relationship) throws DAOException {
+    public void update(Relationship relationship) throws Exception {
     	
         if (relationship.getOid() == null) {
             throw new IllegalArgumentException("Relationship is not created yet, so the relationship OID cannot be null.");
@@ -343,30 +357,35 @@ public final class RelationshipDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Relationship failed, no rows affected.");
                 } 
                 else {
+                	
                 	relationship.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -375,7 +394,7 @@ public final class RelationshipDAO {
      * 
      *  After deleting, the DAO will set the ID of the given relationship to null.
      */
-    public void delete(Relationship relationship) throws DAOException {
+    public void delete(Relationship relationship) throws Exception {
     	
         Object[] values = { 
         	relationship.getOid() 
@@ -385,36 +404,42 @@ public final class RelationshipDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting relationship failed, no rows affected.");
                 } 
                 else {
+                	
                 	relationship.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_RELATIONSHIP Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -422,16 +447,19 @@ public final class RelationshipDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -443,7 +471,7 @@ public final class RelationshipDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Relationship> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -494,21 +522,25 @@ public final class RelationshipDAO {
         List<Relationship> dataList = new ArrayList<Relationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapRelationship(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -517,7 +549,7 @@ public final class RelationshipDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -547,21 +579,25 @@ public final class RelationshipDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -570,7 +606,7 @@ public final class RelationshipDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -578,20 +614,24 @@ public final class RelationshipDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

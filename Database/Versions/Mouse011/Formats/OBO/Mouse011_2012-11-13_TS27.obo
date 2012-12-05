@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 13:11:2012 12:01
+date: 20:11:2012 14:42
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 011
@@ -2682,11 +2682,6 @@ id: EMAP:32604
 name: muscle layer of seminal vesicle
 namespace: abstract_anatomy
 relationship: part_of EMAP:30188
-
-[Term]
-id: EMAP:35046
-name: mikes test leaf part of emapa18562
-namespace: abstract_anatomy
 
 
 [Typedef]

@@ -51,7 +51,7 @@ public class RunDAOTestTimedLeafs {
 	/*
 	 * run Method
 	 */
-	public static void run (DAOFactory daofactory, String emapId, String stage) throws IOException {
+	public static void run (DAOFactory daofactory, String emapId, String stage) throws Exception {
 
 		try {
 	        // Obtain DAOs.

@@ -50,7 +50,7 @@ B. NEW COMPONENTS
     Parents   : [EMAPA:18562]
     Synonyms  : []
     Change Check Status : NEW
-    Rules Check Status  : PASSED
+    Rules Check Status  : CHECKED
 
 
 C. MODIFIED COMPONENTS

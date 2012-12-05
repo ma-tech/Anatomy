@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Node.java
 *
@@ -31,13 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Node {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1. ANO_OID            - int(10) unsigned 
      *   2. ANO_SPECIES_FK     - varchar(20)      
      *   3. ANO_COMPONENT_NAME - varchar(255)     
@@ -66,13 +64,6 @@ public class Node {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public Node(Long oid, 
     	    String speciesFK,
@@ -161,12 +152,35 @@ public class Node {
         this.displayId = displayId;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this Node the same as the Supplied Node?
+     */
+    public boolean isSameAs(Node daonode){
+
+    	if ( this.getOid() == daonode.getOid() &&
+    		this.getSpeciesFK().equals(daonode.getSpeciesFK()) &&
+    		this.getComponentName().equals(daonode.getComponentName()) &&
+    		this.isPrimary() == daonode.isPrimary() &&
+    		this.isGroup() == daonode.isGroup() &&
+    		this.getPublicId().equals(daonode.getPublicId()) &&
+    		this.getDescription().equals(daonode.getDescription()) &&
+    		this.getDisplayId().equals(daonode.getDisplayId()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The Node OID is unique for each Node.
      *  So this should compare Node by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Node) && (oid != null) 
         		? oid.equals(((Node) other).oid) 
         		: (other == this);
@@ -177,6 +191,7 @@ public class Node {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("Node [ oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s, displayId=%s ]", 
             oid, speciesFK, componentName, primary, group, publicId, description, displayId); 
     }

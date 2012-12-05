@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentSynonym.java
 *
@@ -31,16 +31,14 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class ComponentSynonym {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   ACS_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACS_OBO_ID varchar(25) NOT NULL,
-     *   ACS_OBO_TEXT varchar(1000) NOT NULL,
+     *   ACS_OID      - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACS_OBO_ID   - varchar(25) NOT NULL,
+     *   ACS_OBO_TEXT - varchar(1000) NOT NULL,
 	 */
     private Long oid;
     private String id;
@@ -92,7 +90,7 @@ public class ComponentSynonym {
     /*
      * Is this ComponentSynonym the same as the Supplied ComponentSynonym?
      */
-    public boolean isComponentSynonymSameAs(ComponentSynonym daocomponentsynonym){
+    public boolean isSameAs(ComponentSynonym daocomponentsynonym){
 
     	if ( this.getId().equals(daocomponentsynonym.getId()) && 
              this.getText() == daocomponentsynonym.getText() ){
@@ -100,6 +98,7 @@ public class ComponentSynonym {
         	return true;
         }
         else {
+        	
             return false;
         }
     }
@@ -109,6 +108,7 @@ public class ComponentSynonym {
      *  So this should compare ComponentSynonym by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ComponentSynonym) && (oid != null) 
         		? oid.equals(((ComponentSynonym) other).oid) 
         		: (other == this);
@@ -119,6 +119,7 @@ public class ComponentSynonym {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ComponentSynonym [ oid=%d, id=%s, text=%s ]", 
         		oid, id, text );
     }

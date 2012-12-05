@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentOrder.java
 *
@@ -19,7 +19,7 @@
 * Version: 1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
-*                ComponentOrder Table - ANA_OBO_COMPONENT_RELATIONSHIP
+*                ComponentOrder Table - ANA_OBO_COMPONENT_ORDER
 *
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
@@ -36,13 +36,12 @@ package daomodel;
 public class ComponentOrder {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   ACO_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACO_OBO_ID varchar(25) NOT NULL,
-     *   ACO_OBO_PARENT varchar(25) NOT NULL,
-     *   ACO_OBO_TYPE varchar(25) NOT NULL,
-     *   ACO_OBO_ALPHA_ORDER int(20) unsigned NULL,
-     *   ACO_OBO_SPECIAL_ORDER int(20) unsigned NULL,
+     *   ACO_OID               - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACO_OBO_ID            - varchar(25) NOT NULL,
+     *   ACO_OBO_PARENT        - varchar(25) NOT NULL,
+     *   ACO_OBO_TYPE          - varchar(25) NOT NULL,
+     *   ACO_OBO_ALPHA_ORDER   - int(20) unsigned NULL,
+     *   ACO_OBO_SPECIAL_ORDER - int(20) unsigned NULL,
 	 */
     private Long oid;
     private String child;
@@ -121,10 +120,8 @@ public class ComponentOrder {
     /*
      * Is this ComponentOrder the same as the Supplied ComponentOrder?
      */
-    public boolean isComponentOrderSameAs(ComponentOrder daocomponent){
+    public boolean isSameAs(ComponentOrder daocomponent){
     	
-        //EMAP id, description, start stage, end stage, parents, synonyms
-
     	if ( this.getChild().equals(daocomponent.getChild()) && 
              this.getParent() == daocomponent.getParent() && 
              this.getType() == daocomponent.getType() && 
@@ -134,6 +131,7 @@ public class ComponentOrder {
         	return true;
         }
         else {
+        	
             return false;
         }
     }
@@ -143,6 +141,7 @@ public class ComponentOrder {
      *  So this should compare ComponentOrder by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ComponentOrder) && (oid != null) 
         		? oid.equals(((ComponentOrder) other).oid) 
         		: (other == this);
@@ -153,6 +152,7 @@ public class ComponentOrder {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ComponentOrder [ oid=%d, child=%s, parent=%s, type=%s, alphaorder=%d, specialorder=%d ]", 
         		oid, child, parent, type, alphaorder, specialorder);
     }

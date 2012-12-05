@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        DerivedPartOf.java
 *
@@ -31,13 +31,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class DerivedPartOf {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1.  APO_OID                 => int(10)
      *   2.  APO_SPECIES_FK          => varchar(20)
      *   3.  APO_NODE_START_STAGE_FK => int(10)
@@ -225,12 +223,42 @@ public class DerivedPartOf {
         this.parentFK = parentFK;
     } 
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this DerivedPartOf the same as the Supplied DerivedPartOf?
+     */
+    public boolean isSameAs(DerivedPartOf daoderivedpartof){
+
+    	if ( this.getSpeciesFK().equals(daoderivedpartof.getSpeciesFK()) && 
+    		this.getNodeStartFK() == daoderivedpartof.getNodeStartFK() && 
+    		this.getNodeStopFK() == daoderivedpartof.getNodeStopFK() && 
+    		this.getPathStartFK() == daoderivedpartof.getPathStartFK() && 
+    		this.getPathStopFK() == daoderivedpartof.getPathStopFK() && 
+    		this.getNodeFK() == daoderivedpartof.getNodeFK() && 
+    		this.getSequence() == daoderivedpartof.getSequence() && 
+    		this.getDepth() == daoderivedpartof.getDepth() && 
+    		this.getFullPath().equals(daoderivedpartof.getFullPath()) && 
+    		this.getFullPathOids().equals(daoderivedpartof.getFullPathOids()) && 
+    		this.getFullPathJsonHead().equals(daoderivedpartof.getFullPathJsonHead()) && 
+    		this.getFullPathJsonTail().equals(daoderivedpartof.getFullPathJsonTail()) && 
+    		this.getPrimary() == daoderivedpartof.getPrimary() && 
+    		this.getPrimaryPath() == daoderivedpartof.getPrimaryPath() && 
+    		this.getParentFK() == daoderivedpartof.getParentFK() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The OID is unique for each DerivedPartOf. 
      *  So this should compare DerivedPartOf by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof DerivedPartOf) && (oid != null) 
         		? oid.equals(((DerivedPartOf) other).oid) 
         		: (other == this);
@@ -241,6 +269,7 @@ public class DerivedPartOf {
      *  Not required, it just aids log reading.
      */
     public String toString() {
+    	
         return String.format("DerivedPartOf [ oid=%d, speciesFK=%s, nodeStartFK=%d, nodeStopFK=%d, pathStartFK=%d, pathStopFK=%d, nodeFK=%d, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%d, primaryPath=%d, parentFK=%d ]", 
         		oid, speciesFK, nodeStartFK, nodeStopFK, pathStartFK, pathStopFK, nodeFK, sequence, depth, fullPath, fullPathOids, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
     }

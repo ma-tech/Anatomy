@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINNodeRelationshipDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -49,7 +48,6 @@ import java.util.List;
 import daomodel.JOINNodeRelationship;
 
 public final class JOINNodeRelationshipDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
@@ -83,7 +81,7 @@ public final class JOINNodeRelationshipDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationship> listAll() throws DAOException {
+    public List<JOINNodeRelationship> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -91,7 +89,7 @@ public final class JOINNodeRelationshipDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationship> listAllByChild(Long childFK) throws DAOException {
+    public List<JOINNodeRelationship> listAllByChild(Long childFK) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD, childFK);
     }
@@ -100,7 +98,7 @@ public final class JOINNodeRelationshipDAO {
      * Returns a list of all nodes from the database. 
      *  The list is never null and is empty when the database does not contain any nodes.
      */
-    public List<JOINNodeRelationship> list(String sql, Object... values) throws DAOException {
+    public List<JOINNodeRelationship> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -108,19 +106,23 @@ public final class JOINNodeRelationshipDAO {
         List<JOINNodeRelationship> nodes = new ArrayList<JOINNodeRelationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 nodes.add(mapJOINNodeRelationship(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return nodes;

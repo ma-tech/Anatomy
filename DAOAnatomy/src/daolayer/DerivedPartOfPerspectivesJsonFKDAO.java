@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        DerivedPartOfPerspectivesJsonFKDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the DerivedPartOfPerspectivesJsonFK DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the DerivedPartOfPerspectivesJsonFK DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -12,16 +47,7 @@ import java.util.List;
 
 import daomodel.DerivedPartOfPerspectivesJsonFK;
 
-/**
- * This class represents a SQL Database Access Object for the DerivedPartOf DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the DerivedPartOf DTO and a SQL database.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class DerivedPartOfPerspectivesJsonFKDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE =
         "SELECT COUNT(*) AS VALUE " +
@@ -53,28 +79,27 @@ public final class DerivedPartOfPerspectivesJsonFKDAO {
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
-    
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct a DerivedPartOf DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     DerivedPartOfPerspectivesJsonFKDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
     // Actions ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns list of DerivedPartOfs for Display purposes
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
     public List<DerivedPartOfPerspectivesJsonFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchPerspective)
-        throws DAOException
-    {
+        throws Exception {
 
     	String sqlSortField = "POP_PERSPECTIVE_FK";
     	
@@ -106,28 +131,33 @@ public final class DerivedPartOfPerspectivesJsonFKDAO {
             List<DerivedPartOfPerspectivesJsonFK> dataList = new ArrayList<DerivedPartOfPerspectivesJsonFK>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesJsonFK(resultSet));
                 }
                 
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
 
         }
         else {
+        	
             sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE_AND, sqlSortField, sortDirection);
             Object[] values = {
             		searchPerspective,
@@ -142,35 +172,36 @@ public final class DerivedPartOfPerspectivesJsonFKDAO {
             List<DerivedPartOfPerspectivesJsonFK> dataList = new ArrayList<DerivedPartOfPerspectivesJsonFK>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOfPerspectivesJsonFK(resultSet));
                 }
                 
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
-
-
     }
 
-    /**
+    /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchPerspective) throws DAOException {
+    public int count(String searchTerm, String searchPerspective) throws Exception {
 
         //String searchWithWildCards = "%" + searchTerm + "%";
         String searchWithWildCards = "%" + searchTerm;
@@ -187,22 +218,26 @@ public final class DerivedPartOfPerspectivesJsonFKDAO {
             };
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
                 
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
         	
         }
@@ -214,40 +249,41 @@ public final class DerivedPartOfPerspectivesJsonFKDAO {
             };
 
         	try {
+        		
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
+                	
                     count = resultSet.getInt("VALUE");
                 }
                 
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
-
         }
-        	
 
         return count;
     }
 
-
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to an User.
      */
     private static DerivedPartOfPerspectivesJsonFK mapDerivedPartOfPerspectivesJsonFK(ResultSet resultSet) throws SQLException {
+    	
         return new DerivedPartOfPerspectivesJsonFK(
        		resultSet.getString("POP_PERSPECTIVE_FK"), 
        		resultSet.getString("FULL_PATH_JSON")
         );
     }
-
 }

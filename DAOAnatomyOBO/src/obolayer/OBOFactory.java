@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOFactory.java
 *
@@ -71,11 +71,10 @@ import java.util.ArrayList;
 import obomodel.OBOComponent;
 import obomodel.Relation;
 
-import routinesbase.Parser;
-import routinesbase.Producer;
+import routines.base.Parser;
+import routines.base.Producer;
 
 import utility.ObjectConverter;
-
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
@@ -114,6 +113,7 @@ public abstract class OBOFactory {
     public static OBOFactory getInstance(String name) throws OBOConfigurationException {
     	
         if (name == null) {
+        	
             throw new OBOConfigurationException("OBO name is null.");
         }
 
@@ -157,14 +157,17 @@ public abstract class OBOFactory {
         Boolean boolTimedComponents = false;
         
         if (strAlternatives.equals("true")) {
+        	
         	boolAlternatives = true;
         }
         
         if (strTimedComponents.equals("true")) {
+        	
         	boolTimedComponents = true;
         }
         
         if (strDebug.equals("true")) {
+        	
         	boolDebug = true;
         	System.out.println("=====");
         	System.out.println("DEBUG : OBO Properties File : " + filename);
@@ -205,6 +208,7 @@ public abstract class OBOFactory {
         
         // If driver is specified, then load it to let it register itself with DriverManager.
         if (infile.exists()) {
+        	
             instance = new FileOBOFactory(strOboInFile, 
             		strOboOutFile, 
             		strOboOutFileVersion, 
@@ -234,6 +238,7 @@ public abstract class OBOFactory {
             		boolTimedComponents);
         }
         else {
+        	
             throw new OBOConfigurationException(
                     "OBO File '" + strOboInFile + "' does NOT exist!");
         }
@@ -284,6 +289,7 @@ public abstract class OBOFactory {
      * Returns the ... OBO associated with the current OBOFactory.
      */
     public ComponentOBO getComponentOBO() {
+    	
         return new ComponentOBO(this);
     }
 
@@ -521,5 +527,4 @@ class FileOBOFactory extends OBOFactory {
     void addComponents(ArrayList<OBOComponent> obocomponentList) {
     	this.obocomponentList.addAll(obocomponentList);
     }
-
 }

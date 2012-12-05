@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINRelationshipProjectRelationshipDAO.java
 *
@@ -34,7 +34,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -50,7 +49,6 @@ import java.util.List;
 import daomodel.JOINRelationshipProjectRelationship;
 
 public final class JOINRelationshipProjectRelationshipDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
@@ -97,7 +95,7 @@ public final class JOINRelationshipProjectRelationshipDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINRelationshipProjectRelationship> listAll() throws DAOException {
+    public List<JOINRelationshipProjectRelationship> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -105,7 +103,7 @@ public final class JOINRelationshipProjectRelationshipDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINRelationshipProjectRelationship> listAllByChildAndProject(Long childFK, String project) throws DAOException {
+    public List<JOINRelationshipProjectRelationship> listAllByChildAndProject(Long childFK, String project) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD_AND_PROJECT, childFK, project);
     }
@@ -113,7 +111,7 @@ public final class JOINRelationshipProjectRelationshipDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINRelationshipProjectRelationship> listAllByParentAndProjectNotIn(Long parentFK, String project, String notIn) throws DAOException {
+    public List<JOINRelationshipProjectRelationship> listAllByParentAndProjectNotIn(Long parentFK, String project, String notIn) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT_AND_PROJECT_NOT_IN, parentFK, project, notIn);
     }
@@ -122,7 +120,7 @@ public final class JOINRelationshipProjectRelationshipDAO {
      * Returns a list of all nodes from the database. 
      *  The list is never null and is empty when the database does not contain any nodes.
      */
-    public List<JOINRelationshipProjectRelationship> list(String sql, Object... values) throws DAOException {
+    public List<JOINRelationshipProjectRelationship> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -130,19 +128,23 @@ public final class JOINRelationshipProjectRelationshipDAO {
         List<JOINRelationshipProjectRelationship> nodes = new ArrayList<JOINRelationshipProjectRelationship>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 nodes.add(mapJOINRelationshipProjectRelationship(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return nodes;

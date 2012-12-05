@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        LeafDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Leaf DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Leaf DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -14,15 +49,8 @@ import java.util.List;
 
 import daomodel.JsonNode;
 import daomodel.Leaf;
-import daomodel.TimedLeaf;
 
-/*
- * This class represents a SQL Database Access Object for the {@link Relation} DTO. 
- *  This DAO should be used as a central point for the mapping between the 
- *  Relation DTO and a SQL database.
- */
 public final class LeafDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
         "SELECT" +
@@ -211,7 +239,6 @@ public final class LeafDAO {
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
-
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -219,78 +246,86 @@ public final class LeafDAO {
      *  Package private so that it can be constructed inside the DAO package only.
      */
     LeafDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
-
     
     // Actions ------------------------------------------------------------------------------------
     // LIST    ------------------------------------------------------------------------------------
     /*
      * Returns a list of All Leafs for the given Root Name, otherwise null.
      */
-    public List<Leaf> listAllNodesByRootName(String rootName1, String rootName2) throws DAOException {
+    public List<Leaf> listAllNodesByRootName(String rootName1, String rootName2) throws Exception {
+    	
         return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME, rootName1, rootName2);
     }
     
     /*
      * Returns a list of All Leafs for the given Root Name ordered by Child Desc, otherwise null.
      */
-    public List<Leaf> listAllNodesByRootNameByChildDesc(String rootName1, String rootName2) throws DAOException {
+    public List<Leaf> listAllNodesByRootNameByChildDesc(String rootName1, String rootName2) throws Exception {
+    	
         return list(SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC, rootName1, rootName2);
     }
     
     /*
      * Returns a list of All Leafs for the given Root Description, otherwise null.
      */
-    public List<Leaf> listAllNodesByRootDesc(String rootDesc1, String rootDesc2) throws DAOException {
+    public List<Leaf> listAllNodesByRootDesc(String rootDesc1, String rootDesc2) throws Exception {
+    	
         return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC, rootDesc1, rootDesc2);
     }
     
     /*
      * Returns a list of All Leafs for the given Root Description, otherwise null.
      */
-    public List<Leaf> listAllNodesByRootDescByChildDesc(String rootDesc1, String rootDesc2) throws DAOException {
+    public List<Leaf> listAllNodesByRootDescByChildDesc(String rootDesc1, String rootDesc2) throws Exception {
+    	
         return list(SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC, rootDesc1, rootDesc2);
     }
-    
     
     /*
      * Returns a list of Leafs from the database.
      *  The list is never null and is empty when the database does not contain any 
      *  Leafs.
      */
-    public List<Leaf> list(String sql, Object... values) throws DAOException {
+    public List<Leaf> list(String sql, Object... values) throws Exception {
+    	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<Leaf> leafs = new ArrayList<Leaf>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 leafs.add(mapLeaf(resultSet));
             }
         }
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         }
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return leafs;
     }
 
-    
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to a Leaf.
      */
     private static Leaf mapLeaf(ResultSet resultSet) throws SQLException {
+    	
         return new Leaf(
       		resultSet.getString("ROOT_OID"), 
       		resultSet.getString("ROOT_NAME"),
@@ -307,7 +342,6 @@ public final class LeafDAO {
       		resultSet.getString("GRAND_CHILD_NAME"),
       		resultSet.getString("GRAND_CHILD_DESC"));
     }
-
     
     /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
@@ -353,7 +387,9 @@ public final class LeafDAO {
   			}
   			
   			if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+  				
        			if ( leaf.getChildId().equals("LEAF")) {
+       				
    					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
       		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
@@ -369,6 +405,7 @@ public final class LeafDAO {
       		                "\"},";
        			}
        			else {
+       				
    					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
       		        	    "\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
@@ -387,10 +424,10 @@ public final class LeafDAO {
        		}
        		prevChildName = leaf.getChildName();
    			countChildNames++;
-   			
       	}
 
 		if ( prevleaf.getChildId().equals("LEAF")) {
+			
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
    				leaf.getChildName() + 
 	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
@@ -406,6 +443,7 @@ public final class LeafDAO {
 	            "\"}";
 		}
 		else {
+			
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
    				leaf.getChildName() + 
 	        	"\",\"id\": \"li_node_" + leafType + "_Abstract_id" + 
@@ -424,9 +462,11 @@ public final class LeafDAO {
 		}
 		
 		if ( rowCount == leafs.size()) {
+			
 			returnString = returnString + "]";
 		}
 		else {
+			
 			returnString = returnString + ",";
 		}
         
@@ -436,7 +476,6 @@ public final class LeafDAO {
         
         return returnString;
     }
-
     
     /*
      * Convert the Leaf ResultSet to JSON for Ajax calls
@@ -461,6 +500,7 @@ public final class LeafDAO {
         		Leaf leaf = iterator.next();
   		        
         		if ( leaf.getChildId().equals("LEAF")) {
+        			
         	        returnString = returnString + 
                         "{\"attr\": {\"ext_id\": \"" +
   		                leaf.getChildName() + 
@@ -567,8 +607,11 @@ public final class LeafDAO {
   			rowCount++;
        		
        		if (!leaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
+       			
        			if ( leaf.getChildId().equals("LEAF")) {
+       				
        				if ( prevleaf.getChildId().equals("LEAF")) {
+       					
        					leafType = "LEAF";
        					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
@@ -585,6 +628,7 @@ public final class LeafDAO {
       		                "\",\"state\": \"closed\"},";
        				}
        				else {
+       					
        					leafType = "BRANCH";
        					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
@@ -604,7 +648,9 @@ public final class LeafDAO {
        				}
        			}
        			else {
+       				
        				if ( prevleaf.getChildId().equals("LEAF")) {
+       					
        					leafType = "LEAF";
        					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
@@ -621,6 +667,7 @@ public final class LeafDAO {
       		                "\",\"state\": \"closed\"},";
        				}
        				else {
+       					
        					leafType = "BRANCH";
        					returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
               				prevleaf.getChildName() + 
@@ -647,6 +694,7 @@ public final class LeafDAO {
       	}
 
 		if ( prevleaf.getChildId().equals("LEAF")) {
+			
 			leafType = "LEAF";
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
    				leaf.getChildName() + 
@@ -663,6 +711,7 @@ public final class LeafDAO {
 	            "\",\"state\": \"closed\"}";
 		}
 		else {
+			
 			leafType = "BRANCH";
 			returnString = returnString + "{\"attr\": {\"ext_id\": \"" +
    				leaf.getChildName() + 
@@ -682,14 +731,17 @@ public final class LeafDAO {
 		}
 		
 		if ( rowCount == leafs.size()) {
+			
 			returnString = returnString + "]";
 		}
 		else {
+			
 			returnString = returnString + ",";
 		}
     
         return returnString;
     }
+    
 	/*
 	 * Convert the Leaf ResultSet to JSON for Ajax calls
 	 */
@@ -705,41 +757,31 @@ public final class LeafDAO {
 		while (iteratorleaf.hasNext()) {
 
 			leaf = iteratorleaf.next();
-
 			
-			System.out.println("##PS## LeafDAO leaf.getRootOid() " + leaf.getRootOid());
-			System.out.println("##PS## LeafDAO leaf.getRootName() " + leaf.getRootName());
-			System.out.println("##PS## LeafDAO leaf.getRootDescription() " + leaf.getRootDescription());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildStart() " + leaf.getChildStart());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildEnd() " + leaf.getChildEnd());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildOid() " + leaf.getChildOid());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildId() " + leaf.getChildId());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildName() " + leaf.getChildName());
-			System.out.println("##PS## LeafDAO leaf.leaf.getChildDescription() " + leaf.getChildDescription());
-			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildId() " + leaf.getGrandChildId());
-			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildName() " + leaf.getGrandChildName());
-			System.out.println("##PS## LeafDAO leaf.leaf.getGrandChildDescription() " + leaf.getGrandChildDescription());			
-			System.out.println(" ");			
-						
 			String extID = leaf.getChildName();
 			
 			//Seen this node before - increment its child count
 			if (jsonNodes.containsKey(extID)) {
+				
 				jsonNodes.get(extID).setChildCount(jsonNodes.get(extID).getChildCount()+1);
 			}
 			//not seen this node before - make a new one
 			else {
+				
 				String jsonID;
 				int childCount;
+				
 				if (leaf.getChildId().equals("LEAF") ) {
+					
 					if ( !leaf.getGrandChildName().equals("No Children")) {
+						
 						//LEAFs should have no children!
-						System.out.println("##PS## WARNING LEAF CONFLICT! ");
 					}
 					jsonID = "li_node_LEAF_Timed_id" + leaf.getChildOid();
 					childCount = 0;
 				}
 				else {
+					
 					jsonID = "li_node_BRANCH_Timed_id" + leaf.getChildOid();
 					childCount = 1;
 				}
@@ -751,7 +793,9 @@ public final class LeafDAO {
 		}
 		
 		Iterator<String> iteratorJsonNodes = jsonNodes.keySet().iterator();
+		
 		while (iteratorJsonNodes.hasNext()) {
+			
 			String extID = iteratorJsonNodes.next();
 			returnString = returnString + jsonNodes.get(extID).printJsonNodeAbstract();
 		}
@@ -759,8 +803,6 @@ public final class LeafDAO {
 		//knock off the last "," and replace with "]" to make nice JSON
 		returnString = returnString.substring(0, returnString.lastIndexOf(","));
 		returnString = returnString + "]";
-		
-		//System.out.println("##PS## return " + returnString);
 		
 		return returnString;
 	}

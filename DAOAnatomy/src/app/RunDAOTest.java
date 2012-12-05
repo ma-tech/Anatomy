@@ -48,7 +48,7 @@ public class RunDAOTest {
 	/*
 	 * run Method
 	 */
-	public static void run (DAOFactory daofactory) throws IOException {
+	public static void run (DAOFactory daofactory) throws Exception {
 
 		try {
 	        // Obtain DAOs.

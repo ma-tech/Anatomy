@@ -1,3 +1,38 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        ExtraTimedNodeDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the ExtraTimedNode DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the ExtraTimedNode DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -11,16 +46,7 @@ import java.util.List;
 
 import daomodel.ExtraTimedNode;
 
-/**
- * This class represents a SQL Database Access Object for the ExtraTimedNode DTO.
- * This DAO should be used as a central point for the mapping between 
- *  the ExtraTimedNode DTO and a SQL database.
- *
- * @author BalusC
- * @link http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
- */
 public final class ExtraTimedNodeDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE =
         "SELECT a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, " +
@@ -113,40 +139,42 @@ public final class ExtraTimedNodeDAO {
         "JOIN ANA_STAGE e ON ANAV_STAGE_MAX = e.STG_SEQUENCE " +
         "WHERE a.ATN_PUBLIC_ID = ? ";
 
-        
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
     // Constructors -------------------------------------------------------------------------------
-    /**
+    /*
      * Construct a ExtraTimedNode DAO for the given DAOFactory.
      *  Package private so that it can be constructed inside the DAO package only.
      */
     ExtraTimedNodeDAO(DAOFactory daoFactory) {
+    	
         this.daoFactory = daoFactory;
     }
 
     // Actions ------------------------------------------------------------------------------------
-    /**
+    /*
      * Returns the extratimednode from the database matching the given EMAPA Id and Stage Sequence, 
      *  otherwise null.
      */
-    public ExtraTimedNode findByEmapaAndStage(String emapaId, Long stageSeq) throws DAOException {
+    public ExtraTimedNode findByEmapaAndStage(String emapaId, Long stageSeq) throws Exception {
+    	
         return find(SQL_FIND_BY_EMAPA_AND_STAGE, emapaId, stageSeq);
     }
 
-    /**
+    /*
      * Returns the extratimednode from the database matching the EMAP ID, otherwise null.
      */
-    public ExtraTimedNode findByEmap(String emapId) throws DAOException {
+    public ExtraTimedNode findByEmap(String emapId) throws Exception {
+    	
         return find(SQL_FIND_BY_EMAP, emapId);
     }
 
-    /**
+    /*
      * Returns the extratimednode from the database matching the given 
      *  SQL query with the given values.
      */
-    private ExtraTimedNode find(String sql, Object... values) throws DAOException {
+    private ExtraTimedNode find(String sql, Object... values) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -154,45 +182,49 @@ public final class ExtraTimedNodeDAO {
         ExtraTimedNode extratimednode = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
-            //System.out.println("PS = " + preparedStatement.toString());
-            
             resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
+            	
                 extratimednode = mapExtraTimedNode(resultSet);
             }
         }
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         }
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return extratimednode;
     }
 
-    /**
+    /*
      * Returns true if the given extratimednode EMAPA ID and Stage Seq exists in the database.
      */
-    public boolean existEmapaIdAndStageSeq(String emapaId, Long stageSeq) throws DAOException {
+    public boolean existEmapaIdAndStageSeq(String emapaId, Long stageSeq) throws Exception {
+    	
         return exist(SQL_EXIST_EMAPA_AND_STAGE, emapaId, stageSeq);
     }
 
-    /**
+    /*
      * Returns true if the given extratimednode EMAP ID exists in the database.
      */
-    public boolean existEmapId(String emapId) throws DAOException {
+    public boolean existEmapId(String emapId) throws Exception {
+    	
         return exist(SQL_EXIST_EMAP, emapId);
     }
 
-    /**
+    /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
 
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -200,18 +232,21 @@ public final class ExtraTimedNodeDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             
             resultSet = preparedStatement.executeQuery();
 
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -223,7 +258,7 @@ public final class ExtraTimedNodeDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<ExtraTimedNode> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -284,18 +319,21 @@ public final class ExtraTimedNodeDAO {
         List<ExtraTimedNode> dataList = new ArrayList<ExtraTimedNode>();
 
         try {
+        	
             connection = daoFactory.getConnection();
             
             if ( searchFirst.equals("")) {
+            	
                 Object[] values = {
                         firstRow, 
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             }
             else {
+            	
                 Object[] values = {
                     	searchFirstWithWildCards, 
                     	searchSecondWithWildCards,
@@ -303,21 +341,24 @@ public final class ExtraTimedNodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapExtraTimedNode(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -326,7 +367,7 @@ public final class ExtraTimedNodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -356,30 +397,36 @@ public final class ExtraTimedNodeDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
 
             if ( searchFirst.equals("")) {
+            	
                 String sql = SQL_ROW_COUNT;
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             }
             else {
+            	
                 String sql = SQL_ROW_COUNT_WHERE;
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -387,7 +434,7 @@ public final class ExtraTimedNodeDAO {
 
 
     // Helpers ------------------------------------------------------------------------------------
-    /**
+    /*
      * Map the current row of the given ResultSet to an User.
      */
     private static ExtraTimedNode mapExtraTimedNode(ResultSet resultSet) throws SQLException {
@@ -405,5 +452,4 @@ public final class ExtraTimedNodeDAO {
        		resultSet.getString("STAGE_MAX") 
         );
     }
-
 }

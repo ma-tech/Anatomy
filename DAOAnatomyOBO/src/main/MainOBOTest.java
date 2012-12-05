@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
 * Title:        MainOBOTest.java
 *
@@ -28,12 +28,9 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import obolayer.OBOFactory;
 
@@ -42,43 +39,25 @@ import daolayer.DAOFactory;
 import app.RunOBOTest;
 
 public class MainOBOTest {
-	/*
-	 * Main Class
-	 */
-    public static void main(String[] args) throws Exception {
 
-    	long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	Date parsed = format.parse(dateString);
+	public static void main(String[] args) throws Exception {
 
-        System.out.println("=========  ------------");
-        System.out.println("EXECUTING - MainOBOTest.java on " + parsed.toString());
-        System.out.println("=========  ------------");
-        System.out.println("");
-        
-        /*
-         * MAINLINE
-         */
-        if (args.length != 2) {
-        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+    	String requestMsgLevel = args[0]; 
+
+    	long startTime = Wrapper.printPrologue(requestMsgLevel, Wrapper.getExecutingClass());
+
+        if (args.length != 3) {
+
+		    Wrapper.printMessage(" ERROR! There MUST be 3 Command Line Arguments passed to this program", "HIGH", requestMsgLevel);
         }
         else {
             // Obtain OBOFactory.
-            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+            OBOFactory obofactory = OBOFactory.getInstance(args[2]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RunOBOTest.run(obofactory, daofactory);
+            RunOBOTest.run( requestMsgLevel, obofactory, daofactory );
         }
 
-        long endTime = System.currentTimeMillis();
-    	long duration = endTime - startTime;
-
-        System.out.println("");
-        System.out.println("====       ------------");
-        System.out.println("DONE ------ MainOBOTest.java took " + duration / 1000 + " seconds");
-        System.out.println("====       ------------");
+    	Wrapper.printEpilogue(requestMsgLevel, Wrapper.getExecutingClass(), startTime);
     }
 }

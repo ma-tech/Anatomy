@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        VersionDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -48,8 +47,9 @@ import java.util.List;
 
 import daomodel.Version;
 
-public final class VersionDAO {
+import utility.Wrapper;
 
+public final class VersionDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT VER_OID, VER_NUMBER, VER_DATE, VER_COMMENTS " +
@@ -98,7 +98,6 @@ public final class VersionDAO {
         "SELECT VER_OID " +
         "FROM ANA_VERSION " +
         "WHERE VER_OID = ?";
-
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -118,7 +117,7 @@ public final class VersionDAO {
     /*
      * Returns the version from the database matching the given OID, otherwise null.
      */
-    public Version findByOid(Long oid) throws DAOException {
+    public Version findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -126,7 +125,7 @@ public final class VersionDAO {
     /*
      * Returns a list of ALL versions, otherwise null.
      */
-    public List<Version> listAll() throws DAOException {
+    public List<Version> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -134,7 +133,7 @@ public final class VersionDAO {
     /*
      * Returns true if the given version OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -146,12 +145,14 @@ public final class VersionDAO {
      *   then it will invoke "create(Version)", 
      *   else it will invoke "update(Version)".
      */
-    public void save(Version version) throws DAOException {
+    public void save(Version version) throws Exception {
      
     	if (version.getOid() == null) {
+    		
             create(version);
         }
     	else {
+    		
             update(version);
         }
     }
@@ -160,7 +161,7 @@ public final class VersionDAO {
      * Returns the version from the database matching the given 
      *  SQL query with the given values.
      */
-    private Version find(String sql, Object... values) throws DAOException {
+    private Version find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -168,19 +169,23 @@ public final class VersionDAO {
         Version version = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 version = mapVersion(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return version;
@@ -191,7 +196,7 @@ public final class VersionDAO {
      * 
      *  The list is never null and is empty when the database does not contain any versions.
      */
-    public List<Version> list(String sql, Object... values) throws DAOException {
+    public List<Version> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -199,19 +204,23 @@ public final class VersionDAO {
         List<Version> versions = new ArrayList<Version>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 versions.add(mapVersion(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return versions;
@@ -224,7 +233,7 @@ public final class VersionDAO {
      *  If the version OID value is unknown, rather use save(Version).
      *   After creating, the DAO will set the obtained ID in the given version.
      */
-    public void create(Version version) throws IllegalArgumentException, DAOException {
+    public void create(Version version) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
        		version.getOid(),
@@ -238,27 +247,31 @@ public final class VersionDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Version failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_VERSION Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
             }
-
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
 
@@ -268,7 +281,7 @@ public final class VersionDAO {
      *  The version OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the version OID value is unknown, rather use save(Version)}.
      */
-    public void update(Version version) throws DAOException {
+    public void update(Version version) throws Exception {
     	
         if (version.getOid() == null) {
             throw new IllegalArgumentException("Version is not created yet, so the version OID cannot be null.");
@@ -285,14 +298,16 @@ public final class VersionDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Version failed, no rows affected.");
                 } 
                 else {
@@ -300,15 +315,17 @@ public final class VersionDAO {
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_VERSION Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -317,7 +334,7 @@ public final class VersionDAO {
      *  
      *  After deleting, the DAO will set the ID of the given version to null.
      */
-    public void delete(Version version) throws DAOException {
+    public void delete(Version version) throws Exception {
     	
         Object[] values = { 
         	version.getOid() 
@@ -327,36 +344,42 @@ public final class VersionDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting version failed, no rows affected.");
                 } 
                 else {
+                	
                 	version.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_VERSION Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -364,16 +387,19 @@ public final class VersionDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -385,7 +411,7 @@ public final class VersionDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Version> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -436,21 +462,25 @@ public final class VersionDAO {
         List<Version> dataList = new ArrayList<Version>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapVersion(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -459,22 +489,26 @@ public final class VersionDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
 
         if (searchFirst.equals("")) {
+        	
         	searchFirstWithWildCards = "%" + searchFirst + "%";
     	}
         else {
+        	
         	searchFirstWithWildCards = "%" + searchFirst + "%";
         }
 
         if (searchSecond.equals("")) {
+        	
         	searchSecondWithWildCards = "%" + searchSecond + "%";
     	}
         else {
+        	
         	searchSecondWithWildCards = "%" + searchSecond + "%";
         }
         
@@ -489,31 +523,34 @@ public final class VersionDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
     }
 
-
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws DAOException {
+    public int countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -521,21 +558,24 @@ public final class VersionDAO {
         int rows = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	rows = resultSet.getInt("ROWS");
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return rows;

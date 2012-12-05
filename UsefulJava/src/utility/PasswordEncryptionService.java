@@ -1,3 +1,53 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      UsefulJava
+*
+* Title:        PasswordEncryptionService.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Java class to process Passwords
+* 
+* http://www.javacodegeeks.com/2012/05/secure-password-storage-donts-dos-and.html
+* 
+* The flow goes something like this:
+* 
+*  1. When adding a new user, call generateSalt(), then getEncryptedPassword(), and store both the encrypted 
+*      password and the salt. 
+*     Do not store the clear-text password. 
+*     Don't worry about keeping the salt in a separate table or location from the encrypted password; 
+*     as discussed above, the salt is non-secret.
+*     
+*  2. When authenticating a user, retrieve the previously encrypted password and salt from the database, then 
+*      send those and the clear-text password they entered to authenticate(). 
+*     If it returns true, authentication succeeded.
+*     
+*  3. When a user changes their password, it's safe to reuse their old salt; 
+*      you can just call getEncryptedPassword() with the old salt.
+*
+* Read more: http://www.javacodegeeks.com/2012/05/secure-password-storage-donts-dos-and.html#ixzz1vao1UnHU
+*
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; November 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package utility;
 
 import java.security.NoSuchAlgorithmException;
@@ -10,26 +60,6 @@ import java.util.Arrays;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-/*
- * http://www.javacodegeeks.com/2012/05/secure-password-storage-donts-dos-and.html
- * 
- * The flow goes something like this:
- * 
- *  1. When adding a new user, call generateSalt(), then getEncryptedPassword(), and store both the encrypted 
- *      password and the salt. 
- *     Do not store the clear-text password. 
- *     Don't worry about keeping the salt in a separate table or location from the encrypted password; 
- *     as discussed above, the salt is non-secret.
- *     
- *  2. When authenticating a user, retrieve the previously encrypted password and salt from the database, then 
- *      send those and the clear-text password they entered to authenticate(). 
- *     If it returns true, authentication succeeded.
- *     
- *  3. When a user changes their password, it's safe to reuse their old salt; 
- *      you can just call getEncryptedPassword() with the old salt.
- *
- * Read more: http://www.javacodegeeks.com/2012/05/secure-password-storage-donts-dos-and.html#ixzz1vao1UnHU
- */
 public class PasswordEncryptionService {
 
     public static boolean authenticate(String attemptedPassword, byte[] encryptedPassword, byte[] salt)
@@ -47,7 +77,6 @@ public class PasswordEncryptionService {
     	 */
     	return Arrays.equals(encryptedPassword, encryptedAttemptedPassword);
     }
- 
     
     public static byte[] getEncryptedPassword(String password, byte[] salt)
     		throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -79,7 +108,6 @@ public class PasswordEncryptionService {
     	return f.generateSecret(spec).getEncoded();
     }
 
- 
     public static byte[] generateSalt() 
     		throws NoSuchAlgorithmException {
 
@@ -97,5 +125,4 @@ public class PasswordEncryptionService {
   
     	return salt;
     }
-
 }

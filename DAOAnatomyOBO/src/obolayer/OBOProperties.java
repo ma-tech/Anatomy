@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOProperties.java
 *
@@ -37,7 +37,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package obolayer;
 
 import java.io.IOException;
@@ -46,7 +45,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class OBOProperties {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String PROPERTIES_FILE = "obo.properties";
     private static final Properties PROPERTIES = new Properties();
@@ -56,6 +54,7 @@ public class OBOProperties {
         InputStream propertiesFile = classLoader.getResourceAsStream(PROPERTIES_FILE);
 
         if (propertiesFile == null) {
+        	
             throw new OBOConfigurationException(
                 "Properties file '" + PROPERTIES_FILE + "' is missing in classpath.");
         }
@@ -64,6 +63,7 @@ public class OBOProperties {
             PROPERTIES.load(propertiesFile);
         } 
         catch (IOException e) {
+        	
             throw new OBOConfigurationException(
                 "Cannot load properties file '" + PROPERTIES_FILE + "'.", e);
         }
@@ -93,11 +93,14 @@ public class OBOProperties {
         String property = PROPERTIES.getProperty(fullKey);
 
         if (property == null || property.trim().length() == 0) {
+        	
             if (mandatory) {
+            	
                 throw new OBOConfigurationException("Required property '" + fullKey + "'"
                     + " is missing in properties file '" + PROPERTIES_FILE + "'.");
             } 
             else {
+            	
                 // Make empty value null. Empty Strings are evil.
                 property = null;
             }

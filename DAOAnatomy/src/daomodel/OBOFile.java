@@ -1,32 +1,61 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        OBOFile.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Transfer Object for the OBOFile Table.
+*                ANA_OBO_FILE
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daomodel;
 
 import java.io.InputStream;
 
-/*
- * This class represents a Data Transfer Object for the Object. 
- */
 public class OBOFile {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   AOF_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   AOF_FILE_NAME varchar(255) NOT NULL,
-     *   AOF_FILE_CONTENT mediumblob,
-     *   AOF_FILE_CONTENT_TYPE varchar(255) NOT NULL,
-     *   AOF_FILE_CONTENT_LENGTH int(10) DEFAULT NULL,
-     *   AOF_FILE_CONTENT_DATE datetime DEFAULT NULL,
-     *   AOF_FILE_VALIDATION varchar(20) DEFAULT NULL COMMENT 'NEW/VALIDATED/FAILED',
-     *   AOF_FILE_AUTHOR varchar(20) DEFAULT NULL,
-     *   AOF_TEXT_REPORT_NAME varchar(255),
-     *   AOF_TEXT_REPORT mediumblob,
-     *   AOF_TEXT_REPORT_TYPE varchar(255) DEFAULT NULL,
-     *   AOF_TEXT_REPORT_LENGTH int(10) DEFAULT NULL,
-     *   AOF_TEXT_REPORT_DATE datetime DEFAULT NULL,
-     *   AOF_PDF_REPORT_NAME varchar(255),
-     *   AOF_PDF_REPORT mediumblob,
-     *   AOF_PDF_REPORT_TYPE varchar(255) DEFAULT NULL,
-     *   AOF_PDF_REPORT_LENGTH int(10) DEFAULT NULL,
-     *   AOF_PDF_REPORT_DATE datetime DEFAULT NULL,
+     *   AOF_OID                 - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   AOF_FILE_NAME           - varchar(255) NOT NULL,
+     *   AOF_FILE_CONTENT        - mediumblob,
+     *   AOF_FILE_CONTENT_TYPE   - varchar(255) NOT NULL,
+     *   AOF_FILE_CONTENT_LENGTH - int(10) DEFAULT NULL,
+     *   AOF_FILE_CONTENT_DATE   - datetime DEFAULT NULL,
+     *   AOF_FILE_VALIDATION     - varchar(20) DEFAULT NULL COMMENT 'NEW/VALIDATED/FAILED',
+     *   AOF_FILE_AUTHOR         - varchar(20) DEFAULT NULL,
+     *   AOF_TEXT_REPORT_NAME    - varchar(255),
+     *   AOF_TEXT_REPORT         - mediumblob,
+     *   AOF_TEXT_REPORT_TYPE    - varchar(255) DEFAULT NULL,
+     *   AOF_TEXT_REPORT_LENGTH  - int(10) DEFAULT NULL,
+     *   AOF_TEXT_REPORT_DATE    - datetime DEFAULT NULL,
+     *   AOF_PDF_REPORT_NAME     - varchar(255),
+     *   AOF_PDF_REPORT          - mediumblob,
+     *   AOF_PDF_REPORT_TYPE     - varchar(255) DEFAULT NULL,
+     *   AOF_PDF_REPORT_LENGTH   - int(10) DEFAULT NULL,
+     *   AOF_PDF_REPORT_DATE     - datetime DEFAULT NULL,
 	 */
     private Long oid; 
     private String name; 
@@ -78,7 +107,8 @@ public class OBOFile {
     }
 
     /*
-     * Fuller constructor. Contains required and optional fields.
+     * Fuller constructor. 
+     *  Contains required and optional fields.
      */
     public OBOFile(Long oid, 
     		String name, 
@@ -104,7 +134,8 @@ public class OBOFile {
     }
 
     /*
-     * Full constructor. Contains required and optional fields.
+     * Full constructor. 
+     *  Contains required and more optional fields.
      */
     public OBOFile(Long oid, 
     		String name, 
@@ -248,9 +279,41 @@ public class OBOFile {
 
     // Override -----------------------------------------------------------------------------------
     /*
+     * Is this OBOFile the same as the Supplied OBOFile?
+     */
+    public boolean isSameAs(OBOFile daoobofile){
+
+    	if (this.getName().equals(daoobofile.getName()) &&
+    		this.getContent() == daoobofile.getContent() &&
+    		this.getContenttype().equals(daoobofile.getContenttype()) &&
+    		this.getContentlength() == daoobofile.getContentlength() &&
+    		this.getContentdate().equals(daoobofile.getContentdate()) &&
+    		this.getValidation().equals(daoobofile.getValidation()) &&
+    		this.getAuthor().equals(daoobofile.getAuthor()) &&
+    		this.getTextreportname().equals(daoobofile.getTextreportname()) &&
+    		this.getTextreport() == daoobofile.getTextreport() &&
+    		this.getTextreporttype().equals(daoobofile.getTextreporttype()) &&
+    		this.getTextreportlength() == daoobofile.getTextreportlength() &&
+    		this.getTextreportdate().equals(daoobofile.getTextreportdate()) &&
+    		this.getPdfreportname().equals(daoobofile.getPdfreportname()) &&
+    		this.getPdfreport() == daoobofile.getPdfreport() &&
+    		this.getPdfreporttype().equals(daoobofile.getPdfreporttype()) &&
+    		this.getPdfreportlength() == daoobofile.getPdfreportlength() &&
+    		this.getPdfreportdate().equals(daoobofile.getPdfreportdate()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * The relation ID is unique for each OBOFile. So this should compare OBOFile by ID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof OBOFile) && (oid != null) 
         		? oid.equals(((OBOFile) other).oid) 
         		: (other == this);
@@ -260,6 +323,7 @@ public class OBOFile {
      * Returns the String representation of this User. Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("OBOFile [ oid=%d, name=%s, No Content Here!, contenttype=%s, contentlength=%d, contentdate=%s, validation=%s, author=%s, textreportname=%s, No Text Report Here!, textreporttype=%s, textreportlength=%d, textreportdate=%s, pdfreportname=%s, No PDF Report Here!, pdfreporttype=%s, pdfreportlength=%d, pdfreportdate=%s ]", 
             oid, name, contenttype, contentlength, contentdate, validation, author, textreportname, textreporttype, textreportlength, textreportdate, pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate);
     }

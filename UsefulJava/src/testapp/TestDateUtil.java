@@ -1,5 +1,7 @@
 package testapp;
 
+import utility.Wrapper;
+
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
@@ -12,18 +14,8 @@ public class TestDateUtil {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   ------------");
-            System.out.println("EXECUTING - TestDateUtil.java on " + parsed.toString());
-            System.out.println("=========   ------------");
-            System.out.println("");
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
 
             System.out.println("Set Up Date Strings");
             System.out.println("-------------------");
@@ -510,19 +502,11 @@ public class TestDateUtil {
                 System.out.println("CalendarUtil.elapsedTime(calendar15, calendar16) = " + intArray2[i] + appendStr2);
             }
 
-            long endTime = System.currentTimeMillis();
-        	long duration = endTime - startTime;
-
-            System.out.println("");
-            System.out.println("====       ------------");
-            System.out.println("DONE ----- TestDateUtil.java took " + duration + " milliseconds");
-            System.out.println("====       ------------");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

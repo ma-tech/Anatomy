@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Stage.java
 *
@@ -34,13 +34,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Stage {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
      *   1. STG_OID              - int(10) unsigned
      *   2. STG_SPECIES_FK       - varchar(20)      
      *   3. STG_NAME             - varchar(20)      
@@ -67,13 +65,6 @@ public class Stage {
 
     /*
      * Minimal constructor. Contains required fields.
-     */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
      */
     public Stage(Long oid, 
     		String speciesFK, 
@@ -138,12 +129,33 @@ public class Stage {
         this.publicId = publicId;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
+    /*
+     * Is this Stage the same as the Supplied Stage?
+     */
+    public boolean isSameAs(Stage daostage){
+
+    	if (this.getSpeciesFK().equals(daostage.getSpeciesFK()) &&
+    		this.getName().equals(daostage.getName()) &&
+    		this.getSequence() ==  daostage.getSequence() &&
+    		this.getDescription().equals(daostage.getDescription()) &&
+    		this.getExtraText().equals(daostage.getExtraText()) &&
+    		this.getPublicId().equals(daostage.getPublicId()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
     /*
      * The relation ID is unique for each Stage. 
      *  So this should compare Stage by ID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof Stage) && (oid != null) 
         		? oid.equals(((Stage) other).oid) 
         		: (other == this);
@@ -154,6 +166,7 @@ public class Stage {
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
+    	
         return String.format("Stage [ oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s ]", 
             oid, speciesFK, name, sequence, description, extraText, publicId);
     }

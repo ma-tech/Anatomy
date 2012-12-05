@@ -1,8 +1,6 @@
 package testapp;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import java.math.BigDecimal;
 
@@ -12,18 +10,8 @@ public class TestObjectConverter {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   -------------------");
-            System.out.println("EXECUTING - TestObjectConverter.java on " + parsed.toString());
-            System.out.println("=========   -------------------");
-            System.out.println("");
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
 
             /*
              * 1.  integerToBoolean
@@ -161,20 +149,11 @@ public class TestObjectConverter {
     		l2 = ObjectConverter.convert(o12_integer, Long.class);
     		System.out.println("Long " + l2);
 
-
-        	long endTime = System.currentTimeMillis();
-        	long duration = endTime - startTime;
-
-            System.out.println("");
-            System.out.println("====       ------------------");
-            System.out.println("DONE ----- TestObjectConverter.java took " + duration + " milliseconds");
-            System.out.println("====       ------------------");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

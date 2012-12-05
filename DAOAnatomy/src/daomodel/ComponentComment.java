@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentComment.java
 *
@@ -31,18 +31,16 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class ComponentComment {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   ACC_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACC_OBO_ID varchar(25) NOT NULL,
-     *   ACC_OBO_GENERAL_COMMENT varchar(1000) NOT NULL,
-     *   ACC_OBO_USER_COMMENT varchar(1000) NOT NULL,
-     *   ACC_OBO_ORDER_COMMENT varchar(1000) NOT NULL,
+     *   ACC_OID                 - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACC_OBO_ID              - varchar(25) NOT NULL,
+     *   ACC_OBO_GENERAL_COMMENT - varchar(1000) NOT NULL,
+     *   ACC_OBO_USER_COMMENT    - varchar(1000) NOT NULL,
+     *   ACC_OBO_ORDER_COMMENT   - varchar(1000) NOT NULL,
 	 */
     private Long oid;
     private String id;
@@ -72,9 +70,7 @@ public class ComponentComment {
     	this.general = general;
         this.user = user;
         this.order = order;
-
     }
-
     
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
@@ -114,7 +110,7 @@ public class ComponentComment {
     /*
      * Is this ComponentComment the same as the Supplied ComponentComment?
      */
-    public boolean isComponentCommentSameAs(ComponentComment daocomponentcomment){
+    public boolean isSameAs(ComponentComment daocomponentcomment){
 
     	if ( this.getId().equals(daocomponentcomment.getId()) && 
              this.getGeneral() == daocomponentcomment.getGeneral() &&
@@ -124,6 +120,7 @@ public class ComponentComment {
         	return true;
         }
         else {
+        	
             return false;
         }
     }
@@ -133,6 +130,7 @@ public class ComponentComment {
      *  So this should compare ComponentComment by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ComponentComment) && (oid != null) 
         		? oid.equals(((ComponentComment) other).oid) 
         		: (other == this);
@@ -143,6 +141,7 @@ public class ComponentComment {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ComponentComment [ oid=%d, id=%s, general=%s, user=%s, order=%s ]", 
         		oid, id, general, user, order);
     }

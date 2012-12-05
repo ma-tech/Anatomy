@@ -1,38 +1,26 @@
 package testapp;
 
-import java.text.SimpleDateFormat;
-
-import java.util.Date;
+import utility.Wrapper;
 
 import java.io.File;
 
 import utility.FileUtil;
 
-
 public class TestFileSize {
 
 	public static void main(String args[]){  
 
-		long startTime = System.currentTimeMillis();
-    	
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	
     	try {
-    	   	Date parsed = format.parse(dateString);
-            System.out.println("=========   ------------");
-            System.out.println("EXECUTING - TestFileSize.java on " + parsed.toString());
-            System.out.println("=========   ------------");
-            System.out.println("");
-            
+    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
 
             //String directory = "/Users/mwicks/eclipseWorkspace/DB2OBO_Sept_2011";
             
             if (args.length != 1) {
+            	
             	System.out.println(" ERROR - There MUST be 1 argument passed to this program!\n ERROR - Try Again!");
             }
             else {
+            	
                 String directory = args[0];
 
                 String[] filenames = null;
@@ -120,21 +108,13 @@ public class TestFileSize {
                         System.out.println("filename: " + file + " : " + FileUtil.roundObjectSize(files[i].length()));
                     }
                 }
-
             }
 
-            long endTime = System.currentTimeMillis();
-        	long duration = endTime - startTime;
-            System.out.println("");
-            System.out.println("=========   ------------");
-            System.out.println("DONE      - TestFileSize.java took " + duration + " milliseconds");
-            System.out.println("=========   ------------");
-
+            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
+    		
     		e.printStackTrace();
     	}
-
 	}  
-	
 }

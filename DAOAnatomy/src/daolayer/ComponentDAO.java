@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -46,10 +45,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Component;
 
 public final class ComponentDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT AOC_OID, AOC_NAME, AOC_OBO_ID, AOC_DB_ID, AOC_NEW_ID, AOC_NAMESPACE, AOC_DEFINITION, AOC_GROUP, AOC_START, AOC_END, AOC_PRESENT, AOC_STATUS_CHANGE, AOC_STATUS_RULE " +
@@ -142,7 +142,7 @@ public final class ComponentDAO {
     /*
      * Returns the daocomponent from the database matching the given OID, otherwise null.
      */
-    public Component findByOid(Long oid) throws DAOException {
+    public Component findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -150,7 +150,7 @@ public final class ComponentDAO {
     /*
      * Returns the daocomponent from the database matching the given OBO ID, otherwise null.
      */
-    public Component findByOboId(String oboid) throws DAOException {
+    public Component findByOboId(String oboid) throws Exception {
     	
         return find(SQL_FIND_BY_OBO_ID, oboid);
     }
@@ -158,7 +158,7 @@ public final class ComponentDAO {
     /*
      * Returns the daocomponent from the database matching the given OBI Name, otherwise null.
      */
-    public Component findByOboName(String oboname) throws DAOException {
+    public Component findByOboName(String oboname) throws Exception {
     	
         return find(SQL_FIND_BY_OBO_NAME, oboname);
     }
@@ -166,7 +166,7 @@ public final class ComponentDAO {
     /*
      * Returns a list of ALL components, otherwise null.
      */
-    public List<Component> listAll() throws DAOException {
+    public List<Component> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -174,7 +174,7 @@ public final class ComponentDAO {
     /*
      * Returns a list of ALL components, otherwise null.
      */
-    public List<Component> listAllOrderByEMAPA() throws DAOException {
+    public List<Component> listAllOrderByEMAPA() throws Exception {
     	
         return list(SQL_LIST_ALL_ORDER_BY_EMAPA);
     }
@@ -182,7 +182,7 @@ public final class ComponentDAO {
     /*
      * Returns true if the given daocomponent OID exists in the database.
      */
-    public boolean existOid(String oid) throws DAOException {
+    public boolean existOid(String oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -194,12 +194,14 @@ public final class ComponentDAO {
      *   then it will invoke "create(Component)", 
      *   else it will invoke "update(Component)".
      */
-    public void save(Component daocomponent) throws DAOException {
+    public void save(Component daocomponent) throws Exception {
      
     	if (daocomponent.getOid() == null) {
+    		
             create(daocomponent);
         }
     	else {
+    		
             update(daocomponent);
         }
     }
@@ -208,7 +210,7 @@ public final class ComponentDAO {
      * Returns the daocomponent from the database matching the given 
      *  SQL query with the given values.
      */
-    private Component find(String sql, Object... values) throws DAOException {
+    private Component find(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -216,19 +218,23 @@ public final class ComponentDAO {
         Component daocomponent = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 daocomponent = mapComponent(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return daocomponent;
@@ -238,7 +244,7 @@ public final class ComponentDAO {
      * Returns a list of all components from the database. 
      *  The list is never null and is empty when the database does not contain any components.
      */
-    public List<Component> list(String sql, Object... values) throws DAOException {
+    public List<Component> list(String sql, Object... values) throws Exception {
       
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -246,19 +252,23 @@ public final class ComponentDAO {
         List<Component> components = new ArrayList<Component>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 components.add(mapComponent(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return components;
@@ -270,7 +280,7 @@ public final class ComponentDAO {
      *  If the daocomponent OID value is unknown, rather use save(Component).
      * After creating, the DAO will set the obtained ID in the given daocomponent.
      */
-    public void create(Component daocomponent) throws IllegalArgumentException, DAOException {
+    public void create(Component daocomponent) throws IllegalArgumentException, Exception {
 
     	Object[] values = {
         	daocomponent.getName(),
@@ -292,26 +302,31 @@ public final class ComponentDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating Component failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_OBO_COMPONENT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -321,9 +336,10 @@ public final class ComponentDAO {
      *  The daocomponent OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the daocomponent OID value is unknown, rather use save(Component)}.
      */
-    public void update(Component daocomponent) throws DAOException {
+    public void update(Component daocomponent) throws Exception {
     	
         if (daocomponent.getOid() == null) {
+        	
             throw new IllegalArgumentException("Component is not created yet, so the daocomponent OID cannot be null.");
         }
 
@@ -347,29 +363,35 @@ public final class ComponentDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating Component failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponent.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_OBO_COMPONENT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -377,7 +399,7 @@ public final class ComponentDAO {
      *  Delete the given daocomponent from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponent to null.
      */
-    public void delete(Component daocomponent) throws DAOException {
+    public void delete(Component daocomponent) throws Exception {
     	
         Object[] values = { 
         	daocomponent.getOid() 
@@ -387,29 +409,35 @@ public final class ComponentDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting Component failed, no rows affected.");
                 } 
                 else {
+                	
                 	daocomponent.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_OBO_COMPONENT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -417,39 +445,44 @@ public final class ComponentDAO {
      *  Delete the given daocomponent from the database. 
      *  After deleting, the DAO will set the ID of the given daocomponent to null.
      */
-    public void empty() throws DAOException {
+    public void empty() throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting ALL Components failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Delete ALL ANA_OBO_COMPONENT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -457,16 +490,19 @@ public final class ComponentDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -478,7 +514,7 @@ public final class ComponentDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<Component> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -556,20 +592,24 @@ public final class ComponentDAO {
         List<Component> dataList = new ArrayList<Component>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapComponent(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -578,7 +618,7 @@ public final class ComponentDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -608,20 +648,24 @@ public final class ComponentDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -630,7 +674,7 @@ public final class ComponentDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws DAOException {
+    public int countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -638,20 +682,24 @@ public final class ComponentDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -677,7 +725,6 @@ public final class ComponentDAO {
        		resultSet.getInt("AOC_PRESENT"),
        		resultSet.getString("AOC_STATUS_CHANGE"), 
        		resultSet.getString("AOC_STATUS_RULE")
-
         );
     }
 }

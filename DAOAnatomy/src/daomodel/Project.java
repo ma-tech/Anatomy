@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        Project.java
 *
@@ -31,7 +31,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class Project {
@@ -53,13 +52,6 @@ public class Project {
     /*
      * Minimal constructor. Contains required fields.
      */
-
-    /*
-     * Full constructor. Contains required and optional fields.
-     * 
-     * The Full Constructor is the Minimal Constructor
-     * 
-     */
     public Project(String name) {
 
 	    this.name = name;
@@ -75,7 +67,7 @@ public class Project {
         this.name = name;
     }
 
-    // Override -----------------------------------------------------------------------------------
+    // Helper -------------------------------------------------------------------------------------
     /*
      * The Project Name is unique for each Project.
      *  So this should compare Project by Name only.

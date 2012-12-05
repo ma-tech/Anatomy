@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        ComponentAlternative.java
 *
@@ -19,7 +19,7 @@
 * Version: 1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
-*                ComponentAlternative Table - ANA_OBO_COMPONENT_SYNONYM
+*                ComponentAlternative Table - ANA_OBO_COMPONENT_ALTERNATIVE
 *
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
@@ -31,16 +31,14 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daomodel;
 
 public class ComponentAlternative {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *  Columns:
-     *   ACS_OID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACS_OBO_ID varchar(25) NOT NULL,
-     *   ACS_OBO_ALT_ID varchar(25) NOT NULL,
+     *   ACS_OID        - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACS_OBO_ID     - varchar(25) NOT NULL,
+     *   ACS_OBO_ALT_ID - varchar(25) NOT NULL,
 	 */
     private Long oid;
     private String id;
@@ -92,7 +90,7 @@ public class ComponentAlternative {
     /*
      * Is this ComponentAlternative the same as the Supplied ComponentAlternative?
      */
-    public boolean isComponentAlternativeSameAs(ComponentAlternative daocomponentalternative){
+    public boolean isSameAs(ComponentAlternative daocomponentalternative){
 
     	if ( this.getId().equals(daocomponentalternative.getId()) && 
              this.getAltId() == daocomponentalternative.getAltId() ){
@@ -100,6 +98,7 @@ public class ComponentAlternative {
         	return true;
         }
         else {
+        	
             return false;
         }
     }
@@ -109,6 +108,7 @@ public class ComponentAlternative {
      *  So this should compare ComponentAlternative by OID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof ComponentAlternative) && (oid != null) 
         		? oid.equals(((ComponentAlternative) other).oid) 
         		: (other == this);
@@ -119,6 +119,7 @@ public class ComponentAlternative {
      *  Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("ComponentAlternative [ oid=%d, id=%s, altId=%s ]", 
         		oid, id, altId );
     }

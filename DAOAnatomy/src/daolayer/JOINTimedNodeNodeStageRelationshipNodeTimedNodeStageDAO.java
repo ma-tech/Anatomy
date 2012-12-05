@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO.java
 *
@@ -34,7 +34,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -50,7 +49,6 @@ import java.util.List;
 import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
 
 public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
@@ -109,7 +107,6 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
         "AND g.STG_NAME = ? " +
         "AND a.ATN_PUBLIC_ID = ? " +
         "ORDER BY e.ATN_PUBLIC_ID";
-            
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -130,7 +127,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
      * Returns a list of ALL JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage, otherwise null.
      */
     public List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> listAll() 
-    		throws DAOException {
+    		throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -139,7 +136,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
      * Returns a list of ALL JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage by Node Fk, Ordered by Stage Name, otherwise null.
      */
     public List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> listAllByStageName(String stageName1, String stageName2, String parentTimedNode)
-    		throws DAOException {
+    		throws Exception {
     	
         return list(SQL_LIST_ALL_BY_STAGE_NAME, stageName1, stageName2);
     }
@@ -148,18 +145,17 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
      * Returns a list of ALL JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage by Node Fk, Ordered by Stage Sequence, otherwise null.
      */
     public List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> listAllStageNameAndParent(String stageName1, String stageName2, String parentTimedNode) 
-    		throws DAOException {
+    		throws Exception {
     	
         return list(SQL_LIST_ALL_BY_STAGE_NAME_BY_PARENT, stageName1, stageName2, parentTimedNode);
     }
-    
     
     /*
      * Returns a list of all JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage from the database. 
      *  The list is never null and is empty when the database does not contain any JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage.
      */
     public List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> list(String sql, Object... values) 
-    		throws DAOException {
+    		throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -167,25 +163,28 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO {
         List<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage> jointimednodestages = new ArrayList<JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 jointimednodestages.add(mapJOINTimedNodeNodeStageRelationshipNodeTimedNodeStage(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return jointimednodestages;
     }
     
-
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to an User.

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        DerivedPartOfDAO.java
 *
@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -47,6 +46,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daomodel.DerivedPartOf;
+
+import utility.Wrapper;
 
 public final class DerivedPartOfDAO {
 
@@ -141,7 +142,7 @@ public final class DerivedPartOfDAO {
     /*
      * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOf findByOid(Long oid) throws DAOException {
+    public DerivedPartOf findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -149,7 +150,7 @@ public final class DerivedPartOfDAO {
     /*
      * Returns a list of ALL derivedpartofs, otherwise null.
      */
-    public List<DerivedPartOf> listAll() throws DAOException {
+    public List<DerivedPartOf> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -157,7 +158,7 @@ public final class DerivedPartOfDAO {
     /*
      * Returns true if the given derivedpartof OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -169,12 +170,14 @@ public final class DerivedPartOfDAO {
      *   then it will invoke "create(DerivedPartOf)", 
      *   else it will invoke "update(DerivedPartOf)".
      */
-    public void save(DerivedPartOf derivedpartof) throws DAOException {
+    public void save(DerivedPartOf derivedpartof) throws Exception {
      
     	if (derivedpartof.getOid() == null) {
+    		
             create(derivedpartof);
         }
     	else {
+    		
             update(derivedpartof);
         }
     }
@@ -183,7 +186,7 @@ public final class DerivedPartOfDAO {
      * Returns the derivedpartof from the database matching the given 
      *  SQL query with the given values.
      */
-    private DerivedPartOf find(String sql, Object... values) throws DAOException {
+    private DerivedPartOf find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -191,28 +194,33 @@ public final class DerivedPartOfDAO {
         DerivedPartOf derivedpartof = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 derivedpartof = mapDerivedPartOf(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedpartof;
     }
     
-    /**
+    /*
      * Returns a list of relationship matching the given Node FK, otherwise null.
      */
-    public List<DerivedPartOf> listAllByNodeFK(String nodeFK) throws DAOException {
+    public List<DerivedPartOf> listAllByNodeFK(String nodeFK) throws Exception {
+    	
         return list(SQL_LIST_BY_NODE_FK, nodeFK);
     }
     
@@ -220,7 +228,7 @@ public final class DerivedPartOfDAO {
      * Returns a list of all derivedpartofs from the database. 
      *  The list is never null and is empty when the database does not contain any derivedpartofs.
      */
-    public List<DerivedPartOf> list(String sql, Object... values) throws DAOException {
+    public List<DerivedPartOf> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -228,19 +236,23 @@ public final class DerivedPartOfDAO {
         List<DerivedPartOf> derivedpartofs = new ArrayList<DerivedPartOf>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 derivedpartofs.add(mapDerivedPartOf(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedpartofs;
@@ -253,7 +265,7 @@ public final class DerivedPartOfDAO {
      *   If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
      *    After creating, the DAO will set the obtained ID in the given derivedpartof.
      */
-    public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, DAOException {
+    public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, Exception {
     	
     	Object[] values = {
     		derivedpartof.getOid(),
@@ -279,26 +291,31 @@ public final class DerivedPartOfDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating DerivedPartOf failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANAD_PART_OF Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -308,9 +325,10 @@ public final class DerivedPartOfDAO {
      *  The derivedpartof OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the derivedpartof OID value is unknown, rather use save(DerivedPartOf)}.
      */
-    public void update(DerivedPartOf derivedpartof) throws DAOException {
+    public void update(DerivedPartOf derivedpartof) throws Exception {
     	
         if (derivedpartof.getOid() == null) {
+        	
             throw new IllegalArgumentException("DerivedPartOf is not created yet, so the derivedpartof OID cannot be null.");
         }
 
@@ -337,30 +355,36 @@ public final class DerivedPartOfDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating DerivedPartOf failed, no rows affected.");
                 } 
                 else {
+                	
                 	derivedpartof.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANAD_PART_OF Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
      
@@ -369,7 +393,7 @@ public final class DerivedPartOfDAO {
      * 
      *  After deleting, the DAO will set the ID of the given derivedpartof to null.
      */
-    public void delete(DerivedPartOf derivedpartof) throws DAOException {
+    public void delete(DerivedPartOf derivedpartof) throws Exception {
     	
         Object[] values = { 
         	derivedpartof.getOid() 
@@ -379,36 +403,42 @@ public final class DerivedPartOfDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting derivedpartof failed, no rows affected.");
                 } 
                 else {
+                	
                 	derivedpartof.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANAD_PART_OF Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -416,16 +446,19 @@ public final class DerivedPartOfDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -437,7 +470,7 @@ public final class DerivedPartOfDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<DerivedPartOf> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -524,28 +557,31 @@ public final class DerivedPartOfDAO {
             List<DerivedPartOf> dataList = new ArrayList<DerivedPartOf>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOf(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
-
         }
         else {
+        	
             sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
 
             Object[] values = {
@@ -562,22 +598,25 @@ public final class DerivedPartOfDAO {
             List<DerivedPartOf> dataList = new ArrayList<DerivedPartOf>();
 
             try {
+            	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
                 while (resultSet.next()) {
+                	
                     dataList.add(mapDerivedPartOf(resultSet));
                 }
-                
             } 
             catch (SQLException e) {
+            	
                 throw new DAOException(e);
             } 
             finally {
-                close(connection, preparedStatement, resultSet);
+            	
+                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -587,7 +626,7 @@ public final class DerivedPartOfDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -617,27 +656,32 @@ public final class DerivedPartOfDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
             
             if (searchFirst.equals("")){
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+            	
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
             }
             else {
-                preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
+            	
+                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
-            
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

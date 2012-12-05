@@ -1,0 +1,64 @@
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyRebuild
+*
+* Title:        MainLoadOBOFileIntoComponentsTables.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  A Main Executable Class that Loads an OBOFile Into Components Tables in the 
+*                Anatomy Database 
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
+package main;
+
+import utility.Wrapper;
+
+import obolayer.OBOFactory;
+
+import daolayer.DAOFactory;
+
+import routines.runnable.LoadOBOFileIntoComponentsTables;
+
+public class MainLoadOBOFileIntoComponentsTables {
+
+	public static void main(String[] args) throws Exception {
+
+    	String requestMsgLevel = args[0]; 
+
+    	long startTime = Wrapper.printPrologue(requestMsgLevel, Wrapper.getExecutingClass());
+
+		if (args.length != 3) {
+			
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "HIGH", requestMsgLevel);
+        }
+        else {
+        
+        	OBOFactory obofactory = OBOFactory.getInstance(args[2]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
+
+            LoadOBOFileIntoComponentsTables.run( requestMsgLevel, daofactory, obofactory );
+        }
+        
+        Wrapper.printEpilogue(requestMsgLevel, Wrapper.getExecutingClass(), startTime);
+    }
+}

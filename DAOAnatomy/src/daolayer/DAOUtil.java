@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy008
+* Project:      DAOAnatomy
 *
 * Title:        DAOUtil.java
 *
@@ -38,7 +38,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package daolayer;
 
 import java.io.BufferedWriter;
@@ -55,6 +54,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import utility.Wrapper;
+
 public final class DAOUtil {
 
     // Constructors -------------------------------------------------------------------------------
@@ -67,32 +68,36 @@ public final class DAOUtil {
      * Returns a PreparedStatement of the given connection, set with the given SQL query and the
      * given parameter values.
      */
-    public static PreparedStatement prepareStatement
-        (Boolean debug, String sqloutput, Connection connection, String sql, boolean returnGeneratedKeys, Object... values)
-            throws SQLException {
+    public static PreparedStatement prepareStatement(String level,
+    		String sqloutput, 
+    		Connection connection, 
+    		String sql, 
+    		boolean returnGeneratedKeys, 
+    		Object... values) throws Exception {
         
     	PreparedStatement preparedStatement = connection.prepareStatement(sql,
             returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS);
         
         setValues(preparedStatement, values);
         
-        if (debug && sqloutput == null) {
-            String strArray [] = preparedStatement.toString().split(": ");
-        	System.out.println("DEBUG: " + strArray[1] + ";");
-        }
+
+        String strArray [] = preparedStatement.toString().split(": ");
         
-        if (debug && sqloutput != null) {
+        Wrapper.printMessage("daoutil.prepareStatement;DEBUG " + strArray[1] + ";", "LOW", level);
+        
+        if ( sqloutput != null) {
+        	
         	try {
-                BufferedWriter outputFile =
+
+        		BufferedWriter outputFile =
                         new BufferedWriter(new FileWriter(sqloutput, true));
-                String strArray [] = preparedStatement.toString().split(": ");
                 outputFile.write(strArray[1] + ";\n");
                 outputFile.close();
         	}
         	catch(IOException io) {
+        		
         		io.printStackTrace();
         	}
-        		
         }
         
         return preparedStatement;
@@ -105,6 +110,7 @@ public final class DAOUtil {
         throws SQLException {
         
     	for ( int i = 0; i < values.length; i++ ) {
+    		
             preparedStatement.setObject(i + 1, values[i]);
         }
     }
@@ -112,14 +118,17 @@ public final class DAOUtil {
     /*
      * Quietly close the Connection. Any errors will be printed to the stderr.
      */
-    public static void close(Connection connection) {
+    public static void close(String level, Connection connection) throws Exception {
         
     	if ( connection != null ) {
+    		
             try {
+            	
                 connection.close();
             }
             catch (SQLException e) {
-                System.err.println("Closing Connection failed: " + e.getMessage());
+            	
+                Wrapper.printMessage("daoutil.prepareStatement;Closing Connection failed: " + e.getMessage(), "HIGH", level);
                 e.printStackTrace();
             }
         }
@@ -128,14 +137,17 @@ public final class DAOUtil {
     /*
      * Quietly close the Statement. Any errors will be printed to the stderr.
      */
-    public static void close(Statement statement) {
+    public static void close(String level, Statement statement) throws Exception {
         
     	if (statement != null) {
+    		
             try {
+            	
                 statement.close();
             } 
             catch (SQLException e) {
-                System.err.println("Closing Statement failed: " + e.getMessage());
+            	
+                Wrapper.printMessage("daoutil.prepareStatement;Closing Statement failed: " + e.getMessage(), "HIGH", level);
                 e.printStackTrace();
             }
         }
@@ -144,14 +156,16 @@ public final class DAOUtil {
     /*
      * Quietly close the ResultSet. Any errors will be printed to the stderr.
      */
-    public static void close(ResultSet resultSet) {
+    public static void close(String level, ResultSet resultSet) throws Exception {
         
     	if (resultSet != null) {
+    		
             try {
                 resultSet.close();
             }
             catch (SQLException e) {
-                System.err.println("Closing ResultSet failed: " + e.getMessage());
+            	
+                Wrapper.printMessage("daoutil.close;Closing ResultSet failed:  "  + e.getMessage(), "HIGH", level);
                 e.printStackTrace();
             }
         }
@@ -160,20 +174,20 @@ public final class DAOUtil {
     /*
      * Quietly close the Connection and Statement. Any errors will be printed to the stderr.
      */
-    public static void close(Connection connection, Statement statement) {
+    public static void close(String level, Connection connection, Statement statement) throws Exception {
         
-    	close(statement);
-        close(connection);
+    	close(level, statement);
+        close(level, connection);
     }
 
     /*
      * Quietly close the Connection, Statement and ResultSet. Any errors will be printed to the stderr.
      */
-    public static void close(Connection connection, Statement statement, ResultSet resultSet) {
+    public static void close(String level, Connection connection, Statement statement, ResultSet resultSet) throws Exception {
         
-    	close(resultSet);
-        close(statement);
-        close(connection);
+    	close(level, resultSet);
+        close(level, statement);
+        close(level, connection);
     }
 
     /*
@@ -187,13 +201,16 @@ public final class DAOUtil {
     	byte[] hash;
 
         try {
+        	
             hash = MessageDigest.getInstance("MD5").digest(string.getBytes("UTF-8"));
         }
         catch (NoSuchAlgorithmException e) {
+        	
             // Unexpected exception. "MD5" is just hardcoded and supported.
             throw new RuntimeException("MD5 should be supported?", e);
         }
         catch (UnsupportedEncodingException e) {
+        	
             // Unexpected exception. "UTF-8" is just hardcoded and supported.
             throw new RuntimeException("UTF-8 should be supported?", e);
         }
@@ -201,7 +218,9 @@ public final class DAOUtil {
         StringBuilder hex = new StringBuilder(hash.length * 2);
         
         for (byte b : hash) {
+        	
             if ((b & 0xff) < 0x10) {
+            	
             	hex.append("0");
             }
             hex.append(Integer.toHexString(b & 0xff));

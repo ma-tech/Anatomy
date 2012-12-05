@@ -28,55 +28,34 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main;
 
-import java.text.SimpleDateFormat;
+import utility.Wrapper;
 
-import java.util.Date;
-
-import routinesaggregated.CheckDatabaseReferenceTree;
+import routines.runnable.CheckDatabaseReferenceTree;
 
 import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-
 public class MainCheckDatabaseReferenceTree {
-	/*
-	 * Main Class
-	 */
-    public static void main(String[] args) throws Exception {
 
-    	long startTime = System.currentTimeMillis();
-    	Date startDate = new Date();
-    	String dateString = startDate.toString();
-    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-    	Date parsed = format.parse(dateString);
-        System.out.println("=========   ------------------------------");
-        System.out.println("EXECUTING - MainCheckDatabaseReferenceTree.java on " + parsed.toString());
-        System.out.println("=========   ------------------------------");
-        System.out.println("");
+	public static void main(String[] args) throws Exception {
 
-        /*
-         * MAINLINE
-         */
-        if (args.length != 2) {
-        	System.out.println(" ERROR - There MUST be 2 arguments passed to this program!\n ERROR - Try Again!");
+    	long startTime = Wrapper.printPrologue("HIGH", Wrapper.getExecutingClass());
+
+		if (args.length != 2) {
+			
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "HIGH", "HIGH");
         }
         else {
-            // Obtain OBOFactory.
-            OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+        
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckDatabaseReferenceTree.run(daofactory, obofactory);
+            CheckDatabaseReferenceTree.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
         }
         
-        System.out.println("");
-    	long endTime = System.currentTimeMillis();
-    	long duration = endTime - startTime;
-        System.out.println("=========   ------------------------------");
-        System.out.println("DONE      - MainCheckDatabaseReferenceTree.java took " + duration / 1000 + " seconds");
-        System.out.println("=========   ------------------------------");
+        Wrapper.printEpilogue("HIGH", Wrapper.getExecutingClass(), startTime);
     }
 }

@@ -1,5 +1,38 @@
-
-
+/*
+*----------------------------------------------------------------------------------------------
+* Project:      DAOAnatomy
+*
+* Title:        RelationshipProjectDAO.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  This class represents a SQL Database Access Object for the Relationship DTO.
+*  
+*               This DAO should be used as a central point for the mapping between 
+*                the Relationship DTO and a SQL database.
+*
+* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; 21st March 2012; Create Class
+*
+*----------------------------------------------------------------------------------------------
+*/
 package daolayer;
 
 import static daolayer.DAOUtil.*;
@@ -14,8 +47,9 @@ import java.util.List;
 
 import daomodel.RelationshipProject;
 
-public final class RelationshipProjectDAO {
+import utility.Wrapper;
 
+public final class RelationshipProjectDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT RLP_OID, RLP_RELATIONSHIP_FK, RLP_PROJECT_FK, RLP_SEQUENCE " +
@@ -79,7 +113,6 @@ public final class RelationshipProjectDAO {
         "SELECT RLP_OID " +
         "FROM ANA_RELATIONSHIP_PROJECT " +
         "WHERE RLP_OID = ?";
-
     
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -99,7 +132,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws DAOException {
+    public int maximumOid() throws Exception {
     	
         return maximum(SQL_MAX_OID);
     }
@@ -107,7 +140,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns the relationshipproject from the database matching the given OID, otherwise null.
      */
-    public RelationshipProject findByOid(Long oid) throws DAOException {
+    public RelationshipProject findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -115,7 +148,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns a list of ALL relationshipprojects by Parent FK, otherwise null.
      */
-    public List<RelationshipProject> listByProjectFK(Long projectFK) throws DAOException {
+    public List<RelationshipProject> listByProjectFK(Long projectFK) throws Exception {
     	
         return list(SQL_LIST_BY_PROJECT_FK, projectFK);
     }
@@ -123,7 +156,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns a list of ALL relationshipprojects by Sequence Number, otherwise null.
      */
-    public List<RelationshipProject> listBySequence(Long sequence) throws DAOException {
+    public List<RelationshipProject> listBySequence(Long sequence) throws Exception {
     	
         return list(SQL_LIST_BY_SEQUENCE, sequence);
     }
@@ -131,7 +164,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns a list of ALL relationshipprojects by Relationship FK, otherwise null.
      */
-    public List<RelationshipProject> listByRelationshipFK(Long relationshipFK) throws DAOException {
+    public List<RelationshipProject> listByRelationshipFK(Long relationshipFK) throws Exception {
     	
         return list(SQL_LIST_BY_RELATIONSHIP_FK, relationshipFK);
     }
@@ -139,7 +172,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns a list of ALL relationshipprojects, otherwise null.
      */
-    public List<RelationshipProject> listAll() throws DAOException {
+    public List<RelationshipProject> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
     }
@@ -147,7 +180,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns true if the given relationshipproject OID exists in the database.
      */
-    public boolean existOid(Long oid) throws DAOException {
+    public boolean existOid(Long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -159,12 +192,14 @@ public final class RelationshipProjectDAO {
      *   then it will invoke "create(RelationshipProject)", 
      *   else it will invoke "update(RelationshipProject)".
      */
-    public void save(RelationshipProject relationshipproject) throws DAOException {
+    public void save(RelationshipProject relationshipproject) throws Exception {
      
     	if (relationshipproject.getOid() == null) {
+    		
             create(relationshipproject);
         }
     	else {
+    		
             update(relationshipproject);
         }
     }
@@ -173,7 +208,7 @@ public final class RelationshipProjectDAO {
      * Returns the relationshipproject from the database matching the given 
      *  SQL query with the given values.
      */
-    private RelationshipProject find(String sql, Object... values) throws DAOException {
+    private RelationshipProject find(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -181,19 +216,23 @@ public final class RelationshipProjectDAO {
         RelationshipProject relationshipproject = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
+            	
                 relationshipproject = mapRelationshipProject(resultSet);
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return relationshipproject;
@@ -203,7 +242,7 @@ public final class RelationshipProjectDAO {
      * Returns a list of all relationshipprojects from the database. 
      *  The list is never null and is empty when the database does not contain any relationshipprojects.
      */
-    public List<RelationshipProject> list(String sql, Object... values) throws DAOException {
+    public List<RelationshipProject> list(String sql, Object... values) throws Exception {
      
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -211,19 +250,23 @@ public final class RelationshipProjectDAO {
         List<RelationshipProject> relationshipprojects = new ArrayList<RelationshipProject>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 relationshipprojects.add(mapRelationshipProject(resultSet));
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return relationshipprojects;
@@ -236,7 +279,7 @@ public final class RelationshipProjectDAO {
      *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
      *   After creating, the DAO will set the obtained ID in the given relationshipproject.
      */
-    public void create(RelationshipProject relationshipproject) throws IllegalArgumentException, DAOException {
+    public void create(RelationshipProject relationshipproject) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
        		relationshipproject.getOid(),
@@ -250,26 +293,31 @@ public final class RelationshipProjectDAO {
         ResultSet generatedKeys = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Creating RelationshipProject failed, no rows affected.");
                 } 
             }
             else {
-            	System.out.println("UPDATE: Create ANA_RELATIONSHIP_PROJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, generatedKeys);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -279,9 +327,10 @@ public final class RelationshipProjectDAO {
      *  The relationshipproject OID must not be null, otherwise it will throw IllegalArgumentException. 
      *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
      */
-    public void update(RelationshipProject relationshipproject) throws DAOException {
+    public void update(RelationshipProject relationshipproject) throws Exception {
     	
         if (relationshipproject.getOid() == null) {
+        	
             throw new IllegalArgumentException("RelationshipProject is not created yet, so the relationshipproject OID cannot be null.");
         }
 
@@ -296,29 +345,35 @@ public final class RelationshipProjectDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Updating RelationshipProject failed, no rows affected.");
                 } 
                 else {
+                	
                 	relationshipproject.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Update ANA_RELATIONSHIP_PROJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Update ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
@@ -327,7 +382,7 @@ public final class RelationshipProjectDAO {
      * 
      *  After deleting, the DAO will set the ID of the given relationshipproject to null.
      */
-    public void delete(RelationshipProject relationshipproject) throws DAOException {
+    public void delete(RelationshipProject relationshipproject) throws Exception {
     	
         Object[] values = { 
         	relationshipproject.getOid() 
@@ -337,36 +392,42 @@ public final class RelationshipProjectDAO {
         PreparedStatement preparedStatement = null;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
             	int affectedRows = preparedStatement.executeUpdate();
                 
                 if (affectedRows == 0) {
+                	
                     throw new DAOException("Deleting relationshipproject failed, no rows affected.");
                 } 
                 else {
+                	
                 	relationshipproject.setOid(null);
                 }
             }
             else {
-            	System.out.println("UPDATE: Delete ANA_RELATIONSHIP_PROJECT Skipped");
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement);
+        	
+            close(daoFactory.getLevel(),connection, preparedStatement);
         }
     }
     
     /*
      * Returns true if the given SQL query with the given values returns at least one row.
      */
-    private boolean exist(String sql, Object... values) throws DAOException {
+    private boolean exist(String sql, Object... values) throws Exception {
     
     	Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -374,16 +435,19 @@ public final class RelationshipProjectDAO {
         boolean exist = false;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -395,7 +459,7 @@ public final class RelationshipProjectDAO {
      *  sorted by the given sort field and sort order.
      */
     public List<RelationshipProject> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
-        throws DAOException {
+        throws Exception {
     	
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -446,21 +510,25 @@ public final class RelationshipProjectDAO {
         List<RelationshipProject> dataList = new ArrayList<RelationshipProject>();
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
+            	
                 dataList.add(mapRelationshipProject(resultSet));
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -469,7 +537,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws DAOException {
+    public int count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -499,21 +567,25 @@ public final class RelationshipProjectDAO {
         int count = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
                 count = resultSet.getInt("VALUE");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -522,7 +594,7 @@ public final class RelationshipProjectDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws DAOException {
+    public int maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -530,21 +602,25 @@ public final class RelationshipProjectDAO {
         int maximum = 0;
 
         try {
+        	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.isDebug(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+            	
             	maximum = resultSet.getInt("MAXIMUM");
             }
             
         } 
         catch (SQLException e) {
+        	
             throw new DAOException(e);
         } 
         finally {
-            close(connection, preparedStatement, resultSet);
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

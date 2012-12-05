@@ -51,6 +51,195 @@ import daomodel.JsonNode;
 import daomodel.Leaf;
 
 public final class LeafDAO {
+    // DEPRECATED
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_OLD =
+        "SELECT" +
+        "  CAST(ANAV_OID_1 as CHAR) as ROOT_OID, " +  
+        "  ANAV_NAME_1 as ROOT_NAME, " +
+        "  ANAV_DESC_1 as ROOT_DESC, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " +
+        "  CAST(ANAV_OID_2 as CHAR) as CHILD_OID, " + 
+        "  ANAV_NAME_2 as CHILD_NAME, " +
+        "  'LEAF' as CHILD_ID, " +
+        "  ANAV_DESC_2 as CHILD_DESC, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " + 
+        "  'No Children' as GRAND_CHILD_ID, " + 
+        "  'No Children' as GRAND_CHILD_NAME, " +
+        "  'No Children' as GRAND_CHILD_DESC " +
+        "FROM ANAV_LEAF_RELATION " +
+        "JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_MIN_1 " +
+        "JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_MAX_1 " +
+        "JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_MIN_2 " +
+        "JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_MAX_2 " +
+        "WHERE ANAV_NAME_1 = ? " +
+        "UNION " +
+        "SELECT  " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " +
+        "  ANAV_DESC_1, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " + 
+        "  CAST(ANAV_OID_2 as CHAR), " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_ID_2, " +
+        "  ANAV_DESC_2, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        "FROM ANAV_GRAND_RELATION " +
+        "JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_STG_MIN_1 " +
+        "JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_STG_MAX_1 " +
+        "JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_STG_MIN_2 " +
+        "JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
+        "WHERE ANAV_NAME_1 = ? " +
+        "ORDER BY ROOT_DESC, CHILD_ID DESC, CHILD_DESC";
+
+    // DEPRECATED
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC_OLD =
+        "SELECT" +
+        "  CAST(ANAV_OID_1 as CHAR) as ROOT_OID, " +  
+        "  ANAV_NAME_1 as ROOT_NAME, " +
+        "  ANAV_DESC_1 as ROOT_DESC, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " +
+        "  CAST(ANAV_OID_2 as CHAR) as CHILD_OID, " + 
+        "  ANAV_NAME_2 as CHILD_NAME, " +
+        "  'LEAF' as CHILD_ID, " +
+        "  ANAV_DESC_2 as CHILD_DESC, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " + 
+        "  'No Children' as GRAND_CHILD_ID, " + 
+        "  'No Children' as GRAND_CHILD_NAME, " +
+        "  'No Children' as GRAND_CHILD_DESC " +
+        "FROM ANAV_LEAF_RELATION " +
+        "JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_MIN_1 " +
+        "JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_MAX_1 " +
+        "JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_MIN_2 " +
+        "JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_MAX_2 " +
+        "WHERE ANAV_NAME_1 = ? " +
+        "UNION " +
+        "SELECT  " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " +
+        "  ANAV_DESC_1, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " + 
+        "  CAST(ANAV_OID_2 as CHAR), " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_ID_2, " +
+        "  ANAV_DESC_2, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        "FROM ANAV_GRAND_RELATION " +
+        "JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_STG_MIN_1 " +
+        "JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_STG_MAX_1 " +
+        "JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_STG_MIN_2 " +
+        "JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
+        "WHERE ANAV_NAME_1 = ? " +
+        "ORDER BY CHILD_ID DESC, CHILD_NAME DESC";
+        //"ORDER BY ROOT_DESC, CHILD_DESC";
+
+    // DEPRECATED
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_OLD =
+        "SELECT" +
+        "  CAST(ANAV_OID_1 as CHAR) as ROOT_OID, " +  
+        "  ANAV_NAME_1 as ROOT_NAME, " +
+        "  ANAV_DESC_1 as ROOT_DESC, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " +
+        "  CAST(ANAV_OID_2 as CHAR) as CHILD_OID, " + 
+        "  ANAV_NAME_2 as CHILD_NAME, " +
+        "  'LEAF' as CHILD_ID, " +
+        "  ANAV_DESC_2 as CHILD_DESC, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " + 
+        "  'No Children' as GRAND_CHILD_ID, " + 
+        "  'No Children' as GRAND_CHILD_NAME, " +
+        "  'No Children' as GRAND_CHILD_DESC " +
+        " FROM ANAV_LEAF_RELATION " +
+        "  JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_MIN_1 " +
+        "  JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_MAX_1 " +
+        "  JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_MIN_2 " +
+        "  JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_MAX_2 " +
+        " WHERE ANAV_DESC_1 = ? " +
+        "UNION " +
+        "SELECT  " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " +
+        "  ANAV_DESC_1, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " + 
+        "  CAST(ANAV_OID_2 as CHAR), " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_ID_2, " +
+        "  ANAV_DESC_2, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        " FROM ANAV_GRAND_RELATION " +
+        "  JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_STG_MIN_1 " +
+        "  JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_STG_MAX_1 " +
+        "  JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_STG_MIN_2 " +
+        "  JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
+        " WHERE ANAV_DESC_1 = ? " +
+        "ORDER BY ROOT_DESC, CHILD_ID DESC, CHILD_DESC";
+
+    // DEPRECATED
+    private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC_OLD =
+        "SELECT" +
+        "  CAST(ANAV_OID_1 as CHAR) as ROOT_OID, " +  
+        "  ANAV_NAME_1 as ROOT_NAME, " +
+        "  ANAV_DESC_1 as ROOT_DESC, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " +
+        "  CAST(ANAV_OID_2 as CHAR) as CHILD_OID, " + 
+        "  ANAV_NAME_2 as CHILD_NAME, " +
+        "  'LEAF' as CHILD_ID, " +
+        "  ANAV_DESC_2 as CHILD_DESC, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " + 
+        "  'No Children' as GRAND_CHILD_ID, " + 
+        "  'No Children' as GRAND_CHILD_NAME, " +
+        "  'No Children' as GRAND_CHILD_DESC " +
+        " FROM ANAV_LEAF_RELATION " +
+        "  JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_MIN_1 " +
+        "  JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_MAX_1 " +
+        "  JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_MIN_2 " +
+        "  JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_MAX_2 " +
+        " WHERE ANAV_DESC_1 = ? " +
+        "UNION " +
+        "SELECT  " +
+        "  ANAV_ID_1, " +
+        "  ANAV_NAME_1, " +
+        "  ANAV_DESC_1, " +
+        "  a.STG_NAME AS STG_MIN_1, " +
+        "  b.STG_NAME AS STG_MAX_1, " + 
+        "  CAST(ANAV_OID_2 as CHAR), " +
+        "  ANAV_NAME_2, " +
+        "  ANAV_ID_2, " +
+        "  ANAV_DESC_2, " +
+        "  c.STG_NAME AS STG_MIN_2, " +
+        "  d.STG_NAME AS STG_MAX_2, " +
+        "  ANAV_ID_3, " +
+        "  ANAV_NAME_3, " +
+        "  ANAV_DESC_3 " +
+        " FROM ANAV_GRAND_RELATION " +
+        "  JOIN ANA_STAGE a on a.STG_SEQUENCE = ANAV_STG_MIN_1 " +
+        "  JOIN ANA_STAGE b on b.STG_SEQUENCE = ANAV_STG_MAX_1 " +
+        "  JOIN ANA_STAGE c on c.STG_SEQUENCE = ANAV_STG_MIN_2 " +
+        "  JOIN ANA_STAGE d on d.STG_SEQUENCE = ANAV_STG_MAX_2 " +
+        " WHERE ANAV_DESC_1 = ? " +
+        "ORDER BY ROOT_DESC, CHILD_DESC";
+    
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME =
         "SELECT" +

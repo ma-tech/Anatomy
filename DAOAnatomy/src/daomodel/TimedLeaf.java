@@ -83,37 +83,6 @@ package daomodel;
 
 public class TimedLeaf {
     // Properties ---------------------------------------------------------------------------------
-    private String stage;
-    // Stage Name 
-  private String rootOid;
-    // Unique Id for Row
-  private String rootName;
-    // 'Root' node - EMAPA ID
-  private String rootDescription;
-    // What the 'Root' actually is! eg. 'mouse'
-  private String childOid;
-    // Unique Id for Child
-  private String childId;
-    // Child Oid for Non-Leaf Nodes 
-    //  OR 'LEAF' for Leaf Nodes 
-  private String childName;
-    // Child EMAP ID for BOTH Leaf and Non-Leaf Nodes
-  private String childDescription;
-    // What the Child actually is! eg. 'embryo'
-  private String grandChildId;
-    // Grand-Child Oid for Non-Leaf Nodes
-    //  OR 'No Children' for Non-Leaf Nodes
-  private String grandChildName;
-    // Grand-Child EMAPA ID for Leaf Nodes 
-    //  OR 'No Children' for Non-Leaf Nodes
-  private String grandChildDescription;
-    // What the Grand-Child actually is! eg. 'compacted morula'
-    //  OR 'No Children' for Non-Leaf Nodes
-  private String nodeID;
-  // ANO_OID from ANA_NODE table
-  private String abstractName;
-  // ANO_PUBLIC_ID from ANA_NODE table
-
 	/*
 	 *  This Object is a wrapper to the output from a UNION SQL statement:
 	 *  
@@ -167,6 +136,37 @@ public class TimedLeaf {
      *                           OR 'No Children' for Non-Leaf Nodes
      *                           
 	 */
+    private String stage;
+      // Stage Name 
+    private String rootOid;
+      // Unique Id for Row
+    private String rootName;
+      // 'Root' node - EMAPA ID
+    private String rootDescription;
+      // What the 'Root' actually is! eg. 'mouse'
+    private String childOid;
+      // Unique Id for Child
+    private String childId;
+      // Child Oid for Non-Leaf Nodes 
+      //  OR 'LEAF' for Leaf Nodes 
+    private String childName;
+      // Child EMAP ID for BOTH Leaf and Non-Leaf Nodes
+    private String childDescription;
+      // What the Child actually is! eg. 'embryo'
+    private String grandChildId;
+      // Grand-Child Oid for Non-Leaf Nodes
+      //  OR 'No Children' for Non-Leaf Nodes
+    private String grandChildName;
+      // Grand-Child EMAPA ID for Leaf Nodes 
+      //  OR 'No Children' for Non-Leaf Nodes
+    private String grandChildDescription;
+      // What the Grand-Child actually is! eg. 'compacted morula'
+      //  OR 'No Children' for Non-Leaf Nodes
+    private String nodeID;
+    // ANO_OID from ANA_NODE table
+    private String abstractName;
+    // ANO_PUBLIC_ID from ANA_NODE table
+
     // Constructors -------------------------------------------------------------------------------
     /*
      * Default constructor.
@@ -321,7 +321,7 @@ public class TimedLeaf {
      */
     public String toString() {
 
-    	return String.format("TimedLeaf [ stage=%s, rootOid=%s, rootName=%s, rootDescription=%s, childOid=%s, childId=%s, childName=%s, childDescription=%s, grandChildId=%s, grandChildName=%s, grandChildDescription=%s, nodeID=%s, abstractName=%s ]\n", 
+    	return String.format("Leaf [ stage=%s, rootOid=%s, rootName=%s, rootDescription=%s, childOid=%s, childId=%s, childName=%s, childDescription=%s, grandChildId=%s, grandChildName=%s, grandChildDescription=%s, nodeID=%s, abstractName=%s ]\n", 
                                      stage, rootOid, rootName, rootDescription, childOid, childId, childName, childDescription, grandChildId, grandChildName, grandChildDescription, nodeID, abstractName);
 
     }

@@ -14,7 +14,7 @@ public class TestFileUtil {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     		
             File file1 = new File("/Users/mwicks/Desktop/LoremIpsum1.txt");
@@ -59,7 +59,7 @@ public class TestFileUtil {
                 System.out.println("file3, Record " + i3 + " : " + str3);
         	}
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

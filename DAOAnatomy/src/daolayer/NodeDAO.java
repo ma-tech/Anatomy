@@ -379,7 +379,7 @@ public final class NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -439,7 +439,7 @@ public final class NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -486,7 +486,7 @@ public final class NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

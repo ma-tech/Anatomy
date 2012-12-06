@@ -73,7 +73,7 @@ public class AnaSynonym {
     		
            	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("anasynonym.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("anasynonym.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
 
@@ -97,7 +97,7 @@ public class AnaSynonym {
     //  Insert new rows into ANA_SYNONYM
     public boolean insertANA_SYNONYM( ArrayList<OBOComponent> newTermList, String calledFrom ) throws Exception {
     	
-        Wrapper.printMessage("anasynonym.insertANA_SYNONYM:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.insertANA_SYNONYM:" + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component;
 
@@ -170,7 +170,7 @@ public class AnaSynonym {
     //  Delete rows from ANA_SYNONYM
     public boolean deleteANA_SYNONYM( ArrayList<OBOComponent> deleteSynComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM:" + calledFrom , "***", this.requestMsgLevel);
         	
         try {
         	
@@ -219,7 +219,7 @@ public class AnaSynonym {
 			ArrayList<OBOComponent> oldSynonymsTermList, 
 			String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.updateANA_SYNONYM:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.updateANA_SYNONYM:" + calledFrom , "***", this.requestMsgLevel);
     	
         try {
         	

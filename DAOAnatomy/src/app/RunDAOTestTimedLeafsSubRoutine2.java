@@ -31,13 +31,12 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import utility.Wrapper;
 
 import daomodel.TimedLeaf;
 
@@ -46,27 +45,27 @@ import daolayer.DAOFactory;
 
 import daolayer.TimedLeafDAO;
 
-
 public class RunDAOTestTimedLeafsSubRoutine2 {
-	/*
-	 * run Method
-	 */
+
 	public static void run (DAOFactory daofactory, String emapId, String stage) throws Exception {
 
 		try {
+			
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine2.run", "***", daofactory.getThingDAO().getLevel());
+
 			TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
 
 	    	List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
 
         	timedleafs = timedleafDAO.listAllTimedNodesByRootNameByChildDesc( emapId, stage, emapId, stage );
 
-  			System.out.println("==========================");
-  			System.out.println(emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonChildren");
-  			System.out.println("--------------------------");
-
-       		System.out.println( timedleafDAO.convertLeafListToStringJsonChildren(timedleafs) );
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine2.run:==========================", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine2.run:" + emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonChildren", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine2.run:--------------------------", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine2.run:" + timedleafDAO.convertLeafListToStringJsonChildren(timedleafs), "***", daofactory.getThingDAO().getLevel());
 		}
 		catch (DAOException daoe) {
+			
 			daoe.printStackTrace();
 		}
 	}

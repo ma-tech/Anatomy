@@ -31,12 +31,10 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
-
 import utility.ObjectConverter;
+import utility.Wrapper;
 
 import daomodel.Node;
 
@@ -45,12 +43,13 @@ import daolayer.DAOFactory;
 import daolayer.NodeDAO;
 
 public class RunDAOTest {
-	/*
-	 * run Method
-	 */
+
 	public static void run (DAOFactory daofactory) throws Exception {
 
 		try {
+			
+	        Wrapper.printMessage("RunDAOTest.run", "*", "*");
+
 	        // Obtain DAOs.
 	        NodeDAO nodeDAO = daofactory.getNodeDAO();
 
@@ -59,13 +58,14 @@ public class RunDAOTest {
 	        
 	        if ( nodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
 
-	        	System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!");
-		        Node node = nodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
-	            System.out.println(node.toString());
+		        Wrapper.printMessage("RunDAOTest.run:" + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
+
+	        	Node node = nodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Wrapper.printMessage("RunDAOTest.run:" + node.toString(), "*", "*");
 	        }
 	        else {
 	            
-	        	System.out.println("The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!");
+		        Wrapper.printMessage("RunDAOTest.run:" + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!", "*", "*");
 	        }
 		}
 		catch (DAOException daoe) {

@@ -57,20 +57,18 @@ public class UpdateDatabaseFromComponentsTables {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-	    Wrapper.printMessage("ListOBOComponentsFromComponentsTables", "LOW", requestMsgLevel);
-    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
+	    Wrapper.printMessage("updatedatabasefromcomponentstables.run", "***", requestMsgLevel);
+
+	    ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
     	MapBuilder newmapbuilder = new MapBuilder( requestMsgLevel, importcomponents.getTermList());
         TreeBuilder newtreebuilder = new TreeBuilder( requestMsgLevel, newmapbuilder);
 
         //import Database from dao.properties, anatomy008.url
-	    Wrapper.printMessage("ListOBOComponentsFromExistingDatabase", "LOW", requestMsgLevel);
 	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
         MapBuilder oldmapbuilder = new MapBuilder( requestMsgLevel, importdatabase.getTermList());
         TreeBuilder oldtreebuilder = new TreeBuilder( requestMsgLevel, oldmapbuilder);
 
         //check for rules violation
-	    Wrapper.printMessage("ValidateComponents", "LOW", requestMsgLevel);
-        
         ValidateComponents validatecomponents =
             new ValidateComponents( requestMsgLevel,
             		obofactory, 
@@ -93,7 +91,7 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorNewTerms.next();
     	    
-    		Wrapper.printMessage("NEW component.toString() " + component.toString(), "LOW", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run:NEW component.toString() " + component.toString(), "*", requestMsgLevel);
      	}
 
         Iterator<OBOComponent> iteratorModTerms = modComponents.iterator();
@@ -102,7 +100,7 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		Wrapper.printMessage("MOD component.toString() " + component.toString(), "LOW", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run:MOD component.toString() " + component.toString(), "*", requestMsgLevel);
      	}
 
         Iterator<OBOComponent> iteratorDelTerms = delComponents.iterator();
@@ -111,63 +109,57 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		Wrapper.printMessage("DEL component.toString() " + component.toString(), "LOW", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run:DEL component.toString() " + component.toString(), "*", requestMsgLevel);
      	}
 
         if ( newComponents.size() > 0 ) {
         	
             // Update the Database for NEW Components
-    	    Wrapper.printMessage("GenerateSQL - NEW", "LOW", requestMsgLevel);
-
         	GenerateSQL generatesql = new GenerateSQL( requestMsgLevel, daofactory, obofactory, newComponents, newtreebuilder, oldtreebuilder );
 
             if ( generatesql.isProcessed()) {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - NEW - SUCCESS!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - NEW - SUCCESS!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
             else {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - NEW - FAILURE!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - NEW - FAILURE!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
         }
         
         if ( modComponents.size() > 0 ) {
         	
             // Update the Database for Modified Components
-    	    Wrapper.printMessage("GenerateSQL - MOD", "LOW", requestMsgLevel);
-
         	GenerateSQL generatesql = new GenerateSQL( requestMsgLevel, daofactory, obofactory, modComponents, newtreebuilder, oldtreebuilder );
 
             if ( generatesql.isProcessed()) {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - MOD - SUCCESS!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - MOD - SUCCESS!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
             else {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - MOD - FAILURE!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - MOD - FAILURE!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
         }
 
         if ( delComponents.size() > 0 ) {
         	
             // Update the Database for Deleted Components
-    	    Wrapper.printMessage("GenerateSQL - DEL", "LOW", requestMsgLevel);
-
         	GenerateSQL generatesql = new GenerateSQL( requestMsgLevel, daofactory, obofactory, delComponents, newtreebuilder, oldtreebuilder );
 
             if ( generatesql.isProcessed()) {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - DEL - SUCCESS!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - DEL - SUCCESS!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
             else {
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("GenerateSQL - DEL - FAILURE!", "MEDIUM", requestMsgLevel);
-        	    Wrapper.printMessage("===========   ---   --------", "MEDIUM", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:GenerateSQL - DEL - FAILURE!", "***", requestMsgLevel);
+        	    Wrapper.printMessage("updatedatabasefromcomponentstables.run:===========   ---   --------", "***", requestMsgLevel);
             }
         }
     }

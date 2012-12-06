@@ -59,18 +59,18 @@ public class RunOBOTest {
 	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 	        obocomponents = componentOBO.listAll();
 	        
-	        Wrapper.printMessage("Number of File Components Read In = " + Integer.toString(obocomponents.size()), "LOW", requestMsgLevel);
+	        Wrapper.printMessage("Number of File Components Read In = " + Integer.toString(obocomponents.size()), "***", requestMsgLevel);
 
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        
 	        if (componentOBO.writeAll( "Abstract" )) {
 
-	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + componentOBO.outputFile(), "LOW", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + componentOBO.outputFile(), "***", requestMsgLevel);
 	        }
 	        else {
 	            
-	        	Wrapper.printMessage("Obo File FAILED to write to " + componentOBO.outputFile(), "LOW", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File FAILED to write to " + componentOBO.outputFile(), "***", requestMsgLevel);
 	        }
 	        
 		}

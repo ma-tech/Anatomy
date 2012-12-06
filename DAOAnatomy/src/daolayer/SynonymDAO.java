@@ -281,7 +281,7 @@ public final class SynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -336,7 +336,7 @@ public final class SynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -382,7 +382,7 @@ public final class SynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

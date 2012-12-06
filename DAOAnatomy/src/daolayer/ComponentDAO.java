@@ -317,7 +317,7 @@ public final class ComponentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -382,7 +382,7 @@ public final class ComponentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -428,7 +428,7 @@ public final class ComponentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -466,7 +466,7 @@ public final class ComponentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

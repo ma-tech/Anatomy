@@ -90,7 +90,7 @@ public class AnaLog {
     		
         	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("analog.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("analog.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
 
@@ -119,7 +119,7 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_TIMED_NODE Insertions or Deletions
     public boolean insertANA_LOG_Nodes( ArrayList<OBOComponent> recordTermList, String strSpecies, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Nodes:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Nodes:" + calledFrom , "***", this.requestMsgLevel);
         	
         //column values for insertion into ANA_LOG
         int intLOG_OID = 0;
@@ -244,7 +244,7 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_TIMED_NODE Insertions or Deletions
     public boolean insertANA_LOG_TimedNodes( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_TimedNodes:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_TimedNodes:" + calledFrom, "***", this.requestMsgLevel);
         	
         HashMap<String, String> atnOldValues = new HashMap<String, String>(); 
         int intLogLoggedOID = 0;
@@ -381,7 +381,7 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_RELATIONSHIP Insertions or Deletions
     public boolean insertANA_LOG_Relationships( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom, "***", this.requestMsgLevel);
         	
         try {
         	
@@ -519,7 +519,7 @@ public class AnaLog {
                             }
                             else {
                             
-                                Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom + ";" + "UNKNOWN Relationship Type = " + relationship.getTypeFK(), "HIGH", this.requestMsgLevel);
+                                Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom + ";" + "UNKNOWN Relationship Type = " + relationship.getTypeFK(), "*", this.requestMsgLevel);
                             }
 
                             deleteRelComponents.add( deleteRelComponent );
@@ -574,7 +574,7 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_SYNONYM Insertions or Deletions
     public boolean insertANA_LOG_Synonyms( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Synonyms:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Synonyms:" + calledFrom, "***", this.requestMsgLevel);
         	
         HashMap<String, String> synOldValues = new HashMap<String, String>(); 
         ArrayList<String> deleteSynonyms = new ArrayList<String>();

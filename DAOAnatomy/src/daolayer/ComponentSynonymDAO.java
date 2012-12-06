@@ -286,7 +286,7 @@ public final class ComponentSynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -340,7 +340,7 @@ public final class ComponentSynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -386,7 +386,7 @@ public final class ComponentSynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -424,7 +424,7 @@ public final class ComponentSynonymDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_SYNONYM Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_SYNONYM Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

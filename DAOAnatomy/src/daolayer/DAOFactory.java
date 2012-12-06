@@ -115,7 +115,7 @@ public abstract class DAOFactory {
 
     private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
             new String[] 
-        	    {"LOW","MEDIUM","HIGH"}
+        	    {"*****","****","***","**","*"}
             ));
     
     private static final Set<String> VALID_BOOLS = new HashSet<String>(Arrays.asList(
@@ -159,7 +159,7 @@ public abstract class DAOFactory {
         	if ( !VALID_LEVELS.contains( strMsgLevel ) ) {
         	
                 throw new DAOConfigurationException(
-                        "Driver class '" + driverClassName + "' : INVALID Value!");
+                        "Message Level '" + strMsgLevel + "' : INVALID Value!");
         	}
         	else {
         		
@@ -193,18 +193,17 @@ public abstract class DAOFactory {
                 if (strDebug.equals("true")) {
                 	
                 	debug = true;
-                	Wrapper.printMessage("=====", "HIGH", level);
-                	Wrapper.printMessage("DEBUG : DAO Properties File : " + filename, "HIGH", level);
-                	Wrapper.printMessage("-----", "HIGH", level);
-                	Wrapper.printMessage("      : url                 : " + url, "HIGH", level);
-                	Wrapper.printMessage("      : driverClassName     : " + driverClassName, "HIGH", level);
-                	Wrapper.printMessage("      : username            : " + username, "HIGH", level);
-                	Wrapper.printMessage("      : password            : " + password, "HIGH", level);
-                	Wrapper.printMessage("      : debug               : " + debug, "HIGH", level);
-                	Wrapper.printMessage("      : update              : " + update, "HIGH", level);
-                	Wrapper.printMessage("      : sqloutput           : " + sqloutput, "HIGH", level);
-                	Wrapper.printMessage("      : strMsgLevel         : " + strMsgLevel, "HIGH", level);
-                	Wrapper.printMessage("      : url                 : " + url, "HIGH", level);
+                	Wrapper.printMessage("=====", "*", level);
+                	Wrapper.printMessage("DEBUG : DAO Properties File : " + filename, "*", level);
+                	Wrapper.printMessage("-----", "*", level);
+                	Wrapper.printMessage("      : url                 : " + url, "*", level);
+                	Wrapper.printMessage("      : driverClassName     : " + driverClassName, "*", level);
+                	Wrapper.printMessage("      : username            : " + username, "*", level);
+                	Wrapper.printMessage("      : password            : " + password, "*", level);
+                	Wrapper.printMessage("      : debug               : " + debug, "*", level);
+                	Wrapper.printMessage("      : update              : " + update, "*", level);
+                	Wrapper.printMessage("      : sqloutput           : " + sqloutput, "*", level);
+                	Wrapper.printMessage("      : strMsgLevel         : " + strMsgLevel, "*", level);
                 }
                 
                 if (strDebug.equals("false")) {
@@ -222,19 +221,19 @@ public abstract class DAOFactory {
                     
             		results = ExecuteCommand.execute(commandString1);
 
-                	Wrapper.printMessage("-----", "HIGH", level);
-                	Wrapper.printMessage("      : Empty SQL Command Log File", "HIGH", level);
-                	Wrapper.printMessage("      : Command: " + commandString1, "HIGH", level);
+                	Wrapper.printMessage("-----", "*", level);
+                	Wrapper.printMessage("      : Empty SQL Command Log File", "*", level);
+                	Wrapper.printMessage("      : Command: " + commandString1, "*", level);
 
                 	Iterator<String> iteratorresults = results.iterator();
 
                   	while (iteratorresults.hasNext()) {
                   		
-                    	Wrapper.printMessage("                 " + iteratorresults.next(), "HIGH", level);
+                    	Wrapper.printMessage("                 " + iteratorresults.next(), "*", level);
                   	}
                 }
 
-                Wrapper.printMessage("=====", "HIGH", level);
+                Wrapper.printMessage("=====", "*", level);
             }
             
             // If driver is specified, then load it to let it register itself with DriverManager.
@@ -307,9 +306,6 @@ public abstract class DAOFactory {
     }
     public DerivedPartOfPerspectivesDAO getDerivedPartOfPerspectivesDAO() {
         return new DerivedPartOfPerspectivesDAO(this);
-    }
-    public DerivedPartOfPerspectivesFKDAO getDerivedPartOfPerspectivesFKDAO() {
-        return new DerivedPartOfPerspectivesFKDAO(this);
     }
     public DerivedPartOfPerspectivesJsonFKDAO getDerivedPartOfPerspectivesJsonFKDAO() {
         return new DerivedPartOfPerspectivesJsonFKDAO(this);

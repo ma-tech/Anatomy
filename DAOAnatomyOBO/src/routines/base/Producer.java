@@ -42,6 +42,7 @@ import java.util.Iterator;
 
 import obomodel.OBOComponent;
 import obomodel.Relation;
+import utility.Wrapper;
 
 public class Producer {
 
@@ -65,13 +66,14 @@ public class Producer {
 
     private boolean isProcessed;
 
-    private boolean boolDebug;
+    private String msgLevel;
 
     private boolean boolAlternatives;
     private boolean boolTimedComponents;
 
     // Constructor --------------------------------------------------------------------------------
-    public Producer(Boolean boolDebug,
+    public Producer(
+    		String msgLevel, 
     		String fileName, 
     		String fileVersion,
     		String fileNameSpace,
@@ -80,16 +82,11 @@ public class Producer {
     		ArrayList<OBOComponent> obocomponentList, 
     		ArrayList<Relation> oborelationList,
     		Boolean boolAlternatives,
-    		Boolean boolTimedComponents){
+    		Boolean boolTimedComponents) throws Exception{
     	
-        this.boolDebug = boolDebug;
+	    this.msgLevel = msgLevel;
         
-        if (this.boolDebug) {
-        	
-            System.out.println("========");
-            System.out.println("Producer - Constructor");
-            System.out.println("========");
-        }
+	    Wrapper.printMessage("producer.constructor", "***", this.msgLevel);
 
         this.fileName = fileName.trim();
         this.fileVersion = fileVersion.trim();
@@ -168,12 +165,9 @@ public class Producer {
     }
     
     // Methods ------------------------------------------------------------------------------------
-    public Boolean writeOboFile( String stage ){
+    public Boolean writeOboFile( String stage ) throws Exception{
 
-        if (this.boolDebug) {
-        	
-            System.out.println("writeOboFile");
-        }
+	    Wrapper.printMessage("producer.writeOboFile", "***", this.msgLevel);
 
         isProcessed = false;
 
@@ -181,7 +175,6 @@ public class Producer {
     		
     		String newFileName = fileName.substring(0, fileName.indexOf(".")) + "_" + stage + ".obo";
     		
-            //System.out.println("saveOBOFile #1");
             BufferedWriter outputFile =
                         new BufferedWriter(new FileWriter(newFileName));
 
@@ -191,7 +184,6 @@ public class Producer {
         	SimpleDateFormat format = new SimpleDateFormat("dd:MM:yyyy HH:mm");
         	String formattedDate = format.format(today);
             outputFile.write("date: " + formattedDate + "\n");
-            //System.out.println("Today’s date and Time is: " + formattedDate);
 
             outputFile.write("saved-by: " + fileSavedBy + "\n");
             outputFile.write("default-namespace: " + fileNameSpace + "\n");
@@ -227,12 +219,6 @@ public class Producer {
                                 outputFile.write("relationship: develops_from " +
                                 		obocomponentList.get(i).getChildOfs().get(j) + "\n");
                             }
-                        	/*
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("SURROUNDS")) {
-                                outputFile.write("relationship: surrounds " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                            */
                         	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("LOCATED_IN")) {
                         		
                                 outputFile.write("relationship: located_in " +
@@ -280,7 +266,7 @@ public class Producer {
                             }
                             else {
                             	
-                                System.out.println("UNKNOWN Relationship Type = " + obocomponentList.get(i).getChildOfTypes().get(j));
+                        	    Wrapper.printMessage("producer.writeOboFile:UNKNOWN Relationship Type = " + obocomponentList.get(i).getChildOfTypes().get(j) + "!", "*", this.msgLevel);
                             }
                         }
 
@@ -321,7 +307,6 @@ public class Producer {
                         	
                             for (int l=0; l<obocomponentList.get(i).getTimedComponents().size(); l++) {
                             	
-                                //outputFile.write("relationship: has_timed_component " +
                                 outputFile.write("alt_id: " +
                                 		obocomponentList.get(i).getTimedComponents().get(l) + "\n");
                             }
@@ -358,28 +343,35 @@ public class Producer {
                 }
             }
 
-            // terms - OBOComponent
-            //  for i
-            for (int i=0; i<oborelationList.size(); i++) {
             
-            	outputFile.write("\n[Typedef]\n");
-                outputFile.write("id: " + oborelationList.get(i).getID() + "\n");
-                outputFile.write("name: " + oborelationList.get(i).getName() + "\n");
+            if ( oborelationList != null) {
+            	
+                // terms - OBOComponent
+                //  for i
+                for (int i=0; i<oborelationList.size(); i++) {
                 
-                if ( "true".equals(oborelationList.get(i).getTransitive()) ) {
-                	
-                    outputFile.write("is_transitive: true\n");
+                	outputFile.write("\n[Typedef]\n");
+                    outputFile.write("id: " + oborelationList.get(i).getID() + "\n");
+                    outputFile.write("name: " + oborelationList.get(i).getName() + "\n");
+                    
+                    if ( "true".equals(oborelationList.get(i).getTransitive()) ) {
+                    	
+                        outputFile.write("is_transitive: true\n");
+                    }
                 }
             }
+
             outputFile.close();
             
             isProcessed = true;
     	}
     
     	catch(IOException io) {
+    		
             isProcessed = false;
     		io.printStackTrace();
     	}
+    	
     	return isProcessed;
     }
 }

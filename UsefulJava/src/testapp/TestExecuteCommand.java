@@ -12,7 +12,7 @@ public class TestExecuteCommand {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     		//String commandString1 = "ls -al";
             //String commandString1 = "rm /Users/mwicks/Dropbox/Work/Anatomy/TEST/sqloutput.sql";
@@ -32,7 +32,7 @@ public class TestExecuteCommand {
            		System.out.println("         " + result.toString());
           	}
     		
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

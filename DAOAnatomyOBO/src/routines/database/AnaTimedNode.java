@@ -78,7 +78,7 @@ public class AnaTimedNode {
     		
            	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("anatimednode.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("anatimednode.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
 
@@ -104,7 +104,7 @@ public class AnaTimedNode {
     //  Insert new rows into ANA_TIMED_NODE
     public boolean insertANA_TIMED_NODE( ArrayList<OBOComponent> newTermList, String calledFrom, String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
     		
         OBOComponent component;
         boolean flagInsert = false;
@@ -174,7 +174,7 @@ public class AnaTimedNode {
                         }
                         else {
                      	   
-                            Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strSpecies, "HIGH", this.requestMsgLevel);
+                            Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strSpecies, "*", this.requestMsgLevel);
                         }
 
                         timedComps.add(timedComponent);
@@ -255,7 +255,7 @@ public class AnaTimedNode {
     //  Delete rows from ANA_TIMED_NODE 
     public boolean deleteANA_TIMED_NODE( ArrayList<OBOComponent> deleteTimedComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         try {
         	
@@ -302,7 +302,7 @@ public class AnaTimedNode {
     //  update rows in ANA_TIMED_NODE
 	public boolean updateANA_TIMED_NODE( ArrayList<OBOComponent> changedTimedTermList, String calledFrom, String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         try {
         	

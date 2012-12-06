@@ -55,7 +55,9 @@ public class CheckFileReferenceTree {
 
     	try {
     		
-            ComponentOBO componentOBO = obofactory.getComponentOBO();
+    	    Wrapper.printMessage("checkfilereferencetree.run", "***", requestMsgLevel);
+
+    	    ComponentOBO componentOBO = obofactory.getComponentOBO();
 
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
             obocomponents = componentOBO.listAll();
@@ -77,26 +79,26 @@ public class CheckFileReferenceTree {
             //if file has problems don't allow to load
             if ( validatecomponents.getProblemTermList().isEmpty() ){
             	
-        	    Wrapper.printMessage("OBOCheckFileReferenceTree.java:\n=======\nPASSED!\n=======\n" +
+        	    Wrapper.printMessage("checkfilereferencetree.run:\n=======\nPASSED!\n=======\n" +
                         "Loading Default Reference Tree From Input OBO File:\n===\n" +
-            			"All Components in the Reference Tree are OK!\n", "LOW", requestMsgLevel);
+            			"All Components in the Reference Tree are OK!\n", "***", requestMsgLevel);
             }
             else {
             	
-        	    Wrapper.printMessage("OBOCheckFileReferenceTree.java:\n=======\nERRORS!\n=======\n" +
+        	    Wrapper.printMessage("checkfilereferencetree.run:\n=======\nERRORS!\n=======\n" +
                         "Loading Default Reference Tree From Input OBO File:\n" + 
-                		"Some components in the Reference Tree contain rule violations.\n", "LOW", requestMsgLevel);
+                		"Some components in the Reference Tree contain rule violations.\n", "***", requestMsgLevel);
                 
                 OBOComponent probobocomponent =
                         (OBOComponent) validatecomponents.getProblemTermList().get(0);
                 
-        	    Wrapper.printMessage("no. of components with problems = " + validatecomponents.getProblemTermList().size() + "\n", "LOW", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run:no. of components with problems = " + validatecomponents.getProblemTermList().size() + "\n", "***", requestMsgLevel);
                 
-        	    Wrapper.printMessage("checkComments = " + probobocomponent.getCheckComments(), "LOW", requestMsgLevel);
-        	    Wrapper.printMessage("orderComments = " + probobocomponent.getOrderComment(), "LOW", requestMsgLevel);
-        	    Wrapper.printMessage("userComments = " + probobocomponent.getUserComments(), "LOW", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run:checkComments = " + probobocomponent.getCheckComments(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run:orderComments = " + probobocomponent.getOrderComment(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run:userComments = " + probobocomponent.getUserComments(), "***", requestMsgLevel);
                 
-        	    Wrapper.printMessage("probobocomponent = " + probobocomponent.toString(), "LOW", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run:probobocomponent = " + probobocomponent.toString(), "***", requestMsgLevel);
             }
     	}
     	catch (Exception exception) {

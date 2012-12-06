@@ -42,11 +42,11 @@ public class MainEmptyComponentsTables {
 
 	public static void main(String[] args) throws Exception {
 
-    	long startTime = Wrapper.printPrologue("HIGH", Wrapper.getExecutingClass());
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
 		if (args.length != 2) {
 			
-		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "HIGH", "HIGH");
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "*", "*");
         }
         else {
         
@@ -56,6 +56,6 @@ public class MainEmptyComponentsTables {
             EmptyComponentsTables.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
         }
         
-        Wrapper.printEpilogue("HIGH", Wrapper.getExecutingClass(), startTime);
+        Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

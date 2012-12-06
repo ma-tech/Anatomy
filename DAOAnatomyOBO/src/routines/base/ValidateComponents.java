@@ -112,7 +112,7 @@ public class ValidateComponents {
     		
             this.requestMsgLevel = requestMsgLevel;
             
-            Wrapper.printMessage("validatecomponents.constructor #1 - 2 Lists", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("validatecomponents.constructor #1 - 2 Lists", "***", this.requestMsgLevel);
 
         	// 1: set abstract class parameters
             // 2: set stage class parameters
@@ -230,7 +230,7 @@ public class ValidateComponents {
     		
             this.requestMsgLevel = requestMsgLevel;
     	
-            Wrapper.printMessage("validatecomponents.constructor #2 - 1 List", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("validatecomponents.constructor #2 - 1 List", "***", this.requestMsgLevel);
 
             // 1: set abstract class parameters
             // 2: set stage class parameters
@@ -326,7 +326,7 @@ public class ValidateComponents {
      */
    public void clearStatusComments( ArrayList<OBOComponent>termList ) throws Exception{
 
-       Wrapper.printMessage("validatecomponents.clearStatusComments", "LOW", this.requestMsgLevel);
+       Wrapper.printMessage("validatecomponents.clearStatusComments", "***", this.requestMsgLevel);
        	
        for ( OBOComponent obocomponent: termList ){
     	   
@@ -360,7 +360,7 @@ public class ValidateComponents {
     	 *   we need to check that these conform to the root characteristics
     	 * 
     	 */
-        Wrapper.printMessage("validatecomponents.validateConfiguredRoots", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.validateConfiguredRoots", "***", this.requestMsgLevel);
         
         String rootNameSpace = "";
         String rootName = "";
@@ -378,8 +378,8 @@ public class ValidateComponents {
             rootName = rootobocomponent.getName();
             rootComments = rootobocomponent.getUserComments();
 
-            /*
-            if ( emapID.equals("EMAPA:35041") ) {
+            //if ( emapID.equals("MNW:0000001") ) {
+            if ( emapID.equals("MNW:0000001") ) {
             
                 System.out.println("=============");
                 System.out.println("emapID        = " + emapID);
@@ -412,7 +412,6 @@ public class ValidateComponents {
                 System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
                 System.out.println("=============");
             }
-            */
 
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
@@ -509,7 +508,7 @@ public class ValidateComponents {
      */
     private ArrayList<OBOComponent> getAbstractAnatomyChildren(TreeBuilder treebuilder) throws Exception{
 
-        Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren", "***", this.requestMsgLevel);
         
         ArrayList<OBOComponent> abstractAnatomyChildren = new ArrayList<OBOComponent>();
         
@@ -593,7 +592,7 @@ public class ValidateComponents {
      */
     private void validatePaths(TreeBuilder treebuilder) throws Exception{
 
-        Wrapper.printMessage("validatecomponents.validatePaths", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.validatePaths", "***", this.requestMsgLevel);
         
         Vector<DefaultMutableTreeNode[]> paths = new Vector<DefaultMutableTreeNode[]>();
 
@@ -657,7 +656,7 @@ public class ValidateComponents {
      */
     private void checkAbstractAnatomyLinks( ) throws Exception {
 
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks", "***", this.requestMsgLevel);
 
         //RED CHECK
         
@@ -689,8 +688,8 @@ public class ValidateComponents {
                 else if (obocomponent.getEndSequence() != ERROR_STAGE && 
                     obocomponent.getStartSequence() == ERROR_STAGE ) {
 
-                    Wrapper.printMessage(obocomponent.getID() + ": " +
-                            "Relation: Starts At -- Missing starts_at stage!", "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:"+ obocomponent.getID() + ": " +
+                            "Relation: Starts At -- Missing starts_at stage!", "*", this.requestMsgLevel);
 
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Relation: starts_at -- Missing " +
@@ -702,11 +701,11 @@ public class ValidateComponents {
                 else if (obocomponent.getEndSequence() == ERROR_STAGE && 
                     obocomponent.getStartSequence() != ERROR_STAGE ) {
 
-                    Wrapper.printMessage(obocomponent.getID() + ": " +
-                            "Relation: Ends At -- Missing ends_at stage!", "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:"+ obocomponent.getID() + ": " +
+                            "Relation: Ends At -- Missing ends_at stage!", "*", this.requestMsgLevel);
                                
                     obocomponent.setFlagMissingRel(true);
-                    obocomponent.setCheckComment("Relation: ends_at -- " +
+                    obocomponent.setCheckComment("validatecomponents.checkAbstractAnatomyLinks:" + "Relation: ends_at -- " +
                                    "Missing ends at stage - Component's stage range " +
                                    "cannot be determined.");
 
@@ -717,9 +716,9 @@ public class ValidateComponents {
                     	
                     if ( obocomponent.getEndSequence() < obocomponent.getStartSequence() ) {
                         	
-                        Wrapper.printMessage(obocomponent.getID() + ": " +
+                        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                                 "Relation: Ends At + Starts At -- Ends_at stage " +
-                                "earlier than Starts_at stage!", "HIGH", this.requestMsgLevel);
+                                "earlier than Starts_at stage!", "*", this.requestMsgLevel);
                         
                         obocomponent.setFlagMissingRel(true);
                         obocomponent.setCheckComment("Relation: starts_at, ends_at " +
@@ -730,10 +729,10 @@ public class ValidateComponents {
                     else if ( (obocomponent.getStartSequence() < minStartSequence ) ||
                               (obocomponent.getEndSequence() > maxEndSequence ) ) {
                             	
-                        Wrapper.printMessage(obocomponent.getID() + ": " +
+                        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                                 "Relation: Stages are out of range! [Start: " +
                                 Integer.toString(obocomponent.getStartSequence()) + ", Ends: " +
-                                Integer.toString(obocomponent.getEndSequence()) + "]", "HIGH", this.requestMsgLevel);
+                                Integer.toString(obocomponent.getEndSequence()) + "]", "*", this.requestMsgLevel);
 
                         obocomponent.setFlagMissingRel(true);
                         obocomponent.setCheckComment("Relation: starts_at, ends_at " +
@@ -752,8 +751,8 @@ public class ValidateComponents {
                 //check missing part_of link
                 if (obocomponent.getChildOfs().isEmpty() ){
                 	
-                    Wrapper.printMessage(obocomponent.getID() + ": " +
-                            "Relation: Part Of -- No parent entry!", "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
+                            "Relation: Part Of -- No parent entry!", "*", this.requestMsgLevel);
                     
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Relation: part_of -- " +
@@ -767,9 +766,9 @@ public class ValidateComponents {
                 // (marked already by mapbuilder)
                 if ( obocomponent.commentsContain("Broken Link: Phantom parent") ){
 
-                    Wrapper.printMessage(obocomponent.getID() + ": " +
+                    Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                             "Relation: Part Of -- Parent has been deleted from " +
-                            "file!", "HIGH", this.requestMsgLevel);
+                            "file!", "*", this.requestMsgLevel);
 
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Orphan component -- Phantom " +
@@ -815,7 +814,7 @@ public class ValidateComponents {
      */
 	private void checkAbstractAnatomyStages() throws Exception{
 
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyStages", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyStages", "***", this.requestMsgLevel);
 
 		//get the primary path for each component
         // for each path, iterate through each node and convert to component
@@ -876,7 +875,7 @@ public class ValidateComponents {
      */
 	private void checkOrdering(TreeBuilder tree) throws Exception{
 
-        Wrapper.printMessage("validatecomponents.checkOrdering", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkOrdering", "***", this.requestMsgLevel);
         
         //get all children for each component
         //check that ordering has no gaps
@@ -1106,7 +1105,7 @@ public class ValidateComponents {
      */
     private void checkAbstractAnatomyParents(TreeBuilder tree) throws Exception{
         
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyParents", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyParents", "***", this.requestMsgLevel);
         
         int primaryParents = 0;
         ArrayList<String> primaryParentsList = new ArrayList<String>();
@@ -1153,7 +1152,7 @@ public class ValidateComponents {
      */
     private void checkChanges() throws Exception {
 
-        Wrapper.printMessage("validatecomponents.checkChanges", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkChanges", "***", this.requestMsgLevel);
         
         OBOComponent proposed, reference;
         boolean flagFound;
@@ -1168,12 +1167,12 @@ public class ValidateComponents {
             proposed.setStatusChange("UNCHANGED");
             proposed.setStatusRule("UNCHECKED");
             
-            /*
-            if ( proposed.getID().equals("EMAPA:35041") ) {
+            //if ( proposed.getID().equals("EMAPA:35041") ) {
+              
+            if ( proposed.getID().equals("MNW:0000001") ) {
             	
                 System.out.println("proposed.toString():" + proposed.toString());
             }
-            */
 
             flagFound = false;
 
@@ -1182,33 +1181,33 @@ public class ValidateComponents {
             	
                 reference = k.next();
 
-                /*
-                if ( reference.getID().equals("EMAPA:35041") ) {
+                //if ( reference.getID().equals("EMAPA:35041") ) {
+                  
+                if ( reference.getID().equals("MNW:0000001") ) {
                 	
                     System.out.println("reference.toString():" + reference.toString());
                     System.out.println("proposed.getID     :" + proposed.getID() );
                     System.out.println("reference.getID():" + reference.getID() );
                 }
-                */
 
                 //if found,
                 if ( proposed.getID().equals( reference.getID() ) ) {
                 	
-                	/*
-                    if ( proposed.getID().equals("EMAPA:35041") ) {
+                    //if ( proposed.getID().equals("EMAPA:35041") ) {
+                      
+                	if ( proposed.getID().equals("MNW:0000001") ) {
                     	
                         System.out.println("Here AAAAA!");
                     }
-                    */
 
                     if ( proposed.commentsContain("INFO: Obsolete Term")) {
                     
-                    	/*
-                        if ( proposed.getID().equals("EMAPA:35041") ) {
+                        //if ( proposed.getID().equals("EMAPA:35041") ) {
+                          
+                    	if ( proposed.getID().equals("MNW:0000001") ) {
                         	
                             System.out.println("Here BBBBB!");
                         }
-                        */
 
                         proposed.setStatusChange("DELETED");
                         proposed.setStatusRule("PASSED");
@@ -1222,24 +1221,26 @@ public class ValidateComponents {
 
                         if (proposed.isOBOComponentSameAs(reference) ) {
 
-                        	/*
-                            if ( proposed.getID().equals("EMAPA:35041") ) {
+                            //if ( proposed.getID().equals("EMAPA:35041") ) {
+                              
+                        	if ( proposed.getID().equals("MNW:0000001") ) {
                             	
                             	System.out.println("Here CCCCC!");
                             }
-                            */
-                     	    //set to unchanged 
+
+                            //set to unchanged 
                             proposed.setStatusChange("UNCHANGED");
                             proposed.setStatusRule("CHECKED");
                             //else mark green in newTermList and add to new ArrayList    
                         }
                         else {
-                        	/*
-                            if ( proposed.getID().equals("EMAPA:35041") ) {
+
+                        	//if ( proposed.getID().equals("EMAPA:35041") ) {
+                            	
+                        	if ( proposed.getID().equals("MNW:0000001") ) {
                             	
                                 System.out.println("Here DDDDD!");
                             }
-                            */
 
                             proposed.setStatusChange("CHANGED");
                             proposed.setStatusRule("CHECKED");
@@ -1250,7 +1251,7 @@ public class ValidateComponents {
                             
                             	proposed.setCheckComment( diff );
                             	
-                                Wrapper.printMessage("validatecomponents.checkChanges -- Comments diff = " + diff, "HIGH", this.requestMsgLevel);
+                                Wrapper.printMessage("validatecomponents.checkChanges:Comments diff = " + diff + "!", "*", this.requestMsgLevel);
                            }
                             
                         	this.changesTermList.add(proposed);
@@ -1266,21 +1267,21 @@ public class ValidateComponents {
             //if not found, 
             if ( proposed.getStatusChange().equals("DELETED") ) {
 
-            	/*
-                if ( proposed.getID().equals("EMAPA:35041") ) {
+                //if ( proposed.getID().equals("EMAPA:35041") ) {
+                  
+            	if ( proposed.getID().equals("MNW:0000001") ) {
                 	
                 	System.out.println("Here EEEEE!");
                 }
-                */
                 
             	if ( !flagFound ) {
             	
-            		/*
-                    if ( proposed.getID().equals("EMAPA:35041") ) {
+                    //if ( proposed.getID().equals("EMAPA:35041") ) {
+                      
+            		if ( proposed.getID().equals("MNW:0000001") ) {
                     	
                     	System.out.println("Here FFFFF!");
                     }
-                    */
                     
                     proposed.setStatusRule("FAILED");
                     proposed.setCheckComment("Obsolete term does not exist in database. No deletion will take place.");
@@ -1291,11 +1292,12 @@ public class ValidateComponents {
             	
                 if ( !flagFound ){
             	
-                	/*
-                    if ( proposed.getID().equals("EMAPA:35041") ) {
-                    	System.out.println("Here GGGGG!");
+                    //if ( proposed.getID().equals("EMAPA:35041") ) {
+                      
+                	if ( proposed.getID().equals("MNW:0000001") ) {
+
+                        	System.out.println("Here GGGGG!");
                     }
-                    */
 
                 	proposed.setStatusChange("NEW");
                     proposed.setStatusRule("CHECKED");
@@ -1365,8 +1367,8 @@ public class ValidateComponents {
                 //add to problemTermList, disallowed deletions
                 this.problemTermList.add(reference);
 
-                Wrapper.printMessage("validatecomponents.checkChanges -- Failed OBOComponent = " + reference.getID(), "HIGH", this.requestMsgLevel);
-                Wrapper.printMessage("validatecomponents.checkChanges -- " + reference.toString(), "HIGH", this.requestMsgLevel);
+                Wrapper.printMessage("validatecomponents.checkChanges:Failed OBOComponent = " + reference.getID() + "!", "*", this.requestMsgLevel);
+                Wrapper.printMessage("validatecomponents.checkChanges:" + reference.toString() + "!", "*", this.requestMsgLevel);
 
                 this.changesTermList.add(reference);
             }
@@ -1379,7 +1381,7 @@ public class ValidateComponents {
             Vector< DefaultMutableTreeNode[] > paths,
             TreeBuilder tree) throws Exception{
  
-        Wrapper.printMessage("validatecomponents.findCommonAncestor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.findCommonAncestor", "***", this.requestMsgLevel);
         
         DefaultMutableTreeNode[] basePath = paths.firstElement();
         DefaultMutableTreeNode commonAncestor =
@@ -1438,7 +1440,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getNewTermList() throws Exception{
         
-        Wrapper.printMessage("validatecomponents.getNewTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getNewTermList", "***", this.requestMsgLevel);
            	
     	ArrayList<OBOComponent> newTerms = new ArrayList<OBOComponent>();
         
@@ -1455,7 +1457,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getDeletedTermList() throws Exception{
         
-        Wrapper.printMessage("validatecomponents.getDeletedTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getDeletedTermList", "***", this.requestMsgLevel);
         
         ArrayList<OBOComponent>deletedTerms = new ArrayList<OBOComponent>();
         
@@ -1472,7 +1474,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getModifiedTermList() throws Exception{
     
-        Wrapper.printMessage("validatecomponents.getModifiedTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getModifiedTermList", "***", this.requestMsgLevel);
         
     	ArrayList<OBOComponent>modifiedTerms = new ArrayList<OBOComponent>();
         

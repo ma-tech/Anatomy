@@ -44,7 +44,7 @@ public class MainDAOTestTimedLeafs3 {
 	 */
     public static void main(String[] args) throws Exception {
 
-    	long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
         /*
          * MAINLINE
@@ -139,6 +139,6 @@ public class MainDAOTestTimedLeafs3 {
         emapId = "EMAP:27551"; stage = "TS28";
         RunDAOTestTimedLeafsSubRoutine3.run(daofactory, emapId, stage);
         
-    	Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+    	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

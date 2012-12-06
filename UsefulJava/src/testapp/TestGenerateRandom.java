@@ -12,22 +12,22 @@ public class TestGenerateRandom {
     	
     	try {
 
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     		/*
     		for (int idx = 1; idx <= 10; ++idx){
 
-                Wrapper.printMessage("GenerateRandom.getRandomString(): " + GenerateRandom.getRandomString(), "LOW", "LOW");
+                Wrapper.printMessage("GenerateRandom.getRandomString(): " + GenerateRandom.getRandomString(), "*", "*");
     	    }
 
     		for (int idx = 1; idx <= 10; ++idx){
 
-                Wrapper.printMessage("GenerateRandom.getRandomPentatonic(): " + GenerateRandom.getRandomPentatonic(), "LOW", "LOW");
+                Wrapper.printMessage("GenerateRandom.getRandomPentatonic(): " + GenerateRandom.getRandomPentatonic(), "*", "*");
     	    }
     	    
     	    for (int idx = 1; idx <= 10; ++idx){
 
-                Wrapper.printMessage("GenerateRandom.getRandomDiatonic(): " + GenerateRandom.getRandomDiatonic(), "LOW", "LOW");
+                Wrapper.printMessage("GenerateRandom.getRandomDiatonic(): " + GenerateRandom.getRandomDiatonic(), "*", "*");
     	    }
     	    */
 
@@ -38,7 +38,7 @@ public class TestGenerateRandom {
          	while (iteratorOutputStrings.hasNext()) {
         		
          		i++;
-                Wrapper.printMessage(i + ": " + iteratorOutputStrings.next(), "LOW", "LOW");
+                Wrapper.printMessage(i + ": " + iteratorOutputStrings.next(), "*", "*");
          	}
 
          	/*
@@ -49,11 +49,11 @@ public class TestGenerateRandom {
             while (iteratorOutputStrings2.hasNext()) {
         		
          		k++;
-                Wrapper.printMessage(k + ": " + iteratorOutputStrings2.next(), "LOW", "LOW");
+                Wrapper.printMessage(k + ": " + iteratorOutputStrings2.next(), "*", "*");
          	}
          	*/
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

@@ -55,7 +55,9 @@ public class CheckComponentsTablesReferenceTree {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-        //import database components table contents into OBOComponent format
+	    Wrapper.printMessage("checkcomponentstablesreferencetree.run", "***", requestMsgLevel);
+
+	    //import database components table contents into OBOComponent format
     	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
@@ -77,19 +79,19 @@ public class CheckComponentsTablesReferenceTree {
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){
         	
-    	    Wrapper.printMessage("=======\nPASSED!\n=======\n" +
+    	    Wrapper.printMessage("checkcomponentstablesreferencetree.run:=======\nPASSED!\n=======\n" +
                     "Loading Default Reference Tree From Database Components Tables:\n" +
-            		"All Components in the Reference Tree are OK!", "LOW", requestMsgLevel);
+            		"All Components in the Reference Tree are OK!", "***", requestMsgLevel);
         }
         else {
         	
-    	    Wrapper.printMessage("=======\nFAILED!\n=======\n" +
+    	    Wrapper.printMessage("checkcomponentstablesreferencetree.run:=======\nFAILED!\n=======\n" +
                     "Loading Default Reference Tree From Database Components Tables:\n" +
-            		"Some components in the Reference Tree contain rule violations.", "LOW", requestMsgLevel);
+            		"Some components in the Reference Tree contain rule violations.", "***", requestMsgLevel);
 
     	    ArrayList<OBOComponent> problemTermList = validatecomponents.getProblemTermList();
             
-    	    Wrapper.printMessage("\nThere are " + problemTermList.size() + " problems!\n", "LOW", requestMsgLevel);
+    	    Wrapper.printMessage("checkcomponentstablesreferencetree.run:\nThere are " + problemTermList.size() + " problems!\n", "***", requestMsgLevel);
     	    
     	    Iterator<OBOComponent> iteratorComponent = problemTermList.iterator();
 
@@ -100,7 +102,7 @@ public class CheckComponentsTablesReferenceTree {
           		i++;
           		OBOComponent obocomponent = iteratorComponent.next();
 
-        	    Wrapper.printMessage("Problem Component #" + i + ": " + obocomponent.toString(), "LOW", requestMsgLevel);
+        	    Wrapper.printMessage("checkcomponentstablesreferencetree.run:Problem Component #" + i + ": " + obocomponent.toString(), "***", requestMsgLevel);
           	}
         }
     }

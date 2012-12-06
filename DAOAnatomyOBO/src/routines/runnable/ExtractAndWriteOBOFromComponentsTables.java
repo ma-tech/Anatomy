@@ -52,7 +52,9 @@ public class ExtractAndWriteOBOFromComponentsTables {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-        ComponentOBO componentOBO = obofactory.getComponentOBO();
+	    Wrapper.printMessage("extractandwriteobofromcomponentstables.run", "***", requestMsgLevel);
+
+	    ComponentOBO componentOBO = obofactory.getComponentOBO();
         
         //import database components table contents into OBOComponent format
         ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
@@ -64,11 +66,11 @@ public class ExtractAndWriteOBOFromComponentsTables {
         
         if ( componentOBO.writeAll( "Abstract" ) ) {
 
-        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "LOW", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run:Obo File SUCCESSFULLY written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
         }
         else {
         	
-        	Wrapper.printMessage("Obo File FAILED written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "LOW", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run:Obo File FAILED written to " + componentOBO.outputFile() + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
         }
     }
 }

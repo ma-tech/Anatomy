@@ -9,7 +9,7 @@ public class TestReverse {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
             String inString = "The quick brown fox jumps over the lazy dog";
             String outString = "";
@@ -77,7 +77,7 @@ public class TestReverse {
     		System.out.println("DONE reverse7 took " + timeDiff + " milliseconds");
             System.out.println("");
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

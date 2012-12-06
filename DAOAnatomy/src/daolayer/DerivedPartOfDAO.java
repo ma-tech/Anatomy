@@ -306,7 +306,7 @@ public final class DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -374,7 +374,7 @@ public final class DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
             }
             
         } 
@@ -422,7 +422,7 @@ public final class DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

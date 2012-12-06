@@ -17,7 +17,7 @@ public class TestCSVUtil {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
             
             // Create CSV.
             List<List<String>> csvList = new ArrayList<List<String>>();
@@ -31,7 +31,7 @@ public class TestCSVUtil {
             // Save CSV.
             FileUtil.write(new File("/Users/mwicks/Desktop/test.csv"), csvInput);
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

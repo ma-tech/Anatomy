@@ -15,7 +15,7 @@ public class TestDateUtil {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
             System.out.println("Set Up Date Strings");
             System.out.println("-------------------");
@@ -502,7 +502,7 @@ public class TestDateUtil {
                 System.out.println("CalendarUtil.elapsedTime(calendar15, calendar16) = " + intArray2[i] + appendStr2);
             }
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

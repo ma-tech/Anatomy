@@ -31,13 +31,13 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import utility.Wrapper;
 
 import daomodel.TimedLeaf;
 
@@ -46,14 +46,14 @@ import daolayer.DAOFactory;
 
 import daolayer.TimedLeafDAO;
 
-
 public class RunDAOTestTimedLeafs {
-	/*
-	 * run Method
-	 */
+
 	public static void run (DAOFactory daofactory, String emapId, String stage) throws Exception {
 
 		try {
+
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run", "*", "*");
+
 	        // Obtain DAOs.
 			TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
 
@@ -73,11 +73,10 @@ public class RunDAOTestTimedLeafs {
             String leafType = "";
             int countChildNames = 0;
             
-  			System.out.println("==========================");
-  			System.out.println(emapId + " ; Stage : " + stage);
-  			System.out.println("--------------------------");
-
-  			System.out.println("[");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:==========================", "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + emapId + " ; Stage : " + stage, "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:--------------------------", "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:[", "*", "*");
 
             while (iteratortimedleaf.hasNext()) {
 
@@ -86,74 +85,79 @@ public class RunDAOTestTimedLeafs {
 
       			rowCount++;
            		
-      			//System.out.println("LEAF NO. : " + rowCount);
-           		
            		if (!timedleaf.getChildName().equals(prevChildName) && !prevChildName.equals("")) {
            			
-           			//System.out.println("prevChildName : " + prevChildName + "; countChildIds : " + countChildNames);
-           			
            			if ( timedleaf.getChildId().equals("LEAF")) {
+
            				if ( prevleaf.getChildId().equals("LEAF")) {
+           				
            					leafType = "LEAF";
-                  			System.out.println("{\"attr\": {\"ext_id\": \"" +
-                  				prevleaf.getChildName() + 
-          		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
-          		        	    prevleaf.getChildOid() +
-                	    	    "\",\"stage\": \"" + 
-                	    	    prevleaf.getStage() +
-          		 	    	    "\",\"name\": \"" + 
-          		 	    	    prevleaf.getChildDescription() + 
-          		 	    	    "\"},\"data\": \"" +
-          		 	    	    prevleaf.getChildDescription() + 
-          		                "\",\"state\": \"closed\"},");
+                  			
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+                      				prevleaf.getChildName() + 
+              		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+              		        	    prevleaf.getChildOid() +
+                    	    	    "\",\"stage\": \"" + 
+                    	    	    prevleaf.getStage() +
+              		 	    	    "\",\"name\": \"" + 
+              		 	    	    prevleaf.getChildDescription() + 
+              		 	    	    "\"},\"data\": \"" +
+              		 	    	    prevleaf.getChildDescription() + 
+              		                "\",\"state\": \"closed\"},", "*", "*");
            				}
            				else {
+           					
            					leafType = "BRANCH";
-                  			System.out.println("{\"attr\": {\"ext_id\": \"" +
-                  				prevleaf.getChildName() + 
-          		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
-          		        	    prevleaf.getChildOid() +
-                	    	    "\",\"stage\": \"" + 
-                	    	    prevleaf.getStage() +
-          		 	    	    "\",\"name\": \"" + 
-          		 	    	    prevleaf.getChildDescription() + 
-          		 	    	    "\"},\"data\": \"" +
-          		 	    	    prevleaf.getChildDescription() + 
-          		                "(" + 
-          		                countChildNames + 
-          		                ")\",\"state\": \"closed\"},");
+                  			
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+                      				prevleaf.getChildName() + 
+              		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+              		        	    prevleaf.getChildOid() +
+                    	    	    "\",\"stage\": \"" + 
+                    	    	    prevleaf.getStage() +
+              		 	    	    "\",\"name\": \"" + 
+              		 	    	    prevleaf.getChildDescription() + 
+              		 	    	    "\"},\"data\": \"" +
+              		 	    	    prevleaf.getChildDescription() + 
+              		                "(" + 
+              		                countChildNames + 
+              		                ")\",\"state\": \"closed\"},", "*", "*");
            				}
            			}
            			else {
            				if ( prevleaf.getChildId().equals("LEAF")) {
+           					
            					leafType = "LEAF";
-                  			System.out.println("{\"attr\": {\"ext_id\": \"" +
-                  				prevleaf.getChildName() + 
-          		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
-          		        	    prevleaf.getChildId() +
-                	    	    "\",\"stage\": \"" + 
-                	    	    prevleaf.getStage() +
-          		 	    	    "\",\"name\": \"" + 
-          		 	    	    prevleaf.getChildDescription() + 
-          		 	    	    "\"},\"data\": \"" +
-          		 	    	    prevleaf.getChildDescription() + 
-          		                "\",\"state\": \"closed\"},");
+                  			
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+                      				prevleaf.getChildName() + 
+              		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+              		        	    prevleaf.getChildId() +
+                    	    	    "\",\"stage\": \"" + 
+                    	    	    prevleaf.getStage() +
+              		 	    	    "\",\"name\": \"" + 
+              		 	    	    prevleaf.getChildDescription() + 
+              		 	    	    "\"},\"data\": \"" +
+              		 	    	    prevleaf.getChildDescription() + 
+              		                "\",\"state\": \"closed\"},", "*", "*");
            				}
            				else {
+           					
            					leafType = "BRANCH";
-                  			System.out.println("{\"attr\": {\"ext_id\": \"" +
-                  				prevleaf.getChildName() + 
-          		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
-          		        	    prevleaf.getChildId() +
-                	    	    "\",\"stage\": \"" + 
-                	    	    prevleaf.getStage() +
-          		 	    	    "\",\"name\": \"" + 
-          		 	    	    prevleaf.getChildDescription() + 
-          		 	    	    "\"},\"data\": \"" +
-          		 	    	    prevleaf.getChildDescription() + 
-          		                "(" + 
-          		                countChildNames + 
-          		                ")\",\"state\": \"closed\"},");
+                  			
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+                      				prevleaf.getChildName() + 
+              		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+              		        	    prevleaf.getChildId() +
+                    	    	    "\",\"stage\": \"" + 
+                    	    	    prevleaf.getStage() +
+              		 	    	    "\",\"name\": \"" + 
+              		 	    	    prevleaf.getChildDescription() + 
+              		 	    	    "\"},\"data\": \"" +
+              		 	    	    prevleaf.getChildDescription() + 
+              		                "(" + 
+              		                countChildNames + 
+              		                ")\",\"state\": \"closed\"},", "*", "*");
            				}
           			}
 
@@ -165,22 +169,26 @@ public class RunDAOTestTimedLeafs {
           	}
 
 			if ( prevleaf.getChildId().equals("LEAF")) {
+				
 				leafType = "LEAF";
-	      		System.out.println("{\"attr\": {\"ext_id\": \"" +
-	       			timedleaf.getChildName() + 
-			        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
-			        timedleaf.getChildOid() +
-	    	    	"\",\"stage\": \"" + 
-	    	    	timedleaf.getStage() +
-			 	    "\",\"name\": \"" + 
-			 	    timedleaf.getChildDescription() + 
-			 	    "\"},\"data\": \"" +
-			 	    timedleaf.getChildDescription() + 
-			        "\",\"state\": \"closed\"}");
+	      		
+		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+		       			timedleaf.getChildName() + 
+				        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
+				        timedleaf.getChildOid() +
+		    	    	"\",\"stage\": \"" + 
+		    	    	timedleaf.getStage() +
+				 	    "\",\"name\": \"" + 
+				 	    timedleaf.getChildDescription() + 
+				 	    "\"},\"data\": \"" +
+				 	    timedleaf.getChildDescription() + 
+				        "\",\"state\": \"closed\"}", "*", "*");
 			}
 			else {
+				
 				leafType = "BRANCH";
-      			System.out.println("{\"attr\": {\"ext_id\": \"" +
+      			
+		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
      				timedleaf.getChildName() + 
 			        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
 			        timedleaf.getChildOid() +
@@ -192,23 +200,20 @@ public class RunDAOTestTimedLeafs {
 			 	    timedleaf.getChildDescription() + 
 			        "(" + 
 			        countChildNames + 
-			        ")\",\"state\": \"closed\"}");
+			        ")\",\"state\": \"closed\"}", "*", "*");
 			}
 
 			if ( rowCount == timedleafs.size()) {
-       			System.out.println("]");
+		        
+				Wrapper.printMessage("RunDAOTestTimedLeafs.run:]", "*", "*");
    			}
    			else {
-       			System.out.println(",");
+       			
+   		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:,", "*", "*");
    			}
-
-       		/*
-       		leafTree = timedleafDAO.convertLeafListToStringJson(timedleafs);
-
-       		leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
-       		*/
 		}
 		catch (DAOException daoe) {
+			
 			daoe.printStackTrace();
 		}
 	}

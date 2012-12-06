@@ -277,7 +277,7 @@ public final class ComponentCommentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ALL ANA_OBO_COMPONENT_COMMENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ALL ANA_OBO_COMPONENT_COMMENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -334,7 +334,7 @@ public final class ComponentCommentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ALL ANA_OBO_COMPONENT_COMMENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ALL ANA_OBO_COMPONENT_COMMENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -380,7 +380,7 @@ public final class ComponentCommentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ALL ANA_OBO_COMPONENT_COMMENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ALL ANA_OBO_COMPONENT_COMMENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -418,7 +418,7 @@ public final class ComponentCommentDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ALL ANA_OBO_COMPONENT_COMMENT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ALL ANA_OBO_COMPONENT_COMMENT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

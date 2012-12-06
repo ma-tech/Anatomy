@@ -262,7 +262,7 @@ public final class VersionDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_VERSION Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -316,7 +316,7 @@ public final class VersionDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_VERSION Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -363,7 +363,7 @@ public final class VersionDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_VERSION Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_VERSION Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

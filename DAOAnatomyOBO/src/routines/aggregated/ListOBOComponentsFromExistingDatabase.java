@@ -122,7 +122,7 @@ public class ListOBOComponentsFromExistingDatabase {
     	
 		this.requestMsgLevel = requestMsgLevel;
 		
-		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#1", "LOW", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#1", "***", this.requestMsgLevel);
 
 		try {
 			
@@ -152,7 +152,7 @@ public class ListOBOComponentsFromExistingDatabase {
       		}
       		else {
       			
-      			Wrapper.printMessage("1 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+      			Wrapper.printMessage("1 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
       		}
 
       		List<Node> nodes = new ArrayList<Node>();
@@ -188,7 +188,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("2 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+              			Wrapper.printMessage("2 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
               		}
 
               		obocomponent.addChildOfType( "IS_A" );
@@ -211,7 +211,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("3 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+              			Wrapper.printMessage("3 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
               		}
 
                     obocomponent.setID( node.getPublicId() );
@@ -273,7 +273,7 @@ public class ListOBOComponentsFromExistingDatabase {
                         }
                         else {
                         	
-                    	    Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Relationship Type = " + nrrpJoin.getTypeFK(), "HIGH", this.requestMsgLevel);
+                    	    Wrapper.printMessage("4 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Relationship Type = " + nrrpJoin.getTypeFK(), "*", this.requestMsgLevel);
                         }
                     }
 
@@ -338,7 +338,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("4 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+              			Wrapper.printMessage("5 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
               		}
 
                   	while (iteratorTnsJoin.hasNext()) {
@@ -379,7 +379,7 @@ public class ListOBOComponentsFromExistingDatabase {
     	
 		this.requestMsgLevel = requestMsgLevel;
 		
-		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2", "LOW", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2", "***", this.requestMsgLevel);
 
 		try {
     		
@@ -405,7 +405,7 @@ public class ListOBOComponentsFromExistingDatabase {
       		}
       		else {
       			
-      			Wrapper.printMessage("5 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+      			Wrapper.printMessage("6 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
       		}
 
 
@@ -442,7 +442,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("6 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+              			Wrapper.printMessage("7 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
               		}
 
               		obocomponent.addChildOfType( "IS_A" );
@@ -465,7 +465,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "HIGH", this.requestMsgLevel);
+              			Wrapper.printMessage("8 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getComponentOBO().species(), "*", this.requestMsgLevel);
               		}
 
                     obocomponent.setID( jointimednodenodestage.getPublicTimedNodeId() );
@@ -526,7 +526,7 @@ public class ListOBOComponentsFromExistingDatabase {
                         }
                         else {
 
-                    	    Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Relationship Type = " + tnnsrntnsJoin.getTypeFK(), "HIGH", this.requestMsgLevel);
+                    	    Wrapper.printMessage("9 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Relationship Type = " + tnnsrntnsJoin.getTypeFK(), "*", this.requestMsgLevel);
                         }
                     }
                 }
@@ -980,8 +980,8 @@ public class ListOBOComponentsFromExistingDatabase {
         obocomponent.setID( MOUSE_ID );
         obocomponent.setNamespace( MOUSE_NAME_SPACE );
         obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( MOUSE_ID  );
-        obocomponent.addChildOfType( "IS_A" );
+        //obocomponent.addChildOf( MOUSE_ID  );
+        //obocomponent.addChildOfType( "IS_A" );
         
         if ( defaultroot ) {
         	

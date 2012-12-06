@@ -163,7 +163,7 @@ public class GenerateSQL {
 
         	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("generatesql.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("generatesql.constructor", "***", this.requestMsgLevel);
             
             this.project = obofactory.getComponentOBO().project();
             this.strSpecies = obofactory.getComponentOBO().species();
@@ -219,9 +219,9 @@ public class GenerateSQL {
                 	
                     if ( component.getStatusRule().equals("FAILED") ) {
 
-                    	Wrapper.printMessage("generatesql.constructor -- SQL queries for New OBOComponent " +
+                    	Wrapper.printMessage("generatesql.constructor:SQL queries for New OBOComponent " +
                                 component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!", "HIGH", this.requestMsgLevel);
+                                " with rule violation have been generated!", "*", this.requestMsgLevel);
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -241,9 +241,9 @@ public class GenerateSQL {
                 	
                 	if ( component.getStatusRule().equals("FAILED") ) {
 
-                		Wrapper.printMessage("generatesql.constructor -- SQL queries for Deleted OBOComponent " +
+                		Wrapper.printMessage("generatesql.constructor:SQL queries for Deleted OBOComponent " +
                                 component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!", "HIGH", this.requestMsgLevel);
+                                " with rule violation have been generated!", "*", this.requestMsgLevel);
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -263,9 +263,9 @@ public class GenerateSQL {
                 	
                     if ( component.getStatusRule().equals("FAILED") ) {
                         
-                    	Wrapper.printMessage("generatesql.constructor -- SQL queries for Changed OBOComponent " +
+                    	Wrapper.printMessage("generatesql.constructor:SQL queries for Changed OBOComponent " +
                                     component.getID() + " " + component.getName() +
-                                    " with rule violation have been generated!", "HIGH", this.requestMsgLevel);
+                                    " with rule violation have been generated!", "*", this.requestMsgLevel);
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -342,9 +342,9 @@ public class GenerateSQL {
             // NOT Good to Go
             else {
 
-            	Wrapper.printMessage("generatesql.constructor -- No record inserted: Database Update " +
+            	Wrapper.printMessage("generatesql.constructor:No record inserted: Database Update " +
                         "did not occur because SYSTEM failed to detect any " +
-                        "changes in the OBO File --", "HIGH", this.requestMsgLevel);
+                        "changes in the OBO File!", "*", this.requestMsgLevel);
             	setProcessed( false );
             }
     	}
@@ -375,7 +375,7 @@ public class GenerateSQL {
     //  Wrapper Routine for ALL INSERTS to the database
     private void inserts( ArrayList<OBOComponent> newComponents ) throws Exception {
 
-        Wrapper.printMessage("generatesql.inserts", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.inserts", "***", this.requestMsgLevel);
     		
     	try {
     		
@@ -463,7 +463,7 @@ public class GenerateSQL {
     */
     private void deletes( ArrayList<OBOComponent> deletedComponentsIn ) throws Exception {
     	
-        Wrapper.printMessage("generatesql.deletes", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.deletes", "***", this.requestMsgLevel);
     		
     	try {
     		
@@ -510,7 +510,7 @@ public class GenerateSQL {
     //  Wrapper Routine for ALL UPDATES to the database
     private void updates( ArrayList<OBOComponent> changedComponentsIn ) throws Exception {
     	
-        Wrapper.printMessage("generatesql.updates", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.updates", "***", this.requestMsgLevel);
     		
     	try {
     		
@@ -630,7 +630,7 @@ public class GenerateSQL {
     // updateOrder
     private void updateOrder( ArrayList<OBOComponent> changedOrderTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.updateOrder", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.updateOrder", "***", this.requestMsgLevel);
         
         try {
         	
@@ -698,10 +698,10 @@ public class GenerateSQL {
                             //should never enter here if rule properly checked in CheckComponents
                             if ( arrOrderComments.length>1 ) {
                             
-                                Wrapper.printMessage("generatesql.updateOrder -- WARNING! more than one " +
+                                Wrapper.printMessage("generatesql.updateOrder:WARNING! more than one " +
                                         "order comment for the same parent "
                                         + parent + " detected for component " +
-                                        component.getID(), "HIGH", this.requestMsgLevel);
+                                        component.getID() + "!", "*", this.requestMsgLevel);
                             }
                         } 
                     }
@@ -793,7 +793,7 @@ public class GenerateSQL {
    */
     private ArrayList<OBOComponent> validateDeleteTermList(ArrayList<OBOComponent> deletedTermList) throws Exception {
 
-        Wrapper.printMessage("generatesql.validateDeleteTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.validateDeleteTermList", "***", this.requestMsgLevel);
         	
         ArrayList<OBOComponent> dbTermList = new ArrayList<OBOComponent>();
         Vector<String> dependentDescendants = new Vector<String>();
@@ -839,7 +839,7 @@ public class GenerateSQL {
     // deleteComponentFromAllTables
     private void deleteComponentFromAllTables (ArrayList <OBOComponent> validDeleteTermList) throws Exception {
 
-        Wrapper.printMessage("generatesql.deleteComponentFromAllTables", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.deleteComponentFromAllTables", "***", this.requestMsgLevel);
         	
         try {
         	
@@ -895,7 +895,7 @@ public class GenerateSQL {
     // recursiveGetDependentDescendants 
 	private Vector<String> recursiveGetDependentDescendants(String componentID, Vector< String > componentIDs, boolean invalidDelete) throws Exception {
 
-        Wrapper.printMessage("generatesql.recursiveGetDependentDescendants", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.recursiveGetDependentDescendants", "***", this.requestMsgLevel);
         	
         Vector< String > descendants = componentIDs;
         Vector< String > childrenIDs = new Vector<String>();
@@ -978,7 +978,7 @@ public class GenerateSQL {
     //  method to measure difference in stage ranges between modified components and existing components in DB
     private ArrayList<OBOComponent> createDifferenceTimedComponents( ArrayList<OBOComponent> diffStageTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceTimedComponents", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceTimedComponents", "***", this.requestMsgLevel);
         	
         ArrayList<OBOComponent> diffCreateTimedCompList = new ArrayList<OBOComponent>();
         
@@ -1061,7 +1061,7 @@ public class GenerateSQL {
     // createDifferenceSynonyms
     private void createDifferenceSynonyms( ArrayList<OBOComponent> diffSynonymTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceSynonyms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceSynonyms", "***", this.requestMsgLevel);
         	
         OBOComponent databasecomponent = new OBOComponent();
         OBOComponent deletesynonymcomponent = new OBOComponent();
@@ -1156,7 +1156,7 @@ public class GenerateSQL {
     //method to detect difference in parents between modified components and existing components in DB
     private void createDifferenceParents( ArrayList<OBOComponent> diffParentTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceParents", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceParents", "***", this.requestMsgLevel);
         	
         OBOComponent databasecomponent = new OBOComponent();
         OBOComponent deleteRelCompie = new OBOComponent();
@@ -1236,7 +1236,7 @@ public class GenerateSQL {
                     	databasecomponent.addChildOfType("connected-to");
                     }
                     else {
-                        Wrapper.printMessage("generatesql.createDifferenceParents -- UNKNOWN Relationship Type = " + joinnoderelationship.getTypeFK(), "HIGH", this.requestMsgLevel);
+                        Wrapper.printMessage("generatesql.createDifferenceParents:UNKNOWN Relationship Type = " + joinnoderelationship.getTypeFK() +"!", "*", this.requestMsgLevel);
                     }
               	}
                 
@@ -1396,7 +1396,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed stages
     private ArrayList<OBOComponent> getChangedStagesTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedStagesTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedStagesTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1415,7 +1415,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed names
     private ArrayList<OBOComponent> getChangedNamesTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedNamesTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedNamesTermList", "***", this.requestMsgLevel);
         
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1434,7 +1434,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed synonyms
     private ArrayList<OBOComponent> getChangedSynonymsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedSynonymsTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedSynonymsTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1453,7 +1453,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed parents
     private ArrayList<OBOComponent> getChangedParentsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedParentsTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedParentsTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1477,7 +1477,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed synonyms
     private ArrayList<OBOComponent> getChangedPrimaryStatusTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedPrimaryStatusTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedPrimaryStatusTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1496,7 +1496,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed parents
     private ArrayList<OBOComponent> getNewParentsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getNewParentsTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getNewParentsTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1515,7 +1515,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed synonyms
     private ArrayList<OBOComponent> getChangedOrderTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedOrderTermList", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedOrderTermList", "***", this.requestMsgLevel);
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         

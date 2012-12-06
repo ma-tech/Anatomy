@@ -39,7 +39,7 @@ import java.util.Collections;
 public class GenerateRandom {
 	
     private static String [] validValues = new String[] 
-   	    {"LOW","MEDIUM","HIGH"};
+   	    {"*****","***","*"};
 
     private static String [] validNotes = new String[] 
        	    {"A","A Sharp / B Flat","B","C","C Sharp / D Flat","D","D Sharp / E Flat","E","F","F Sharp / G Flat","G","G Sharp / A Flat"};

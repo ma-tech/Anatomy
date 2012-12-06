@@ -117,7 +117,7 @@ public class AnaNode {
     		
         	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("ananode.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("ananode.constructor", "***", this.requestMsgLevel);
             	
             this.daofactory = daofactory;
 
@@ -153,7 +153,7 @@ public class AnaNode {
     //  Insert new rows into ANA_NODE
     public boolean insertANA_NODE( ArrayList<OBOComponent> newTermList, String calledFrom, String strSpecies, TreeBuilder treebuilder ) throws Exception {
 
-        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         int intANO_OID = 0;
         
@@ -241,7 +241,7 @@ public class AnaNode {
                    }
                    else {
                 	   
-                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "HIGH", this.requestMsgLevel);
+                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
                    }
                    
                    // Column 7
@@ -272,7 +272,7 @@ public class AnaNode {
                    }
                    else {
                 	   
-                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "HIGH", this.requestMsgLevel);
+                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
                    }
 
                    // Update the ANA_OBO_COMPONENT tables ...
@@ -304,7 +304,7 @@ public class AnaNode {
     //  Insert new rows into ANA_OBO_COMPONENT_ALTERNATIVE
     private void insertANA_OBO_COMPONENT_ALTERNATIVE( String oldPublicId, String newPublicId ) throws Exception {
       
-        Wrapper.printMessage("ananode.insertANA_OBO_COMPONENT_ALTERNATIVE", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_OBO_COMPONENT_ALTERNATIVE", "***", this.requestMsgLevel);
         
     	try {
     		
@@ -338,7 +338,7 @@ public class AnaNode {
     //  Update existing rows in ANA_OBO_COMPONENT
     private void updateANA_OBO_COMPONENT( String oldPublicId, String newPublicId ) throws Exception   {
 
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT", "***", this.requestMsgLevel);
 
         try {
         	
@@ -363,7 +363,7 @@ public class AnaNode {
     //  Update existing rows in ANA_OBO_COMPONENT_SYNONYM
     private void updateANA_OBO_COMPONENT_SYNONYM( String oldPublicId, String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_SYNONYM", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_SYNONYM", "***", this.requestMsgLevel);
         
         try {
         	
@@ -395,7 +395,7 @@ public class AnaNode {
     //  Update existing rows in ANA_OBO_COMPONENT_COMMENT
     private void updateANA_OBO_COMPONENT_COMMENT( String oldPublicId, String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_COMMENT", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_COMMENT", "***", this.requestMsgLevel);
         	
         try {
         	
@@ -427,7 +427,7 @@ public class AnaNode {
     //  Update existing rows in ANA_OBO_COMPONENT_RELATIONSHIP
     private void updateANA_OBO_COMPONENT_RELATIONSHIP( String oldPublicId, String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_RELATIONSHIP", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_RELATIONSHIP", "***", this.requestMsgLevel);
         	
         try {
         	
@@ -471,7 +471,7 @@ public class AnaNode {
     //  Update existing rows in ANA_OBO_COMPONENT_ORDER
     private void updateANA_OBO_COMPONENT_ORDER( String oldPublicId, String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_ORDER", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_ORDER", "***", this.requestMsgLevel);
         	
         try {
         	
@@ -515,7 +515,7 @@ public class AnaNode {
     //  Insert new rows into ANA_NODE
     public boolean deleteANA_NODE( ArrayList<OBOComponent> termList, String strSpecies, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component;
 
@@ -571,7 +571,7 @@ public class AnaNode {
     //  Update ANA_NODE for Changed Names
     public boolean updateANA_NODE_name( ArrayList<OBOComponent> changedNameTermList, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         try {
 
@@ -605,7 +605,7 @@ public class AnaNode {
     //  Update ANA_NODE for primary nodes
     public boolean updateANA_NODE_primary( ArrayList< OBOComponent > changedPrimaryTermList, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE_primary:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE_primary:" + calledFrom, "***", this.requestMsgLevel);
         	
         try {
 
@@ -640,7 +640,7 @@ public class AnaNode {
     //  Set Database OIDs into a list of components
     public Boolean setDatabaseOIDs( ArrayList<OBOComponent> termList, String calledFrom )  throws Exception {
 
-        Wrapper.printMessage("ananode.setDatabaseOIDs:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.setDatabaseOIDs:" + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component = new OBOComponent();
         

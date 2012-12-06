@@ -383,7 +383,7 @@ public final class TimedNodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_TIMED_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -441,7 +441,7 @@ public final class TimedNodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_TIMED_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -488,7 +488,7 @@ public final class TimedNodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -532,7 +532,7 @@ public final class TimedNodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_TIMED_NODE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

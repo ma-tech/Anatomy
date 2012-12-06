@@ -82,7 +82,7 @@ public class AnaObject {
 
         	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("anaobject.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("anaobject.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
         	
@@ -111,7 +111,7 @@ public class AnaObject {
 
     	setProcessed( true );
 
-        Wrapper.printMessage("anaobject.insertANA_OBJECT:Inserts to Table:" + calledFromTable, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.insertANA_OBJECT:Inserts to Table:" + calledFromTable, "***", this.requestMsgLevel);
         	
         OBOComponent component = new OBOComponent();
 
@@ -165,7 +165,7 @@ public class AnaObject {
     //  Delete rows from ANA_OBJECT
     public boolean deleteANA_OBJECT( ArrayList<OBOComponent> deleteObjects, String calledFromTable ) throws Exception {
 
-        Wrapper.printMessage("anaobject.deleteANA_OBJECT:Deletes to ANA_OBJECT for Table:" + calledFromTable, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.deleteANA_OBJECT:Deletes to ANA_OBJECT for Table:" + calledFromTable, "***", this.requestMsgLevel);
         	
         try {
         	
@@ -197,7 +197,7 @@ public class AnaObject {
     // getMaxObjectID - OID Surrogate Keys
     public boolean getMaxOID() throws Exception {
 
-        Wrapper.printMessage("anaobject.getMaxObjectID()", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.getMaxObjectID()", "***", this.requestMsgLevel);
         	
         try {
 
@@ -223,7 +223,7 @@ public class AnaObject {
     // getMaxPublicId - Public EMAPA/EMAP from ANA_NODE/ANA_TIMED_NODE
     public boolean getMaxPublicId() throws Exception {
 
-        Wrapper.printMessage("anaobject.getMaxPublicId()", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.getMaxPublicId()", "***", this.requestMsgLevel);
         	
     	try {
 

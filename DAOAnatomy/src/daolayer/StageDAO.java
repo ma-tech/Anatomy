@@ -327,7 +327,7 @@ public final class StageDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_STAGE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_STAGE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -386,7 +386,7 @@ public final class StageDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_STAGE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_STAGE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -433,7 +433,7 @@ public final class StageDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_STAGE Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_STAGE Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

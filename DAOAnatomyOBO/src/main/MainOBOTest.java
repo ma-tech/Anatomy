@@ -42,22 +42,20 @@ public class MainOBOTest {
 
 	public static void main(String[] args) throws Exception {
 
-    	String requestMsgLevel = args[0]; 
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-    	long startTime = Wrapper.printPrologue(requestMsgLevel, Wrapper.getExecutingClass());
+        if (args.length != 2) {
 
-        if (args.length != 3) {
-
-		    Wrapper.printMessage(" ERROR! There MUST be 3 Command Line Arguments passed to this program", "HIGH", requestMsgLevel);
+		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "*", "*");
         }
         else {
-            // Obtain OBOFactory.
-            OBOFactory obofactory = OBOFactory.getInstance(args[2]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RunOBOTest.run( requestMsgLevel, obofactory, daofactory );
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+
+            RunOBOTest.run( daofactory.getThingDAO().getLevel(), obofactory, daofactory );
         }
 
-    	Wrapper.printEpilogue(requestMsgLevel, Wrapper.getExecutingClass(), startTime);
+    	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

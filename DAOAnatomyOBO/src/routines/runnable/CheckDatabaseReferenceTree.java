@@ -52,7 +52,9 @@ public class CheckDatabaseReferenceTree {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     
-		//import database
+	    Wrapper.printMessage("checkdatabasereferencetree.run", "***", requestMsgLevel);
+
+	    //import database
     	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
 
         ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
@@ -73,23 +75,23 @@ public class CheckDatabaseReferenceTree {
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){
 
-    	    Wrapper.printMessage("ValidateComponents Class: \n" +
+    	    Wrapper.printMessage("checkdatabasereferencetree.run: \n" +
                     "Loading Default Reference Tree From ANATOMY DATABASE:\n===\n" +
-        			"All Components in the Reference Tree are OK!", "LOW", requestMsgLevel);
+        			"All Components in the Reference Tree are OK!", "***", requestMsgLevel);
         }
         else {
         	
-    	    Wrapper.printMessage("ValidateComponents Class: \n" +
+    	    Wrapper.printMessage("checkdatabasereferencetree.run: \n" +
                     "Loading Default Reference TreeFrom ANATOMY DATABASE:\n===\n" + 
             		"Some components in the Reference Tree contain rule violations.\n" +
                     "Please load the reference under the proposed tab to fix the problem; \n" +
-                    "Alternatively, please select another reference.", "LOW", requestMsgLevel);
+                    "Alternatively, please select another reference.", "***", requestMsgLevel);
 
             OBOComponent probobocomponent =
                     (OBOComponent) validatecomponents.getProblemTermList().get(0);
             
-    	    Wrapper.printMessage("no. of components with problems = " + validatecomponents.getProblemTermList().size(), "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("comments = " + probobocomponent.getCheckComments(), "LOW", requestMsgLevel);
+    	    Wrapper.printMessage("checkdatabasereferencetree.run:no. of components with problems = " + validatecomponents.getProblemTermList().size(), "***", requestMsgLevel);
+    	    Wrapper.printMessage("checkdatabasereferencetree.run:comments = " + probobocomponent.getCheckComments(), "***", requestMsgLevel);
         }
     }
 }

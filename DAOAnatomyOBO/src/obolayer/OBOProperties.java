@@ -50,6 +50,7 @@ public class OBOProperties {
     private static final Properties PROPERTIES = new Properties();
 
     static {
+    	
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream propertiesFile = classLoader.getResourceAsStream(PROPERTIES_FILE);
 
@@ -60,6 +61,7 @@ public class OBOProperties {
         }
 
         try {
+        	
             PROPERTIES.load(propertiesFile);
         } 
         catch (IOException e) {

@@ -30,7 +30,6 @@
 */
 package routines.base;
 
-import java.io.IOException;
 import java.io.FileInputStream;
 
 import java.util.ArrayList;
@@ -51,6 +50,7 @@ import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 import obomodel.OBOComponent;
 
 import utility.StringStreamConverter;
+import utility.Wrapper;
 
 public class Parser {
 
@@ -67,22 +67,18 @@ public class Parser {
     private String fileContent;
     private ArrayList<OBOComponent> componentList;
     private OBOSession oboSession;
-    private Boolean debug;
+    private String msgLevel;
     private Boolean boolAlternatives;
 
-    public Parser(Boolean debug, 
+    public Parser(
+    		String msgLevel, 
     		String txtFileName,
     		Boolean boolAlternatives,
-    		String species) throws IOException{
+    		String species) throws Exception{
 
-        this.debug = debug;
+	    this.msgLevel = msgLevel;
         
-        if (this.debug) {
-        	
-            System.out.println("======");
-            System.out.println("Parser - Constructor");
-            System.out.println("======");
-        }
+	    Wrapper.printMessage("parser.constructor", "***", this.msgLevel);
 
         this.file = txtFileName.trim();
         this.species = species;
@@ -129,12 +125,9 @@ public class Parser {
     
     // Methods ------------------------------------------------------------------------------------
     public OBOSession getSession(String path) 
-    		throws IOException {
+    		throws Exception {
 
-        if (this.debug) {
-        	
-            System.out.println("getSession");
-        }
+	    Wrapper.printMessage("parser.getSession", "***", this.msgLevel);
 
         DefaultOBOParser defaultoboparser = new DefaultOBOParser();
 	    OBOParseEngine obooparseengine = new OBOParseEngine(defaultoboparser);
@@ -170,34 +163,26 @@ public class Parser {
     
     
     private ArrayList<OBOComponent> addComponents(String file) 
-    		throws IOException {
+    		throws Exception {
         
-        if (this.debug) {
-        	
-            System.out.println("addComponents");
-        }
+	    Wrapper.printMessage("parser.addComponents(String file)", "***", this.msgLevel);
 
     	OBOSession obosession = getSession(file);
 
         this.setOboSession(obosession);
 
     	//all terms in a map
-    	Map map = obosession.getAllTermsHash();
-            
-        return this.addComponents(map);
+        return this.addComponents(obosession.getAllTermsHash());
     }
         
          
-    private ArrayList<OBOComponent> addComponents(Map map){
+    private ArrayList<OBOComponent> addComponents(Map map) throws Exception{
             
-        if (this.debug) {
-        	
-            System.out.println("addComponents");
-        }
+	    Wrapper.printMessage("parser.addComponents(Map map)", "***", this.msgLevel);
 
 		if ( !this.boolAlternatives ) {
             
-            System.out.println("IGNORING Alternative Ids");
+    	    Wrapper.printMessage("parser.addComponents(Map map):IGNORING Alternative Ids", "***", this.msgLevel);
 		}
 
      	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
@@ -227,20 +212,24 @@ public class Parser {
             		String maxStage = "";
             		String minStage = "";
             		
-                    if (species.equals("mouse")) {
+                    if (this.species.equals("mouse")) {
                     	
                     	minStage = MIN_MOUSE_STAGE_STR;
                     	maxStage = MAX_MOUSE_STAGE_STR;
                     }
-                    else if (species.equals("human")) {
+                    else if (this.species.equals("human")) {
                     	
                     	minStage = MIN_HUMAN_STAGE_STR;
                     	maxStage = MAX_HUMAN_STAGE_STR;
                     }
-                    else if (species.equals("chick")) {
+                    else if (this.species.equals("chick")) {
                     	
                     	minStage = MIN_CHICK_STAGE_STR;
                     	maxStage = MAX_CHICK_STAGE_STR;
+                    }
+                    else {
+                    	
+                	    Wrapper.printMessage("parser.addComponents(Map map):INVALID species" + this.species + "!", "*", this.msgLevel);
                     }
 
                     for ( int i = 0; i < words.length; i++ ) {
@@ -381,11 +370,11 @@ public class Parser {
                         }
                         else if (oborestrictionimpl.getType().getID().equals("has_timed_component")){
                         	
-                            System.out.println("IGNORING Timed Component = " + oborestrictionimpl.getParent().getID() );
+                    	    Wrapper.printMessage("parser.addComponents(Map map):IGNORING Timed Component = " + oborestrictionimpl.getParent().getID(), "***", this.msgLevel);
                         }
                         else {
                         	
-                            System.out.println("UNKNOWN Relationship Type = " + oborestrictionimpl.getType().getID());
+                    	    Wrapper.printMessage("parser.addComponents(Map map):UNKNOWN Relationship Type = " + oborestrictionimpl.getType().getID() + "!", "*", this.msgLevel);
                         }
                     }
                     componentList.add(obocomponent);
@@ -399,8 +388,6 @@ public class Parser {
 
             while (iteratorObsoletes.hasNext() ){
             	
-                //System.out.println("GOT AN OBSOLETE COMPONENT HERE!");
-
               	OBOClassImpl oboclassimpl = iteratorObsoletes.next();
                     
                 ArrayList<String> childOfs = new ArrayList<String>();

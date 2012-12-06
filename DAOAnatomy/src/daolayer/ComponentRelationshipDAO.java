@@ -321,7 +321,7 @@ public final class ComponentRelationshipDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -377,7 +377,7 @@ public final class ComponentRelationshipDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -423,7 +423,7 @@ public final class ComponentRelationshipDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -461,7 +461,7 @@ public final class ComponentRelationshipDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_RELATIONSHIP Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

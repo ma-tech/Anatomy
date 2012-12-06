@@ -71,7 +71,7 @@ public class AnaVersion {
     		
            	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("anaversion.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("anaversion.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
         	
@@ -95,7 +95,7 @@ public class AnaVersion {
     //  Insert a new row into ANA_VERSION
     public boolean insertANA_VERSION() throws Exception {
 
-        Wrapper.printMessage("anaversion.insertANA_VERSION", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anaversion.insertANA_VERSION", "***", this.requestMsgLevel);
         	
         int intVersionEntries = 0;
 

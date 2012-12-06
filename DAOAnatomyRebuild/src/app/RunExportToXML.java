@@ -319,7 +319,7 @@ public class RunExportToXML {
      
     		transformer.transform(source, result);
      
-    	    Wrapper.printMessage("File saved from RunExportToXML!", "LOW", requestMsgLevel);
+    	    Wrapper.printMessage("File saved from RunExportToXML!", "***", requestMsgLevel);
     	}
 		catch (DAOException daoexception) {
 			

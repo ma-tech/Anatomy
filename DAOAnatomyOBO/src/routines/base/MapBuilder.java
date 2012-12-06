@@ -64,7 +64,7 @@ public class MapBuilder {
 
 		this.requestMsgLevel = requestMsgLevel;
 		
-        Wrapper.printMessage("mapbuilder.constructor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.constructor", "*****", this.requestMsgLevel);
 
         //instantiate
         this.obocomponents = new ArrayList<OBOComponent>();
@@ -82,7 +82,7 @@ public class MapBuilder {
     
     public void mapTreeProperty() throws Exception {
     	
-        Wrapper.printMessage("mapbuilder.mapTreeProperty", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.mapTreeProperty", "*****", this.requestMsgLevel);
     	
         OBOComponent obocomponent;
         
@@ -97,7 +97,7 @@ public class MapBuilder {
     
     public void mapChildrenProperty() throws Exception {
     	
-        Wrapper.printMessage("mapbuilder.mapChildrenProperty", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.mapChildrenProperty", "*****", this.requestMsgLevel);
 
         OBOComponent obocomponent;
         
@@ -120,8 +120,8 @@ public class MapBuilder {
 
                 if ( instance_of_comp == null ) {
 
-                    Wrapper.printMessage("mapbuilder.mapChildrenProperty -- Parent has been deleted from file: " +
-                            parent, "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("mapbuilder.mapChildrenProperty:Parent has been deleted from file: " +
+                            parent + "!", "*", this.requestMsgLevel);
                     /*
                      set flagMissingRel to true to display component in red +
                       add comment
@@ -146,7 +146,7 @@ public class MapBuilder {
                       this code takes place in TreeBuilder
                     */
                     
-                    Wrapper.printMessage("mapbuilder.mapChildrenProperty -- obocomponent.toString() = " + obocomponent.toString(), "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("mapbuilder.mapChildrenProperty:obocomponent.toString() = " + obocomponent.toString() + "!", "*", this.requestMsgLevel);
                 }
 
                 Vector<String> v = this.treeChildren.get(parent);
@@ -164,7 +164,7 @@ public class MapBuilder {
 
     public void findRootNodes() throws Exception {
 
-        Wrapper.printMessage("mapbuilder.findRootNodes", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.findRootNodes", "*****", this.requestMsgLevel);
         	
         boolean notChildOf;
 
@@ -184,28 +184,28 @@ public class MapBuilder {
 
     public void addTreePropertyEntry(String strEMAPA, OBOComponent obocomponent) throws Exception{
 
-        Wrapper.printMessage("mapbuilder.addTreePropertyEntry", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.addTreePropertyEntry", "*****", this.requestMsgLevel);
         
         this.treeProperty.put(strEMAPA, obocomponent);
     }
 
     public Map<String, Vector<String>> getChildren() throws Exception {
         
-        Wrapper.printMessage("mapbuilder.getChildren", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.getChildren", "*****", this.requestMsgLevel);
         
         return this.treeChildren;
     }
 
     public Map<String, OBOComponent> getProperties() throws Exception {
         
-        Wrapper.printMessage("mapbuilder.getProperties", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.getProperties", "*****", this.requestMsgLevel);
 
         return this.treeProperty;
     }
 
     public Vector<String> getRootNodes() throws Exception {
         
-        Wrapper.printMessage("mapbuilder.getRootNodes", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("mapbuilder.getRootNodes", "*****", this.requestMsgLevel);
         
         return this.vRootNodes;
     }

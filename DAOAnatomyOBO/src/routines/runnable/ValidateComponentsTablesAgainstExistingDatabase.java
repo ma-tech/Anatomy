@@ -64,6 +64,8 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
+	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run", "***", requestMsgLevel);
+
         String inputFile = obofactory.getComponentOBO().inputFile();
         String summaryReport = obofactory.getComponentOBO().summaryReport();
         String summaryReportPdf = obofactory.getComponentOBO().summaryReportPdf();
@@ -71,8 +73,6 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         // Obtain DAOs.
 	    OBOFileDAO obofileDAO = daofactory.getOBOFileDAO();
         
-	    Wrapper.printMessage("Clear Out OBOFile Table", "LOW", requestMsgLevel);
-
 	    List<OBOFile> obofiles = new ArrayList<OBOFile>();
         obofiles = obofileDAO.listAll();
         
@@ -89,21 +89,15 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         }
 
         //import Obo File from obo.properties, file.oboinfile
-	    Wrapper.printMessage("ListOBOComponentsFromComponentsTables", "LOW", requestMsgLevel);
-
 	    ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
         
         MapBuilder newmapbuilder = new MapBuilder( requestMsgLevel, importcomponents.getTermList());
         TreeBuilder newtreebuilder = new TreeBuilder( requestMsgLevel, newmapbuilder);
 
         //import Database from dao.properties, anatomy008.url
-	    Wrapper.printMessage("ListOBOComponentsFromExistingDatabase", "LOW", requestMsgLevel);
-
 	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
 
         //check for rules violation
-	    Wrapper.printMessage("ValidateComponents", "LOW", requestMsgLevel);
-	    
 	    ValidateComponents validatecomponents =
             new ValidateComponents( requestMsgLevel,
             		obofactory, 
@@ -122,14 +116,12 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         	validation = "FAILED VALIDATION";
         }
 
-        Wrapper.printMessage("Validated? " + validation, "LOW", requestMsgLevel);
+        Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:Validated? " + validation, "***", requestMsgLevel);
 
         //generate txt summary report
-	    Wrapper.printMessage("GenerateEditorReport", "LOW", requestMsgLevel);
         GenerateEditorReport generateeditorreport = new GenerateEditorReport( requestMsgLevel, validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-	    Wrapper.printMessage("GenerateEditorPDF", "LOW", requestMsgLevel);
         GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( requestMsgLevel, validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
         
         File infile = new File(inputFile);
@@ -141,7 +133,7 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         File pdffile = new File(summaryReportPdf);
         InputStream inputstreampdf = new FileInputStream(pdffile);
 
-        Wrapper.printMessage("Write to OBOFile Table", "LOW", requestMsgLevel);
+        Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:Write to OBOFile Table", "***", requestMsgLevel);
 
         // Create an OBOFile Object
 	    OBOFile obofile = new OBOFile(null,
@@ -180,18 +172,18 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
 
         if ( obofiles.size() > 0 ) {
 	        
-    	    Wrapper.printMessage("List ALL OBOFile Rows", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\t=============================================", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\t=============================================", "LOW", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:List ALL OBOFile Rows", "***", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:", "***", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:\t=============================================", "***", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "***", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run:\t=============================================", "***", requestMsgLevel);
 
             while (iteratorOBOFilePost.hasNext()) {
             
             	OBOFile obofileListed = iteratorOBOFilePost.next();
            		i++;
            		
-        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "LOW", requestMsgLevel);
+        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "***", requestMsgLevel);
           	}
         }
     }

@@ -31,13 +31,12 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import utility.Wrapper;
 
 import daomodel.TimedLeaf;
 
@@ -46,7 +45,6 @@ import daolayer.DAOFactory;
 
 import daolayer.TimedLeafDAO;
 
-
 public class RunDAOTestTimedLeafsSubRoutine3 {
 	/*
 	 * run Method
@@ -54,19 +52,22 @@ public class RunDAOTestTimedLeafsSubRoutine3 {
 	public static void run (DAOFactory daofactory, String emapId, String stage) throws Exception {
 
 		try {
-			TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
+		    
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run", "***", daofactory.getThingDAO().getLevel());
+
+		    TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
 
 	    	List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
 
         	timedleafs = timedleafDAO.listAllTimedNodesByRootNameByChildDesc( emapId, stage, emapId, stage );
 
-  			System.out.println("==========================");
-  			System.out.println(emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonLines");
-  			System.out.println("--------------------------");
-
-       		System.out.println( timedleafDAO.convertLeafListToStringJsonLines(timedleafs) );
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run:==========================", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run:" + emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonLines", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run:--------------------------", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run:" + timedleafDAO.convertLeafListToStringJsonLines(timedleafs), "***", daofactory.getThingDAO().getLevel());
 		}
 		catch (DAOException daoe) {
+
 			daoe.printStackTrace();
 		}
 	}

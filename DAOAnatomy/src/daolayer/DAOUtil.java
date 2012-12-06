@@ -68,7 +68,8 @@ public final class DAOUtil {
      * Returns a PreparedStatement of the given connection, set with the given SQL query and the
      * given parameter values.
      */
-    public static PreparedStatement prepareStatement(String level,
+    public static PreparedStatement prepareStatement(
+    		String level,
     		String sqloutput, 
     		Connection connection, 
     		String sql, 
@@ -79,11 +80,10 @@ public final class DAOUtil {
             returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS);
         
         setValues(preparedStatement, values);
-        
 
         String strArray [] = preparedStatement.toString().split(": ");
         
-        Wrapper.printMessage("daoutil.prepareStatement;DEBUG " + strArray[1] + ";", "LOW", level);
+        Wrapper.printMessage("daoutil.prepareStatement;DEBUG " + strArray[1] + ";", "*****", level);
         
         if ( sqloutput != null) {
         	
@@ -128,7 +128,7 @@ public final class DAOUtil {
             }
             catch (SQLException e) {
             	
-                Wrapper.printMessage("daoutil.prepareStatement;Closing Connection failed: " + e.getMessage(), "HIGH", level);
+                Wrapper.printMessage("daoutil.prepareStatement;Closing Connection failed: " + e.getMessage(), "*", level);
                 e.printStackTrace();
             }
         }
@@ -147,7 +147,7 @@ public final class DAOUtil {
             } 
             catch (SQLException e) {
             	
-                Wrapper.printMessage("daoutil.prepareStatement;Closing Statement failed: " + e.getMessage(), "HIGH", level);
+                Wrapper.printMessage("daoutil.prepareStatement;Closing Statement failed: " + e.getMessage(), "*", level);
                 e.printStackTrace();
             }
         }
@@ -165,7 +165,7 @@ public final class DAOUtil {
             }
             catch (SQLException e) {
             	
-                Wrapper.printMessage("daoutil.close;Closing ResultSet failed:  "  + e.getMessage(), "HIGH", level);
+                Wrapper.printMessage("daoutil.close;Closing ResultSet failed:  "  + e.getMessage(), "*", level);
                 e.printStackTrace();
             }
         }

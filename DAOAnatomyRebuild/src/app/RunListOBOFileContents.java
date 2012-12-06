@@ -64,11 +64,11 @@ public class RunListOBOFileContents {
 
         if ( obofiles.size() > 0 ) {
         	
-    	    Wrapper.printMessage("List ALL OBOFile Rows", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\t=============================================", "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "LOW", requestMsgLevel);
-    	    Wrapper.printMessage("\t=============================================", "LOW", requestMsgLevel);
+    	    Wrapper.printMessage("List ALL OBOFile Rows", "***", requestMsgLevel);
+    	    Wrapper.printMessage("", "***", requestMsgLevel);
+    	    Wrapper.printMessage("\t=============================================", "***", requestMsgLevel);
+    	    Wrapper.printMessage("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "***", requestMsgLevel);
+    	    Wrapper.printMessage("\t=============================================", "***", requestMsgLevel);
 
             String oid = "";
             String name = "";
@@ -89,7 +89,7 @@ public class RunListOBOFileContents {
     	    Wrapper.printMessage(String.format("\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s", 
             		oid, name, contenttype, contentlength, contentdate, validation, author, 
             		textreportname, textreporttype, textreportlength, textreportdate, 
-            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "LOW", requestMsgLevel);
+            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "***", requestMsgLevel);
 
             oid = "oid";
             name = "name";
@@ -110,7 +110,7 @@ public class RunListOBOFileContents {
     	    Wrapper.printMessage(String.format("\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s", 
             		oid, name, contenttype, contentlength, contentdate, validation, author, 
             		textreportname, textreporttype, textreportlength, textreportdate, 
-            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "LOW", requestMsgLevel);
+            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "***", requestMsgLevel);
 
             oid = "-";
             name = "-";
@@ -131,14 +131,14 @@ public class RunListOBOFileContents {
     	    Wrapper.printMessage(String.format("\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s", 
             		oid, name, contenttype, contentlength, contentdate, validation, author, 
             		textreportname, textreporttype, textreportlength, textreportdate, 
-            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "LOW", requestMsgLevel);
+            		pdfreportname, pdfreporttype, pdfreportlength, pdfreportdate), "***", requestMsgLevel);
 
             while (iteratorOBOFile.hasNext()) {
             	
             	OBOFile obofileListed = iteratorOBOFile.next();
            		i++;
            		
-        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "LOW", requestMsgLevel);
+        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "***", requestMsgLevel);
           	}
         }
     }

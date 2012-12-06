@@ -72,7 +72,7 @@ public class ListOBOComponentsFromComponentsTables {
     	
 		this.requestMsgLevel = requestMsgLevel;
 		
-		Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor", "LOW", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor", "***", this.requestMsgLevel);
 
     	try {
     		
@@ -218,7 +218,7 @@ public class ListOBOComponentsFromComponentsTables {
            		
            		if ( "part_of".equals(obocomponent.getName()) ) {
 
-           			Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor:obocomponent.toString() = " + obocomponent.toString(), "HIGH", requestMsgLevel);
+           			Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor:obocomponent.toString() = " + obocomponent.toString(), "*", requestMsgLevel);
            		}
           	}
     	}

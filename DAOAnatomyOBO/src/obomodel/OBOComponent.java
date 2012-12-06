@@ -38,6 +38,8 @@ import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import utility.Wrapper;
+
 public class OBOComponent {
 
 	// CONSTANTS
@@ -1949,6 +1951,7 @@ public class OBOComponent {
         		return index;
         	}
         }
+        
         return -1;
     }
     public void addChildOfType( String childOfType ) {
@@ -2102,12 +2105,14 @@ public class OBOComponent {
 
         orderdiff =  this.compareOrderComments(obocomponent, orderdiff);
 
+        /*
         if ( this.getID().equals("EMAPA:35041") ) {
         	
             System.out.println("orderdiff               : " + orderdiff );
             System.out.println("this.toString()         : " + this.toString());
             System.out.println("obocomponent.toString() : " + obocomponent.toString());
         }
+        */
         
         if ( this.getID().equals(obocomponent.getID()) && 
              this.getName().equals(obocomponent.getName()) &&
@@ -2340,7 +2345,9 @@ public class OBOComponent {
         Set<String> changedComments = new TreeSet<String>();
         
         for (String s: allComments){
+        	
             if (s.startsWith("New")){
+            	
                 changedComments.add(s);
             } 
         }
@@ -2360,28 +2367,39 @@ public class OBOComponent {
         this.orderComment = "";
 
         for ( int i=0; i < vComments.size(); i++ ){
+        	
             if ( vComments.get(i).contains("order=") ){
+            	
                 this.orderComment = this.orderComment + vComments.get(i).trim();
             }
         }
 
         if ( !this.orderComment.equals("") ){
+        	
             String[] orderArray = this.orderComment.split("order=");
             String[] processedOrderArray = null;
+            
             for (int i=0; i<orderArray.length; i++){
+            	
                 unprocessed = orderArray[i];
                 unprocessed = unprocessed.replace("\n", "");
                 unprocessed = unprocessed.trim();
                 orderArray[i] = unprocessed;
+                
                 if ( !unprocessed.equals("") ) {
+                	
                     intValidString++;
                 }
             }
             if (intValidString > 0){
+            	
                 int j = 0;
                 processedOrderArray = new String[intValidString];
+                
                 for (int i=0; i<orderArray.length; i++){
+                	
                     if ( !orderArray[i].equals("") ){
+                    	
                         processedOrderArray[j] = orderArray[i];
                         j++;
                     }
@@ -2391,6 +2409,7 @@ public class OBOComponent {
             this.orderComment = "";
 
             for ( int i=0; i < processedOrderArray.length; i++ ){
+            	
                 this.orderComment = this.orderComment + ", order=" + processedOrderArray[i];
             }
             
@@ -2409,19 +2428,25 @@ public class OBOComponent {
         ArrayList<String> arrBased = new ArrayList<String>();
 
         if ( ordercomments!=null ){
+        	
             for (int i=0; i < ordercomments.length; i++){
+            	
             	if ( ordercomments[i].contains(parentid) ){
+            		
                     arrBased.add(ordercomments[i]);
                 }
             }
             if (arrBased.isEmpty()){
+            	
                 return null; 
             }
             else {
+            	
                 return arrBased.toArray( new String[arrBased.size()] );
             }
         }
         else {
+        	
             return null;
         }
     }
@@ -2429,7 +2454,7 @@ public class OBOComponent {
     /*
      * Determine whether the order comments are correct.
      */
-    public boolean hasIncorrectOrderComments(){
+    public boolean hasIncorrectOrderComments() throws Exception{
 
         String[] results = new String[this.userComments.size()];
         ArrayList<String> parents = new ArrayList<String>();
@@ -2442,7 +2467,9 @@ public class OBOComponent {
         vComments.addAll(this.userComments);
 
         for ( int i=0; i < vComments.size(); i++ ){
+        	
             if ( vComments.get(i).contains("order") ){
+            	
                 results[intCounter] = vComments.get(i).trim();
                 intCounter++;
             }
@@ -2450,31 +2477,42 @@ public class OBOComponent {
 
         //go through each string with 'order'
         for (int k=0; k<results.length && results[k]!=null; k++){
+        	
             foundIncorrect = false;
+            
             //check that string order= is in the string
             if ( !results[k].contains("order=") ){
-                System.out.println(this.id + "Ordering: There is an order " +
-                         "comment that does not have an = sign " +
-                         "immediately after the term order");
+            	
+        	    Wrapper.printMessage("checkcomponentstablesordering.hasIncorrectOrderComments:" + 
+        	            this.id + "Ordering: There is an order " +
+                        "comment that does not have an = sign " +
+                        "immediately after the term order", "*", "*");
+
                 this.setCheckComment("Ordering: There is an order comment " +
                         "that does not have an = sign immediately after " +
                         "the term order");
+                
                 foundIncorrect = true;
             }
             //ir order= is in place check that immediately
             //after that is a valid integer
             else if (foundIncorrect==false){
-                try{
-                    strNumber = results[k];
+
+            	try{
+                
+            		strNumber = results[k];
                     strNumber = strNumber.replaceAll("order=", "");
                     //intOrder = Integer.parseInt( strNumber.split(" ")[0] );
                 }
                 catch(NumberFormatException nEx){
-                    System.out.println(this.id + "Ordering: There is an " +
+
+            	    Wrapper.printMessage("checkcomponentstablesordering.hasIncorrectOrderComments:" + 
+            	            this.id + "Ordering: There is an " +
                             "order comment that does not have a number " +
                             "immediately after order=; offending string = " +
-                            strNumber.split(" ")[0]);
-                    this.setCheckComment("Ordering: There is an order " +
+                            strNumber.split(" ")[0], "*", "*");
+
+            	    this.setCheckComment("Ordering: There is an order " +
                             "comment that does not have a number immediately " +
                             "after order=");
                     foundIncorrect = true;
@@ -2485,13 +2523,19 @@ public class OBOComponent {
             parents.addAll( this.getChildOfs() );
 
             for (int i=0; i<parents.size() && !foundParent; i++){
+            	
                 if ( results[k].contains(parents.get(i)) ) {
+                	
                     foundParent = true;
                 }
             }
+            
             if (!foundParent){
-                System.out.println(this.id + "Ordering: There is an order " +
-                        "comment that does not reference a valid parent");
+            	
+        	    Wrapper.printMessage("checkcomponentstablesordering.hasIncorrectOrderComments:" + 
+        	    		this.id + "Ordering: There is an order " +
+                        "comment that does not reference a valid parent", "*", "*");
+
                 this.setCheckComment("Ordering: There is an order comment " +
                         "that does not reference a valid parent");
                 foundIncorrect = true;
@@ -2510,14 +2554,19 @@ public class OBOComponent {
 
         if (this.getOrderComments() == null &&
         		obocomponent.getOrderComments() == null){
+        	
             return diff;
         }
         else if (this.getOrderComments() == null &&
         		obocomponent.getOrderComments() != null){
+        	
             for (int i=0; i<obocomponent.getOrderComments().length; i++){
+            	
                 if (diff == null){
+                	
                     diff = new ArrayList<String>();
                 }
+                
                 diff.add( "Different Order - This obocomponent has no order " +
                         "entries; Referenced OBOOBOComponent (" + obocomponent.getID() +
                         ") has order entry <" + obocomponent.getOrderComments()[i] +
@@ -2527,10 +2576,14 @@ public class OBOComponent {
         }
         else if (this.getOrderComments() != null &&
         		obocomponent.getOrderComments() == null){
+        	
             for (int i=0; i<this.getOrderComments().length; i++){
+            	
                 if (diff==null){
+                	
                      diff = new ArrayList<String>();
                 }
+                
                 diff.add( "Different Order - Referenced OBOOBOComponent has no " +
                         "order entries; This OBOOBOComponent has order entry <" +
                         this.getOrderComments()[i] + ">");
@@ -2539,6 +2592,7 @@ public class OBOComponent {
         }
         else{
             for ( String orderobocomponent: this.getOrderComments() ){
+            	
                 notFound = true;
                 //reset notfound for each comment
                 
@@ -2546,41 +2600,53 @@ public class OBOComponent {
                         notFound &&
                         !orderobocomponent.equals("");
                       i++ ){
+                	
                     //found matching comment stop inner loop
                     if ( orderobocomponent.equals( obocomponent.getOrderComments()[i] ) ){
+                    	
                         notFound = false;
                     }
                 }
 
                 if (notFound && !orderobocomponent.equals("")){
+                	
                 //iterated through all comments in referenced obocomponent and
                 // no matching comment found
                     if (diff == null){
+                    	
                         diff = new ArrayList<String>();
                     }
+                    
                     diff.add( "Different Order - This OBOOBOComponent has order entry <" +
                     		orderobocomponent + ">");
                 }
             }
             //find deleted/missing comments
             for ( String orderobocomponent: obocomponent.getOrderComments() ){
+            	
                 //reset notfound for each comment
                 notFound = true; 
                 for ( int i=0; i<this.getOrderComments().length &&
                       notFound &&
                       !orderobocomponent.equals("");
                       i++ ){
+                	
                     if ( orderobocomponent.equals( this.getOrderComments()[i] ) ){
+                    	
                         notFound = false; 
                         //found matching comment stop inner loop
                     }
                 }
+                
                 //iterated through all comments in referenced obocomponent and
                 // no matching comment found
                 if (notFound && !orderobocomponent.equals("")){
+                	
                     if (diff == null){
+                    	
                         diff = new ArrayList<String>();
                     }
+                    
                     diff.add( "Different Order - Referenced OBOOBOComponent (" + 
                     		obocomponent.getID() + ") has order entry <" + orderobocomponent +
                             ">");
@@ -2596,6 +2662,7 @@ public class OBOComponent {
      * The relation ID is unique for each Thing. So this should compare Thing by ID only.
      */
     public boolean equals(Object other) {
+    	
         return (other instanceof OBOComponent) && (name != null) 
         		? name.equals(((OBOComponent) other).name) 
         		: (other == this);
@@ -2605,6 +2672,7 @@ public class OBOComponent {
      * Returns the String representation of this User. Not required, it just pleases reading logs.
      */
     public String toString() {
+    	
         return String.format("\nOBOComponent [ id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%d ]", 
         		id, name, statusChange, statusRule, dbID, newid, namespace, group, start, end, present);
     }

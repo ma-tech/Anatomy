@@ -89,7 +89,7 @@ public class GenerateEditorReport {
 
         this.requestMsgLevel = requestMsgLevel;
         
-        Wrapper.printMessage("generateeditorreport.constructor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.constructor", "****", this.requestMsgLevel);
         	
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
@@ -184,7 +184,7 @@ public class GenerateEditorReport {
     // Private (Internal) Methods ------------------------------------------------------------------
     private void sortChangedTerms(ArrayList<OBOComponent> obocomponents) throws Exception{
         
-        Wrapper.printMessage("generateeditorreport.sortChangedTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.sortChangedTerms", "****", this.requestMsgLevel);
         	
         for(OBOComponent obocomponent: obocomponents){
             
@@ -210,7 +210,7 @@ public class GenerateEditorReport {
     
     private void writeReportSummary(ValidateComponents validatecomponent) throws Exception{
     	
-        Wrapper.printMessage("generateeditorreport.writeReportSummary", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeReportSummary", "****", this.requestMsgLevel);
         	
         try{
         	
@@ -252,7 +252,7 @@ public class GenerateEditorReport {
     
 	private void writeProblemTerms(ArrayList<OBOComponent> obocomponents) throws Exception{
         
-        Wrapper.printMessage("generateeditorreport.writeProblemTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeProblemTerms", "****", this.requestMsgLevel);
         	
         int counter = 0;
         int commentCounter = 0;
@@ -347,7 +347,7 @@ public class GenerateEditorReport {
 
 	private void writeNewTerms(ArrayList<OBOComponent> obocomponents) throws Exception{
         
-        Wrapper.printMessage("generateeditorreport.writeNewTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeNewTerms", "****", this.requestMsgLevel);
         	
         int counter = 0;
         int commentCounter = 0;
@@ -428,7 +428,7 @@ public class GenerateEditorReport {
 
 	private void writeModifiedTerms(ArrayList<OBOComponent> obocomponents) throws Exception{
         
-        Wrapper.printMessage("generateeditorreport.writeModifiedTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeModifiedTerms", "****", this.requestMsgLevel);
         	
         int counter = 0;
         int commentCounter = 0;
@@ -520,7 +520,7 @@ public class GenerateEditorReport {
 
     private void writeDeletedTerms(ArrayList<OBOComponent> obocomponents) throws Exception{
         
-        Wrapper.printMessage("generateeditorreport.writeDeletedTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeDeletedTerms", "****", this.requestMsgLevel);
         	
         int counter = 0;
         int commentCounter = 0;
@@ -602,7 +602,7 @@ public class GenerateEditorReport {
     
     private void flushStringWriter() throws Exception{
 
-        Wrapper.printMessage("generateeditorreport.flushStringWriter", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.flushStringWriter", "****", this.requestMsgLevel);
         	
         stringWriter = new StringWriter();
         printWriter = new PrintWriter( stringWriter ); 
@@ -611,7 +611,7 @@ public class GenerateEditorReport {
     
     private void writeAppendix() throws Exception{  
         
-        Wrapper.printMessage("generateeditorreport.writeAppendix", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorreport.writeAppendix", "****", this.requestMsgLevel);
         	
         printWriter.println();
         printWriter.println();

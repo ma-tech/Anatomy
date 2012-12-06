@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
 import java.io.File;
@@ -51,16 +50,16 @@ import daomodel.ComponentAlternative;
 
 import utility.FileUtil;
 import utility.CsvUtil;
+import utility.Wrapper;
 
 public class RunOBOBardUpdateComponent {
-	/*
-	 * run Method
-	 */
-    public static void run() throws Exception {
+
+	public static void run() throws Exception {
+
+        Wrapper.printMessage("RunOBOBardUpdateComponent.run", "*", "*");
 
         // Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-        //System.out.println("DAOFactory successfully obtained: " + anatomy008);
 
         // Obtain DAOs.
         ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
@@ -79,21 +78,6 @@ public class RunOBOBardUpdateComponent {
 
     		List<String> rowString = iteratorRow.next();
     		List<String> rowStringOut = new ArrayList<String>();
-    		/*
-    		 * AOC_OID	
-    		 * AOC_NAME	
-    		 * AOC_OBO_ID	
-    		 * AOC_DB_ID	
-    		 * AOC_NEW_ID	
-    		 * AOC_NAMESPACE	
-    		 * AOC_DEFINITION	
-    		 * AOC_GROUP	
-    		 * AOC_START	
-    		 * AOC_END	
-    		 * AOC_PRESENT	
-    		 * AOC_STATUS_CHANGE	
-    		 * AOC_STATUS_RULE
-    		 */
             
     		String aocOid = rowString.get(0).replace(',', ' ');
     		String aocName = rowString.get(1).replace(',', ' ');
@@ -112,6 +96,7 @@ public class RunOBOBardUpdateComponent {
     		String aocOboAltId = "";
 
        		if ( !"".equals(aocOboId) ) {
+       			
        			ComponentAlternative componentalternativeCARO = componentalternativeDAO.findByOboIdCARO(aocOboId);
 
     			if (componentalternativeCARO == null){
@@ -123,10 +108,12 @@ public class RunOBOBardUpdateComponent {
         				aocOboAltId = aocOboId;
         			}
         			else { 
+        				
         				aocOboAltId = componentalternativeAEO.getAltId();
         			}
     			}
     			else {
+    				
     				aocOboAltId = componentalternativeCARO.getAltId();
     			}
        		}
@@ -146,7 +133,6 @@ public class RunOBOBardUpdateComponent {
        		rowStringOut.add(aocStatusRule);
  
        		rowColumnListOut.add(rowStringOut);
-       		
     	}
 
         // Format CSV.
@@ -154,6 +140,5 @@ public class RunOBOBardUpdateComponent {
 
         // Save CSV.
         FileUtil.write(fileOut, csvOutput);
-        
     }
 }

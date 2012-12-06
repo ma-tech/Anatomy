@@ -52,6 +52,8 @@ public class CheckComponentsTablesOrdering {
 
 	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
+	    Wrapper.printMessage("checkcomponentstablesordering.run", "***", requestMsgLevel);
+
 	    // Obtain DAOs.
 	    ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
         
@@ -77,7 +79,7 @@ public class CheckComponentsTablesOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "LOW", requestMsgLevel);
+        		    Wrapper.printMessage("checkcomponentstablesordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -87,7 +89,7 @@ public class CheckComponentsTablesOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "LOW", requestMsgLevel);
+        		    Wrapper.printMessage("checkcomponentstablesordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -96,9 +98,9 @@ public class CheckComponentsTablesOrdering {
         	oldParentId = newParentId;
         }
 	
-	    Wrapper.printMessage("----------------------------", "LOW", requestMsgLevel);
-	    Wrapper.printMessage("Special Order Error Count    = " + ObjectConverter.convert(errorCount, String.class), "LOW", requestMsgLevel);
-	    Wrapper.printMessage("----------------------------", "LOW", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:Special Order Error Count    = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:----------------------------", "***", requestMsgLevel);
 		
 	    List<ComponentOrder> alphacomponentorders = new ArrayList<ComponentOrder>();
 	    alphacomponentorders = componentorderDAO.listOrderByParentByAlphaOrder();
@@ -122,7 +124,7 @@ public class CheckComponentsTablesOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "LOW", requestMsgLevel);
+        		    Wrapper.printMessage("checkcomponentstablesordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         		    errorCount++;
         		}
         	}
@@ -132,7 +134,7 @@ public class CheckComponentsTablesOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "LOW", requestMsgLevel);
+        		    Wrapper.printMessage("checkcomponentstablesordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         		    errorCount++;
         		}
         	}
@@ -141,8 +143,8 @@ public class CheckComponentsTablesOrdering {
         	oldParentId = newParentId;
         }
 	
-	    Wrapper.printMessage("----------------------------", "LOW", requestMsgLevel);
-	    Wrapper.printMessage("Alphabetic Order Error Count = " + ObjectConverter.convert(errorCount, String.class), "LOW", requestMsgLevel);
-	    Wrapper.printMessage("----------------------------", "LOW", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:Alphabetic Order Error Count = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesordering.run:----------------------------", "***", requestMsgLevel);
     }
 }

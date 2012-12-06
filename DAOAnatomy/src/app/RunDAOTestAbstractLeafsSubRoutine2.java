@@ -31,13 +31,12 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import utility.Wrapper;
 
 import daomodel.Leaf;
 
@@ -46,14 +45,14 @@ import daolayer.DAOFactory;
 
 import daolayer.LeafDAO;
 
-
 public class RunDAOTestAbstractLeafsSubRoutine2 {
-	/*
-	 * run Method
-	 */
+
 	public static void run (DAOFactory daofactory, String emapaId ) throws Exception {
 
 		try {
+			
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run", "*", "*");
+
 	        String leafRootName = emapaId;
 
 	        // Obtain DAOs.
@@ -62,13 +61,13 @@ public class RunDAOTestAbstractLeafsSubRoutine2 {
 	    	List<Leaf> leafs = new ArrayList<Leaf>();
         	leafs = leafDAO.listAllNodesByRootNameByChildDesc( leafRootName, leafRootName );
 
-			System.out.println("===========");
-			System.out.println(emapaId + " - convertLeafListToStringJsonLines");
-			System.out.println("-----------");
-
- 			System.out.println( leafDAO.convertLeafListToStringJsonLines(leafs) );
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + "===========", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + emapaId + " - convertLeafListToStringJsonLines", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + "-----------", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + leafDAO.convertLeafListToStringJsonLines(leafs), "*", "*");
 		}
 		catch (DAOException daoe) {
+
 			daoe.printStackTrace();
 		}
 	}

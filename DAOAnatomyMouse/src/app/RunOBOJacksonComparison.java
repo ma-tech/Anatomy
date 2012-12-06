@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
 import java.io.File;
@@ -55,16 +54,16 @@ import daomodel.Component;
 import utility.FileUtil;
 import utility.CsvUtil;
 import utility.ObjectConverter;
+import utility.Wrapper;
 
 public class RunOBOJacksonComparison {
-	/*
-	 * run Method
-	 */
-    public static void run() throws Exception {
+
+	public static void run() throws Exception {
+
+        Wrapper.printMessage("RunOBOJacksonComparison.run", "*", "*");
 
         // Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-        //System.out.println("DAOFactory successfully obtained: " + anatomy008);
 
         // Obtain DAOs.
         JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = anatomy008.getJOINTimedNodeNodeStageDAO();
@@ -99,6 +98,7 @@ public class RunOBOJacksonComparison {
     		
     		//if ( !rowString.get(1).equals("")) {
        		if ( !"".equals(rowString.get(1)) ) {
+       			
     			JOINTimedNodeNodeStage jointimednodenodestage = jointimednodenodestageDAO.findByEmap(emapId);
 
     			if (jointimednodenodestage == null){
@@ -106,6 +106,7 @@ public class RunOBOJacksonComparison {
     				emapaMissing++;
     				
     				if ( i == 1) {
+    					
     					rowColumnListOut.add(Arrays.asList("EMAPA ID", "EMAPA NAME"));
     					rowStringOut1.add("EMAPA ID");
     					rowStringOut1.add("EMAPA NAME");
@@ -114,6 +115,7 @@ public class RunOBOJacksonComparison {
     					rowStringOut2.add("DUNCAN EMAPA NAME");
     				}
     				else {
+    					
         				rowColumnListOut.add(Arrays.asList("EMAP ID NOT FOUND", "EMAP ID NOT FOUND"));
     					rowStringOut1.add("EMAP ID NOT FOUND");
     					rowStringOut1.add("EMAP ID NOT FOUND");
@@ -123,6 +125,7 @@ public class RunOBOJacksonComparison {
     				}
     			}
     			else {
+    				
                     rowColumnListOut.add(Arrays.asList(jointimednodenodestage.getPublicNodeId(), jointimednodenodestage.getComponentName()));
 					rowStringOut1.add(jointimednodenodestage.getPublicNodeId());
 					rowStringOut1.add(jointimednodenodestage.getComponentName());
@@ -138,6 +141,7 @@ public class RunOBOJacksonComparison {
     					rowStringOut2.add("DUNCAN EMAPA ID NOT FOUND");
         			}
         			else {
+        				
         				rowColumnListOut2.add(Arrays.asList(component.getId(), component.getName()));
     					rowStringOut2.add(component.getId());
     					rowStringOut2.add(component.getName());
@@ -146,24 +150,26 @@ public class RunOBOJacksonComparison {
     		}
  
         	Iterator<String> iteratorRowString = rowString.iterator();
+
         	while (iteratorRowString.hasNext()) {
 
         		String column = iteratorRowString.next();
-        		//System.out.println(column);
         		rowStringOutAll.add(column);
         	}
+        	
         	Iterator<String> iteratorRowStringOut1 = rowStringOut1.iterator();
+        	
         	while (iteratorRowStringOut1.hasNext()) {
 
         		String column = iteratorRowStringOut1.next();
-        		//System.out.println(column);
         		rowStringOutAll.add(column);
         	}
+
         	Iterator<String> iteratorRowStringOut2 = rowStringOut2.iterator();
+        	
         	while (iteratorRowStringOut2.hasNext()) {
 
         		String column = iteratorRowStringOut2.next();
-        		//System.out.println(column);
         		rowStringOutAll.add(column);
         	}
     		rowColumnListJoin.add(rowStringOutAll);
@@ -176,13 +182,11 @@ public class RunOBOJacksonComparison {
         // Save CSV.
         FileUtil.write(fileOut, csvOutput);
         
-	    System.out.println("===========");
-	    System.out.println("Error Stats");
-	    System.out.println("-----------");
-	    System.out.println("Cannot Find an EMAPA ID in Database = " +  ObjectConverter.convert(emapaMissing, String.class));
-	    System.out.println("Cannot Find an EMAPA ID in OBO File = " +  ObjectConverter.convert(duncanMissing, String.class));
-	    System.out.println("===========");
-        
-
+        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "===========", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "Error Stats", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "-----------", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "Cannot Find an EMAPA ID in Database = " +  ObjectConverter.convert(emapaMissing, String.class), "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run:", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "===========", "*", "*");
     }
 }

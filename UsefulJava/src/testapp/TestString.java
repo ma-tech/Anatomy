@@ -9,7 +9,7 @@ public class TestString {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     		for (int i = 0; i < args.length; i++ ) {
     		    String testString = args[i];
@@ -40,7 +40,7 @@ public class TestString {
     		    }  
     		}
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

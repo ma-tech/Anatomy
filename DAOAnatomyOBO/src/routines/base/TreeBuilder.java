@@ -64,7 +64,7 @@ public class TreeBuilder {
 
     	this.requestMsgLevel = requestMsgLevel;
     	
-        Wrapper.printMessage("treebuilder.constructor #1", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.constructor #1", "*****", this.requestMsgLevel);
 
         this.mapChildren = mapchildren.getChildren();
         this.mapProperties = mapchildren.getProperties();
@@ -89,7 +89,7 @@ public class TreeBuilder {
 
     	this.requestMsgLevel = requestMsgLevel;
     	
-        Wrapper.printMessage("treebuilder.constructor #2", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.constructor #2", "*****", this.requestMsgLevel);
         
         this.mapChildren = mapchildren.getChildren();
         this.mapProperties = mapchildren.getProperties();
@@ -112,7 +112,7 @@ public class TreeBuilder {
     public DefaultMutableTreeNode recursiveAddNode(String key,
             DefaultMutableTreeNode[] parent_path) throws Exception{
 
-        Wrapper.printMessage("treebuilder.recursiveAddNode", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.recursiveAddNode", "*****", this.requestMsgLevel);
         	
     	//traverse from root component
         OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(key);
@@ -191,7 +191,7 @@ public class TreeBuilder {
             DefaultMutableTreeNode node,
             Vector<DefaultMutableTreeNode> nodes) throws Exception{
         
-        Wrapper.printMessage("treebuilder.recursiveGetNodes", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.recursiveGetNodes", "*****", this.requestMsgLevel);
 
         Vector< DefaultMutableTreeNode > descendants = nodes;
         Vector< DefaultMutableTreeNode > children =
@@ -223,7 +223,7 @@ public class TreeBuilder {
     public DefaultMutableTreeNode recursiveWriteNode(String key,
             DefaultMutableTreeNode[] parent_path) throws Exception{
         
-        Wrapper.printMessage("treebuilder.recursiveWriteNode", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.recursiveWriteNode", "*****", this.requestMsgLevel);
         	
         //traverse from root component
         OBOComponent obocomponent = (OBOComponent) this.mapProperties.get(key);
@@ -298,7 +298,7 @@ public class TreeBuilder {
     
     public DefaultMutableTreeNode getRootNode() throws Exception{
 
-        Wrapper.printMessage("treebuilder.getRootNode", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getRootNode", "*****", this.requestMsgLevel);
         	
         return this.mothernode;
     }
@@ -306,7 +306,7 @@ public class TreeBuilder {
     
     public Vector< DefaultMutableTreeNode > getNodes( String componentID ) throws Exception{
 
-        Wrapper.printMessage("treebuilder.getNodes", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getNodes", "*****", this.requestMsgLevel);
         	
         //method that returns nodes of a component
         
@@ -315,7 +315,7 @@ public class TreeBuilder {
 
         if ( paths == null) {
         	
-            Wrapper.printMessage("treebuilder.getNodes -- ID " + componentID + ",  Nodes " + nodes, "HIGH", this.requestMsgLevel);
+            Wrapper.printMessage("treebuilder.getNodes:ID " + componentID + ",  Nodes " + nodes + "!", "*", this.requestMsgLevel);
         }
         
         for(DefaultMutableTreeNode[] path: paths){
@@ -331,7 +331,7 @@ public class TreeBuilder {
 
     public Vector<DefaultMutableTreeNode[]> getPaths(String id) throws Exception{
 
-        Wrapper.printMessage("treebuilder.getPaths", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getPaths", "*****", this.requestMsgLevel);
         	
         return this.treePaths.get(id);
     }
@@ -339,7 +339,7 @@ public class TreeBuilder {
     
     public Vector<DefaultMutableTreeNode[]> getPathsTo(String id) throws Exception{
         
-        Wrapper.printMessage("treebuilder.getPathsTo", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getPathsTo", "*****", this.requestMsgLevel);
         	
         Vector< DefaultMutableTreeNode[] > paths = getPaths(id);
 
@@ -363,7 +363,7 @@ public class TreeBuilder {
 
     public Vector< String > getStrPaths(String id) throws Exception{
      
-        Wrapper.printMessage("treebuilder.getStrPaths", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getStrPaths", "*****", this.requestMsgLevel);
         	
     	Vector< DefaultMutableTreeNode[] > paths = getPaths(id);
         Vector< String > strPaths = new Vector< String >();
@@ -381,7 +381,7 @@ public class TreeBuilder {
 
     public boolean isSamePathAs(DefaultMutableTreeNode[] path1, DefaultMutableTreeNode[] path2) throws Exception{
         
-        Wrapper.printMessage("treebuilder.isSamePathAs", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.isSamePathAs", "*****", this.requestMsgLevel);
         	
         boolean match = true;
         
@@ -410,7 +410,7 @@ public class TreeBuilder {
 
     public boolean isPrimaryPath(DefaultMutableTreeNode[] pathTo) throws Exception{
         
-        Wrapper.printMessage("treebuilder.isPrimaryPath", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.isPrimaryPath", "*****", this.requestMsgLevel);
         	
         boolean isPrimaryPath = true;
         
@@ -436,7 +436,7 @@ public class TreeBuilder {
     public boolean containsComponent(DefaultMutableTreeNode[] path,
             OBOComponent obocomponent) throws Exception{
 
-        Wrapper.printMessage("treebuilder.containsComponent", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.containsComponent", "*****", this.requestMsgLevel);
         	
         boolean contains = false;
         
@@ -468,7 +468,7 @@ public class TreeBuilder {
 
     public boolean containsNode(DefaultMutableTreeNode[] path, DefaultMutableTreeNode node) throws Exception{
 
-        Wrapper.printMessage("treebuilder.containsNode", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.containsNode", "*****", this.requestMsgLevel);
         	
         boolean contains = false;
         OBOComponent nodeCompie = new OBOComponent();
@@ -509,7 +509,7 @@ public class TreeBuilder {
     
     public boolean hasGroupNodeAsAncestor( DefaultMutableTreeNode[] pathTo, OBOComponent obocomponent ) throws Exception{
 
-        Wrapper.printMessage("treebuilder.hasGroupNodeAsAncestor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.hasGroupNodeAsAncestor", "*****", this.requestMsgLevel);
         	
     	boolean groupNodeAsAncestor = false;
     	
@@ -541,7 +541,7 @@ public class TreeBuilder {
     
     public boolean isPathInNamespace( DefaultMutableTreeNode[] path, OBOComponent rootobocomponent ) throws Exception{
         
-        Wrapper.printMessage("treebuilder.isPathInNamespace", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.isPathInNamespace", "*****", this.requestMsgLevel);
 
         for ( DefaultMutableTreeNode node: path ){
         	
@@ -565,7 +565,7 @@ public class TreeBuilder {
     
     public Map<String, Vector<DefaultMutableTreeNode[]>> getTreePaths() throws Exception{
 
-        Wrapper.printMessage("treebuilder.getTreePaths", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getTreePaths", "*****", this.requestMsgLevel);
         	
         return this.treePaths;
     }
@@ -573,7 +573,7 @@ public class TreeBuilder {
     
     public OBOComponent getComponent(String id) throws Exception{
 
-        Wrapper.printMessage("treebuilder.getComponent", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getComponent", "*****", this.requestMsgLevel);
     	
     	try{
     		
@@ -591,7 +591,7 @@ public class TreeBuilder {
     
     public Vector<String> getTreeRoots() throws Exception{
 
-        Wrapper.printMessage("treebuilder.getTreeRoots", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getTreeRoots", "*****", this.requestMsgLevel);
         	
         return this.vRoots;
     }
@@ -599,7 +599,7 @@ public class TreeBuilder {
     
     public Vector<String> getChildrenBasedOnParent(String parent) throws Exception{
         
-        Wrapper.printMessage("treebuilder.getChildrenBasedOnParent", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("treebuilder.getChildrenBasedOnParent", "*****", this.requestMsgLevel);
         	
         return (Vector<String>) this.mapChildren.get(parent);
     }

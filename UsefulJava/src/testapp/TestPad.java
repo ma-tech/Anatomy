@@ -11,7 +11,7 @@ public class TestPad {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     		String testString = args[0];
     		System.out.println("testString                 = " + testString);
@@ -36,7 +36,7 @@ public class TestPad {
             int intX = 12345;
             System.out.println("utility.StringPad.pad(intX, 7, padChar):" + utility.StringPad.pad(intX, 7, padChar));
             
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

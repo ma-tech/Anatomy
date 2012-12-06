@@ -9,7 +9,7 @@ public class TestPasswordEncryptionService {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
             // generate Salt
             byte[] salt = new byte[8]; 
@@ -55,7 +55,7 @@ public class TestPasswordEncryptionService {
             	System.out.println("FAILURE: Password " + attemptedPassword1 + " DID NOT MATCH encrypted password " + encryptedPassword2);
             }
             
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

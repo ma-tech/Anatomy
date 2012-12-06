@@ -44,7 +44,7 @@ public class Wrapper {
       */
      private static final Set<String> VALID_VALUES = new HashSet<String>(Arrays.asList(
         new String[] 
-    	    {"LOW","MEDIUM","HIGH"}
+    	    {"*****","****","***","**","*"}
         ));
 
 	/*
@@ -73,9 +73,9 @@ public class Wrapper {
     	char dash = '-';
     	String underlines = StringPad.pad("", executingClass.length(), dash);
     	
-        Wrapper.printMessage("=========   " + underlines, "HIGH", requestPriority);
-        Wrapper.printMessage("EXECUTING - " + executingClass + ".java on " + parsed.toString(), "HIGH", requestPriority);
-        Wrapper.printMessage("=========   " + underlines, "HIGH", requestPriority);
+        Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
+        Wrapper.printMessage("EXECUTING : " + executingClass + ".java on " + parsed.toString(), "*", requestPriority);
+        Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
         
         return startTime;
 	}
@@ -91,9 +91,9 @@ public class Wrapper {
     	char dash = '-';
     	String underlines = StringPad.pad("", executingClass.length(), dash);
     	
-        Wrapper.printMessage("=========   " + underlines, "HIGH", requestPriority);
-        Wrapper.printMessage("DONE      - " + executingClass + ".java took " + duration / 1000 + " seconds", "HIGH", requestPriority);
-        Wrapper.printMessage("=========   " + underlines, "HIGH", requestPriority);
+        Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
+        Wrapper.printMessage("DONE      : " + executingClass + ".java took " + duration / 1000 + " seconds", "*", requestPriority);
+        Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
     }
 
 	/*
@@ -102,31 +102,65 @@ public class Wrapper {
     public static void printMessage(String message, String messagePriority, String requestPriority) throws Exception {
 
     	/*
-    	 * Check that the messagePriority and requestPriority values are one of HIGH, MEDIUM or LOW
+    	 * Check that the messagePriority and requestPriority values are one of 
+    	 * HIGH        - *, 
+    	 * MEDIUM-HIGH - **, 
+    	 * MEDIUM      - ***, 
+    	 * MEDIUM-LOW  - ****, 
+    	 * LOW         - *****
     	 */
     	if ( VALID_VALUES.contains( messagePriority ) &&
     		VALID_VALUES.contains( requestPriority ) ) {
     		
     		/*
-    		 * If the Executing Message Level (requestPriority) is LOW
-    		 *  then print ALL messages (HIGH, MEDIUM & LOW)
+    		 * If the Executing Message Level (requestPriority) is *****
+    		 *  then print ALL messages 
     		 */
-        	if ( requestPriority.equals("LOW") && ( 
-        			messagePriority.equals("HIGH") ||
-        			messagePriority.equals("MEDIUM") ||
-        			messagePriority.equals("LOW") ) ) {
+        	if ( requestPriority.equals("*****") && ( 
+        			messagePriority.equals("*") ||
+        			messagePriority.equals("**") ||
+        			messagePriority.equals("***") ||
+        			messagePriority.equals("****") ||
+        			messagePriority.equals("*****") ) ) {
     
         		System.out.println(messagePriority + " : " + message);
         	}
         	
     		/*
-    		 * If the Executing Message Level (requestPriority) is MEDIUM
-    		 *  then print ONLY messages of HIGH and MEDIUM Priority
-    		 *  Ignore LOW priority Messages
+    		 * If the Executing Message Level (requestPriority) is ****
+    		 *  then print ONLY messages of *, **, *** & **** Priority
+    		 *  Ignore *****  priority Messages
     		 */
-        	if ( requestPriority.equals("MEDIUM") && ( 
-        	    	messagePriority.equals("HIGH") ||
-        			messagePriority.equals("MEDIUM") ) ) {
+        	if ( requestPriority.equals("****") && ( 
+        	    	messagePriority.equals("*") ||
+        	    	messagePriority.equals("**") ||
+        			messagePriority.equals("***") ||
+        			messagePriority.equals("****") ) ) {
+        	    		
+        		System.out.println(messagePriority + " : " + message);
+        	}
+        	
+    		/*
+    		 * If the Executing Message Level (requestPriority) is ***
+    		 *  then print ONLY messages of *, **, & ***Priority
+    		 *  Ignore **** & *****  priority Messages
+    		 */
+        	if ( requestPriority.equals("***") && ( 
+        	    	messagePriority.equals("*") ||
+        	    	messagePriority.equals("**") ||
+        			messagePriority.equals("***") ) ) {
+        	    		
+        		System.out.println(messagePriority + " : " + message);
+        	}
+        	
+    		/*
+    		 * If the Executing Message Level (requestPriority) is **
+    		 *  then print messages of * & ** Priority ONLY
+    		 *  Ignore ***, **** & *****  priority Messages
+    		 */
+        	if ( requestPriority.equals("**") && ( 
+        	    	messagePriority.equals("*") ||
+        	    	messagePriority.equals("**") ) ) {
         	    		
         		System.out.println(messagePriority + " : " + message);
         	}
@@ -136,8 +170,8 @@ public class Wrapper {
     		 *  then print ONLY messages of HIGH Priority
     		 *  Ignore LOW and MEDIUM priority Messages
     		 */
-        	if ( requestPriority.equals("HIGH") &&  
-        			messagePriority.equals("HIGH") ) {
+        	if ( requestPriority.equals("*") &&  
+        			messagePriority.equals("*") ) {
         	    
         		System.out.println(messagePriority + " : " + message);
         	}

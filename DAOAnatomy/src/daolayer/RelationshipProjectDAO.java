@@ -308,7 +308,7 @@ public final class RelationshipProjectDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_RELATIONSHIP_PROJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -364,7 +364,7 @@ public final class RelationshipProjectDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_RELATIONSHIP_PROJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -411,7 +411,7 @@ public final class RelationshipProjectDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_RELATIONSHIP_PROJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_RELATIONSHIP_PROJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

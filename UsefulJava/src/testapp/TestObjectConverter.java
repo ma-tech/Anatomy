@@ -11,7 +11,7 @@ public class TestObjectConverter {
 	public static void main(String args[]){  
 
     	try {
-    		long startTime = Wrapper.printPrologue("LOW", Wrapper.getExecutingClass());
+    		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
             /*
              * 1.  integerToBoolean
@@ -149,7 +149,7 @@ public class TestObjectConverter {
     		l2 = ObjectConverter.convert(o12_integer, Long.class);
     		System.out.println("Long " + l2);
 
-            Wrapper.printEpilogue("LOW", Wrapper.getExecutingClass(), startTime);
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {
     		

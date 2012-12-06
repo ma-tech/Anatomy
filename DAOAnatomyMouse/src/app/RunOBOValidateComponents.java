@@ -32,12 +32,13 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import utility.Wrapper;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -46,12 +47,13 @@ import daolayer.StageRangeDAO;
 import daomodel.StageRange;
 
 public class RunOBOValidateComponents {
-	/*
-	 * run Method
-	 */
-    public static void run() {
+
+	public static void run() throws Exception {
     	
     	try {
+    		
+	        Wrapper.printMessage("RunOBOValidateComponents.run", "*", "*");
+
             // Obtain DAOFactory.
             DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
 
@@ -59,23 +61,14 @@ public class RunOBOValidateComponents {
             StageRangeDAO stagerangeDAO = anatomy008.getStageRangeDAO();
 
             int i = 0;
-            /*
-            System.out.println("");
-            System.out.println("Tests 1, 2, 3 & 4 validate the stage ranges of components WITHIN the submitted OBO File ONLY");
-            System.out.println("");
-            System.out.println("Test 5 is slightly different!");
-            System.out.println(" It validates the stage ranges of amended components WITHIN the submitted OBO File");
-            System.out.println("  against the existing DATABASE, for those components whose parents have not been changed!");
-             */
             
             List<StageRange> daostageranges = new ArrayList<StageRange>();
             daostageranges = stagerangeDAO.listByExistingChildPartOfExistingParent();
 
-            System.out.println("");
-            System.out.println("Test 1");
-            System.out.println("\t========================================================================");
-            System.out.println("\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()));
-            System.out.println("\t========================================================================");
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "Test 1", "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\t========================================================================", "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()), "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\t========================================================================", "*", "*");
 
             String childId = "";
             String childName = "";
@@ -86,8 +79,8 @@ public class RunOBOValidateComponents {
             String parentStart = "";
             String parentEnd = "";
             
-            System.out.println(String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
-            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd));
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
             
             childId = "childId";
             childName = "childName";
@@ -98,8 +91,8 @@ public class RunOBOValidateComponents {
             parentStart = "parentStart";
             parentEnd = "parentEnd";
             
-            System.out.println(String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
-            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd));
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
 
             childId = "--------------";
             childName = "---------------------------------------------------------------------------";
@@ -110,93 +103,22 @@ public class RunOBOValidateComponents {
             parentStart = "----------";
             parentEnd = "----------";
             
-            System.out.println(String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
-            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd));
-            Iterator<StageRange> iteratorStageRange = daostageranges.iterator();
+	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+            		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
+
+	        Iterator<StageRange> iteratorStageRange = daostageranges.iterator();
           	
             while (iteratorStageRange.hasNext()) {
-           		StageRange stagerange = iteratorStageRange.next();
+           		
+            	StageRange stagerange = iteratorStageRange.next();
            		i++;
-           		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
+           		
+    	        Wrapper.printMessage("RunOBOValidateComponents.run:" + Integer.toString(i) + stagerange.reportStageRange(), "*", "*");
           	}
 
-            /*
-            daostageranges = stagerangeDAO.listByExistingChildProposedParent();
-            i = 0;
-
-            System.out.println("");
-            System.out.println("Test 2");
-            System.out.println("\t========================================================================");
-            System.out.println("\tThe Number of EXISTING Child Nodes OUTSIDE PROPOSED Parent Stage Range = " + Integer.toString(daostageranges.size()));
-            System.out.println("\t========================================================================");
-            System.out.println("\tchildId\t\tchildStart\tchildEnd\tparentId\tparentStart\tparentEnd");
-            System.out.println("\t-------\t\t----------\t--------\t--------\t-----------\t---------");
-
-            iteratorStageRange = daostageranges.iterator();
-          	while (iteratorStageRange.hasNext()) {
-           		StageRange stagerange = iteratorStageRange.next();
-           		i++;
-           		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
-          	}
-
-          	daostageranges = stagerangeDAO.listByProposedChildProposedParent();
-            i = 0;
-
-            System.out.println("");
-            System.out.println("Test 3");
-            System.out.println("\t========================================================================");
-            System.out.println("\tThe Number of PROPOSED Child Nodes OUTSIDE PROPOSED Parent Stage Range = " + Integer.toString(daostageranges.size()));
-            System.out.println("\t========================================================================");
-            System.out.println("\tchildId\t\tchildStart\tchildEnd\tparentId\tparentStart\tparentEnd");
-            System.out.println("\t-------\t\t----------\t--------\t--------\t-----------\t---------");
-
-            iteratorStageRange = daostageranges.iterator();
-          	while (iteratorStageRange.hasNext()) {
-           		StageRange stagerange = iteratorStageRange.next();
-           		i++;
-           		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
-          	}
-
-            daostageranges = stagerangeDAO.listByProposedChildExistingParent();
-            i = 0;
-
-            System.out.println("");
-            System.out.println("Test 4");
-            System.out.println("\t========================================================================");
-            System.out.println("\tThe Number of PROPOSED Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()));
-            System.out.println("\t========================================================================");
-            System.out.println("\tchildId\t\tchildStart\tchildEnd\tparentId\tparentStart\tparentEnd");
-            System.out.println("\t-------\t\t----------\t--------\t--------\t-----------\t---------");
-
-            iteratorStageRange = daostageranges.iterator();
-          	while (iteratorStageRange.hasNext()) {
-           		StageRange stagerange = iteratorStageRange.next();
-           		i++;
-           		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
-          	}
-
-            System.out.println("");
-
-            daostageranges = stagerangeDAO.listByExistingChildExistingParentDatabase();
-            i = 0;
-
-            System.out.println("");
-            System.out.println("Test 5");
-            System.out.println("\t========================================================================================");
-            System.out.println("\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range within DATABASE = " + Integer.toString(daostageranges.size()));
-            System.out.println("\t========================================================================================");
-            System.out.println("\tchildId\t\tchildStart\tchildEnd\tparentId\tparentStart\tparentEnd");
-            System.out.println("\t-------\t\t----------\t--------\t--------\t-----------\t---------");
-
-            iteratorStageRange = daostageranges.iterator();
-          	while (iteratorStageRange.hasNext()) {
-           		StageRange stagerange = iteratorStageRange.next();
-           		i++;
-           		System.out.println(Integer.toString(i) + stagerange.reportStageRange());
-          	}
-            */
     	}
 		catch (DAOException daoexception) {
+
 			daoexception.printStackTrace();
 		}
     }

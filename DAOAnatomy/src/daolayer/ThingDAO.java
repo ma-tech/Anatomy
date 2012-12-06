@@ -285,7 +285,7 @@ public final class ThingDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -341,7 +341,7 @@ public final class ThingDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -388,7 +388,7 @@ public final class ThingDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBJECT Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBJECT Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {

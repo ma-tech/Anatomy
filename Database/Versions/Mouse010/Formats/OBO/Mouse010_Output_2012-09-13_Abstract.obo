@@ -1,14 +1,13 @@
 format-version: 1.2
-date: 17:09:2012 12:55
+date: 06:12:2012 16:16
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
-remark: Global Name Changes by Terry Hayamizu 29th August 2012
+remark: Version 009
 
 [Term]
 id: EMAPA:0
 name: Abstract anatomy
 namespace: abstract_anatomy
-relationship: is_a EMAPA:0
 
 [Term]
 id: group_term
@@ -18,174 +17,174 @@ namespace: group_term
 [Term]
 id: TS:0
 name: Theiler stage
-namespace: theiler stage
+namespace: theiler_stage
 
 [Term]
 id: TS01
 name: TS01
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS02
 name: TS02
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS03
 name: TS03
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS04
 name: TS04
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS05
 name: TS05
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS06
 name: TS06
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS07
 name: TS07
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS08
 name: TS08
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS09
 name: TS09
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS10
 name: TS10
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS11
 name: TS11
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS12
 name: TS12
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS13
 name: TS13
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS14
 name: TS14
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS15
 name: TS15
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS16
 name: TS16
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS17
 name: TS17
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS18
 name: TS18
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS19
 name: TS19
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS20
 name: TS20
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS21
 name: TS21
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS22
 name: TS22
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS23
 name: TS23
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS24
 name: TS24
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS25
 name: TS25
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS26
 name: TS26
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS27
 name: TS27
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
 id: TS28
 name: TS28
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]

@@ -61,7 +61,7 @@ public class ListOBOComponentsFromOBOFile {
     	
         this.requestMsgLevel = requestMsgLevel;
         
-        Wrapper.printMessage("listobocomponentsfromobofile.constructor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("listobocomponentsfromobofile.constructor", "***", this.requestMsgLevel);
         
         try {
         	

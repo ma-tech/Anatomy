@@ -99,7 +99,7 @@ public class AnaRelationship {
     		
         	this.requestMsgLevel = requestMsgLevel;
 
-            Wrapper.printMessage("anarelationship.constructor", "LOW", this.requestMsgLevel);
+            Wrapper.printMessage("anarelationship.constructor", "***", this.requestMsgLevel);
 
             this.daofactory = daofactory;
 
@@ -137,7 +137,7 @@ public class AnaRelationship {
     		OBOComponent groupclassobocomponent, 
     		OBOComponent grouptermclassobocomponent) throws Exception {
     	
-        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:" + calledFrom, "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:" + calledFrom, "***", this.requestMsgLevel);
         	
         ArrayList<OBOComponent> insertRelObjects = new ArrayList<OBOComponent>();
         
@@ -163,7 +163,7 @@ public class AnaRelationship {
           
                 if ( !project.equals("GUDMAP") && !project.equals("EMAP") ) {
                 	
-                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Project Value = " + project , "HIGH", this.requestMsgLevel);
+                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Project Value = " + project , "*", this.requestMsgLevel);
                 }
 
                 for ( int i = 0; i< newTermList.size(); i++) {
@@ -371,7 +371,7 @@ public class AnaRelationship {
                         }
                         else {
 
-                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "HIGH", this.requestMsgLevel);
+                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.requestMsgLevel);
                         }
 
                         intREL_CHILD_FK = Integer.parseInt( insertRelObject.getID() );
@@ -393,7 +393,7 @@ public class AnaRelationship {
                         	
                             Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- Exception caught for child " + 
                                     insertRelObject.getID() + " parent " +
-                                    insertRelObject.getChildOfs().toString(), "HIGH", this.requestMsgLevel);
+                                    insertRelObject.getChildOfs().toString(), "*", this.requestMsgLevel);
                             e.printStackTrace();
                         }
                     	
@@ -429,7 +429,7 @@ public class AnaRelationship {
     //  Insert into ANA_RELATIONSHIP_PROJECT
     private void insertANA_RELATIONSHIP_PROJECT( OBOComponent newComponent, int relationshipOid, String calledFrom) throws Exception {
 
-        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP_PROJECT:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP_PROJECT:" + calledFrom , "***", this.requestMsgLevel);
         	
         ArrayList<String> orderParents = new ArrayList<String>();
         ArrayList<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
@@ -478,7 +478,7 @@ public class AnaRelationship {
     //  Delete from ANA_RELATIONSHIP
     public boolean deleteANA_RELATIONSHIP( ArrayList<OBOComponent> deleteRelComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anarelationship.deleteANA_RELATIONSHIP:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.deleteANA_RELATIONSHIP:" + calledFrom , "***", this.requestMsgLevel);
         	
         try {
         	
@@ -553,7 +553,7 @@ public class AnaRelationship {
     		OBOComponent groupclassobocomponent, 
     		OBOComponent grouptermclassobocomponent) throws Exception {
 
-        Wrapper.printMessage("anarelationship.updateParents:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.updateParents:" + calledFrom , "***", this.requestMsgLevel);
         	
         try {
 
@@ -606,7 +606,7 @@ public class AnaRelationship {
     // update_orderANA_RELATIONSHIP 
 	public boolean update_orderANA_RELATIONSHIP( HashMap<String, ArrayList<String>> mapParentChildren, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anarelationship.update_orderANA_RELATIONSHIP:" + calledFrom , "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.update_orderANA_RELATIONSHIP:" + calledFrom , "***", this.requestMsgLevel);
         	
         String parentPublicId = "";
         
@@ -780,7 +780,7 @@ public class AnaRelationship {
 	//  rebuild ANA_RELATIONSHIP
     public boolean rebuildANA_RELATIONSHIP_PROJECT() throws Exception {
 
-        Wrapper.printMessage("anarelationship.rebuildANA_RELATIONSHIP_PROJECT", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.rebuildANA_RELATIONSHIP_PROJECT", "***", this.requestMsgLevel);
         	
         ArrayList<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
         ArrayList<RelationshipProject> relationshipprojects = new ArrayList<RelationshipProject>(); 
@@ -858,7 +858,7 @@ public class AnaRelationship {
          // NOTE: function is obsolete if editor re-orders the remaining siblings, current rules
          // checking do not allow database to be updated if the ordering has a gap anyway
 
-        Wrapper.printMessage("anarelationship.reorderANA_RELATIONSHIP", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.reorderANA_RELATIONSHIP", "***", this.requestMsgLevel);
 
         ArrayList <String> componentParents = new ArrayList<String>();
 

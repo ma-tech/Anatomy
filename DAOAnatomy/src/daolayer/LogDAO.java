@@ -298,7 +298,7 @@ public final class LogDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_LOG Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -356,7 +356,7 @@ public final class LogDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_LOG Skipped", "***", daoFactory.getLevel());
             }
         } 
         catch (SQLException e) {
@@ -403,7 +403,7 @@ public final class LogDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_LOG Skipped", "MEDIUM", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_LOG Skipped", "***", daoFactory.getLevel());
             }
 
         } 

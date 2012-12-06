@@ -33,7 +33,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package app;
 
 import java.io.File;
@@ -51,16 +50,16 @@ import daomodel.ComponentAlternative;
 
 import utility.FileUtil;
 import utility.CsvUtil;
+import utility.Wrapper;
 
 public class RunOBOBardUpdateRelationship {
-	/*
-	 * run Method
-	 */
-    public static void run() throws Exception {
+
+	public static void run() throws Exception {
+
+        Wrapper.printMessage("RunOBOBardUpdateRelationship.run", "*", "*");
 
         // Obtain DAOFactory.
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
-        //System.out.println("DAOFactory successfully obtained: " + anatomy008);
 
         // Obtain DAOs.
         ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
@@ -91,6 +90,7 @@ public class RunOBOBardUpdateRelationship {
     		String acrOboParentAlt = "";
 
        		if ( !"".equals(acrOboChild) ) {
+       			
        			ComponentAlternative componentalternativeCARO = componentalternativeDAO.findByOboIdCARO(acrOboChild);
 
     			if (componentalternativeCARO == null){
@@ -102,15 +102,18 @@ public class RunOBOBardUpdateRelationship {
         				acrOboChildAlt = acrOboChild;
         			}
         			else { 
+        				
         				acrOboChildAlt = componentalternativeAEO.getAltId();
         			}
     			}
     			else {
+    				
     				acrOboChildAlt = componentalternativeCARO.getAltId();
     			}
        		}
     			
        		if ( !"".equals(acrOboParent) ) {
+       			
        			ComponentAlternative componentalternativeCARO = componentalternativeDAO.findByOboIdCARO(acrOboParent);
 
     			if (componentalternativeCARO == null){
@@ -122,10 +125,12 @@ public class RunOBOBardUpdateRelationship {
         				acrOboParentAlt = acrOboParent;
         			}
         			else { 
+        				
         				acrOboParentAlt = componentalternativeAEO.getAltId();
         			}
     			}
     			else {
+    				
     				acrOboParentAlt = componentalternativeCARO.getAltId();
     			}
        		}
@@ -138,7 +143,6 @@ public class RunOBOBardUpdateRelationship {
        		rowStringOut.add(acrOboParentAlt);
  
        		rowColumnListOut.add(rowStringOut);
-       		
     	}
 
         // Format CSV.
@@ -146,6 +150,5 @@ public class RunOBOBardUpdateRelationship {
 
         // Save CSV.
         FileUtil.write(fileOut, csvOutput);
-        
     }
 }

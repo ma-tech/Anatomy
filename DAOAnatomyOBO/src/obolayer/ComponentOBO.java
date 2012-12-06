@@ -30,8 +30,6 @@
 */
 package obolayer;
 
-import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +57,7 @@ public final class ComponentOBO {
     /*
      * Returns a list of ALL OBOComponents, otherwise null.
      */
-    public List<OBOComponent> listAll() throws OBOException, IOException {
+    public List<OBOComponent> listAll() throws Exception {
     	
         return list();
     }
@@ -68,11 +66,12 @@ public final class ComponentOBO {
      * Returns a list of all components from the file. 
      *  The list is never null and is empty when the file does not contain any components.
      */
-    public List<OBOComponent> list() throws OBOException, IOException {
+    public List<OBOComponent> list() throws Exception {
       
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 
         try {
+        	
         	obocomponents = oboFactory.getComponents();
         } 
         catch (OBOConfigurationException e) {
@@ -112,7 +111,7 @@ public final class ComponentOBO {
     /*
      * Within the OBOFactory, write ALL the OBO OBOComponents in the existing OBO Factory list to File 
      */
-    public Boolean writeAll(String stage) throws OBOException {
+    public Boolean writeAll(String stage) throws Exception {
     	
         return write( stage );
     }
@@ -120,11 +119,12 @@ public final class ComponentOBO {
     /*
      * write OBO OBOComponents
      */
-    public Boolean write( String stage ) throws OBOException {
+    public Boolean write( String stage ) throws Exception {
       
         Boolean isProcessed = false; 
         		
         try {
+        	
         	isProcessed = oboFactory.writeComponents( stage );
         } 
         catch (OBOConfigurationException e) {
@@ -141,6 +141,7 @@ public final class ComponentOBO {
     public boolean debug() throws OBOException {
 
         try {
+        	
             return oboFactory.isDebug();
         } 
         catch (OBOConfigurationException e) {
@@ -155,6 +156,7 @@ public final class ComponentOBO {
     public String summaryReport() throws OBOException {
 
         try {
+        	
         	return oboFactory.getSummaryReport();
         } 
         catch (OBOConfigurationException e) {
@@ -169,6 +171,7 @@ public final class ComponentOBO {
     public String summaryReportPdf() throws OBOException {
 
         try {
+        	
             return oboFactory.getSummaryReportPdf();
         } 
         catch (OBOConfigurationException e) {
@@ -183,6 +186,7 @@ public final class ComponentOBO {
     public String inputFile() throws OBOException {
 
         try {
+        	
             return oboFactory.getInputFile();
         } 
         catch (OBOConfigurationException e) {
@@ -194,9 +198,10 @@ public final class ComponentOBO {
     /*
      * Return the OBO Factory Input File name - from the OBO properties file
      */
-    public String inputFileContents() throws OBOException, IOException {
+    public String inputFileContents() throws Exception {
 
         try {
+        	
             return oboFactory.getComponentContent();
         } 
         catch (OBOConfigurationException e) {
@@ -211,6 +216,7 @@ public final class ComponentOBO {
     public String inputFileVersion() throws OBOException {
 
         try {
+        	
             return oboFactory.getOutputFileVersion();
         } 
         catch (OBOConfigurationException e) {
@@ -225,6 +231,7 @@ public final class ComponentOBO {
     public String inputFileNameSpace() throws OBOException {
 
         try {
+        	
             return oboFactory.getOutputFileNameSpace();
         } 
         catch (OBOConfigurationException e) {
@@ -239,6 +246,7 @@ public final class ComponentOBO {
     public String inputFileSavedBy() throws OBOException {
 
         try {
+        	
             return oboFactory.getOutputFileSavedBy();
         } 
         catch (OBOConfigurationException e) {
@@ -253,6 +261,7 @@ public final class ComponentOBO {
     public String inputFileRemark() throws OBOException {
 
     	try {
+    		
             return oboFactory.getOutputFileRemark();
         } 
         catch (OBOConfigurationException e) {
@@ -267,6 +276,7 @@ public final class ComponentOBO {
     public String outputFile() throws OBOException {
 
     	try {
+    		
             return oboFactory.getOutputFile();
         } 
         catch (OBOConfigurationException e) {
@@ -281,6 +291,7 @@ public final class ComponentOBO {
     public String species() throws OBOException {
 
     	try {
+    		
             return oboFactory.getSpecies();
         } 
         catch (OBOConfigurationException e) {
@@ -295,6 +306,7 @@ public final class ComponentOBO {
     public String project() throws OBOException {
 
     	try {
+    		
             return oboFactory.getProject();
         } 
         catch (OBOConfigurationException e) {
@@ -309,6 +321,7 @@ public final class ComponentOBO {
     public String abstractClassName() throws OBOException {
 
     	try {
+    		
             return oboFactory.getAbstractClassName();
         } 
         catch (OBOConfigurationException e) {
@@ -323,6 +336,7 @@ public final class ComponentOBO {
     public String abstractClassId() throws OBOException {
 
     	try {
+    		
             return oboFactory.getAbstractClassId();
         } 
         catch (OBOConfigurationException e) {
@@ -337,6 +351,7 @@ public final class ComponentOBO {
     public String abstractClassNamespace() throws OBOException {
 
     	try {
+    		
             return oboFactory.getAbstractClassNamespace();
         } 
         catch (OBOConfigurationException e) {
@@ -351,6 +366,7 @@ public final class ComponentOBO {
     public String stageClassName() throws OBOException {
 
     	try {
+    		
             return oboFactory.getStageClassName();
         } 
         catch (OBOConfigurationException e) {
@@ -365,6 +381,7 @@ public final class ComponentOBO {
     public String stageClassId() throws OBOException {
 
     	try {
+    		
             return oboFactory.getStageClassId();
         } 
         catch (OBOConfigurationException e) {
@@ -379,6 +396,7 @@ public final class ComponentOBO {
     public String stageClassNamespace() throws OBOException {
 
     	try {
+    		
             return oboFactory.getStageClassNamespace();
         } 
         catch (OBOConfigurationException e) {
@@ -393,6 +411,7 @@ public final class ComponentOBO {
     public String groupClassName() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupClassName();
         } 
         catch (OBOConfigurationException e) {
@@ -407,6 +426,7 @@ public final class ComponentOBO {
     public String groupClassId() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupClassId();
         } 
         catch (OBOConfigurationException e) {
@@ -421,6 +441,7 @@ public final class ComponentOBO {
     public String groupClassNamespace() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupClassNamespace();
         } 
         catch (OBOConfigurationException e) {
@@ -435,6 +456,7 @@ public final class ComponentOBO {
     public String groupTermClassName() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupTermClassName();
         } 
         catch (OBOConfigurationException e) {
@@ -449,6 +471,7 @@ public final class ComponentOBO {
     public String groupTermClassId() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupTermClassId();
         } 
         catch (OBOConfigurationException e) {
@@ -463,6 +486,7 @@ public final class ComponentOBO {
     public String groupTermClassNamespace() throws OBOException {
 
     	try {
+    		
             return oboFactory.getGroupTermClassNamespace();
         } 
         catch (OBOConfigurationException e) {
@@ -477,6 +501,7 @@ public final class ComponentOBO {
     public int minStageSequence() throws OBOException {
 
     	try {
+    		
             return oboFactory.getMinStageSequence();
         } 
         catch (OBOConfigurationException e) {
@@ -491,6 +516,7 @@ public final class ComponentOBO {
     public int maxStageSequence() throws OBOException {
 
     	try {
+    		
             return oboFactory.getMaxStageSequence();
         } 
         catch (OBOConfigurationException e) {

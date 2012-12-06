@@ -98,7 +98,7 @@ public class GenerateEditorPDF {
 
         this.requestMsgLevel = requestMsgLevel;
         
-        Wrapper.printMessage("generateeditorpdf.constructor", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.constructor", "****", this.requestMsgLevel);
 
         this.treebuilder = treebuilder;
         this.outputFileName = outputFileName;
@@ -204,7 +204,7 @@ public class GenerateEditorPDF {
     // Private (Internal) Methods ------------------------------------------------------------------
     private void sortChangedTerms(ArrayList<OBOComponent> allTerms) throws Exception{
         
-        Wrapper.printMessage("generateeditorpdf.sortChangedTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.sortChangedTerms", "****", this.requestMsgLevel);
 
         for(OBOComponent obocomponent: allTerms){
             
@@ -249,7 +249,7 @@ public class GenerateEditorPDF {
     
     private void writeReportSummary(ValidateComponents validatecomponents) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.writeReportSummary", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.writeReportSummary", "****", this.requestMsgLevel);
         	
     	try{
             
@@ -283,7 +283,7 @@ public class GenerateEditorPDF {
 
     private void writeSummaryTable( ValidateComponents validatecomponents ) throws Exception{
         
-        Wrapper.printMessage("generateeditorpdf.writeSummaryTable", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.writeSummaryTable", "****", this.requestMsgLevel);
         	
         try{
         	
@@ -398,7 +398,7 @@ public class GenerateEditorPDF {
 
     private Cell makeSummaryTableLabel(String label) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.makeSummaryTableLabel", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.makeSummaryTableLabel", "****", this.requestMsgLevel);
         	
         Cell cell = new Cell();
         Chunk chkLabel = new Chunk( label,
@@ -410,7 +410,7 @@ public class GenerateEditorPDF {
 
     private Cell makeSummaryTableEntry(String entry, int style, Color color) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.makeSummaryTableEntry", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.makeSummaryTableEntry", "****", this.requestMsgLevel);
         	
         Cell cell = new Cell();
         Chunk chkEntry = new Chunk( entry,
@@ -423,7 +423,7 @@ public class GenerateEditorPDF {
     private void addSummaryEntry( String label, String item,
             ValidateComponents validatecomponents ) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.addSummaryEntry", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.addSummaryEntry", "****", this.requestMsgLevel);
 
     	try{
     		
@@ -446,7 +446,7 @@ public class GenerateEditorPDF {
     
     private void makeComponentTable( OBOComponent obocomponent, String tableHeader, int counter, Color tableColor ) throws Exception{
     	
-        Wrapper.printMessage("generateeditorpdf.makeComponentTable", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.makeComponentTable", "****", this.requestMsgLevel);
         	
         try{
         	
@@ -631,7 +631,7 @@ public class GenerateEditorPDF {
 
     private Cell makeLabel( String content ) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.makeLabel", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.makeLabel", "****", this.requestMsgLevel);
         	
         //Chunk chkCell = new Chunk( content,
         //            new Font( Font.COURIER, 8, Font.ITALIC ) );
@@ -644,7 +644,7 @@ public class GenerateEditorPDF {
 
     private Cell makeEntry( String content ) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.makeEntry", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.makeEntry", "****", this.requestMsgLevel);
         	
         //Chunk chkCell = new Chunk( content,
         //            new Font( Font.COURIER, 8, Font.NORMAL ) );
@@ -662,7 +662,7 @@ public class GenerateEditorPDF {
             String strTableHeader,
             String strStatus ) throws Exception{
 
-        Wrapper.printMessage("generateeditorpdf.writeTerms", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.writeTerms", "****", this.requestMsgLevel);
         	
         int counter = 0;
         String strCompieID = "";
@@ -756,7 +756,7 @@ public class GenerateEditorPDF {
 
     private void writeAppendix() throws Exception{  
     	
-        Wrapper.printMessage("generateeditorpdf.writeAppendix", "LOW", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.writeAppendix", "****", this.requestMsgLevel);
         	
         try{
         	

@@ -1,0 +1,3155 @@
+format-version: 1.2
+date: 10:12:2012 15:34
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Timed anatomy
+namespace: timed_anatomy
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS28
+name: TS28
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:27551
+name: mouse
+namespace: timed_anatomy
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:27553
+name: organ system
+namespace: abstract_anatomy
+relationship: part_of EMAP:27551
+
+[Term]
+id: EMAP:27555
+name: visceral organ
+namespace: abstract_anatomy
+relationship: part_of EMAP:27553
+
+[Term]
+id: EMAP:27559
+name: urinary system
+namespace: abstract_anatomy
+relationship: part_of EMAP:27555
+
+[Term]
+id: EMAP:29477
+name: urinary system mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29478
+name: urogenital mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29477
+
+[Term]
+id: EMAP:29617
+name: rest of mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29477
+
+[Term]
+id: EMAP:29491
+name: metanephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29598
+name: renal capsule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29561
+name: nephrogenic zone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29564
+name: nephrogenic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29561
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29562
+name: cap mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:29561
+
+[Term]
+id: EMAP:29565
+name: pretubular aggregate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29561
+
+[Term]
+id: EMAP:29563
+name: ureteric tip
+namespace: abstract_anatomy
+relationship: part_of EMAP:29561
+relationship: part_of EMAP:29592
+
+[Term]
+id: EMAP:29557
+name: pelvis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29559
+name: pelvic urothelial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:29557
+
+[Term]
+id: EMAP:29558
+name: perihilar interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29557
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29560
+name: pelvic smooth muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29557
+
+[Term]
+id: EMAP:29492
+name: renal cortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29499
+name: cortical renal tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+relationship: part_of EMAP:29493
+relationship: part_of EMAP:29540
+relationship: part_of EMAP:29541
+relationship: part_of EMAP:29556
+relationship: part_of EMAP:29594
+
+[Term]
+id: EMAP:29509
+name: renal connecting tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29499
+
+[Term]
+id: EMAP:29500
+name: renal proximal tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29499
+
+[Term]
+id: EMAP:29502
+name: renal proximal convoluted tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29500
+relationship: part_of EMAP:31794
+
+[Term]
+id: EMAP:29658
+name: segment 1 of proximal tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29502
+
+[Term]
+id: EMAP:29660
+name: segment 2 of proximal tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29502
+
+[Term]
+id: EMAP:29662
+name: renal proximal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29500
+
+[Term]
+id: EMAP:29503
+name: renal distal tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29499
+
+[Term]
+id: EMAP:29508
+name: distal convoluted tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29503
+relationship: part_of EMAP:31794
+
+[Term]
+id: EMAP:29505
+name: distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29503
+relationship: part_of EMAP:31794
+
+[Term]
+id: EMAP:29507
+name: macula densa
+namespace: abstract_anatomy
+relationship: part_of EMAP:29505
+relationship: part_of EMAP:30453
+
+[Term]
+id: EMAP:29506
+name: postmacula segment of distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29505
+
+[Term]
+id: EMAP:29520
+name: cortical collecting duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+relationship: part_of EMAP:29599
+
+[Term]
+id: EMAP:29521
+name: renal cortical interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29549
+name: renal cortical vasculature
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:29550
+name: renal cortical arterial system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29549
+
+[Term]
+id: EMAP:29552
+name: interlobular artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29550
+relationship: part_of EMAP:31442
+relationship: part_of EMAP:31468
+
+[Term]
+id: EMAP:29551
+name: arcuate artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29550
+relationship: part_of EMAP:31442
+relationship: part_of EMAP:31468
+
+[Term]
+id: EMAP:29553
+name: renal cortical venous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29549
+
+[Term]
+id: EMAP:29554
+name: interlobular vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29553
+relationship: part_of EMAP:31456
+relationship: part_of EMAP:31468
+
+[Term]
+id: EMAP:29555
+name: arcuate vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29553
+relationship: part_of EMAP:31456
+relationship: part_of EMAP:31468
+
+[Term]
+id: EMAP:29525
+name: mature renal corpuscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+relationship: part_of EMAP:29540
+relationship: part_of EMAP:29594
+
+[Term]
+id: EMAP:29529
+name: glomerular tuft
+namespace: abstract_anatomy
+relationship: part_of EMAP:29525
+
+[Term]
+id: EMAP:29533
+name: glomerular capillary system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29529
+relationship: part_of EMAP:31449
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:29530
+name: glomerular mesangium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29529
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29532
+name: glomerular basement membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:29529
+
+[Term]
+id: EMAP:29531
+name: visceral epithelium of mature renal corpuscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29529
+
+[Term]
+id: EMAP:29526
+name: Bowman's capsule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29525
+
+[Term]
+id: EMAP:29528
+name: parietal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29526
+
+[Term]
+id: EMAP:29527
+name: urinary space of renal corpuscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29526
+
+[Term]
+id: EMAP:29536
+name: afferent arteriole
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29525
+relationship: part_of EMAP:31456
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:29537
+name: part of afferent arteriole forming the juxtaglomerular complex
+namespace: abstract_anatomy
+relationship: part_of EMAP:29536
+relationship: part_of EMAP:30453
+
+[Term]
+id: EMAP:29538
+name: rest of afferent arteriole
+namespace: abstract_anatomy
+relationship: part_of EMAP:29536
+
+[Term]
+id: EMAP:29535
+name: efferent arteriole
+namespace: abstract_anatomy
+relationship: part_of EMAP:29525
+relationship: part_of EMAP:31456
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:29534
+name: extraglomerular mesangium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29525
+relationship: part_of EMAP:29593
+relationship: part_of EMAP:30453
+
+[Term]
+id: EMAP:29566
+name: renal medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29589
+name: renal medullary vasculature
+namespace: abstract_anatomy
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:29590
+name: renal medullary arterial system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29589
+relationship: part_of EMAP:31442
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:29591
+name: renal medullary venous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29589
+relationship: part_of EMAP:31456
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:29567
+name: outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:29982
+name: outer medullary interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29567
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29983
+name: outer medullary collecting duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29567
+relationship: part_of EMAP:29599
+
+[Term]
+id: EMAP:29664
+name: outer stripe of outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29567
+
+[Term]
+id: EMAP:29666
+name: loop of Henle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29664
+
+[Term]
+id: EMAP:29670
+name: proximal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29666
+
+[Term]
+id: EMAP:29672
+name: distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29666
+
+[Term]
+id: EMAP:29678
+name: inner stripe of outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29567
+
+[Term]
+id: EMAP:29680
+name: loop of Henle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29678
+
+[Term]
+id: EMAP:29682
+name: thin descending limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:29680
+
+[Term]
+id: EMAP:29684
+name: premacula segment of distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29680
+
+[Term]
+id: EMAP:29581
+name: inner medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:29583
+name: loop of Henle, inner medullary portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:29581
+relationship: part_of EMAP:31499
+
+[Term]
+id: EMAP:29584
+name: thin descending limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:29583
+
+[Term]
+id: EMAP:29586
+name: bend of loop of Henle inner medullary portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:29583
+
+[Term]
+id: EMAP:29585
+name: thin ascending limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:29583
+
+[Term]
+id: EMAP:29582
+name: inner medullary interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29581
+relationship: part_of EMAP:29593
+
+[Term]
+id: EMAP:29587
+name: inner medullary collecting duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29581
+relationship: part_of EMAP:29599
+
+[Term]
+id: EMAP:29595
+name: calyx
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29597
+name: major calyx
+namespace: abstract_anatomy
+relationship: part_of EMAP:29595
+
+[Term]
+id: EMAP:29596
+name: minor calyx
+namespace: abstract_anatomy
+relationship: part_of EMAP:29595
+
+[Term]
+id: EMAP:29475
+name: urorectal septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29457
+name: bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29462
+name: urothelium of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29463
+name: urothelium of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29462
+
+[Term]
+id: EMAP:29464
+name: urothelium of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29462
+
+[Term]
+id: EMAP:29459
+name: muscularis mucosa of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29460
+name: muscularis mucosa of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29459
+
+[Term]
+id: EMAP:29461
+name: muscularis mucosa of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29459
+
+[Term]
+id: EMAP:29468
+name: detrusor muscle of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29470
+name: detrusor muscle of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29468
+
+[Term]
+id: EMAP:29469
+name: detrusor muscle of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29468
+
+[Term]
+id: EMAP:29471
+name: serosa of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29473
+name: serosa of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29471
+
+[Term]
+id: EMAP:29472
+name: serosa of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29471
+
+[Term]
+id: EMAP:29474
+name: vasculature of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29465
+name: adventitia of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:29467
+name: adventitia of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29465
+
+[Term]
+id: EMAP:29466
+name: adventitia of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:29465
+
+[Term]
+id: EMAP:29479
+name: ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29482
+name: urothelium of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29479
+
+[Term]
+id: EMAP:29485
+name: intermediate cell layer of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29482
+
+[Term]
+id: EMAP:29486
+name: basal cell layer of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29482
+
+[Term]
+id: EMAP:29483
+name: superficial cell layer of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29482
+
+[Term]
+id: EMAP:29480
+name: adventitia of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29479
+
+[Term]
+id: EMAP:29481
+name: lamina propria of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:29479
+
+[Term]
+id: EMAP:29488
+name: ureteral smooth muscle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:29479
+
+[Term]
+id: EMAP:29489
+name: ureteral smooth muscle layer interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29488
+
+[Term]
+id: EMAP:29634
+name: ureteral smooth muscle layer inner longitudinal muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29488
+
+[Term]
+id: EMAP:29636
+name: ureteral smooth muscle layer outer circular muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29488
+
+[Term]
+id: EMAP:29442
+name: renal artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:31442
+
+[Term]
+id: EMAP:29981
+name: endothelial layer of renal artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29442
+
+[Term]
+id: EMAP:30002
+name: endothelium of renal artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29442
+
+[Term]
+id: EMAP:30010
+name: smooth muscle layer of renal artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:29442
+
+[Term]
+id: EMAP:29441
+name: renal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:31456
+
+[Term]
+id: EMAP:29969
+name: endothelial layer of renal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:29441
+
+[Term]
+id: EMAP:30018
+name: endothelium of renal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:29441
+
+[Term]
+id: EMAP:30026
+name: smooth muscle layer of renal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:29441
+
+[Term]
+id: EMAP:29600
+name: urachus
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29448
+name: urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29449
+name: pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:29450
+name: urothelium of pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29449
+
+[Term]
+id: EMAP:29451
+name: mesenchymal layer of pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29449
+
+[Term]
+id: EMAP:29452
+name: muscle layer of pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29449
+
+[Term]
+id: EMAP:29640
+name: bulbar part of urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:29642
+name: distal region of urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:29646
+name: male urethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:29443
+name: urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29654
+name: female urethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29443
+
+[Term]
+id: EMAP:29638
+name: median umbilical ligament
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29692
+name: renal nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:29601
+name: reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:27555
+
+[Term]
+id: EMAP:29396
+name: female reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29601
+
+[Term]
+id: EMAP:29400
+name: mesovarium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29419
+name: ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29422
+name: rete ovarii of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29427
+name: primary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29429
+name: primary oocyte of primary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29427
+
+[Term]
+id: EMAP:29428
+name: follicle cell of primary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29427
+
+[Term]
+id: EMAP:29423
+name: mesenchymal stroma of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29424
+name: cortical component of mesenchymal stroma
+namespace: abstract_anatomy
+relationship: part_of EMAP:29423
+
+[Term]
+id: EMAP:29425
+name: medullary component of mesenchymal stroma
+namespace: abstract_anatomy
+relationship: part_of EMAP:29423
+
+[Term]
+id: EMAP:29632
+name: vasculature of the ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29863
+name: secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29865
+name: oocyte of secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29863
+
+[Term]
+id: EMAP:29867
+name: follicle cell of secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29863
+
+[Term]
+id: EMAP:29869
+name: cumulus of secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29867
+
+[Term]
+id: EMAP:29871
+name: mural of secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29867
+
+[Term]
+id: EMAP:29873
+name: theca of secondary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29863
+
+[Term]
+id: EMAP:29875
+name: atretic follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29877
+name: oocyte of atretic follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29875
+
+[Term]
+id: EMAP:29879
+name: apoptotic germinal cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:29875
+
+[Term]
+id: EMAP:29881
+name: ruptured follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29883
+name: theca of ruptured follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29881
+
+[Term]
+id: EMAP:29885
+name: germinal cell of ruptured follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29881
+
+[Term]
+id: EMAP:29887
+name: corpus luteum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29896
+name: corpus albicans
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:29399
+name: Mullerian tubercle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29404
+name: female cystic vesicular appendage
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29430
+name: oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29898
+name: oviduct infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29430
+
+[Term]
+id: EMAP:29900
+name: epithelial layer of infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29898
+
+[Term]
+id: EMAP:29904
+name: serosa of infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29898
+
+[Term]
+id: EMAP:29906
+name: rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29430
+
+[Term]
+id: EMAP:29908
+name: epithelial layer of rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29906
+
+[Term]
+id: EMAP:29914
+name: serosa of rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29906
+
+[Term]
+id: EMAP:29408
+name: vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29412
+name: upper part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:29413
+name: epithelial layer of upper part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29412
+relationship: part_of EMAP:30996
+
+[Term]
+id: EMAP:29942
+name: gland of upper vaginal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29413
+
+[Term]
+id: EMAP:29944
+name: rest of epithelial layer of upper vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29413
+
+[Term]
+id: EMAP:29414
+name: muscular layer of upper part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29412
+relationship: part_of EMAP:31002
+
+[Term]
+id: EMAP:29946
+name: adventitia of upper part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29412
+relationship: part_of EMAP:31004
+
+[Term]
+id: EMAP:29409
+name: lower part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:29410
+name: epithelial layer of lower part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29409
+relationship: part_of EMAP:30996
+
+[Term]
+id: EMAP:29936
+name: gland of lower vaginal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29410
+
+[Term]
+id: EMAP:29938
+name: rest of epithelial layer of lower vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29410
+
+[Term]
+id: EMAP:29411
+name: muscular layer of lower part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29409
+relationship: part_of EMAP:31002
+
+[Term]
+id: EMAP:29940
+name: adventitia of lower part of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29409
+relationship: part_of EMAP:31004
+
+[Term]
+id: EMAP:29418
+name: suspensory ligament of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29434
+name: female inguinal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29415
+name: female inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29417
+name: female internal inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29415
+
+[Term]
+id: EMAP:29416
+name: female external inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29415
+
+[Term]
+id: EMAP:29916
+name: uterus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:29918
+name: endometrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29916
+
+[Term]
+id: EMAP:29920
+name: uterine gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29918
+
+[Term]
+id: EMAP:29922
+name: rest of endometrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29918
+
+[Term]
+id: EMAP:29924
+name: myometrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29916
+
+[Term]
+id: EMAP:29926
+name: adventitia of uterus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29916
+
+[Term]
+id: EMAP:29928
+name: cervix uteri
+namespace: abstract_anatomy
+relationship: part_of EMAP:29916
+
+[Term]
+id: EMAP:29930
+name: epithelial layer of cervix uteri
+namespace: abstract_anatomy
+relationship: part_of EMAP:29928
+
+[Term]
+id: EMAP:29932
+name: muscle layer of cervix uteri
+namespace: abstract_anatomy
+relationship: part_of EMAP:29928
+
+[Term]
+id: EMAP:29934
+name: adventitia of cervix uteri
+namespace: abstract_anatomy
+relationship: part_of EMAP:29928
+
+[Term]
+id: EMAP:29348
+name: male reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:29601
+
+[Term]
+id: EMAP:29352
+name: testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29362
+name: mediastinum testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29358
+name: rete testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29359
+name: interstitium of the testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29361
+name: rest of interstitium of the testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29359
+
+[Term]
+id: EMAP:29656
+name: Leydig cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:29359
+
+[Term]
+id: EMAP:29363
+name: tunica albuginea of testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29364
+name: tunica vaginalis testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29604
+name: vasculature of testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29606
+name: coelomic vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:29604
+
+[Term]
+id: EMAP:29608
+name: interstitial vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:29604
+
+[Term]
+id: EMAP:29732
+name: testicular branch of genital nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:29377
+name: ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29379
+name: muscle layer of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29377
+
+[Term]
+id: EMAP:29378
+name: epithelium of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29377
+
+[Term]
+id: EMAP:29768
+name: adventitia of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29377
+
+[Term]
+id: EMAP:29380
+name: penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+relationship: part_of EMAP:30983
+
+[Term]
+id: EMAP:29383
+name: glans penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29380
+
+[Term]
+id: EMAP:29857
+name: corpus spongiosum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29383
+
+[Term]
+id: EMAP:29859
+name: epithelial layer of glans penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29383
+
+[Term]
+id: EMAP:29861
+name: rest of glans penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29383
+
+[Term]
+id: EMAP:29382
+name: prepuce of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29380
+
+[Term]
+id: EMAP:29381
+name: crus penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29380
+
+[Term]
+id: EMAP:29770
+name: os penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29381
+
+[Term]
+id: EMAP:29851
+name: corpus spongiosum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29381
+
+[Term]
+id: EMAP:29853
+name: epithelial layer of crus penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29381
+
+[Term]
+id: EMAP:29855
+name: rest of crus penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29381
+
+[Term]
+id: EMAP:29385
+name: efferent duct of seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29748
+name: epithelial layer of efferent duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29385
+
+[Term]
+id: EMAP:29750
+name: rest of efferent duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29385
+
+[Term]
+id: EMAP:29391
+name: appendix epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29395
+name: appendix testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29387
+name: ejaculatory duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29787
+name: epithelial layer of ejaculatory duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29387
+
+[Term]
+id: EMAP:29369
+name: gubernaculum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29384
+name: scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+relationship: part_of EMAP:30983
+
+[Term]
+id: EMAP:29734
+name: epidermal layer of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29384
+
+[Term]
+id: EMAP:29736
+name: basal epidermal layer of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29734
+
+[Term]
+id: EMAP:29738
+name: stratified epidermal layer of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29734
+
+[Term]
+id: EMAP:29740
+name: dermal layer of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29384
+
+[Term]
+id: EMAP:29742
+name: dermal layer of scrotum hair follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29740
+
+[Term]
+id: EMAP:29744
+name: dermal layer of scrotum sweat gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29740
+
+[Term]
+id: EMAP:29746
+name: septum of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29384
+
+[Term]
+id: EMAP:29374
+name: male inguinal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29349
+name: seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29772
+name: epithelial layer of seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29349
+
+[Term]
+id: EMAP:29774
+name: muscle layer of seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29349
+
+[Term]
+id: EMAP:29776
+name: adventitia of seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29349
+
+[Term]
+id: EMAP:29386
+name: male cystic vesicular appendage
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29392
+name: male inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29393
+name: male external inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29392
+
+[Term]
+id: EMAP:29394
+name: male internal inguinal ring
+namespace: abstract_anatomy
+relationship: part_of EMAP:29392
+
+[Term]
+id: EMAP:29370
+name: epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29373
+name: caput epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:29762
+name: epithelium of caput of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29373
+relationship: part_of EMAP:30446
+
+[Term]
+id: EMAP:29764
+name: muscle layer of caput of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29373
+relationship: part_of EMAP:30448
+
+[Term]
+id: EMAP:29766
+name: adventitia of caput of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29373
+relationship: part_of EMAP:30444
+
+[Term]
+id: EMAP:29371
+name: cauda epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:29694
+name: epithelium of cauda of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29371
+relationship: part_of EMAP:30446
+
+[Term]
+id: EMAP:29752
+name: muscle layer of cauda of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29371
+relationship: part_of EMAP:30448
+
+[Term]
+id: EMAP:29754
+name: adventitia of cauda of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29371
+relationship: part_of EMAP:30444
+
+[Term]
+id: EMAP:29372
+name: corpus epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:29756
+name: epithelium of corpus epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29372
+relationship: part_of EMAP:30446
+
+[Term]
+id: EMAP:29758
+name: muscle layer of corpus of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29372
+relationship: part_of EMAP:30448
+
+[Term]
+id: EMAP:29760
+name: adventitia of corpus of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29372
+relationship: part_of EMAP:30444
+
+[Term]
+id: EMAP:29779
+name: male accessory gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:29782
+name: bulbourethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29779
+
+[Term]
+id: EMAP:29791
+name: epithelial component of bulbourethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29782
+
+[Term]
+id: EMAP:29793
+name: interstitium of bulbourethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29782
+
+[Term]
+id: EMAP:29785
+name: prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29779
+
+[Term]
+id: EMAP:29795
+name: anterior prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:29797
+name: anterior prostatic epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29795
+
+[Term]
+id: EMAP:29799
+name: glandular epithelium of anterior prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29797
+
+[Term]
+id: EMAP:29801
+name: basal epithelium of anterior prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29797
+
+[Term]
+id: EMAP:29803
+name: anterior prostatic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29795
+
+[Term]
+id: EMAP:29805
+name: smooth muscle of anterior prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29803
+
+[Term]
+id: EMAP:29807
+name: rest of interstitium of anterior prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29803
+
+[Term]
+id: EMAP:29809
+name: dorsal prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:29811
+name: dorsal prostatic epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29809
+
+[Term]
+id: EMAP:29813
+name: glandular epithelium of dorsal prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29811
+
+[Term]
+id: EMAP:29815
+name: basal epithelium of dorsal prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29811
+
+[Term]
+id: EMAP:29817
+name: dorsal prostatic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29809
+
+[Term]
+id: EMAP:29819
+name: smooth muscle of dorsal prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29817
+
+[Term]
+id: EMAP:29821
+name: rest of interstitium of dorsal prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29817
+
+[Term]
+id: EMAP:29823
+name: lateral prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:29825
+name: lateral prostatic epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29823
+
+[Term]
+id: EMAP:29827
+name: glandular epithelium of lateral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29825
+
+[Term]
+id: EMAP:29829
+name: basal epithelium of lateral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29825
+
+[Term]
+id: EMAP:29831
+name: lateral prostatic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29823
+
+[Term]
+id: EMAP:29833
+name: smooth muscle of lateral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29831
+
+[Term]
+id: EMAP:29835
+name: rest of interstitium of lateral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29831
+
+[Term]
+id: EMAP:29837
+name: ventral prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:29839
+name: ventral prostatic epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29837
+
+[Term]
+id: EMAP:29841
+name: glandular epithelium of ventral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29839
+
+[Term]
+id: EMAP:29843
+name: basal epithelium of ventral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29839
+
+[Term]
+id: EMAP:29845
+name: ventral prostatic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29837
+
+[Term]
+id: EMAP:29847
+name: smooth muscle of ventral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29845
+
+[Term]
+id: EMAP:29849
+name: rest of interstitium of ventral prostate
+namespace: abstract_anatomy
+relationship: part_of EMAP:29845
+
+[Term]
+id: EMAP:29592
+name: collecting duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29435
+name: renal vasculature
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+relationship: part_of EMAP:31776
+
+[Term]
+id: EMAP:29541
+name: maturing nephron
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:29540
+name: mature nephron
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29599
+name: ureteric trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+relationship: part_of EMAP:29592
+
+[Term]
+id: EMAP:29493
+name: developing capillary loop stage nephron GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:29593
+name: renal interstitium group
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:29556
+name: late tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:29594
+name: early nephron GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:31053
+name: ureteric tree terminal branch excluding tip itself
+namespace: abstract_anatomy
+relationship: part_of EMAP:29561
+relationship: part_of EMAP:29592
+
+[Term]
+id: EMAP:30042
+name: renal cortical capillary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29549
+relationship: part_of EMAP:31449
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:30048
+name: renal medullary capillary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29435
+relationship: part_of EMAP:29589
+relationship: part_of EMAP:31449
+relationship: part_of EMAP:31475
+
+[Term]
+id: EMAP:30859
+name: ureteral vasculature
+namespace: abstract_anatomy
+relationship: part_of EMAP:29479
+relationship: part_of EMAP:31776
+
+[Term]
+id: EMAP:30087
+name: urothelium of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:29462
+
+[Term]
+id: EMAP:30143
+name: muscularis mucosa of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:29459
+
+[Term]
+id: EMAP:30129
+name: detrusor muscle of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:29468
+
+[Term]
+id: EMAP:30136
+name: serosa of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:29471
+
+[Term]
+id: EMAP:30149
+name: adventitia of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:29465
+
+[Term]
+id: EMAP:30094
+name: lamina propria of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:30108
+name: lamina propria of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:30094
+
+[Term]
+id: EMAP:30115
+name: lamina propria of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:30094
+
+[Term]
+id: EMAP:30122
+name: lamina propria of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:30094
+
+[Term]
+id: EMAP:30943
+name: prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:30953
+name: urothelium of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30943
+
+[Term]
+id: EMAP:30955
+name: mesenchymal layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30943
+
+[Term]
+id: EMAP:30957
+name: muscle layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30943
+
+[Term]
+id: EMAP:30945
+name: penile urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:29448
+
+[Term]
+id: EMAP:30947
+name: urothelium of penile urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30945
+
+[Term]
+id: EMAP:30949
+name: mesenchymal layer of penile urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30945
+
+[Term]
+id: EMAP:30951
+name: muscle layer of penile urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30945
+
+[Term]
+id: EMAP:30961
+name: pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:29443
+
+[Term]
+id: EMAP:30963
+name: urothelium of pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30961
+
+[Term]
+id: EMAP:30964
+name: mesenchymal layer of pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30961
+
+[Term]
+id: EMAP:30962
+name: muscle layer of pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30961
+
+[Term]
+id: EMAP:30923
+name: phallic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:29443
+
+[Term]
+id: EMAP:30958
+name: urothelium of phallic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30923
+
+[Term]
+id: EMAP:30959
+name: mesenchymal layer of phallic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30923
+
+[Term]
+id: EMAP:30960
+name: muscle layer of phallic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30923
+
+[Term]
+id: EMAP:30527
+name: surface epithelium of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:30526
+name: tunica albuginea of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:30756
+name: primordial follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:30758
+name: oocyte of primordial follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30756
+
+[Term]
+id: EMAP:30764
+name: tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:30766
+name: oocyte of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30764
+
+[Term]
+id: EMAP:30768
+name: follicle cell of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30764
+
+[Term]
+id: EMAP:30774
+name: cumulus of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30768
+
+[Term]
+id: EMAP:30776
+name: mural of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30768
+
+[Term]
+id: EMAP:30770
+name: theca of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30764
+
+[Term]
+id: EMAP:30772
+name: antrum of tertiary follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30764
+
+[Term]
+id: EMAP:30778
+name: Graafian follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:30780
+name: primary oocyte of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30778
+
+[Term]
+id: EMAP:30782
+name: germinal cell of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30778
+
+[Term]
+id: EMAP:30784
+name: cumulus of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30782
+
+[Term]
+id: EMAP:30786
+name: mural of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30782
+
+[Term]
+id: EMAP:30788
+name: theca of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30778
+
+[Term]
+id: EMAP:30790
+name: antrum of mature follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30778
+
+[Term]
+id: EMAP:31034
+name: meiotic oocytes
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+relationship: part_of EMAP:31063
+
+[Term]
+id: EMAP:30050
+name: muscle layer of rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29906
+
+[Term]
+id: EMAP:30052
+name: circular muscle layer of rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:30050
+
+[Term]
+id: EMAP:30054
+name: longitudinal muscle layer of rest of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:30050
+
+[Term]
+id: EMAP:30810
+name: vasculature of oviduct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29430
+
+[Term]
+id: EMAP:30814
+name: vasculature of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:30812
+name: vasculature of uterus
+namespace: abstract_anatomy
+relationship: part_of EMAP:29916
+
+[Term]
+id: EMAP:30820
+name: clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+relationship: part_of EMAP:30990
+
+[Term]
+id: EMAP:30822
+name: crus of clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30820
+
+[Term]
+id: EMAP:30824
+name: os clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30822
+
+[Term]
+id: EMAP:30826
+name: epithelial layer of crus of clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30822
+
+[Term]
+id: EMAP:30828
+name: mesenchymal layer of crus of clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30822
+
+[Term]
+id: EMAP:30830
+name: glans clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30820
+
+[Term]
+id: EMAP:30832
+name: surface epithelium of glans clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30830
+
+[Term]
+id: EMAP:30834
+name: mesenchymal layer of glans clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30830
+
+[Term]
+id: EMAP:30836
+name: vasculature of clitoris
+namespace: abstract_anatomy
+relationship: part_of EMAP:30820
+
+[Term]
+id: EMAP:30838
+name: labia
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+relationship: part_of EMAP:30990
+
+[Term]
+id: EMAP:30840
+name: epithelial layer of labia
+namespace: abstract_anatomy
+relationship: part_of EMAP:30838
+
+[Term]
+id: EMAP:30842
+name: mesenchymal layer of labia
+namespace: abstract_anatomy
+relationship: part_of EMAP:30838
+
+[Term]
+id: EMAP:30844
+name: gland of labia
+namespace: abstract_anatomy
+relationship: part_of EMAP:30838
+
+[Term]
+id: EMAP:30846
+name: vasculature of labia
+namespace: abstract_anatomy
+relationship: part_of EMAP:30838
+
+[Term]
+id: EMAP:30063
+name: mesorchium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:30056
+name: circular muscle layer of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29379
+
+[Term]
+id: EMAP:30058
+name: longitudinal muscle layer of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29379
+
+[Term]
+id: EMAP:30794
+name: vasculature of ductus deferens
+namespace: abstract_anatomy
+relationship: part_of EMAP:29377
+
+[Term]
+id: EMAP:30808
+name: vasculature of penis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29380
+
+[Term]
+id: EMAP:30800
+name: vasculature of ejaculatory duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29387
+
+[Term]
+id: EMAP:30792
+name: vasculature of scrotum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29384
+
+[Term]
+id: EMAP:30798
+name: vasculature of seminal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29349
+
+[Term]
+id: EMAP:30796
+name: vasculature of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:30804
+name: vasculature of bulbourethral gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29782
+
+[Term]
+id: EMAP:30806
+name: vasculature of prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:30444
+name: adventitia of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:30446
+name: epithelium of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:30448
+name: muscle layer of epididymis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29370
+
+[Term]
+id: EMAP:30453
+name: juxtaglomerular complex
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:30983
+name: male external genitalia
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:30990
+name: female external genitalia
+namespace: abstract_anatomy
+relationship: part_of EMAP:29396
+
+[Term]
+id: EMAP:30996
+name: epithelium of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:31002
+name: muscular layer of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:31004
+name: adventitia of vagina
+namespace: abstract_anatomy
+relationship: part_of EMAP:29408
+
+[Term]
+id: EMAP:31063
+name: ovigerous cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:29419
+
+[Term]
+id: EMAP:31366
+name: perihilar fibroblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:29558
+
+[Term]
+id: EMAP:31372
+name: resident macrophage of the perihilar interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29558
+
+[Term]
+id: EMAP:31378
+name: rest of perihilar interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29558
+
+[Term]
+id: EMAP:31383
+name: premacula segment of distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29505
+
+[Term]
+id: EMAP:31295
+name: renal cortical fibroblasts
+namespace: abstract_anatomy
+relationship: part_of EMAP:29521
+
+[Term]
+id: EMAP:31425
+name: peritubular fibroblasts of cortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:31295
+
+[Term]
+id: EMAP:31427
+name: periarterial fibroblasts of cortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:31295
+
+[Term]
+id: EMAP:31303
+name: resident macrophages of the cortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:29521
+
+[Term]
+id: EMAP:31311
+name: rest of renal cortical interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29521
+
+[Term]
+id: EMAP:31318
+name: renal cortical lymphatics
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:31325
+name: renal cortical nerves
+namespace: abstract_anatomy
+relationship: part_of EMAP:29492
+
+[Term]
+id: EMAP:31490
+name: loop of Henle, outer medullary portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:29567
+relationship: part_of EMAP:31499
+
+[Term]
+id: EMAP:31492
+name: thin descending limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:31490
+
+[Term]
+id: EMAP:31493
+name: thin ascending limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:31490
+
+[Term]
+id: EMAP:31494
+name: premacula segment of distal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:31490
+
+[Term]
+id: EMAP:31491
+name: proximal straight tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:31490
+
+[Term]
+id: EMAP:31388
+name: outer medullary fibroblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:29982
+
+[Term]
+id: EMAP:31429
+name: peritubular fibroblasts of outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:31388
+
+[Term]
+id: EMAP:31431
+name: periarterial fibroblasts of outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:31388
+
+[Term]
+id: EMAP:31393
+name: resident macrophage of the outer medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29982
+
+[Term]
+id: EMAP:31398
+name: rest of outer medullary interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29982
+
+[Term]
+id: EMAP:31403
+name: inner medullary fibroblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:29582
+
+[Term]
+id: EMAP:31433
+name: peritubular fibroblasts of inner medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:31403
+
+[Term]
+id: EMAP:31435
+name: periarterial fibroblasts of inner medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:31403
+
+[Term]
+id: EMAP:31408
+name: resident macrophage of the inner medulla
+namespace: abstract_anatomy
+relationship: part_of EMAP:29582
+
+[Term]
+id: EMAP:31353
+name: renal medullary lymphatics
+namespace: abstract_anatomy
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:31360
+name: renal medullary nerves
+namespace: abstract_anatomy
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:31261
+name: theca of atretic follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29875
+
+[Term]
+id: EMAP:31263
+name: granulosa of ruptured follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29881
+
+[Term]
+id: EMAP:31249
+name: follicle cell of primordial follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:30756
+
+[Term]
+id: EMAP:31265
+name: muscle layer of infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:29898
+
+[Term]
+id: EMAP:31267
+name: longitudinal muscle layer of infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:31265
+
+[Term]
+id: EMAP:31269
+name: circular muscle layer of infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:31265
+
+[Term]
+id: EMAP:31244
+name: surface epithelium of testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:31477
+name: Seminiferous tubule
+namespace: abstract_anatomy
+relationship: part_of EMAP:29352
+
+[Term]
+id: EMAP:31479
+name: Sertoli cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31481
+name: peritubular myoid cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31483
+name: spermatogonium
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31485
+name: spermatocyte
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31487
+name: spermatid
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31489
+name: spermatozoan
+namespace: abstract_anatomy
+relationship: part_of EMAP:31477
+
+[Term]
+id: EMAP:31259
+name: cremaster muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29348
+
+[Term]
+id: EMAP:31499
+name: Loop of Henle group
+namespace: abstract_anatomy
+relationship: part_of EMAP:29540
+relationship: part_of EMAP:29566
+
+[Term]
+id: EMAP:31442
+name: renal arterial system
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:31449
+name: renal capillaries
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:31456
+name: renal venous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:31468
+name: large blood vessels
+namespace: abstract_anatomy
+relationship: part_of EMAP:27553
+
+[Term]
+id: EMAP:31475
+name: small blood vessels
+namespace: abstract_anatomy
+relationship: part_of EMAP:29491
+
+[Term]
+id: EMAP:31649
+name: pelvic ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:31660
+name: nerve of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:31741
+name: nerve of phallic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30923
+relationship: part_of EMAP:31812
+
+[Term]
+id: EMAP:31776
+name: developing vasculature of urinary system GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:31790
+name: nerve of pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29449
+relationship: part_of EMAP:31812
+
+[Term]
+id: EMAP:31794
+name: cortical renal tubule of mature nephron GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:29499
+
+[Term]
+id: EMAP:31800
+name: nerve of pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30961
+relationship: part_of EMAP:31812
+
+[Term]
+id: EMAP:31812
+name: nerves of urethra GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:27559
+
+[Term]
+id: EMAP:32320
+name: urothelium of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29450
+
+[Term]
+id: EMAP:32329
+name: basal cell layer of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32498
+
+[Term]
+id: EMAP:32335
+name: basal cell layer of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32320
+
+[Term]
+id: EMAP:32339
+name: vasculature of pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29449
+
+[Term]
+id: EMAP:32345
+name: superficial cell layer of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32498
+
+[Term]
+id: EMAP:32351
+name: urothelium of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30963
+
+[Term]
+id: EMAP:32352
+name: vasculature of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30943
+
+[Term]
+id: EMAP:32358
+name: superficial cell layer of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32351
+
+[Term]
+id: EMAP:32364
+name: basal cell layer of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32351
+
+[Term]
+id: EMAP:32365
+name: superficial cell layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30953
+
+[Term]
+id: EMAP:32366
+name: striated muscle layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30957
+
+[Term]
+id: EMAP:32371
+name: basal cell layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30953
+
+[Term]
+id: EMAP:32381
+name: superficial cell layer of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29462
+
+[Term]
+id: EMAP:32388
+name: basal cell layer of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29462
+
+[Term]
+id: EMAP:32395
+name: submucosa of bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:29457
+
+[Term]
+id: EMAP:32402
+name: submucosa of neck
+namespace: abstract_anatomy
+relationship: part_of EMAP:32395
+
+[Term]
+id: EMAP:32409
+name: submucosa of fundus
+namespace: abstract_anatomy
+relationship: part_of EMAP:32395
+
+[Term]
+id: EMAP:32410
+name: smooth muscle layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30957
+
+[Term]
+id: EMAP:32411
+name: nerve of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30943
+
+[Term]
+id: EMAP:32419
+name: peri-prostatic mesenchyme of prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:32425
+name: urothelium of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30963
+
+[Term]
+id: EMAP:32429
+name: vasculature of pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30961
+
+[Term]
+id: EMAP:32435
+name: superficial cell layer of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32320
+
+[Term]
+id: EMAP:32436
+name: nerve of prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:32450
+name: muscle layer of ejaculatory duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:29387
+
+[Term]
+id: EMAP:32455
+name: epithelial layer of prostate gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:29785
+
+[Term]
+id: EMAP:32461
+name: superficial cell layer of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32425
+
+[Term]
+id: EMAP:32467
+name: basal cell layer of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32425
+
+[Term]
+id: EMAP:32471
+name: submucosa of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32575
+
+[Term]
+id: EMAP:32475
+name: lamina propria of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32584
+
+[Term]
+id: EMAP:32479
+name: muscularis mucosa of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32581
+
+[Term]
+id: EMAP:32483
+name: lamina propria of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32581
+
+[Term]
+id: EMAP:32487
+name: muscularis mucosa of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32584
+
+[Term]
+id: EMAP:32491
+name: submucosa of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32584
+
+[Term]
+id: EMAP:32492
+name: intermediate cell layer of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30953
+
+[Term]
+id: EMAP:32498
+name: urothelium of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29450
+
+[Term]
+id: EMAP:32499
+name: submucosa of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30955
+
+[Term]
+id: EMAP:32500
+name: muscularis mucosa of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30955
+
+[Term]
+id: EMAP:32501
+name: lamina propria of prostatic urethra
+namespace: abstract_anatomy
+relationship: part_of EMAP:30955
+
+[Term]
+id: EMAP:32508
+name: submucosa of trigone
+namespace: abstract_anatomy
+relationship: part_of EMAP:32395
+
+[Term]
+id: EMAP:32514
+name: intermediate cell layer of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32425
+
+[Term]
+id: EMAP:32520
+name: intermediate cell layer of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32351
+
+[Term]
+id: EMAP:32526
+name: intermediate cell layer of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32498
+
+[Term]
+id: EMAP:32530
+name: submucosa of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32578
+
+[Term]
+id: EMAP:32534
+name: muscularis mucosa of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32578
+
+[Term]
+id: EMAP:32538
+name: lamina propria of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32578
+
+[Term]
+id: EMAP:32542
+name: lamina propria of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32575
+
+[Term]
+id: EMAP:32546
+name: muscularis mucosa of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32575
+
+[Term]
+id: EMAP:32550
+name: submucosa of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:32581
+
+[Term]
+id: EMAP:32556
+name: intermediate cell layer of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:32320
+
+[Term]
+id: EMAP:32570
+name: rest of inner medullary interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:29582
+
+[Term]
+id: EMAP:32575
+name: mesenchymal layer of dorsal pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29451
+
+[Term]
+id: EMAP:32578
+name: mesenchymal layer of ventral pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30964
+
+[Term]
+id: EMAP:32581
+name: mesenchymal layer of dorsal pelvic urethra of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30964
+
+[Term]
+id: EMAP:32584
+name: mesenchymal layer of ventral pelvic urethra of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29451
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

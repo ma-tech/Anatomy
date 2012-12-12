@@ -37,13 +37,16 @@
 package routines.database;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import daolayer.SynonymDAO;
+import daolayer.ThingDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
 import daomodel.Synonym;
+import daomodel.Thing;
 
 import obomodel.OBOComponent;
 
@@ -60,6 +63,7 @@ public class AnaSynonym {
     
     //Data Access Objects (DAOs)
     private SynonymDAO synonymDAO;
+    private ThingDAO thingDAO;
 
     
     // Constructors -------------------------------------------------------------------------------
@@ -78,6 +82,7 @@ public class AnaSynonym {
             this.daofactory = daofactory;
 
         	this.synonymDAO = daofactory.getSynonymDAO();
+        	this.thingDAO = daofactory.getThingDAO();
 
         	setProcessed( true );
     	}
@@ -128,7 +133,7 @@ public class AnaSynonym {
                
                if ( !anaobject.insertANA_OBJECT(synonymCompList, "ANA_SYNONYM") ) {
 
-            	   throw new DatabaseException("insertANA_OBJECT for ANA_SYNONYM");
+            	   throw new DatabaseException("anasynonym.insertANA_SYNONYM:insertANA_OBJECT");
                }
                
                AnaLog analog = new AnaLog( this.requestMsgLevel,this.daofactory );
@@ -136,7 +141,7 @@ public class AnaSynonym {
                //insert Synonyms to be deleted in ANA_LOG
                if ( !analog.insertANA_LOG_Synonyms( synonymCompList, "INSERT" ) ) {
 
-               	throw new DatabaseException("insertANA_LOG_Synonyms");
+               	throw new DatabaseException("anasynonym.insertANA_SYNONYM:insertANA_LOG_Synonyms");
                }
 
                for ( OBOComponent synCompie: synonymCompList ) {
@@ -174,28 +179,37 @@ public class AnaSynonym {
         	
         try {
         	
-            if ( !deleteSynComponents.isEmpty() ) {
+        	ArrayList<Synonym> synonyms = new ArrayList<Synonym>();
+        	
+        	if ( !deleteSynComponents.isEmpty() ) {
             	
                 for ( OBOComponent deletesynonymcomponent: deleteSynComponents ) {
                 	
-                	Synonym synonym = synonymDAO.findByOid( Long.valueOf( deletesynonymcomponent.getDBID() ) );
+                	synonyms = (ArrayList<Synonym>) synonymDAO.listByObjectFK(Long.valueOf( deletesynonymcomponent.getDBID() ));
+                			
+                    Iterator<Synonym> iteratorSynonyms = synonyms.iterator();
+                    
+                    while ( iteratorSynonyms.hasNext() ) {
+                    	
+                    	Synonym synonym = iteratorSynonyms.next();
+
+                    	Thing thing = thingDAO.findByOid(synonym.getOid()); 
+
+                        thingDAO.delete(thing);
+
+                    	synonymDAO.delete(synonym);
+                    }
+                }
+                
+                if ( !synonyms.isEmpty() ) {
                 	
-                	synonymDAO.delete(synonym);
-                }
+                    AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
+                    
+                    //insert Synonyms to be deleted in ANA_LOG
+                    if ( !analog.insertANA_LOG_Synonyms( deleteSynComponents, "DELETE" ) ) {
 
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
-                
-                if ( !anaobject.deleteANA_OBJECT( deleteSynComponents, "ANA_SYNONYM" ) ) {
-
-               	   throw new DatabaseException("deleteANA_OBJECT for ANA_SYNONYM");
-                }
-
-                AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                
-                //insert Synonyms to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_Synonyms( deleteSynComponents, "DELETE" ) ) {
-
-                	throw new DatabaseException("insertANA_LOG_TimedNodes");
+                    	throw new DatabaseException("anasynonym.deleteANA_SYNONYM:insertANA_LOG_Synonyms");
+                    }
                 }
             }
         }
@@ -226,13 +240,13 @@ public class AnaSynonym {
             //insert Synonyms in ANA_SYNONYM
             if ( insertANA_SYNONYM( newSynonymsTermList, "UPDATE" ) ) {
 
-            	throw new DatabaseException("updateANA_SYNONYM");
+            	throw new DatabaseException("anasynonym.updateANA_SYNONYM:insertANA_SYNONYM");
             }
             
             //delete Synonyms in ANA_SYNONYM
             if ( deleteANA_SYNONYM( oldSynonymsTermList, "UPDATE" ) ) {
 
-            	throw new DatabaseException("updateANA_SYNONYM");
+            	throw new DatabaseException("anasynonym.updateANA_SYNONYM:deleteANA_SYNONYM");
             }
         }
         catch ( DatabaseException dbex ) {

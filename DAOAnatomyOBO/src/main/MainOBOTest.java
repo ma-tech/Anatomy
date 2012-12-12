@@ -46,7 +46,7 @@ public class MainOBOTest {
 
         if (args.length != 2) {
 
-		    Wrapper.printMessage(" ERROR! There MUST be 2 Command Line Arguments passed to this program", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
 

@@ -65,10 +65,10 @@ public class RunOBOValidateComponents {
             List<StageRange> daostageranges = new ArrayList<StageRange>();
             daostageranges = stagerangeDAO.listByExistingChildPartOfExistingParent();
 
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "Test 1", "*", "*");
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\t========================================================================", "*", "*");
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()), "*", "*");
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + "\t========================================================================", "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "Test 1", "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\t========================================================================", "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()), "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\t========================================================================", "*", "*");
 
             String childId = "";
             String childName = "";
@@ -79,7 +79,7 @@ public class RunOBOValidateComponents {
             String parentStart = "";
             String parentEnd = "";
             
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
             		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
             
             childId = "childId";
@@ -91,7 +91,7 @@ public class RunOBOValidateComponents {
             parentStart = "parentStart";
             parentEnd = "parentEnd";
             
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
             		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
 
             childId = "--------------";
@@ -103,7 +103,7 @@ public class RunOBOValidateComponents {
             parentStart = "----------";
             parentEnd = "----------";
             
-	        Wrapper.printMessage("RunOBOValidateComponents.run:" + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + String.format("\t%14s\t%75s\t%10s\t%10s\t%14s\t%75s\t%10s\t%10s", 
             		childId, childName, childStart, childEnd, parentId, parentName, parentStart, parentEnd), "*", "*");
 
 	        Iterator<StageRange> iteratorStageRange = daostageranges.iterator();
@@ -113,7 +113,7 @@ public class RunOBOValidateComponents {
             	StageRange stagerange = iteratorStageRange.next();
            		i++;
            		
-    	        Wrapper.printMessage("RunOBOValidateComponents.run:" + Integer.toString(i) + stagerange.reportStageRange(), "*", "*");
+    	        Wrapper.printMessage("RunOBOValidateComponents.run : " + Integer.toString(i) + stagerange.reportStageRange(), "*", "*");
           	}
 
     	}

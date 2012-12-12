@@ -378,8 +378,9 @@ public class ValidateComponents {
             rootName = rootobocomponent.getName();
             rootComments = rootobocomponent.getUserComments();
 
-            //if ( emapID.equals("MNW:0000001") ) {
-            if ( emapID.equals("MNW:0000001") ) {
+            /*
+            if ( emapID.equals("EMAPA:35041") 
+        	|| ( emapID.equals("MNW:0000001") ) ) {
             
                 System.out.println("=============");
                 System.out.println("emapID        = " + emapID);
@@ -412,6 +413,7 @@ public class ValidateComponents {
                 System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
                 System.out.println("=============");
             }
+            */
 
             if ( abstractclassobocomponent.getID().equals( emapID ) && 
             	abstractclassobocomponent.getNamespace().equals( rootNameSpace ) && 
@@ -1167,12 +1169,13 @@ public class ValidateComponents {
             proposed.setStatusChange("UNCHANGED");
             proposed.setStatusRule("UNCHECKED");
             
-            //if ( proposed.getID().equals("EMAPA:35041") ) {
-              
-            if ( proposed.getID().equals("MNW:0000001") ) {
+            /*
+            if ( proposed.getID().equals("EMAPA:35041") 
+        	|| ( proposed.getID().equals("MNW:0000001") ) ) {
             	
                 System.out.println("proposed.toString():" + proposed.toString());
             }
+            */
 
             flagFound = false;
 
@@ -1181,33 +1184,36 @@ public class ValidateComponents {
             	
                 reference = k.next();
 
-                //if ( reference.getID().equals("EMAPA:35041") ) {
-                  
-                if ( reference.getID().equals("MNW:0000001") ) {
+                /*
+                if ( proposed.getID().equals("EMAPA:35041") 
+            	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                 	
                     System.out.println("reference.toString():" + reference.toString());
                     System.out.println("proposed.getID     :" + proposed.getID() );
                     System.out.println("reference.getID():" + reference.getID() );
                 }
+                */
 
                 //if found,
                 if ( proposed.getID().equals( reference.getID() ) ) {
                 	
-                    //if ( proposed.getID().equals("EMAPA:35041") ) {
-                      
-                	if ( proposed.getID().equals("MNW:0000001") ) {
+                	/*
+                    if ( proposed.getID().equals("EMAPA:35041") 
+                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                     	
                         System.out.println("Here AAAAA!");
                     }
+                    */
 
                     if ( proposed.commentsContain("INFO: Obsolete Term")) {
                     
-                        //if ( proposed.getID().equals("EMAPA:35041") ) {
-                          
-                    	if ( proposed.getID().equals("MNW:0000001") ) {
+                    	/*
+                        if ( proposed.getID().equals("EMAPA:35041") 
+                       	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                         	
                             System.out.println("Here BBBBB!");
                         }
+                        */
 
                         proposed.setStatusChange("DELETED");
                         proposed.setStatusRule("PASSED");
@@ -1221,12 +1227,13 @@ public class ValidateComponents {
 
                         if (proposed.isOBOComponentSameAs(reference) ) {
 
-                            //if ( proposed.getID().equals("EMAPA:35041") ) {
-                              
-                        	if ( proposed.getID().equals("MNW:0000001") ) {
+                        	/*
+                            if ( proposed.getID().equals("EMAPA:35041") 
+                           	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                             	
                             	System.out.println("Here CCCCC!");
                             }
+                            */
 
                             //set to unchanged 
                             proposed.setStatusChange("UNCHANGED");
@@ -1235,15 +1242,16 @@ public class ValidateComponents {
                         }
                         else {
 
-                        	//if ( proposed.getID().equals("EMAPA:35041") ) {
-                            	
-                        	if ( proposed.getID().equals("MNW:0000001") ) {
+                        	/*
+                            if ( proposed.getID().equals("EMAPA:35041") 
+                            || ( proposed.getID().equals("MNW:0000001") ) ) {
                             	
                                 System.out.println("Here DDDDD!");
                             }
-
+                            */
+                        	
                             proposed.setStatusChange("CHANGED");
-                            proposed.setStatusRule("CHECKED");
+                            proposed.setStatusRule("PASSED");
 
                             ArrayList<String> arrDifference = proposed.getDifferenceWith(reference);
 
@@ -1267,21 +1275,23 @@ public class ValidateComponents {
             //if not found, 
             if ( proposed.getStatusChange().equals("DELETED") ) {
 
-                //if ( proposed.getID().equals("EMAPA:35041") ) {
-                  
-            	if ( proposed.getID().equals("MNW:0000001") ) {
+            	/*
+                if ( proposed.getID().equals("EMAPA:35041") 
+            	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                 	
                 	System.out.println("Here EEEEE!");
                 }
+                */
                 
             	if ( !flagFound ) {
             	
-                    //if ( proposed.getID().equals("EMAPA:35041") ) {
-                      
-            		if ( proposed.getID().equals("MNW:0000001") ) {
+            		/*
+                    if ( proposed.getID().equals("EMAPA:35041") 
+                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
                     	
                     	System.out.println("Here FFFFF!");
                     }
+                    */
                     
                     proposed.setStatusRule("FAILED");
                     proposed.setCheckComment("Obsolete term does not exist in database. No deletion will take place.");
@@ -1292,15 +1302,16 @@ public class ValidateComponents {
             	
                 if ( !flagFound ){
             	
-                    //if ( proposed.getID().equals("EMAPA:35041") ) {
-                      
-                	if ( proposed.getID().equals("MNW:0000001") ) {
+                	/*
+                    if ( proposed.getID().equals("EMAPA:35041") 
+                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
 
                         	System.out.println("Here GGGGG!");
                     }
+                    */
 
                 	proposed.setStatusChange("NEW");
-                    proposed.setStatusRule("CHECKED");
+                    proposed.setStatusRule("PASSED");
 
                     this.changesTermList.add(proposed);
                 }

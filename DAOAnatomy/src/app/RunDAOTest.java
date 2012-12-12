@@ -58,14 +58,14 @@ public class RunDAOTest {
 	        
 	        if ( nodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
 
-		        Wrapper.printMessage("RunDAOTest.run:" + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
+		        Wrapper.printMessage("RunDAOTest.run : " + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
 	        	Node node = nodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
-		        Wrapper.printMessage("RunDAOTest.run:" + node.toString(), "*", "*");
+		        Wrapper.printMessage("RunDAOTest.run : " + node.toString(), "*", "*");
 	        }
 	        else {
 	            
-		        Wrapper.printMessage("RunDAOTest.run:" + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!", "*", "*");
+		        Wrapper.printMessage("RunDAOTest.run : " + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " DOES NOT EXIST!", "*", "*");
 	        }
 		}
 		catch (DAOException daoe) {

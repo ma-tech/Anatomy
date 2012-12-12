@@ -101,7 +101,9 @@ public class Wrapper {
 	 */
     public static void printMessage(String message, String messagePriority, String requestPriority) throws Exception {
 
-    	/*
+        char padChar = ' ';
+
+        /*
     	 * Check that the messagePriority and requestPriority values are one of 
     	 * HIGH        - *, 
     	 * MEDIUM-HIGH - **, 
@@ -122,8 +124,8 @@ public class Wrapper {
         			messagePriority.equals("***") ||
         			messagePriority.equals("****") ||
         			messagePriority.equals("*****") ) ) {
-    
-        		System.out.println(messagePriority + " : " + message);
+
+        		System.out.println(utility.StringPad.pad(messagePriority, 5, padChar) + " : " + message);
         	}
         	
     		/*
@@ -137,7 +139,7 @@ public class Wrapper {
         			messagePriority.equals("***") ||
         			messagePriority.equals("****") ) ) {
         	    		
-        		System.out.println(messagePriority + " : " + message);
+        		System.out.println(utility.StringPad.pad(messagePriority, 5, padChar) + " : " + message);
         	}
         	
     		/*
@@ -150,7 +152,7 @@ public class Wrapper {
         	    	messagePriority.equals("**") ||
         			messagePriority.equals("***") ) ) {
         	    		
-        		System.out.println(messagePriority + " : " + message);
+        		System.out.println(utility.StringPad.pad(messagePriority, 5, padChar) + " : " + message);
         	}
         	
     		/*
@@ -162,7 +164,7 @@ public class Wrapper {
         	    	messagePriority.equals("*") ||
         	    	messagePriority.equals("**") ) ) {
         	    		
-        		System.out.println(messagePriority + " : " + message);
+        		System.out.println(utility.StringPad.pad(messagePriority, 5, padChar) + " : " + message);
         	}
         	
     		/*
@@ -173,7 +175,7 @@ public class Wrapper {
         	if ( requestPriority.equals("*") &&  
         			messagePriority.equals("*") ) {
         	    
-        		System.out.println(messagePriority + " : " + message);
+        		System.out.println(utility.StringPad.pad(messagePriority, 5, padChar) + " : " + message);
         	}
     	}
     	else {

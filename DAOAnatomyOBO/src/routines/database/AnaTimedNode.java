@@ -38,13 +38,17 @@
 package routines.database;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import daolayer.ThingDAO;
 import daolayer.TimedNodeDAO;
 import daolayer.StageDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
+import daomodel.JOINNodeRelationshipRelationshipProject;
+import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.Stage;
 
@@ -65,6 +69,7 @@ public class AnaTimedNode {
     
     //Data Access Objects (DAOs)
     private TimedNodeDAO timednodeDAO;
+    private ThingDAO thingDAO;
     private StageDAO stageDAO;
 
     // Constructors -------------------------------------------------------------------------------
@@ -82,6 +87,7 @@ public class AnaTimedNode {
 
             this.daofactory = daofactory;
 
+        	this.thingDAO = daofactory.getThingDAO();
         	this.timednodeDAO = daofactory.getTimedNodeDAO();
         	this.stageDAO = daofactory.getStageDAO();
 
@@ -137,7 +143,7 @@ public class AnaTimedNode {
                 
                 if ( !anaobject.getMaxPublicId() ) {
 
-              	   throw new DatabaseException("insertANA_OBJECT for getMaxPublicId");
+              	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:getMaxPublicId");
                  }
 
                 int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
@@ -190,7 +196,7 @@ public class AnaTimedNode {
                 
                 if ( !anaobject.insertANA_OBJECT(timedComps, "ANA_TIMED_NODE") ) {
 
-               	   throw new DatabaseException("insertANA_OBJECT:ANA_NODE");
+               	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:insertANA_OBJECT:ANA_TIMED_NODE");
                 }
 
                 int intPrevNode = 0;
@@ -201,7 +207,7 @@ public class AnaTimedNode {
                 //insert TimedNodes to be deleted in ANA_LOG
                 if ( !analog.insertANA_LOG_TimedNodes( timedComps, "INSERT" ) ) {
 
-                	throw new DatabaseException("insertANA_LOG_TimedNodes");
+                	throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:insertANA_LOG_TimedNodes");
                 }
 
                 for (int k = 0; k< timedComps.size(); k++) {
@@ -262,26 +268,30 @@ public class AnaTimedNode {
             if ( !deleteTimedComponents.isEmpty() ) {
 
             	for ( OBOComponent component: deleteTimedComponents ) {
+            		
+            		ArrayList<TimedNode> timednodes = (ArrayList<TimedNode>) timednodeDAO.listByNodeFK(Long.valueOf(component.getDBID()));
+            		
+                    Iterator<TimedNode> iteratorTimednodes = timednodes.iterator();
+                    
+                    while ( iteratorTimednodes.hasNext() ) {
+                    	
+                    	TimedNode timednode = iteratorTimednodes.next();
 
-            		TimedNode timednode = timednodeDAO.findByOid(Long.valueOf(component.getDBID()));
+                    	Thing thing = thingDAO.findByOid(timednode.getOid()); 
 
-            		timednodeDAO.delete(timednode);
+                        thingDAO.delete(thing);
+
+                        timednodeDAO.delete(timednode);
+                    }
             	}
-            }
-            
-            AnaObject anaobject = new AnaObject(this.requestMsgLevel, this.daofactory);
-            
-            if ( !anaobject.insertANA_OBJECT(deleteTimedComponents, "ANA_TIMED_NODE") ) {
+            	
+                AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
+                
+                //insert TimedNodes to be deleted in ANA_LOG
+                if ( !analog.insertANA_LOG_TimedNodes( deleteTimedComponents, "DELETE" ) ) {
 
-           	   throw new DatabaseException("deleteANA_OBJECT:ANA_TIMED_NODE");
-            }
-            
-            AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-            
-            //insert TimedNodes to be deleted in ANA_LOG
-            if ( !analog.insertANA_LOG_TimedNodes( deleteTimedComponents, "DELETE" ) ) {
-
-            	throw new DatabaseException("insertANA_LOG_TimedNodes");
+                	throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE:insertANA_LOG_TimedNodes");
+                }
             }
         }
         catch ( DAOException dao ) {
@@ -309,13 +319,13 @@ public class AnaTimedNode {
             //insert time components in ANA_TIMED_NODE
             if ( !insertANA_TIMED_NODE( changedTimedTermList, "MODIFY", strSpecies) ) {
 
-            	throw new DatabaseException("insertANA_TIMED_NODE");
+            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE:insertANA_TIMED_NODE:MODIFY");
             }
             
             //delete time components in ANA_TIMED_NODE
             if ( !deleteANA_TIMED_NODE( changedTimedTermList, "UPDATE" ) ) {
 
-            	throw new DatabaseException("insertANA_TIMED_NODE");
+            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE:deleteANA_TIMED_NODE:UPDATE");
             }
         }
         catch ( DatabaseException dbex ) {

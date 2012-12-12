@@ -37,6 +37,7 @@
 package routines.database;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -46,6 +47,7 @@ import daolayer.NodeDAO;
 import daolayer.TimedNodeDAO;
 
 import daomodel.Thing;
+import daomodel.TimedNode;
 
 import obomodel.OBOComponent;
 import utility.Wrapper;
@@ -111,7 +113,7 @@ public class AnaObject {
 
     	setProcessed( true );
 
-        Wrapper.printMessage("anaobject.insertANA_OBJECT:Inserts to Table:" + calledFromTable, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.insertANA_OBJECT:Inserts for Table:" + calledFromTable, "***", this.requestMsgLevel);
         	
         OBOComponent component = new OBOComponent();
 
@@ -119,7 +121,7 @@ public class AnaObject {
         	
             if ( !getMaxOID() ) {
 
-            	throw new DatabaseException("insertANA_OBJECT for getMaxOID()");
+            	throw new DatabaseException("anaobject.insertANA_OBJECT:getMaxOID()");
             }
 
             int intOBJ_OID = 0;
@@ -171,9 +173,13 @@ public class AnaObject {
         	
             if ( !deleteObjects.isEmpty() ) {
 
-                for ( OBOComponent deleteObject: deleteObjects ) {
+            	Iterator<OBOComponent> iteratorDeleteObjects = deleteObjects.iterator();
+            	
+                while ( iteratorDeleteObjects.hasNext() ) {
                 	
-                    Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
+                	OBOComponent deleteObject = iteratorDeleteObjects.next();
+
+                	Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
 
                     thingDAO.delete(thing);
                 }

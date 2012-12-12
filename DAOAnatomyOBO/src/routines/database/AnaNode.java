@@ -52,6 +52,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import daolayer.NodeDAO;
+import daolayer.ThingDAO;
 import daolayer.ComponentAlternativeDAO;
 import daolayer.ComponentCommentDAO;
 import daolayer.ComponentDAO;
@@ -63,6 +64,7 @@ import daolayer.DAOException;
 import daolayer.DAOFactory;
 
 import daomodel.Node;
+import daomodel.Thing;
 import daomodel.Component;
 import daomodel.ComponentAlternative;
 import daomodel.ComponentComment;
@@ -83,6 +85,7 @@ public class AnaNode {
     
     //Data Access Objects (DAOs)
     private NodeDAO nodeDAO;
+    private ThingDAO thingDAO;
     private ComponentDAO componentDAO;
     private ComponentAlternativeDAO componentalternativeDAO;
     private ComponentRelationshipDAO componentrelationshipDAO;
@@ -122,6 +125,7 @@ public class AnaNode {
             this.daofactory = daofactory;
 
         	this.nodeDAO = daofactory.getNodeDAO();
+        	this.thingDAO = daofactory.getThingDAO();
             this.componentDAO = daofactory.getComponentDAO();
             this.componentalternativeDAO = daofactory.getComponentAlternativeDAO();
             this.componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
@@ -180,7 +184,7 @@ public class AnaNode {
                 
                 if ( !anaobject.insertANA_OBJECT(newTermList, "ANA_NODE") ) {
 
-             	   throw new DatabaseException("insertANA_OBJECT for ANA_NODE");
+             	   throw new DatabaseException("ananode.insertANA_NODE:insertANA_OBJECT:ANA_NODE");
                 }
 
                 // anaobject add the OIDs to the component list
@@ -192,7 +196,7 @@ public class AnaNode {
                 //insert TimedNodes to be deleted in ANA_LOG
                 if ( !analog.insertANA_LOG_Nodes( this.updatedComponentList, strSpecies, "INSERT" ) ) {
 
-                	throw new DatabaseException("insertANA_LOG_Nodes");
+                	throw new DatabaseException("ananode.insertANA_NODE:insertANA_LOG_Nodes");
                 }
 
                 for (int i = 0; i< this.updatedComponentList.size(); i++) {
@@ -217,7 +221,7 @@ public class AnaNode {
                    
                    if ( !anaobject.getMaxPublicId() ) {
 
-                 	   throw new DatabaseException("insertANA_OBJECT for getMaxPublicId");
+                 	   throw new DatabaseException("ananode.insertANA_NODE:anaobject.getMaxPublicId()");
                     }
 
                    int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
@@ -515,7 +519,7 @@ public class AnaNode {
     //  Insert new rows into ANA_NODE
     public boolean deleteANA_NODE( ArrayList<OBOComponent> termList, String strSpecies, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.deleteANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component;
 
@@ -526,29 +530,26 @@ public class AnaNode {
         		for (int i = 0; i< termList.size(); i++) {
                 
         			component = termList.get(i);
-                  	
+
         			// Delete the ANA_NODE rows, if any
         			if ( nodeDAO.existOid(Long.valueOf(component.getDBID()))) {
 
         				Node node = nodeDAO.findByOid(Long.valueOf(component.getDBID()));
+
+        				Thing thing = thingDAO.findByOid(node.getOid()); 
+
+                        thingDAO.delete(thing);
+
         				nodeDAO.delete(node);
         			}
         		}
 
-        		//delete ANA_OBJECT first
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
-                
-                if ( !anaobject.deleteANA_OBJECT(termList, "ANA_NODE") ) {
-
-             	   throw new DatabaseException("deleteANA_OBJECT for ANA_NODE");
-                }
-                
                 AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                 
                 //insert Nodes to be deleted in ANA_LOG
                 if ( !analog.insertANA_LOG_Nodes(termList, strSpecies, "DELETE" ) ) {
 
-                	throw new DatabaseException("insertANA_LOG_Nodes");
+                	throw new DatabaseException("ananode.deleteANA_NODE:insertANA_LOG_Nodes");
                 }
 
         	}

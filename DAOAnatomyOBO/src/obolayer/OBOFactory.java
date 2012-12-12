@@ -243,39 +243,39 @@ public abstract class OBOFactory {
     	if (strDebug.equals("true")) {
         	
         	boolDebug = true;
-        	
-        	Wrapper.printMessage("=====", "*", level);
-        	Wrapper.printMessage("DEBUG : OBO Properties File : " + filename, "*", level);
-        	Wrapper.printMessage("-----", "*", level);
-        	Wrapper.printMessage("      : oboinfile               : " + strOboInFile, "*", level);
-        	Wrapper.printMessage("      : obooutfile              : " + strOboOutFile, "*", level);
-        	Wrapper.printMessage("      : obooutfileversion       : " + strOboOutFileVersion, "*", level);
-        	Wrapper.printMessage("      : obooutfilenamespace     : " + strOboOutFileNameSpace, "*", level);
-        	Wrapper.printMessage("      : obooutfilesavedby       : " + strOboOutFileSavedBy, "*", level);
-        	Wrapper.printMessage("      : obooutfileremark        : " + strOboOutFileRemark, "*", level);
-        	Wrapper.printMessage("      : summaryreport           : " + strSummaryReport, "*", level);
-        	Wrapper.printMessage("      : summaryreportpdf        : " + strSummaryReportPdf, "*", level);
-        	Wrapper.printMessage("      : debug                   : " + strDebug, "*", level);
-        	Wrapper.printMessage("      : species                 : " + strSpecies, "*", level);
-        	Wrapper.printMessage("      : project                 : " + strProject, "*", level);
-        	Wrapper.printMessage("      : AbstractClassName       : " + strAbstractClassName, "*", level);
-        	Wrapper.printMessage("      : AbstractClassId         : " + strAbstractClassId, "*", level);
-        	Wrapper.printMessage("      : AbstractClassNamespace  : " + strAbstractClassNamespace, "*", level);
-        	Wrapper.printMessage("      : StageClassName          : " + strStageClassName, "*", level);
-        	Wrapper.printMessage("      : StageClassId            : " + strStageClassId, "*", level);
-        	Wrapper.printMessage("      : StageClassNamespace     : " + strStageClassNamespace, "*", level);
-        	Wrapper.printMessage("      : GroupClassName          : " + strGroupClassName, "*", level);
-        	Wrapper.printMessage("      : GroupClassId            : " + strGroupClassId, "*", level);
-        	Wrapper.printMessage("      : GroupClassNamespace     : " + strGroupClassNamespace, "*", level);
-        	Wrapper.printMessage("      : GroupTermClassName      : " + strGroupTermClassName, "*", level);
-        	Wrapper.printMessage("      : GroupTermClassId        : " + strGroupTermClassId, "*", level);
-        	Wrapper.printMessage("      : GroupTermClassNamespace : " + strGroupTermClassNamespace, "*", level);
-        	Wrapper.printMessage("      : MinStageSequence        : " + strMinStageSequence, "*", level);
-        	Wrapper.printMessage("      : MaxStageSequence        : " + strMaxStageSequence, "*", level);
-        	Wrapper.printMessage("      : Alternatives            : " + strAlternatives, "*", level);
-        	Wrapper.printMessage("      : TimedComponents         : " + strTimedComponents, "*", level);
-        	Wrapper.printMessage("      : msglevel                : " + strMsgLevel, "*", level);
-        	Wrapper.printMessage("=====", "*", level);
+        	//"========= : "
+        	Wrapper.printMessage("=========", "*", level);
+        	Wrapper.printMessage("DEBUG     : OBO Properties File     : " + filename, "*", level);
+        	Wrapper.printMessage("---------", "*", level);
+        	Wrapper.printMessage("          : oboinfile               : " + strOboInFile, "*", level);
+        	Wrapper.printMessage("          : obooutfile              : " + strOboOutFile, "*", level);
+        	Wrapper.printMessage("          : obooutfileversion       : " + strOboOutFileVersion, "*", level);
+        	Wrapper.printMessage("          : obooutfilenamespace     : " + strOboOutFileNameSpace, "*", level);
+        	Wrapper.printMessage("          : obooutfilesavedby       : " + strOboOutFileSavedBy, "*", level);
+        	Wrapper.printMessage("          : obooutfileremark        : " + strOboOutFileRemark, "*", level);
+        	Wrapper.printMessage("          : summaryreport           : " + strSummaryReport, "*", level);
+        	Wrapper.printMessage("          : summaryreportpdf        : " + strSummaryReportPdf, "*", level);
+        	Wrapper.printMessage("          : debug                   : " + strDebug, "*", level);
+        	Wrapper.printMessage("          : species                 : " + strSpecies, "*", level);
+        	Wrapper.printMessage("          : project                 : " + strProject, "*", level);
+        	Wrapper.printMessage("          : AbstractClassName       : " + strAbstractClassName, "*", level);
+        	Wrapper.printMessage("          : AbstractClassId         : " + strAbstractClassId, "*", level);
+        	Wrapper.printMessage("          : AbstractClassNamespace  : " + strAbstractClassNamespace, "*", level);
+        	Wrapper.printMessage("          : StageClassName          : " + strStageClassName, "*", level);
+        	Wrapper.printMessage("          : StageClassId            : " + strStageClassId, "*", level);
+        	Wrapper.printMessage("          : StageClassNamespace     : " + strStageClassNamespace, "*", level);
+        	Wrapper.printMessage("          : GroupClassName          : " + strGroupClassName, "*", level);
+        	Wrapper.printMessage("          : GroupClassId            : " + strGroupClassId, "*", level);
+        	Wrapper.printMessage("          : GroupClassNamespace     : " + strGroupClassNamespace, "*", level);
+        	Wrapper.printMessage("          : GroupTermClassName      : " + strGroupTermClassName, "*", level);
+        	Wrapper.printMessage("          : GroupTermClassId        : " + strGroupTermClassId, "*", level);
+        	Wrapper.printMessage("          : GroupTermClassNamespace : " + strGroupTermClassNamespace, "*", level);
+        	Wrapper.printMessage("          : MinStageSequence        : " + strMinStageSequence, "*", level);
+        	Wrapper.printMessage("          : MaxStageSequence        : " + strMaxStageSequence, "*", level);
+        	Wrapper.printMessage("          : Alternatives            : " + strAlternatives, "*", level);
+        	Wrapper.printMessage("          : TimedComponents         : " + strTimedComponents, "*", level);
+        	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
+        	Wrapper.printMessage("=========", "*", level);
         }
         
         OBOFactory instance;

@@ -73,10 +73,10 @@ public class RunDAOTestTimedLeafs {
             String leafType = "";
             int countChildNames = 0;
             
-	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:==========================", "*", "*");
-	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + emapId + " ; Stage : " + stage, "*", "*");
-	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:--------------------------", "*", "*");
-	        Wrapper.printMessage("RunDAOTestTimedLeafs.run:[", "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run : ==========================", "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + emapId + " ; Stage : " + stage, "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run : --------------------------", "*", "*");
+	        Wrapper.printMessage("RunDAOTestTimedLeafs.run : [", "*", "*");
 
             while (iteratortimedleaf.hasNext()) {
 
@@ -93,7 +93,7 @@ public class RunDAOTestTimedLeafs {
            				
            					leafType = "LEAF";
                   			
-           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
                       				prevleaf.getChildName() + 
               		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
               		        	    prevleaf.getChildOid() +
@@ -109,7 +109,7 @@ public class RunDAOTestTimedLeafs {
            					
            					leafType = "BRANCH";
                   			
-           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
                       				prevleaf.getChildName() + 
               		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
               		        	    prevleaf.getChildOid() +
@@ -129,7 +129,7 @@ public class RunDAOTestTimedLeafs {
            					
            					leafType = "LEAF";
                   			
-           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
                       				prevleaf.getChildName() + 
               		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
               		        	    prevleaf.getChildId() +
@@ -145,7 +145,7 @@ public class RunDAOTestTimedLeafs {
            					
            					leafType = "BRANCH";
                   			
-           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+           			        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
                       				prevleaf.getChildName() + 
               		        	    "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
               		        	    prevleaf.getChildId() +
@@ -172,7 +172,7 @@ public class RunDAOTestTimedLeafs {
 				
 				leafType = "LEAF";
 	      		
-		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+		        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
 		       			timedleaf.getChildName() + 
 				        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
 				        timedleaf.getChildOid() +
@@ -188,7 +188,7 @@ public class RunDAOTestTimedLeafs {
 				
 				leafType = "BRANCH";
       			
-		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:" + "{\"attr\": {\"ext_id\": \"" +
+		        Wrapper.printMessage("RunDAOTestTimedLeafs.run : " + "{\"attr\": {\"ext_id\": \"" +
      				timedleaf.getChildName() + 
 			        "\",\"id\": \"li_node_" + leafType + "_Timed_id" + 
 			        timedleaf.getChildOid() +
@@ -205,11 +205,11 @@ public class RunDAOTestTimedLeafs {
 
 			if ( rowCount == timedleafs.size()) {
 		        
-				Wrapper.printMessage("RunDAOTestTimedLeafs.run:]", "*", "*");
+				Wrapper.printMessage("RunDAOTestTimedLeafs.run : ]", "*", "*");
    			}
    			else {
        			
-   		        Wrapper.printMessage("RunDAOTestTimedLeafs.run:,", "*", "*");
+   		        Wrapper.printMessage("RunDAOTestTimedLeafs.run : ,", "*", "*");
    			}
 		}
 		catch (DAOException daoe) {

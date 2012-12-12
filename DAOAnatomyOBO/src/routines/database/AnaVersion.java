@@ -110,7 +110,7 @@ public class AnaVersion {
             
             if ( !anaobject.insertANA_OBJECT( verTermList, "ANA_VERSION" ) ) {
 
-         	   throw new DatabaseException("insertANA_OBJECT for ANA_VERSION");
+         	   throw new DatabaseException("anaversion.insertANA_VERSION:insertANA_OBJECT:ANA_VERSION");
             }
             
             //find out which round of update this is to the db
@@ -118,7 +118,7 @@ public class AnaVersion {
      	   
             if ( !anaobject.getMaxOID() ) {
 
-            	throw new DatabaseException("getMaxOID");
+            	throw new DatabaseException("anaversion.insertANA_VERSION:anaobject.getMaxOID");
             }
 
             //prepare values for insertion

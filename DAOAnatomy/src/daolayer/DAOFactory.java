@@ -193,17 +193,17 @@ public abstract class DAOFactory {
                 if (strDebug.equals("true")) {
                 	
                 	debug = true;
-                	Wrapper.printMessage("=====", "*", level);
-                	Wrapper.printMessage("DEBUG : DAO Properties File : " + filename, "*", level);
-                	Wrapper.printMessage("-----", "*", level);
-                	Wrapper.printMessage("      : url                 : " + url, "*", level);
-                	Wrapper.printMessage("      : driverClassName     : " + driverClassName, "*", level);
-                	Wrapper.printMessage("      : username            : " + username, "*", level);
-                	Wrapper.printMessage("      : password            : " + password, "*", level);
-                	Wrapper.printMessage("      : debug               : " + debug, "*", level);
-                	Wrapper.printMessage("      : update              : " + update, "*", level);
-                	Wrapper.printMessage("      : sqloutput           : " + sqloutput, "*", level);
-                	Wrapper.printMessage("      : strMsgLevel         : " + strMsgLevel, "*", level);
+                	Wrapper.printMessage("=========", "*", level);
+                	Wrapper.printMessage("DEBUG     : DAO Properties File     : " + filename, "*", level);
+                	Wrapper.printMessage("---------", "*", level);
+                	Wrapper.printMessage("          : url                     : " + url, "*", level);
+                	Wrapper.printMessage("          : driverClassName         : " + driverClassName, "*", level);
+                	Wrapper.printMessage("          : username                : " + username, "*", level);
+                	Wrapper.printMessage("          : password                : " + password, "*", level);
+                	Wrapper.printMessage("          : debug                   : " + debug, "*", level);
+                	Wrapper.printMessage("          : update                  : " + update, "*", level);
+                	Wrapper.printMessage("          : sqloutput               : " + sqloutput, "*", level);
+                	Wrapper.printMessage("          : strMsgLevel             : " + strMsgLevel, "*", level);
                 }
                 
                 if (strDebug.equals("false")) {
@@ -221,9 +221,9 @@ public abstract class DAOFactory {
                     
             		results = ExecuteCommand.execute(commandString1);
 
-                	Wrapper.printMessage("-----", "*", level);
-                	Wrapper.printMessage("      : Empty SQL Command Log File", "*", level);
-                	Wrapper.printMessage("      : Command: " + commandString1, "*", level);
+                	Wrapper.printMessage("---------", "*", level);
+                	Wrapper.printMessage("          : Empty SQL Command Log File", "*", level);
+                	Wrapper.printMessage("          : Command: " + commandString1, "*", level);
 
                 	Iterator<String> iteratorresults = results.iterator();
 
@@ -233,7 +233,7 @@ public abstract class DAOFactory {
                   	}
                 }
 
-                Wrapper.printMessage("=====", "*", level);
+                Wrapper.printMessage("=========", "*", level);
             }
             
             // If driver is specified, then load it to let it register itself with DriverManager.

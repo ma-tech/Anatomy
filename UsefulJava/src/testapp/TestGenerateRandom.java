@@ -31,27 +31,29 @@ public class TestGenerateRandom {
     	    }
     	    */
 
-        	ArrayList<String> outputStrings = GenerateRandom.getRandomUniquePentatonic();
+        	ArrayList<String> outputStrings = GenerateRandom.getRandomUniqueFretPattern();
             Iterator<String> iteratorOutputStrings = outputStrings.iterator();
-            int i = 0;
             
          	while (iteratorOutputStrings.hasNext()) {
         		
-         		i++;
-                Wrapper.printMessage(i + ": " + iteratorOutputStrings.next(), "*", "*");
+                Wrapper.printMessage( iteratorOutputStrings.next(), "*", "*");
          	}
 
-         	/*
         	ArrayList<String> outputStrings2 = GenerateRandom.getRandomUniqueDiatonic();
             Iterator<String> iteratorOutputStrings2 = outputStrings2.iterator();
-            int k = 0;
 
             while (iteratorOutputStrings2.hasNext()) {
         		
-         		k++;
-                Wrapper.printMessage(k + ": " + iteratorOutputStrings2.next(), "*", "*");
+                Wrapper.printMessage( iteratorOutputStrings2.next(), "*", "*");
          	}
-         	*/
+
+        	ArrayList<String> outputStrings3 = GenerateRandom.getRandomUniquePentatonic();
+            Iterator<String> iteratorOutputStrings3 = outputStrings3.iterator();
+
+            while (iteratorOutputStrings3.hasNext()) {
+        		
+                Wrapper.printMessage( iteratorOutputStrings3.next(), "*", "*");
+         	}
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}

@@ -44,12 +44,13 @@ import obolayer.ComponentOBO;
 
 import obomodel.OBOComponent;
 import obomodel.Relation;
-import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 
 import daolayer.DAOFactory;
 import daolayer.StageDAO;
 
 import daomodel.Stage;
+
+import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 
 import utility.Wrapper;
 
@@ -79,11 +80,11 @@ public class ExtractAndWriteOBOFromExistingDatabase {
         
         if ( componentOBO.writeAll( "Abstract" ) ) {
         	
-        	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run:Obo File SUCCESSFULLY written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run : Obo File SUCCESSFULLY written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
         }
         else {
         	
-        	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run:Obo File FAILED written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run : Obo File FAILED written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
         }
         
         // Write out Timed/Staged OBO file
@@ -115,11 +116,11 @@ public class ExtractAndWriteOBOFromExistingDatabase {
 
             if ( componentOBO.writeAll( stage.getName() ) ) {
             	
-        	    Wrapper.printMessage("extractandwriteobofromexistingdatabase.run:Obo File SUCCESSFULLY written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("extractandwriteobofromexistingdatabase.run : Obo File SUCCESSFULLY written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
             }
             else {
 
-            	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run:Obo File FAILED written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
+            	Wrapper.printMessage("extractandwriteobofromexistingdatabase.run : Obo File FAILED written to " + newFileName + " for Species " + obofactory.getComponentOBO().species() + " and Project " + obofactory.getComponentOBO().project(), "***", requestMsgLevel);
             }
         }
     }

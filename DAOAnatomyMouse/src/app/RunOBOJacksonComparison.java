@@ -182,11 +182,11 @@ public class RunOBOJacksonComparison {
         // Save CSV.
         FileUtil.write(fileOut, csvOutput);
         
-        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "===========", "*", "*");
-        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "Error Stats", "*", "*");
-        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "-----------", "*", "*");
-        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "Cannot Find an EMAPA ID in Database = " +  ObjectConverter.convert(emapaMissing, String.class), "*", "*");
-        Wrapper.printMessage("RunOBOJacksonComparison.run:", "*", "*");
-        Wrapper.printMessage("RunOBOJacksonComparison.run:" + "===========", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : " + "===========", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : " + "Error Stats", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : " + "-----------", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : " + "Cannot Find an EMAPA ID in Database = " +  ObjectConverter.convert(emapaMissing, String.class), "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : ", "*", "*");
+        Wrapper.printMessage("RunOBOJacksonComparison.run : " + "===========", "*", "*");
     }
 }

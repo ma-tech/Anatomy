@@ -79,7 +79,7 @@ public class RunOBOCheckComponentsOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("runobocheckcomponentsordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
+        		    Wrapper.printMessage("runobocheckcomponentsordering.run : Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -89,7 +89,7 @@ public class RunOBOCheckComponentsOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("runobocheckcomponentsordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
+        		    Wrapper.printMessage("runobocheckcomponentsordering.run : Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Special Order(" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -98,9 +98,9 @@ public class RunOBOCheckComponentsOrdering {
         	oldParentId = newParentId;
         }
 	
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:----------------------------", "***", requestMsgLevel);
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:Special Order Error Count    = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : ----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : Special Order Error Count    = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : ----------------------------", "***", requestMsgLevel);
 		
 	    List<ComponentOrder> alphacomponentorders = new ArrayList<ComponentOrder>();
 	    alphacomponentorders = componentorderDAO.listOrderByParentByAlphaOrder();
@@ -124,7 +124,7 @@ public class RunOBOCheckComponentsOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("runobocheckcomponentsordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
+        		    Wrapper.printMessage("runobocheckcomponentsordering.run : Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -134,7 +134,7 @@ public class RunOBOCheckComponentsOrdering {
         		
         		if ( newCount != newParentCount ) {
         			
-        		    Wrapper.printMessage("runobocheckcomponentsordering.run:Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
+        		    Wrapper.printMessage("runobocheckcomponentsordering.run : Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + " Alpha Order(" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + ") NOT EQUAL to expected (" + ObjectConverter.convert(newCount, String.class) + ")", "***", requestMsgLevel);
         			errorCount++;
         		}
         	}
@@ -143,8 +143,8 @@ public class RunOBOCheckComponentsOrdering {
         	oldParentId = newParentId;
         }
 	
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:----------------------------", "***", requestMsgLevel);
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:Alphabetic Order Error Count = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("runobocheckcomponentsordering.run:----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : ----------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : Alphabetic Order Error Count = " + ObjectConverter.convert(errorCount, String.class), "***", requestMsgLevel);
+	    Wrapper.printMessage("runobocheckcomponentsordering.run : ----------------------------", "***", requestMsgLevel);
     }
 }

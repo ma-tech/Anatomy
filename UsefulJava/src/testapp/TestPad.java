@@ -32,10 +32,13 @@ public class TestPad {
     		paddedString = StringPad.pad(testStringAsInt, testLength, testCharacter); 
     		System.out.println("paddedString(input int)    = " + paddedString);  
 
-            char padChar = '0';
+            char padChar = ' ';
+            System.out.println("utility.StringPad.pad(\"*\", 7, padChar):" + utility.StringPad.pad("*", 7, padChar));
+            
+            padChar = '0';
             int intX = 12345;
             System.out.println("utility.StringPad.pad(intX, 7, padChar):" + utility.StringPad.pad(intX, 7, padChar));
-            
+
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {

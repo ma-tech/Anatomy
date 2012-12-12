@@ -46,24 +46,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.HashMap;
 
-import daolayer.ComponentOrderDAO;
+import daolayer.ThingDAO;
 import daolayer.NodeDAO;
 import daolayer.RelationshipDAO;
+import daolayer.RelationshipProjectDAO;
+import daolayer.ComponentOrderDAO;
 import daolayer.JOINNodeRelationshipNodeDAO;
 import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
 import daolayer.JOINRelationshipProjectRelationshipDAO;
-import daolayer.RelationshipProjectDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daomodel.ComponentOrder;
+import daomodel.Thing;
 import daomodel.Node;
 import daomodel.Relationship;
+import daomodel.RelationshipProject;
+import daomodel.ComponentOrder;
 import daomodel.JOINNodeRelationshipNode;
 import daomodel.JOINNodeRelationshipRelationshipProject;
 import daomodel.JOINRelationshipProjectRelationship;
-import daomodel.RelationshipProject;
 
 import obomodel.OBOComponent;
 
@@ -79,14 +81,14 @@ public class AnaRelationship {
     private boolean processed;
     
     //Data Access Objects (DAOs)
-    private RelationshipDAO relationshipDAO;
-    private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO;
+    private ThingDAO thingDAO;
     private NodeDAO nodeDAO;
+    private RelationshipDAO relationshipDAO;
     private RelationshipProjectDAO relationshipprojectDAO;
     private ComponentOrderDAO componentorderDAO;
-    private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
+    private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO;
     private JOINRelationshipProjectRelationshipDAO joinrelationshipprojectrelationshipDAO;
-
+    private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
 
     // Constructors -------------------------------------------------------------------------------
     public AnaRelationship() {
@@ -103,13 +105,14 @@ public class AnaRelationship {
 
             this.daofactory = daofactory;
 
-        	this.relationshipDAO = daofactory.getRelationshipDAO();
-        	this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
+        	this.thingDAO = daofactory.getThingDAO();
         	this.nodeDAO = daofactory.getNodeDAO();
+        	this.relationshipDAO = daofactory.getRelationshipDAO();
         	this.relationshipprojectDAO = daofactory.getRelationshipProjectDAO();
             this.componentorderDAO = daofactory.getComponentOrderDAO();
-            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
+        	this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
             this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
+            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
        	
         	setProcessed( true );
     	}
@@ -163,7 +166,7 @@ public class AnaRelationship {
           
                 if ( !project.equals("GUDMAP") && !project.equals("EMAP") ) {
                 	
-                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Project Value = " + project , "*", this.requestMsgLevel);
+                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:UNKNOWN Project Value = " + project , "*", this.requestMsgLevel);
                 }
 
                 for ( int i = 0; i< newTermList.size(); i++) {
@@ -227,14 +230,14 @@ public class AnaRelationship {
                         }
                         
                         //if parent is root Tmp new group don't treat as relationship
-                        if ("mouse".equals(strSpecies)) {
+                        if (strSpecies.equals("mouse")) {
 
                             if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) ) {
 
                                 flagInsert = false;
                             }
                         }
-                        if ("human".equals(strSpecies)) {
+                        else if (strSpecies.equals("human")) {
 
                             if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) &&
                             	 !parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
@@ -243,7 +246,7 @@ public class AnaRelationship {
                                 flagInsert = false;
                             }
                         }
-                        if ("chick".equals(strSpecies)) {
+                        else if (strSpecies.equals("chick")) {
 
                             if ( !parent.getNamespace().equals( abstractclassobocomponent.getNamespace() ) &&
                                  !parent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
@@ -251,6 +254,11 @@ public class AnaRelationship {
 
                                 flagInsert = false;
                             }
+                        }
+                        else {
+                        	
+                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:UNKNOWN Species = " + strSpecies, "*", this.requestMsgLevel);
+                            flagInsert = false;
                         }
 
                         //proceed with insertion 
@@ -313,7 +321,7 @@ public class AnaRelationship {
                     
                     if ( !anaobject.insertANA_OBJECT( insertRelObjects, "ANA_RELATIONSHIP" ) ) {
 
-                  	   throw new DatabaseException("insertANA_OBJECT for ANA_RELATIONSHIP");
+                  	   throw new DatabaseException("anarelationship.insertANA_RELATIONSHIP:insertANA_OBJECT:ANA_RELATIONSHIP");
                     }
                     
                     // anaobject add the OIDs to the component list
@@ -371,7 +379,7 @@ public class AnaRelationship {
                         }
                         else {
 
-                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.requestMsgLevel);
+                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.requestMsgLevel);
                         }
 
                         intREL_CHILD_FK = Integer.parseInt( insertRelObject.getID() );
@@ -391,7 +399,7 @@ public class AnaRelationship {
                         }
                         catch(Exception e) {
                         	
-                            Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP -- Exception caught for child " + 
+                            Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP:Exception caught for child " + 
                                     insertRelObject.getID() + " parent " +
                                     insertRelObject.getChildOfs().toString(), "*", this.requestMsgLevel);
                             e.printStackTrace();
@@ -482,12 +490,18 @@ public class AnaRelationship {
         	
         try {
         	
-            if ( !deleteRelComponents.isEmpty() ) {
+        	if ( !deleteRelComponents.isEmpty() ) {
             	
                 for ( OBOComponent deleteRelCompie: deleteRelComponents ) {
+
+                	/*
+                	System.out.println("deleteRelCompie.getChildOfs() = " + deleteRelCompie.getChildOfs());
+                	System.out.println("deleteRelCompie.getID() = " + deleteRelCompie.getID());
+                	System.out.println("deleteRelCompie.toString() = " + deleteRelCompie.toString());
+                	*/
                 	
                 	ArrayList<Relationship> relationships = 
-                			(ArrayList<Relationship>) relationshipDAO.listByParentFKAndChildFK(Long.valueOf(deleteRelCompie.getChildOfs().get(0)), Long.valueOf(deleteRelCompie.getID()));
+                			(ArrayList<Relationship>) relationshipDAO.listByChildFK(Long.valueOf(deleteRelCompie.getDBID()));
 
                 	Iterator<Relationship> iteratorrelationship = relationships.iterator();
 
@@ -495,6 +509,10 @@ public class AnaRelationship {
                   		
                   		Relationship relationship = iteratorrelationship.next();
                   		
+                    	Thing thing = thingDAO.findByOid(relationship.getOid()); 
+
+                        thingDAO.delete(thing);
+
                   		relationshipDAO.delete(relationship);
                   	}
 
@@ -511,19 +529,12 @@ public class AnaRelationship {
                   	}
                 }
                 
-                AnaObject anaobject = new AnaObject(this.requestMsgLevel, this.daofactory);
-                
-                if ( !anaobject.insertANA_OBJECT( deleteRelComponents, "ANA_RELATIONSHIP" ) ) {
-
-              	   throw new DatabaseException("deleteANA_OBJECT for ANA_RELATIONSHIP");
-                }
-                
                 AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                 
                 //insert Relationships to be deleted in ANA_LOG
                 if ( !analog.insertANA_LOG_Relationships( deleteRelComponents, "DELETE" ) ) {
 
-                	throw new DatabaseException("insertANA_LOG_TimedNodes");
+                	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP:insertANA_LOG_Relationships");
                 }
             }
         }
@@ -571,7 +582,7 @@ public class AnaRelationship {
             		groupclassobocomponent, 
             		grouptermclassobocomponent) ) {
 
-         	   throw new DatabaseException("insertANA_RELATIONSHIP");
+         	   throw new DatabaseException("anarelationship.updateParents:insertANA_RELATIONSHIP");
             }
             
             //insert relationships to be deleted in ANA_LOG
@@ -579,13 +590,13 @@ public class AnaRelationship {
             
             if ( !analog.insertANA_LOG_Relationships( changedParentsTermList, calledFrom ) ) {
 
-            	throw new DatabaseException("insertANA_LOG_deletedRels");
+            	throw new DatabaseException("anarelationship.updateParents:insertANA_LOG_Relationships");
             }
             
             //delete relationships in ANA_RELATIONSHIP
             if ( !deleteANA_RELATIONSHIP( deleteRelComponents, calledFrom) ) {
 
-         	   throw new DatabaseException("deleteANA_RELATIONSHIP");
+         	   throw new DatabaseException("anarelationship.updateParents:deleteANA_RELATIONSHIP");
             }
         }
         catch ( DatabaseException dbex ) {

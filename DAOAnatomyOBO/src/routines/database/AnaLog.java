@@ -298,7 +298,7 @@ public class AnaLog {
             
             if ( !anaobject.getMaxOID() ) {
 
-            	throw new DatabaseException("getMaxOID");
+            	throw new DatabaseException("analog.insertANA_LOG_TimedNodes:anaobject.getMaxOID()");
             }
 
             intLOG_VERSION_FK = anaobject.getCurrentMaxObjectId();

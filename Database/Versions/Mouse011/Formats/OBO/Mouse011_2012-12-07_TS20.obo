@@ -1,0 +1,7268 @@
+format-version: 1.2
+date: 10:12:2012 15:32
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Timed anatomy
+namespace: timed_anatomy
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS20
+name: TS20
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25785
+name: mouse
+namespace: timed_anatomy
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:3980
+name: embryo
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+
+[Term]
+id: EMAP:3987
+name: cavities and their linings
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:3988
+name: intraembryonic coelom
+namespace: abstract_anatomy
+relationship: part_of EMAP:3987
+
+[Term]
+id: EMAP:3989
+name: intraembryonic coelom pericardial component
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:3990
+name: pericardial component cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:3989
+
+[Term]
+id: EMAP:3991
+name: pericardial component mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3989
+
+[Term]
+id: EMAP:3992
+name: pericardial component parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3991
+
+[Term]
+id: EMAP:3993
+name: pericardial component visceral mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3991
+
+[Term]
+id: EMAP:3998
+name: intraembryonic coelom peritoneal component
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:3999
+name: greater sac
+namespace: abstract_anatomy
+relationship: part_of EMAP:3998
+
+[Term]
+id: EMAP:4000
+name: greater sac cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:3999
+
+[Term]
+id: EMAP:4001
+name: greater sac mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3999
+
+[Term]
+id: EMAP:4002
+name: greater sac parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4001
+
+[Term]
+id: EMAP:7067
+name: greater sac visceral mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4001
+
+[Term]
+id: EMAP:4003
+name: omental bursa
+namespace: abstract_anatomy
+relationship: part_of EMAP:3998
+
+[Term]
+id: EMAP:4004
+name: omental bursa mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4003
+
+[Term]
+id: EMAP:4005
+name: omental bursa parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4004
+
+[Term]
+id: EMAP:3994
+name: pericardio-peritoneal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:3995
+name: pericardio-peritoneal canal cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:3994
+
+[Term]
+id: EMAP:3996
+name: pericardio-peritoneal canal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3994
+
+[Term]
+id: EMAP:3997
+name: pericardio-peritoneal canal parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3996
+
+[Term]
+id: EMAP:4006
+name: intraembryonic coelom pleural component
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:4007
+name: pleural component cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:4006
+
+[Term]
+id: EMAP:4008
+name: pleural component mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4006
+
+[Term]
+id: EMAP:4009
+name: pleural component parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4008
+
+[Term]
+id: EMAP:4010
+name: pleural component visceral mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4008
+
+[Term]
+id: EMAP:26163
+name: diaphragm
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:26186
+name: central tendon
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:26180
+name: pleuro-pericardial canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:26181
+name: pleuro-pericardial canal mesothelial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:26180
+
+[Term]
+id: EMAP:26184
+name: pleuro-pericardial folds
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:26182
+name: pleuro-peritoneal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:26183
+name: pleuro-peritoneal canal mesothelial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:26182
+
+[Term]
+id: EMAP:26185
+name: pleuro-peritoneal membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:26384
+name: diaphragm mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:26163
+
+[Term]
+id: EMAP:14738
+name: pleuro-peritoneal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:14743
+name: pleuro-peritoneal canal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:14738
+
+[Term]
+id: EMAP:14748
+name: pleuro-peritoneal canal parietal mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:14743
+
+[Term]
+id: EMAP:14753
+name: pleuro-peritoneal canal cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:14738
+
+[Term]
+id: EMAP:26165
+name: cavity of physiological umbilical hernia
+namespace: abstract_anatomy
+relationship: part_of EMAP:3987
+
+[Term]
+id: EMAP:26173
+name: cavity of physiological umbilical hernia mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:26165
+
+[Term]
+id: EMAP:4103
+name: mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4104
+name: head mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:31902
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:4105
+name: trunk mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:31887
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:4107
+name: septum transversum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4105
+
+[Term]
+id: EMAP:4108
+name: septum transversum non-hepatic component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4107
+
+[Term]
+id: EMAP:14761
+name: future central tendon
+namespace: abstract_anatomy
+relationship: part_of EMAP:4108
+
+[Term]
+id: EMAP:14799
+name: future dome
+namespace: abstract_anatomy
+relationship: part_of EMAP:4108
+
+[Term]
+id: EMAP:4106
+name: body-wall mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4105
+
+[Term]
+id: EMAP:3981
+name: organ system
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4365
+name: cardiovascular system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:4396
+name: heart
+namespace: abstract_anatomy
+relationship: part_of EMAP:4365
+
+[Term]
+id: EMAP:4417
+name: heart mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4418
+name: dorsal mesocardium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4417
+
+[Term]
+id: EMAP:4419
+name: transverse pericardial sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4418
+
+[Term]
+id: EMAP:4428
+name: sinus venosus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4429
+name: sinus venosus left horn
+namespace: abstract_anatomy
+relationship: part_of EMAP:4428
+
+[Term]
+id: EMAP:4430
+name: sinus venosus right horn
+namespace: abstract_anatomy
+relationship: part_of EMAP:4428
+
+[Term]
+id: EMAP:4420
+name: outflow tract
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4422
+name: aortico-pulmonary spiral septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4420
+
+[Term]
+id: EMAP:4421
+name: outflow tract aortic component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4420
+
+[Term]
+id: EMAP:4423
+name: outflow tract pulmonary component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4420
+
+[Term]
+id: EMAP:4424
+name: outflow tract pulmonary component proximal part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4423
+
+[Term]
+id: EMAP:4397
+name: atrio-ventricular canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4399
+name: atrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4400
+name: interatrial septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4399
+
+[Term]
+id: EMAP:4401
+name: septum primum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4400
+
+[Term]
+id: EMAP:4402
+name: foramen primum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4401
+
+[Term]
+id: EMAP:4403
+name: left atrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4399
+
+[Term]
+id: EMAP:4404
+name: left atrium auricular region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4403
+
+[Term]
+id: EMAP:4405
+name: left atrium auricular region endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4404
+
+[Term]
+id: EMAP:4406
+name: left atrium auricular region cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4404
+
+[Term]
+id: EMAP:4407
+name: left atrium endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4403
+
+[Term]
+id: EMAP:4408
+name: left atrium cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4403
+
+[Term]
+id: EMAP:26013
+name: left atrium lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4403
+
+[Term]
+id: EMAP:4409
+name: right atrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4399
+
+[Term]
+id: EMAP:4410
+name: right atrium auricular region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4409
+
+[Term]
+id: EMAP:4411
+name: right atrium auricular region endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4410
+
+[Term]
+id: EMAP:4412
+name: right atrium auricular region cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4410
+
+[Term]
+id: EMAP:4413
+name: right atrium endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4409
+
+[Term]
+id: EMAP:4414
+name: right atrium cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4409
+
+[Term]
+id: EMAP:4415
+name: right atrium valve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4409
+
+[Term]
+id: EMAP:4416
+name: right atrium venous valve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4415
+
+[Term]
+id: EMAP:26022
+name: right atrium lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4409
+
+[Term]
+id: EMAP:7019
+name: endocardial cushion tissue
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4425
+name: pericardium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4426
+name: parietal pericardium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4425
+
+[Term]
+id: EMAP:4427
+name: visceral pericardium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4425
+
+[Term]
+id: EMAP:4431
+name: heart ventricle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4433
+name: interventricular septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:4434
+name: interventricular septum endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4433
+
+[Term]
+id: EMAP:4435
+name: interventricular septum cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4433
+
+[Term]
+id: EMAP:4432
+name: interventricular groove
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:4436
+name: left ventricle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:4437
+name: left ventricle endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4436
+
+[Term]
+id: EMAP:4438
+name: left ventricle cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4436
+
+[Term]
+id: EMAP:26040
+name: left ventricle lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4436
+
+[Term]
+id: EMAP:4439
+name: right ventricle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:4440
+name: right ventricle endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4439
+
+[Term]
+id: EMAP:4441
+name: right ventricle cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4439
+
+[Term]
+id: EMAP:26049
+name: right ventricle lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4439
+
+[Term]
+id: EMAP:26031
+name: interventricular canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:4398
+name: atrio-ventricular cushion tissue
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:4366
+name: arterial system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4365
+
+[Term]
+id: EMAP:4371
+name: dorsal aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4373
+name: left dorsal aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4371
+
+[Term]
+id: EMAP:4374
+name: right dorsal aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4371
+
+[Term]
+id: EMAP:4372
+name: common dorsal aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4371
+
+[Term]
+id: EMAP:4381
+name: internal carotid artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4391
+name: umbilical artery embryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4392
+name: left umbilical artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4391
+
+[Term]
+id: EMAP:4393
+name: right umbilical artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4391
+
+[Term]
+id: EMAP:4369
+name: branchial arch artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4370
+name: 6th arch artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4369
+
+[Term]
+id: EMAP:4375
+name: ductus caroticus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4385
+name: ophthalmic artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4388
+name: pulmonary artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4368
+name: basilar artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4376
+name: hyoid artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4377
+name: iliac artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4379
+name: common iliac artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4377
+
+[Term]
+id: EMAP:4378
+name: external iliac artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4377
+
+[Term]
+id: EMAP:4383
+name: maxillary artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4384
+name: mesenteric artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4389
+name: stapedial artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4394
+name: vertebral artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4367
+name: arch of aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4380
+name: innominate artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4382
+name: intersegmental artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4390
+name: subclavian artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:26187
+name: anterior cerebral artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:26188
+name: posterior cerebral artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:26189
+name: middle cerebral artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:26196
+name: pulmonary trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:26191
+name: median sacral artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:25961
+name: ascending aorta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4366
+
+[Term]
+id: EMAP:4442
+name: venous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4365
+
+[Term]
+id: EMAP:4454
+name: primary head vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4459
+name: umbilical vein embryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4460
+name: left umbilical vein embryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4459
+
+[Term]
+id: EMAP:4443
+name: cardinal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4444
+name: anterior cardinal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4443
+
+[Term]
+id: EMAP:4445
+name: common cardinal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4443
+
+[Term]
+id: EMAP:26225
+name: posterior cardinal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4443
+
+[Term]
+id: EMAP:4457
+name: subcardinal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4450
+name: marginal vein of forelimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4451
+name: marginal vein of hindlimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4455
+name: principal vein of forelimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4456
+name: principal vein of hindlimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4446
+name: ductus venosus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4452
+name: mesenteric vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4453
+name: portal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4449
+name: internal jugular vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4458
+name: subclavian vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:26198
+name: azygos vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:26200
+name: hemiazygos vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:7071
+name: vena cava
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:7075
+name: inferior vena cava
+namespace: abstract_anatomy
+relationship: part_of EMAP:7071
+
+[Term]
+id: EMAP:7085
+name: inferior vena cava post-hepatic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:7075
+
+[Term]
+id: EMAP:26074
+name: inferior vena cava intrahepatic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:7075
+
+[Term]
+id: EMAP:26082
+name: communication ductus venosus to portal vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:26074
+
+[Term]
+id: EMAP:26213
+name: superior vena cava
+namespace: abstract_anatomy
+relationship: part_of EMAP:7071
+
+[Term]
+id: EMAP:26214
+name: left superior vena cava
+namespace: abstract_anatomy
+relationship: part_of EMAP:26213
+
+[Term]
+id: EMAP:26215
+name: right superior vena cava
+namespace: abstract_anatomy
+relationship: part_of EMAP:26213
+
+[Term]
+id: EMAP:26202
+name: hepatic vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:26207
+name: lingual vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:26057
+name: intersegmental vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:26065
+name: median sacral vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4442
+
+[Term]
+id: EMAP:4395
+name: blood
+namespace: abstract_anatomy
+relationship: part_of EMAP:4365
+
+[Term]
+id: EMAP:4285
+name: sensory organ
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:4286
+name: ear
+namespace: abstract_anatomy
+relationship: part_of EMAP:4285
+
+[Term]
+id: EMAP:4295
+name: inner ear
+namespace: abstract_anatomy
+relationship: part_of EMAP:4286
+
+[Term]
+id: EMAP:4296
+name: endolymphatic appendage
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:4297
+name: endolymphatic appendage associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4296
+
+[Term]
+id: EMAP:4298
+name: endolymphatic appendage epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4296
+
+[Term]
+id: EMAP:4303
+name: inner ear vestibular component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:4304
+name: ductus reuniens
+namespace: abstract_anatomy
+relationship: part_of EMAP:4303
+
+[Term]
+id: EMAP:4305
+name: ductus reuniens associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4304
+
+[Term]
+id: EMAP:4306
+name: ductus reuniens epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4304
+
+[Term]
+id: EMAP:4307
+name: saccule
+namespace: abstract_anatomy
+relationship: part_of EMAP:4303
+
+[Term]
+id: EMAP:4308
+name: saccule associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4307
+
+[Term]
+id: EMAP:4313
+name: saccule epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4307
+
+[Term]
+id: EMAP:4309
+name: cochlea
+namespace: abstract_anatomy
+relationship: part_of EMAP:4307
+
+[Term]
+id: EMAP:4310
+name: cochlear duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4309
+
+[Term]
+id: EMAP:4311
+name: cochlear duct associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4310
+
+[Term]
+id: EMAP:4312
+name: cochlear duct epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4310
+
+[Term]
+id: EMAP:4314
+name: utricle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4303
+
+[Term]
+id: EMAP:4315
+name: utricle associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4314
+
+[Term]
+id: EMAP:4316
+name: utricle epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4314
+
+[Term]
+id: EMAP:4317
+name: posterior semicircular canal
+namespace: abstract_anatomy
+relationship: is_a EMAP:34113
+relationship: part_of EMAP:4314
+
+[Term]
+id: EMAP:4318
+name: posterior semicircular canal associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4317
+
+[Term]
+id: EMAP:4319
+name: posterior semicircular canal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4317
+
+[Term]
+id: EMAP:4320
+name: superior semicircular canal
+namespace: abstract_anatomy
+relationship: is_a EMAP:34113
+relationship: part_of EMAP:4314
+
+[Term]
+id: EMAP:4321
+name: superior semicircular canal associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4320
+
+[Term]
+id: EMAP:4322
+name: superior semicircular canal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4320
+
+[Term]
+id: EMAP:4299
+name: endolymphatic sac
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:4300
+name: endolymphatic sac associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4299
+
+[Term]
+id: EMAP:4301
+name: endolymphatic sac epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4299
+
+[Term]
+id: EMAP:4302
+name: otic capsule
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:4287
+name: external ear
+namespace: abstract_anatomy
+relationship: part_of EMAP:4286
+
+[Term]
+id: EMAP:4289
+name: future tympanic membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:4287
+
+[Term]
+id: EMAP:4290
+name: future tympanic membrane epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4289
+
+[Term]
+id: EMAP:4288
+name: external auditory meatus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4287
+
+[Term]
+id: EMAP:4291
+name: pinna
+namespace: abstract_anatomy
+relationship: part_of EMAP:4287
+
+[Term]
+id: EMAP:4293
+name: pinna mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4291
+
+[Term]
+id: EMAP:15222
+name: pinna mesenchyme condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4293
+
+[Term]
+id: EMAP:15225
+name: pinna rest of mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4293
+
+[Term]
+id: EMAP:4294
+name: pinna surface epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4291
+
+[Term]
+id: EMAP:4323
+name: middle ear
+namespace: abstract_anatomy
+relationship: part_of EMAP:4286
+
+[Term]
+id: EMAP:4324
+name: middle ear associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4323
+
+[Term]
+id: EMAP:4326
+name: tubo-tympanic recess
+namespace: abstract_anatomy
+relationship: part_of EMAP:4323
+
+[Term]
+id: EMAP:4325
+name: pharyngo-tympanic tube
+namespace: abstract_anatomy
+relationship: part_of EMAP:4323
+
+[Term]
+id: EMAP:4327
+name: eye
+namespace: abstract_anatomy
+relationship: part_of EMAP:4285
+
+[Term]
+id: EMAP:4339
+name: optic stalk
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4340
+name: optic fissure
+namespace: abstract_anatomy
+relationship: part_of EMAP:4339
+
+[Term]
+id: EMAP:4328
+name: cornea
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4329
+name: cornea epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4328
+
+[Term]
+id: EMAP:4330
+name: cornea stroma
+namespace: abstract_anatomy
+relationship: part_of EMAP:4328
+
+[Term]
+id: EMAP:4333
+name: lens vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4335
+name: lens vesicle cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:4333
+
+[Term]
+id: EMAP:4334
+name: lens vesicle anterior epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34986
+
+[Term]
+id: EMAP:4336
+name: lens vesicle equatorial epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34986
+
+[Term]
+id: EMAP:4337
+name: lens vesicle posterior epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34986
+
+[Term]
+id: EMAP:4341
+name: perioptic mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4342
+name: retina
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4343
+name: embryonic fissure
+namespace: abstract_anatomy
+relationship: part_of EMAP:4342
+
+[Term]
+id: EMAP:26108
+name: intraretinal space
+namespace: abstract_anatomy
+relationship: part_of EMAP:4342
+
+[Term]
+id: EMAP:4344
+name: neural retinal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4342
+
+[Term]
+id: EMAP:4345
+name: pigmented retinal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4342
+
+[Term]
+id: EMAP:4331
+name: hyaloid cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4332
+name: hyaloid vascular plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4331
+
+[Term]
+id: EMAP:4338
+name: optic chiasma
+namespace: abstract_anatomy
+relationship: part_of EMAP:4327
+
+[Term]
+id: EMAP:4346
+name: nose
+namespace: abstract_anatomy
+relationship: part_of EMAP:4285
+
+[Term]
+id: EMAP:4352
+name: naso-lacrimal groove
+namespace: abstract_anatomy
+relationship: part_of EMAP:4346
+
+[Term]
+id: EMAP:4353
+name: nasal process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4346
+
+[Term]
+id: EMAP:4354
+name: fronto-nasal process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4353
+
+[Term]
+id: EMAP:4355
+name: frontal process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4354
+
+[Term]
+id: EMAP:4357
+name: frontal process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4355
+
+[Term]
+id: EMAP:4356
+name: frontal process epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4355
+
+[Term]
+id: EMAP:4358
+name: latero-nasal process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4354
+
+[Term]
+id: EMAP:4360
+name: latero-nasal process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4358
+
+[Term]
+id: EMAP:4359
+name: latero-nasal process epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4358
+
+[Term]
+id: EMAP:4361
+name: medial-nasal process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4354
+
+[Term]
+id: EMAP:4363
+name: medial-nasal process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4361
+
+[Term]
+id: EMAP:4362
+name: medial-nasal process epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4361
+
+[Term]
+id: EMAP:4347
+name: nasal cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:4346
+
+[Term]
+id: EMAP:4348
+name: nasal cavity epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4347
+
+[Term]
+id: EMAP:4349
+name: nasal cavity olfactory epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4348
+
+[Term]
+id: EMAP:4350
+name: nasal cavity respiratory epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4348
+
+[Term]
+id: EMAP:4351
+name: nasal septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4346
+
+[Term]
+id: EMAP:7132
+name: nasal septum epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4351
+
+[Term]
+id: EMAP:7135
+name: nasal septum mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4351
+
+[Term]
+id: EMAP:4364
+name: vomeronasal organ
+namespace: abstract_anatomy
+relationship: part_of EMAP:4346
+
+[Term]
+id: EMAP:7138
+name: vomeronasal organ epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4364
+
+[Term]
+id: EMAP:7141
+name: vomeronasal organ mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4364
+
+[Term]
+id: EMAP:3982
+name: visceral organ
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:3983
+name: alimentary system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3982
+
+[Term]
+id: EMAP:4110
+name: gut
+namespace: abstract_anatomy
+relationship: part_of EMAP:3983
+
+[Term]
+id: EMAP:4516
+name: hindgut diverticulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:4517
+name: hindgut diverticulum postanal component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4516
+
+[Term]
+id: EMAP:4518
+name: hindgut diverticulum postanal component associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4517
+
+[Term]
+id: EMAP:4519
+name: hindgut diverticulum postanal component epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4517
+
+[Term]
+id: EMAP:4520
+name: hindgut diverticulum postanal component vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4517
+
+[Term]
+id: EMAP:7004
+name: hindgut diverticulum postanal component lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4517
+
+[Term]
+id: EMAP:4521
+name: hindgut diverticulum preanal component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4516
+
+[Term]
+id: EMAP:4522
+name: hindgut diverticulum preanal component associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4521
+
+[Term]
+id: EMAP:4523
+name: hindgut diverticulum preanal component epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4521
+
+[Term]
+id: EMAP:4524
+name: hindgut diverticulum preanal component vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4521
+
+[Term]
+id: EMAP:7008
+name: hindgut diverticulum preanal component lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4521
+
+[Term]
+id: EMAP:4531
+name: midgut
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:4539
+name: midgut loop
+namespace: abstract_anatomy
+relationship: part_of EMAP:4531
+
+[Term]
+id: EMAP:4540
+name: midgut loop associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4539
+
+[Term]
+id: EMAP:4541
+name: midgut loop epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4539
+
+[Term]
+id: EMAP:4542
+name: midgut loop mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4539
+
+[Term]
+id: EMAP:4543
+name: midgut loop dorsal mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4542
+
+[Term]
+id: EMAP:4544
+name: midgut loop vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4539
+
+[Term]
+id: EMAP:6980
+name: midgut loop lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4539
+
+[Term]
+id: EMAP:4545
+name: rest of midgut
+namespace: abstract_anatomy
+relationship: part_of EMAP:4531
+
+[Term]
+id: EMAP:4546
+name: rest of midgut associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4545
+
+[Term]
+id: EMAP:4547
+name: rest of midgut epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4545
+
+[Term]
+id: EMAP:4548
+name: rest of midgut mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4545
+
+[Term]
+id: EMAP:4549
+name: rest of midgut dorsal mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4548
+
+[Term]
+id: EMAP:4550
+name: rest of midgut vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4545
+
+[Term]
+id: EMAP:6986
+name: rest of midgut lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4545
+
+[Term]
+id: EMAP:4532
+name: midgut duodenum
+namespace: abstract_anatomy
+relationship: part_of EMAP:34964
+relationship: part_of EMAP:4531
+
+[Term]
+id: EMAP:4533
+name: duodenum caudal part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4532
+
+[Term]
+id: EMAP:4534
+name: duodenum caudal part associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4533
+
+[Term]
+id: EMAP:4535
+name: duodenum caudal part epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4533
+
+[Term]
+id: EMAP:4536
+name: duodenum caudal part mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4533
+
+[Term]
+id: EMAP:4537
+name: duodenum caudal part mesoduodenum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4536
+
+[Term]
+id: EMAP:4538
+name: duodenum caudal part vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4533
+
+[Term]
+id: EMAP:6974
+name: duodenum caudal part lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4533
+
+[Term]
+id: EMAP:4111
+name: foregut-midgut junction
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:4511
+name: foregut-midgut junction associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4513
+name: foregut-midgut junction mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4514
+name: foregut-midgut junction dorsal mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4513
+
+[Term]
+id: EMAP:4512
+name: foregut-midgut junction epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4515
+name: foregut-midgut junction vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4112
+name: foregut-midgut junction gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4113
+name: pancreas
+namespace: abstract_anatomy
+relationship: part_of EMAP:4112
+
+[Term]
+id: EMAP:4114
+name: pancreas body
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:4115
+name: dorsal pancreatic duct of pancreas body
+namespace: abstract_anatomy
+relationship: part_of EMAP:34860
+relationship: part_of EMAP:4114
+
+[Term]
+id: EMAP:4116
+name: pancreas body parenchyma
+namespace: abstract_anatomy
+relationship: part_of EMAP:34764
+relationship: part_of EMAP:4114
+
+[Term]
+id: EMAP:4117
+name: pancreas head
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:4118
+name: pancreas head parenchyma
+namespace: abstract_anatomy
+relationship: part_of EMAP:34764
+relationship: part_of EMAP:4117
+
+[Term]
+id: EMAP:4119
+name: uncinate process
+namespace: abstract_anatomy
+relationship: part_of EMAP:4117
+
+[Term]
+id: EMAP:4120
+name: ventral pancreatic duct
+namespace: abstract_anatomy
+relationship: is_a EMAP:34856
+relationship: part_of EMAP:4117
+
+[Term]
+id: EMAP:4121
+name: pancreas tail
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:4122
+name: dorsal pancreatic duct of pancreas tail
+namespace: abstract_anatomy
+relationship: part_of EMAP:34860
+relationship: part_of EMAP:4121
+
+[Term]
+id: EMAP:4123
+name: pancreas tail parenchyma
+namespace: abstract_anatomy
+relationship: part_of EMAP:34764
+relationship: part_of EMAP:4121
+
+[Term]
+id: EMAP:26221
+name: pancreas associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:6963
+name: foregut-midgut junction lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4111
+
+[Term]
+id: EMAP:4140
+name: foregut
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:4141
+name: foregut gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:4143
+name: thyroid gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:4141
+
+[Term]
+id: EMAP:4144
+name: foramen caecum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4143
+
+[Term]
+id: EMAP:4145
+name: thyroglossal duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4143
+
+[Term]
+id: EMAP:4142
+name: thymus primordium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4141
+
+[Term]
+id: EMAP:4477
+name: pharynx
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:4478
+name: pharynx associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:4479
+name: pharynx epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:4491
+name: pharynx vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:4481
+name: tongue
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:4483
+name: lingual swelling
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:4487
+name: median lingual swelling
+namespace: abstract_anatomy
+relationship: part_of EMAP:4483
+
+[Term]
+id: EMAP:4488
+name: median lingual swelling epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4487
+
+[Term]
+id: EMAP:4489
+name: median lingual swelling mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4487
+
+[Term]
+id: EMAP:4484
+name: lateral lingual swelling
+namespace: abstract_anatomy
+relationship: part_of EMAP:4483
+
+[Term]
+id: EMAP:4485
+name: lateral lingual swelling epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4484
+
+[Term]
+id: EMAP:4486
+name: lateral lingual swelling mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4484
+
+[Term]
+id: EMAP:4482
+name: hypobranchial eminence
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:4490
+name: occipital myotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:4480
+name: hyoid cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:6942
+name: pharynx lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4477
+
+[Term]
+id: EMAP:4471
+name: oesophagus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:4472
+name: oesophagus associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4471
+
+[Term]
+id: EMAP:4473
+name: oesophagus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4471
+
+[Term]
+id: EMAP:4474
+name: oesophagus mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4471
+
+[Term]
+id: EMAP:4475
+name: dorsal meso-oesophagus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4474
+
+[Term]
+id: EMAP:4476
+name: oesophagus vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4471
+
+[Term]
+id: EMAP:6934
+name: oesophagus lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4471
+
+[Term]
+id: EMAP:4492
+name: stomach
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:4493
+name: stomach associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4494
+name: stomach epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4499
+name: stomach mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4500
+name: dorsal mesogastrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4499
+
+[Term]
+id: EMAP:4501
+name: ventral mesogastrium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4499
+
+[Term]
+id: EMAP:4510
+name: stomach vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4495
+name: stomach glandular region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4496
+name: stomach glandular region associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4495
+
+[Term]
+id: EMAP:4497
+name: stomach glandular region epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4495
+
+[Term]
+id: EMAP:4498
+name: stomach glandular region vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4495
+
+[Term]
+id: EMAP:6947
+name: stomach glandular region lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4495
+
+[Term]
+id: EMAP:4502
+name: stomach proventricular region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4503
+name: stomach proventricular region associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4502
+
+[Term]
+id: EMAP:4504
+name: stomach proventricular region epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4502
+
+[Term]
+id: EMAP:4505
+name: stomach proventricular region vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4502
+
+[Term]
+id: EMAP:6950
+name: stomach proventricular region lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4502
+
+[Term]
+id: EMAP:4506
+name: stomach pyloric region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4507
+name: stomach pyloric region associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4506
+
+[Term]
+id: EMAP:4508
+name: stomach pyloric region epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4506
+
+[Term]
+id: EMAP:4509
+name: stomach pyloric region vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4506
+
+[Term]
+id: EMAP:6953
+name: stomach pyloric region lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4506
+
+[Term]
+id: EMAP:6994
+name: stomach lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4492
+
+[Term]
+id: EMAP:4464
+name: foregut duodenum
+namespace: abstract_anatomy
+relationship: part_of EMAP:34964
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:4465
+name: duodenum rostral part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4464
+
+[Term]
+id: EMAP:4466
+name: duodenum rostral part associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4465
+
+[Term]
+id: EMAP:4467
+name: duodenum rostral part epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4465
+
+[Term]
+id: EMAP:4468
+name: duodenum rostral part mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4465
+
+[Term]
+id: EMAP:4469
+name: duodenum rostral part mesoduodenum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4468
+
+[Term]
+id: EMAP:4470
+name: duodenum rostral part vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4465
+
+[Term]
+id: EMAP:6926
+name: duodenum rostral part lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4465
+
+[Term]
+id: EMAP:4525
+name: hindgut
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:4526
+name: hindgut associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4525
+
+[Term]
+id: EMAP:4527
+name: hindgut epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4525
+
+[Term]
+id: EMAP:4528
+name: hindgut mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4525
+
+[Term]
+id: EMAP:4529
+name: hindgut dorsal mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4528
+
+[Term]
+id: EMAP:4530
+name: hindgut vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4525
+
+[Term]
+id: EMAP:7000
+name: hindgut lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4525
+
+[Term]
+id: EMAP:3984
+name: oral region
+namespace: abstract_anatomy
+relationship: part_of EMAP:3983
+
+[Term]
+id: EMAP:28871
+name: oral region gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:3986
+name: oral epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:4551
+name: epiglottal primordium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:4552
+name: mandibular process
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:4554
+name: mandible primordium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4552
+
+[Term]
+id: EMAP:4555
+name: mandible primordium alveolar sulcus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4554
+
+[Term]
+id: EMAP:4556
+name: mandibular process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4552
+
+[Term]
+id: EMAP:4553
+name: Meckel's cartilage
+namespace: abstract_anatomy
+relationship: part_of EMAP:4552
+
+[Term]
+id: EMAP:4557
+name: maxillary process
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:4561
+name: maxillary process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4563
+name: palatal shelf
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4564
+name: palatal shelf epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4563
+
+[Term]
+id: EMAP:4565
+name: palatal shelf mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4563
+
+[Term]
+id: EMAP:4558
+name: maxillary process epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4559
+name: maxillary process skeleton
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4560
+name: maxilla
+namespace: abstract_anatomy
+relationship: part_of EMAP:4559
+
+[Term]
+id: EMAP:4562
+name: maxillary process alveolar sulcus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4566
+name: premaxilla
+namespace: abstract_anatomy
+relationship: part_of EMAP:4557
+
+[Term]
+id: EMAP:4567
+name: primary palate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4566
+
+[Term]
+id: EMAP:4568
+name: primary palate epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4567
+
+[Term]
+id: EMAP:4569
+name: primary palate mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4567
+
+[Term]
+id: EMAP:3985
+name: oral cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:4461
+name: anal region
+namespace: abstract_anatomy
+relationship: part_of EMAP:3983
+
+[Term]
+id: EMAP:4462
+name: endoderm component of anal membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:4461
+
+[Term]
+id: EMAP:4463
+name: rostral two-thirds of anal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:4461
+
+[Term]
+id: EMAP:4602
+name: respiratory system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3982
+
+[Term]
+id: EMAP:4604
+name: lung
+namespace: abstract_anatomy
+relationship: part_of EMAP:4602
+
+[Term]
+id: EMAP:4605
+name: left lung
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:4606
+name: left lung associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4605
+
+[Term]
+id: EMAP:4607
+name: left lung epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4605
+
+[Term]
+id: EMAP:4608
+name: left lung lobar bronchus
+namespace: abstract_anatomy
+relationship: is_a EMAP:33396
+relationship: part_of EMAP:4605
+
+[Term]
+id: EMAP:4609
+name: left lung lobar bronchus associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4608
+
+[Term]
+id: EMAP:4610
+name: left lung lobar bronchus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4608
+
+[Term]
+id: EMAP:4611
+name: left lung lobar bronchus vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4608
+
+[Term]
+id: EMAP:4612
+name: left lung vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4605
+
+[Term]
+id: EMAP:4613
+name: right lung
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:4614
+name: right lung associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4613
+
+[Term]
+id: EMAP:4615
+name: right lung epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4613
+
+[Term]
+id: EMAP:4616
+name: right lung lobar bronchus
+namespace: abstract_anatomy
+relationship: is_a EMAP:33396
+relationship: part_of EMAP:4613
+
+[Term]
+id: EMAP:4617
+name: right lung lobar bronchus associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4616
+
+[Term]
+id: EMAP:4618
+name: right lung lobar bronchus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4616
+
+[Term]
+id: EMAP:4619
+name: right lung lobar bronchus vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4616
+
+[Term]
+id: EMAP:4620
+name: right lung vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4613
+
+[Term]
+id: EMAP:4621
+name: respiratory tract
+namespace: abstract_anatomy
+relationship: part_of EMAP:4602
+
+[Term]
+id: EMAP:4622
+name: lower respiratory tract
+namespace: abstract_anatomy
+relationship: part_of EMAP:4621
+
+[Term]
+id: EMAP:4623
+name: main bronchus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4622
+
+[Term]
+id: EMAP:4624
+name: main bronchus associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4623
+
+[Term]
+id: EMAP:4625
+name: main bronchus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4623
+
+[Term]
+id: EMAP:4626
+name: main bronchus vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4623
+
+[Term]
+id: EMAP:4627
+name: trachea
+namespace: abstract_anatomy
+relationship: part_of EMAP:4622
+
+[Term]
+id: EMAP:4628
+name: trachea associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4627
+
+[Term]
+id: EMAP:4629
+name: trachea epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4627
+
+[Term]
+id: EMAP:4630
+name: trachea vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4627
+
+[Term]
+id: EMAP:7033
+name: carina trachea
+namespace: abstract_anatomy
+relationship: part_of EMAP:4627
+
+[Term]
+id: EMAP:7039
+name: carina trachea associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:7033
+
+[Term]
+id: EMAP:7045
+name: carina trachea epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:7033
+
+[Term]
+id: EMAP:7051
+name: carina trachea vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:7033
+
+[Term]
+id: EMAP:4631
+name: upper respiratory tract
+namespace: abstract_anatomy
+relationship: part_of EMAP:4621
+
+[Term]
+id: EMAP:4632
+name: nasopharynx
+namespace: abstract_anatomy
+relationship: part_of EMAP:4631
+
+[Term]
+id: EMAP:4633
+name: nasopharynx associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4632
+
+[Term]
+id: EMAP:4634
+name: nasopharynx epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4632
+
+[Term]
+id: EMAP:4635
+name: nasopharynx vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4632
+
+[Term]
+id: EMAP:4603
+name: arytenoid swelling cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4602
+
+[Term]
+id: EMAP:4570
+name: liver and biliary system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3982
+
+[Term]
+id: EMAP:4572
+name: cystic duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4570
+
+[Term]
+id: EMAP:4574
+name: hepatic duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4570
+
+[Term]
+id: EMAP:4575
+name: hepatic duct extrahepatic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4574
+
+[Term]
+id: EMAP:4576
+name: hepatic duct intrahepatic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4574
+
+[Term]
+id: EMAP:4577
+name: liver
+namespace: abstract_anatomy
+relationship: part_of EMAP:4570
+
+[Term]
+id: EMAP:4579
+name: liver parenchyma
+namespace: abstract_anatomy
+relationship: part_of EMAP:4577
+
+[Term]
+id: EMAP:4578
+name: hepatic sinusoids
+namespace: abstract_anatomy
+relationship: part_of EMAP:4577
+
+[Term]
+id: EMAP:4571
+name: common bile duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4570
+
+[Term]
+id: EMAP:4573
+name: gall bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:4570
+
+[Term]
+id: EMAP:4580
+name: urinary system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3982
+
+[Term]
+id: EMAP:4581
+name: urinary system mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:4587
+name: metanephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:4589
+name: cap mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:31766
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:4590
+name: primitive collecting duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27695
+name: ureteric tip
+namespace: abstract_anatomy
+relationship: part_of EMAP:31766
+relationship: part_of EMAP:4590
+
+[Term]
+id: EMAP:27698
+name: ureteric trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:4590
+
+[Term]
+id: EMAP:27672
+name: nephrogenic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27674
+name: pretubular aggregate
+namespace: abstract_anatomy
+relationship: part_of EMAP:31766
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27679
+name: renal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29339
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27682
+name: comma-shaped body
+namespace: abstract_anatomy
+relationship: part_of EMAP:29339
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27685
+name: upper limb of comma-shaped body
+namespace: abstract_anatomy
+relationship: part_of EMAP:27682
+
+[Term]
+id: EMAP:27688
+name: lower limb of comma-shaped body
+namespace: abstract_anatomy
+relationship: part_of EMAP:27682
+
+[Term]
+id: EMAP:27795
+name: developing vasculature of metanephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:31768
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:27691
+name: renal interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:4593
+name: urogenital membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:4594
+name: urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:4595
+name: urorectal septum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:27709
+name: epithelial layer of ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:4591
+
+[Term]
+id: EMAP:27712
+name: ureteral mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4591
+
+[Term]
+id: EMAP:28562
+name: ureteral mesenchyme subepithelial layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:27712
+
+[Term]
+id: EMAP:28548
+name: allantois
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:28556
+name: urethral plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:4596
+name: reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3982
+
+[Term]
+id: EMAP:28872
+name: female reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4596
+
+[Term]
+id: EMAP:28875
+name: mesovarium
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:28876
+name: ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:28877
+name: surface epithelium of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28876
+
+[Term]
+id: EMAP:28878
+name: germ cell of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28876
+
+[Term]
+id: EMAP:28879
+name: rete ovarii of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28876
+
+[Term]
+id: EMAP:28881
+name: mesenchymal stroma of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28876
+
+[Term]
+id: EMAP:28889
+name: developing vasculature of ovary
+namespace: abstract_anatomy
+relationship: part_of EMAP:28876
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:28910
+name: mesonephros of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:28915
+name: mesonephric mesenchyme of female mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28920
+name: mesonephric tubule of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28925
+name: nephric duct of female, mesonephric portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28930
+name: rete ovarii of mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28935
+name: coelomic epithelium of female mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28938
+name: paramesonephric duct of female, mesonephric portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+
+[Term]
+id: EMAP:28941
+name: paramesonephric duct of female, rest of
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:28873
+name: male reproductive system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4596
+
+[Term]
+id: EMAP:4124
+name: nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:4125
+name: central nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4124
+
+[Term]
+id: EMAP:4227
+name: central nervous system ganglion
+namespace: abstract_anatomy
+relationship: is_a EMAP:34191
+relationship: part_of EMAP:4125
+
+[Term]
+id: EMAP:4228
+name: cranial ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4227
+
+[Term]
+id: EMAP:4230
+name: glossopharyngeal IX ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4231
+name: inferior glossopharyngeal IX ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4230
+
+[Term]
+id: EMAP:4232
+name: superior glossopharyngeal IX ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4230
+
+[Term]
+id: EMAP:4233
+name: trigeminal V ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4234
+name: vagus X ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4235
+name: inferior vagus X ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4234
+
+[Term]
+id: EMAP:4236
+name: superior vagus X ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4234
+
+[Term]
+id: EMAP:4229
+name: facial VII ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4237
+name: vestibulo-cochlear VIII ganglion complex
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4238
+name: vestibulocochlear VIII ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4228
+
+[Term]
+id: EMAP:4239
+name: vestibulocochlear VIII ganglion cochlear component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4238
+
+[Term]
+id: EMAP:4240
+name: vestibulocochlear VIII ganglion vestibular component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4238
+
+[Term]
+id: EMAP:4126
+name: brain
+namespace: abstract_anatomy
+relationship: part_of EMAP:4125
+
+[Term]
+id: EMAP:4127
+name: forebrain
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:4128
+name: diencephalon
+namespace: abstract_anatomy
+relationship: part_of EMAP:4127
+
+[Term]
+id: EMAP:4129
+name: diencephalon gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4130
+name: pituitary
+namespace: abstract_anatomy
+relationship: part_of EMAP:4129
+
+[Term]
+id: EMAP:4131
+name: adenohypophysis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4130
+
+[Term]
+id: EMAP:4132
+name: adenohypophysis pars anterior
+namespace: abstract_anatomy
+relationship: part_of EMAP:4131
+
+[Term]
+id: EMAP:4133
+name: adenohypophysis pars intermedia
+namespace: abstract_anatomy
+relationship: part_of EMAP:4131
+
+[Term]
+id: EMAP:4134
+name: adenohypophysis pars tuberalis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4131
+
+[Term]
+id: EMAP:4135
+name: remnant of Rathke's pouch
+namespace: abstract_anatomy
+relationship: part_of EMAP:4131
+
+[Term]
+id: EMAP:4136
+name: neurohypophysis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4130
+
+[Term]
+id: EMAP:4137
+name: neurohypophysis infundibulum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4136
+
+[Term]
+id: EMAP:4138
+name: median eminence
+namespace: abstract_anatomy
+relationship: part_of EMAP:4136
+
+[Term]
+id: EMAP:4154
+name: 3rd ventricle
+namespace: abstract_anatomy
+relationship: is_a EMAP:33238
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4155
+name: diencephalic part of interventricular foramen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4154
+
+[Term]
+id: EMAP:4160
+name: diencephalon floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4165
+name: lamina terminalis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4166
+name: diencephalon lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4167
+name: diencephalon lateral wall mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4166
+
+[Term]
+id: EMAP:4168
+name: diencephalon lateral wall marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4166
+
+[Term]
+id: EMAP:4169
+name: diencephalon lateral wall ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4166
+
+[Term]
+id: EMAP:4170
+name: diencephalon roof plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4156
+name: epithalamus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4157
+name: epithalamus mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4156
+
+[Term]
+id: EMAP:4158
+name: epithalamus marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4156
+
+[Term]
+id: EMAP:4159
+name: epithalamus ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4156
+
+[Term]
+id: EMAP:4161
+name: hypothalamus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4162
+name: hypothalamus mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4161
+
+[Term]
+id: EMAP:4163
+name: hypothalamus marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4161
+
+[Term]
+id: EMAP:4164
+name: hypothalamus ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4161
+
+[Term]
+id: EMAP:4171
+name: thalamus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:4172
+name: thalamus mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4171
+
+[Term]
+id: EMAP:4173
+name: thalamus marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4171
+
+[Term]
+id: EMAP:4174
+name: thalamus ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4171
+
+[Term]
+id: EMAP:4175
+name: telencephalon
+namespace: abstract_anatomy
+relationship: part_of EMAP:4127
+
+[Term]
+id: EMAP:4184
+name: telencephalon mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4185
+name: telencephalon marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4186
+name: telencephalon ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4182
+name: lateral ventricle
+namespace: abstract_anatomy
+relationship: is_a EMAP:33238
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4183
+name: telencephalic part of interventricular foramen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4182
+
+[Term]
+id: EMAP:4176
+name: cerebral cortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4177
+name: cerebral cortex mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:4178
+name: cerebral cortex marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:4179
+name: cerebral cortex ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:4180
+name: choroid invagination
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4181
+name: corpus striatum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:4187
+name: hindbrain
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:4188
+name: 4th ventricle
+namespace: abstract_anatomy
+relationship: is_a EMAP:33238
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:4189
+name: 4th ventricle lateral recess
+namespace: abstract_anatomy
+relationship: part_of EMAP:4188
+
+[Term]
+id: EMAP:4203
+name: metencephalon
+namespace: abstract_anatomy
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:4205
+name: metencephalon lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4203
+
+[Term]
+id: EMAP:4206
+name: metencephalon alar plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4205
+
+[Term]
+id: EMAP:4207
+name: cerebellum primordium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4206
+
+[Term]
+id: EMAP:4208
+name: metencephalon alar plate mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4206
+
+[Term]
+id: EMAP:4209
+name: metencephalon alar plate marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4206
+
+[Term]
+id: EMAP:4210
+name: metencephalon alar plate ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4206
+
+[Term]
+id: EMAP:4211
+name: metencephalon basal plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4205
+
+[Term]
+id: EMAP:4212
+name: pons
+namespace: abstract_anatomy
+relationship: part_of EMAP:4211
+
+[Term]
+id: EMAP:4213
+name: pons mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4212
+
+[Term]
+id: EMAP:4214
+name: pons marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4212
+
+[Term]
+id: EMAP:4215
+name: pons ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4212
+
+[Term]
+id: EMAP:4216
+name: metencephalon sulcus limitans
+namespace: abstract_anatomy
+relationship: part_of EMAP:4205
+
+[Term]
+id: EMAP:4204
+name: metencephalon floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4203
+
+[Term]
+id: EMAP:4217
+name: metencephalon roof
+namespace: abstract_anatomy
+relationship: part_of EMAP:4203
+
+[Term]
+id: EMAP:4218
+name: metencephalon 4th ventricle choroid plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:33683
+relationship: part_of EMAP:4217
+
+[Term]
+id: EMAP:4190
+name: medulla oblongata
+namespace: abstract_anatomy
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:4191
+name: medulla oblongata floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4190
+
+[Term]
+id: EMAP:4192
+name: medulla oblongata lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4190
+
+[Term]
+id: EMAP:4193
+name: medulla oblongata alar plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:4194
+name: medulla oblongata alar plate mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4193
+
+[Term]
+id: EMAP:4195
+name: medulla oblongata alar plate marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4193
+
+[Term]
+id: EMAP:4196
+name: medulla oblongata alar plate ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4193
+
+[Term]
+id: EMAP:4197
+name: medulla oblongata basal plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:4198
+name: medulla oblongata basal plate mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4197
+
+[Term]
+id: EMAP:4199
+name: medulla oblongata basal plate marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4197
+
+[Term]
+id: EMAP:4200
+name: medulla oblongata basal plate ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4197
+
+[Term]
+id: EMAP:4201
+name: medulla oblongata sulcus limitans
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:4202
+name: medulla oblongata roof
+namespace: abstract_anatomy
+relationship: part_of EMAP:4190
+
+[Term]
+id: EMAP:12676
+name: medulla oblongata 4th ventricle choroid plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:33683
+relationship: part_of EMAP:4202
+
+[Term]
+id: EMAP:4219
+name: midbrain
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:4220
+name: midbrain floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4219
+
+[Term]
+id: EMAP:4221
+name: midbrain lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4219
+
+[Term]
+id: EMAP:4222
+name: midbrain mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4221
+
+[Term]
+id: EMAP:4223
+name: midbrain marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4221
+
+[Term]
+id: EMAP:4224
+name: midbrain ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4221
+
+[Term]
+id: EMAP:4225
+name: mesencephalic vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4219
+
+[Term]
+id: EMAP:4226
+name: midbrain roof plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4219
+
+[Term]
+id: EMAP:4241
+name: central nervous system nerve
+namespace: abstract_anatomy
+relationship: is_a EMAP:34000
+relationship: part_of EMAP:4125
+
+[Term]
+id: EMAP:4242
+name: cranial nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4241
+
+[Term]
+id: EMAP:4243
+name: accessory XI nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4244
+name: accessory XI nerve cranial component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4243
+
+[Term]
+id: EMAP:4245
+name: accessory XI nerve spinal component
+namespace: abstract_anatomy
+relationship: part_of EMAP:4243
+
+[Term]
+id: EMAP:4246
+name: glossopharyngeal IX nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4247
+name: hypoglossal XII nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4248
+name: oculomotor III nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4249
+name: optic II nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4250
+name: trigeminal V nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:26217
+name: trigeminal V nerve mandibular division
+namespace: abstract_anatomy
+relationship: part_of EMAP:4250
+
+[Term]
+id: EMAP:26218
+name: trigeminal V nerve maxillary division
+namespace: abstract_anatomy
+relationship: part_of EMAP:4250
+
+[Term]
+id: EMAP:26219
+name: trigeminal V nerve ophthalmic division
+namespace: abstract_anatomy
+relationship: part_of EMAP:4250
+
+[Term]
+id: EMAP:26216
+name: facial VII nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4242
+
+[Term]
+id: EMAP:4251
+name: spinal cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:4125
+
+[Term]
+id: EMAP:4252
+name: spinal cord floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4251
+
+[Term]
+id: EMAP:4253
+name: spinal cord lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4251
+
+[Term]
+id: EMAP:4254
+name: spinal cord mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4253
+
+[Term]
+id: EMAP:4255
+name: alar columns
+namespace: abstract_anatomy
+relationship: part_of EMAP:4254
+
+[Term]
+id: EMAP:4256
+name: basal columns
+namespace: abstract_anatomy
+relationship: part_of EMAP:4254
+
+[Term]
+id: EMAP:4257
+name: spinal cord marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4253
+
+[Term]
+id: EMAP:4258
+name: spinal cord sulcus limitans
+namespace: abstract_anatomy
+relationship: part_of EMAP:4253
+
+[Term]
+id: EMAP:4259
+name: spinal cord ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4253
+
+[Term]
+id: EMAP:4260
+name: spinal cord roof plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4251
+
+[Term]
+id: EMAP:14800
+name: spinal cord lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4251
+
+[Term]
+id: EMAP:4261
+name: peripheral nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4124
+
+[Term]
+id: EMAP:4274
+name: spinal
+namespace: abstract_anatomy
+relationship: part_of EMAP:4261
+
+[Term]
+id: EMAP:4275
+name: spinal ganglion
+namespace: abstract_anatomy
+relationship: is_a EMAP:34032
+relationship: part_of EMAP:4274
+
+[Term]
+id: EMAP:4276
+name: dorsal root ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4275
+
+[Term]
+id: EMAP:14980
+name: C1 dorsal root ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4276
+
+[Term]
+id: EMAP:4277
+name: spinal nerve plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4274
+
+[Term]
+id: EMAP:4278
+name: brachial plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4277
+
+[Term]
+id: EMAP:4279
+name: median nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4278
+
+[Term]
+id: EMAP:4280
+name: radial nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4278
+
+[Term]
+id: EMAP:4281
+name: ulnar nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4278
+
+[Term]
+id: EMAP:4282
+name: lumbo-sacral plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4277
+
+[Term]
+id: EMAP:4283
+name: spinal nerve
+namespace: abstract_anatomy
+relationship: is_a EMAP:34000
+relationship: part_of EMAP:4274
+
+[Term]
+id: EMAP:4284
+name: segmental spinal nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4283
+
+[Term]
+id: EMAP:4262
+name: autonomic nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4261
+
+[Term]
+id: EMAP:4270
+name: sympathetic nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4262
+
+[Term]
+id: EMAP:4273
+name: nerve trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:4270
+
+[Term]
+id: EMAP:4271
+name: sympathetic ganglion
+namespace: abstract_anatomy
+relationship: is_a EMAP:35011
+relationship: part_of EMAP:4270
+
+[Term]
+id: EMAP:4272
+name: thoracic ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4271
+
+[Term]
+id: EMAP:4263
+name: parasympathetic nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4262
+
+[Term]
+id: EMAP:4264
+name: parasympathetic nerve
+namespace: abstract_anatomy
+relationship: is_a EMAP:34000
+relationship: part_of EMAP:4263
+
+[Term]
+id: EMAP:4265
+name: vagal X nerve trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:4264
+
+[Term]
+id: EMAP:4268
+name: right recurrent laryngeal branch
+namespace: abstract_anatomy
+relationship: part_of EMAP:4265
+
+[Term]
+id: EMAP:15215
+name: left recurrent laryngeal branch
+namespace: abstract_anatomy
+relationship: part_of EMAP:4265
+
+[Term]
+id: EMAP:4146
+name: integumental system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:4147
+name: skin
+namespace: abstract_anatomy
+relationship: part_of EMAP:4146
+
+[Term]
+id: EMAP:4148
+name: cervical sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4147
+
+[Term]
+id: EMAP:4149
+name: dermis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4147
+
+[Term]
+id: EMAP:4150
+name: epidermis
+namespace: abstract_anatomy
+relationship: part_of EMAP:4147
+
+[Term]
+id: EMAP:4151
+name: vibrissa
+namespace: abstract_anatomy
+relationship: part_of EMAP:4147
+
+[Term]
+id: EMAP:4152
+name: vibrissa epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4151
+
+[Term]
+id: EMAP:4153
+name: vibrissa mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4151
+
+[Term]
+id: EMAP:14807
+name: proctodaeum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4147
+
+[Term]
+id: EMAP:14809
+name: caudal one-third of anal canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:14807
+
+[Term]
+id: EMAP:14811
+name: ectoderm component of anal membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:14807
+
+[Term]
+id: EMAP:7021
+name: physiological umbilical hernia
+namespace: abstract_anatomy
+relationship: part_of EMAP:4146
+
+[Term]
+id: EMAP:7024
+name: physiological umbilical hernia dermis
+namespace: abstract_anatomy
+relationship: part_of EMAP:7021
+
+[Term]
+id: EMAP:7027
+name: physiological umbilical hernia epidermis
+namespace: abstract_anatomy
+relationship: part_of EMAP:7021
+
+[Term]
+id: EMAP:26090
+name: physiological umbilical hernia mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:7021
+
+[Term]
+id: EMAP:26098
+name: physiological umbilical hernia mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:7021
+
+[Term]
+id: EMAP:4109
+name: notochord
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4011
+name: limb
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4012
+name: forelimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:4013
+name: arm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4012
+
+[Term]
+id: EMAP:4014
+name: elbow
+namespace: abstract_anatomy
+relationship: part_of EMAP:4013
+
+[Term]
+id: EMAP:4015
+name: elbow epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4014
+
+[Term]
+id: EMAP:4016
+name: elbow mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4014
+
+[Term]
+id: EMAP:4017
+name: forearm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4013
+
+[Term]
+id: EMAP:4018
+name: forearm epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4017
+
+[Term]
+id: EMAP:4019
+name: forearm mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4017
+
+[Term]
+id: EMAP:4020
+name: radius-ulna pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4019
+
+[Term]
+id: EMAP:7103
+name: forearm rest of mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4019
+
+[Term]
+id: EMAP:4021
+name: shoulder
+namespace: abstract_anatomy
+relationship: part_of EMAP:4013
+
+[Term]
+id: EMAP:4022
+name: shoulder epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4021
+
+[Term]
+id: EMAP:4023
+name: shoulder mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4021
+
+[Term]
+id: EMAP:4024
+name: upper arm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4013
+
+[Term]
+id: EMAP:4025
+name: upper arm epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4024
+
+[Term]
+id: EMAP:4026
+name: upper arm mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4024
+
+[Term]
+id: EMAP:4027
+name: humerus pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4026
+
+[Term]
+id: EMAP:7109
+name: upper arm rest of mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4026
+
+[Term]
+id: EMAP:4028
+name: handplate
+namespace: abstract_anatomy
+relationship: is_a EMAP:33549
+relationship: part_of EMAP:4012
+
+[Term]
+id: EMAP:4029
+name: forelimb digit 1
+namespace: abstract_anatomy
+relationship: is_a EMAP:33072
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4030
+name: forelimb digit 1 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4029
+
+[Term]
+id: EMAP:4031
+name: forelimb digit 1 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4029
+
+[Term]
+id: EMAP:4032
+name: forelimb digit 2
+namespace: abstract_anatomy
+relationship: is_a EMAP:33072
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4033
+name: forelimb digit 2 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4032
+
+[Term]
+id: EMAP:4034
+name: forelimb digit 2 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4032
+
+[Term]
+id: EMAP:14842
+name: forelimb digit 2 inter-phalangeal joint
+namespace: abstract_anatomy
+relationship: part_of EMAP:4032
+
+[Term]
+id: EMAP:4035
+name: forelimb digit 3
+namespace: abstract_anatomy
+relationship: is_a EMAP:33072
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4036
+name: forelimb digit 3 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4035
+
+[Term]
+id: EMAP:4037
+name: forelimb digit 3 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4035
+
+[Term]
+id: EMAP:4038
+name: forelimb digit 4
+namespace: abstract_anatomy
+relationship: is_a EMAP:33072
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4039
+name: forelimb digit 4 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4038
+
+[Term]
+id: EMAP:4040
+name: forelimb digit 4 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4038
+
+[Term]
+id: EMAP:4041
+name: forelimb digit 5
+namespace: abstract_anatomy
+relationship: is_a EMAP:33072
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4042
+name: forelimb digit 5 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4041
+
+[Term]
+id: EMAP:4043
+name: forelimb digit 5 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4041
+
+[Term]
+id: EMAP:4044
+name: handplate rest of epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33039
+
+[Term]
+id: EMAP:4045
+name: interdigital region between forelimb digits 1 and 2
+namespace: abstract_anatomy
+relationship: is_a EMAP:33112
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4046
+name: interdigital region between forelimb digits 1 and 2 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4045
+
+[Term]
+id: EMAP:4047
+name: interdigital region between forelimb digits 1 and 2 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4045
+
+[Term]
+id: EMAP:4048
+name: interdigital region between forelimb digits 2 and 3
+namespace: abstract_anatomy
+relationship: is_a EMAP:33112
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4049
+name: interdigital region between forelimb digits 2 and 3 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4048
+
+[Term]
+id: EMAP:4050
+name: interdigital region between forelimb digits 2 and 3 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4048
+
+[Term]
+id: EMAP:4051
+name: interdigital region between forelimb digits 3 and 4
+namespace: abstract_anatomy
+relationship: is_a EMAP:33112
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4052
+name: interdigital region between forelimb digits 3 and 4 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4051
+
+[Term]
+id: EMAP:4053
+name: interdigital region between forelimb digits 3 and 4 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4051
+
+[Term]
+id: EMAP:4054
+name: interdigital region between forelimb digits 4 and 5
+namespace: abstract_anatomy
+relationship: is_a EMAP:33112
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4055
+name: interdigital region between forelimb digits 4 and 5 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4054
+
+[Term]
+id: EMAP:4056
+name: interdigital region between forelimb digits 4 and 5 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4054
+
+[Term]
+id: EMAP:4057
+name: handplate mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:4058
+name: hindlimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:4059
+name: footplate
+namespace: abstract_anatomy
+relationship: is_a EMAP:33549
+relationship: part_of EMAP:4058
+
+[Term]
+id: EMAP:4060
+name: hindlimb digit 1
+namespace: abstract_anatomy
+relationship: is_a EMAP:33101
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4061
+name: hindlimb digit 1 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4060
+
+[Term]
+id: EMAP:4062
+name: hindlimb digit 1 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4060
+
+[Term]
+id: EMAP:4063
+name: hindlimb digit 2
+namespace: abstract_anatomy
+relationship: is_a EMAP:33101
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4064
+name: hindlimb digit 2 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4063
+
+[Term]
+id: EMAP:4065
+name: hindlimb digit 2 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4063
+
+[Term]
+id: EMAP:4066
+name: hindlimb digit 3
+namespace: abstract_anatomy
+relationship: is_a EMAP:33101
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4067
+name: hindlimb digit 3 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4066
+
+[Term]
+id: EMAP:4068
+name: hindlimb digit 3 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4066
+
+[Term]
+id: EMAP:4069
+name: hindlimb digit 4
+namespace: abstract_anatomy
+relationship: is_a EMAP:33101
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4070
+name: hindlimb digit 4 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4069
+
+[Term]
+id: EMAP:4071
+name: hindlimb digit 4 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4069
+
+[Term]
+id: EMAP:4072
+name: hindlimb digit 5
+namespace: abstract_anatomy
+relationship: is_a EMAP:33101
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4073
+name: hindlimb digit 5 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4072
+
+[Term]
+id: EMAP:4074
+name: hindlimb digit 5 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4072
+
+[Term]
+id: EMAP:4075
+name: footplate rest of epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4076
+name: interdigital region between hindlimb digits 1 and 2
+namespace: abstract_anatomy
+relationship: is_a EMAP:34832
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4077
+name: interdigital region between hindlimb digits 1 and 2 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4076
+
+[Term]
+id: EMAP:4078
+name: interdigital region between hindlimb digits 1 and 2 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4076
+
+[Term]
+id: EMAP:4079
+name: interdigital region between hindlimb digits 2 and 3
+namespace: abstract_anatomy
+relationship: is_a EMAP:34832
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4080
+name: interdigital region between hindlimb digits 2 and 3 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4079
+
+[Term]
+id: EMAP:4081
+name: interdigital region between hindlimb digits 2 and 3 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4079
+
+[Term]
+id: EMAP:4082
+name: interdigital region between hindlimb digits 3 and 4
+namespace: abstract_anatomy
+relationship: is_a EMAP:34832
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4083
+name: interdigital region between hindlimb digits 3 and 4 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4082
+
+[Term]
+id: EMAP:4084
+name: interdigital region between hindlimb digits 3 and 4 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4082
+
+[Term]
+id: EMAP:4085
+name: interdigital region between hindlimb digits 4 and 5
+namespace: abstract_anatomy
+relationship: is_a EMAP:34832
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4086
+name: interdigital region between hindlimb digits 4 and 5 epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4085
+
+[Term]
+id: EMAP:4087
+name: interdigital region between hindlimb digits 4 and 5 mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4085
+
+[Term]
+id: EMAP:4088
+name: footplate mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:4089
+name: leg
+namespace: abstract_anatomy
+relationship: part_of EMAP:4058
+
+[Term]
+id: EMAP:4090
+name: hip
+namespace: abstract_anatomy
+relationship: part_of EMAP:4089
+
+[Term]
+id: EMAP:4091
+name: hip epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4090
+
+[Term]
+id: EMAP:4092
+name: hip mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4090
+
+[Term]
+id: EMAP:4093
+name: knee
+namespace: abstract_anatomy
+relationship: part_of EMAP:4089
+
+[Term]
+id: EMAP:4094
+name: knee epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4093
+
+[Term]
+id: EMAP:4095
+name: knee mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4093
+
+[Term]
+id: EMAP:4096
+name: lower leg
+namespace: abstract_anatomy
+relationship: part_of EMAP:4089
+
+[Term]
+id: EMAP:4097
+name: lower leg epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4096
+
+[Term]
+id: EMAP:4098
+name: lower leg mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4096
+
+[Term]
+id: EMAP:4099
+name: upper leg
+namespace: abstract_anatomy
+relationship: part_of EMAP:4089
+
+[Term]
+id: EMAP:4100
+name: upper leg epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4099
+
+[Term]
+id: EMAP:4101
+name: upper leg mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4099
+
+[Term]
+id: EMAP:4102
+name: femur pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4101
+
+[Term]
+id: EMAP:7121
+name: upper leg rest of mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4101
+
+[Term]
+id: EMAP:4651
+name: tail
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4652
+name: tail mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4103
+relationship: part_of EMAP:4651
+
+[Term]
+id: EMAP:4653
+name: tail mesenchyme derived from neural crest
+namespace: abstract_anatomy
+relationship: part_of EMAP:4652
+
+[Term]
+id: EMAP:4654
+name: tail paraxial mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33821
+relationship: part_of EMAP:4652
+
+[Term]
+id: EMAP:4728
+name: unsegmented mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4654
+
+[Term]
+id: EMAP:4655
+name: tail somite group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31178
+relationship: part_of EMAP:4654
+
+[Term]
+id: EMAP:4656
+name: somite 35
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4657
+name: somite 35 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4656
+
+[Term]
+id: EMAP:4658
+name: somite 35 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4656
+
+[Term]
+id: EMAP:4659
+name: somite 35 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4656
+
+[Term]
+id: EMAP:4660
+name: somite 36
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4661
+name: somite 36 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4660
+
+[Term]
+id: EMAP:4662
+name: somite 36 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4660
+
+[Term]
+id: EMAP:4663
+name: somite 36 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4660
+
+[Term]
+id: EMAP:4664
+name: somite 37
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4665
+name: somite 36 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4664
+
+[Term]
+id: EMAP:4666
+name: somite 36 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4664
+
+[Term]
+id: EMAP:4667
+name: somite 36 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4664
+
+[Term]
+id: EMAP:4668
+name: somite 38
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4669
+name: somite 38 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4668
+
+[Term]
+id: EMAP:4670
+name: somite 38 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4668
+
+[Term]
+id: EMAP:4671
+name: somite 38 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4668
+
+[Term]
+id: EMAP:4672
+name: somite 39
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4673
+name: somite 39 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4672
+
+[Term]
+id: EMAP:4674
+name: somite 39 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4672
+
+[Term]
+id: EMAP:4675
+name: somite 39 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4672
+
+[Term]
+id: EMAP:4676
+name: somite 40
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4677
+name: somite 40 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4676
+
+[Term]
+id: EMAP:4678
+name: somite 40 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4676
+
+[Term]
+id: EMAP:4679
+name: somite 40 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4676
+
+[Term]
+id: EMAP:4680
+name: somite 41
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4681
+name: somite 41 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4680
+
+[Term]
+id: EMAP:4682
+name: somite 41 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4680
+
+[Term]
+id: EMAP:4683
+name: somite 41 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4680
+
+[Term]
+id: EMAP:4684
+name: somite 42
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4685
+name: somite 42 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4684
+
+[Term]
+id: EMAP:4686
+name: somite 42 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4684
+
+[Term]
+id: EMAP:4687
+name: somite 42 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4684
+
+[Term]
+id: EMAP:4688
+name: somite 43
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4689
+name: somite 43 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4688
+
+[Term]
+id: EMAP:4690
+name: somite 43 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4688
+
+[Term]
+id: EMAP:4691
+name: somite 43 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4688
+
+[Term]
+id: EMAP:4692
+name: somite 44
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4693
+name: somite 44 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4692
+
+[Term]
+id: EMAP:4694
+name: somite 44 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4692
+
+[Term]
+id: EMAP:4695
+name: somite 44 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4692
+
+[Term]
+id: EMAP:4696
+name: somite 45
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4697
+name: somite 45 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4696
+
+[Term]
+id: EMAP:4698
+name: somite 45 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4696
+
+[Term]
+id: EMAP:4699
+name: somite 45 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4696
+
+[Term]
+id: EMAP:4700
+name: somite 46
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4701
+name: somite 46 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4700
+
+[Term]
+id: EMAP:4702
+name: somite 46 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4700
+
+[Term]
+id: EMAP:4703
+name: somite 46 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4700
+
+[Term]
+id: EMAP:4704
+name: somite 47
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4705
+name: somite 47 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4704
+
+[Term]
+id: EMAP:4706
+name: somite 47 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4704
+
+[Term]
+id: EMAP:4707
+name: somite 47 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4704
+
+[Term]
+id: EMAP:4708
+name: somite 48
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4709
+name: somite 48 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4708
+
+[Term]
+id: EMAP:4710
+name: somite 48 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4708
+
+[Term]
+id: EMAP:4711
+name: somite 48 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4708
+
+[Term]
+id: EMAP:4712
+name: somite 49
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4713
+name: somite 49 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4712
+
+[Term]
+id: EMAP:4714
+name: somite 49 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4712
+
+[Term]
+id: EMAP:4715
+name: somite 49 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4712
+
+[Term]
+id: EMAP:4716
+name: somite 50
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4717
+name: somite 50 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4716
+
+[Term]
+id: EMAP:4718
+name: somite 50 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4716
+
+[Term]
+id: EMAP:4719
+name: somite 50 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4716
+
+[Term]
+id: EMAP:4720
+name: somite 51
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4721
+name: somite 51 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4720
+
+[Term]
+id: EMAP:4722
+name: somite 51 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4720
+
+[Term]
+id: EMAP:4723
+name: somite 51 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4720
+
+[Term]
+id: EMAP:4724
+name: somite 52
+namespace: abstract_anatomy
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4725
+name: somite 52 dermomyotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:29705
+relationship: part_of EMAP:4724
+
+[Term]
+id: EMAP:4726
+name: somite 52 myocoele
+namespace: abstract_anatomy
+relationship: part_of EMAP:31131
+relationship: part_of EMAP:4724
+
+[Term]
+id: EMAP:4727
+name: somite 52 sclerotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31156
+relationship: part_of EMAP:4724
+
+[Term]
+id: EMAP:4729
+name: tail nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4651
+
+[Term]
+id: EMAP:4730
+name: tail central nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4729
+
+[Term]
+id: EMAP:4731
+name: tail spinal cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:4730
+
+[Term]
+id: EMAP:13370
+name: tail skeleton
+namespace: abstract_anatomy
+relationship: part_of EMAP:4651
+
+[Term]
+id: EMAP:13371
+name: axial skeleton tail region
+namespace: abstract_anatomy
+relationship: part_of EMAP:13370
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:13372
+name: tail vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13371
+relationship: is_a EMAP:33218
+
+[Term]
+id: EMAP:13373
+name: Tl1 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13374
+name: Tl2 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13375
+name: Tl3 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13376
+name: Tl4 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13377
+name: Tl5 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13378
+name: Tl6 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13379
+name: Tl7 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:13380
+name: Tl8 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13372
+
+[Term]
+id: EMAP:4636
+name: skeleton
+namespace: abstract_anatomy
+relationship: part_of EMAP:33504
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:4637
+name: axial skeleton
+namespace: abstract_anatomy
+relationship: part_of EMAP:4636
+
+[Term]
+id: EMAP:4638
+name: axial skeleton cervical region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:4639
+name: cervical vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: is_a EMAP:33201
+relationship: part_of EMAP:4638
+
+[Term]
+id: EMAP:13352
+name: C1 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13353
+name: C2 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13354
+name: C3 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13355
+name: C4 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13356
+name: C5 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13357
+name: C6 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:13358
+name: C7 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4639
+
+[Term]
+id: EMAP:4640
+name: axial skeleton lumbar region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:4641
+name: lumbar vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: is_a EMAP:33201
+relationship: part_of EMAP:4640
+
+[Term]
+id: EMAP:13359
+name: L1 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:13360
+name: L2 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:13361
+name: L3 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:13362
+name: L4 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:13363
+name: L5 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:13364
+name: L6 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4641
+
+[Term]
+id: EMAP:4644
+name: axial skeleton thoracic region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:4645
+name: rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4644
+
+[Term]
+id: EMAP:13382
+name: T1 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13383
+name: T2 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13384
+name: T3 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13385
+name: T4 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13386
+name: T5 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13387
+name: T6 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13388
+name: T7 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13389
+name: T8 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13390
+name: T9 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13391
+name: T10 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13392
+name: T11 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13393
+name: T12 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:13394
+name: T13 rib pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4645
+
+[Term]
+id: EMAP:4646
+name: thoracic vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: is_a EMAP:33201
+relationship: part_of EMAP:4644
+
+[Term]
+id: EMAP:13395
+name: T1 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13396
+name: T2 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13397
+name: T3 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13398
+name: T4 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13399
+name: T5 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13400
+name: T6 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13401
+name: T7 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13402
+name: T8 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13403
+name: T9 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13404
+name: T10 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13405
+name: T11 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13406
+name: T12 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:13407
+name: T13 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4646
+
+[Term]
+id: EMAP:4642
+name: axial skeleton sacral region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:4643
+name: sacral vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: is_a EMAP:33218
+relationship: part_of EMAP:4642
+
+[Term]
+id: EMAP:13368
+name: S3 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4643
+
+[Term]
+id: EMAP:13369
+name: S4 vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4643
+
+[Term]
+id: EMAP:13365
+name: sacral vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: is_a EMAP:33201
+relationship: part_of EMAP:4642
+
+[Term]
+id: EMAP:13366
+name: S1 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13365
+
+[Term]
+id: EMAP:13367
+name: S2 vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:13365
+
+[Term]
+id: EMAP:4647
+name: cranium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4636
+
+[Term]
+id: EMAP:4648
+name: chondrocranium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4647
+
+[Term]
+id: EMAP:4649
+name: temporal bone
+namespace: abstract_anatomy
+relationship: part_of EMAP:4648
+
+[Term]
+id: EMAP:4650
+name: temporal bone petrous part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4649
+
+[Term]
+id: EMAP:4732
+name: extraembryonic component
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+
+[Term]
+id: EMAP:4733
+name: extraembryonic vascular system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:4734
+name: extraembryonic arterial system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4733
+
+[Term]
+id: EMAP:4735
+name: umbilical artery extraembryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4734
+
+[Term]
+id: EMAP:4736
+name: common umbilical artery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4735
+
+[Term]
+id: EMAP:4737
+name: extraembryonic venous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4733
+
+[Term]
+id: EMAP:4738
+name: umbilical vein extraembryonic part
+namespace: abstract_anatomy
+relationship: part_of EMAP:4737
+
+[Term]
+id: EMAP:4739
+name: common umbilical vein
+namespace: abstract_anatomy
+relationship: part_of EMAP:4738
+
+[Term]
+id: EMAP:26120
+name: umbilical cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:26132
+name: umbilical cord mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:26120
+
+[Term]
+id: EMAP:26144
+name: vitelline duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:26120
+
+[Term]
+id: EMAP:26156
+name: vitelline vein vitelline duct part
+namespace: abstract_anatomy
+relationship: part_of EMAP:26144
+
+[Term]
+id: EMAP:4582
+name: urogenital mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4581
+
+[Term]
+id: EMAP:29610
+name: rest of mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4581
+
+[Term]
+id: EMAP:29994
+name: ureteral mesenchyme, rest of
+namespace: abstract_anatomy
+relationship: part_of EMAP:27712
+
+[Term]
+id: EMAP:29618
+name: genital tubercle of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:29622
+name: genital tubercle mesenchyme of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:29618
+
+[Term]
+id: EMAP:29627
+name: genital tubercle surface epithelium of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:29618
+
+[Term]
+id: EMAP:29166
+name: genital tubercle of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:29168
+name: genital tubercle mesenchyme of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29166
+
+[Term]
+id: EMAP:29171
+name: genital tubercle surface epithelium of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29166
+
+[Term]
+id: EMAP:29069
+name: testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:29071
+name: coelomic epithelium of testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29069
+
+[Term]
+id: EMAP:29075
+name: interstitium of the testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29069
+
+[Term]
+id: EMAP:29083
+name: fetal Leydig cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:29075
+
+[Term]
+id: EMAP:29091
+name: rest of interstitium of the testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29075
+
+[Term]
+id: EMAP:29099
+name: primary sex cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:29069
+
+[Term]
+id: EMAP:29103
+name: germ cell of testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29099
+
+[Term]
+id: EMAP:29107
+name: Sertoli cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:29099
+
+[Term]
+id: EMAP:29111
+name: peritubular myoid cell
+namespace: abstract_anatomy
+relationship: part_of EMAP:29099
+
+[Term]
+id: EMAP:29115
+name: developing vasculature of the testis
+namespace: abstract_anatomy
+relationship: part_of EMAP:29069
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:29123
+name: coelomic vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:29115
+
+[Term]
+id: EMAP:29131
+name: interstitial vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:29115
+
+[Term]
+id: EMAP:29139
+name: mesonephros of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:29144
+name: mesonephric mesenchyme of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+
+[Term]
+id: EMAP:29149
+name: mesonephric tubule of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+
+[Term]
+id: EMAP:29154
+name: nephric duct of male, mesonephric portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+
+[Term]
+id: EMAP:29159
+name: paramesonephric duct of male, mesonephric portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+
+[Term]
+id: EMAP:29339
+name: early nephron GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:29705
+name: tail dermomyotome group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31116
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:4386
+name: principal artery to forelimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4382
+
+[Term]
+id: EMAP:4387
+name: principal artery to hindlimb
+namespace: abstract_anatomy
+relationship: part_of EMAP:4382
+
+[Term]
+id: EMAP:30871
+name: primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:4594
+
+[Term]
+id: EMAP:30874
+name: epithelial layer of primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:30871
+
+[Term]
+id: EMAP:30877
+name: mesenchymal layer of primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:30871
+
+[Term]
+id: EMAP:30880
+name: rest of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4594
+
+[Term]
+id: EMAP:30883
+name: epithelial layer of rest of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:30880
+
+[Term]
+id: EMAP:30886
+name: mesenchymal layer of rest of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:30880
+
+[Term]
+id: EMAP:4591
+name: ureter
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:30851
+name: ureteral vasculature
+namespace: abstract_anatomy
+relationship: part_of EMAP:31768
+relationship: part_of EMAP:4591
+
+[Term]
+id: EMAP:30889
+name: urethral fold
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:30471
+name: urethral epithelium of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:29618
+
+[Term]
+id: EMAP:30545
+name: cranial mesonephric tubule of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:28920
+
+[Term]
+id: EMAP:30548
+name: mesonephric glomerulus of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30545
+
+[Term]
+id: EMAP:30551
+name: rest of cranial mesonephric tubule of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:30545
+
+[Term]
+id: EMAP:30554
+name: caudal mesonephric tubule of female
+namespace: abstract_anatomy
+relationship: part_of EMAP:28920
+
+[Term]
+id: EMAP:30061
+name: nephric duct of female, rest of
+namespace: abstract_anatomy
+relationship: part_of EMAP:28872
+
+[Term]
+id: EMAP:30468
+name: urethral epithelium of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29166
+
+[Term]
+id: EMAP:30062
+name: mesorchium
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:30529
+name: cranial mesonephric tubule of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29149
+
+[Term]
+id: EMAP:30533
+name: mesonephric glomerulus of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:30529
+
+[Term]
+id: EMAP:30537
+name: rest of cranial mesonephric tubule of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:30529
+
+[Term]
+id: EMAP:30541
+name: caudal mesonephric tubule of male
+namespace: abstract_anatomy
+relationship: part_of EMAP:29149
+
+[Term]
+id: EMAP:30461
+name: coelomic epithelium of male mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+
+[Term]
+id: EMAP:30060
+name: nephric duct of male, rest of
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:30059
+name: paramesonephric duct of male, rest of
+namespace: abstract_anatomy
+relationship: part_of EMAP:28873
+
+[Term]
+id: EMAP:31071
+name: yolk sac
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:31085
+name: yolk sac endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:31071
+
+[Term]
+id: EMAP:31099
+name: yolk sac mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:31071
+
+[Term]
+id: EMAP:31271
+name: nephrogenic interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:27691
+relationship: part_of EMAP:31766
+
+[Term]
+id: EMAP:31274
+name: resident macrophages
+namespace: abstract_anatomy
+relationship: part_of EMAP:27691
+
+[Term]
+id: EMAP:31277
+name: rest of renal interstitium
+namespace: abstract_anatomy
+relationship: part_of EMAP:27691
+
+[Term]
+id: EMAP:4592
+name: nephric duct, metanephric portion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:31131
+name: tail myocoele group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31141
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:31156
+name: tail sclerotome group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31166
+relationship: part_of EMAP:4655
+
+[Term]
+id: EMAP:31178
+name: somite group
+namespace: abstract_anatomy
+relationship: part_of EMAP:33821
+
+[Term]
+id: EMAP:31116
+name: dermomyotome group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31178
+
+[Term]
+id: EMAP:31141
+name: myocoele group
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+
+[Term]
+id: EMAP:31166
+name: sclerotome group
+namespace: abstract_anatomy
+relationship: part_of EMAP:31178
+
+[Term]
+id: EMAP:31588
+name: developing vasculature of female genital tubercle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29618
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:31606
+name: developing vasculature of male genital tubercle
+namespace: abstract_anatomy
+relationship: part_of EMAP:29166
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:31652
+name: mesenchymal layer of ventral primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:30877
+
+[Term]
+id: EMAP:31661
+name: pelvic ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:31675
+
+[Term]
+id: EMAP:31663
+name: nerve of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:31675
+
+[Term]
+id: EMAP:31665
+name: mesenchymal layer of dorsal primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:30877
+
+[Term]
+id: EMAP:31673
+name: developing vasculature of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:31768
+relationship: part_of EMAP:4594
+
+[Term]
+id: EMAP:31675
+name: nerves of urogenital sinus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4594
+
+[Term]
+id: EMAP:31684
+name: developing vasculature of male mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:29139
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:31688
+name: developing vasculature of female mesonephros
+namespace: abstract_anatomy
+relationship: part_of EMAP:28910
+relationship: part_of EMAP:31777
+
+[Term]
+id: EMAP:31692
+name: developing vasculature of primitive bladder
+namespace: abstract_anatomy
+relationship: part_of EMAP:30871
+relationship: part_of EMAP:31768
+
+[Term]
+id: EMAP:31700
+name: renal connecting segment of renal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:27679
+
+[Term]
+id: EMAP:31717
+name: renal connecting segment of comma-shaped body
+namespace: abstract_anatomy
+relationship: part_of EMAP:27682
+
+[Term]
+id: EMAP:31731
+name: proximal renal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:27679
+
+[Term]
+id: EMAP:31766
+name: nephrogenic zone GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:31768
+name: developing vasculature of urinary system GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:31777
+name: developing vasculature of reproductive system GROUP
+namespace: abstract_anatomy
+relationship: part_of EMAP:4596
+
+[Term]
+id: EMAP:31836
+name: distal renal vesicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:27679
+
+[Term]
+id: EMAP:31848
+name: renal capsule
+namespace: abstract_anatomy
+relationship: part_of EMAP:4587
+
+[Term]
+id: EMAP:31887
+name: trunk
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:31902
+name: head
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:31931
+name: yolk sac blood vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:31071
+
+[Term]
+id: EMAP:31940
+name: trabecular cord mesodermal core
+namespace: abstract_anatomy
+relationship: part_of EMAP:31960
+
+[Term]
+id: EMAP:31951
+name: cytotrophoblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:31960
+
+[Term]
+id: EMAP:31960
+name: trabecular cord
+namespace: abstract_anatomy
+relationship: part_of EMAP:31997
+
+[Term]
+id: EMAP:31969
+name: interplacental space
+namespace: abstract_anatomy
+relationship: part_of EMAP:31997
+
+[Term]
+id: EMAP:31983
+name: chorionic plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:31997
+
+[Term]
+id: EMAP:31997
+name: chorioallantoic placenta
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32017
+name: spongiotrophoblast
+namespace: abstract_anatomy
+relationship: part_of EMAP:32146
+
+[Term]
+id: EMAP:32034
+name: labyrinthine zone
+namespace: abstract_anatomy
+relationship: part_of EMAP:32146
+
+[Term]
+id: EMAP:32064
+name: chorion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32079
+name: amnion ectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:32093
+
+[Term]
+id: EMAP:32093
+name: amnion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32132
+name: amniotic cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:32203
+
+[Term]
+id: EMAP:32146
+name: trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32160
+name: polar trophectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:32146
+
+[Term]
+id: EMAP:32189
+name: yolk sac cavity
+namespace: abstract_anatomy
+relationship: part_of EMAP:32203
+
+[Term]
+id: EMAP:32203
+name: extraembryonic component cavities
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32217
+name: parietal endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:32231
+
+[Term]
+id: EMAP:32231
+name: extraembryonic endoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4732
+
+[Term]
+id: EMAP:32251
+name: Reichert's membrane
+namespace: abstract_anatomy
+relationship: part_of EMAP:32217
+
+[Term]
+id: EMAP:32958
+name: interdigital region mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:32995
+
+[Term]
+id: EMAP:32970
+name: forelimb epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4012
+
+[Term]
+id: EMAP:32991
+name: digit epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33563
+
+[Term]
+id: EMAP:32993
+name: interdigital region epiithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:32995
+
+[Term]
+id: EMAP:32995
+name: interdigital region
+namespace: abstract_anatomy
+relationship: part_of EMAP:33549
+
+[Term]
+id: EMAP:33012
+name: hindlimb epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4058
+
+[Term]
+id: EMAP:33023
+name: forelimb pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:33031
+
+[Term]
+id: EMAP:33031
+name: forelimb mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4012
+
+[Term]
+id: EMAP:33039
+name: handplate epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:33059
+name: hindlimb mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4058
+
+[Term]
+id: EMAP:33066
+name: hindlimb pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:33059
+
+[Term]
+id: EMAP:33072
+name: forelimb digit
+namespace: abstract_anatomy
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:33086
+name: forelimb digit mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33072
+relationship: part_of EMAP:4057
+
+[Term]
+id: EMAP:33094
+name: forelimb digit epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33072
+
+[Term]
+id: EMAP:33101
+name: hindlimb digit
+namespace: abstract_anatomy
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:33112
+name: forelimb interdigital region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4028
+
+[Term]
+id: EMAP:33119
+name: forelimb interdigital region epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33112
+
+[Term]
+id: EMAP:33121
+name: forelimb interdigital region mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33112
+
+[Term]
+id: EMAP:33132
+name: footplate epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:33173
+name: ganglionic eminence
+namespace: abstract_anatomy
+relationship: part_of EMAP:4175
+
+[Term]
+id: EMAP:33201
+name: vertebral cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:33218
+name: vertebral pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4637
+
+[Term]
+id: EMAP:33238
+name: brain ventricle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33251
+name: brain floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33261
+name: brainstem
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33271
+name: brain ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33281
+name: brain marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33291
+name: brain mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33308
+name: alimentary system epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3983
+
+[Term]
+id: EMAP:33321
+name: floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4125
+
+[Term]
+id: EMAP:33336
+name: endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:33351
+name: cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4396
+
+[Term]
+id: EMAP:33358
+name: bronchus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4602
+
+[Term]
+id: EMAP:33365
+name: bronchus mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33358
+
+[Term]
+id: EMAP:33372
+name: bronchus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33358
+
+[Term]
+id: EMAP:33388
+name: lobar bronchus epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33396
+
+[Term]
+id: EMAP:33396
+name: lobar bronchus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:33407
+name: lobar bronchus associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33396
+
+[Term]
+id: EMAP:33420
+name: limb cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:33445
+
+[Term]
+id: EMAP:33432
+name: cerebral cortex subventricular zone
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:33445
+name: limb mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:33452
+name: limb pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:33445
+
+[Term]
+id: EMAP:33462
+name: limb ectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:33469
+name: diencephalon marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:33476
+name: diencephalon ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:33483
+name: cortical plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:33490
+name: cerebral cortex intermediate zone
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:33504
+name: musculoskeletal system
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:33511
+name: muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:33518
+name: skeletal muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:33504
+relationship: part_of EMAP:33511
+
+[Term]
+id: EMAP:33525
+name: smooth muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:33511
+
+[Term]
+id: EMAP:33532
+name: diencephalon mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4128
+
+[Term]
+id: EMAP:33539
+name: digit mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33563
+
+[Term]
+id: EMAP:33549
+name: autopod
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:33561
+name: limb epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4011
+
+[Term]
+id: EMAP:33563
+name: limb digit
+namespace: abstract_anatomy
+relationship: part_of EMAP:33549
+
+[Term]
+id: EMAP:33590
+name: cartilage
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:33600
+name: cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:33619
+name: extraembryonic blood vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:4733
+
+[Term]
+id: EMAP:33635
+name: mesenchyme derived from neural crest
+namespace: abstract_anatomy
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:33643
+name: pre-cartilage condensation
+namespace: abstract_anatomy
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:33659
+name: epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:25785
+relationship: part_of EMAP:3980
+
+[Term]
+id: EMAP:33676
+name: choroid plexus
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:33683
+name: 4th ventricle choroid plexus
+namespace: abstract_anatomy
+relationship: is_a EMAP:33676
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:33698
+name: blood vessel
+namespace: abstract_anatomy
+relationship: part_of EMAP:4365
+
+[Term]
+id: EMAP:33714
+name: atrium endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4399
+
+[Term]
+id: EMAP:33726
+name: atrium cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4399
+
+[Term]
+id: EMAP:33734
+name: ventricle endocardial lining
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:33742
+name: ventricle cardiac muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4431
+
+[Term]
+id: EMAP:33821
+name: paraxial mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4103
+
+[Term]
+id: EMAP:33844
+name: body wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:31887
+
+[Term]
+id: EMAP:33878
+name: tail ectoderm
+namespace: abstract_anatomy
+relationship: part_of EMAP:4651
+
+[Term]
+id: EMAP:33887
+name: lingual swelling mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4483
+
+[Term]
+id: EMAP:33890
+name: lingual swelling epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4483
+
+[Term]
+id: EMAP:33960
+name: ear epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4286
+
+[Term]
+id: EMAP:33967
+name: pharyngo-tympanic tube epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4325
+
+[Term]
+id: EMAP:33980
+name: brain subventricular zone
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:34000
+name: nerve
+namespace: abstract_anatomy
+relationship: part_of EMAP:4124
+
+[Term]
+id: EMAP:34032
+name: peripheral nervous system ganglion
+namespace: abstract_anatomy
+relationship: is_a EMAP:34191
+relationship: part_of EMAP:4261
+
+[Term]
+id: EMAP:34075
+name: respiratory system epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4602
+
+[Term]
+id: EMAP:34087
+name: respiratory tract epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4621
+
+[Term]
+id: EMAP:34095
+name: semicircular canal epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34113
+
+[Term]
+id: EMAP:34103
+name: semicircular canal associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:34113
+
+[Term]
+id: EMAP:34113
+name: semicircular canal
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:34120
+name: cerebral cortex subplate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:34142
+name: dermatome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31116
+
+[Term]
+id: EMAP:34163
+name: myotome
+namespace: abstract_anatomy
+relationship: part_of EMAP:31116
+
+[Term]
+id: EMAP:34166
+name: neocortex
+namespace: abstract_anatomy
+relationship: part_of EMAP:4176
+
+[Term]
+id: EMAP:34191
+name: ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4124
+
+[Term]
+id: EMAP:34201
+name: medulla oblongata mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:34210
+name: medulla oblongata ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:34217
+name: medulla oblongata marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4192
+
+[Term]
+id: EMAP:34231
+name: metencephalon ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4205
+
+[Term]
+id: EMAP:34246
+name: mesothelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3988
+
+[Term]
+id: EMAP:34256
+name: midbrain-hindbrain junction
+namespace: abstract_anatomy
+relationship: part_of EMAP:4126
+
+[Term]
+id: EMAP:34278
+name: lung epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:34318
+name: lung associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:34330
+name: lung vascular element
+namespace: abstract_anatomy
+relationship: part_of EMAP:4604
+
+[Term]
+id: EMAP:34361
+name: intestine associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:34379
+
+[Term]
+id: EMAP:34370
+name: intestine epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34379
+
+[Term]
+id: EMAP:34379
+name: intestine
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34437
+name: inner ear epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:34445
+name: vestibular component epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4303
+
+[Term]
+id: EMAP:34460
+name: inner ear associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4295
+
+[Term]
+id: EMAP:34475
+name: alimentary system associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:3983
+
+[Term]
+id: EMAP:34483
+name: vestibular component associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4303
+
+[Term]
+id: EMAP:34548
+name: hindbrain ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:34663
+
+[Term]
+id: EMAP:34558
+name: hindbrain roof
+namespace: abstract_anatomy
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:34566
+name: jaw primordium
+namespace: abstract_anatomy
+relationship: part_of EMAP:3984
+
+[Term]
+id: EMAP:34610
+name: gut lumen
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34625
+name: gut associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34639
+name: gut dorsal mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:34653
+
+[Term]
+id: EMAP:34653
+name: gut mesentery
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34663
+name: hindbrain lateral wall
+namespace: abstract_anatomy
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:34673
+name: hindbrain floor plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:4187
+
+[Term]
+id: EMAP:34682
+name: hindbrain basal plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:34663
+
+[Term]
+id: EMAP:34691
+name: hindbrain alar plate
+namespace: abstract_anatomy
+relationship: part_of EMAP:34663
+
+[Term]
+id: EMAP:34701
+name: hindbrain marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:34663
+
+[Term]
+id: EMAP:34711
+name: hindbrain mantle layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:34663
+
+[Term]
+id: EMAP:34718
+name: fronto-nasal process epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4354
+
+[Term]
+id: EMAP:34724
+name: forebrain marginal layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4127
+
+[Term]
+id: EMAP:34734
+name: forebrain ventricular layer
+namespace: abstract_anatomy
+relationship: part_of EMAP:4127
+
+[Term]
+id: EMAP:34747
+name: foregut epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:34757
+name: foregut associated mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4140
+
+[Term]
+id: EMAP:34764
+name: pancreas parenchyma
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:34778
+name: gut epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34832
+name: hindlimb interdigital region
+namespace: abstract_anatomy
+relationship: part_of EMAP:4059
+
+[Term]
+id: EMAP:34839
+name: hindlimb digit epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:33101
+
+[Term]
+id: EMAP:34841
+name: hindlimb digit mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:33101
+
+[Term]
+id: EMAP:34856
+name: pancreatic duct
+namespace: abstract_anatomy
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:34860
+name: dorsal pancreatic duct
+namespace: abstract_anatomy
+relationship: is_a EMAP:34856
+relationship: part_of EMAP:4113
+
+[Term]
+id: EMAP:34867
+name: hindlimb interdigital region mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:34832
+
+[Term]
+id: EMAP:34875
+name: hindlimb interdigital region epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:34832
+
+[Term]
+id: EMAP:34887
+name: gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:3981
+
+[Term]
+id: EMAP:34889
+name: cloaca
+namespace: abstract_anatomy
+relationship: part_of EMAP:4580
+
+[Term]
+id: EMAP:34955
+name: gut gland
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34959
+name: tongue skeletal muscle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:34960
+name: tongue mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:34961
+name: tongue epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4481
+
+[Term]
+id: EMAP:34964
+name: duodenum
+namespace: abstract_anatomy
+relationship: part_of EMAP:4110
+
+[Term]
+id: EMAP:34981
+name: vibrissa follicle
+namespace: abstract_anatomy
+relationship: part_of EMAP:4151
+
+[Term]
+id: EMAP:34986
+name: lens vesicle epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4333
+
+[Term]
+id: EMAP:35005
+name: midgut epithelium
+namespace: abstract_anatomy
+relationship: part_of EMAP:4531
+
+[Term]
+id: EMAP:35011
+name: autonomic ganglion
+namespace: abstract_anatomy
+relationship: part_of EMAP:4262
+
+[Term]
+id: EMAP:35016
+name: enteric nervous system
+namespace: abstract_anatomy
+relationship: part_of EMAP:4261
+
+[Term]
+id: EMAP:35032
+name: fronto-nasal process mesenchyme
+namespace: abstract_anatomy
+relationship: part_of EMAP:4354
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

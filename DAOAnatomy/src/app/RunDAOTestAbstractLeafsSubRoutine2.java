@@ -61,10 +61,10 @@ public class RunDAOTestAbstractLeafsSubRoutine2 {
 	    	List<Leaf> leafs = new ArrayList<Leaf>();
         	leafs = leafDAO.listAllNodesByRootNameByChildDesc( leafRootName, leafRootName );
 
-	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + "===========", "*", "*");
-	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + emapaId + " - convertLeafListToStringJsonLines", "*", "*");
-	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + "-----------", "*", "*");
-	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run:" + leafDAO.convertLeafListToStringJsonLines(leafs), "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run : " + "===========", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run : " + emapaId + " - convertLeafListToStringJsonLines", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run : " + "-----------", "*", "*");
+	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine2.run : " + leafDAO.convertLeafListToStringJsonLines(leafs), "*", "*");
 		}
 		catch (DAOException daoe) {
 

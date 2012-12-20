@@ -52,7 +52,7 @@ import utility.Wrapper;
 public final class LogDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS " +
+        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS, LOG_DATETIME " +
         "FROM ANA_LOG " +
         "WHERE LOG_COLUMN_NAME LIKE ? " +
         "AND LOG_OLD_VALUE LIKE ? " +
@@ -74,23 +74,23 @@ public final class LogDAO {
         "FROM ANA_LOG";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS " +
+        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS, LOG_DATETIME " +
         "FROM ANA_LOG " +
         "WHERE LOG_OID = ? ";
     
     private static final String SQL_FIND_BY_LOGGED_OID =
-        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS " +
+        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS, LOG_DATETIME " +
         "FROM ANA_LOG " +
         "WHERE LOG_LOGGED_OID = ? ";
     
     private static final String SQL_LIST_ALL =
-        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS " +
+        "SELECT LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS, LOG_DATETIME " +
         "FROM ANA_LOG ";
     
     private static final String SQL_INSERT =
         "INSERT INTO ANA_LOG " +
-        "(LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS) " +
-        "VALUES (?, ?, ?, ?, ?, ?)";
+        "(LOG_OID, LOG_LOGGED_OID, LOG_VERSION_FK, LOG_COLUMN_NAME, LOG_OLD_VALUE, LOG_COMMENTS, LOG_DATETIME) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANA_LOG SET " +
@@ -98,7 +98,8 @@ public final class LogDAO {
         "LOG_VERSION_FK = ?, " + 
         "LOG_COLUMN_NAME = ?, " +
         "LOG_OLD_VALUE = ?, " +
-        "LOG_COMMENTS = ? " + 
+        "LOG_COMMENTS = ?, " +
+        "LOG_DATETIME = ? " + 
         "WHERE LOG_OID = ?";
     
     private static final String SQL_DELETE =
@@ -275,7 +276,8 @@ public final class LogDAO {
             log.getVersionFK(),
         	log.getColumnName(),
         	log.getOldValue(),
-        	log.getComments()
+        	log.getComments(),
+        	log.getDatetime()
         };
 
         Connection connection = null;
@@ -329,7 +331,8 @@ public final class LogDAO {
             log.getVersionFK(),
            	log.getColumnName(),
            	log.getOldValue(),
-           	log.getComments(),           	
+           	log.getComments(),
+           	log.getDatetime(),           	
            	log.getOid()
         };
 
@@ -476,6 +479,9 @@ public final class LogDAO {
         }
         if (sortField.equals("comments")) {
         	sqlSortField = "LOG_COMMENTS";         
+        }
+        if (sortField.equals("datetime")) {
+        	sqlSortField = "LOG_DATETIME";         
         }
         
         if (searchFirst.equals("")) {
@@ -636,7 +642,8 @@ public final class LogDAO {
        		resultSet.getLong("LOG_VERSION_FK"), 
        		resultSet.getString("LOG_COLUMN_NAME"),
        		resultSet.getString("LOG_OLD_VALUE"), 
-       		resultSet.getString("LOG_COMMENTS")
+       		resultSet.getString("LOG_COMMENTS"), 
+       		resultSet.getString("LOG_DATETIME")
         );
     }
 }

@@ -1,5 +1,6 @@
 package testapp;
 
+import utility.MySQLDateTime;
 import utility.Wrapper;
 
 public class TestMySQLDateTime {
@@ -9,6 +10,8 @@ public class TestMySQLDateTime {
     	try {
     		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
+    		Wrapper.printMessage("MySQLDateTime.now() = " + MySQLDateTime.now(), "*", "*");
+    		
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}
     	catch (Exception e) {

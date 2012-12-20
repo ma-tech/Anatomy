@@ -42,6 +42,7 @@ public class Log {
      *   4.  LOG_COLUMN_NAME => varchar(64)
      *   5.  LOG_OLD_VALUE   => varchar(255)
      *   6.  LOG_COMMENTS    => varchar(255)
+     *   7.  LOG_DATETIME    => varchar(255)
 	 */
     private Long oid; 
     private Long loggedOid; 
@@ -49,6 +50,7 @@ public class Log {
     private String columnName;
     private String oldValue; 
     private String comments;
+    private String datetime;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -66,7 +68,8 @@ public class Log {
     		   Long versionFK, 
     		   String columnName,
     	       String oldValue, 
-    		   String comments) {
+    		   String comments, 
+    		   String datetime) {
     	
     	this.oid = oid;
     	this.loggedOid = loggedOid;
@@ -74,6 +77,7 @@ public class Log {
     	this.columnName = columnName;
     	this.oldValue = oldValue;
     	this.comments = comments;
+    	this.datetime = datetime;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -95,6 +99,9 @@ public class Log {
     public String getComments() {
         return comments;
     }
+    public String getDatetime() {
+        return datetime;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {
@@ -115,6 +122,9 @@ public class Log {
     public void setComments(String comments) {
         this.comments = comments;
     }
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
+    }
 
     // Override -----------------------------------------------------------------------------------
     /*
@@ -127,7 +137,8 @@ public class Log {
     		this.getVersionFK() == daolog.getVersionFK() &&
     		this.getColumnName().equals(daolog.getColumnName()) &&
     		this.getOldValue().equals(daolog.getOldValue()) &&
-    		this.getComments().equals(daolog.getComments()) ) {
+    		this.getComments().equals(daolog.getComments()) &&
+    		this.getDatetime().equals(daolog.getDatetime()) ) {
 
         	return true;
         }
@@ -154,7 +165,7 @@ public class Log {
      */
     public String toString() {
     	
-        return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s ]", 
-        		oid, loggedOid, versionFK, columnName, oldValue, comments);
+        return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s, datetime=%s ]", 
+        		oid, loggedOid, versionFK, columnName, oldValue, comments, datetime);
     }
 }

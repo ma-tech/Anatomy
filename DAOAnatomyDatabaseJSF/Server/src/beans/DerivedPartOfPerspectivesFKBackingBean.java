@@ -97,7 +97,7 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
     // Session actions ----------------------------------------------------------------------------
     /*
     public void clearSession() {
-        //System.out.println("logout action invoked");
+        ////System.out.println("logout action invoked");
         FacesContext.getCurrentInstance().getExternalContext().getSession(arg0);
     }
     */
@@ -168,7 +168,7 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     	// Load list and totalCount.
         try {
-        	//System.out.println("loadDataList, searchTerm " + searchTerm);
+        	////System.out.println("loadDataList, searchTerm " + searchTerm);
 
             dataList = dao.display(firstRow, rowsPerPage, sortField, sortAscending, searchTerm, searchId, searchDirection, searchStartStage, searchEndStage, searchPerspective);
             totalRows = dao.count(searchTerm, searchId, searchDirection, searchStartStage, searchEndStage, searchPerspective);
@@ -329,7 +329,7 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
 
     public void setSearchInput(String searchInput) {
     	
-    	//System.out.println("setSearchInput " + searchInput);
+    	////System.out.println("setSearchInput " + searchInput);
     	if ( searchInput == null) {
         	this.searchInput = (String) FacesUtil.getSessionMapValue("searchInput");
     	}
@@ -337,12 +337,12 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
             this.searchInput = searchInput;
     	}
     	FacesUtil.setSessionMapValue("searchInput", this.searchInput);
-    	//System.out.println("this.searchInput " + this.searchInput);
+    	////System.out.println("this.searchInput " + this.searchInput);
     	setSearchTerm(this.searchInput);
     }
     public void setPageInput(String pageInput) {
 
-    	//System.out.println("setPageInput " + pageInput);
+    	////System.out.println("setPageInput " + pageInput);
     	if ( pageInput == null) {
         	this.pageInput = (String) FacesUtil.getSessionMapValue("pageInput");
     	}
@@ -350,12 +350,12 @@ public class DerivedPartOfPerspectivesFKBackingBean implements Serializable {
             this.pageInput = pageInput;
         	page(Integer.parseInt(pageInput));
     	}
-    	//System.out.println("this.pageInput " + this.pageInput);
+    	////System.out.println("this.pageInput " + this.pageInput);
     	FacesUtil.setSessionMapValue("pageInput", this.pageInput);
     }
     public void setTheilerStage(String theilerStage) {
 
-    	//System.out.println("setTheilerStage " + theilerStage);
+    	////System.out.println("setTheilerStage " + theilerStage);
     	if ( theilerStage == null) {
         	this.theilerStage = (String) FacesUtil.getSessionMapValue("theilerStage");
         	this.searchStartStage = (String) FacesUtil.getSessionMapValue("searchStartStage");

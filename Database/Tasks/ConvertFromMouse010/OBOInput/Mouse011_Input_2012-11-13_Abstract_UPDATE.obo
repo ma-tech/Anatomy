@@ -1,13 +1,14 @@
 format-version: 1.2
-date: 18:12:2012 13:56
+date: 17:09:2012 12:55
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
-remark: Version 011
+remark: Global Name Changes by Terry Hayamizu 29th August 2012
 
 [Term]
 id: EMAPA:0
 name: Abstract anatomy
 namespace: abstract_anatomy
+relationship: is_a EMAPA:0
 
 [Term]
 id: group_term
@@ -23,169 +24,169 @@ namespace: theiler_stage
 id: TS01
 name: TS01
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS02
 name: TS02
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS03
 name: TS03
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS04
 name: TS04
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS05
 name: TS05
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS06
 name: TS06
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS07
 name: TS07
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS08
 name: TS08
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS09
 name: TS09
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS10
 name: TS10
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS11
 name: TS11
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS12
 name: TS12
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS13
 name: TS13
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS14
 name: TS14
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS15
 name: TS15
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS16
 name: TS16
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS17
 name: TS17
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS18
 name: TS18
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS19
 name: TS19
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS20
 name: TS20
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS21
 name: TS21
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS22
 name: TS22
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS23
 name: TS23
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS24
 name: TS24
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS25
 name: TS25
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS26
 name: TS26
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS27
 name: TS27
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: TS28
 name: TS28
 namespace: theiler_stage
-relationship: is_a TS:0
+is_a: TS:0 ! Theiler stage
 
 [Term]
 id: Tmp_new_group
@@ -15273,7 +15274,7 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:16744
 relationship: starts_at TS15
 relationship: ends_at TS16
-comment: order=1 for EMAPA:16744
+comment: order=2 for EMAPA:16744
 
 [Term]
 id: EMAPA:27585
@@ -15291,7 +15292,7 @@ namespace: abstract_anatomy
 relationship: part_of EMAPA:16744
 relationship: starts_at TS17
 relationship: ends_at TS18
-comment: order=2 for EMAPA:16744
+comment: order=1 for EMAPA:16744
 
 [Term]
 id: EMAPA:27591
@@ -16990,7 +16991,7 @@ relationship: starts_at TS20
 relationship: ends_at TS21
 related_synonym: "epithelial vesicle" []
 related_synonym: "stage I nephron" []
-comment: order=23 for EMAPA:17373\norder=9 for EMAPA:17954
+comment: order=23 for EMAPA:17373\norder=8 for EMAPA:17954
 
 [Term]
 id: EMAPA:27681
@@ -17000,7 +17001,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:17954
 relationship: starts_at TS20
 relationship: ends_at TS21
-comment: order=4 for EMAPA:17373\norder=3 for EMAPA:17954
+comment: order=4 for EMAPA:17373\norder=2 for EMAPA:17954
 
 [Term]
 id: EMAPA:27684
@@ -17092,7 +17093,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:17954
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=2 for EMAPA:17373\norder=0 for EMAPA:17954
+comment: order=2 for EMAPA:17373\norder=1 for EMAPA:17954
 
 [Term]
 id: EMAPA:27772
@@ -17138,7 +17139,7 @@ relationship: part_of EMAPA:27770
 relationship: part_of EMAPA:28457
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=2 for EMAPA:27770\norder=11 for EMAPA:28457
+comment: order=2 for EMAPA:27770\norder=12 for EMAPA:28457
 
 [Term]
 id: EMAPA:27782
@@ -17284,7 +17285,7 @@ relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "epithelial vesicle" []
 related_synonym: "stage I nephron" []
-comment: order=1 for EMAPA:28500\norder=8 for EMAPA:17954\norder=16 for EMAPA:17952
+comment: order=1 for EMAPA:28500\norder=9 for EMAPA:17954\norder=16 for EMAPA:17952
 
 [Term]
 id: EMAPA:27835
@@ -17295,7 +17296,7 @@ relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
-comment: order=0 for EMAPA:28500\norder=2 for EMAPA:17954\norder=1 for EMAPA:17952
+comment: order=0 for EMAPA:28500\norder=3 for EMAPA:17954\norder=1 for EMAPA:17952
 
 [Term]
 id: EMAPA:27841
@@ -17390,7 +17391,7 @@ relationship: part_of EMAPA:17954
 relationship: part_of EMAPA:17952
 relationship: starts_at TS22
 relationship: ends_at TS27
-comment: order=0 for EMAPA:28506\norder=0 for EMAPA:28527\norder=1 for EMAPA:17954\norder=0 for EMAPA:17952
+comment: order=0 for EMAPA:28506\norder=0 for EMAPA:28527\norder=0 for EMAPA:17954\norder=0 for EMAPA:17952
 
 [Term]
 id: EMAPA:27913
@@ -17438,7 +17439,7 @@ relationship: part_of EMAPA:27907
 relationship: part_of EMAPA:28457
 relationship: starts_at TS22
 relationship: ends_at TS27
-comment: order=2 for EMAPA:27907\norder=12 for EMAPA:28457
+comment: order=2 for EMAPA:27907\norder=11 for EMAPA:28457
 
 [Term]
 id: EMAPA:27943
@@ -18170,7 +18171,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28477
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=28 for EMAPA:17373\norder=1 for EMAPA:28477
+comment: order=29 for EMAPA:17373\norder=1 for EMAPA:28477
 
 [Term]
 id: EMAPA:17378
@@ -20903,7 +20904,7 @@ relationship: part_of EMAPA:17765
 relationship: part_of EMAPA:32666
 relationship: starts_at TS26
 relationship: ends_at TS26
-comment: order=0 for EMAPA:17765\norder=0 for EMAPA:32666
+comment: order=0 for EMAPA:17765\norder=1 for EMAPA:32666
 
 [Term]
 id: EMAPA:25081
@@ -20942,7 +20943,7 @@ relationship: part_of EMAPA:17764
 relationship: part_of EMAPA:32666
 relationship: starts_at TS21
 relationship: ends_at TS26
-comment: order=3 for EMAPA:17764\norder=1 for EMAPA:32666
+comment: order=3 for EMAPA:17764\norder=0 for EMAPA:32666
 
 [Term]
 id: EMAPA:19057
@@ -22180,6 +22181,17 @@ relationship: part_of EMAPA:18559
 relationship: starts_at TS23
 relationship: ends_at TS26
 comment: order=2 for EMAPA:18559
+
+[Term]
+id: EMAPA:35041
+name: mikes test leaf part of emapa18562 BANANA
+namespace: abstract_anatomy
+relationship: part_of EMAPA:18562
+relationship: starts_at TS23
+relationship: ends_at TS26
+comment: order=0 for EMAPA:18562
+
+
 
 [Term]
 id: EMAPA:19047
@@ -30781,7 +30793,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17049\norder=5 for EMAPA:29703
+comment: order=0 for EMAPA:17049\norder=6 for EMAPA:29703
 
 [Term]
 id: EMAPA:17051
@@ -30801,7 +30813,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17049\norder=5 for EMAPA:31151
+comment: order=2 for EMAPA:17049\norder=6 for EMAPA:31151
 
 [Term]
 id: EMAPA:17053
@@ -30820,7 +30832,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17053\norder=6 for EMAPA:29703
+comment: order=0 for EMAPA:17053\norder=5 for EMAPA:29703
 
 [Term]
 id: EMAPA:17055
@@ -30840,7 +30852,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17053\norder=6 for EMAPA:31151
+comment: order=2 for EMAPA:17053\norder=5 for EMAPA:31151
 
 [Term]
 id: EMAPA:17057
@@ -41945,7 +41957,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28407
 relationship: starts_at TS22
 relationship: ends_at TS28
-comment: order=29 for EMAPA:17373\norder=2 for EMAPA:28407
+comment: order=28 for EMAPA:17373\norder=2 for EMAPA:28407
 
 [Term]
 id: EMAPA:28500
@@ -46798,7 +46810,7 @@ relationship: part_of EMAPA:28007
 relationship: part_of EMAPA:31570
 relationship: starts_at TS22
 relationship: ends_at TS24
-comment: order=1 for EMAPA:28007\norder=0 for EMAPA:31570
+comment: order=1 for EMAPA:28007\norder=1 for EMAPA:31570
 
 [Term]
 id: EMAPA:31514
@@ -46808,7 +46820,7 @@ relationship: part_of EMAPA:28390
 relationship: part_of EMAPA:31570
 relationship: starts_at TS25
 relationship: ends_at TS27
-comment: order=1 for EMAPA:28390\norder=1 for EMAPA:31570
+comment: order=1 for EMAPA:28390\norder=0 for EMAPA:31570
 
 [Term]
 id: EMAPA:31515
@@ -47083,7 +47095,7 @@ relationship: part_of EMAPA:28284
 relationship: part_of EMAPA:31571
 relationship: starts_at TS25
 relationship: ends_at TS27
-comment: order=0 for EMAPA:28284\norder=4 for EMAPA:31571
+comment: order=0 for EMAPA:28284\norder=3 for EMAPA:31571
 
 [Term]
 id: EMAPA:31544
@@ -47093,7 +47105,7 @@ relationship: part_of EMAPA:28003
 relationship: part_of EMAPA:31571
 relationship: starts_at TS22
 relationship: ends_at TS24
-comment: order=0 for EMAPA:28003\norder=3 for EMAPA:31571
+comment: order=0 for EMAPA:28003\norder=4 for EMAPA:31571
 
 [Term]
 id: EMAPA:31545

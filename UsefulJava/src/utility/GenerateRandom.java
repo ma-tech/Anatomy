@@ -88,17 +88,8 @@ public class GenerateRandom {
     	int indexNotes = getRandom(0, 11);
     	int indexModes = getRandom(0, 6);
     	
-    	String diatonic = validNotes[indexNotes] + " " + validModes[indexModes] + " (play over a " + validChords[indexModes] + " Chord)"; 
-    	
-    	return diatonic;
-	}
-
-    public static String getRandomFrets() throws Exception {
-
-    	int indexNotes = getRandom(0, 11);
-    	int indexModes = getRandom(0, 6);
-    	
-    	String diatonic = validNotes[indexNotes] + " " + validModes[indexModes] + " (play over a " + validChords[indexModes] + " Chord)"; 
+    	String diatonic = validNotes[indexNotes] + " " + validModes[indexModes]; 
+    	//String diatonic = validNotes[indexNotes] + " " + validModes[indexModes] + " (play over a " + validChords[indexModes] + " Chord)"; 
     	
     	return diatonic;
 	}
@@ -109,7 +100,7 @@ public class GenerateRandom {
     	int indexKeys = getRandom(0, 1);
     	int indexShapes = getRandom(0, 4);
     	
-    	String pentatonic = validNotes[indexNotes] + " " + validKeys[indexKeys] + " Pentatonic, " + validShapes[indexShapes]; 
+    	String pentatonic = validNotes[indexNotes] + " " + validKeys[indexKeys] + " " + validShapes[indexShapes]; 
     	
     	return pentatonic;
 	}
@@ -122,38 +113,6 @@ public class GenerateRandom {
     	
     	return note;
 	}
-
-    public static ArrayList<String> getRandomUniqueDiatonic() throws Exception {
-
-    	ArrayList<String> outputStrings = new ArrayList<String>();
-    	
-    	ArrayList<Integer> newIntegers = (ArrayList<Integer>) getRandomNumberList(11);
-    	
-        Iterator<Integer> iteratorNewIntegers = newIntegers.iterator();
-        
-        int i = 0;
-        
-     	while (iteratorNewIntegers.hasNext()) {
-    		
-     		i++;
-     		
-    		Integer newInt = iteratorNewIntegers.next();
-    		
-    		int indexNotes = newInt.intValue();
-
-        	int indexModes = getRandom(0, 6);
-        	
-    		char padChar = ' ';
-
-    		//String diatonic = utility.StringPad.pad(i, 2, padChar) + ". " + utility.StringPad.pad(validNotes[indexNotes], 16, padChar) + " " + utility.StringPad.pad(validModes[indexModes], 10, padChar) + " (play over a " + utility.StringPad.pad(validChords[indexModes], 18, padChar) + " Chord)";
-    		String diatonic = i + ". " + validNotes[indexNotes] + " " + validModes[indexModes] + " (play over a " + validChords[indexModes] + " Chord)";
-        	
-        	outputStrings.add(diatonic);
-     	}
-     	
-     	return outputStrings;
-	}
-
 
     public static List<Integer> getRandomNumberList(int range) throws Exception {
 
@@ -169,85 +128,18 @@ public class GenerateRandom {
     	return nums;
     }
 
-    public static ArrayList<String> getRandomUniqueFretPattern() throws Exception {
+    public static String getRandomFretPattern() throws Exception {
 
-    	ArrayList<String> outputStrings = new ArrayList<String>();
-    	
-    	for ( int i = 0; i < 12; i++ ) {
-    		
-    		String outputString = "";
-    		
-        	ArrayList<Integer> newIntegers = (ArrayList<Integer>) getRandomNumberList(3);
+    	String outputString = "";
 
-        	Iterator<Integer> iteratorNewIntegers = newIntegers.iterator();
-            
-        	int j = 0;
-        	
-         	while (iteratorNewIntegers.hasNext()) {
-        	
-         		j++;
-        		Integer newInt = iteratorNewIntegers.next();
-        		int indexFrets = newInt.intValue();
-
-        		char padChar = ' ';
-        		
-        		if ( j == 1) {
-        			
-                    //outputString = outputString + utility.StringPad.pad(i + 1, 2, padChar) + ".";
-                    outputString = outputString + i + ". ";
-        		}
-        		
-                //outputString = outputString + utility.StringPad.pad(validFrets[indexFrets], 3, padChar);
-                outputString = outputString + validFrets[indexFrets] + " ";
-
-        		if ( j == 4) {
-        	
-            		if ( i % 2 == 0 ) {
-            			
-                        //outputString = outputString + utility.StringPad.pad("UP", 5, padChar) + ": ";
-                        outputString = outputString + "- UP";
-            		}
-            		else {
-            			
-                        //outputString = outputString + utility.StringPad.pad("DOWN", 5, padChar) + ": ";
-                        outputString = outputString + "- DOWN";
-            		}
-        		}
-         	}
-
-         	outputStrings.add(outputString);
-    	}
-    	
-     	
-     	return outputStrings;
-	}
-
-    public static ArrayList<String> getRandomUniquePentatonic() throws Exception {
-
-    	ArrayList<String> outputStrings = new ArrayList<String>();
-    	
-    	ArrayList<Integer> newIntegers = (ArrayList<Integer>) getRandomNumberList(11);
-    	
-        Iterator<Integer> iteratorNewIntegers = newIntegers.iterator();
+    	ArrayList<Integer> newIntegers = (ArrayList<Integer>) getRandomNumberList(3);
+        Iterator<Integer> iteratorOutputIntegers = newIntegers.iterator();
         
-    	int i = 0;
-
-     	while (iteratorNewIntegers.hasNext()) {
-
-     		i++;
-     		
-    		Integer newInt = iteratorNewIntegers.next();
-    		int indexNotes = newInt.intValue();
-
-        	int indexKeys = getRandom(0, 1);
-        	int indexShapes = getRandom(0, 4);
-    		char padChar = ' ';
-
-        	//String pentatonic = utility.StringPad.pad(i, 2, padChar) + ". " + utility.StringPad.pad(validNotes[indexNotes], 16, padChar) + " " + validKeys[indexKeys] + " Pentatonic, " + validShapes[indexShapes];        	
-        	String pentatonic = i + ". " + validNotes[indexNotes] + " " + validKeys[indexKeys] + " Pentatonic, " + validShapes[indexShapes];        	
-        	outputStrings.add(pentatonic);
+     	while (iteratorOutputIntegers.hasNext()) {
+    		
+        	outputString = outputString + validFrets[iteratorOutputIntegers.next()] + " ";
      	}
-     	
-     	return outputStrings;
+
+     	return outputString;
 	}
 }

@@ -1,8 +1,5 @@
 package testapp;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import utility.GenerateRandom;
 import utility.Wrapper;
 
@@ -31,29 +28,11 @@ public class TestGenerateRandom {
     	    }
     	    */
 
-        	ArrayList<String> outputStrings = GenerateRandom.getRandomUniqueFretPattern();
-            Iterator<String> iteratorOutputStrings = outputStrings.iterator();
-            
-         	while (iteratorOutputStrings.hasNext()) {
-        		
-                Wrapper.printMessage( iteratorOutputStrings.next(), "*", "*");
-         	}
+    	    for (int idx = 1; idx <= 10; ++idx){
 
-        	ArrayList<String> outputStrings2 = GenerateRandom.getRandomUniqueDiatonic();
-            Iterator<String> iteratorOutputStrings2 = outputStrings2.iterator();
+                Wrapper.printMessage("GenerateRandom.getRandomFretPattern(): " + GenerateRandom.getRandomFretPattern(), "*", "*");
+    	    }
 
-            while (iteratorOutputStrings2.hasNext()) {
-        		
-                Wrapper.printMessage( iteratorOutputStrings2.next(), "*", "*");
-         	}
-
-        	ArrayList<String> outputStrings3 = GenerateRandom.getRandomUniquePentatonic();
-            Iterator<String> iteratorOutputStrings3 = outputStrings3.iterator();
-
-            while (iteratorOutputStrings3.hasNext()) {
-        		
-                Wrapper.printMessage( iteratorOutputStrings3.next(), "*", "*");
-         	}
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}

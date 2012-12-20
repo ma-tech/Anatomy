@@ -516,7 +516,9 @@ public class GenerateSQL {
     		
             if (changedComponentsIn.size() > 0) {
                 
-            	//modify components, set DBIDs and get only components that have dbids based on emap id
+                //System.out.println("changedComponentsIn.size() = " + changedComponentsIn.size());
+
+                //modify components, set DBIDs and get only components that have dbids based on emap id
                 AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
 
                 if ( !ananode.setDatabaseOIDs(changedComponentsIn, 
@@ -525,6 +527,8 @@ public class GenerateSQL {
                 	throw new DatabaseException("ananode.setDatabaseOIDs");
                 }
 
+                //System.out.println("ananode.getStartingComponentList.size() = " + ananode.getStartingComponentList().size());
+                
                 //get components whose stage ranges have changed
                 //find ranges of stages that need to be inserted/deleted, create
                 // temporary components for ranges and perform insertion and deletion for modified stage ranges
@@ -548,18 +552,23 @@ public class GenerateSQL {
                 //get components whose synonyms have changed
                 createDifferenceSynonyms( getChangedSynonymsTermList( ananode.getStartingComponentList() ) );
                 
-                //find ranges of stages that need to be inserted/deleted, create
-                // temporary components for ranges
-                //perform insertion and deletion for modified synonyms
-                AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
 
-                if ( !anasynonym.updateANA_SYNONYM( this.diffCreateSynList, 
-                		this.diffDeleteSynList, 
-                		"DELETE") ) {
+                if ( !(this.diffCreateSynList.isEmpty() &&  this.diffDeleteSynList.isEmpty()) ) {
+                	
+                    //find ranges of stages that need to be inserted/deleted, create
+                    // temporary components for ranges
+                    //perform insertion and deletion for modified synonyms
+                    AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
 
-             	   throw new DatabaseException("anasynonym.updateANA_SYNONYM");
+                    if ( !anasynonym.updateANA_SYNONYM( this.diffCreateSynList, 
+                    		this.diffDeleteSynList, 
+                    		"DELETED") ) {
+
+                 	   throw new DatabaseException("anasynonym.updateANA_SYNONYM");
+                    }
+                    
                 }
-                
+
                 //get components whose parents have changed
                 createDifferenceParents( getChangedParentsTermList( ananode.getStartingComponentList() ) );
                 		
@@ -581,7 +590,7 @@ public class GenerateSQL {
                 }
                 
                 if ( !anarelationship.deleteANA_RELATIONSHIP(this.diffDeleteRelList, 
-                		"DELETE") ) {
+                		"DELETED") ) {
 
                 	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP_UpdateParents");
                 }
@@ -803,19 +812,19 @@ public class GenerateSQL {
         try {
         	
             //for each term in deletedTermList
-            for (OBOComponent deleteCompie: deletedTermList) {
+            for (OBOComponent deleteComponent: deletedTermList) {
             	
                 //get all dependent descendants
-                dependentDescendants = recursiveGetDependentDescendants(deleteCompie.getID(), dependentDescendants, invalidDelete);
+                dependentDescendants = recursiveGetDependentDescendants(deleteComponent.getID(), dependentDescendants, invalidDelete);
             
                 if ( invalidDelete ) {
                 	
                     //disallow deletion
-                    deleteCompie.setCheckComment("Delete Record Warning: " + 
-                        deleteCompie.getID() + " still has descendants in " +
+                    deleteComponent.setCheckComment("Delete Record Warning: " + 
+                        deleteComponent.getID() + " still has descendants in " +
                         "the database. Deletion not allowed.");
                 
-                    deleteCompie.setCheckComment("Delete Record Warning: " +
+                    deleteComponent.setCheckComment("Delete Record Warning: " +
                         "Deletion of this term could potentially result in " +
                         "undesirable orphan terms or other ontology " +
                         "violations. Please generate a new OBO file from the " +
@@ -823,7 +832,7 @@ public class GenerateSQL {
                 }
                 else {
                     
-                	dbTermList.add(deleteCompie);
+                	dbTermList.add(deleteComponent);
                 }
             }
         }
@@ -990,56 +999,116 @@ public class GenerateSQL {
                 
                 int endSequence = this.jointimednodestageDAO.maxSequenceByNodeFk(Long.valueOf(component.getDBID()));
 
+                //System.out.println("startSequence                = " + startSequence);
+                //System.out.println("endSequence                  = " + endSequence);
+                //System.out.println("component.getStartSequence() = " + component.getStartSequence());
+                //System.out.println("component.getEndSequence()   = " + component.getEndSequence());
+                
                 //compare stage ranges between component and databasecomponent
                 // for creating new timed components
                 if ( startSequence > component.getStartSequence() ) {
                    
-                	OBOComponent createtimedcomponent = new OBOComponent();
+                    //System.out.println("HERE AAAAA");
+
+                    OBOComponent createtimedcomponent = new OBOComponent();
                    
                 	createtimedcomponent.setID( component.getID() );
                 	createtimedcomponent.setName( component.getName() );
                 	createtimedcomponent.setDBID( component.getDBID() );
                 	createtimedcomponent.setStart( component.getStart() );
                 	createtimedcomponent.setEndSequence( startSequence - 1, this.strSpecies );
+                	createtimedcomponent.setStatusChange("NEW");
+                	createtimedcomponent.setStatusRule("PASSED");
+                	
+                    Set<String> copyComments = component.getCheckComments();       
+                    
+                    for (String s: copyComments){
+                    	
+                        //System.out.println("component comment = " + s);
+
+                    	createtimedcomponent.setCheckComment(s);
+                    }
 
                 	diffCreateTimedCompList.add( createtimedcomponent );
                 }
-                else if ( endSequence < component.getEndSequence() ) {
+                
+                if ( endSequence < component.getEndSequence() ) {
                    
-                	OBOComponent createtimedcomponent = new OBOComponent();
+                    //System.out.println("HERE BBBBB");
+
+                    OBOComponent createtimedcomponent = new OBOComponent();
                    
                 	createtimedcomponent.setID( component.getID() );
                 	createtimedcomponent.setName( component.getName() );                   
                 	createtimedcomponent.setDBID( component.getDBID() );
                 	createtimedcomponent.setStartSequence( endSequence + 1, this.strSpecies );
                 	createtimedcomponent.setEndSequence( component.getEndSequence(), this.strSpecies );
+                	createtimedcomponent.setStatusChange("NEW");
+                	createtimedcomponent.setStatusRule("PASSED");
                    
+                    Set<String> copyComments = component.getCheckComments();       
+                    
+                    for (String s: copyComments){
+                    	
+                        //System.out.println("component comment = " + s);
+
+                    	createtimedcomponent.setCheckComment(s);
+                    }
+
                 	diffCreateTimedCompList.add( createtimedcomponent );
                 }
+                
                 //for deleting existing timed components
-                else if ( startSequence < component.getStartSequence() ) {
+                if ( startSequence < component.getStartSequence() ) {
                    
-                	OBOComponent delTimedCompie = new OBOComponent();
-                   
-                	delTimedCompie.setID( component.getID() );
-                	delTimedCompie.setName( component.getName() );
-                	delTimedCompie.setDBID( component.getDBID() );
-                	delTimedCompie.setStartSequence( startSequence, this.strSpecies );
-                	delTimedCompie.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
+                    //System.out.println("HERE CCCCC");
 
-                	diffCreateTimedCompList.add( delTimedCompie );
+                    OBOComponent delTimedComponent = new OBOComponent();
+                   
+                	delTimedComponent.setID( component.getID() );
+                	delTimedComponent.setName( component.getName() );
+                	delTimedComponent.setDBID( component.getDBID() );
+                	delTimedComponent.setStartSequence( startSequence, this.strSpecies );
+                	delTimedComponent.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
+                	delTimedComponent.setStatusChange("DELETED");
+                	delTimedComponent.setStatusRule("PASSED");
+
+                    Set<String> copyComments = component.getCheckComments();       
+                    
+                    for (String s: copyComments){
+                    	
+                        //System.out.println("component comment = " + s);
+
+                    	delTimedComponent.setCheckComment(s);
+                    }
+
+                	diffCreateTimedCompList.add( delTimedComponent );
                 }
-                else if ( endSequence > component.getEndSequence() ) {
+                
+                if ( endSequence > component.getEndSequence() ) {
                     
-                	OBOComponent delTimedCompie = new OBOComponent();
-                    
-                	delTimedCompie.setID( component.getID() );
-                    delTimedCompie.setName( component.getName() );
-                    delTimedCompie.setDBID( component.getDBID() );
-                    delTimedCompie.setStartSequence( component.getEndSequence() + 1, this.strSpecies );
-                    delTimedCompie.setEndSequence( endSequence, this.strSpecies );
+                    //System.out.println("HERE DDDDD");
 
-                    diffCreateTimedCompList.add( delTimedCompie );
+                    OBOComponent delTimedComponent = new OBOComponent();
+                    
+                	delTimedComponent.setID( component.getID() );
+                    delTimedComponent.setName( component.getName() );
+                    delTimedComponent.setDBID( component.getDBID() );
+                    delTimedComponent.setStartSequence( component.getEndSequence() + 1, this.strSpecies );
+                    delTimedComponent.setEndSequence( endSequence, this.strSpecies );
+                    delTimedComponent.setStatusChange("DELETED");
+                    delTimedComponent.setStatusRule("PASSED");
+
+                    Set<String> copyComments = component.getCheckComments();       
+                    
+                    for (String s: copyComments){
+                    	
+                        //System.out.println("component comment = " + s);
+
+                    	delTimedComponent.setCheckComment(s);
+                    }
+
+                    diffCreateTimedCompList.add( delTimedComponent );
                 }
             }
         }
@@ -1072,6 +1141,10 @@ public class GenerateSQL {
         ArrayList<String> insertSynonyms = new ArrayList<String>();
         
         try {
+        	
+        	//System.out.println("diffSynonymTermList.size() = " + diffSynonymTermList.size());
+        	//System.out.println("this.diffDeleteSynList.size() = " + this.diffDeleteSynList.size()); 
+        	//System.out.println("this.diffCreateSynList.size() = " + this.diffCreateSynList.size()); 
         	
             //for each component where parents have changed
             for (OBOComponent component: diffSynonymTermList) {
@@ -1159,8 +1232,8 @@ public class GenerateSQL {
         Wrapper.printMessage("generatesql.createDifferenceParents", "***", this.requestMsgLevel);
         	
         OBOComponent databasecomponent = new OBOComponent();
-        OBOComponent deleteRelCompie = new OBOComponent();
-        OBOComponent insertRelCompie = new OBOComponent();        
+        OBOComponent deleteRelComponent = new OBOComponent();
+        OBOComponent insertRelComponent = new OBOComponent();        
         
         ArrayList<String> inputParents = new ArrayList<String>();
         ArrayList<String> inputParentTypes = new ArrayList<String>();
@@ -1337,20 +1410,20 @@ public class GenerateSQL {
                 
                 if ( !deleteParents.isEmpty() ) {
                 	
-                    deleteRelCompie = new OBOComponent();
+                    deleteRelComponent = new OBOComponent();
                     ArrayList < String > copyDeleteParents = new ArrayList<String>();
                     ArrayList < String > copyDeleteParentTypes = new ArrayList<String>();
 
                     copyDeleteParents.addAll( deleteParents );
                     copyDeleteParentTypes.addAll( deleteParentTypes );
 
-                    deleteRelCompie.setDBID( component.getDBID() );
-                    deleteRelCompie.setID( component.getID() );
-                    deleteRelCompie.setName( component.getName() );
-                    deleteRelCompie.setChildOfs( copyDeleteParents );
-                    deleteRelCompie.setChildOfTypes( copyDeleteParentTypes );
+                    deleteRelComponent.setDBID( component.getDBID() );
+                    deleteRelComponent.setID( component.getID() );
+                    deleteRelComponent.setName( component.getName() );
+                    deleteRelComponent.setChildOfs( copyDeleteParents );
+                    deleteRelComponent.setChildOfTypes( copyDeleteParentTypes );
                     
-                    this.diffDeleteRelList.add( deleteRelCompie );
+                    this.diffDeleteRelList.add( deleteRelComponent );
                 }
 
                 insertParents.clear(); 
@@ -1360,7 +1433,7 @@ public class GenerateSQL {
 
                 if ( !insertParents.isEmpty() ) {
                 	
-                    insertRelCompie = new OBOComponent();
+                    insertRelComponent = new OBOComponent();
 
                     ArrayList < String > copyInsertParents = new ArrayList<String>();
                     ArrayList < String > copyInsertParentTypes = new ArrayList<String>();
@@ -1368,13 +1441,13 @@ public class GenerateSQL {
                     copyInsertParents.addAll( insertParents );
                     copyInsertParentTypes.addAll( insertParentTypes );
 
-                    insertRelCompie.setDBID( component.getDBID() );
-                    insertRelCompie.setID( component.getID() );
-                    insertRelCompie.setName( component.getName() );
-                    insertRelCompie.setChildOfs( copyInsertParents );
-                    insertRelCompie.setChildOfTypes( copyInsertParentTypes );
+                    insertRelComponent.setDBID( component.getDBID() );
+                    insertRelComponent.setID( component.getID() );
+                    insertRelComponent.setName( component.getName() );
+                    insertRelComponent.setChildOfs( copyInsertParents );
+                    insertRelComponent.setChildOfTypes( copyInsertParentTypes );
 
-                    this.diffCreateRelList.add( insertRelCompie );
+                    this.diffCreateRelList.add( insertRelComponent );
                 }
             }
         }
@@ -1440,8 +1513,13 @@ public class GenerateSQL {
         
         for ( OBOComponent component: changedTermList ) {
         	
+        	//System.out.println("component.toString(): " + component.toString());
+        	//System.out.println("component.getCheckComments(): " + component.getCheckComments());
+        	
         	if ( component.hasDifferenceComment("Different Synonyms") ) {
-        		
+
+            	//System.out.println("Different Synonym!!!");
+
         		termList.add( component );
             }
         }

@@ -42,12 +42,13 @@ import java.util.Iterator;
 
 import daolayer.ThingDAO;
 import daolayer.TimedNodeDAO;
+import daolayer.JOINTimedNodeStageDAO;
 import daolayer.StageDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daomodel.JOINNodeRelationshipRelationshipProject;
+import daomodel.JOINTimedNodeStage;
 import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.Stage;
@@ -69,6 +70,7 @@ public class AnaTimedNode {
     
     //Data Access Objects (DAOs)
     private TimedNodeDAO timednodeDAO;
+    private JOINTimedNodeStageDAO jointimednodestageDAO;
     private ThingDAO thingDAO;
     private StageDAO stageDAO;
 
@@ -89,6 +91,7 @@ public class AnaTimedNode {
 
         	this.thingDAO = daofactory.getThingDAO();
         	this.timednodeDAO = daofactory.getTimedNodeDAO();
+        	this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
         	this.stageDAO = daofactory.getStageDAO();
 
         	setProcessed( true );
@@ -110,19 +113,41 @@ public class AnaTimedNode {
     //  Insert new rows into ANA_TIMED_NODE
     public boolean insertANA_TIMED_NODE( ArrayList<OBOComponent> newTermList, String calledFrom, String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
     		
+        ArrayList<OBOComponent> logInsertTimedComponents = new ArrayList<OBOComponent>();
+
         OBOComponent component;
         boolean flagInsert = false;
-
+    	int intCurrentPublicID  = 0;
+    	
         try {
         	
+        	if ( newTermList.size() > 0 ) {
+        		
+                //INSERT timed component obj_oids into ANA_OBJECT
+                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
+                
+                if ( !anaobject.getMaxPublicId() ) {
+
+              	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : getMaxPublicId");
+                }
+
+                intCurrentPublicID = anaobject.getCurrentMaxPublicId();
+                
+                //System.out.println("anaobject.getCurrentMaxPublicId() = " + anaobject.getCurrentMaxPublicId());
+                //System.out.println("intCurrentPublicID = " + intCurrentPublicID);
+        	}
+             
             //create timed components in ANA_OBJECT
             ArrayList<OBOComponent> timedComps = new ArrayList<OBOComponent>();
             
             for ( int i = 0; i< newTermList.size(); i++) {
          	   
                 component = newTermList.get(i);
+
+                //System.out.println("component.toString() = " + component.toString());
+                //System.out.println("component.getCheckComments() = " + component.getCheckComments());
 
                 if ( ( component.commentsContain("Relation: ends_at -- Missing ends at stage - OBOComponent's stage range cannot be determined.") ) ||
                      ( component.commentsContain("Relation: starts_at -- Missing starts at stage - OBOComponent's stage range cannot be determined.") ) ||
@@ -132,24 +157,29 @@ public class AnaTimedNode {
                      ( component.commentsContain("Relation: starts_at, ends_at -- Stages are out of range!") ) ) {
              	   
                     flagInsert = false; 
+                    //System.out.println("A - NO INSERT!");
                 }
                 else {
              	   
                     flagInsert = true; 
+                    //System.out.println("A - YES, INSERT!");
                 }
 
-                //INSERT timed component obj_oids into ANA_OBJECT
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
-                
-                if ( !anaobject.getMaxPublicId() ) {
+                if ( ( component.getStatusChange().equals("NEW") ) ) {
 
-              	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:getMaxPublicId");
-                 }
-
-                int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
+                	flagInsert = true; 
+                    //System.out.println("B - YES, INSERT!");
+                }
+                else {
                 
+                	flagInsert = false; 
+                	//System.out.println("B - NO INSERT!");
+                }
+
                 if (flagInsert) {
              	   
+                    //intCurrentPublicID = intCurrentPublicID + 1;
+
                     //make a time component record for each stage
                     for (int j = component.getStartSequence(); j <= component.getEndSequence(); j++ ) {
 
@@ -158,6 +188,7 @@ public class AnaTimedNode {
                         timedComponent.setNamespace( component.getDBID() ); 
                         //current component
                         timedComponent.setStartSequence(j, strSpecies);
+                        timedComponent.setEndSequence(j, strSpecies);
                         
                         char padChar = '0';
                         
@@ -180,14 +211,13 @@ public class AnaTimedNode {
                         }
                         else {
                      	   
-                            Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strSpecies, "*", this.requestMsgLevel);
+                            Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.requestMsgLevel);
                         }
 
                         timedComps.add(timedComponent);
                     }
                 }
             }
-
         
             if ( !timedComps.isEmpty() ) {
             	
@@ -196,19 +226,11 @@ public class AnaTimedNode {
                 
                 if ( !anaobject.insertANA_OBJECT(timedComps, "ANA_TIMED_NODE") ) {
 
-               	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:insertANA_OBJECT:ANA_TIMED_NODE");
+               	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : insertANA_OBJECT:ANA_TIMED_NODE");
                 }
 
                 int intPrevNode = 0;
                 int intCompieStage = 0;
-
-                AnaLog analog = new AnaLog(  this.requestMsgLevel, this.daofactory );
-                
-                //insert TimedNodes to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_TimedNodes( timedComps, "INSERT" ) ) {
-
-                	throw new DatabaseException("anatimednode.insertANA_TIMED_NODE:insertANA_LOG_TimedNodes");
-                }
 
                 for (int k = 0; k< timedComps.size(); k++) {
                 	
@@ -219,27 +241,55 @@ public class AnaTimedNode {
                     int intATN_NODE_FK = Integer.parseInt( component.getNamespace() );
                     int intATN_STAGE_FK = 0;
 
-                    if (intPrevNode != intATN_NODE_FK) {
+                    //System.out.println("component.getStart() = " + component.getStart());
+                    //System.out.println("component.getEnd() = " + component.getEnd());
+
+                    if ( component.getStart().equals( component.getEnd() ) ) {
                     	
-                        intCompieStage = component.getStartSequence();
+                        Stage stage = this.stageDAO.findByName( component.getStart());
+                        
+                        intATN_STAGE_FK = stage.getOid().intValue();
+                        
+                        //System.out.println("intCompieStage = " + intCompieStage);
+                        //System.out.println("stage.toString() = " + stage.toString());
                     }
                     else {
                     	
-                        intCompieStage++;
+                        if (intPrevNode != intATN_NODE_FK) {
+                        	
+                            intCompieStage = component.getStartSequence();
+                        }
+                        else {
+                        	
+                            intCompieStage++;
+                        }
+                        
+                        Stage stage = this.stageDAO.findBySequence((long) intCompieStage);
+                        
+                        intATN_STAGE_FK = stage.getOid().intValue();
+                        
+                        //System.out.println("intCompieStage = " + intCompieStage);
+                        //System.out.println("stage.toString() = " + stage.toString());
                     }
                     
-                    Stage stage = this.stageDAO.findBySequence((long) intCompieStage);
-                    intATN_STAGE_FK = stage.getOid().intValue();
-                    
-                    //String strATN_STAGE_MODIFIER_FK == null
                     String strATN_PUBLIC_ID = component.getID();
                     String strATN_DISPLAY_ID = component.getDisplayId();
                     
                     TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID, strATN_DISPLAY_ID);
                     
+                    //System.out.println("timednode.toString() = " + timednode.toString());
+                    
                     this.timednodeDAO.create(timednode);
 
                     intPrevNode = intATN_NODE_FK;
+                }
+                
+                AnaLog analog = new AnaLog(  this.requestMsgLevel, this.daofactory );
+                
+                //insert TimedNodes to be deleted in ANA_LOG
+                if ( !analog.insertANA_LOG_TimedNodes( timedComps, "INSERT" ) ) {
+
+                	throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : insertANA_LOG_TimedNodes");
                 }
             }
         }
@@ -261,36 +311,61 @@ public class AnaTimedNode {
     //  Delete rows from ANA_TIMED_NODE 
     public boolean deleteANA_TIMED_NODE( ArrayList<OBOComponent> deleteTimedComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
+        ArrayList<OBOComponent> logDeleteTimedComponents = new ArrayList<OBOComponent>();
+        
         try {
         	
             if ( !deleteTimedComponents.isEmpty() ) {
 
             	for ( OBOComponent component: deleteTimedComponents ) {
             		
-            		ArrayList<TimedNode> timednodes = (ArrayList<TimedNode>) timednodeDAO.listByNodeFK(Long.valueOf(component.getDBID()));
-            		
-                    Iterator<TimedNode> iteratorTimednodes = timednodes.iterator();
-                    
-                    while ( iteratorTimednodes.hasNext() ) {
+                    //System.out.println("component.toString() = " + component.toString());
+
+                    if ( component.getStatusChange().equals("DELETED") ) {
                     	
-                    	TimedNode timednode = iteratorTimednodes.next();
+                    	logDeleteTimedComponents.add(component);
+                    	
+                        ArrayList<JOINTimedNodeStage> jointimednodestages = 
+                        		(ArrayList<JOINTimedNodeStage>) jointimednodestageDAO.listAllByNodeFkOrderByStageName( Long.valueOf( component.getDBID() ) );
+                		
+                        Iterator<JOINTimedNodeStage> iteratorJointimednodestages = jointimednodestages.iterator();
+                        
+                        while ( iteratorJointimednodestages.hasNext() ) {
+                        	
+                        	JOINTimedNodeStage jointimednodestage = iteratorJointimednodestages.next();
 
-                    	Thing thing = thingDAO.findByOid(timednode.getOid()); 
+                            //System.out.println("jointimednodestage.toString() = " + jointimednodestage.toString());
 
-                        thingDAO.delete(thing);
+                            if ( ( jointimednodestage.getName().equals(component.getStart()) &&
+                            	jointimednodestage.getName().equals(component.getEnd()) ) || 
+                            	( component.getStart().equals(component.getStartStageForSpecies(jointimednodestage.getSpeciesFK())) &&
+                            	component.getEnd().equals(component.getEndStageForSpecies(jointimednodestage.getSpeciesFK())) )) {
+                            	
+                                TimedNode timednode = timednodeDAO.findByOid(jointimednodestage.getOidTimedNode());
 
-                        timednodeDAO.delete(timednode);
+                                if ( timednode != null ) {
+                                	
+                                    //System.out.println("DELETING Timed Node! timednode.toString() = " + timednode.toString());
+
+                                    Thing thing = thingDAO.findByOid(jointimednodestage.getOidTimedNode()); 
+
+                                    thingDAO.delete(thing);
+
+                                    timednodeDAO.delete(timednode);
+                                }
+                            }
+                        }
                     }
             	}
             	
                 AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                 
                 //insert TimedNodes to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_TimedNodes( deleteTimedComponents, "DELETE" ) ) {
+                if ( !analog.insertANA_LOG_TimedNodes( logDeleteTimedComponents, "DELETED" ) ) {
 
-                	throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE:insertANA_LOG_TimedNodes");
+                	throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE : insertANA_LOG_TimedNodes");
                 }
             }
         }
@@ -312,20 +387,24 @@ public class AnaTimedNode {
     //  update rows in ANA_TIMED_NODE
 	public boolean updateANA_TIMED_NODE( ArrayList<OBOComponent> changedTimedTermList, String calledFrom, String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
         try {
         	
+            //System.out.println("changedTimedTermList.size() = " + changedTimedTermList.size());
+
             //insert time components in ANA_TIMED_NODE
             if ( !insertANA_TIMED_NODE( changedTimedTermList, "MODIFY", strSpecies) ) {
 
-            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE:insertANA_TIMED_NODE:MODIFY");
+            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE : insertANA_TIMED_NODE:MODIFY");
             }
             
+            //System.out.println("changedTimedTermList.size()" + changedTimedTermList.size());
+
             //delete time components in ANA_TIMED_NODE
             if ( !deleteANA_TIMED_NODE( changedTimedTermList, "UPDATE" ) ) {
 
-            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE:deleteANA_TIMED_NODE:UPDATE");
+            	throw new DatabaseException("anatimednode.updateANA_TIMED_NODE : deleteANA_TIMED_NODE:UPDATE");
             }
         }
         catch ( DatabaseException dbex ) {

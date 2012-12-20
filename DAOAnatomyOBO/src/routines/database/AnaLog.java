@@ -45,19 +45,24 @@ import java.util.Iterator;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
+import daolayer.TimedNodeDAO;
+import daolayer.VersionDAO;
 import daolayer.LogDAO;
 import daolayer.NodeDAO;
 import daolayer.RelationshipDAO;
 import daolayer.SynonymDAO;
-import daolayer.JOINTimedNodeStageDAO;
 
+import daomodel.Version;
 import daomodel.Log;
+import daomodel.TimedNode;
 import daomodel.Node;
 import daomodel.Relationship;
 import daomodel.Synonym;
-import daomodel.JOINTimedNodeStage;
 
 import obomodel.OBOComponent;
+
+import utility.MySQLDateTime;
+import utility.ObjectConverter;
 import utility.Wrapper;
 
 public class AnaLog {
@@ -70,13 +75,14 @@ public class AnaLog {
     private boolean processed;
     
     //Data Access Objects (DAOs)
+    private VersionDAO versionDAO;
     private LogDAO logDAO;
     private NodeDAO nodeDAO;
+    private TimedNodeDAO timednodeDAO;
     private RelationshipDAO relationshipDAO;
     private SynonymDAO synonymDAO;
-    private JOINTimedNodeStageDAO jointimednodestageDAO;
     
-    private int intCurrentLogID;
+    private long longLOG_VERSION_FK;
 
     
     // Constructors -------------------------------------------------------------------------------
@@ -94,13 +100,17 @@ public class AnaLog {
 
             this.daofactory = daofactory;
 
+        	this.versionDAO = daofactory.getVersionDAO();
         	this.logDAO = daofactory.getLogDAO();
+        	this.timednodeDAO = daofactory.getTimedNodeDAO();
         	this.nodeDAO = daofactory.getNodeDAO();
         	this.relationshipDAO = daofactory.getRelationshipDAO();
         	this.synonymDAO = daofactory.getSynonymDAO();
-        	this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
 
-        	setProcessed( true );
+        	Version version = versionDAO.findMostRecent();
+            this.longLOG_VERSION_FK = version.getOid();
+
+            setProcessed( true );
     	}
 
         catch ( DAOException dao ) {
@@ -119,23 +129,24 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_TIMED_NODE Insertions or Deletions
     public boolean insertANA_LOG_Nodes( ArrayList<OBOComponent> recordTermList, String strSpecies, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Nodes:" + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Nodes : " + calledFrom , "***", this.requestMsgLevel);
         	
+        long longLogOID = 0;
+        long longLogLoggedOID = 0;
+
         //column values for insertion into ANA_LOG
-        int intLOG_OID = 0;
-        int intLOG_LOGGED_OID = 0;
         String strLOG_COLUMN_NAME = "";
         String strLOG_OLD_VALUE = "";
         
         //version_oid should be very first obj_oid created for easy tracing
-        int intLOG_VERSION_FK = intCurrentLogID;
         String strLOG_COMMENTS = "";
+        String strLOG_DATETIME = MySQLDateTime.now();
         
         if ( calledFrom.equals("INSERT") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for INSERTED Nodes";
         }
-        else if ( calledFrom.equals("DELETE") ) {
+        else if ( calledFrom.equals("DELETED") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for DELETED Nodes";
         }
@@ -145,9 +156,6 @@ public class AnaLog {
         }
 
         //create one record
-        int intLogOID = 0;
-        int intLogLoggedOID = 0;
-
         HashMap<String, String> anoOldValues = new HashMap<String, String>();
         
         //ANA_NODE columns
@@ -167,11 +175,8 @@ public class AnaLog {
         try {
         	
         	//get max log_oid from new database
-        	intLogOID = logDAO.maximumOid();
- 
-        	//get max log_logged_oid from new database
-        	intLogLoggedOID = logDAO.maximumLoggedOid();
-            
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+        	
         	//INSERT INTO ANA_LOG
             if ( !recordTermList.isEmpty() ) {
             	
@@ -206,19 +211,17 @@ public class AnaLog {
                     anoOldValues.put( "ANO_DESCRIPTION", "N/A" );
                     anoOldValues.put( "ANO_DISPLAY_ID", component.getDisplayId() );
 
-                    //increment for each component
-                    ++intLogLoggedOID;
+                    longLogLoggedOID = utility.ObjectConverter.convert(component.getDBID(), Long.class);
                 	
                     for (String columnName: vANOcolumns) {	
                     	
-                        intLOG_OID = ++intLogOID;
-                        intLOG_LOGGED_OID = intLogLoggedOID;
+                        longLogOID++;
                         strLOG_COLUMN_NAME = columnName;
                         strLOG_OLD_VALUE = anoOldValues.get(columnName);
-                        intLOG_VERSION_FK = intCurrentLogID;
-                        strLOG_COMMENTS = "Insert into ANA_LOG for Valid Deleted Components from ANA_NODE";
 
-                        Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
+                        Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME);
+                        
+                        //System.out.println("log.toString() " + log.toString());
                         
                         logDAO.create(log); 
                     }
@@ -244,11 +247,13 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_TIMED_NODE Insertions or Deletions
     public boolean insertANA_LOG_TimedNodes( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_TimedNodes:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_TimedNodes : " + calledFrom, "***", this.requestMsgLevel);
         	
-        HashMap<String, String> atnOldValues = new HashMap<String, String>(); 
-        int intLogLoggedOID = 0;
-        int intLogOID = 0;
+        HashMap<String, String> atnOldValues = new HashMap<String, String>();
+        
+        long longLogLoggedOID = 0;
+        long longLogOID = 0;
+        
         int intStartKey = 0;
         int intEndKey = 0;
         
@@ -270,20 +275,18 @@ public class AnaLog {
         String strATN_DISPLAY_ID = "";
         
         //column values for insertion into ANA_LOG
-        int intLOG_OID = 0;
-        int intLOG_LOGGED_OID = 0;
         String strLOG_COLUMN_NAME = "";
         String strLOG_OLD_VALUE = "";
         
         //version_oid should be very first obj_oid created for easy tracing
-        int intLOG_VERSION_FK = 0;
         String strLOG_COMMENTS = "";
+        String strLOG_DATETIME = MySQLDateTime.now();
 
         if ( calledFrom.equals("INSERT") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for INSERTED TimedNodes";
         }
-        else if ( calledFrom.equals("DELETE") ) {
+        else if ( calledFrom.equals("DELETED") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for DELETED TimedNodes";
         }
@@ -298,45 +301,42 @@ public class AnaLog {
             
             if ( !anaobject.getMaxOID() ) {
 
-            	throw new DatabaseException("analog.insertANA_LOG_TimedNodes:anaobject.getMaxOID()");
+            	throw new DatabaseException("analog.insertANA_LOG_TimedNodes : anaobject.getMaxOID()");
             }
 
-            intLOG_VERSION_FK = anaobject.getCurrentMaxObjectId();
-
         	//get max log_oid from new database
-        	intLogOID = logDAO.maximumOid();
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
         	
-            //get max log_logged_oid from new database
-        	intLogLoggedOID = logDAO.maximumLoggedOid();
-
             if ( !recordTermList.isEmpty() ) {
 
             	for ( OBOComponent component: recordTermList ) {
 
+            		//System.out.println("component.toString() = " + component.toString());
+            		
                     intStartKey = component.getStartSequence();
                     intEndKey = component.getEndSequence();
 
+                    longLogLoggedOID = utility.ObjectConverter.convert(component.getDBID(), Long.class);
+
                     for ( int stage=intStartKey; stage<=intEndKey; stage++ ) {
 
-                        ArrayList<JOINTimedNodeStage> jointimednodestages = 
-                        		(ArrayList<JOINTimedNodeStage>) jointimednodestageDAO.listAllByNodeFkAndStageSequence(Long.valueOf(component.getDBID()), (long) stage);
+                    	ArrayList<TimedNode> timednodes = (ArrayList<TimedNode>) timednodeDAO.listByPublicID(component.getID());
+                    	
+                		//System.out.println("timednodes.toString() = " + timednodes.toString());
 
-                        Iterator<JOINTimedNodeStage> iteratorjointimednodestage = jointimednodestages.iterator();
+                		Iterator<TimedNode> iteratortimednode = timednodes.iterator();
 
-                      	while (iteratorjointimednodestage.hasNext()) {
+                      	while (iteratortimednode.hasNext()) {
                         
-                      		JOINTimedNodeStage jointimednodestage = iteratorjointimednodestage.next();
+                      		TimedNode timednode = iteratortimednode.next();
                       		
-                            intATN_OID = jointimednodestage.getOidTimedNode().intValue();
-                            intATN_STAGE_FK = jointimednodestage.getStageFK().intValue();
-                            strATN_STAGE_MODIFIER_FK = jointimednodestage.getStageModifierFK();
-                            strATN_PUBLIC_ID = jointimednodestage.getPublicTimedNodeId();
-                            intATN_NODE_FK = jointimednodestage.getNodeFK().intValue();
-                            strATN_DISPLAY_ID = jointimednodestage.getDisplayTimedNodeId();
+                            intATN_OID = timednode.getOid().intValue();
+                            intATN_STAGE_FK = timednode.getStageFK().intValue();
+                            strATN_STAGE_MODIFIER_FK = timednode.getStageModifierFK();
+                            strATN_PUBLIC_ID = timednode.getPublicId();
+                            intATN_NODE_FK = timednode.getNodeFK().intValue();
+                            strATN_DISPLAY_ID = timednode.getDisplayId();
                             
-                            //increment for each timed component record
-                            ++intLogLoggedOID;
-
                             //clear HashMap atnOldValues
                             atnOldValues.clear();
                             
@@ -347,15 +347,18 @@ public class AnaLog {
                             atnOldValues.put( "ATN_NODE_FK", Integer.toString( intATN_NODE_FK ) );
                             atnOldValues.put( "ATN_DISPLAY_ID", strATN_DISPLAY_ID );
                             
+                            longLogLoggedOID = utility.ObjectConverter.convert(intATN_OID, Long.class);
+
                             for (String columnName: vATNcolumns) {
                               	
-                                intLOG_OID = ++intLogOID;
-                                intLOG_LOGGED_OID = intLogLoggedOID;
+                                longLogOID++;
                                 strLOG_COLUMN_NAME = columnName;
                                 strLOG_OLD_VALUE = atnOldValues.get(columnName);
 
-                                Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
+                                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME);
                                
+                        		//System.out.println("log.toString() = " + log.toString());
+
                                 logDAO.create(log);
                             }
                       	}     
@@ -381,16 +384,17 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_RELATIONSHIP Insertions or Deletions
     public boolean insertANA_LOG_Relationships( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Relationships : " + calledFrom, "***", this.requestMsgLevel);
         	
         try {
         	
+            long longLogLoggedOID = 0;
+            long longLogOID = 0;
+            
             ArrayList<OBOComponent> deleteRelComponents = new ArrayList<OBOComponent>(); 
             HashMap<String, String> relOldValues = new HashMap<String, String>(); 
             ArrayList<String> deleteParents = new ArrayList<String>();
 
-            int intLogLoggedOID = 0;
-            int intLogOID = 0;
             int intParentDBID = 0;
             
             //ANA_RELATIONSHIP columns
@@ -407,20 +411,18 @@ public class AnaLog {
             int intREL_CHILD_FK = 0;
             
             //column values for insertion into ANA_LOG
-            int intLOG_OID = 0;
-            int intLOG_LOGGED_OID = 0;
             String strLOG_COLUMN_NAME = "";
             String strLOG_OLD_VALUE = "";
+            String strLOG_DATETIME = MySQLDateTime.now();
             
             //version_oid should be very first obj_oid created for easy tracing
-            int intLOG_VERSION_FK = 0; 
             String strLOG_COMMENTS = "";
 
             if ( calledFrom.equals("INSERT") ) {
             	
             	strLOG_COMMENTS = "Insert into ANA_LOG for INSERTED Relationships";
             }
-            else if ( calledFrom.equals("DELETE") ) {
+            else if ( calledFrom.equals("DELETED") ) {
             	
             	strLOG_COMMENTS = "Insert into ANA_LOG for DELETED Relationships";
             }
@@ -433,35 +435,30 @@ public class AnaLog {
 
             if ( !anaobject.getMaxOID() ) {
            	   
-            	throw new DatabaseException("getMaxOID");
+            	throw new DatabaseException("analog.insertANA_LOG_Relationships : anaobject.getMaxOID");
             }
 
-            intLOG_VERSION_FK = anaobject.getCurrentMaxObjectId();
-        	
             //get max log_oid from new database
-        	intLogOID = logDAO.maximumOid();
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
         	
-            //get max log_logged_oid from new database
-        	intLogLoggedOID = logDAO.maximumLoggedOid();
-      	  
-            if ( !recordTermList.isEmpty() ) {
+    		if ( !recordTermList.isEmpty() ) {
             	
             	for ( OBOComponent component: recordTermList ) {
             		
-                    //deleteParents = component.getChildOfs();
+            		//deleteParents = component.getChildOfs();
                     deleteParents = component.getChildOfs();
 
-                    for ( String deleteParent: deleteParents ) {
+            		for ( String deleteParent: deleteParents ) {
 
-                        //intParentDBID = getDatabaseIdentifier( deleteParent ); 
-                    	Node node = nodeDAO.findByPublicId(deleteParent);
+                		//intParentDBID = getDatabaseIdentifier( deleteParent ); 
+                    	Node node = nodeDAO.findByOid(ObjectConverter.convert(deleteParent, Long.class));
                     	
                         if ( node != null ) {
                         	
                         	intParentDBID = node.getOid().intValue();
                         }
 
-                        ArrayList<Relationship> relationships = (ArrayList<Relationship>) relationshipDAO.listByParentFKAndChildFK((long) intParentDBID, Long.valueOf(component.getDBID()));
+                        ArrayList<Relationship> relationships = (ArrayList<Relationship>) relationshipDAO.listByParentFKAndChildFK((long) intParentDBID, Long.valueOf(component.getID()));
 
                         if (relationships.size() == 1) {
                         	
@@ -470,7 +467,7 @@ public class AnaLog {
                             OBOComponent deleteRelComponent = new OBOComponent();
 
                             deleteRelComponent.setDBID( Long.toString(relationship.getOid()) );
-                            deleteRelComponent.setID( component.getDBID() );
+                            deleteRelComponent.setID( component.getID() );
                             deleteRelComponent.addChildOf( Integer.toString( intParentDBID ) );
 
                             if ( relationship.getTypeFK().equals("part-of") ) {
@@ -519,7 +516,7 @@ public class AnaLog {
                             }
                             else {
                             
-                                Wrapper.printMessage("analog.insertANA_LOG_Relationships:" + calledFrom + ";" + "UNKNOWN Relationship Type = " + relationship.getTypeFK(), "*", this.requestMsgLevel);
+                                Wrapper.printMessage("analog.insertANA_LOG_Relationships : " + calledFrom + "; " + "UNKNOWN Relationship Type = " + relationship.getTypeFK(), "*", this.requestMsgLevel);
                             }
 
                             deleteRelComponents.add( deleteRelComponent );
@@ -530,7 +527,6 @@ public class AnaLog {
                             intREL_CHILD_FK = relationship.getChildFK().intValue();
 
                             //increment for each relationship record
-                            ++intLogLoggedOID;
 
                             //clear HashMap relOldValues
                             relOldValues.clear();
@@ -539,14 +535,15 @@ public class AnaLog {
                             relOldValues.put( "REL_PARENT_FK", Integer.toString( intREL_PARENT_FK ) );
                             relOldValues.put( "REL_CHILD_FK", Integer.toString( intREL_CHILD_FK ) );
 
+                            longLogLoggedOID = utility.ObjectConverter.convert(intREL_OID, Long.class);
+                            
                             for (String columnName: vRELcolumns) {
                           	  
-                                intLOG_OID = ++intLogOID;
-                                intLOG_LOGGED_OID = intLogLoggedOID;
+                                longLogOID++;
                                 strLOG_COLUMN_NAME = columnName;
                                 strLOG_OLD_VALUE = relOldValues.get(columnName);
 
-                                Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
+                                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME);
                                 
                                 logDAO.create(log);
                             }     
@@ -554,7 +551,6 @@ public class AnaLog {
                     }
                 }
             }
-
         }
         catch ( DAOException dao ) {
         	
@@ -574,14 +570,14 @@ public class AnaLog {
     //  Insert into ANA_LOG for ANA_SYNONYM Insertions or Deletions
     public boolean insertANA_LOG_Synonyms( ArrayList<OBOComponent> recordTermList, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("analog.insertANA_LOG_Synonyms:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("analog.insertANA_LOG_Synonyms : " + calledFrom, "***", this.requestMsgLevel);
         	
+        long longLogLoggedOID = 0;
+        long longLogOID = 0;
+        
         HashMap<String, String> synOldValues = new HashMap<String, String>(); 
         ArrayList<String> deleteSynonyms = new ArrayList<String>();
 
-        int intLogLoggedOID = 0;
-        int intLogOID = 0;
-        
         //ANA_SYNONYM columns
         Vector<String> vSYNcolumns = new Vector<String>();
         vSYNcolumns.add("SYN_OID");
@@ -593,12 +589,13 @@ public class AnaLog {
         int intSYN_OBJECT_FK = 0;
         String strSYN_SYNONYM = "";
         String strLOG_COMMENTS = "";
+        String strLOG_DATETIME = MySQLDateTime.now();
 
         if ( calledFrom.equals("INSERT") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for INSERTED Synonyms";
         }
-        else if ( calledFrom.equals("DELETE") ) {
+        else if ( calledFrom.equals("DELETED") ) {
         	
         	strLOG_COMMENTS = "Insert into ANA_LOG for DELETED Synonyms";
         }
@@ -608,11 +605,8 @@ public class AnaLog {
         }
         
         //column values for insertion into ANA_LOG
-        int intLOG_OID = 0;
-        int intLOG_LOGGED_OID = 0;
         String strLOG_COLUMN_NAME = "";
         String strLOG_OLD_VALUE = "";
-        int intLOG_VERSION_FK = 0; 
    
         try {
 
@@ -620,17 +614,12 @@ public class AnaLog {
 
             if ( !anaobject.getMaxOID() ) {
 
-            	throw new DatabaseException("getMaxOID");
+            	throw new DatabaseException("analog.insertANA_LOG_Synonyms : anaobject.getMaxOID");
             }
 
-            intLOG_VERSION_FK = anaobject.getCurrentMaxObjectId();
-        	
         	//get max log_oid from new database
-        	intLogOID = logDAO.maximumOid();
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
             
-        	//get max log_logged_oid from new database
-        	intLogLoggedOID = logDAO.maximumLoggedOid();
-
             if ( !recordTermList.isEmpty() ) {
 
             	for ( OBOComponent component: recordTermList ) {
@@ -653,23 +642,21 @@ public class AnaLog {
                             intSYN_OBJECT_FK = Integer.parseInt( component.getDBID() );
                             strSYN_SYNONYM = deleteSynonym;
 
-                            //increment for each relationship record
-                            ++intLogLoggedOID;
-
                             //clear HashMap synOldValues
                             synOldValues.clear();
                             synOldValues.put("SYN_OID", Integer.toString(intSYN_OID) );
                             synOldValues.put("SYN_OBJECT_FK", Integer.toString(intSYN_OBJECT_FK) );
                             synOldValues.put("SYN_SYNONYM", strSYN_SYNONYM);
 
+                            longLogLoggedOID = utility.ObjectConverter.convert(intSYN_OID, Long.class);
+                            
                             for (String columnName: vSYNcolumns) {
                             	
-                                intLOG_OID = ++intLogOID;
-                                intLOG_LOGGED_OID = intLogLoggedOID;
+                            	longLogOID++;
                                 strLOG_COLUMN_NAME = columnName;
                                 strLOG_OLD_VALUE = synOldValues.get(columnName);
 
-                                Log log = new Log((long) intLOG_OID, (long) intLOG_LOGGED_OID, (long) intLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS);
+                                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME);
                                 
                                 logDAO.create(log);
                             }     

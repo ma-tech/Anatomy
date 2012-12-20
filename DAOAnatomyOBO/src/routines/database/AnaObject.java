@@ -113,7 +113,7 @@ public class AnaObject {
 
     	setProcessed( true );
 
-        Wrapper.printMessage("anaobject.insertANA_OBJECT:Inserts for Table:" + calledFromTable, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.insertANA_OBJECT : Inserts for Table : " + calledFromTable, "***", this.requestMsgLevel);
         	
         OBOComponent component = new OBOComponent();
 
@@ -121,7 +121,7 @@ public class AnaObject {
         	
             if ( !getMaxOID() ) {
 
-            	throw new DatabaseException("anaobject.insertANA_OBJECT:getMaxOID()");
+            	throw new DatabaseException("anaobject.insertANA_OBJECT : getMaxOID()");
             }
 
             int intOBJ_OID = 0;
@@ -167,7 +167,7 @@ public class AnaObject {
     //  Delete rows from ANA_OBJECT
     public boolean deleteANA_OBJECT( ArrayList<OBOComponent> deleteObjects, String calledFromTable ) throws Exception {
 
-        Wrapper.printMessage("anaobject.deleteANA_OBJECT:Deletes to ANA_OBJECT for Table:" + calledFromTable, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.deleteANA_OBJECT : Deletes to ANA_OBJECT for Table : " + calledFromTable, "***", this.requestMsgLevel);
         	
         try {
         	

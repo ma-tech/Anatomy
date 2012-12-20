@@ -102,7 +102,7 @@ public class AnaSynonym {
     //  Insert new rows into ANA_SYNONYM
     public boolean insertANA_SYNONYM( ArrayList<OBOComponent> newTermList, String calledFrom ) throws Exception {
     	
-        Wrapper.printMessage("anasynonym.insertANA_SYNONYM:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.insertANA_SYNONYM : " + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component;
 
@@ -133,17 +133,9 @@ public class AnaSynonym {
                
                if ( !anaobject.insertANA_OBJECT(synonymCompList, "ANA_SYNONYM") ) {
 
-            	   throw new DatabaseException("anasynonym.insertANA_SYNONYM:insertANA_OBJECT");
+            	   throw new DatabaseException("anasynonym.insertANA_SYNONYM : insertANA_OBJECT");
                }
                
-               AnaLog analog = new AnaLog( this.requestMsgLevel,this.daofactory );
-               
-               //insert Synonyms to be deleted in ANA_LOG
-               if ( !analog.insertANA_LOG_Synonyms( synonymCompList, "INSERT" ) ) {
-
-               	throw new DatabaseException("anasynonym.insertANA_SYNONYM:insertANA_LOG_Synonyms");
-               }
-
                for ( OBOComponent synCompie: synonymCompList ) {
 
                    //proceed with insertion
@@ -154,6 +146,14 @@ public class AnaSynonym {
                    Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
                    
                    this.synonymDAO.create(synonym);
+               }
+               
+               AnaLog analog = new AnaLog( this.requestMsgLevel,this.daofactory );
+               
+               //insert Synonyms to be deleted in ANA_LOG
+               if ( !analog.insertANA_LOG_Synonyms( synonymCompList, "INSERT" ) ) {
+
+               	throw new DatabaseException("anasynonym.insertANA_SYNONYM : insertANA_LOG_Synonyms");
                }
            }
         }
@@ -175,7 +175,7 @@ public class AnaSynonym {
     //  Delete rows from ANA_SYNONYM
     public boolean deleteANA_SYNONYM( ArrayList<OBOComponent> deleteSynComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM:" + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM : " + calledFrom , "***", this.requestMsgLevel);
         	
         try {
         	
@@ -206,9 +206,9 @@ public class AnaSynonym {
                     AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                     
                     //insert Synonyms to be deleted in ANA_LOG
-                    if ( !analog.insertANA_LOG_Synonyms( deleteSynComponents, "DELETE" ) ) {
+                    if ( !analog.insertANA_LOG_Synonyms( deleteSynComponents, "DELETED" ) ) {
 
-                    	throw new DatabaseException("anasynonym.deleteANA_SYNONYM:insertANA_LOG_Synonyms");
+                    	throw new DatabaseException("anasynonym.deleteANA_SYNONYM : insertANA_LOG_Synonyms");
                     }
                 }
             }
@@ -233,21 +233,37 @@ public class AnaSynonym {
 			ArrayList<OBOComponent> oldSynonymsTermList, 
 			String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.updateANA_SYNONYM:" + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.updateANA_SYNONYM : " + calledFrom , "***", this.requestMsgLevel);
     	
         try {
         	
-            //insert Synonyms in ANA_SYNONYM
-            if ( insertANA_SYNONYM( newSynonymsTermList, "UPDATE" ) ) {
+        	if ( newSynonymsTermList.isEmpty() ) {
 
-            	throw new DatabaseException("anasynonym.updateANA_SYNONYM:insertANA_SYNONYM");
-            }
-            
-            //delete Synonyms in ANA_SYNONYM
-            if ( deleteANA_SYNONYM( oldSynonymsTermList, "UPDATE" ) ) {
+        		//System.out.println("newSynonymsTermList.isEmpty() = " + newSynonymsTermList.isEmpty());
+        	}
+        	else {
+        		
+        		//System.out.println("newSynonymsTermList.isEmpty() = " + newSynonymsTermList.isEmpty());
 
-            	throw new DatabaseException("anasynonym.updateANA_SYNONYM:deleteANA_SYNONYM");
-            }
+        		//insert Synonyms in ANA_SYNONYM
+                if ( insertANA_SYNONYM( newSynonymsTermList, "UPDATE" ) ) {
+
+                	throw new DatabaseException("anasynonym.updateANA_SYNONYM : insertANA_SYNONYM");
+                }
+        	}
+        	
+        	if ( oldSynonymsTermList.isEmpty() ) {
+
+        		//System.out.println("oldSynonymsTermList.isEmpty() = " + oldSynonymsTermList.isEmpty());
+        	}
+        	else {
+        		
+                //delete Synonyms in ANA_SYNONYM
+                if ( deleteANA_SYNONYM( oldSynonymsTermList, "UPDATE" ) ) {
+
+                	throw new DatabaseException("anasynonym.updateANA_SYNONYM : deleteANA_SYNONYM");
+                }
+        	}
         }
         catch ( DatabaseException dbex ) {
         	

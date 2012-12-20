@@ -74,6 +74,13 @@ public final class VersionDAO {
         "FROM ANA_VERSION " +
         "WHERE VER_OID = ?";
     
+    private static final String SQL_FIND_MOST_RECENT_VERSION =
+        "SELECT v1.VER_OID, v1.VER_NUMBER, v1.VER_DATE, v1.VER_COMMENTS " + 
+        "FROM ANA_VERSION v1 " + 
+        "LEFT JOIN ANA_VERSION v2 " +
+        "ON v1.VER_DATE < v2.VER_DATE " +
+        "WHERE v2.VER_OID IS NULL";
+        
     private static final String SQL_LIST_ALL =
         "SELECT VER_OID, VER_NUMBER, VER_DATE, VER_COMMENTS " +
         "FROM ANA_VERSION ";
@@ -120,6 +127,14 @@ public final class VersionDAO {
     public Version findByOid(Long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
+    }
+    
+    /*
+     * Returns the version from the database matching the given OID, otherwise null.
+     */
+    public Version findMostRecent() throws Exception {
+    	
+        return find(SQL_FIND_MOST_RECENT_VERSION);
     }
     
     /*

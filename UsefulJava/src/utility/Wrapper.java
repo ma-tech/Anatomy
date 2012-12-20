@@ -88,11 +88,16 @@ public class Wrapper {
     	long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
     	
+    	Date endDate = new Date();
+    	String dateString = endDate.toString();
+    	SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+    	Date parsed = format.parse(dateString);
+
     	char dash = '-';
     	String underlines = StringPad.pad("", executingClass.length(), dash);
     	
         Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
-        Wrapper.printMessage("DONE      : " + executingClass + ".java took " + duration / 1000 + " seconds", "*", requestPriority);
+        Wrapper.printMessage("DONE      : " + executingClass + ".java on " + parsed.toString() + " took " + duration / 1000 + " seconds", "*", requestPriority);
         Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
     }
 

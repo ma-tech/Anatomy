@@ -238,7 +238,7 @@ public class JOINTimedNodeStage {
     	
         return String.format("JOINTimedNodeStage\n" +
         		"TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s, displayTimedNodeId=%s ]" +
-        		"Stage [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicStageId=%s ]", 
+        		"Stage [ oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s ]", 
         		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, displayTimedNodeId, 
         		oidStage, speciesFK, name, sequence, description, extraText, publicStageId);
     }

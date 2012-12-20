@@ -17,7 +17,7 @@ public class TestFileSize {
             
             if (args.length != 1) {
             	
-            	System.out.println(" ERROR - There MUST be 1 argument passed to this program!\n ERROR - Try Again!");
+            	//System.out.println(" ERROR - There MUST be 1 argument passed to this program!\n ERROR - Try Again!");
             }
             else {
             	
@@ -27,55 +27,55 @@ public class TestFileSize {
                 File[] directories = null;
                 File[] files = null;
                 
-                System.out.println("1. ALL File Names AND Directories within the directory:\n    " + directory);
-                System.out.println("");
+                //System.out.println("1. ALL File Names AND Directories within the directory:\n    " + directory);
+                //System.out.println("");
 
                 filenames = FileUtil.listAllFilenamesInDirectory(directory);
                 
                 if (filenames[0].equals("EMPTY Directory!") || filenames[0].equals("Directory DOES NOT Exist!") ) {
 
-                	System.out.println("ERROR!  Try Another Directory!");
+                	//System.out.println("ERROR!  Try Another Directory!");
                 }
                 else { 
                 
                 	for (int i=0; i<filenames.length; i++) {
 
                     	String filename = filenames[i];
-                        System.out.println("filename: " + filename);
+                        //System.out.println("filename: " + filename);
                     }
                 }
 
 
-                System.out.println("");
-                System.out.println("2. All File Names AND Directories that DO NOT Start with a \".\" within the directory:\n    " + directory);
-                System.out.println("");
+                //System.out.println("");
+                //System.out.println("2. All File Names AND Directories that DO NOT Start with a \".\" within the directory:\n    " + directory);
+                //System.out.println("");
 
                 filenames = FileUtil.listAllUnhiddenFilenamesInDirectory(directory);
                 
                 if (filenames[0].equals("No UnHidden Files!") || filenames[0].equals("Directory DOES NOT Exist!") ) {
 
-                	System.out.println("ERROR!  Try Another Directory!");
+                	//System.out.println("ERROR!  Try Another Directory!");
                 }
                 else { 
                 
                 	for (int i=0; i<filenames.length; i++) {
 
                     	String filename = filenames[i];
-                        System.out.println("filename: " + filename);
+                        //System.out.println("filename: " + filename);
                     }
                 }
 
                 
-                System.out.println("");
-                System.out.println("3. Directory Names ONLY within the directory:\n    " + directory);
-                System.out.println("");
+                //System.out.println("");
+                //System.out.println("3. Directory Names ONLY within the directory:\n    " + directory);
+                //System.out.println("");
                 
                 // The list of files can also be retrieved as File objects
                 directories = FileUtil.listAllDirectoriesInDirectory(directory);
 
                 if ( directories == null) {
                 	
-                	System.out.println("ERROR! No Directories in Driectory, OR Directory does NOT Exist!");
+                	//System.out.println("ERROR! No Directories in Driectory, OR Directory does NOT Exist!");
                 }
                 else {
                 	
@@ -83,21 +83,21 @@ public class TestFileSize {
 
                     	// Get filename of file or directory
                         String subDirectory = directories[i].getName();
-                        System.out.println("directory: " + subDirectory);
+                        //System.out.println("directory: " + subDirectory);
                     }
                 }
 
 
-                System.out.println("");
-                System.out.println("4. File Names ONLY within the directory:\n    " + directory);
-                System.out.println("");
+                //System.out.println("");
+                //System.out.println("4. File Names ONLY within the directory:\n    " + directory);
+                //System.out.println("");
                 
                 // The list of files can also be retrieved as File objects
                 files = FileUtil.listAllFilesInDirectory(directory);
 
                 if ( files == null) {
                 	
-                	System.out.println("ERROR! No Directories in Driectory, OR Directory does NOT Exist!");
+                	//System.out.println("ERROR! No Directories in Driectory, OR Directory does NOT Exist!");
                 }
                 else {
                 	
@@ -105,7 +105,7 @@ public class TestFileSize {
 
                     	// Get filename of file or directory
                         String file = files[i].getName();
-                        System.out.println("filename: " + file + " : " + FileUtil.roundObjectSize(files[i].length()));
+                        //System.out.println("filename: " + file + " : " + FileUtil.roundObjectSize(files[i].length()));
                     }
                 }
             }

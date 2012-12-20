@@ -52,6 +52,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import daolayer.NodeDAO;
+import daolayer.StageDAO;
 import daolayer.ThingDAO;
 import daolayer.ComponentAlternativeDAO;
 import daolayer.ComponentCommentDAO;
@@ -64,6 +65,7 @@ import daolayer.DAOException;
 import daolayer.DAOFactory;
 
 import daomodel.Node;
+import daomodel.Stage;
 import daomodel.Thing;
 import daomodel.Component;
 import daomodel.ComponentAlternative;
@@ -85,6 +87,7 @@ public class AnaNode {
     
     //Data Access Objects (DAOs)
     private NodeDAO nodeDAO;
+    private StageDAO stageDAO;
     private ThingDAO thingDAO;
     private ComponentDAO componentDAO;
     private ComponentAlternativeDAO componentalternativeDAO;
@@ -125,6 +128,7 @@ public class AnaNode {
             this.daofactory = daofactory;
 
         	this.nodeDAO = daofactory.getNodeDAO();
+        	this.stageDAO = daofactory.getStageDAO();
         	this.thingDAO = daofactory.getThingDAO();
             this.componentDAO = daofactory.getComponentDAO();
             this.componentalternativeDAO = daofactory.getComponentAlternativeDAO();
@@ -157,7 +161,7 @@ public class AnaNode {
     //  Insert new rows into ANA_NODE
     public boolean insertANA_NODE( ArrayList<OBOComponent> newTermList, String calledFrom, String strSpecies, TreeBuilder treebuilder ) throws Exception {
 
-        Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
         int intANO_OID = 0;
         
@@ -184,110 +188,108 @@ public class AnaNode {
                 
                 if ( !anaobject.insertANA_OBJECT(newTermList, "ANA_NODE") ) {
 
-             	   throw new DatabaseException("ananode.insertANA_NODE:insertANA_OBJECT:ANA_NODE");
+             	   throw new DatabaseException("ananode.insertANA_NODE : insertANA_OBJECT:ANA_NODE");
                 }
 
                 // anaobject add the OIDs to the component list
                 //  need to use these in updates to ananode
                 this.updatedComponentList = anaobject.getUpdatedNewTermList();
                 		
+                for (int i = 0; i< this.updatedComponentList.size(); i++) {
+                
+                	component = this.updatedComponentList.get(i);
+
+                	//prepare values
+                	intANO_OID = Integer.parseInt(component.getDBID());
+                	strANO_SPECIES_FK = strSpecies;
+                	strANO_COMPONENT_NAME = component.getName();
+                   
+                	if (component.getIsPrimary() ) {
+                	
+                		boolANO_IS_PRIMARY = true;
+                		boolANO_IS_GROUP = false;
+                	}
+                	else {
+                	
+                		boolANO_IS_PRIMARY = false;
+                		boolANO_IS_GROUP = true;
+                	}
+                   
+                	if ( !anaobject.getMaxPublicId() ) {
+                 	
+                		throw new DatabaseException("ananode.insertANA_NODE : anaobject.getMaxPublicId()");
+                	}
+
+                	int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
+            	   
+                	char padChar = 0;
+                   
+                	if (strANO_SPECIES_FK.equals("mouse")) {
+               	   
+                		strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
+                		strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                	}
+                	else if (strANO_SPECIES_FK.equals("chick")) {
+                	
+                		strANO_PUBLIC_ID = "ECAPA:" + Integer.toString( intCurrentPublicID );
+                		strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                	}
+                	else if (strANO_SPECIES_FK.equals("human")) {
+                	
+                		strANO_PUBLIC_ID = "EHDAA:" + Integer.toString( intCurrentPublicID );
+                		strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                	}
+                	else {
+                    
+                		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
+                	}
+
+                	// Column 7
+                	strANO_DESCRIPTION = "";
+                   
+                	Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
+
+                	this.nodeDAO.create(node);
+
+                	//Update Components in Memory
+                	// assign generated new EMAPA id to new components replacing temp id
+                	component.setNewID(strANO_PUBLIC_ID);
+
+                	if (strANO_SPECIES_FK.equals("mouse")) {
+                	   
+                		treebuilder.getComponent( component.getID()).setCheckComment("New EMAPA:ID generated: " + strANO_PUBLIC_ID);
+                	}
+                	else if (strANO_SPECIES_FK.equals("chick")) {
+                	   
+                		treebuilder.getComponent( component.getID()).setCheckComment("New ECAPA:ID generated: " + strANO_PUBLIC_ID);
+                	}
+                	else if (strANO_SPECIES_FK.equals("human")) {
+                	
+                		treebuilder.getComponent( component.getID()).setCheckComment("New EHDAA:ID generated: " + strANO_PUBLIC_ID);
+                	}
+                	else {
+                    
+                		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
+                	}
+
+                	// Update the ANA_OBO_COMPONENT tables ...
+                	insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
+
+                	// update new components with ano_oid
+                	component.setDBID(Integer.toString(intANO_OID));
+                   
+                	// update new component with generated emapa id
+                	component.setID(strANO_PUBLIC_ID);
+                   	component.setDisplayId(strANO_DISPLAY_ID);                   
+                }
+
                 AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                 
                 //insert TimedNodes to be deleted in ANA_LOG
                 if ( !analog.insertANA_LOG_Nodes( this.updatedComponentList, strSpecies, "INSERT" ) ) {
 
-                	throw new DatabaseException("ananode.insertANA_NODE:insertANA_LOG_Nodes");
+                	throw new DatabaseException("ananode.insertANA_NODE : insertANA_LOG_Nodes; INSERT");
                 }
-
-                for (int i = 0; i< this.updatedComponentList.size(); i++) {
-
-                   component = this.updatedComponentList.get(i);
-
-                   //prepare values
-                   intANO_OID = Integer.parseInt(component.getDBID());
-                   strANO_SPECIES_FK = strSpecies;
-                   strANO_COMPONENT_NAME = component.getName();
-                 
-                   if (component.getIsPrimary() ) {
-                	   
-                	   boolANO_IS_PRIMARY = true;
-                	   boolANO_IS_GROUP = false;
-                   }
-                   else {
-                	   
-                	   boolANO_IS_PRIMARY = false;
-                	   boolANO_IS_GROUP = true;
-                   }
-                   
-                   if ( !anaobject.getMaxPublicId() ) {
-
-                 	   throw new DatabaseException("ananode.insertANA_NODE:anaobject.getMaxPublicId()");
-                    }
-
-                   int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
-                   
-            	   char padChar = 0;
-            	   
-                   if (strANO_SPECIES_FK.equals("mouse")) {
-                	   
-                	   strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
-                	   strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
-                   }
-                   else if (strANO_SPECIES_FK.equals("chick")) {
-                	   
-                	   strANO_PUBLIC_ID = "ECAPA:" + Integer.toString( intCurrentPublicID );
-                	   strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
-                   }
-                   else if (strANO_SPECIES_FK.equals("human")) {
-                	   
-                	   strANO_PUBLIC_ID = "EHDAA:" + Integer.toString( intCurrentPublicID );
-                	   strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
-                   }
-                   else {
-                	   
-                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
-                   }
-                   
-                   // Column 7
-                   strANO_DESCRIPTION = "";
-                   
-                   Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
-                   
-                   this.nodeDAO.create(node);
-                   
-                   //Update Components in Memory
-                   // assign generated new EMAPA id to new components replacing temp id
-                   component.setNewID(strANO_PUBLIC_ID);
-                   
-                   if (strANO_SPECIES_FK.equals("mouse")) {
-                	   
-                	   treebuilder.getComponent( component.getID()).setCheckComment(
-                			   "New EMAPA:ID generated: " + strANO_PUBLIC_ID);
-                   }
-                   else if (strANO_SPECIES_FK.equals("chick")) {
-                	   
-                	   treebuilder.getComponent( component.getID()).setCheckComment(
-                			   "New ECAPA:ID generated: " + strANO_PUBLIC_ID);
-                   }
-                   else if (strANO_SPECIES_FK.equals("human")) {
-                	   
-                	   treebuilder.getComponent( component.getID()).setCheckComment(
-                			   "New EHDAA:ID generated: " + strANO_PUBLIC_ID);
-                   }
-                   else {
-                	   
-                       Wrapper.printMessage("ananode.insertANA_NODE:" + calledFrom + ";" + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
-                   }
-
-                   // Update the ANA_OBO_COMPONENT tables ...
-                   insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
-                   
-                   // update new components with ano_oid
-                   component.setDBID(Integer.toString(intANO_OID));
-                   
-                   // update new component with generated emapa id
-                   component.setID(strANO_PUBLIC_ID);
-               }
            }
         }
         catch ( DAOException dao ) {
@@ -519,7 +521,7 @@ public class AnaNode {
     //  Insert new rows into ANA_NODE
     public boolean deleteANA_NODE( ArrayList<OBOComponent> termList, String strSpecies, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.deleteANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.deleteANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component;
 
@@ -547,9 +549,9 @@ public class AnaNode {
                 AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
                 
                 //insert Nodes to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_Nodes(termList, strSpecies, "DELETE" ) ) {
+                if ( !analog.insertANA_LOG_Nodes(termList, strSpecies, "DELETED" ) ) {
 
-                	throw new DatabaseException("ananode.deleteANA_NODE:insertANA_LOG_Nodes");
+                	throw new DatabaseException("ananode.deleteANA_NODE : insertANA_LOG_Nodes; DELETED");
                 }
 
         	}
@@ -572,7 +574,7 @@ public class AnaNode {
     //  Update ANA_NODE for Changed Names
     public boolean updateANA_NODE_name( ArrayList<OBOComponent> changedNameTermList, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
         try {
 
@@ -606,7 +608,7 @@ public class AnaNode {
     //  Update ANA_NODE for primary nodes
     public boolean updateANA_NODE_primary( ArrayList< OBOComponent > changedPrimaryTermList, String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE_primary:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE_primary : " + calledFrom, "***", this.requestMsgLevel);
         	
         try {
 
@@ -641,7 +643,7 @@ public class AnaNode {
     //  Set Database OIDs into a list of components
     public Boolean setDatabaseOIDs( ArrayList<OBOComponent> termList, String calledFrom )  throws Exception {
 
-        Wrapper.printMessage("ananode.setDatabaseOIDs:" + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.setDatabaseOIDs : " + calledFrom, "***", this.requestMsgLevel);
         	
         OBOComponent component = new OBOComponent();
         
@@ -687,6 +689,7 @@ public class AnaNode {
                 else {
                 	
                     component.setDBID( node.getOid().toString() );
+                    
 
                     this.updatedComponentList.add( component );
                 }

@@ -44,16 +44,21 @@
 */
 package routines.database;
 
-import routines.base.TreeBuilder;
-import utility.Wrapper;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Vector;
+
+import routines.base.TreeBuilder;
+
+import utility.Wrapper;
+import utility.MySQLDateTime;
 
 import daolayer.NodeDAO;
-import daolayer.StageDAO;
 import daolayer.ThingDAO;
+import daolayer.LogDAO;
+import daolayer.VersionDAO;
 import daolayer.ComponentAlternativeDAO;
 import daolayer.ComponentCommentDAO;
 import daolayer.ComponentDAO;
@@ -65,8 +70,9 @@ import daolayer.DAOException;
 import daolayer.DAOFactory;
 
 import daomodel.Node;
-import daomodel.Stage;
+import daomodel.Log;
 import daomodel.Thing;
+import daomodel.Version;
 import daomodel.Component;
 import daomodel.ComponentAlternative;
 import daomodel.ComponentComment;
@@ -87,8 +93,9 @@ public class AnaNode {
     
     //Data Access Objects (DAOs)
     private NodeDAO nodeDAO;
-    private StageDAO stageDAO;
     private ThingDAO thingDAO;
+    private LogDAO logDAO;
+    private VersionDAO versionDAO;
     private ComponentDAO componentDAO;
     private ComponentAlternativeDAO componentalternativeDAO;
     private ComponentRelationshipDAO componentrelationshipDAO;
@@ -111,6 +118,8 @@ public class AnaNode {
     // 1 - not found in db
     private ArrayList<OBOComponent> unModifiedComponentList;
     
+    private long longLOG_VERSION_FK;
+
     
     // Constructors -------------------------------------------------------------------------------
     public AnaNode() {
@@ -128,8 +137,9 @@ public class AnaNode {
             this.daofactory = daofactory;
 
         	this.nodeDAO = daofactory.getNodeDAO();
-        	this.stageDAO = daofactory.getStageDAO();
         	this.thingDAO = daofactory.getThingDAO();
+        	this.logDAO = daofactory.getLogDAO();
+        	this.versionDAO = daofactory.getVersionDAO();
             this.componentDAO = daofactory.getComponentDAO();
             this.componentalternativeDAO = daofactory.getComponentAlternativeDAO();
             this.componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
@@ -137,6 +147,9 @@ public class AnaNode {
             this.componentsynonymDAO = daofactory.getComponentSynonymDAO();
             this.componentcommentDAO = daofactory.getComponentCommentDAO();
             
+        	Version version = versionDAO.findMostRecent();
+            this.longLOG_VERSION_FK = version.getOid();
+
             this.startingComponentList = new ArrayList<OBOComponent>();
             this.updatedComponentList = new ArrayList<OBOComponent>();
             this.unDeletedComponentList = new ArrayList<OBOComponent>();
@@ -222,12 +235,18 @@ public class AnaNode {
 
                 	int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
             	   
-                	char padChar = 0;
+                	char padChar = '0';
                    
                 	if (strANO_SPECIES_FK.equals("mouse")) {
                	   
-                		strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
+                    	strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
                 		strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+
+                		/*
+                		System.out.println("intCurrentPublicID = " + intCurrentPublicID);
+                    	System.out.println("strANO_PUBLIC_ID = " + strANO_PUBLIC_ID);
+                    	System.out.println("strANO_DISPLAY_ID = " + strANO_DISPLAY_ID);
+                    	*/
                 	}
                 	else if (strANO_SPECIES_FK.equals("chick")) {
                 	
@@ -249,8 +268,15 @@ public class AnaNode {
                    
                 	Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
 
-                	this.nodeDAO.create(node);
+                	//System.out.println("node.toString() = " + node.toString());
+                	
+                	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
+                		
+                    	throw new DatabaseException("ananode.insertANA_NODE : logANA_NODE");
+                	}
 
+                	this.nodeDAO.create(node);
+                	
                 	//Update Components in Memory
                 	// assign generated new EMAPA id to new components replacing temp id
                 	component.setNewID(strANO_PUBLIC_ID);
@@ -281,14 +307,6 @@ public class AnaNode {
                 	// update new component with generated emapa id
                 	component.setID(strANO_PUBLIC_ID);
                    	component.setDisplayId(strANO_DISPLAY_ID);                   
-                }
-
-                AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                
-                //insert TimedNodes to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_Nodes( this.updatedComponentList, strSpecies, "INSERT" ) ) {
-
-                	throw new DatabaseException("ananode.insertANA_NODE : insertANA_LOG_Nodes; INSERT");
                 }
            }
         }
@@ -540,20 +558,16 @@ public class AnaNode {
 
         				Thing thing = thingDAO.findByOid(node.getOid()); 
 
-                        thingDAO.delete(thing);
+                    	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
+                    		
+                        	throw new DatabaseException("ananode.deleteANA_NODE : logANA_NODE");
+                    	}
+
+                    	thingDAO.delete(thing);
 
         				nodeDAO.delete(node);
         			}
         		}
-
-                AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                
-                //insert Nodes to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_Nodes(termList, strSpecies, "DELETED" ) ) {
-
-                	throw new DatabaseException("ananode.deleteANA_NODE : insertANA_LOG_Nodes; DELETED");
-                }
-
         	}
         }
         catch ( DAOException dao ) {
@@ -572,7 +586,7 @@ public class AnaNode {
     
     
     //  Update ANA_NODE for Changed Names
-    public boolean updateANA_NODE_name( ArrayList<OBOComponent> changedNameTermList, String calledFrom ) throws Exception  {
+    public boolean updateANA_NODE_name( ArrayList<OBOComponent> changedNameTermList, String calledFrom, String strSpecies ) throws Exception  {
 
         Wrapper.printMessage("ananode.updateANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
         	
@@ -586,6 +600,11 @@ public class AnaNode {
                 	
                 	node.setComponentName(component.getName());
                 	
+                	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
+                		
+                    	throw new DatabaseException("ananode.updateANA_NODE_name : logANA_NODE");
+                	}
+
                 	this.nodeDAO.save(node);
                 }
             }
@@ -606,7 +625,7 @@ public class AnaNode {
 
 
     //  Update ANA_NODE for primary nodes
-    public boolean updateANA_NODE_primary( ArrayList< OBOComponent > changedPrimaryTermList, String calledFrom ) throws Exception  {
+    public boolean updateANA_NODE_primary( ArrayList< OBOComponent > changedPrimaryTermList, String calledFrom, String strSpecies ) throws Exception  {
 
         Wrapper.printMessage("ananode.updateANA_NODE_primary : " + calledFrom, "***", this.requestMsgLevel);
         	
@@ -620,6 +639,11 @@ public class AnaNode {
                     
                  	node.setGroup(!component.getIsPrimary());
                 	node.setPrimary(component.getIsPrimary());
+
+                	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
+                		
+                    	throw new DatabaseException("ananode.updateANA_NODE_primary : logANA_NODE");
+                	}
 
                 	this.nodeDAO.save(node);
                 }
@@ -662,7 +686,7 @@ public class AnaNode {
                 
                 if (node == null) {
                 	
-                    if ( component.getStatusChange().equals("DELETED") ) {
+                    if ( component.getStatusChange().equals("DELETE") ) {
                     	
                         component.setCheckComment("Delete Record Warning: No " +
                             "term with the ID " + component.getID() +
@@ -673,7 +697,7 @@ public class AnaNode {
                         
                         this.unDeletedComponentList.add(component);
                     }
-                    else if ( component.getStatusChange().equals("CHANGED") ) {
+                    else if ( component.getStatusChange().equals("UPDATE") ) {
                         
                     	component.setCheckComment("Update Record Warning: No " +
                             "term with the ID " + component.getID() +
@@ -689,7 +713,6 @@ public class AnaNode {
                 else {
                 	
                     component.setDBID( node.getOid().toString() );
-                    
 
                     this.updatedComponentList.add( component );
                 }
@@ -705,6 +728,97 @@ public class AnaNode {
         	setProcessed( false );
             ex.printStackTrace();
         }
+        
+        return isProcessed();
+    }
+
+    //  Update ANA_NODE for Changed Names
+    public boolean logANA_NODE( Node node, String calledFrom, String strSpecies ) throws Exception  {
+
+        Wrapper.printMessage("ananode.logANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        	
+        try {
+                	
+            long longLogOID = 0;
+            long longLogLoggedOID = 0;
+
+            //column values for insertion into ANA_LOG
+            String strLOG_COLUMN_NAME = "";
+            String strLOG_OLD_VALUE = "";
+            
+            //version_oid should be very first obj_oid created for easy tracing
+            String strLOG_COMMENTS = "";
+            String strLOG_DATETIME = MySQLDateTime.now();
+            
+            if ( calledFrom.equals("INSERT") ) {
+            	
+            	strLOG_COMMENTS = "INSERT Nodes";
+            }
+            else if ( calledFrom.equals("DELETE") ) {
+            	
+            	strLOG_COMMENTS = "DELETE Nodes";
+            }
+            else if ( calledFrom.equals("UPDATE") ) {
+            	
+            	strLOG_COMMENTS = "UPDATE Nodes";
+            }
+            else {
+            	
+            	strLOG_COMMENTS = "UNKNOWN REASON for Nodes INSERT into ANA_LOG";
+            }
+
+            //create one record
+            HashMap<String, String> anoOldValues = new HashMap<String, String>();
+            
+            //ANA_NODE columns
+            Vector<String> vANOcolumns = new Vector<String>();
+            vANOcolumns.add("ANO_OID");
+            vANOcolumns.add("ANO_SPECIES_FK");
+            vANOcolumns.add("ANO_COMPONENT_NAME");
+            vANOcolumns.add("ANO_IS_PRIMARY");
+            vANOcolumns.add("ANO_IS_GROUP");
+            vANOcolumns.add("ANO_PUBLIC_ID");
+            vANOcolumns.add("ANO_DESCRIPTION");
+            vANOcolumns.add("ANO_DISPLAY_ID");
+            
+        	//get max log_oid from new database
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+        	
+            anoOldValues.clear();
+            anoOldValues.put( "ANO_OID", utility.ObjectConverter.convert(node.getOid(), String.class));
+            anoOldValues.put( "ANO_SPECIES_FK", node.getSpeciesFK() );
+            anoOldValues.put( "ANO_COMPONENT_NAME", node.getComponentName() );
+            anoOldValues.put( "ANO_IS_PRIMARY", utility.ObjectConverter.convert(node.getPrimary(), String.class));
+            anoOldValues.put( "ANO_IS_GROUP", utility.ObjectConverter.convert(node.getGroup(), String.class));
+            anoOldValues.put( "ANO_PUBLIC_ID", node.getPublicId());
+            anoOldValues.put( "ANO_DESCRIPTION", node.getDescription() );
+            anoOldValues.put( "ANO_DISPLAY_ID", node.getDisplayId() );
+
+            longLogLoggedOID = node.getOid();
+        	
+            for (String columnName: vANOcolumns) {	
+            	
+                longLogOID++;
+                strLOG_COLUMN_NAME = columnName;
+                strLOG_OLD_VALUE = anoOldValues.get(columnName);
+
+                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME, "ANA_NODE");
+                
+                //System.out.println("log.toString() " + log.toString());
+                
+                logDAO.create(log); 
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+        	ex.printStackTrace();
+        } 
         
         return isProcessed();
     }

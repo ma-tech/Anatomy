@@ -37,19 +37,26 @@
 package routines.database;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Vector;
 
 import daolayer.SynonymDAO;
 import daolayer.ThingDAO;
+import daolayer.VersionDAO;
+import daolayer.LogDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
 import daomodel.Synonym;
 import daomodel.Thing;
+import daomodel.Version;
+import daomodel.Log;
 
 import obomodel.OBOComponent;
 
+import utility.MySQLDateTime;
 import utility.Wrapper;
 
 public class AnaSynonym {
@@ -64,6 +71,10 @@ public class AnaSynonym {
     //Data Access Objects (DAOs)
     private SynonymDAO synonymDAO;
     private ThingDAO thingDAO;
+    private LogDAO logDAO;
+    private VersionDAO versionDAO;
+    
+    private long longLOG_VERSION_FK;
 
     
     // Constructors -------------------------------------------------------------------------------
@@ -83,6 +94,11 @@ public class AnaSynonym {
 
         	this.synonymDAO = daofactory.getSynonymDAO();
         	this.thingDAO = daofactory.getThingDAO();
+        	this.versionDAO = daofactory.getVersionDAO();
+        	this.logDAO = daofactory.getLogDAO();
+
+        	Version version = versionDAO.findMostRecent();
+            this.longLOG_VERSION_FK = version.getOid();
 
         	setProcessed( true );
     	}
@@ -144,16 +160,13 @@ public class AnaSynonym {
                    String strSYN_SYNONYM = synCompie.getName();
 
                    Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
-                   
-                   this.synonymDAO.create(synonym);
-               }
-               
-               AnaLog analog = new AnaLog( this.requestMsgLevel,this.daofactory );
-               
-               //insert Synonyms to be deleted in ANA_LOG
-               if ( !analog.insertANA_LOG_Synonyms( synonymCompList, "INSERT" ) ) {
 
-               	throw new DatabaseException("anasynonym.insertANA_SYNONYM : insertANA_LOG_Synonyms");
+                  	if ( !logANA_SYNONYM( synonym, calledFrom) ) {
+                		
+                    	throw new DatabaseException("anasynonym.insertANA_SYNONYM : logANA_SYNONYM");
+                	}
+
+                   this.synonymDAO.create(synonym);
                }
            }
         }
@@ -194,21 +207,15 @@ public class AnaSynonym {
                     	Synonym synonym = iteratorSynonyms.next();
 
                     	Thing thing = thingDAO.findByOid(synonym.getOid()); 
+                    	
+                       	if ( !logANA_SYNONYM( synonym, calledFrom) ) {
+                    		
+                        	throw new DatabaseException("anasynonym.deleteANA_SYNONYM : logANA_SYNONYM");
+                    	}
 
                         thingDAO.delete(thing);
 
                     	synonymDAO.delete(synonym);
-                    }
-                }
-                
-                if ( !synonyms.isEmpty() ) {
-                	
-                    AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                    
-                    //insert Synonyms to be deleted in ANA_LOG
-                    if ( !analog.insertANA_LOG_Synonyms( deleteSynComponents, "DELETED" ) ) {
-
-                    	throw new DatabaseException("anasynonym.deleteANA_SYNONYM : insertANA_LOG_Synonyms");
                     }
                 }
             }
@@ -280,6 +287,89 @@ public class AnaSynonym {
     }
 
       
+    //  Insert into ANA_LOG for ANA_SYNONYM Insertions or Deletions
+    public boolean logANA_SYNONYM( Synonym synonym, String calledFrom ) throws Exception {
+
+        Wrapper.printMessage("anasynonym.logANA_SYNONYM : " + calledFrom, "***", this.requestMsgLevel);
+        	
+        long longLogLoggedOID = 0;
+        long longLogOID = 0;
+        
+        HashMap<String, String> synOldValues = new HashMap<String, String>(); 
+
+        //ANA_SYNONYM columns
+        Vector<String> vSYNcolumns = new Vector<String>();
+        vSYNcolumns.add("SYN_OID");
+        vSYNcolumns.add("SYN_OBJECT_FK");
+        vSYNcolumns.add("SYN_SYNONYM");
+
+        //column values for selection from ANA_SYNONYM
+        int intSYN_OID = 0;
+
+        String strLOG_COMMENTS = "";
+        String strLOG_DATETIME = MySQLDateTime.now();
+
+        if ( calledFrom.equals("INSERT") ) {
+        	
+        	strLOG_COMMENTS = "INSERT Synonyms";
+        }
+        else if ( calledFrom.equals("DELETE") ) {
+        	
+        	strLOG_COMMENTS = "DELETE Synonyms";
+        }
+        else if ( calledFrom.equals("UPDATE") ) {
+        	
+        	strLOG_COMMENTS = "UDPATE Synonyms";
+        }
+        else {
+        	
+        	strLOG_COMMENTS = "UNKNOWN REASON for Synonym INSERT into ANA_LOG";
+        }
+        
+        //column values for insertion into ANA_LOG
+        String strLOG_COLUMN_NAME = "";
+        String strLOG_OLD_VALUE = "";
+   
+        try {
+
+        	//get max log_oid from new database
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+
+            //clear HashMap synOldValues
+            synOldValues.clear();
+            synOldValues.put("SYN_OID", utility.ObjectConverter.convert(synonym.getOid(), String.class ) );
+            synOldValues.put("SYN_OBJECT_FK", utility.ObjectConverter.convert(synonym.getThingFK(), String.class ) );
+            synOldValues.put("SYN_SYNONYM", synonym.getName());
+
+            longLogLoggedOID = synonym.getOid();
+            
+            for (String columnName: vSYNcolumns) {
+            	
+            	longLogOID++;
+                strLOG_COLUMN_NAME = columnName;
+                strLOG_OLD_VALUE = synOldValues.get(columnName);
+
+                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME, "ANA_SYNONYM");
+                
+                logDAO.create(log);
+            }     
+
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+        	dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+        	ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }    
+    
+    
     // Getters ------------------------------------------------------------------------------------
     public boolean isProcessed() {
         return this.processed;

@@ -41,13 +41,13 @@ public class MainOBOJacksonComparison {
 	 */
     public static void main(String[] args) throws Exception {
 
-    	long startTime = Wrapper.printPrologue(Wrapper.getExecutingClass());
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
         /*
          * MAINLINE
          */
         RunOBOJacksonComparison.run();
         
-    	Wrapper.printEpilogue(Wrapper.getExecutingClass(), startTime);
+    	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

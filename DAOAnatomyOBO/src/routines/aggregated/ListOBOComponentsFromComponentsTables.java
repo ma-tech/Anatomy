@@ -175,7 +175,7 @@ public class ListOBOComponentsFromComponentsTables {
 
               	}
               	
-           		if (component.getStatusChange().equals("DELETED") ) {
+           		if (component.getStatusChange().equals("DELETE") ) {
            			
            			obocomponent.addUserComments("INFO: Obsolete Term");
            		}

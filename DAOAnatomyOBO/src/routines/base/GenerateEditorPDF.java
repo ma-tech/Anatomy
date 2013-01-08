@@ -164,11 +164,11 @@ public class GenerateEditorPDF {
             //writing deleted terms
             pdfDocument.add( Chunk.NEXTPAGE );
             writeTerms( deletedTerms,
-                    "DELETED COMPONENTS",
+                    "DELETE COMPONENTS",
                     "Total Deleted Components: ",
                     new Color(0,140,0),
                     "Deleted Components ",
-                    "DELETED" );
+                    "DELETE" );
             
             //appendix
             writeAppendix();
@@ -208,7 +208,7 @@ public class GenerateEditorPDF {
 
         for(OBOComponent obocomponent: allTerms){
             
-            if ( obocomponent.getStatusChange().equals("NEW") ) {
+            if ( obocomponent.getStatusChange().equals("INSERT") ) {
             	
                 newTerms.add(obocomponent);
                 
@@ -217,7 +217,7 @@ public class GenerateEditorPDF {
                     failedNewTerms++;
                 }
             } 
-            else if ( obocomponent.getStatusChange().equals("CHANGED") ) {
+            else if ( obocomponent.getStatusChange().equals("UPDATE") ) {
             	
                 modifiedTerms.add(obocomponent);
                 
@@ -226,7 +226,7 @@ public class GenerateEditorPDF {
                     failedModifiedTerms++;
                 }
             }
-            else if ( obocomponent.getStatusChange().equals("DELETED") ) {
+            else if ( obocomponent.getStatusChange().equals("DELETE") ) {
             	
                 deletedTerms.add(obocomponent);
                 
@@ -235,7 +235,7 @@ public class GenerateEditorPDF {
                     failedDeletedTerms++;
                 }
             }
-            else if ( obocomponent.getStatusChange().equals("UNCHANGED") ) {
+            else if ( obocomponent.getStatusChange().equals("UPDATE") ) {
             	
                 unchangedTerms.add(obocomponent);
                 
@@ -777,7 +777,7 @@ public class GenerateEditorPDF {
                     "NEW terms = Terms that did not exist in the original " +
                     "file/database. \n" +
                     "MODIFIED terms = Terms that have a changed property. \n" +
-                    "DELETED terms = Terms that exist in the original file/" +
+                    "DELETE terms = Terms that exist in the original file/" +
                     "database but are no longer in the current file.",
                     new Font( Font.COURIER, 10, Font.ITALIC, Color.BLACK ) );
             paraAppendix.add( chkFooterLine );

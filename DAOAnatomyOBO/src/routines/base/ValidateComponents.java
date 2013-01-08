@@ -356,7 +356,7 @@ public class ValidateComponents {
 
     	/*
     	 * This routine examines the roots in the tree
-    	 *  this includes any proposed NEW, AMENDED DELETED components
+    	 *  this includes any proposed INSERT, UPDATE or DELETE components
     	 *   we need to check that these conform to the root characteristics
     	 * 
     	 */
@@ -1166,7 +1166,7 @@ public class ValidateComponents {
         	proposed = i.next();
 
             //set to unchanged 
-            proposed.setStatusChange("UNCHANGED");
+            proposed.setStatusChange("NONE");
             proposed.setStatusRule("UNCHECKED");
             
             /*
@@ -1215,7 +1215,7 @@ public class ValidateComponents {
                         }
                         */
 
-                        proposed.setStatusChange("DELETED");
+                        proposed.setStatusChange("DELETE");
                         proposed.setStatusRule("PASSED");
 
                         ArrayList<String> formerParents = reference.getChildOfs();
@@ -1236,7 +1236,7 @@ public class ValidateComponents {
                             */
 
                             //set to unchanged 
-                            proposed.setStatusChange("UNCHANGED");
+                            proposed.setStatusChange("NONE");
                             proposed.setStatusRule("CHECKED");
                             //else mark green in newTermList and add to new ArrayList    
                         }
@@ -1250,7 +1250,7 @@ public class ValidateComponents {
                             }
                             */
                         	
-                            proposed.setStatusChange("CHANGED");
+                            proposed.setStatusChange("UPDATE");
                             proposed.setStatusRule("PASSED");
 
                             ArrayList<String> arrDifference = proposed.getDifferenceWith(reference);
@@ -1273,7 +1273,7 @@ public class ValidateComponents {
             
             //iterated through whole list 
             //if not found, 
-            if ( proposed.getStatusChange().equals("DELETED") ) {
+            if ( proposed.getStatusChange().equals("DELETE") ) {
 
             	/*
                 if ( proposed.getID().equals("EMAPA:35041") 
@@ -1310,7 +1310,7 @@ public class ValidateComponents {
                     }
                     */
 
-                	proposed.setStatusChange("NEW");
+                	proposed.setStatusChange("INSERT");
                     proposed.setStatusRule("PASSED");
 
                     this.changesTermList.add(proposed);
@@ -1359,7 +1359,7 @@ public class ValidateComponents {
             if (!flagFound && 
                  !reference.getNamespace().equals( this.abstractclassobocomponent.getNamespace() ) ) {
             	
-                reference.setStatusChange("DELETED");
+                reference.setStatusChange("DELETE");
                 reference.setStatusRule("FAILED");   
                 reference.setCheckComment("INFO: OBOComponent was deleted from OBO file bypassing obsolete procedures.");
                 
@@ -1457,7 +1457,7 @@ public class ValidateComponents {
         
     	for ( OBOComponent term: this.changesTermList ){
     		
-            if ( term.getStatusChange().equals("NEW") ) {
+            if ( term.getStatusChange().equals("INSERT") ) {
             	
                 newTerms.add( term );
             }
@@ -1474,7 +1474,7 @@ public class ValidateComponents {
         
     	for ( OBOComponent term: this.changesTermList ){
     		
-            if ( term.getStatusChange().equals("DELETED") ) {
+            if ( term.getStatusChange().equals("DELETE") ) {
             	
                 deletedTerms.add( term );
             }
@@ -1491,7 +1491,7 @@ public class ValidateComponents {
         
     	for ( OBOComponent term: this.changesTermList ){
     		
-        	if ( term.getStatusChange().equals("CHANGED") ) {
+        	if ( term.getStatusChange().equals("UPDATE") ) {
         		
                 modifiedTerms.add( term );
             }

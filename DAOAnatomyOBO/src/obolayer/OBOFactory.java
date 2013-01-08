@@ -244,9 +244,9 @@ public abstract class OBOFactory {
         	
         	boolDebug = true;
         	//"========= : "
-        	Wrapper.printMessage("=========", "*", level);
+        	Wrapper.printMessage("========= :", "*", level);
         	Wrapper.printMessage("DEBUG     : OBO Properties File     : " + filename, "*", level);
-        	Wrapper.printMessage("---------", "*", level);
+        	Wrapper.printMessage("--------- :", "*", level);
         	Wrapper.printMessage("          : oboinfile               : " + strOboInFile, "*", level);
         	Wrapper.printMessage("          : obooutfile              : " + strOboOutFile, "*", level);
         	Wrapper.printMessage("          : obooutfileversion       : " + strOboOutFileVersion, "*", level);
@@ -275,7 +275,7 @@ public abstract class OBOFactory {
         	Wrapper.printMessage("          : Alternatives            : " + strAlternatives, "*", level);
         	Wrapper.printMessage("          : TimedComponents         : " + strTimedComponents, "*", level);
         	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
-        	Wrapper.printMessage("=========", "*", level);
+        	Wrapper.printMessage("========= :", "*", level);
         }
         
         OBOFactory instance;

@@ -188,19 +188,19 @@ public class GenerateEditorReport {
         	
         for(OBOComponent obocomponent: obocomponents){
             
-            if ( obocomponent.getStatusChange().equals("NEW") ) {
+            if ( obocomponent.getStatusChange().equals("INSERT") ) {
             	
                 newTerms.add(obocomponent);
             }
-            else if ( obocomponent.getStatusChange().equals("CHANGED") ) {
+            else if ( obocomponent.getStatusChange().equals("UPDATE") ) {
             	
                 modifiedTerms.add(obocomponent);
             }
-            else if ( obocomponent.getStatusChange().equals("DELETED") ) {
+            else if ( obocomponent.getStatusChange().equals("DELETE") ) {
             	
                 deletedTerms.add(obocomponent);
             }
-            else if ( obocomponent.getStatusChange().equals("UNCHANGED") ) {
+            else if ( obocomponent.getStatusChange().equals("NONE") ) {
             	
                 unchangedTerms.add(obocomponent);
             }
@@ -529,7 +529,7 @@ public class GenerateEditorReport {
         try{
         	
             printWriter.println();
-            printWriter.println("D. DELETED COMPONENTS");
+            printWriter.println("D. DELETE COMPONENTS");
             printWriter.println();
             printWriter.println("   ==================");
             printWriter.println();
@@ -629,7 +629,7 @@ public class GenerateEditorReport {
                 "the original file/database.");
         printWriter.println("MODIFIED terms = Terms that have a " +
                 "changed property.");
-        printWriter.println("DELETED terms = Terms that exist in the " +
+        printWriter.println("DELETE terms = Terms that exist in the " +
                 "original file/database but are no longer in the current " +
                 "file.");
     }

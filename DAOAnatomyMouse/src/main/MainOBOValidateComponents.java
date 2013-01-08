@@ -42,10 +42,10 @@ public class MainOBOValidateComponents {
 	 */
     public static void main(String[] args) throws Exception {
     	
-    	long startTime = Wrapper.printPrologue(Wrapper.getExecutingClass());
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
     	RunOBOValidateComponents.run();
     	
-    	Wrapper.printEpilogue(Wrapper.getExecutingClass(), startTime);
+    	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

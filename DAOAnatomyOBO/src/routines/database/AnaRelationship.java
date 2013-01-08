@@ -45,8 +45,11 @@ import routines.base.TreeBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Vector;
 
+import daolayer.LogDAO;
 import daolayer.ThingDAO;
+import daolayer.VersionDAO;
 import daolayer.NodeDAO;
 import daolayer.RelationshipDAO;
 import daolayer.RelationshipProjectDAO;
@@ -58,6 +61,8 @@ import daolayer.JOINRelationshipProjectRelationshipDAO;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
+import daomodel.Version;
+import daomodel.Log;
 import daomodel.Thing;
 import daomodel.Node;
 import daomodel.Relationship;
@@ -69,6 +74,8 @@ import daomodel.JOINRelationshipProjectRelationship;
 
 import obomodel.OBOComponent;
 
+import utility.MySQLDateTime;
+import utility.ObjectConverter;
 import utility.Wrapper;
 
 public class AnaRelationship {
@@ -81,7 +88,9 @@ public class AnaRelationship {
     private boolean processed;
     
     //Data Access Objects (DAOs)
+    private LogDAO logDAO;
     private ThingDAO thingDAO;
+    private VersionDAO versionDAO;
     private NodeDAO nodeDAO;
     private RelationshipDAO relationshipDAO;
     private RelationshipProjectDAO relationshipprojectDAO;
@@ -89,6 +98,8 @@ public class AnaRelationship {
     private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO;
     private JOINRelationshipProjectRelationshipDAO joinrelationshipprojectrelationshipDAO;
     private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
+
+    private long longLOG_VERSION_FK;
 
     // Constructors -------------------------------------------------------------------------------
     public AnaRelationship() {
@@ -105,6 +116,8 @@ public class AnaRelationship {
 
             this.daofactory = daofactory;
 
+        	this.logDAO = daofactory.getLogDAO();
+        	this.versionDAO = daofactory.getVersionDAO();
         	this.thingDAO = daofactory.getThingDAO();
         	this.nodeDAO = daofactory.getNodeDAO();
         	this.relationshipDAO = daofactory.getRelationshipDAO();
@@ -113,6 +126,9 @@ public class AnaRelationship {
         	this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
             this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
             this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
+            
+        	Version version = versionDAO.findMostRecent();
+            this.longLOG_VERSION_FK = version.getOid();
        	
         	setProcessed( true );
     	}
@@ -217,8 +233,9 @@ public class AnaRelationship {
                         	}
                         }
                         
-                        //UPDATED CODE: deleted components are now marked in proposed file as well and appear in the tree under its own root outside abstract anatomy
-                        if ( parent.getStatusChange().equals("DELETED") ) {
+                        //MODIFIED CODE:
+                        // deleted components are now marked in proposed file as well and appear in the tree under its own root outside abstract anatomy
+                        if ( parent.getStatusChange().equals("DELETE") ) {
                             
                             flagInsert = false;
                         }
@@ -271,7 +288,7 @@ public class AnaRelationship {
                             String strParentDBID = "";
                             
                             //get DBID for parent 
-                            if ( parent.getStatusChange().equals("NEW") ) {
+                            if ( parent.getStatusChange().equals("INSERT") ) {
                             	
                                  strParentDBID = parent.getDBID();
                             }
@@ -412,19 +429,15 @@ public class AnaRelationship {
 
                         Relationship relationship = new Relationship((long) intREL_OID, strREL_RELATIONSHIP_TYPE_FK, (long) intREL_CHILD_FK, (long) intREL_PARENT_FK);
                 
+                    	if ( !logANA_RELATIONSHIP( relationship, calledFrom ) ) {
+                    		
+                        	throw new DatabaseException("anarelationship.insertANA_RELATIONSHIP : logANA_RELATIONSHIP");
+                    	}
+
                         this.relationshipDAO.create(relationship);
                         
                         insertANA_RELATIONSHIP_PROJECT( insertRelObject, intREL_OID, calledFrom );
                     }
-                    
-                    AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                    
-                    //insert TimedNodes to be deleted in ANA_LOG
-                    if ( !analog.insertANA_LOG_Relationships(updatedNewTermList, "INSERT" ) ) {
-
-                    	throw new DatabaseException("ananode.insertANA_NODE : insertANA_LOG_Nodes; INSERT");
-                    }
-
                 }
             }
         }
@@ -520,7 +533,12 @@ public class AnaRelationship {
                   		
                     	Thing thing = thingDAO.findByOid(relationship.getOid()); 
 
-                        thingDAO.delete(thing);
+                    	if ( !logANA_RELATIONSHIP( relationship, calledFrom ) ) {
+                    		
+                        	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP : logANA_RELATIONSHIP");
+                    	}
+
+                    	thingDAO.delete(thing);
 
                   		relationshipDAO.delete(relationship);
                   	}
@@ -536,14 +554,6 @@ public class AnaRelationship {
                   		
                   		relationshipprojectDAO.delete(relationshipproject);
                   	}
-                }
-                
-                AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-                
-                //insert Relationships to be deleted in ANA_LOG
-                if ( !analog.insertANA_LOG_Relationships( deleteRelComponents, "DELETED" ) ) {
-
-                	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP : insertANA_LOG_Relationships; DELETED");
                 }
             }
         }
@@ -592,14 +602,6 @@ public class AnaRelationship {
             		grouptermclassobocomponent) ) {
 
          	   throw new DatabaseException("anarelationship.updateParents : insertANA_RELATIONSHIP");
-            }
-            
-            //insert relationships to be deleted in ANA_LOG
-            AnaLog analog = new AnaLog( this.requestMsgLevel, this.daofactory );
-            
-            if ( !analog.insertANA_LOG_Relationships( changedParentsTermList, calledFrom ) ) {
-
-            	throw new DatabaseException("anarelationship.updateParents : insertANA_LOG_Relationships; " + calledFrom);
             }
             
             //delete relationships in ANA_RELATIONSHIP
@@ -983,7 +985,92 @@ public class AnaRelationship {
         return isProcessed();
     }
     
-    
+
+    //  Insert into ANA_LOG for ANA_RELATIONSHIP Insertions or Deletions
+    public boolean logANA_RELATIONSHIP( Relationship relationship, String calledFrom ) throws Exception {
+
+        Wrapper.printMessage("anarelationship.logANA_RELATIONSHIP : " + calledFrom, "***", this.requestMsgLevel);
+        	
+        try {
+        	
+            long longLogLoggedOID = 0;
+            long longLogOID = 0;
+            
+            HashMap<String, String> relOldValues = new HashMap<String, String>(); 
+
+            //ANA_RELATIONSHIP columns
+            Vector<String> vRELcolumns = new Vector<String>();
+            vRELcolumns.add("REL_OID");
+            vRELcolumns.add("REL_RELATIONSHIP_TYPE_FK");
+            vRELcolumns.add("REL_PARENT_FK");
+            vRELcolumns.add("REL_CHILD_FK");
+            
+            //column values for selection from ANA_RELATIONSHIP
+            int intREL_OID = 0;
+            
+            //column values for insertion into ANA_LOG
+            String strLOG_COLUMN_NAME = "";
+            String strLOG_OLD_VALUE = "";
+            String strLOG_DATETIME = MySQLDateTime.now();
+            
+            //version_oid should be very first obj_oid created for easy tracing
+            String strLOG_COMMENTS = "";
+
+            if ( calledFrom.equals("INSERT") ) {
+            	
+            	strLOG_COMMENTS = "INSERT Relationships";
+            }
+            else if ( calledFrom.equals("UPDATE") ) {
+            	
+            	strLOG_COMMENTS = "UPDATE Relationships";
+            }
+            else if ( calledFrom.equals("DELETE") ) {
+            	
+            	strLOG_COMMENTS = "DELETE Relationships";
+            }
+            else {
+            	
+            	strLOG_COMMENTS = "UNKNOWN REASON for Relationship INSERT into ANA_LOG";
+            }
+            
+            //get max log_oid from new database
+        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+
+            //clear HashMap relOldValues
+            relOldValues.clear();
+            relOldValues.put( "REL_OID", utility.ObjectConverter.convert(relationship.getOid(), String.class ));
+            relOldValues.put( "REL_RELATIONSHIP_TYPE_FK", relationship.getTypeFK() );
+            relOldValues.put( "REL_PARENT_FK", utility.ObjectConverter.convert(relationship.getParentFK(), String.class ));
+            relOldValues.put( "REL_CHILD_FK", utility.ObjectConverter.convert(relationship.getChildFK(), String.class ));
+
+            longLogLoggedOID = relationship.getOid();
+            
+            for (String columnName: vRELcolumns) {
+          	  
+                longLogOID++;
+                strLOG_COLUMN_NAME = columnName;
+                strLOG_OLD_VALUE = relOldValues.get(columnName);
+
+                Log log = new Log(longLogOID, longLogLoggedOID, this.longLOG_VERSION_FK, strLOG_COLUMN_NAME, strLOG_OLD_VALUE, strLOG_COMMENTS, strLOG_DATETIME, "ANA_RELATIONSHIP");
+                
+                logDAO.create(log);
+            }     
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+        	ex.printStackTrace();
+        } 
+
+        return isProcessed();
+    }
+
+
     // Getters ------------------------------------------------------------------------------------
     public boolean isProcessed() {
         return this.processed;

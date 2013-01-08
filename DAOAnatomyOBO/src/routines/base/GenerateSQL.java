@@ -215,7 +215,7 @@ public class GenerateSQL {
             	component = proposedTermList.get(i);
 
             	// NEW Terms
-                if ( component.getStatusChange().equals("NEW") ) {
+                if ( component.getStatusChange().equals("INSERT") ) {
                 	
                     if ( component.getStatusRule().equals("FAILED") ) {
 
@@ -236,8 +236,8 @@ public class GenerateSQL {
                     newComponents.add( component );
                 }
                 
-                // DELETED Terms
-                if ( component.getStatusChange().equals("DELETED") ) {
+                // DELETE Terms
+                if ( component.getStatusChange().equals("DELETE") ) {
                 	
                 	if ( component.getStatusRule().equals("FAILED") ) {
 
@@ -259,7 +259,7 @@ public class GenerateSQL {
                 }
                 
                 // MODIFIED Terms
-                if ( component.getStatusChange().equals("CHANGED") ) {
+                if ( component.getStatusChange().equals("UPDATE") ) {
                 	
                     if ( component.getStatusRule().equals("FAILED") ) {
                         
@@ -280,9 +280,9 @@ public class GenerateSQL {
                     changedComponents.add( component );
                 }
                 
-                if ( !component.getStatusChange().equals("NEW") || 
-                	!component.getStatusChange().equals("DELETED") || 
-                	!component.getStatusChange().equals("CHANGED") ) {
+                if ( !component.getStatusChange().equals("INSERT") || 
+                	!component.getStatusChange().equals("DELETE") || 
+                	!component.getStatusChange().equals("UPDATE") ) {
                 	
                 	if (VALID_VALUES.contains( component.getID() )) {
 
@@ -290,7 +290,7 @@ public class GenerateSQL {
                 	}
                 }
                 
-                // Terms that are neither NEW, MODIFIED or DELETED - ERROR!!!
+                // Terms that are neither NEW, MODIFIED or DELETE - ERROR!!!
                 else {
 
                     setProcessed( false );
@@ -319,13 +319,13 @@ public class GenerateSQL {
                 		throw new DatabaseException("anaversion.insertANA_VERSION");
                 	}
                 	
-                    // Do INSERTs of NEW components
+                    // Do inserts of NEW components
                     inserts( newComponents );
 
-                    // Do UPDATEs of MODIFIED components
+                    // Do updates of MODIFIED components
                     updates( changedComponents );
                     
-                    // Do DELETES of DELETED components
+                    // Do deletes of DELETE components
                     deletes( deletedComponents );
 
                     // Rebuild ANA_RELATIONSHIP_PROJECT
@@ -544,7 +544,7 @@ public class GenerateSQL {
                 //get components whose names have changed
                 //perform update for modified names
                 if ( !ananode.updateANA_NODE_name( getChangedNamesTermList( ananode.getStartingComponentList() ), 
-                		"UPDATE") ) {
+                		"UPDATE", this.strSpecies) ) {
 
              	   throw new DatabaseException("ananode.updateANA_NODE_name");
                 }
@@ -562,7 +562,7 @@ public class GenerateSQL {
 
                     if ( !anasynonym.updateANA_SYNONYM( this.diffCreateSynList, 
                     		this.diffDeleteSynList, 
-                    		"DELETED") ) {
+                    		"DELETE") ) {
 
                  	   throw new DatabaseException("anasynonym.updateANA_SYNONYM");
                     }
@@ -590,7 +590,7 @@ public class GenerateSQL {
                 }
                 
                 if ( !anarelationship.deleteANA_RELATIONSHIP(this.diffDeleteRelList, 
-                		"DELETED") ) {
+                		"DELETE") ) {
 
                 	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP_UpdateParents");
                 }
@@ -598,7 +598,7 @@ public class GenerateSQL {
                 //get components whose primary status have changed
                 //perform update for modified primary status
                 if ( !ananode.updateANA_NODE_primary( getChangedPrimaryStatusTermList( ananode.getStartingComponentList() ), 
-                		"UPDATE") ) {
+                		"UPDATE", this.strSpecies) ) {
 
                 	throw new DatabaseException("ananode.updateANA_NODE_primary");
                 }
@@ -853,39 +853,35 @@ public class GenerateSQL {
         try {
         	
             if ( !validDeleteTermList.isEmpty() ) {
-            	
+
                 AnaTimedNode anatimednode = new AnaTimedNode( this.requestMsgLevel, this.daofactory );
 
-                if ( !anatimednode.deleteANA_TIMED_NODE(validDeleteTermList, 
-                		"deleteComponentFromTables") ) {
+                if ( !anatimednode.deleteANA_TIMED_NODE(validDeleteTermList, "DELETE") ) {
 
-                    throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE for deleteComponentFromTables");
+                    throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE for DELETE");
                 }
 
                 AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
                 
-                if ( !ananode.deleteANA_NODE(validDeleteTermList, 
-                		this.strSpecies, 
-                		"deleteComponentFromTables") ) {
+                if ( !ananode.deleteANA_NODE(validDeleteTermList, this.strSpecies, "DELETE") ) {
 
-                	throw new DatabaseException("ananode.deleteANA_NODE for deleteComponentFromTables");
+                	throw new DatabaseException("ananode.deleteANA_NODE for DELETE");
                 }
 
                 AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
                 
-                if ( !anasynonym.deleteANA_SYNONYM(validDeleteTermList, 
-                		"deleteComponentFromTables") ) {
+                if ( !anasynonym.deleteANA_SYNONYM(validDeleteTermList, "DELETE") ) {
              	
-                	throw new DatabaseException("anasynonym.deleteANA_SYNONYM for deleteComponentFromTables");
+                	throw new DatabaseException("anasynonym.deleteANA_SYNONYM for DELETE");
                 }
               
                 AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
                 
-                if ( !anarelationship.deleteANA_RELATIONSHIP(validDeleteTermList, "" +
-                		"deleteComponentFromTables") ) {
+                if ( !anarelationship.deleteANA_RELATIONSHIP(validDeleteTermList, "DELETE") ) {
              	
-                	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP for deleteComponentFromTables");
+                	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP for DELETE");
                 }
+
             }
         }
         catch ( DatabaseException dbex ) {
@@ -950,9 +946,9 @@ public class GenerateSQL {
                             component.getName() + ". Please generate a new OBO " +
                             "file from the database and retry deletion.");
                     }
-                    else if ( !component.getStatusChange().equals("DELETED") ) {
+                    else if ( !component.getStatusChange().equals("DELETE") ) {
 
-                    	component.setStatusChange("DELETED");
+                    	component.setStatusChange("DELETE");
                         invalidDelete = true;
                         deletedcomponent = this.tree.getComponent( s );
 
@@ -1017,7 +1013,7 @@ public class GenerateSQL {
                 	createtimedcomponent.setDBID( component.getDBID() );
                 	createtimedcomponent.setStart( component.getStart() );
                 	createtimedcomponent.setEndSequence( startSequence - 1, this.strSpecies );
-                	createtimedcomponent.setStatusChange("NEW");
+                	createtimedcomponent.setStatusChange("INSERT");
                 	createtimedcomponent.setStatusRule("PASSED");
                 	
                     Set<String> copyComments = component.getCheckComments();       
@@ -1043,7 +1039,7 @@ public class GenerateSQL {
                 	createtimedcomponent.setDBID( component.getDBID() );
                 	createtimedcomponent.setStartSequence( endSequence + 1, this.strSpecies );
                 	createtimedcomponent.setEndSequence( component.getEndSequence(), this.strSpecies );
-                	createtimedcomponent.setStatusChange("NEW");
+                	createtimedcomponent.setStatusChange("INSERT");
                 	createtimedcomponent.setStatusRule("PASSED");
                    
                     Set<String> copyComments = component.getCheckComments();       
@@ -1070,7 +1066,7 @@ public class GenerateSQL {
                 	delTimedComponent.setDBID( component.getDBID() );
                 	delTimedComponent.setStartSequence( startSequence, this.strSpecies );
                 	delTimedComponent.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
-                	delTimedComponent.setStatusChange("DELETED");
+                	delTimedComponent.setStatusChange("DELETE");
                 	delTimedComponent.setStatusRule("PASSED");
 
                     Set<String> copyComments = component.getCheckComments();       
@@ -1096,7 +1092,7 @@ public class GenerateSQL {
                     delTimedComponent.setDBID( component.getDBID() );
                     delTimedComponent.setStartSequence( component.getEndSequence() + 1, this.strSpecies );
                     delTimedComponent.setEndSequence( endSequence, this.strSpecies );
-                    delTimedComponent.setStatusChange("DELETED");
+                    delTimedComponent.setStatusChange("DELETE");
                     delTimedComponent.setStatusRule("PASSED");
 
                     Set<String> copyComments = component.getCheckComments();       

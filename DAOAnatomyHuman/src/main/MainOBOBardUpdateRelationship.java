@@ -41,13 +41,13 @@ public class MainOBOBardUpdateRelationship {
 	 */
     public static void main(String[] args) throws Exception {
 
-    	long startTime = Wrapper.printPrologue(Wrapper.getExecutingClass());
+    	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
         /*
          * MAINLINE
          */
         RunOBOBardUpdateRelationship.run();
         
-    	Wrapper.printEpilogue(Wrapper.getExecutingClass(), startTime);
+    	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }
 }

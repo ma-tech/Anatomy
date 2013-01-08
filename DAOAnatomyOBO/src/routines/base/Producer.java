@@ -193,7 +193,7 @@ public class Producer {
             //  for i
             for (int i=0; i<obocomponentList.size(); i++) {
             	
-                if ( !obocomponentList.get(i).getStatusChange().equals("DELETED") ){
+                if ( !obocomponentList.get(i).getStatusChange().equals("DELETE") ){
 
                 	outputFile.write("[Term]\n");
                     outputFile.write("id: " + obocomponentList.get(i).getID() + "\n");

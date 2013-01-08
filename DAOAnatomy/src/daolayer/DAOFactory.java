@@ -193,9 +193,9 @@ public abstract class DAOFactory {
                 if (strDebug.equals("true")) {
                 	
                 	debug = true;
-                	Wrapper.printMessage("=========", "*", level);
+                	Wrapper.printMessage("========= :", "*", level);
                 	Wrapper.printMessage("DEBUG     : DAO Properties File     : " + filename, "*", level);
-                	Wrapper.printMessage("---------", "*", level);
+                	Wrapper.printMessage("--------- :", "*", level);
                 	Wrapper.printMessage("          : url                     : " + url, "*", level);
                 	Wrapper.printMessage("          : driverClassName         : " + driverClassName, "*", level);
                 	Wrapper.printMessage("          : username                : " + username, "*", level);
@@ -221,7 +221,7 @@ public abstract class DAOFactory {
                     
             		results = ExecuteCommand.execute(commandString1);
 
-                	Wrapper.printMessage("---------", "*", level);
+                	Wrapper.printMessage("--------- :", "*", level);
                 	Wrapper.printMessage("          : Empty SQL Command Log File", "*", level);
                 	Wrapper.printMessage("          : Command: " + commandString1, "*", level);
 
@@ -233,7 +233,7 @@ public abstract class DAOFactory {
                   	}
                 }
 
-                Wrapper.printMessage("=========", "*", level);
+                Wrapper.printMessage("========= :", "*", level);
             }
             
             // If driver is specified, then load it to let it register itself with DriverManager.

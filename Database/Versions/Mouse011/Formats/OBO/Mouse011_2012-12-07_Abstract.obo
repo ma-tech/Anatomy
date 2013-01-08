@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 18:12:2012 13:56
+date: 08:01:2013 16:23
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 011
@@ -16990,7 +16990,7 @@ relationship: starts_at TS20
 relationship: ends_at TS21
 related_synonym: "epithelial vesicle" []
 related_synonym: "stage I nephron" []
-comment: order=23 for EMAPA:17373\norder=9 for EMAPA:17954
+comment: order=23 for EMAPA:17373\norder=8 for EMAPA:17954
 
 [Term]
 id: EMAPA:27681
@@ -17284,7 +17284,7 @@ relationship: starts_at TS22
 relationship: ends_at TS27
 related_synonym: "epithelial vesicle" []
 related_synonym: "stage I nephron" []
-comment: order=1 for EMAPA:28500\norder=8 for EMAPA:17954\norder=16 for EMAPA:17952
+comment: order=1 for EMAPA:28500\norder=9 for EMAPA:17954\norder=16 for EMAPA:17952
 
 [Term]
 id: EMAPA:27835
@@ -18170,7 +18170,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28477
 relationship: starts_at TS21
 relationship: ends_at TS21
-comment: order=28 for EMAPA:17373\norder=1 for EMAPA:28477
+comment: order=29 for EMAPA:17373\norder=1 for EMAPA:28477
 
 [Term]
 id: EMAPA:17378
@@ -30781,7 +30781,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17049\norder=5 for EMAPA:29703
+comment: order=0 for EMAPA:17049\norder=6 for EMAPA:29703
 
 [Term]
 id: EMAPA:17051
@@ -30791,7 +30791,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17049\norder=6 for EMAPA:31126
+comment: order=1 for EMAPA:17049\norder=5 for EMAPA:31126
 
 [Term]
 id: EMAPA:17052
@@ -30801,7 +30801,7 @@ relationship: part_of EMAPA:17049
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17049\norder=5 for EMAPA:31151
+comment: order=2 for EMAPA:17049\norder=6 for EMAPA:31151
 
 [Term]
 id: EMAPA:17053
@@ -30820,7 +30820,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:29703
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=0 for EMAPA:17053\norder=6 for EMAPA:29703
+comment: order=0 for EMAPA:17053\norder=5 for EMAPA:29703
 
 [Term]
 id: EMAPA:17055
@@ -30830,7 +30830,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:31126
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=1 for EMAPA:17053\norder=5 for EMAPA:31126
+comment: order=1 for EMAPA:17053\norder=6 for EMAPA:31126
 
 [Term]
 id: EMAPA:17056
@@ -30840,7 +30840,7 @@ relationship: part_of EMAPA:17053
 relationship: part_of EMAPA:31151
 relationship: starts_at TS17
 relationship: ends_at TS20
-comment: order=2 for EMAPA:17053\norder=6 for EMAPA:31151
+comment: order=2 for EMAPA:17053\norder=5 for EMAPA:31151
 
 [Term]
 id: EMAPA:17057
@@ -41945,7 +41945,7 @@ relationship: part_of EMAPA:17373
 relationship: part_of EMAPA:28407
 relationship: starts_at TS22
 relationship: ends_at TS28
-comment: order=29 for EMAPA:17373\norder=2 for EMAPA:28407
+comment: order=28 for EMAPA:17373\norder=2 for EMAPA:28407
 
 [Term]
 id: EMAPA:28500

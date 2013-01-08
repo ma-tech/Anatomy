@@ -47,7 +47,7 @@ public class Component {
      *   AOC_START         - varchar(10) NOT NULL,
      *   AOC_END           - varchar(10) NOT NULL,
      *   AOC_PRESENT       - varchar(10) NOT NULL,
-     *   AOC_STATUS_CHANGE - varchar(10) NOT NULL COMMENT 'UNCHANGED NEW CHANGED DELETED',
+     *   AOC_STATUS_CHANGE - varchar(10) NOT NULL COMMENT 'NONE, INSERT, UPDATE, DELETE',
      *   AOC_STATUS_RULE   - varchar(10) NOT NULL COMMENT 'UNCHECKED PASSED FAILED',
 	 */
     private Long oid;
@@ -61,7 +61,7 @@ public class Component {
     private String start;
     private String end;
     private Integer present;
-    private String statuschange; //"UNCHANGED"|"NEW"|"CHANGED"|"DELETED"
+    private String statuschange; //'NONE, INSERT, UPDATE, DELETE'
     private String statusrule;   //"UNCHECKED"|"PASSED"|"FAILED"
 
     // Constructors -------------------------------------------------------------------------------

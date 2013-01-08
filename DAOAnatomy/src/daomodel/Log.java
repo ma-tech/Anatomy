@@ -42,7 +42,8 @@ public class Log {
      *   4.  LOG_COLUMN_NAME => varchar(64)
      *   5.  LOG_OLD_VALUE   => varchar(255)
      *   6.  LOG_COMMENTS    => varchar(255)
-     *   7.  LOG_DATETIME    => varchar(255)
+     *   7.  LOG_DATETIME    => datetime
+     *   7.  LOG_TABLE       => varchar(255)
 	 */
     private Long oid; 
     private Long loggedOid; 
@@ -51,6 +52,7 @@ public class Log {
     private String oldValue; 
     private String comments;
     private String datetime;
+    private String table;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -69,7 +71,8 @@ public class Log {
     		   String columnName,
     	       String oldValue, 
     		   String comments, 
-    		   String datetime) {
+    		   String datetime, 
+    		   String table) {
     	
     	this.oid = oid;
     	this.loggedOid = loggedOid;
@@ -78,6 +81,7 @@ public class Log {
     	this.oldValue = oldValue;
     	this.comments = comments;
     	this.datetime = datetime;
+    	this.table = table;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -102,6 +106,9 @@ public class Log {
     public String getDatetime() {
         return datetime;
     }
+    public String getTable() {
+        return table;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {
@@ -125,6 +132,9 @@ public class Log {
     public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
+    public void setTable(String table) {
+        this.table = table;
+    }
 
     // Override -----------------------------------------------------------------------------------
     /*
@@ -138,7 +148,8 @@ public class Log {
     		this.getColumnName().equals(daolog.getColumnName()) &&
     		this.getOldValue().equals(daolog.getOldValue()) &&
     		this.getComments().equals(daolog.getComments()) &&
-    		this.getDatetime().equals(daolog.getDatetime()) ) {
+    		this.getDatetime().equals(daolog.getDatetime()) &&
+    		this.getTable().equals(daolog.getTable()) ) {
 
         	return true;
         }
@@ -165,7 +176,7 @@ public class Log {
      */
     public String toString() {
     	
-        return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s, datetime=%s ]", 
-        		oid, loggedOid, versionFK, columnName, oldValue, comments, datetime);
+        return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s, datetime=%s, table=%s ]", 
+        		oid, loggedOid, versionFK, columnName, oldValue, comments, datetime, table);
     }
 }

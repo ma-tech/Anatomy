@@ -92,7 +92,7 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorNewTerms.next();
     	    
-    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : NEW component.toString() " + component.toString(), "*", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
         Iterator<OBOComponent> iteratorModTerms = modComponents.iterator();
@@ -101,7 +101,7 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : MOD component.toString() " + component.toString(), "*", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
         Iterator<OBOComponent> iteratorDelTerms = delComponents.iterator();
@@ -110,7 +110,7 @@ public class UpdateDatabaseFromComponentsTables {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : DEL component.toString() " + component.toString(), "*", requestMsgLevel);
+    		Wrapper.printMessage("updatedatabasefromcomponentstables.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
         if ( newComponents.size() > 0 ) {

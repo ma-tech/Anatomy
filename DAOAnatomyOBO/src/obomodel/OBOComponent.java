@@ -77,7 +77,7 @@ public class OBOComponent {
     private ArrayList<String> childOfs;
     private ArrayList<String> childOfTypes;
     private ArrayList<String> synonyms;
-    private String statusChange; //"UNCHANGED"|"NEW"|"CHANGED"|"DELETED"
+    private String statusChange; //"NONE"|"INSERT"|"UPDATE"|"DELETE"
     private String statusRule;   //"UNCHECKED"|"PASSED"|"FAILED"
     private ArrayList<String> userComments;
     private String orderComment;

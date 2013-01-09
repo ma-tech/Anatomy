@@ -980,8 +980,6 @@ public class ListOBOComponentsFromExistingDatabase {
         obocomponent.setID( MOUSE_ID );
         obocomponent.setNamespace( MOUSE_NAME_SPACE );
         obocomponent.setDBID( "-1" );
-        //obocomponent.addChildOf( MOUSE_ID  );
-        //obocomponent.addChildOfType( "IS_A" );
         
         if ( defaultroot ) {
         	
@@ -1410,8 +1408,6 @@ public class ListOBOComponentsFromExistingDatabase {
         obocomponent.setID( CHICK_ID );
         obocomponent.setNamespace( CHICK_NAME_SPACE );
         obocomponent.setDBID( "-1" );
-        obocomponent.addChildOf( CHICK_ID  );
-        obocomponent.addChildOfType( "IS_A" );
         
         if ( defaultroot ) {
         	

@@ -43,7 +43,8 @@ import daomodel.TimedLeaf;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.TimedLeafDAO;
+import daointerface.ThingDAO;
+import daointerface.TimedLeafDAO;
 
 public class RunDAOTestTimedLeafsSubRoutine3 {
 	/*
@@ -53,18 +54,18 @@ public class RunDAOTestTimedLeafsSubRoutine3 {
 
 		try {
 		    
-			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run", "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run", "***", daofactory.getDAOImpl(ThingDAO.class).getLevel());
 
-		    TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
+			TimedLeafDAO timedleafDAO = daofactory.getDAOImpl(TimedLeafDAO.class);
 
 	    	List<TimedLeaf> timedleafs = new ArrayList<TimedLeaf>();
 
         	timedleafs = timedleafDAO.listAllTimedNodesByRootNameByChildDesc( emapId, stage, emapId, stage );
 
-			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : ==========================", "***", daofactory.getThingDAO().getLevel());
-			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : " + emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonLines", "***", daofactory.getThingDAO().getLevel());
-			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : --------------------------", "***", daofactory.getThingDAO().getLevel());
-			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : " + timedleafDAO.convertLeafListToStringJsonLines(timedleafs), "***", daofactory.getThingDAO().getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : ==========================", "***", daofactory.getDAOImpl(ThingDAO.class).getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : " + emapId + " ; Stage : " + stage + " - convertLeafListToStringJsonLines", "***", daofactory.getDAOImpl(ThingDAO.class).getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : --------------------------", "***", daofactory.getDAOImpl(ThingDAO.class).getLevel());
+			Wrapper.printMessage("RunDAOTestTimedLeafsSubRoutine3.run : " + timedleafDAO.convertLeafListToStringJsonLines(timedleafs), "***", daofactory.getDAOImpl(ThingDAO.class).getLevel());
 		}
 		catch (DAOException daoe) {
 

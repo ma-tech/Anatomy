@@ -34,12 +34,12 @@
 */
 package routines.aggregated;
 
-import daolayer.ComponentDAO;
-import daolayer.ComponentRelationshipDAO;
-import daolayer.ComponentCommentDAO;
-import daolayer.ComponentSynonymDAO;
-import daolayer.ComponentAlternativeDAO;
-import daolayer.ComponentOrderDAO;
+import daointerface.ComponentAlternativeDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentSynonymDAO;
 
 import daolayer.DAOFactory;
 
@@ -54,12 +54,13 @@ public class EmptyComponentsTables {
 	    Wrapper.printMessage("emptycomponentstables.run", "***", requestMsgLevel);
 
 	    // Obtain DAOs.
-        ComponentDAO componentDAO = daofactory.getComponentDAO();
-        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
-        ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
-        ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
-        ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
-        ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
+	    //daofactory.getDAOImpl(ThingDAO.class).getLevel()
+        ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
+        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getDAOImpl(ComponentRelationshipDAO.class);
+        ComponentCommentDAO componentcommentDAO = daofactory.getDAOImpl(ComponentCommentDAO.class);
+        ComponentSynonymDAO componentsynonymDAO = daofactory.getDAOImpl(ComponentSynonymDAO.class);
+        ComponentAlternativeDAO componentalternativeDAO = daofactory.getDAOImpl(ComponentAlternativeDAO.class);
+        ComponentOrderDAO componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
 
         Wrapper.printMessage("emptycomponentstables.run : ---------------------------------------------------------------", "***", requestMsgLevel);
 

@@ -39,14 +39,14 @@ import java.util.Iterator;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
-import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
-import daolayer.JOINTimedNodeStageDAO;
-import daolayer.JOINTimedNodeNodeStageDAO;
-import daolayer.NodeDAO;
-import daolayer.TimedNodeDAO;
-import daolayer.SynonymDAO;
-import daolayer.ComponentAlternativeDAO;
+import daointerface.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
+import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
+import daointerface.JOINTimedNodeStageDAO;
+import daointerface.JOINTimedNodeNodeStageDAO;
+import daointerface.NodeDAO;
+import daointerface.TimedNodeDAO;
+import daointerface.SynonymDAO;
+import daointerface.ComponentAlternativeDAO;
 
 import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
 import daomodel.JOINNodeRelationshipRelationshipProject;
@@ -127,13 +127,13 @@ public class ListOBOComponentsFromExistingDatabase {
 		try {
 			
     	    // Obtain DAOs.
-            NodeDAO nodeDAO = daofactory.getNodeDAO();
-            TimedNodeDAO timednodeDAO = daofactory.getTimedNodeDAO();
-            SynonymDAO synonymDAO = daofactory.getSynonymDAO();
-            ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+            NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+            TimedNodeDAO timednodeDAO = daofactory.getDAOImpl(TimedNodeDAO.class);
+            SynonymDAO synonymDAO = daofactory.getDAOImpl(SynonymDAO.class);
+            ComponentAlternativeDAO componentalternativeDAO = daofactory.getDAOImpl(ComponentAlternativeDAO.class);
 
-            JOINNodeRelationshipRelationshipProjectDAO nrrpjoinDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO(); 
-            JOINTimedNodeStageDAO jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
+            JOINNodeRelationshipRelationshipProjectDAO nrrpjoinDAO = daofactory.getDAOImpl(JOINNodeRelationshipRelationshipProjectDAO.class); 
+            JOINTimedNodeStageDAO jointimednodestageDAO = daofactory.getDAOImpl(JOINTimedNodeStageDAO.class);
 
             // 1: abstract class---------------------------------------------------------------------------
             OBOComponent obocomponent;
@@ -385,8 +385,8 @@ public class ListOBOComponentsFromExistingDatabase {
     		
             // Obtain DAOs.
 
-            JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO tnnsrntnsjoinDAO = daofactory.getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO(); 
-            JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = daofactory.getJOINTimedNodeNodeStageDAO();
+            JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO tnnsrntnsjoinDAO = daofactory.getDAOImpl(JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO.class); 
+            JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = daofactory.getDAOImpl(JOINTimedNodeNodeStageDAO.class);
 
             // 1: abstract class---------------------------------------------------------------------------
             OBOComponent obocomponent;

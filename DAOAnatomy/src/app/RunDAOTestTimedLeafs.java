@@ -44,7 +44,7 @@ import daomodel.TimedLeaf;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.TimedLeafDAO;
+import daointerface.TimedLeafDAO;
 
 public class RunDAOTestTimedLeafs {
 
@@ -55,7 +55,7 @@ public class RunDAOTestTimedLeafs {
 	        Wrapper.printMessage("RunDAOTestTimedLeafs.run", "*", "*");
 
 	        // Obtain DAOs.
-			TimedLeafDAO timedleafDAO = daofactory.getTimedLeafDAO();
+	        TimedLeafDAO timedleafDAO = daofactory.getDAOImpl(TimedLeafDAO.class);
 
 			int rowCount = 0;
 	        String timedleafRootName = emapId;

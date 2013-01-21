@@ -43,20 +43,20 @@ import daomodel.Leaf;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.LeafDAO;
+import daointerface.LeafDAO;
 
 public class RunDAOTestAbstractLeafsSubRoutine {
 
 	public static void run (DAOFactory daofactory, String emapaId ) throws Exception {
 
 		try {
-			
+		
 	        Wrapper.printMessage("RunDAOTestAbstractLeafsSubRoutine.run", "*", "*");
 
 	        String leafRootName = emapaId;
 
 	        // Obtain DAOs.
-			LeafDAO leafDAO = daofactory.getLeafDAO();
+	        LeafDAO leafDAO = daofactory.getDAOImpl(LeafDAO.class);
 
 	    	List<Leaf> leafs = new ArrayList<Leaf>();
         	leafs = leafDAO.listAllNodesByRootNameByChildDesc( leafRootName, leafRootName );

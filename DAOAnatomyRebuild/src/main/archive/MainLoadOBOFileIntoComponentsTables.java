@@ -37,6 +37,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
 
 public class MainLoadOBOFileIntoComponentsTables {
@@ -54,7 +56,7 @@ public class MainLoadOBOFileIntoComponentsTables {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            LoadOBOFileIntoComponentsTables.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
+            LoadOBOFileIntoComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

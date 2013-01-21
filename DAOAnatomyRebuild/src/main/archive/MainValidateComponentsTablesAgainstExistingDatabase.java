@@ -41,6 +41,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 import routines.runnable.RunOBOCheckComponentsOrdering;
 import routines.runnable.archive.ValidateComponentsTablesAgainstExistingDatabase;
 
@@ -59,8 +61,8 @@ public class MainValidateComponentsTablesAgainstExistingDatabase{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
             
-            ValidateComponentsTablesAgainstExistingDatabase.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
-            RunOBOCheckComponentsOrdering.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
+            ValidateComponentsTablesAgainstExistingDatabase.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            RunOBOCheckComponentsOrdering.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -101,6 +101,51 @@ import javax.naming.NamingException;
 import utility.ExecuteCommand;
 import utility.Wrapper;
 
+import daointerface.BaseDAO;
+
+/*
+import daointerface.NodeDAO;
+
+import daojdbc.ComponentAlternativeDAOJDBC;
+import daojdbc.ComponentCommentDAOJDBC;
+import daojdbc.ComponentDAOJDBC;
+import daojdbc.ComponentOrderDAOJDBC;
+import daojdbc.ComponentRelationshipDAOJDBC;
+import daojdbc.ComponentSynonymDAOJDBC;
+import daojdbc.DerivedPartOfDAOJDBC;
+import daojdbc.DerivedPartOfFKDAOJDBC;
+import daojdbc.DerivedPartOfPerspectivesDAOJDBC;
+import daojdbc.DerivedPartOfPerspectivesJsonFKDAOJDBC;
+import daojdbc.DerivedRelationshipTransitiveDAOJDBC;
+import daojdbc.EditorDAOJDBC;
+import daojdbc.ExtraTimedNodeDAOJDBC;
+import daojdbc.JOINNodeRelationshipDAOJDBC;
+import daojdbc.JOINNodeRelationshipNodeDAOJDBC;
+import daojdbc.JOINNodeRelationshipRelationshipProjectDAOJDBC;
+import daojdbc.JOINRelationshipProjectRelationshipDAOJDBC;
+import daojdbc.JOINTimedNodeNodeStageDAOJDBC;
+import daojdbc.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC;
+import daojdbc.JOINTimedNodeStageDAOJDBC;
+import daojdbc.LeafDAOJDBC;
+import daojdbc.LogDAOJDBC;
+import daojdbc.NodeDAOJDBC;
+import daojdbc.OBOFileDAOJDBC;
+import daojdbc.PerspectiveAmbitDAOJDBC;
+import daojdbc.ProjectDAOJDBC;
+import daojdbc.RelationshipDAOJDBC;
+import daojdbc.RelationshipProjectDAOJDBC;
+import daojdbc.SourceDAOJDBC;
+import daojdbc.StageDAOJDBC;
+import daojdbc.StageRangeDAOJDBC;
+import daojdbc.SynonymDAOJDBC;
+import daojdbc.ThingDAOJDBC;
+import daojdbc.TimedLeafDAOJDBC;
+import daojdbc.TimedNodeDAOJDBC;
+import daojdbc.UserDAOJDBC;
+import daojdbc.VersionDAOJDBC;
+*/
+
+
 public abstract class DAOFactory {
     // Constants ----------------------------------------------------------------------------------
     private static final String PROPERTY_URL = "url";
@@ -112,6 +157,7 @@ public abstract class DAOFactory {
     private static final String PROPERTY_UPDATE = "update";
     private static final String PROPERTY_SQL_OUTPUT = "sqloutput";
     private static final String PROPERTY_MESSAGE_LEVEL = "msglevel";
+    private static final String PROPERTY_ACCESS_METHOD = "access";
 
     private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
             new String[] 
@@ -123,7 +169,62 @@ public abstract class DAOFactory {
         	    {"true","false"}
             ));
 
+    private static final Set<String> VALID_METHODS = new HashSet<String>(Arrays.asList(
+            new String[] 
+        	    {"JDBC"}
+            ));
+
     // Actions ------------------------------------------------------------------------------------
+
+    public <DAO extends BaseDAO> DAO getDAOImpl(Class<DAO> daoInterface)
+            throws DAOConfigurationException
+        {
+            String daoInterfaceName = daoInterface.getName();
+
+            if (!daoInterface.isInterface()) {
+                throw new DAOConfigurationException("Class '" + daoInterfaceName + "'"
+                    + " is actually not an Interface.");
+            }
+            
+            String daoClassName = "daojdbc." + daoInterface.getSimpleName() + this.getAccessMethod();
+            
+            DAO daoImplementation;
+
+            try {
+                daoImplementation = daoInterface.cast(Class.forName(daoClassName).newInstance());
+            } 
+            catch (ClassNotFoundException e) {
+            	
+                throw new DAOConfigurationException("DAO class '" + daoClassName
+                    + "' is missing in classpath. Verify the class or the '" + daoInterfaceName
+                    + "' property.", e);
+            }
+            catch (IllegalAccessException e) {
+            	
+                throw new DAOConfigurationException("DAO class '" + daoClassName
+                    + "' cannot be accessed. Verify the class or the '" + daoInterfaceName
+                    + "' property.", e);
+            }
+            catch (InstantiationException e) {
+            	
+                throw new DAOConfigurationException("DAO class '" + daoClassName
+                    + "' cannot be instantiated. Verify the class or the '" + daoInterfaceName
+                    + "' property.", e);
+            }
+            catch (ClassCastException e) {
+            	
+                throw new DAOConfigurationException("DAO class '" + daoClassName
+                    + "' does not implement '" + daoInterfaceName + "'. Verify the class or the '"
+                    + daoInterfaceName + "' property.", e);
+            }
+
+            daoImplementation.setDAOFactory(this);
+
+            return daoImplementation;
+        }
+
+
+
     /*
      * Returns a new DAOFactory instance for the given database name.
      */
@@ -148,16 +249,28 @@ public abstract class DAOFactory {
         String strUpdate = properties.getProperty(PROPERTY_UPDATE, true);
         String sqloutput = properties.getProperty(PROPERTY_SQL_OUTPUT, false);
         String strMsgLevel = properties.getProperty(PROPERTY_MESSAGE_LEVEL, true);
+        String strAccessMethod = properties.getProperty(PROPERTY_ACCESS_METHOD, true);
 
     	Boolean update = false;
         Boolean debug = false;
 
         String level = "";
+        String access = "";
 
         try {
             	
-        	if ( !VALID_LEVELS.contains( strMsgLevel ) ) {
+        	if ( !VALID_METHODS.contains( strAccessMethod ) ) {
         	
+                throw new DAOConfigurationException(
+                		"Access Method '" + strAccessMethod + "' : INVALID Value!");
+        	}
+        	else {
+        		
+        		access = strAccessMethod;
+        	}
+        		
+        	if ( !VALID_LEVELS.contains( strMsgLevel ) ) {
+            	
                 throw new DAOConfigurationException(
                         "Message Level '" + strMsgLevel + "' : INVALID Value!");
         	}
@@ -204,6 +317,7 @@ public abstract class DAOFactory {
                 	Wrapper.printMessage("          : update                  : " + update, "*", level);
                 	Wrapper.printMessage("          : sqloutput               : " + sqloutput, "*", level);
                 	Wrapper.printMessage("          : strMsgLevel             : " + strMsgLevel, "*", level);
+                	Wrapper.printMessage("          : strAccessMethod         : " + strAccessMethod, "*", level);
                 }
                 
                 if (strDebug.equals("false")) {
@@ -241,7 +355,7 @@ public abstract class DAOFactory {
                 
             	Class.forName(driverClassName);
 
-            	instance = new DriverManagerDAOFactory(level, update, debug, sqloutput, url, username, password);
+            	instance = new DriverManagerDAOFactory(access, level, update, debug, sqloutput, url, username, password);
                 
             }
             // Else assume URL as DataSource URL and lookup it in the JNDI.
@@ -253,11 +367,11 @@ public abstract class DAOFactory {
                 
                 if (username != null) {
                 	
-                    instance = new DataSourceWithLoginDAOFactory(level, update, debug, sqloutput, dataSource, username, password);
+                    instance = new DataSourceWithLoginDAOFactory(access, level, update, debug, sqloutput, dataSource, username, password);
                 }
                 else {
                 	
-                    instance = new DataSourceDAOFactory(level, update, debug, sqloutput, dataSource);
+                    instance = new DataSourceDAOFactory(access, level, update, debug, sqloutput, dataSource);
                 }
             }
     	}
@@ -283,136 +397,140 @@ public abstract class DAOFactory {
      * Returns a connection to the database. 
      *  Package private so that it can be used inside the DAO package only.
      */
-    abstract Connection getConnection() throws SQLException;
-    abstract Boolean isDebug();
-    abstract Boolean isUpdate();
-    abstract String getUrl();
-    abstract String getSqloutput();
-    abstract String getLevel();
+    public abstract Connection getConnection() throws SQLException;
+    public abstract Boolean isDebug();
+    public abstract Boolean isUpdate();
+    public abstract String getUrl();
+    public abstract String getSqloutput();
+    public abstract String getLevel();
+    public abstract String getAccessMethod();
     
     // DAO getters --------------------------------------------------------------------------------
-    /*
-     * Returns the ... DAO associated with the current DAOFactory.
+
+    /* Returns the ... DAO associated with the current DAOFactory.
      */
-    public OBOFileDAO getOBOFileDAO() {
-        return new OBOFileDAO(this);
+    
+    /*
+    public OBOFileDAOJDBC getOBOFileDAOJDBC() {
+        return new OBOFileDAOJDBC(this);
     }
 
-    public DerivedPartOfDAO getDerivedPartOfDAO() {
-        return new DerivedPartOfDAO(this);
+    public DerivedPartOfDAOJDBC getDerivedPartOfDAOJDBC() {
+        return new DerivedPartOfDAOJDBC(this);
     }
-    public DerivedPartOfFKDAO getDerivedPartOfFKDAO() {
-        return new DerivedPartOfFKDAO(this);
+    public DerivedPartOfFKDAOJDBC getDerivedPartOfFKDAOJDBC() {
+        return new DerivedPartOfFKDAOJDBC(this);
     }
-    public DerivedPartOfPerspectivesDAO getDerivedPartOfPerspectivesDAO() {
-        return new DerivedPartOfPerspectivesDAO(this);
+    public DerivedPartOfPerspectivesDAOJDBC getDerivedPartOfPerspectivesDAOJDBC() {
+        return new DerivedPartOfPerspectivesDAOJDBC(this);
     }
-    public DerivedPartOfPerspectivesJsonFKDAO getDerivedPartOfPerspectivesJsonFKDAO() {
-        return new DerivedPartOfPerspectivesJsonFKDAO(this);
+    public DerivedPartOfPerspectivesJsonFKDAOJDBC getDerivedPartOfPerspectivesJsonFKDAOJDBC() {
+        return new DerivedPartOfPerspectivesJsonFKDAOJDBC(this);
     }
-    public DerivedRelationshipTransitiveDAO getDerivedRelationshipTransitiveDAO() {
-        return new DerivedRelationshipTransitiveDAO(this);
+    public DerivedRelationshipTransitiveDAOJDBC getDerivedRelationshipTransitiveDAOJDBC() {
+        return new DerivedRelationshipTransitiveDAOJDBC(this);
     }
 
-    public LogDAO getLogDAO() {
-        return new LogDAO(this);
+    public LogDAOJDBC getLogDAOJDBC() {
+        return new LogDAOJDBC(this);
     }
-    public NodeDAO getNodeDAO() {
-        return new NodeDAO(this);
+    public NodeDAOJDBC getNodeDAOJDBC() {
+        return new NodeDAOJDBC(this);
     }
-    public RelationshipDAO getRelationshipDAO() {
-        return new RelationshipDAO(this);
+    public RelationshipDAOJDBC getRelationshipDAOJDBC() {
+        return new RelationshipDAOJDBC(this);
     }
-    public RelationshipProjectDAO getRelationshipProjectDAO() {
-        return new RelationshipProjectDAO(this);
+    public RelationshipProjectDAOJDBC getRelationshipProjectDAOJDBC() {
+        return new RelationshipProjectDAOJDBC(this);
     }
-    public StageDAO getStageDAO() {
-        return new StageDAO(this);
+    public StageDAOJDBC getStageDAOJDBC() {
+        return new StageDAOJDBC(this);
     }
-    public SynonymDAO getSynonymDAO() {
-        return new SynonymDAO(this);
+    public SynonymDAOJDBC getSynonymDAOJDBC() {
+        return new SynonymDAOJDBC(this);
     }
-    public ThingDAO getThingDAO() {
-        return new ThingDAO(this);
+    public ThingDAOJDBC getThingDAOJDBC() {
+        return new ThingDAOJDBC(this);
     }
-    public TimedNodeDAO getTimedNodeDAO() {
-        return new TimedNodeDAO(this);
+    public TimedNodeDAOJDBC getTimedNodeDAOJDBC() {
+        return new TimedNodeDAOJDBC(this);
     }
-    public VersionDAO getVersionDAO() {
-        return new VersionDAO(this);
+    public VersionDAOJDBC getVersionDAOJDBC() {
+        return new VersionDAOJDBC(this);
     }
-    public ProjectDAO getProjectDAO() {
-        return new ProjectDAO(this);
+    public ProjectDAOJDBC getProjectDAOJDBC() {
+        return new ProjectDAOJDBC(this);
     }
     
-    public ComponentDAO getComponentDAO() {
-        return new ComponentDAO(this);
+    public ComponentDAOJDBC getComponentDAOJDBC() {
+        return new ComponentDAOJDBC(this);
     }
-    public ComponentRelationshipDAO getComponentRelationshipDAO() {
-        return new ComponentRelationshipDAO(this);
+    public ComponentRelationshipDAOJDBC getComponentRelationshipDAOJDBC() {
+        return new ComponentRelationshipDAOJDBC(this);
     }
-    public ComponentCommentDAO getComponentCommentDAO() {
-        return new ComponentCommentDAO(this);
+    public ComponentCommentDAOJDBC getComponentCommentDAOJDBC() {
+        return new ComponentCommentDAOJDBC(this);
     }
-    public ComponentSynonymDAO getComponentSynonymDAO() {
-        return new ComponentSynonymDAO(this);
+    public ComponentSynonymDAOJDBC getComponentSynonymDAOJDBC() {
+        return new ComponentSynonymDAOJDBC(this);
     }
-    public ComponentAlternativeDAO getComponentAlternativeDAO() {
-        return new ComponentAlternativeDAO(this);
+    public ComponentAlternativeDAOJDBC getComponentAlternativeDAOJDBC() {
+        return new ComponentAlternativeDAOJDBC(this);
     }
-    public ComponentOrderDAO getComponentOrderDAO() {
-        return new ComponentOrderDAO(this);
-    }
-    
-    public StageRangeDAO getStageRangeDAO() {
-        return new StageRangeDAO(this);
+    public ComponentOrderDAOJDBC getComponentOrderDAOJDBC() {
+        return new ComponentOrderDAOJDBC(this);
     }
     
-    public JOINNodeRelationshipDAO getJOINNodeRelationshipDAO() {
-        return new JOINNodeRelationshipDAO(this);
+    public StageRangeDAOJDBC getStageRangeDAOJDBC() {
+        return new StageRangeDAOJDBC(this);
     }
-    public JOINNodeRelationshipNodeDAO getJOINNodeRelationshipNodeDAO() {
-        return new JOINNodeRelationshipNodeDAO(this);
+    
+    public JOINNodeRelationshipDAOJDBC getJOINNodeRelationshipDAOJDBC() {
+        return new JOINNodeRelationshipDAOJDBC(this);
     }
-    public JOINNodeRelationshipRelationshipProjectDAO getJOINNodeRelationshipRelationshipProjectDAO() {
-        return new JOINNodeRelationshipRelationshipProjectDAO(this);
+    public JOINNodeRelationshipNodeDAOJDBC getJOINNodeRelationshipNodeDAOJDBC() {
+        return new JOINNodeRelationshipNodeDAOJDBC(this);
     }
-    public JOINRelationshipProjectRelationshipDAO getJOINRelationshipProjectRelationshipDAO() {
-        return new JOINRelationshipProjectRelationshipDAO(this);
+    public JOINNodeRelationshipRelationshipProjectDAOJDBC getJOINNodeRelationshipRelationshipProjectDAOJDBC() {
+        return new JOINNodeRelationshipRelationshipProjectDAOJDBC(this);
     }
-    public JOINTimedNodeNodeStageDAO getJOINTimedNodeNodeStageDAO() {
-        return new JOINTimedNodeNodeStageDAO(this);
+    public JOINRelationshipProjectRelationshipDAOJDBC getJOINRelationshipProjectRelationshipDAOJDBC() {
+        return new JOINRelationshipProjectRelationshipDAOJDBC(this);
     }
-    public JOINTimedNodeStageDAO getJOINTimedNodeStageDAO() {
-        return new JOINTimedNodeStageDAO(this);
+    public JOINTimedNodeNodeStageDAOJDBC getJOINTimedNodeNodeStageDAOJDBC() {
+        return new JOINTimedNodeNodeStageDAOJDBC(this);
     }
-    public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO() {
-        return new JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO(this);
+    public JOINTimedNodeStageDAOJDBC getJOINTimedNodeStageDAOJDBC() {
+        return new JOINTimedNodeStageDAOJDBC(this);
     }
-
-    public LeafDAO getLeafDAO() {
-        return new LeafDAO(this);
-    }
-    public ExtraTimedNodeDAO getExtraTimedNodeDAO() {
-        return new ExtraTimedNodeDAO(this);
-    }
-    public TimedLeafDAO getTimedLeafDAO() {
-        return new TimedLeafDAO(this);
+    public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC() {
+        return new JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC(this);
     }
 
-    public EditorDAO getEditorDAO() {
-        return new EditorDAO(this);
+    public LeafDAOJDBC getLeafDAOJDBC() {
+        return new LeafDAOJDBC(this);
     }
-    public PerspectiveAmbitDAO getPerspectiveAmbitDAO() {
-        return new PerspectiveAmbitDAO(this);
+    public ExtraTimedNodeDAOJDBC getExtraTimedNodeDAOJDBC() {
+        return new ExtraTimedNodeDAOJDBC(this);
     }
-    public SourceDAO getSourceDAO() {
-        return new SourceDAO(this);
+    public TimedLeafDAOJDBC getTimedLeafDAOJDBC() {
+        return new TimedLeafDAOJDBC(this);
     }
 
-    public UserDAO getUserDAO() {
-        return new UserDAO(this);
+    public EditorDAOJDBC getEditorDAOJDBC() {
+        return new EditorDAOJDBC(this);
     }
+    public PerspectiveAmbitDAOJDBC getPerspectiveAmbitDAOJDBC() {
+        return new PerspectiveAmbitDAOJDBC(this);
+    }
+    public SourceDAOJDBC getSourceDAOJDBC() {
+        return new SourceDAOJDBC(this);
+    }
+
+    public UserDAOJDBC getUserDAOJDBC() {
+        return new UserDAOJDBC(this);
+    }
+    */
 
     // You can add more DAO getters here.
 
@@ -431,8 +549,9 @@ class DriverManagerDAOFactory extends DAOFactory {
 	private Boolean update;
     private String sqloutput;
     private String level;
+    private String access;
 	
-    DriverManagerDAOFactory(String level, Boolean update, Boolean debug, String sqloutput, String url, String username, String password) {
+    DriverManagerDAOFactory(String access, String level, Boolean update, Boolean debug, String sqloutput, String url, String username, String password) {
     
     	this.url = url;
         this.username = username;
@@ -441,25 +560,29 @@ class DriverManagerDAOFactory extends DAOFactory {
         this.update = update;
         this.sqloutput = sqloutput;
         this.level = level;
+        this.access = access;
     }
 
-    Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, username, password);
     }
-    Boolean isDebug() {
+    public Boolean isDebug() {
         return debug;
     }
-    Boolean isUpdate() {
+    public Boolean isUpdate() {
         return update;
     }
-    String getUrl() {
+    public String getUrl() {
         return url;
     }
-    String getSqloutput() {
+    public String getSqloutput() {
         return sqloutput;
     }
-    String getLevel() {
+    public String getLevel() {
         return level;
+    }
+    public String getAccessMethod() {
+        return access;
     }
 }
 
@@ -473,33 +596,38 @@ class DataSourceDAOFactory extends DAOFactory {
 	private Boolean update;
     private String sqloutput;
     private String level;
+    private String access;
 
-    DataSourceDAOFactory(String level, Boolean update, Boolean debug, String sqloutput, DataSource dataSource) {
+    DataSourceDAOFactory(String access, String level, Boolean update, Boolean debug, String sqloutput, DataSource dataSource) {
 
     	this.dataSource = dataSource;
         this.debug = debug;
         this.update = update;
         this.sqloutput = sqloutput;
         this.level = level;
+        this.access = access;
     }
 
-    Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
     	return dataSource.getConnection();
     }
-    Boolean isDebug() {
+    public Boolean isDebug() {
         return debug;
     }
-    Boolean isUpdate() {
+    public Boolean isUpdate() {
         return update;
     }
-    String getUrl() {
+    public String getUrl() {
         return "";
     }
-    String getSqloutput() {
+    public String getSqloutput() {
         return sqloutput;
     }
-    String getLevel() {
+    public String getLevel() {
         return level;
+    }
+    public String getAccessMethod() {
+        return access;
     }
 }
 
@@ -515,8 +643,11 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
 	private Boolean update;
     private String sqloutput;
     private String level;
+    private String access;
 
-    DataSourceWithLoginDAOFactory(String level, 
+    DataSourceWithLoginDAOFactory(
+    		String access, 
+    		String level, 
     		Boolean update, 
     		Boolean debug, 
     		String sqloutput, 
@@ -531,24 +662,28 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
         this.update = update;
         this.sqloutput = sqloutput;
         this.level = level;
+        this.access = access;
     }
 
-    Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
     	return dataSource.getConnection(username, password);
     }
-    Boolean isDebug() {
+    public Boolean isDebug() {
         return debug;
     }
-    Boolean isUpdate() {
+    public Boolean isUpdate() {
         return update;
     }
-    String getUrl() {
+    public String getUrl() {
         return "";
     }
-    String getSqloutput() {
+    public String getSqloutput() {
         return sqloutput;
     }
-    String getLevel() {
+    public String getLevel() {
         return level;
+    }
+    public String getAccessMethod() {
+        return access;
     }
 }

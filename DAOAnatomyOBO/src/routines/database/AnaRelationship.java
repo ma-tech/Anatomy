@@ -47,16 +47,16 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Vector;
 
-import daolayer.LogDAO;
-import daolayer.ThingDAO;
-import daolayer.VersionDAO;
-import daolayer.NodeDAO;
-import daolayer.RelationshipDAO;
-import daolayer.RelationshipProjectDAO;
-import daolayer.ComponentOrderDAO;
-import daolayer.JOINNodeRelationshipNodeDAO;
-import daolayer.JOINNodeRelationshipRelationshipProjectDAO;
-import daolayer.JOINRelationshipProjectRelationshipDAO;
+import daointerface.LogDAO;
+import daointerface.ThingDAO;
+import daointerface.VersionDAO;
+import daointerface.NodeDAO;
+import daointerface.RelationshipDAO;
+import daointerface.RelationshipProjectDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.JOINNodeRelationshipNodeDAO;
+import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
+import daointerface.JOINRelationshipProjectRelationshipDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -75,7 +75,6 @@ import daomodel.JOINRelationshipProjectRelationship;
 import obomodel.OBOComponent;
 
 import utility.MySQLDateTime;
-import utility.ObjectConverter;
 import utility.Wrapper;
 
 public class AnaRelationship {
@@ -116,16 +115,16 @@ public class AnaRelationship {
 
             this.daofactory = daofactory;
 
-        	this.logDAO = daofactory.getLogDAO();
-        	this.versionDAO = daofactory.getVersionDAO();
-        	this.thingDAO = daofactory.getThingDAO();
-        	this.nodeDAO = daofactory.getNodeDAO();
-        	this.relationshipDAO = daofactory.getRelationshipDAO();
-        	this.relationshipprojectDAO = daofactory.getRelationshipProjectDAO();
-            this.componentorderDAO = daofactory.getComponentOrderDAO();
-        	this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
-            this.joinrelationshipprojectrelationshipDAO = daofactory.getJOINRelationshipProjectRelationshipDAO();
-            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getJOINNodeRelationshipRelationshipProjectDAO();
+        	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
+        	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
+        	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
+        	this.nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+        	this.relationshipDAO = daofactory.getDAOImpl(RelationshipDAO.class);
+        	this.relationshipprojectDAO = daofactory.getDAOImpl(RelationshipProjectDAO.class);
+            this.componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
+        	this.joinnoderelationshipnodeDAO = daofactory.getDAOImpl(JOINNodeRelationshipNodeDAO.class);
+            this.joinrelationshipprojectrelationshipDAO = daofactory.getDAOImpl(JOINRelationshipProjectRelationshipDAO.class);
+            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getDAOImpl(JOINNodeRelationshipRelationshipProjectDAO.class);
             
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();

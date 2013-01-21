@@ -39,7 +39,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import daolayer.DAOFactory;
-import daolayer.ComponentOrderDAO;
+
+import daointerface.ComponentOrderDAO;
 
 import daomodel.ComponentOrder;
 
@@ -55,7 +56,7 @@ public class CheckComponentsTablesOrdering {
 	    Wrapper.printMessage("checkcomponentstablesordering.run", "***", requestMsgLevel);
 
 	    // Obtain DAOs.
-	    ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
+	    ComponentOrderDAO componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
         
 	    List<ComponentOrder> specialcomponentorders = new ArrayList<ComponentOrder>();
 	    specialcomponentorders = componentorderDAO.listOrderByParentBySpecialOrder();

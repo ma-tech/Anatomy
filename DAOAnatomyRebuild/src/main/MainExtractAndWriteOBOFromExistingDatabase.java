@@ -37,6 +37,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 import routines.runnable.ExtractAndWriteOBOFromExistingDatabase;
 
 public class MainExtractAndWriteOBOFromExistingDatabase {
@@ -54,7 +56,7 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            ExtractAndWriteOBOFromExistingDatabase.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
+            ExtractAndWriteOBOFromExistingDatabase.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

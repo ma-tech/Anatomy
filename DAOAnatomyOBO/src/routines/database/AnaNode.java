@@ -55,16 +55,16 @@ import routines.base.TreeBuilder;
 import utility.Wrapper;
 import utility.MySQLDateTime;
 
-import daolayer.NodeDAO;
-import daolayer.ThingDAO;
-import daolayer.LogDAO;
-import daolayer.VersionDAO;
-import daolayer.ComponentAlternativeDAO;
-import daolayer.ComponentCommentDAO;
-import daolayer.ComponentDAO;
-import daolayer.ComponentOrderDAO;
-import daolayer.ComponentRelationshipDAO;
-import daolayer.ComponentSynonymDAO;
+import daointerface.NodeDAO;
+import daointerface.ThingDAO;
+import daointerface.LogDAO;
+import daointerface.VersionDAO;
+import daointerface.ComponentAlternativeDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentSynonymDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -136,16 +136,16 @@ public class AnaNode {
             	
             this.daofactory = daofactory;
 
-        	this.nodeDAO = daofactory.getNodeDAO();
-        	this.thingDAO = daofactory.getThingDAO();
-        	this.logDAO = daofactory.getLogDAO();
-        	this.versionDAO = daofactory.getVersionDAO();
-            this.componentDAO = daofactory.getComponentDAO();
-            this.componentalternativeDAO = daofactory.getComponentAlternativeDAO();
-            this.componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
-            this.componentorderDAO = daofactory.getComponentOrderDAO();
-            this.componentsynonymDAO = daofactory.getComponentSynonymDAO();
-            this.componentcommentDAO = daofactory.getComponentCommentDAO();
+        	this.nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+        	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
+        	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
+        	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
+            this.componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
+            this.componentalternativeDAO = daofactory.getDAOImpl(ComponentAlternativeDAO.class);
+            this.componentrelationshipDAO = daofactory.getDAOImpl(ComponentRelationshipDAO.class);
+            this.componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
+            this.componentsynonymDAO = daofactory.getDAOImpl(ComponentSynonymDAO.class);
+            this.componentcommentDAO = daofactory.getDAOImpl(ComponentCommentDAO.class);
             
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();

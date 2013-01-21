@@ -34,6 +34,7 @@ import utility.Wrapper;
 
 import obolayer.OBOFactory;
 
+import daointerface.ThingDAO;
 import daolayer.DAOFactory;
 
 import routines.runnable.archive.CheckComponentsTablesOrdering;
@@ -53,7 +54,7 @@ public class MainCheckComponentsTablesOrdering {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckComponentsTablesOrdering.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
+            CheckComponentsTablesOrdering.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -36,12 +36,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import daolayer.ComponentDAO;
-import daolayer.ComponentRelationshipDAO;
-import daolayer.ComponentCommentDAO;
-import daolayer.ComponentOrderDAO;
-import daolayer.ComponentSynonymDAO;
-import daolayer.ComponentAlternativeDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentSynonymDAO;
+import daointerface.ComponentAlternativeDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
@@ -77,12 +77,12 @@ public class ListOBOComponentsFromComponentsTables {
     	try {
     		
             // Obtain DAOs.
-            ComponentDAO componentDAO = daofactory.getComponentDAO();
-            ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
-            ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
-            ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
-            ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
-            ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+            ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
+            ComponentRelationshipDAO componentrelationshipDAO = daofactory.getDAOImpl(ComponentRelationshipDAO.class);
+            ComponentOrderDAO componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
+            ComponentCommentDAO componentcommentDAO = daofactory.getDAOImpl(ComponentCommentDAO.class);
+            ComponentSynonymDAO componentsynonymDAO = daofactory.getDAOImpl(ComponentSynonymDAO.class);
+            ComponentAlternativeDAO componentalternativeDAO = daofactory.getDAOImpl(ComponentAlternativeDAO.class);
 
             ArrayList<Component> components = (ArrayList<Component>) componentDAO.listAllOrderByEMAPA(); 
             Iterator<Component> iteratorComponent = components.iterator();

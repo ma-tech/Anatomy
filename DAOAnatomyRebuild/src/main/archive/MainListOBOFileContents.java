@@ -39,7 +39,10 @@ import utility.Wrapper;
 import app.RunListOBOFileContents;
 
 import obolayer.OBOFactory;
+
 import daolayer.DAOFactory;
+
+import daointerface.ThingDAO;
 
 public class MainListOBOFileContents{
 
@@ -56,7 +59,7 @@ public class MainListOBOFileContents{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunListOBOFileContents.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
+            RunListOBOFileContents.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -44,12 +44,12 @@ import obolayer.ComponentOBO;
 
 import obomodel.OBOComponent;
 
-import daolayer.ComponentDAO;
-import daolayer.ComponentRelationshipDAO;
-import daolayer.ComponentCommentDAO;
-import daolayer.ComponentOrderDAO;
-import daolayer.ComponentSynonymDAO;
-import daolayer.ComponentAlternativeDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentSynonymDAO;
+import daointerface.ComponentAlternativeDAO;
 
 import daolayer.DAOFactory;
 
@@ -75,12 +75,12 @@ public class LoadOBOFileIntoComponentsTables {
         obocomponents = componentOBO.listAll();
 
         // Obtain DAOs.
-        ComponentDAO componentDAO = daofactory.getComponentDAO();
-        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getComponentRelationshipDAO();
-        ComponentCommentDAO componentcommentDAO = daofactory.getComponentCommentDAO();
-        ComponentOrderDAO componentorderDAO = daofactory.getComponentOrderDAO();
-        ComponentSynonymDAO componentsynonymDAO = daofactory.getComponentSynonymDAO();
-        ComponentAlternativeDAO componentalternativeDAO = daofactory.getComponentAlternativeDAO();
+        ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
+        ComponentRelationshipDAO componentrelationshipDAO = daofactory.getDAOImpl(ComponentRelationshipDAO.class);
+        ComponentCommentDAO componentcommentDAO = daofactory.getDAOImpl(ComponentCommentDAO.class);
+        ComponentOrderDAO componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
+        ComponentSynonymDAO componentsynonymDAO = daofactory.getDAOImpl(ComponentSynonymDAO.class);
+        ComponentAlternativeDAO componentalternativeDAO = daofactory.getDAOImpl(ComponentAlternativeDAO.class);
 
         EmptyComponentsTables.run( requestMsgLevel, daofactory, obofactory );
 

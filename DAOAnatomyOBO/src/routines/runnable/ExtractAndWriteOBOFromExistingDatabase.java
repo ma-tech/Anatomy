@@ -46,7 +46,8 @@ import obomodel.OBOComponent;
 import obomodel.Relation;
 
 import daolayer.DAOFactory;
-import daolayer.StageDAO;
+
+import daointerface.StageDAO;
 
 import daomodel.Stage;
 
@@ -88,7 +89,7 @@ public class ExtractAndWriteOBOFromExistingDatabase {
         }
         
         // Write out Timed/Staged OBO file
-        StageDAO stageDAO = daofactory.getStageDAO();
+        StageDAO stageDAO = daofactory.getDAOImpl(StageDAO.class);
         
         List<Stage> stages = new ArrayList<Stage>();
         stages = stageDAO.listAllBySequence();

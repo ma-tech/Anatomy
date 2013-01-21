@@ -43,8 +43,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import daolayer.JOINTimedNodeNodeStageDAO;
-import daolayer.ComponentDAO;
+import daointerface.JOINTimedNodeNodeStageDAO;
+import daointerface.ComponentDAO;
 
 import daolayer.DAOFactory;
 
@@ -66,8 +66,8 @@ public class RunOBOJacksonComparison {
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
 
         // Obtain DAOs.
-        JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = anatomy008.getJOINTimedNodeNodeStageDAO();
-        ComponentDAO componentDAO = anatomy008.getComponentDAO();
+        JOINTimedNodeNodeStageDAO jointimednodenodestageDAO = anatomy008.getDAOImpl(JOINTimedNodeNodeStageDAO.class);
+        ComponentDAO componentDAO = anatomy008.getDAOImpl(ComponentDAO.class);
         
         File fileIn = new File("/Users/mwicks/Dropbox/Work/Anatomy/TerryHayamizu_Mouse/2012-05-09/revisedEMAPnames_2012-05-09_IN.csv");
         File fileOut = new File("/Users/mwicks/Dropbox/Work/Anatomy/TerryHayamizu_Mouse/2012-05-09/revisedEMAPnames_2012-05-09_OUT.csv");

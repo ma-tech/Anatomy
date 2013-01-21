@@ -39,8 +39,8 @@ import obolayer.OBOFactory;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.NodeDAO;
-import daolayer.RelationshipDAO;
+import daointerface.NodeDAO;
+import daointerface.RelationshipDAO;
 
 import daomodel.Node;
 import daomodel.Relationship;
@@ -68,8 +68,8 @@ public class RunExportToXML {
     	
     	try {
             // Obtain DAOs.
-            NodeDAO nodeDAO = daofactory.getNodeDAO();
-            RelationshipDAO relationshipDAO = daofactory.getRelationshipDAO();
+            NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+            RelationshipDAO relationshipDAO = daofactory.getDAOImpl(RelationshipDAO.class);
 
             int i = 0;
 

@@ -42,7 +42,8 @@ import utility.Wrapper;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-import daolayer.StageRangeDAO;
+
+import daointerface.StageRangeDAO;
 
 import daomodel.StageRange;
 
@@ -58,7 +59,7 @@ public class RunOBOValidateComponents {
             DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
 
             // Obtain DAOs.
-            StageRangeDAO stagerangeDAO = anatomy008.getStageRangeDAO();
+            StageRangeDAO stagerangeDAO = anatomy008.getDAOImpl(StageRangeDAO.class);
 
             int i = 0;
             

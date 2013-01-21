@@ -42,12 +42,11 @@ import java.util.Iterator;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.ThingDAO;
-import daolayer.NodeDAO;
-import daolayer.TimedNodeDAO;
+import daointerface.ThingDAO;
+import daointerface.NodeDAO;
+import daointerface.TimedNodeDAO;
 
 import daomodel.Thing;
-import daomodel.TimedNode;
 
 import obomodel.OBOComponent;
 import utility.Wrapper;
@@ -88,9 +87,9 @@ public class AnaObject {
 
             this.daofactory = daofactory;
         	
-        	this.thingDAO = daofactory.getThingDAO();
-        	this.nodeDAO = daofactory.getNodeDAO();
-        	this.timednodeDAO = daofactory.getTimedNodeDAO();
+        	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
+        	this.nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+        	this.timednodeDAO = daofactory.getDAOImpl(TimedNodeDAO.class);
 
         	this.updatedNewTermList = new ArrayList<OBOComponent>(); 
         	

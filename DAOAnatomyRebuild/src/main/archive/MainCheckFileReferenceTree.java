@@ -43,6 +43,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 public class MainCheckFileReferenceTree {
 
 	public static void main(String[] args) throws Exception {
@@ -58,7 +60,7 @@ public class MainCheckFileReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckFileReferenceTree.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
+            CheckFileReferenceTree.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import daolayer.ComponentAlternativeDAO;
+import daointerface.ComponentAlternativeDAO;
 
 import daolayer.DAOFactory;
 
@@ -62,7 +62,7 @@ public class RunOBOBardUpdateRelationship {
         DAOFactory anatomy008 = DAOFactory.getInstance("anatomy008");
 
         // Obtain DAOs.
-        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getComponentAlternativeDAO();
+        ComponentAlternativeDAO componentalternativeDAO = anatomy008.getDAOImpl(ComponentAlternativeDAO.class);
         
         File fileIn = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponentRelationship_IN.csv");
         File fileOut = new File("/Users/mwicks/Dropbox/Work/Anatomy/JonathanBard_Human/2012-05-23/anaOboComponentRelationship_OUT.csv");

@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.VersionDAO;
+import daointerface.VersionDAO;
 
 import daomodel.Version;
 
@@ -75,7 +75,7 @@ public class AnaVersion {
 
             this.daofactory = daofactory;
         	
-        	this.versionDAO = daofactory.getVersionDAO();
+        	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
 
         	setProcessed( true );
      	}

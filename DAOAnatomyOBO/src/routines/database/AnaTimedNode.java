@@ -42,12 +42,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import daolayer.LogDAO;
-import daolayer.VersionDAO;
-import daolayer.ThingDAO;
-import daolayer.TimedNodeDAO;
-import daolayer.JOINTimedNodeStageDAO;
-import daolayer.StageDAO;
+import daointerface.LogDAO;
+import daointerface.VersionDAO;
+import daointerface.ThingDAO;
+import daointerface.TimedNodeDAO;
+import daointerface.JOINTimedNodeStageDAO;
+import daointerface.StageDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -101,12 +101,12 @@ public class AnaTimedNode {
 
             this.daofactory = daofactory;
 
-        	this.versionDAO = daofactory.getVersionDAO();
-        	this.logDAO = daofactory.getLogDAO();
-        	this.thingDAO = daofactory.getThingDAO();
-        	this.timednodeDAO = daofactory.getTimedNodeDAO();
-        	this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
-        	this.stageDAO = daofactory.getStageDAO();
+        	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
+        	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
+        	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
+        	this.timednodeDAO = daofactory.getDAOImpl(TimedNodeDAO.class);
+        	this.jointimednodestageDAO = daofactory.getDAOImpl(JOINTimedNodeStageDAO.class);
+        	this.stageDAO = daofactory.getDAOImpl(StageDAO.class);
         	
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
@@ -453,7 +453,7 @@ public class AnaTimedNode {
         vATNcolumns.add("ATN_DISPLAY_ID");
         
         //column values for selection from ANA_TIMED_NODE
-        int intATN_OID = 0;
+        //int intATN_OID = 0;
         
         //column values for insertion into ANA_LOG
         String strLOG_COLUMN_NAME = "";

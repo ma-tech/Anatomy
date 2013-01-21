@@ -72,10 +72,10 @@ import java.util.Vector;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daolayer.SynonymDAO;
-import daolayer.JOINNodeRelationshipDAO;
-import daolayer.JOINNodeRelationshipNodeDAO;
-import daolayer.JOINTimedNodeStageDAO;
+import daointerface.SynonymDAO;
+import daointerface.JOINNodeRelationshipDAO;
+import daointerface.JOINNodeRelationshipNodeDAO;
+import daointerface.JOINTimedNodeStageDAO;
 
 import daomodel.Synonym;
 import daomodel.JOINNodeRelationship;
@@ -302,10 +302,10 @@ public class GenerateSQL {
             if ( isProcessed() ) {
             	
                 // Obtain DAOs.
-                this.synonymDAO = daofactory.getSynonymDAO();
-                this.joinnoderelationshipDAO = daofactory.getJOINNodeRelationshipDAO();
-                this.joinnoderelationshipnodeDAO = daofactory.getJOINNodeRelationshipNodeDAO();
-                this.jointimednodestageDAO = daofactory.getJOINTimedNodeStageDAO();
+                this.synonymDAO = daofactory.getDAOImpl(SynonymDAO.class);
+                this.joinnoderelationshipDAO = daofactory.getDAOImpl(JOINNodeRelationshipDAO.class);
+                this.joinnoderelationshipnodeDAO = daofactory.getDAOImpl(JOINNodeRelationshipNodeDAO.class);
+                this.jointimednodestageDAO = daofactory.getDAOImpl(JOINTimedNodeStageDAO.class);
 
                 //  set a version record in ANA_VERSION for this update
                 if ( !( newComponents.isEmpty() && 

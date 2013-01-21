@@ -38,6 +38,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 public class MainEmptyComponentsTables {
 
 	public static void main(String[] args) throws Exception {
@@ -53,7 +55,7 @@ public class MainEmptyComponentsTables {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            EmptyComponentsTables.run( daofactory.getThingDAO().getLevel(), daofactory, obofactory );
+            EmptyComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

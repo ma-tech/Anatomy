@@ -40,6 +40,8 @@ import daolayer.DAOFactory;
 
 import obolayer.OBOFactory;
 
+import daointerface.ThingDAO;
+
 import routines.runnable.UpdateDatabaseFromComponentsTables;
 
 public class MainUpdateDatabaseFromComponentsTables{
@@ -57,7 +59,7 @@ public class MainUpdateDatabaseFromComponentsTables{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            UpdateDatabaseFromComponentsTables.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
+            UpdateDatabaseFromComponentsTables.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

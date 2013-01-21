@@ -40,7 +40,8 @@ import daomodel.Node;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-import daolayer.NodeDAO;
+
+import daointerface.NodeDAO;
 
 public class RunDAOTest {
 
@@ -51,7 +52,8 @@ public class RunDAOTest {
 	        Wrapper.printMessage("RunDAOTest.run", "*", "*");
 
 	        // Obtain DAOs.
-	        NodeDAO nodeDAO = daofactory.getNodeDAO();
+	        NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
+	        //NodeDAO nodeDAO = daofactory.getNodeDAOJDBC();
 
 	        // Find Node with OID = 33
 	        int oid = 33;

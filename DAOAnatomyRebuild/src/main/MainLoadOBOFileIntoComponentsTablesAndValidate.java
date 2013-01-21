@@ -41,6 +41,8 @@ import daolayer.DAOFactory;
 
 import obolayer.OBOFactory;
 
+import daointerface.ThingDAO;
+
 import routines.runnable.LoadOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
 
@@ -59,8 +61,8 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
             
-            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
-            RunOBOCheckComponentsOrdering.run(daofactory.getThingDAO().getLevel(), daofactory, obofactory);
+            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            RunOBOCheckComponentsOrdering.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

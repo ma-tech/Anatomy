@@ -41,10 +41,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import daolayer.SynonymDAO;
-import daolayer.ThingDAO;
-import daolayer.VersionDAO;
-import daolayer.LogDAO;
+import daointerface.SynonymDAO;
+import daointerface.ThingDAO;
+import daointerface.VersionDAO;
+import daointerface.LogDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -92,10 +92,10 @@ public class AnaSynonym {
 
             this.daofactory = daofactory;
 
-        	this.synonymDAO = daofactory.getSynonymDAO();
-        	this.thingDAO = daofactory.getThingDAO();
-        	this.versionDAO = daofactory.getVersionDAO();
-        	this.logDAO = daofactory.getLogDAO();
+        	this.synonymDAO = daofactory.getDAOImpl(SynonymDAO.class);
+        	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
+        	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
+        	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
 
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
@@ -304,7 +304,7 @@ public class AnaSynonym {
         vSYNcolumns.add("SYN_SYNONYM");
 
         //column values for selection from ANA_SYNONYM
-        int intSYN_OID = 0;
+        //int intSYN_OID = 0;
 
         String strLOG_COMMENTS = "";
         String strLOG_DATETIME = MySQLDateTime.now();

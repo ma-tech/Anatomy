@@ -58,7 +58,8 @@ import routines.base.TreeBuilder;
 import routines.base.ValidateComponents;
 
 import daolayer.DAOFactory;
-import daolayer.OBOFileDAO;
+
+import daointerface.OBOFileDAO;
 
 import daomodel.OBOFile;
 
@@ -76,7 +77,7 @@ public class LoadOBOFileIntoComponentsTablesAndValidate {
         String summaryReportPdf = obofactory.getComponentOBO().summaryReportPdf();
         
         // Obtain DAOs.
-	    OBOFileDAO obofileDAO = daofactory.getOBOFileDAO();
+	    OBOFileDAO obofileDAO = daofactory.getDAOImpl(OBOFileDAO.class);
         
 	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Clear Out OBOFile Table", "***", requestMsgLevel);
     

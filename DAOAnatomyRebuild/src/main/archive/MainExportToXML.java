@@ -36,6 +36,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
+import daointerface.ThingDAO;
+
 import app.RunExportToXML;
 
 public class MainExportToXML {
@@ -53,7 +55,7 @@ public class MainExportToXML {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunExportToXML.run( daofactory.getThingDAO().getLevel(), obofactory, daofactory );
+            RunExportToXML.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), obofactory, daofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

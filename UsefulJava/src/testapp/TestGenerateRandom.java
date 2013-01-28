@@ -22,16 +22,19 @@ public class TestGenerateRandom {
                 Wrapper.printMessage("GenerateRandom.getRandomPentatonic(): " + GenerateRandom.getRandomPentatonic(), "*", "*");
     	    }
     	    
+    	    */
     	    for (int idx = 1; idx <= 10; ++idx){
 
-                Wrapper.printMessage("GenerateRandom.getRandomDiatonic(): " + GenerateRandom.getRandomDiatonic(), "*", "*");
+                Wrapper.printMessage("GenerateRandom.getRandomChord(): " + GenerateRandom.getRandomChord(), "*", "*");
     	    }
-    	    */
 
+
+    	    /*
     	    for (int idx = 1; idx <= 10; ++idx){
 
                 Wrapper.printMessage("GenerateRandom.getRandomFretPattern(): " + GenerateRandom.getRandomFretPattern(), "*", "*");
-    	    }
+         	}
+        	*/
 
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

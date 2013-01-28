@@ -89,9 +89,18 @@ public class GenerateRandom {
     	int indexModes = getRandom(0, 6);
     	
     	String diatonic = validNotes[indexNotes] + " " + validModes[indexModes]; 
-    	//String diatonic = validNotes[indexNotes] + " " + validModes[indexModes] + " (play over a " + validChords[indexModes] + " Chord)"; 
     	
     	return diatonic;
+	}
+
+    public static String getRandomChord() throws Exception {
+
+    	int indexNotes = getRandom(0, 11);
+    	int indexModes = getRandom(0, 6);
+    	
+    	String chord = validNotes[indexNotes] + " " + validModes[indexModes] + " (Over " + validNotes[indexNotes] + " " + validChords[indexModes] + ")"; 
+    	
+    	return chord;
 	}
 
     public static String getRandomPentatonic() throws Exception {

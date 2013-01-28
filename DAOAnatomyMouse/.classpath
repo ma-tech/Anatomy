@@ -5,8 +5,8 @@
 	<classpathentry kind="src" path="DAOsrc"/>
 	<classpathentry kind="src" path="OBOsrc"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/oboedit.jar"/>
-	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/org.geneontology.jar"/>
-	<classpathentry kind="lib" path="/DAOAnatomyOBO/src/libs/iText-2.1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/iText-2.1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/oboedit.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/org.geneontology.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

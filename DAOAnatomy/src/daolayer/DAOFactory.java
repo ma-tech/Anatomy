@@ -87,63 +87,21 @@ package daolayer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.sql.DataSource;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 import utility.ExecuteCommand;
 import utility.Wrapper;
 
 import daointerface.BaseDAO;
-
-/*
-import daointerface.NodeDAO;
-
-import daojdbc.ComponentAlternativeDAOJDBC;
-import daojdbc.ComponentCommentDAOJDBC;
-import daojdbc.ComponentDAOJDBC;
-import daojdbc.ComponentOrderDAOJDBC;
-import daojdbc.ComponentRelationshipDAOJDBC;
-import daojdbc.ComponentSynonymDAOJDBC;
-import daojdbc.DerivedPartOfDAOJDBC;
-import daojdbc.DerivedPartOfFKDAOJDBC;
-import daojdbc.DerivedPartOfPerspectivesDAOJDBC;
-import daojdbc.DerivedPartOfPerspectivesJsonFKDAOJDBC;
-import daojdbc.DerivedRelationshipTransitiveDAOJDBC;
-import daojdbc.EditorDAOJDBC;
-import daojdbc.ExtraTimedNodeDAOJDBC;
-import daojdbc.JOINNodeRelationshipDAOJDBC;
-import daojdbc.JOINNodeRelationshipNodeDAOJDBC;
-import daojdbc.JOINNodeRelationshipRelationshipProjectDAOJDBC;
-import daojdbc.JOINRelationshipProjectRelationshipDAOJDBC;
-import daojdbc.JOINTimedNodeNodeStageDAOJDBC;
-import daojdbc.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC;
-import daojdbc.JOINTimedNodeStageDAOJDBC;
-import daojdbc.LeafDAOJDBC;
-import daojdbc.LogDAOJDBC;
-import daojdbc.NodeDAOJDBC;
-import daojdbc.OBOFileDAOJDBC;
-import daojdbc.PerspectiveAmbitDAOJDBC;
-import daojdbc.ProjectDAOJDBC;
-import daojdbc.RelationshipDAOJDBC;
-import daojdbc.RelationshipProjectDAOJDBC;
-import daojdbc.SourceDAOJDBC;
-import daojdbc.StageDAOJDBC;
-import daojdbc.StageRangeDAOJDBC;
-import daojdbc.SynonymDAOJDBC;
-import daojdbc.ThingDAOJDBC;
-import daojdbc.TimedLeafDAOJDBC;
-import daojdbc.TimedNodeDAOJDBC;
-import daojdbc.UserDAOJDBC;
-import daojdbc.VersionDAOJDBC;
-*/
 
 
 public abstract class DAOFactory {
@@ -404,135 +362,6 @@ public abstract class DAOFactory {
     public abstract String getSqloutput();
     public abstract String getLevel();
     public abstract String getAccessMethod();
-    
-    // DAO getters --------------------------------------------------------------------------------
-
-    /* Returns the ... DAO associated with the current DAOFactory.
-     */
-    
-    /*
-    public OBOFileDAOJDBC getOBOFileDAOJDBC() {
-        return new OBOFileDAOJDBC(this);
-    }
-
-    public DerivedPartOfDAOJDBC getDerivedPartOfDAOJDBC() {
-        return new DerivedPartOfDAOJDBC(this);
-    }
-    public DerivedPartOfFKDAOJDBC getDerivedPartOfFKDAOJDBC() {
-        return new DerivedPartOfFKDAOJDBC(this);
-    }
-    public DerivedPartOfPerspectivesDAOJDBC getDerivedPartOfPerspectivesDAOJDBC() {
-        return new DerivedPartOfPerspectivesDAOJDBC(this);
-    }
-    public DerivedPartOfPerspectivesJsonFKDAOJDBC getDerivedPartOfPerspectivesJsonFKDAOJDBC() {
-        return new DerivedPartOfPerspectivesJsonFKDAOJDBC(this);
-    }
-    public DerivedRelationshipTransitiveDAOJDBC getDerivedRelationshipTransitiveDAOJDBC() {
-        return new DerivedRelationshipTransitiveDAOJDBC(this);
-    }
-
-    public LogDAOJDBC getLogDAOJDBC() {
-        return new LogDAOJDBC(this);
-    }
-    public NodeDAOJDBC getNodeDAOJDBC() {
-        return new NodeDAOJDBC(this);
-    }
-    public RelationshipDAOJDBC getRelationshipDAOJDBC() {
-        return new RelationshipDAOJDBC(this);
-    }
-    public RelationshipProjectDAOJDBC getRelationshipProjectDAOJDBC() {
-        return new RelationshipProjectDAOJDBC(this);
-    }
-    public StageDAOJDBC getStageDAOJDBC() {
-        return new StageDAOJDBC(this);
-    }
-    public SynonymDAOJDBC getSynonymDAOJDBC() {
-        return new SynonymDAOJDBC(this);
-    }
-    public ThingDAOJDBC getThingDAOJDBC() {
-        return new ThingDAOJDBC(this);
-    }
-    public TimedNodeDAOJDBC getTimedNodeDAOJDBC() {
-        return new TimedNodeDAOJDBC(this);
-    }
-    public VersionDAOJDBC getVersionDAOJDBC() {
-        return new VersionDAOJDBC(this);
-    }
-    public ProjectDAOJDBC getProjectDAOJDBC() {
-        return new ProjectDAOJDBC(this);
-    }
-    
-    public ComponentDAOJDBC getComponentDAOJDBC() {
-        return new ComponentDAOJDBC(this);
-    }
-    public ComponentRelationshipDAOJDBC getComponentRelationshipDAOJDBC() {
-        return new ComponentRelationshipDAOJDBC(this);
-    }
-    public ComponentCommentDAOJDBC getComponentCommentDAOJDBC() {
-        return new ComponentCommentDAOJDBC(this);
-    }
-    public ComponentSynonymDAOJDBC getComponentSynonymDAOJDBC() {
-        return new ComponentSynonymDAOJDBC(this);
-    }
-    public ComponentAlternativeDAOJDBC getComponentAlternativeDAOJDBC() {
-        return new ComponentAlternativeDAOJDBC(this);
-    }
-    public ComponentOrderDAOJDBC getComponentOrderDAOJDBC() {
-        return new ComponentOrderDAOJDBC(this);
-    }
-    
-    public StageRangeDAOJDBC getStageRangeDAOJDBC() {
-        return new StageRangeDAOJDBC(this);
-    }
-    
-    public JOINNodeRelationshipDAOJDBC getJOINNodeRelationshipDAOJDBC() {
-        return new JOINNodeRelationshipDAOJDBC(this);
-    }
-    public JOINNodeRelationshipNodeDAOJDBC getJOINNodeRelationshipNodeDAOJDBC() {
-        return new JOINNodeRelationshipNodeDAOJDBC(this);
-    }
-    public JOINNodeRelationshipRelationshipProjectDAOJDBC getJOINNodeRelationshipRelationshipProjectDAOJDBC() {
-        return new JOINNodeRelationshipRelationshipProjectDAOJDBC(this);
-    }
-    public JOINRelationshipProjectRelationshipDAOJDBC getJOINRelationshipProjectRelationshipDAOJDBC() {
-        return new JOINRelationshipProjectRelationshipDAOJDBC(this);
-    }
-    public JOINTimedNodeNodeStageDAOJDBC getJOINTimedNodeNodeStageDAOJDBC() {
-        return new JOINTimedNodeNodeStageDAOJDBC(this);
-    }
-    public JOINTimedNodeStageDAOJDBC getJOINTimedNodeStageDAOJDBC() {
-        return new JOINTimedNodeStageDAOJDBC(this);
-    }
-    public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC getJOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC() {
-        return new JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC(this);
-    }
-
-    public LeafDAOJDBC getLeafDAOJDBC() {
-        return new LeafDAOJDBC(this);
-    }
-    public ExtraTimedNodeDAOJDBC getExtraTimedNodeDAOJDBC() {
-        return new ExtraTimedNodeDAOJDBC(this);
-    }
-    public TimedLeafDAOJDBC getTimedLeafDAOJDBC() {
-        return new TimedLeafDAOJDBC(this);
-    }
-
-    public EditorDAOJDBC getEditorDAOJDBC() {
-        return new EditorDAOJDBC(this);
-    }
-    public PerspectiveAmbitDAOJDBC getPerspectiveAmbitDAOJDBC() {
-        return new PerspectiveAmbitDAOJDBC(this);
-    }
-    public SourceDAOJDBC getSourceDAOJDBC() {
-        return new SourceDAOJDBC(this);
-    }
-
-    public UserDAOJDBC getUserDAOJDBC() {
-        return new UserDAOJDBC(this);
-    }
-    */
-
-    // You can add more DAO getters here.
 
 }
 

@@ -140,6 +140,7 @@ public abstract class DAOFactory {
             String daoInterfaceName = daoInterface.getName();
 
             if (!daoInterface.isInterface()) {
+            	
                 throw new DAOConfigurationException("Class '" + daoInterfaceName + "'"
                     + " is actually not an Interface.");
             }
@@ -149,6 +150,7 @@ public abstract class DAOFactory {
             DAO daoImplementation;
 
             try {
+            	
                 daoImplementation = daoInterface.cast(Class.forName(daoClassName).newInstance());
             } 
             catch (ClassNotFoundException e) {

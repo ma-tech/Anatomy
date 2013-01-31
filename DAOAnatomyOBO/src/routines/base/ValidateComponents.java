@@ -176,6 +176,8 @@ public class ValidateComponents {
             // A-4
             this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
             
+            //System.out.println("this.abstractTermList.size() = " + this.abstractTermList.size());
+            
             // A-5
             //set and validate primary + alternate paths to abstract anatomy terms
             validatePaths(treebuilder);
@@ -380,38 +382,38 @@ public class ValidateComponents {
 
             /*
             if ( emapID.equals("EMAPA:35041") 
-        	|| ( emapID.equals("MNW:0000001") ) ) {
+        	|| ( emapID.equals("ID:0000093") ) ) {
             
-                //System.out.println("=============");
-                //System.out.println("emapID        = " + emapID);
-                //System.out.println("rootNameSpace = " + rootNameSpace);
-                //System.out.println("rootName      = " + rootName);
-                //System.out.println("=============");
+                System.out.println("=============");
+                System.out.println("emapID        = " + emapID);
+                System.out.println("rootNameSpace = " + rootNameSpace);
+                System.out.println("rootName      = " + rootName);
+                System.out.println("=============");
                 
                 Iterator<String> iteratorRootComments = rootComments.iterator();
                 
              	while (iteratorRootComments.hasNext()) {
             		
             		String comment = iteratorRootComments.next();
-                    //System.out.println("rootComment:" + comment);
+                    System.out.println("rootComment:" + comment);
              	}
 
-                //System.out.println("abstractclassobocomponent.getID()         = " + abstractclassobocomponent.getID());
-                //System.out.println("abstractclassobocomponent.getNamespace()  = " + abstractclassobocomponent.getNamespace());
-                //System.out.println("abstractclassobocomponent.getName()       = " + abstractclassobocomponent.getName());
-                //System.out.println("-------------");
-                //System.out.println("stageclassobocomponent.getID()            = " + stageclassobocomponent.getID());
-                //System.out.println("stageclassobocomponent.getNamespace()     = " + stageclassobocomponent.getNamespace());
-                //System.out.println("stageclassobocomponent.getName()          = " + stageclassobocomponent.getName());
-                //System.out.println("-------------");
-                //System.out.println("groupclassobocomponent.getID()            = " + groupclassobocomponent.getID());
-                //System.out.println("groupclassobocomponent.getNamespace()     = " + groupclassobocomponent.getNamespace());
-                //System.out.println("groupclassobocomponent.getName()          = " + groupclassobocomponent.getName());
-                //System.out.println("-------------");
-                //System.out.println("grouptermclassobocomponent.getID()        = " + grouptermclassobocomponent.getID());
-                //System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
-                //System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
-                //System.out.println("=============");
+                System.out.println("abstractclassobocomponent.getID()         = " + abstractclassobocomponent.getID());
+                System.out.println("abstractclassobocomponent.getNamespace()  = " + abstractclassobocomponent.getNamespace());
+                System.out.println("abstractclassobocomponent.getName()       = " + abstractclassobocomponent.getName());
+                System.out.println("-------------");
+                System.out.println("stageclassobocomponent.getID()            = " + stageclassobocomponent.getID());
+                System.out.println("stageclassobocomponent.getNamespace()     = " + stageclassobocomponent.getNamespace());
+                System.out.println("stageclassobocomponent.getName()          = " + stageclassobocomponent.getName());
+                System.out.println("-------------");
+                System.out.println("groupclassobocomponent.getID()            = " + groupclassobocomponent.getID());
+                System.out.println("groupclassobocomponent.getNamespace()     = " + groupclassobocomponent.getNamespace());
+                System.out.println("groupclassobocomponent.getName()          = " + groupclassobocomponent.getName());
+                System.out.println("-------------");
+                System.out.println("grouptermclassobocomponent.getID()        = " + grouptermclassobocomponent.getID());
+                System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
+                System.out.println("grouptermclassobocomponent.getName()      = " + grouptermclassobocomponent.getName());
+                System.out.println("=============");
             }
             */
 
@@ -534,17 +536,42 @@ public class ValidateComponents {
                 	
                     abstractAnatomyChildren.add( obocomponent );
                 }
+                else {
+                	/*
+                    System.out.println("Failed Condition #1");
+                    System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
+                    System.out.println("abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
+                    */
+                }
+                
                 //is a new group term
                 if ( obocomponent.getNamespace().equals( groupclassobocomponent.getNamespace() ) &&
                      !vRoots.contains( obocomponent.getID() ) ) {
                 	
                     abstractAnatomyChildren.add( obocomponent );
                 }
+                else {
+                	
+                	/*
+                    System.out.println("Failed Condition #2");
+                    System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
+                    System.out.println("groupclassobocomponent.getNamespace() = " + groupclassobocomponent.getNamespace());
+                    */
+                }
+                
                 //is a new group term
                 if ( obocomponent.getNamespace().equals( grouptermclassobocomponent.getNamespace() ) &&
                      !vRoots.contains( obocomponent.getID() ) ) {
                 	
                     abstractAnatomyChildren.add( obocomponent );
+                }
+                else {
+                	
+                	/*
+                    System.out.println("Failed Condition #3");
+                    System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
+                    System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
+                    */
                 }
             }
 
@@ -1171,9 +1198,9 @@ public class ValidateComponents {
             
             /*
             if ( proposed.getID().equals("EMAPA:35041") 
-        	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+        	|| ( proposed.getID().equals("ID:0000093") ) ) {
             	
-                //System.out.println("proposed.toString():" + proposed.toString());
+                System.out.println("proposed.toString():" + proposed.toString());
             }
             */
 
@@ -1186,11 +1213,11 @@ public class ValidateComponents {
 
                 /*
                 if ( proposed.getID().equals("EMAPA:35041") 
-            	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+            	|| ( proposed.getID().equals("ID:0000093") ) ) {
                 	
-                    //System.out.println("reference.toString():" + reference.toString());
-                    //System.out.println("proposed.getID     :" + proposed.getID() );
-                    //System.out.println("reference.getID():" + reference.getID() );
+                    System.out.println("reference.toString():" + reference.toString());
+                    System.out.println("proposed.getID     :" + proposed.getID() );
+                    System.out.println("reference.getID():" + reference.getID() );
                 }
                 */
 
@@ -1199,9 +1226,9 @@ public class ValidateComponents {
                 	
                 	/*
                     if ( proposed.getID().equals("EMAPA:35041") 
-                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+                	|| ( proposed.getID().equals("ID:0000093") ) ) {
                     	
-                        //System.out.println("Here AAAAA!");
+                        System.out.println("Here AAAAA!");
                     }
                     */
 
@@ -1209,9 +1236,9 @@ public class ValidateComponents {
                     
                     	/*
                         if ( proposed.getID().equals("EMAPA:35041") 
-                       	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+                       	|| ( proposed.getID().equals("ID:0000093") ) ) {
                         	
-                            //System.out.println("Here BBBBB!");
+                            System.out.println("Here BBBBB!");
                         }
                         */
 
@@ -1229,9 +1256,9 @@ public class ValidateComponents {
 
                         	/*
                             if ( proposed.getID().equals("EMAPA:35041") 
-                           	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+                           	|| ( proposed.getID().equals("ID:0000093") ) ) {
                             	
-                            	//System.out.println("Here CCCCC!");
+                            	System.out.println("Here CCCCC!");
                             }
                             */
 
@@ -1244,9 +1271,9 @@ public class ValidateComponents {
 
                         	/*
                             if ( proposed.getID().equals("EMAPA:35041") 
-                            || ( proposed.getID().equals("MNW:0000001") ) ) {
+                            || ( proposed.getID().equals("ID:0000093") ) ) {
                             	
-                                //System.out.println("Here DDDDD!");
+                                System.out.println("Here DDDDD!");
                             }
                             */
                         	
@@ -1277,9 +1304,9 @@ public class ValidateComponents {
 
             	/*
                 if ( proposed.getID().equals("EMAPA:35041") 
-            	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+            	|| ( proposed.getID().equals("ID:0000093") ) ) {
                 	
-                	//System.out.println("Here EEEEE!");
+                	System.out.println("Here EEEEE!");
                 }
                 */
                 
@@ -1287,9 +1314,9 @@ public class ValidateComponents {
             	
             		/*
                     if ( proposed.getID().equals("EMAPA:35041") 
-                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
+                	|| ( proposed.getID().equals("ID:0000093") ) ) {
                     	
-                    	//System.out.println("Here FFFFF!");
+                    	System.out.println("Here FFFFF!");
                     }
                     */
                     
@@ -1304,9 +1331,9 @@ public class ValidateComponents {
             	
                 	/*
                     if ( proposed.getID().equals("EMAPA:35041") 
-                	|| ( proposed.getID().equals("MNW:0000001") ) ) {
-
-                        	//System.out.println("Here GGGGG!");
+                	|| ( proposed.getID().equals("ID:0000093") ) ) {
+                        	
+                    	System.out.println("Here GGGGG!");
                     }
                     */
 

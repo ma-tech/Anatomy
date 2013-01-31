@@ -129,7 +129,7 @@ public class LoadOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorNewTerms.next();
 
-    		Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
      	ArrayList<OBOComponent> modComponents = new ArrayList<OBOComponent>();
@@ -140,7 +140,7 @@ public class LoadOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
      	ArrayList<OBOComponent> delComponents = new ArrayList<OBOComponent>();
@@ -151,7 +151,7 @@ public class LoadOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
      	}
 
         if ( validatecomponents.getProblemTermList().isEmpty() ) {

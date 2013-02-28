@@ -76,19 +76,23 @@ public class ListOBOComponentsFromExistingDatabase {
     private String requestMsgLevel;
     
     private static String HUMAN_NAME_SPACE = "human_developmental_anatomy";
-    private static String MOUSE_NAME_SPACE = "abstract_anatomy";
+    //private static String MOUSE_NAME_SPACE = "abstract_anatomy";
+    private static String MOUSE_NAME_SPACE = "anatomical_structure";
     private static String CHICK_NAME_SPACE = "abstract_anatomy";
     
     private static String HUMAN_TIMED_NAME_SPACE = "human_developmental_anatomy";
-    private static String MOUSE_TIMED_NAME_SPACE = "timed_anatomy";
+    //private static String MOUSE_TIMED_NAME_SPACE = "timed_anatomy";
+    private static String MOUSE_TIMED_NAME_SPACE = "stage_specific_anatomical_structure";
     private static String CHICK_TIMED_NAME_SPACE = "timed_anatomy";
     
     private static String HUMAN_NAME = "Abstract human developmental anatomy";
-    private static String MOUSE_NAME = "Abstract anatomy";
+    //private static String MOUSE_NAME = "Abstract anatomy";
+    private static String MOUSE_NAME = "Anatomical structure";
     private static String CHICK_NAME = "Abstract anatomy";
     
     private static String HUMAN_TIMED_NAME = "Timed human developmental anatomy";
-    private static String MOUSE_TIMED_NAME = "Timed anatomy";
+    //private static String MOUSE_TIMED_NAME = "Timed anatomy";
+    private static String MOUSE_TIMED_NAME = "Stage Specific Anatomical Structure";
     private static String CHICK_TIMED_NAME = "Timed anatomy";
 
     private static String HUMAN_ID = "EHDAA:0";

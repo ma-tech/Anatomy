@@ -46,13 +46,34 @@ import utility.Wrapper;
 
 public class Producer {
 
-    private static String HUMAN_STAGE =  "carnegie stage";
-    private static String MOUSE_STAGE =  "theiler stage";
-    private static String CHICK_STAGE =  "theiler stage";
+    private static String HUMAN_STAGE =  "Carnegie Stage";
+    private static String MOUSE_STAGE =  "Theiler Stage";
+    private static String CHICK_STAGE =  "Theiler Stage";
+
+    private static String HUMAN_STAGE_US =  "carnegie_stage";
+    private static String MOUSE_STAGE_US =  "theiler_stage";
+    private static String CHICK_STAGE_US =  "theiler_stage";
 
     private static String HUMAN_NAME = "Abstract human developmental anatomy";
-    private static String MOUSE_NAME = "Abstract anatomy";
+    //private static String MOUSE_NAME = "Abstract anatomy";
+    private static String MOUSE_NAME = "Anatomical Structure";
     private static String CHICK_NAME = "Abstract anatomy";
+
+    private static String HUMAN_NAME_ABSTRACT = "Abstract human developmental anatomy";
+    private static String MOUSE_NAME_ABSTRACT = "Anatomical structure";
+    private static String CHICK_NAME_ABSTRACT = "Abstract anatomy";
+
+    private static String HUMAN_NAME_ABSTRACT_US = "Abstract human developmental anatomy";
+    private static String MOUSE_NAME_ABSTRACT_US = "anatomical_structure";
+    private static String CHICK_NAME_ABSTRACT_US = "Abstract anatomy";
+
+    private static String HUMAN_NAME_TIMED = "Timed human developmental anatomy";
+    private static String MOUSE_NAME_TIMED = "Stage Specific Anatomical Structure";
+    private static String CHICK_NAME_TIMED = "Abstract anatomy";
+
+    private static String HUMAN_NAME_TIMED_US = "Timed human developmental anatomy";
+    private static String MOUSE_NAME_TIMED_US = "stage_specific_anatomical_structure";
+    private static String CHICK_NAME_TIMED_US = "Abstract anatomy";
 
 
     // Attributes ---------------------------------------------------------------------------------
@@ -198,7 +219,70 @@ public class Producer {
                 	outputFile.write("[Term]\n");
                     outputFile.write("id: " + obocomponentList.get(i).getID() + "\n");
                     outputFile.write("name: " + obocomponentList.get(i).getName() + "\n");
-                    outputFile.write("namespace: " + obocomponentList.get(i).getNamespace() + "\n");
+
+                    /*
+                    if ( stage.equals("TS01") ) {
+                    	
+                        System.out.println("stage = " + stage);
+                        System.out.println("obocomponentList.get(i).getNamespace() = " + obocomponentList.get(i).getNamespace());
+                    }
+                    */
+                    
+                	if ( obocomponentList.get(i).getNamespace().equals("group_term") ) {
+
+                        outputFile.write("namespace: " + "group_term" + "\n");
+                    }
+                	if ( obocomponentList.get(i).getNamespace().equals("theiler_stage") ) {
+
+                        outputFile.write("namespace: " + "theiler_stage" + "\n");
+                    }
+                	if ( obocomponentList.get(i).getNamespace().equals("new_group_namespace") ) {
+
+                        outputFile.write("namespace: " + "new_group_namespace" + "\n");
+                    }
+
+                    if ( stage.equals("Abstract")) {
+                    	
+                    	if ( obocomponentList.get(i).getNamespace().equals(MOUSE_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + MOUSE_NAME_ABSTRACT_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(CHICK_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + CHICK_NAME_ABSTRACT_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(HUMAN_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + HUMAN_NAME_ABSTRACT_US + "\n");
+                    	}
+                    }
+                    else {
+                    	
+                    	if ( obocomponentList.get(i).getNamespace().equals(MOUSE_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + MOUSE_NAME_TIMED_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(CHICK_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + CHICK_NAME_TIMED_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(HUMAN_NAME_ABSTRACT_US) ) {
+                    		
+                            outputFile.write("namespace: " + HUMAN_NAME_TIMED_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(MOUSE_NAME_TIMED_US) ) {
+                    		
+                            outputFile.write("namespace: " + MOUSE_NAME_TIMED_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(CHICK_NAME_TIMED_US) ) {
+                    		
+                            outputFile.write("namespace: " + CHICK_NAME_TIMED_US + "\n");
+                    	}
+                    	if ( obocomponentList.get(i).getNamespace().equals(HUMAN_NAME_TIMED_US) ) {
+                    		
+                            outputFile.write("namespace: " + HUMAN_NAME_TIMED_US + "\n");
+                    	}
+                    }
                     
                     if ( !obocomponentList.get(i).getNamespace().equals(MOUSE_STAGE) ||
                     	!obocomponentList.get(i).getNamespace().equals(HUMAN_STAGE) ||

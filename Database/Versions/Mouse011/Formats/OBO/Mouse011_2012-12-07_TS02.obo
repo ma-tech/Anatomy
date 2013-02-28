@@ -1,13 +1,13 @@
 format-version: 1.2
-date: 08:01:2013 16:23
+date: 28:02:2013 15:28
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 011
 
 [Term]
 id: EMAP:0
-name: Timed anatomy
-namespace: timed_anatomy
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
 
 [Term]
 id: group_term
@@ -33,25 +33,25 @@ namespace: new_group_namespace
 [Term]
 id: EMAP:25767
 name: mouse
-namespace: timed_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: is_a EMAP:0
 
 [Term]
 id: EMAP:5
 name: second polar body
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25767
 
 [Term]
 id: EMAP:7
 name: zona pellucida
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25767
 
 [Term]
 id: EMAP:6
 name: two-cell stage embryo
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25767
 
 

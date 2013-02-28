@@ -1,13 +1,13 @@
 format-version: 1.2
-date: 08:01:2013 16:23
+date: 28:02:2013 15:28
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 011
 
 [Term]
 id: EMAP:0
-name: Timed anatomy
-namespace: timed_anatomy
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
 
 [Term]
 id: group_term
@@ -33,438 +33,438 @@ namespace: new_group_namespace
 [Term]
 id: EMAP:25776
 name: mouse
-namespace: timed_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: is_a EMAP:0
 
 [Term]
 id: EMAP:147
 name: embryo
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:148
 name: cavities and their linings
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:149
 name: intraembryonic coelom
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:148
 
 [Term]
 id: EMAP:160
 name: endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:162
 name: primitive endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:160
 
 [Term]
 id: EMAP:161
 name: definitive endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:160
 
 [Term]
 id: EMAP:150
 name: ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:151
 name: neural ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:150
 
 [Term]
 id: EMAP:152
 name: future brain
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:151
 
 [Term]
 id: EMAP:153
 name: future brain neural fold
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:152
 
 [Term]
 id: EMAP:154
 name: future brain neural crest
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:153
 
 [Term]
 id: EMAP:155
 name: future spinal cord
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:151
 
 [Term]
 id: EMAP:156
 name: future spinal cord neural fold
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:155
 
 [Term]
 id: EMAP:157
 name: future spinal cord neural crest
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:156
 
 [Term]
 id: EMAP:158
 name: neural plate
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:155
 
 [Term]
 id: EMAP:159
 name: surface ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:150
 
 [Term]
 id: EMAP:167
 name: mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:174
 name: primitive streak
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:175
 name: node
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:174
 
 [Term]
 id: EMAP:163
 name: mesenchyme
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:164
 name: head mesenchyme
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:163
 relationship: part_of EMAP:34991
 
 [Term]
 id: EMAP:165
 name: mesenchyme derived from head mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:164
 
 [Term]
 id: EMAP:15246
 name: mesenchyme derived from somites 01-04
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:165
 
 [Term]
 id: EMAP:166
 name: head mesenchyme derived from neural crest
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:164
 
 [Term]
 id: EMAP:168
 name: notochordal plate
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:169
 name: notochordal process
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:170
 name: organ system
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:171
 name: cardiovascular system
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:170
 
 [Term]
 id: EMAP:172
 name: heart
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:171
 
 [Term]
 id: EMAP:173
 name: cardiogenic plate
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:172
 
 [Term]
 id: EMAP:176
 name: extraembryonic component
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:195
 name: trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:196
 name: mural trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:195
 
 [Term]
 id: EMAP:197
 name: primary trophoblast giant cells
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:196
 
 [Term]
 id: EMAP:198
 name: polar trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:195
 
 [Term]
 id: EMAP:199
 name: ectoplacental cone
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:198
 
 [Term]
 id: EMAP:200
 name: cytotrophoblast
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:199
 
 [Term]
 id: EMAP:201
 name: syncytiotrophoblast
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:199
 
 [Term]
 id: EMAP:190
 name: extraembryonic endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:192
 name: parietal endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:190
 
 [Term]
 id: EMAP:193
 name: Reichert's membrane
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:192
 
 [Term]
 id: EMAP:191
 name: intermediate endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:190
 
 [Term]
 id: EMAP:194
 name: visceral endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:190
 
 [Term]
 id: EMAP:182
 name: extraembryonic component cavities
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:186
 name: yolk sac cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:182
 
 [Term]
 id: EMAP:183
 name: amniotic cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:182
 
 [Term]
 id: EMAP:184
 name: ectoplacental cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:182
 
 [Term]
 id: EMAP:185
 name: exocoelomic cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:182
 
 [Term]
 id: EMAP:202
 name: yolk sac
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:203
 name: yolk sac endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:202
 
 [Term]
 id: EMAP:204
 name: yolk sac mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:202
 
 [Term]
 id: EMAP:205
 name: blood island
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:204
 
 [Term]
 id: EMAP:206
 name: primordial germ cells
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:204
 
 [Term]
 id: EMAP:177
 name: allantois
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:178
 name: allantois mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:177
 
 [Term]
 id: EMAP:179
 name: amnion
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:180
 name: amnion ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:179
 
 [Term]
 id: EMAP:181
 name: amnion mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:179
 
 [Term]
 id: EMAP:187
 name: chorion
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:188
 name: chorion ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:187
 
 [Term]
 id: EMAP:189
 name: chorion mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:187
 
 [Term]
 id: EMAP:31916
 name: extraembryonic mesoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:31917
 name: extraembryonic mesenchyme
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:32107
 name: chorion mesenchyme
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:187
 
 [Term]
 id: EMAP:32167
 name: extraembryonic ectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:176
 
 [Term]
 id: EMAP:33607
 name: neural fold
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:151
 
 [Term]
 id: EMAP:33626
 name: mesenchyme derived from neural crest
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:163
 
 [Term]
 id: EMAP:33650
 name: neural crest
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:33607
 
 [Term]
 id: EMAP:33852
 name: mesendoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 
 [Term]
 id: EMAP:34991
 name: head
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:147
 relationship: part_of EMAP:25776
 

@@ -1,13 +1,13 @@
 format-version: 1.2
-date: 08:01:2013 16:23
+date: 28:02:2013 15:28
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 011
 
 [Term]
 id: EMAP:0
-name: Timed anatomy
-namespace: timed_anatomy
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
 
 [Term]
 id: group_term
@@ -33,56 +33,56 @@ namespace: new_group_namespace
 [Term]
 id: EMAP:25770
 name: mouse
-namespace: timed_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: is_a EMAP:0
 
 [Term]
 id: EMAP:23
 name: embryo
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25770
 
 [Term]
 id: EMAP:24
 name: inner cell mass
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:23
 relationship: part_of EMAP:25770
 
 [Term]
 id: EMAP:25
 name: extraembryonic component
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25770
 
 [Term]
 id: EMAP:26
 name: extraembryonic cavities and their linings
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25
 
 [Term]
 id: EMAP:27
 name: blastocoelic cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:26
 
 [Term]
 id: EMAP:28
 name: trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25
 
 [Term]
 id: EMAP:29
 name: mural trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:28
 
 [Term]
 id: EMAP:30
 name: polar trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:28
 
 

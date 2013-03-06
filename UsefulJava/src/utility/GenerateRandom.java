@@ -151,4 +151,24 @@ public class GenerateRandom {
 
      	return outputString;
 	}
+    
+    public static String randomString ( int i ) {
+    	
+        Random ran = new Random(i);
+        StringBuilder sb = new StringBuilder();
+        
+        for (int n = 0; ; n++){
+        	
+            int k = ran.nextInt(27);
+            
+            if (k == 0) {
+            	
+                break;
+            }
+
+            sb.append( (char) ('`' + k) );
+        }
+
+        return sb.toString();
+    }
 }

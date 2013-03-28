@@ -57,10 +57,10 @@ public class Component {
     private String newid;
     private String namespace;
     private String definition;
-    private Integer group;
+    private boolean group;
     private String start;
     private String end;
-    private Integer present;
+    private boolean present;
     private String statuschange; //'NONE, INSERT, UPDATE, DELETE'
     private String statusrule;   //"UNCHECKED"|"PASSED"|"FAILED"
 
@@ -82,10 +82,10 @@ public class Component {
     		String newid,
     		String namespace,
     		String definition,
-    		Integer group,
+    		boolean group,
     		String start,
     		String end,
-    		Integer present, 
+    		boolean present, 
     		String statuschange, 
     		String statusrule) {
     	
@@ -126,7 +126,7 @@ public class Component {
     public String getDefinition() {
         return this.definition;
     }
-    public Integer getGroup() {
+    public boolean isGroup() {
         return this.group;
     }
     public String getStart() {
@@ -135,7 +135,7 @@ public class Component {
     public String getEnd() {
     	return this.end;
     }
-    public Integer getPresent(){
+    public boolean isPresent(){
         return this.present;
     }
     public String getStatusChange(){
@@ -167,7 +167,7 @@ public class Component {
     public void setDefinition( String definition ) {
         this.definition = definition;
     }
-    public void setGroup( Integer group ) {
+    public void setGroup( boolean group ) {
         this.group = group;
     }
     public void setStart( String start ) {
@@ -176,7 +176,7 @@ public class Component {
     public void setEnd( String end ) {
     	this.end = end;
     }
-    public void setPresent( int present ){
+    public void setPresent( boolean present ){
         this.present = present;
     }
     public void setStatusChange(String statuschange){
@@ -198,10 +198,10 @@ public class Component {
     	    this.getName().equals(daocomponent.getName()) && 
     	    this.getNamespace().equals(daocomponent.getNamespace()) && 
     	    this.getDefinition().equals(daocomponent.getDefinition()) && 
-    	    this.getGroup() == daocomponent.getGroup() && 
+    	    this.isGroup() == daocomponent.isGroup() && 
     	    this.getStart().equals(daocomponent.getStart()) && 
     	    this.getEnd().equals(daocomponent.getEnd()) && 
-    	    this.getPresent() == daocomponent.getPresent() && 
+    	    this.isPresent() == daocomponent.isPresent() && 
     	    this.getStatusChange().equals(daocomponent.getStatusChange()) && 
     	    this.getStatusRule().equals(daocomponent.getStatusRule())) {
 
@@ -230,7 +230,26 @@ public class Component {
      */
     public String toString() {
     	
-        return String.format("Component [ oid=%d, id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, definition=%s, group=%b, start=%s, end=%s, present=%d ]", 
-        		oid, id, name, statuschange, statusrule, dbid, newid, namespace, definition, group, start, end, present);
+        return String.format("Component [ oid=%d, name=%s, id=%s, dbID=%s, newid=%s, namespace=%s, definition=%s, group=%b, start=%s, end=%s, present=%b, statusChange=%s, statusRule=%s ]", 
+        		oid, name, id, dbid, newid, namespace, definition, group, start, end, present, statuschange, statusrule );
     }
+
+    /*
+     * Returns the String CSVrepresentation of this Component.
+     */
+    public String toStringCSV() {
+    	
+        return String.format("%d, %s, %s, %s, %s, %s, %s, %b, %s, %s, %b, %s, %s", 
+        		oid, name, id, dbid, newid, namespace, definition, group, start, end, present, statuschange, statusrule );
+    }
+    
+    /*
+     * Returns the Java Object String representation of this Component.
+     */
+    public String toStringJava() {
+    	
+        return String.format("component%d = new Component( (long) %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", %b, \"%s\", \"%s\", %b, \"%s\", \"%s\" );", 
+        		oid, oid, name, id, dbid, newid, namespace, definition, group, start, end, present, statuschange, statusrule );
+    }
+
 }

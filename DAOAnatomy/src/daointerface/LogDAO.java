@@ -56,12 +56,12 @@ public interface LogDAO extends BaseDAO {
     /*
      * Returns the log from the database matching the given OID, otherwise null.
      */
-    public Log findByOid(Long oid) throws Exception;
+    public Log findByOid(long oid) throws Exception;
     
     /*
      * Returns the log from the database matching the given Logged OID, otherwise null.
      */
-    public Log findByLoggedOid(Long loggedOid) throws Exception;
+    public Log findByLoggedOid(long loggedOid) throws Exception;
     
     /*
      * Returns a list of ALL logs, otherwise null.
@@ -71,7 +71,7 @@ public interface LogDAO extends BaseDAO {
     /*
      * Returns true if the given log OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given log in the database.

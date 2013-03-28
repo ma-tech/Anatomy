@@ -259,17 +259,17 @@ public class GenerateEditorPDF {
             pdfDocument.add( Chunk.NEWLINE ); pdfDocument.add( Chunk.NEWLINE );
 
             addSummaryEntry("Total Components from OBO File    : ", 
-                    Integer.toString(validatecomponents.getProposedTermList().size()), validatecomponents );
+                    validatecomponents.getProposedTermList().size(), validatecomponents );
             addSummaryEntry("New Components created by user   : ", 
-                    Integer.toString( newTerms.size() ), validatecomponents );
+                    newTerms.size(), validatecomponents );
             addSummaryEntry("Modified Components edited by user   : ",
-                    Integer.toString( modifiedTerms.size() ), validatecomponents );
+                    modifiedTerms.size(), validatecomponents );
             addSummaryEntry("Deleted Components removed by user   : " ,
-                    Integer.toString( deletedTerms.size() ), validatecomponents );
+                    deletedTerms.size(), validatecomponents );
             addSummaryEntry("Unchanged Components      : ", 
-                    Integer.toString( unchangedTerms.size() ), validatecomponents );
+                    unchangedTerms.size(), validatecomponents );
             addSummaryEntry("Critical Components in File   : ",
-                    Integer.toString( problemobocomponents.size() ), validatecomponents );
+                    problemobocomponents.size(), validatecomponents );
 
             Chunk chkSummaryFooter = new Chunk("------------------------------------------------------------------------------------------------------------");
             pdfDocument.add( chkSummaryFooter );
@@ -295,83 +295,45 @@ public class GenerateEditorPDF {
             cell.setHeader( true );
             cell.setColspan( 1 );
             
-            Chunk chkHeader = new Chunk( "Components Checked Status",
-                    new Font( Font.COURIER, 12, Font.BOLDITALIC ) );
+            Chunk chkHeader = new Chunk( "Components Checked Status", new Font( Font.COURIER, 12, Font.BOLDITALIC ) );
             cell.add( chkHeader );
             table.addCell( cell );
-            chkHeader = new Chunk( "Failed*",
-                    new Font( Font.COURIER, 12, Font.BOLDITALIC, Color.RED ) );
+            chkHeader = new Chunk( "Failed*", new Font( Font.COURIER, 12, Font.BOLDITALIC, Color.RED ) );
             cell = new Cell( chkHeader );
             table.addCell( cell );
-            chkHeader = new Chunk( "Passed**",
-                    new Font( Font.COURIER, 12, Font.BOLDITALIC, new Color(0,140,0) ) );
+            chkHeader = new Chunk( "Passed**", new Font( Font.COURIER, 12, Font.BOLDITALIC, new Color(0,140,0) ) );
             cell = new Cell( chkHeader );
             table.addCell( cell );
-            chkHeader = new Chunk( "Total",
-                    new Font( Font.COURIER, 12, Font.BOLDITALIC ) );
+            chkHeader = new Chunk( "Total", new Font( Font.COURIER, 12, Font.BOLDITALIC ) );
             cell = new Cell( chkHeader );
             table.addCell( cell );
             
             table.endHeaders();
             
             table.addCell( makeSummaryTableLabel( "All Components" ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( problemobocomponents.size() ), Font.BOLD,
-                    Color.RED ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( validatecomponents.getProposedTermList().size() -
-                    problemobocomponents.size() ),
-                    Font.BOLD, Color.BLACK ) ); 
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( validatecomponents.getProposedTermList().size() ),
-                    Font.BOLD, Color.BLACK ) );
+            table.addCell( makeSummaryTableEntry( problemobocomponents.size(), Font.BOLD, Color.RED ) );
+            table.addCell( makeSummaryTableEntry( validatecomponents.getProposedTermList().size() - problemobocomponents.size(), Font.BOLD, Color.BLACK ) ); 
+            table.addCell( makeSummaryTableEntry( validatecomponents.getProposedTermList().size(), Font.BOLD, Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "New" ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedNewTerms ), Font.NORMAL,
-                    Color.RED ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( newTerms.size()-failedNewTerms ), 
-                    Font.BOLD, new Color(0,140,0) ) ); 
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( newTerms.size() ), Font.BOLD,
-                    Color.BLACK ) );
+            table.addCell( makeSummaryTableEntry( failedNewTerms, Font.NORMAL, Color.RED ) );
+            table.addCell( makeSummaryTableEntry( newTerms.size() - failedNewTerms, Font.BOLD, new Color(0,140,0) ) ); 
+            table.addCell( makeSummaryTableEntry( newTerms.size(), Font.BOLD, Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Modified" ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedModifiedTerms ), Font.NORMAL,
-                    Color.RED ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( modifiedTerms.size() -
-                    failedModifiedTerms ),
-                    Font.BOLD, new Color(0,140,0) ) ); 
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( modifiedTerms.size() ), Font.BOLD,
-                    Color.BLACK ) );
+            table.addCell( makeSummaryTableEntry( failedModifiedTerms, Font.NORMAL, Color.RED ) );
+            table.addCell( makeSummaryTableEntry( modifiedTerms.size() - failedModifiedTerms, Font.BOLD, new Color(0,140,0) ) ); 
+            table.addCell( makeSummaryTableEntry( modifiedTerms.size(), Font.BOLD, Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Deleted" ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedDeletedTerms ), Font.NORMAL,
-                    Color.RED ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( deletedTerms.size() -
-                    failedDeletedTerms ),
-                    Font.BOLD, new Color(0,140,0) ) ); 
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( deletedTerms.size() ), Font.BOLD,
-                    Color.BLACK ) );
+            table.addCell( makeSummaryTableEntry( failedDeletedTerms, Font.NORMAL,Color.RED ) );
+            table.addCell( makeSummaryTableEntry( deletedTerms.size() - failedDeletedTerms, Font.BOLD, new Color(0,140,0) ) ); 
+            table.addCell( makeSummaryTableEntry( deletedTerms.size(), Font.BOLD, Color.BLACK ) );
             
             table.addCell( makeSummaryTableLabel( "Unchanged" ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( failedUnchangedTerms ), Font.NORMAL,
-                    Color.RED ) );
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( unchangedTerms.size() -
-                    failedUnchangedTerms ),
-                    Font.BOLD, new Color(0,140,0) ) ); 
-            table.addCell( makeSummaryTableEntry( 
-                    Integer.toString( unchangedTerms.size() ), Font.BOLD,
-                    Color.BLACK ) );
+            table.addCell( makeSummaryTableEntry( failedUnchangedTerms, Font.NORMAL, Color.RED ) );
+            table.addCell( makeSummaryTableEntry( unchangedTerms.size() - failedUnchangedTerms, Font.BOLD, new Color(0,140,0) ) ); 
+            table.addCell( makeSummaryTableEntry( unchangedTerms.size(), Font.BOLD, Color.BLACK ) );
            
             pdfDocument.add( table );
 
@@ -408,19 +370,19 @@ public class GenerateEditorPDF {
         return cell;
     }
 
-    private Cell makeSummaryTableEntry(String entry, int style, Color color) throws Exception{
+    private Cell makeSummaryTableEntry(int entry, int style, Color color) throws Exception{
 
         Wrapper.printMessage("generateeditorpdf.makeSummaryTableEntry", "****", this.requestMsgLevel);
         	
         Cell cell = new Cell();
-        Chunk chkEntry = new Chunk( entry,
+        Chunk chkEntry = new Chunk( Integer.toString(entry),
                 new Font( Font.COURIER, 12, style, color ) );
         cell.add( chkEntry );
 
         return cell;
     }
 
-    private void addSummaryEntry( String label, String item,
+    private void addSummaryEntry( String label, int item,
             ValidateComponents validatecomponents ) throws Exception{
 
         Wrapper.printMessage("generateeditorpdf.addSummaryEntry", "****", this.requestMsgLevel);
@@ -431,7 +393,7 @@ public class GenerateEditorPDF {
                     new Font( Font.COURIER, 10, Font.ITALIC ) );
             pdfDocument.add( chkSummaryLabel );
             
-            Chunk chkSummaryItem = new Chunk( item,
+            Chunk chkSummaryItem = new Chunk( Integer.toString(item),
                     new Font( Font.COURIER, 10, Font.BOLD ) );
             pdfDocument.add( chkSummaryItem );
             

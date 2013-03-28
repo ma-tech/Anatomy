@@ -99,7 +99,7 @@ public class ListOBOComponentsFromComponentsTables {
         		obocomponent.setName(component.getName().replace("\n", " ").trim());
         		obocomponent.setNamespace(component.getNamespace().replace("\n", " ").trim());
         		obocomponent.setDefinition(component.getDefinition().replace("\n", " ").trim());
-        		obocomponent.setGroup(ObjectConverter.convert(component.getGroup(), Boolean.class));
+        		obocomponent.setGroup(component.isGroup());
         		
         		if ( "TBD".equals(component.getStart().replace("\n", " ").trim()) ){
         			
@@ -119,7 +119,7 @@ public class ListOBOComponentsFromComponentsTables {
             		obocomponent.setEnd(component.getEnd().replace("\n", " ").trim());
         		}
         		
-        		obocomponent.setPresent(component.getPresent());
+        		obocomponent.setPresent(component.isPresent());
         		obocomponent.setStatusChange(component.getStatusChange().replace("\n", " ").trim());
         		obocomponent.setStatusRule(component.getStatusRule().replace("\n", " ").trim());
 

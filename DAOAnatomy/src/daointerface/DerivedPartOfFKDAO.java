@@ -44,7 +44,7 @@ public interface DerivedPartOfFKDAO extends BaseDAO {
     /*
      * Returns the relationship from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOfFK find(Long oid) throws Exception;
+    public DerivedPartOfFK findByOid(long oid) throws Exception;
 
     /*
      * Returns a list of relationship matching the given Node FK, otherwise null.
@@ -55,7 +55,7 @@ public interface DerivedPartOfFKDAO extends BaseDAO {
     /*
      * Returns true if the given relationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns list of DerivedPartOfs for Display purposes

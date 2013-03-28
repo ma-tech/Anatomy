@@ -7,7 +7,8 @@ import javax.faces.component.UICommand;
 import javax.faces.event.ActionEvent;
 
 import daolayer.DAOException;
-import daolayer.DerivedPartOfPerspectivesDAO;
+
+import daointerface.DerivedPartOfPerspectivesDAO;
 
 import daomodel.DerivedPartOfPerspectives;
 
@@ -24,7 +25,7 @@ public class DerivedPartOfPerspectivesBackingBean implements Serializable {
     // Properties ---------------------------------------------------------------------------------
 
     // DAO.
-    private static DerivedPartOfPerspectivesDAO dao = Config.getInstance().getDAOFactory().getDerivedPartOfPerspectivesDAO();
+    private static DerivedPartOfPerspectivesDAO dao = Config.getInstance().getDAOFactory().getDAOImpl(DerivedPartOfPerspectivesDAO.class);
 
     // Data.
     private List<DerivedPartOfPerspectives> dataList;
@@ -65,33 +66,33 @@ public class DerivedPartOfPerspectivesBackingBean implements Serializable {
     }
 
     // Paging actions -----------------------------------------------------------------------------
-    public void pageFirst() {
+    public void pageFirst() throws Exception {
         page(0);
     }
 
-    public void pageNext() {
+    public void pageNext() throws Exception {
         page(firstRow + rowsPerPage);
     }
 
-    public void pagePrevious() {
+    public void pagePrevious() throws Exception {
         page(firstRow - rowsPerPage);
     }
 
-    public void pageLast() {
+    public void pageLast() throws Exception {
         page(totalRows - ((totalRows % rowsPerPage != 0) ? totalRows % rowsPerPage : rowsPerPage));
     }
 
-    public void page(ActionEvent event) {
+    public void page(ActionEvent event) throws Exception {
         page(((Integer) ((UICommand) event.getComponent()).getValue() - 1) * rowsPerPage);
     }
 
-    private void page(int firstRow) {
+    private void page(int firstRow) throws Exception {
         this.firstRow = firstRow;
         loadDataList(); // Load requested page.
     }
 
     // Sorting actions ----------------------------------------------------------------------------
-    public void sort(ActionEvent event) {
+    public void sort(ActionEvent event) throws Exception {
         String sortFieldAttribute = (String) event.getComponent().getAttributes().get("sortField");
 
         // If the same field is sorted, then reverse order, else sort the new field ascending.
@@ -107,7 +108,7 @@ public class DerivedPartOfPerspectivesBackingBean implements Serializable {
     }
 
     // Loaders ------------------------------------------------------------------------------------
-    private void loadDataList() {
+    private void loadDataList() throws Exception {
 
         // Load list and totalCount.
         try {
@@ -134,7 +135,7 @@ public class DerivedPartOfPerspectivesBackingBean implements Serializable {
     }
 
     // Getters ------------------------------------------------------------------------------------
-    public List<DerivedPartOfPerspectives> getDataList() {
+    public List<DerivedPartOfPerspectives> getDataList() throws Exception {
         if (dataList == null) {
             // Preload page for the 1st view.
             loadDataList(); 

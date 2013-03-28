@@ -45,7 +45,7 @@ public interface StageDAO extends BaseDAO {
     /*
      * Returns the Stage from the database matching the given OID, otherwise null.
      */
-    public Stage findByOid(Long oid) throws Exception;
+    public Stage findByOid(long oid) throws Exception;
     
     /*
      * Returns the Stage from the database matching the given Name, otherwise null.
@@ -55,7 +55,7 @@ public interface StageDAO extends BaseDAO {
     /*
      * Returns the Stage from the database matching the given Sequence Number, otherwise null.
      */
-    public Stage findBySequence(Long seq) throws Exception;
+    public Stage findBySequence(long seq) throws Exception;
     
     /*
      * Returns a list of ALL stages, ordered by Sequence otherwise null.
@@ -70,7 +70,7 @@ public interface StageDAO extends BaseDAO {
     /*
      * Returns true if the given stage OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns the Maximum stage sequence in the database.

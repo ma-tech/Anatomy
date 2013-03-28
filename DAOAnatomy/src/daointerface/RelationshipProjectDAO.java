@@ -50,22 +50,22 @@ public interface RelationshipProjectDAO extends BaseDAO {
     /*
      * Returns the relationshipproject from the database matching the given OID, otherwise null.
      */
-    public RelationshipProject findByOid(Long oid) throws Exception;
+    public RelationshipProject findByOid(long oid) throws Exception;
     
     /*
      * Returns a list of ALL relationshipprojects by Parent FK, otherwise null.
      */
-    public List<RelationshipProject> listByProjectFK(Long projectFK) throws Exception;
+    public List<RelationshipProject> listByProjectFK(long projectFK) throws Exception;
     
     /*
      * Returns a list of ALL relationshipprojects by Sequence Number, otherwise null.
      */
-    public List<RelationshipProject> listBySequence(Long sequence) throws Exception;
+    public List<RelationshipProject> listBySequence(long sequence) throws Exception;
     
     /*
      * Returns a list of ALL relationshipprojects by Relationship FK, otherwise null.
      */
-    public List<RelationshipProject> listByRelationshipFK(Long relationshipFK) throws Exception;
+    public List<RelationshipProject> listByRelationshipFK(long relationshipFK) throws Exception;
     
     /*
      * Returns a list of ALL relationshipprojects, otherwise null.
@@ -75,7 +75,7 @@ public interface RelationshipProjectDAO extends BaseDAO {
     /*
      * Returns true if the given relationshipproject OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given relationshipproject in the database.

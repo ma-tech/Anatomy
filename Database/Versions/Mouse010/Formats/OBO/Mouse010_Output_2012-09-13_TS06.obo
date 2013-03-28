@@ -1,13 +1,13 @@
 format-version: 1.2
-date: 06:12:2012 16:16
+date: 14:03:2013 09:50
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
-remark: Version 009
+remark: Version 010
 
 [Term]
 id: EMAP:0
-name: Timed anatomy
-namespace: timed_anatomy
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
 
 [Term]
 id: group_term
@@ -33,75 +33,75 @@ namespace: new_group_namespace
 [Term]
 id: EMAP:25771
 name: mouse
-namespace: timed_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: is_a EMAP:0
 
 [Term]
 id: EMAP:31
 name: embryo
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25771
 
 [Term]
 id: EMAP:32
 name: epiblast
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25771
 relationship: part_of EMAP:31
 
 [Term]
 id: EMAP:33
 name: primitive endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25771
 relationship: part_of EMAP:31
 
 [Term]
 id: EMAP:34
 name: extraembryonic component
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25771
 
 [Term]
 id: EMAP:35
 name: extraembryonic cavities and their linings
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:34
 
 [Term]
 id: EMAP:36
 name: blastocoelic cavity
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:35
 
 [Term]
 id: EMAP:39
 name: trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:34
 
 [Term]
 id: EMAP:40
 name: mural trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:39
 
 [Term]
 id: EMAP:41
 name: polar trophectoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:39
 
 [Term]
 id: EMAP:37
 name: extraembryonic endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:34
 
 [Term]
 id: EMAP:38
 name: parietal endoderm
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:37
 
 

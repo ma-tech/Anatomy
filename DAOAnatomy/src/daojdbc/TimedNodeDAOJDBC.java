@@ -186,7 +186,7 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
     /*
      * Returns the TimedNode from the database matching the given OID, otherwise null.
      */
-    public TimedNode findByOid(Long oid) throws Exception {
+    public TimedNode findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -194,7 +194,7 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByNodeFK(Long nodeFK) throws Exception {
+    public List<TimedNode> listByNodeFK(long nodeFK) throws Exception {
     	
         return list(SQL_LIST_BY_NODE_FK, nodeFK);
     }
@@ -202,7 +202,7 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByStageFK(Long stageFK) throws Exception {
+    public List<TimedNode> listByStageFK(long stageFK) throws Exception {
     	
         return list(SQL_LIST_BY_STAGE_FK, stageFK);
     }
@@ -250,7 +250,7 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
     /*
      * Returns true if the given timednode OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -479,6 +479,10 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
         	timednode.getOid() 
         };
 
+        if (timednode.getOid() == null) {
+            throw new IllegalArgumentException("TimedNode is not created yet, so the timednode OID cannot be null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -520,7 +524,7 @@ public final class TimedNodeDAOJDBC implements TimedNodeDAO {
      * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
-    public void deleteByNodeAndStage(Long nodeFK, Long stageFK) throws Exception {
+    public void deleteByNodeAndStage(long nodeFK, long stageFK) throws Exception {
     	
         Object[] values = { 
         	nodeFK, 

@@ -167,7 +167,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(Long nodeFk) throws Exception {
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(long nodeFk) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_ORDER_BY_STAGE_NAME, nodeFk);
     }
@@ -175,7 +175,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Sequence, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(Long nodeFk) throws Exception {
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(long nodeFk) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_ORDER_BY_STAGE_SEQUENCE, nodeFk);
     }
@@ -183,7 +183,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(Long nodeFk, String stageName) throws Exception {
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(long nodeFk, String stageName) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_AND_STAGE_NAME, nodeFk, stageName);
     }
@@ -191,7 +191,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndStageSequence(Long nodeFk, Long stageSequence) throws Exception {
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageSequence(long nodeFk, long stageSequence) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_AND_STAGE_SEQUENCE, nodeFk, stageSequence);
     }
@@ -199,7 +199,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a list of ALL jointimednodestages by node Fk and Sequence, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(Long nodeFk, String sequence) throws Exception {
+    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(long nodeFk, String sequence) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_NODE_FK_AND_SEQUENCE, nodeFk, sequence);
     }
@@ -207,7 +207,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int countAllByNodeFk(Long nodeFk) throws Exception {
+    public int countAllByNodeFk(long nodeFk) throws Exception {
     	
         return count(SQL_COUNT_ALL_BY_NODE_FK, nodeFk);
     }
@@ -215,7 +215,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int maxSequenceByNodeFk(Long nodeFk) throws Exception {
+    public int maxSequenceByNodeFk(long nodeFk) throws Exception {
     	
         return maxMin(SQL_MAX_SEQUENCE_BY_NODE_FK, nodeFk);
     }
@@ -223,7 +223,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int minSequenceByNodeFk(Long nodeFk) throws Exception {
+    public int minSequenceByNodeFk(long nodeFk) throws Exception {
     	
         return maxMin(SQL_MIN_SEQUENCE_BY_NODE_FK, nodeFk);
     }
@@ -265,7 +265,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String sql, Long key) throws Exception {
+    public int count(String sql, long key) throws Exception {
 
         Object[] values = {
         		key
@@ -303,7 +303,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns total amount of rows in table.
      */
-    public int maxMin(String sql, Long key) throws Exception {
+    public int maxMin(String sql, long key) throws Exception {
 
         Object[] values = {
         		key

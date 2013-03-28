@@ -45,7 +45,7 @@ public interface PerspectiveAmbitDAO extends BaseDAO {
     /*
      * Returns the perspectiveAmbit from the database matching the given OID, otherwise null.
      */
-    public PerspectiveAmbit find(Long oid) throws Exception;
+    public PerspectiveAmbit findByOid(long oid) throws Exception;
 
     /*
      * Returns a list of ALL perspectiveAmbits, otherwise null.
@@ -76,7 +76,7 @@ public interface PerspectiveAmbitDAO extends BaseDAO {
     /*
      * Returns true if the given perspectiveAmbit OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
     
     /*
      * Returns list of Synonyms for Display purposes

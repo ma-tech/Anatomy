@@ -117,7 +117,7 @@ public final class JOINRelationshipProjectRelationshipDAOJDBC implements JOINRel
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINRelationshipProjectRelationship> listAllByChildAndProject(Long childFK, String project) throws Exception {
+    public List<JOINRelationshipProjectRelationship> listAllByChildAndProject(long childFK, String project) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD_AND_PROJECT, childFK, project);
     }
@@ -125,7 +125,7 @@ public final class JOINRelationshipProjectRelationshipDAOJDBC implements JOINRel
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINRelationshipProjectRelationship> listAllByParentAndProjectNotIn(Long parentFK, String project, String notIn) throws Exception {
+    public List<JOINRelationshipProjectRelationship> listAllByParentAndProjectNotIn(long parentFK, String project, String notIn) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT_AND_PROJECT_NOT_IN, parentFK, project, notIn);
     }

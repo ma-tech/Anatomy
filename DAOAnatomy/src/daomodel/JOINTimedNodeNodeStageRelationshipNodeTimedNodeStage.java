@@ -104,44 +104,44 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
      *   7. STG_PUBLIC_ID            - varchar(20)
      */
     private Long oidTimedNodeI; 
-    private Long nodeFKI; 
-    private Long stageFKI; 
+    private long nodeFKI; 
+    private long stageFKI; 
     private String stageModifierFKI;
     private String publicTimedNodeIdI;
     private Long oidNodeI; 
     private String speciesFKNodeI; 
     private String componentNameI; 
-    private Boolean primaryI;
-    private Boolean groupI;
+    private boolean primaryI;
+    private boolean groupI;
     private String publicNodeIdI; 
     private String descriptionNodeI; 
     private Long oidStageI; 
     private String speciesFKStageI; 
     private String nameI; 
-    private Long sequenceI;
+    private long sequenceI;
     private String descriptionStageI;
     private String extraTextI; 
     private String publicStageIdI; 
     private Long oidRel; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
     private Long oidTimedNodeII; 
-    private Long nodeFKII; 
-    private Long stageFKII; 
+    private long nodeFKII; 
+    private long stageFKII; 
     private String stageModifierFKII;
     private String publicTimedNodeIdII;
     private Long oidNodeII; 
     private String speciesFKNodeII; 
     private String componentNameII; 
-    private Boolean primaryII;
-    private Boolean groupII;
+    private boolean primaryII;
+    private boolean groupII;
     private String publicNodeIdII; 
     private String descriptionNodeII; 
     private Long oidStageII; 
     private String speciesFKStageII; 
     private String nameII; 
-    private Long sequenceII;
+    private long sequenceII;
     private String descriptionStageII;
     private String extraTextII; 
     private String publicStageIdII; 
@@ -158,38 +158,38 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
      * Minimal constructor. Contains required fields.
      */
     public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage(Long oidTimedNodeI, 
-    		Long nodeFKI, 
-    		Long stageFKI, 
+    		long nodeFKI, 
+    		long stageFKI, 
     		String stageModifierFKI,
     		String publicTimedNodeIdI,
     		Long oidNodeI, 
     		String speciesFKNodeI, 
     		String componentNameI, 
-    		Boolean primaryI,
-    		Boolean groupI,
+    		boolean primaryI,
+    		boolean groupI,
     		String publicNodeIdI, 
     		String descriptionNodeI, 
     		Long oidStageI, 
     		String speciesFKStageI, 
     		String nameI, 
-    		Long sequenceI,
+    		long sequenceI,
     		String descriptionStageI,
     		String extraTextI, 
     		String publicStageIdI, 
     		Long oidRel, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK,
+    		long childFK, 
+    		long parentFK,
     		Long oidTimedNodeII, 
-    		Long nodeFKII, 
-    		Long stageFKII, 
+    		long nodeFKII, 
+    		long stageFKII, 
     		String stageModifierFKII,
     		String publicTimedNodeIdII,
     		Long oidNodeII, 
     		String speciesFKNodeII, 
     		String componentNameII, 
-    		Boolean primaryII,
-    		Boolean groupII,
+    		boolean primaryII,
+    		boolean groupII,
     		String publicNodeIdII, 
     		String descriptionNodeII, 
     		Long oidStageII, 
@@ -247,10 +247,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public Long getOidTimedNodeI() {
         return oidTimedNodeI;
     }
-    public Long getNodeFKI() {
+    public long getNodeFKI() {
         return nodeFKI;
     }
-    public Long getStageFKI() {
+    public long getStageFKI() {
         return stageFKI;
     }
     public String getStageModifierFKI() {
@@ -269,10 +269,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getComponentNameI() {
         return componentNameI;
     }
-    public Boolean isPrimaryI() {
+    public boolean isPrimaryI() {
         return primaryI;
     }
-    public Boolean isGroupI() {
+    public boolean isGroupI() {
         return groupI;
     }
     public String getPublicNodeIdI() {
@@ -291,7 +291,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getNameI() {
         return nameI;
     }
-    public Long getSequenceI() {
+    public long getSequenceI() {
         return sequenceI;
     }
     public String getDescriptionStageI() {
@@ -310,10 +310,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
@@ -326,10 +326,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getComponentNameII() {
         return componentNameII;
     }
-    public Boolean isPrimaryII() {
+    public boolean isPrimaryII() {
         return primaryII;
     }
-    public Boolean isGroupII() {
+    public boolean isGroupII() {
         return groupII;
     }
     public String getPublicNodeIdII() {
@@ -342,10 +342,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public Long getOidTimedNodeII() {
         return oidTimedNodeII;
     }
-    public Long getNodeFKII() {
+    public long getNodeFKII() {
         return nodeFKII;
     }
-    public Long getStageFKII() {
+    public long getStageFKII() {
         return stageFKII;
     }
     public String getStageModifierFKII() {
@@ -364,7 +364,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getNameII() {
         return nameII;
     }
-    public Long getSequenceII() {
+    public long getSequenceII() {
         return sequenceII;
     }
     public String getDescriptionStageII() {
@@ -381,10 +381,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setOidTimedNodeI(Long oidTimedNodeI) {
         this.oidTimedNodeI = oidTimedNodeI;
     }
-    public void setNodeFKI(Long nodeFKI) {
+    public void setNodeFKI(long nodeFKI) {
         this.nodeFKI = nodeFKI;
     }
-    public void setStageFKI(Long stageFKI) {
+    public void setStageFKI(long stageFKI) {
         this.stageFKI = stageFKI;
     }
     public void setStageModifierFKI(String stageModifierFKI) {
@@ -403,10 +403,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setComponentNameI(String componentNameI) {
         this.componentNameI = componentNameI;
     }
-    public void setPrimaryI(Boolean primaryI) {
+    public void setPrimaryI(boolean primaryI) {
         this.primaryI = primaryI;
     }
-    public void setGroupI(Boolean groupI) {
+    public void setGroupI(boolean groupI) {
         this.groupI = groupI;
     }
     public void setPublicNodeIdI(String publicNodeIdI) {
@@ -425,7 +425,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setNameI(String nameI) {
         this.nameI = nameI;
     }
-    public void setSequenceI(Long sequenceI) {
+    public void setSequenceI(long sequenceI) {
         this.sequenceI = sequenceI;
     }
     public void setDescriptionStageI(String descriptionStageI) {
@@ -444,10 +444,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 
@@ -460,10 +460,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setComponentNameII(String componentNameII) {
         this.componentNameII = componentNameII;
     }
-    public void setPrimaryII(Boolean primaryII) {
+    public void setPrimaryII(boolean primaryII) {
         this.primaryII = primaryII;
     }
-    public void setGroupII(Boolean groupII) {
+    public void setGroupII(boolean groupII) {
         this.groupII = groupII;
     }
     public void setPublicNodeIdII(String publicNodeIdII) {
@@ -476,10 +476,10 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setOidTimedNodeII(Long oidTimedNodeII) {
         this.oidTimedNodeII = oidTimedNodeII;
     }
-    public void setNodeFKII(Long nodeFKII) {
+    public void setNodeFKII(long nodeFKII) {
         this.nodeFKII = nodeFKII;
     }
-    public void setStageFKII(Long stageFKII) {
+    public void setStageFKII(long stageFKII) {
         this.stageFKII = stageFKII;
     }
     public void setStageModifierFKII(String stageModifierFKII) {
@@ -498,7 +498,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setNameII(String nameII) {
         this.nameII = nameII;
     }
-    public void setSequenceII(Long sequenceII) {
+    public void setSequenceII(long sequenceII) {
         this.sequenceII = sequenceII;
     }
     public void setDescriptionStageII(String descriptionStageII) {
@@ -523,37 +523,37 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     		this.getStageFKI() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKI() &&
     		this.getStageModifierFKI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKI()) && 
     		this.getPublicTimedNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdI()) && 
-    		this.getOidNodeI() == daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeI() &&
+    		this.getOidNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeI()) &&
     		this.getSpeciesFKNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKNodeI()) && 
     		this.getComponentNameI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getComponentNameI()) && 
     		this.isPrimaryI() == daojointimednodenodestagerelationshipnodetimednodestage.isPrimaryI() &&
     		this.isGroupI() == daojointimednodenodestagerelationshipnodetimednodestage.isGroupI() &&
     		this.getPublicNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicNodeIdI()) && 
     		this.getDescriptionNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionNodeI()) && 
-    		this.getOidStageI() == daojointimednodenodestagerelationshipnodetimednodestage.getOidStageI() &&
+    		this.getOidStageI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidStageI()) &&
     		this.getSpeciesFKStageI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKStageI()) && 
     		this.getNameI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getNameI()) && 
     		this.getSequenceI() == daojointimednodenodestagerelationshipnodetimednodestage.getSequenceI() &&
     		this.getDescriptionStageI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionStageI()) && 
     		this.getExtraTextI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getExtraTextI()) && 
     		this.getPublicStageIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicStageIdI()) && 
-    		this.getOidRel() == daojointimednodenodestagerelationshipnodetimednodestage.getOidRel() &&
+    		this.getOidRel().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidRel()) &&
     		this.getTypeFK().equals(daojointimednodenodestagerelationshipnodetimednodestage.getTypeFK()) && 
     		this.getChildFK() == daojointimednodenodestagerelationshipnodetimednodestage.getChildFK() &&
     		this.getParentFK() == daojointimednodenodestagerelationshipnodetimednodestage.getParentFK() &&
-    		this.getOidNodeII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeII() &&
+    		this.getOidNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeII()) &&
     		this.getSpeciesFKNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKNodeII()) && 
     		this.getComponentNameII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getComponentNameII()) && 
     		this.isPrimaryII() == daojointimednodenodestagerelationshipnodetimednodestage.isPrimaryII() &&
     		this.isGroupII() == daojointimednodenodestagerelationshipnodetimednodestage.isGroupII() &&
     		this.getPublicNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicNodeIdII()) && 
     		this.getDescriptionNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDescriptionNodeII()) && 
-    		this.getOidTimedNodeII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidTimedNodeII() &&
+    		this.getOidTimedNodeII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidTimedNodeII()) &&
     		this.getNodeFKII() == daojointimednodenodestagerelationshipnodetimednodestage.getNodeFKII() &&
     		this.getStageFKII() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKII() &&
     		this.getStageModifierFKII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKII()) && 
     		this.getPublicTimedNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdII()) && 
-    		this.getOidStageII() == daojointimednodenodestagerelationshipnodetimednodestage.getOidStageII() &&
+    		this.getOidStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidStageII()) &&
     		this.getSpeciesFKStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKStageII()) && 
     		this.getNameII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getNameII()) && 
     		this.getSequenceII() == daojointimednodenodestagerelationshipnodetimednodestage.getSequenceII() &&

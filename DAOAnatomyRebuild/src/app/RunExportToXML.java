@@ -295,11 +295,11 @@ public class RunExportToXML {
         		edgeElement.setAttributeNode(edgeElementAttr1);
         		
         		edgeElementAttr1 = doc.createAttribute("source");
-        		edgeElementAttr1.setValue(relationship.getParentFK().toString());
+        		edgeElementAttr1.setValue(Long.toString(relationship.getParentFK()));
         		edgeElement.setAttributeNode(edgeElementAttr1);
         		
         		edgeElementAttr1 = doc.createAttribute("target");
-        		edgeElementAttr1.setValue(relationship.getChildFK().toString());
+        		edgeElementAttr1.setValue(Long.toString(relationship.getChildFK()));
         		edgeElement.setAttributeNode(edgeElementAttr1);
         		
         		edgeElementAttr1 = doc.createAttribute("label");

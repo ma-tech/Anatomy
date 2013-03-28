@@ -49,17 +49,17 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Returns the TimedNode from the database matching the given OID, otherwise null.
      */
-    public TimedNode findByOid(Long oid) throws Exception;
+    public TimedNode findByOid(long oid) throws Exception;
     
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByNodeFK(Long nodeFK) throws Exception;
+    public List<TimedNode> listByNodeFK(long nodeFK) throws Exception;
     
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
      */
-    public List<TimedNode> listByStageFK(Long stageFK) throws Exception;
+    public List<TimedNode> listByStageFK(long stageFK) throws Exception;
     
     /*
      * Returns a list of ALL timednodes by Parent FK, otherwise null.
@@ -89,7 +89,7 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Returns true if the given timednode OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns true if the given timednode publicId exists in the database.
@@ -140,7 +140,7 @@ public interface TimedNodeDAO extends BaseDAO {
      * 
      *  After deleting, the DAO will set the ID of the given timednode to null.
      */
-    public void deleteByNodeAndStage(Long nodeFK, Long stageFK) throws Exception;
+    public void deleteByNodeAndStage(long nodeFK, long stageFK) throws Exception;
     
      /*
      * Returns list of TimedNodes for Display purposes

@@ -42,9 +42,9 @@ public class RelationshipProject {
      *   4. RLP_SEQUENCE        - int(10) unsigned 
 	 */
     private Long oid; 
-    private Long relationshipFK; 
+    private long relationshipFK; 
     private String projectFK; 
-    private Long sequence;
+    private long sequence;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -60,9 +60,9 @@ public class RelationshipProject {
      *  The Full Constructor is the Minimal Constructor
      */
     public RelationshipProject(Long oid, 
-    		Long relationshipFK, 
+    		long relationshipFK, 
     		String projectFK, 
-    		Long sequence) {
+    		long sequence) {
     	
         this.oid = oid;
         this.relationshipFK = relationshipFK; 
@@ -74,13 +74,13 @@ public class RelationshipProject {
     public Long getOid() {
         return oid;
     }
-    public Long getRelationshipFK() {
+    public long getRelationshipFK() {
         return relationshipFK;
     }
     public String getProjectFK() {
         return projectFK;
     }
-    public Long getSequence() {
+    public long getSequence() {
         return sequence;
     }
 
@@ -88,13 +88,13 @@ public class RelationshipProject {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void SetTypeFK(Long relationshipFK) {
+    public void SetTypeFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
-    public void setSequence(Long sequence) {
+    public void setSequence(long sequence) {
         this.sequence = sequence;
     }
 

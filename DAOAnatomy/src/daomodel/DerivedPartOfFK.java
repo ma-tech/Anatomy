@@ -60,15 +60,15 @@ public class DerivedPartOfFK {
     private String pathStart; 
     private String pathStop;
     private String node; 
-    private Long sequence; 
-    private Long depth; 
+    private long sequence; 
+    private long depth; 
     private String fullPath; 
     private String fullPathOids; 
     private String fullPathJsonHead; 
     private String fullPathJsonTail; 
-    private int primary; 
-    private int primaryPath; 
-    private Long parentFK;
+    private boolean primary; 
+    private boolean primaryPath; 
+    private long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -91,14 +91,14 @@ public class DerivedPartOfFK {
     		String pathStart, 
     		String pathStop,
     		String node, 
-    		Long sequence, 
-    		Long depth, 
+    		long sequence, 
+    		long depth, 
     		String fullPath, 
     		String fullPathOids, 
     		String fullPathJsonHead, 
     		String fullPathJsonTail, 
-    		int primary, 
-    		int primaryPath, 
+    		boolean primary, 
+    		boolean primaryPath, 
     		Long parentFK) {
     	
     	this.oid = oid;
@@ -146,10 +146,10 @@ public class DerivedPartOfFK {
     public String getNode() {
         return node;
     } 
-    public Long getSequence() {
+    public long getSequence() {
         return sequence;
     } 
-    public Long getDepth() {
+    public long getDepth() {
         return depth;
     } 
     public String getFullPath() {
@@ -164,13 +164,13 @@ public class DerivedPartOfFK {
     public String getFullPathJsonTail() {
         return fullPathJsonTail;
     } 
-    public Integer getPrimary() {
+    public boolean isPrimary() {
         return primary;
     } 
-    public Integer getPrimaryPath() {
+    public boolean isPrimaryPath() {
         return primaryPath;
     } 
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     } 
 
@@ -196,10 +196,10 @@ public class DerivedPartOfFK {
     public void setNode(String node) {
         this.node = node;
     } 
-    public void setSequence(Long sequence) {
+    public void setSequence(long sequence) {
         this.sequence = sequence;
     } 
-    public void setDepth(Long depth) {
+    public void setDepth(long depth) {
         this.depth = depth;
     } 
     public void setFullPath(String fullPath) {
@@ -214,13 +214,13 @@ public class DerivedPartOfFK {
     public void setFullPathJsonTail(String fullPathJsonTail) {
         this.fullPathJsonTail = fullPathJsonTail;
     } 
-    public void setPrimary(int primary) {
+    public void setPrimary(boolean primary) {
         this.primary = primary;
     } 
-    public void setPrimaryPath(int primaryPath) {
+    public void setPrimaryPath(boolean primaryPath) {
         this.primaryPath = primaryPath;
     } 
-    public void setParentFK(Long parentFK) {
+    public void setParentFK(long parentFK) {
         this.parentFK = parentFK;
     } 
 
@@ -242,8 +242,8 @@ public class DerivedPartOfFK {
     		this.getFullPathOids().equals(daoderivedpartoffk.getFullPathOids()) &&  
     		this.getFullPathJsonHead().equals(daoderivedpartoffk.getFullPathJsonHead()) &&  
     		this.getFullPathJsonTail().equals(daoderivedpartoffk.getFullPathJsonTail()) &&  
-    		this.getPrimary() == daoderivedpartoffk.getPrimary() &&  
-    		this.getPrimaryPath() == daoderivedpartoffk.getPrimaryPath() &&  
+    		this.isPrimary() == daoderivedpartoffk.isPrimary() &&  
+    		this.isPrimaryPath() == daoderivedpartoffk.isPrimaryPath() &&  
     		this.getParentFK() == daoderivedpartoffk.getParentFK() ) {
 
         	return true;
@@ -271,7 +271,7 @@ public class DerivedPartOfFK {
      */
     public String toString() {
       
-    	return String.format("DerivedPartOfFK [ oid=%d, speciesFK=%s, nodeStart=%s, nodeStop=%s, pathStart=%s, pathStop=%s, node=%s, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%d, primaryPath=%d, parentFK=%d ]", 
+    	return String.format("DerivedPartOfFK [ oid=%d, speciesFK=%s, nodeStart=%s, nodeStop=%s, pathStart=%s, pathStop=%s, node=%s, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%b, primaryPath=%b, parentFK=%d ]", 
         		oid, speciesFK, nodeStart, nodeStop, pathStart, pathStop, node, sequence, depth, fullPath, fullPathOids, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
     }
 }

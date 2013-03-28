@@ -68,7 +68,7 @@ public class RunListOBOFileContents {
     	    Wrapper.printMessage("List ALL OBOFile Rows", "***", requestMsgLevel);
     	    Wrapper.printMessage("", "***", requestMsgLevel);
     	    Wrapper.printMessage("\t=============================================", "***", requestMsgLevel);
-    	    Wrapper.printMessage("\tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "***", requestMsgLevel);
+    	    Wrapper.printMessage("\tA List of the Uploaded and Validated OBOFiles = " + obofiles.size(), "***", requestMsgLevel);
     	    Wrapper.printMessage("\t=============================================", "***", requestMsgLevel);
 
             String oid = "";
@@ -139,7 +139,7 @@ public class RunListOBOFileContents {
             	OBOFile obofileListed = iteratorOBOFile.next();
            		i++;
            		
-        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "***", requestMsgLevel);
+        	    Wrapper.printMessage(i + obofileListed.toString(), "***", requestMsgLevel);
           	}
         }
     }

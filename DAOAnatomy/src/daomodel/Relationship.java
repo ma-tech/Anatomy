@@ -43,8 +43,8 @@ public class Relationship {
 	 */
     private Long oid; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -61,8 +61,8 @@ public class Relationship {
      */
     public Relationship(Long oid, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK) {
+    		long childFK, 
+    		long parentFK) {
     	
         this.oid = oid;
         this.typeFK = typeFK; 
@@ -77,10 +77,10 @@ public class Relationship {
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
@@ -91,10 +91,10 @@ public class Relationship {
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 

@@ -49,51 +49,51 @@ public interface JOINTimedNodeStageDAO extends BaseDAO {
     /*
      * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(Long nodeFk) throws Exception;
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageName(long nodeFk) throws Exception;
     
     /*
      * Returns a list of ALL jointimednodestages by Node Fk, Ordered by Stage Sequence, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(Long nodeFk) throws Exception;
+    public List<JOINTimedNodeStage> listAllByNodeFkOrderByStageSequence(long nodeFk) throws Exception;
     
     /*
      * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(Long nodeFk, String stageName) throws Exception;
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageName(long nodeFk, String stageName) throws Exception;
     
     /*
      * Returns a list of ALL jointimednodestages by Node Fk and Stage Name, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndStageSequence(Long nodeFk, Long stageSequence) throws Exception;
+    public List<JOINTimedNodeStage> listAllByNodeFkAndStageSequence(long nodeFk, long stageSequence) throws Exception;
     
     /*
      * Returns a list of ALL jointimednodestages by node Fk and Sequence, otherwise null.
      */
-    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(Long nodeFk, String sequence) throws Exception;
+    public List<JOINTimedNodeStage> listAllByNodeFkAndSequence(long nodeFk, String sequence) throws Exception;
 
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int countAllByNodeFk(Long nodeFk) throws Exception;
+    public int countAllByNodeFk(long nodeFk) throws Exception;
     
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int maxSequenceByNodeFk(Long nodeFk) throws Exception;
+    public int maxSequenceByNodeFk(long nodeFk) throws Exception;
     
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int minSequenceByNodeFk(Long nodeFk) throws Exception;
+    public int minSequenceByNodeFk(long nodeFk) throws Exception;
     
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String sql, Long key) throws Exception;
+    public int count(String sql, long key) throws Exception;
     
     /*
      * Returns total amount of rows in table.
      */
-    public int maxMin(String sql, Long key) throws Exception;
+    public int maxMin(String sql, long key) throws Exception;
     
 }

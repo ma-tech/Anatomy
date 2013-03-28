@@ -24,7 +24,7 @@
 *
 * Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
 * 
-* Maintenance:  Log changes below, with most recent at top of list.
+* Mabooleanenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
@@ -37,18 +37,18 @@ package daomodel;
 public class PerspectiveAmbit {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *   1. PAM_OID            - int(10) unsigned
+     *   1. PAM_OID            - boolean(10) unsigned
      *   2. PAM_PERSPECTIVE_FK - varchar(25)
-     *   3. PAM_NODE_FK        - int(10) unsigned
-     *   4. PAM_IS_START       - tinyint(1)
-     *   5. PAM_IS_STOP        - tinyint(1)
+     *   3. PAM_NODE_FK        - boolean(10) unsigned
+     *   4. PAM_IS_START       - tinyboolean(1)
+     *   5. PAM_IS_STOP        - tinyboolean(1)
      *   6. PAM_COMMENTS       - varchar(255)
  	 */
     private Long oid; 
     private String perspectiveFK; 
-    private Long nodeFK; 
-    private Integer isStart;
-    private Integer isStop;
+    private long nodeFK; 
+    private boolean start;
+    private boolean stop;
     private String comments; 
 
     // Constructors -------------------------------------------------------------------------------
@@ -64,16 +64,16 @@ public class PerspectiveAmbit {
      */
     public PerspectiveAmbit(Long oid, 
     	    String perspectiveFK,  
-    	    Long nodeFK, 
-    	    Integer isStart, 
-    	    Integer isStop, 
+    	    long nodeFK, 
+    	    boolean start, 
+    	    boolean stop, 
     	    String comments) {
     	
         this.oid = oid;
 	    this.perspectiveFK = perspectiveFK;
 	    this.nodeFK = nodeFK;
-	    this.isStart = isStart;
-	    this.isStop = isStop;
+	    this.start = start;
+	    this.stop = stop;
 	    this.comments = comments;
     }
 
@@ -84,14 +84,14 @@ public class PerspectiveAmbit {
     public String getPerspectiveFK() {
         return perspectiveFK;
     }
-    public Long getNodeFK() {
+    public long getNodeFK() {
         return nodeFK;
     }
-    public Integer getIsStart() {
-        return isStart;
+    public boolean isStart() {
+        return start;
     }
-    public Integer getIsStop() {
-        return isStop;
+    public boolean isStop() {
+        return stop;
     }
     public String getComments() {
         return comments;
@@ -104,14 +104,14 @@ public class PerspectiveAmbit {
     public void setPerspectiveFK(String perspectiveFK) {
         this.perspectiveFK = perspectiveFK;
     }
-    public void setNodeFK(Long nodeFK) {
+    public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
-    public void setIsStart(Integer isStart) {
-        this.isStart = isStart;
+    public void setStart(boolean start) {
+        this.start = start;
     }
-    public void setIsStop(Integer isStop) {
-        this.isStop = isStop;
+    public void setStop(boolean stop) {
+        this.stop = stop;
     }
     public void setComments(String comments) {
         this.comments = comments;
@@ -125,8 +125,8 @@ public class PerspectiveAmbit {
 
     	if (this.getPerspectiveFK().equals(daoperspectiveambit.getPerspectiveFK()) &&
     		this.getNodeFK() == daoperspectiveambit.getNodeFK() &&
-    		this.getIsStart() == daoperspectiveambit.getIsStart() &&
-    		this.getIsStop() == daoperspectiveambit.getIsStop() &&
+    		this.isStart() == daoperspectiveambit.isStart() &&
+    		this.isStop() == daoperspectiveambit.isStop() &&
     		this.getComments().equals(daoperspectiveambit.getComments()) ) {
 
         	return true;
@@ -152,7 +152,7 @@ public class PerspectiveAmbit {
      */
     public String toString() {
         
-    	return String.format("PerspectiveAmbit [ oid=%d, perspectiveFK=%s, nodeFK=%s, isStart=%d, isStop=%d, comments=%s ]", 
-            oid, perspectiveFK, nodeFK, isStart, isStop, comments); 
+    	return String.format("PerspectiveAmbit [ oid=%d, perspectiveFK=%s, nodeFK=%s, start=%b, stop=%b, comments=%s ]", 
+            oid, perspectiveFK, nodeFK, start, stop, comments); 
     }
 }

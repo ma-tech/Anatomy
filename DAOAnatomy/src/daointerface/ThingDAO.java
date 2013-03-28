@@ -47,14 +47,14 @@ public interface ThingDAO extends BaseDAO {
     public String getLevel() throws Exception;
 
     /*
-     * Returns the maximum EMAPA id.
+     * Returns the maximum Oid.
      */
     public int maximumOid() throws Exception;
     
     /*
      * Returns the Thing from the database matching the given OID, otherwise null.
      */
-    public Thing findByOid(Long oid) throws Exception;
+    public Thing findByOid(long oid) throws Exception;
     
     /*
      * Returns a list of ALL things, otherwise null.
@@ -64,7 +64,7 @@ public interface ThingDAO extends BaseDAO {
     /*
      * Returns true if the given thing OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given thing in the database.

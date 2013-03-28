@@ -102,8 +102,8 @@ public class Producer {
     		String fileRemark,
     		ArrayList<OBOComponent> obocomponentList, 
     		ArrayList<Relation> oborelationList,
-    		Boolean boolAlternatives,
-    		Boolean boolTimedComponents) throws Exception{
+    		boolean boolAlternatives,
+    		boolean boolTimedComponents) throws Exception{
     	
 	    this.msgLevel = msgLevel;
         
@@ -143,13 +143,13 @@ public class Producer {
     public ArrayList<Relation> getRelations(){
         return this.oborelationList;
     }
-    public Boolean getIsProcessed(){
+    public boolean isProcessed(){
         return this.isProcessed;
     }
-    public Boolean getAlternatives(){
+    public boolean getAlternatives(){
         return this.boolAlternatives;
     }
-    public Boolean geTimedComponents(){
+    public boolean geTimedComponents(){
         return this.boolTimedComponents;
     }
     
@@ -175,18 +175,18 @@ public class Producer {
     public void setRelations(ArrayList<Relation> oborelationList){
         this.oborelationList = oborelationList;
     }
-    public void setIsProcessed(Boolean isProcessed){
+    public void setIsProcessed(boolean isProcessed){
         this.isProcessed = isProcessed;
     }
-    public void setAlternatives(Boolean boolAlternatives){
+    public void setAlternatives(boolean boolAlternatives){
         this.boolAlternatives = boolAlternatives;
     }
-    public void setTimedComponents(Boolean boolTimedComponents){
+    public void setTimedComponents(boolean boolTimedComponents){
         this.boolTimedComponents = boolTimedComponents;
     }
     
     // Methods ------------------------------------------------------------------------------------
-    public Boolean writeOboFile( String stage ) throws Exception{
+    public boolean writeOboFile( String stage ) throws Exception{
 
 	    Wrapper.printMessage("producer.writeOboFile", "***", this.msgLevel);
 
@@ -366,10 +366,10 @@ public class Producer {
                             		obocomponentList.get(i).getEnd() + "\n");
                         }
                         
-                        if ( obocomponentList.get(i).getPresent() != 0 ) {
+                        if ( obocomponentList.get(i).isPresent() == false ) {
                         	
                             outputFile.write("relationship: present_in " +
-                                    Integer.toString(obocomponentList.get(i).getPresent()) + "\n");
+                                    Boolean.valueOf(obocomponentList.get(i).isPresent()) + "\n");
                         }
 
                         for (int j=0; j<obocomponentList.get(i).getSynonyms().size(); j++) {
@@ -396,7 +396,7 @@ public class Producer {
                             }
                         }
 
-                        if (obocomponentList.get(i).getIsGroup()) {
+                        if (obocomponentList.get(i).isGroup()) {
                         	
                             outputFile.write("relationship: is_a group_term\n");
                         }

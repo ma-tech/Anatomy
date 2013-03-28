@@ -48,8 +48,8 @@ public class Node {
     private Long oid; 
     private String speciesFK; 
     private String componentName; 
-    private Boolean primary;
-    private Boolean group;
+    private boolean primary;
+    private boolean group;
     private String publicId; 
     private String description; 
     private String displayId; 
@@ -68,8 +68,8 @@ public class Node {
     public Node(Long oid, 
     	    String speciesFK,
     	    String componentName, 
-    	    Boolean primary,
-    	    Boolean group,
+    	    boolean primary,
+    	    boolean group,
     	    String publicId,
     	    String description,
     	    String displayId) {
@@ -94,7 +94,7 @@ public class Node {
     public String getComponentName() {
         return componentName;
     }
-    public Boolean isPrimary() {
+    public boolean isPrimary() {
         return primary;
     }
     public int getPrimary() {
@@ -105,7 +105,7 @@ public class Node {
         	return 0;
         }
     }
-    public Boolean isGroup() {
+    public boolean isGroup() {
         return group;
     }
     public int getGroup() {
@@ -136,10 +136,10 @@ public class Node {
     public void setComponentName(String componentName) {
         this.componentName = componentName;
     }
-    public void setPrimary(Boolean primary) {
+    public void setPrimary(boolean primary) {
         this.primary = primary;
     }
-    public void setGroup(Boolean group) {
+    public void setGroup(boolean group) {
         this.group = group;
     }
     public void setPublicId(String publicId) {
@@ -158,8 +158,7 @@ public class Node {
      */
     public boolean isSameAs(Node daonode){
 
-    	if ( this.getOid() == daonode.getOid() &&
-    		this.getSpeciesFK().equals(daonode.getSpeciesFK()) &&
+    	if ( this.getSpeciesFK().equals(daonode.getSpeciesFK()) &&
     		this.getComponentName().equals(daonode.getComponentName()) &&
     		this.isPrimary() == daonode.isPrimary() &&
     		this.isGroup() == daonode.isGroup() &&

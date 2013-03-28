@@ -129,6 +129,12 @@ public final class ComponentDAOJDBC implements ComponentDAO {
         "SELECT AOC_OID " +
         "FROM ANA_OBO_COMPONENT " +
         "WHERE AOC_OID = ?";
+    
+    private static final String SQL_MAX_OID =
+        "SELECT MAX(AOC_OID) AS MAXIMUM " +
+        "FROM ANA_OBO_COMPONENT";
+
+
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -154,9 +160,17 @@ public final class ComponentDAOJDBC implements ComponentDAO {
 	}
     
     /*
+     * Returns the maximum Oid.
+     */
+    public int maximumOid() throws Exception {
+    	
+        return maximum(SQL_MAX_OID);
+    }
+    
+    /*
      * Returns the daocomponent from the database matching the given OID, otherwise null.
      */
-    public Component findByOid(Long oid) throws Exception {
+    public Component findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -196,7 +210,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     /*
      * Returns true if the given daocomponent OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -303,10 +317,10 @@ public final class ComponentDAOJDBC implements ComponentDAO {
         	daocomponent.getNewId(),
         	daocomponent.getNamespace(),
         	daocomponent.getDefinition(),
-        	daocomponent.getGroup(),
+        	daocomponent.isGroup(),
         	daocomponent.getStart(),
         	daocomponent.getEnd(),
-        	daocomponent.getPresent(),
+        	daocomponent.isPresent(),
         	daocomponent.getStatusChange(),
         	daocomponent.getStatusRule()
         };
@@ -364,10 +378,10 @@ public final class ComponentDAOJDBC implements ComponentDAO {
             daocomponent.getNewId(),
             daocomponent.getNamespace(),
         	daocomponent.getDefinition(),
-            daocomponent.getGroup(),
+            daocomponent.isGroup(),
             daocomponent.getStart(),
             daocomponent.getEnd(),
-            daocomponent.getPresent(),
+            daocomponent.isPresent(),
             daocomponent.getStatusChange(),
             daocomponent.getStatusRule(),
            	daocomponent.getOid()
@@ -418,6 +432,11 @@ public final class ComponentDAOJDBC implements ComponentDAO {
         Object[] values = { 
         	daocomponent.getOid() 
         };
+
+        if (daocomponent.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Component is not created yet, so the daocomponent OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -719,6 +738,41 @@ public final class ComponentDAOJDBC implements ComponentDAO {
         return count;
     }
 
+    /*
+     * Returns total amount of rows in table.
+     */
+    public int maximum(String sql) throws Exception {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int maximum = 0;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+            	
+            	maximum = resultSet.getInt("MAXIMUM");
+            }
+            
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+        }
+
+        return maximum;
+    }
+    
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to a Component.
@@ -733,10 +787,10 @@ public final class ComponentDAOJDBC implements ComponentDAO {
        		resultSet.getString("AOC_NEW_ID"), 
        		resultSet.getString("AOC_NAMESPACE"),      		
        		resultSet.getString("AOC_DEFINITION"),      		
-       		resultSet.getInt("AOC_GROUP"), 
+       		resultSet.getBoolean("AOC_GROUP"), 
        		resultSet.getString("AOC_START"), 
        		resultSet.getString("AOC_END"), 
-       		resultSet.getInt("AOC_PRESENT"),
+       		resultSet.getBoolean("AOC_PRESENT"),
        		resultSet.getString("AOC_STATUS_CHANGE"), 
        		resultSet.getString("AOC_STATUS_RULE")
         );

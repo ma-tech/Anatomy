@@ -10,7 +10,7 @@
   
   <context-param>
     <param-name>database.name</param-name>
-    <param-value>mouseAnatomy008CaperdonichDebug</param-value>
+    <param-value>mouse008Caperdonich</param-value>
   </context-param>
 
    <listener>

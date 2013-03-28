@@ -655,7 +655,7 @@ public final class TimedLeafDAOJDBC implements TimedLeafDAO{
 											"\"},\"data\": \"" +
 											savedLeaf.getChildDescription() + 
 											"(" + 
-											Integer.toString(grandChildCount) + 
+											grandChildCount + 
 											")\"};";
 						}
 						else {
@@ -685,7 +685,7 @@ public final class TimedLeafDAOJDBC implements TimedLeafDAO{
 						"\"},\"data\": \"" +
 						savedLeaf.getChildDescription() + 
 						"(" + 
-						Integer.toString(grandChildCount) + 
+						grandChildCount + 
 						")\"};";
 			}
 		}

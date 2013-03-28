@@ -45,7 +45,7 @@ public interface ComponentDAO extends BaseDAO {
     /*
      * Returns the daocomponent from the database matching the given OID, otherwise null.
      */
-    public Component findByOid(Long oid) throws Exception;
+    public Component findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponent from the database matching the given OBO ID, otherwise null.
@@ -70,7 +70,7 @@ public interface ComponentDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponent OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponent in the database.
@@ -126,5 +126,16 @@ public interface ComponentDAO extends BaseDAO {
      * Returns total amount of rows in table.
      */
     public int countAll() throws Exception;
+
+    /*
+     * Returns the maximum Oid.
+     */
+    public int maximumOid() throws Exception;
+    
+    /*
+     * Returns the maximum Oid. in table.
+     */
+    public int maximum(String sql) throws Exception;
+    
 
 }

@@ -44,7 +44,7 @@ public interface UserDAO extends BaseDAO {
     /*
      * Returns the user from the database matching the given OID, otherwise null.
      */
-    public User find(Long oid) throws Exception;
+    public User findByOid(long oid) throws Exception;
 
     /*
      * Returns the user from the database matching the given username and password, otherwise null.
@@ -84,6 +84,11 @@ public interface UserDAO extends BaseDAO {
      *  After deleting, the DAO will set the ID of the given user to null.
      */
     public void delete(User user) throws Exception;
+
+    /*
+     * Returns true if the given oid exists in the database.
+     */
+    public boolean existOid(long Oid) throws Exception;
 
     /*
      * Returns true if the given username exist in the database.

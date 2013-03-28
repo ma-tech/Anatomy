@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import daolayer.LeafDAO;
+import daointerface.LeafDAO;
 
 import daomodel.Leaf;
 
@@ -32,7 +31,7 @@ public class ListByRootNameJsonOnlyAggregatedServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.leafDAO = Config.getInstance(getServletContext()).getDAOFactory().getLeafDAO();
+        this.leafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(LeafDAO.class);
     }
 
     
@@ -44,22 +43,32 @@ public class ListByRootNameJsonOnlyAggregatedServlet extends HttpServlet {
     	String leafTree = "";
 
         // Process request and get result.
-        String outString = leafForm.checkLeafsByRootName(request);
-        
-        if ( outString.equals("SUCCESS!")) {
-            List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
-            leafTree = leafDAO.convertLeafListToStringJsonAggregate(leafs);
-        }
-        else {
-        	leafTree = outString;
-        }
+        String outString;
 
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/json");           
-        response.setHeader("Cache-Control", "no-cache");
-        //System.out.println(leafTree);
-        out.println(leafTree);
+        try {
+		
+        	outString = leafForm.checkLeafsByRootName(request);
 
+	        if ( outString.equals("SUCCESS!")) {
+	            
+	        	List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
+	            leafTree = leafDAO.convertLeafListToStringJsonAggregate(leafs);
+	        }
+	        else {
+	        	
+	        	leafTree = outString;
+	        }
+
+	        java.io.PrintWriter out = response.getWriter();
+	        response.setContentType("text/json");           
+	        response.setHeader("Cache-Control", "no-cache");
+	        //System.out.println(leafTree);
+	        out.println(leafTree);
+
+		} 
+        catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
-
 }

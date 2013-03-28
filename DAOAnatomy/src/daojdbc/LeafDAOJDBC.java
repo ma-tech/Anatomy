@@ -745,7 +745,7 @@ public final class LeafDAOJDBC implements LeafDAO {
   		 	    	            "\"},\"data\": \"" +
   		                        savedLeaf.getChildDescription() + 
   		                        "(" + 
-  		                        Integer.toString(grandChildCount) + 
+  		                        grandChildCount + 
   		                        ")\"};";
   		        		}
   		        		else {
@@ -777,7 +777,7 @@ public final class LeafDAOJDBC implements LeafDAO {
 	 	    	"\"},\"data\": \"" +
 	            savedLeaf.getChildDescription() + 
 	            "(" + 
-	            Integer.toString(grandChildCount) + 
+	            grandChildCount + 
 	            ")\"};";
 	        }
         }

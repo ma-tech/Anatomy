@@ -71,7 +71,7 @@ public final class SourceDAOJDBC implements SourceDAO {
     private static final String SQL_FIND_BY_OID =
         "SELECT SRC_OID, SRC_NAME, SRC_AUTHORS, SRC_FORMAT_FK, SRC_YEAR " +
         "FROM ANA_SOURCE " +
-        "WHERE ANO_OID = ?";
+        "WHERE SRC_OID = ?";
     
     private static final String SQL_LIST_ALL =
         "SELECT SRC_OID, SRC_NAME, SRC_AUTHORS, SRC_FORMAT_FK, SRC_YEAR " +
@@ -125,7 +125,7 @@ public final class SourceDAOJDBC implements SourceDAO {
     /*
      * Returns the source from the database matching the given OID, otherwise null.
      */
-    public Source find(Long oid) throws Exception {
+    public Source findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -301,6 +301,11 @@ public final class SourceDAOJDBC implements SourceDAO {
         	source.getOid() 
         };
 
+        if (source.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Source is not created yet, so the source OID cannot be null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -332,7 +337,7 @@ public final class SourceDAOJDBC implements SourceDAO {
     /*
      * Returns true if the given source OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }

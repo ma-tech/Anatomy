@@ -45,7 +45,7 @@ public interface DerivedPartOfDAO extends BaseDAO {
     /*
      * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOf findByOid(Long oid) throws Exception;
+    public DerivedPartOf findByOid(long oid) throws Exception;
     
     /*
      * Returns a list of ALL derivedpartofs, otherwise null.
@@ -55,7 +55,7 @@ public interface DerivedPartOfDAO extends BaseDAO {
     /*
      * Returns true if the given derivedpartof OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given derivedpartof in the database.

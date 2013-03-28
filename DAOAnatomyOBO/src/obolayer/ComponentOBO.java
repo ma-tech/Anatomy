@@ -111,7 +111,7 @@ public final class ComponentOBO {
     /*
      * Within the OBOFactory, write ALL the OBO OBOComponents in the existing OBO Factory list to File 
      */
-    public Boolean writeAll(String stage) throws Exception {
+    public boolean writeAll(String stage) throws Exception {
     	
         return write( stage );
     }
@@ -119,9 +119,9 @@ public final class ComponentOBO {
     /*
      * write OBO OBOComponents
      */
-    public Boolean write( String stage ) throws Exception {
+    public boolean write( String stage ) throws Exception {
       
-        Boolean isProcessed = false; 
+        boolean isProcessed = false; 
         		
         try {
         	

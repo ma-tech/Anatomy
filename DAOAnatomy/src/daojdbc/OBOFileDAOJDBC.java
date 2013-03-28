@@ -144,7 +144,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile find(Long oid) throws Exception {
+    public OBOFile findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -152,7 +152,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile findWithBinary(Long oid) throws Exception {
+    public OBOFile findWithBinary(long oid) throws Exception {
     	
         return findWithBinary(SQL_FIND_BY_OID, oid);
     }
@@ -460,6 +460,11 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
         	obofile.getOid() 
         };
 
+        if (obofile.getOid() == null) {
+        	
+            throw new IllegalArgumentException("OBOFile is not created yet, so the obofile OID cannot be null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -491,7 +496,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns true if the given obofile OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -528,7 +533,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public Long findMaxOid() throws Exception {
+    public long findMaxOid() throws Exception {
     	
         return value(SQL_GET_MAX_OID);
     }
@@ -536,7 +541,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns a value if the given SQL query with the given values returns at least one row.
      */
-    private Long value(String sql) throws Exception {
+    private long value(String sql) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -717,19 +722,19 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     	return new OBOFile(
       		resultSet.getLong("AOF_OID"), 
        		resultSet.getString("AOF_FILE_NAME"),
-       		null,
+       		"",
        		resultSet.getString("AOF_FILE_CONTENT_TYPE"),
        		resultSet.getLong("AOF_FILE_CONTENT_LENGTH"),
        		resultSet.getString("AOF_FILE_CONTENT_DATE"),
        		resultSet.getString("AOF_FILE_VALIDATION"), 
       		resultSet.getString("AOF_FILE_AUTHOR"),
        		resultSet.getString("AOF_TEXT_REPORT_NAME"),
-      		null,
+      		"",
        		resultSet.getString("AOF_TEXT_REPORT_TYPE"),
        		resultSet.getLong("AOF_TEXT_REPORT_LENGTH"),
        		resultSet.getString("AOF_TEXT_REPORT_DATE"),
        		resultSet.getString("AOF_PDF_REPORT_NAME"),
-       		null,
+       		"",
        		resultSet.getString("AOF_PDF_REPORT_TYPE"),
        		resultSet.getLong("AOF_PDF_REPORT_LENGTH"),
        		resultSet.getString("AOF_PDF_REPORT_DATE")

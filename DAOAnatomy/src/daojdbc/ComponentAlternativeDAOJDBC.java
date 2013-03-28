@@ -161,7 +161,7 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
     /*
      * Returns the daocomponentalternative from the database matching the given OID, otherwise null.
      */
-    public ComponentAlternative findByOid(Long oid) throws Exception {
+    public ComponentAlternative findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -217,7 +217,7 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
     /*
      * Returns true if the given daocomponentalternative OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -419,6 +419,11 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
         Object[] values = { 
         	daocomponentalternative.getOid() 
         };
+
+        if (daocomponentalternative.getOid() == null) {
+        	
+            throw new IllegalArgumentException("ComponentAlternative is not created yet, so the daocomponentalternative OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

@@ -47,9 +47,9 @@ import java.util.List;
 
 import daomodel.Node;
 
-
 import daointerface.NodeDAO;
 import daolayer.DAOFactory;
+
 import daolayer.DAOException;
 
 import utility.Wrapper;
@@ -190,7 +190,7 @@ public final class NodeDAOJDBC implements NodeDAO {
     /*
      * Returns the node from the database matching the given OID, otherwise null.
      */
-    public Node findByOid(Long oid) throws Exception {
+    public Node findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -246,7 +246,7 @@ public final class NodeDAOJDBC implements NodeDAO {
     /*
      * Returns true if the given node OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -477,6 +477,11 @@ public final class NodeDAOJDBC implements NodeDAO {
         Object[] values = { 
         	node.getOid() 
         };
+
+        if (node.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Node is not created yet, so the node OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

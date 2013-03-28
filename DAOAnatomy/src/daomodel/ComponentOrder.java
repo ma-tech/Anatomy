@@ -47,8 +47,8 @@ public class ComponentOrder {
     private String child;
     private String parent;
     private String type;
-    private Long alphaorder;
-    private Long specialorder;
+    private long alphaorder;
+    private long specialorder;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -65,8 +65,8 @@ public class ComponentOrder {
     		String child, 
     		String parent,
     		String type,
-    		Long alphaorder,
-    		Long specialorder) {
+    		long alphaorder,
+    		long specialorder) {
     	
     	this.oid = oid;
     	this.child = child;
@@ -89,10 +89,10 @@ public class ComponentOrder {
     public String getType() {
         return this.type;
     }
-    public Long getAlphaorder() {
+    public long getAlphaorder() {
         return this.alphaorder;
     }
-    public Long getSpecialorder() {
+    public long getSpecialorder() {
         return this.specialorder;
     }
 
@@ -109,10 +109,10 @@ public class ComponentOrder {
     public void setType( String type ) {
         this.type = type;
     }
-    public void setAlphaorder( Long alphaorder ) {
+    public void setAlphaorder( long alphaorder ) {
         this.alphaorder = alphaorder;
     }
-    public void setSpecialorder( Long specialorder ) {
+    public void setSpecialorder( long specialorder ) {
         this.specialorder = specialorder;
     }
     
@@ -126,7 +126,7 @@ public class ComponentOrder {
              this.getParent() == daocomponent.getParent() && 
              this.getType() == daocomponent.getType() && 
              this.getAlphaorder() == daocomponent.getAlphaorder() && 
-             this.getSpecialorder() == daocomponent.getSpecialorder()){
+             this.getSpecialorder() == daocomponent.getSpecialorder() ){
 
         	return true;
         }

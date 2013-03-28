@@ -120,7 +120,7 @@ public final class EditorDAOJDBC implements EditorDAO {
     /*
      * Returns the editor from the database matching the given OID, otherwise null.
      */
-    public Editor find(Long oid) throws Exception {
+    public Editor findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -290,6 +290,11 @@ public final class EditorDAOJDBC implements EditorDAO {
         	editor.getOid() 
         };
 
+        if (editor.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Editor is not created yet, so the editor OID cannot be null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -321,7 +326,7 @@ public final class EditorDAOJDBC implements EditorDAO {
     /*
      * Returns true if the given editor OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }

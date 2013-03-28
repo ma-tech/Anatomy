@@ -211,17 +211,17 @@ public class AnaTimedNode {
 
                         if (strSpecies.equals("mouse")) {
                      	   
-                            timedComponent.setID( "EMAP:" + Integer.toString( intCurrentPublicID ) );
+                            timedComponent.setID( "EMAP:" + intCurrentPublicID );
                             timedComponent.setDisplayId( "EMAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                         }
                         else if (strSpecies.equals("human")) {
                      	   
-                            timedComponent.setID( "EHDA:" + Integer.toString( intCurrentPublicID ) );
+                            timedComponent.setID( "EHDA:" + intCurrentPublicID );
                             timedComponent.setDisplayId( "EHDA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                         }
                         else if (strSpecies.equals("chick")) {
                      	   
-                            timedComponent.setID( "ECAP:" + Integer.toString( intCurrentPublicID ) );
+                            timedComponent.setID( "ECAP:" + intCurrentPublicID );
                             timedComponent.setDisplayId( "ECAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
                         }
                         else {

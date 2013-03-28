@@ -807,7 +807,7 @@ public class GenerateSQL {
         ArrayList<OBOComponent> dbTermList = new ArrayList<OBOComponent>();
         Vector<String> dependentDescendants = new Vector<String>();
         
-        Boolean invalidDelete = false;
+        boolean invalidDelete = false;
         
         try {
         	

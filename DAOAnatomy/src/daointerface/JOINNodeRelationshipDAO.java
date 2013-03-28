@@ -49,6 +49,6 @@ public interface JOINNodeRelationshipDAO extends BaseDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationship> listAllByChild(Long childFK) throws Exception;
+    public List<JOINNodeRelationship> listAllByChild(long childFK) throws Exception;
     
 }

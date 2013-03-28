@@ -177,7 +177,7 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
     	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : List ALL OBOFile Rows", "***", requestMsgLevel);
     	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : ", "***", requestMsgLevel);
     	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : \t=============================================", "***", requestMsgLevel);
-    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : \tA List of the Uploaded and Validated OBOFiles = " + Integer.toString(obofiles.size()), "***", requestMsgLevel);
+    	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : \tA List of the Uploaded and Validated OBOFiles = " + obofiles.size(), "***", requestMsgLevel);
     	    Wrapper.printMessage("validatecomponentstablesagainstexistingdatabase.run : \t=============================================", "***", requestMsgLevel);
 
             while (iteratorOBOFilePost.hasNext()) {
@@ -185,7 +185,7 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
             	OBOFile obofileListed = iteratorOBOFilePost.next();
            		i++;
            		
-        	    Wrapper.printMessage(Integer.toString(i) + obofileListed.toString(), "***", requestMsgLevel);
+        	    Wrapper.printMessage(i + obofileListed.toString(), "***", requestMsgLevel);
           	}
         }
     }

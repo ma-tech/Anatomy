@@ -44,8 +44,8 @@ public class TimedNode {
      *   6. ATN_DISPLAY_ID        - varchar(20)      
 	 */
     private Long oid; 
-    private Long nodeFK; 
-    private Long stageFK; 
+    private long nodeFK; 
+    private long stageFK; 
     private String stageModifierFK;
     private String publicId;
     private String displayId;
@@ -62,8 +62,8 @@ public class TimedNode {
      * Minimal constructor. Contains required fields.
      */
     public TimedNode(Long oid, 
-    		Long nodeFK, 
-    		Long stageFK,
+    		long nodeFK, 
+    		long stageFK,
     		String stageModifierFK,
     		String publicId,
     		String displayId) {
@@ -80,10 +80,10 @@ public class TimedNode {
     public Long getOid() {
         return oid;
     }
-    public Long getNodeFK() {
+    public long getNodeFK() {
         return nodeFK;
     }
-    public Long getStageFK() {
+    public long getStageFK() {
         return stageFK;
     }
     public String getStageModifierFK() {
@@ -100,10 +100,10 @@ public class TimedNode {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setNodeFK(Long nodeFK) {
+    public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
-    public void setStageFK(Long stageFK) {
+    public void setStageFK(long stageFK) {
         this.stageFK = stageFK;
     }
     public void setStageModifierFK(String stageModifierFK) {

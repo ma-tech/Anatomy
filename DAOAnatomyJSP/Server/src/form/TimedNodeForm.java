@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daolayer.DAOException;
-import daolayer.ExtraTimedNodeDAO;
+
+import daointerface.ExtraTimedNodeDAO;
 
 import daomodel.ExtraTimedNode;
 
@@ -43,8 +44,9 @@ public final class TimedNodeForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public String findTimedNodeByEmap(HttpServletRequest request) {
+    public String findTimedNodeByEmap(HttpServletRequest request) throws Exception {
         
     	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";
@@ -80,8 +82,9 @@ public final class TimedNodeForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public String findTimedNodeByEmapaAndStage(HttpServletRequest request) {
+    public String findTimedNodeByEmapaAndStage(HttpServletRequest request) throws Exception {
         
     	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";

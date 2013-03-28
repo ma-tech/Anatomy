@@ -68,7 +68,7 @@ public class RunOBOValidateComponents {
 
 	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "Test 1", "*", "*");
 	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\t========================================================================", "*", "*");
-	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + Integer.toString(daostageranges.size()), "*", "*");
+	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\tThe Number of EXISTING Child Nodes OUTSIDE EXISTING Parent Stage Range = " + daostageranges.size(), "*", "*");
 	        Wrapper.printMessage("RunOBOValidateComponents.run : " + "\t========================================================================", "*", "*");
 
             String childId = "";

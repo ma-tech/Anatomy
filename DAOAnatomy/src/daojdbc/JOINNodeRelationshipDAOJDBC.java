@@ -103,7 +103,7 @@ public final class JOINNodeRelationshipDAOJDBC implements JOINNodeRelationshipDA
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationship> listAllByChild(Long childFK) throws Exception {
+    public List<JOINNodeRelationship> listAllByChild(long childFK) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD, childFK);
     }

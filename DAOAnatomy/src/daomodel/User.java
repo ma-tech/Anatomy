@@ -52,7 +52,10 @@ public class User {
     /*
      * Minimal constructor. Contains required fields.
      */
-    public User(Long oid, String username, String password) {
+    public User(Long oid, 
+    		String username, 
+    		String password) {
+    	
         this.oid = oid;
         this.username = username;
         this.password = password;
@@ -62,6 +65,7 @@ public class User {
      * Full constructor. Contains required and optional fields.
      */
     public User(Long oid, String username, String password, String email, String organisation) {
+    	
         this(oid, username, password);
         this.email = email;
         this.organisation = organisation;

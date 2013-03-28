@@ -915,7 +915,7 @@ public class AnaRelationship {
                   	while (iteratorjoinnrrps.hasNext()) {
                   		JOINNodeRelationshipRelationshipProject joinnrrp = iteratorjoinnrrps.next();
                   		
-                        if ( joinnrrp.getSequenceFK() != null ) {
+                        if ( joinnrrp.getSequenceFK() != 0 ) {
                         	
                             componentParents.add( joinnrrp.getPublicId() );
                             

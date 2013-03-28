@@ -50,7 +50,7 @@ public interface NodeDAO extends BaseDAO {
     /*
      * Returns the node from the database matching the given OID, otherwise null.
      */
-    public Node findByOid(Long oid) throws Exception;
+    public Node findByOid(long oid) throws Exception;
     
     /*
      * Returns the node from the database matching the given publicId, otherwise null.
@@ -85,7 +85,7 @@ public interface NodeDAO extends BaseDAO {
     /*
      * Returns true if the given node OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
     
     /*
      * Returns true if the given node publicId exists in the database.

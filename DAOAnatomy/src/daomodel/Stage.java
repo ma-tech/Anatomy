@@ -50,7 +50,7 @@ public class Stage {
     private Long oid; 
     private String speciesFK; 
     private String name; 
-    private Long sequence;
+    private long sequence;
     private String description;
     private String extraText; 
     private String publicId; 
@@ -69,7 +69,7 @@ public class Stage {
     public Stage(Long oid, 
     		String speciesFK, 
     		String name, 
-    		Long sequence, 
+    		long sequence, 
     		String description, 
     		String extraText, 
     		String publicId) {
@@ -93,7 +93,7 @@ public class Stage {
     public String getName() {
         return name;
     }
-    public Long getSequence() {
+    public long getSequence() {
         return sequence;
     }
     public String getDescription() {
@@ -116,7 +116,7 @@ public class Stage {
     public void setName(String name) {
         this.name = name;
     }
-    public void setSequence(Long sequence) {
+    public void setSequence(long sequence) {
         this.sequence = sequence;
     }
     public void setDescription(String description) {
@@ -137,7 +137,7 @@ public class Stage {
 
     	if (this.getSpeciesFK().equals(daostage.getSpeciesFK()) &&
     		this.getName().equals(daostage.getName()) &&
-    		this.getSequence() ==  daostage.getSequence() &&
+    		this.getSequence() == daostage.getSequence() &&
     		this.getDescription().equals(daostage.getDescription()) &&
     		this.getExtraText().equals(daostage.getExtraText()) &&
     		this.getPublicId().equals(daostage.getPublicId()) ) {

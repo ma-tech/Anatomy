@@ -46,8 +46,8 @@ public class Log {
      *   7.  LOG_TABLE       => varchar(255)
 	 */
     private Long oid; 
-    private Long loggedOid; 
-    private Long versionFK; 
+    private long loggedOid; 
+    private long versionFK; 
     private String columnName;
     private String oldValue; 
     private String comments;
@@ -66,8 +66,8 @@ public class Log {
      * Minimal constructor. Contains required fields.
      */
     public Log(Long oid,
-    		   Long loggedOid, 
-    		   Long versionFK, 
+    		long loggedOid, 
+    		long versionFK, 
     		   String columnName,
     	       String oldValue, 
     		   String comments, 
@@ -88,10 +88,10 @@ public class Log {
     public Long getOid() {
         return oid;
     }
-    public Long getLoggedOid() {
+    public long getLoggedOid() {
         return loggedOid;
     } 
-    public Long getVersionFK() {
+    public long getVersionFK() {
         return versionFK;
     } 
     public String getColumnName() {
@@ -114,10 +114,10 @@ public class Log {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setLoggedOid(Long loggedOid) {
+    public void setLoggedOid(long loggedOid) {
         this.loggedOid = loggedOid;
     } 
-    public void setVersionFK(Long versionFK) {
+    public void setVersionFK(long versionFK) {
         this.versionFK = versionFK;
     } 
     public void setColumnName(String columnName) {
@@ -142,8 +142,7 @@ public class Log {
      */
     public boolean isSameAs(Log daolog){
 
-    	if (this.getOid() == daolog.getOid() &&
-    		this.getLoggedOid() == daolog.getLoggedOid() &&
+    	if (this.getLoggedOid() == daolog.getLoggedOid() &&
     		this.getVersionFK() == daolog.getVersionFK() &&
     		this.getColumnName().equals(daolog.getColumnName()) &&
     		this.getOldValue().equals(daolog.getOldValue()) &&

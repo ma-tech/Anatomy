@@ -127,7 +127,7 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
     /*
      * Returns the perspectiveAmbit from the database matching the given OID, otherwise null.
      */
-    public PerspectiveAmbit find(Long oid) throws Exception {
+    public PerspectiveAmbit findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -220,8 +220,8 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
         	perspectiveAmbit.getOid(),
         	perspectiveAmbit.getPerspectiveFK(),
         	perspectiveAmbit.getNodeFK(),
-        	perspectiveAmbit.getIsStart(),
-        	perspectiveAmbit.getIsStop(),
+        	perspectiveAmbit.isStart(),
+        	perspectiveAmbit.isStop(),
         	perspectiveAmbit.getComments()
         };
 
@@ -265,8 +265,8 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
         Object[] values = {
             perspectiveAmbit.getPerspectiveFK(),
             perspectiveAmbit.getNodeFK(),
-            perspectiveAmbit.getIsStart(),
-            perspectiveAmbit.getIsStop(),
+            perspectiveAmbit.isStart(),
+            perspectiveAmbit.isStop(),
             perspectiveAmbit.getComments(),
             perspectiveAmbit.getOid()
         };
@@ -305,6 +305,11 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
         	perspectiveAmbit.getOid() 
         };
 
+        if (perspectiveAmbit.getOid() == null) {
+        	
+            throw new IllegalArgumentException("PerspectiveAmbit is not created yet, so the perspectiveAmbit OID cannot be null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -336,7 +341,7 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
     /*
      * Returns true if the given perspectiveAmbit OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -528,8 +533,8 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
       		resultSet.getLong("PAM_OID"), 
        		resultSet.getString("PAM_PERSPECTIVE_FK"), 
        		resultSet.getLong("PAM_NODE_FK"), 
-       		resultSet.getInt("PAM_IS_START"),
-       		resultSet.getInt("PAM_IS_STOP"), 
+       		resultSet.getBoolean("PAM_IS_START"),
+       		resultSet.getBoolean("PAM_IS_STOP"), 
        		resultSet.getString("PAM_COMMENTS")
         );
     }

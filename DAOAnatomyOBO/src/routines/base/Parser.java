@@ -68,12 +68,12 @@ public class Parser {
     private ArrayList<OBOComponent> componentList;
     private OBOSession oboSession;
     private String msgLevel;
-    private Boolean boolAlternatives;
+    private boolean boolAlternatives;
 
     public Parser(
     		String msgLevel, 
     		String txtFileName,
-    		Boolean boolAlternatives,
+    		boolean boolAlternatives,
     		String species) throws Exception{
 
 	    this.msgLevel = msgLevel;
@@ -89,7 +89,7 @@ public class Parser {
     }
 
     // Getters ------------------------------------------------------------------------------------
-    public Boolean getAlternatives(){
+    public boolean getAlternatives(){
         return this.boolAlternatives;
     }
     public String getFile(){
@@ -106,7 +106,7 @@ public class Parser {
     }
     
     // Setters ------------------------------------------------------------------------------------
-    public void setAlternatives(Boolean boolAlternatives){
+    public void setAlternatives(boolean boolAlternatives){
         this.boolAlternatives = boolAlternatives;
     }
     public void setFile(String file){
@@ -248,7 +248,7 @@ public class Parser {
                     		false,
                     		minStage,
                     		maxStage,
-                    		0,
+                    		false,
                     		"",
                     		//"NONE",
                     		"UNCHECKED",
@@ -406,7 +406,7 @@ public class Parser {
                     false,
                     "TBD",
                     "TBD",
-                    0,
+                    false,
                     "DELETE",
                     "UNCHECKED",
                     childOfs,

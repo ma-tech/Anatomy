@@ -153,7 +153,7 @@ public final class StageDAOJDBC implements StageDAO{
     /*
      * Returns the Stage from the database matching the given OID, otherwise null.
      */
-    public Stage findByOid(Long oid) throws Exception {
+    public Stage findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -169,7 +169,7 @@ public final class StageDAOJDBC implements StageDAO{
     /*
      * Returns the Stage from the database matching the given Sequence Number, otherwise null.
      */
-    public Stage findBySequence(Long seq) throws Exception {
+    public Stage findBySequence(long seq) throws Exception {
     	
         return find(SQL_FIND_BY_SEQUENCE, seq);
     }
@@ -193,7 +193,7 @@ public final class StageDAOJDBC implements StageDAO{
     /*
      * Returns true if the given stage OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -423,6 +423,11 @@ public final class StageDAOJDBC implements StageDAO{
         Object[] values = { 
         	stage.getOid() 
         };
+
+        if (stage.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Stage is not created yet, so the stage OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

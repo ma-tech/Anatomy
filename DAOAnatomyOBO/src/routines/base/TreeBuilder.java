@@ -422,7 +422,7 @@ public class TreeBuilder {
             	
             	OBOComponent obocomponent = (OBOComponent) nodeInfo;
             
-                if ( !obocomponent.getIsPrimary() ) {
+                if ( !obocomponent.isPrimary() ) {
                 	
                     return false;
                 }
@@ -528,7 +528,7 @@ public class TreeBuilder {
                 //REPLACE isSamsAs with matching id, two obocomponents can be the same but have modified properties
                 //if ( !currentcomponent.getIsPrimary() && !currentcomponent.getID().equals(obocomponent.getID()) ){
                 //if ( !currentcomponent.getIsGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
-                if ( currentcomponent.getIsGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
+                if ( currentcomponent.isGroup() && !currentcomponent.getID().equals(obocomponent.getID()) ){
                     
                 	groupNodeAsAncestor = true;
                 }

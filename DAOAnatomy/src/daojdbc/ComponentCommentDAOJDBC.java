@@ -139,7 +139,7 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
     /*
      * Returns the daocomponentcomment from the database matching the given OID, otherwise null.
      */
-    public ComponentComment findByOid(Long oid) throws Exception {
+    public ComponentComment findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -163,7 +163,7 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
     /*
      * Returns true if the given daocomponentcomment OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -370,6 +370,11 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
         Object[] values = { 
         	daocomponentcomment.getOid() 
         };
+
+        if (daocomponentcomment.getOid() == null) {
+        	
+            throw new IllegalArgumentException("ComponentComment is not created yet, so the daocomponentcomment OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

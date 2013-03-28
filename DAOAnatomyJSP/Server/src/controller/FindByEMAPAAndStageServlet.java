@@ -1,16 +1,13 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolayer.ExtraTimedNodeDAO;
-
-import daomodel.ExtraTimedNode;
+import daointerface.ExtraTimedNodeDAO;
 
 import form.TimedNodeForm;
 
@@ -33,7 +30,7 @@ public class FindByEMAPAAndStageServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.extratimednodeDAO = Config.getInstance(getServletContext()).getDAOFactory().getExtraTimedNodeDAO();
+        this.extratimednodeDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(ExtraTimedNodeDAO.class);
     }
 
     
@@ -43,17 +40,25 @@ public class FindByEMAPAAndStageServlet extends HttpServlet {
     	TimedNodeForm timednodeForm = new TimedNodeForm(extratimednodeDAO);
 
         // Process request and get result.
-        String outString = timednodeForm.findTimedNodeByEmapaAndStage(request);
+        String outString;
 
-        // Postback.
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/html");           
-        response.setHeader("Cache-Control", "no-cache");
+        try {
+			
+			outString = timednodeForm.findTimedNodeByEmapaAndStage(request);
 
-        //System.out.println(outString);
-        
-        out.println(outString);
-        
+	        // Postback.
+	        java.io.PrintWriter out = response.getWriter();
+	        response.setContentType("text/html");           
+	        response.setHeader("Cache-Control", "no-cache");
+
+	        //System.out.println(outString);
+	        
+	        out.println(outString);
+		} 
+        catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }

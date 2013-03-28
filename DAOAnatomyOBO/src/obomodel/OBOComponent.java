@@ -68,12 +68,12 @@ public class OBOComponent {
     private String newid;
     private String namespace;
     private String definition;
-    private Boolean group;
+    private boolean group;
     private String start;
     private String end;
     private int startSequence;
     private int endSequence;
-    private Integer present;
+    private boolean present;
     private ArrayList<String> childOfs;
     private ArrayList<String> childOfTypes;
     private ArrayList<String> synonyms;
@@ -116,7 +116,7 @@ public class OBOComponent {
     	this.end = "";
         this.startSequence = -1;
         this.endSequence = -1;
-    	this.present = 0;
+    	this.present = false;
         this.statusChange = "";
         this.statusRule = "";
 
@@ -150,10 +150,10 @@ public class OBOComponent {
     		String newid,
     		String namespace,
     		String definition,
-    		Boolean group,
+    		boolean group,
     		String start,
     		String end,
-    		Integer present, 
+    		boolean present, 
     		String statusChange, 
     		String statusRule) {
     	
@@ -199,10 +199,10 @@ public class OBOComponent {
     		String newid,
     		String namespace,
     		String definition,
-    		Boolean group,
+    		boolean group,
     		String start,
     		String end,
-    		Integer present, 
+    		boolean present, 
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
@@ -232,10 +232,10 @@ public class OBOComponent {
     		String newid,
     		String namespace,
     		String definition,
-    		Boolean group,
+    		boolean group,
     		String start,
     		String end,
-    		Integer present, 
+    		boolean present, 
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
@@ -267,10 +267,10 @@ public class OBOComponent {
     		String newid,
     		String namespace,
     		String definition,
-    		Boolean group,
+    		boolean group,
     		String start,
     		String end,
-    		Integer present, 
+    		boolean present, 
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
@@ -315,7 +315,7 @@ public class OBOComponent {
     public String getEnd() {
     	return this.end;
     }
-    public Integer getPresent(){
+    public boolean isPresent(){
         return this.present;
     }
     public ArrayList<String> getChildOfs() {
@@ -355,13 +355,13 @@ public class OBOComponent {
     public boolean getFlagLifeTime(){
         return this.flagLifeTime;
     }
-    public boolean getIsPrimary(){
+    public boolean isPrimary(){
         return this.isPrimary;
     }
     public Vector<DefaultMutableTreeNode[]> getPaths(){
         return this.paths;
     }
-    public boolean getIsGroup(){
+    public boolean isGroup(){
         return this.group;
     }
     
@@ -1916,7 +1916,7 @@ public class OBOComponent {
     	}
     }
     
-    public void setPresent( int present ){
+    public void setPresent( boolean present ){
         this.present = present;
     }
     public void setChildOfs( ArrayList<String> childOfs ) {
@@ -2114,7 +2114,7 @@ public class OBOComponent {
         copyobocomponent.setChildOfTypes( this.getChildOfTypes() );
         copyobocomponent.setStart( this.getStart() );
         copyobocomponent.setEnd( this.getEnd() );
-        copyobocomponent.setPresent( this.getPresent() );
+        copyobocomponent.setPresent( this.isPresent() );
         copyobocomponent.setSynonyms( this.getSynonyms() );
         copyobocomponent.setStatusChange( this.getStatusChange() );
         copyobocomponent.setStatusRule( this.getStatusRule() );
@@ -2128,7 +2128,7 @@ public class OBOComponent {
         	copyobocomponent.setCheckComment(s);
         }
         
-        copyobocomponent.setIsPrimary( this.getIsPrimary() );
+        copyobocomponent.setIsPrimary( this.isPrimary() );
         copyobocomponent.setPrimaryPath( this.getPrimaryPath() );
 
         copyobocomponent.setPaths( this.getPaths() );
@@ -2291,11 +2291,11 @@ public class OBOComponent {
                        //obocomponent.getChildOfs().toString());
         }
 
-        if ( !this.getIsPrimary() == obocomponent.getIsPrimary() ) {
+        if ( !this.isPrimary() == obocomponent.isPrimary() ) {
 
         	String strPrimary = "";
             
-        	if ( this.getIsPrimary()){
+        	if ( this.isPrimary()){
         		
                 strPrimary = "Primary";
             }

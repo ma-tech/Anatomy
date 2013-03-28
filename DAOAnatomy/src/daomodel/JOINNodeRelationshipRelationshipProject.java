@@ -64,18 +64,18 @@ public class JOINNodeRelationshipRelationshipProject {
     private Long oidNode; 
     private String speciesFK; 
     private String componentName; 
-    private Boolean primary;
-    private Boolean group;
+    private boolean primary;
+    private boolean group;
     private String publicId; 
     private String description; 
     private Long oidRelationship; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
     private Long oidRelationshipProject; 
-    private Long relationshipFK; 
+    private long relationshipFK; 
     private String projectFK; 
-    private Long sequenceFK;
+    private long sequenceFK;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -91,18 +91,18 @@ public class JOINNodeRelationshipRelationshipProject {
     public JOINNodeRelationshipRelationshipProject(Long oidNode, 
     	    String speciesFK,
     	    String componentName, 
-    	    Boolean primary,
-    	    Boolean group,
+    	    boolean primary,
+    	    boolean group,
     	    String publicId,
     	    String description,
     	    Long oidRelationship, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK, 
+    		long childFK, 
+    		long parentFK, 
     		Long oidRelationshipProject, 
-    		Long relationshipFK, 
+    		long relationshipFK, 
     		String projectFK, 
-    		Long sequenceFK) {
+    		long sequenceFK) {
     	
         this.oidNode = oidNode;
 	    this.speciesFK = speciesFK;
@@ -131,10 +131,10 @@ public class JOINNodeRelationshipRelationshipProject {
     public String getComponentName() {
         return componentName;
     }
-    public Boolean isPrimary() {
+    public boolean isPrimary() {
         return primary;
     }
-    public Boolean isGroup() {
+    public boolean isGroup() {
         return group;
     }
     public String getPublicId() {
@@ -150,23 +150,23 @@ public class JOINNodeRelationshipRelationshipProject {
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
     public Long getOidRelationshipProject() {
         return oidRelationshipProject;
     }
-    public Long getRelationshipFK() {
+    public long getRelationshipFK() {
         return relationshipFK;
     }
     public String getProjectFK() {
         return projectFK;
     }
-    public Long getSequenceFK() {
+    public long getSequenceFK() {
         return sequenceFK;
     }
 
@@ -180,10 +180,10 @@ public class JOINNodeRelationshipRelationshipProject {
     public void getComponentName(String componentName) {
         this.componentName = componentName;
     }
-    public void setPrimary(Boolean primary) {
+    public void setPrimary(boolean primary) {
         this.primary = primary;
     }
-    public void setGroup(Boolean group) {
+    public void setGroup(boolean group) {
         this.group = group;
     }
     public void setPublicId(String publicId) {
@@ -199,23 +199,23 @@ public class JOINNodeRelationshipRelationshipProject {
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 
     public void setOidRelationshipProject(Long oidRelationshipProject) {
         this.oidRelationshipProject = oidRelationshipProject;
     }
-    public void setRelationshipFK(Long relationshipFK) {
+    public void setRelationshipFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
-    public void setSequenceFK(Long sequenceFK) {
+    public void setSequenceFK(long sequenceFK) {
         this.sequenceFK = sequenceFK;
     }
 
@@ -225,18 +225,18 @@ public class JOINNodeRelationshipRelationshipProject {
      */
     public boolean isSameAs(JOINNodeRelationshipRelationshipProject daojoinnoderelationshiprelationshipproject){
 
-    	if (this.getOidNode() == daojoinnoderelationshiprelationshipproject.getOidNode() && 
+    	if (this.getOidNode().equals(daojoinnoderelationshiprelationshipproject.getOidNode()) && 
     		this.getSpeciesFK().equals(daojoinnoderelationshiprelationshipproject.getSpeciesFK()) && 
     		this.getComponentName().equals(daojoinnoderelationshiprelationshipproject.getComponentName()) && 
     		this.isPrimary() == daojoinnoderelationshiprelationshipproject.isPrimary() && 
     		this.isGroup() == daojoinnoderelationshiprelationshipproject.isGroup() && 
     		this.getPublicId().equals(daojoinnoderelationshiprelationshipproject.getPublicId()) && 
     		this.getDescription().equals(daojoinnoderelationshiprelationshipproject.getDescription()) && 
-    		this.getOidRelationship() == daojoinnoderelationshiprelationshipproject.getOidRelationship() && 
+    		this.getOidRelationship().equals(daojoinnoderelationshiprelationshipproject.getOidRelationship()) && 
     		this.getTypeFK().equals(daojoinnoderelationshiprelationshipproject.getTypeFK()) && 
     		this.getChildFK() == daojoinnoderelationshiprelationshipproject.getChildFK() && 
     		this.getParentFK() == daojoinnoderelationshiprelationshipproject.getParentFK() && 
-    		this.getOidRelationshipProject() == daojoinnoderelationshiprelationshipproject.getOidRelationshipProject() && 
+    		this.getOidRelationshipProject().equals(daojoinnoderelationshiprelationshipproject.getOidRelationshipProject()) && 
     		this.getRelationshipFK() == daojoinnoderelationshiprelationshipproject.getRelationshipFK() && 
     		this.getProjectFK().equals(daojoinnoderelationshiprelationshipproject.getProjectFK()) && 
     		this.getSequenceFK() == daojoinnoderelationshiprelationshipproject.getSequenceFK() ) {

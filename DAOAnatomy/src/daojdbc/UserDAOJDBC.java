@@ -98,6 +98,11 @@ public final class UserDAOJDBC implements UserDAO {
         "FROM ANA_OBO_USER " +
         "WHERE AOU_EMAIL = ?";
 
+    private static final String SQL_EXIST_OID =
+            "SELECT AOU_OID " +
+            "FROM ANA_OBO_USER " +
+            "WHERE AOU_OID = ?";
+
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
@@ -124,7 +129,7 @@ public final class UserDAOJDBC implements UserDAO {
     /*
      * Returns the user from the database matching the given OID, otherwise null.
      */
-    public User find(Long oid) throws Exception {
+    public User findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_ID, oid);
     }
@@ -328,6 +333,11 @@ public final class UserDAOJDBC implements UserDAO {
 
     	Object[] values = { user.getOid() };
 
+        if (user.getOid() == null) {
+        	
+            throw new IllegalArgumentException("User is not created yet, the user OID is null.");
+        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -354,6 +364,14 @@ public final class UserDAOJDBC implements UserDAO {
         	
             close(daoFactory.getLevel(),connection, preparedStatement);
         }
+    }
+
+    /*
+     * Returns true if the given oid exist in the database.
+     */
+    public boolean existOid(long oid) throws Exception {
+
+    	return exist(SQL_EXIST_OID, oid);
     }
 
     /*

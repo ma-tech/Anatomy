@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolayer.TimedLeafDAO;
+import daointerface.TimedLeafDAO;
 
 import daomodel.TimedLeaf;
 
@@ -33,7 +33,7 @@ public class ListLeafsByEMAPandStageAggregatedServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getTimedLeafDAO();
+        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(TimedLeafDAO.class);
     }
 
     
@@ -44,24 +44,32 @@ public class ListLeafsByEMAPandStageAggregatedServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
         // Process request and get result.
-        String outString = timedleafForm.checkTimedLeafsByRootName(request);        
-        
-        
-        if ( outString.equals("SUCCESS!")) {
-        	//System.out.println("##PS## ListLeafsByEMAPandStageAggregatedServlet SUCCESS");
-            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-            leafTree = timedleafDAO.convertLeafListToStringJsonAggregate(timedleafs);
-        }
-        else {
-        	leafTree = outString;
-        }
-        
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/json");           
-        //response.setContentType("text/html");           
-        response.setHeader("Cache-Control", "no-cache");
-        
-        out.println(leafTree);
+        String outString;
+		
+        try {
+		
+        	outString = timedleafForm.checkTimedLeafsByRootName(request);
+	        
+        	if ( outString.equals("SUCCESS!")) {
+	        	//System.out.println("##PS## ListLeafsByEMAPandStageAggregatedServlet SUCCESS");
+	            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+	            leafTree = timedleafDAO.convertLeafListToStringJsonAggregate(timedleafs);
+	        }
+	        else {
+	        
+	        	leafTree = outString;
+	        }
+	        
+	        java.io.PrintWriter out = response.getWriter();
+	        response.setContentType("text/json");           
+	        //response.setContentType("text/html");           
+	        response.setHeader("Cache-Control", "no-cache");
+	        
+	        out.println(leafTree);
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
     }
-
 }

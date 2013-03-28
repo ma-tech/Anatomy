@@ -35,14 +35,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>DAOAnatomySrc</name>
+			<type>2</type>
+			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomy</location>
+		</link>
+		<link>
 			<name>DAOsrc</name>
 			<type>2</type>
-			<location>/net/mahost/export/edofficewg1/peters/git/Anatomy/DAOAnatomy/src</location>
+			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomy/src</location>
 		</link>
 		<link>
 			<name>Usefulsrc</name>
 			<type>2</type>
-			<location>/net/mahost/export/edofficewg1/peters/git/Anatomy/UsefulJava/src</location>
+			<location>/Users/mwicks/GitMahost/Anatomy/UsefulJava/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

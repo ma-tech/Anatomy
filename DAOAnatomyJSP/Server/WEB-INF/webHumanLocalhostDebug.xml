@@ -10,7 +10,7 @@
   
   <context-param>
     <param-name>database.name</param-name>
-    <param-value>humanAnatomy008LocalhostDebug</param-value>
+    <param-value>human009Localhost</param-value>
   </context-param>
 
   <listener>

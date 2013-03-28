@@ -42,7 +42,7 @@ public class Version {
      *   4. VER_COMMENTS - varchar(2000)
 	 */
     private Long oid; 
-    private Long number; 
+    private long number; 
     private String date; 
     private String comments; 
 
@@ -61,7 +61,7 @@ public class Version {
      * 
      */
     public Version(Long oid, 
-    		Long number,
+    		long number,
     		String date, 
     		String comments) {
 
@@ -75,7 +75,7 @@ public class Version {
     public Long getOid() {
         return oid;
     }
-    public Long getNumber() {
+    public long getNumber() {
         return number;
     }
     public String getDate() {
@@ -89,7 +89,7 @@ public class Version {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setNumber(Long number) {
+    public void setNumber(long number) {
         this.number = number;
     }
     public void setDate(String date) {

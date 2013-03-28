@@ -44,7 +44,7 @@ public interface ComponentRelationshipDAO extends BaseDAO {
     /*
      * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
      */
-    public ComponentRelationship findByOid(Long oid) throws Exception;
+    public ComponentRelationship findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponentrelationships from the database matching the given OBO ID, otherwise null.
@@ -74,7 +74,7 @@ public interface ComponentRelationshipDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponentrelationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponentrelationship in the database.

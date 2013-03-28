@@ -1,13 +1,13 @@
 format-version: 1.2
-date: 17:09:2012 14:07
+date: 14:03:2013 09:44
 saved-by: Mike Wicks
 default-namespace: mouse_ontology
 remark: Version 009
 
 [Term]
 id: EMAP:0
-name: Timed anatomy
-namespace: timed_anatomy
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
 
 [Term]
 id: group_term
@@ -17,12 +17,12 @@ namespace: group_term
 [Term]
 id: TS:0
 name: Theiler stage
-namespace: theiler stage
+namespace: theiler_stage
 
 [Term]
 id: TS03
 name: TS03
-namespace: theiler stage
+namespace: theiler_stage
 relationship: is_a TS:0
 
 [Term]
@@ -33,43 +33,43 @@ namespace: new_group_namespace
 [Term]
 id: EMAP:25768
 name: mouse
-namespace: timed_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: is_a EMAP:0
 
 [Term]
 id: EMAP:10
 name: second polar body
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25768
 
 [Term]
 id: EMAP:11
 name: zona pellucida
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25768
 
 [Term]
 id: EMAP:8
 name: 4-8 cell stage
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25768
 
 [Term]
 id: EMAP:9
 name: compacted morula
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:25768
 
 [Term]
 id: EMAP:31922
 name: 4-cell stage
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:8
 
 [Term]
 id: EMAP:31923
 name: 8-cell stage
-namespace: abstract_anatomy
+namespace: stage_specific_anatomical_structure
 relationship: part_of EMAP:8
 
 

@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daolayer.DAOException;
-import daolayer.LeafDAO;
+import daointerface.LeafDAO;
 
 import daomodel.Leaf;
-import daomodel.TimedLeaf;
 
 /**
  * This class holds all business logic related to the request processing of the Leaf DTO.
@@ -41,8 +40,9 @@ public final class LeafForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public String checkLeafsByRootName(HttpServletRequest request) {
+    public String checkLeafsByRootName(HttpServletRequest request) throws Exception {
         
     	String outString = "";
     	List<Leaf> leafs = new ArrayList<Leaf>();
@@ -76,8 +76,9 @@ public final class LeafForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public List<Leaf> listLeafsByRootName(HttpServletRequest request) {
+    public List<Leaf> listLeafsByRootName(HttpServletRequest request) throws Exception {
         
     	List<Leaf> leafs = new ArrayList<Leaf>();
     	Leaf leaf = new Leaf();
@@ -103,8 +104,9 @@ public final class LeafForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public List<Leaf> listLeafsByRootDesc(HttpServletRequest request) {
+    public List<Leaf> listLeafsByRootDesc(HttpServletRequest request) throws Exception {
         
     	List<Leaf> leafs = new ArrayList<Leaf>();
     	Leaf leaf = new Leaf();
@@ -130,8 +132,9 @@ public final class LeafForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public List<Leaf> listLeafsByRootNameByChildDesc(HttpServletRequest request) {
+    public List<Leaf> listLeafsByRootNameByChildDesc(HttpServletRequest request) throws Exception {
         
     	List<Leaf> leafs = new ArrayList<Leaf>();
     	Leaf leaf = new Leaf();
@@ -157,8 +160,9 @@ public final class LeafForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
+     * @throws Exception 
      */
-    public List<Leaf> listLeafsByRootDescByChildDesc(HttpServletRequest request) {
+    public List<Leaf> listLeafsByRootDescByChildDesc(HttpServletRequest request) throws Exception {
         
     	List<Leaf> leafs = new ArrayList<Leaf>();
     	Leaf leaf = new Leaf();

@@ -50,11 +50,11 @@ public interface JOINNodeRelationshipRelationshipProjectDAO extends BaseDAO {
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipRelationshipProject> listAllByChildFK(Long childFK) throws Exception;
+    public List<JOINNodeRelationshipRelationshipProject> listAllByChildFK(long childFK) throws Exception;
     
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipRelationshipProject> listAllByChildAndProject(Long childFK, String project) throws Exception;
+    public List<JOINNodeRelationshipRelationshipProject> listAllByChildAndProject(long childFK, String project) throws Exception;
     
 }

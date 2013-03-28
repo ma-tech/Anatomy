@@ -59,7 +59,7 @@ public class RunOBOTest {
 	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 	        obocomponents = componentOBO.listAll();
 	        
-	        Wrapper.printMessage("Number of File Components Read In = " + Integer.toString(obocomponents.size()), "***", requestMsgLevel);
+	        Wrapper.printMessage("Number of File Components Read In = " + obocomponents.size(), "***", requestMsgLevel);
 
 	        // Write out Obo File
 	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);

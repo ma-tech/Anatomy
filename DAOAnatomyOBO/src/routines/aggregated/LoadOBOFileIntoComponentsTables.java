@@ -90,19 +90,21 @@ public class LoadOBOFileIntoComponentsTables {
       		
       		OBOComponent obocomponent = iteratorComponent.next();
 
-       		Component daocomponent = new Component(null,
+       		Component daocomponent = new Component(
+       				null,
        				obocomponent.getName(),
        				obocomponent.getID(),
        				obocomponent.getDBID(),
        				obocomponent.getNewID(),
        				obocomponent.getNamespace(),
        				obocomponent.getDefinition(),
-       				ObjectConverter.convert(obocomponent.getIsGroup(), Integer.class),
+       				obocomponent.isGroup(),
        				obocomponent.getStart(),
        				obocomponent.getEnd(),
-       				obocomponent.getPresent(),
+       				obocomponent.isPresent(),
        				obocomponent.getStatusChange(),
-       				obocomponent.getStatusRule());
+       				obocomponent.getStatusRule()
+       				);
        		
        		componentDAO.save(daocomponent);
        		
@@ -119,9 +121,11 @@ public class LoadOBOFileIntoComponentsTables {
             	
            		for ( int i = 0; i < oboalternativeids.size(); i++ ) {
 
-               		ComponentAlternative daocomponentalternative = new ComponentAlternative(null,
+               		ComponentAlternative daocomponentalternative = new ComponentAlternative(
+               				null,
                				obocomponent.getID(),
-               				oboalternativeids.get(i));
+               				oboalternativeids.get(i)
+               				);
                		
                		componentalternativeDAO.save(daocomponentalternative);
            		}
@@ -131,10 +135,11 @@ public class LoadOBOFileIntoComponentsTables {
             	
                 for ( int i = 0; i < obopartofs.size(); i++ ) {
 
-               		ComponentRelationship daocomponentrelationship = new ComponentRelationship(null,
+               		ComponentRelationship daocomponentrelationship = new ComponentRelationship(
+               				null,
                				obocomponent.getID(),
-               				ObjectConverter.convert(obocomponent.getStartSequence(), Long.class),
-               				ObjectConverter.convert(obocomponent.getEndSequence(), Long.class),
+               				obocomponent.getStartSequence(),
+               				obocomponent.getEndSequence(),
                				obopartoftypes.get(i),
                				obopartofs.get(i)
                				);
@@ -152,12 +157,14 @@ public class LoadOBOFileIntoComponentsTables {
                     String ordercomment = orderComments[i];
                     String [] words = ordercomment.split(" "); 
                     
-                	ComponentOrder daocomponentorder = new ComponentOrder(null,
+                	ComponentOrder daocomponentorder = new ComponentOrder(
+                			null,
                				obocomponent.getID(),
                	    		words[2],
                	    		"PART_OF",
                	    		ObjectConverter.convert(words[0], Long.class),
-               	    		ObjectConverter.convert(words[0], Long.class));
+               	    		ObjectConverter.convert(words[0], Long.class)
+               	    		);
                		
                		componentorderDAO.save(daocomponentorder);
            		}
@@ -227,12 +234,14 @@ public class LoadOBOFileIntoComponentsTables {
       				typeInsert = 0;
       			}
 
-      			ComponentOrder componentorderInsert = new ComponentOrder(null,
+      			ComponentOrder componentorderInsert = new ComponentOrder(
+      					null,
             			componentrelationship.getChild(),
             			componentrelationship.getParent(),
             			componentrelationship.getType(),
            	    		ObjectConverter.convert(typeInsert, Long.class),
-           	    		ObjectConverter.convert(typeInsert, Long.class));
+           	    		ObjectConverter.convert(typeInsert, Long.class)
+           	    		);
 
       			componentorderDAO.save(componentorderInsert);
       		}
@@ -275,12 +284,14 @@ public class LoadOBOFileIntoComponentsTables {
       		
       		ComponentRelationship componentrelationship2 = iteratorComponentRelationship2.next();
       	
-  			ComponentOrder componentorderIsa = new ComponentOrder(null,
+  			ComponentOrder componentorderIsa = new ComponentOrder(
+  					null,
   					componentrelationship2.getChild(),
   					componentrelationship2.getParent(),
   					componentrelationship2.getType(),
        	    		ObjectConverter.convert(0, Long.class),
-       	    		ObjectConverter.convert(0, Long.class));
+       	    		ObjectConverter.convert(0, Long.class)
+       	    		);
 
   			componentorderDAO.save(componentorderIsa);
 

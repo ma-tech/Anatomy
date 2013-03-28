@@ -160,7 +160,7 @@ public final class LogDAOJDBC implements LogDAO {
     /*
      * Returns the log from the database matching the given OID, otherwise null.
      */
-    public Log findByOid(Long oid) throws Exception {
+    public Log findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -168,7 +168,7 @@ public final class LogDAOJDBC implements LogDAO {
     /*
      * Returns the log from the database matching the given Logged OID, otherwise null.
      */
-    public Log findByLoggedOid(Long loggedOid) throws Exception {
+    public Log findByLoggedOid(long loggedOid) throws Exception {
     	
         return find(SQL_FIND_BY_LOGGED_OID, loggedOid);
     }
@@ -184,7 +184,7 @@ public final class LogDAOJDBC implements LogDAO {
     /*
      * Returns true if the given log OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -399,6 +399,11 @@ public final class LogDAOJDBC implements LogDAO {
         Object[] values = { 
         	log.getOid() 
         };
+
+        if (log.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Log is not created yet, so the log OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

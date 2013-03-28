@@ -170,9 +170,9 @@ public abstract class OBOFactory {
         int intMinStageSequence = ObjectConverter.convert(strMinStageSequence, Integer.class);
         int intMaxStageSequence = ObjectConverter.convert(strMaxStageSequence, Integer.class);
         
-        Boolean boolDebug = false;
-        Boolean boolAlternatives = false;
-        Boolean boolTimedComponents = false;
+        boolean boolDebug = false;
+        boolean boolAlternatives = false;
+        boolean boolTimedComponents = false;
         
         String level = "";
 
@@ -329,8 +329,8 @@ public abstract class OBOFactory {
      */
     abstract ArrayList<OBOComponent> getComponents() throws OBOException, IOException, Exception;
     abstract String getComponentContent() throws OBOException, IOException, Exception;
-    abstract Boolean writeComponents( String stage ) throws OBOException, Exception;
-    abstract Boolean isDebug();
+    abstract boolean writeComponents( String stage ) throws OBOException, Exception;
+    abstract boolean isDebug();
     abstract String getSummaryReport();
     abstract String getSummaryReportPdf();
     abstract String getInputFile();
@@ -355,8 +355,8 @@ public abstract class OBOFactory {
 	abstract String getGroupTermClassNamespace();
 	abstract int getMinStageSequence();
 	abstract int getMaxStageSequence();
-    abstract Boolean isAlternatives();
-    abstract Boolean isTimedComponents();
+    abstract boolean isAlternatives();
+    abstract boolean isTimedComponents();
 	abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
     abstract void setRelations(ArrayList<Relation> arrayrellist);
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
@@ -386,7 +386,7 @@ class FileOBOFactory extends OBOFactory {
 	private String oboOutFileNameSpace;
 	private String oboOutFileSavedBy;
 	private String oboOutFileRemark;
-    private Boolean boolDebug;
+    private boolean boolDebug;
 	private String summaryReport;
 	private String summaryReportPdf;
 	private String species;
@@ -405,8 +405,8 @@ class FileOBOFactory extends OBOFactory {
     private String groupTermClassNamespace;
     private int intMinStageSequence;
     private int intMaxStageSequence;
-    private Boolean boolAlternatives;
-    private Boolean boolTimedComponents;
+    private boolean boolAlternatives;
+    private boolean boolTimedComponents;
     private String msgLevel;
 	
     private ArrayList<OBOComponent> obocomponentList;
@@ -418,7 +418,7 @@ class FileOBOFactory extends OBOFactory {
     		String oboOutFileNameSpace, 
     		String oboOutFileSavedBy, 
     		String oboOutFileRemark, 
-    		Boolean boolDebug, 
+    		boolean boolDebug, 
     		String summaryReport, 
     		String summaryReportPdf, 
     		String species, 
@@ -437,8 +437,8 @@ class FileOBOFactory extends OBOFactory {
     		String groupTermClassNamespace,
     		int intMinStageSequence,
     		int intMaxStageSequence, 
-    		Boolean boolAlternatives,  
-    		Boolean boolTimedComponents,
+    		boolean boolAlternatives,  
+    		boolean boolTimedComponents,
     		String msgLevel) {
     
     	this.oboInFile = oboInFile;
@@ -499,7 +499,7 @@ class FileOBOFactory extends OBOFactory {
     	return componentContent;
     }
     
-    Boolean writeComponents( String stage ) throws Exception {
+    boolean writeComponents( String stage ) throws Exception {
     	
     	Producer producer = new Producer(
     			this.msgLevel,
@@ -513,12 +513,12 @@ class FileOBOFactory extends OBOFactory {
     			this.boolAlternatives,
     			this.boolTimedComponents);
     	
-    	Boolean isProcessed = producer.writeOboFile( stage );
+    	boolean isProcessed = producer.writeOboFile( stage );
     	
     	return isProcessed;
     }
     
-    Boolean isDebug() {
+    boolean isDebug() {
     	return boolDebug;
     }
     String getSpecies() {
@@ -593,10 +593,10 @@ class FileOBOFactory extends OBOFactory {
     int getMaxStageSequence(){    	
     	return intMaxStageSequence;
     }
-    Boolean isAlternatives() {
+    boolean isAlternatives() {
     	return boolAlternatives;
     }
-    Boolean isTimedComponents() {
+    boolean isTimedComponents() {
     	return boolTimedComponents;
     }
     String getMsgLevel(){    	

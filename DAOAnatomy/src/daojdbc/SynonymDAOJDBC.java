@@ -137,7 +137,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
 	/*
      * Returns the Synonym from the database matching the given OID, otherwise null.
      */
-    public Synonym findByOid(Long oid) throws Exception {
+    public Synonym findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -145,7 +145,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFKAndSynonym(Long objectFK, String synonym) throws Exception {
+    public List<Synonym> listByObjectFKAndSynonym(long objectFK, String synonym) throws Exception {
     	
         return list(SQL_LIST_BY_OBJECT_FK_AND_SYNONYM, objectFK, synonym);
     }
@@ -153,7 +153,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFK(Long objectFK) throws Exception {
+    public List<Synonym> listByObjectFK(long objectFK) throws Exception {
     	
         return list(SQL_LIST_BY_OBJECT_FK, objectFK);
     }
@@ -169,7 +169,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
     /*
      * Returns true if the given synonym OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -373,6 +373,11 @@ public final class SynonymDAOJDBC implements SynonymDAO {
         Object[] values = { 
         	synonym.getOid() 
         };
+
+        if (synonym.getOid() == null) {
+        	
+            throw new IllegalArgumentException("Synonym is not created yet, so the synonym OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

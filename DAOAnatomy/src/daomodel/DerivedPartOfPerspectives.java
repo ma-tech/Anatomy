@@ -42,9 +42,9 @@ public class DerivedPartOfPerspectives {
      *   4. POP_NODE_FK        => int(10)
 	 */
     private String perspectiveFK; 
-    private Long partOfFK; 
+    private long partOfFK; 
     private int ancestor;
-    private Long nodeFK; 
+    private long nodeFK; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -61,9 +61,9 @@ public class DerivedPartOfPerspectives {
      * 
      */
     public DerivedPartOfPerspectives(String perspectiveFK,
-    		Long partOfFK, 
+    		long partOfFK, 
     		int ancestor,    		
-    		Long nodeFK
+    		long nodeFK
     		) {
     	
     	this.perspectiveFK = perspectiveFK;
@@ -76,10 +76,10 @@ public class DerivedPartOfPerspectives {
     public String getPerspectiveFK() {
         return perspectiveFK;
     } 
-    public Long getPartOfFK() {
+    public long getPartOfFK() {
         return partOfFK;
     }
-    public Long getNodeFK() {
+    public long getNodeFK() {
         return nodeFK;
     } 
     public int getAncestor() {
@@ -90,10 +90,10 @@ public class DerivedPartOfPerspectives {
     public void setPerspectiveFK(String perspectiveFK) {
         this.perspectiveFK = perspectiveFK;
     } 
-    public void setPartOfFK(Long partOfFK) {
+    public void setPartOfFK(long partOfFK) {
         this.partOfFK = partOfFK;
     } 
-    public void setNodeFK(Long nodeFK) {
+    public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     } 
     public void setAncestor(int ancestor) {

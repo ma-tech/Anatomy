@@ -44,7 +44,7 @@ public interface ComponentOrderDAO extends BaseDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public ComponentOrder findByOid(Long oid) throws Exception;
+    public ComponentOrder findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
@@ -79,7 +79,7 @@ public interface ComponentOrderDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponentorder OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponentorder in the database.

@@ -53,13 +53,13 @@ public class JOINRelationshipProjectRelationship {
      *   4. REL_PARENT_FK            - int(10) unsigned 
  	 */
     private Long oidRelationshipProject; 
-    private Long relationshipFK; 
+    private long relationshipFK; 
     private String projectFK; 
-    private Long sequenceFK;
+    private long sequenceFK;
     private Long oidRelationship; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -75,14 +75,14 @@ public class JOINRelationshipProjectRelationship {
      * The Full Constructor is the Minimal Constructor
      * 
      */
-    public JOINRelationshipProjectRelationship(Long oidRelationshipProject, 
-    		Long relationshipFK, 
+    public JOINRelationshipProjectRelationship(long oidRelationshipProject, 
+    		long relationshipFK, 
     		String projectFK, 
-    		Long sequenceFK,
+    		long sequenceFK,
     	    Long oidRelationship, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK) {
+    		long childFK, 
+    		long parentFK) {
     	
         this.oidRelationshipProject = oidRelationshipProject;
         this.relationshipFK = relationshipFK; 
@@ -98,13 +98,13 @@ public class JOINRelationshipProjectRelationship {
     public Long getOidRelationshipProject() {
         return oidRelationshipProject;
     }
-    public Long getRelationshipFK() {
+    public long getRelationshipFK() {
         return relationshipFK;
     }
     public String getProjectFK() {
         return projectFK;
     }
-    public Long getSequenceFK() {
+    public long getSequenceFK() {
         return sequenceFK;
     }
 
@@ -114,10 +114,10 @@ public class JOINRelationshipProjectRelationship {
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
@@ -125,13 +125,13 @@ public class JOINRelationshipProjectRelationship {
     public void setOidRelationshipProject(Long oidRelationshipProject) {
         this.oidRelationshipProject = oidRelationshipProject;
     }
-    public void setRelationshipFK(Long relationshipFK) {
+    public void setRelationshipFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
-    public void setSequenceFK(Long sequenceFK) {
+    public void setSequenceFK(long sequenceFK) {
         this.sequenceFK = sequenceFK;
     }
 
@@ -141,10 +141,10 @@ public class JOINRelationshipProjectRelationship {
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 
@@ -154,11 +154,11 @@ public class JOINRelationshipProjectRelationship {
      */
     public boolean isSameAs(JOINRelationshipProjectRelationship daojoinrelationshipprojectrelationship){
 
-    	if ( this.getOidRelationshipProject() == daojoinrelationshipprojectrelationship.getOidRelationshipProject() && 
+    	if ( this.getOidRelationshipProject().equals(daojoinrelationshipprojectrelationship.getOidRelationshipProject()) && 
     		this.getRelationshipFK() == daojoinrelationshipprojectrelationship.getRelationshipFK() && 
     		this.getProjectFK().equals(daojoinrelationshipprojectrelationship.getProjectFK()) && 
     		this.getSequenceFK() == daojoinrelationshipprojectrelationship.getSequenceFK() && 
-    		this.getOidRelationship() == daojoinrelationshipprojectrelationship.getOidRelationship() && 
+    		this.getOidRelationship().equals(daojoinrelationshipprojectrelationship.getOidRelationship()) && 
     		this.getTypeFK().equals(daojoinrelationshipprojectrelationship.getTypeFK()) && 
     		this.getChildFK() == daojoinrelationshipprojectrelationship.getChildFK() && 
     		this.getParentFK() == daojoinrelationshipprojectrelationship.getParentFK() ) {

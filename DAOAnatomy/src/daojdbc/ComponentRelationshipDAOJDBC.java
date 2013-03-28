@@ -159,7 +159,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     /*
      * Returns the daocomponentrelationship from the database matching the given OID, otherwise null.
      */
-    public ComponentRelationship findByOid(Long oid) throws Exception {
+    public ComponentRelationship findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -207,7 +207,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     /*
      * Returns true if the given daocomponentrelationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -413,6 +413,10 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
         Object[] values = { 
         	daocomponentrelationship.getOid() 
         };
+
+        if (daocomponentrelationship.getOid() == null) {
+            throw new IllegalArgumentException("ComponentRelationship is not created yet, so the daocomponentrelationship OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

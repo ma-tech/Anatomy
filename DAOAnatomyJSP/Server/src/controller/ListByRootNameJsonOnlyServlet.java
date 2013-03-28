@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import daolayer.LeafDAO;
+import daointerface.LeafDAO;
 
 import daomodel.Leaf;
 
@@ -32,9 +31,8 @@ public class ListByRootNameJsonOnlyServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.leafDAO = Config.getInstance(getServletContext()).getDAOFactory().getLeafDAO();
+        this.leafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(LeafDAO.class);
     }
-
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -43,15 +41,22 @@ public class ListByRootNameJsonOnlyServlet extends HttpServlet {
         LeafForm leafForm = new LeafForm(leafDAO);
 
         // Process request and get result.
-        List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
-        String leafTree = leafDAO.convertLeafListToStringJsonLines(leafs);
-        
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/html");           
-        response.setHeader("Cache-Control", "no-cache");
-        //System.out.println(leafTree);
-        out.println(leafTree);
+        List<Leaf> leafs;
+		
+        try {
 
+			leafs = leafForm.listLeafsByRootNameByChildDesc(request);
+	        String leafTree = leafDAO.convertLeafListToStringJsonLines(leafs);
+	        
+	        java.io.PrintWriter out = response.getWriter();
+	        response.setContentType("text/html");           
+	        response.setHeader("Cache-Control", "no-cache");
+	        //System.out.println(leafTree);
+	        out.println(leafTree);
+		} 
+        catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
-
 }

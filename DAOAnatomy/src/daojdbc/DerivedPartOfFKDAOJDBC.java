@@ -106,7 +106,6 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
         "JOIN ANA_STAGE c on c.STG_OID = APO_PATH_START_STAGE_FK " +
         "JOIN ANA_STAGE d on d.STG_OID = APO_PATH_END_STAGE_FK " +
         "JOIN ANA_NODE e on e.ANO_OID = APO_NODE_FK " +
-        "FROM ANAD_PART_OF " +
         "WHERE APO_OID = ?";
     
     private static final String SQL_LIST_BY_NODE_FK =
@@ -121,7 +120,6 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
         "JOIN ANA_STAGE c on c.STG_OID = APO_PATH_START_STAGE_FK " +
         "JOIN ANA_STAGE d on d.STG_OID = APO_PATH_END_STAGE_FK " +
         "JOIN ANA_NODE e on e.ANO_OID = APO_NODE_FK " +
-        "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK = ?";
     
     private static final String SQL_EXIST_OID =
@@ -155,7 +153,7 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
     /*
      * Returns the relationship from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOfFK find(Long oid) throws Exception {
+    public DerivedPartOfFK findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -242,7 +240,7 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
     /*
      * Returns true if the given relationship OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -478,8 +476,8 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
        		resultSet.getString("APO_FULL_PATH_OIDS"), 
        		resultSet.getString("APO_FULL_PATH_JSON_HEAD"), 
        		resultSet.getString("APO_FULL_PATH_JSON_TAIL"), 
-       		resultSet.getInt("APO_IS_PRIMARY"), 
-       		resultSet.getInt("APO_IS_PRIMARY_PATH"), 
+       		resultSet.getBoolean("APO_IS_PRIMARY"), 
+       		resultSet.getBoolean("APO_IS_PRIMARY_PATH"), 
        		resultSet.getLong("APO_PARENT_APO_FK")
         );
     }

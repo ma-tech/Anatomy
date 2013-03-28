@@ -46,7 +46,7 @@ public interface ComponentCommentDAO extends BaseDAO {
     /*
      * Returns the daocomponentcomment from the database matching the given OID, otherwise null.
      */
-    public ComponentComment findByOid(Long oid) throws Exception;
+    public ComponentComment findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponentcomments from the database matching the given OBO ID, otherwise null.
@@ -61,7 +61,7 @@ public interface ComponentCommentDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponentcomment OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponentcomment in the database.

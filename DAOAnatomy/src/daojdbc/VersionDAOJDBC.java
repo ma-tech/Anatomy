@@ -139,7 +139,7 @@ public final class VersionDAOJDBC implements VersionDAO {
     /*
      * Returns the version from the database matching the given OID, otherwise null.
      */
-    public Version findByOid(Long oid) throws Exception {
+    public Version findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -163,7 +163,7 @@ public final class VersionDAOJDBC implements VersionDAO {
     /*
      * Returns true if the given version OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -369,6 +369,10 @@ public final class VersionDAOJDBC implements VersionDAO {
         Object[] values = { 
         	version.getOid() 
         };
+
+        if (version.getOid() == null) {
+            throw new IllegalArgumentException("Version is not created yet, so the version OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

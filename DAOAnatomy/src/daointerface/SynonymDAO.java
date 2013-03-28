@@ -45,17 +45,17 @@ public interface SynonymDAO extends BaseDAO {
     /*
      * Returns the Synonym from the database matching the given OID, otherwise null.
      */
-    public Synonym findByOid(Long oid) throws Exception;
+    public Synonym findByOid(long oid) throws Exception;
     
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFKAndSynonym(Long objectFK, String synonym) throws Exception;
+    public List<Synonym> listByObjectFKAndSynonym(long objectFK, String synonym) throws Exception;
     
     /*
      * Returns a list of ALL synonyms by Parent FK, otherwise null.
      */
-    public List<Synonym> listByObjectFK(Long objectFK) throws Exception;
+    public List<Synonym> listByObjectFK(long objectFK) throws Exception;
     
     /*
      * Returns a list of ALL synonyms, otherwise null.
@@ -65,7 +65,7 @@ public interface SynonymDAO extends BaseDAO {
     /*
      * Returns true if the given synonym OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given synonym in the database.

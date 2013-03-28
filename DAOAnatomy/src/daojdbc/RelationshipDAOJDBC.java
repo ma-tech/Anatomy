@@ -162,7 +162,7 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
     /*
      * Returns the Relationship from the database matching the given OID, otherwise null.
      */
-    public Relationship findByOid(Long oid) throws Exception {
+    public Relationship findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -170,7 +170,7 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Parent FK, otherwise null.
      */
-    public List<Relationship> listByParentFK(Long parentFK) throws Exception {
+    public List<Relationship> listByParentFK(long parentFK) throws Exception {
     	
         return list(SQL_LIST_BY_PARENT_FK, parentFK);
     }
@@ -178,7 +178,7 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Child FK, otherwise null.
      */
-    public List<Relationship> listByChildFK(Long childFK) throws Exception {
+    public List<Relationship> listByChildFK(long childFK) throws Exception {
     	
         return list(SQL_LIST_BY_CHILD_FK, childFK);
     }
@@ -186,7 +186,7 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
     /*
      * Returns a list of ALL relationships by Parent FK AND Child FK, otherwise null.
      */
-    public List<Relationship> listByParentFKAndChildFK(Long parentFK, Long childFK) throws Exception {
+    public List<Relationship> listByParentFKAndChildFK(long parentFK, long childFK) throws Exception {
     	
         return list(SQL_LIST_BY_PARENT_FK_AND_CHILD_FK, parentFK, childFK);
     }
@@ -210,7 +210,7 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
     /*
      * Returns true if the given relationship OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -414,6 +414,10 @@ public final class RelationshipDAOJDBC implements RelationshipDAO {
         Object[] values = { 
         	relationship.getOid() 
         };
+
+        if (relationship.getOid() == null) {
+            throw new IllegalArgumentException("Relationship is not created yet, so the relationship OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

@@ -43,8 +43,8 @@ public class DerivedRelationshipTransitive {
 	 */
     private Long oid; 
     private String relTypeFK; 
-    private Long descendantFK; 
-    private Long ancestorFK; 
+    private long descendantFK; 
+    private long ancestorFK; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -62,8 +62,8 @@ public class DerivedRelationshipTransitive {
      */
     public DerivedRelationshipTransitive(Long oid,
     	    String relTypeFK, 
-    	    Long descendantFK, 
-    	    Long ancestorFK) {
+    	    long descendantFK, 
+    	    long ancestorFK) {
     	
     	this.oid = oid;
     	this.relTypeFK = relTypeFK;
@@ -78,10 +78,10 @@ public class DerivedRelationshipTransitive {
     public String getRelTypeFK() {
         return relTypeFK;
     } 
-    public Long getDescendantFK() {
+    public long getDescendantFK() {
         return descendantFK;
     } 
-    public Long getAncestorFK() {
+    public long getAncestorFK() {
         return ancestorFK;
     }
 
@@ -92,10 +92,10 @@ public class DerivedRelationshipTransitive {
     public void setRelTypeFK(String relTypeFK) {
         this.relTypeFK = relTypeFK;
     } 
-    public void setDescendantFK(Long descendantFK) {
+    public void setDescendantFK(long descendantFK) {
         this.descendantFK = descendantFK;
     } 
-    public void setAncestorFK(Long ancestorFK) {
+    public void setAncestorFK(long ancestorFK) {
         this.ancestorFK = ancestorFK;
     }
 

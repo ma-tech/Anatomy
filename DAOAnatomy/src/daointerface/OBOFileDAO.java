@@ -45,12 +45,12 @@ public interface OBOFileDAO extends BaseDAO {
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile find(Long oid) throws Exception;
+    public OBOFile findByOid(long oid) throws Exception;
 
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public OBOFile findWithBinary(Long oid) throws Exception;
+    public OBOFile findWithBinary(long oid) throws Exception;
 
     /*
      * Returns a list of ALL files, otherwise null.
@@ -95,12 +95,12 @@ public interface OBOFileDAO extends BaseDAO {
     /*
      * Returns true if the given obofile OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns the obofile from the database matching the given OID, otherwise null.
      */
-    public Long findMaxOid() throws Exception;
+    public long findMaxOid() throws Exception;
 
     /*
      * Returns list of OBOFiles for Display purposes

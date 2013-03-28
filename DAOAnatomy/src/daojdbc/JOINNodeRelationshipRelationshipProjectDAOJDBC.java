@@ -120,7 +120,7 @@ public final class JOINNodeRelationshipRelationshipProjectDAOJDBC implements JOI
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipRelationshipProject> listAllByChildFK(Long childFK) throws Exception {
+    public List<JOINNodeRelationshipRelationshipProject> listAllByChildFK(long childFK) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD, childFK);
     }
@@ -128,7 +128,7 @@ public final class JOINNodeRelationshipRelationshipProjectDAOJDBC implements JOI
     /*
      * Returns a list of ALL rows, otherwise null.
      */
-    public List<JOINNodeRelationshipRelationshipProject> listAllByChildAndProject(Long childFK, String project) throws Exception {
+    public List<JOINNodeRelationshipRelationshipProject> listAllByChildAndProject(long childFK, String project) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_CHILD_AND_PROJECT, childFK, project);
     }

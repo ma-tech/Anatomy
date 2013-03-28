@@ -44,7 +44,7 @@ public interface SourceDAO extends BaseDAO {
     /*
      * Returns the source from the database matching the given OID, otherwise null.
      */
-    public Source find(Long oid) throws Exception;
+    public Source findByOid(long oid) throws Exception;
 
     /*
      * Returns a list of ALL sources, otherwise null.
@@ -75,7 +75,7 @@ public interface SourceDAO extends BaseDAO {
     /*
      * Returns true if the given source OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns list of Synonyms for Display purposes

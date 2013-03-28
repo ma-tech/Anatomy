@@ -42,10 +42,16 @@ import daomodel.ExtraTimedNode;
 public interface ExtraTimedNodeDAO extends BaseDAO {
     // Actions ------------------------------------------------------------------------------------
     /*
+     * Returns the extratimednode from the database matching the given Oid from TimedNode, 
+     *  otherwise null.
+     */
+    public ExtraTimedNode findByOid(long Oid) throws Exception;
+
+    /*
      * Returns the extratimednode from the database matching the given EMAPA Id and Stage Sequence, 
      *  otherwise null.
      */
-    public ExtraTimedNode findByEmapaAndStage(String emapaId, Long stageSeq) throws Exception;
+    public ExtraTimedNode findByEmapaAndStage(String emapaId, long stageSeq) throws Exception;
 
     /*
      * Returns the extratimednode from the database matching the EMAP ID, otherwise null.
@@ -53,9 +59,14 @@ public interface ExtraTimedNodeDAO extends BaseDAO {
     public ExtraTimedNode findByEmap(String emapId) throws Exception;
 
     /*
+     * Returns true if the given extratimednode Oid exists in the database.
+     */
+    public boolean existOid(long Oid) throws Exception;
+
+    /*
      * Returns true if the given extratimednode EMAPA ID and Stage Seq exists in the database.
      */
-    public boolean existEmapaIdAndStageSeq(String emapaId, Long stageSeq) throws Exception;
+    public boolean existEmapaIdAndStageSeq(String emapaId, long stageSeq) throws Exception;
 
     /*
      * Returns true if the given extratimednode EMAP ID exists in the database.

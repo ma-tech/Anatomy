@@ -46,7 +46,7 @@ public interface ComponentAlternativeDAO extends BaseDAO {
     /*
      * Returns the daocomponentalternative from the database matching the given OID, otherwise null.
      */
-    public ComponentAlternative findByOid(Long oid) throws Exception;
+    public ComponentAlternative findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponentalternative from the database matching the given OBO ID for an AEO Alternative, otherwise null.
@@ -81,7 +81,7 @@ public interface ComponentAlternativeDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponentalternative OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponentalternative in the database.

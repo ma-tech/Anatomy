@@ -44,7 +44,7 @@ public interface EditorDAO extends BaseDAO {
     /*
      * Returns the editor from the database matching the given OID, otherwise null.
      */
-    public Editor find(Long oid) throws Exception;
+    public Editor findByOid(long oid) throws Exception;
 
     /*
      * Returns a list of ALL editors, otherwise null.
@@ -75,7 +75,7 @@ public interface EditorDAO extends BaseDAO {
     /*
      * Returns true if the given editor OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Returns list of Synonyms for Display purposes

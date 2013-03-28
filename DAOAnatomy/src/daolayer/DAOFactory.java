@@ -211,8 +211,8 @@ public abstract class DAOFactory {
         String strMsgLevel = properties.getProperty(PROPERTY_MESSAGE_LEVEL, true);
         String strAccessMethod = properties.getProperty(PROPERTY_ACCESS_METHOD, true);
 
-    	Boolean update = false;
-        Boolean debug = false;
+    	boolean update = false;
+        boolean debug = false;
 
         String level = "";
         String access = "";
@@ -358,8 +358,8 @@ public abstract class DAOFactory {
      *  Package private so that it can be used inside the DAO package only.
      */
     public abstract Connection getConnection() throws SQLException;
-    public abstract Boolean isDebug();
-    public abstract Boolean isUpdate();
+    public abstract boolean isDebug();
+    public abstract boolean isUpdate();
     public abstract String getUrl();
     public abstract String getSqloutput();
     public abstract String getLevel();
@@ -376,13 +376,13 @@ class DriverManagerDAOFactory extends DAOFactory {
 	private String url;
     private String username;
     private String password;
-	private Boolean debug;
-	private Boolean update;
+	private boolean debug;
+	private boolean update;
     private String sqloutput;
     private String level;
     private String access;
 	
-    DriverManagerDAOFactory(String access, String level, Boolean update, Boolean debug, String sqloutput, String url, String username, String password) {
+    DriverManagerDAOFactory(String access, String level, boolean update, boolean debug, String sqloutput, String url, String username, String password) {
     
     	this.url = url;
         this.username = username;
@@ -397,10 +397,10 @@ class DriverManagerDAOFactory extends DAOFactory {
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, username, password);
     }
-    public Boolean isDebug() {
+    public boolean isDebug() {
         return debug;
     }
-    public Boolean isUpdate() {
+    public boolean isUpdate() {
         return update;
     }
     public String getUrl() {
@@ -423,13 +423,13 @@ class DriverManagerDAOFactory extends DAOFactory {
 class DataSourceDAOFactory extends DAOFactory {
   
 	private DataSource dataSource;
-	private Boolean debug;
-	private Boolean update;
+	private boolean debug;
+	private boolean update;
     private String sqloutput;
     private String level;
     private String access;
 
-    DataSourceDAOFactory(String access, String level, Boolean update, Boolean debug, String sqloutput, DataSource dataSource) {
+    DataSourceDAOFactory(String access, String level, boolean update, boolean debug, String sqloutput, DataSource dataSource) {
 
     	this.dataSource = dataSource;
         this.debug = debug;
@@ -442,10 +442,10 @@ class DataSourceDAOFactory extends DAOFactory {
     public Connection getConnection() throws SQLException {
     	return dataSource.getConnection();
     }
-    public Boolean isDebug() {
+    public boolean isDebug() {
         return debug;
     }
-    public Boolean isUpdate() {
+    public boolean isUpdate() {
         return update;
     }
     public String getUrl() {
@@ -470,8 +470,8 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
 	private DataSource dataSource;
     private String username;
     private String password;
-	private Boolean debug;
-	private Boolean update;
+	private boolean debug;
+	private boolean update;
     private String sqloutput;
     private String level;
     private String access;
@@ -479,8 +479,8 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
     DataSourceWithLoginDAOFactory(
     		String access, 
     		String level, 
-    		Boolean update, 
-    		Boolean debug, 
+    		boolean update, 
+    		boolean debug, 
     		String sqloutput, 
     		DataSource dataSource, 
     		String username, 
@@ -499,10 +499,10 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
     public Connection getConnection() throws SQLException {
     	return dataSource.getConnection(username, password);
     }
-    public Boolean isDebug() {
+    public boolean isDebug() {
         return debug;
     }
-    public Boolean isUpdate() {
+    public boolean isUpdate() {
         return update;
     }
     public String getUrl() {

@@ -156,7 +156,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     /*
      * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
      */
-    public DerivedPartOf findByOid(Long oid) throws Exception {
+    public DerivedPartOf findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -172,7 +172,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     /*
      * Returns true if the given derivedpartof OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -295,8 +295,8 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
    			derivedpartof.getFullPathOids(),
    			derivedpartof.getFullPathJsonHead(),
     		derivedpartof.getFullPathJsonTail(),
-    		derivedpartof.getPrimary(),
-    		derivedpartof.getPrimaryPath(),
+    		derivedpartof.isPrimary(),
+    		derivedpartof.isPrimaryPath(),
     		derivedpartof.getParentFK()
     	};
 
@@ -359,8 +359,8 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
        		derivedpartof.getFullPathOids(),
       		derivedpartof.getFullPathJsonHead(),
        		derivedpartof.getFullPathJsonTail(),
-       		derivedpartof.getPrimary(),
-       		derivedpartof.getPrimaryPath(),
+       		derivedpartof.isPrimary(),
+       		derivedpartof.isPrimaryPath(),
         	derivedpartof.getParentFK(),
         	derivedpartof.getOid(),
         };
@@ -412,6 +412,11 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         Object[] values = { 
         	derivedpartof.getOid() 
         };
+
+        if (derivedpartof.getOid() == null) {
+        	
+            throw new IllegalArgumentException("DerivedPartOf is not created yet, so the derivedpartof OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -721,8 +726,8 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
       		resultSet.getString("APO_FULL_PATH_OIDS"), 
        		resultSet.getString("APO_FULL_PATH_JSON_HEAD"), 
        		resultSet.getString("APO_FULL_PATH_JSON_TAIL"), 
-       		resultSet.getInt("APO_IS_PRIMARY"),
-       		resultSet.getInt("APO_IS_PRIMARY_PATH"),
+       		resultSet.getBoolean("APO_IS_PRIMARY"),
+       		resultSet.getBoolean("APO_IS_PRIMARY_PATH"),
        		resultSet.getLong("APO_PARENT_APO_FK")
         );
     }

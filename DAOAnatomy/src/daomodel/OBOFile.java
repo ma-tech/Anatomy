@@ -34,8 +34,9 @@
 package daomodel;
 
 import java.io.InputStream;
+import java.io.Serializable;
 
-public class OBOFile {
+public class OBOFile implements Serializable {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   AOF_OID                 - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -61,19 +62,19 @@ public class OBOFile {
     private String name; 
     private InputStream content; 
     private String contenttype; 
-    private Long contentlength; 
+    private long contentlength; 
     private String contentdate; 
     private String validation;
     private String author;
     private String textreportname; 
     private InputStream textreport;
     private String textreporttype;
-    private Long textreportlength;
+    private long textreportlength;
     private String textreportdate;
     private String pdfreportname; 
     private InputStream pdfreport;
     private String pdfreporttype;
-    private Long pdfreportlength;
+    private long pdfreportlength;
     private String pdfreportdate;
     
     // Constructors -------------------------------------------------------------------------------
@@ -91,7 +92,7 @@ public class OBOFile {
     		String name, 
     		InputStream content,
     		String contenttype,
-    		Long contentlength,
+    		long contentlength,
     		String contentdate,
     		String validation,
     		String author) {
@@ -107,6 +108,28 @@ public class OBOFile {
     }
 
     /*
+     * Minimal constructor. Contains required fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		long contentlength,
+    		String contentdate,
+    		String validation,
+    		String author) {
+    	
+        this.oid = oid;
+        this.name = name; 
+        this.content = null;
+        this.contenttype = contenttype;
+        this.contentlength = contentlength; 
+        this.contentdate = contentdate; 
+        this.validation = validation; 
+        this.author = author; 
+    }
+
+    /*
      * Fuller constructor. 
      *  Contains required and optional fields.
      */
@@ -114,20 +137,47 @@ public class OBOFile {
     		String name, 
     		InputStream content,
     		String contenttype,
-    		Long contentlength,
+    		long contentlength,
     		String contentdate,
     		String validation,
     		String author, 
     		String textreportname, 
     	    InputStream textreport,
     	    String textreporttype,
-    	    Long textreportlength,
+    	    long textreportlength,
     	    String textreportdate) {
 
     	this(oid, name, content, contenttype, contentlength, contentdate, validation, author);
 
     	this.textreportname = textreportname; 
     	this.textreport = textreport; 
+        this.textreporttype = textreporttype; 
+        this.textreportlength = textreportlength; 
+        this.textreportdate = textreportdate; 
+    }
+
+    /*
+     * Fuller constructor. 
+     *  Contains required and optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		long contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    		String textreport,
+    	    String textreporttype,
+    	    long textreportlength,
+    	    String textreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author);
+
+    	this.textreportname = textreportname; 
+    	this.textreport = null; 
         this.textreporttype = textreporttype; 
         this.textreportlength = textreportlength; 
         this.textreportdate = textreportdate; 
@@ -141,19 +191,19 @@ public class OBOFile {
     		String name, 
     		InputStream content,
     		String contenttype,
-    		Long contentlength,
+    		long contentlength,
     		String contentdate,
     		String validation,
     		String author, 
     		String textreportname, 
     	    InputStream textreport,
     	    String textreporttype,
-    	    Long textreportlength,
+    	    long textreportlength,
     	    String textreportdate, 
     		String pdfreportname, 
     	    InputStream pdfreport,
     	    String pdfreporttype,
-    	    Long pdfreportlength,
+    	    long pdfreportlength,
     	    String pdfreportdate) {
 
     	this(oid, name, content, contenttype, contentlength, contentdate, validation, author, textreportname, textreport, textreporttype, textreportlength, textreportdate);
@@ -165,6 +215,37 @@ public class OBOFile {
         this.pdfreportdate = pdfreportdate; 
     }
 
+    /*
+     * Full constructor. 
+     *  Contains required and more optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		long contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    		String textreport,
+    	    String textreporttype,
+    	    long textreportlength,
+    	    String textreportdate, 
+    		String pdfreportname, 
+    		String pdfreport,
+    	    String pdfreporttype,
+    	    long pdfreportlength,
+    	    String pdfreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author, textreportname, textreport, textreporttype, textreportlength, textreportdate);
+
+    	this.pdfreportname = pdfreportname; 
+    	this.pdfreport = null; 
+        this.pdfreporttype = pdfreporttype; 
+        this.pdfreportlength = pdfreportlength; 
+        this.pdfreportdate = pdfreportdate; 
+    }
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -178,7 +259,7 @@ public class OBOFile {
     public String getContenttype() {
         return contenttype;
     }
-    public Long getContentlength() {
+    public long getContentlength() {
         return contentlength;
     }
     public String getContentdate() {
@@ -199,7 +280,7 @@ public class OBOFile {
     public String getTextreporttype() {
         return textreporttype;
     }
-    public Long getTextreportlength() {
+    public long getTextreportlength() {
         return textreportlength;
     }
     public String getTextreportdate() {
@@ -214,7 +295,7 @@ public class OBOFile {
     public String getPdfreporttype() {
         return pdfreporttype;
     }
-    public Long getPdfreportlength() {
+    public long getPdfreportlength() {
         return pdfreportlength;
     }
     public String getPdfreportdate() {
@@ -231,10 +312,13 @@ public class OBOFile {
     public void setContent(InputStream content) {
         this.content = content;
     }
+    public void setContent(String content) {
+        this.content = null;
+    }
     public void setContenttype(String contenttype) {
         this.contenttype = contenttype;
     }
-    public void setContentlength(Long contentlength) {
+    public void setContentlength(long contentlength) {
         this.contentlength = contentlength;
     }
     public void setContentdate(String contentdate) {
@@ -252,10 +336,13 @@ public class OBOFile {
     public void setTextreport(InputStream textreport) {
     	this.textreport = textreport;
     }
+    public void setTextreport(String textreport) {
+    	this.textreport = null;
+    }
     public void setTextreporttype(String textreporttype) {
     	this.textreporttype = textreporttype;
     }
-    public void setTextreportlength(Long textreportlength) {
+    public void setTextreportlength(long textreportlength) {
     	this.textreportlength = textreportlength;
     }
     public void setTextreportdate(String textreportdate) {
@@ -267,10 +354,13 @@ public class OBOFile {
     public void setPdfreport(InputStream pdfreport) {
     	this.pdfreport = pdfreport;
     }
+    public void setPdfreport(String pdfreport) {
+    	this.pdfreport = null;
+    }
     public void setPdfreporttype(String pdfreporttype) {
     	this.pdfreporttype = pdfreporttype;
     }
-    public void setPdfreportlength(Long pdfreportlength) {
+    public void setPdfreportlength(long pdfreportlength) {
     	this.pdfreportlength = pdfreportlength;
     }
     public void setPdfreportdate(String pdfreportdate) {
@@ -284,19 +374,16 @@ public class OBOFile {
     public boolean isSameAs(OBOFile daoobofile){
 
     	if (this.getName().equals(daoobofile.getName()) &&
-    		this.getContent() == daoobofile.getContent() &&
     		this.getContenttype().equals(daoobofile.getContenttype()) &&
     		this.getContentlength() == daoobofile.getContentlength() &&
     		this.getContentdate().equals(daoobofile.getContentdate()) &&
     		this.getValidation().equals(daoobofile.getValidation()) &&
     		this.getAuthor().equals(daoobofile.getAuthor()) &&
     		this.getTextreportname().equals(daoobofile.getTextreportname()) &&
-    		this.getTextreport() == daoobofile.getTextreport() &&
     		this.getTextreporttype().equals(daoobofile.getTextreporttype()) &&
     		this.getTextreportlength() == daoobofile.getTextreportlength() &&
     		this.getTextreportdate().equals(daoobofile.getTextreportdate()) &&
     		this.getPdfreportname().equals(daoobofile.getPdfreportname()) &&
-    		this.getPdfreport() == daoobofile.getPdfreport() &&
     		this.getPdfreporttype().equals(daoobofile.getPdfreporttype()) &&
     		this.getPdfreportlength() == daoobofile.getPdfreportlength() &&
     		this.getPdfreportdate().equals(daoobofile.getPdfreportdate()) ) {

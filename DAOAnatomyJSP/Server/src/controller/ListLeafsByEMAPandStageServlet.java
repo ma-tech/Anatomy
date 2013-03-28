@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolayer.TimedLeafDAO;
+import daointerface.TimedLeafDAO;
 
 import daomodel.TimedLeaf;
 
@@ -33,7 +33,8 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getTimedLeafDAO();
+        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(TimedLeafDAO.class);
+        		//.getTimedLeafDAO();
     }
 
     
@@ -44,23 +45,30 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
         // Process request and get result.
-        String outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
-        
-        if ( outString.equals("SUCCESS!")) {
-            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-            leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
-        }
-        else {
-        	leafTree = outString;
-        }
-        
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/json");           
-        response.setHeader("Cache-Control", "no-cache");
-        
-        //System.out.println(leafTree);
-        out.println(leafTree);
-        
-    }
+        String outString;
 
+        try {
+		
+        	outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
+        	
+            if ( outString.equals("SUCCESS!")) {
+                List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+                leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
+            }
+            else {
+            	leafTree = outString;
+            }
+            
+            java.io.PrintWriter out = response.getWriter();
+            response.setContentType("text/json");           
+            response.setHeader("Cache-Control", "no-cache");
+            
+            //System.out.println(leafTree);
+            out.println(leafTree);
+		} 
+        catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }

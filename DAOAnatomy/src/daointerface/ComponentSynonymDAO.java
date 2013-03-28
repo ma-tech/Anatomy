@@ -44,7 +44,7 @@ public interface ComponentSynonymDAO extends BaseDAO {
     /*
      * Returns the daocomponentsynonym from the database matching the given OID, otherwise null.
      */
-    public ComponentSynonym findByOid(Long oid) throws Exception;
+    public ComponentSynonym findByOid(long oid) throws Exception;
     
     /*
      * Returns the daocomponentsynonyms from the database matching the given OBO ID, otherwise null.
@@ -64,7 +64,7 @@ public interface ComponentSynonymDAO extends BaseDAO {
     /*
      * Returns true if the given daocomponentsynonym OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given daocomponentsynonym in the database.

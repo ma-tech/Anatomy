@@ -48,7 +48,7 @@ public class Thing {
 	 */
     private Long oid; 
     private String creationDateTime; 
-    private Long creatorFK; 
+    private long creatorFK; 
     private String table; 
     private String description; 
 
@@ -65,7 +65,7 @@ public class Thing {
      */
     public Thing(Long oid, 
     		String creationDateTime, 
-    		Long creatorFK,
+    		long creatorFK,
     		String table,
 		    String description) {
     	
@@ -83,7 +83,7 @@ public class Thing {
     public String getCreationDateTime() {
         return creationDateTime;
     }
-    public Long getCreatorFK() {
+    public long getCreatorFK() {
         return creatorFK;
     }
     public String getTable() {
@@ -100,7 +100,7 @@ public class Thing {
     public void setCreationDateTime(String creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
-    public void setCreatorFK(Long creatorFK) {
+    public void setCreatorFK(long creatorFK) {
         this.creatorFK = creatorFK;
     }
     public void setTable(String table) {

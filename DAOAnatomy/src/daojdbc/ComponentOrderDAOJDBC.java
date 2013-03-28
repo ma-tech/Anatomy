@@ -163,7 +163,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
-    public ComponentOrder findByOid(Long oid) throws Exception {
+    public ComponentOrder findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -219,7 +219,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     /*
      * Returns true if the given daocomponentorder OID exists in the database.
      */
-    public boolean existOid(String oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -426,6 +426,11 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         Object[] values = { 
         	daocomponentorder.getOid() 
         };
+
+        if (daocomponentorder.getOid() == null) {
+        	
+            throw new IllegalArgumentException("ComponentOrder is not created yet, so the daocomponentorder OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

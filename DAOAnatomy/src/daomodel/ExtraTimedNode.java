@@ -52,13 +52,13 @@ public class ExtraTimedNode {
      *   4. STAGE_MAX             - varchar(20)
 	 */
     private Long oid; 
-    private Long nodeFK; 
-    private Long stageFK; 
+    private long nodeFK; 
+    private long stageFK; 
     private String stageModifierFK;
     private String publicEmapId;
     private String publicEmapaId;
     private String stageName;
-    private Long stageSeq;
+    private long stageSeq;
     private String stageMinName;
     private String stageMaxName;
 
@@ -73,14 +73,14 @@ public class ExtraTimedNode {
     /*
      * Minimal constructor. Contains required fields.
      */
-    public ExtraTimedNode(Long oid, 
-    		Long nodeFK, 
-    		Long stageFK,
+    public ExtraTimedNode(long oid, 
+    		long nodeFK, 
+    		long stageFK,
     		String stageModifierFK,
     		String publicEmapId,
     		String publicEmapaId,
     		String stageName,
-    		Long stageSeq,
+    		long stageSeq,
     		String stageMinName,
     		String stageMaxName
     		) {
@@ -101,10 +101,10 @@ public class ExtraTimedNode {
     public Long getOid() {
         return oid;
     }
-    public Long getNodeFK() {
+    public long getNodeFK() {
         return nodeFK;
     }
-    public Long getStageFK() {
+    public long getStageFK() {
         return stageFK;
     }
     public String getStageModifierFK() {
@@ -119,7 +119,7 @@ public class ExtraTimedNode {
     public String getStageName() {
         return stageName;
     }
-    public Long getStageSeq() {
+    public long getStageSeq() {
         return stageSeq;
     }
     public String getStageMinName() {
@@ -133,10 +133,10 @@ public class ExtraTimedNode {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setNodeFK(Long nodeFK) {
+    public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
-    public void setStageFK(Long stageFK) {
+    public void setStageFK(long stageFK) {
         this.stageFK = stageFK;
     }
     public void setStageModifierFK(String stageModifierFK) {
@@ -151,7 +151,7 @@ public class ExtraTimedNode {
     public void setStageName(String stageName) {
         this.stageName = stageName;
     }
-    public void setStageSeq(Long stageSeq) {
+    public void setStageSeq(long stageSeq) {
         this.stageSeq = stageSeq;
     }
     public void setStageMinName(String stageMinName) {

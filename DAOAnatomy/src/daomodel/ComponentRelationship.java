@@ -45,8 +45,8 @@ public class ComponentRelationship {
 	 */
     private Long oid;
     private String child;
-    private Long childStart;
-    private Long childStop;
+    private long childStart;
+    private long childStop;
     private String type;
     private String parent;
 
@@ -63,8 +63,8 @@ public class ComponentRelationship {
      */
     public ComponentRelationship(Long oid,
     		String child, 
-    		Long childStart,
-    		Long childStop,
+    		long childStart,
+    		long childStop,
     		String type,
     		String parent) {
     	
@@ -83,10 +83,10 @@ public class ComponentRelationship {
     public String getChild() {
         return this.child;
     }
-    public Long getChildStart() {
+    public long getChildStart() {
         return this.childStart;
     }
-    public Long getChildStop() {
+    public long getChildStop() {
         return this.childStop;
     }
     public String getType() {
@@ -103,10 +103,10 @@ public class ComponentRelationship {
     public void setChild( String child ) {
         this.child = child;
     }
-    public void setChildStart( Long childStart ) {
+    public void setChildStart( long childStart ) {
         this.childStart = childStart;
     }
-    public void setChildStop( Long childStop ) {
+    public void setChildStop( long childStop ) {
         this.childStop = childStop;
     }
     public void setType( String type ) {

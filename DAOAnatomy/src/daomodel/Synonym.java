@@ -41,7 +41,7 @@ public class Synonym {
      *   3. SYN_SYNONYM     - varchar(100)
 	 */
     private Long oid; 
-    private Long thingFK; 
+    private long thingFK; 
     private String name; 
 
     // Constructors -------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ public class Synonym {
      * Minimal constructor. Contains required fields.
      */
     public Synonym(Long oid, 
-    		Long thingFK,
+    		long thingFK,
     	    String name) {
     	
         this.oid = oid;
@@ -68,7 +68,7 @@ public class Synonym {
     public Long getOid() {
         return oid;
     }
-    public Long getThingFK() {
+    public long getThingFK() {
         return thingFK;
     }
     public String getName() {
@@ -79,7 +79,7 @@ public class Synonym {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setThingFK(Long thingFK) {
+    public void setThingFK(long thingFK) {
         this.thingFK = thingFK;
     }
     public void setName(String name) {

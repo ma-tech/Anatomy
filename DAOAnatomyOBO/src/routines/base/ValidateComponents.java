@@ -760,8 +760,8 @@ public class ValidateComponents {
                             	
                         Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                                 "Relation: Stages are out of range! [Start: " +
-                                Integer.toString(obocomponent.getStartSequence()) + ", Ends: " +
-                                Integer.toString(obocomponent.getEndSequence()) + "]", "*", this.requestMsgLevel);
+                                obocomponent.getStartSequence() + ", Ends: " +
+                                obocomponent.getEndSequence() + "]", "*", this.requestMsgLevel);
 
                         obocomponent.setFlagMissingRel(true);
                         obocomponent.setCheckComment("Relation: starts_at, ends_at " +
@@ -869,7 +869,7 @@ public class ValidateComponents {
                         if ( !( ( parent.getStartSequence() <= child.getStartSequence() ) &&
     			                ( parent.getEndSequence() >= child.getEndSequence() ) ) ) {
                         	
-                        	if ( !parent.getIsGroup() ) {
+                        	if ( !parent.isGroup() ) {
                         		
                                 obocomponent.setFlagLifeTime(true);
                                 obocomponent.setStatusRule("FAILED");
@@ -1027,8 +1027,7 @@ public class ValidateComponents {
                         String[] arrayFirstWord =
                                 arrOrderComments[i].split(" ");
                         
-                        if ( Integer.parseInt(arrayFirstWord[0]) >
-                                intMaxOrder ){
+                        if ( Integer.parseInt(arrayFirstWord[0]) > intMaxOrder ){
                         	
                             intMaxOrder = Integer.parseInt(arrayFirstWord[0]);
                             //System.out.println("max seq = " + intMaxOrder);
@@ -1082,8 +1081,7 @@ public class ValidateComponents {
                     
                     	//an order that matches i
                         String strOrder = 
-                                childrenOrder.get(k).substring(0,
-                                Integer.toString(i).length());
+                                childrenOrder.get(k).substring(0, Integer.toString(i).length());
                         
                         if ( strOrder.equals(Integer.toString(i)) ){
                         
@@ -1155,7 +1153,7 @@ public class ValidateComponents {
             
                 OBOComponent parentcomponent = tree.getComponent(parent);
                 
-                if ( parentcomponent.getIsPrimary() ) {
+                if ( parentcomponent.isPrimary() ) {
 
                     primaryParents++;
                     primaryParentsList.add( parentcomponent.toString() );
@@ -1286,7 +1284,7 @@ public class ValidateComponents {
                             
                             	proposed.setCheckComment( diff );
                             	
-                                Wrapper.printMessage("validatecomponents.checkChanges:Comments diff = " + diff + "!", "*", this.requestMsgLevel);
+                                Wrapper.printMessage("validatecomponents.checkChanges:Comments diff = " + diff + "!", "***", this.requestMsgLevel);
                            }
                             
                         	this.changesTermList.add(proposed);

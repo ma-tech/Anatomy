@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/oboedit.jar"/>
 	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/org.geneontology.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

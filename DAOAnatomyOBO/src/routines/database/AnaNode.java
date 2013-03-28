@@ -217,7 +217,7 @@ public class AnaNode {
                 	strANO_SPECIES_FK = strSpecies;
                 	strANO_COMPONENT_NAME = component.getName();
                    
-                	if (component.getIsPrimary() ) {
+                	if (component.isPrimary() ) {
                 	
                 		boolANO_IS_PRIMARY = true;
                 		boolANO_IS_GROUP = false;
@@ -239,7 +239,7 @@ public class AnaNode {
                    
                 	if (strANO_SPECIES_FK.equals("mouse")) {
                	   
-                    	strANO_PUBLIC_ID = "EMAPA:" + Integer.toString( intCurrentPublicID );
+                    	strANO_PUBLIC_ID = "EMAPA:" + intCurrentPublicID;
                 		strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
 
                 		/*
@@ -250,12 +250,12 @@ public class AnaNode {
                 	}
                 	else if (strANO_SPECIES_FK.equals("chick")) {
                 	
-                		strANO_PUBLIC_ID = "ECAPA:" + Integer.toString( intCurrentPublicID );
+                		strANO_PUBLIC_ID = "ECAPA:" + intCurrentPublicID;
                 		strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
                 	}
                 	else if (strANO_SPECIES_FK.equals("human")) {
                 	
-                		strANO_PUBLIC_ID = "EHDAA:" + Integer.toString( intCurrentPublicID );
+                		strANO_PUBLIC_ID = "EHDAA:" + intCurrentPublicID;
                 		strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
                 	}
                 	else {
@@ -637,8 +637,8 @@ public class AnaNode {
 
                 	Node node = this.nodeDAO.findByPublicId(component.getID());
                     
-                 	node.setGroup(!component.getIsPrimary());
-                	node.setPrimary(component.getIsPrimary());
+                 	node.setGroup(!component.isPrimary());
+                	node.setPrimary(component.isPrimary());
 
                 	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
                 		
@@ -665,7 +665,7 @@ public class AnaNode {
 
     
     //  Set Database OIDs into a list of components
-    public Boolean setDatabaseOIDs( ArrayList<OBOComponent> termList, String calledFrom )  throws Exception {
+    public boolean setDatabaseOIDs( ArrayList<OBOComponent> termList, String calledFrom )  throws Exception {
 
         Wrapper.printMessage("ananode.setDatabaseOIDs : " + calledFrom, "***", this.requestMsgLevel);
         	

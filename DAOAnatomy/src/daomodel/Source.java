@@ -46,7 +46,7 @@ public class Source {
     private String name; 
     private String authors; 
     private String formatFK;
-    private Long year;
+    private long year;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -63,7 +63,7 @@ public class Source {
     	    String name,
     	    String authors, 
     	    String formatFK,
-    	    Long year) {
+    	    long year) {
     	
         this.oid = oid;
 	    this.name = name;
@@ -85,7 +85,7 @@ public class Source {
     public String getFormatFK() {
         return formatFK;
     }
-    public Long getYear() {
+    public long getYear() {
         return year;
     }
 
@@ -102,7 +102,7 @@ public class Source {
     public void setFormatFK(String formatFK) {
         this.formatFK = formatFK;
     }
-    public void setYear(Long year) {
+    public void setYear(long year) {
         this.year = year;
     }
 
@@ -140,7 +140,7 @@ public class Source {
      */
     public String toString() {
       
-    	return String.format("Source [ oid=%d, name=%s, authors=%s, formatFK=%d, year=%d ]", 
+    	return String.format("Source [ oid=%d, name=%s, authors=%s, formatFK=%s, year=%d ]", 
             oid, name, authors, formatFK, year); 
     }
 }

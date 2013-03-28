@@ -146,7 +146,7 @@ public final class ThingDAOJDBC implements ThingDAO {
     }
 
     /*
-     * Returns the maximum EMAPA id.
+     * Returns the maximum Oid.
      */
     public int maximumOid() throws Exception {
     	
@@ -156,7 +156,7 @@ public final class ThingDAOJDBC implements ThingDAO {
     /*
      * Returns the Thing from the database matching the given OID, otherwise null.
      */
-    public Thing findByOid(Long oid) throws Exception {
+    public Thing findByOid(long oid) throws Exception {
     	
         return find(SQL_FIND_BY_OID, oid);
     }
@@ -172,7 +172,7 @@ public final class ThingDAOJDBC implements ThingDAO {
     /*
      * Returns true if the given thing OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception {
+    public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
     }
@@ -380,6 +380,10 @@ public final class ThingDAOJDBC implements ThingDAO {
         Object[] values = { 
         	thing.getOid() 
         };
+
+        if (thing.getOid() == null) {
+            throw new IllegalArgumentException("Thing is not created yet, so the thing OID cannot be null.");
+        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;

@@ -67,19 +67,19 @@ public class JOINNodeRelationshipNode {
     private Long AoidNode; 
     private String AspeciesFK; 
     private String AcomponentName; 
-    private Boolean Aprimary;
-    private Boolean Agroup;
+    private boolean Aprimary;
+    private boolean Agroup;
     private String ApublicId; 
     private String Adescription; 
     private Long oidRelationship; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
     private Long BoidNode; 
     private String BspeciesFK; 
     private String BcomponentName; 
-    private Boolean Bprimary;
-    private Boolean Bgroup;
+    private boolean Bprimary;
+    private boolean Bgroup;
     private String BpublicId; 
     private String Bdescription; 
 
@@ -94,22 +94,22 @@ public class JOINNodeRelationshipNode {
     /*
      * Minimal constructor. Contains required fields.
      */
-    public JOINNodeRelationshipNode(Long AoidNode, 
+    public JOINNodeRelationshipNode(long AoidNode, 
     	    String AspeciesFK,
     	    String AcomponentName, 
-    	    Boolean Aprimary,
-    	    Boolean Agroup,
+    	    boolean Aprimary,
+    	    boolean Agroup,
     	    String ApublicId,
     	    String Adescription,
     	    Long oidRelationship, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK,
+    		long childFK, 
+    		long parentFK,
     		Long BoidNode, 
     	    String BspeciesFK,
     	    String BcomponentName, 
-    	    Boolean Bprimary,
-    	    Boolean Bgroup,
+    	    boolean Bprimary,
+    	    boolean Bgroup,
     	    String BpublicId,
     	    String Bdescription) {
     	
@@ -143,10 +143,10 @@ public class JOINNodeRelationshipNode {
     public String getAComponentName() {
         return AcomponentName;
     }
-    public Boolean isAPrimary() {
+    public boolean isAPrimary() {
         return Aprimary;
     }
-    public Boolean isAGroup() {
+    public boolean isAGroup() {
         return Agroup;
     }
     public String getAPublicId() {
@@ -162,10 +162,10 @@ public class JOINNodeRelationshipNode {
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
@@ -178,10 +178,10 @@ public class JOINNodeRelationshipNode {
     public String getBComponentName() {
         return BcomponentName;
     }
-    public Boolean isBPrimary() {
+    public boolean isBPrimary() {
         return Bprimary;
     }
-    public Boolean isBGroup() {
+    public boolean isBGroup() {
         return Bgroup;
     }
     public String getBPublicId() {
@@ -201,10 +201,10 @@ public class JOINNodeRelationshipNode {
     public void getAComponentName(String AcomponentName) {
         this.AcomponentName = AcomponentName;
     }
-    public void setAPrimary(Boolean Aprimary) {
+    public void setAPrimary(boolean Aprimary) {
         this.Aprimary = Aprimary;
     }
-    public void setAGroup(Boolean Agroup) {
+    public void setAGroup(boolean Agroup) {
         this.Agroup = Agroup;
     }
     public void setAPublicId(String ApublicId) {
@@ -220,10 +220,10 @@ public class JOINNodeRelationshipNode {
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 
@@ -236,10 +236,10 @@ public class JOINNodeRelationshipNode {
     public void getBComponentName(String BcomponentName) {
         this.BcomponentName = BcomponentName;
     }
-    public void setBPrimary(Boolean Bprimary) {
+    public void setBPrimary(boolean Bprimary) {
         this.Bprimary = Bprimary;
     }
-    public void setBGroup(Boolean Bgroup) {
+    public void setBGroup(boolean Bgroup) {
         this.Bgroup = Bgroup;
     }
     public void setBPublicId(String BpublicId) {
@@ -255,18 +255,18 @@ public class JOINNodeRelationshipNode {
      */
     public boolean isSameAs(JOINNodeRelationshipNode daojoinnoderelationshipnode){
 
-    	if ( this.getAOidNode() == daojoinnoderelationshipnode.getAOidNode() &&
+    	if ( this.getAOidNode().equals(daojoinnoderelationshipnode.getAOidNode()) &&
     		this.getASpeciesFK().equals(daojoinnoderelationshipnode.getASpeciesFK()) &&
     		this.getAComponentName().equals(daojoinnoderelationshipnode.getAComponentName()) &&
     		this.isAPrimary() == daojoinnoderelationshipnode.isAPrimary() &&
     		this.isAGroup() == daojoinnoderelationshipnode.isAGroup() &&
     		this.getAPublicId().equals(daojoinnoderelationshipnode.getAPublicId()) &&
     		this.getADescription().equals(daojoinnoderelationshipnode.getADescription()) &&
-    		this.getOidRelationship() == daojoinnoderelationshipnode.getOidRelationship() &&
+    		this.getOidRelationship().equals(daojoinnoderelationshipnode.getOidRelationship()) &&
     		this.getTypeFK().equals(daojoinnoderelationshipnode.getTypeFK()) &&
     		this.getChildFK() == daojoinnoderelationshipnode.getChildFK() &&
     		this.getParentFK() == daojoinnoderelationshipnode.getParentFK() &&
-    		this.getBOidNode() == daojoinnoderelationshipnode.getBOidNode() &&
+    		this.getBOidNode().equals(daojoinnoderelationshipnode.getBOidNode()) &&
     		this.getBSpeciesFK().equals(daojoinnoderelationshipnode.getBSpeciesFK()) &&
     		this.getBComponentName().equals(daojoinnoderelationshipnode.getBComponentName()) &&
     		this.isBPrimary() == daojoinnoderelationshipnode.isBPrimary() &&

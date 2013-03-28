@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import daolayer.TimedLeafDAO;
+import daointerface.TimedLeafDAO;
 
 import daomodel.TimedLeaf;
 
@@ -32,9 +31,8 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
     // HttpServlet actions ------------------------------------------------------------------------
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
-        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getTimedLeafDAO();
+        this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(TimedLeafDAO.class);
     }
-
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -43,13 +41,22 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
         
         // Process request and get result.
-        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-        String leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
-        
-        java.io.PrintWriter out = response.getWriter();
-        response.setContentType("text/json");           
-        response.setHeader("Cache-Control", "no-cache");
-        //System.out.println(leafTree);
-        out.println(leafTree);
+        List<TimedLeaf> timedleafs;
+		
+        try {
+		
+        	timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+	        String leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
+	        
+	        java.io.PrintWriter out = response.getWriter();
+	        response.setContentType("text/json");           
+	        response.setHeader("Cache-Control", "no-cache");
+	        //System.out.println(leafTree);
+	        out.println(leafTree);
+		} 
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

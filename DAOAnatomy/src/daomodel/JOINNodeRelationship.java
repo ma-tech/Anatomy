@@ -58,14 +58,14 @@ public class JOINNodeRelationship {
     private Long oidNode; 
     private String speciesFK; 
     private String componentName; 
-    private Boolean primary;
-    private Boolean group;
+    private boolean primary;
+    private boolean group;
     private String publicId; 
     private String description; 
-    private Long oidRelationship; 
+    private long oidRelationship; 
     private String typeFK; 
-    private Long childFK; 
-    private Long parentFK;
+    private long childFK; 
+    private long parentFK;
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -81,14 +81,14 @@ public class JOINNodeRelationship {
     public JOINNodeRelationship(Long oidNode, 
     	    String speciesFK,
     	    String componentName, 
-    	    Boolean primary,
-    	    Boolean group,
+    	    boolean primary,
+    	    boolean group,
     	    String publicId,
     	    String description,
-    	    Long oidRelationship, 
+    	    long oidRelationship, 
     		String typeFK, 
-    		Long childFK, 
-    		Long parentFK) {
+    		long childFK, 
+    		long parentFK) {
     	
         this.oidNode = oidNode;
 	    this.speciesFK = speciesFK;
@@ -113,10 +113,10 @@ public class JOINNodeRelationship {
     public String getComponentName() {
         return componentName;
     }
-    public Boolean isPrimary() {
+    public boolean isPrimary() {
         return primary;
     }
-    public Boolean isGroup() {
+    public boolean isGroup() {
         return group;
     }
     public String getPublicId() {
@@ -126,16 +126,16 @@ public class JOINNodeRelationship {
         return description;
     }
     
-    public Long getOidRelationship() {
+    public long getOidRelationship() {
         return oidRelationship;
     }
     public String getTypeFK() {
         return typeFK;
     }
-    public Long getChildFK() {
+    public long getChildFK() {
         return childFK;
     }
-    public Long getParentFK() {
+    public long getParentFK() {
         return parentFK;
     }
 
@@ -149,10 +149,10 @@ public class JOINNodeRelationship {
     public void getComponentName(String componentName) {
         this.componentName = componentName;
     }
-    public void setPrimary(Boolean primary) {
+    public void setPrimary(boolean primary) {
         this.primary = primary;
     }
-    public void setGroup(Boolean group) {
+    public void setGroup(boolean group) {
         this.group = group;
     }
     public void setPublicId(String publicId) {
@@ -162,16 +162,16 @@ public class JOINNodeRelationship {
         this.description = description;
     }
     
-    public void setOidRelationship(Long oidRelationship) {
+    public void setOidRelationship(long oidRelationship) {
         this.oidRelationship = oidRelationship;
     }
     public void SetTypeFK(String typeFK) {
         this.typeFK = typeFK;
     }
-    public void setChildFK(Long childFK) {
+    public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
-    public void getParentFK(Long parentFK) {
+    public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
 
@@ -181,7 +181,7 @@ public class JOINNodeRelationship {
      */
     public boolean isSameAs(JOINNodeRelationship daojoinoderelationship){
 
-    	if ( this.getOidNode() == daojoinoderelationship.getOidNode() &&
+    	if ( this.getOidNode().equals(daojoinoderelationship.getOidNode()) &&
     		this.getSpeciesFK().equals(daojoinoderelationship.getSpeciesFK()) &&
     		this.getComponentName().equals(daojoinoderelationship.getComponentName()) &&
     		this.isPrimary() == daojoinoderelationship.isPrimary() &&

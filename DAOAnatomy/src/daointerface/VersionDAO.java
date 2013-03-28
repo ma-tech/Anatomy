@@ -44,7 +44,7 @@ public interface VersionDAO extends BaseDAO {
     /*
      * Returns the version from the database matching the given OID, otherwise null.
      */
-    public Version findByOid(Long oid) throws Exception;
+    public Version findByOid(long oid) throws Exception;
     
     /*
      * Returns the version from the database matching the given OID, otherwise null.
@@ -59,7 +59,7 @@ public interface VersionDAO extends BaseDAO {
     /*
      * Returns true if the given version OID exists in the database.
      */
-    public boolean existOid(Long oid) throws Exception;
+    public boolean existOid(long oid) throws Exception;
 
     /*
      * Save the given version in the database.

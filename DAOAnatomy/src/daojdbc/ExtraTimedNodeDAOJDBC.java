@@ -44,6 +44,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import daomodel.Editor;
 import daomodel.ExtraTimedNode;
 
 import daointerface.ExtraTimedNodeDAO;
@@ -134,8 +135,20 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         "JOIN ANA_STAGE e ON ANAV_STAGE_MAX = e.STG_SEQUENCE " +
         "WHERE a.ATN_PUBLIC_ID = ? ";
             
+    private static final String SQL_FIND_BY_OID =
+        "SELECT a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, " +
+        "b.ANO_PUBLIC_ID, c.STG_NAME, c.STG_SEQUENCE, " +
+        "d.STG_NAME AS STAGE_MIN, e.STG_NAME AS STAGE_MAX " +
+        "FROM ANA_TIMED_NODE a " +
+        "JOIN ANAV_STAGE_RANGE ON ANAV_NODE_FK = a.ATN_NODE_FK " +
+        "JOIN ANA_NODE b ON b.ANO_OID = a.ATN_NODE_FK " +
+        "JOIN ANA_STAGE c ON c.STG_OID = a.ATN_STAGE_FK " +
+        "JOIN ANA_STAGE d ON ANAV_STAGE_MIN = d.STG_SEQUENCE " +
+        "JOIN ANA_STAGE e ON ANAV_STAGE_MAX = e.STG_SEQUENCE " +
+        "WHERE a.ATN_OID = ? ";
+                
     private static final String SQL_EXIST_EMAP =
-        "SELECT ATN_OID " +
+        "SELECT a.ATN_OID " +
         "FROM ANA_TIMED_NODE a " +
         "JOIN ANAV_STAGE_RANGE ON ANAV_NODE_FK = a.ATN_NODE_FK " +
         "JOIN ANA_NODE b ON b.ANO_OID = a.ATN_NODE_FK " +
@@ -168,10 +181,18 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
 	}
     
     /*
+     * Returns the extratimednode from the database matching the given OID, otherwise null.
+     */
+    public ExtraTimedNode findByOid(long oid) throws Exception {
+    	
+        return find(SQL_FIND_BY_OID, oid);
+    }
+
+    /*
      * Returns the extratimednode from the database matching the given EMAPA Id and Stage Sequence, 
      *  otherwise null.
      */
-    public ExtraTimedNode findByEmapaAndStage(String emapaId, Long stageSeq) throws Exception {
+    public ExtraTimedNode findByEmapaAndStage(String emapaId, long stageSeq) throws Exception {
     	
         return find(SQL_FIND_BY_EMAPA_AND_STAGE, emapaId, stageSeq);
     }
@@ -222,7 +243,15 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
     /*
      * Returns true if the given extratimednode EMAPA ID and Stage Seq exists in the database.
      */
-    public boolean existEmapaIdAndStageSeq(String emapaId, Long stageSeq) throws Exception {
+    public boolean existOid(long Oid) throws Exception {
+    	
+        return exist(SQL_FIND_BY_OID, Oid);
+    }
+
+    /*
+     * Returns true if the given extratimednode EMAPA ID and Stage Seq exists in the database.
+     */
+    public boolean existEmapaIdAndStageSeq(String emapaId, long stageSeq) throws Exception {
     	
         return exist(SQL_EXIST_EMAPA_AND_STAGE, emapaId, stageSeq);
     }

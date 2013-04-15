@@ -61,7 +61,7 @@ import daomodel.Component;
 //import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
 //import daomodel.JOINTimedNodeStage;
 //import daomodel.Leaf;
-//import daomodel.Log;
+import daomodel.Log;
 //import daomodel.Node;
 //import daomodel.OBOFile;
 //import daomodel.PerspectiveAmbit;
@@ -103,22 +103,7 @@ import daointerface.ComponentDAO;
 //import daointerface.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
 //import daointerface.JOINTimedNodeStageDAO;
 //import daointerface.LeafDAO;
-//import daointerface.LogDAO;
-//import daointerface.NodeDAO;
-//import daointerface.OBOFileDAO;
-//import daointerface.PerspectiveAmbitDAO;
-//import daointerface.ProjectDAO;
-//import daointerface.RelationshipDAO;
-//import daointerface.RelationshipProjectDAO;
-//import daointerface.SourceDAO;
-//import daointerface.StageDAO;
-//import daointerface.StageRangeDAO;
-//import daointerface.SynonymDAO;
-//import daointerface.ThingDAO;
-//import daointerface.TimedLeafDAO;
-//import daointerface.TimedNodeDAO;
-//import daointerface.UserDAO;
-//import daointerface.VersionDAO;
+import daointerface.LogDAO;
 
 public class RunDAOList {
 
@@ -129,6 +114,20 @@ public class RunDAOList {
 	        Wrapper.printMessage("RunDAOList.run", "*", "*");
 
 	        // Obtain DAOs.
+	        LogDAO logDAO = daofactory.getDAOImpl(LogDAO.class);
+	        
+	        /*
+	        List<Log> logList = logDAO.display(0, 10, "oid", true, "", "");
+	        Iterator<Log> iteratorLog = logList.iterator();
+
+        	while (iteratorLog.hasNext()) {
+        		
+        		Log log = iteratorLog.next();
+        		
+		        System.out.println(log.toStringJava());
+        	}
+        	*/
+
 	        ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
 	        
 	        Wrapper.printMessage("RunDAOList.run : Component: ", "*", "*");
@@ -143,6 +142,7 @@ public class RunDAOList {
 		        System.out.println(component.toStringJava());
         	}
 
+        	/*
 	        if ( componentDAO.listAll().size() == componentDAO.listAllOrderByEMAPA().size() ){
 	        
 	        	System.out.println("componentDAO.listAll().size() (" + componentDAO.listAll().size() + 
@@ -175,6 +175,7 @@ public class RunDAOList {
 	        	System.out.println("componentDAO.countAll() (" + componentDAO.countAll() + 
 	        			") != componentDAO.count(\"EMAPA:77777\", \"BANANA\") (" + componentDAO.count("EMAPA:77777", "BANANA") + ")");
 	        }
+	        */
 	        		
 
         	

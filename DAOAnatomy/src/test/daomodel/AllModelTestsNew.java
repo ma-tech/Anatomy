@@ -3,6 +3,7 @@ package test.daomodel;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
  
 @RunWith (Suite.class)
 @SuiteClasses (
@@ -12,7 +13,7 @@ import org.junit.runners.Suite.SuiteClasses;
     	   ComponentRelationshipTest.class,
     	   ComponentSynonymTest.class,
     	   EditorTest.class,
-    	   ExtraTimedNodeTest.class,
+    	   LogTest.class,
     	   NodeTest.class,
     	   OBOFileTest.class,
     	   PerspectiveAmbitTest.class,

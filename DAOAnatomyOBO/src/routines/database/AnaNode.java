@@ -55,30 +55,30 @@ import routines.base.TreeBuilder;
 import utility.Wrapper;
 import utility.MySQLDateTime;
 
-import daointerface.NodeDAO;
-import daointerface.ThingDAO;
-import daointerface.LogDAO;
-import daointerface.VersionDAO;
 import daointerface.ComponentAlternativeDAO;
 import daointerface.ComponentCommentDAO;
 import daointerface.ComponentDAO;
 import daointerface.ComponentOrderDAO;
 import daointerface.ComponentRelationshipDAO;
 import daointerface.ComponentSynonymDAO;
+import daointerface.LogDAO;
+import daointerface.NodeDAO;
+import daointerface.ThingDAO;
+import daointerface.VersionDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daomodel.Node;
-import daomodel.Log;
-import daomodel.Thing;
-import daomodel.Version;
 import daomodel.Component;
 import daomodel.ComponentAlternative;
 import daomodel.ComponentComment;
 import daomodel.ComponentOrder;
 import daomodel.ComponentRelationship;
 import daomodel.ComponentSynonym;
+import daomodel.Log;
+import daomodel.Node;
+import daomodel.Thing;
+import daomodel.Version;
 
 import obomodel.OBOComponent;
 

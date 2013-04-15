@@ -42,8 +42,8 @@ import java.util.Iterator;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
 import daointerface.NodeDAO;
+import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
 
 import daomodel.Thing;

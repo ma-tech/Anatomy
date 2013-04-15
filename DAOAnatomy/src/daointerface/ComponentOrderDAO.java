@@ -37,6 +37,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.ComponentOrder;
 
 public interface ComponentOrderDAO extends BaseDAO {

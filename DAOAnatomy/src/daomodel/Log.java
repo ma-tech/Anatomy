@@ -43,7 +43,7 @@ public class Log {
      *   5.  LOG_OLD_VALUE   => varchar(255)
      *   6.  LOG_COMMENTS    => varchar(255)
      *   7.  LOG_DATETIME    => datetime
-     *   7.  LOG_TABLE       => varchar(255)
+     *   8.  LOG_TABLE       => varchar(255)
 	 */
     private Long oid; 
     private long loggedOid; 
@@ -178,4 +178,14 @@ public class Log {
         return String.format("Log [ oid=%d, loggedOid=%d, versionFK=%d, columnName=%s, oldValue=%s, comments=%s, datetime=%s, table=%s ]", 
         		oid, loggedOid, versionFK, columnName, oldValue, comments, datetime, table);
     }
+    
+    /*
+     * Returns the Java Object String representation of this Component.
+     */
+    public String toStringJava() {
+    	
+        return String.format("log%d = new Log( (long) %d, (long) %d, (long) %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\" );", 
+        		oid, oid, loggedOid, versionFK, columnName, oldValue, comments, datetime, table );
+    }
+
 }

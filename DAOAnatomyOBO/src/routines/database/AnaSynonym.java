@@ -41,18 +41,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import daointerface.LogDAO;
 import daointerface.SynonymDAO;
 import daointerface.ThingDAO;
 import daointerface.VersionDAO;
-import daointerface.LogDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
+import daomodel.Log;
 import daomodel.Synonym;
 import daomodel.Thing;
 import daomodel.Version;
-import daomodel.Log;
 
 import obomodel.OBOComponent;
 

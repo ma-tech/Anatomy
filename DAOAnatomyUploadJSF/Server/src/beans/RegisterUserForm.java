@@ -1,5 +1,7 @@
 package beans;
 
+import webapp.Config;
+import daointerface.UserDAO;
 import daolayer.DAOException;
 
 import daomodel.User;
@@ -11,6 +13,11 @@ import daomodel.User;
  * @link http://balusc.blogspot.com/2008/07/dao-tutorial-use-in-jsf.html
  */
 public class RegisterUserForm extends AbstractUserForm {
+
+    /*
+     * The User DAO associated with the User Form.
+     */
+    protected final UserDAO userDAO = Config.getInstance().getDAOFactory().getDAOImpl(UserDAO.class);
 
     // Properties ---------------------------------------------------------------------------------
     private User user = new User();

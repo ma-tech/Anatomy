@@ -37,6 +37,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.ComponentSynonym;
 
 public interface ComponentSynonymDAO extends BaseDAO {

@@ -38,6 +38,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.JOINNodeRelationshipRelationshipProject;
 
 public interface JOINNodeRelationshipRelationshipProjectDAO extends BaseDAO {

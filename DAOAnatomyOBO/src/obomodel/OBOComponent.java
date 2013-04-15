@@ -2735,7 +2735,7 @@ public class OBOComponent {
      */
     public String toString() {
     	
-        return String.format("\nOBOComponent [ id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%d ]", 
+        return String.format("\nOBOComponent [ id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%b ]", 
         		id, name, statusChange, statusRule, dbID, newid, namespace, group, start, end, present);
     }
 }

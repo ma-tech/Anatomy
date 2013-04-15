@@ -92,6 +92,7 @@ import routines.base.Parser;
 import routines.base.ValidateComponents;
 
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
+import routines.aggregated.LoadOBOFileIntoComponentsTables;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -162,6 +163,9 @@ public class RunExtractOBOAndValidate {
         	        	
         	//Wrapper.printMessage("componentList.size()   = " + componentList.size(), "*", "*");
 
+    	    //import Obo File from obo.properties, file.oboinfile
+            LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, componentList);
+            
 
             //import Database from dao.properties, anatomy008.url
             ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );

@@ -37,6 +37,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.Project;
 
 public interface ProjectDAO extends BaseDAO {

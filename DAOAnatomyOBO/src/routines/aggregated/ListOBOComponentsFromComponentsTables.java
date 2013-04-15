@@ -36,22 +36,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import daointerface.ComponentDAO;
-import daointerface.ComponentRelationshipDAO;
-import daointerface.ComponentCommentDAO;
-import daointerface.ComponentOrderDAO;
-import daointerface.ComponentSynonymDAO;
 import daointerface.ComponentAlternativeDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentSynonymDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
 import daomodel.Component;
-import daomodel.ComponentRelationship;
+import daomodel.ComponentAlternative;
 import daomodel.ComponentComment;
 import daomodel.ComponentOrder;
+import daomodel.ComponentRelationship;
 import daomodel.ComponentSynonym;
-import daomodel.ComponentAlternative;
 
 import obolayer.OBOFactory;
 

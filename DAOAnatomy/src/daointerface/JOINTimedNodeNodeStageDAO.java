@@ -38,6 +38,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.JOINTimedNodeNodeStage;
 
 public interface JOINTimedNodeNodeStageDAO extends BaseDAO {

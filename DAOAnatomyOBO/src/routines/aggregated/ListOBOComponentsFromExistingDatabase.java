@@ -39,23 +39,23 @@ import java.util.Iterator;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daointerface.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
-import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
-import daointerface.JOINTimedNodeStageDAO;
-import daointerface.JOINTimedNodeNodeStageDAO;
-import daointerface.NodeDAO;
-import daointerface.TimedNodeDAO;
-import daointerface.SynonymDAO;
 import daointerface.ComponentAlternativeDAO;
+import daointerface.NodeDAO;
+import daointerface.SynonymDAO;
+import daointerface.TimedNodeDAO;
+import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
+import daointerface.JOINTimedNodeNodeStageDAO;
+import daointerface.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
+import daointerface.JOINTimedNodeStageDAO;
 
-import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
-import daomodel.JOINNodeRelationshipRelationshipProject;
-import daomodel.JOINTimedNodeStage;
-import daomodel.JOINTimedNodeNodeStage;
-import daomodel.Node;
-import daomodel.TimedNode;
-import daomodel.Synonym;
 import daomodel.ComponentAlternative;
+import daomodel.Node;
+import daomodel.Synonym;
+import daomodel.TimedNode;
+import daomodel.JOINNodeRelationshipRelationshipProject;
+import daomodel.JOINTimedNodeNodeStage;
+import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
+import daomodel.JOINTimedNodeStage;
 
 import obolayer.OBOFactory;
 

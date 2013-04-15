@@ -33,13 +33,20 @@ package main.archive;
 
 import utility.Wrapper;
 
+import java.util.List;
+import java.util.ArrayList;
+
+import obolayer.ComponentOBO;
 import obolayer.OBOFactory;
+
+import obomodel.OBOComponent;
 
 import daolayer.DAOFactory;
 
 import daointerface.ThingDAO;
 
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
+
 
 public class MainLoadOBOFileIntoComponentsTables {
 
@@ -56,7 +63,14 @@ public class MainLoadOBOFileIntoComponentsTables {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            LoadOBOFileIntoComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
+    	    // Obtain DAOs.
+            ComponentOBO componentOBO = obofactory.getComponentOBO();
+
+            List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
+            obocomponents = componentOBO.listAll();
+
+
+            LoadOBOFileIntoComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory, obocomponents );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -37,6 +37,7 @@ package daointerface;
 
 import java.util.List;
 
+import daointerface.BaseDAO;
 import daomodel.OBOFile;
 
 public interface OBOFileDAO extends BaseDAO {

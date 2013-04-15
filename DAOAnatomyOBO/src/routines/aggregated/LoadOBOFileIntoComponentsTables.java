@@ -40,39 +40,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import obolayer.OBOFactory;
-import obolayer.ComponentOBO;
 
 import obomodel.OBOComponent;
 
-import daointerface.ComponentDAO;
-import daointerface.ComponentRelationshipDAO;
-import daointerface.ComponentCommentDAO;
-import daointerface.ComponentOrderDAO;
-import daointerface.ComponentSynonymDAO;
 import daointerface.ComponentAlternativeDAO;
+import daointerface.ComponentCommentDAO;
+import daointerface.ComponentDAO;
+import daointerface.ComponentOrderDAO;
+import daointerface.ComponentRelationshipDAO;
+import daointerface.ComponentSynonymDAO;
 
 import daolayer.DAOFactory;
 
 import daomodel.Component;
-import daomodel.ComponentRelationship;
-import daomodel.ComponentOrder;
-import daomodel.ComponentSynonym;
 import daomodel.ComponentAlternative;
+import daomodel.ComponentOrder;
+import daomodel.ComponentRelationship;
+import daomodel.ComponentSynonym;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
 
 public class LoadOBOFileIntoComponentsTables {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory, List<OBOComponent> obocomponents) throws Exception {
 
 	    Wrapper.printMessage("loadobofileintocomponentstables.run", "***", requestMsgLevel);
 
 	    // Obtain DAOs.
-        ComponentOBO componentOBO = obofactory.getComponentOBO();
+        //ComponentOBO componentOBO = obofactory.getComponentOBO();
 
-        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
-        obocomponents = componentOBO.listAll();
+        //List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
+        //obocomponents = componentOBO.listAll();
 
         // Obtain DAOs.
         ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);

@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import obolayer.ComponentOBO;
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
@@ -96,8 +97,14 @@ public class LoadOBOFileIntoComponentsTablesAndValidate {
           	}
         }
 
+	    // Obtain DAOs.
+        ComponentOBO componentOBO = obofactory.getComponentOBO();
+
+        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
+        obocomponents = componentOBO.listAll();
+
 	    //import Obo File from obo.properties, file.oboinfile
-        LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory);
+        LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, obocomponents);
         
         //import Obo File from obo.properties, file.oboinfile
         ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );

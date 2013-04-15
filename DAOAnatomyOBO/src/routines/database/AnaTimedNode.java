@@ -43,21 +43,21 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import daointerface.LogDAO;
-import daointerface.VersionDAO;
+import daointerface.StageDAO;
 import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
+import daointerface.VersionDAO;
 import daointerface.JOINTimedNodeStageDAO;
-import daointerface.StageDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-import daomodel.JOINTimedNodeStage;
 import daomodel.Log;
-import daomodel.Version;
+import daomodel.Stage;
 import daomodel.Thing;
 import daomodel.TimedNode;
-import daomodel.Stage;
+import daomodel.Version;
+import daomodel.JOINTimedNodeStage;
 
 import obomodel.OBOComponent;
 

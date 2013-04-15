@@ -2,10 +2,14 @@ package beans;
 
 import javax.faces.context.FacesContext;
 
+import webapp.Config;
+
+import daointerface.UserDAO;
 import daolayer.DAOException;
 
 import daomodel.User;
 
+//import daointerface.crud
 /*
  * This bean is to be associated with a single User Registration Form in the JSF page.
  *
@@ -19,6 +23,11 @@ public class LoginUserForm extends AbstractUserForm {
 
     // Properties ---------------------------------------------------------------------------------
     private User user = new User();
+
+    /*
+     * The User DAO associated with the User Form.
+     */
+    protected final UserDAO userDAO = Config.getInstance().getDAOFactory().getDAOImpl(UserDAO.class);
 
     // Actions ------------------------------------------------------------------------------------
     /*

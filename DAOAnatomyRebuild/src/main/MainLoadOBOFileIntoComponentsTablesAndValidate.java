@@ -46,6 +46,9 @@ import daointerface.ThingDAO;
 import routines.runnable.LoadOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
 
+import app.gudmap.RunOBOValidateComponentsOrder;
+
+
 public class MainLoadOBOFileIntoComponentsTablesAndValidate{
 
 	public static void main(String[] args) throws Exception {
@@ -63,6 +66,7 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
             
             LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
             RunOBOCheckComponentsOrdering.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            RunOBOValidateComponentsOrder.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

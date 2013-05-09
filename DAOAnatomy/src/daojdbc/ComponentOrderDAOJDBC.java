@@ -95,6 +95,20 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         "WHERE ACO_OBO_TYPE = 'PART_OF' " +
         "ORDER BY ACO_OBO_PARENT, ACO_OBO_ALPHA_ORDER ";
         
+    private static final String SQL_LIST_BY_PARENT_SPECIAL_ORDER =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = 'PART_OF' " +
+        "AND ACO_OBO_PARENT = ? " +
+        "ORDER BY ACO_OBO_SPECIAL_ORDER ";
+        
+    private static final String SQL_LIST_BY_PARENT_ALPHA_ORDER =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = 'PART_OF' " +
+        "AND ACO_OBO_PARENT = ? " +
+        "ORDER BY ACO_OBO_ALPHA_ORDER ";
+            
     private static final String SQL_LIST_ALL_BY_CHILD =
         "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
@@ -206,6 +220,22 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     public List<ComponentOrder> listByParent(String parent) throws Exception {
     	
         return list(SQL_LIST_ALL_BY_PARENT, parent);
+    }
+    
+    /*
+     * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
+     */
+    public List<ComponentOrder> listByParentAlphaOrder(String parent) throws Exception {
+    	
+        return list(SQL_LIST_BY_PARENT_ALPHA_ORDER, parent);
+    }
+    
+    /*
+     * Returns the daocomponentorders from the database matching the given OBI Name, otherwise null.
+     */
+    public List<ComponentOrder> listByParentSpecialOrder(String parent) throws Exception {
+    	
+        return list(SQL_LIST_BY_PARENT_SPECIAL_ORDER, parent);
     }
     
     /*

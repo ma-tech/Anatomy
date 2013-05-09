@@ -156,14 +156,34 @@ public class LoadOBOFileIntoComponentsTables {
                     String ordercomment = orderComments[i];
                     String [] words = ordercomment.split(" "); 
                     
+                    /*
+                     *  ComponentOrder
+                     *      Long oid
+                     *      String child
+                     *      String parent
+                     *      String type
+                     *      long alphaorder - EMAP Order
+                     *      long specialorder - GUDMAP Order
+                     */
+                    
                 	ComponentOrder daocomponentorder = new ComponentOrder(
                 			null,
                				obocomponent.getID(),
                	    		words[2],
                	    		"PART_OF",
-               	    		ObjectConverter.convert(words[0], Long.class),
-               	    		ObjectConverter.convert(words[0], Long.class)
+               	    		0,
+               	    		0
                	    		);
+
+                	if ( "EMAP".equals(obofactory.getComponentOBO().project()) ) {
+                		
+                		daocomponentorder.setAlphaorder(ObjectConverter.convert(words[0], Long.class));
+                	}
+
+                	if ( "GUDMAP".equals(obofactory.getComponentOBO().project()) ) {
+                		
+                		daocomponentorder.setSpecialorder(ObjectConverter.convert(words[0], Long.class));
+                	}
                		
                		componentorderDAO.save(daocomponentorder);
            		}

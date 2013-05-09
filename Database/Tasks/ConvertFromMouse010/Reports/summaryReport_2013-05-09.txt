@@ -1,5 +1,5 @@
 
-Editor Report for Import of OBO File: /Users/mwicks/Desktop/OBO/TEST011_Output_2013-05-09_Abstract.obo
+Editor Report for Import of OBO File: /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromMouse010/OBOInput/GUDMAP_011_Output_2013-05-09_Abstract.obo
 
 
 REPORT UPDATE SUMMARY

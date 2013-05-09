@@ -60,6 +60,16 @@ public interface ComponentOrderDAO extends BaseDAO {
     /*
      * Returns the daocomponentorder from the database matching the given OID, otherwise null.
      */
+    public List<ComponentOrder> listByParentAlphaOrder(String parentId) throws Exception;
+    
+    /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
+    public List<ComponentOrder> listByParentSpecialOrder(String parentId) throws Exception;
+    
+    /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
     public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws Exception;
     
     /*

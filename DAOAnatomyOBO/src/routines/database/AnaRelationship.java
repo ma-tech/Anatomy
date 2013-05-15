@@ -23,12 +23,9 @@
 *               
 *               Methods:
 *                1. insertANA_RELATIONSHIP
-*                2. insertANA_RELATIONSHIP_PROJECT
-*                3. deleteANA_RELATIONSHIP
-*                4. updateParents
-*                5. update_orderANA_RELATIONSHIP
-*                6. rebuildANA_RELATIONSHIP_PROJECT
-*                7. reorderANA_RELATIONSHIP
+*                2. deleteANA_RELATIONSHIP
+*                3. updateANA_RELATIONSHIP
+*                4. rebuildANA_RELATIONSHIP_PROJECT
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -55,8 +52,6 @@ import daointerface.RelationshipProjectDAO;
 import daointerface.ThingDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINNodeRelationshipNodeDAO;
-import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
-import daointerface.JOINRelationshipProjectRelationshipDAO;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -69,8 +64,6 @@ import daomodel.RelationshipProject;
 import daomodel.Thing;
 import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
-import daomodel.JOINNodeRelationshipRelationshipProject;
-import daomodel.JOINRelationshipProjectRelationship;
 
 import obomodel.OBOComponent;
 
@@ -95,8 +88,6 @@ public class AnaRelationship {
     private RelationshipProjectDAO relationshipprojectDAO;
     private ComponentOrderDAO componentorderDAO;
     private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO;
-    private JOINRelationshipProjectRelationshipDAO joinrelationshipprojectrelationshipDAO;
-    private JOINNodeRelationshipRelationshipProjectDAO joinnoderelationshiprelationshipprojectDAO;
 
     private long longLOG_VERSION_FK;
 
@@ -123,8 +114,6 @@ public class AnaRelationship {
         	this.relationshipprojectDAO = daofactory.getDAOImpl(RelationshipProjectDAO.class);
             this.componentorderDAO = daofactory.getDAOImpl(ComponentOrderDAO.class);
         	this.joinnoderelationshipnodeDAO = daofactory.getDAOImpl(JOINNodeRelationshipNodeDAO.class);
-            this.joinrelationshipprojectrelationshipDAO = daofactory.getDAOImpl(JOINRelationshipProjectRelationshipDAO.class);
-            this.joinnoderelationshiprelationshipprojectDAO = daofactory.getDAOImpl(JOINNodeRelationshipRelationshipProjectDAO.class);
             
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
@@ -434,8 +423,6 @@ public class AnaRelationship {
                     	}
 
                         this.relationshipDAO.create(relationship);
-                        
-                        insertANA_RELATIONSHIP_PROJECT( insertRelObject, intREL_OID, calledFrom );
                     }
                 }
             }
@@ -455,55 +442,6 @@ public class AnaRelationship {
     }
     
 
-    //  Insert into ANA_RELATIONSHIP_PROJECT
-    private void insertANA_RELATIONSHIP_PROJECT( OBOComponent newComponent, int relationshipOid, String calledFrom) throws Exception {
-
-        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP_PROJECT : " + calledFrom , "***", this.requestMsgLevel);
-        	
-        ArrayList<String> orderParents = new ArrayList<String>();
-        ArrayList<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
-        
-        try {
-        	
-            orderParents = newComponent.getChildOfs();
-            
-            for ( String orderParent: orderParents ) {
-            	
-            	componentorders = (ArrayList) this.componentorderDAO.listByChildIdAndParentID( newComponent.getID(), orderParent );
-
-            	if ( componentorders.size() == 1) {
-            		
-            		ComponentOrder componentorder = componentorders.get(0);
-            		
-                    int intMAX_PK = this.relationshipprojectDAO.maximumOid();
-
-                    //get max primary key for ana_relationship_project
-                    intMAX_PK++; 
-                    RelationshipProject relationshipproject1 = new RelationshipProject((long) intMAX_PK, (long) relationshipOid, "EMAP", componentorder.getAlphaorder());
-            
-                    this.relationshipprojectDAO.create(relationshipproject1);
-                    
-                    //get max primary key for ana_relationship_project
-                    intMAX_PK++; 
-                    RelationshipProject relationshipproject2 = new RelationshipProject((long) intMAX_PK, (long) relationshipOid, "GUDMAP", componentorder.getSpecialorder());
-                  
-                    this.relationshipprojectDAO.create(relationshipproject2);
-            	}
-            }
-        }
-        catch ( DAOException dao ) {
-        	
-        	setProcessed( false );
-            dao.printStackTrace();
-        }
-        catch ( Exception ex ) {
-        	
-        	setProcessed( false );
-            ex.printStackTrace();
-        }
-    }
-    
-    
     //  Delete from ANA_RELATIONSHIP
     public boolean deleteANA_RELATIONSHIP( ArrayList<OBOComponent> deleteRelComponents, String calledFrom ) throws Exception {
 
@@ -515,12 +453,6 @@ public class AnaRelationship {
             	
                 for ( OBOComponent deleteRelCompie: deleteRelComponents ) {
 
-                	/*
-                	//System.out.println("deleteRelCompie.getChildOfs() = " + deleteRelCompie.getChildOfs());
-                	//System.out.println("deleteRelCompie.getID() = " + deleteRelCompie.getID());
-                	//System.out.println("deleteRelCompie.toString() = " + deleteRelCompie.toString());
-                	*/
-                	
                 	ArrayList<Relationship> relationships = 
                 			(ArrayList<Relationship>) relationshipDAO.listByChildFK(Long.valueOf(deleteRelCompie.getDBID()));
 
@@ -541,18 +473,6 @@ public class AnaRelationship {
 
                   		relationshipDAO.delete(relationship);
                   	}
-
-                  	ArrayList<RelationshipProject> relationshipprojects = 
-                  			(ArrayList<RelationshipProject>) relationshipprojectDAO.listByRelationshipFK(Long.valueOf(deleteRelCompie.getDBID()));
-                  	
-                  	Iterator<RelationshipProject> iteratorrelationshipproject = relationshipprojects.iterator();
-
-                  	while (iteratorrelationship.hasNext()) {
-
-                  		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
-                  		
-                  		relationshipprojectDAO.delete(relationshipproject);
-                  	}
                 }
             }
         }
@@ -571,234 +491,7 @@ public class AnaRelationship {
     }
     
       
-    // updateParents
-	public boolean updateParents( ArrayList<OBOComponent> changedParentsTermList,  
-			String calledFrom, 
-    		String project, 
-    		String strSpecies, 
-    		TreeBuilder treebuilder,
-    		OBOComponent abstractclassobocomponent, 
-    		OBOComponent stageclassobocomponent, 
-    		OBOComponent groupclassobocomponent, 
-    		OBOComponent grouptermclassobocomponent) throws Exception {
-
-        Wrapper.printMessage("anarelationship.updateParents : " + calledFrom , "***", this.requestMsgLevel);
-        	
-        try {
-
-            ArrayList<OBOComponent> deleteRelComponents =
-                    new ArrayList<OBOComponent>();
-            
-            //insert relationships in ANA_RELATIONSHIP
-            // 04
-            if ( !insertANA_RELATIONSHIP( changedParentsTermList, calledFrom,
-            		project,
-            		strSpecies, 
-            		treebuilder,
-            		abstractclassobocomponent, 
-            		stageclassobocomponent, 
-            		groupclassobocomponent, 
-            		grouptermclassobocomponent) ) {
-
-         	   throw new DatabaseException("anarelationship.updateParents : insertANA_RELATIONSHIP");
-            }
-            
-            //delete relationships in ANA_RELATIONSHIP
-            if ( !deleteANA_RELATIONSHIP( deleteRelComponents, calledFrom) ) {
-
-         	   throw new DatabaseException("anarelationship.updateParents : deleteANA_RELATIONSHIP");
-            }
-        }
-        catch ( DatabaseException dbex ) {
-        	
-        	setProcessed( false );
-        	dbex.printStackTrace();
-        } 
-        catch ( Exception ex ) {
-        	
-        	setProcessed( false );
-        	ex.printStackTrace();
-        }
-        
-        return isProcessed();
-    }
-
-	
-    // update_orderANA_RELATIONSHIP 
-	public boolean update_orderANA_RELATIONSHIP( HashMap<String, ArrayList<String>> mapParentChildren, String calledFrom ) throws Exception {
-
-        Wrapper.printMessage("anarelationship.update_orderANA_RELATIONSHIP : " + calledFrom , "***", this.requestMsgLevel);
-        	
-        String parentPublicId = "";
-        
-        long longParentDBID = -1;
-        long longChildDBID = -1;
-        long longREL_OID = -1;
-        long longSEQ = -1;
-        
-        int intNumRecords = 0;
-
-        ArrayList<String> orderedchildren = new ArrayList<String>();
-
-        try {
-        	
-            if ( !mapParentChildren.isEmpty() ) {
-            	
-                //for each entry in the map
-                for ( Iterator<String> i = mapParentChildren.keySet().iterator(); i.hasNext(); ) {
-                    
-                	parentPublicId = i.next();
-                    //get dbid of parent
-                    //parentDBID = getDatabaseIdentifier(parentPublicId);
-
-                    Node node = null;
-                    
-                	if ( this.nodeDAO.existPublicId( parentPublicId ) ) {
-
-                		node = this.nodeDAO.findByPublicId( parentPublicId );
-                    	longParentDBID = node.getOid();
-                	}
-
-                    //reset order for each parent
-                	longSEQ = -1; 
-                    //reset number of child records for each parent
-                    intNumRecords = 0; 
-
-                    //get number of child records for each parent from database
-                    ArrayList<Relationship> relationships = (ArrayList<Relationship>) relationshipDAO.listByParentFK( longParentDBID );
-                    intNumRecords = relationships.size();
-                    
-                    //iterate through all children for each parent
-                    //if children==null, no child has an order in the proposed file
-                    //update all relationship entries to sequence=null
-                    if ( mapParentChildren.get(parentPublicId) == null ) {
-                    	
-                      	Iterator<Relationship> iteratorrelationship = relationships.iterator();
-
-                      	while (iteratorrelationship.hasNext()) {
-                      		
-                      		Relationship relationship = iteratorrelationship.next();
-
-                      		longREL_OID = relationship.getOid();
-                            
-                            ArrayList<RelationshipProject> relationshipprojects = 
-                            		(ArrayList<RelationshipProject>) relationshipprojectDAO.listByRelationshipFK( longREL_OID ); 
-
-                          	Iterator<RelationshipProject> iteratorrelationshipproject = relationshipprojects.iterator();
-
-                          	while (iteratorrelationshipproject.hasNext()) {
-                          		
-                          		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
-
-                          		relationshipproject.setSequence((long) 0);
-                          		relationshipprojectDAO.create(relationshipproject);
-                          	}
-                      	}
-                    }
-                    else {
-                    	
-                        for (String childPublicID: mapParentChildren.get(parentPublicId)) {
-                        	
-                            //get dbid of child
-                            //childDBID = getDatabaseIdentifier(childPublicID);
-                            
-                        	node = null;
-                            
-                        	if ( this.nodeDAO.existPublicId( childPublicID ) ) {
-
-                        		node = this.nodeDAO.findByPublicId( childPublicID );
-                        		longChildDBID = node.getOid();
-                        	}
-
-                            //get rel_oid of this relationship
-                            ArrayList<Relationship> relationshipsparentchild = 
-                            		(ArrayList<Relationship>) relationshipDAO.listByParentFKAndChildFK( longParentDBID, longChildDBID ); 
-
-                          	Iterator<Relationship> iteratorrelationshipparentchild = relationshipsparentchild.iterator();
-
-                          	while (iteratorrelationshipparentchild.hasNext()) {
-                          		
-                          		Relationship relationship = iteratorrelationshipparentchild.next();
-                          	
-                          		longREL_OID = relationship.getOid();
-
-                                //put in ordered children rows cache for later comparison
-                                orderedchildren.add( Long.toString(longREL_OID) );
-                                longSEQ++;
-                                
-                                ArrayList<RelationshipProject> relationshipprojects = 
-                                		(ArrayList<RelationshipProject>) relationshipprojectDAO.listByRelationshipFK( longREL_OID ); 
-
-                              	Iterator<RelationshipProject> iteratorrelationshipproject = relationshipprojects.iterator();
-
-                              	while (iteratorrelationshipproject.hasNext()) {
-                              		
-                              		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
-
-                              		relationshipproject.setSequence( longSEQ );
-                              		relationshipprojectDAO.create(relationshipproject);
-                              	}
-                          	}
-                        }
-                    }
-                    
-                    //if there are more child records than the number of ordered children
-                    // fill up the rest with rel_sequence = null
-                    if ( orderedchildren.size()<intNumRecords ) {
-                    	
-                        //prepare string of ordered rel_oid
-                        String strOrdered = "";
-                        
-                        for(String orderedchild: orderedchildren ) {
-                        	
-                            strOrdered = strOrdered + orderedchild + ",";
-                        }
-                        
-                        //get all relationship entries that are unordered
-                        ArrayList<Relationship> relationshipsunordered = 
-                        		(ArrayList<Relationship>) relationshipDAO.listByParentFK(Long.valueOf(longParentDBID));
-                        
-                      	Iterator<Relationship> iteratorrelationship = relationshipsunordered.iterator();
-
-                      	while (iteratorrelationship.hasNext()) {
-                      		
-                      		Relationship relationship = iteratorrelationship.next();
-                      		
-                      		longREL_OID = relationship.getOid().intValue();
-
-                            ArrayList<RelationshipProject> relationshipprojects = 
-                            		(ArrayList<RelationshipProject>) relationshipprojectDAO.listByRelationshipFK( longREL_OID ); 
-
-                          	Iterator<RelationshipProject> iteratorrelationshipproject = relationshipprojects.iterator();
-
-                          	while (iteratorrelationshipproject.hasNext()) {
-                          		
-                          		RelationshipProject relationshipproject = iteratorrelationshipproject.next();
-
-                          		relationshipproject.setSequence((long) 0);
-                          		relationshipprojectDAO.create(relationshipproject);
-                          	}
-                      	}
-                    }
-                }
-            }
-        }
-        catch ( DAOException dao ) {
-        	
-        	setProcessed( false );
-            dao.printStackTrace();
-        } 
-        catch ( Exception ex ) {
-        	
-        	setProcessed( false );
-        	ex.printStackTrace();
-        } 
-        
-        return isProcessed();
-    }
-
-
-	//  rebuild ANA_RELATIONSHIP
+	//  rebuild ANA_RELATIONSHIP_PROJECT
     public boolean rebuildANA_RELATIONSHIP_PROJECT() throws Exception {
 
         Wrapper.printMessage("anarelationship.rebuildANA_RELATIONSHIP_PROJECT", "***", this.requestMsgLevel);
@@ -821,7 +514,7 @@ public class AnaRelationship {
         	}
 
             ArrayList<JOINNodeRelationshipNode> joinnoderelationships = new ArrayList<JOINNodeRelationshipNode>(); 
-            joinnoderelationships = (ArrayList) this.joinnoderelationshipnodeDAO.listAll();
+            joinnoderelationships = (ArrayList) this.joinnoderelationshipnodeDAO.listAllPartOfs();
             
         	Iterator<JOINNodeRelationshipNode> iteratorJOINNodeRelationshipNode = joinnoderelationships.iterator();
 
@@ -870,121 +563,6 @@ public class AnaRelationship {
     }
     
     
-    // reorderANA_RELATIONSHIP
-    public boolean reorderANA_RELATIONSHIP(ArrayList <OBOComponent> validDeleteTermList, String project, String calledFrom) throws Exception {
-         
-         // Reorders a collection of siblings that have order sequence entries in the ANA_RELATIONSHIP
-         //   when one of the siblings have been deleted, re-ordering is based on original order and closes
-         //   the sequence gap left by the deleted sibling
-         // NOTE: function is obsolete if editor re-orders the remaining siblings, current rules
-         // checking do not allow database to be updated if the ordering has a gap anyway
-
-        Wrapper.printMessage("anarelationship.reorderANA_RELATIONSHIP", "***", this.requestMsgLevel);
-
-        ArrayList <String> componentParents = new ArrayList<String>();
-
-        String skipRecords = "";
-        
-        long longParentDBID = -1;
-        long longChildDBID = -1;
-        long longSEQ = -1;
-        
-        try {
-        	
-            if ( !validDeleteTermList.isEmpty() ) {
-
-            	//for each component to be deleted
-                for (OBOComponent component: validDeleteTermList) {
-
-                	//get all parent-child relationship entries with ordering
-                    Node node = null;
-                    
-                	if ( this.nodeDAO.existPublicId( component.getID() ) ) {
-
-                		node = this.nodeDAO.findByPublicId( component.getID() );
-                		longChildDBID = node.getOid();
-                	}
-
-                    skipRecords = "";
-
-                    ArrayList<JOINNodeRelationshipRelationshipProject> joinnrrps = 
-                    		(ArrayList<JOINNodeRelationshipRelationshipProject>) joinnoderelationshiprelationshipprojectDAO.listAllByChildFK( longChildDBID );
-                  	
-                    Iterator<JOINNodeRelationshipRelationshipProject> iteratorjoinnrrps = joinnrrps.iterator();
-
-                  	while (iteratorjoinnrrps.hasNext()) {
-                  		JOINNodeRelationshipRelationshipProject joinnrrp = iteratorjoinnrrps.next();
-                  		
-                        if ( joinnrrp.getSequenceFK() != 0 ) {
-                        	
-                            componentParents.add( joinnrrp.getPublicId() );
-                            
-                            //make a list of parent-child relationship entries to be deleted
-                            skipRecords = skipRecords + joinnrrp.getOidRelationshipProject().intValue() + ",";
-                        }
-                  	}
-                }
-
-                if (!skipRecords.equals("")) {
-                	
-                    skipRecords = skipRecords.substring(0, skipRecords.length() - 1);
-                    skipRecords = "(" + skipRecords + ")";
-                }
-                
-                //check for each parent whether there is ordering
-                for (String parent: componentParents) {
-                    
-                	//get parent dbid
-                    Node node = null;
-
-                	if ( this.nodeDAO.existPublicId( parent ) ) {
-
-                		node = this.nodeDAO.findByPublicId( parent );
-                		longParentDBID = node.getOid();
-                	}
-
-                    //reset REL_SEQ
-                	longSEQ = 0;
-                	
-                    //get all children records from ANA_RELATIONSHIP_PROJECT for this parent
-                    //that has an order sequence entry, order by sequence
-                    //exclude entries that are scheduled for deletion
-                    
-                    ArrayList<JOINRelationshipProjectRelationship> joinrprs = 
-                    		(ArrayList<JOINRelationshipProjectRelationship>) joinrelationshipprojectrelationshipDAO.listAllByParentAndProjectNotIn( longParentDBID, project, skipRecords);
-                    
-                    Iterator<JOINRelationshipProjectRelationship> iteratorjoinrprs = joinrprs.iterator();
-
-                  	while (iteratorjoinrprs.hasNext()) {
-                  		
-                  		JOINRelationshipProjectRelationship joinrpr = iteratorjoinrprs.next();
-                  		
-                  		RelationshipProject relationshipproject = relationshipprojectDAO.findByOid(joinrpr.getOidRelationshipProject());
-                  		
-                  		relationshipproject.setSequence( longSEQ );
-                  		relationshipprojectDAO.create(relationshipproject);
-
-                        //increment rel_seq for next record
-                  		longSEQ++;
-                  	}
-                }
-            }
-        }
-        catch ( DAOException daoex ) {
-        	
-        	setProcessed( false );
-        	daoex.printStackTrace();
-        }
-        catch ( Exception ex ) {
-        	
-        	setProcessed( false );
-            ex.printStackTrace();
-        }
-        
-        return isProcessed();
-    }
-    
-
     //  Insert into ANA_LOG for ANA_RELATIONSHIP Insertions or Deletions
     public boolean logANA_RELATIONSHIP( Relationship relationship, String calledFrom ) throws Exception {
 

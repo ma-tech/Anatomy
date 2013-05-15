@@ -147,7 +147,8 @@ public class ListOBOComponentsFromComponentsTables {
             			
                        	obocomponent.addOrderComment("order=" + ObjectConverter.convert(componentorder.getAlphaorder(), String.class) + " for " + componentorder.getParent());
             		}
-            		else {
+
+            		if ( "GUDMAP".equals(obofactory.getComponentOBO().project() ) ) {
             			
                        	obocomponent.addOrderComment("order=" + ObjectConverter.convert(componentorder.getSpecialorder(), String.class) + " for " + componentorder.getParent());
             		}

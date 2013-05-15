@@ -73,6 +73,11 @@ public interface ComponentOrderDAO extends BaseDAO {
     public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws Exception;
     
     /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
+    public List<ComponentOrder> listPartOfByChildIdAndParentID(String childId, String parentId) throws Exception;
+    
+    /*
      * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
      */
     public List<ComponentOrder> listByChild(String child) throws Exception;
@@ -86,6 +91,11 @@ public interface ComponentOrderDAO extends BaseDAO {
      * Returns a list of ALL componentorders, otherwise null.
      */
     public List<ComponentOrder> listAll() throws Exception;
+    
+    /*
+     * Returns a list of ALL componentorders, otherwise null.
+     */
+    public List<ComponentOrder> listAllPartOfs() throws Exception;
     
     /*
      * Returns true if the given daocomponentorder OID exists in the database.

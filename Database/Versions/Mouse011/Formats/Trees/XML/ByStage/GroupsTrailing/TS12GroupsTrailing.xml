@@ -277,6 +277,17 @@
 						<groupPathStatus emapId="EMAP:0000223">
 							notInGroupPath
 						</groupPathStatus>
+						<timedComponent emapId="EMAP:0034238">
+							<name emapId="EMAP:0034238">
+								mesothelium
+							</name>
+							<emapaId emapId="EMAP:0034238">
+								EMAPA:0032856
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0034238">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
 						<timedComponent emapId="EMAP:0000224">
 							<name emapId="EMAP:0000224">
 								intraembryonic coelom pericardial component
@@ -375,17 +386,6 @@
 									notInGroupPath
 								</groupPathStatus>
 							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:0034238">
-							<name emapId="EMAP:0034238">
-								mesothelium
-							</name>
-							<emapaId emapId="EMAP:0034238">
-								EMAPA:0032856
-							</emapaId>
-							<groupPathStatus emapId="EMAP:0034238">
-								notInGroupPath
-							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
 				</timedComponent>
@@ -3417,6 +3417,17 @@
 							<groupPathStatus emapId="EMAP:0000223">
 								isGroupIndirectDescendant
 							</groupPathStatus>
+							<timedComponent emapId="EMAP:0034238">
+								<name emapId="EMAP:0034238">
+									mesothelium
+								</name>
+								<emapaId emapId="EMAP:0034238">
+									EMAPA:0032856
+								</emapaId>
+								<groupPathStatus emapId="EMAP:0034238">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
 							<timedComponent emapId="EMAP:0000224">
 								<name emapId="EMAP:0000224">
 									intraembryonic coelom pericardial component
@@ -3515,17 +3526,6 @@
 										isGroupIndirectDescendant
 									</groupPathStatus>
 								</timedComponent>
-							</timedComponent>
-							<timedComponent emapId="EMAP:0034238">
-								<name emapId="EMAP:0034238">
-									mesothelium
-								</name>
-								<emapaId emapId="EMAP:0034238">
-									EMAPA:0032856
-								</emapaId>
-								<groupPathStatus emapId="EMAP:0034238">
-									isGroupIndirectDescendant
-								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
 					</timedComponent>
@@ -5987,7 +5987,7 @@
 			</timedComponent>
 		</onlyGroupsTree>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2012-11-13 11:54:09" number="11"/>
+	<anatomyDatabaseVersion date="2012-09-14 11:50:33" number="10"/>
 	<perspective>
 		Whole mouse
 	</perspective>

@@ -400,6 +400,17 @@
 					<groupPathStatus emapId="EMAP:0000429">
 						notInGroupPath
 					</groupPathStatus>
+					<timedComponent emapId="EMAP:0034239">
+						<name emapId="EMAP:0034239">
+							mesothelium
+						</name>
+						<emapaId emapId="EMAP:0034239">
+							EMAPA:0032856
+						</emapaId>
+						<groupPathStatus emapId="EMAP:0034239">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
 					<timedComponent emapId="EMAP:0000430">
 						<name emapId="EMAP:0000430">
 							intraembryonic coelom pericardial component
@@ -433,50 +444,6 @@
 							</groupPathStatus>
 						</timedComponent>
 					</timedComponent>
-					<timedComponent emapId="EMAP:0000436">
-						<name emapId="EMAP:0000436">
-							intraembryonic coelom peritoneal component
-						</name>
-						<emapaId emapId="EMAP:0000436">
-							EMAPA:0016137
-						</emapaId>
-						<groupPathStatus emapId="EMAP:0000436">
-							notInGroupPath
-						</groupPathStatus>
-						<timedComponent emapId="EMAP:0000437">
-							<name emapId="EMAP:0000437">
-								peritoneal component cavity
-							</name>
-							<emapaId emapId="EMAP:0000437">
-								EMAPA:0016138
-							</emapaId>
-							<groupPathStatus emapId="EMAP:0000437">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-						<timedComponent emapId="EMAP:0000438">
-							<name emapId="EMAP:0000438">
-								peritoneal component mesothelium
-							</name>
-							<emapaId emapId="EMAP:0000438">
-								EMAPA:0016139
-							</emapaId>
-							<groupPathStatus emapId="EMAP:0000438">
-								notInGroupPath
-							</groupPathStatus>
-						</timedComponent>
-					</timedComponent>
-					<timedComponent emapId="EMAP:0034239">
-						<name emapId="EMAP:0034239">
-							mesothelium
-						</name>
-						<emapaId emapId="EMAP:0034239">
-							EMAPA:0032856
-						</emapaId>
-						<groupPathStatus emapId="EMAP:0034239">
-							notInGroupPath
-						</groupPathStatus>
-					</timedComponent>
 					<timedComponent emapId="EMAP:0000433">
 						<name emapId="EMAP:0000433">
 							pericardio-peritoneal canal
@@ -506,6 +473,39 @@
 								EMAPA:0016284
 							</emapaId>
 							<groupPathStatus emapId="EMAP:0000435">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:0000436">
+						<name emapId="EMAP:0000436">
+							intraembryonic coelom peritoneal component
+						</name>
+						<emapaId emapId="EMAP:0000436">
+							EMAPA:0016137
+						</emapaId>
+						<groupPathStatus emapId="EMAP:0000436">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:0000437">
+							<name emapId="EMAP:0000437">
+								peritoneal component cavity
+							</name>
+							<emapaId emapId="EMAP:0000437">
+								EMAPA:0016138
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000437">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:0000438">
+							<name emapId="EMAP:0000438">
+								peritoneal component mesothelium
+							</name>
+							<emapaId emapId="EMAP:0000438">
+								EMAPA:0016139
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000438">
 								notInGroupPath
 							</groupPathStatus>
 						</timedComponent>
@@ -1951,6 +1951,17 @@
 						<groupPathStatus emapId="EMAP:0000429">
 							isGroupIndirectDescendant
 						</groupPathStatus>
+						<timedComponent emapId="EMAP:0034239">
+							<name emapId="EMAP:0034239">
+								mesothelium
+							</name>
+							<emapaId emapId="EMAP:0034239">
+								EMAPA:0032856
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0034239">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+						</timedComponent>
 						<timedComponent emapId="EMAP:0000430">
 							<name emapId="EMAP:0000430">
 								intraembryonic coelom pericardial component
@@ -1984,50 +1995,6 @@
 								</groupPathStatus>
 							</timedComponent>
 						</timedComponent>
-						<timedComponent emapId="EMAP:0000436">
-							<name emapId="EMAP:0000436">
-								intraembryonic coelom peritoneal component
-							</name>
-							<emapaId emapId="EMAP:0000436">
-								EMAPA:0016137
-							</emapaId>
-							<groupPathStatus emapId="EMAP:0000436">
-								isGroupIndirectDescendant
-							</groupPathStatus>
-							<timedComponent emapId="EMAP:0000437">
-								<name emapId="EMAP:0000437">
-									peritoneal component cavity
-								</name>
-								<emapaId emapId="EMAP:0000437">
-									EMAPA:0016138
-								</emapaId>
-								<groupPathStatus emapId="EMAP:0000437">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-							</timedComponent>
-							<timedComponent emapId="EMAP:0000438">
-								<name emapId="EMAP:0000438">
-									peritoneal component mesothelium
-								</name>
-								<emapaId emapId="EMAP:0000438">
-									EMAPA:0016139
-								</emapaId>
-								<groupPathStatus emapId="EMAP:0000438">
-									isGroupIndirectDescendant
-								</groupPathStatus>
-							</timedComponent>
-						</timedComponent>
-						<timedComponent emapId="EMAP:0034239">
-							<name emapId="EMAP:0034239">
-								mesothelium
-							</name>
-							<emapaId emapId="EMAP:0034239">
-								EMAPA:0032856
-							</emapaId>
-							<groupPathStatus emapId="EMAP:0034239">
-								isGroupIndirectDescendant
-							</groupPathStatus>
-						</timedComponent>
 						<timedComponent emapId="EMAP:0000433">
 							<name emapId="EMAP:0000433">
 								pericardio-peritoneal canal
@@ -2057,6 +2024,39 @@
 									EMAPA:0016284
 								</emapaId>
 								<groupPathStatus emapId="EMAP:0000435">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EMAP:0000436">
+							<name emapId="EMAP:0000436">
+								intraembryonic coelom peritoneal component
+							</name>
+							<emapaId emapId="EMAP:0000436">
+								EMAPA:0016137
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000436">
+								isGroupIndirectDescendant
+							</groupPathStatus>
+							<timedComponent emapId="EMAP:0000437">
+								<name emapId="EMAP:0000437">
+									peritoneal component cavity
+								</name>
+								<emapaId emapId="EMAP:0000437">
+									EMAPA:0016138
+								</emapaId>
+								<groupPathStatus emapId="EMAP:0000437">
+									isGroupIndirectDescendant
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EMAP:0000438">
+								<name emapId="EMAP:0000438">
+									peritoneal component mesothelium
+								</name>
+								<emapaId emapId="EMAP:0000438">
+									EMAPA:0016139
+								</emapaId>
+								<groupPathStatus emapId="EMAP:0000438">
 									isGroupIndirectDescendant
 								</groupPathStatus>
 							</timedComponent>
@@ -8764,7 +8764,7 @@
 			</timedComponent>
 		</timedComponent>
 	</mouseAnatomyReport>
-	<anatomyDatabaseVersion date="2012-11-13 11:54:09" number="11"/>
+	<anatomyDatabaseVersion date="2012-09-14 11:50:33" number="10"/>
 	<perspective>
 		Whole mouse
 	</perspective>

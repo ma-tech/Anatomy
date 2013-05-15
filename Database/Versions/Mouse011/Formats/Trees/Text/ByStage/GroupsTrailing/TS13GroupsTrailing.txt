@@ -1,6 +1,6 @@
 
 ============================================================
-===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
 ============================================================
 
 
@@ -50,16 +50,16 @@ EMAP:0033758   | + branchial groove
 EMAP:0033774   | \ branchial pouch
 EMAP:0000428   + cavities and their linings
 EMAP:0000429   | \ intraembryonic coelom
+EMAP:0034239   |   + mesothelium
 EMAP:0000430   |   + intraembryonic coelom pericardial component
 EMAP:0000431   |   | + pericardial component cavity
 EMAP:0000432   |   | \ pericardial component mesothelium
-EMAP:0000436   |   + intraembryonic coelom peritoneal component
-EMAP:0000437   |   | + peritoneal component cavity
-EMAP:0000438   |   | \ peritoneal component mesothelium
-EMAP:0034239   |   + mesothelium
-EMAP:0000433   |   \ pericardio-peritoneal canal
-EMAP:0000434   |     + pericardio-peritoneal canal cavity
-EMAP:0000435   |     \ pericardio-peritoneal canal mesothelium
+EMAP:0000433   |   + pericardio-peritoneal canal
+EMAP:0000434   |   | + pericardio-peritoneal canal cavity
+EMAP:0000435   |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0000436   |   \ intraembryonic coelom peritoneal component
+EMAP:0000437   |     + peritoneal component cavity
+EMAP:0000438   |     \ peritoneal component mesothelium
 EMAP:0000439   + ectoderm
 EMAP:0000440   | + neural ectoderm
 EMAP:0000441   | | + future brain
@@ -489,16 +489,16 @@ EMAP:0033758 ~ | | + branchial groove
 EMAP:0033774 ~ | | \ branchial pouch
 EMAP:0000428 > | + cavities and their linings
 EMAP:0000429 ~ | | \ intraembryonic coelom
+EMAP:0034239 ~ | |   + mesothelium
 EMAP:0000430 ~ | |   + intraembryonic coelom pericardial component
 EMAP:0000431 ~ | |   | + pericardial component cavity
 EMAP:0000432 ~ | |   | \ pericardial component mesothelium
-EMAP:0000436 ~ | |   + intraembryonic coelom peritoneal component
-EMAP:0000437 ~ | |   | + peritoneal component cavity
-EMAP:0000438 ~ | |   | \ peritoneal component mesothelium
-EMAP:0034239 ~ | |   + mesothelium
-EMAP:0000433 ~ | |   \ pericardio-peritoneal canal
-EMAP:0000434 ~ | |     + pericardio-peritoneal canal cavity
-EMAP:0000435 ~ | |     \ pericardio-peritoneal canal mesothelium
+EMAP:0000433 ~ | |   + pericardio-peritoneal canal
+EMAP:0000434 ~ | |   | + pericardio-peritoneal canal cavity
+EMAP:0000435 ~ | |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0000436 ~ | |   \ intraembryonic coelom peritoneal component
+EMAP:0000437 ~ | |     + peritoneal component cavity
+EMAP:0000438 ~ | |     \ peritoneal component mesothelium
 EMAP:0000439 > | + ectoderm
 EMAP:0000440 ~ | | + neural ectoderm
 EMAP:0000441 ~ | | | + future brain

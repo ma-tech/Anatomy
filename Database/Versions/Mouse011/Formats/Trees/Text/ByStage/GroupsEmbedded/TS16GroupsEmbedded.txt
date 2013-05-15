@@ -1,6 +1,6 @@
 
 ============================================================
-===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
 ============================================================
 
 
@@ -37,8 +37,6 @@ EMAP:0001479   | | | + 1st branchial arch maxillary component endoderm
 EMAP:0001480   | | | \ 1st branchial arch maxillary component mesenchyme
 EMAP:0001481   | | |   + 1st branchial arch maxillary component mesenchyme derived from head mesoderm
 EMAP:0001482   | | |   \ 1st branchial arch maxillary component mesenchyme derived from neural crest
-EMAP:0001483   | | + 1st branchial arch maxillary-mandibular groove
-EMAP:0001484   | | | \ 1st branchial arch maxillary-mandibular groove ectoderm
 EMAP:0032050   | | + 1st branchial arch mesenchyme
 EMAP:0032042   | | | + 1st branchial arch mesenchyme derived from head mesoderm
 EMAP:0032054   | | | \ 1st branchial arch mesenchyme derived from neural crest
@@ -47,8 +45,10 @@ EMAP:0001465   | | | \ 1st branchial groove ectoderm
 EMAP:0001466   | | + 1st branchial membrane
 EMAP:0001467   | | | + 1st branchial membrane ectoderm
 EMAP:0001468   | | | \ 1st branchial membrane endoderm
-EMAP:0001469   | | \ 1st branchial pouch
-EMAP:0001470   | |   \ 1st branchial pouch endoderm
+EMAP:0001469   | | + 1st branchial pouch
+EMAP:0001470   | | | \ 1st branchial pouch endoderm
+EMAP:0001483   | | \ 1st branchial arch maxillary-mandibular groove
+EMAP:0001484   | |   \ 1st branchial arch maxillary-mandibular groove ectoderm
 EMAP:0001485   | + 2nd branchial arch
 EMAP:0001493   | | + 2nd branchial arch ectoderm
 EMAP:0001494   | | + 2nd branchial arch endoderm
@@ -100,11 +100,16 @@ EMAP:0033761   | + branchial groove
 EMAP:0033777   | \ branchial pouch
 EMAP:0001526   + cavities and their linings
 EMAP:0001527   | \ intraembryonic coelom
+EMAP:0034242   |   + mesothelium
 EMAP:0001528   |   + intraembryonic coelom pericardial component
 EMAP:0001529   |   | + pericardial component cavity
 EMAP:0001530   |   | \ pericardial component mesothelium
 EMAP:0001531   |   |   + pericardial component parietal mesothelium
 EMAP:0001532   |   |   \ pericardial component visceral mesothelium
+EMAP:0001533   |   + pericardio-peritoneal canal
+EMAP:0001534   |   | + pericardio-peritoneal canal cavity
+EMAP:0001535   |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0001536   |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0001537   |   + intraembryonic coelom peritoneal component
 EMAP:0001538   |   | + peritoneal component cavity
 EMAP:0001539   |   | \ peritoneal component mesothelium
@@ -115,11 +120,6 @@ EMAP:0001543   |   | + pleural component cavity
 EMAP:0001544   |   | \ pleural component mesothelium
 EMAP:0001545   |   |   + pleural component parietal mesothelium
 EMAP:0001546   |   |   \ pleural component visceral mesothelium
-EMAP:0034242   |   + mesothelium
-EMAP:0001533   |   + pericardio-peritoneal canal
-EMAP:0001534   |   | + pericardio-peritoneal canal cavity
-EMAP:0001535   |   | \ pericardio-peritoneal canal mesothelium
-EMAP:0001536   |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0014734   |   \ pleuro-peritoneal canal
 EMAP:0014749   |     + pleuro-peritoneal canal cavity
 EMAP:0014739   |     \ pleuro-peritoneal canal mesothelium
@@ -143,8 +143,6 @@ EMAP:0001479 ~ | | | | + 1st branchial arch maxillary component endoderm
 EMAP:0001480 ~ | | | | \ 1st branchial arch maxillary component mesenchyme
 EMAP:0001481 ~ | | | |   + 1st branchial arch maxillary component mesenchyme derived from head mesoderm
 EMAP:0001482 ~ | | | |   \ 1st branchial arch maxillary component mesenchyme derived from neural crest
-EMAP:0001483 ~ | | | + 1st branchial arch maxillary-mandibular groove
-EMAP:0001484 ~ | | | | \ 1st branchial arch maxillary-mandibular groove ectoderm
 EMAP:0032050 ~ | | | + 1st branchial arch mesenchyme
 EMAP:0032042 ~ | | | | + 1st branchial arch mesenchyme derived from head mesoderm
 EMAP:0032054 ~ | | | | \ 1st branchial arch mesenchyme derived from neural crest
@@ -153,8 +151,10 @@ EMAP:0001465 ~ | | | | \ 1st branchial groove ectoderm
 EMAP:0001466 ~ | | | + 1st branchial membrane
 EMAP:0001467 ~ | | | | + 1st branchial membrane ectoderm
 EMAP:0001468 ~ | | | | \ 1st branchial membrane endoderm
-EMAP:0001469 ~ | | | \ 1st branchial pouch
-EMAP:0001470 ~ | | |   \ 1st branchial pouch endoderm
+EMAP:0001469 ~ | | | + 1st branchial pouch
+EMAP:0001470 ~ | | | | \ 1st branchial pouch endoderm
+EMAP:0001483 ~ | | | \ 1st branchial arch maxillary-mandibular groove
+EMAP:0001484 ~ | | |   \ 1st branchial arch maxillary-mandibular groove ectoderm
 EMAP:0001485 ~ | | + 2nd branchial arch
 EMAP:0001493 ~ | | | + 2nd branchial arch ectoderm
 EMAP:0001494 ~ | | | + 2nd branchial arch endoderm
@@ -206,11 +206,16 @@ EMAP:0033761 ~ | | + branchial groove
 EMAP:0033777 ~ | | \ branchial pouch
 EMAP:0001526 > | + cavities and their linings
 EMAP:0001527 ~ | | \ intraembryonic coelom
+EMAP:0034242 ~ | |   + mesothelium
 EMAP:0001528 ~ | |   + intraembryonic coelom pericardial component
 EMAP:0001529 ~ | |   | + pericardial component cavity
 EMAP:0001530 ~ | |   | \ pericardial component mesothelium
 EMAP:0001531 ~ | |   |   + pericardial component parietal mesothelium
 EMAP:0001532 ~ | |   |   \ pericardial component visceral mesothelium
+EMAP:0001533 ~ | |   + pericardio-peritoneal canal
+EMAP:0001534 ~ | |   | + pericardio-peritoneal canal cavity
+EMAP:0001535 ~ | |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0001536 ~ | |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0001537 ~ | |   + intraembryonic coelom peritoneal component
 EMAP:0001538 ~ | |   | + peritoneal component cavity
 EMAP:0001539 ~ | |   | \ peritoneal component mesothelium
@@ -221,11 +226,6 @@ EMAP:0001543 ~ | |   | + pleural component cavity
 EMAP:0001544 ~ | |   | \ pleural component mesothelium
 EMAP:0001545 ~ | |   |   + pleural component parietal mesothelium
 EMAP:0001546 ~ | |   |   \ pleural component visceral mesothelium
-EMAP:0034242 ~ | |   + mesothelium
-EMAP:0001533 ~ | |   + pericardio-peritoneal canal
-EMAP:0001534 ~ | |   | + pericardio-peritoneal canal cavity
-EMAP:0001535 ~ | |   | \ pericardio-peritoneal canal mesothelium
-EMAP:0001536 ~ | |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0014734 ~ | |   \ pleuro-peritoneal canal
 EMAP:0014749 ~ | |     + pleuro-peritoneal canal cavity
 EMAP:0014739 ~ | |     \ pleuro-peritoneal canal mesothelium
@@ -263,74 +263,74 @@ EMAP:0031112 ~ | | | | + dermomyotome group
 EMAP:0034138 ~ | | | | | + dermatome
 EMAP:0034159 ~ | | | | | + myotome
 EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
 EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
 EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
-EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
 EMAP:0029698 ~ | | | | | \ trunk dermomyotome group
-EMAP:0001570 ~ | | | | |   + somite 05 dermomyotome
-EMAP:0001574 ~ | | | | |   + somite 06 dermomyotome
-EMAP:0001578 ~ | | | | |   + somite 07 dermomyotome
-EMAP:0001582 ~ | | | | |   + somite 08 dermomyotome
-EMAP:0001586 ~ | | | | |   + somite 09 dermomyotome
-EMAP:0001590 ~ | | | | |   + somite 10 dermomyotome
 EMAP:0001594 ~ | | | | |   + somite 11 dermomyotome
-EMAP:0001598 ~ | | | | |   + somite 12 dermomyotome
-EMAP:0001602 ~ | | | | |   + somite 13 dermomyotome
-EMAP:0001606 ~ | | | | |   + somite 14 dermomyotome
-EMAP:0001610 ~ | | | | |   + somite 15 dermomyotome
-EMAP:0001614 ~ | | | | |   + somite 16 dermomyotome
-EMAP:0001618 ~ | | | | |   + somite 17 dermomyotome
-EMAP:0001622 ~ | | | | |   + somite 18 dermomyotome
+EMAP:0001650 ~ | | | | |   + somite 25 dermomyotome
+EMAP:0001642 ~ | | | | |   + somite 23 dermomyotome
+EMAP:0001666 ~ | | | | |   + somite 29 dermomyotome
+EMAP:0001570 ~ | | | | |   + somite 05 dermomyotome
+EMAP:0001638 ~ | | | | |   + somite 22 dermomyotome
 EMAP:0001626 ~ | | | | |   + somite 19 dermomyotome
+EMAP:0001598 ~ | | | | |   + somite 12 dermomyotome
+EMAP:0001582 ~ | | | | |   + somite 08 dermomyotome
+EMAP:0001646 ~ | | | | |   + somite 24 dermomyotome
+EMAP:0001590 ~ | | | | |   + somite 10 dermomyotome
+EMAP:0001654 ~ | | | | |   + somite 26 dermomyotome
+EMAP:0001578 ~ | | | | |   + somite 07 dermomyotome
+EMAP:0001574 ~ | | | | |   + somite 06 dermomyotome
+EMAP:0001622 ~ | | | | |   + somite 18 dermomyotome
+EMAP:0001606 ~ | | | | |   + somite 14 dermomyotome
+EMAP:0001586 ~ | | | | |   + somite 09 dermomyotome
+EMAP:0001670 ~ | | | | |   + somite 30 dermomyotome
+EMAP:0001602 ~ | | | | |   + somite 13 dermomyotome
 EMAP:0001630 ~ | | | | |   + somite 20 dermomyotome
 EMAP:0001634 ~ | | | | |   + somite 21 dermomyotome
-EMAP:0001638 ~ | | | | |   + somite 22 dermomyotome
-EMAP:0001642 ~ | | | | |   + somite 23 dermomyotome
-EMAP:0001646 ~ | | | | |   + somite 24 dermomyotome
-EMAP:0001650 ~ | | | | |   + somite 25 dermomyotome
-EMAP:0001654 ~ | | | | |   + somite 26 dermomyotome
 EMAP:0001658 ~ | | | | |   + somite 27 dermomyotome
+EMAP:0001614 ~ | | | | |   + somite 16 dermomyotome
+EMAP:0001618 ~ | | | | |   + somite 17 dermomyotome
+EMAP:0001610 ~ | | | | |   + somite 15 dermomyotome
 EMAP:0001662 ~ | | | | |   + somite 28 dermomyotome
-EMAP:0001666 ~ | | | | |   + somite 29 dermomyotome
-EMAP:0001670 ~ | | | | |   + somite 30 dermomyotome
 EMAP:0034153 ~ | | | | |   + trunk dermatome
 EMAP:0034175 ~ | | | | |   \ trunk myotome
 EMAP:0031162 ~ | | | | + sclerotome group
 EMAP:0031152 ~ | | | | | + tail sclerotome group
-EMAP:0001975 ~ | | | | | | + somite 31 sclerotome
-EMAP:0001979 ~ | | | | | | + somite 32 sclerotome
-EMAP:0001983 ~ | | | | | | + somite 33 sclerotome
 EMAP:0001987 ~ | | | | | | + somite 34 sclerotome
+EMAP:0001983 ~ | | | | | | + somite 33 sclerotome
+EMAP:0001979 ~ | | | | | | + somite 32 sclerotome
+EMAP:0001975 ~ | | | | | | + somite 31 sclerotome
 EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
 EMAP:0031147 ~ | | | | | \ trunk sclerotome group
-EMAP:0001572 ~ | | | | |   + somite 05 sclerotome
-EMAP:0001576 ~ | | | | |   + somite 06 sclerotome
-EMAP:0001580 ~ | | | | |   + somite 07 sclerotome
-EMAP:0001584 ~ | | | | |   + somite 08 sclerotome
-EMAP:0001588 ~ | | | | |   + somite 09 sclerotome
-EMAP:0001592 ~ | | | | |   + somite 10 sclerotome
-EMAP:0001596 ~ | | | | |   + somite 11 sclerotome
-EMAP:0001600 ~ | | | | |   + somite 12 sclerotome
-EMAP:0001604 ~ | | | | |   + somite 13 sclerotome
-EMAP:0001608 ~ | | | | |   + somite 14 sclerotome
-EMAP:0001612 ~ | | | | |   + somite 15 sclerotome
-EMAP:0001616 ~ | | | | |   + somite 16 sclerotome
-EMAP:0001620 ~ | | | | |   + somite 17 sclerotome
-EMAP:0001624 ~ | | | | |   + somite 18 sclerotome
-EMAP:0001628 ~ | | | | |   + somite 19 sclerotome
-EMAP:0001632 ~ | | | | |   + somite 20 sclerotome
-EMAP:0001636 ~ | | | | |   + somite 21 sclerotome
-EMAP:0001640 ~ | | | | |   + somite 22 sclerotome
 EMAP:0001644 ~ | | | | |   + somite 23 sclerotome
-EMAP:0001648 ~ | | | | |   + somite 24 sclerotome
+EMAP:0001628 ~ | | | | |   + somite 19 sclerotome
+EMAP:0001636 ~ | | | | |   + somite 21 sclerotome
+EMAP:0001616 ~ | | | | |   + somite 16 sclerotome
+EMAP:0001572 ~ | | | | |   + somite 05 sclerotome
+EMAP:0001640 ~ | | | | |   + somite 22 sclerotome
+EMAP:0001612 ~ | | | | |   + somite 15 sclerotome
+EMAP:0001664 ~ | | | | |   + somite 28 sclerotome
+EMAP:0001604 ~ | | | | |   + somite 13 sclerotome
+EMAP:0001588 ~ | | | | |   + somite 09 sclerotome
+EMAP:0001668 ~ | | | | |   + somite 29 sclerotome
+EMAP:0001672 ~ | | | | |   + somite 30 sclerotome
+EMAP:0001624 ~ | | | | |   + somite 18 sclerotome
+EMAP:0001580 ~ | | | | |   + somite 07 sclerotome
 EMAP:0001652 ~ | | | | |   + somite 25 sclerotome
 EMAP:0001656 ~ | | | | |   + somite 26 sclerotome
 EMAP:0001660 ~ | | | | |   + somite 27 sclerotome
-EMAP:0001664 ~ | | | | |   + somite 28 sclerotome
-EMAP:0001668 ~ | | | | |   + somite 29 sclerotome
-EMAP:0001672 ~ | | | | |   \ somite 30 sclerotome
+EMAP:0001584 ~ | | | | |   + somite 08 sclerotome
+EMAP:0001600 ~ | | | | |   + somite 12 sclerotome
+EMAP:0001632 ~ | | | | |   + somite 20 sclerotome
+EMAP:0001592 ~ | | | | |   + somite 10 sclerotome
+EMAP:0001596 ~ | | | | |   + somite 11 sclerotome
+EMAP:0001608 ~ | | | | |   + somite 14 sclerotome
+EMAP:0001576 ~ | | | | |   + somite 06 sclerotome
+EMAP:0001620 ~ | | | | |   + somite 17 sclerotome
+EMAP:0001648 ~ | | | | |   \ somite 24 sclerotome
 EMAP:0001971 ~ | | | | + tail somite group
 EMAP:0001972 ~ | | | | | + somite 31
 EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
@@ -353,22 +353,22 @@ EMAP:0001989 ~ | | | | | | + somite 35 dermomyotome
 EMAP:0001990 ~ | | | | | | + somite 35 myocoele
 EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
 EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
 EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
 EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
-EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
 EMAP:0031127 ~ | | | | | + tail myocoele group
-EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001990 ~ | | | | | | + somite 35 myocoele
 EMAP:0001978 ~ | | | | | | + somite 32 myocoele
-EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
 EMAP:0001986 ~ | | | | | | + somite 34 myocoele
-EMAP:0001990 ~ | | | | | | \ somite 35 myocoele
+EMAP:0001982 ~ | | | | | | \ somite 33 myocoele
 EMAP:0031152 ~ | | | | | \ tail sclerotome group
-EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
-EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
-EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
 EMAP:0001987 ~ | | | | |   + somite 34 sclerotome
+EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
+EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
+EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
 EMAP:0001991 ~ | | | | |   \ somite 35 sclerotome
 EMAP:0001568 ~ | | | | \ trunk somite group
 EMAP:0001569 ~ | | | |   + somite 05
@@ -476,88 +476,88 @@ EMAP:0001670 ~ | | | |   | + somite 30 dermomyotome
 EMAP:0001671 ~ | | | |   | + somite 30 myocoele
 EMAP:0001672 ~ | | | |   | \ somite 30 sclerotome
 EMAP:0029698 ~ | | | |   + trunk dermomyotome group
-EMAP:0001570 ~ | | | |   | + somite 05 dermomyotome
-EMAP:0001574 ~ | | | |   | + somite 06 dermomyotome
-EMAP:0001578 ~ | | | |   | + somite 07 dermomyotome
-EMAP:0001582 ~ | | | |   | + somite 08 dermomyotome
-EMAP:0001586 ~ | | | |   | + somite 09 dermomyotome
-EMAP:0001590 ~ | | | |   | + somite 10 dermomyotome
 EMAP:0001594 ~ | | | |   | + somite 11 dermomyotome
-EMAP:0001598 ~ | | | |   | + somite 12 dermomyotome
-EMAP:0001602 ~ | | | |   | + somite 13 dermomyotome
-EMAP:0001606 ~ | | | |   | + somite 14 dermomyotome
-EMAP:0001610 ~ | | | |   | + somite 15 dermomyotome
-EMAP:0001614 ~ | | | |   | + somite 16 dermomyotome
-EMAP:0001618 ~ | | | |   | + somite 17 dermomyotome
-EMAP:0001622 ~ | | | |   | + somite 18 dermomyotome
+EMAP:0001650 ~ | | | |   | + somite 25 dermomyotome
+EMAP:0001642 ~ | | | |   | + somite 23 dermomyotome
+EMAP:0001666 ~ | | | |   | + somite 29 dermomyotome
+EMAP:0001570 ~ | | | |   | + somite 05 dermomyotome
+EMAP:0001638 ~ | | | |   | + somite 22 dermomyotome
 EMAP:0001626 ~ | | | |   | + somite 19 dermomyotome
+EMAP:0001598 ~ | | | |   | + somite 12 dermomyotome
+EMAP:0001582 ~ | | | |   | + somite 08 dermomyotome
+EMAP:0001646 ~ | | | |   | + somite 24 dermomyotome
+EMAP:0001590 ~ | | | |   | + somite 10 dermomyotome
+EMAP:0001654 ~ | | | |   | + somite 26 dermomyotome
+EMAP:0001578 ~ | | | |   | + somite 07 dermomyotome
+EMAP:0001574 ~ | | | |   | + somite 06 dermomyotome
+EMAP:0001622 ~ | | | |   | + somite 18 dermomyotome
+EMAP:0001606 ~ | | | |   | + somite 14 dermomyotome
+EMAP:0001586 ~ | | | |   | + somite 09 dermomyotome
+EMAP:0001670 ~ | | | |   | + somite 30 dermomyotome
+EMAP:0001602 ~ | | | |   | + somite 13 dermomyotome
 EMAP:0001630 ~ | | | |   | + somite 20 dermomyotome
 EMAP:0001634 ~ | | | |   | + somite 21 dermomyotome
-EMAP:0001638 ~ | | | |   | + somite 22 dermomyotome
-EMAP:0001642 ~ | | | |   | + somite 23 dermomyotome
-EMAP:0001646 ~ | | | |   | + somite 24 dermomyotome
-EMAP:0001650 ~ | | | |   | + somite 25 dermomyotome
-EMAP:0001654 ~ | | | |   | + somite 26 dermomyotome
 EMAP:0001658 ~ | | | |   | + somite 27 dermomyotome
+EMAP:0001614 ~ | | | |   | + somite 16 dermomyotome
+EMAP:0001618 ~ | | | |   | + somite 17 dermomyotome
+EMAP:0001610 ~ | | | |   | + somite 15 dermomyotome
 EMAP:0001662 ~ | | | |   | + somite 28 dermomyotome
-EMAP:0001666 ~ | | | |   | + somite 29 dermomyotome
-EMAP:0001670 ~ | | | |   | + somite 30 dermomyotome
 EMAP:0034153 ~ | | | |   | + trunk dermatome
 EMAP:0034175 ~ | | | |   | \ trunk myotome
 EMAP:0031181 ~ | | | |   + trunk myocoele group
-EMAP:0001571 ~ | | | |   | + somite 05 myocoele
-EMAP:0001575 ~ | | | |   | + somite 06 myocoele
-EMAP:0001579 ~ | | | |   | + somite 07 myocoele
-EMAP:0001583 ~ | | | |   | + somite 08 myocoele
-EMAP:0001587 ~ | | | |   | + somite 09 myocoele
-EMAP:0001591 ~ | | | |   | + somite 10 myocoele
-EMAP:0001595 ~ | | | |   | + somite 11 myocoele
-EMAP:0001599 ~ | | | |   | + somite 12 myocoele
-EMAP:0001603 ~ | | | |   | + somite 13 myocoele
-EMAP:0001607 ~ | | | |   | + somite 14 myocoele
 EMAP:0001611 ~ | | | |   | + somite 15 myocoele
-EMAP:0001615 ~ | | | |   | + somite 16 myocoele
-EMAP:0001619 ~ | | | |   | + somite 17 myocoele
-EMAP:0001623 ~ | | | |   | + somite 18 myocoele
-EMAP:0001627 ~ | | | |   | + somite 19 myocoele
-EMAP:0001631 ~ | | | |   | + somite 20 myocoele
-EMAP:0001635 ~ | | | |   | + somite 21 myocoele
-EMAP:0001639 ~ | | | |   | + somite 22 myocoele
+EMAP:0001587 ~ | | | |   | + somite 09 myocoele
+EMAP:0001671 ~ | | | |   | + somite 30 myocoele
+EMAP:0001571 ~ | | | |   | + somite 05 myocoele
+EMAP:0001603 ~ | | | |   | + somite 13 myocoele
 EMAP:0001643 ~ | | | |   | + somite 23 myocoele
-EMAP:0001647 ~ | | | |   | + somite 24 myocoele
+EMAP:0001583 ~ | | | |   | + somite 08 myocoele
+EMAP:0001599 ~ | | | |   | + somite 12 myocoele
 EMAP:0001651 ~ | | | |   | + somite 25 myocoele
+EMAP:0001627 ~ | | | |   | + somite 19 myocoele
+EMAP:0001579 ~ | | | |   | + somite 07 myocoele
+EMAP:0001615 ~ | | | |   | + somite 16 myocoele
+EMAP:0001631 ~ | | | |   | + somite 20 myocoele
 EMAP:0001655 ~ | | | |   | + somite 26 myocoele
-EMAP:0001659 ~ | | | |   | + somite 27 myocoele
+EMAP:0001591 ~ | | | |   | + somite 10 myocoele
+EMAP:0001619 ~ | | | |   | + somite 17 myocoele
 EMAP:0001663 ~ | | | |   | + somite 28 myocoele
-EMAP:0001667 ~ | | | |   | + somite 29 myocoele
-EMAP:0001671 ~ | | | |   | \ somite 30 myocoele
+EMAP:0001607 ~ | | | |   | + somite 14 myocoele
+EMAP:0001575 ~ | | | |   | + somite 06 myocoele
+EMAP:0001647 ~ | | | |   | + somite 24 myocoele
+EMAP:0001639 ~ | | | |   | + somite 22 myocoele
+EMAP:0001595 ~ | | | |   | + somite 11 myocoele
+EMAP:0001635 ~ | | | |   | + somite 21 myocoele
+EMAP:0001623 ~ | | | |   | + somite 18 myocoele
+EMAP:0001659 ~ | | | |   | + somite 27 myocoele
+EMAP:0001667 ~ | | | |   | \ somite 29 myocoele
 EMAP:0031147 ~ | | | |   \ trunk sclerotome group
-EMAP:0001572 ~ | | | |     + somite 05 sclerotome
-EMAP:0001576 ~ | | | |     + somite 06 sclerotome
-EMAP:0001580 ~ | | | |     + somite 07 sclerotome
-EMAP:0001584 ~ | | | |     + somite 08 sclerotome
-EMAP:0001588 ~ | | | |     + somite 09 sclerotome
-EMAP:0001592 ~ | | | |     + somite 10 sclerotome
-EMAP:0001596 ~ | | | |     + somite 11 sclerotome
-EMAP:0001600 ~ | | | |     + somite 12 sclerotome
-EMAP:0001604 ~ | | | |     + somite 13 sclerotome
-EMAP:0001608 ~ | | | |     + somite 14 sclerotome
-EMAP:0001612 ~ | | | |     + somite 15 sclerotome
-EMAP:0001616 ~ | | | |     + somite 16 sclerotome
-EMAP:0001620 ~ | | | |     + somite 17 sclerotome
-EMAP:0001624 ~ | | | |     + somite 18 sclerotome
-EMAP:0001628 ~ | | | |     + somite 19 sclerotome
-EMAP:0001632 ~ | | | |     + somite 20 sclerotome
-EMAP:0001636 ~ | | | |     + somite 21 sclerotome
-EMAP:0001640 ~ | | | |     + somite 22 sclerotome
 EMAP:0001644 ~ | | | |     + somite 23 sclerotome
-EMAP:0001648 ~ | | | |     + somite 24 sclerotome
+EMAP:0001628 ~ | | | |     + somite 19 sclerotome
+EMAP:0001636 ~ | | | |     + somite 21 sclerotome
+EMAP:0001616 ~ | | | |     + somite 16 sclerotome
+EMAP:0001572 ~ | | | |     + somite 05 sclerotome
+EMAP:0001640 ~ | | | |     + somite 22 sclerotome
+EMAP:0001612 ~ | | | |     + somite 15 sclerotome
+EMAP:0001664 ~ | | | |     + somite 28 sclerotome
+EMAP:0001604 ~ | | | |     + somite 13 sclerotome
+EMAP:0001588 ~ | | | |     + somite 09 sclerotome
+EMAP:0001668 ~ | | | |     + somite 29 sclerotome
+EMAP:0001672 ~ | | | |     + somite 30 sclerotome
+EMAP:0001624 ~ | | | |     + somite 18 sclerotome
+EMAP:0001580 ~ | | | |     + somite 07 sclerotome
 EMAP:0001652 ~ | | | |     + somite 25 sclerotome
 EMAP:0001656 ~ | | | |     + somite 26 sclerotome
 EMAP:0001660 ~ | | | |     + somite 27 sclerotome
-EMAP:0001664 ~ | | | |     + somite 28 sclerotome
-EMAP:0001668 ~ | | | |     + somite 29 sclerotome
-EMAP:0001672 ~ | | | |     \ somite 30 sclerotome
+EMAP:0001584 ~ | | | |     + somite 08 sclerotome
+EMAP:0001600 ~ | | | |     + somite 12 sclerotome
+EMAP:0001632 ~ | | | |     + somite 20 sclerotome
+EMAP:0001592 ~ | | | |     + somite 10 sclerotome
+EMAP:0001596 ~ | | | |     + somite 11 sclerotome
+EMAP:0001608 ~ | | | |     + somite 14 sclerotome
+EMAP:0001576 ~ | | | |     + somite 06 sclerotome
+EMAP:0001620 ~ | | | |     + somite 17 sclerotome
+EMAP:0001648 ~ | | | |     \ somite 24 sclerotome
 EMAP:0001970 ~ | | | + tail paraxial mesenchyme
 EMAP:0001971 ~ | | | | + tail somite group
 EMAP:0001972 ~ | | | | | + somite 31
@@ -581,22 +581,22 @@ EMAP:0001989 ~ | | | | | | + somite 35 dermomyotome
 EMAP:0001990 ~ | | | | | | + somite 35 myocoele
 EMAP:0001991 ~ | | | | | | \ somite 35 sclerotome
 EMAP:0031106 ~ | | | | | + tail dermomyotome group
+EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001973 ~ | | | | | | + somite 31 dermomyotome
 EMAP:0001977 ~ | | | | | | + somite 32 dermomyotome
 EMAP:0001981 ~ | | | | | | + somite 33 dermomyotome
-EMAP:0001985 ~ | | | | | | + somite 34 dermomyotome
 EMAP:0001989 ~ | | | | | | \ somite 35 dermomyotome
 EMAP:0031127 ~ | | | | | + tail myocoele group
-EMAP:0001974 ~ | | | | | | + somite 31 myocoele
+EMAP:0001990 ~ | | | | | | + somite 35 myocoele
 EMAP:0001978 ~ | | | | | | + somite 32 myocoele
-EMAP:0001982 ~ | | | | | | + somite 33 myocoele
+EMAP:0001974 ~ | | | | | | + somite 31 myocoele
 EMAP:0001986 ~ | | | | | | + somite 34 myocoele
-EMAP:0001990 ~ | | | | | | \ somite 35 myocoele
+EMAP:0001982 ~ | | | | | | \ somite 33 myocoele
 EMAP:0031152 ~ | | | | | \ tail sclerotome group
-EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
-EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
-EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
 EMAP:0001987 ~ | | | | |   + somite 34 sclerotome
+EMAP:0001983 ~ | | | | |   + somite 33 sclerotome
+EMAP:0001979 ~ | | | | |   + somite 32 sclerotome
+EMAP:0001975 ~ | | | | |   + somite 31 sclerotome
 EMAP:0001991 ~ | | | | |   \ somite 35 sclerotome
 EMAP:0001992 ~ | | | | \ unsegmented mesenchyme
 EMAP:0001567 ~ | | | \ trunk paraxial mesenchyme
@@ -706,88 +706,88 @@ EMAP:0001670 ~ | | |     | + somite 30 dermomyotome
 EMAP:0001671 ~ | | |     | + somite 30 myocoele
 EMAP:0001672 ~ | | |     | \ somite 30 sclerotome
 EMAP:0029698 ~ | | |     + trunk dermomyotome group
-EMAP:0001570 ~ | | |     | + somite 05 dermomyotome
-EMAP:0001574 ~ | | |     | + somite 06 dermomyotome
-EMAP:0001578 ~ | | |     | + somite 07 dermomyotome
-EMAP:0001582 ~ | | |     | + somite 08 dermomyotome
-EMAP:0001586 ~ | | |     | + somite 09 dermomyotome
-EMAP:0001590 ~ | | |     | + somite 10 dermomyotome
 EMAP:0001594 ~ | | |     | + somite 11 dermomyotome
-EMAP:0001598 ~ | | |     | + somite 12 dermomyotome
-EMAP:0001602 ~ | | |     | + somite 13 dermomyotome
-EMAP:0001606 ~ | | |     | + somite 14 dermomyotome
-EMAP:0001610 ~ | | |     | + somite 15 dermomyotome
-EMAP:0001614 ~ | | |     | + somite 16 dermomyotome
-EMAP:0001618 ~ | | |     | + somite 17 dermomyotome
-EMAP:0001622 ~ | | |     | + somite 18 dermomyotome
+EMAP:0001650 ~ | | |     | + somite 25 dermomyotome
+EMAP:0001642 ~ | | |     | + somite 23 dermomyotome
+EMAP:0001666 ~ | | |     | + somite 29 dermomyotome
+EMAP:0001570 ~ | | |     | + somite 05 dermomyotome
+EMAP:0001638 ~ | | |     | + somite 22 dermomyotome
 EMAP:0001626 ~ | | |     | + somite 19 dermomyotome
+EMAP:0001598 ~ | | |     | + somite 12 dermomyotome
+EMAP:0001582 ~ | | |     | + somite 08 dermomyotome
+EMAP:0001646 ~ | | |     | + somite 24 dermomyotome
+EMAP:0001590 ~ | | |     | + somite 10 dermomyotome
+EMAP:0001654 ~ | | |     | + somite 26 dermomyotome
+EMAP:0001578 ~ | | |     | + somite 07 dermomyotome
+EMAP:0001574 ~ | | |     | + somite 06 dermomyotome
+EMAP:0001622 ~ | | |     | + somite 18 dermomyotome
+EMAP:0001606 ~ | | |     | + somite 14 dermomyotome
+EMAP:0001586 ~ | | |     | + somite 09 dermomyotome
+EMAP:0001670 ~ | | |     | + somite 30 dermomyotome
+EMAP:0001602 ~ | | |     | + somite 13 dermomyotome
 EMAP:0001630 ~ | | |     | + somite 20 dermomyotome
 EMAP:0001634 ~ | | |     | + somite 21 dermomyotome
-EMAP:0001638 ~ | | |     | + somite 22 dermomyotome
-EMAP:0001642 ~ | | |     | + somite 23 dermomyotome
-EMAP:0001646 ~ | | |     | + somite 24 dermomyotome
-EMAP:0001650 ~ | | |     | + somite 25 dermomyotome
-EMAP:0001654 ~ | | |     | + somite 26 dermomyotome
 EMAP:0001658 ~ | | |     | + somite 27 dermomyotome
+EMAP:0001614 ~ | | |     | + somite 16 dermomyotome
+EMAP:0001618 ~ | | |     | + somite 17 dermomyotome
+EMAP:0001610 ~ | | |     | + somite 15 dermomyotome
 EMAP:0001662 ~ | | |     | + somite 28 dermomyotome
-EMAP:0001666 ~ | | |     | + somite 29 dermomyotome
-EMAP:0001670 ~ | | |     | + somite 30 dermomyotome
 EMAP:0034153 ~ | | |     | + trunk dermatome
 EMAP:0034175 ~ | | |     | \ trunk myotome
 EMAP:0031181 ~ | | |     + trunk myocoele group
-EMAP:0001571 ~ | | |     | + somite 05 myocoele
-EMAP:0001575 ~ | | |     | + somite 06 myocoele
-EMAP:0001579 ~ | | |     | + somite 07 myocoele
-EMAP:0001583 ~ | | |     | + somite 08 myocoele
-EMAP:0001587 ~ | | |     | + somite 09 myocoele
-EMAP:0001591 ~ | | |     | + somite 10 myocoele
-EMAP:0001595 ~ | | |     | + somite 11 myocoele
-EMAP:0001599 ~ | | |     | + somite 12 myocoele
-EMAP:0001603 ~ | | |     | + somite 13 myocoele
-EMAP:0001607 ~ | | |     | + somite 14 myocoele
 EMAP:0001611 ~ | | |     | + somite 15 myocoele
-EMAP:0001615 ~ | | |     | + somite 16 myocoele
-EMAP:0001619 ~ | | |     | + somite 17 myocoele
-EMAP:0001623 ~ | | |     | + somite 18 myocoele
-EMAP:0001627 ~ | | |     | + somite 19 myocoele
-EMAP:0001631 ~ | | |     | + somite 20 myocoele
-EMAP:0001635 ~ | | |     | + somite 21 myocoele
-EMAP:0001639 ~ | | |     | + somite 22 myocoele
+EMAP:0001587 ~ | | |     | + somite 09 myocoele
+EMAP:0001671 ~ | | |     | + somite 30 myocoele
+EMAP:0001571 ~ | | |     | + somite 05 myocoele
+EMAP:0001603 ~ | | |     | + somite 13 myocoele
 EMAP:0001643 ~ | | |     | + somite 23 myocoele
-EMAP:0001647 ~ | | |     | + somite 24 myocoele
+EMAP:0001583 ~ | | |     | + somite 08 myocoele
+EMAP:0001599 ~ | | |     | + somite 12 myocoele
 EMAP:0001651 ~ | | |     | + somite 25 myocoele
+EMAP:0001627 ~ | | |     | + somite 19 myocoele
+EMAP:0001579 ~ | | |     | + somite 07 myocoele
+EMAP:0001615 ~ | | |     | + somite 16 myocoele
+EMAP:0001631 ~ | | |     | + somite 20 myocoele
 EMAP:0001655 ~ | | |     | + somite 26 myocoele
-EMAP:0001659 ~ | | |     | + somite 27 myocoele
+EMAP:0001591 ~ | | |     | + somite 10 myocoele
+EMAP:0001619 ~ | | |     | + somite 17 myocoele
 EMAP:0001663 ~ | | |     | + somite 28 myocoele
-EMAP:0001667 ~ | | |     | + somite 29 myocoele
-EMAP:0001671 ~ | | |     | \ somite 30 myocoele
+EMAP:0001607 ~ | | |     | + somite 14 myocoele
+EMAP:0001575 ~ | | |     | + somite 06 myocoele
+EMAP:0001647 ~ | | |     | + somite 24 myocoele
+EMAP:0001639 ~ | | |     | + somite 22 myocoele
+EMAP:0001595 ~ | | |     | + somite 11 myocoele
+EMAP:0001635 ~ | | |     | + somite 21 myocoele
+EMAP:0001623 ~ | | |     | + somite 18 myocoele
+EMAP:0001659 ~ | | |     | + somite 27 myocoele
+EMAP:0001667 ~ | | |     | \ somite 29 myocoele
 EMAP:0031147 ~ | | |     \ trunk sclerotome group
-EMAP:0001572 ~ | | |       + somite 05 sclerotome
-EMAP:0001576 ~ | | |       + somite 06 sclerotome
-EMAP:0001580 ~ | | |       + somite 07 sclerotome
-EMAP:0001584 ~ | | |       + somite 08 sclerotome
-EMAP:0001588 ~ | | |       + somite 09 sclerotome
-EMAP:0001592 ~ | | |       + somite 10 sclerotome
-EMAP:0001596 ~ | | |       + somite 11 sclerotome
-EMAP:0001600 ~ | | |       + somite 12 sclerotome
-EMAP:0001604 ~ | | |       + somite 13 sclerotome
-EMAP:0001608 ~ | | |       + somite 14 sclerotome
-EMAP:0001612 ~ | | |       + somite 15 sclerotome
-EMAP:0001616 ~ | | |       + somite 16 sclerotome
-EMAP:0001620 ~ | | |       + somite 17 sclerotome
-EMAP:0001624 ~ | | |       + somite 18 sclerotome
-EMAP:0001628 ~ | | |       + somite 19 sclerotome
-EMAP:0001632 ~ | | |       + somite 20 sclerotome
-EMAP:0001636 ~ | | |       + somite 21 sclerotome
-EMAP:0001640 ~ | | |       + somite 22 sclerotome
 EMAP:0001644 ~ | | |       + somite 23 sclerotome
-EMAP:0001648 ~ | | |       + somite 24 sclerotome
+EMAP:0001628 ~ | | |       + somite 19 sclerotome
+EMAP:0001636 ~ | | |       + somite 21 sclerotome
+EMAP:0001616 ~ | | |       + somite 16 sclerotome
+EMAP:0001572 ~ | | |       + somite 05 sclerotome
+EMAP:0001640 ~ | | |       + somite 22 sclerotome
+EMAP:0001612 ~ | | |       + somite 15 sclerotome
+EMAP:0001664 ~ | | |       + somite 28 sclerotome
+EMAP:0001604 ~ | | |       + somite 13 sclerotome
+EMAP:0001588 ~ | | |       + somite 09 sclerotome
+EMAP:0001668 ~ | | |       + somite 29 sclerotome
+EMAP:0001672 ~ | | |       + somite 30 sclerotome
+EMAP:0001624 ~ | | |       + somite 18 sclerotome
+EMAP:0001580 ~ | | |       + somite 07 sclerotome
 EMAP:0001652 ~ | | |       + somite 25 sclerotome
 EMAP:0001656 ~ | | |       + somite 26 sclerotome
 EMAP:0001660 ~ | | |       + somite 27 sclerotome
-EMAP:0001664 ~ | | |       + somite 28 sclerotome
-EMAP:0001668 ~ | | |       + somite 29 sclerotome
-EMAP:0001672 ~ | | |       \ somite 30 sclerotome
+EMAP:0001584 ~ | | |       + somite 08 sclerotome
+EMAP:0001600 ~ | | |       + somite 12 sclerotome
+EMAP:0001632 ~ | | |       + somite 20 sclerotome
+EMAP:0001592 ~ | | |       + somite 10 sclerotome
+EMAP:0001596 ~ | | |       + somite 11 sclerotome
+EMAP:0001608 ~ | | |       + somite 14 sclerotome
+EMAP:0001576 ~ | | |       + somite 06 sclerotome
+EMAP:0001620 ~ | | |       + somite 17 sclerotome
+EMAP:0001648 ~ | | |       \ somite 24 sclerotome
 EMAP:0033639 ~ | | + pre-cartilage condensation
 EMAP:0001968 ~ | | + tail mesenchyme
 EMAP:0001969 ~ | | | + tail mesenchyme derived from neural crest
@@ -814,22 +814,22 @@ EMAP:0001989 ~ | | |   | | + somite 35 dermomyotome
 EMAP:0001990 ~ | | |   | | + somite 35 myocoele
 EMAP:0001991 ~ | | |   | | \ somite 35 sclerotome
 EMAP:0031106 ~ | | |   | + tail dermomyotome group
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
 EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
 EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
 EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
-EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
 EMAP:0001989 ~ | | |   | | \ somite 35 dermomyotome
 EMAP:0031127 ~ | | |   | + tail myocoele group
-EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001990 ~ | | |   | | + somite 35 myocoele
 EMAP:0001978 ~ | | |   | | + somite 32 myocoele
-EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
 EMAP:0001986 ~ | | |   | | + somite 34 myocoele
-EMAP:0001990 ~ | | |   | | \ somite 35 myocoele
+EMAP:0001982 ~ | | |   | | \ somite 33 myocoele
 EMAP:0031152 ~ | | |   | \ tail sclerotome group
-EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
-EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
-EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
 EMAP:0001987 ~ | | |   |   + somite 34 sclerotome
+EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
+EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
+EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
 EMAP:0001991 ~ | | |   |   \ somite 35 sclerotome
 EMAP:0001992 ~ | | |   \ unsegmented mesenchyme
 EMAP:0001561 ~ | | \ trunk mesenchyme
@@ -949,88 +949,88 @@ EMAP:0001670 ~ | |       | + somite 30 dermomyotome
 EMAP:0001671 ~ | |       | + somite 30 myocoele
 EMAP:0001672 ~ | |       | \ somite 30 sclerotome
 EMAP:0029698 ~ | |       + trunk dermomyotome group
-EMAP:0001570 ~ | |       | + somite 05 dermomyotome
-EMAP:0001574 ~ | |       | + somite 06 dermomyotome
-EMAP:0001578 ~ | |       | + somite 07 dermomyotome
-EMAP:0001582 ~ | |       | + somite 08 dermomyotome
-EMAP:0001586 ~ | |       | + somite 09 dermomyotome
-EMAP:0001590 ~ | |       | + somite 10 dermomyotome
 EMAP:0001594 ~ | |       | + somite 11 dermomyotome
-EMAP:0001598 ~ | |       | + somite 12 dermomyotome
-EMAP:0001602 ~ | |       | + somite 13 dermomyotome
-EMAP:0001606 ~ | |       | + somite 14 dermomyotome
-EMAP:0001610 ~ | |       | + somite 15 dermomyotome
-EMAP:0001614 ~ | |       | + somite 16 dermomyotome
-EMAP:0001618 ~ | |       | + somite 17 dermomyotome
-EMAP:0001622 ~ | |       | + somite 18 dermomyotome
+EMAP:0001650 ~ | |       | + somite 25 dermomyotome
+EMAP:0001642 ~ | |       | + somite 23 dermomyotome
+EMAP:0001666 ~ | |       | + somite 29 dermomyotome
+EMAP:0001570 ~ | |       | + somite 05 dermomyotome
+EMAP:0001638 ~ | |       | + somite 22 dermomyotome
 EMAP:0001626 ~ | |       | + somite 19 dermomyotome
+EMAP:0001598 ~ | |       | + somite 12 dermomyotome
+EMAP:0001582 ~ | |       | + somite 08 dermomyotome
+EMAP:0001646 ~ | |       | + somite 24 dermomyotome
+EMAP:0001590 ~ | |       | + somite 10 dermomyotome
+EMAP:0001654 ~ | |       | + somite 26 dermomyotome
+EMAP:0001578 ~ | |       | + somite 07 dermomyotome
+EMAP:0001574 ~ | |       | + somite 06 dermomyotome
+EMAP:0001622 ~ | |       | + somite 18 dermomyotome
+EMAP:0001606 ~ | |       | + somite 14 dermomyotome
+EMAP:0001586 ~ | |       | + somite 09 dermomyotome
+EMAP:0001670 ~ | |       | + somite 30 dermomyotome
+EMAP:0001602 ~ | |       | + somite 13 dermomyotome
 EMAP:0001630 ~ | |       | + somite 20 dermomyotome
 EMAP:0001634 ~ | |       | + somite 21 dermomyotome
-EMAP:0001638 ~ | |       | + somite 22 dermomyotome
-EMAP:0001642 ~ | |       | + somite 23 dermomyotome
-EMAP:0001646 ~ | |       | + somite 24 dermomyotome
-EMAP:0001650 ~ | |       | + somite 25 dermomyotome
-EMAP:0001654 ~ | |       | + somite 26 dermomyotome
 EMAP:0001658 ~ | |       | + somite 27 dermomyotome
+EMAP:0001614 ~ | |       | + somite 16 dermomyotome
+EMAP:0001618 ~ | |       | + somite 17 dermomyotome
+EMAP:0001610 ~ | |       | + somite 15 dermomyotome
 EMAP:0001662 ~ | |       | + somite 28 dermomyotome
-EMAP:0001666 ~ | |       | + somite 29 dermomyotome
-EMAP:0001670 ~ | |       | + somite 30 dermomyotome
 EMAP:0034153 ~ | |       | + trunk dermatome
 EMAP:0034175 ~ | |       | \ trunk myotome
 EMAP:0031181 ~ | |       + trunk myocoele group
-EMAP:0001571 ~ | |       | + somite 05 myocoele
-EMAP:0001575 ~ | |       | + somite 06 myocoele
-EMAP:0001579 ~ | |       | + somite 07 myocoele
-EMAP:0001583 ~ | |       | + somite 08 myocoele
-EMAP:0001587 ~ | |       | + somite 09 myocoele
-EMAP:0001591 ~ | |       | + somite 10 myocoele
-EMAP:0001595 ~ | |       | + somite 11 myocoele
-EMAP:0001599 ~ | |       | + somite 12 myocoele
-EMAP:0001603 ~ | |       | + somite 13 myocoele
-EMAP:0001607 ~ | |       | + somite 14 myocoele
 EMAP:0001611 ~ | |       | + somite 15 myocoele
-EMAP:0001615 ~ | |       | + somite 16 myocoele
-EMAP:0001619 ~ | |       | + somite 17 myocoele
-EMAP:0001623 ~ | |       | + somite 18 myocoele
-EMAP:0001627 ~ | |       | + somite 19 myocoele
-EMAP:0001631 ~ | |       | + somite 20 myocoele
-EMAP:0001635 ~ | |       | + somite 21 myocoele
-EMAP:0001639 ~ | |       | + somite 22 myocoele
+EMAP:0001587 ~ | |       | + somite 09 myocoele
+EMAP:0001671 ~ | |       | + somite 30 myocoele
+EMAP:0001571 ~ | |       | + somite 05 myocoele
+EMAP:0001603 ~ | |       | + somite 13 myocoele
 EMAP:0001643 ~ | |       | + somite 23 myocoele
-EMAP:0001647 ~ | |       | + somite 24 myocoele
+EMAP:0001583 ~ | |       | + somite 08 myocoele
+EMAP:0001599 ~ | |       | + somite 12 myocoele
 EMAP:0001651 ~ | |       | + somite 25 myocoele
+EMAP:0001627 ~ | |       | + somite 19 myocoele
+EMAP:0001579 ~ | |       | + somite 07 myocoele
+EMAP:0001615 ~ | |       | + somite 16 myocoele
+EMAP:0001631 ~ | |       | + somite 20 myocoele
 EMAP:0001655 ~ | |       | + somite 26 myocoele
-EMAP:0001659 ~ | |       | + somite 27 myocoele
+EMAP:0001591 ~ | |       | + somite 10 myocoele
+EMAP:0001619 ~ | |       | + somite 17 myocoele
 EMAP:0001663 ~ | |       | + somite 28 myocoele
-EMAP:0001667 ~ | |       | + somite 29 myocoele
-EMAP:0001671 ~ | |       | \ somite 30 myocoele
+EMAP:0001607 ~ | |       | + somite 14 myocoele
+EMAP:0001575 ~ | |       | + somite 06 myocoele
+EMAP:0001647 ~ | |       | + somite 24 myocoele
+EMAP:0001639 ~ | |       | + somite 22 myocoele
+EMAP:0001595 ~ | |       | + somite 11 myocoele
+EMAP:0001635 ~ | |       | + somite 21 myocoele
+EMAP:0001623 ~ | |       | + somite 18 myocoele
+EMAP:0001659 ~ | |       | + somite 27 myocoele
+EMAP:0001667 ~ | |       | \ somite 29 myocoele
 EMAP:0031147 ~ | |       \ trunk sclerotome group
-EMAP:0001572 ~ | |         + somite 05 sclerotome
-EMAP:0001576 ~ | |         + somite 06 sclerotome
-EMAP:0001580 ~ | |         + somite 07 sclerotome
-EMAP:0001584 ~ | |         + somite 08 sclerotome
-EMAP:0001588 ~ | |         + somite 09 sclerotome
-EMAP:0001592 ~ | |         + somite 10 sclerotome
-EMAP:0001596 ~ | |         + somite 11 sclerotome
-EMAP:0001600 ~ | |         + somite 12 sclerotome
-EMAP:0001604 ~ | |         + somite 13 sclerotome
-EMAP:0001608 ~ | |         + somite 14 sclerotome
-EMAP:0001612 ~ | |         + somite 15 sclerotome
-EMAP:0001616 ~ | |         + somite 16 sclerotome
-EMAP:0001620 ~ | |         + somite 17 sclerotome
-EMAP:0001624 ~ | |         + somite 18 sclerotome
-EMAP:0001628 ~ | |         + somite 19 sclerotome
-EMAP:0001632 ~ | |         + somite 20 sclerotome
-EMAP:0001636 ~ | |         + somite 21 sclerotome
-EMAP:0001640 ~ | |         + somite 22 sclerotome
 EMAP:0001644 ~ | |         + somite 23 sclerotome
-EMAP:0001648 ~ | |         + somite 24 sclerotome
+EMAP:0001628 ~ | |         + somite 19 sclerotome
+EMAP:0001636 ~ | |         + somite 21 sclerotome
+EMAP:0001616 ~ | |         + somite 16 sclerotome
+EMAP:0001572 ~ | |         + somite 05 sclerotome
+EMAP:0001640 ~ | |         + somite 22 sclerotome
+EMAP:0001612 ~ | |         + somite 15 sclerotome
+EMAP:0001664 ~ | |         + somite 28 sclerotome
+EMAP:0001604 ~ | |         + somite 13 sclerotome
+EMAP:0001588 ~ | |         + somite 09 sclerotome
+EMAP:0001668 ~ | |         + somite 29 sclerotome
+EMAP:0001672 ~ | |         + somite 30 sclerotome
+EMAP:0001624 ~ | |         + somite 18 sclerotome
+EMAP:0001580 ~ | |         + somite 07 sclerotome
 EMAP:0001652 ~ | |         + somite 25 sclerotome
 EMAP:0001656 ~ | |         + somite 26 sclerotome
 EMAP:0001660 ~ | |         + somite 27 sclerotome
-EMAP:0001664 ~ | |         + somite 28 sclerotome
-EMAP:0001668 ~ | |         + somite 29 sclerotome
-EMAP:0001672 ~ | |         \ somite 30 sclerotome
+EMAP:0001584 ~ | |         + somite 08 sclerotome
+EMAP:0001600 ~ | |         + somite 12 sclerotome
+EMAP:0001632 ~ | |         + somite 20 sclerotome
+EMAP:0001592 ~ | |         + somite 10 sclerotome
+EMAP:0001596 ~ | |         + somite 11 sclerotome
+EMAP:0001608 ~ | |         + somite 14 sclerotome
+EMAP:0001576 ~ | |         + somite 06 sclerotome
+EMAP:0001620 ~ | |         + somite 17 sclerotome
+EMAP:0001648 ~ | |         \ somite 24 sclerotome
 EMAP:0001675 > | + notochord
 EMAP:0001676 > | + organ system
 EMAP:0001809 ~ | | + cardiovascular system
@@ -1433,16 +1433,16 @@ EMAP:0001682 ~ | |   |       \ Rathke's pouch
 EMAP:0014768 ~ | |   |         + Rathke's pouch lumen
 EMAP:0014763 ~ | |   |         \ Rathke's pouch wall
 EMAP:0001957 ~ | |   + genitourinary system
-EMAP:0035018 ~ | |   | + cloaca
+EMAP:0001965 ~ | |   | + nephric cord
+EMAP:0001966 ~ | |   | + nephric duct
 EMAP:0027561 ~ | |   | + genitourinary system associated mesenchyme
 EMAP:0001958 ~ | |   | + gonad
 EMAP:0001960 ~ | |   | | \ primordial germ cells
 EMAP:0001961 ~ | |   | + mesonephros
+EMAP:0001963 ~ | |   | | + mesonephros non-tubular part
 EMAP:0001964 ~ | |   | | + mesonephric tubule
-EMAP:0001962 ~ | |   | | + mesonephros associated mesenchyme
-EMAP:0001963 ~ | |   | | \ mesonephros non-tubular part
-EMAP:0001965 ~ | |   | + nephric cord
-EMAP:0001966 ~ | |   | \ nephric duct
+EMAP:0001962 ~ | |   | | \ mesonephros associated mesenchyme
+EMAP:0035018 ~ | |   | \ cloaca
 EMAP:0001928 ~ | |   + liver and biliary system
 EMAP:0001929 ~ | |   | + cystic duct
 EMAP:0001930 ~ | |   | + gall bladder primordium
@@ -1536,22 +1536,22 @@ EMAP:0001989 ~ | | |   | | + somite 35 dermomyotome
 EMAP:0001990 ~ | | |   | | + somite 35 myocoele
 EMAP:0001991 ~ | | |   | | \ somite 35 sclerotome
 EMAP:0031106 ~ | | |   | + tail dermomyotome group
+EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
 EMAP:0001973 ~ | | |   | | + somite 31 dermomyotome
 EMAP:0001977 ~ | | |   | | + somite 32 dermomyotome
 EMAP:0001981 ~ | | |   | | + somite 33 dermomyotome
-EMAP:0001985 ~ | | |   | | + somite 34 dermomyotome
 EMAP:0001989 ~ | | |   | | \ somite 35 dermomyotome
 EMAP:0031127 ~ | | |   | + tail myocoele group
-EMAP:0001974 ~ | | |   | | + somite 31 myocoele
+EMAP:0001990 ~ | | |   | | + somite 35 myocoele
 EMAP:0001978 ~ | | |   | | + somite 32 myocoele
-EMAP:0001982 ~ | | |   | | + somite 33 myocoele
+EMAP:0001974 ~ | | |   | | + somite 31 myocoele
 EMAP:0001986 ~ | | |   | | + somite 34 myocoele
-EMAP:0001990 ~ | | |   | | \ somite 35 myocoele
+EMAP:0001982 ~ | | |   | | \ somite 33 myocoele
 EMAP:0031152 ~ | | |   | \ tail sclerotome group
-EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
-EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
-EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
 EMAP:0001987 ~ | | |   |   + somite 34 sclerotome
+EMAP:0001983 ~ | | |   |   + somite 33 sclerotome
+EMAP:0001979 ~ | | |   |   + somite 32 sclerotome
+EMAP:0001975 ~ | | |   |   + somite 31 sclerotome
 EMAP:0001991 ~ | | |   |   \ somite 35 sclerotome
 EMAP:0001992 ~ | | |   \ unsegmented mesenchyme
 EMAP:0001993 ~ | | \ tail nervous system
@@ -1679,88 +1679,88 @@ EMAP:0001670 ~ |         | + somite 30 dermomyotome
 EMAP:0001671 ~ |         | + somite 30 myocoele
 EMAP:0001672 ~ |         | \ somite 30 sclerotome
 EMAP:0029698 ~ |         + trunk dermomyotome group
-EMAP:0001570 ~ |         | + somite 05 dermomyotome
-EMAP:0001574 ~ |         | + somite 06 dermomyotome
-EMAP:0001578 ~ |         | + somite 07 dermomyotome
-EMAP:0001582 ~ |         | + somite 08 dermomyotome
-EMAP:0001586 ~ |         | + somite 09 dermomyotome
-EMAP:0001590 ~ |         | + somite 10 dermomyotome
 EMAP:0001594 ~ |         | + somite 11 dermomyotome
-EMAP:0001598 ~ |         | + somite 12 dermomyotome
-EMAP:0001602 ~ |         | + somite 13 dermomyotome
-EMAP:0001606 ~ |         | + somite 14 dermomyotome
-EMAP:0001610 ~ |         | + somite 15 dermomyotome
-EMAP:0001614 ~ |         | + somite 16 dermomyotome
-EMAP:0001618 ~ |         | + somite 17 dermomyotome
-EMAP:0001622 ~ |         | + somite 18 dermomyotome
+EMAP:0001650 ~ |         | + somite 25 dermomyotome
+EMAP:0001642 ~ |         | + somite 23 dermomyotome
+EMAP:0001666 ~ |         | + somite 29 dermomyotome
+EMAP:0001570 ~ |         | + somite 05 dermomyotome
+EMAP:0001638 ~ |         | + somite 22 dermomyotome
 EMAP:0001626 ~ |         | + somite 19 dermomyotome
+EMAP:0001598 ~ |         | + somite 12 dermomyotome
+EMAP:0001582 ~ |         | + somite 08 dermomyotome
+EMAP:0001646 ~ |         | + somite 24 dermomyotome
+EMAP:0001590 ~ |         | + somite 10 dermomyotome
+EMAP:0001654 ~ |         | + somite 26 dermomyotome
+EMAP:0001578 ~ |         | + somite 07 dermomyotome
+EMAP:0001574 ~ |         | + somite 06 dermomyotome
+EMAP:0001622 ~ |         | + somite 18 dermomyotome
+EMAP:0001606 ~ |         | + somite 14 dermomyotome
+EMAP:0001586 ~ |         | + somite 09 dermomyotome
+EMAP:0001670 ~ |         | + somite 30 dermomyotome
+EMAP:0001602 ~ |         | + somite 13 dermomyotome
 EMAP:0001630 ~ |         | + somite 20 dermomyotome
 EMAP:0001634 ~ |         | + somite 21 dermomyotome
-EMAP:0001638 ~ |         | + somite 22 dermomyotome
-EMAP:0001642 ~ |         | + somite 23 dermomyotome
-EMAP:0001646 ~ |         | + somite 24 dermomyotome
-EMAP:0001650 ~ |         | + somite 25 dermomyotome
-EMAP:0001654 ~ |         | + somite 26 dermomyotome
 EMAP:0001658 ~ |         | + somite 27 dermomyotome
+EMAP:0001614 ~ |         | + somite 16 dermomyotome
+EMAP:0001618 ~ |         | + somite 17 dermomyotome
+EMAP:0001610 ~ |         | + somite 15 dermomyotome
 EMAP:0001662 ~ |         | + somite 28 dermomyotome
-EMAP:0001666 ~ |         | + somite 29 dermomyotome
-EMAP:0001670 ~ |         | + somite 30 dermomyotome
 EMAP:0034153 ~ |         | + trunk dermatome
 EMAP:0034175 ~ |         | \ trunk myotome
 EMAP:0031181 ~ |         + trunk myocoele group
-EMAP:0001571 ~ |         | + somite 05 myocoele
-EMAP:0001575 ~ |         | + somite 06 myocoele
-EMAP:0001579 ~ |         | + somite 07 myocoele
-EMAP:0001583 ~ |         | + somite 08 myocoele
-EMAP:0001587 ~ |         | + somite 09 myocoele
-EMAP:0001591 ~ |         | + somite 10 myocoele
-EMAP:0001595 ~ |         | + somite 11 myocoele
-EMAP:0001599 ~ |         | + somite 12 myocoele
-EMAP:0001603 ~ |         | + somite 13 myocoele
-EMAP:0001607 ~ |         | + somite 14 myocoele
 EMAP:0001611 ~ |         | + somite 15 myocoele
-EMAP:0001615 ~ |         | + somite 16 myocoele
-EMAP:0001619 ~ |         | + somite 17 myocoele
-EMAP:0001623 ~ |         | + somite 18 myocoele
-EMAP:0001627 ~ |         | + somite 19 myocoele
-EMAP:0001631 ~ |         | + somite 20 myocoele
-EMAP:0001635 ~ |         | + somite 21 myocoele
-EMAP:0001639 ~ |         | + somite 22 myocoele
+EMAP:0001587 ~ |         | + somite 09 myocoele
+EMAP:0001671 ~ |         | + somite 30 myocoele
+EMAP:0001571 ~ |         | + somite 05 myocoele
+EMAP:0001603 ~ |         | + somite 13 myocoele
 EMAP:0001643 ~ |         | + somite 23 myocoele
-EMAP:0001647 ~ |         | + somite 24 myocoele
+EMAP:0001583 ~ |         | + somite 08 myocoele
+EMAP:0001599 ~ |         | + somite 12 myocoele
 EMAP:0001651 ~ |         | + somite 25 myocoele
+EMAP:0001627 ~ |         | + somite 19 myocoele
+EMAP:0001579 ~ |         | + somite 07 myocoele
+EMAP:0001615 ~ |         | + somite 16 myocoele
+EMAP:0001631 ~ |         | + somite 20 myocoele
 EMAP:0001655 ~ |         | + somite 26 myocoele
-EMAP:0001659 ~ |         | + somite 27 myocoele
+EMAP:0001591 ~ |         | + somite 10 myocoele
+EMAP:0001619 ~ |         | + somite 17 myocoele
 EMAP:0001663 ~ |         | + somite 28 myocoele
-EMAP:0001667 ~ |         | + somite 29 myocoele
-EMAP:0001671 ~ |         | \ somite 30 myocoele
+EMAP:0001607 ~ |         | + somite 14 myocoele
+EMAP:0001575 ~ |         | + somite 06 myocoele
+EMAP:0001647 ~ |         | + somite 24 myocoele
+EMAP:0001639 ~ |         | + somite 22 myocoele
+EMAP:0001595 ~ |         | + somite 11 myocoele
+EMAP:0001635 ~ |         | + somite 21 myocoele
+EMAP:0001623 ~ |         | + somite 18 myocoele
+EMAP:0001659 ~ |         | + somite 27 myocoele
+EMAP:0001667 ~ |         | \ somite 29 myocoele
 EMAP:0031147 ~ |         \ trunk sclerotome group
-EMAP:0001572 ~ |           + somite 05 sclerotome
-EMAP:0001576 ~ |           + somite 06 sclerotome
-EMAP:0001580 ~ |           + somite 07 sclerotome
-EMAP:0001584 ~ |           + somite 08 sclerotome
-EMAP:0001588 ~ |           + somite 09 sclerotome
-EMAP:0001592 ~ |           + somite 10 sclerotome
-EMAP:0001596 ~ |           + somite 11 sclerotome
-EMAP:0001600 ~ |           + somite 12 sclerotome
-EMAP:0001604 ~ |           + somite 13 sclerotome
-EMAP:0001608 ~ |           + somite 14 sclerotome
-EMAP:0001612 ~ |           + somite 15 sclerotome
-EMAP:0001616 ~ |           + somite 16 sclerotome
-EMAP:0001620 ~ |           + somite 17 sclerotome
-EMAP:0001624 ~ |           + somite 18 sclerotome
-EMAP:0001628 ~ |           + somite 19 sclerotome
-EMAP:0001632 ~ |           + somite 20 sclerotome
-EMAP:0001636 ~ |           + somite 21 sclerotome
-EMAP:0001640 ~ |           + somite 22 sclerotome
 EMAP:0001644 ~ |           + somite 23 sclerotome
-EMAP:0001648 ~ |           + somite 24 sclerotome
+EMAP:0001628 ~ |           + somite 19 sclerotome
+EMAP:0001636 ~ |           + somite 21 sclerotome
+EMAP:0001616 ~ |           + somite 16 sclerotome
+EMAP:0001572 ~ |           + somite 05 sclerotome
+EMAP:0001640 ~ |           + somite 22 sclerotome
+EMAP:0001612 ~ |           + somite 15 sclerotome
+EMAP:0001664 ~ |           + somite 28 sclerotome
+EMAP:0001604 ~ |           + somite 13 sclerotome
+EMAP:0001588 ~ |           + somite 09 sclerotome
+EMAP:0001668 ~ |           + somite 29 sclerotome
+EMAP:0001672 ~ |           + somite 30 sclerotome
+EMAP:0001624 ~ |           + somite 18 sclerotome
+EMAP:0001580 ~ |           + somite 07 sclerotome
 EMAP:0001652 ~ |           + somite 25 sclerotome
 EMAP:0001656 ~ |           + somite 26 sclerotome
 EMAP:0001660 ~ |           + somite 27 sclerotome
-EMAP:0001664 ~ |           + somite 28 sclerotome
-EMAP:0001668 ~ |           + somite 29 sclerotome
-EMAP:0001672 ~ |           \ somite 30 sclerotome
+EMAP:0001584 ~ |           + somite 08 sclerotome
+EMAP:0001600 ~ |           + somite 12 sclerotome
+EMAP:0001632 ~ |           + somite 20 sclerotome
+EMAP:0001592 ~ |           + somite 10 sclerotome
+EMAP:0001596 ~ |           + somite 11 sclerotome
+EMAP:0001608 ~ |           + somite 14 sclerotome
+EMAP:0001576 ~ |           + somite 06 sclerotome
+EMAP:0001620 ~ |           + somite 17 sclerotome
+EMAP:0001648 ~ |           \ somite 24 sclerotome
 EMAP:0034979   + endoderm
 EMAP:0033655   + epithelium
 EMAP:0001998   + extraembryonic component
@@ -1828,74 +1828,74 @@ EMAP:0031112   | | | + dermomyotome group
 EMAP:0034138   | | | | + dermatome
 EMAP:0034159   | | | | + myotome
 EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001973 > | | | | | + somite 31 dermomyotome
 EMAP:0001977 > | | | | | + somite 32 dermomyotome
 EMAP:0001981 > | | | | | + somite 33 dermomyotome
-EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001989 > | | | | | \ somite 35 dermomyotome
 EMAP:0029698   | | | | \ trunk dermomyotome group
-EMAP:0001570   | | | |   + somite 05 dermomyotome
-EMAP:0001574   | | | |   + somite 06 dermomyotome
-EMAP:0001578   | | | |   + somite 07 dermomyotome
-EMAP:0001582   | | | |   + somite 08 dermomyotome
-EMAP:0001586   | | | |   + somite 09 dermomyotome
-EMAP:0001590   | | | |   + somite 10 dermomyotome
 EMAP:0001594   | | | |   + somite 11 dermomyotome
-EMAP:0001598   | | | |   + somite 12 dermomyotome
-EMAP:0001602   | | | |   + somite 13 dermomyotome
-EMAP:0001606   | | | |   + somite 14 dermomyotome
-EMAP:0001610   | | | |   + somite 15 dermomyotome
-EMAP:0001614   | | | |   + somite 16 dermomyotome
-EMAP:0001618   | | | |   + somite 17 dermomyotome
-EMAP:0001622   | | | |   + somite 18 dermomyotome
+EMAP:0001650   | | | |   + somite 25 dermomyotome
+EMAP:0001642   | | | |   + somite 23 dermomyotome
+EMAP:0001666   | | | |   + somite 29 dermomyotome
+EMAP:0001570   | | | |   + somite 05 dermomyotome
+EMAP:0001638   | | | |   + somite 22 dermomyotome
 EMAP:0001626   | | | |   + somite 19 dermomyotome
+EMAP:0001598   | | | |   + somite 12 dermomyotome
+EMAP:0001582   | | | |   + somite 08 dermomyotome
+EMAP:0001646   | | | |   + somite 24 dermomyotome
+EMAP:0001590   | | | |   + somite 10 dermomyotome
+EMAP:0001654   | | | |   + somite 26 dermomyotome
+EMAP:0001578   | | | |   + somite 07 dermomyotome
+EMAP:0001574   | | | |   + somite 06 dermomyotome
+EMAP:0001622   | | | |   + somite 18 dermomyotome
+EMAP:0001606   | | | |   + somite 14 dermomyotome
+EMAP:0001586   | | | |   + somite 09 dermomyotome
+EMAP:0001670   | | | |   + somite 30 dermomyotome
+EMAP:0001602   | | | |   + somite 13 dermomyotome
 EMAP:0001630   | | | |   + somite 20 dermomyotome
 EMAP:0001634   | | | |   + somite 21 dermomyotome
-EMAP:0001638   | | | |   + somite 22 dermomyotome
-EMAP:0001642   | | | |   + somite 23 dermomyotome
-EMAP:0001646   | | | |   + somite 24 dermomyotome
-EMAP:0001650   | | | |   + somite 25 dermomyotome
-EMAP:0001654   | | | |   + somite 26 dermomyotome
 EMAP:0001658   | | | |   + somite 27 dermomyotome
+EMAP:0001614   | | | |   + somite 16 dermomyotome
+EMAP:0001618   | | | |   + somite 17 dermomyotome
+EMAP:0001610   | | | |   + somite 15 dermomyotome
 EMAP:0001662   | | | |   + somite 28 dermomyotome
-EMAP:0001666   | | | |   + somite 29 dermomyotome
-EMAP:0001670   | | | |   + somite 30 dermomyotome
 EMAP:0034153   | | | |   + trunk dermatome
 EMAP:0034175   | | | |   \ trunk myotome
 EMAP:0031162   | | | + sclerotome group
 EMAP:0031152 G | | | | + tail sclerotome group
-EMAP:0001975 > | | | | | + somite 31 sclerotome
-EMAP:0001979 > | | | | | + somite 32 sclerotome
-EMAP:0001983 > | | | | | + somite 33 sclerotome
 EMAP:0001987 > | | | | | + somite 34 sclerotome
+EMAP:0001983 > | | | | | + somite 33 sclerotome
+EMAP:0001979 > | | | | | + somite 32 sclerotome
+EMAP:0001975 > | | | | | + somite 31 sclerotome
 EMAP:0001991 > | | | | | \ somite 35 sclerotome
 EMAP:0031147   | | | | \ trunk sclerotome group
-EMAP:0001572   | | | |   + somite 05 sclerotome
-EMAP:0001576   | | | |   + somite 06 sclerotome
-EMAP:0001580   | | | |   + somite 07 sclerotome
-EMAP:0001584   | | | |   + somite 08 sclerotome
-EMAP:0001588   | | | |   + somite 09 sclerotome
-EMAP:0001592   | | | |   + somite 10 sclerotome
-EMAP:0001596   | | | |   + somite 11 sclerotome
-EMAP:0001600   | | | |   + somite 12 sclerotome
-EMAP:0001604   | | | |   + somite 13 sclerotome
-EMAP:0001608   | | | |   + somite 14 sclerotome
-EMAP:0001612   | | | |   + somite 15 sclerotome
-EMAP:0001616   | | | |   + somite 16 sclerotome
-EMAP:0001620   | | | |   + somite 17 sclerotome
-EMAP:0001624   | | | |   + somite 18 sclerotome
-EMAP:0001628   | | | |   + somite 19 sclerotome
-EMAP:0001632   | | | |   + somite 20 sclerotome
-EMAP:0001636   | | | |   + somite 21 sclerotome
-EMAP:0001640   | | | |   + somite 22 sclerotome
 EMAP:0001644   | | | |   + somite 23 sclerotome
-EMAP:0001648   | | | |   + somite 24 sclerotome
+EMAP:0001628   | | | |   + somite 19 sclerotome
+EMAP:0001636   | | | |   + somite 21 sclerotome
+EMAP:0001616   | | | |   + somite 16 sclerotome
+EMAP:0001572   | | | |   + somite 05 sclerotome
+EMAP:0001640   | | | |   + somite 22 sclerotome
+EMAP:0001612   | | | |   + somite 15 sclerotome
+EMAP:0001664   | | | |   + somite 28 sclerotome
+EMAP:0001604   | | | |   + somite 13 sclerotome
+EMAP:0001588   | | | |   + somite 09 sclerotome
+EMAP:0001668   | | | |   + somite 29 sclerotome
+EMAP:0001672   | | | |   + somite 30 sclerotome
+EMAP:0001624   | | | |   + somite 18 sclerotome
+EMAP:0001580   | | | |   + somite 07 sclerotome
 EMAP:0001652   | | | |   + somite 25 sclerotome
 EMAP:0001656   | | | |   + somite 26 sclerotome
 EMAP:0001660   | | | |   + somite 27 sclerotome
-EMAP:0001664   | | | |   + somite 28 sclerotome
-EMAP:0001668   | | | |   + somite 29 sclerotome
-EMAP:0001672   | | | |   \ somite 30 sclerotome
+EMAP:0001584   | | | |   + somite 08 sclerotome
+EMAP:0001600   | | | |   + somite 12 sclerotome
+EMAP:0001632   | | | |   + somite 20 sclerotome
+EMAP:0001592   | | | |   + somite 10 sclerotome
+EMAP:0001596   | | | |   + somite 11 sclerotome
+EMAP:0001608   | | | |   + somite 14 sclerotome
+EMAP:0001576   | | | |   + somite 06 sclerotome
+EMAP:0001620   | | | |   + somite 17 sclerotome
+EMAP:0001648   | | | |   \ somite 24 sclerotome
 EMAP:0001971   | | | + tail somite group
 EMAP:0001972   | | | | + somite 31
 EMAP:0001973   | | | | | + somite 31 dermomyotome
@@ -1918,22 +1918,22 @@ EMAP:0001989   | | | | | + somite 35 dermomyotome
 EMAP:0001990   | | | | | + somite 35 myocoele
 EMAP:0001991   | | | | | \ somite 35 sclerotome
 EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001973 > | | | | | + somite 31 dermomyotome
 EMAP:0001977 > | | | | | + somite 32 dermomyotome
 EMAP:0001981 > | | | | | + somite 33 dermomyotome
-EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001989 > | | | | | \ somite 35 dermomyotome
 EMAP:0031127 G | | | | + tail myocoele group
-EMAP:0001974 > | | | | | + somite 31 myocoele
+EMAP:0001990 > | | | | | + somite 35 myocoele
 EMAP:0001978 > | | | | | + somite 32 myocoele
-EMAP:0001982 > | | | | | + somite 33 myocoele
+EMAP:0001974 > | | | | | + somite 31 myocoele
 EMAP:0001986 > | | | | | + somite 34 myocoele
-EMAP:0001990 > | | | | | \ somite 35 myocoele
+EMAP:0001982 > | | | | | \ somite 33 myocoele
 EMAP:0031152 G | | | | \ tail sclerotome group
-EMAP:0001975 > | | | |   + somite 31 sclerotome
-EMAP:0001979 > | | | |   + somite 32 sclerotome
-EMAP:0001983 > | | | |   + somite 33 sclerotome
 EMAP:0001987 > | | | |   + somite 34 sclerotome
+EMAP:0001983 > | | | |   + somite 33 sclerotome
+EMAP:0001979 > | | | |   + somite 32 sclerotome
+EMAP:0001975 > | | | |   + somite 31 sclerotome
 EMAP:0001991 > | | | |   \ somite 35 sclerotome
 EMAP:0001568   | | | \ trunk somite group
 EMAP:0001569   | | |   + somite 05
@@ -2041,88 +2041,88 @@ EMAP:0001670   | | |   | + somite 30 dermomyotome
 EMAP:0001671   | | |   | + somite 30 myocoele
 EMAP:0001672   | | |   | \ somite 30 sclerotome
 EMAP:0029698   | | |   + trunk dermomyotome group
-EMAP:0001570   | | |   | + somite 05 dermomyotome
-EMAP:0001574   | | |   | + somite 06 dermomyotome
-EMAP:0001578   | | |   | + somite 07 dermomyotome
-EMAP:0001582   | | |   | + somite 08 dermomyotome
-EMAP:0001586   | | |   | + somite 09 dermomyotome
-EMAP:0001590   | | |   | + somite 10 dermomyotome
 EMAP:0001594   | | |   | + somite 11 dermomyotome
-EMAP:0001598   | | |   | + somite 12 dermomyotome
-EMAP:0001602   | | |   | + somite 13 dermomyotome
-EMAP:0001606   | | |   | + somite 14 dermomyotome
-EMAP:0001610   | | |   | + somite 15 dermomyotome
-EMAP:0001614   | | |   | + somite 16 dermomyotome
-EMAP:0001618   | | |   | + somite 17 dermomyotome
-EMAP:0001622   | | |   | + somite 18 dermomyotome
+EMAP:0001650   | | |   | + somite 25 dermomyotome
+EMAP:0001642   | | |   | + somite 23 dermomyotome
+EMAP:0001666   | | |   | + somite 29 dermomyotome
+EMAP:0001570   | | |   | + somite 05 dermomyotome
+EMAP:0001638   | | |   | + somite 22 dermomyotome
 EMAP:0001626   | | |   | + somite 19 dermomyotome
+EMAP:0001598   | | |   | + somite 12 dermomyotome
+EMAP:0001582   | | |   | + somite 08 dermomyotome
+EMAP:0001646   | | |   | + somite 24 dermomyotome
+EMAP:0001590   | | |   | + somite 10 dermomyotome
+EMAP:0001654   | | |   | + somite 26 dermomyotome
+EMAP:0001578   | | |   | + somite 07 dermomyotome
+EMAP:0001574   | | |   | + somite 06 dermomyotome
+EMAP:0001622   | | |   | + somite 18 dermomyotome
+EMAP:0001606   | | |   | + somite 14 dermomyotome
+EMAP:0001586   | | |   | + somite 09 dermomyotome
+EMAP:0001670   | | |   | + somite 30 dermomyotome
+EMAP:0001602   | | |   | + somite 13 dermomyotome
 EMAP:0001630   | | |   | + somite 20 dermomyotome
 EMAP:0001634   | | |   | + somite 21 dermomyotome
-EMAP:0001638   | | |   | + somite 22 dermomyotome
-EMAP:0001642   | | |   | + somite 23 dermomyotome
-EMAP:0001646   | | |   | + somite 24 dermomyotome
-EMAP:0001650   | | |   | + somite 25 dermomyotome
-EMAP:0001654   | | |   | + somite 26 dermomyotome
 EMAP:0001658   | | |   | + somite 27 dermomyotome
+EMAP:0001614   | | |   | + somite 16 dermomyotome
+EMAP:0001618   | | |   | + somite 17 dermomyotome
+EMAP:0001610   | | |   | + somite 15 dermomyotome
 EMAP:0001662   | | |   | + somite 28 dermomyotome
-EMAP:0001666   | | |   | + somite 29 dermomyotome
-EMAP:0001670   | | |   | + somite 30 dermomyotome
 EMAP:0034153   | | |   | + trunk dermatome
 EMAP:0034175   | | |   | \ trunk myotome
 EMAP:0031181   | | |   + trunk myocoele group
-EMAP:0001571   | | |   | + somite 05 myocoele
-EMAP:0001575   | | |   | + somite 06 myocoele
-EMAP:0001579   | | |   | + somite 07 myocoele
-EMAP:0001583   | | |   | + somite 08 myocoele
-EMAP:0001587   | | |   | + somite 09 myocoele
-EMAP:0001591   | | |   | + somite 10 myocoele
-EMAP:0001595   | | |   | + somite 11 myocoele
-EMAP:0001599   | | |   | + somite 12 myocoele
-EMAP:0001603   | | |   | + somite 13 myocoele
-EMAP:0001607   | | |   | + somite 14 myocoele
 EMAP:0001611   | | |   | + somite 15 myocoele
-EMAP:0001615   | | |   | + somite 16 myocoele
-EMAP:0001619   | | |   | + somite 17 myocoele
-EMAP:0001623   | | |   | + somite 18 myocoele
-EMAP:0001627   | | |   | + somite 19 myocoele
-EMAP:0001631   | | |   | + somite 20 myocoele
-EMAP:0001635   | | |   | + somite 21 myocoele
-EMAP:0001639   | | |   | + somite 22 myocoele
+EMAP:0001587   | | |   | + somite 09 myocoele
+EMAP:0001671   | | |   | + somite 30 myocoele
+EMAP:0001571   | | |   | + somite 05 myocoele
+EMAP:0001603   | | |   | + somite 13 myocoele
 EMAP:0001643   | | |   | + somite 23 myocoele
-EMAP:0001647   | | |   | + somite 24 myocoele
+EMAP:0001583   | | |   | + somite 08 myocoele
+EMAP:0001599   | | |   | + somite 12 myocoele
 EMAP:0001651   | | |   | + somite 25 myocoele
+EMAP:0001627   | | |   | + somite 19 myocoele
+EMAP:0001579   | | |   | + somite 07 myocoele
+EMAP:0001615   | | |   | + somite 16 myocoele
+EMAP:0001631   | | |   | + somite 20 myocoele
 EMAP:0001655   | | |   | + somite 26 myocoele
-EMAP:0001659   | | |   | + somite 27 myocoele
+EMAP:0001591   | | |   | + somite 10 myocoele
+EMAP:0001619   | | |   | + somite 17 myocoele
 EMAP:0001663   | | |   | + somite 28 myocoele
-EMAP:0001667   | | |   | + somite 29 myocoele
-EMAP:0001671   | | |   | \ somite 30 myocoele
+EMAP:0001607   | | |   | + somite 14 myocoele
+EMAP:0001575   | | |   | + somite 06 myocoele
+EMAP:0001647   | | |   | + somite 24 myocoele
+EMAP:0001639   | | |   | + somite 22 myocoele
+EMAP:0001595   | | |   | + somite 11 myocoele
+EMAP:0001635   | | |   | + somite 21 myocoele
+EMAP:0001623   | | |   | + somite 18 myocoele
+EMAP:0001659   | | |   | + somite 27 myocoele
+EMAP:0001667   | | |   | \ somite 29 myocoele
 EMAP:0031147   | | |   \ trunk sclerotome group
-EMAP:0001572   | | |     + somite 05 sclerotome
-EMAP:0001576   | | |     + somite 06 sclerotome
-EMAP:0001580   | | |     + somite 07 sclerotome
-EMAP:0001584   | | |     + somite 08 sclerotome
-EMAP:0001588   | | |     + somite 09 sclerotome
-EMAP:0001592   | | |     + somite 10 sclerotome
-EMAP:0001596   | | |     + somite 11 sclerotome
-EMAP:0001600   | | |     + somite 12 sclerotome
-EMAP:0001604   | | |     + somite 13 sclerotome
-EMAP:0001608   | | |     + somite 14 sclerotome
-EMAP:0001612   | | |     + somite 15 sclerotome
-EMAP:0001616   | | |     + somite 16 sclerotome
-EMAP:0001620   | | |     + somite 17 sclerotome
-EMAP:0001624   | | |     + somite 18 sclerotome
-EMAP:0001628   | | |     + somite 19 sclerotome
-EMAP:0001632   | | |     + somite 20 sclerotome
-EMAP:0001636   | | |     + somite 21 sclerotome
-EMAP:0001640   | | |     + somite 22 sclerotome
 EMAP:0001644   | | |     + somite 23 sclerotome
-EMAP:0001648   | | |     + somite 24 sclerotome
+EMAP:0001628   | | |     + somite 19 sclerotome
+EMAP:0001636   | | |     + somite 21 sclerotome
+EMAP:0001616   | | |     + somite 16 sclerotome
+EMAP:0001572   | | |     + somite 05 sclerotome
+EMAP:0001640   | | |     + somite 22 sclerotome
+EMAP:0001612   | | |     + somite 15 sclerotome
+EMAP:0001664   | | |     + somite 28 sclerotome
+EMAP:0001604   | | |     + somite 13 sclerotome
+EMAP:0001588   | | |     + somite 09 sclerotome
+EMAP:0001668   | | |     + somite 29 sclerotome
+EMAP:0001672   | | |     + somite 30 sclerotome
+EMAP:0001624   | | |     + somite 18 sclerotome
+EMAP:0001580   | | |     + somite 07 sclerotome
 EMAP:0001652   | | |     + somite 25 sclerotome
 EMAP:0001656   | | |     + somite 26 sclerotome
 EMAP:0001660   | | |     + somite 27 sclerotome
-EMAP:0001664   | | |     + somite 28 sclerotome
-EMAP:0001668   | | |     + somite 29 sclerotome
-EMAP:0001672   | | |     \ somite 30 sclerotome
+EMAP:0001584   | | |     + somite 08 sclerotome
+EMAP:0001600   | | |     + somite 12 sclerotome
+EMAP:0001632   | | |     + somite 20 sclerotome
+EMAP:0001592   | | |     + somite 10 sclerotome
+EMAP:0001596   | | |     + somite 11 sclerotome
+EMAP:0001608   | | |     + somite 14 sclerotome
+EMAP:0001576   | | |     + somite 06 sclerotome
+EMAP:0001620   | | |     + somite 17 sclerotome
+EMAP:0001648   | | |     \ somite 24 sclerotome
 EMAP:0001970   | | + tail paraxial mesenchyme
 EMAP:0001971   | | | + tail somite group
 EMAP:0001972   | | | | + somite 31
@@ -2146,22 +2146,22 @@ EMAP:0001989   | | | | | + somite 35 dermomyotome
 EMAP:0001990   | | | | | + somite 35 myocoele
 EMAP:0001991   | | | | | \ somite 35 sclerotome
 EMAP:0031106 G | | | | + tail dermomyotome group
+EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001973 > | | | | | + somite 31 dermomyotome
 EMAP:0001977 > | | | | | + somite 32 dermomyotome
 EMAP:0001981 > | | | | | + somite 33 dermomyotome
-EMAP:0001985 > | | | | | + somite 34 dermomyotome
 EMAP:0001989 > | | | | | \ somite 35 dermomyotome
 EMAP:0031127 G | | | | + tail myocoele group
-EMAP:0001974 > | | | | | + somite 31 myocoele
+EMAP:0001990 > | | | | | + somite 35 myocoele
 EMAP:0001978 > | | | | | + somite 32 myocoele
-EMAP:0001982 > | | | | | + somite 33 myocoele
+EMAP:0001974 > | | | | | + somite 31 myocoele
 EMAP:0001986 > | | | | | + somite 34 myocoele
-EMAP:0001990 > | | | | | \ somite 35 myocoele
+EMAP:0001982 > | | | | | \ somite 33 myocoele
 EMAP:0031152 G | | | | \ tail sclerotome group
-EMAP:0001975 > | | | |   + somite 31 sclerotome
-EMAP:0001979 > | | | |   + somite 32 sclerotome
-EMAP:0001983 > | | | |   + somite 33 sclerotome
 EMAP:0001987 > | | | |   + somite 34 sclerotome
+EMAP:0001983 > | | | |   + somite 33 sclerotome
+EMAP:0001979 > | | | |   + somite 32 sclerotome
+EMAP:0001975 > | | | |   + somite 31 sclerotome
 EMAP:0001991 > | | | |   \ somite 35 sclerotome
 EMAP:0001992   | | | \ unsegmented mesenchyme
 EMAP:0001567   | | \ trunk paraxial mesenchyme
@@ -2271,88 +2271,88 @@ EMAP:0001670   | |     | + somite 30 dermomyotome
 EMAP:0001671   | |     | + somite 30 myocoele
 EMAP:0001672   | |     | \ somite 30 sclerotome
 EMAP:0029698   | |     + trunk dermomyotome group
-EMAP:0001570   | |     | + somite 05 dermomyotome
-EMAP:0001574   | |     | + somite 06 dermomyotome
-EMAP:0001578   | |     | + somite 07 dermomyotome
-EMAP:0001582   | |     | + somite 08 dermomyotome
-EMAP:0001586   | |     | + somite 09 dermomyotome
-EMAP:0001590   | |     | + somite 10 dermomyotome
 EMAP:0001594   | |     | + somite 11 dermomyotome
-EMAP:0001598   | |     | + somite 12 dermomyotome
-EMAP:0001602   | |     | + somite 13 dermomyotome
-EMAP:0001606   | |     | + somite 14 dermomyotome
-EMAP:0001610   | |     | + somite 15 dermomyotome
-EMAP:0001614   | |     | + somite 16 dermomyotome
-EMAP:0001618   | |     | + somite 17 dermomyotome
-EMAP:0001622   | |     | + somite 18 dermomyotome
+EMAP:0001650   | |     | + somite 25 dermomyotome
+EMAP:0001642   | |     | + somite 23 dermomyotome
+EMAP:0001666   | |     | + somite 29 dermomyotome
+EMAP:0001570   | |     | + somite 05 dermomyotome
+EMAP:0001638   | |     | + somite 22 dermomyotome
 EMAP:0001626   | |     | + somite 19 dermomyotome
+EMAP:0001598   | |     | + somite 12 dermomyotome
+EMAP:0001582   | |     | + somite 08 dermomyotome
+EMAP:0001646   | |     | + somite 24 dermomyotome
+EMAP:0001590   | |     | + somite 10 dermomyotome
+EMAP:0001654   | |     | + somite 26 dermomyotome
+EMAP:0001578   | |     | + somite 07 dermomyotome
+EMAP:0001574   | |     | + somite 06 dermomyotome
+EMAP:0001622   | |     | + somite 18 dermomyotome
+EMAP:0001606   | |     | + somite 14 dermomyotome
+EMAP:0001586   | |     | + somite 09 dermomyotome
+EMAP:0001670   | |     | + somite 30 dermomyotome
+EMAP:0001602   | |     | + somite 13 dermomyotome
 EMAP:0001630   | |     | + somite 20 dermomyotome
 EMAP:0001634   | |     | + somite 21 dermomyotome
-EMAP:0001638   | |     | + somite 22 dermomyotome
-EMAP:0001642   | |     | + somite 23 dermomyotome
-EMAP:0001646   | |     | + somite 24 dermomyotome
-EMAP:0001650   | |     | + somite 25 dermomyotome
-EMAP:0001654   | |     | + somite 26 dermomyotome
 EMAP:0001658   | |     | + somite 27 dermomyotome
+EMAP:0001614   | |     | + somite 16 dermomyotome
+EMAP:0001618   | |     | + somite 17 dermomyotome
+EMAP:0001610   | |     | + somite 15 dermomyotome
 EMAP:0001662   | |     | + somite 28 dermomyotome
-EMAP:0001666   | |     | + somite 29 dermomyotome
-EMAP:0001670   | |     | + somite 30 dermomyotome
 EMAP:0034153   | |     | + trunk dermatome
 EMAP:0034175   | |     | \ trunk myotome
 EMAP:0031181   | |     + trunk myocoele group
-EMAP:0001571   | |     | + somite 05 myocoele
-EMAP:0001575   | |     | + somite 06 myocoele
-EMAP:0001579   | |     | + somite 07 myocoele
-EMAP:0001583   | |     | + somite 08 myocoele
-EMAP:0001587   | |     | + somite 09 myocoele
-EMAP:0001591   | |     | + somite 10 myocoele
-EMAP:0001595   | |     | + somite 11 myocoele
-EMAP:0001599   | |     | + somite 12 myocoele
-EMAP:0001603   | |     | + somite 13 myocoele
-EMAP:0001607   | |     | + somite 14 myocoele
 EMAP:0001611   | |     | + somite 15 myocoele
-EMAP:0001615   | |     | + somite 16 myocoele
-EMAP:0001619   | |     | + somite 17 myocoele
-EMAP:0001623   | |     | + somite 18 myocoele
-EMAP:0001627   | |     | + somite 19 myocoele
-EMAP:0001631   | |     | + somite 20 myocoele
-EMAP:0001635   | |     | + somite 21 myocoele
-EMAP:0001639   | |     | + somite 22 myocoele
+EMAP:0001587   | |     | + somite 09 myocoele
+EMAP:0001671   | |     | + somite 30 myocoele
+EMAP:0001571   | |     | + somite 05 myocoele
+EMAP:0001603   | |     | + somite 13 myocoele
 EMAP:0001643   | |     | + somite 23 myocoele
-EMAP:0001647   | |     | + somite 24 myocoele
+EMAP:0001583   | |     | + somite 08 myocoele
+EMAP:0001599   | |     | + somite 12 myocoele
 EMAP:0001651   | |     | + somite 25 myocoele
+EMAP:0001627   | |     | + somite 19 myocoele
+EMAP:0001579   | |     | + somite 07 myocoele
+EMAP:0001615   | |     | + somite 16 myocoele
+EMAP:0001631   | |     | + somite 20 myocoele
 EMAP:0001655   | |     | + somite 26 myocoele
-EMAP:0001659   | |     | + somite 27 myocoele
+EMAP:0001591   | |     | + somite 10 myocoele
+EMAP:0001619   | |     | + somite 17 myocoele
 EMAP:0001663   | |     | + somite 28 myocoele
-EMAP:0001667   | |     | + somite 29 myocoele
-EMAP:0001671   | |     | \ somite 30 myocoele
+EMAP:0001607   | |     | + somite 14 myocoele
+EMAP:0001575   | |     | + somite 06 myocoele
+EMAP:0001647   | |     | + somite 24 myocoele
+EMAP:0001639   | |     | + somite 22 myocoele
+EMAP:0001595   | |     | + somite 11 myocoele
+EMAP:0001635   | |     | + somite 21 myocoele
+EMAP:0001623   | |     | + somite 18 myocoele
+EMAP:0001659   | |     | + somite 27 myocoele
+EMAP:0001667   | |     | \ somite 29 myocoele
 EMAP:0031147   | |     \ trunk sclerotome group
-EMAP:0001572   | |       + somite 05 sclerotome
-EMAP:0001576   | |       + somite 06 sclerotome
-EMAP:0001580   | |       + somite 07 sclerotome
-EMAP:0001584   | |       + somite 08 sclerotome
-EMAP:0001588   | |       + somite 09 sclerotome
-EMAP:0001592   | |       + somite 10 sclerotome
-EMAP:0001596   | |       + somite 11 sclerotome
-EMAP:0001600   | |       + somite 12 sclerotome
-EMAP:0001604   | |       + somite 13 sclerotome
-EMAP:0001608   | |       + somite 14 sclerotome
-EMAP:0001612   | |       + somite 15 sclerotome
-EMAP:0001616   | |       + somite 16 sclerotome
-EMAP:0001620   | |       + somite 17 sclerotome
-EMAP:0001624   | |       + somite 18 sclerotome
-EMAP:0001628   | |       + somite 19 sclerotome
-EMAP:0001632   | |       + somite 20 sclerotome
-EMAP:0001636   | |       + somite 21 sclerotome
-EMAP:0001640   | |       + somite 22 sclerotome
 EMAP:0001644   | |       + somite 23 sclerotome
-EMAP:0001648   | |       + somite 24 sclerotome
+EMAP:0001628   | |       + somite 19 sclerotome
+EMAP:0001636   | |       + somite 21 sclerotome
+EMAP:0001616   | |       + somite 16 sclerotome
+EMAP:0001572   | |       + somite 05 sclerotome
+EMAP:0001640   | |       + somite 22 sclerotome
+EMAP:0001612   | |       + somite 15 sclerotome
+EMAP:0001664   | |       + somite 28 sclerotome
+EMAP:0001604   | |       + somite 13 sclerotome
+EMAP:0001588   | |       + somite 09 sclerotome
+EMAP:0001668   | |       + somite 29 sclerotome
+EMAP:0001672   | |       + somite 30 sclerotome
+EMAP:0001624   | |       + somite 18 sclerotome
+EMAP:0001580   | |       + somite 07 sclerotome
 EMAP:0001652   | |       + somite 25 sclerotome
 EMAP:0001656   | |       + somite 26 sclerotome
 EMAP:0001660   | |       + somite 27 sclerotome
-EMAP:0001664   | |       + somite 28 sclerotome
-EMAP:0001668   | |       + somite 29 sclerotome
-EMAP:0001672   | |       \ somite 30 sclerotome
+EMAP:0001584   | |       + somite 08 sclerotome
+EMAP:0001600   | |       + somite 12 sclerotome
+EMAP:0001632   | |       + somite 20 sclerotome
+EMAP:0001592   | |       + somite 10 sclerotome
+EMAP:0001596   | |       + somite 11 sclerotome
+EMAP:0001608   | |       + somite 14 sclerotome
+EMAP:0001576   | |       + somite 06 sclerotome
+EMAP:0001620   | |       + somite 17 sclerotome
+EMAP:0001648   | |       \ somite 24 sclerotome
 EMAP:0033639   | + pre-cartilage condensation
 EMAP:0001968   | + tail mesenchyme
 EMAP:0001969   | | + tail mesenchyme derived from neural crest
@@ -2379,22 +2379,22 @@ EMAP:0001989   | |   | | + somite 35 dermomyotome
 EMAP:0001990   | |   | | + somite 35 myocoele
 EMAP:0001991   | |   | | \ somite 35 sclerotome
 EMAP:0031106 G | |   | + tail dermomyotome group
+EMAP:0001985 > | |   | | + somite 34 dermomyotome
 EMAP:0001973 > | |   | | + somite 31 dermomyotome
 EMAP:0001977 > | |   | | + somite 32 dermomyotome
 EMAP:0001981 > | |   | | + somite 33 dermomyotome
-EMAP:0001985 > | |   | | + somite 34 dermomyotome
 EMAP:0001989 > | |   | | \ somite 35 dermomyotome
 EMAP:0031127 G | |   | + tail myocoele group
-EMAP:0001974 > | |   | | + somite 31 myocoele
+EMAP:0001990 > | |   | | + somite 35 myocoele
 EMAP:0001978 > | |   | | + somite 32 myocoele
-EMAP:0001982 > | |   | | + somite 33 myocoele
+EMAP:0001974 > | |   | | + somite 31 myocoele
 EMAP:0001986 > | |   | | + somite 34 myocoele
-EMAP:0001990 > | |   | | \ somite 35 myocoele
+EMAP:0001982 > | |   | | \ somite 33 myocoele
 EMAP:0031152 G | |   | \ tail sclerotome group
-EMAP:0001975 > | |   |   + somite 31 sclerotome
-EMAP:0001979 > | |   |   + somite 32 sclerotome
-EMAP:0001983 > | |   |   + somite 33 sclerotome
 EMAP:0001987 > | |   |   + somite 34 sclerotome
+EMAP:0001983 > | |   |   + somite 33 sclerotome
+EMAP:0001979 > | |   |   + somite 32 sclerotome
+EMAP:0001975 > | |   |   + somite 31 sclerotome
 EMAP:0001991 > | |   |   \ somite 35 sclerotome
 EMAP:0001992   | |   \ unsegmented mesenchyme
 EMAP:0001561   | \ trunk mesenchyme
@@ -2514,122 +2514,122 @@ EMAP:0001670   |       | + somite 30 dermomyotome
 EMAP:0001671   |       | + somite 30 myocoele
 EMAP:0001672   |       | \ somite 30 sclerotome
 EMAP:0029698   |       + trunk dermomyotome group
-EMAP:0001570   |       | + somite 05 dermomyotome
-EMAP:0001574   |       | + somite 06 dermomyotome
-EMAP:0001578   |       | + somite 07 dermomyotome
-EMAP:0001582   |       | + somite 08 dermomyotome
-EMAP:0001586   |       | + somite 09 dermomyotome
-EMAP:0001590   |       | + somite 10 dermomyotome
 EMAP:0001594   |       | + somite 11 dermomyotome
-EMAP:0001598   |       | + somite 12 dermomyotome
-EMAP:0001602   |       | + somite 13 dermomyotome
-EMAP:0001606   |       | + somite 14 dermomyotome
-EMAP:0001610   |       | + somite 15 dermomyotome
-EMAP:0001614   |       | + somite 16 dermomyotome
-EMAP:0001618   |       | + somite 17 dermomyotome
-EMAP:0001622   |       | + somite 18 dermomyotome
+EMAP:0001650   |       | + somite 25 dermomyotome
+EMAP:0001642   |       | + somite 23 dermomyotome
+EMAP:0001666   |       | + somite 29 dermomyotome
+EMAP:0001570   |       | + somite 05 dermomyotome
+EMAP:0001638   |       | + somite 22 dermomyotome
 EMAP:0001626   |       | + somite 19 dermomyotome
+EMAP:0001598   |       | + somite 12 dermomyotome
+EMAP:0001582   |       | + somite 08 dermomyotome
+EMAP:0001646   |       | + somite 24 dermomyotome
+EMAP:0001590   |       | + somite 10 dermomyotome
+EMAP:0001654   |       | + somite 26 dermomyotome
+EMAP:0001578   |       | + somite 07 dermomyotome
+EMAP:0001574   |       | + somite 06 dermomyotome
+EMAP:0001622   |       | + somite 18 dermomyotome
+EMAP:0001606   |       | + somite 14 dermomyotome
+EMAP:0001586   |       | + somite 09 dermomyotome
+EMAP:0001670   |       | + somite 30 dermomyotome
+EMAP:0001602   |       | + somite 13 dermomyotome
 EMAP:0001630   |       | + somite 20 dermomyotome
 EMAP:0001634   |       | + somite 21 dermomyotome
-EMAP:0001638   |       | + somite 22 dermomyotome
-EMAP:0001642   |       | + somite 23 dermomyotome
-EMAP:0001646   |       | + somite 24 dermomyotome
-EMAP:0001650   |       | + somite 25 dermomyotome
-EMAP:0001654   |       | + somite 26 dermomyotome
 EMAP:0001658   |       | + somite 27 dermomyotome
+EMAP:0001614   |       | + somite 16 dermomyotome
+EMAP:0001618   |       | + somite 17 dermomyotome
+EMAP:0001610   |       | + somite 15 dermomyotome
 EMAP:0001662   |       | + somite 28 dermomyotome
-EMAP:0001666   |       | + somite 29 dermomyotome
-EMAP:0001670   |       | + somite 30 dermomyotome
 EMAP:0034153   |       | + trunk dermatome
 EMAP:0034175   |       | \ trunk myotome
 EMAP:0031181   |       + trunk myocoele group
-EMAP:0001571   |       | + somite 05 myocoele
-EMAP:0001575   |       | + somite 06 myocoele
-EMAP:0001579   |       | + somite 07 myocoele
-EMAP:0001583   |       | + somite 08 myocoele
-EMAP:0001587   |       | + somite 09 myocoele
-EMAP:0001591   |       | + somite 10 myocoele
-EMAP:0001595   |       | + somite 11 myocoele
-EMAP:0001599   |       | + somite 12 myocoele
-EMAP:0001603   |       | + somite 13 myocoele
-EMAP:0001607   |       | + somite 14 myocoele
 EMAP:0001611   |       | + somite 15 myocoele
-EMAP:0001615   |       | + somite 16 myocoele
-EMAP:0001619   |       | + somite 17 myocoele
-EMAP:0001623   |       | + somite 18 myocoele
-EMAP:0001627   |       | + somite 19 myocoele
-EMAP:0001631   |       | + somite 20 myocoele
-EMAP:0001635   |       | + somite 21 myocoele
-EMAP:0001639   |       | + somite 22 myocoele
+EMAP:0001587   |       | + somite 09 myocoele
+EMAP:0001671   |       | + somite 30 myocoele
+EMAP:0001571   |       | + somite 05 myocoele
+EMAP:0001603   |       | + somite 13 myocoele
 EMAP:0001643   |       | + somite 23 myocoele
-EMAP:0001647   |       | + somite 24 myocoele
+EMAP:0001583   |       | + somite 08 myocoele
+EMAP:0001599   |       | + somite 12 myocoele
 EMAP:0001651   |       | + somite 25 myocoele
+EMAP:0001627   |       | + somite 19 myocoele
+EMAP:0001579   |       | + somite 07 myocoele
+EMAP:0001615   |       | + somite 16 myocoele
+EMAP:0001631   |       | + somite 20 myocoele
 EMAP:0001655   |       | + somite 26 myocoele
-EMAP:0001659   |       | + somite 27 myocoele
+EMAP:0001591   |       | + somite 10 myocoele
+EMAP:0001619   |       | + somite 17 myocoele
 EMAP:0001663   |       | + somite 28 myocoele
-EMAP:0001667   |       | + somite 29 myocoele
-EMAP:0001671   |       | \ somite 30 myocoele
+EMAP:0001607   |       | + somite 14 myocoele
+EMAP:0001575   |       | + somite 06 myocoele
+EMAP:0001647   |       | + somite 24 myocoele
+EMAP:0001639   |       | + somite 22 myocoele
+EMAP:0001595   |       | + somite 11 myocoele
+EMAP:0001635   |       | + somite 21 myocoele
+EMAP:0001623   |       | + somite 18 myocoele
+EMAP:0001659   |       | + somite 27 myocoele
+EMAP:0001667   |       | \ somite 29 myocoele
 EMAP:0031147   |       \ trunk sclerotome group
-EMAP:0001572   |         + somite 05 sclerotome
-EMAP:0001576   |         + somite 06 sclerotome
-EMAP:0001580   |         + somite 07 sclerotome
-EMAP:0001584   |         + somite 08 sclerotome
-EMAP:0001588   |         + somite 09 sclerotome
-EMAP:0001592   |         + somite 10 sclerotome
-EMAP:0001596   |         + somite 11 sclerotome
-EMAP:0001600   |         + somite 12 sclerotome
-EMAP:0001604   |         + somite 13 sclerotome
-EMAP:0001608   |         + somite 14 sclerotome
-EMAP:0001612   |         + somite 15 sclerotome
-EMAP:0001616   |         + somite 16 sclerotome
-EMAP:0001620   |         + somite 17 sclerotome
-EMAP:0001624   |         + somite 18 sclerotome
-EMAP:0001628   |         + somite 19 sclerotome
-EMAP:0001632   |         + somite 20 sclerotome
-EMAP:0001636   |         + somite 21 sclerotome
-EMAP:0001640   |         + somite 22 sclerotome
 EMAP:0001644   |         + somite 23 sclerotome
-EMAP:0001648   |         + somite 24 sclerotome
+EMAP:0001628   |         + somite 19 sclerotome
+EMAP:0001636   |         + somite 21 sclerotome
+EMAP:0001616   |         + somite 16 sclerotome
+EMAP:0001572   |         + somite 05 sclerotome
+EMAP:0001640   |         + somite 22 sclerotome
+EMAP:0001612   |         + somite 15 sclerotome
+EMAP:0001664   |         + somite 28 sclerotome
+EMAP:0001604   |         + somite 13 sclerotome
+EMAP:0001588   |         + somite 09 sclerotome
+EMAP:0001668   |         + somite 29 sclerotome
+EMAP:0001672   |         + somite 30 sclerotome
+EMAP:0001624   |         + somite 18 sclerotome
+EMAP:0001580   |         + somite 07 sclerotome
 EMAP:0001652   |         + somite 25 sclerotome
 EMAP:0001656   |         + somite 26 sclerotome
 EMAP:0001660   |         + somite 27 sclerotome
-EMAP:0001664   |         + somite 28 sclerotome
-EMAP:0001668   |         + somite 29 sclerotome
-EMAP:0001672   |         \ somite 30 sclerotome
+EMAP:0001584   |         + somite 08 sclerotome
+EMAP:0001600   |         + somite 12 sclerotome
+EMAP:0001632   |         + somite 20 sclerotome
+EMAP:0001592   |         + somite 10 sclerotome
+EMAP:0001596   |         + somite 11 sclerotome
+EMAP:0001608   |         + somite 14 sclerotome
+EMAP:0001576   |         + somite 06 sclerotome
+EMAP:0001620   |         + somite 17 sclerotome
+EMAP:0001648   |         \ somite 24 sclerotome
 EMAP:0031137 G + myocoele group
 EMAP:0031127 > | + tail myocoele group
-EMAP:0001974 ~ | | + somite 31 myocoele
+EMAP:0001990 ~ | | + somite 35 myocoele
 EMAP:0001978 ~ | | + somite 32 myocoele
-EMAP:0001982 ~ | | + somite 33 myocoele
+EMAP:0001974 ~ | | + somite 31 myocoele
 EMAP:0001986 ~ | | + somite 34 myocoele
-EMAP:0001990 ~ | | \ somite 35 myocoele
+EMAP:0001982 ~ | | \ somite 33 myocoele
 EMAP:0031181 > | \ trunk myocoele group
-EMAP:0001571 ~ |   + somite 05 myocoele
-EMAP:0001575 ~ |   + somite 06 myocoele
-EMAP:0001579 ~ |   + somite 07 myocoele
-EMAP:0001583 ~ |   + somite 08 myocoele
-EMAP:0001587 ~ |   + somite 09 myocoele
-EMAP:0001591 ~ |   + somite 10 myocoele
-EMAP:0001595 ~ |   + somite 11 myocoele
-EMAP:0001599 ~ |   + somite 12 myocoele
-EMAP:0001603 ~ |   + somite 13 myocoele
-EMAP:0001607 ~ |   + somite 14 myocoele
 EMAP:0001611 ~ |   + somite 15 myocoele
-EMAP:0001615 ~ |   + somite 16 myocoele
-EMAP:0001619 ~ |   + somite 17 myocoele
-EMAP:0001623 ~ |   + somite 18 myocoele
-EMAP:0001627 ~ |   + somite 19 myocoele
-EMAP:0001631 ~ |   + somite 20 myocoele
-EMAP:0001635 ~ |   + somite 21 myocoele
-EMAP:0001639 ~ |   + somite 22 myocoele
+EMAP:0001587 ~ |   + somite 09 myocoele
+EMAP:0001671 ~ |   + somite 30 myocoele
+EMAP:0001571 ~ |   + somite 05 myocoele
+EMAP:0001603 ~ |   + somite 13 myocoele
 EMAP:0001643 ~ |   + somite 23 myocoele
-EMAP:0001647 ~ |   + somite 24 myocoele
+EMAP:0001583 ~ |   + somite 08 myocoele
+EMAP:0001599 ~ |   + somite 12 myocoele
 EMAP:0001651 ~ |   + somite 25 myocoele
+EMAP:0001627 ~ |   + somite 19 myocoele
+EMAP:0001579 ~ |   + somite 07 myocoele
+EMAP:0001615 ~ |   + somite 16 myocoele
+EMAP:0001631 ~ |   + somite 20 myocoele
 EMAP:0001655 ~ |   + somite 26 myocoele
-EMAP:0001659 ~ |   + somite 27 myocoele
+EMAP:0001591 ~ |   + somite 10 myocoele
+EMAP:0001619 ~ |   + somite 17 myocoele
 EMAP:0001663 ~ |   + somite 28 myocoele
-EMAP:0001667 ~ |   + somite 29 myocoele
-EMAP:0001671 ~ |   \ somite 30 myocoele
+EMAP:0001607 ~ |   + somite 14 myocoele
+EMAP:0001575 ~ |   + somite 06 myocoele
+EMAP:0001647 ~ |   + somite 24 myocoele
+EMAP:0001639 ~ |   + somite 22 myocoele
+EMAP:0001595 ~ |   + somite 11 myocoele
+EMAP:0001635 ~ |   + somite 21 myocoele
+EMAP:0001623 ~ |   + somite 18 myocoele
+EMAP:0001659 ~ |   + somite 27 myocoele
+EMAP:0001667 ~ |   \ somite 29 myocoele
 EMAP:0001675   + notochord
 EMAP:0001676   + organ system
 EMAP:0001809   | + cardiovascular system
@@ -3032,16 +3032,16 @@ EMAP:0001682   |   |       \ Rathke's pouch
 EMAP:0014768   |   |         + Rathke's pouch lumen
 EMAP:0014763   |   |         \ Rathke's pouch wall
 EMAP:0001957   |   + genitourinary system
-EMAP:0035018   |   | + cloaca
+EMAP:0001965   |   | + nephric cord
+EMAP:0001966   |   | + nephric duct
 EMAP:0027561   |   | + genitourinary system associated mesenchyme
 EMAP:0001958   |   | + gonad
 EMAP:0001960   |   | | \ primordial germ cells
 EMAP:0001961   |   | + mesonephros
+EMAP:0001963   |   | | + mesonephros non-tubular part
 EMAP:0001964   |   | | + mesonephric tubule
-EMAP:0001962   |   | | + mesonephros associated mesenchyme
-EMAP:0001963   |   | | \ mesonephros non-tubular part
-EMAP:0001965   |   | + nephric cord
-EMAP:0001966   |   | \ nephric duct
+EMAP:0001962   |   | | \ mesonephros associated mesenchyme
+EMAP:0035018   |   | \ cloaca
 EMAP:0001928   |   + liver and biliary system
 EMAP:0001929   |   | + cystic duct
 EMAP:0001930   |   | + gall bladder primordium
@@ -3102,22 +3102,22 @@ EMAP:0001989   | |   | | + somite 35 dermomyotome
 EMAP:0001990   | |   | | + somite 35 myocoele
 EMAP:0001991   | |   | | \ somite 35 sclerotome
 EMAP:0031106 G | |   | + tail dermomyotome group
+EMAP:0001985 > | |   | | + somite 34 dermomyotome
 EMAP:0001973 > | |   | | + somite 31 dermomyotome
 EMAP:0001977 > | |   | | + somite 32 dermomyotome
 EMAP:0001981 > | |   | | + somite 33 dermomyotome
-EMAP:0001985 > | |   | | + somite 34 dermomyotome
 EMAP:0001989 > | |   | | \ somite 35 dermomyotome
 EMAP:0031127 G | |   | + tail myocoele group
-EMAP:0001974 > | |   | | + somite 31 myocoele
+EMAP:0001990 > | |   | | + somite 35 myocoele
 EMAP:0001978 > | |   | | + somite 32 myocoele
-EMAP:0001982 > | |   | | + somite 33 myocoele
+EMAP:0001974 > | |   | | + somite 31 myocoele
 EMAP:0001986 > | |   | | + somite 34 myocoele
-EMAP:0001990 > | |   | | \ somite 35 myocoele
+EMAP:0001982 > | |   | | \ somite 33 myocoele
 EMAP:0031152 G | |   | \ tail sclerotome group
-EMAP:0001975 > | |   |   + somite 31 sclerotome
-EMAP:0001979 > | |   |   + somite 32 sclerotome
-EMAP:0001983 > | |   |   + somite 33 sclerotome
 EMAP:0001987 > | |   |   + somite 34 sclerotome
+EMAP:0001983 > | |   |   + somite 33 sclerotome
+EMAP:0001979 > | |   |   + somite 32 sclerotome
+EMAP:0001975 > | |   |   + somite 31 sclerotome
 EMAP:0001991 > | |   |   \ somite 35 sclerotome
 EMAP:0001992   | |   \ unsegmented mesenchyme
 EMAP:0001993   | \ tail nervous system
@@ -3245,85 +3245,85 @@ EMAP:0001670           | + somite 30 dermomyotome
 EMAP:0001671           | + somite 30 myocoele
 EMAP:0001672           | \ somite 30 sclerotome
 EMAP:0029698           + trunk dermomyotome group
-EMAP:0001570           | + somite 05 dermomyotome
-EMAP:0001574           | + somite 06 dermomyotome
-EMAP:0001578           | + somite 07 dermomyotome
-EMAP:0001582           | + somite 08 dermomyotome
-EMAP:0001586           | + somite 09 dermomyotome
-EMAP:0001590           | + somite 10 dermomyotome
 EMAP:0001594           | + somite 11 dermomyotome
-EMAP:0001598           | + somite 12 dermomyotome
-EMAP:0001602           | + somite 13 dermomyotome
-EMAP:0001606           | + somite 14 dermomyotome
-EMAP:0001610           | + somite 15 dermomyotome
-EMAP:0001614           | + somite 16 dermomyotome
-EMAP:0001618           | + somite 17 dermomyotome
-EMAP:0001622           | + somite 18 dermomyotome
+EMAP:0001650           | + somite 25 dermomyotome
+EMAP:0001642           | + somite 23 dermomyotome
+EMAP:0001666           | + somite 29 dermomyotome
+EMAP:0001570           | + somite 05 dermomyotome
+EMAP:0001638           | + somite 22 dermomyotome
 EMAP:0001626           | + somite 19 dermomyotome
+EMAP:0001598           | + somite 12 dermomyotome
+EMAP:0001582           | + somite 08 dermomyotome
+EMAP:0001646           | + somite 24 dermomyotome
+EMAP:0001590           | + somite 10 dermomyotome
+EMAP:0001654           | + somite 26 dermomyotome
+EMAP:0001578           | + somite 07 dermomyotome
+EMAP:0001574           | + somite 06 dermomyotome
+EMAP:0001622           | + somite 18 dermomyotome
+EMAP:0001606           | + somite 14 dermomyotome
+EMAP:0001586           | + somite 09 dermomyotome
+EMAP:0001670           | + somite 30 dermomyotome
+EMAP:0001602           | + somite 13 dermomyotome
 EMAP:0001630           | + somite 20 dermomyotome
 EMAP:0001634           | + somite 21 dermomyotome
-EMAP:0001638           | + somite 22 dermomyotome
-EMAP:0001642           | + somite 23 dermomyotome
-EMAP:0001646           | + somite 24 dermomyotome
-EMAP:0001650           | + somite 25 dermomyotome
-EMAP:0001654           | + somite 26 dermomyotome
 EMAP:0001658           | + somite 27 dermomyotome
+EMAP:0001614           | + somite 16 dermomyotome
+EMAP:0001618           | + somite 17 dermomyotome
+EMAP:0001610           | + somite 15 dermomyotome
 EMAP:0001662           | + somite 28 dermomyotome
-EMAP:0001666           | + somite 29 dermomyotome
-EMAP:0001670           | + somite 30 dermomyotome
 EMAP:0034153           | + trunk dermatome
 EMAP:0034175           | \ trunk myotome
 EMAP:0031181           + trunk myocoele group
-EMAP:0001571           | + somite 05 myocoele
-EMAP:0001575           | + somite 06 myocoele
-EMAP:0001579           | + somite 07 myocoele
-EMAP:0001583           | + somite 08 myocoele
-EMAP:0001587           | + somite 09 myocoele
-EMAP:0001591           | + somite 10 myocoele
-EMAP:0001595           | + somite 11 myocoele
-EMAP:0001599           | + somite 12 myocoele
-EMAP:0001603           | + somite 13 myocoele
-EMAP:0001607           | + somite 14 myocoele
 EMAP:0001611           | + somite 15 myocoele
-EMAP:0001615           | + somite 16 myocoele
-EMAP:0001619           | + somite 17 myocoele
-EMAP:0001623           | + somite 18 myocoele
-EMAP:0001627           | + somite 19 myocoele
-EMAP:0001631           | + somite 20 myocoele
-EMAP:0001635           | + somite 21 myocoele
-EMAP:0001639           | + somite 22 myocoele
+EMAP:0001587           | + somite 09 myocoele
+EMAP:0001671           | + somite 30 myocoele
+EMAP:0001571           | + somite 05 myocoele
+EMAP:0001603           | + somite 13 myocoele
 EMAP:0001643           | + somite 23 myocoele
-EMAP:0001647           | + somite 24 myocoele
+EMAP:0001583           | + somite 08 myocoele
+EMAP:0001599           | + somite 12 myocoele
 EMAP:0001651           | + somite 25 myocoele
+EMAP:0001627           | + somite 19 myocoele
+EMAP:0001579           | + somite 07 myocoele
+EMAP:0001615           | + somite 16 myocoele
+EMAP:0001631           | + somite 20 myocoele
 EMAP:0001655           | + somite 26 myocoele
-EMAP:0001659           | + somite 27 myocoele
+EMAP:0001591           | + somite 10 myocoele
+EMAP:0001619           | + somite 17 myocoele
 EMAP:0001663           | + somite 28 myocoele
-EMAP:0001667           | + somite 29 myocoele
-EMAP:0001671           | \ somite 30 myocoele
+EMAP:0001607           | + somite 14 myocoele
+EMAP:0001575           | + somite 06 myocoele
+EMAP:0001647           | + somite 24 myocoele
+EMAP:0001639           | + somite 22 myocoele
+EMAP:0001595           | + somite 11 myocoele
+EMAP:0001635           | + somite 21 myocoele
+EMAP:0001623           | + somite 18 myocoele
+EMAP:0001659           | + somite 27 myocoele
+EMAP:0001667           | \ somite 29 myocoele
 EMAP:0031147           \ trunk sclerotome group
-EMAP:0001572             + somite 05 sclerotome
-EMAP:0001576             + somite 06 sclerotome
-EMAP:0001580             + somite 07 sclerotome
-EMAP:0001584             + somite 08 sclerotome
-EMAP:0001588             + somite 09 sclerotome
-EMAP:0001592             + somite 10 sclerotome
-EMAP:0001596             + somite 11 sclerotome
-EMAP:0001600             + somite 12 sclerotome
-EMAP:0001604             + somite 13 sclerotome
-EMAP:0001608             + somite 14 sclerotome
-EMAP:0001612             + somite 15 sclerotome
-EMAP:0001616             + somite 16 sclerotome
-EMAP:0001620             + somite 17 sclerotome
-EMAP:0001624             + somite 18 sclerotome
-EMAP:0001628             + somite 19 sclerotome
-EMAP:0001632             + somite 20 sclerotome
-EMAP:0001636             + somite 21 sclerotome
-EMAP:0001640             + somite 22 sclerotome
 EMAP:0001644             + somite 23 sclerotome
-EMAP:0001648             + somite 24 sclerotome
+EMAP:0001628             + somite 19 sclerotome
+EMAP:0001636             + somite 21 sclerotome
+EMAP:0001616             + somite 16 sclerotome
+EMAP:0001572             + somite 05 sclerotome
+EMAP:0001640             + somite 22 sclerotome
+EMAP:0001612             + somite 15 sclerotome
+EMAP:0001664             + somite 28 sclerotome
+EMAP:0001604             + somite 13 sclerotome
+EMAP:0001588             + somite 09 sclerotome
+EMAP:0001668             + somite 29 sclerotome
+EMAP:0001672             + somite 30 sclerotome
+EMAP:0001624             + somite 18 sclerotome
+EMAP:0001580             + somite 07 sclerotome
 EMAP:0001652             + somite 25 sclerotome
 EMAP:0001656             + somite 26 sclerotome
 EMAP:0001660             + somite 27 sclerotome
-EMAP:0001664             + somite 28 sclerotome
-EMAP:0001668             + somite 29 sclerotome
-EMAP:0001672             \ somite 30 sclerotome
+EMAP:0001584             + somite 08 sclerotome
+EMAP:0001600             + somite 12 sclerotome
+EMAP:0001632             + somite 20 sclerotome
+EMAP:0001592             + somite 10 sclerotome
+EMAP:0001596             + somite 11 sclerotome
+EMAP:0001608             + somite 14 sclerotome
+EMAP:0001576             + somite 06 sclerotome
+EMAP:0001620             + somite 17 sclerotome
+EMAP:0001648             \ somite 24 sclerotome

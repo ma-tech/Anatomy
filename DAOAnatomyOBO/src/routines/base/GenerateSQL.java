@@ -333,7 +333,7 @@ public class GenerateSQL {
 
                     if ( !anarelationship.rebuildANA_RELATIONSHIP_PROJECT()) {
 
-                 	   throw new DatabaseException("anarelationship.insertANA_RELATIONSHIP");
+                 	   throw new DatabaseException("anarelationship.rebuildANA_RELATIONSHIP_PROJECT");
                     }
 
                     setProcessed( true );
@@ -482,16 +482,6 @@ public class GenerateSQL {
 
                 //perform deletion on valid deletion term list
                 deleteComponentFromAllTables( validateDeleteTermList( ananode.getUpdatedComponentList() ) );
-                
-                //reorder siblings of deleted components that have order
-                AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
-
-                if ( !anarelationship.reorderANA_RELATIONSHIP( validateDeleteTermList( ananode.getUpdatedComponentList() ),
-                		this.strSpecies, 
-                		"deletes") ) {
-             	   
-                	throw new DatabaseException("anarelationship.reorderANA_RELATIONSHIP");
-                }
         	}
     	}
         catch ( DatabaseException dbex ) {
@@ -604,7 +594,7 @@ public class GenerateSQL {
                 }
                 
                 //get components whose ordering have changed and perform reordering
-                updateOrder( getChangedOrderTermList( ananode.getStartingComponentList() ) );
+                //updateOrder( getChangedOrderTermList( ananode.getStartingComponentList() ) );
 
                 //get components whose have NEW parents 
                 if ( !anarelationship.insertANA_RELATIONSHIP( getNewParentsTermList( ananode.getStartingComponentList() ),
@@ -635,150 +625,6 @@ public class GenerateSQL {
 
     
     // SUB Methods ------------------------------------------------------------------------------------
-    
-    // updateOrder
-    private void updateOrder( ArrayList<OBOComponent> changedOrderTermList ) throws Exception {
-
-        Wrapper.printMessage("generatesql.updateOrder", "***", this.requestMsgLevel);
-        
-        try {
-        	
-            // get all parents whose children have a changed order
-            //  for each parent 
-            //  get the children that have an order sequence 
-            //  line them up from 0 - max entry 
-            //  send collection of parents-orderedchildren to querymaker
-            //parent-> child order 1, child2, child3
-            HashMap<String, ArrayList<String>> mapOrderedChildren = new HashMap<String, ArrayList<String>>(); 
-            ArrayList<String> parents = new ArrayList<String>();
-            ArrayList<String> children = new ArrayList<String>();
-            ArrayList<String> commentsOnParent = new ArrayList<String>();
-            
-            OBOComponent childComponent = new OBOComponent();
-            
-            String[] arrayFirstWord = null;
-            String forChild = "";
-            int intMaxOrder = 0;
-            
-            for (OBOComponent component: changedOrderTermList) {
-            	
-                //get all parents
-                parents.addAll(component.getChildOfs());
-
-                //check for each parent whether there is ordering
-                for (String parent: parents) {
-                
-                	commentsOnParent.clear(); //reset for each parent
-                    children.clear(); //reset for each parent
-                    intMaxOrder = -1; //reset for each parent
-                    
-                    //get all children
-                    children.addAll( tree.getChildrenBasedOnParent(parent) );
-                    
-                    //iterate through all children of each parent and gather all order comments
-                    for (String child: children) {
-
-                    	//reset for each child
-                    	forChild = ""; 
-                    
-                        //get component for child
-                        childComponent = tree.getComponent(child);
-                        
-                        //get order from child component based on the parent
-                        String[] arrOrderComments = childComponent.getOrderCommentOnParent(parent);
-                        
-                        //if there is an order put in order vector
-                        if ( arrOrderComments!=null ) {
-                        
-                        	//find max order number for this series of siblings
-                            arrayFirstWord = arrOrderComments[0].split(" ");
-                            
-                            if ( Integer.parseInt(arrayFirstWord[0]) > intMaxOrder ) {
-                            	
-                                intMaxOrder = Integer.parseInt(arrayFirstWord[0]);
-                            }
-
-                            //get first word from order comment and append child to it to make a new comment based on 'for child'
-                            forChild = arrayFirstWord[0] + " for " + childComponent.getID();
-                            
-                            //add to order comments for this parent
-                            commentsOnParent.add(forChild);
-
-                            //should never enter here if rule properly checked in CheckComponents
-                            if ( arrOrderComments.length>1 ) {
-                            
-                                Wrapper.printMessage("generatesql.updateOrder:WARNING! more than one " +
-                                        "order comment for the same parent "
-                                        + parent + " detected for component " +
-                                        component.getID() + "!", "*", this.requestMsgLevel);
-                            }
-                        } 
-                    }
-                    
-                    //iterated through list of children
-                    //once all order comments collected from the children of one parent
-                    //reorder the comments and put in Array based on sequence
-                    ArrayList<String> arrOrdered = null;
-                    
-                    if (intMaxOrder!=-1) {
-                    
-                    	String[] ordered = new String[intMaxOrder+1];
-                        arrOrdered = new ArrayList<String>();
-                        int intOrder = 0;
-                        String strChild = "";
-                        
-                        for (String comment: commentsOnParent) {
-                        
-                        	//get sequence number from order comment
-                            arrayFirstWord = comment.split(" ");
-                            intOrder = Integer.parseInt(arrayFirstWord[0]); //first item in array is order no.
-                            strChild = arrayFirstWord[arrayFirstWord.length-1]; //last item in array is child component id
-                            
-                            //build an ordered, sorted array of comments for the parent
-                            if (intOrder!=-1) {
-                            	
-                                ordered[intOrder] = strChild;
-                            }
-                        }
-                        
-                        //convert ordered array to arraylist, retaining order of elements
-                        //put unordered elements at the end of list
-                        for(int i=0; i<ordered.length; i++) {
-                        	
-                            arrOrdered.add(ordered[i]);
-                        }
-                    }
-                    
-                    //build hashmap parent-> sorted children
-                    //don't add entry for parents that already have entry
-                    if ( mapOrderedChildren.get(parent)==null ) {
-                    	
-                        mapOrderedChildren.put(parent, arrOrdered);
-                    }
-                }
-            }
-            
-            //send hashmap to update_orderANA_RELATIONSHIP
-            AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
-            
-            if ( !anarelationship.update_orderANA_RELATIONSHIP( mapOrderedChildren, "updateOrder") ) {
-
-            	throw new DatabaseException("anarelationship.update_orderANA_RELATIONSHIP");
-            }
-        }
-        catch ( DatabaseException dbex ) {
-        	
-        	setProcessed( false );
-        	dbex.printStackTrace();
-        } 
-        catch ( Exception ex ) {
-        	
-        	setProcessed( false );
-        	ex.printStackTrace();
-        }
-    }
-
-    
     /*
     method to validate term list scheduled for deletion
 
@@ -881,7 +727,6 @@ public class GenerateSQL {
              	
                 	throw new DatabaseException("anarelationship.deleteANA_RELATIONSHIP for DELETE");
                 }
-
             }
         }
         catch ( DatabaseException dbex ) {
@@ -1586,25 +1431,6 @@ public class GenerateSQL {
     }
 
 
-    // method to sort through modified component list for changed synonyms
-    private ArrayList<OBOComponent> getChangedOrderTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
-
-        Wrapper.printMessage("generatesql.getChangedOrderTermList", "***", this.requestMsgLevel);
-
-        ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
-        
-        for ( OBOComponent component: changedTermList ) {
-        	
-        	if ( component.hasDifferenceComment("Different Order") ) {
-        		
-        		termList.add( component );
-            }
-        }
-        
-        return termList;
-    }
-    
-    
     // Getters ------------------------------------------------------------------------------------
     public boolean isProcessed() {
         return processed;

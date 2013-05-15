@@ -63,6 +63,16 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
         "JOIN ANA_RELATIONSHIP ON REL_CHILD_FK = a.ANO_OID " +
         "JOIN ANA_NODE b ON REL_PARENT_FK = b.ANO_OID ";
     
+    private static final String SQL_LIST_ALL_PART_OFS =
+        "SELECT " +
+        "a.ANO_OID, a.ANO_SPECIES_FK, a.ANO_COMPONENT_NAME, a.ANO_IS_PRIMARY, a.ANO_IS_GROUP, a.ANO_PUBLIC_ID, a.ANO_DESCRIPTION, " +
+        "REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK, " +
+        "b.ANO_OID, b.ANO_SPECIES_FK, b.ANO_COMPONENT_NAME, b.ANO_IS_PRIMARY, b.ANO_IS_GROUP, b.ANO_PUBLIC_ID, b.ANO_DESCRIPTION " +
+        "FROM ANA_NODE a " +
+        "JOIN ANA_RELATIONSHIP ON REL_CHILD_FK = a.ANO_OID " +
+        "JOIN ANA_NODE b ON REL_PARENT_FK = b.ANO_OID " +
+        "WHERE REL_RELATIONSHIP_TYPE_FK = 'part-of' ";
+        
     private static final String SQL_LIST_ALL_BY_PARENT_ID =
         "SELECT " +
         "a.ANO_OID, a.ANO_SPECIES_FK, a.ANO_COMPONENT_NAME, a.ANO_IS_PRIMARY, a.ANO_IS_GROUP, a.ANO_PUBLIC_ID, a.ANO_DESCRIPTION, " +
@@ -113,6 +123,14 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
     public List<JOINNodeRelationshipNode> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
+    }
+
+    /*
+     * Returns a list of ALL PART_OF rows, otherwise null.
+     */
+    public List<JOINNodeRelationshipNode> listAllPartOfs() throws Exception {
+    	
+        return list(SQL_LIST_ALL_PART_OFS);
     }
 
     /*

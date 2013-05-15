@@ -1,6 +1,6 @@
 
 ============================================================
-===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
 ============================================================
 
 
@@ -30,27 +30,27 @@ EMAP:0014824   |   | | \ diaphragm right dome
 EMAP:0007157   |   | + diaphragm mesothelium
 EMAP:0007155   |   | + pleuro-pericardial folds
 EMAP:0007156   |   | \ pleuro-peritoneal membrane
+EMAP:0034249   |   + mesothelium
 EMAP:0007158   |   + intraembryonic coelom pericardial component
 EMAP:0007159   |   | + pericardial cavity
 EMAP:0007160   |   | \ pericardial cavity mesothelium
 EMAP:0007161   |   |   + pericardial cavity parietal mesothelium
 EMAP:0007162   |   |   \ pericardial cavity visceral mesothelium
-EMAP:0007173   |   + intraembryonic coelom pleural component
-EMAP:0012531   |   | + pleural cavity
-EMAP:0007174   |   | \ pleural cavity mesothelium
-EMAP:0007175   |   |   + pleural cavity parietal mesothelium
-EMAP:0007176   |   |   \ pleural cavity visceral mesothelium
-EMAP:0034249   |   + mesothelium
-EMAP:0007163   |   \ peritoneal cavity
-EMAP:0007164   |     + greater sac
-EMAP:0007165   |     | + greater sac cavity
-EMAP:0007166   |     | \ greater sac mesothelium
-EMAP:0007167   |     |   + greater sac parietal mesothelium
-EMAP:0007168   |     |   \ greater sac visceral mesothelium
-EMAP:0007169   |     \ omental bursa
-EMAP:0007172   |       + omental bursa cavity
-EMAP:0007170   |       \ omental bursa mesothelium
-EMAP:0007171   |         \ omental bursa parietal mesothelium
+EMAP:0007163   |   + peritoneal cavity
+EMAP:0007164   |   | + greater sac
+EMAP:0007165   |   | | + greater sac cavity
+EMAP:0007166   |   | | \ greater sac mesothelium
+EMAP:0007167   |   | |   + greater sac parietal mesothelium
+EMAP:0007168   |   | |   \ greater sac visceral mesothelium
+EMAP:0007169   |   | \ omental bursa
+EMAP:0007172   |   |   + omental bursa cavity
+EMAP:0007170   |   |   \ omental bursa mesothelium
+EMAP:0007171   |   |     \ omental bursa parietal mesothelium
+EMAP:0007173   |   \ intraembryonic coelom pleural component
+EMAP:0007174   |     + pleural cavity mesothelium
+EMAP:0007175   |     | + pleural cavity parietal mesothelium
+EMAP:0007176   |     | \ pleural cavity visceral mesothelium
+EMAP:0012531   |     \ pleural cavity
 EMAP:0033662   + epithelium
 EMAP:0008413   + extraembryonic component
 EMAP:0032096   | + amnion
@@ -902,27 +902,27 @@ EMAP:0007944   | | | | + pulmonary valve
 EMAP:0007945   | | | | | \ pulmonary valve leaflets
 EMAP:0007946   | | | | \ tricuspid valve
 EMAP:0007947   | | | |   \ tricuspid valve leaflets
-EMAP:0007948   | | | + heart ventricle
-EMAP:0026034   | | | | + interventricular canal
-EMAP:0007949   | | | | + interventricular groove
-EMAP:0007950   | | | | + interventricular septum
-EMAP:0007951   | | | | | + interventricular septum endocardial lining
-EMAP:0007952   | | | | | + interventricular septum membranous part
-EMAP:0007953   | | | | | \ interventricular septum muscular part
-EMAP:0007954   | | | | + left ventricle
-EMAP:0007956   | | | | | + left ventricle cardiac muscle
-EMAP:0007955   | | | | | + left ventricle endocardial lining
-EMAP:0026043   | | | | | \ left ventricle lumen
-EMAP:0007957   | | | | + right ventricle
-EMAP:0007959   | | | | | + right ventricle cardiac muscle
-EMAP:0007958   | | | | | + right ventricle endocardial lining
-EMAP:0026052   | | | | | \ right ventricle lumen
-EMAP:0033745   | | | | + ventricle cardiac muscle
-EMAP:0033737   | | | | \ ventricle endocardial lining
 EMAP:0012519   | | | + pericardium
 EMAP:0012523   | | | | + parietal pericardium
 EMAP:0012527   | | | | \ visceral pericardium
-EMAP:0007938   | | | \ trabeculae carneae
+EMAP:0007938   | | | + trabeculae carneae
+EMAP:0007948   | | | \ heart ventricle
+EMAP:0026034   | | |   + interventricular canal
+EMAP:0007949   | | |   + interventricular groove
+EMAP:0007950   | | |   + interventricular septum
+EMAP:0007951   | | |   | + interventricular septum endocardial lining
+EMAP:0007952   | | |   | + interventricular septum membranous part
+EMAP:0007953   | | |   | \ interventricular septum muscular part
+EMAP:0007954   | | |   + left ventricle
+EMAP:0007956   | | |   | + left ventricle cardiac muscle
+EMAP:0007955   | | |   | + left ventricle endocardial lining
+EMAP:0026043   | | |   | \ left ventricle lumen
+EMAP:0007957   | | |   + right ventricle
+EMAP:0007959   | | |   | + right ventricle cardiac muscle
+EMAP:0007958   | | |   | + right ventricle endocardial lining
+EMAP:0026052   | | |   | \ right ventricle lumen
+EMAP:0033745   | | |   + ventricle cardiac muscle
+EMAP:0033737   | | |   \ ventricle endocardial lining
 EMAP:0007960   | | + lymphatic system
 EMAP:0007961   | | | \ jugular lymph sac
 EMAP:0007962   | | \ venous system
@@ -1476,7 +1476,6 @@ EMAP:0007478   | | | | | | |   | \ remnant of Rathke's pouch
 EMAP:0007479   | | | | | | |   \ neurohypophysis (syn: pars nervosa; posterior pituitary)
 EMAP:0007481   | | | | | | |     + median eminence
 EMAP:0007480   | | | | | | |     \ neurohypophysis infundibulum
-EMAP:0007520   | | | | | | + diencephalon internal capsule
 EMAP:0007522   | | | | | | + diencephalon lateral wall
 EMAP:0007523   | | | | | | | + diencephalon lateral wall mantle layer
 EMAP:0007524   | | | | | | | + diencephalon lateral wall marginal layer
@@ -1501,6 +1500,7 @@ EMAP:0007516   | | | | | | + hypothalamus
 EMAP:0007517   | | | | | | | + hypothalamus mantle layer
 EMAP:0007518   | | | | | | | + hypothalamus marginal layer
 EMAP:0007519   | | | | | | | \ hypothalamus ventricular layer
+EMAP:0007520   | | | | | | + diencephalon internal capsule
 EMAP:0007521   | | | | | | + lamina terminalis
 EMAP:0007531   | | | | | | \ thalamus
 EMAP:0007532   | | | | | |   + interthalamic adhesion
@@ -1611,7 +1611,6 @@ EMAP:0007603   | | | | |   | | | \ rest of cerebellum
 EMAP:0007604   | | | | |   | | |   + rest of cerebellum mantle layer
 EMAP:0007605   | | | | |   | | |   + rest of cerebellum marginal layer
 EMAP:0007606   | | | | |   | | |   \ rest of cerebellum ventricular layer
-EMAP:0035042   | | | | |   | | |     \ mikes test leaf part of emapa18562
 EMAP:0007607   | | | | |   | | \ metencephalon rest of alar plate
 EMAP:0007608   | | | | |   | |   + metencephalon rest of alar plate mantle layer
 EMAP:0007609   | | | | |   | |   + metencephalon rest of alar plate marginal layer
@@ -2038,12 +2037,12 @@ EMAP:0008009   |   | | | | \ anal canal caudal part vascular element (syn: arter
 EMAP:0033979   |   | | | + anal canal epithelium
 EMAP:0008010   |   | | | \ anal canal rostral part
 EMAP:0008422   |   | | |   + anal canal rostral part lumen
-EMAP:0027226   |   | | |   + anal canal rostral part mucosa
-EMAP:0008012   |   | | |   | + anal canal rostral part epithelium
-EMAP:0027234   |   | | |   | + anal canal rostral part gland
-EMAP:0027232   |   | | |   | \ anal canal rostral part lamina propria
 EMAP:0027228   |   | | |   + anal canal rostral part submucosa
-EMAP:0008013   |   | | |   \ anal canal rostral part vascular element (syn: artery; vein)
+EMAP:0008013   |   | | |   + anal canal rostral part vascular element (syn: artery; vein)
+EMAP:0027226   |   | | |   \ anal canal rostral part mucosa
+EMAP:0008012   |   | | |     + anal canal rostral part epithelium
+EMAP:0027234   |   | | |     + anal canal rostral part gland
+EMAP:0027232   |   | | |     \ anal canal rostral part lamina propria
 EMAP:0008014   |   | | + external anal sphincter
 EMAP:0008015   |   | | \ internal anal sphincter
 EMAP:0007450   |   | + gut
@@ -2503,108 +2502,108 @@ EMAP:0008212   |   |   |   + liver right lobe hepatic sinusoid
 EMAP:0008213   |   |   |   \ liver right lobe parenchyma
 EMAP:0034994   |   |   \ liver parenchyma
 EMAP:0008244   |   + reproductive system
-EMAP:0008245   |   | + female reproductive system
-EMAP:0008247   |   | | + genital tubercle of female
-EMAP:0031591   |   | | | + developing vasculature of female genital tubercle
-EMAP:0030486   |   | | | + distal genital tubercle of female
-EMAP:0030489   |   | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492   |   | | | | \ surface epithelium of distal genital tubercle of female
-EMAP:0030482   |   | | | + preputial swelling of female
-EMAP:0030495   |   | | | | + mesenchyme of female preputial swelling
-EMAP:0030501   |   | | | | + preputial gland of female
-EMAP:0030498   |   | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847   |   | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683   |   | | |   + distal urethral epithelium of female
-EMAP:0031669   |   | | |   + proximal urethral epithelium of female
-EMAP:0031672   |   | | |   \ urethral opening of female
-EMAP:0030425   |   | | + labioscrotal swelling of female
-EMAP:0030428   |   | | | + mesenchyme of labioscrotal swelling of female
-EMAP:0030431   |   | | | \ surface epithelium of labioscrotal swelling of female
-EMAP:0028913   |   | | + mesonephros of female
-EMAP:0030519   |   | | | + coelomic epithelium of female mesonephros
-EMAP:0028983   |   | | | + degenerating mesonephric portion of nephric duct of female
-EMAP:0028980   |   | | | + degenerating mesonephric tubule of female
-EMAP:0031691   |   | | | + developing vasculature of female mesonephros
-EMAP:0028918   |   | | | + mesonephric mesenchyme of female mesonephros
-EMAP:0028977   |   | | | + paramesonephric duct of female, mesonephric portion
-EMAP:0030071   |   | | | | + epithelium of paramesonephric duct, mesonephric portion
-EMAP:0030073   |   | | | | \ mesenchyme of paramesonephric duct, mesonephric portion
-EMAP:0028933   |   | | | \ rete ovarii of mesonephros
-EMAP:0008250   |   | | + mesovarium
-EMAP:0008246   |   | | + Mullerian tubercle
-EMAP:0028948   |   | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
-EMAP:0028952   |   | | | + epithelium of rest of nephric duct of female
-EMAP:0028956   |   | | | \ mesenchyme of rest of nephric duct of female
-EMAP:0008251   |   | | + ovary
-EMAP:0028892   |   | | | + developing vasculature of ovary
-EMAP:0008254   |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
-EMAP:0028969   |   | | | | + meiotic germ cell
-EMAP:0028974   |   | | | | \ premeiotic germ cell
-EMAP:0008253   |   | | | + mesenchymal stroma of ovary
-EMAP:0029010   |   | | | | + cortical component of mesenchymal stroma
-EMAP:0029015   |   | | | | \ medullary component of mesenchymal stroma
-EMAP:0008255   |   | | | + rete ovarii of ovary
-EMAP:0008252   |   | | | \ surface epithelium of ovary
-EMAP:0028944   |   | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
-EMAP:0028960   |   | | | + epithelium of rest of paramesonephric duct of female
-EMAP:0028964   |   | | | \ mesenchyme of rest of paramesonephric duct of female
-EMAP:0029019   |   | | \ suspensory ligament of ovary
-EMAP:0008257   |   | \ male reproductive system
-EMAP:0030069   |   |   + cranial suspensory ligament
-EMAP:0029198   |   |   + degenerating rest of paramesonephric duct of male
-EMAP:0029201   |   |   | + epithelium of degenerating rest of paramesonephric duct of male
-EMAP:0029204   |   |   | \ mesenchyme of degenerating rest of paramesonephric duct of male
-EMAP:0008258   |   |   + ductus deferens
-EMAP:0031189   |   |   | \ developing vasculature of ductus deferens
-EMAP:0030744   |   |   + epididymis
-EMAP:0031183   |   |   | + developing vasculature of epididymis
-EMAP:0030748   |   |   | + muscle layer of epididymis
-EMAP:0030750   |   |   | + outer layer of epididymis
-EMAP:0030746   |   |   | \ surface epithelium of epididymis
-EMAP:0008259   |   |   + genital tubercle of male
-EMAP:0031609   |   |   | + developing vasculature of male genital tubercle
-EMAP:0008261   |   |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255   |   |   | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257   |   |   | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222   |   |   | + preputial swelling of male
-EMAP:0029228   |   |   | | + mesenchyme of male preputial swelling
-EMAP:0030504   |   |   | | + preputial gland of male
-EMAP:0029225   |   |   | | \ surface epithelium of male preputial swelling
-EMAP:0031845   |   |   | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601   |   |   |   + distal urethral epithelium of male
-EMAP:0031604   |   |   |   + proximal urethral epithelium of male
-EMAP:0031596   |   |   |   \ urethral opening of male
-EMAP:0012731   |   |   + gubernaculum
-EMAP:0030511   |   |   + labioscrotal swelling of male
-EMAP:0030514   |   |   | + mesenchyme of labioscrotal swelling of male
-EMAP:0030517   |   |   | \ surface epithelium of labioscrotal swelling of male
-EMAP:0029142   |   |   + mesonephros of male
-EMAP:0030464   |   |   | + coelomic epithelium of male mesonephros
-EMAP:0030557   |   |   | + cranial mesonephric tubule of male
-EMAP:0030561   |   |   | | + mesonephric glomerulus of male
-EMAP:0030559   |   |   | | \ rest of cranial mesonephric tubule
-EMAP:0029164   |   |   | + degenerating mesonephric portion of male paramesonephric duct
-EMAP:0031687   |   |   | + developing vasculature of male mesonephros
-EMAP:0029147   |   |   | + mesonephric mesenchyme of male
-EMAP:0029157   |   |   | \ nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
-EMAP:0008260   |   |   + mesorchium
-EMAP:0029176   |   |   + nephric duct of male, rest of (syn: mesonephric duct; rest of)
-EMAP:0029184   |   |   | + epithelium of rest of nephric duct of male
-EMAP:0029180   |   |   | \ mesenchyme of rest of nephric duct of male
-EMAP:0008262   |   |   \ testis
-EMAP:0030520   |   |     + coelomic epithelium of testis
-EMAP:0029118   |   |     + developing vasculature of the testis
-EMAP:0029126   |   |     | + coelomic vessel
-EMAP:0029134   |   |     | \ interstitial vessel
-EMAP:0008267   |   |     + interstitium of the testis
-EMAP:0029086   |   |     | + fetal Leydig cell
-EMAP:0029094   |   |     | \ rest of interstitium of the testis
-EMAP:0008271   |   |     + mediastinum testis
-EMAP:0029192   |   |     + rete testis
-EMAP:0008265   |   |     \ seminiferous cord
-EMAP:0008266   |   |       + germ cell of testis
-EMAP:0029245   |   |       + peritubular myoid cell
-EMAP:0029240   |   |       \ Sertoli cell
+EMAP:0008257   |   | + male reproductive system
+EMAP:0029142   |   | | + mesonephros of male
+EMAP:0029157   |   | | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:0029147   |   | | | + mesonephric mesenchyme of male
+EMAP:0030557   |   | | | + cranial mesonephric tubule of male
+EMAP:0030561   |   | | | | + mesonephric glomerulus of male
+EMAP:0030559   |   | | | | \ rest of cranial mesonephric tubule
+EMAP:0029164   |   | | | + degenerating mesonephric portion of male paramesonephric duct
+EMAP:0030464   |   | | | + coelomic epithelium of male mesonephros
+EMAP:0031687   |   | | | \ developing vasculature of male mesonephros
+EMAP:0029198   |   | | + degenerating rest of paramesonephric duct of male
+EMAP:0029201   |   | | | + epithelium of degenerating rest of paramesonephric duct of male
+EMAP:0029204   |   | | | \ mesenchyme of degenerating rest of paramesonephric duct of male
+EMAP:0029176   |   | | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:0029184   |   | | | + epithelium of rest of nephric duct of male
+EMAP:0029180   |   | | | \ mesenchyme of rest of nephric duct of male
+EMAP:0008262   |   | | + testis
+EMAP:0030520   |   | | | + coelomic epithelium of testis
+EMAP:0029192   |   | | | + rete testis
+EMAP:0008267   |   | | | + interstitium of the testis
+EMAP:0029086   |   | | | | + fetal Leydig cell
+EMAP:0029094   |   | | | | \ rest of interstitium of the testis
+EMAP:0008265   |   | | | + seminiferous cord
+EMAP:0029240   |   | | | | + Sertoli cell
+EMAP:0008266   |   | | | | + germ cell of testis
+EMAP:0029245   |   | | | | \ peritubular myoid cell
+EMAP:0008271   |   | | | + mediastinum testis
+EMAP:0029118   |   | | | \ developing vasculature of the testis
+EMAP:0029126   |   | | |   + coelomic vessel
+EMAP:0029134   |   | | |   \ interstitial vessel
+EMAP:0030069   |   | | + cranial suspensory ligament
+EMAP:0030744   |   | | + epididymis
+EMAP:0030748   |   | | | + muscle layer of epididymis
+EMAP:0030750   |   | | | + outer layer of epididymis
+EMAP:0031183   |   | | | + developing vasculature of epididymis
+EMAP:0030746   |   | | | \ surface epithelium of epididymis
+EMAP:0008258   |   | | + ductus deferens
+EMAP:0031189   |   | | | \ developing vasculature of ductus deferens
+EMAP:0012731   |   | | + gubernaculum
+EMAP:0008260   |   | | + mesorchium
+EMAP:0008259   |   | | + genital tubercle of male
+EMAP:0031845   |   | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601   |   | | | | + distal urethral epithelium of male
+EMAP:0031604   |   | | | | + proximal urethral epithelium of male
+EMAP:0031596   |   | | | | \ urethral opening of male
+EMAP:0008261   |   | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257   |   | | | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255   |   | | | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222   |   | | | + preputial swelling of male
+EMAP:0029225   |   | | | | + surface epithelium of male preputial swelling
+EMAP:0030504   |   | | | | + preputial gland of male
+EMAP:0029228   |   | | | | \ mesenchyme of male preputial swelling
+EMAP:0031609   |   | | | \ developing vasculature of male genital tubercle
+EMAP:0030511   |   | | \ labioscrotal swelling of male
+EMAP:0030517   |   | |   + surface epithelium of labioscrotal swelling of male
+EMAP:0030514   |   | |   \ mesenchyme of labioscrotal swelling of male
+EMAP:0008245   |   | \ female reproductive system
+EMAP:0028913   |   |   + mesonephros of female
+EMAP:0028918   |   |   | + mesonephric mesenchyme of female mesonephros
+EMAP:0028980   |   |   | + degenerating mesonephric tubule of female
+EMAP:0028983   |   |   | + degenerating mesonephric portion of nephric duct of female
+EMAP:0028977   |   |   | + paramesonephric duct of female, mesonephric portion
+EMAP:0030071   |   |   | | + epithelium of paramesonephric duct, mesonephric portion
+EMAP:0030073   |   |   | | \ mesenchyme of paramesonephric duct, mesonephric portion
+EMAP:0028933   |   |   | + rete ovarii of mesonephros
+EMAP:0030519   |   |   | + coelomic epithelium of female mesonephros
+EMAP:0031691   |   |   | \ developing vasculature of female mesonephros
+EMAP:0028944   |   |   + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
+EMAP:0028960   |   |   | + epithelium of rest of paramesonephric duct of female
+EMAP:0028964   |   |   | \ mesenchyme of rest of paramesonephric duct of female
+EMAP:0028948   |   |   + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
+EMAP:0028952   |   |   | + epithelium of rest of nephric duct of female
+EMAP:0028956   |   |   | \ mesenchyme of rest of nephric duct of female
+EMAP:0008251   |   |   + ovary
+EMAP:0008252   |   |   | + surface epithelium of ovary
+EMAP:0008253   |   |   | + mesenchymal stroma of ovary
+EMAP:0029010   |   |   | | + cortical component of mesenchymal stroma
+EMAP:0029015   |   |   | | \ medullary component of mesenchymal stroma
+EMAP:0008254   |   |   | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:0028974   |   |   | | + premeiotic germ cell
+EMAP:0028969   |   |   | | \ meiotic germ cell
+EMAP:0028892   |   |   | + developing vasculature of ovary
+EMAP:0008255   |   |   | \ rete ovarii of ovary
+EMAP:0008250   |   |   + mesovarium
+EMAP:0029019   |   |   + suspensory ligament of ovary
+EMAP:0008246   |   |   + Mullerian tubercle
+EMAP:0008247   |   |   + genital tubercle of female
+EMAP:0031847   |   |   | + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683   |   |   | | + distal urethral epithelium of female
+EMAP:0031669   |   |   | | + proximal urethral epithelium of female
+EMAP:0031672   |   |   | | \ urethral opening of female
+EMAP:0030482   |   |   | + preputial swelling of female
+EMAP:0030498   |   |   | | + surface epithelium of female preputial swelling
+EMAP:0030501   |   |   | | + preputial gland of female
+EMAP:0030495   |   |   | | \ mesenchyme of female preputial swelling
+EMAP:0030486   |   |   | + distal genital tubercle of female
+EMAP:0030492   |   |   | | + surface epithelium of distal genital tubercle of female
+EMAP:0030489   |   |   | | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591   |   |   | \ developing vasculature of female genital tubercle
+EMAP:0030425   |   |   \ labioscrotal swelling of female
+EMAP:0030431   |   |     + surface epithelium of labioscrotal swelling of female
+EMAP:0030428   |   |     \ mesenchyme of labioscrotal swelling of female
 EMAP:0008276   |   + respiratory system
 EMAP:0033361   |   | + bronchus
 EMAP:0033375   |   | | + bronchus epithelium
@@ -2685,78 +2684,72 @@ EMAP:0008336   |   |     \ nasopharynx
 EMAP:0008337   |   |       + nasopharynx associated mesenchyme
 EMAP:0012532   |   |       \ nasopharynx epithelium
 EMAP:0008217   |   \ urinary system
-EMAP:0008219   |     + bladder
-EMAP:0028827   |     | + adventitia of bladder
-EMAP:0028832   |     | | + adventitia of fundus
-EMAP:0030145   |     | | + adventitia of neck
-EMAP:0028837   |     | | \ adventitia of trigone
-EMAP:0028639   |     | + detrusor muscle of bladder
-EMAP:0028645   |     | | + detrusor muscle of fundus
-EMAP:0030125   |     | | + detrusor muscle of neck
-EMAP:0028651   |     | | \ detrusor muscle of trigone
-EMAP:0030090   |     | + lamina propria of bladder
-EMAP:0030104   |     | | + lamina propria of fundus
-EMAP:0030118   |     | | + lamina propria of neck
-EMAP:0030111   |     | | \ lamina propria of trigone
-EMAP:0028621   |     | + muscularis mucosa of bladder
-EMAP:0028627   |     | | + muscularis mucosa of fundus
-EMAP:0030139   |     | | + muscularis mucosa of neck
-EMAP:0028633   |     | | \ muscularis mucosa of trigone
-EMAP:0031655   |     | + nerve of bladder
-EMAP:0028663   |     | + serosa of bladder
-EMAP:0028669   |     | | + serosa of fundus
-EMAP:0030132   |     | | + serosa of neck
-EMAP:0028675   |     | | \ serosa of trigone
-EMAP:0032390   |     | + submucosa of bladder
-EMAP:0032404   |     | | + submucosa of fundus
-EMAP:0032397   |     | | + submucosa of neck
-EMAP:0032503   |     | | \ submucosa of trigone
-EMAP:0028603   |     | + urothelium of bladder
-EMAP:0032383   |     | | + basal cell layer of bladder
-EMAP:0032376   |     | | + superficial cell layer of bladder
-EMAP:0028609   |     | | + urothelium of fundus
-EMAP:0030083   |     | | + urothelium of neck
-EMAP:0028615   |     | | \ urothelium of trigone
-EMAP:0028681   |     | \ vasculature of bladder
+EMAP:0008224   |     + urinary system mesentery
+EMAP:0029613   |     | + rest of mesentery
+EMAP:0008225   |     | \ urogenital mesentery
 EMAP:0008226   |     + metanephros
-EMAP:0008229   |     | + calyx
-EMAP:0008233   |     | + collecting duct
-EMAP:0027752   |     | | + ureteric tip
-EMAP:0031048   |     | | \ ureteric tree terminal branch excluding tip itself
+EMAP:0008237   |     | + renal capsule
 EMAP:0027724   |     | + nephrogenic zone
-EMAP:0027738   |     | | + cap mesenchyme
 EMAP:0027731   |     | | + nephrogenic interstitium
+EMAP:0027738   |     | | + cap mesenchyme
 EMAP:0027745   |     | | + pretubular aggregate
 EMAP:0027752   |     | | + ureteric tip
 EMAP:0031048   |     | | \ ureteric tree terminal branch excluding tip itself
-EMAP:0008232   |     | + pelvis
-EMAP:0028121   |     | | + pelvic smooth muscle
-EMAP:0028079   |     | | + pelvic urothelial lining
-EMAP:0028085   |     | | \ perihilar interstitium
-EMAP:0008237   |     | + renal capsule
 EMAP:0008236   |     | + renal cortex
+EMAP:0027831   |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695   |     | | | + renal connecting segment of renal vesicle
+EMAP:0031726   |     | | | + distal renal vesicle
+EMAP:0031720   |     | | | \ proximal renal vesicle
+EMAP:0027837   |     | | + comma-shaped body
+EMAP:0027843   |     | | | + upper limb of comma-shaped body
+EMAP:0027849   |     | | | + lower limb of comma-shaped body
+EMAP:0031712   |     | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855   |     | | + s-shaped body
+EMAP:0027867   |     | | | + renal connecting tubule of s-shaped body
+EMAP:0027873   |     | | | + distal segment of s-shaped body
+EMAP:0027879   |     | | | + medial segment of s-shaped body
+EMAP:0027885   |     | | | \ proximal segment of s-shaped body
+EMAP:0027897   |     | | |   + visceral epithelium of s-shaped body
+EMAP:0027903   |     | | |   \ parietal epithelium of s-shaped body
 EMAP:0027909   |     | | + capillary loop renal corpuscle
 EMAP:0027927   |     | | | + associated interstitium of renal corpuscle
 EMAP:0027921   |     | | | + parietal epithelium
 EMAP:0027939   |     | | | + presumptive endothelium of renal corpuscle
 EMAP:0027933   |     | | | + presumptive mesangium
 EMAP:0027915   |     | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027837   |     | | + comma-shaped body
-EMAP:0027849   |     | | | + lower limb of comma-shaped body
-EMAP:0031712   |     | | | + renal connecting segment of comma-shaped body
-EMAP:0027843   |     | | | \ upper limb of comma-shaped body
-EMAP:0028132   |     | | + cortical collecting duct
+EMAP:0027945   |     | | + maturing renal corpuscle
+EMAP:0027951   |     | | | + maturing glomerular tuft
+EMAP:0027957   |     | | | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963   |     | | | | + glomerular mesangium
+EMAP:0027969   |     | | | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967   |     | | | | \ glomerular basement membrane
+EMAP:0027975   |     | | | + Bowman's capsule
+EMAP:0027981   |     | | | | + parietal epithelium
+EMAP:0027987   |     | | | | + urinary space of renal corpuscle
+EMAP:0030033   |     | | | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993   |     | | | \ juxtaglomerular arteriole
 EMAP:0027999   |     | | + cortical renal tubule
+EMAP:0028005   |     | | | + early proximal tubule
+EMAP:0031709   |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031703   |     | | | | \ early proximal tubule of maturing nephron
 EMAP:0031283   |     | | | + anlage of loop of Henle
 EMAP:0028009   |     | | | + early distal tubule
 EMAP:0031611   |     | | | | + early distal tubule of capillary loop nephron
 EMAP:0031617   |     | | | | \ early distal tubule of maturing nephron
-EMAP:0028005   |     | | | + early proximal tubule
-EMAP:0031709   |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703   |     | | | | \ early proximal tubule of maturing nephron
 EMAP:0028013   |     | | | \ renal connecting tubule
 EMAP:0031623   |     | | |   + renal connecting tubule of capillary loop nephron
 EMAP:0031629   |     | | |   \ renal connecting tubule of maturing nephron
+EMAP:0028132   |     | | + cortical collecting duct
+EMAP:0028138   |     | | + renal cortical interstitium
+EMAP:0031290   |     | | | + renal cortical fibroblasts
+EMAP:0031298   |     | | | + resident macrophages of the cortex
+EMAP:0031306   |     | | | \ rest of renal cortical interstitium
+EMAP:0028143   |     | | + renal cortical vasculature
+EMAP:0028148   |     | | | + renal cortical arterial system
+EMAP:0028153   |     | | | + renal cortical venous system
+EMAP:0030038   |     | | | \ renal cortical capillary
+EMAP:0031313   |     | | + renal cortical lymphatics
+EMAP:0031320   |     | | + renal cortical nerves
 EMAP:0028508   |     | | + developing capillary loop stage nephron GROUP
 EMAP:0027909   |     | | | + capillary loop renal corpuscle
 EMAP:0027927   |     | | | | + associated interstitium of renal corpuscle
@@ -2765,87 +2758,62 @@ EMAP:0027939   |     | | | | + presumptive endothelium of renal corpuscle
 EMAP:0027933   |     | | | | + presumptive mesangium
 EMAP:0027915   |     | | | | \ visceral epithelium of capillary loop renal corpuscle
 EMAP:0027999   |     | | | \ cortical renal tubule
+EMAP:0028005   |     | | |   + early proximal tubule
+EMAP:0031709   |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031703   |     | | |   | \ early proximal tubule of maturing nephron
 EMAP:0031283   |     | | |   + anlage of loop of Henle
 EMAP:0028009   |     | | |   + early distal tubule
 EMAP:0031611   |     | | |   | + early distal tubule of capillary loop nephron
 EMAP:0031617   |     | | |   | \ early distal tubule of maturing nephron
-EMAP:0028005   |     | | |   + early proximal tubule
-EMAP:0031709   |     | | |   | + early proximal tubule of capillary loop nephron
-EMAP:0031703   |     | | |   | \ early proximal tubule of maturing nephron
 EMAP:0028013   |     | | |   \ renal connecting tubule
 EMAP:0031623   |     | | |     + renal connecting tubule of capillary loop nephron
 EMAP:0031629   |     | | |     \ renal connecting tubule of maturing nephron
-EMAP:0028487   |     | | + maturing nephron
-EMAP:0027999   |     | | | + cortical renal tubule
-EMAP:0031283   |     | | | | + anlage of loop of Henle
-EMAP:0028009   |     | | | | + early distal tubule
-EMAP:0031611   |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617   |     | | | | | \ early distal tubule of maturing nephron
-EMAP:0028005   |     | | | | + early proximal tubule
-EMAP:0031709   |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703   |     | | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013   |     | | | | \ renal connecting tubule
-EMAP:0031623   |     | | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629   |     | | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945   |     | | | \ maturing renal corpuscle
-EMAP:0027975   |     | | |   + Bowman's capsule
-EMAP:0030033   |     | | |   | + glomerular mesangium of Bowman's capsule
-EMAP:0027981   |     | | |   | + parietal epithelium
-EMAP:0027987   |     | | |   | \ urinary space of renal corpuscle
-EMAP:0027993   |     | | |   + juxtaglomerular arteriole
-EMAP:0027951   |     | | |   \ maturing glomerular tuft
-EMAP:0030967   |     | | |     + glomerular basement membrane
-EMAP:0027957   |     | | |     + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963   |     | | |     + glomerular mesangium
-EMAP:0027969   |     | | |     \ visceral epithelium of maturing renal corpuscle
-EMAP:0027945   |     | | + maturing renal corpuscle
-EMAP:0027975   |     | | | + Bowman's capsule
-EMAP:0030033   |     | | | | + glomerular mesangium of Bowman's capsule
-EMAP:0027981   |     | | | | + parietal epithelium
-EMAP:0027987   |     | | | | \ urinary space of renal corpuscle
-EMAP:0027993   |     | | | + juxtaglomerular arteriole
-EMAP:0027951   |     | | | \ maturing glomerular tuft
-EMAP:0030967   |     | | |   + glomerular basement membrane
-EMAP:0027957   |     | | |   + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963   |     | | |   + glomerular mesangium
-EMAP:0027969   |     | | |   \ visceral epithelium of maturing renal corpuscle
-EMAP:0028138   |     | | + renal cortical interstitium
-EMAP:0031290   |     | | | + renal cortical fibroblasts
-EMAP:0031298   |     | | | + resident macrophages of the cortex
-EMAP:0031306   |     | | | \ rest of renal cortical interstitium
-EMAP:0031313   |     | | + renal cortical lymphatics
-EMAP:0031320   |     | | + renal cortical nerves
-EMAP:0028143   |     | | + renal cortical vasculature
-EMAP:0028148   |     | | | + renal cortical arterial system
-EMAP:0030038   |     | | | + renal cortical capillary
-EMAP:0028153   |     | | | \ renal cortical venous system
-EMAP:0027831   |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726   |     | | | + distal renal vesicle
-EMAP:0031720   |     | | | + proximal renal vesicle
-EMAP:0031695   |     | | | \ renal connecting segment of renal vesicle
-EMAP:0027855   |     | | \ s-shaped body
-EMAP:0027873   |     | |   + distal segment of s-shaped body
-EMAP:0027879   |     | |   + medial segment of s-shaped body
-EMAP:0027885   |     | |   + proximal segment of s-shaped body
-EMAP:0027903   |     | |   | + parietal epithelium of s-shaped body
-EMAP:0027897   |     | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867   |     | |   \ renal connecting tubule of s-shaped body
-EMAP:0028043   |     | \ renal medulla
-EMAP:0030864   |     |   + immature loop of Henle
-EMAP:0031023   |     |   | + bend of immature loop of Henle
-EMAP:0031019   |     |   | \ straight limb of immature loop of Henle
-EMAP:0028063   |     |   + medullary collecting duct
-EMAP:0008241   |     |   + renal medullary interstitium
-EMAP:0031327   |     |   | + renal medullary fibroblasts
-EMAP:0031334   |     |   | + resident macrophages of the medulla
-EMAP:0031341   |     |   | \ rest of renal medullary interstitium
-EMAP:0031348   |     |   + renal medullary lymphatics
-EMAP:0031355   |     |   + renal medullary nerves
-EMAP:0028158   |     |   \ renal medullary vasculature
-EMAP:0028163   |     |     + renal medullary arterial system
-EMAP:0030044   |     |     + renal medullary capillary
-EMAP:0028168   |     |     \ renal medullary venous system
-EMAP:0031644   |     + pelvic ganglion
+EMAP:0028487   |     | | \ maturing nephron
+EMAP:0027945   |     | |   + maturing renal corpuscle
+EMAP:0027951   |     | |   | + maturing glomerular tuft
+EMAP:0027957   |     | |   | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963   |     | |   | | + glomerular mesangium
+EMAP:0027969   |     | |   | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967   |     | |   | | \ glomerular basement membrane
+EMAP:0027975   |     | |   | + Bowman's capsule
+EMAP:0027981   |     | |   | | + parietal epithelium
+EMAP:0027987   |     | |   | | + urinary space of renal corpuscle
+EMAP:0030033   |     | |   | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993   |     | |   | \ juxtaglomerular arteriole
+EMAP:0027999   |     | |   \ cortical renal tubule
+EMAP:0028005   |     | |     + early proximal tubule
+EMAP:0031709   |     | |     | + early proximal tubule of capillary loop nephron
+EMAP:0031703   |     | |     | \ early proximal tubule of maturing nephron
+EMAP:0031283   |     | |     + anlage of loop of Henle
+EMAP:0028009   |     | |     + early distal tubule
+EMAP:0031611   |     | |     | + early distal tubule of capillary loop nephron
+EMAP:0031617   |     | |     | \ early distal tubule of maturing nephron
+EMAP:0028013   |     | |     \ renal connecting tubule
+EMAP:0031623   |     | |       + renal connecting tubule of capillary loop nephron
+EMAP:0031629   |     | |       \ renal connecting tubule of maturing nephron
+EMAP:0028043   |     | + renal medulla
+EMAP:0030864   |     | | + immature loop of Henle
+EMAP:0031019   |     | | | + straight limb of immature loop of Henle
+EMAP:0031023   |     | | | \ bend of immature loop of Henle
+EMAP:0028063   |     | | + medullary collecting duct
+EMAP:0008241   |     | | + renal medullary interstitium
+EMAP:0031327   |     | | | + renal medullary fibroblasts
+EMAP:0031334   |     | | | + resident macrophages of the medulla
+EMAP:0031341   |     | | | \ rest of renal medullary interstitium
+EMAP:0028158   |     | | + renal medullary vasculature
+EMAP:0028163   |     | | | + renal medullary arterial system
+EMAP:0028168   |     | | | + renal medullary venous system
+EMAP:0030044   |     | | | \ renal medullary capillary
+EMAP:0031348   |     | | + renal medullary lymphatics
+EMAP:0031355   |     | | \ renal medullary nerves
+EMAP:0008229   |     | + calyx
+EMAP:0008232   |     | + pelvis
+EMAP:0028079   |     | | + pelvic urothelial lining
+EMAP:0028121   |     | | + pelvic smooth muscle
+EMAP:0028085   |     | | \ perihilar interstitium
+EMAP:0008233   |     | \ collecting duct
+EMAP:0027752   |     |   + ureteric tip
+EMAP:0031048   |     |   \ ureteric tree terminal branch excluding tip itself
 EMAP:0028381   |     + renal artery
 EMAP:0029977   |     | + endothelial layer of renal artery
 EMAP:0029998   |     | + endothelium of renal artery
@@ -2854,67 +2822,98 @@ EMAP:0028385   |     + renal vein
 EMAP:0029965   |     | + endothelial layer of renal vein
 EMAP:0030014   |     | + endothelium of renal vein
 EMAP:0030022   |     | \ smooth muscle layer of renal vein
-EMAP:0008223   |     + urachus
 EMAP:0008234   |     + ureter
+EMAP:0028091   |     | + urothelium of ureter
+EMAP:0028591   |     | | + superficial cell layer of ureter
+EMAP:0028802   |     | | + intermediate cell layer of ureter
+EMAP:0028807   |     | | \ basal cell layer of ureter
 EMAP:0028559   |     | + ureteral mesenchyme
-EMAP:0028573   |     | | + ureteral mesenchyme outer layer
 EMAP:0028565   |     | | + ureteral mesenchyme subepithelial layer
-EMAP:0028812   |     | | \ ureteral smooth muscle layer
-EMAP:0030151   |     | |   + ureteral smooth muscle layer interstitium
-EMAP:0028815   |     | |   \ ureteral smooth muscle layer smooth muscle component
-EMAP:0030854   |     | + ureteral vasculature
-EMAP:0028091   |     | \ urothelium of ureter
-EMAP:0028807   |     |   + basal cell layer of ureter
-EMAP:0028802   |     |   + intermediate cell layer of ureter
-EMAP:0028591   |     |   \ superficial cell layer of ureter
+EMAP:0028812   |     | | + ureteral smooth muscle layer
+EMAP:0028815   |     | | | + ureteral smooth muscle layer smooth muscle component
+EMAP:0030151   |     | | | \ ureteral smooth muscle layer interstitium
+EMAP:0028573   |     | | \ ureteral mesenchyme outer layer
+EMAP:0030854   |     | \ ureteral vasculature
+EMAP:0008219   |     + bladder
+EMAP:0028603   |     | + urothelium of bladder
+EMAP:0032376   |     | | + superficial cell layer of bladder
+EMAP:0032383   |     | | + basal cell layer of bladder
+EMAP:0028609   |     | | + urothelium of fundus
+EMAP:0028615   |     | | + urothelium of trigone
+EMAP:0030083   |     | | \ urothelium of neck
+EMAP:0030090   |     | + lamina propria of bladder
+EMAP:0030104   |     | | + lamina propria of fundus
+EMAP:0030111   |     | | + lamina propria of trigone
+EMAP:0030118   |     | | \ lamina propria of neck
+EMAP:0028621   |     | + muscularis mucosa of bladder
+EMAP:0028627   |     | | + muscularis mucosa of fundus
+EMAP:0028633   |     | | + muscularis mucosa of trigone
+EMAP:0030139   |     | | \ muscularis mucosa of neck
+EMAP:0032390   |     | + submucosa of bladder
+EMAP:0032404   |     | | + submucosa of fundus
+EMAP:0032503   |     | | + submucosa of trigone
+EMAP:0032397   |     | | \ submucosa of neck
+EMAP:0028639   |     | + detrusor muscle of bladder
+EMAP:0028645   |     | | + detrusor muscle of fundus
+EMAP:0028651   |     | | + detrusor muscle of trigone
+EMAP:0030125   |     | | \ detrusor muscle of neck
+EMAP:0028663   |     | + serosa of bladder
+EMAP:0028669   |     | | + serosa of fundus
+EMAP:0028675   |     | | + serosa of trigone
+EMAP:0030132   |     | | \ serosa of neck
+EMAP:0028827   |     | + adventitia of bladder
+EMAP:0028832   |     | | + adventitia of fundus
+EMAP:0028837   |     | | + adventitia of trigone
+EMAP:0030145   |     | | \ adventitia of neck
+EMAP:0028681   |     | + vasculature of bladder
+EMAP:0031655   |     | \ nerve of bladder
+EMAP:0008223   |     + urachus
 EMAP:0028749   |     + urethra of female
 EMAP:0028755   |     | + pelvic urethra of female
+EMAP:0028761   |     | | + urothelium of pelvic urethra of female
+EMAP:0032346   |     | | | + urothelium of dorsal pelvic urethra of female
+EMAP:0032353   |     | | | | + superficial cell layer of dorsal pelvic urethra of female
+EMAP:0032515   |     | | | | + intermediate cell layer of dorsal pelvic urethra of female
+EMAP:0032359   |     | | | | \ basal cell layer of dorsal pelvic urethra of female
+EMAP:0032420   |     | | | \ urothelium of ventral pelvic urethra of female
+EMAP:0032456   |     | | |   + superficial cell layer of ventral pelvic urethra of female
+EMAP:0032509   |     | | |   + intermediate cell layer of ventral pelvic urethra of female
+EMAP:0032462   |     | | |   \ basal cell layer of ventral pelvic urethra of female
 EMAP:0028767   |     | | + mesenchymal layer of pelvic urethra of female
 EMAP:0031748   |     | | | + mesenchymal layer of dorsal pelvic urethra of female
 EMAP:0031745   |     | | | \ mesenchymal layer of ventral pelvic urethra of female
 EMAP:0028773   |     | | + muscle layer of pelvic urethra of female
 EMAP:0031762   |     | | | + muscle layer of dorsal pelvic urethra of female
 EMAP:0031759   |     | | | \ muscle layer of ventral pelvic urethra of female
-EMAP:0031795   |     | | + nerve of pelvic urethra of female
-EMAP:0028761   |     | | \ urothelium of pelvic urethra of female
-EMAP:0032346   |     | |   + urothelium of dorsal pelvic urethra of female
-EMAP:0032359   |     | |   | + basal cell layer of dorsal pelvic urethra of female
-EMAP:0032515   |     | |   | + intermediate cell layer of dorsal pelvic urethra of female
-EMAP:0032353   |     | |   | \ superficial cell layer of dorsal pelvic urethra of female
-EMAP:0032420   |     | |   \ urothelium of ventral pelvic urethra of female
-EMAP:0032462   |     | |     + basal cell layer of ventral pelvic urethra of female
-EMAP:0032509   |     | |     + intermediate cell layer of ventral pelvic urethra of female
-EMAP:0032456   |     | |     \ superficial cell layer of ventral pelvic urethra of female
+EMAP:0031795   |     | | \ nerve of pelvic urethra of female
 EMAP:0030918   |     | \ phallic urethra of female
-EMAP:0031736   |     |   + nerve of phallic urethra of female
+EMAP:0030925   |     |   + urethral plate of female
 EMAP:0030928   |     |   + urethral fold of female
-EMAP:0030925   |     |   \ urethral plate of female
+EMAP:0031736   |     |   \ nerve of phallic urethra of female
 EMAP:0008274   |     + urethra of male
 EMAP:0028693   |     | + pelvic urethra of male
+EMAP:0028699   |     | | + urothelium of pelvic urethra of male
+EMAP:0032493   |     | | | + urothelium of dorsal pelvic urethra of male
+EMAP:0032340   |     | | | | + superficial cell layer of dorsal pelvic urethra of male
+EMAP:0032521   |     | | | | + intermediate cell layer of dorsal pelvic urethra of male
+EMAP:0032324   |     | | | | \ basal cell layer of dorsal pelvic urethra of male
+EMAP:0032315   |     | | | \ urothelium of ventral pelvic urethra of male
+EMAP:0032430   |     | | |   + superficial cell layer of ventral pelvic urethra of male
+EMAP:0032551   |     | | |   + intermediate cell layer of ventral pelvic urethra of male
+EMAP:0032330   |     | | |   \ basal cell layer of ventral pelvic urethra of male
 EMAP:0028705   |     | | + mesenchymal layer of pelvic urethra of male
 EMAP:0031742   |     | | | + mesenchymal layer of dorsal pelvic urethra of male
 EMAP:0031733   |     | | | \ mesenchymal layer of ventral pelvic urethra of male
 EMAP:0028711   |     | | + muscle layer of pelvic urethra of male
 EMAP:0031754   |     | | | + muscle layer of dorsal pelvic urethra of male
 EMAP:0031751   |     | | | \ muscle layer of ventral pelvic urethra of male
-EMAP:0031785   |     | | + nerve of pelvic urethra of male
-EMAP:0028699   |     | | \ urothelium of pelvic urethra of male
-EMAP:0032493   |     | |   + urothelium of dorsal pelvic urethra of male
-EMAP:0032324   |     | |   | + basal cell layer of dorsal pelvic urethra of male
-EMAP:0032521   |     | |   | + intermediate cell layer of dorsal pelvic urethra of male
-EMAP:0032340   |     | |   | \ superficial cell layer of dorsal pelvic urethra of male
-EMAP:0032315   |     | |   \ urothelium of ventral pelvic urethra of male
-EMAP:0032330   |     | |     + basal cell layer of ventral pelvic urethra of male
-EMAP:0032551   |     | |     + intermediate cell layer of ventral pelvic urethra of male
-EMAP:0032430   |     | |     \ superficial cell layer of ventral pelvic urethra of male
+EMAP:0031785   |     | | \ nerve of pelvic urethra of male
 EMAP:0028717   |     | \ phallic urethra of male
-EMAP:0031801   |     |   + nerve of phallic urethra of male
 EMAP:0008275   |     |   + urethral fold of male
-EMAP:0028723   |     |   \ urethral plate of male
-EMAP:0008224   |     + urinary system mesentery
-EMAP:0029613   |     | + rest of mesentery
-EMAP:0008225   |     | \ urogenital mesentery
-EMAP:0008243   |     \ urorectal septum
+EMAP:0028723   |     |   + urethral plate of male
+EMAP:0031801   |     |   \ nerve of phallic urethra of male
+EMAP:0008243   |     + urorectal septum
+EMAP:0031644   |     \ pelvic ganglion
 EMAP:0008399   + tail
 EMAP:0033881   | + tail ectoderm
 EMAP:0008400   | + tail mesenchyme
@@ -2997,27 +2996,27 @@ EMAP:0014824 ~ | |   | | \ diaphragm right dome
 EMAP:0007157 ~ | |   | + diaphragm mesothelium
 EMAP:0007155 ~ | |   | + pleuro-pericardial folds
 EMAP:0007156 ~ | |   | \ pleuro-peritoneal membrane
+EMAP:0034249 ~ | |   + mesothelium
 EMAP:0007158 ~ | |   + intraembryonic coelom pericardial component
 EMAP:0007159 ~ | |   | + pericardial cavity
 EMAP:0007160 ~ | |   | \ pericardial cavity mesothelium
 EMAP:0007161 ~ | |   |   + pericardial cavity parietal mesothelium
 EMAP:0007162 ~ | |   |   \ pericardial cavity visceral mesothelium
-EMAP:0007173 ~ | |   + intraembryonic coelom pleural component
-EMAP:0012531 ~ | |   | + pleural cavity
-EMAP:0007174 ~ | |   | \ pleural cavity mesothelium
-EMAP:0007175 ~ | |   |   + pleural cavity parietal mesothelium
-EMAP:0007176 ~ | |   |   \ pleural cavity visceral mesothelium
-EMAP:0034249 ~ | |   + mesothelium
-EMAP:0007163 ~ | |   \ peritoneal cavity
-EMAP:0007164 ~ | |     + greater sac
-EMAP:0007165 ~ | |     | + greater sac cavity
-EMAP:0007166 ~ | |     | \ greater sac mesothelium
-EMAP:0007167 ~ | |     |   + greater sac parietal mesothelium
-EMAP:0007168 ~ | |     |   \ greater sac visceral mesothelium
-EMAP:0007169 ~ | |     \ omental bursa
-EMAP:0007172 ~ | |       + omental bursa cavity
-EMAP:0007170 ~ | |       \ omental bursa mesothelium
-EMAP:0007171 ~ | |         \ omental bursa parietal mesothelium
+EMAP:0007163 ~ | |   + peritoneal cavity
+EMAP:0007164 ~ | |   | + greater sac
+EMAP:0007165 ~ | |   | | + greater sac cavity
+EMAP:0007166 ~ | |   | | \ greater sac mesothelium
+EMAP:0007167 ~ | |   | |   + greater sac parietal mesothelium
+EMAP:0007168 ~ | |   | |   \ greater sac visceral mesothelium
+EMAP:0007169 ~ | |   | \ omental bursa
+EMAP:0007172 ~ | |   |   + omental bursa cavity
+EMAP:0007170 ~ | |   |   \ omental bursa mesothelium
+EMAP:0007171 ~ | |   |     \ omental bursa parietal mesothelium
+EMAP:0007173 ~ | |   \ intraembryonic coelom pleural component
+EMAP:0007174 ~ | |     + pleural cavity mesothelium
+EMAP:0007175 ~ | |     | + pleural cavity parietal mesothelium
+EMAP:0007176 ~ | |     | \ pleural cavity visceral mesothelium
+EMAP:0012531 ~ | |     \ pleural cavity
 EMAP:0033662 > | + epithelium
 EMAP:0031905 > | + head
 EMAP:0033854 ~ | | + face
@@ -3833,27 +3832,27 @@ EMAP:0007944 ~ | | | | | + pulmonary valve
 EMAP:0007945 ~ | | | | | | \ pulmonary valve leaflets
 EMAP:0007946 ~ | | | | | \ tricuspid valve
 EMAP:0007947 ~ | | | | |   \ tricuspid valve leaflets
-EMAP:0007948 ~ | | | | + heart ventricle
-EMAP:0026034 ~ | | | | | + interventricular canal
-EMAP:0007949 ~ | | | | | + interventricular groove
-EMAP:0007950 ~ | | | | | + interventricular septum
-EMAP:0007951 ~ | | | | | | + interventricular septum endocardial lining
-EMAP:0007952 ~ | | | | | | + interventricular septum membranous part
-EMAP:0007953 ~ | | | | | | \ interventricular septum muscular part
-EMAP:0007954 ~ | | | | | + left ventricle
-EMAP:0007956 ~ | | | | | | + left ventricle cardiac muscle
-EMAP:0007955 ~ | | | | | | + left ventricle endocardial lining
-EMAP:0026043 ~ | | | | | | \ left ventricle lumen
-EMAP:0007957 ~ | | | | | + right ventricle
-EMAP:0007959 ~ | | | | | | + right ventricle cardiac muscle
-EMAP:0007958 ~ | | | | | | + right ventricle endocardial lining
-EMAP:0026052 ~ | | | | | | \ right ventricle lumen
-EMAP:0033745 ~ | | | | | + ventricle cardiac muscle
-EMAP:0033737 ~ | | | | | \ ventricle endocardial lining
 EMAP:0012519 ~ | | | | + pericardium
 EMAP:0012523 ~ | | | | | + parietal pericardium
 EMAP:0012527 ~ | | | | | \ visceral pericardium
-EMAP:0007938 ~ | | | | \ trabeculae carneae
+EMAP:0007938 ~ | | | | + trabeculae carneae
+EMAP:0007948 ~ | | | | \ heart ventricle
+EMAP:0026034 ~ | | | |   + interventricular canal
+EMAP:0007949 ~ | | | |   + interventricular groove
+EMAP:0007950 ~ | | | |   + interventricular septum
+EMAP:0007951 ~ | | | |   | + interventricular septum endocardial lining
+EMAP:0007952 ~ | | | |   | + interventricular septum membranous part
+EMAP:0007953 ~ | | | |   | \ interventricular septum muscular part
+EMAP:0007954 ~ | | | |   + left ventricle
+EMAP:0007956 ~ | | | |   | + left ventricle cardiac muscle
+EMAP:0007955 ~ | | | |   | + left ventricle endocardial lining
+EMAP:0026043 ~ | | | |   | \ left ventricle lumen
+EMAP:0007957 ~ | | | |   + right ventricle
+EMAP:0007959 ~ | | | |   | + right ventricle cardiac muscle
+EMAP:0007958 ~ | | | |   | + right ventricle endocardial lining
+EMAP:0026052 ~ | | | |   | \ right ventricle lumen
+EMAP:0033745 ~ | | | |   + ventricle cardiac muscle
+EMAP:0033737 ~ | | | |   \ ventricle endocardial lining
 EMAP:0007960 ~ | | | + lymphatic system
 EMAP:0007961 ~ | | | | \ jugular lymph sac
 EMAP:0007962 ~ | | | \ venous system
@@ -4407,7 +4406,6 @@ EMAP:0007478 ~ | | | | | | | |   | \ remnant of Rathke's pouch
 EMAP:0007479 ~ | | | | | | | |   \ neurohypophysis (syn: pars nervosa; posterior pituitary)
 EMAP:0007481 ~ | | | | | | | |     + median eminence
 EMAP:0007480 ~ | | | | | | | |     \ neurohypophysis infundibulum
-EMAP:0007520 ~ | | | | | | | + diencephalon internal capsule
 EMAP:0007522 ~ | | | | | | | + diencephalon lateral wall
 EMAP:0007523 ~ | | | | | | | | + diencephalon lateral wall mantle layer
 EMAP:0007524 ~ | | | | | | | | + diencephalon lateral wall marginal layer
@@ -4432,6 +4430,7 @@ EMAP:0007516 ~ | | | | | | | + hypothalamus
 EMAP:0007517 ~ | | | | | | | | + hypothalamus mantle layer
 EMAP:0007518 ~ | | | | | | | | + hypothalamus marginal layer
 EMAP:0007519 ~ | | | | | | | | \ hypothalamus ventricular layer
+EMAP:0007520 ~ | | | | | | | + diencephalon internal capsule
 EMAP:0007521 ~ | | | | | | | + lamina terminalis
 EMAP:0007531 ~ | | | | | | | \ thalamus
 EMAP:0007532 ~ | | | | | | |   + interthalamic adhesion
@@ -4542,7 +4541,6 @@ EMAP:0007603 ~ | | | | | |   | | | \ rest of cerebellum
 EMAP:0007604 ~ | | | | | |   | | |   + rest of cerebellum mantle layer
 EMAP:0007605 ~ | | | | | |   | | |   + rest of cerebellum marginal layer
 EMAP:0007606 ~ | | | | | |   | | |   \ rest of cerebellum ventricular layer
-EMAP:0035042 ~ | | | | | |   | | |     \ mikes test leaf part of emapa18562
 EMAP:0007607 ~ | | | | | |   | | \ metencephalon rest of alar plate
 EMAP:0007608 ~ | | | | | |   | |   + metencephalon rest of alar plate mantle layer
 EMAP:0007609 ~ | | | | | |   | |   + metencephalon rest of alar plate marginal layer
@@ -4969,12 +4967,12 @@ EMAP:0008009 ~ | |   | | | | \ anal canal caudal part vascular element (syn: art
 EMAP:0033979 ~ | |   | | | + anal canal epithelium
 EMAP:0008010 ~ | |   | | | \ anal canal rostral part
 EMAP:0008422 ~ | |   | | |   + anal canal rostral part lumen
-EMAP:0027226 ~ | |   | | |   + anal canal rostral part mucosa
-EMAP:0008012 ~ | |   | | |   | + anal canal rostral part epithelium
-EMAP:0027234 ~ | |   | | |   | + anal canal rostral part gland
-EMAP:0027232 ~ | |   | | |   | \ anal canal rostral part lamina propria
 EMAP:0027228 ~ | |   | | |   + anal canal rostral part submucosa
-EMAP:0008013 ~ | |   | | |   \ anal canal rostral part vascular element (syn: artery; vein)
+EMAP:0008013 ~ | |   | | |   + anal canal rostral part vascular element (syn: artery; vein)
+EMAP:0027226 ~ | |   | | |   \ anal canal rostral part mucosa
+EMAP:0008012 ~ | |   | | |     + anal canal rostral part epithelium
+EMAP:0027234 ~ | |   | | |     + anal canal rostral part gland
+EMAP:0027232 ~ | |   | | |     \ anal canal rostral part lamina propria
 EMAP:0008014 ~ | |   | | + external anal sphincter
 EMAP:0008015 ~ | |   | | \ internal anal sphincter
 EMAP:0007450 ~ | |   | + gut
@@ -5434,185 +5432,185 @@ EMAP:0008212 ~ | |   |   |   + liver right lobe hepatic sinusoid
 EMAP:0008213 ~ | |   |   |   \ liver right lobe parenchyma
 EMAP:0034994 ~ | |   |   \ liver parenchyma
 EMAP:0008244 ~ | |   + reproductive system
-EMAP:0031780 ~ | |   | + developing vasculature of reproductive system GROUP
-EMAP:0031591 ~ | |   | | + developing vasculature of female genital tubercle
-EMAP:0031691 ~ | |   | | + developing vasculature of female mesonephros
-EMAP:0031609 ~ | |   | | + developing vasculature of male genital tubercle
-EMAP:0031687 ~ | |   | | + developing vasculature of male mesonephros
-EMAP:0028892 ~ | |   | | + developing vasculature of ovary
-EMAP:0029118 ~ | |   | | \ developing vasculature of the testis
-EMAP:0029126 ~ | |   | |   + coelomic vessel
-EMAP:0029134 ~ | |   | |   \ interstitial vessel
+EMAP:0008257 ~ | |   | + male reproductive system
+EMAP:0029142 ~ | |   | | + mesonephros of male
+EMAP:0029157 ~ | |   | | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:0029147 ~ | |   | | | + mesonephric mesenchyme of male
+EMAP:0030557 ~ | |   | | | + cranial mesonephric tubule of male
+EMAP:0030561 ~ | |   | | | | + mesonephric glomerulus of male
+EMAP:0030559 ~ | |   | | | | \ rest of cranial mesonephric tubule
+EMAP:0029164 ~ | |   | | | + degenerating mesonephric portion of male paramesonephric duct
+EMAP:0030464 ~ | |   | | | + coelomic epithelium of male mesonephros
+EMAP:0031687 ~ | |   | | | \ developing vasculature of male mesonephros
+EMAP:0029198 ~ | |   | | + degenerating rest of paramesonephric duct of male
+EMAP:0029201 ~ | |   | | | + epithelium of degenerating rest of paramesonephric duct of male
+EMAP:0029204 ~ | |   | | | \ mesenchyme of degenerating rest of paramesonephric duct of male
+EMAP:0029176 ~ | |   | | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:0029184 ~ | |   | | | + epithelium of rest of nephric duct of male
+EMAP:0029180 ~ | |   | | | \ mesenchyme of rest of nephric duct of male
+EMAP:0008262 ~ | |   | | + testis
+EMAP:0030520 ~ | |   | | | + coelomic epithelium of testis
+EMAP:0029192 ~ | |   | | | + rete testis
+EMAP:0008267 ~ | |   | | | + interstitium of the testis
+EMAP:0029086 ~ | |   | | | | + fetal Leydig cell
+EMAP:0029094 ~ | |   | | | | \ rest of interstitium of the testis
+EMAP:0008265 ~ | |   | | | + seminiferous cord
+EMAP:0029240 ~ | |   | | | | + Sertoli cell
+EMAP:0008266 ~ | |   | | | | + germ cell of testis
+EMAP:0029245 ~ | |   | | | | \ peritubular myoid cell
+EMAP:0008271 ~ | |   | | | + mediastinum testis
+EMAP:0029118 ~ | |   | | | \ developing vasculature of the testis
+EMAP:0029126 ~ | |   | | |   + coelomic vessel
+EMAP:0029134 ~ | |   | | |   \ interstitial vessel
+EMAP:0030069 ~ | |   | | + cranial suspensory ligament
+EMAP:0030744 ~ | |   | | + epididymis
+EMAP:0030748 ~ | |   | | | + muscle layer of epididymis
+EMAP:0030750 ~ | |   | | | + outer layer of epididymis
+EMAP:0031183 ~ | |   | | | + developing vasculature of epididymis
+EMAP:0030746 ~ | |   | | | \ surface epithelium of epididymis
+EMAP:0008258 ~ | |   | | + ductus deferens
+EMAP:0031189 ~ | |   | | | \ developing vasculature of ductus deferens
+EMAP:0012731 ~ | |   | | + gubernaculum
+EMAP:0008260 ~ | |   | | + mesorchium
+EMAP:0008259 ~ | |   | | + genital tubercle of male
+EMAP:0031845 ~ | |   | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601 ~ | |   | | | | + distal urethral epithelium of male
+EMAP:0031604 ~ | |   | | | | + proximal urethral epithelium of male
+EMAP:0031596 ~ | |   | | | | \ urethral opening of male
+EMAP:0008261 ~ | |   | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257 ~ | |   | | | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255 ~ | |   | | | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222 ~ | |   | | | + preputial swelling of male
+EMAP:0029225 ~ | |   | | | | + surface epithelium of male preputial swelling
+EMAP:0030504 ~ | |   | | | | + preputial gland of male
+EMAP:0029228 ~ | |   | | | | \ mesenchyme of male preputial swelling
+EMAP:0031609 ~ | |   | | | \ developing vasculature of male genital tubercle
+EMAP:0030511 ~ | |   | | + labioscrotal swelling of male
+EMAP:0030517 ~ | |   | | | + surface epithelium of labioscrotal swelling of male
+EMAP:0030514 ~ | |   | | | \ mesenchyme of labioscrotal swelling of male
+EMAP:0030978 ~ | |   | | + male external genitalia
+EMAP:0008259 ~ | |   | | | + genital tubercle of male
+EMAP:0031845 ~ | |   | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601 ~ | |   | | | | | + distal urethral epithelium of male
+EMAP:0031604 ~ | |   | | | | | + proximal urethral epithelium of male
+EMAP:0031596 ~ | |   | | | | | \ urethral opening of male
+EMAP:0008261 ~ | |   | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257 ~ | |   | | | | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255 ~ | |   | | | | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222 ~ | |   | | | | + preputial swelling of male
+EMAP:0029225 ~ | |   | | | | | + surface epithelium of male preputial swelling
+EMAP:0030504 ~ | |   | | | | | + preputial gland of male
+EMAP:0029228 ~ | |   | | | | | \ mesenchyme of male preputial swelling
+EMAP:0031609 ~ | |   | | | | \ developing vasculature of male genital tubercle
+EMAP:0030511 ~ | |   | | | \ labioscrotal swelling of male
+EMAP:0030517 ~ | |   | | |   + surface epithelium of labioscrotal swelling of male
+EMAP:0030514 ~ | |   | | |   \ mesenchyme of labioscrotal swelling of male
+EMAP:0028536 ~ | |   | | \ male associated reproductive structure
+EMAP:0008259 ~ | |   | |   + genital tubercle of male
+EMAP:0031845 ~ | |   | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601 ~ | |   | |   | | + distal urethral epithelium of male
+EMAP:0031604 ~ | |   | |   | | + proximal urethral epithelium of male
+EMAP:0031596 ~ | |   | |   | | \ urethral opening of male
+EMAP:0008261 ~ | |   | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257 ~ | |   | |   | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255 ~ | |   | |   | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222 ~ | |   | |   | + preputial swelling of male
+EMAP:0029225 ~ | |   | |   | | + surface epithelium of male preputial swelling
+EMAP:0030504 ~ | |   | |   | | + preputial gland of male
+EMAP:0029228 ~ | |   | |   | | \ mesenchyme of male preputial swelling
+EMAP:0031609 ~ | |   | |   | \ developing vasculature of male genital tubercle
+EMAP:0008260 ~ | |   | |   + mesorchium
+EMAP:0012731 ~ | |   | |   + gubernaculum
+EMAP:0008258 ~ | |   | |   \ ductus deferens
+EMAP:0031189 ~ | |   | |     \ developing vasculature of ductus deferens
 EMAP:0008245 ~ | |   | + female reproductive system
-EMAP:0028543 ~ | |   | | + female associated reproductive structure
-EMAP:0008247 ~ | |   | | | + genital tubercle of female
-EMAP:0031591 ~ | |   | | | | + developing vasculature of female genital tubercle
-EMAP:0030486 ~ | |   | | | | + distal genital tubercle of female
-EMAP:0030489 ~ | |   | | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492 ~ | |   | | | | | \ surface epithelium of distal genital tubercle of female
-EMAP:0030482 ~ | |   | | | | + preputial swelling of female
-EMAP:0030495 ~ | |   | | | | | + mesenchyme of female preputial swelling
-EMAP:0030501 ~ | |   | | | | | + preputial gland of female
-EMAP:0030498 ~ | |   | | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847 ~ | |   | | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683 ~ | |   | | | |   + distal urethral epithelium of female
-EMAP:0031669 ~ | |   | | | |   + proximal urethral epithelium of female
-EMAP:0031672 ~ | |   | | | |   \ urethral opening of female
-EMAP:0008250 ~ | |   | | | + mesovarium
-EMAP:0008246 ~ | |   | | | \ Mullerian tubercle
-EMAP:0030985 ~ | |   | | + female external genitalia
-EMAP:0008247 ~ | |   | | | + genital tubercle of female
-EMAP:0031591 ~ | |   | | | | + developing vasculature of female genital tubercle
-EMAP:0030486 ~ | |   | | | | + distal genital tubercle of female
-EMAP:0030489 ~ | |   | | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492 ~ | |   | | | | | \ surface epithelium of distal genital tubercle of female
-EMAP:0030482 ~ | |   | | | | + preputial swelling of female
-EMAP:0030495 ~ | |   | | | | | + mesenchyme of female preputial swelling
-EMAP:0030501 ~ | |   | | | | | + preputial gland of female
-EMAP:0030498 ~ | |   | | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847 ~ | |   | | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683 ~ | |   | | | |   + distal urethral epithelium of female
-EMAP:0031669 ~ | |   | | | |   + proximal urethral epithelium of female
-EMAP:0031672 ~ | |   | | | |   \ urethral opening of female
-EMAP:0030425 ~ | |   | | | \ labioscrotal swelling of female
-EMAP:0030428 ~ | |   | | |   + mesenchyme of labioscrotal swelling of female
-EMAP:0030431 ~ | |   | | |   \ surface epithelium of labioscrotal swelling of female
-EMAP:0008247 ~ | |   | | + genital tubercle of female
-EMAP:0031591 ~ | |   | | | + developing vasculature of female genital tubercle
-EMAP:0030486 ~ | |   | | | + distal genital tubercle of female
-EMAP:0030489 ~ | |   | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492 ~ | |   | | | | \ surface epithelium of distal genital tubercle of female
-EMAP:0030482 ~ | |   | | | + preputial swelling of female
-EMAP:0030495 ~ | |   | | | | + mesenchyme of female preputial swelling
-EMAP:0030501 ~ | |   | | | | + preputial gland of female
-EMAP:0030498 ~ | |   | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847 ~ | |   | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683 ~ | |   | | |   + distal urethral epithelium of female
-EMAP:0031669 ~ | |   | | |   + proximal urethral epithelium of female
-EMAP:0031672 ~ | |   | | |   \ urethral opening of female
-EMAP:0030425 ~ | |   | | + labioscrotal swelling of female
-EMAP:0030428 ~ | |   | | | + mesenchyme of labioscrotal swelling of female
-EMAP:0030431 ~ | |   | | | \ surface epithelium of labioscrotal swelling of female
 EMAP:0028913 ~ | |   | | + mesonephros of female
-EMAP:0030519 ~ | |   | | | + coelomic epithelium of female mesonephros
-EMAP:0028983 ~ | |   | | | + degenerating mesonephric portion of nephric duct of female
-EMAP:0028980 ~ | |   | | | + degenerating mesonephric tubule of female
-EMAP:0031691 ~ | |   | | | + developing vasculature of female mesonephros
 EMAP:0028918 ~ | |   | | | + mesonephric mesenchyme of female mesonephros
+EMAP:0028980 ~ | |   | | | + degenerating mesonephric tubule of female
+EMAP:0028983 ~ | |   | | | + degenerating mesonephric portion of nephric duct of female
 EMAP:0028977 ~ | |   | | | + paramesonephric duct of female, mesonephric portion
 EMAP:0030071 ~ | |   | | | | + epithelium of paramesonephric duct, mesonephric portion
 EMAP:0030073 ~ | |   | | | | \ mesenchyme of paramesonephric duct, mesonephric portion
-EMAP:0028933 ~ | |   | | | \ rete ovarii of mesonephros
-EMAP:0008250 ~ | |   | | + mesovarium
-EMAP:0008246 ~ | |   | | + Mullerian tubercle
+EMAP:0028933 ~ | |   | | | + rete ovarii of mesonephros
+EMAP:0030519 ~ | |   | | | + coelomic epithelium of female mesonephros
+EMAP:0031691 ~ | |   | | | \ developing vasculature of female mesonephros
+EMAP:0028944 ~ | |   | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
+EMAP:0028960 ~ | |   | | | + epithelium of rest of paramesonephric duct of female
+EMAP:0028964 ~ | |   | | | \ mesenchyme of rest of paramesonephric duct of female
 EMAP:0028948 ~ | |   | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
 EMAP:0028952 ~ | |   | | | + epithelium of rest of nephric duct of female
 EMAP:0028956 ~ | |   | | | \ mesenchyme of rest of nephric duct of female
 EMAP:0008251 ~ | |   | | + ovary
-EMAP:0028892 ~ | |   | | | + developing vasculature of ovary
-EMAP:0008254 ~ | |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
-EMAP:0028969 ~ | |   | | | | + meiotic germ cell
-EMAP:0028974 ~ | |   | | | | \ premeiotic germ cell
+EMAP:0008252 ~ | |   | | | + surface epithelium of ovary
 EMAP:0008253 ~ | |   | | | + mesenchymal stroma of ovary
 EMAP:0029010 ~ | |   | | | | + cortical component of mesenchymal stroma
 EMAP:0029015 ~ | |   | | | | \ medullary component of mesenchymal stroma
-EMAP:0008255 ~ | |   | | | + rete ovarii of ovary
-EMAP:0008252 ~ | |   | | | \ surface epithelium of ovary
-EMAP:0028944 ~ | |   | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
-EMAP:0028960 ~ | |   | | | + epithelium of rest of paramesonephric duct of female
-EMAP:0028964 ~ | |   | | | \ mesenchyme of rest of paramesonephric duct of female
-EMAP:0029019 ~ | |   | | \ suspensory ligament of ovary
-EMAP:0008257 ~ | |   | \ male reproductive system
-EMAP:0030069 ~ | |   |   + cranial suspensory ligament
-EMAP:0029198 ~ | |   |   + degenerating rest of paramesonephric duct of male
-EMAP:0029201 ~ | |   |   | + epithelium of degenerating rest of paramesonephric duct of male
-EMAP:0029204 ~ | |   |   | \ mesenchyme of degenerating rest of paramesonephric duct of male
-EMAP:0008258 ~ | |   |   + ductus deferens
-EMAP:0031189 ~ | |   |   | \ developing vasculature of ductus deferens
-EMAP:0030744 ~ | |   |   + epididymis
-EMAP:0031183 ~ | |   |   | + developing vasculature of epididymis
-EMAP:0030748 ~ | |   |   | + muscle layer of epididymis
-EMAP:0030750 ~ | |   |   | + outer layer of epididymis
-EMAP:0030746 ~ | |   |   | \ surface epithelium of epididymis
-EMAP:0008259 ~ | |   |   + genital tubercle of male
-EMAP:0031609 ~ | |   |   | + developing vasculature of male genital tubercle
-EMAP:0008261 ~ | |   |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255 ~ | |   |   | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257 ~ | |   |   | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222 ~ | |   |   | + preputial swelling of male
-EMAP:0029228 ~ | |   |   | | + mesenchyme of male preputial swelling
-EMAP:0030504 ~ | |   |   | | + preputial gland of male
-EMAP:0029225 ~ | |   |   | | \ surface epithelium of male preputial swelling
-EMAP:0031845 ~ | |   |   | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601 ~ | |   |   |   + distal urethral epithelium of male
-EMAP:0031604 ~ | |   |   |   + proximal urethral epithelium of male
-EMAP:0031596 ~ | |   |   |   \ urethral opening of male
-EMAP:0012731 ~ | |   |   + gubernaculum
-EMAP:0030511 ~ | |   |   + labioscrotal swelling of male
-EMAP:0030514 ~ | |   |   | + mesenchyme of labioscrotal swelling of male
-EMAP:0030517 ~ | |   |   | \ surface epithelium of labioscrotal swelling of male
-EMAP:0028536 ~ | |   |   + male associated reproductive structure
-EMAP:0008258 ~ | |   |   | + ductus deferens
-EMAP:0031189 ~ | |   |   | | \ developing vasculature of ductus deferens
-EMAP:0008259 ~ | |   |   | + genital tubercle of male
-EMAP:0031609 ~ | |   |   | | + developing vasculature of male genital tubercle
-EMAP:0008261 ~ | |   |   | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255 ~ | |   |   | | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257 ~ | |   |   | | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222 ~ | |   |   | | + preputial swelling of male
-EMAP:0029228 ~ | |   |   | | | + mesenchyme of male preputial swelling
-EMAP:0030504 ~ | |   |   | | | + preputial gland of male
-EMAP:0029225 ~ | |   |   | | | \ surface epithelium of male preputial swelling
-EMAP:0031845 ~ | |   |   | | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601 ~ | |   |   | |   + distal urethral epithelium of male
-EMAP:0031604 ~ | |   |   | |   + proximal urethral epithelium of male
-EMAP:0031596 ~ | |   |   | |   \ urethral opening of male
-EMAP:0012731 ~ | |   |   | + gubernaculum
-EMAP:0008260 ~ | |   |   | \ mesorchium
-EMAP:0030978 ~ | |   |   + male external genitalia
-EMAP:0008259 ~ | |   |   | + genital tubercle of male
-EMAP:0031609 ~ | |   |   | | + developing vasculature of male genital tubercle
-EMAP:0008261 ~ | |   |   | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255 ~ | |   |   | | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257 ~ | |   |   | | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222 ~ | |   |   | | + preputial swelling of male
-EMAP:0029228 ~ | |   |   | | | + mesenchyme of male preputial swelling
-EMAP:0030504 ~ | |   |   | | | + preputial gland of male
-EMAP:0029225 ~ | |   |   | | | \ surface epithelium of male preputial swelling
-EMAP:0031845 ~ | |   |   | | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601 ~ | |   |   | |   + distal urethral epithelium of male
-EMAP:0031604 ~ | |   |   | |   + proximal urethral epithelium of male
-EMAP:0031596 ~ | |   |   | |   \ urethral opening of male
-EMAP:0030511 ~ | |   |   | \ labioscrotal swelling of male
-EMAP:0030514 ~ | |   |   |   + mesenchyme of labioscrotal swelling of male
-EMAP:0030517 ~ | |   |   |   \ surface epithelium of labioscrotal swelling of male
-EMAP:0029142 ~ | |   |   + mesonephros of male
-EMAP:0030464 ~ | |   |   | + coelomic epithelium of male mesonephros
-EMAP:0030557 ~ | |   |   | + cranial mesonephric tubule of male
-EMAP:0030561 ~ | |   |   | | + mesonephric glomerulus of male
-EMAP:0030559 ~ | |   |   | | \ rest of cranial mesonephric tubule
-EMAP:0029164 ~ | |   |   | + degenerating mesonephric portion of male paramesonephric duct
-EMAP:0031687 ~ | |   |   | + developing vasculature of male mesonephros
-EMAP:0029147 ~ | |   |   | + mesonephric mesenchyme of male
-EMAP:0029157 ~ | |   |   | \ nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
-EMAP:0008260 ~ | |   |   + mesorchium
-EMAP:0029176 ~ | |   |   + nephric duct of male, rest of (syn: mesonephric duct; rest of)
-EMAP:0029184 ~ | |   |   | + epithelium of rest of nephric duct of male
-EMAP:0029180 ~ | |   |   | \ mesenchyme of rest of nephric duct of male
-EMAP:0008262 ~ | |   |   \ testis
-EMAP:0030520 ~ | |   |     + coelomic epithelium of testis
-EMAP:0029118 ~ | |   |     + developing vasculature of the testis
-EMAP:0029126 ~ | |   |     | + coelomic vessel
-EMAP:0029134 ~ | |   |     | \ interstitial vessel
-EMAP:0008267 ~ | |   |     + interstitium of the testis
-EMAP:0029086 ~ | |   |     | + fetal Leydig cell
-EMAP:0029094 ~ | |   |     | \ rest of interstitium of the testis
-EMAP:0008271 ~ | |   |     + mediastinum testis
-EMAP:0029192 ~ | |   |     + rete testis
-EMAP:0008265 ~ | |   |     \ seminiferous cord
-EMAP:0008266 ~ | |   |       + germ cell of testis
-EMAP:0029245 ~ | |   |       + peritubular myoid cell
-EMAP:0029240 ~ | |   |       \ Sertoli cell
+EMAP:0008254 ~ | |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:0028974 ~ | |   | | | | + premeiotic germ cell
+EMAP:0028969 ~ | |   | | | | \ meiotic germ cell
+EMAP:0028892 ~ | |   | | | + developing vasculature of ovary
+EMAP:0008255 ~ | |   | | | \ rete ovarii of ovary
+EMAP:0008250 ~ | |   | | + mesovarium
+EMAP:0029019 ~ | |   | | + suspensory ligament of ovary
+EMAP:0008246 ~ | |   | | + Mullerian tubercle
+EMAP:0008247 ~ | |   | | + genital tubercle of female
+EMAP:0031847 ~ | |   | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683 ~ | |   | | | | + distal urethral epithelium of female
+EMAP:0031669 ~ | |   | | | | + proximal urethral epithelium of female
+EMAP:0031672 ~ | |   | | | | \ urethral opening of female
+EMAP:0030482 ~ | |   | | | + preputial swelling of female
+EMAP:0030498 ~ | |   | | | | + surface epithelium of female preputial swelling
+EMAP:0030501 ~ | |   | | | | + preputial gland of female
+EMAP:0030495 ~ | |   | | | | \ mesenchyme of female preputial swelling
+EMAP:0030486 ~ | |   | | | + distal genital tubercle of female
+EMAP:0030492 ~ | |   | | | | + surface epithelium of distal genital tubercle of female
+EMAP:0030489 ~ | |   | | | | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591 ~ | |   | | | \ developing vasculature of female genital tubercle
+EMAP:0030425 ~ | |   | | + labioscrotal swelling of female
+EMAP:0030431 ~ | |   | | | + surface epithelium of labioscrotal swelling of female
+EMAP:0030428 ~ | |   | | | \ mesenchyme of labioscrotal swelling of female
+EMAP:0030985 ~ | |   | | + female external genitalia
+EMAP:0008247 ~ | |   | | | + genital tubercle of female
+EMAP:0031847 ~ | |   | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683 ~ | |   | | | | | + distal urethral epithelium of female
+EMAP:0031669 ~ | |   | | | | | + proximal urethral epithelium of female
+EMAP:0031672 ~ | |   | | | | | \ urethral opening of female
+EMAP:0030482 ~ | |   | | | | + preputial swelling of female
+EMAP:0030498 ~ | |   | | | | | + surface epithelium of female preputial swelling
+EMAP:0030501 ~ | |   | | | | | + preputial gland of female
+EMAP:0030495 ~ | |   | | | | | \ mesenchyme of female preputial swelling
+EMAP:0030486 ~ | |   | | | | + distal genital tubercle of female
+EMAP:0030492 ~ | |   | | | | | + surface epithelium of distal genital tubercle of female
+EMAP:0030489 ~ | |   | | | | | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591 ~ | |   | | | | \ developing vasculature of female genital tubercle
+EMAP:0030425 ~ | |   | | | \ labioscrotal swelling of female
+EMAP:0030431 ~ | |   | | |   + surface epithelium of labioscrotal swelling of female
+EMAP:0030428 ~ | |   | | |   \ mesenchyme of labioscrotal swelling of female
+EMAP:0028543 ~ | |   | | \ female associated reproductive structure
+EMAP:0008250 ~ | |   | |   + mesovarium
+EMAP:0008246 ~ | |   | |   + Mullerian tubercle
+EMAP:0008247 ~ | |   | |   \ genital tubercle of female
+EMAP:0031847 ~ | |   | |     + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683 ~ | |   | |     | + distal urethral epithelium of female
+EMAP:0031669 ~ | |   | |     | + proximal urethral epithelium of female
+EMAP:0031672 ~ | |   | |     | \ urethral opening of female
+EMAP:0030482 ~ | |   | |     + preputial swelling of female
+EMAP:0030498 ~ | |   | |     | + surface epithelium of female preputial swelling
+EMAP:0030501 ~ | |   | |     | + preputial gland of female
+EMAP:0030495 ~ | |   | |     | \ mesenchyme of female preputial swelling
+EMAP:0030486 ~ | |   | |     + distal genital tubercle of female
+EMAP:0030492 ~ | |   | |     | + surface epithelium of distal genital tubercle of female
+EMAP:0030489 ~ | |   | |     | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591 ~ | |   | |     \ developing vasculature of female genital tubercle
+EMAP:0031780 ~ | |   | \ developing vasculature of reproductive system GROUP
+EMAP:0031591 ~ | |   |   + developing vasculature of female genital tubercle
+EMAP:0031691 ~ | |   |   + developing vasculature of female mesonephros
+EMAP:0031609 ~ | |   |   + developing vasculature of male genital tubercle
+EMAP:0031687 ~ | |   |   + developing vasculature of male mesonephros
+EMAP:0028892 ~ | |   |   + developing vasculature of ovary
+EMAP:0029118 ~ | |   |   \ developing vasculature of the testis
+EMAP:0029126 ~ | |   |     + coelomic vessel
+EMAP:0029134 ~ | |   |     \ interstitial vessel
 EMAP:0008276 ~ | |   + respiratory system
 EMAP:0033361 ~ | |   | + bronchus
 EMAP:0033375 ~ | |   | | + bronchus epithelium
@@ -5693,39 +5691,402 @@ EMAP:0008336 ~ | |   |     \ nasopharynx
 EMAP:0008337 ~ | |   |       + nasopharynx associated mesenchyme
 EMAP:0012532 ~ | |   |       \ nasopharynx epithelium
 EMAP:0008217 ~ | |   \ urinary system
+EMAP:0008224 ~ | |     + urinary system mesentery
+EMAP:0029613 ~ | |     | + rest of mesentery
+EMAP:0008225 ~ | |     | \ urogenital mesentery
+EMAP:0008226 ~ | |     + metanephros
+EMAP:0008237 ~ | |     | + renal capsule
+EMAP:0027724 ~ | |     | + nephrogenic zone
+EMAP:0027731 ~ | |     | | + nephrogenic interstitium
+EMAP:0027738 ~ | |     | | + cap mesenchyme
+EMAP:0027745 ~ | |     | | + pretubular aggregate
+EMAP:0027752 ~ | |     | | + ureteric tip
+EMAP:0031048 ~ | |     | | \ ureteric tree terminal branch excluding tip itself
+EMAP:0008236 ~ | |     | + renal cortex
+EMAP:0027831 ~ | |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695 ~ | |     | | | + renal connecting segment of renal vesicle
+EMAP:0031726 ~ | |     | | | + distal renal vesicle
+EMAP:0031720 ~ | |     | | | \ proximal renal vesicle
+EMAP:0027837 ~ | |     | | + comma-shaped body
+EMAP:0027843 ~ | |     | | | + upper limb of comma-shaped body
+EMAP:0027849 ~ | |     | | | + lower limb of comma-shaped body
+EMAP:0031712 ~ | |     | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855 ~ | |     | | + s-shaped body
+EMAP:0027867 ~ | |     | | | + renal connecting tubule of s-shaped body
+EMAP:0027873 ~ | |     | | | + distal segment of s-shaped body
+EMAP:0027879 ~ | |     | | | + medial segment of s-shaped body
+EMAP:0027885 ~ | |     | | | \ proximal segment of s-shaped body
+EMAP:0027897 ~ | |     | | |   + visceral epithelium of s-shaped body
+EMAP:0027903 ~ | |     | | |   \ parietal epithelium of s-shaped body
+EMAP:0027909 ~ | |     | | + capillary loop renal corpuscle
+EMAP:0027927 ~ | |     | | | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ | |     | | | + parietal epithelium
+EMAP:0027939 ~ | |     | | | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ | |     | | | + presumptive mesangium
+EMAP:0027915 ~ | |     | | | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027945 ~ | |     | | + maturing renal corpuscle
+EMAP:0027951 ~ | |     | | | + maturing glomerular tuft
+EMAP:0027957 ~ | |     | | | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ | |     | | | | + glomerular mesangium
+EMAP:0027969 ~ | |     | | | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ | |     | | | | \ glomerular basement membrane
+EMAP:0027975 ~ | |     | | | + Bowman's capsule
+EMAP:0027981 ~ | |     | | | | + parietal epithelium
+EMAP:0027987 ~ | |     | | | | + urinary space of renal corpuscle
+EMAP:0030033 ~ | |     | | | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ | |     | | | \ juxtaglomerular arteriole
+EMAP:0027999 ~ | |     | | + cortical renal tubule
+EMAP:0028005 ~ | |     | | | + early proximal tubule
+EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ | |     | | | | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ | |     | | | + anlage of loop of Henle
+EMAP:0028009 ~ | |     | | | + early distal tubule
+EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ | |     | | | | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ | |     | | | + renal connecting tubule
+EMAP:0031623 ~ | |     | | | | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ | |     | | | | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ | |     | | | + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
+EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ | |     | | | | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ | |     | | | \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ | |     | | |   + early distal tubule of maturing nephron
+EMAP:0031703 ~ | |     | | |   + early proximal tubule of maturing nephron
+EMAP:0031629 ~ | |     | | |   \ renal connecting tubule of maturing nephron
+EMAP:0028132 ~ | |     | | + cortical collecting duct
+EMAP:0028138 ~ | |     | | + renal cortical interstitium
+EMAP:0031290 ~ | |     | | | + renal cortical fibroblasts
+EMAP:0031298 ~ | |     | | | + resident macrophages of the cortex
+EMAP:0031306 ~ | |     | | | \ rest of renal cortical interstitium
+EMAP:0028143 ~ | |     | | + renal cortical vasculature
+EMAP:0028148 ~ | |     | | | + renal cortical arterial system
+EMAP:0028153 ~ | |     | | | + renal cortical venous system
+EMAP:0030038 ~ | |     | | | \ renal cortical capillary
+EMAP:0031313 ~ | |     | | + renal cortical lymphatics
+EMAP:0031320 ~ | |     | | + renal cortical nerves
+EMAP:0028502 ~ | |     | | + early tubule
+EMAP:0027831 ~ | |     | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695 ~ | |     | | | | + renal connecting segment of renal vesicle
+EMAP:0031726 ~ | |     | | | | + distal renal vesicle
+EMAP:0031720 ~ | |     | | | | \ proximal renal vesicle
+EMAP:0027837 ~ | |     | | | + comma-shaped body
+EMAP:0027843 ~ | |     | | | | + upper limb of comma-shaped body
+EMAP:0027849 ~ | |     | | | | + lower limb of comma-shaped body
+EMAP:0031712 ~ | |     | | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855 ~ | |     | | | \ s-shaped body
+EMAP:0027867 ~ | |     | | |   + renal connecting tubule of s-shaped body
+EMAP:0027873 ~ | |     | | |   + distal segment of s-shaped body
+EMAP:0027879 ~ | |     | | |   + medial segment of s-shaped body
+EMAP:0027885 ~ | |     | | |   \ proximal segment of s-shaped body
+EMAP:0027897 ~ | |     | | |     + visceral epithelium of s-shaped body
+EMAP:0027903 ~ | |     | | |     \ parietal epithelium of s-shaped body
+EMAP:0028508 ~ | |     | | + developing capillary loop stage nephron GROUP
+EMAP:0027909 ~ | |     | | | + capillary loop renal corpuscle
+EMAP:0027927 ~ | |     | | | | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ | |     | | | | + parietal epithelium
+EMAP:0027939 ~ | |     | | | | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ | |     | | | | + presumptive mesangium
+EMAP:0027915 ~ | |     | | | | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027999 ~ | |     | | | \ cortical renal tubule
+EMAP:0028005 ~ | |     | | |   + early proximal tubule
+EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ | |     | | |   | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ | |     | | |   + anlage of loop of Henle
+EMAP:0028009 ~ | |     | | |   + early distal tubule
+EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ | |     | | |   | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ | |     | | |   + renal connecting tubule
+EMAP:0031623 ~ | |     | | |   | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ | |     | | |   | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ | |     | | |   + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ | |     | | |   | + anlage of loop of Henle
+EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ | |     | | |   | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ | |     | | |   \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ | |     | | |     + early distal tubule of maturing nephron
+EMAP:0031703 ~ | |     | | |     + early proximal tubule of maturing nephron
+EMAP:0031629 ~ | |     | | |     \ renal connecting tubule of maturing nephron
+EMAP:0028487 ~ | |     | | + maturing nephron
+EMAP:0027945 ~ | |     | | | + maturing renal corpuscle
+EMAP:0027951 ~ | |     | | | | + maturing glomerular tuft
+EMAP:0027957 ~ | |     | | | | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ | |     | | | | | + glomerular mesangium
+EMAP:0027969 ~ | |     | | | | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ | |     | | | | | \ glomerular basement membrane
+EMAP:0027975 ~ | |     | | | | + Bowman's capsule
+EMAP:0027981 ~ | |     | | | | | + parietal epithelium
+EMAP:0027987 ~ | |     | | | | | + urinary space of renal corpuscle
+EMAP:0030033 ~ | |     | | | | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ | |     | | | | \ juxtaglomerular arteriole
+EMAP:0027999 ~ | |     | | | \ cortical renal tubule
+EMAP:0028005 ~ | |     | | |   + early proximal tubule
+EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ | |     | | |   | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ | |     | | |   + anlage of loop of Henle
+EMAP:0028009 ~ | |     | | |   + early distal tubule
+EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ | |     | | |   | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ | |     | | |   + renal connecting tubule
+EMAP:0031623 ~ | |     | | |   | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ | |     | | |   | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ | |     | | |   + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ | |     | | |   | + anlage of loop of Henle
+EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ | |     | | |   | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ | |     | | |   \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ | |     | | |     + early distal tubule of maturing nephron
+EMAP:0031703 ~ | |     | | |     + early proximal tubule of maturing nephron
+EMAP:0031629 ~ | |     | | |     \ renal connecting tubule of maturing nephron
+EMAP:0028529 ~ | |     | | \ late tubule
+EMAP:0027909 ~ | |     | |   + capillary loop renal corpuscle
+EMAP:0027927 ~ | |     | |   | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ | |     | |   | + parietal epithelium
+EMAP:0027939 ~ | |     | |   | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ | |     | |   | + presumptive mesangium
+EMAP:0027915 ~ | |     | |   | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027945 ~ | |     | |   + maturing renal corpuscle
+EMAP:0027951 ~ | |     | |   | + maturing glomerular tuft
+EMAP:0027957 ~ | |     | |   | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ | |     | |   | | + glomerular mesangium
+EMAP:0027969 ~ | |     | |   | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ | |     | |   | | \ glomerular basement membrane
+EMAP:0027975 ~ | |     | |   | + Bowman's capsule
+EMAP:0027981 ~ | |     | |   | | + parietal epithelium
+EMAP:0027987 ~ | |     | |   | | + urinary space of renal corpuscle
+EMAP:0030033 ~ | |     | |   | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ | |     | |   | \ juxtaglomerular arteriole
+EMAP:0027999 ~ | |     | |   \ cortical renal tubule
+EMAP:0028005 ~ | |     | |     + early proximal tubule
+EMAP:0031709 ~ | |     | |     | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ | |     | |     | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ | |     | |     + anlage of loop of Henle
+EMAP:0028009 ~ | |     | |     + early distal tubule
+EMAP:0031611 ~ | |     | |     | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ | |     | |     | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ | |     | |     + renal connecting tubule
+EMAP:0031623 ~ | |     | |     | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ | |     | |     | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ | |     | |     + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ | |     | |     | + anlage of loop of Henle
+EMAP:0031611 ~ | |     | |     | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ | |     | |     | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ | |     | |     | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ | |     | |     \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ | |     | |       + early distal tubule of maturing nephron
+EMAP:0031703 ~ | |     | |       + early proximal tubule of maturing nephron
+EMAP:0031629 ~ | |     | |       \ renal connecting tubule of maturing nephron
+EMAP:0028043 ~ | |     | + renal medulla
+EMAP:0030864 ~ | |     | | + immature loop of Henle
+EMAP:0031019 ~ | |     | | | + straight limb of immature loop of Henle
+EMAP:0031023 ~ | |     | | | + bend of immature loop of Henle
+EMAP:0031416 ~ | |     | | | \ medullary renal tubule
+EMAP:0031019 ~ | |     | | |   + straight limb of immature loop of Henle
+EMAP:0031023 ~ | |     | | |   \ bend of immature loop of Henle
+EMAP:0028063 ~ | |     | | + medullary collecting duct
+EMAP:0008241 ~ | |     | | + renal medullary interstitium
+EMAP:0031327 ~ | |     | | | + renal medullary fibroblasts
+EMAP:0031334 ~ | |     | | | + resident macrophages of the medulla
+EMAP:0031341 ~ | |     | | | \ rest of renal medullary interstitium
+EMAP:0028158 ~ | |     | | + renal medullary vasculature
+EMAP:0028163 ~ | |     | | | + renal medullary arterial system
+EMAP:0028168 ~ | |     | | | + renal medullary venous system
+EMAP:0030044 ~ | |     | | | \ renal medullary capillary
+EMAP:0031348 ~ | |     | | + renal medullary lymphatics
+EMAP:0031355 ~ | |     | | \ renal medullary nerves
+EMAP:0008229 ~ | |     | + calyx
+EMAP:0008232 ~ | |     | + pelvis
+EMAP:0028079 ~ | |     | | + pelvic urothelial lining
+EMAP:0028121 ~ | |     | | + pelvic smooth muscle
+EMAP:0028085 ~ | |     | | \ perihilar interstitium
+EMAP:0008239 ~ | |     | + early nephron GROUP
+EMAP:0027999 ~ | |     | | + cortical renal tubule
+EMAP:0028005 ~ | |     | | | + early proximal tubule
+EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ | |     | | | | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ | |     | | | + anlage of loop of Henle
+EMAP:0028009 ~ | |     | | | + early distal tubule
+EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ | |     | | | | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ | |     | | | + renal connecting tubule
+EMAP:0031623 ~ | |     | | | | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ | |     | | | | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ | |     | | | + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
+EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ | |     | | | | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ | |     | | | \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ | |     | | |   + early distal tubule of maturing nephron
+EMAP:0031703 ~ | |     | | |   + early proximal tubule of maturing nephron
+EMAP:0031629 ~ | |     | | |   \ renal connecting tubule of maturing nephron
+EMAP:0027831 ~ | |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695 ~ | |     | | | + renal connecting segment of renal vesicle
+EMAP:0031726 ~ | |     | | | + distal renal vesicle
+EMAP:0031720 ~ | |     | | | \ proximal renal vesicle
+EMAP:0027837 ~ | |     | | + comma-shaped body
+EMAP:0027843 ~ | |     | | | + upper limb of comma-shaped body
+EMAP:0027849 ~ | |     | | | + lower limb of comma-shaped body
+EMAP:0031712 ~ | |     | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855 ~ | |     | | + s-shaped body
+EMAP:0027867 ~ | |     | | | + renal connecting tubule of s-shaped body
+EMAP:0027873 ~ | |     | | | + distal segment of s-shaped body
+EMAP:0027879 ~ | |     | | | + medial segment of s-shaped body
+EMAP:0027885 ~ | |     | | | \ proximal segment of s-shaped body
+EMAP:0027897 ~ | |     | | |   + visceral epithelium of s-shaped body
+EMAP:0027903 ~ | |     | | |   \ parietal epithelium of s-shaped body
+EMAP:0027909 ~ | |     | | + capillary loop renal corpuscle
+EMAP:0027927 ~ | |     | | | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ | |     | | | + parietal epithelium
+EMAP:0027939 ~ | |     | | | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ | |     | | | + presumptive mesangium
+EMAP:0027915 ~ | |     | | | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027945 ~ | |     | | \ maturing renal corpuscle
+EMAP:0027951 ~ | |     | |   + maturing glomerular tuft
+EMAP:0027957 ~ | |     | |   | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ | |     | |   | + glomerular mesangium
+EMAP:0027969 ~ | |     | |   | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ | |     | |   | \ glomerular basement membrane
+EMAP:0027975 ~ | |     | |   + Bowman's capsule
+EMAP:0027981 ~ | |     | |   | + parietal epithelium
+EMAP:0027987 ~ | |     | |   | + urinary space of renal corpuscle
+EMAP:0030033 ~ | |     | |   | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ | |     | |   \ juxtaglomerular arteriole
+EMAP:0008233 ~ | |     | + collecting duct
+EMAP:0027752 ~ | |     | | + ureteric tip
+EMAP:0031048 ~ | |     | | + ureteric tree terminal branch excluding tip itself
+EMAP:0028496 ~ | |     | | \ ureteric trunk
+EMAP:0028132 ~ | |     | |   + cortical collecting duct
+EMAP:0028063 ~ | |     | |   \ medullary collecting duct
+EMAP:0028496 ~ | |     | + ureteric trunk
+EMAP:0028132 ~ | |     | | + cortical collecting duct
+EMAP:0028063 ~ | |     | | \ medullary collecting duct
+EMAP:0028520 ~ | |     | + renal interstitium group
+EMAP:0027731 ~ | |     | | + nephrogenic interstitium
+EMAP:0027927 ~ | |     | | + associated interstitium of renal corpuscle
+EMAP:0027933 ~ | |     | | + presumptive mesangium
+EMAP:0027963 ~ | |     | | + glomerular mesangium
+EMAP:0028138 ~ | |     | | + renal cortical interstitium
+EMAP:0031290 ~ | |     | | | + renal cortical fibroblasts
+EMAP:0031298 ~ | |     | | | + resident macrophages of the cortex
+EMAP:0031306 ~ | |     | | | \ rest of renal cortical interstitium
+EMAP:0008241 ~ | |     | | + renal medullary interstitium
+EMAP:0031327 ~ | |     | | | + renal medullary fibroblasts
+EMAP:0031334 ~ | |     | | | + resident macrophages of the medulla
+EMAP:0031341 ~ | |     | | | \ rest of renal medullary interstitium
+EMAP:0028085 ~ | |     | | \ perihilar interstitium
+EMAP:0031470 ~ | |     | + small blood vessels
+EMAP:0030038 ~ | |     | | + renal cortical capillary
+EMAP:0028163 ~ | |     | | + renal medullary arterial system
+EMAP:0027957 ~ | |     | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0030044 ~ | |     | | + renal medullary capillary
+EMAP:0028168 ~ | |     | | \ renal medullary venous system
+EMAP:0031444 ~ | |     | \ renal capillaries
+EMAP:0030038 ~ | |     |   + renal cortical capillary
+EMAP:0030044 ~ | |     |   \ renal medullary capillary
+EMAP:0028381 ~ | |     + renal artery
+EMAP:0029977 ~ | |     | + endothelial layer of renal artery
+EMAP:0029998 ~ | |     | + endothelium of renal artery
+EMAP:0030006 ~ | |     | \ smooth muscle layer of renal artery
+EMAP:0028385 ~ | |     + renal vein
+EMAP:0029965 ~ | |     | + endothelial layer of renal vein
+EMAP:0030014 ~ | |     | + endothelium of renal vein
+EMAP:0030022 ~ | |     | \ smooth muscle layer of renal vein
+EMAP:0008234 ~ | |     + ureter
+EMAP:0028091 ~ | |     | + urothelium of ureter
+EMAP:0028591 ~ | |     | | + superficial cell layer of ureter
+EMAP:0028802 ~ | |     | | + intermediate cell layer of ureter
+EMAP:0028807 ~ | |     | | \ basal cell layer of ureter
+EMAP:0028559 ~ | |     | + ureteral mesenchyme
+EMAP:0028565 ~ | |     | | + ureteral mesenchyme subepithelial layer
+EMAP:0028812 ~ | |     | | + ureteral smooth muscle layer
+EMAP:0028815 ~ | |     | | | + ureteral smooth muscle layer smooth muscle component
+EMAP:0030151 ~ | |     | | | \ ureteral smooth muscle layer interstitium
+EMAP:0028573 ~ | |     | | \ ureteral mesenchyme outer layer
+EMAP:0030854 ~ | |     | \ ureteral vasculature
 EMAP:0008219 ~ | |     + bladder
-EMAP:0028827 ~ | |     | + adventitia of bladder
-EMAP:0028832 ~ | |     | | + adventitia of fundus
-EMAP:0030145 ~ | |     | | + adventitia of neck
-EMAP:0028837 ~ | |     | | \ adventitia of trigone
-EMAP:0028639 ~ | |     | + detrusor muscle of bladder
-EMAP:0028645 ~ | |     | | + detrusor muscle of fundus
-EMAP:0030125 ~ | |     | | + detrusor muscle of neck
-EMAP:0028651 ~ | |     | | \ detrusor muscle of trigone
+EMAP:0028603 ~ | |     | + urothelium of bladder
+EMAP:0032376 ~ | |     | | + superficial cell layer of bladder
+EMAP:0032383 ~ | |     | | + basal cell layer of bladder
+EMAP:0028609 ~ | |     | | + urothelium of fundus
+EMAP:0028615 ~ | |     | | + urothelium of trigone
+EMAP:0030083 ~ | |     | | \ urothelium of neck
 EMAP:0030090 ~ | |     | + lamina propria of bladder
 EMAP:0030104 ~ | |     | | + lamina propria of fundus
-EMAP:0030118 ~ | |     | | + lamina propria of neck
-EMAP:0030111 ~ | |     | | \ lamina propria of trigone
+EMAP:0030111 ~ | |     | | + lamina propria of trigone
+EMAP:0030118 ~ | |     | | \ lamina propria of neck
 EMAP:0028621 ~ | |     | + muscularis mucosa of bladder
 EMAP:0028627 ~ | |     | | + muscularis mucosa of fundus
-EMAP:0030139 ~ | |     | | + muscularis mucosa of neck
-EMAP:0028633 ~ | |     | | \ muscularis mucosa of trigone
-EMAP:0031655 ~ | |     | + nerve of bladder
-EMAP:0028663 ~ | |     | + serosa of bladder
-EMAP:0028669 ~ | |     | | + serosa of fundus
-EMAP:0030132 ~ | |     | | + serosa of neck
-EMAP:0028675 ~ | |     | | \ serosa of trigone
+EMAP:0028633 ~ | |     | | + muscularis mucosa of trigone
+EMAP:0030139 ~ | |     | | \ muscularis mucosa of neck
 EMAP:0032390 ~ | |     | + submucosa of bladder
 EMAP:0032404 ~ | |     | | + submucosa of fundus
-EMAP:0032397 ~ | |     | | + submucosa of neck
-EMAP:0032503 ~ | |     | | \ submucosa of trigone
-EMAP:0028603 ~ | |     | + urothelium of bladder
-EMAP:0032383 ~ | |     | | + basal cell layer of bladder
-EMAP:0032376 ~ | |     | | + superficial cell layer of bladder
-EMAP:0028609 ~ | |     | | + urothelium of fundus
-EMAP:0030083 ~ | |     | | + urothelium of neck
-EMAP:0028615 ~ | |     | | \ urothelium of trigone
-EMAP:0028681 ~ | |     | \ vasculature of bladder
+EMAP:0032503 ~ | |     | | + submucosa of trigone
+EMAP:0032397 ~ | |     | | \ submucosa of neck
+EMAP:0028639 ~ | |     | + detrusor muscle of bladder
+EMAP:0028645 ~ | |     | | + detrusor muscle of fundus
+EMAP:0028651 ~ | |     | | + detrusor muscle of trigone
+EMAP:0030125 ~ | |     | | \ detrusor muscle of neck
+EMAP:0028663 ~ | |     | + serosa of bladder
+EMAP:0028669 ~ | |     | | + serosa of fundus
+EMAP:0028675 ~ | |     | | + serosa of trigone
+EMAP:0030132 ~ | |     | | \ serosa of neck
+EMAP:0028827 ~ | |     | + adventitia of bladder
+EMAP:0028832 ~ | |     | | + adventitia of fundus
+EMAP:0028837 ~ | |     | | + adventitia of trigone
+EMAP:0030145 ~ | |     | | \ adventitia of neck
+EMAP:0028681 ~ | |     | + vasculature of bladder
+EMAP:0031655 ~ | |     | \ nerve of bladder
+EMAP:0008223 ~ | |     + urachus
+EMAP:0028749 ~ | |     + urethra of female
+EMAP:0028755 ~ | |     | + pelvic urethra of female
+EMAP:0028761 ~ | |     | | + urothelium of pelvic urethra of female
+EMAP:0032346 ~ | |     | | | + urothelium of dorsal pelvic urethra of female
+EMAP:0032353 ~ | |     | | | | + superficial cell layer of dorsal pelvic urethra of female
+EMAP:0032515 ~ | |     | | | | + intermediate cell layer of dorsal pelvic urethra of female
+EMAP:0032359 ~ | |     | | | | \ basal cell layer of dorsal pelvic urethra of female
+EMAP:0032420 ~ | |     | | | \ urothelium of ventral pelvic urethra of female
+EMAP:0032456 ~ | |     | | |   + superficial cell layer of ventral pelvic urethra of female
+EMAP:0032509 ~ | |     | | |   + intermediate cell layer of ventral pelvic urethra of female
+EMAP:0032462 ~ | |     | | |   \ basal cell layer of ventral pelvic urethra of female
+EMAP:0028767 ~ | |     | | + mesenchymal layer of pelvic urethra of female
+EMAP:0031748 ~ | |     | | | + mesenchymal layer of dorsal pelvic urethra of female
+EMAP:0031745 ~ | |     | | | \ mesenchymal layer of ventral pelvic urethra of female
+EMAP:0028773 ~ | |     | | + muscle layer of pelvic urethra of female
+EMAP:0031762 ~ | |     | | | + muscle layer of dorsal pelvic urethra of female
+EMAP:0031759 ~ | |     | | | \ muscle layer of ventral pelvic urethra of female
+EMAP:0031795 ~ | |     | | \ nerve of pelvic urethra of female
+EMAP:0030918 ~ | |     | \ phallic urethra of female
+EMAP:0030925 ~ | |     |   + urethral plate of female
+EMAP:0030928 ~ | |     |   + urethral fold of female
+EMAP:0031736 ~ | |     |   \ nerve of phallic urethra of female
+EMAP:0008274 ~ | |     + urethra of male
+EMAP:0028693 ~ | |     | + pelvic urethra of male
+EMAP:0028699 ~ | |     | | + urothelium of pelvic urethra of male
+EMAP:0032493 ~ | |     | | | + urothelium of dorsal pelvic urethra of male
+EMAP:0032340 ~ | |     | | | | + superficial cell layer of dorsal pelvic urethra of male
+EMAP:0032521 ~ | |     | | | | + intermediate cell layer of dorsal pelvic urethra of male
+EMAP:0032324 ~ | |     | | | | \ basal cell layer of dorsal pelvic urethra of male
+EMAP:0032315 ~ | |     | | | \ urothelium of ventral pelvic urethra of male
+EMAP:0032430 ~ | |     | | |   + superficial cell layer of ventral pelvic urethra of male
+EMAP:0032551 ~ | |     | | |   + intermediate cell layer of ventral pelvic urethra of male
+EMAP:0032330 ~ | |     | | |   \ basal cell layer of ventral pelvic urethra of male
+EMAP:0028705 ~ | |     | | + mesenchymal layer of pelvic urethra of male
+EMAP:0031742 ~ | |     | | | + mesenchymal layer of dorsal pelvic urethra of male
+EMAP:0031733 ~ | |     | | | \ mesenchymal layer of ventral pelvic urethra of male
+EMAP:0028711 ~ | |     | | + muscle layer of pelvic urethra of male
+EMAP:0031754 ~ | |     | | | + muscle layer of dorsal pelvic urethra of male
+EMAP:0031751 ~ | |     | | | \ muscle layer of ventral pelvic urethra of male
+EMAP:0031785 ~ | |     | | \ nerve of pelvic urethra of male
+EMAP:0028717 ~ | |     | \ phallic urethra of male
+EMAP:0008275 ~ | |     |   + urethral fold of male
+EMAP:0028723 ~ | |     |   + urethral plate of male
+EMAP:0031801 ~ | |     |   \ nerve of phallic urethra of male
+EMAP:0008243 ~ | |     + urorectal septum
+EMAP:0031644 ~ | |     + pelvic ganglion
 EMAP:0031771 ~ | |     + developing vasculature of urinary system GROUP
 EMAP:0028460 ~ | |     | + renal vasculature
 EMAP:0027957 ~ | |     | | + glomerular capillary system of maturing glomerular tuft
@@ -5735,321 +6096,12 @@ EMAP:0028381 ~ | |     | | + renal artery
 EMAP:0029977 ~ | |     | | | + endothelial layer of renal artery
 EMAP:0029998 ~ | |     | | | + endothelium of renal artery
 EMAP:0030006 ~ | |     | | | \ smooth muscle layer of renal artery
-EMAP:0030044 ~ | |     | | + renal medullary capillary
-EMAP:0028385 ~ | |     | | \ renal vein
-EMAP:0029965 ~ | |     | |   + endothelial layer of renal vein
-EMAP:0030014 ~ | |     | |   + endothelium of renal vein
-EMAP:0030022 ~ | |     | |   \ smooth muscle layer of renal vein
-EMAP:0030854 ~ | |     | \ ureteral vasculature
-EMAP:0008226 ~ | |     + metanephros
-EMAP:0008229 ~ | |     | + calyx
-EMAP:0008233 ~ | |     | + collecting duct
-EMAP:0027752 ~ | |     | | + ureteric tip
-EMAP:0031048 ~ | |     | | + ureteric tree terminal branch excluding tip itself
-EMAP:0028496 ~ | |     | | \ ureteric trunk
-EMAP:0028132 ~ | |     | |   + cortical collecting duct
-EMAP:0028063 ~ | |     | |   \ medullary collecting duct
-EMAP:0008239 ~ | |     | + early nephron GROUP
-EMAP:0027909 ~ | |     | | + capillary loop renal corpuscle
-EMAP:0027927 ~ | |     | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ | |     | | | + parietal epithelium
-EMAP:0027939 ~ | |     | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ | |     | | | + presumptive mesangium
-EMAP:0027915 ~ | |     | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027837 ~ | |     | | + comma-shaped body
-EMAP:0027849 ~ | |     | | | + lower limb of comma-shaped body
-EMAP:0031712 ~ | |     | | | + renal connecting segment of comma-shaped body
-EMAP:0027843 ~ | |     | | | \ upper limb of comma-shaped body
-EMAP:0027999 ~ | |     | | + cortical renal tubule
-EMAP:0031283 ~ | |     | | | + anlage of loop of Henle
-EMAP:0031820 ~ | |     | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
-EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ | |     | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ | |     | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ | |     | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ | |     | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ | |     | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ | |     | | | + early distal tubule
-EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ | |     | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ | |     | | | + early proximal tubule
-EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ | |     | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ | |     | | | \ renal connecting tubule
-EMAP:0031623 ~ | |     | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ | |     | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945 ~ | |     | | + maturing renal corpuscle
-EMAP:0027975 ~ | |     | | | + Bowman's capsule
-EMAP:0030033 ~ | |     | | | | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ | |     | | | | + parietal epithelium
-EMAP:0027987 ~ | |     | | | | \ urinary space of renal corpuscle
-EMAP:0027993 ~ | |     | | | + juxtaglomerular arteriole
-EMAP:0027951 ~ | |     | | | \ maturing glomerular tuft
-EMAP:0030967 ~ | |     | | |   + glomerular basement membrane
-EMAP:0027957 ~ | |     | | |   + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ | |     | | |   + glomerular mesangium
-EMAP:0027969 ~ | |     | | |   \ visceral epithelium of maturing renal corpuscle
-EMAP:0027831 ~ | |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726 ~ | |     | | | + distal renal vesicle
-EMAP:0031720 ~ | |     | | | + proximal renal vesicle
-EMAP:0031695 ~ | |     | | | \ renal connecting segment of renal vesicle
-EMAP:0027855 ~ | |     | | \ s-shaped body
-EMAP:0027873 ~ | |     | |   + distal segment of s-shaped body
-EMAP:0027879 ~ | |     | |   + medial segment of s-shaped body
-EMAP:0027885 ~ | |     | |   + proximal segment of s-shaped body
-EMAP:0027903 ~ | |     | |   | + parietal epithelium of s-shaped body
-EMAP:0027897 ~ | |     | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867 ~ | |     | |   \ renal connecting tubule of s-shaped body
-EMAP:0027724 ~ | |     | + nephrogenic zone
-EMAP:0027738 ~ | |     | | + cap mesenchyme
-EMAP:0027731 ~ | |     | | + nephrogenic interstitium
-EMAP:0027745 ~ | |     | | + pretubular aggregate
-EMAP:0027752 ~ | |     | | + ureteric tip
-EMAP:0031048 ~ | |     | | \ ureteric tree terminal branch excluding tip itself
-EMAP:0008232 ~ | |     | + pelvis
-EMAP:0028121 ~ | |     | | + pelvic smooth muscle
-EMAP:0028079 ~ | |     | | + pelvic urothelial lining
-EMAP:0028085 ~ | |     | | \ perihilar interstitium
-EMAP:0031444 ~ | |     | + renal capillaries
-EMAP:0030038 ~ | |     | | + renal cortical capillary
+EMAP:0028385 ~ | |     | | + renal vein
+EMAP:0029965 ~ | |     | | | + endothelial layer of renal vein
+EMAP:0030014 ~ | |     | | | + endothelium of renal vein
+EMAP:0030022 ~ | |     | | | \ smooth muscle layer of renal vein
 EMAP:0030044 ~ | |     | | \ renal medullary capillary
-EMAP:0008237 ~ | |     | + renal capsule
-EMAP:0008236 ~ | |     | + renal cortex
-EMAP:0027909 ~ | |     | | + capillary loop renal corpuscle
-EMAP:0027927 ~ | |     | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ | |     | | | + parietal epithelium
-EMAP:0027939 ~ | |     | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ | |     | | | + presumptive mesangium
-EMAP:0027915 ~ | |     | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027837 ~ | |     | | + comma-shaped body
-EMAP:0027849 ~ | |     | | | + lower limb of comma-shaped body
-EMAP:0031712 ~ | |     | | | + renal connecting segment of comma-shaped body
-EMAP:0027843 ~ | |     | | | \ upper limb of comma-shaped body
-EMAP:0028132 ~ | |     | | + cortical collecting duct
-EMAP:0027999 ~ | |     | | + cortical renal tubule
-EMAP:0031283 ~ | |     | | | + anlage of loop of Henle
-EMAP:0031820 ~ | |     | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
-EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ | |     | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ | |     | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ | |     | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ | |     | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ | |     | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ | |     | | | + early distal tubule
-EMAP:0031611 ~ | |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ | |     | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ | |     | | | + early proximal tubule
-EMAP:0031709 ~ | |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ | |     | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ | |     | | | \ renal connecting tubule
-EMAP:0031623 ~ | |     | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ | |     | | |   \ renal connecting tubule of maturing nephron
-EMAP:0028508 ~ | |     | | + developing capillary loop stage nephron GROUP
-EMAP:0027909 ~ | |     | | | + capillary loop renal corpuscle
-EMAP:0027927 ~ | |     | | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ | |     | | | | + parietal epithelium
-EMAP:0027939 ~ | |     | | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ | |     | | | | + presumptive mesangium
-EMAP:0027915 ~ | |     | | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027999 ~ | |     | | | \ cortical renal tubule
-EMAP:0031283 ~ | |     | | |   + anlage of loop of Henle
-EMAP:0031820 ~ | |     | | |   + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ | |     | | |   | + anlage of loop of Henle
-EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ | |     | | |   | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ | |     | | |   + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ | |     | | |   | + early distal tubule of maturing nephron
-EMAP:0031703 ~ | |     | | |   | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ | |     | | |   | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ | |     | | |   + early distal tubule
-EMAP:0031611 ~ | |     | | |   | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ | |     | | |   | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ | |     | | |   + early proximal tubule
-EMAP:0031709 ~ | |     | | |   | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ | |     | | |   | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ | |     | | |   \ renal connecting tubule
-EMAP:0031623 ~ | |     | | |     + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ | |     | | |     \ renal connecting tubule of maturing nephron
-EMAP:0028502 ~ | |     | | + early tubule
-EMAP:0027837 ~ | |     | | | + comma-shaped body
-EMAP:0027849 ~ | |     | | | | + lower limb of comma-shaped body
-EMAP:0031712 ~ | |     | | | | + renal connecting segment of comma-shaped body
-EMAP:0027843 ~ | |     | | | | \ upper limb of comma-shaped body
-EMAP:0027831 ~ | |     | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726 ~ | |     | | | | + distal renal vesicle
-EMAP:0031720 ~ | |     | | | | + proximal renal vesicle
-EMAP:0031695 ~ | |     | | | | \ renal connecting segment of renal vesicle
-EMAP:0027855 ~ | |     | | | \ s-shaped body
-EMAP:0027873 ~ | |     | | |   + distal segment of s-shaped body
-EMAP:0027879 ~ | |     | | |   + medial segment of s-shaped body
-EMAP:0027885 ~ | |     | | |   + proximal segment of s-shaped body
-EMAP:0027903 ~ | |     | | |   | + parietal epithelium of s-shaped body
-EMAP:0027897 ~ | |     | | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867 ~ | |     | | |   \ renal connecting tubule of s-shaped body
-EMAP:0028529 ~ | |     | | + late tubule
-EMAP:0027909 ~ | |     | | | + capillary loop renal corpuscle
-EMAP:0027927 ~ | |     | | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ | |     | | | | + parietal epithelium
-EMAP:0027939 ~ | |     | | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ | |     | | | | + presumptive mesangium
-EMAP:0027915 ~ | |     | | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027999 ~ | |     | | | + cortical renal tubule
-EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
-EMAP:0031820 ~ | |     | | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ | |     | | | | | + anlage of loop of Henle
-EMAP:0031611 ~ | |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ | |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ | |     | | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ | |     | | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ | |     | | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ | |     | | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ | |     | | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ | |     | | | | + early distal tubule
-EMAP:0031611 ~ | |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ | |     | | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ | |     | | | | + early proximal tubule
-EMAP:0031709 ~ | |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ | |     | | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ | |     | | | | \ renal connecting tubule
-EMAP:0031623 ~ | |     | | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ | |     | | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945 ~ | |     | | | \ maturing renal corpuscle
-EMAP:0027975 ~ | |     | | |   + Bowman's capsule
-EMAP:0030033 ~ | |     | | |   | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ | |     | | |   | + parietal epithelium
-EMAP:0027987 ~ | |     | | |   | \ urinary space of renal corpuscle
-EMAP:0027993 ~ | |     | | |   + juxtaglomerular arteriole
-EMAP:0027951 ~ | |     | | |   \ maturing glomerular tuft
-EMAP:0030967 ~ | |     | | |     + glomerular basement membrane
-EMAP:0027957 ~ | |     | | |     + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ | |     | | |     + glomerular mesangium
-EMAP:0027969 ~ | |     | | |     \ visceral epithelium of maturing renal corpuscle
-EMAP:0028487 ~ | |     | | + maturing nephron
-EMAP:0027999 ~ | |     | | | + cortical renal tubule
-EMAP:0031283 ~ | |     | | | | + anlage of loop of Henle
-EMAP:0031820 ~ | |     | | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ | |     | | | | | + anlage of loop of Henle
-EMAP:0031611 ~ | |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ | |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ | |     | | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ | |     | | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ | |     | | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ | |     | | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ | |     | | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ | |     | | | | + early distal tubule
-EMAP:0031611 ~ | |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ | |     | | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ | |     | | | | + early proximal tubule
-EMAP:0031709 ~ | |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ | |     | | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ | |     | | | | \ renal connecting tubule
-EMAP:0031623 ~ | |     | | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ | |     | | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945 ~ | |     | | | \ maturing renal corpuscle
-EMAP:0027975 ~ | |     | | |   + Bowman's capsule
-EMAP:0030033 ~ | |     | | |   | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ | |     | | |   | + parietal epithelium
-EMAP:0027987 ~ | |     | | |   | \ urinary space of renal corpuscle
-EMAP:0027993 ~ | |     | | |   + juxtaglomerular arteriole
-EMAP:0027951 ~ | |     | | |   \ maturing glomerular tuft
-EMAP:0030967 ~ | |     | | |     + glomerular basement membrane
-EMAP:0027957 ~ | |     | | |     + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ | |     | | |     + glomerular mesangium
-EMAP:0027969 ~ | |     | | |     \ visceral epithelium of maturing renal corpuscle
-EMAP:0027945 ~ | |     | | + maturing renal corpuscle
-EMAP:0027975 ~ | |     | | | + Bowman's capsule
-EMAP:0030033 ~ | |     | | | | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ | |     | | | | + parietal epithelium
-EMAP:0027987 ~ | |     | | | | \ urinary space of renal corpuscle
-EMAP:0027993 ~ | |     | | | + juxtaglomerular arteriole
-EMAP:0027951 ~ | |     | | | \ maturing glomerular tuft
-EMAP:0030967 ~ | |     | | |   + glomerular basement membrane
-EMAP:0027957 ~ | |     | | |   + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ | |     | | |   + glomerular mesangium
-EMAP:0027969 ~ | |     | | |   \ visceral epithelium of maturing renal corpuscle
-EMAP:0028138 ~ | |     | | + renal cortical interstitium
-EMAP:0031290 ~ | |     | | | + renal cortical fibroblasts
-EMAP:0031298 ~ | |     | | | + resident macrophages of the cortex
-EMAP:0031306 ~ | |     | | | \ rest of renal cortical interstitium
-EMAP:0031313 ~ | |     | | + renal cortical lymphatics
-EMAP:0031320 ~ | |     | | + renal cortical nerves
-EMAP:0028143 ~ | |     | | + renal cortical vasculature
-EMAP:0028148 ~ | |     | | | + renal cortical arterial system
-EMAP:0030038 ~ | |     | | | + renal cortical capillary
-EMAP:0028153 ~ | |     | | | \ renal cortical venous system
-EMAP:0027831 ~ | |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726 ~ | |     | | | + distal renal vesicle
-EMAP:0031720 ~ | |     | | | + proximal renal vesicle
-EMAP:0031695 ~ | |     | | | \ renal connecting segment of renal vesicle
-EMAP:0027855 ~ | |     | | \ s-shaped body
-EMAP:0027873 ~ | |     | |   + distal segment of s-shaped body
-EMAP:0027879 ~ | |     | |   + medial segment of s-shaped body
-EMAP:0027885 ~ | |     | |   + proximal segment of s-shaped body
-EMAP:0027903 ~ | |     | |   | + parietal epithelium of s-shaped body
-EMAP:0027897 ~ | |     | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867 ~ | |     | |   \ renal connecting tubule of s-shaped body
-EMAP:0028520 ~ | |     | + renal interstitium group
-EMAP:0027927 ~ | |     | | + associated interstitium of renal corpuscle
-EMAP:0027963 ~ | |     | | + glomerular mesangium
-EMAP:0027731 ~ | |     | | + nephrogenic interstitium
-EMAP:0028085 ~ | |     | | + perihilar interstitium
-EMAP:0027933 ~ | |     | | + presumptive mesangium
-EMAP:0028138 ~ | |     | | + renal cortical interstitium
-EMAP:0031290 ~ | |     | | | + renal cortical fibroblasts
-EMAP:0031298 ~ | |     | | | + resident macrophages of the cortex
-EMAP:0031306 ~ | |     | | | \ rest of renal cortical interstitium
-EMAP:0008241 ~ | |     | | \ renal medullary interstitium
-EMAP:0031327 ~ | |     | |   + renal medullary fibroblasts
-EMAP:0031334 ~ | |     | |   + resident macrophages of the medulla
-EMAP:0031341 ~ | |     | |   \ rest of renal medullary interstitium
-EMAP:0028043 ~ | |     | + renal medulla
-EMAP:0030864 ~ | |     | | + immature loop of Henle
-EMAP:0031023 ~ | |     | | | + bend of immature loop of Henle
-EMAP:0031416 ~ | |     | | | + medullary renal tubule
-EMAP:0031023 ~ | |     | | | | + bend of immature loop of Henle
-EMAP:0031019 ~ | |     | | | | \ straight limb of immature loop of Henle
-EMAP:0031019 ~ | |     | | | \ straight limb of immature loop of Henle
-EMAP:0028063 ~ | |     | | + medullary collecting duct
-EMAP:0008241 ~ | |     | | + renal medullary interstitium
-EMAP:0031327 ~ | |     | | | + renal medullary fibroblasts
-EMAP:0031334 ~ | |     | | | + resident macrophages of the medulla
-EMAP:0031341 ~ | |     | | | \ rest of renal medullary interstitium
-EMAP:0031348 ~ | |     | | + renal medullary lymphatics
-EMAP:0031355 ~ | |     | | + renal medullary nerves
-EMAP:0028158 ~ | |     | | \ renal medullary vasculature
-EMAP:0028163 ~ | |     | |   + renal medullary arterial system
-EMAP:0030044 ~ | |     | |   + renal medullary capillary
-EMAP:0028168 ~ | |     | |   \ renal medullary venous system
-EMAP:0031470 ~ | |     | + small blood vessels
-EMAP:0027957 ~ | |     | | + glomerular capillary system of maturing glomerular tuft
-EMAP:0030038 ~ | |     | | + renal cortical capillary
-EMAP:0028163 ~ | |     | | + renal medullary arterial system
-EMAP:0030044 ~ | |     | | + renal medullary capillary
-EMAP:0028168 ~ | |     | | \ renal medullary venous system
-EMAP:0028496 ~ | |     | \ ureteric trunk
-EMAP:0028132 ~ | |     |   + cortical collecting duct
-EMAP:0028063 ~ | |     |   \ medullary collecting duct
-EMAP:0031807 ~ | |     + nerves of urethra GROUP
-EMAP:0031795 ~ | |     | + nerve of pelvic urethra of female
-EMAP:0031785 ~ | |     | + nerve of pelvic urethra of male
-EMAP:0031736 ~ | |     | + nerve of phallic urethra of female
-EMAP:0031801 ~ | |     | \ nerve of phallic urethra of male
-EMAP:0031644 ~ | |     + pelvic ganglion
-EMAP:0031437 ~ | |     + renal arterial system
-EMAP:0028381 ~ | |     | + renal artery
-EMAP:0029977 ~ | |     | | + endothelial layer of renal artery
-EMAP:0029998 ~ | |     | | + endothelium of renal artery
-EMAP:0030006 ~ | |     | | \ smooth muscle layer of renal artery
-EMAP:0028163 ~ | |     | \ renal medullary arterial system
-EMAP:0028381 ~ | |     + renal artery
-EMAP:0029977 ~ | |     | + endothelial layer of renal artery
-EMAP:0029998 ~ | |     | + endothelium of renal artery
-EMAP:0030006 ~ | |     | \ smooth muscle layer of renal artery
+EMAP:0030854 ~ | |     | \ ureteral vasculature
 EMAP:0028460 ~ | |     + renal vasculature
 EMAP:0027957 ~ | |     | + glomerular capillary system of maturing glomerular tuft
 EMAP:0027993 ~ | |     | + juxtaglomerular arteriole
@@ -6058,82 +6110,28 @@ EMAP:0028381 ~ | |     | + renal artery
 EMAP:0029977 ~ | |     | | + endothelial layer of renal artery
 EMAP:0029998 ~ | |     | | + endothelium of renal artery
 EMAP:0030006 ~ | |     | | \ smooth muscle layer of renal artery
-EMAP:0030044 ~ | |     | + renal medullary capillary
-EMAP:0028385 ~ | |     | \ renal vein
-EMAP:0029965 ~ | |     |   + endothelial layer of renal vein
-EMAP:0030014 ~ | |     |   + endothelium of renal vein
-EMAP:0030022 ~ | |     |   \ smooth muscle layer of renal vein
-EMAP:0028385 ~ | |     + renal vein
-EMAP:0029965 ~ | |     | + endothelial layer of renal vein
-EMAP:0030014 ~ | |     | + endothelium of renal vein
-EMAP:0030022 ~ | |     | \ smooth muscle layer of renal vein
+EMAP:0028385 ~ | |     | + renal vein
+EMAP:0029965 ~ | |     | | + endothelial layer of renal vein
+EMAP:0030014 ~ | |     | | + endothelium of renal vein
+EMAP:0030022 ~ | |     | | \ smooth muscle layer of renal vein
+EMAP:0030044 ~ | |     | \ renal medullary capillary
+EMAP:0031437 ~ | |     + renal arterial system
+EMAP:0028381 ~ | |     | + renal artery
+EMAP:0029977 ~ | |     | | + endothelial layer of renal artery
+EMAP:0029998 ~ | |     | | + endothelium of renal artery
+EMAP:0030006 ~ | |     | | \ smooth muscle layer of renal artery
+EMAP:0028163 ~ | |     | \ renal medullary arterial system
 EMAP:0031451 ~ | |     + renal venous system
-EMAP:0028168 ~ | |     | + renal medullary venous system
-EMAP:0028385 ~ | |     | \ renal vein
-EMAP:0029965 ~ | |     |   + endothelial layer of renal vein
-EMAP:0030014 ~ | |     |   + endothelium of renal vein
-EMAP:0030022 ~ | |     |   \ smooth muscle layer of renal vein
-EMAP:0008223 ~ | |     + urachus
-EMAP:0008234 ~ | |     + ureter
-EMAP:0028559 ~ | |     | + ureteral mesenchyme
-EMAP:0028573 ~ | |     | | + ureteral mesenchyme outer layer
-EMAP:0028565 ~ | |     | | + ureteral mesenchyme subepithelial layer
-EMAP:0028812 ~ | |     | | \ ureteral smooth muscle layer
-EMAP:0030151 ~ | |     | |   + ureteral smooth muscle layer interstitium
-EMAP:0028815 ~ | |     | |   \ ureteral smooth muscle layer smooth muscle component
-EMAP:0030854 ~ | |     | + ureteral vasculature
-EMAP:0028091 ~ | |     | \ urothelium of ureter
-EMAP:0028807 ~ | |     |   + basal cell layer of ureter
-EMAP:0028802 ~ | |     |   + intermediate cell layer of ureter
-EMAP:0028591 ~ | |     |   \ superficial cell layer of ureter
-EMAP:0028749 ~ | |     + urethra of female
-EMAP:0028755 ~ | |     | + pelvic urethra of female
-EMAP:0028767 ~ | |     | | + mesenchymal layer of pelvic urethra of female
-EMAP:0031748 ~ | |     | | | + mesenchymal layer of dorsal pelvic urethra of female
-EMAP:0031745 ~ | |     | | | \ mesenchymal layer of ventral pelvic urethra of female
-EMAP:0028773 ~ | |     | | + muscle layer of pelvic urethra of female
-EMAP:0031762 ~ | |     | | | + muscle layer of dorsal pelvic urethra of female
-EMAP:0031759 ~ | |     | | | \ muscle layer of ventral pelvic urethra of female
-EMAP:0031795 ~ | |     | | + nerve of pelvic urethra of female
-EMAP:0028761 ~ | |     | | \ urothelium of pelvic urethra of female
-EMAP:0032346 ~ | |     | |   + urothelium of dorsal pelvic urethra of female
-EMAP:0032359 ~ | |     | |   | + basal cell layer of dorsal pelvic urethra of female
-EMAP:0032515 ~ | |     | |   | + intermediate cell layer of dorsal pelvic urethra of female
-EMAP:0032353 ~ | |     | |   | \ superficial cell layer of dorsal pelvic urethra of female
-EMAP:0032420 ~ | |     | |   \ urothelium of ventral pelvic urethra of female
-EMAP:0032462 ~ | |     | |     + basal cell layer of ventral pelvic urethra of female
-EMAP:0032509 ~ | |     | |     + intermediate cell layer of ventral pelvic urethra of female
-EMAP:0032456 ~ | |     | |     \ superficial cell layer of ventral pelvic urethra of female
-EMAP:0030918 ~ | |     | \ phallic urethra of female
-EMAP:0031736 ~ | |     |   + nerve of phallic urethra of female
-EMAP:0030928 ~ | |     |   + urethral fold of female
-EMAP:0030925 ~ | |     |   \ urethral plate of female
-EMAP:0008274 ~ | |     + urethra of male
-EMAP:0028693 ~ | |     | + pelvic urethra of male
-EMAP:0028705 ~ | |     | | + mesenchymal layer of pelvic urethra of male
-EMAP:0031742 ~ | |     | | | + mesenchymal layer of dorsal pelvic urethra of male
-EMAP:0031733 ~ | |     | | | \ mesenchymal layer of ventral pelvic urethra of male
-EMAP:0028711 ~ | |     | | + muscle layer of pelvic urethra of male
-EMAP:0031754 ~ | |     | | | + muscle layer of dorsal pelvic urethra of male
-EMAP:0031751 ~ | |     | | | \ muscle layer of ventral pelvic urethra of male
-EMAP:0031785 ~ | |     | | + nerve of pelvic urethra of male
-EMAP:0028699 ~ | |     | | \ urothelium of pelvic urethra of male
-EMAP:0032493 ~ | |     | |   + urothelium of dorsal pelvic urethra of male
-EMAP:0032324 ~ | |     | |   | + basal cell layer of dorsal pelvic urethra of male
-EMAP:0032521 ~ | |     | |   | + intermediate cell layer of dorsal pelvic urethra of male
-EMAP:0032340 ~ | |     | |   | \ superficial cell layer of dorsal pelvic urethra of male
-EMAP:0032315 ~ | |     | |   \ urothelium of ventral pelvic urethra of male
-EMAP:0032330 ~ | |     | |     + basal cell layer of ventral pelvic urethra of male
-EMAP:0032551 ~ | |     | |     + intermediate cell layer of ventral pelvic urethra of male
-EMAP:0032430 ~ | |     | |     \ superficial cell layer of ventral pelvic urethra of male
-EMAP:0028717 ~ | |     | \ phallic urethra of male
-EMAP:0031801 ~ | |     |   + nerve of phallic urethra of male
-EMAP:0008275 ~ | |     |   + urethral fold of male
-EMAP:0028723 ~ | |     |   \ urethral plate of male
-EMAP:0008224 ~ | |     + urinary system mesentery
-EMAP:0029613 ~ | |     | + rest of mesentery
-EMAP:0008225 ~ | |     | \ urogenital mesentery
-EMAP:0008243 ~ | |     \ urorectal septum
+EMAP:0028385 ~ | |     | + renal vein
+EMAP:0029965 ~ | |     | | + endothelial layer of renal vein
+EMAP:0030014 ~ | |     | | + endothelium of renal vein
+EMAP:0030022 ~ | |     | | \ smooth muscle layer of renal vein
+EMAP:0028168 ~ | |     | \ renal medullary venous system
+EMAP:0031807 ~ | |     \ nerves of urethra GROUP
+EMAP:0031795 ~ | |       + nerve of pelvic urethra of female
+EMAP:0031785 ~ | |       + nerve of pelvic urethra of male
+EMAP:0031736 ~ | |       + nerve of phallic urethra of female
+EMAP:0031801 ~ | |       \ nerve of phallic urethra of male
 EMAP:0008338 > | + skeleton
 EMAP:0033586 ~ | | + appendicular skeleton
 EMAP:0008339 ~ | | + axial skeleton
@@ -6561,164 +6559,89 @@ EMAP:0008401   |   \ tail paraxial mesenchyme
 EMAP:0007428   + organ system
 EMAP:0007436   | \ visceral organ
 EMAP:0008244   |   + reproductive system
-EMAP:0031780 G |   | + developing vasculature of reproductive system GROUP
-EMAP:0031591 > |   | | + developing vasculature of female genital tubercle
-EMAP:0031691 > |   | | + developing vasculature of female mesonephros
-EMAP:0031609 > |   | | + developing vasculature of male genital tubercle
-EMAP:0031687 > |   | | + developing vasculature of male mesonephros
-EMAP:0028892 > |   | | + developing vasculature of ovary
-EMAP:0029118 > |   | | \ developing vasculature of the testis
-EMAP:0029126 ~ |   | |   + coelomic vessel
-EMAP:0029134 ~ |   | |   \ interstitial vessel
+EMAP:0008257   |   | + male reproductive system
+EMAP:0030744   |   | | + epididymis
+EMAP:0030978 G |   | | + male external genitalia
+EMAP:0008259 > |   | | | + genital tubercle of male
+EMAP:0031845 ~ |   | | | | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601 ~ |   | | | | | + distal urethral epithelium of male
+EMAP:0031604 ~ |   | | | | | + proximal urethral epithelium of male
+EMAP:0031596 ~ |   | | | | | \ urethral opening of male
+EMAP:0008261 ~ |   | | | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257 ~ |   | | | | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255 ~ |   | | | | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222 ~ |   | | | | + preputial swelling of male
+EMAP:0029225 ~ |   | | | | | + surface epithelium of male preputial swelling
+EMAP:0030504 ~ |   | | | | | + preputial gland of male
+EMAP:0029228 ~ |   | | | | | \ mesenchyme of male preputial swelling
+EMAP:0031609 ~ |   | | | | \ developing vasculature of male genital tubercle
+EMAP:0030511 > |   | | | \ labioscrotal swelling of male
+EMAP:0030517 ~ |   | | |   + surface epithelium of labioscrotal swelling of male
+EMAP:0030514 ~ |   | | |   \ mesenchyme of labioscrotal swelling of male
+EMAP:0028536 G |   | | \ male associated reproductive structure
+EMAP:0008259 > |   | |   + genital tubercle of male
+EMAP:0031845 ~ |   | |   | + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031601 ~ |   | |   | | + distal urethral epithelium of male
+EMAP:0031604 ~ |   | |   | | + proximal urethral epithelium of male
+EMAP:0031596 ~ |   | |   | | \ urethral opening of male
+EMAP:0008261 ~ |   | |   | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAP:0029257 ~ |   | |   | | + surface epithelium of glans of male genital tubercle
+EMAP:0029255 ~ |   | |   | | \ mesenchyme of glans of male genital tubercle
+EMAP:0029222 ~ |   | |   | + preputial swelling of male
+EMAP:0029225 ~ |   | |   | | + surface epithelium of male preputial swelling
+EMAP:0030504 ~ |   | |   | | + preputial gland of male
+EMAP:0029228 ~ |   | |   | | \ mesenchyme of male preputial swelling
+EMAP:0031609 ~ |   | |   | \ developing vasculature of male genital tubercle
+EMAP:0008260 > |   | |   + mesorchium
+EMAP:0012731 > |   | |   + gubernaculum
+EMAP:0008258 > |   | |   \ ductus deferens
+EMAP:0031189 ~ |   | |     \ developing vasculature of ductus deferens
 EMAP:0008245   |   | + female reproductive system
-EMAP:0028543 G |   | | + female associated reproductive structure
-EMAP:0008247 > |   | | | + genital tubercle of female
-EMAP:0031591 ~ |   | | | | + developing vasculature of female genital tubercle
-EMAP:0030486 ~ |   | | | | + distal genital tubercle of female
-EMAP:0030489 ~ |   | | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492 ~ |   | | | | | \ surface epithelium of distal genital tubercle of female
-EMAP:0030482 ~ |   | | | | + preputial swelling of female
-EMAP:0030495 ~ |   | | | | | + mesenchyme of female preputial swelling
-EMAP:0030501 ~ |   | | | | | + preputial gland of female
-EMAP:0030498 ~ |   | | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847 ~ |   | | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683 ~ |   | | | |   + distal urethral epithelium of female
-EMAP:0031669 ~ |   | | | |   + proximal urethral epithelium of female
-EMAP:0031672 ~ |   | | | |   \ urethral opening of female
-EMAP:0008250 > |   | | | + mesovarium
-EMAP:0008246 > |   | | | \ Mullerian tubercle
+EMAP:0008251   |   | | + ovary
 EMAP:0030985 G |   | | + female external genitalia
 EMAP:0008247 > |   | | | + genital tubercle of female
-EMAP:0031591 ~ |   | | | | + developing vasculature of female genital tubercle
-EMAP:0030486 ~ |   | | | | + distal genital tubercle of female
-EMAP:0030489 ~ |   | | | | | + mesenchyme of distal genital tubercle of female
-EMAP:0030492 ~ |   | | | | | \ surface epithelium of distal genital tubercle of female
+EMAP:0031847 ~ |   | | | | + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683 ~ |   | | | | | + distal urethral epithelium of female
+EMAP:0031669 ~ |   | | | | | + proximal urethral epithelium of female
+EMAP:0031672 ~ |   | | | | | \ urethral opening of female
 EMAP:0030482 ~ |   | | | | + preputial swelling of female
-EMAP:0030495 ~ |   | | | | | + mesenchyme of female preputial swelling
+EMAP:0030498 ~ |   | | | | | + surface epithelium of female preputial swelling
 EMAP:0030501 ~ |   | | | | | + preputial gland of female
-EMAP:0030498 ~ |   | | | | | \ surface epithelium of female preputial swelling
-EMAP:0031847 ~ |   | | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0031683 ~ |   | | | |   + distal urethral epithelium of female
-EMAP:0031669 ~ |   | | | |   + proximal urethral epithelium of female
-EMAP:0031672 ~ |   | | | |   \ urethral opening of female
+EMAP:0030495 ~ |   | | | | | \ mesenchyme of female preputial swelling
+EMAP:0030486 ~ |   | | | | + distal genital tubercle of female
+EMAP:0030492 ~ |   | | | | | + surface epithelium of distal genital tubercle of female
+EMAP:0030489 ~ |   | | | | | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591 ~ |   | | | | \ developing vasculature of female genital tubercle
 EMAP:0030425 > |   | | | \ labioscrotal swelling of female
-EMAP:0030428 ~ |   | | |   + mesenchyme of labioscrotal swelling of female
-EMAP:0030431 ~ |   | | |   \ surface epithelium of labioscrotal swelling of female
-EMAP:0008251   |   | | \ ovary
-EMAP:0008257   |   | \ male reproductive system
-EMAP:0030744   |   |   + epididymis
-EMAP:0028536 G |   |   + male associated reproductive structure
-EMAP:0008258 > |   |   | + ductus deferens
-EMAP:0031189 ~ |   |   | | \ developing vasculature of ductus deferens
-EMAP:0008259 > |   |   | + genital tubercle of male
-EMAP:0031609 ~ |   |   | | + developing vasculature of male genital tubercle
-EMAP:0008261 ~ |   |   | | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255 ~ |   |   | | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257 ~ |   |   | | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222 ~ |   |   | | + preputial swelling of male
-EMAP:0029228 ~ |   |   | | | + mesenchyme of male preputial swelling
-EMAP:0030504 ~ |   |   | | | + preputial gland of male
-EMAP:0029225 ~ |   |   | | | \ surface epithelium of male preputial swelling
-EMAP:0031845 ~ |   |   | | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601 ~ |   |   | |   + distal urethral epithelium of male
-EMAP:0031604 ~ |   |   | |   + proximal urethral epithelium of male
-EMAP:0031596 ~ |   |   | |   \ urethral opening of male
-EMAP:0012731 > |   |   | + gubernaculum
-EMAP:0008260 > |   |   | \ mesorchium
-EMAP:0030978 G |   |   \ male external genitalia
-EMAP:0008259 > |   |     + genital tubercle of male
-EMAP:0031609 ~ |   |     | + developing vasculature of male genital tubercle
-EMAP:0008261 ~ |   |     | + glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
-EMAP:0029255 ~ |   |     | | + mesenchyme of glans of male genital tubercle
-EMAP:0029257 ~ |   |     | | \ surface epithelium of glans of male genital tubercle
-EMAP:0029222 ~ |   |     | + preputial swelling of male
-EMAP:0029228 ~ |   |     | | + mesenchyme of male preputial swelling
-EMAP:0030504 ~ |   |     | | + preputial gland of male
-EMAP:0029225 ~ |   |     | | \ surface epithelium of male preputial swelling
-EMAP:0031845 ~ |   |     | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0031601 ~ |   |     |   + distal urethral epithelium of male
-EMAP:0031604 ~ |   |     |   + proximal urethral epithelium of male
-EMAP:0031596 ~ |   |     |   \ urethral opening of male
-EMAP:0030511 > |   |     \ labioscrotal swelling of male
-EMAP:0030514 ~ |   |       + mesenchyme of labioscrotal swelling of male
-EMAP:0030517 ~ |   |       \ surface epithelium of labioscrotal swelling of male
+EMAP:0030431 ~ |   | | |   + surface epithelium of labioscrotal swelling of female
+EMAP:0030428 ~ |   | | |   \ mesenchyme of labioscrotal swelling of female
+EMAP:0028543 G |   | | \ female associated reproductive structure
+EMAP:0008250 > |   | |   + mesovarium
+EMAP:0008246 > |   | |   + Mullerian tubercle
+EMAP:0008247 > |   | |   \ genital tubercle of female
+EMAP:0031847 ~ |   | |     + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031683 ~ |   | |     | + distal urethral epithelium of female
+EMAP:0031669 ~ |   | |     | + proximal urethral epithelium of female
+EMAP:0031672 ~ |   | |     | \ urethral opening of female
+EMAP:0030482 ~ |   | |     + preputial swelling of female
+EMAP:0030498 ~ |   | |     | + surface epithelium of female preputial swelling
+EMAP:0030501 ~ |   | |     | + preputial gland of female
+EMAP:0030495 ~ |   | |     | \ mesenchyme of female preputial swelling
+EMAP:0030486 ~ |   | |     + distal genital tubercle of female
+EMAP:0030492 ~ |   | |     | + surface epithelium of distal genital tubercle of female
+EMAP:0030489 ~ |   | |     | \ mesenchyme of distal genital tubercle of female
+EMAP:0031591 ~ |   | |     \ developing vasculature of female genital tubercle
+EMAP:0031780 G |   | \ developing vasculature of reproductive system GROUP
+EMAP:0031591 > |   |   + developing vasculature of female genital tubercle
+EMAP:0031691 > |   |   + developing vasculature of female mesonephros
+EMAP:0031609 > |   |   + developing vasculature of male genital tubercle
+EMAP:0031687 > |   |   + developing vasculature of male mesonephros
+EMAP:0028892 > |   |   + developing vasculature of ovary
+EMAP:0029118 > |   |   \ developing vasculature of the testis
+EMAP:0029126 ~ |   |     + coelomic vessel
+EMAP:0029134 ~ |   |     \ interstitial vessel
 EMAP:0008217   |   \ urinary system
-EMAP:0031771 G |     + developing vasculature of urinary system GROUP
-EMAP:0028460 > |     | + renal vasculature
-EMAP:0027957 ~ |     | | + glomerular capillary system of maturing glomerular tuft
-EMAP:0027993 ~ |     | | + juxtaglomerular arteriole
-EMAP:0027939 ~ |     | | + presumptive endothelium of renal corpuscle
-EMAP:0028381 ~ |     | | + renal artery
-EMAP:0029977 ~ |     | | | + endothelial layer of renal artery
-EMAP:0029998 ~ |     | | | + endothelium of renal artery
-EMAP:0030006 ~ |     | | | \ smooth muscle layer of renal artery
-EMAP:0030044 ~ |     | | + renal medullary capillary
-EMAP:0028385 ~ |     | | \ renal vein
-EMAP:0029965 ~ |     | |   + endothelial layer of renal vein
-EMAP:0030014 ~ |     | |   + endothelium of renal vein
-EMAP:0030022 ~ |     | |   \ smooth muscle layer of renal vein
-EMAP:0030854 > |     | \ ureteral vasculature
 EMAP:0008226   |     + metanephros
-EMAP:0008233   |     | + collecting duct
-EMAP:0028496 G |     | | \ ureteric trunk
-EMAP:0028132 > |     | |   + cortical collecting duct
-EMAP:0028063 > |     | |   \ medullary collecting duct
-EMAP:0008239 G |     | + early nephron GROUP
-EMAP:0027909 > |     | | + capillary loop renal corpuscle
-EMAP:0027927 ~ |     | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ |     | | | + parietal epithelium
-EMAP:0027939 ~ |     | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ |     | | | + presumptive mesangium
-EMAP:0027915 ~ |     | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027837 > |     | | + comma-shaped body
-EMAP:0027849 ~ |     | | | + lower limb of comma-shaped body
-EMAP:0031712 ~ |     | | | + renal connecting segment of comma-shaped body
-EMAP:0027843 ~ |     | | | \ upper limb of comma-shaped body
-EMAP:0027999 > |     | | + cortical renal tubule
-EMAP:0031283 ~ |     | | | + anlage of loop of Henle
-EMAP:0031820 ~ |     | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ |     | | | | + anlage of loop of Henle
-EMAP:0031611 ~ |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ |     | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ |     | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ |     | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ |     | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ |     | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ |     | | | + early distal tubule
-EMAP:0031611 ~ |     | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ |     | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ |     | | | + early proximal tubule
-EMAP:0031709 ~ |     | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ |     | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ |     | | | \ renal connecting tubule
-EMAP:0031623 ~ |     | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ |     | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945 > |     | | + maturing renal corpuscle
-EMAP:0027975 ~ |     | | | + Bowman's capsule
-EMAP:0030033 ~ |     | | | | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ |     | | | | + parietal epithelium
-EMAP:0027987 ~ |     | | | | \ urinary space of renal corpuscle
-EMAP:0027993 ~ |     | | | + juxtaglomerular arteriole
-EMAP:0027951 ~ |     | | | \ maturing glomerular tuft
-EMAP:0030967 ~ |     | | |   + glomerular basement membrane
-EMAP:0027957 ~ |     | | |   + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ |     | | |   + glomerular mesangium
-EMAP:0027969 ~ |     | | |   \ visceral epithelium of maturing renal corpuscle
-EMAP:0027831 > |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726 ~ |     | | | + distal renal vesicle
-EMAP:0031720 ~ |     | | | + proximal renal vesicle
-EMAP:0031695 ~ |     | | | \ renal connecting segment of renal vesicle
-EMAP:0027855 > |     | | \ s-shaped body
-EMAP:0027873 ~ |     | |   + distal segment of s-shaped body
-EMAP:0027879 ~ |     | |   + medial segment of s-shaped body
-EMAP:0027885 ~ |     | |   + proximal segment of s-shaped body
-EMAP:0027903 ~ |     | |   | + parietal epithelium of s-shaped body
-EMAP:0027897 ~ |     | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867 ~ |     | |   \ renal connecting tubule of s-shaped body
-EMAP:0031444 G |     | + renal capillaries
-EMAP:0030038 > |     | | + renal cortical capillary
-EMAP:0030044 > |     | | \ renal medullary capillary
 EMAP:0008236   |     | + renal cortex
 EMAP:0027999   |     | | + cortical renal tubule
 EMAP:0031820 G |     | | | + cortical renal tubule of capillary loop nephron GROUP
@@ -6730,6 +6653,22 @@ EMAP:0031814 G |     | | | \ cortical renal tubule of maturing nephron GROUP
 EMAP:0031617 > |     | | |   + early distal tubule of maturing nephron
 EMAP:0031703 > |     | | |   + early proximal tubule of maturing nephron
 EMAP:0031629 > |     | | |   \ renal connecting tubule of maturing nephron
+EMAP:0028502 G |     | | + early tubule
+EMAP:0027831 > |     | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695 ~ |     | | | | + renal connecting segment of renal vesicle
+EMAP:0031726 ~ |     | | | | + distal renal vesicle
+EMAP:0031720 ~ |     | | | | \ proximal renal vesicle
+EMAP:0027837 > |     | | | + comma-shaped body
+EMAP:0027843 ~ |     | | | | + upper limb of comma-shaped body
+EMAP:0027849 ~ |     | | | | + lower limb of comma-shaped body
+EMAP:0031712 ~ |     | | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855 > |     | | | \ s-shaped body
+EMAP:0027867 ~ |     | | |   + renal connecting tubule of s-shaped body
+EMAP:0027873 ~ |     | | |   + distal segment of s-shaped body
+EMAP:0027879 ~ |     | | |   + medial segment of s-shaped body
+EMAP:0027885 ~ |     | | |   \ proximal segment of s-shaped body
+EMAP:0027897 ~ |     | | |     + visceral epithelium of s-shaped body
+EMAP:0027903 ~ |     | | |     \ parietal epithelium of s-shaped body
 EMAP:0028508   |     | | + developing capillary loop stage nephron GROUP
 EMAP:0027999   |     | | | \ cortical renal tubule
 EMAP:0031820 G |     | | |   + cortical renal tubule of capillary loop nephron GROUP
@@ -6741,110 +6680,158 @@ EMAP:0031814 G |     | | |   \ cortical renal tubule of maturing nephron GROUP
 EMAP:0031617 > |     | | |     + early distal tubule of maturing nephron
 EMAP:0031703 > |     | | |     + early proximal tubule of maturing nephron
 EMAP:0031629 > |     | | |     \ renal connecting tubule of maturing nephron
-EMAP:0028502 G |     | | + early tubule
-EMAP:0027837 > |     | | | + comma-shaped body
-EMAP:0027849 ~ |     | | | | + lower limb of comma-shaped body
-EMAP:0031712 ~ |     | | | | + renal connecting segment of comma-shaped body
-EMAP:0027843 ~ |     | | | | \ upper limb of comma-shaped body
-EMAP:0027831 > |     | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031726 ~ |     | | | | + distal renal vesicle
-EMAP:0031720 ~ |     | | | | + proximal renal vesicle
-EMAP:0031695 ~ |     | | | | \ renal connecting segment of renal vesicle
-EMAP:0027855 > |     | | | \ s-shaped body
-EMAP:0027873 ~ |     | | |   + distal segment of s-shaped body
-EMAP:0027879 ~ |     | | |   + medial segment of s-shaped body
-EMAP:0027885 ~ |     | | |   + proximal segment of s-shaped body
-EMAP:0027903 ~ |     | | |   | + parietal epithelium of s-shaped body
-EMAP:0027897 ~ |     | | |   | \ visceral epithelium of s-shaped body
-EMAP:0027867 ~ |     | | |   \ renal connecting tubule of s-shaped body
-EMAP:0028529 G |     | | + late tubule
-EMAP:0027909 > |     | | | + capillary loop renal corpuscle
-EMAP:0027927 ~ |     | | | | + associated interstitium of renal corpuscle
-EMAP:0027921 ~ |     | | | | + parietal epithelium
-EMAP:0027939 ~ |     | | | | + presumptive endothelium of renal corpuscle
-EMAP:0027933 ~ |     | | | | + presumptive mesangium
-EMAP:0027915 ~ |     | | | | \ visceral epithelium of capillary loop renal corpuscle
-EMAP:0027999 > |     | | | + cortical renal tubule
+EMAP:0028487   |     | | + maturing nephron
+EMAP:0027999   |     | | | \ cortical renal tubule
+EMAP:0031820 G |     | | |   + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 > |     | | |   | + anlage of loop of Henle
+EMAP:0031611 > |     | | |   | + early distal tubule of capillary loop nephron
+EMAP:0031709 > |     | | |   | + early proximal tubule of capillary loop nephron
+EMAP:0031623 > |     | | |   | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 G |     | | |   \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 > |     | | |     + early distal tubule of maturing nephron
+EMAP:0031703 > |     | | |     + early proximal tubule of maturing nephron
+EMAP:0031629 > |     | | |     \ renal connecting tubule of maturing nephron
+EMAP:0028529 G |     | | \ late tubule
+EMAP:0027909 > |     | |   + capillary loop renal corpuscle
+EMAP:0027927 ~ |     | |   | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ |     | |   | + parietal epithelium
+EMAP:0027939 ~ |     | |   | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ |     | |   | + presumptive mesangium
+EMAP:0027915 ~ |     | |   | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027945 > |     | |   + maturing renal corpuscle
+EMAP:0027951 ~ |     | |   | + maturing glomerular tuft
+EMAP:0027957 ~ |     | |   | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ |     | |   | | + glomerular mesangium
+EMAP:0027969 ~ |     | |   | | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ |     | |   | | \ glomerular basement membrane
+EMAP:0027975 ~ |     | |   | + Bowman's capsule
+EMAP:0027981 ~ |     | |   | | + parietal epithelium
+EMAP:0027987 ~ |     | |   | | + urinary space of renal corpuscle
+EMAP:0030033 ~ |     | |   | | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ |     | |   | \ juxtaglomerular arteriole
+EMAP:0027999 > |     | |   \ cortical renal tubule
+EMAP:0028005 ~ |     | |     + early proximal tubule
+EMAP:0031709 ~ |     | |     | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ |     | |     | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ |     | |     + anlage of loop of Henle
+EMAP:0028009 ~ |     | |     + early distal tubule
+EMAP:0031611 ~ |     | |     | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ |     | |     | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ |     | |     + renal connecting tubule
+EMAP:0031623 ~ |     | |     | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ |     | |     | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ |     | |     + cortical renal tubule of capillary loop nephron GROUP
+EMAP:0031283 ~ |     | |     | + anlage of loop of Henle
+EMAP:0031611 ~ |     | |     | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ |     | |     | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ |     | |     | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ |     | |     \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ |     | |       + early distal tubule of maturing nephron
+EMAP:0031703 ~ |     | |       + early proximal tubule of maturing nephron
+EMAP:0031629 ~ |     | |       \ renal connecting tubule of maturing nephron
+EMAP:0028043   |     | + renal medulla
+EMAP:0030864   |     | | \ immature loop of Henle
+EMAP:0031416 G |     | |   \ medullary renal tubule
+EMAP:0031019 > |     | |     + straight limb of immature loop of Henle
+EMAP:0031023 > |     | |     \ bend of immature loop of Henle
+EMAP:0008239 G |     | + early nephron GROUP
+EMAP:0027999 > |     | | + cortical renal tubule
+EMAP:0028005 ~ |     | | | + early proximal tubule
+EMAP:0031709 ~ |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031703 ~ |     | | | | \ early proximal tubule of maturing nephron
+EMAP:0031283 ~ |     | | | + anlage of loop of Henle
+EMAP:0028009 ~ |     | | | + early distal tubule
+EMAP:0031611 ~ |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031617 ~ |     | | | | \ early distal tubule of maturing nephron
+EMAP:0028013 ~ |     | | | + renal connecting tubule
+EMAP:0031623 ~ |     | | | | + renal connecting tubule of capillary loop nephron
+EMAP:0031629 ~ |     | | | | \ renal connecting tubule of maturing nephron
+EMAP:0031820 ~ |     | | | + cortical renal tubule of capillary loop nephron GROUP
 EMAP:0031283 ~ |     | | | | + anlage of loop of Henle
-EMAP:0031820 ~ |     | | | | + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 ~ |     | | | | | + anlage of loop of Henle
-EMAP:0031611 ~ |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031709 ~ |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031623 ~ |     | | | | | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 ~ |     | | | | + cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 ~ |     | | | | | + early distal tubule of maturing nephron
-EMAP:0031703 ~ |     | | | | | + early proximal tubule of maturing nephron
-EMAP:0031629 ~ |     | | | | | \ renal connecting tubule of maturing nephron
-EMAP:0028009 ~ |     | | | | + early distal tubule
-EMAP:0031611 ~ |     | | | | | + early distal tubule of capillary loop nephron
-EMAP:0031617 ~ |     | | | | | \ early distal tubule of maturing nephron
-EMAP:0028005 ~ |     | | | | + early proximal tubule
-EMAP:0031709 ~ |     | | | | | + early proximal tubule of capillary loop nephron
-EMAP:0031703 ~ |     | | | | | \ early proximal tubule of maturing nephron
-EMAP:0028013 ~ |     | | | | \ renal connecting tubule
-EMAP:0031623 ~ |     | | | |   + renal connecting tubule of capillary loop nephron
-EMAP:0031629 ~ |     | | | |   \ renal connecting tubule of maturing nephron
-EMAP:0027945 > |     | | | \ maturing renal corpuscle
-EMAP:0027975 ~ |     | | |   + Bowman's capsule
-EMAP:0030033 ~ |     | | |   | + glomerular mesangium of Bowman's capsule
-EMAP:0027981 ~ |     | | |   | + parietal epithelium
-EMAP:0027987 ~ |     | | |   | \ urinary space of renal corpuscle
-EMAP:0027993 ~ |     | | |   + juxtaglomerular arteriole
-EMAP:0027951 ~ |     | | |   \ maturing glomerular tuft
-EMAP:0030967 ~ |     | | |     + glomerular basement membrane
-EMAP:0027957 ~ |     | | |     + glomerular capillary system of maturing glomerular tuft
-EMAP:0027963 ~ |     | | |     + glomerular mesangium
-EMAP:0027969 ~ |     | | |     \ visceral epithelium of maturing renal corpuscle
-EMAP:0028487   |     | | \ maturing nephron
-EMAP:0027999   |     | |   \ cortical renal tubule
-EMAP:0031820 G |     | |     + cortical renal tubule of capillary loop nephron GROUP
-EMAP:0031283 > |     | |     | + anlage of loop of Henle
-EMAP:0031611 > |     | |     | + early distal tubule of capillary loop nephron
-EMAP:0031709 > |     | |     | + early proximal tubule of capillary loop nephron
-EMAP:0031623 > |     | |     | \ renal connecting tubule of capillary loop nephron
-EMAP:0031814 G |     | |     \ cortical renal tubule of maturing nephron GROUP
-EMAP:0031617 > |     | |       + early distal tubule of maturing nephron
-EMAP:0031703 > |     | |       + early proximal tubule of maturing nephron
-EMAP:0031629 > |     | |       \ renal connecting tubule of maturing nephron
+EMAP:0031611 ~ |     | | | | + early distal tubule of capillary loop nephron
+EMAP:0031709 ~ |     | | | | + early proximal tubule of capillary loop nephron
+EMAP:0031623 ~ |     | | | | \ renal connecting tubule of capillary loop nephron
+EMAP:0031814 ~ |     | | | \ cortical renal tubule of maturing nephron GROUP
+EMAP:0031617 ~ |     | | |   + early distal tubule of maturing nephron
+EMAP:0031703 ~ |     | | |   + early proximal tubule of maturing nephron
+EMAP:0031629 ~ |     | | |   \ renal connecting tubule of maturing nephron
+EMAP:0027831 > |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031695 ~ |     | | | + renal connecting segment of renal vesicle
+EMAP:0031726 ~ |     | | | + distal renal vesicle
+EMAP:0031720 ~ |     | | | \ proximal renal vesicle
+EMAP:0027837 > |     | | + comma-shaped body
+EMAP:0027843 ~ |     | | | + upper limb of comma-shaped body
+EMAP:0027849 ~ |     | | | + lower limb of comma-shaped body
+EMAP:0031712 ~ |     | | | \ renal connecting segment of comma-shaped body
+EMAP:0027855 > |     | | + s-shaped body
+EMAP:0027867 ~ |     | | | + renal connecting tubule of s-shaped body
+EMAP:0027873 ~ |     | | | + distal segment of s-shaped body
+EMAP:0027879 ~ |     | | | + medial segment of s-shaped body
+EMAP:0027885 ~ |     | | | \ proximal segment of s-shaped body
+EMAP:0027897 ~ |     | | |   + visceral epithelium of s-shaped body
+EMAP:0027903 ~ |     | | |   \ parietal epithelium of s-shaped body
+EMAP:0027909 > |     | | + capillary loop renal corpuscle
+EMAP:0027927 ~ |     | | | + associated interstitium of renal corpuscle
+EMAP:0027921 ~ |     | | | + parietal epithelium
+EMAP:0027939 ~ |     | | | + presumptive endothelium of renal corpuscle
+EMAP:0027933 ~ |     | | | + presumptive mesangium
+EMAP:0027915 ~ |     | | | \ visceral epithelium of capillary loop renal corpuscle
+EMAP:0027945 > |     | | \ maturing renal corpuscle
+EMAP:0027951 ~ |     | |   + maturing glomerular tuft
+EMAP:0027957 ~ |     | |   | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027963 ~ |     | |   | + glomerular mesangium
+EMAP:0027969 ~ |     | |   | + visceral epithelium of maturing renal corpuscle
+EMAP:0030967 ~ |     | |   | \ glomerular basement membrane
+EMAP:0027975 ~ |     | |   + Bowman's capsule
+EMAP:0027981 ~ |     | |   | + parietal epithelium
+EMAP:0027987 ~ |     | |   | + urinary space of renal corpuscle
+EMAP:0030033 ~ |     | |   | \ glomerular mesangium of Bowman's capsule
+EMAP:0027993 ~ |     | |   \ juxtaglomerular arteriole
+EMAP:0008233   |     | + collecting duct
+EMAP:0028496 G |     | | \ ureteric trunk
+EMAP:0028132 > |     | |   + cortical collecting duct
+EMAP:0028063 > |     | |   \ medullary collecting duct
+EMAP:0028496 G |     | + ureteric trunk
+EMAP:0028132 > |     | | + cortical collecting duct
+EMAP:0028063 > |     | | \ medullary collecting duct
 EMAP:0028520 G |     | + renal interstitium group
-EMAP:0027927 > |     | | + associated interstitium of renal corpuscle
-EMAP:0027963 > |     | | + glomerular mesangium
 EMAP:0027731 > |     | | + nephrogenic interstitium
-EMAP:0028085 > |     | | + perihilar interstitium
+EMAP:0027927 > |     | | + associated interstitium of renal corpuscle
 EMAP:0027933 > |     | | + presumptive mesangium
+EMAP:0027963 > |     | | + glomerular mesangium
 EMAP:0028138 > |     | | + renal cortical interstitium
 EMAP:0031290 ~ |     | | | + renal cortical fibroblasts
 EMAP:0031298 ~ |     | | | + resident macrophages of the cortex
 EMAP:0031306 ~ |     | | | \ rest of renal cortical interstitium
-EMAP:0008241 > |     | | \ renal medullary interstitium
-EMAP:0031327 ~ |     | |   + renal medullary fibroblasts
-EMAP:0031334 ~ |     | |   + resident macrophages of the medulla
-EMAP:0031341 ~ |     | |   \ rest of renal medullary interstitium
-EMAP:0028043   |     | + renal medulla
-EMAP:0030864   |     | | \ immature loop of Henle
-EMAP:0031416 G |     | |   \ medullary renal tubule
-EMAP:0031023 > |     | |     + bend of immature loop of Henle
-EMAP:0031019 > |     | |     \ straight limb of immature loop of Henle
+EMAP:0008241 > |     | | + renal medullary interstitium
+EMAP:0031327 ~ |     | | | + renal medullary fibroblasts
+EMAP:0031334 ~ |     | | | + resident macrophages of the medulla
+EMAP:0031341 ~ |     | | | \ rest of renal medullary interstitium
+EMAP:0028085 > |     | | \ perihilar interstitium
 EMAP:0031470 G |     | + small blood vessels
-EMAP:0027957 > |     | | + glomerular capillary system of maturing glomerular tuft
 EMAP:0030038 > |     | | + renal cortical capillary
 EMAP:0028163 > |     | | + renal medullary arterial system
+EMAP:0027957 > |     | | + glomerular capillary system of maturing glomerular tuft
 EMAP:0030044 > |     | | + renal medullary capillary
 EMAP:0028168 > |     | | \ renal medullary venous system
-EMAP:0028496 G |     | \ ureteric trunk
-EMAP:0028132 > |     |   + cortical collecting duct
-EMAP:0028063 > |     |   \ medullary collecting duct
-EMAP:0031807 G |     + nerves of urethra GROUP
-EMAP:0031795 > |     | + nerve of pelvic urethra of female
-EMAP:0031785 > |     | + nerve of pelvic urethra of male
-EMAP:0031736 > |     | + nerve of phallic urethra of female
-EMAP:0031801 > |     | \ nerve of phallic urethra of male
-EMAP:0031437 G |     + renal arterial system
-EMAP:0028381 > |     | + renal artery
-EMAP:0029977 ~ |     | | + endothelial layer of renal artery
-EMAP:0029998 ~ |     | | + endothelium of renal artery
-EMAP:0030006 ~ |     | | \ smooth muscle layer of renal artery
-EMAP:0028163 > |     | \ renal medullary arterial system
+EMAP:0031444 G |     | \ renal capillaries
+EMAP:0030038 > |     |   + renal cortical capillary
+EMAP:0030044 > |     |   \ renal medullary capillary
+EMAP:0031771 G |     + developing vasculature of urinary system GROUP
+EMAP:0028460 > |     | + renal vasculature
+EMAP:0027957 ~ |     | | + glomerular capillary system of maturing glomerular tuft
+EMAP:0027993 ~ |     | | + juxtaglomerular arteriole
+EMAP:0027939 ~ |     | | + presumptive endothelium of renal corpuscle
+EMAP:0028381 ~ |     | | + renal artery
+EMAP:0029977 ~ |     | | | + endothelial layer of renal artery
+EMAP:0029998 ~ |     | | | + endothelium of renal artery
+EMAP:0030006 ~ |     | | | \ smooth muscle layer of renal artery
+EMAP:0028385 ~ |     | | + renal vein
+EMAP:0029965 ~ |     | | | + endothelial layer of renal vein
+EMAP:0030014 ~ |     | | | + endothelium of renal vein
+EMAP:0030022 ~ |     | | | \ smooth muscle layer of renal vein
+EMAP:0030044 ~ |     | | \ renal medullary capillary
+EMAP:0030854 > |     | \ ureteral vasculature
 EMAP:0028460 G |     + renal vasculature
 EMAP:0027957 > |     | + glomerular capillary system of maturing glomerular tuft
 EMAP:0027993 > |     | + juxtaglomerular arteriole
@@ -6853,17 +6840,28 @@ EMAP:0028381 > |     | + renal artery
 EMAP:0029977 ~ |     | | + endothelial layer of renal artery
 EMAP:0029998 ~ |     | | + endothelium of renal artery
 EMAP:0030006 ~ |     | | \ smooth muscle layer of renal artery
-EMAP:0030044 > |     | + renal medullary capillary
-EMAP:0028385 > |     | \ renal vein
-EMAP:0029965 ~ |     |   + endothelial layer of renal vein
-EMAP:0030014 ~ |     |   + endothelium of renal vein
-EMAP:0030022 ~ |     |   \ smooth muscle layer of renal vein
-EMAP:0031451 G |     \ renal venous system
-EMAP:0028168 > |       + renal medullary venous system
-EMAP:0028385 > |       \ renal vein
-EMAP:0029965 ~ |         + endothelial layer of renal vein
-EMAP:0030014 ~ |         + endothelium of renal vein
-EMAP:0030022 ~ |         \ smooth muscle layer of renal vein
+EMAP:0028385 > |     | + renal vein
+EMAP:0029965 ~ |     | | + endothelial layer of renal vein
+EMAP:0030014 ~ |     | | + endothelium of renal vein
+EMAP:0030022 ~ |     | | \ smooth muscle layer of renal vein
+EMAP:0030044 > |     | \ renal medullary capillary
+EMAP:0031437 G |     + renal arterial system
+EMAP:0028381 > |     | + renal artery
+EMAP:0029977 ~ |     | | + endothelial layer of renal artery
+EMAP:0029998 ~ |     | | + endothelium of renal artery
+EMAP:0030006 ~ |     | | \ smooth muscle layer of renal artery
+EMAP:0028163 > |     | \ renal medullary arterial system
+EMAP:0031451 G |     + renal venous system
+EMAP:0028385 > |     | + renal vein
+EMAP:0029965 ~ |     | | + endothelial layer of renal vein
+EMAP:0030014 ~ |     | | + endothelium of renal vein
+EMAP:0030022 ~ |     | | \ smooth muscle layer of renal vein
+EMAP:0028168 > |     | \ renal medullary venous system
+EMAP:0031807 G |     \ nerves of urethra GROUP
+EMAP:0031795 > |       + nerve of pelvic urethra of female
+EMAP:0031785 > |       + nerve of pelvic urethra of male
+EMAP:0031736 > |       + nerve of phallic urethra of female
+EMAP:0031801 > |       \ nerve of phallic urethra of male
 EMAP:0008399   \ tail
 EMAP:0008400     \ tail mesenchyme
 EMAP:0008401       \ tail paraxial mesenchyme

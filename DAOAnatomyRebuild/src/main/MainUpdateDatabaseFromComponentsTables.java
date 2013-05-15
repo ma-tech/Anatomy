@@ -34,6 +34,8 @@
 */
 package main;
 
+import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
+import app.gudmap.RunOBOResetComponentsOrderAlpha;
 import utility.Wrapper;
 
 import daolayer.DAOFactory;
@@ -43,6 +45,7 @@ import obolayer.OBOFactory;
 import daointerface.ThingDAO;
 
 import routines.runnable.UpdateDatabaseFromComponentsTables;
+
 
 public class MainUpdateDatabaseFromComponentsTables{
 
@@ -60,6 +63,10 @@ public class MainUpdateDatabaseFromComponentsTables{
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
             UpdateDatabaseFromComponentsTables.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            
+            RunOBOResetComponentsOrderAlpha.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory);
+            
+            RebuildRelationshipProjectFromComponentsTables.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

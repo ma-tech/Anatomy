@@ -32,7 +32,6 @@
 package routines.base;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -197,13 +196,6 @@ public class ValidateComponents {
                 //check that component is within life time of primary parent
                 checkAbstractAnatomyStages();
                 
-                // A-9
-                //check ordering 
-                //TEMPORARY CHANGE!!!!
-                //checkOrdering( treebuilder);
-
-                //check for changes with referenced file - changed and new;
-                // deleted is found in validateConfigureRoots
                 // A-10
                 checkChanges();
             }
@@ -303,8 +295,6 @@ public class ValidateComponents {
                 //check that component is within life time of primary parent
                 //checkAbstractAnatomyStages();
                 // B-8
-                //check ordering //block temporarily to process jane's old file
-                //checkOrdering( treebuilder );
                 //no reference file
                 //checkChanges();
             }
@@ -815,11 +805,12 @@ public class ValidateComponents {
                 //check whether there are any invalid order comments that 
                 // can't be picked up in order validation because they are
                 // invalid
+                /*
                 if ( obocomponent.hasIncorrectOrderComments() ){
 
                 	obocomponent.setFlagMissingRel(true);
                     obocomponent.setStatusRule("FAILED");
-                }
+                }*/
         	}
         		
             if ( obocomponent.getStatusRule().equals("FAILED") ) {
@@ -887,235 +878,6 @@ public class ValidateComponents {
                                 this.problemTermList.remove(obocomponent);
                                 this.problemTermList.add(obocomponent);
                             }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-    /*
-     * A-9
-     * B-8
-     * 
-     * Check the Ordering between the abstract anatomy children
-     * 
-     */
-	private void checkOrdering(TreeBuilder tree) throws Exception{
-
-        Wrapper.printMessage("validatecomponents.checkOrdering", "***", this.requestMsgLevel);
-        
-        //get all children for each component
-        //check that ordering has no gaps
-
-        //get abstract anatomy node
-        String abstractID = abstractclassobocomponent.getID();
-        
-        DefaultMutableTreeNode abstractmothernode =
-                new DefaultMutableTreeNode();
-
-        for (Enumeration<DefaultMutableTreeNode> eRootChildren = 
-                (Enumeration<DefaultMutableTreeNode>) tree.getRootNode().children();
-                eRootChildren.hasMoreElements(); ) {
-
-            OBOComponent rootChildCompie =
-                    (OBOComponent) eRootChildren.nextElement().getUserObject();
-
-            if ( rootChildCompie.getID().equals( abstractID ) ){
-            	
-                abstractmothernode = eRootChildren.nextElement();
-                
-            }
-        }
-
-        //get all nodes in the tree, starting from root node
-        Vector< DefaultMutableTreeNode > allNodes =
-                new Vector< DefaultMutableTreeNode >();
-
-        allNodes = tree.recursiveGetNodes( abstractmothernode, allNodes );
-
-        //initialise children container, order container, child component,
-        // max ordering number
-        Vector< OBOComponent > childrenobocomponents = new Vector< OBOComponent >();
-        Vector< String > childrenOrder = new Vector< String >();
-
-        int intMaxOrder = -1;
-        boolean failedChild = false;
-        boolean proceed = false;
-
-        OBOComponent childobocomponent = new OBOComponent();
-
-        //iterate all nodes
-        for (DefaultMutableTreeNode nodie: allNodes){
-        	
-            //clear children container and order container and maxseq for each
-            // parent
-            childrenobocomponents.clear();
-            childrenOrder.clear();
-            intMaxOrder = -1;
-            failedChild = false;
-            proceed = true;
-            //get all children
-            for (Enumeration<DefaultMutableTreeNode> eChildren = nodie.children() ;
-                    eChildren.hasMoreElements() ;) {
-
-                childrenobocomponents.add(
-                        (OBOComponent) eChildren.nextElement().getUserObject() );
-            }
-            
-            //convert parent node to component
-            OBOComponent parentobocomponent = (OBOComponent) nodie.getUserObject();
-            
-            //stop order checking if parent is a failed component anyway
-            if ( parentobocomponent.getStatusRule().equals("FAILED") ) {
-            	
-            	proceed = false;
-            }
-            else {
-            	
-            	proceed = true;
-            }
-
-            //stop order checking if any of the children fail
-            for (OBOComponent obocomponent: childrenobocomponents){
-            
-            	if ( obocomponent.getStatusRule().equals("FAILED") ) {
-            		
-            		failedChild = true;
-            	}
-            	else {
-            		
-            		failedChild = false;
-            	}
-
-            	if (failedChild &&
-                        !parentobocomponent.getStatusRule().equals("FAILED") ){
-                
-            		//set fail to parent
-                    parentobocomponent.setCheckComment("Ordering: The ordering " +
-                            "for this components children will be ignored " +
-                            "because one of the child components has a rule " +
-                            "violation.");
-                    
-                    parentobocomponent.setFlagMissingRel(true);
-                    parentobocomponent.setStatusRule("FAILED");
-                    this.problemTermList.add(parentobocomponent);
-                    
-                    proceed = false;
-                }
-            }
-
-            //iterate through all children to check whether they have an order
-            for (int k=0; k<childrenobocomponents.size() && proceed; k++){
-                
-            	childobocomponent = childrenobocomponents.get(k);
-
-                //get order from child obocomponent based on the parent
-                String[] arrOrderComments = 
-                        childobocomponent.getOrderCommentOnParent(
-                        parentobocomponent.getID());
-                
-                //if there is an order put in order vector
-                if ( arrOrderComments!=null ){
-                
-                	for (int i=0; i<arrOrderComments.length; i++){
-                    
-                		childrenOrder.add(arrOrderComments[i]);
-                        
-                		//find max order number for this series of siblings
-                        String[] arrayFirstWord =
-                                arrOrderComments[i].split(" ");
-                        
-                        if ( Integer.parseInt(arrayFirstWord[0]) > intMaxOrder ){
-                        	
-                            intMaxOrder = Integer.parseInt(arrayFirstWord[0]);
-                            //System.out.println("max seq = " + intMaxOrder);
-                        }
-                    }
-                }
-            }
-
-            //if max order+1 not == number of comments there are duplicate
-            // order sequence numbers
-            if ( !childrenOrder.isEmpty() &&
-                    childrenOrder.size()!=intMaxOrder+1 ){
-            	
-                /*//System.out.println("intMaxOrder = " + intMaxOrder +
-                 " childrenOrder.size = " + childrenOrder.size());*/
-                //set fail to parent
-                parentobocomponent.setCheckComment("Ordering: One of this "+
-                        "component's children has a duplicate order sequence.");
-                parentobocomponent.setFlagMissingRel(true);
-                parentobocomponent.setStatusRule("FAILED");
-                
-                this.problemTermList.add(parentobocomponent);
-                
-                for (OBOComponent obocomponent: childrenobocomponents){
-                
-                	obocomponent.setCheckComment("Ordering: One of the siblings " +
-                            "of this component or this component itself " +
-                            "has a duplicate order sequence.");
-                    obocomponent.setStatusRule("FAILED");
-                    obocomponent.setFlagMissingRel(true);
-                    
-                    this.problemTermList.add(obocomponent);
-                }
-                
-            //if order vector is not empty, there is at least one child with
-            // order
-            }
-            else if ( !childrenOrder.isEmpty() ){
-
-            	//check no gaps
-                boolean notMatch = true;
-                boolean flagStop = false;
-                
-                //for order 0 to max sequence number in siblings
-                for (int i=0; i<=intMaxOrder && !flagStop; i++){
-                
-                	notMatch = true;
-                    
-                	//find in all children
-                    for (int k=0; k<childrenOrder.size() && notMatch; k++){
-                    
-                    	//an order that matches i
-                        String strOrder = 
-                                childrenOrder.get(k).substring(0, Integer.toString(i).length());
-                        
-                        if ( strOrder.equals(Integer.toString(i)) ){
-                        
-                        	/*//System.out.println("Child of " +
-                             parentobocomponent.getID() + " has order " + strOrder);*/
-                            notMatch=false;
-                            
-                        } 
-                    }
-                    //order not found for i
-                    if ( notMatch ){
-                        
-                    	flagStop = true; //stop check gaps process
-                        
-                    	//set fail to parent
-                        parentobocomponent.setCheckComment("Ordering: One of " +
-                                "this component's children has an incorrect " +
-                                "sequence order.");
-                        parentobocomponent.setFlagMissingRel(true);
-                        parentobocomponent.setStatusRule("FAILED");
-
-                        this.problemTermList.add(parentobocomponent);
-
-                        for (OBOComponent obocomponent: childrenobocomponents){
-                        
-                        	obocomponent.setCheckComment("Ordering: One of the " +
-                                    "siblings of this component or this " +
-                                    "component itself has an incorrect " +
-                                    "order sequence.");
-                            
-                        	obocomponent.setStatusRule("FAILED");
-                            obocomponent.setFlagMissingRel(true);
-                            
-                            this.problemTermList.add(obocomponent);
                         }
                     }
                 }
@@ -1413,55 +1175,6 @@ public class ValidateComponents {
 
     
     // Helpers-------------------------------------------------------------------------------------
-	private DefaultMutableTreeNode findCommonAncestor( 
-            Vector< DefaultMutableTreeNode[] > paths,
-            TreeBuilder tree) throws Exception{
- 
-        Wrapper.printMessage("validatecomponents.findCommonAncestor", "***", this.requestMsgLevel);
-        
-        DefaultMutableTreeNode[] basePath = paths.firstElement();
-        DefaultMutableTreeNode commonAncestor =
-                new DefaultMutableTreeNode("not found");
-
-        //current node
-        DefaultMutableTreeNode node = new DefaultMutableTreeNode();
-
-        boolean found = true;
-
-        int pathsWithNode = 0;
-
-        if (basePath.length==0) {
-        	
-            return commonAncestor;
-        }
-        else {
-        	
-            //compare base path against all paths in path list
-            for (int pointer = basePath.length-1; pointer>=0; pointer--){
-
-                //get furthest node 
-                node = basePath[pointer];
-                //reset pathsWithNode for each new node in base path
-                pathsWithNode = 0;
-
-                for (DefaultMutableTreeNode[] path: paths){
-                	
-                    found = tree.containsNode(path, node);
-                    
-                    if (found) {
-                    	
-                        pathsWithNode++;
-                    }
-                }
-
-                if ( pathsWithNode==paths.size() ) {
-                	
-                    return node;
-                }
-            }
-        }
-        return commonAncestor;
-    }
 
     // Getters ------------------------------------------------------------------------------------
     public ArrayList<OBOComponent> getProblemTermList(){

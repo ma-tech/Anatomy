@@ -1,6 +1,6 @@
 
 ============================================================
-===== Anatomy Database Version 11, 2012-11-13 11:54:09 =====
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
 ============================================================
 
 
@@ -30,11 +30,16 @@ EMAP:0026184   |   | + pleuro-pericardial folds
 EMAP:0026182   |   | + pleuro-peritoneal canal
 EMAP:0026183   |   | | \ pleuro-peritoneal canal mesothelial lining
 EMAP:0026185   |   | \ pleuro-peritoneal membrane
+EMAP:0034246   |   + mesothelium
 EMAP:0003989   |   + intraembryonic coelom pericardial component
 EMAP:0003990   |   | + pericardial component cavity
 EMAP:0003991   |   | \ pericardial component mesothelium
 EMAP:0003992   |   |   + pericardial component parietal mesothelium
 EMAP:0003993   |   |   \ pericardial component visceral mesothelium
+EMAP:0003994   |   + pericardio-peritoneal canal
+EMAP:0003995   |   | + pericardio-peritoneal canal cavity
+EMAP:0003996   |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0003997   |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0003998   |   + intraembryonic coelom peritoneal component
 EMAP:0003999   |   | + greater sac
 EMAP:0004000   |   | | + greater sac cavity
@@ -49,11 +54,6 @@ EMAP:0004007   |   | + pleural component cavity
 EMAP:0004008   |   | \ pleural component mesothelium
 EMAP:0004009   |   |   + pleural component parietal mesothelium
 EMAP:0004010   |   |   \ pleural component visceral mesothelium
-EMAP:0034246   |   + mesothelium
-EMAP:0003994   |   + pericardio-peritoneal canal
-EMAP:0003995   |   | + pericardio-peritoneal canal cavity
-EMAP:0003996   |   | \ pericardio-peritoneal canal mesothelium
-EMAP:0003997   |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0014738   |   \ pleuro-peritoneal canal
 EMAP:0014753   |     + pleuro-peritoneal canal cavity
 EMAP:0014743   |     \ pleuro-peritoneal canal mesothelium
@@ -725,22 +725,6 @@ EMAP:0033336   | | | + endocardial lining
 EMAP:0004417   | | | + heart mesentery
 EMAP:0004418   | | | | \ dorsal mesocardium
 EMAP:0004419   | | | |   \ transverse pericardial sinus
-EMAP:0004431   | | | + heart ventricle
-EMAP:0026031   | | | | + interventricular canal
-EMAP:0004432   | | | | + interventricular groove
-EMAP:0004433   | | | | + interventricular septum
-EMAP:0004435   | | | | | + interventricular septum cardiac muscle
-EMAP:0004434   | | | | | \ interventricular septum endocardial lining
-EMAP:0004436   | | | | + left ventricle
-EMAP:0004438   | | | | | + left ventricle cardiac muscle
-EMAP:0004437   | | | | | + left ventricle endocardial lining
-EMAP:0026040   | | | | | \ left ventricle lumen
-EMAP:0004439   | | | | + right ventricle
-EMAP:0004441   | | | | | + right ventricle cardiac muscle
-EMAP:0004440   | | | | | + right ventricle endocardial lining
-EMAP:0026049   | | | | | \ right ventricle lumen
-EMAP:0033742   | | | | + ventricle cardiac muscle
-EMAP:0033734   | | | | \ ventricle endocardial lining
 EMAP:0004420   | | | + outflow tract
 EMAP:0004422   | | | | + aortico-pulmonary spiral septum
 EMAP:0004421   | | | | + outflow tract aortic component
@@ -749,9 +733,25 @@ EMAP:0004424   | | | |   \ outflow tract pulmonary component proximal part
 EMAP:0004425   | | | + pericardium
 EMAP:0004426   | | | | + parietal pericardium
 EMAP:0004427   | | | | \ visceral pericardium
-EMAP:0004428   | | | \ sinus venosus
-EMAP:0004429   | | |   + sinus venosus left horn
-EMAP:0004430   | | |   \ sinus venosus right horn
+EMAP:0004428   | | | + sinus venosus
+EMAP:0004429   | | | | + sinus venosus left horn
+EMAP:0004430   | | | | \ sinus venosus right horn
+EMAP:0004431   | | | \ heart ventricle
+EMAP:0026031   | | |   + interventricular canal
+EMAP:0004432   | | |   + interventricular groove
+EMAP:0004433   | | |   + interventricular septum
+EMAP:0004435   | | |   | + interventricular septum cardiac muscle
+EMAP:0004434   | | |   | \ interventricular septum endocardial lining
+EMAP:0004436   | | |   + left ventricle
+EMAP:0004438   | | |   | + left ventricle cardiac muscle
+EMAP:0004437   | | |   | + left ventricle endocardial lining
+EMAP:0026040   | | |   | \ left ventricle lumen
+EMAP:0004439   | | |   + right ventricle
+EMAP:0004441   | | |   | + right ventricle cardiac muscle
+EMAP:0004440   | | |   | + right ventricle endocardial lining
+EMAP:0026049   | | |   | \ right ventricle lumen
+EMAP:0033742   | | |   + ventricle cardiac muscle
+EMAP:0033734   | | |   \ ventricle endocardial lining
 EMAP:0004442   | | \ venous system
 EMAP:0026198   | |   + azygos vein
 EMAP:0004443   | |   + cardinal vein
@@ -1480,65 +1480,65 @@ EMAP:0004577   |   | \ liver
 EMAP:0004578   |   |   + hepatic sinusoids
 EMAP:0004579   |   |   \ liver parenchyma
 EMAP:0004596   |   + reproductive system
-EMAP:0028872   |   | + female reproductive system
-EMAP:0029618   |   | | + genital tubercle of female
-EMAP:0031588   |   | | | + developing vasculature of female genital tubercle
-EMAP:0029622   |   | | | + genital tubercle mesenchyme of female
-EMAP:0029627   |   | | | + genital tubercle surface epithelium of female
-EMAP:0030471   |   | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
-EMAP:0028910   |   | | + mesonephros of female
-EMAP:0028935   |   | | | + coelomic epithelium of female mesonephros
-EMAP:0031688   |   | | | + developing vasculature of female mesonephros
-EMAP:0028915   |   | | | + mesonephric mesenchyme of female mesonephros
-EMAP:0028920   |   | | | + mesonephric tubule of female
-EMAP:0030554   |   | | | | + caudal mesonephric tubule of female
-EMAP:0030545   |   | | | | \ cranial mesonephric tubule of female
-EMAP:0030548   |   | | | |   + mesonephric glomerulus of female
-EMAP:0030551   |   | | | |   \ rest of cranial mesonephric tubule of female
-EMAP:0028925   |   | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
-EMAP:0028938   |   | | | + paramesonephric duct of female, mesonephric portion
-EMAP:0028930   |   | | | \ rete ovarii of mesonephros
-EMAP:0028875   |   | | + mesovarium
-EMAP:0030061   |   | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
-EMAP:0028876   |   | | + ovary
-EMAP:0028889   |   | | | + developing vasculature of ovary
-EMAP:0028878   |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
-EMAP:0028881   |   | | | + mesenchymal stroma of ovary
-EMAP:0028879   |   | | | + rete ovarii of ovary
-EMAP:0028877   |   | | | \ surface epithelium of ovary
-EMAP:0028941   |   | | \ paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
-EMAP:0028873   |   | \ male reproductive system
-EMAP:0029166   |   |   + genital tubercle of male
-EMAP:0031606   |   |   | + developing vasculature of male genital tubercle
-EMAP:0029168   |   |   | + genital tubercle mesenchyme of male
-EMAP:0029171   |   |   | + genital tubercle surface epithelium of male
-EMAP:0030468   |   |   | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0029139   |   |   + mesonephros of male
-EMAP:0030461   |   |   | + coelomic epithelium of male mesonephros
-EMAP:0031684   |   |   | + developing vasculature of male mesonephros
-EMAP:0029144   |   |   | + mesonephric mesenchyme of male
-EMAP:0029149   |   |   | + mesonephric tubule of male
-EMAP:0030541   |   |   | | + caudal mesonephric tubule of male
-EMAP:0030529   |   |   | | \ cranial mesonephric tubule of male
-EMAP:0030533   |   |   | |   + mesonephric glomerulus of male
-EMAP:0030537   |   |   | |   \ rest of cranial mesonephric tubule of male
-EMAP:0029154   |   |   | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
-EMAP:0029159   |   |   | \ paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
-EMAP:0030062   |   |   + mesorchium
-EMAP:0030060   |   |   + nephric duct of male, rest of (syn: mesonephric duct; rest of)
-EMAP:0030059   |   |   + paramesonephric duct of male, rest of
-EMAP:0029069   |   |   \ testis
-EMAP:0029071   |   |     + coelomic epithelium of testis
-EMAP:0029115   |   |     + developing vasculature of the testis
-EMAP:0029123   |   |     | + coelomic vessel
-EMAP:0029131   |   |     | \ interstitial vessel
-EMAP:0029075   |   |     + interstitium of the testis
-EMAP:0029083   |   |     | + fetal Leydig cell
-EMAP:0029091   |   |     | \ rest of interstitium of the testis
-EMAP:0029099   |   |     \ primary sex cord
-EMAP:0029103   |   |       + germ cell of testis
-EMAP:0029111   |   |       + peritubular myoid cell
-EMAP:0029107   |   |       \ Sertoli cell
+EMAP:0028873   |   | + male reproductive system
+EMAP:0029139   |   | | + mesonephros of male
+EMAP:0029154   |   | | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:0029144   |   | | | + mesonephric mesenchyme of male
+EMAP:0029149   |   | | | + mesonephric tubule of male
+EMAP:0030529   |   | | | | + cranial mesonephric tubule of male
+EMAP:0030533   |   | | | | | + mesonephric glomerulus of male
+EMAP:0030537   |   | | | | | \ rest of cranial mesonephric tubule of male
+EMAP:0030541   |   | | | | \ caudal mesonephric tubule of male
+EMAP:0029159   |   | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
+EMAP:0030461   |   | | | + coelomic epithelium of male mesonephros
+EMAP:0031684   |   | | | \ developing vasculature of male mesonephros
+EMAP:0030059   |   | | + paramesonephric duct of male, rest of
+EMAP:0030060   |   | | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:0029069   |   | | + testis
+EMAP:0029071   |   | | | + coelomic epithelium of testis
+EMAP:0029075   |   | | | + interstitium of the testis
+EMAP:0029083   |   | | | | + fetal Leydig cell
+EMAP:0029091   |   | | | | \ rest of interstitium of the testis
+EMAP:0029115   |   | | | + developing vasculature of the testis
+EMAP:0029123   |   | | | | + coelomic vessel
+EMAP:0029131   |   | | | | \ interstitial vessel
+EMAP:0029099   |   | | | \ primary sex cord
+EMAP:0029107   |   | | |   + Sertoli cell
+EMAP:0029103   |   | | |   + germ cell of testis
+EMAP:0029111   |   | | |   \ peritubular myoid cell
+EMAP:0030062   |   | | + mesorchium
+EMAP:0029166   |   | | \ genital tubercle of male
+EMAP:0029171   |   | |   + genital tubercle surface epithelium of male
+EMAP:0029168   |   | |   + genital tubercle mesenchyme of male
+EMAP:0030468   |   | |   + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031606   |   | |   \ developing vasculature of male genital tubercle
+EMAP:0028872   |   | \ female reproductive system
+EMAP:0028910   |   |   + mesonephros of female
+EMAP:0028915   |   |   | + mesonephric mesenchyme of female mesonephros
+EMAP:0028920   |   |   | + mesonephric tubule of female
+EMAP:0030545   |   |   | | + cranial mesonephric tubule of female
+EMAP:0030548   |   |   | | | + mesonephric glomerulus of female
+EMAP:0030551   |   |   | | | \ rest of cranial mesonephric tubule of female
+EMAP:0030554   |   |   | | \ caudal mesonephric tubule of female
+EMAP:0028925   |   |   | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
+EMAP:0028938   |   |   | + paramesonephric duct of female, mesonephric portion
+EMAP:0028930   |   |   | + rete ovarii of mesonephros
+EMAP:0028935   |   |   | + coelomic epithelium of female mesonephros
+EMAP:0031688   |   |   | \ developing vasculature of female mesonephros
+EMAP:0028941   |   |   + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
+EMAP:0030061   |   |   + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
+EMAP:0028876   |   |   + ovary
+EMAP:0028877   |   |   | + surface epithelium of ovary
+EMAP:0028881   |   |   | + mesenchymal stroma of ovary
+EMAP:0028878   |   |   | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:0028889   |   |   | + developing vasculature of ovary
+EMAP:0028879   |   |   | \ rete ovarii of ovary
+EMAP:0028875   |   |   + mesovarium
+EMAP:0029618   |   |   \ genital tubercle of female
+EMAP:0029627   |   |     + genital tubercle surface epithelium of female
+EMAP:0029622   |   |     + genital tubercle mesenchyme of female
+EMAP:0030471   |   |     + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031588   |   |     \ developing vasculature of female genital tubercle
 EMAP:0004602   |   + respiratory system
 EMAP:0004603   |   | + arytenoid swelling cartilage condensation
 EMAP:0033358   |   | + bronchus
@@ -1597,29 +1597,30 @@ EMAP:0004633   |   |       + nasopharynx associated mesenchyme
 EMAP:0004634   |   |       + nasopharynx epithelium
 EMAP:0004635   |   |       \ nasopharynx vascular element (syn: artery; vein)
 EMAP:0004580   |   \ urinary system
-EMAP:0028548   |     + allantois
-EMAP:0034889   |     + cloaca
+EMAP:0004581   |     + urinary system mesentery
+EMAP:0029610   |     | + rest of mesentery
+EMAP:0004582   |     | \ urogenital mesentery
 EMAP:0004587   |     + metanephros
-EMAP:0004589   |     | + cap mesenchyme
-EMAP:0027682   |     | + comma-shaped body
-EMAP:0027688   |     | | + lower limb of comma-shaped body
-EMAP:0031717   |     | | + renal connecting segment of comma-shaped body
-EMAP:0027685   |     | | \ upper limb of comma-shaped body
-EMAP:0027795   |     | + developing vasculature of metanephros
-EMAP:0027672   |     | + nephrogenic interstitium
-EMAP:0027674   |     | + pretubular aggregate
-EMAP:0004590   |     | + primitive collecting duct
-EMAP:0027695   |     | | + ureteric tip
-EMAP:0027698   |     | | \ ureteric trunk
 EMAP:0031848   |     | + renal capsule
+EMAP:0027672   |     | + nephrogenic interstitium
+EMAP:0004589   |     | + cap mesenchyme
+EMAP:0027674   |     | + pretubular aggregate
+EMAP:0027679   |     | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031700   |     | | + renal connecting segment of renal vesicle
+EMAP:0031836   |     | | + distal renal vesicle
+EMAP:0031731   |     | | \ proximal renal vesicle
+EMAP:0027682   |     | + comma-shaped body
+EMAP:0027685   |     | | + upper limb of comma-shaped body
+EMAP:0027688   |     | | + lower limb of comma-shaped body
+EMAP:0031717   |     | | \ renal connecting segment of comma-shaped body
 EMAP:0027691   |     | + renal interstitium
-EMAP:0031271   |     | | + nephrogenic interstitium
 EMAP:0031274   |     | | + resident macrophages
+EMAP:0031271   |     | | + nephrogenic interstitium
 EMAP:0031277   |     | | \ rest of renal interstitium
-EMAP:0027679   |     | \ renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031836   |     |   + distal renal vesicle
-EMAP:0031731   |     |   + proximal renal vesicle
-EMAP:0031700   |     |   \ renal connecting segment of renal vesicle
+EMAP:0027795   |     | + developing vasculature of metanephros
+EMAP:0004590   |     | \ primitive collecting duct
+EMAP:0027695   |     |   + ureteric tip
+EMAP:0027698   |     |   \ ureteric trunk
 EMAP:0004592   |     + nephric duct, metanephric portion (syn: mesonephric duct, metanephric portion; Wolffian duct)
 EMAP:0004591   |     + ureter
 EMAP:0027709   |     | + epithelial layer of ureter
@@ -1627,27 +1628,26 @@ EMAP:0027712   |     | + ureteral mesenchyme
 EMAP:0028562   |     | | + ureteral mesenchyme subepithelial layer
 EMAP:0029994   |     | | \ ureteral mesenchyme, rest of
 EMAP:0030851   |     | \ ureteral vasculature
-EMAP:0030889   |     + urethral fold
-EMAP:0028556   |     + urethral plate
-EMAP:0004581   |     + urinary system mesentery
-EMAP:0029610   |     | + rest of mesentery
-EMAP:0004582   |     | \ urogenital mesentery
-EMAP:0004593   |     + urogenital membrane
+EMAP:0028548   |     + allantois
 EMAP:0004594   |     + urogenital sinus
 EMAP:0031673   |     | + developing vasculature of urogenital sinus
 EMAP:0031675   |     | + nerves of urogenital sinus
-EMAP:0031663   |     | | + nerve of urogenital sinus
-EMAP:0031661   |     | | \ pelvic ganglion
+EMAP:0031661   |     | | + pelvic ganglion
+EMAP:0031663   |     | | \ nerve of urogenital sinus
 EMAP:0030871   |     | + primitive bladder
-EMAP:0031692   |     | | + developing vasculature of primitive bladder
 EMAP:0030874   |     | | + epithelial layer of primitive bladder
-EMAP:0030877   |     | | \ mesenchymal layer of primitive bladder
-EMAP:0031665   |     | |   + mesenchymal layer of dorsal primitive bladder
-EMAP:0031652   |     | |   \ mesenchymal layer of ventral primitive bladder
+EMAP:0030877   |     | | + mesenchymal layer of primitive bladder
+EMAP:0031665   |     | | | + mesenchymal layer of dorsal primitive bladder
+EMAP:0031652   |     | | | \ mesenchymal layer of ventral primitive bladder
+EMAP:0031692   |     | | \ developing vasculature of primitive bladder
 EMAP:0030880   |     | \ rest of urogenital sinus
 EMAP:0030883   |     |   + epithelial layer of rest of urogenital sinus
 EMAP:0030886   |     |   \ mesenchymal layer of rest of urogenital sinus
-EMAP:0004595   |     \ urorectal septum
+EMAP:0034889   |     + cloaca
+EMAP:0004595   |     + urorectal septum
+EMAP:0004593   |     + urogenital membrane
+EMAP:0028556   |     + urethral plate
+EMAP:0030889   |     \ urethral fold
 EMAP:0004651   + tail
 EMAP:0033878   | + tail ectoderm
 EMAP:0004652   | + tail mesenchyme
@@ -1782,11 +1782,16 @@ EMAP:0026184 ~ | |   | + pleuro-pericardial folds
 EMAP:0026182 ~ | |   | + pleuro-peritoneal canal
 EMAP:0026183 ~ | |   | | \ pleuro-peritoneal canal mesothelial lining
 EMAP:0026185 ~ | |   | \ pleuro-peritoneal membrane
+EMAP:0034246 ~ | |   + mesothelium
 EMAP:0003989 ~ | |   + intraembryonic coelom pericardial component
 EMAP:0003990 ~ | |   | + pericardial component cavity
 EMAP:0003991 ~ | |   | \ pericardial component mesothelium
 EMAP:0003992 ~ | |   |   + pericardial component parietal mesothelium
 EMAP:0003993 ~ | |   |   \ pericardial component visceral mesothelium
+EMAP:0003994 ~ | |   + pericardio-peritoneal canal
+EMAP:0003995 ~ | |   | + pericardio-peritoneal canal cavity
+EMAP:0003996 ~ | |   | \ pericardio-peritoneal canal mesothelium
+EMAP:0003997 ~ | |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0003998 ~ | |   + intraembryonic coelom peritoneal component
 EMAP:0003999 ~ | |   | + greater sac
 EMAP:0004000 ~ | |   | | + greater sac cavity
@@ -1801,11 +1806,6 @@ EMAP:0004007 ~ | |   | + pleural component cavity
 EMAP:0004008 ~ | |   | \ pleural component mesothelium
 EMAP:0004009 ~ | |   |   + pleural component parietal mesothelium
 EMAP:0004010 ~ | |   |   \ pleural component visceral mesothelium
-EMAP:0034246 ~ | |   + mesothelium
-EMAP:0003994 ~ | |   + pericardio-peritoneal canal
-EMAP:0003995 ~ | |   | + pericardio-peritoneal canal cavity
-EMAP:0003996 ~ | |   | \ pericardio-peritoneal canal mesothelium
-EMAP:0003997 ~ | |   |   \ pericardio-peritoneal canal parietal mesothelium
 EMAP:0014738 ~ | |   \ pleuro-peritoneal canal
 EMAP:0014753 ~ | |     + pleuro-peritoneal canal cavity
 EMAP:0014743 ~ | |     \ pleuro-peritoneal canal mesothelium
@@ -2138,44 +2138,44 @@ EMAP:0031116 ~ | | | | + dermomyotome group
 EMAP:0034142 ~ | | | | | + dermatome
 EMAP:0034163 ~ | | | | | + myotome
 EMAP:0029705 ~ | | | | | \ tail dermomyotome group
-EMAP:0004657 ~ | | | | |   + somite 35 dermomyotome
-EMAP:0004665 ~ | | | | |   + somite 36 dermomyotome
-EMAP:0004661 ~ | | | | |   + somite 36 dermomyotome
-EMAP:0004669 ~ | | | | |   + somite 38 dermomyotome
-EMAP:0004673 ~ | | | | |   + somite 39 dermomyotome
-EMAP:0004677 ~ | | | | |   + somite 40 dermomyotome
 EMAP:0004681 ~ | | | | |   + somite 41 dermomyotome
+EMAP:0004713 ~ | | | | |   + somite 49 dermomyotome
+EMAP:0004665 ~ | | | | |   + somite 36 dermomyotome
+EMAP:0004717 ~ | | | | |   + somite 50 dermomyotome
+EMAP:0004697 ~ | | | | |   + somite 45 dermomyotome
 EMAP:0004685 ~ | | | | |   + somite 42 dermomyotome
 EMAP:0004689 ~ | | | | |   + somite 43 dermomyotome
-EMAP:0004693 ~ | | | | |   + somite 44 dermomyotome
-EMAP:0004697 ~ | | | | |   + somite 45 dermomyotome
+EMAP:0004725 ~ | | | | |   + somite 52 dermomyotome
+EMAP:0004669 ~ | | | | |   + somite 38 dermomyotome
+EMAP:0004677 ~ | | | | |   + somite 40 dermomyotome
 EMAP:0004701 ~ | | | | |   + somite 46 dermomyotome
-EMAP:0004705 ~ | | | | |   + somite 47 dermomyotome
 EMAP:0004709 ~ | | | | |   + somite 48 dermomyotome
-EMAP:0004713 ~ | | | | |   + somite 49 dermomyotome
-EMAP:0004717 ~ | | | | |   + somite 50 dermomyotome
 EMAP:0004721 ~ | | | | |   + somite 51 dermomyotome
-EMAP:0004725 ~ | | | | |   \ somite 52 dermomyotome
+EMAP:0004657 ~ | | | | |   + somite 35 dermomyotome
+EMAP:0004705 ~ | | | | |   + somite 47 dermomyotome
+EMAP:0004673 ~ | | | | |   + somite 39 dermomyotome
+EMAP:0004661 ~ | | | | |   + somite 36 dermomyotome
+EMAP:0004693 ~ | | | | |   \ somite 44 dermomyotome
 EMAP:0031166 ~ | | | | + sclerotome group
 EMAP:0031156 ~ | | | | | \ tail sclerotome group
-EMAP:0004659 ~ | | | | |   + somite 35 sclerotome
-EMAP:0004667 ~ | | | | |   + somite 36 sclerotome
-EMAP:0004663 ~ | | | | |   + somite 36 sclerotome
-EMAP:0004671 ~ | | | | |   + somite 38 sclerotome
-EMAP:0004675 ~ | | | | |   + somite 39 sclerotome
-EMAP:0004679 ~ | | | | |   + somite 40 sclerotome
 EMAP:0004683 ~ | | | | |   + somite 41 sclerotome
-EMAP:0004687 ~ | | | | |   + somite 42 sclerotome
-EMAP:0004691 ~ | | | | |   + somite 43 sclerotome
-EMAP:0004695 ~ | | | | |   + somite 44 sclerotome
-EMAP:0004699 ~ | | | | |   + somite 45 sclerotome
-EMAP:0004703 ~ | | | | |   + somite 46 sclerotome
-EMAP:0004707 ~ | | | | |   + somite 47 sclerotome
-EMAP:0004711 ~ | | | | |   + somite 48 sclerotome
-EMAP:0004715 ~ | | | | |   + somite 49 sclerotome
 EMAP:0004719 ~ | | | | |   + somite 50 sclerotome
+EMAP:0004703 ~ | | | | |   + somite 46 sclerotome
+EMAP:0004679 ~ | | | | |   + somite 40 sclerotome
+EMAP:0004715 ~ | | | | |   + somite 49 sclerotome
+EMAP:0004663 ~ | | | | |   + somite 36 sclerotome
+EMAP:0004667 ~ | | | | |   + somite 36 sclerotome
+EMAP:0004691 ~ | | | | |   + somite 43 sclerotome
+EMAP:0004675 ~ | | | | |   + somite 39 sclerotome
+EMAP:0004727 ~ | | | | |   + somite 52 sclerotome
+EMAP:0004699 ~ | | | | |   + somite 45 sclerotome
+EMAP:0004687 ~ | | | | |   + somite 42 sclerotome
+EMAP:0004659 ~ | | | | |   + somite 35 sclerotome
+EMAP:0004695 ~ | | | | |   + somite 44 sclerotome
+EMAP:0004671 ~ | | | | |   + somite 38 sclerotome
+EMAP:0004711 ~ | | | | |   + somite 48 sclerotome
 EMAP:0004723 ~ | | | | |   + somite 51 sclerotome
-EMAP:0004727 ~ | | | | |   \ somite 52 sclerotome
+EMAP:0004707 ~ | | | | |   \ somite 47 sclerotome
 EMAP:0004655 ~ | | | | \ tail somite group
 EMAP:0004656 ~ | | | |   + somite 35
 EMAP:0004657 ~ | | | |   | + somite 35 dermomyotome
@@ -2250,62 +2250,62 @@ EMAP:0004725 ~ | | | |   | + somite 52 dermomyotome
 EMAP:0004726 ~ | | | |   | + somite 52 myocoele
 EMAP:0004727 ~ | | | |   | \ somite 52 sclerotome
 EMAP:0029705 ~ | | | |   + tail dermomyotome group
-EMAP:0004657 ~ | | | |   | + somite 35 dermomyotome
-EMAP:0004665 ~ | | | |   | + somite 36 dermomyotome
-EMAP:0004661 ~ | | | |   | + somite 36 dermomyotome
-EMAP:0004669 ~ | | | |   | + somite 38 dermomyotome
-EMAP:0004673 ~ | | | |   | + somite 39 dermomyotome
-EMAP:0004677 ~ | | | |   | + somite 40 dermomyotome
 EMAP:0004681 ~ | | | |   | + somite 41 dermomyotome
+EMAP:0004713 ~ | | | |   | + somite 49 dermomyotome
+EMAP:0004665 ~ | | | |   | + somite 36 dermomyotome
+EMAP:0004717 ~ | | | |   | + somite 50 dermomyotome
+EMAP:0004697 ~ | | | |   | + somite 45 dermomyotome
 EMAP:0004685 ~ | | | |   | + somite 42 dermomyotome
 EMAP:0004689 ~ | | | |   | + somite 43 dermomyotome
-EMAP:0004693 ~ | | | |   | + somite 44 dermomyotome
-EMAP:0004697 ~ | | | |   | + somite 45 dermomyotome
+EMAP:0004725 ~ | | | |   | + somite 52 dermomyotome
+EMAP:0004669 ~ | | | |   | + somite 38 dermomyotome
+EMAP:0004677 ~ | | | |   | + somite 40 dermomyotome
 EMAP:0004701 ~ | | | |   | + somite 46 dermomyotome
-EMAP:0004705 ~ | | | |   | + somite 47 dermomyotome
 EMAP:0004709 ~ | | | |   | + somite 48 dermomyotome
-EMAP:0004713 ~ | | | |   | + somite 49 dermomyotome
-EMAP:0004717 ~ | | | |   | + somite 50 dermomyotome
 EMAP:0004721 ~ | | | |   | + somite 51 dermomyotome
-EMAP:0004725 ~ | | | |   | \ somite 52 dermomyotome
+EMAP:0004657 ~ | | | |   | + somite 35 dermomyotome
+EMAP:0004705 ~ | | | |   | + somite 47 dermomyotome
+EMAP:0004673 ~ | | | |   | + somite 39 dermomyotome
+EMAP:0004661 ~ | | | |   | + somite 36 dermomyotome
+EMAP:0004693 ~ | | | |   | \ somite 44 dermomyotome
 EMAP:0031131 ~ | | | |   + tail myocoele group
-EMAP:0004658 ~ | | | |   | + somite 35 myocoele
-EMAP:0004662 ~ | | | |   | + somite 36 myocoele
-EMAP:0004666 ~ | | | |   | + somite 36 myocoele
-EMAP:0004670 ~ | | | |   | + somite 38 myocoele
-EMAP:0004674 ~ | | | |   | + somite 39 myocoele
-EMAP:0004678 ~ | | | |   | + somite 40 myocoele
-EMAP:0004682 ~ | | | |   | + somite 41 myocoele
-EMAP:0004686 ~ | | | |   | + somite 42 myocoele
-EMAP:0004690 ~ | | | |   | + somite 43 myocoele
-EMAP:0004694 ~ | | | |   | + somite 44 myocoele
-EMAP:0004698 ~ | | | |   | + somite 45 myocoele
-EMAP:0004702 ~ | | | |   | + somite 46 myocoele
-EMAP:0004706 ~ | | | |   | + somite 47 myocoele
-EMAP:0004710 ~ | | | |   | + somite 48 myocoele
-EMAP:0004714 ~ | | | |   | + somite 49 myocoele
-EMAP:0004718 ~ | | | |   | + somite 50 myocoele
 EMAP:0004722 ~ | | | |   | + somite 51 myocoele
-EMAP:0004726 ~ | | | |   | \ somite 52 myocoele
+EMAP:0004678 ~ | | | |   | + somite 40 myocoele
+EMAP:0004658 ~ | | | |   | + somite 35 myocoele
+EMAP:0004670 ~ | | | |   | + somite 38 myocoele
+EMAP:0004710 ~ | | | |   | + somite 48 myocoele
+EMAP:0004666 ~ | | | |   | + somite 36 myocoele
+EMAP:0004726 ~ | | | |   | + somite 52 myocoele
+EMAP:0004702 ~ | | | |   | + somite 46 myocoele
+EMAP:0004698 ~ | | | |   | + somite 45 myocoele
+EMAP:0004674 ~ | | | |   | + somite 39 myocoele
+EMAP:0004662 ~ | | | |   | + somite 36 myocoele
+EMAP:0004706 ~ | | | |   | + somite 47 myocoele
+EMAP:0004690 ~ | | | |   | + somite 43 myocoele
+EMAP:0004682 ~ | | | |   | + somite 41 myocoele
+EMAP:0004718 ~ | | | |   | + somite 50 myocoele
+EMAP:0004686 ~ | | | |   | + somite 42 myocoele
+EMAP:0004714 ~ | | | |   | + somite 49 myocoele
+EMAP:0004694 ~ | | | |   | \ somite 44 myocoele
 EMAP:0031156 ~ | | | |   \ tail sclerotome group
-EMAP:0004659 ~ | | | |     + somite 35 sclerotome
-EMAP:0004667 ~ | | | |     + somite 36 sclerotome
-EMAP:0004663 ~ | | | |     + somite 36 sclerotome
-EMAP:0004671 ~ | | | |     + somite 38 sclerotome
-EMAP:0004675 ~ | | | |     + somite 39 sclerotome
-EMAP:0004679 ~ | | | |     + somite 40 sclerotome
 EMAP:0004683 ~ | | | |     + somite 41 sclerotome
-EMAP:0004687 ~ | | | |     + somite 42 sclerotome
-EMAP:0004691 ~ | | | |     + somite 43 sclerotome
-EMAP:0004695 ~ | | | |     + somite 44 sclerotome
-EMAP:0004699 ~ | | | |     + somite 45 sclerotome
-EMAP:0004703 ~ | | | |     + somite 46 sclerotome
-EMAP:0004707 ~ | | | |     + somite 47 sclerotome
-EMAP:0004711 ~ | | | |     + somite 48 sclerotome
-EMAP:0004715 ~ | | | |     + somite 49 sclerotome
 EMAP:0004719 ~ | | | |     + somite 50 sclerotome
+EMAP:0004703 ~ | | | |     + somite 46 sclerotome
+EMAP:0004679 ~ | | | |     + somite 40 sclerotome
+EMAP:0004715 ~ | | | |     + somite 49 sclerotome
+EMAP:0004663 ~ | | | |     + somite 36 sclerotome
+EMAP:0004667 ~ | | | |     + somite 36 sclerotome
+EMAP:0004691 ~ | | | |     + somite 43 sclerotome
+EMAP:0004675 ~ | | | |     + somite 39 sclerotome
+EMAP:0004727 ~ | | | |     + somite 52 sclerotome
+EMAP:0004699 ~ | | | |     + somite 45 sclerotome
+EMAP:0004687 ~ | | | |     + somite 42 sclerotome
+EMAP:0004659 ~ | | | |     + somite 35 sclerotome
+EMAP:0004695 ~ | | | |     + somite 44 sclerotome
+EMAP:0004671 ~ | | | |     + somite 38 sclerotome
+EMAP:0004711 ~ | | | |     + somite 48 sclerotome
 EMAP:0004723 ~ | | | |     + somite 51 sclerotome
-EMAP:0004727 ~ | | | |     \ somite 52 sclerotome
+EMAP:0004707 ~ | | | |     \ somite 47 sclerotome
 EMAP:0004654 ~ | | | \ tail paraxial mesenchyme
 EMAP:0004655 ~ | | |   + tail somite group
 EMAP:0004656 ~ | | |   | + somite 35
@@ -2381,62 +2381,62 @@ EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
 EMAP:0004726 ~ | | |   | | + somite 52 myocoele
 EMAP:0004727 ~ | | |   | | \ somite 52 sclerotome
 EMAP:0029705 ~ | | |   | + tail dermomyotome group
-EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
-EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
-EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
-EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004681 ~ | | |   | | + somite 41 dermomyotome
+EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
+EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
+EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
 EMAP:0004685 ~ | | |   | | + somite 42 dermomyotome
 EMAP:0004689 ~ | | |   | | + somite 43 dermomyotome
-EMAP:0004693 ~ | | |   | | + somite 44 dermomyotome
-EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
+EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
+EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
+EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004701 ~ | | |   | | + somite 46 dermomyotome
-EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
 EMAP:0004709 ~ | | |   | | + somite 48 dermomyotome
-EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
-EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
 EMAP:0004721 ~ | | |   | | + somite 51 dermomyotome
-EMAP:0004725 ~ | | |   | | \ somite 52 dermomyotome
+EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
+EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
+EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
+EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004693 ~ | | |   | | \ somite 44 dermomyotome
 EMAP:0031131 ~ | | |   | + tail myocoele group
-EMAP:0004658 ~ | | |   | | + somite 35 myocoele
-EMAP:0004662 ~ | | |   | | + somite 36 myocoele
-EMAP:0004666 ~ | | |   | | + somite 36 myocoele
-EMAP:0004670 ~ | | |   | | + somite 38 myocoele
-EMAP:0004674 ~ | | |   | | + somite 39 myocoele
-EMAP:0004678 ~ | | |   | | + somite 40 myocoele
-EMAP:0004682 ~ | | |   | | + somite 41 myocoele
-EMAP:0004686 ~ | | |   | | + somite 42 myocoele
-EMAP:0004690 ~ | | |   | | + somite 43 myocoele
-EMAP:0004694 ~ | | |   | | + somite 44 myocoele
-EMAP:0004698 ~ | | |   | | + somite 45 myocoele
-EMAP:0004702 ~ | | |   | | + somite 46 myocoele
-EMAP:0004706 ~ | | |   | | + somite 47 myocoele
-EMAP:0004710 ~ | | |   | | + somite 48 myocoele
-EMAP:0004714 ~ | | |   | | + somite 49 myocoele
-EMAP:0004718 ~ | | |   | | + somite 50 myocoele
 EMAP:0004722 ~ | | |   | | + somite 51 myocoele
-EMAP:0004726 ~ | | |   | | \ somite 52 myocoele
+EMAP:0004678 ~ | | |   | | + somite 40 myocoele
+EMAP:0004658 ~ | | |   | | + somite 35 myocoele
+EMAP:0004670 ~ | | |   | | + somite 38 myocoele
+EMAP:0004710 ~ | | |   | | + somite 48 myocoele
+EMAP:0004666 ~ | | |   | | + somite 36 myocoele
+EMAP:0004726 ~ | | |   | | + somite 52 myocoele
+EMAP:0004702 ~ | | |   | | + somite 46 myocoele
+EMAP:0004698 ~ | | |   | | + somite 45 myocoele
+EMAP:0004674 ~ | | |   | | + somite 39 myocoele
+EMAP:0004662 ~ | | |   | | + somite 36 myocoele
+EMAP:0004706 ~ | | |   | | + somite 47 myocoele
+EMAP:0004690 ~ | | |   | | + somite 43 myocoele
+EMAP:0004682 ~ | | |   | | + somite 41 myocoele
+EMAP:0004718 ~ | | |   | | + somite 50 myocoele
+EMAP:0004686 ~ | | |   | | + somite 42 myocoele
+EMAP:0004714 ~ | | |   | | + somite 49 myocoele
+EMAP:0004694 ~ | | |   | | \ somite 44 myocoele
 EMAP:0031156 ~ | | |   | \ tail sclerotome group
-EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
-EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
-EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
-EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
 EMAP:0004683 ~ | | |   |   + somite 41 sclerotome
-EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
-EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
-EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
-EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
-EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
-EMAP:0004707 ~ | | |   |   + somite 47 sclerotome
-EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
-EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
 EMAP:0004719 ~ | | |   |   + somite 50 sclerotome
+EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
+EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
+EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
+EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
+EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
+EMAP:0004727 ~ | | |   |   + somite 52 sclerotome
+EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
+EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
+EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
+EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
+EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
+EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
 EMAP:0004723 ~ | | |   |   + somite 51 sclerotome
-EMAP:0004727 ~ | | |   |   \ somite 52 sclerotome
+EMAP:0004707 ~ | | |   |   \ somite 47 sclerotome
 EMAP:0004728 ~ | | |   \ unsegmented mesenchyme
 EMAP:0033643 ~ | | + pre-cartilage condensation
 EMAP:0004652 ~ | | + tail mesenchyme
@@ -2516,62 +2516,62 @@ EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
 EMAP:0004726 ~ | | |   | | + somite 52 myocoele
 EMAP:0004727 ~ | | |   | | \ somite 52 sclerotome
 EMAP:0029705 ~ | | |   | + tail dermomyotome group
-EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
-EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
-EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
-EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004681 ~ | | |   | | + somite 41 dermomyotome
+EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
+EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
+EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
 EMAP:0004685 ~ | | |   | | + somite 42 dermomyotome
 EMAP:0004689 ~ | | |   | | + somite 43 dermomyotome
-EMAP:0004693 ~ | | |   | | + somite 44 dermomyotome
-EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
+EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
+EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
+EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004701 ~ | | |   | | + somite 46 dermomyotome
-EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
 EMAP:0004709 ~ | | |   | | + somite 48 dermomyotome
-EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
-EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
 EMAP:0004721 ~ | | |   | | + somite 51 dermomyotome
-EMAP:0004725 ~ | | |   | | \ somite 52 dermomyotome
+EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
+EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
+EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
+EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004693 ~ | | |   | | \ somite 44 dermomyotome
 EMAP:0031131 ~ | | |   | + tail myocoele group
-EMAP:0004658 ~ | | |   | | + somite 35 myocoele
-EMAP:0004662 ~ | | |   | | + somite 36 myocoele
-EMAP:0004666 ~ | | |   | | + somite 36 myocoele
-EMAP:0004670 ~ | | |   | | + somite 38 myocoele
-EMAP:0004674 ~ | | |   | | + somite 39 myocoele
-EMAP:0004678 ~ | | |   | | + somite 40 myocoele
-EMAP:0004682 ~ | | |   | | + somite 41 myocoele
-EMAP:0004686 ~ | | |   | | + somite 42 myocoele
-EMAP:0004690 ~ | | |   | | + somite 43 myocoele
-EMAP:0004694 ~ | | |   | | + somite 44 myocoele
-EMAP:0004698 ~ | | |   | | + somite 45 myocoele
-EMAP:0004702 ~ | | |   | | + somite 46 myocoele
-EMAP:0004706 ~ | | |   | | + somite 47 myocoele
-EMAP:0004710 ~ | | |   | | + somite 48 myocoele
-EMAP:0004714 ~ | | |   | | + somite 49 myocoele
-EMAP:0004718 ~ | | |   | | + somite 50 myocoele
 EMAP:0004722 ~ | | |   | | + somite 51 myocoele
-EMAP:0004726 ~ | | |   | | \ somite 52 myocoele
+EMAP:0004678 ~ | | |   | | + somite 40 myocoele
+EMAP:0004658 ~ | | |   | | + somite 35 myocoele
+EMAP:0004670 ~ | | |   | | + somite 38 myocoele
+EMAP:0004710 ~ | | |   | | + somite 48 myocoele
+EMAP:0004666 ~ | | |   | | + somite 36 myocoele
+EMAP:0004726 ~ | | |   | | + somite 52 myocoele
+EMAP:0004702 ~ | | |   | | + somite 46 myocoele
+EMAP:0004698 ~ | | |   | | + somite 45 myocoele
+EMAP:0004674 ~ | | |   | | + somite 39 myocoele
+EMAP:0004662 ~ | | |   | | + somite 36 myocoele
+EMAP:0004706 ~ | | |   | | + somite 47 myocoele
+EMAP:0004690 ~ | | |   | | + somite 43 myocoele
+EMAP:0004682 ~ | | |   | | + somite 41 myocoele
+EMAP:0004718 ~ | | |   | | + somite 50 myocoele
+EMAP:0004686 ~ | | |   | | + somite 42 myocoele
+EMAP:0004714 ~ | | |   | | + somite 49 myocoele
+EMAP:0004694 ~ | | |   | | \ somite 44 myocoele
 EMAP:0031156 ~ | | |   | \ tail sclerotome group
-EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
-EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
-EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
-EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
 EMAP:0004683 ~ | | |   |   + somite 41 sclerotome
-EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
-EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
-EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
-EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
-EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
-EMAP:0004707 ~ | | |   |   + somite 47 sclerotome
-EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
-EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
 EMAP:0004719 ~ | | |   |   + somite 50 sclerotome
+EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
+EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
+EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
+EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
+EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
+EMAP:0004727 ~ | | |   |   + somite 52 sclerotome
+EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
+EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
+EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
+EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
+EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
+EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
 EMAP:0004723 ~ | | |   |   + somite 51 sclerotome
-EMAP:0004727 ~ | | |   |   \ somite 52 sclerotome
+EMAP:0004707 ~ | | |   |   \ somite 47 sclerotome
 EMAP:0004728 ~ | | |   \ unsegmented mesenchyme
 EMAP:0004105 ~ | | \ trunk mesenchyme
 EMAP:0004106 ~ | |   + body-wall mesenchyme
@@ -2650,22 +2650,6 @@ EMAP:0033336 ~ | | | | + endocardial lining
 EMAP:0004417 ~ | | | | + heart mesentery
 EMAP:0004418 ~ | | | | | \ dorsal mesocardium
 EMAP:0004419 ~ | | | | |   \ transverse pericardial sinus
-EMAP:0004431 ~ | | | | + heart ventricle
-EMAP:0026031 ~ | | | | | + interventricular canal
-EMAP:0004432 ~ | | | | | + interventricular groove
-EMAP:0004433 ~ | | | | | + interventricular septum
-EMAP:0004435 ~ | | | | | | + interventricular septum cardiac muscle
-EMAP:0004434 ~ | | | | | | \ interventricular septum endocardial lining
-EMAP:0004436 ~ | | | | | + left ventricle
-EMAP:0004438 ~ | | | | | | + left ventricle cardiac muscle
-EMAP:0004437 ~ | | | | | | + left ventricle endocardial lining
-EMAP:0026040 ~ | | | | | | \ left ventricle lumen
-EMAP:0004439 ~ | | | | | + right ventricle
-EMAP:0004441 ~ | | | | | | + right ventricle cardiac muscle
-EMAP:0004440 ~ | | | | | | + right ventricle endocardial lining
-EMAP:0026049 ~ | | | | | | \ right ventricle lumen
-EMAP:0033742 ~ | | | | | + ventricle cardiac muscle
-EMAP:0033734 ~ | | | | | \ ventricle endocardial lining
 EMAP:0004420 ~ | | | | + outflow tract
 EMAP:0004422 ~ | | | | | + aortico-pulmonary spiral septum
 EMAP:0004421 ~ | | | | | + outflow tract aortic component
@@ -2674,9 +2658,25 @@ EMAP:0004424 ~ | | | | |   \ outflow tract pulmonary component proximal part
 EMAP:0004425 ~ | | | | + pericardium
 EMAP:0004426 ~ | | | | | + parietal pericardium
 EMAP:0004427 ~ | | | | | \ visceral pericardium
-EMAP:0004428 ~ | | | | \ sinus venosus
-EMAP:0004429 ~ | | | |   + sinus venosus left horn
-EMAP:0004430 ~ | | | |   \ sinus venosus right horn
+EMAP:0004428 ~ | | | | + sinus venosus
+EMAP:0004429 ~ | | | | | + sinus venosus left horn
+EMAP:0004430 ~ | | | | | \ sinus venosus right horn
+EMAP:0004431 ~ | | | | \ heart ventricle
+EMAP:0026031 ~ | | | |   + interventricular canal
+EMAP:0004432 ~ | | | |   + interventricular groove
+EMAP:0004433 ~ | | | |   + interventricular septum
+EMAP:0004435 ~ | | | |   | + interventricular septum cardiac muscle
+EMAP:0004434 ~ | | | |   | \ interventricular septum endocardial lining
+EMAP:0004436 ~ | | | |   + left ventricle
+EMAP:0004438 ~ | | | |   | + left ventricle cardiac muscle
+EMAP:0004437 ~ | | | |   | + left ventricle endocardial lining
+EMAP:0026040 ~ | | | |   | \ left ventricle lumen
+EMAP:0004439 ~ | | | |   + right ventricle
+EMAP:0004441 ~ | | | |   | + right ventricle cardiac muscle
+EMAP:0004440 ~ | | | |   | + right ventricle endocardial lining
+EMAP:0026049 ~ | | | |   | \ right ventricle lumen
+EMAP:0033742 ~ | | | |   + ventricle cardiac muscle
+EMAP:0033734 ~ | | | |   \ ventricle endocardial lining
 EMAP:0004442 ~ | | | \ venous system
 EMAP:0026198 ~ | | |   + azygos vein
 EMAP:0004443 ~ | | |   + cardinal vein
@@ -3405,74 +3405,74 @@ EMAP:0004577 ~ | |   | \ liver
 EMAP:0004578 ~ | |   |   + hepatic sinusoids
 EMAP:0004579 ~ | |   |   \ liver parenchyma
 EMAP:0004596 ~ | |   + reproductive system
-EMAP:0031777 ~ | |   | + developing vasculature of reproductive system GROUP
-EMAP:0031588 ~ | |   | | + developing vasculature of female genital tubercle
-EMAP:0031688 ~ | |   | | + developing vasculature of female mesonephros
-EMAP:0031606 ~ | |   | | + developing vasculature of male genital tubercle
-EMAP:0031684 ~ | |   | | + developing vasculature of male mesonephros
-EMAP:0028889 ~ | |   | | + developing vasculature of ovary
-EMAP:0029115 ~ | |   | | \ developing vasculature of the testis
-EMAP:0029123 ~ | |   | |   + coelomic vessel
-EMAP:0029131 ~ | |   | |   \ interstitial vessel
+EMAP:0028873 ~ | |   | + male reproductive system
+EMAP:0029139 ~ | |   | | + mesonephros of male
+EMAP:0029154 ~ | |   | | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:0029144 ~ | |   | | | + mesonephric mesenchyme of male
+EMAP:0029149 ~ | |   | | | + mesonephric tubule of male
+EMAP:0030529 ~ | |   | | | | + cranial mesonephric tubule of male
+EMAP:0030533 ~ | |   | | | | | + mesonephric glomerulus of male
+EMAP:0030537 ~ | |   | | | | | \ rest of cranial mesonephric tubule of male
+EMAP:0030541 ~ | |   | | | | \ caudal mesonephric tubule of male
+EMAP:0029159 ~ | |   | | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
+EMAP:0030461 ~ | |   | | | + coelomic epithelium of male mesonephros
+EMAP:0031684 ~ | |   | | | \ developing vasculature of male mesonephros
+EMAP:0030059 ~ | |   | | + paramesonephric duct of male, rest of
+EMAP:0030060 ~ | |   | | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:0029069 ~ | |   | | + testis
+EMAP:0029071 ~ | |   | | | + coelomic epithelium of testis
+EMAP:0029075 ~ | |   | | | + interstitium of the testis
+EMAP:0029083 ~ | |   | | | | + fetal Leydig cell
+EMAP:0029091 ~ | |   | | | | \ rest of interstitium of the testis
+EMAP:0029115 ~ | |   | | | + developing vasculature of the testis
+EMAP:0029123 ~ | |   | | | | + coelomic vessel
+EMAP:0029131 ~ | |   | | | | \ interstitial vessel
+EMAP:0029099 ~ | |   | | | \ primary sex cord
+EMAP:0029107 ~ | |   | | |   + Sertoli cell
+EMAP:0029103 ~ | |   | | |   + germ cell of testis
+EMAP:0029111 ~ | |   | | |   \ peritubular myoid cell
+EMAP:0030062 ~ | |   | | + mesorchium
+EMAP:0029166 ~ | |   | | \ genital tubercle of male
+EMAP:0029171 ~ | |   | |   + genital tubercle surface epithelium of male
+EMAP:0029168 ~ | |   | |   + genital tubercle mesenchyme of male
+EMAP:0030468 ~ | |   | |   + urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAP:0031606 ~ | |   | |   \ developing vasculature of male genital tubercle
 EMAP:0028872 ~ | |   | + female reproductive system
-EMAP:0029618 ~ | |   | | + genital tubercle of female
-EMAP:0031588 ~ | |   | | | + developing vasculature of female genital tubercle
-EMAP:0029622 ~ | |   | | | + genital tubercle mesenchyme of female
-EMAP:0029627 ~ | |   | | | + genital tubercle surface epithelium of female
-EMAP:0030471 ~ | |   | | | \ urethral epithelium of female (syn: urethral plate; urethral seam)
 EMAP:0028910 ~ | |   | | + mesonephros of female
-EMAP:0028935 ~ | |   | | | + coelomic epithelium of female mesonephros
-EMAP:0031688 ~ | |   | | | + developing vasculature of female mesonephros
 EMAP:0028915 ~ | |   | | | + mesonephric mesenchyme of female mesonephros
 EMAP:0028920 ~ | |   | | | + mesonephric tubule of female
-EMAP:0030554 ~ | |   | | | | + caudal mesonephric tubule of female
-EMAP:0030545 ~ | |   | | | | \ cranial mesonephric tubule of female
-EMAP:0030548 ~ | |   | | | |   + mesonephric glomerulus of female
-EMAP:0030551 ~ | |   | | | |   \ rest of cranial mesonephric tubule of female
+EMAP:0030545 ~ | |   | | | | + cranial mesonephric tubule of female
+EMAP:0030548 ~ | |   | | | | | + mesonephric glomerulus of female
+EMAP:0030551 ~ | |   | | | | | \ rest of cranial mesonephric tubule of female
+EMAP:0030554 ~ | |   | | | | \ caudal mesonephric tubule of female
 EMAP:0028925 ~ | |   | | | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
 EMAP:0028938 ~ | |   | | | + paramesonephric duct of female, mesonephric portion
-EMAP:0028930 ~ | |   | | | \ rete ovarii of mesonephros
-EMAP:0028875 ~ | |   | | + mesovarium
+EMAP:0028930 ~ | |   | | | + rete ovarii of mesonephros
+EMAP:0028935 ~ | |   | | | + coelomic epithelium of female mesonephros
+EMAP:0031688 ~ | |   | | | \ developing vasculature of female mesonephros
+EMAP:0028941 ~ | |   | | + paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
 EMAP:0030061 ~ | |   | | + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
 EMAP:0028876 ~ | |   | | + ovary
-EMAP:0028889 ~ | |   | | | + developing vasculature of ovary
-EMAP:0028878 ~ | |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:0028877 ~ | |   | | | + surface epithelium of ovary
 EMAP:0028881 ~ | |   | | | + mesenchymal stroma of ovary
-EMAP:0028879 ~ | |   | | | + rete ovarii of ovary
-EMAP:0028877 ~ | |   | | | \ surface epithelium of ovary
-EMAP:0028941 ~ | |   | | \ paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
-EMAP:0028873 ~ | |   | \ male reproductive system
-EMAP:0029166 ~ | |   |   + genital tubercle of male
-EMAP:0031606 ~ | |   |   | + developing vasculature of male genital tubercle
-EMAP:0029168 ~ | |   |   | + genital tubercle mesenchyme of male
-EMAP:0029171 ~ | |   |   | + genital tubercle surface epithelium of male
-EMAP:0030468 ~ | |   |   | \ urethral epithelium of male (syn: urethral plate; urethral seam)
-EMAP:0029139 ~ | |   |   + mesonephros of male
-EMAP:0030461 ~ | |   |   | + coelomic epithelium of male mesonephros
-EMAP:0031684 ~ | |   |   | + developing vasculature of male mesonephros
-EMAP:0029144 ~ | |   |   | + mesonephric mesenchyme of male
-EMAP:0029149 ~ | |   |   | + mesonephric tubule of male
-EMAP:0030541 ~ | |   |   | | + caudal mesonephric tubule of male
-EMAP:0030529 ~ | |   |   | | \ cranial mesonephric tubule of male
-EMAP:0030533 ~ | |   |   | |   + mesonephric glomerulus of male
-EMAP:0030537 ~ | |   |   | |   \ rest of cranial mesonephric tubule of male
-EMAP:0029154 ~ | |   |   | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
-EMAP:0029159 ~ | |   |   | \ paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Mullerian duct of male)
-EMAP:0030062 ~ | |   |   + mesorchium
-EMAP:0030060 ~ | |   |   + nephric duct of male, rest of (syn: mesonephric duct; rest of)
-EMAP:0030059 ~ | |   |   + paramesonephric duct of male, rest of
-EMAP:0029069 ~ | |   |   \ testis
-EMAP:0029071 ~ | |   |     + coelomic epithelium of testis
-EMAP:0029115 ~ | |   |     + developing vasculature of the testis
-EMAP:0029123 ~ | |   |     | + coelomic vessel
-EMAP:0029131 ~ | |   |     | \ interstitial vessel
-EMAP:0029075 ~ | |   |     + interstitium of the testis
-EMAP:0029083 ~ | |   |     | + fetal Leydig cell
-EMAP:0029091 ~ | |   |     | \ rest of interstitium of the testis
-EMAP:0029099 ~ | |   |     \ primary sex cord
-EMAP:0029103 ~ | |   |       + germ cell of testis
-EMAP:0029111 ~ | |   |       + peritubular myoid cell
-EMAP:0029107 ~ | |   |       \ Sertoli cell
+EMAP:0028878 ~ | |   | | | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:0028889 ~ | |   | | | + developing vasculature of ovary
+EMAP:0028879 ~ | |   | | | \ rete ovarii of ovary
+EMAP:0028875 ~ | |   | | + mesovarium
+EMAP:0029618 ~ | |   | | \ genital tubercle of female
+EMAP:0029627 ~ | |   | |   + genital tubercle surface epithelium of female
+EMAP:0029622 ~ | |   | |   + genital tubercle mesenchyme of female
+EMAP:0030471 ~ | |   | |   + urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAP:0031588 ~ | |   | |   \ developing vasculature of female genital tubercle
+EMAP:0031777 ~ | |   | \ developing vasculature of reproductive system GROUP
+EMAP:0031588 ~ | |   |   + developing vasculature of female genital tubercle
+EMAP:0031688 ~ | |   |   + developing vasculature of female mesonephros
+EMAP:0031606 ~ | |   |   + developing vasculature of male genital tubercle
+EMAP:0031684 ~ | |   |   + developing vasculature of male mesonephros
+EMAP:0028889 ~ | |   |   + developing vasculature of ovary
+EMAP:0029115 ~ | |   |   \ developing vasculature of the testis
+EMAP:0029123 ~ | |   |     + coelomic vessel
+EMAP:0029131 ~ | |   |     \ interstitial vessel
 EMAP:0004602 ~ | |   + respiratory system
 EMAP:0004603 ~ | |   | + arytenoid swelling cartilage condensation
 EMAP:0033358 ~ | |   | + bronchus
@@ -3531,48 +3531,44 @@ EMAP:0004633 ~ | |   |       + nasopharynx associated mesenchyme
 EMAP:0004634 ~ | |   |       + nasopharynx epithelium
 EMAP:0004635 ~ | |   |       \ nasopharynx vascular element (syn: artery; vein)
 EMAP:0004580 ~ | |   \ urinary system
-EMAP:0028548 ~ | |     + allantois
-EMAP:0034889 ~ | |     + cloaca
-EMAP:0031768 ~ | |     + developing vasculature of urinary system GROUP
-EMAP:0027795 ~ | |     | + developing vasculature of metanephros
-EMAP:0031692 ~ | |     | + developing vasculature of primitive bladder
-EMAP:0031673 ~ | |     | + developing vasculature of urogenital sinus
-EMAP:0030851 ~ | |     | \ ureteral vasculature
+EMAP:0004581 ~ | |     + urinary system mesentery
+EMAP:0029610 ~ | |     | + rest of mesentery
+EMAP:0004582 ~ | |     | \ urogenital mesentery
 EMAP:0004587 ~ | |     + metanephros
-EMAP:0004589 ~ | |     | + cap mesenchyme
-EMAP:0027682 ~ | |     | + comma-shaped body
-EMAP:0027688 ~ | |     | | + lower limb of comma-shaped body
-EMAP:0031717 ~ | |     | | + renal connecting segment of comma-shaped body
-EMAP:0027685 ~ | |     | | \ upper limb of comma-shaped body
-EMAP:0027795 ~ | |     | + developing vasculature of metanephros
-EMAP:0029339 ~ | |     | + early nephron GROUP
-EMAP:0027682 ~ | |     | | + comma-shaped body
-EMAP:0027688 ~ | |     | | | + lower limb of comma-shaped body
-EMAP:0031717 ~ | |     | | | + renal connecting segment of comma-shaped body
-EMAP:0027685 ~ | |     | | | \ upper limb of comma-shaped body
-EMAP:0027679 ~ | |     | | \ renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031836 ~ | |     | |   + distal renal vesicle
-EMAP:0031731 ~ | |     | |   + proximal renal vesicle
-EMAP:0031700 ~ | |     | |   \ renal connecting segment of renal vesicle
+EMAP:0031848 ~ | |     | + renal capsule
 EMAP:0027672 ~ | |     | + nephrogenic interstitium
-EMAP:0031766 ~ | |     | + nephrogenic zone GROUP
-EMAP:0004589 ~ | |     | | + cap mesenchyme
-EMAP:0031271 ~ | |     | | + nephrogenic interstitium
-EMAP:0027674 ~ | |     | | + pretubular aggregate
-EMAP:0027695 ~ | |     | | \ ureteric tip
+EMAP:0004589 ~ | |     | + cap mesenchyme
 EMAP:0027674 ~ | |     | + pretubular aggregate
+EMAP:0027679 ~ | |     | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031700 ~ | |     | | + renal connecting segment of renal vesicle
+EMAP:0031836 ~ | |     | | + distal renal vesicle
+EMAP:0031731 ~ | |     | | \ proximal renal vesicle
+EMAP:0027682 ~ | |     | + comma-shaped body
+EMAP:0027685 ~ | |     | | + upper limb of comma-shaped body
+EMAP:0027688 ~ | |     | | + lower limb of comma-shaped body
+EMAP:0031717 ~ | |     | | \ renal connecting segment of comma-shaped body
+EMAP:0027691 ~ | |     | + renal interstitium
+EMAP:0031274 ~ | |     | | + resident macrophages
+EMAP:0031271 ~ | |     | | + nephrogenic interstitium
+EMAP:0031277 ~ | |     | | \ rest of renal interstitium
+EMAP:0027795 ~ | |     | + developing vasculature of metanephros
 EMAP:0004590 ~ | |     | + primitive collecting duct
 EMAP:0027695 ~ | |     | | + ureteric tip
 EMAP:0027698 ~ | |     | | \ ureteric trunk
-EMAP:0031848 ~ | |     | + renal capsule
-EMAP:0027691 ~ | |     | + renal interstitium
-EMAP:0031271 ~ | |     | | + nephrogenic interstitium
-EMAP:0031274 ~ | |     | | + resident macrophages
-EMAP:0031277 ~ | |     | | \ rest of renal interstitium
-EMAP:0027679 ~ | |     | \ renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031836 ~ | |     |   + distal renal vesicle
-EMAP:0031731 ~ | |     |   + proximal renal vesicle
-EMAP:0031700 ~ | |     |   \ renal connecting segment of renal vesicle
+EMAP:0029339 ~ | |     | + early nephron GROUP
+EMAP:0027679 ~ | |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031700 ~ | |     | | | + renal connecting segment of renal vesicle
+EMAP:0031836 ~ | |     | | | + distal renal vesicle
+EMAP:0031731 ~ | |     | | | \ proximal renal vesicle
+EMAP:0027682 ~ | |     | | \ comma-shaped body
+EMAP:0027685 ~ | |     | |   + upper limb of comma-shaped body
+EMAP:0027688 ~ | |     | |   + lower limb of comma-shaped body
+EMAP:0031717 ~ | |     | |   \ renal connecting segment of comma-shaped body
+EMAP:0031766 ~ | |     | \ nephrogenic zone GROUP
+EMAP:0004589 ~ | |     |   + cap mesenchyme
+EMAP:0031271 ~ | |     |   + nephrogenic interstitium
+EMAP:0027674 ~ | |     |   + pretubular aggregate
+EMAP:0027695 ~ | |     |   \ ureteric tip
 EMAP:0004592 ~ | |     + nephric duct, metanephric portion (syn: mesonephric duct, metanephric portion; Wolffian duct)
 EMAP:0004591 ~ | |     + ureter
 EMAP:0027709 ~ | |     | + epithelial layer of ureter
@@ -3580,27 +3576,31 @@ EMAP:0027712 ~ | |     | + ureteral mesenchyme
 EMAP:0028562 ~ | |     | | + ureteral mesenchyme subepithelial layer
 EMAP:0029994 ~ | |     | | \ ureteral mesenchyme, rest of
 EMAP:0030851 ~ | |     | \ ureteral vasculature
-EMAP:0030889 ~ | |     + urethral fold
-EMAP:0028556 ~ | |     + urethral plate
-EMAP:0004581 ~ | |     + urinary system mesentery
-EMAP:0029610 ~ | |     | + rest of mesentery
-EMAP:0004582 ~ | |     | \ urogenital mesentery
-EMAP:0004593 ~ | |     + urogenital membrane
+EMAP:0028548 ~ | |     + allantois
 EMAP:0004594 ~ | |     + urogenital sinus
 EMAP:0031673 ~ | |     | + developing vasculature of urogenital sinus
 EMAP:0031675 ~ | |     | + nerves of urogenital sinus
-EMAP:0031663 ~ | |     | | + nerve of urogenital sinus
-EMAP:0031661 ~ | |     | | \ pelvic ganglion
+EMAP:0031661 ~ | |     | | + pelvic ganglion
+EMAP:0031663 ~ | |     | | \ nerve of urogenital sinus
 EMAP:0030871 ~ | |     | + primitive bladder
-EMAP:0031692 ~ | |     | | + developing vasculature of primitive bladder
 EMAP:0030874 ~ | |     | | + epithelial layer of primitive bladder
-EMAP:0030877 ~ | |     | | \ mesenchymal layer of primitive bladder
-EMAP:0031665 ~ | |     | |   + mesenchymal layer of dorsal primitive bladder
-EMAP:0031652 ~ | |     | |   \ mesenchymal layer of ventral primitive bladder
+EMAP:0030877 ~ | |     | | + mesenchymal layer of primitive bladder
+EMAP:0031665 ~ | |     | | | + mesenchymal layer of dorsal primitive bladder
+EMAP:0031652 ~ | |     | | | \ mesenchymal layer of ventral primitive bladder
+EMAP:0031692 ~ | |     | | \ developing vasculature of primitive bladder
 EMAP:0030880 ~ | |     | \ rest of urogenital sinus
 EMAP:0030883 ~ | |     |   + epithelial layer of rest of urogenital sinus
 EMAP:0030886 ~ | |     |   \ mesenchymal layer of rest of urogenital sinus
-EMAP:0004595 ~ | |     \ urorectal septum
+EMAP:0034889 ~ | |     + cloaca
+EMAP:0004595 ~ | |     + urorectal septum
+EMAP:0004593 ~ | |     + urogenital membrane
+EMAP:0028556 ~ | |     + urethral plate
+EMAP:0030889 ~ | |     + urethral fold
+EMAP:0031768 ~ | |     \ developing vasculature of urinary system GROUP
+EMAP:0027795 ~ | |       + developing vasculature of metanephros
+EMAP:0031692 ~ | |       + developing vasculature of primitive bladder
+EMAP:0031673 ~ | |       + developing vasculature of urogenital sinus
+EMAP:0030851 ~ | |       \ ureteral vasculature
 EMAP:0004636 > | + skeleton
 EMAP:0004637 ~ | | + axial skeleton
 EMAP:0004638 ~ | | | + axial skeleton cervical region
@@ -3795,62 +3795,62 @@ EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
 EMAP:0004726 ~ | | |   | | + somite 52 myocoele
 EMAP:0004727 ~ | | |   | | \ somite 52 sclerotome
 EMAP:0029705 ~ | | |   | + tail dermomyotome group
-EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
-EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
-EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
-EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
-EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004681 ~ | | |   | | + somite 41 dermomyotome
+EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
+EMAP:0004665 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
+EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
 EMAP:0004685 ~ | | |   | | + somite 42 dermomyotome
 EMAP:0004689 ~ | | |   | | + somite 43 dermomyotome
-EMAP:0004693 ~ | | |   | | + somite 44 dermomyotome
-EMAP:0004697 ~ | | |   | | + somite 45 dermomyotome
+EMAP:0004725 ~ | | |   | | + somite 52 dermomyotome
+EMAP:0004669 ~ | | |   | | + somite 38 dermomyotome
+EMAP:0004677 ~ | | |   | | + somite 40 dermomyotome
 EMAP:0004701 ~ | | |   | | + somite 46 dermomyotome
-EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
 EMAP:0004709 ~ | | |   | | + somite 48 dermomyotome
-EMAP:0004713 ~ | | |   | | + somite 49 dermomyotome
-EMAP:0004717 ~ | | |   | | + somite 50 dermomyotome
 EMAP:0004721 ~ | | |   | | + somite 51 dermomyotome
-EMAP:0004725 ~ | | |   | | \ somite 52 dermomyotome
+EMAP:0004657 ~ | | |   | | + somite 35 dermomyotome
+EMAP:0004705 ~ | | |   | | + somite 47 dermomyotome
+EMAP:0004673 ~ | | |   | | + somite 39 dermomyotome
+EMAP:0004661 ~ | | |   | | + somite 36 dermomyotome
+EMAP:0004693 ~ | | |   | | \ somite 44 dermomyotome
 EMAP:0031131 ~ | | |   | + tail myocoele group
-EMAP:0004658 ~ | | |   | | + somite 35 myocoele
-EMAP:0004662 ~ | | |   | | + somite 36 myocoele
-EMAP:0004666 ~ | | |   | | + somite 36 myocoele
-EMAP:0004670 ~ | | |   | | + somite 38 myocoele
-EMAP:0004674 ~ | | |   | | + somite 39 myocoele
-EMAP:0004678 ~ | | |   | | + somite 40 myocoele
-EMAP:0004682 ~ | | |   | | + somite 41 myocoele
-EMAP:0004686 ~ | | |   | | + somite 42 myocoele
-EMAP:0004690 ~ | | |   | | + somite 43 myocoele
-EMAP:0004694 ~ | | |   | | + somite 44 myocoele
-EMAP:0004698 ~ | | |   | | + somite 45 myocoele
-EMAP:0004702 ~ | | |   | | + somite 46 myocoele
-EMAP:0004706 ~ | | |   | | + somite 47 myocoele
-EMAP:0004710 ~ | | |   | | + somite 48 myocoele
-EMAP:0004714 ~ | | |   | | + somite 49 myocoele
-EMAP:0004718 ~ | | |   | | + somite 50 myocoele
 EMAP:0004722 ~ | | |   | | + somite 51 myocoele
-EMAP:0004726 ~ | | |   | | \ somite 52 myocoele
+EMAP:0004678 ~ | | |   | | + somite 40 myocoele
+EMAP:0004658 ~ | | |   | | + somite 35 myocoele
+EMAP:0004670 ~ | | |   | | + somite 38 myocoele
+EMAP:0004710 ~ | | |   | | + somite 48 myocoele
+EMAP:0004666 ~ | | |   | | + somite 36 myocoele
+EMAP:0004726 ~ | | |   | | + somite 52 myocoele
+EMAP:0004702 ~ | | |   | | + somite 46 myocoele
+EMAP:0004698 ~ | | |   | | + somite 45 myocoele
+EMAP:0004674 ~ | | |   | | + somite 39 myocoele
+EMAP:0004662 ~ | | |   | | + somite 36 myocoele
+EMAP:0004706 ~ | | |   | | + somite 47 myocoele
+EMAP:0004690 ~ | | |   | | + somite 43 myocoele
+EMAP:0004682 ~ | | |   | | + somite 41 myocoele
+EMAP:0004718 ~ | | |   | | + somite 50 myocoele
+EMAP:0004686 ~ | | |   | | + somite 42 myocoele
+EMAP:0004714 ~ | | |   | | + somite 49 myocoele
+EMAP:0004694 ~ | | |   | | \ somite 44 myocoele
 EMAP:0031156 ~ | | |   | \ tail sclerotome group
-EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
-EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
-EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
-EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
-EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
 EMAP:0004683 ~ | | |   |   + somite 41 sclerotome
-EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
-EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
-EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
-EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
-EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
-EMAP:0004707 ~ | | |   |   + somite 47 sclerotome
-EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
-EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
 EMAP:0004719 ~ | | |   |   + somite 50 sclerotome
+EMAP:0004703 ~ | | |   |   + somite 46 sclerotome
+EMAP:0004679 ~ | | |   |   + somite 40 sclerotome
+EMAP:0004715 ~ | | |   |   + somite 49 sclerotome
+EMAP:0004663 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004667 ~ | | |   |   + somite 36 sclerotome
+EMAP:0004691 ~ | | |   |   + somite 43 sclerotome
+EMAP:0004675 ~ | | |   |   + somite 39 sclerotome
+EMAP:0004727 ~ | | |   |   + somite 52 sclerotome
+EMAP:0004699 ~ | | |   |   + somite 45 sclerotome
+EMAP:0004687 ~ | | |   |   + somite 42 sclerotome
+EMAP:0004659 ~ | | |   |   + somite 35 sclerotome
+EMAP:0004695 ~ | | |   |   + somite 44 sclerotome
+EMAP:0004671 ~ | | |   |   + somite 38 sclerotome
+EMAP:0004711 ~ | | |   |   + somite 48 sclerotome
 EMAP:0004723 ~ | | |   |   + somite 51 sclerotome
-EMAP:0004727 ~ | | |   |   \ somite 52 sclerotome
+EMAP:0004707 ~ | | |   |   \ somite 47 sclerotome
 EMAP:0004728 ~ | | |   \ unsegmented mesenchyme
 EMAP:0004729 ~ | | + tail nervous system
 EMAP:0004730 ~ | | | \ tail central nervous system
@@ -3879,335 +3879,335 @@ EMAP:0033821   | + paraxial mesenchyme
 EMAP:0031178   | | + somite group
 EMAP:0031116   | | | + dermomyotome group
 EMAP:0029705 G | | | | \ tail dermomyotome group
-EMAP:0004657 > | | | |   + somite 35 dermomyotome
-EMAP:0004665 > | | | |   + somite 36 dermomyotome
-EMAP:0004661 > | | | |   + somite 36 dermomyotome
-EMAP:0004669 > | | | |   + somite 38 dermomyotome
-EMAP:0004673 > | | | |   + somite 39 dermomyotome
-EMAP:0004677 > | | | |   + somite 40 dermomyotome
 EMAP:0004681 > | | | |   + somite 41 dermomyotome
+EMAP:0004713 > | | | |   + somite 49 dermomyotome
+EMAP:0004665 > | | | |   + somite 36 dermomyotome
+EMAP:0004717 > | | | |   + somite 50 dermomyotome
+EMAP:0004697 > | | | |   + somite 45 dermomyotome
 EMAP:0004685 > | | | |   + somite 42 dermomyotome
 EMAP:0004689 > | | | |   + somite 43 dermomyotome
-EMAP:0004693 > | | | |   + somite 44 dermomyotome
-EMAP:0004697 > | | | |   + somite 45 dermomyotome
+EMAP:0004725 > | | | |   + somite 52 dermomyotome
+EMAP:0004669 > | | | |   + somite 38 dermomyotome
+EMAP:0004677 > | | | |   + somite 40 dermomyotome
 EMAP:0004701 > | | | |   + somite 46 dermomyotome
-EMAP:0004705 > | | | |   + somite 47 dermomyotome
 EMAP:0004709 > | | | |   + somite 48 dermomyotome
-EMAP:0004713 > | | | |   + somite 49 dermomyotome
-EMAP:0004717 > | | | |   + somite 50 dermomyotome
 EMAP:0004721 > | | | |   + somite 51 dermomyotome
-EMAP:0004725 > | | | |   \ somite 52 dermomyotome
+EMAP:0004657 > | | | |   + somite 35 dermomyotome
+EMAP:0004705 > | | | |   + somite 47 dermomyotome
+EMAP:0004673 > | | | |   + somite 39 dermomyotome
+EMAP:0004661 > | | | |   + somite 36 dermomyotome
+EMAP:0004693 > | | | |   \ somite 44 dermomyotome
 EMAP:0031166   | | | + sclerotome group
 EMAP:0031156 G | | | | \ tail sclerotome group
-EMAP:0004659 > | | | |   + somite 35 sclerotome
-EMAP:0004667 > | | | |   + somite 36 sclerotome
-EMAP:0004663 > | | | |   + somite 36 sclerotome
-EMAP:0004671 > | | | |   + somite 38 sclerotome
-EMAP:0004675 > | | | |   + somite 39 sclerotome
-EMAP:0004679 > | | | |   + somite 40 sclerotome
 EMAP:0004683 > | | | |   + somite 41 sclerotome
-EMAP:0004687 > | | | |   + somite 42 sclerotome
-EMAP:0004691 > | | | |   + somite 43 sclerotome
-EMAP:0004695 > | | | |   + somite 44 sclerotome
-EMAP:0004699 > | | | |   + somite 45 sclerotome
-EMAP:0004703 > | | | |   + somite 46 sclerotome
-EMAP:0004707 > | | | |   + somite 47 sclerotome
-EMAP:0004711 > | | | |   + somite 48 sclerotome
-EMAP:0004715 > | | | |   + somite 49 sclerotome
 EMAP:0004719 > | | | |   + somite 50 sclerotome
+EMAP:0004703 > | | | |   + somite 46 sclerotome
+EMAP:0004679 > | | | |   + somite 40 sclerotome
+EMAP:0004715 > | | | |   + somite 49 sclerotome
+EMAP:0004663 > | | | |   + somite 36 sclerotome
+EMAP:0004667 > | | | |   + somite 36 sclerotome
+EMAP:0004691 > | | | |   + somite 43 sclerotome
+EMAP:0004675 > | | | |   + somite 39 sclerotome
+EMAP:0004727 > | | | |   + somite 52 sclerotome
+EMAP:0004699 > | | | |   + somite 45 sclerotome
+EMAP:0004687 > | | | |   + somite 42 sclerotome
+EMAP:0004659 > | | | |   + somite 35 sclerotome
+EMAP:0004695 > | | | |   + somite 44 sclerotome
+EMAP:0004671 > | | | |   + somite 38 sclerotome
+EMAP:0004711 > | | | |   + somite 48 sclerotome
 EMAP:0004723 > | | | |   + somite 51 sclerotome
-EMAP:0004727 > | | | |   \ somite 52 sclerotome
+EMAP:0004707 > | | | |   \ somite 47 sclerotome
 EMAP:0004655   | | | \ tail somite group
 EMAP:0029705 G | | |   + tail dermomyotome group
-EMAP:0004657 > | | |   | + somite 35 dermomyotome
-EMAP:0004665 > | | |   | + somite 36 dermomyotome
-EMAP:0004661 > | | |   | + somite 36 dermomyotome
-EMAP:0004669 > | | |   | + somite 38 dermomyotome
-EMAP:0004673 > | | |   | + somite 39 dermomyotome
-EMAP:0004677 > | | |   | + somite 40 dermomyotome
 EMAP:0004681 > | | |   | + somite 41 dermomyotome
+EMAP:0004713 > | | |   | + somite 49 dermomyotome
+EMAP:0004665 > | | |   | + somite 36 dermomyotome
+EMAP:0004717 > | | |   | + somite 50 dermomyotome
+EMAP:0004697 > | | |   | + somite 45 dermomyotome
 EMAP:0004685 > | | |   | + somite 42 dermomyotome
 EMAP:0004689 > | | |   | + somite 43 dermomyotome
-EMAP:0004693 > | | |   | + somite 44 dermomyotome
-EMAP:0004697 > | | |   | + somite 45 dermomyotome
+EMAP:0004725 > | | |   | + somite 52 dermomyotome
+EMAP:0004669 > | | |   | + somite 38 dermomyotome
+EMAP:0004677 > | | |   | + somite 40 dermomyotome
 EMAP:0004701 > | | |   | + somite 46 dermomyotome
-EMAP:0004705 > | | |   | + somite 47 dermomyotome
 EMAP:0004709 > | | |   | + somite 48 dermomyotome
-EMAP:0004713 > | | |   | + somite 49 dermomyotome
-EMAP:0004717 > | | |   | + somite 50 dermomyotome
 EMAP:0004721 > | | |   | + somite 51 dermomyotome
-EMAP:0004725 > | | |   | \ somite 52 dermomyotome
+EMAP:0004657 > | | |   | + somite 35 dermomyotome
+EMAP:0004705 > | | |   | + somite 47 dermomyotome
+EMAP:0004673 > | | |   | + somite 39 dermomyotome
+EMAP:0004661 > | | |   | + somite 36 dermomyotome
+EMAP:0004693 > | | |   | \ somite 44 dermomyotome
 EMAP:0031131 G | | |   + tail myocoele group
-EMAP:0004658 > | | |   | + somite 35 myocoele
-EMAP:0004662 > | | |   | + somite 36 myocoele
-EMAP:0004666 > | | |   | + somite 36 myocoele
-EMAP:0004670 > | | |   | + somite 38 myocoele
-EMAP:0004674 > | | |   | + somite 39 myocoele
-EMAP:0004678 > | | |   | + somite 40 myocoele
-EMAP:0004682 > | | |   | + somite 41 myocoele
-EMAP:0004686 > | | |   | + somite 42 myocoele
-EMAP:0004690 > | | |   | + somite 43 myocoele
-EMAP:0004694 > | | |   | + somite 44 myocoele
-EMAP:0004698 > | | |   | + somite 45 myocoele
-EMAP:0004702 > | | |   | + somite 46 myocoele
-EMAP:0004706 > | | |   | + somite 47 myocoele
-EMAP:0004710 > | | |   | + somite 48 myocoele
-EMAP:0004714 > | | |   | + somite 49 myocoele
-EMAP:0004718 > | | |   | + somite 50 myocoele
 EMAP:0004722 > | | |   | + somite 51 myocoele
-EMAP:0004726 > | | |   | \ somite 52 myocoele
+EMAP:0004678 > | | |   | + somite 40 myocoele
+EMAP:0004658 > | | |   | + somite 35 myocoele
+EMAP:0004670 > | | |   | + somite 38 myocoele
+EMAP:0004710 > | | |   | + somite 48 myocoele
+EMAP:0004666 > | | |   | + somite 36 myocoele
+EMAP:0004726 > | | |   | + somite 52 myocoele
+EMAP:0004702 > | | |   | + somite 46 myocoele
+EMAP:0004698 > | | |   | + somite 45 myocoele
+EMAP:0004674 > | | |   | + somite 39 myocoele
+EMAP:0004662 > | | |   | + somite 36 myocoele
+EMAP:0004706 > | | |   | + somite 47 myocoele
+EMAP:0004690 > | | |   | + somite 43 myocoele
+EMAP:0004682 > | | |   | + somite 41 myocoele
+EMAP:0004718 > | | |   | + somite 50 myocoele
+EMAP:0004686 > | | |   | + somite 42 myocoele
+EMAP:0004714 > | | |   | + somite 49 myocoele
+EMAP:0004694 > | | |   | \ somite 44 myocoele
 EMAP:0031156 G | | |   \ tail sclerotome group
-EMAP:0004659 > | | |     + somite 35 sclerotome
-EMAP:0004667 > | | |     + somite 36 sclerotome
-EMAP:0004663 > | | |     + somite 36 sclerotome
-EMAP:0004671 > | | |     + somite 38 sclerotome
-EMAP:0004675 > | | |     + somite 39 sclerotome
-EMAP:0004679 > | | |     + somite 40 sclerotome
 EMAP:0004683 > | | |     + somite 41 sclerotome
-EMAP:0004687 > | | |     + somite 42 sclerotome
-EMAP:0004691 > | | |     + somite 43 sclerotome
-EMAP:0004695 > | | |     + somite 44 sclerotome
-EMAP:0004699 > | | |     + somite 45 sclerotome
-EMAP:0004703 > | | |     + somite 46 sclerotome
-EMAP:0004707 > | | |     + somite 47 sclerotome
-EMAP:0004711 > | | |     + somite 48 sclerotome
-EMAP:0004715 > | | |     + somite 49 sclerotome
 EMAP:0004719 > | | |     + somite 50 sclerotome
+EMAP:0004703 > | | |     + somite 46 sclerotome
+EMAP:0004679 > | | |     + somite 40 sclerotome
+EMAP:0004715 > | | |     + somite 49 sclerotome
+EMAP:0004663 > | | |     + somite 36 sclerotome
+EMAP:0004667 > | | |     + somite 36 sclerotome
+EMAP:0004691 > | | |     + somite 43 sclerotome
+EMAP:0004675 > | | |     + somite 39 sclerotome
+EMAP:0004727 > | | |     + somite 52 sclerotome
+EMAP:0004699 > | | |     + somite 45 sclerotome
+EMAP:0004687 > | | |     + somite 42 sclerotome
+EMAP:0004659 > | | |     + somite 35 sclerotome
+EMAP:0004695 > | | |     + somite 44 sclerotome
+EMAP:0004671 > | | |     + somite 38 sclerotome
+EMAP:0004711 > | | |     + somite 48 sclerotome
 EMAP:0004723 > | | |     + somite 51 sclerotome
-EMAP:0004727 > | | |     \ somite 52 sclerotome
+EMAP:0004707 > | | |     \ somite 47 sclerotome
 EMAP:0004654   | | \ tail paraxial mesenchyme
 EMAP:0004655   | |   \ tail somite group
 EMAP:0029705 G | |     + tail dermomyotome group
-EMAP:0004657 > | |     | + somite 35 dermomyotome
-EMAP:0004665 > | |     | + somite 36 dermomyotome
-EMAP:0004661 > | |     | + somite 36 dermomyotome
-EMAP:0004669 > | |     | + somite 38 dermomyotome
-EMAP:0004673 > | |     | + somite 39 dermomyotome
-EMAP:0004677 > | |     | + somite 40 dermomyotome
 EMAP:0004681 > | |     | + somite 41 dermomyotome
+EMAP:0004713 > | |     | + somite 49 dermomyotome
+EMAP:0004665 > | |     | + somite 36 dermomyotome
+EMAP:0004717 > | |     | + somite 50 dermomyotome
+EMAP:0004697 > | |     | + somite 45 dermomyotome
 EMAP:0004685 > | |     | + somite 42 dermomyotome
 EMAP:0004689 > | |     | + somite 43 dermomyotome
-EMAP:0004693 > | |     | + somite 44 dermomyotome
-EMAP:0004697 > | |     | + somite 45 dermomyotome
+EMAP:0004725 > | |     | + somite 52 dermomyotome
+EMAP:0004669 > | |     | + somite 38 dermomyotome
+EMAP:0004677 > | |     | + somite 40 dermomyotome
 EMAP:0004701 > | |     | + somite 46 dermomyotome
-EMAP:0004705 > | |     | + somite 47 dermomyotome
 EMAP:0004709 > | |     | + somite 48 dermomyotome
-EMAP:0004713 > | |     | + somite 49 dermomyotome
-EMAP:0004717 > | |     | + somite 50 dermomyotome
 EMAP:0004721 > | |     | + somite 51 dermomyotome
-EMAP:0004725 > | |     | \ somite 52 dermomyotome
+EMAP:0004657 > | |     | + somite 35 dermomyotome
+EMAP:0004705 > | |     | + somite 47 dermomyotome
+EMAP:0004673 > | |     | + somite 39 dermomyotome
+EMAP:0004661 > | |     | + somite 36 dermomyotome
+EMAP:0004693 > | |     | \ somite 44 dermomyotome
 EMAP:0031131 G | |     + tail myocoele group
-EMAP:0004658 > | |     | + somite 35 myocoele
-EMAP:0004662 > | |     | + somite 36 myocoele
-EMAP:0004666 > | |     | + somite 36 myocoele
-EMAP:0004670 > | |     | + somite 38 myocoele
-EMAP:0004674 > | |     | + somite 39 myocoele
-EMAP:0004678 > | |     | + somite 40 myocoele
-EMAP:0004682 > | |     | + somite 41 myocoele
-EMAP:0004686 > | |     | + somite 42 myocoele
-EMAP:0004690 > | |     | + somite 43 myocoele
-EMAP:0004694 > | |     | + somite 44 myocoele
-EMAP:0004698 > | |     | + somite 45 myocoele
-EMAP:0004702 > | |     | + somite 46 myocoele
-EMAP:0004706 > | |     | + somite 47 myocoele
-EMAP:0004710 > | |     | + somite 48 myocoele
-EMAP:0004714 > | |     | + somite 49 myocoele
-EMAP:0004718 > | |     | + somite 50 myocoele
 EMAP:0004722 > | |     | + somite 51 myocoele
-EMAP:0004726 > | |     | \ somite 52 myocoele
+EMAP:0004678 > | |     | + somite 40 myocoele
+EMAP:0004658 > | |     | + somite 35 myocoele
+EMAP:0004670 > | |     | + somite 38 myocoele
+EMAP:0004710 > | |     | + somite 48 myocoele
+EMAP:0004666 > | |     | + somite 36 myocoele
+EMAP:0004726 > | |     | + somite 52 myocoele
+EMAP:0004702 > | |     | + somite 46 myocoele
+EMAP:0004698 > | |     | + somite 45 myocoele
+EMAP:0004674 > | |     | + somite 39 myocoele
+EMAP:0004662 > | |     | + somite 36 myocoele
+EMAP:0004706 > | |     | + somite 47 myocoele
+EMAP:0004690 > | |     | + somite 43 myocoele
+EMAP:0004682 > | |     | + somite 41 myocoele
+EMAP:0004718 > | |     | + somite 50 myocoele
+EMAP:0004686 > | |     | + somite 42 myocoele
+EMAP:0004714 > | |     | + somite 49 myocoele
+EMAP:0004694 > | |     | \ somite 44 myocoele
 EMAP:0031156 G | |     \ tail sclerotome group
-EMAP:0004659 > | |       + somite 35 sclerotome
-EMAP:0004667 > | |       + somite 36 sclerotome
-EMAP:0004663 > | |       + somite 36 sclerotome
-EMAP:0004671 > | |       + somite 38 sclerotome
-EMAP:0004675 > | |       + somite 39 sclerotome
-EMAP:0004679 > | |       + somite 40 sclerotome
 EMAP:0004683 > | |       + somite 41 sclerotome
-EMAP:0004687 > | |       + somite 42 sclerotome
-EMAP:0004691 > | |       + somite 43 sclerotome
-EMAP:0004695 > | |       + somite 44 sclerotome
-EMAP:0004699 > | |       + somite 45 sclerotome
-EMAP:0004703 > | |       + somite 46 sclerotome
-EMAP:0004707 > | |       + somite 47 sclerotome
-EMAP:0004711 > | |       + somite 48 sclerotome
-EMAP:0004715 > | |       + somite 49 sclerotome
 EMAP:0004719 > | |       + somite 50 sclerotome
+EMAP:0004703 > | |       + somite 46 sclerotome
+EMAP:0004679 > | |       + somite 40 sclerotome
+EMAP:0004715 > | |       + somite 49 sclerotome
+EMAP:0004663 > | |       + somite 36 sclerotome
+EMAP:0004667 > | |       + somite 36 sclerotome
+EMAP:0004691 > | |       + somite 43 sclerotome
+EMAP:0004675 > | |       + somite 39 sclerotome
+EMAP:0004727 > | |       + somite 52 sclerotome
+EMAP:0004699 > | |       + somite 45 sclerotome
+EMAP:0004687 > | |       + somite 42 sclerotome
+EMAP:0004659 > | |       + somite 35 sclerotome
+EMAP:0004695 > | |       + somite 44 sclerotome
+EMAP:0004671 > | |       + somite 38 sclerotome
+EMAP:0004711 > | |       + somite 48 sclerotome
 EMAP:0004723 > | |       + somite 51 sclerotome
-EMAP:0004727 > | |       \ somite 52 sclerotome
+EMAP:0004707 > | |       \ somite 47 sclerotome
 EMAP:0004652   | \ tail mesenchyme
 EMAP:0004654   |   \ tail paraxial mesenchyme
 EMAP:0004655   |     \ tail somite group
 EMAP:0029705 G |       + tail dermomyotome group
-EMAP:0004657 > |       | + somite 35 dermomyotome
-EMAP:0004665 > |       | + somite 36 dermomyotome
-EMAP:0004661 > |       | + somite 36 dermomyotome
-EMAP:0004669 > |       | + somite 38 dermomyotome
-EMAP:0004673 > |       | + somite 39 dermomyotome
-EMAP:0004677 > |       | + somite 40 dermomyotome
 EMAP:0004681 > |       | + somite 41 dermomyotome
+EMAP:0004713 > |       | + somite 49 dermomyotome
+EMAP:0004665 > |       | + somite 36 dermomyotome
+EMAP:0004717 > |       | + somite 50 dermomyotome
+EMAP:0004697 > |       | + somite 45 dermomyotome
 EMAP:0004685 > |       | + somite 42 dermomyotome
 EMAP:0004689 > |       | + somite 43 dermomyotome
-EMAP:0004693 > |       | + somite 44 dermomyotome
-EMAP:0004697 > |       | + somite 45 dermomyotome
+EMAP:0004725 > |       | + somite 52 dermomyotome
+EMAP:0004669 > |       | + somite 38 dermomyotome
+EMAP:0004677 > |       | + somite 40 dermomyotome
 EMAP:0004701 > |       | + somite 46 dermomyotome
-EMAP:0004705 > |       | + somite 47 dermomyotome
 EMAP:0004709 > |       | + somite 48 dermomyotome
-EMAP:0004713 > |       | + somite 49 dermomyotome
-EMAP:0004717 > |       | + somite 50 dermomyotome
 EMAP:0004721 > |       | + somite 51 dermomyotome
-EMAP:0004725 > |       | \ somite 52 dermomyotome
+EMAP:0004657 > |       | + somite 35 dermomyotome
+EMAP:0004705 > |       | + somite 47 dermomyotome
+EMAP:0004673 > |       | + somite 39 dermomyotome
+EMAP:0004661 > |       | + somite 36 dermomyotome
+EMAP:0004693 > |       | \ somite 44 dermomyotome
 EMAP:0031131 G |       + tail myocoele group
-EMAP:0004658 > |       | + somite 35 myocoele
-EMAP:0004662 > |       | + somite 36 myocoele
-EMAP:0004666 > |       | + somite 36 myocoele
-EMAP:0004670 > |       | + somite 38 myocoele
-EMAP:0004674 > |       | + somite 39 myocoele
-EMAP:0004678 > |       | + somite 40 myocoele
-EMAP:0004682 > |       | + somite 41 myocoele
-EMAP:0004686 > |       | + somite 42 myocoele
-EMAP:0004690 > |       | + somite 43 myocoele
-EMAP:0004694 > |       | + somite 44 myocoele
-EMAP:0004698 > |       | + somite 45 myocoele
-EMAP:0004702 > |       | + somite 46 myocoele
-EMAP:0004706 > |       | + somite 47 myocoele
-EMAP:0004710 > |       | + somite 48 myocoele
-EMAP:0004714 > |       | + somite 49 myocoele
-EMAP:0004718 > |       | + somite 50 myocoele
 EMAP:0004722 > |       | + somite 51 myocoele
-EMAP:0004726 > |       | \ somite 52 myocoele
+EMAP:0004678 > |       | + somite 40 myocoele
+EMAP:0004658 > |       | + somite 35 myocoele
+EMAP:0004670 > |       | + somite 38 myocoele
+EMAP:0004710 > |       | + somite 48 myocoele
+EMAP:0004666 > |       | + somite 36 myocoele
+EMAP:0004726 > |       | + somite 52 myocoele
+EMAP:0004702 > |       | + somite 46 myocoele
+EMAP:0004698 > |       | + somite 45 myocoele
+EMAP:0004674 > |       | + somite 39 myocoele
+EMAP:0004662 > |       | + somite 36 myocoele
+EMAP:0004706 > |       | + somite 47 myocoele
+EMAP:0004690 > |       | + somite 43 myocoele
+EMAP:0004682 > |       | + somite 41 myocoele
+EMAP:0004718 > |       | + somite 50 myocoele
+EMAP:0004686 > |       | + somite 42 myocoele
+EMAP:0004714 > |       | + somite 49 myocoele
+EMAP:0004694 > |       | \ somite 44 myocoele
 EMAP:0031156 G |       \ tail sclerotome group
-EMAP:0004659 > |         + somite 35 sclerotome
-EMAP:0004667 > |         + somite 36 sclerotome
-EMAP:0004663 > |         + somite 36 sclerotome
-EMAP:0004671 > |         + somite 38 sclerotome
-EMAP:0004675 > |         + somite 39 sclerotome
-EMAP:0004679 > |         + somite 40 sclerotome
 EMAP:0004683 > |         + somite 41 sclerotome
-EMAP:0004687 > |         + somite 42 sclerotome
-EMAP:0004691 > |         + somite 43 sclerotome
-EMAP:0004695 > |         + somite 44 sclerotome
-EMAP:0004699 > |         + somite 45 sclerotome
-EMAP:0004703 > |         + somite 46 sclerotome
-EMAP:0004707 > |         + somite 47 sclerotome
-EMAP:0004711 > |         + somite 48 sclerotome
-EMAP:0004715 > |         + somite 49 sclerotome
 EMAP:0004719 > |         + somite 50 sclerotome
+EMAP:0004703 > |         + somite 46 sclerotome
+EMAP:0004679 > |         + somite 40 sclerotome
+EMAP:0004715 > |         + somite 49 sclerotome
+EMAP:0004663 > |         + somite 36 sclerotome
+EMAP:0004667 > |         + somite 36 sclerotome
+EMAP:0004691 > |         + somite 43 sclerotome
+EMAP:0004675 > |         + somite 39 sclerotome
+EMAP:0004727 > |         + somite 52 sclerotome
+EMAP:0004699 > |         + somite 45 sclerotome
+EMAP:0004687 > |         + somite 42 sclerotome
+EMAP:0004659 > |         + somite 35 sclerotome
+EMAP:0004695 > |         + somite 44 sclerotome
+EMAP:0004671 > |         + somite 38 sclerotome
+EMAP:0004711 > |         + somite 48 sclerotome
 EMAP:0004723 > |         + somite 51 sclerotome
-EMAP:0004727 > |         \ somite 52 sclerotome
+EMAP:0004707 > |         \ somite 47 sclerotome
 EMAP:0031141 G + myocoele group
 EMAP:0031131 > | \ tail myocoele group
-EMAP:0004658 ~ |   + somite 35 myocoele
-EMAP:0004662 ~ |   + somite 36 myocoele
-EMAP:0004666 ~ |   + somite 36 myocoele
-EMAP:0004670 ~ |   + somite 38 myocoele
-EMAP:0004674 ~ |   + somite 39 myocoele
-EMAP:0004678 ~ |   + somite 40 myocoele
-EMAP:0004682 ~ |   + somite 41 myocoele
-EMAP:0004686 ~ |   + somite 42 myocoele
-EMAP:0004690 ~ |   + somite 43 myocoele
-EMAP:0004694 ~ |   + somite 44 myocoele
-EMAP:0004698 ~ |   + somite 45 myocoele
-EMAP:0004702 ~ |   + somite 46 myocoele
-EMAP:0004706 ~ |   + somite 47 myocoele
-EMAP:0004710 ~ |   + somite 48 myocoele
-EMAP:0004714 ~ |   + somite 49 myocoele
-EMAP:0004718 ~ |   + somite 50 myocoele
 EMAP:0004722 ~ |   + somite 51 myocoele
-EMAP:0004726 ~ |   \ somite 52 myocoele
+EMAP:0004678 ~ |   + somite 40 myocoele
+EMAP:0004658 ~ |   + somite 35 myocoele
+EMAP:0004670 ~ |   + somite 38 myocoele
+EMAP:0004710 ~ |   + somite 48 myocoele
+EMAP:0004666 ~ |   + somite 36 myocoele
+EMAP:0004726 ~ |   + somite 52 myocoele
+EMAP:0004702 ~ |   + somite 46 myocoele
+EMAP:0004698 ~ |   + somite 45 myocoele
+EMAP:0004674 ~ |   + somite 39 myocoele
+EMAP:0004662 ~ |   + somite 36 myocoele
+EMAP:0004706 ~ |   + somite 47 myocoele
+EMAP:0004690 ~ |   + somite 43 myocoele
+EMAP:0004682 ~ |   + somite 41 myocoele
+EMAP:0004718 ~ |   + somite 50 myocoele
+EMAP:0004686 ~ |   + somite 42 myocoele
+EMAP:0004714 ~ |   + somite 49 myocoele
+EMAP:0004694 ~ |   \ somite 44 myocoele
 EMAP:0003981   + organ system
 EMAP:0003982   | \ visceral organ
 EMAP:0004596   |   + reproductive system
-EMAP:0031777 G |   | + developing vasculature of reproductive system GROUP
-EMAP:0031588 > |   | | + developing vasculature of female genital tubercle
-EMAP:0031688 > |   | | + developing vasculature of female mesonephros
-EMAP:0031606 > |   | | + developing vasculature of male genital tubercle
-EMAP:0031684 > |   | | + developing vasculature of male mesonephros
-EMAP:0028889 > |   | | + developing vasculature of ovary
-EMAP:0029115 > |   | | \ developing vasculature of the testis
-EMAP:0029123 ~ |   | |   + coelomic vessel
-EMAP:0029131 ~ |   | |   \ interstitial vessel
+EMAP:0028873   |   | + male reproductive system
 EMAP:0028872   |   | + female reproductive system
 EMAP:0028876   |   | | \ ovary
-EMAP:0028873   |   | \ male reproductive system
+EMAP:0031777 G |   | \ developing vasculature of reproductive system GROUP
+EMAP:0031588 > |   |   + developing vasculature of female genital tubercle
+EMAP:0031688 > |   |   + developing vasculature of female mesonephros
+EMAP:0031606 > |   |   + developing vasculature of male genital tubercle
+EMAP:0031684 > |   |   + developing vasculature of male mesonephros
+EMAP:0028889 > |   |   + developing vasculature of ovary
+EMAP:0029115 > |   |   \ developing vasculature of the testis
+EMAP:0029123 ~ |   |     + coelomic vessel
+EMAP:0029131 ~ |   |     \ interstitial vessel
 EMAP:0004580   |   \ urinary system
-EMAP:0031768 G |     + developing vasculature of urinary system GROUP
-EMAP:0027795 > |     | + developing vasculature of metanephros
-EMAP:0031692 > |     | + developing vasculature of primitive bladder
-EMAP:0031673 > |     | + developing vasculature of urogenital sinus
-EMAP:0030851 > |     | \ ureteral vasculature
-EMAP:0004587   |     \ metanephros
-EMAP:0029339 G |       + early nephron GROUP
-EMAP:0027682 > |       | + comma-shaped body
-EMAP:0027688 ~ |       | | + lower limb of comma-shaped body
-EMAP:0031717 ~ |       | | + renal connecting segment of comma-shaped body
-EMAP:0027685 ~ |       | | \ upper limb of comma-shaped body
-EMAP:0027679 > |       | \ renal vesicle (syn: epithelial vesicle; stage I nephron)
-EMAP:0031836 ~ |       |   + distal renal vesicle
-EMAP:0031731 ~ |       |   + proximal renal vesicle
-EMAP:0031700 ~ |       |   \ renal connecting segment of renal vesicle
-EMAP:0031766 G |       \ nephrogenic zone GROUP
-EMAP:0004589 > |         + cap mesenchyme
-EMAP:0031271 > |         + nephrogenic interstitium
-EMAP:0027674 > |         + pretubular aggregate
-EMAP:0027695 > |         \ ureteric tip
+EMAP:0004587   |     + metanephros
+EMAP:0029339 G |     | + early nephron GROUP
+EMAP:0027679 > |     | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:0031700 ~ |     | | | + renal connecting segment of renal vesicle
+EMAP:0031836 ~ |     | | | + distal renal vesicle
+EMAP:0031731 ~ |     | | | \ proximal renal vesicle
+EMAP:0027682 > |     | | \ comma-shaped body
+EMAP:0027685 ~ |     | |   + upper limb of comma-shaped body
+EMAP:0027688 ~ |     | |   + lower limb of comma-shaped body
+EMAP:0031717 ~ |     | |   \ renal connecting segment of comma-shaped body
+EMAP:0031766 G |     | \ nephrogenic zone GROUP
+EMAP:0004589 > |     |   + cap mesenchyme
+EMAP:0031271 > |     |   + nephrogenic interstitium
+EMAP:0027674 > |     |   + pretubular aggregate
+EMAP:0027695 > |     |   \ ureteric tip
+EMAP:0031768 G |     \ developing vasculature of urinary system GROUP
+EMAP:0027795 > |       + developing vasculature of metanephros
+EMAP:0031692 > |       + developing vasculature of primitive bladder
+EMAP:0031673 > |       + developing vasculature of urogenital sinus
+EMAP:0030851 > |       \ ureteral vasculature
 EMAP:0004651   \ tail
 EMAP:0004652     \ tail mesenchyme
 EMAP:0004654       \ tail paraxial mesenchyme
 EMAP:0004655         \ tail somite group
 EMAP:0029705 G         + tail dermomyotome group
-EMAP:0004657 >         | + somite 35 dermomyotome
-EMAP:0004665 >         | + somite 36 dermomyotome
-EMAP:0004661 >         | + somite 36 dermomyotome
-EMAP:0004669 >         | + somite 38 dermomyotome
-EMAP:0004673 >         | + somite 39 dermomyotome
-EMAP:0004677 >         | + somite 40 dermomyotome
 EMAP:0004681 >         | + somite 41 dermomyotome
+EMAP:0004713 >         | + somite 49 dermomyotome
+EMAP:0004665 >         | + somite 36 dermomyotome
+EMAP:0004717 >         | + somite 50 dermomyotome
+EMAP:0004697 >         | + somite 45 dermomyotome
 EMAP:0004685 >         | + somite 42 dermomyotome
 EMAP:0004689 >         | + somite 43 dermomyotome
-EMAP:0004693 >         | + somite 44 dermomyotome
-EMAP:0004697 >         | + somite 45 dermomyotome
+EMAP:0004725 >         | + somite 52 dermomyotome
+EMAP:0004669 >         | + somite 38 dermomyotome
+EMAP:0004677 >         | + somite 40 dermomyotome
 EMAP:0004701 >         | + somite 46 dermomyotome
-EMAP:0004705 >         | + somite 47 dermomyotome
 EMAP:0004709 >         | + somite 48 dermomyotome
-EMAP:0004713 >         | + somite 49 dermomyotome
-EMAP:0004717 >         | + somite 50 dermomyotome
 EMAP:0004721 >         | + somite 51 dermomyotome
-EMAP:0004725 >         | \ somite 52 dermomyotome
+EMAP:0004657 >         | + somite 35 dermomyotome
+EMAP:0004705 >         | + somite 47 dermomyotome
+EMAP:0004673 >         | + somite 39 dermomyotome
+EMAP:0004661 >         | + somite 36 dermomyotome
+EMAP:0004693 >         | \ somite 44 dermomyotome
 EMAP:0031131 G         + tail myocoele group
-EMAP:0004658 >         | + somite 35 myocoele
-EMAP:0004662 >         | + somite 36 myocoele
-EMAP:0004666 >         | + somite 36 myocoele
-EMAP:0004670 >         | + somite 38 myocoele
-EMAP:0004674 >         | + somite 39 myocoele
-EMAP:0004678 >         | + somite 40 myocoele
-EMAP:0004682 >         | + somite 41 myocoele
-EMAP:0004686 >         | + somite 42 myocoele
-EMAP:0004690 >         | + somite 43 myocoele
-EMAP:0004694 >         | + somite 44 myocoele
-EMAP:0004698 >         | + somite 45 myocoele
-EMAP:0004702 >         | + somite 46 myocoele
-EMAP:0004706 >         | + somite 47 myocoele
-EMAP:0004710 >         | + somite 48 myocoele
-EMAP:0004714 >         | + somite 49 myocoele
-EMAP:0004718 >         | + somite 50 myocoele
 EMAP:0004722 >         | + somite 51 myocoele
-EMAP:0004726 >         | \ somite 52 myocoele
+EMAP:0004678 >         | + somite 40 myocoele
+EMAP:0004658 >         | + somite 35 myocoele
+EMAP:0004670 >         | + somite 38 myocoele
+EMAP:0004710 >         | + somite 48 myocoele
+EMAP:0004666 >         | + somite 36 myocoele
+EMAP:0004726 >         | + somite 52 myocoele
+EMAP:0004702 >         | + somite 46 myocoele
+EMAP:0004698 >         | + somite 45 myocoele
+EMAP:0004674 >         | + somite 39 myocoele
+EMAP:0004662 >         | + somite 36 myocoele
+EMAP:0004706 >         | + somite 47 myocoele
+EMAP:0004690 >         | + somite 43 myocoele
+EMAP:0004682 >         | + somite 41 myocoele
+EMAP:0004718 >         | + somite 50 myocoele
+EMAP:0004686 >         | + somite 42 myocoele
+EMAP:0004714 >         | + somite 49 myocoele
+EMAP:0004694 >         | \ somite 44 myocoele
 EMAP:0031156 G         \ tail sclerotome group
-EMAP:0004659 >           + somite 35 sclerotome
-EMAP:0004667 >           + somite 36 sclerotome
-EMAP:0004663 >           + somite 36 sclerotome
-EMAP:0004671 >           + somite 38 sclerotome
-EMAP:0004675 >           + somite 39 sclerotome
-EMAP:0004679 >           + somite 40 sclerotome
 EMAP:0004683 >           + somite 41 sclerotome
-EMAP:0004687 >           + somite 42 sclerotome
-EMAP:0004691 >           + somite 43 sclerotome
-EMAP:0004695 >           + somite 44 sclerotome
-EMAP:0004699 >           + somite 45 sclerotome
-EMAP:0004703 >           + somite 46 sclerotome
-EMAP:0004707 >           + somite 47 sclerotome
-EMAP:0004711 >           + somite 48 sclerotome
-EMAP:0004715 >           + somite 49 sclerotome
 EMAP:0004719 >           + somite 50 sclerotome
+EMAP:0004703 >           + somite 46 sclerotome
+EMAP:0004679 >           + somite 40 sclerotome
+EMAP:0004715 >           + somite 49 sclerotome
+EMAP:0004663 >           + somite 36 sclerotome
+EMAP:0004667 >           + somite 36 sclerotome
+EMAP:0004691 >           + somite 43 sclerotome
+EMAP:0004675 >           + somite 39 sclerotome
+EMAP:0004727 >           + somite 52 sclerotome
+EMAP:0004699 >           + somite 45 sclerotome
+EMAP:0004687 >           + somite 42 sclerotome
+EMAP:0004659 >           + somite 35 sclerotome
+EMAP:0004695 >           + somite 44 sclerotome
+EMAP:0004671 >           + somite 38 sclerotome
+EMAP:0004711 >           + somite 48 sclerotome
 EMAP:0004723 >           + somite 51 sclerotome
-EMAP:0004727 >           \ somite 52 sclerotome
+EMAP:0004707 >           \ somite 47 sclerotome

@@ -83,6 +83,12 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER ";
     
+    private static final String SQL_LIST_ALL_PART_OFS =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = 'PART_OF' " +
+        "ORDER BY ACO_OBO_PARENT, ACO_OBO_CHILD ";
+        
     private static final String SQL_LIST_ALL_ORDER_BY_PARENT_SPECIAL_ORDER =
         "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
         "FROM ANA_OBO_COMPONENT_ORDER " +
@@ -125,6 +131,13 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         "WHERE ACO_OBO_CHILD = ? " +
         "AND ACO_OBO_PARENT = ? ";
             
+    private static final String SQL_LIST_PART_OFS_BY_CHILD_AND_PARENT =
+        "SELECT ACO_OID, ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER " +
+        "FROM ANA_OBO_COMPONENT_ORDER " +
+        "WHERE ACO_OBO_TYPE = '' " +
+        "ACO_OBO_CHILD = ? " +
+        "AND ACO_OBO_PARENT = ? ";
+                
     private static final String SQL_INSERT =
         "INSERT INTO ANA_OBO_COMPONENT_ORDER " +
         "(ACO_OBO_CHILD, ACO_OBO_PARENT, ACO_OBO_TYPE, ACO_OBO_ALPHA_ORDER, ACO_OBO_SPECIAL_ORDER ) " +
@@ -207,6 +220,14 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     }
     
     /*
+     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     */
+    public List<ComponentOrder> listPartOfByChildIdAndParentID(String childId, String parentId) throws Exception {
+    	
+        return list(SQL_LIST_PART_OFS_BY_CHILD_AND_PARENT, childId, parentId);
+    }
+    
+    /*
      * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
      */
     public List<ComponentOrder> listByChild(String child) throws Exception {
@@ -244,6 +265,14 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     public List<ComponentOrder> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns a list of ALL componentorders, otherwise null.
+     */
+    public List<ComponentOrder> listAllPartOfs() throws Exception {
+    	
+        return list(SQL_LIST_ALL_PART_OFS);
     }
     
     /*

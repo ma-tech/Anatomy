@@ -49,6 +49,11 @@ public interface JOINNodeRelationshipNodeDAO extends BaseDAO {
     public List<JOINNodeRelationshipNode> listAll() throws Exception;
 
     /*
+     * Returns a list of ALL PART_OF rows, otherwise null.
+     */
+    public List<JOINNodeRelationshipNode> listAllPartOfs() throws Exception;
+
+    /*
      * Returns a list of ALL rows, otherwise null.
      */
     public List<JOINNodeRelationshipNode> listAllByParentId(String parentId) throws Exception;

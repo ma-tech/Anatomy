@@ -1,13 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import daointerface.DerivedPartOfPerspectivesFKDAO;
 import daointerface.ExtraTimedNodeDAO;
+
+import daomodel.ExtraTimedNode;
 
 import form.TimedNodeForm;
 
@@ -40,25 +44,17 @@ public class FindByEMAPAAndStageServlet extends HttpServlet {
     	TimedNodeForm timednodeForm = new TimedNodeForm(extratimednodeDAO);
 
         // Process request and get result.
-        String outString;
+        String outString = timednodeForm.findTimedNodeByEmapaAndStage(request);
 
-        try {
-			
-			outString = timednodeForm.findTimedNodeByEmapaAndStage(request);
+        // Postback.
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/html");           
+        response.setHeader("Cache-Control", "no-cache");
 
-	        // Postback.
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text/html");           
-	        response.setHeader("Cache-Control", "no-cache");
-
-	        //System.out.println(outString);
-	        
-	        out.println(outString);
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        //System.out.println(outString);
+        
+        out.println(outString);
+        
     }
 
 }

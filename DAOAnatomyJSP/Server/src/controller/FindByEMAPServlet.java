@@ -1,13 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import daointerface.DerivedPartOfPerspectivesFKDAO;
 import daointerface.ExtraTimedNodeDAO;
+
+import daomodel.ExtraTimedNode;
 
 import form.TimedNodeForm;
 
@@ -31,7 +35,6 @@ public class FindByEMAPServlet extends HttpServlet {
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
         this.extratimednodeDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(ExtraTimedNodeDAO.class);
-        //.getExtraTimedNodeDAO();
     }
 
     
@@ -41,20 +44,13 @@ public class FindByEMAPServlet extends HttpServlet {
     	TimedNodeForm timednodeForm = new TimedNodeForm(extratimednodeDAO);
 
         // Process request and get result.
-        String outString;
-		
-        try {
+        String outString = timednodeForm.findTimedNodeByEmap(request);
 
-			outString = timednodeForm.findTimedNodeByEmap(request);
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text");           
-	        response.setHeader("Cache-Control", "no-cache");
-	        
-	        out.println(outString);
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text");           
+        response.setHeader("Cache-Control", "no-cache");
+        
+        out.println(outString);
     }
+
 }

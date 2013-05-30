@@ -44,32 +44,24 @@ public class ListLeafsByEMAPandStageAggregatedServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
         // Process request and get result.
-        String outString;
-		
-        try {
-		
-        	outString = timedleafForm.checkTimedLeafsByRootName(request);
-	        
-        	if ( outString.equals("SUCCESS!")) {
-	        	//System.out.println("##PS## ListLeafsByEMAPandStageAggregatedServlet SUCCESS");
-	            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-	            leafTree = timedleafDAO.convertLeafListToStringJsonAggregate(timedleafs);
-	        }
-	        else {
-	        
-	        	leafTree = outString;
-	        }
-	        
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text/json");           
-	        //response.setContentType("text/html");           
-	        response.setHeader("Cache-Control", "no-cache");
-	        
-	        out.println(leafTree);
-		}
-		catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}        
+        String outString = timedleafForm.checkTimedLeafsByRootName(request);        
+        
+        
+        if ( outString.equals("SUCCESS!")) {
+        	//System.out.println("##PS## ListLeafsByEMAPandStageAggregatedServlet SUCCESS");
+            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+            leafTree = timedleafDAO.convertLeafListToStringJsonAggregate(timedleafs);
+        }
+        else {
+        	leafTree = outString;
+        }
+        
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/json");           
+        //response.setContentType("text/html");           
+        response.setHeader("Cache-Control", "no-cache");
+        
+        out.println(leafTree);
     }
+
 }

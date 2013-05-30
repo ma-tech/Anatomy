@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,7 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
         // Obtain the UserDAO from DAOFactory by Config.
         this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(TimedLeafDAO.class);
     }
+
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -41,22 +43,13 @@ public class ListByTimedRootNameJsonOnlyServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
         
         // Process request and get result.
-        List<TimedLeaf> timedleafs;
-		
-        try {
-		
-        	timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-	        String leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
-	        
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text/json");           
-	        response.setHeader("Cache-Control", "no-cache");
-	        //System.out.println(leafTree);
-	        out.println(leafTree);
-		} 
-		catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+        String leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
+        
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/json");           
+        response.setHeader("Cache-Control", "no-cache");
+        //System.out.println(leafTree);
+        out.println(leafTree);
     }
 }

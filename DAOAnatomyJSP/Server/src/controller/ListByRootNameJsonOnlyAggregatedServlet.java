@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,32 +44,22 @@ public class ListByRootNameJsonOnlyAggregatedServlet extends HttpServlet {
     	String leafTree = "";
 
         // Process request and get result.
-        String outString;
+        String outString = leafForm.checkLeafsByRootName(request);
+        
+        if ( outString.equals("SUCCESS!")) {
+            List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
+            leafTree = leafDAO.convertLeafListToStringJsonAggregate(leafs);
+        }
+        else {
+        	leafTree = outString;
+        }
 
-        try {
-		
-        	outString = leafForm.checkLeafsByRootName(request);
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/json");           
+        response.setHeader("Cache-Control", "no-cache");
+        //System.out.println(leafTree);
+        out.println(leafTree);
 
-	        if ( outString.equals("SUCCESS!")) {
-	            
-	        	List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
-	            leafTree = leafDAO.convertLeafListToStringJsonAggregate(leafs);
-	        }
-	        else {
-	        	
-	        	leafTree = outString;
-	        }
-
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text/json");           
-	        response.setHeader("Cache-Control", "no-cache");
-	        //System.out.println(leafTree);
-	        out.println(leafTree);
-
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
+
 }

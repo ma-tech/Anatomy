@@ -34,7 +34,6 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
     public void init() throws ServletException {
         // Obtain the UserDAO from DAOFactory by Config.
         this.timedleafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(TimedLeafDAO.class);
-        		//.getTimedLeafDAO();
     }
 
     
@@ -45,30 +44,23 @@ public class ListLeafsByEMAPandStageServlet extends HttpServlet {
         TimedLeafForm timedleafForm = new TimedLeafForm(timedleafDAO);
 
         // Process request and get result.
-        String outString;
-
-        try {
-		
-        	outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
-        	
-            if ( outString.equals("SUCCESS!")) {
-                List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
-                leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
-            }
-            else {
-            	leafTree = outString;
-            }
-            
-            java.io.PrintWriter out = response.getWriter();
-            response.setContentType("text/json");           
-            response.setHeader("Cache-Control", "no-cache");
-            
-            //System.out.println(leafTree);
-            out.println(leafTree);
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        String outString = timedleafForm.checkTimedLeafsByRootNameByChildDesc(request);
+        
+        if ( outString.equals("SUCCESS!")) {
+            List<TimedLeaf> timedleafs = timedleafForm.listTimedLeafsByRootNameByChildDesc(request);
+            leafTree = timedleafDAO.convertLeafListToStringJsonLines(timedleafs);
+        }
+        else {
+        	leafTree = outString;
+        }
+        
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/json");           
+        response.setHeader("Cache-Control", "no-cache");
+        
+        //System.out.println(leafTree);
+        out.println(leafTree);
+        
     }
+
 }

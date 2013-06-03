@@ -47,12 +47,12 @@ public interface DerivedPartOfPerspectivesFKDAO extends BaseDAO {
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
-    public List<DerivedPartOfPerspectivesFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchPerspective)
-        throws Exception;
 
+    public List<DerivedPartOfPerspectivesFK> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective)
+           throws Exception;
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchPerspective) throws Exception;
+    public int count(String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective) throws Exception;
 
 }

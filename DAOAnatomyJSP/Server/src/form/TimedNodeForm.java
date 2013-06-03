@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daolayer.DAOException;
-
 import daointerface.ExtraTimedNodeDAO;
 
 import daomodel.ExtraTimedNode;
@@ -44,9 +43,8 @@ public final class TimedNodeForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
-     * @throws Exception 
      */
-    public String findTimedNodeByEmap(HttpServletRequest request) throws Exception {
+    public String findTimedNodeByEmap(HttpServletRequest request) {
         
     	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";
@@ -57,14 +55,19 @@ public final class TimedNodeForm extends Form {
         	if ( outString.equals("")) {
 
                 if (isSuccess()) {
-                 	if (extratimednodeDAO.existEmapId(extratimednode.getPublicEmapId())) {
-                       	extratimednode = extratimednodeDAO.findByEmap(extratimednode.getPublicEmapId());
+                 	try {
+						if (extratimednodeDAO.existEmapId(extratimednode.getPublicEmapId())) {
+						   	extratimednode = extratimednodeDAO.findByEmap(extratimednode.getPublicEmapId());
 
-                       	outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapId() + " is " + extratimednode.getPublicEmapaId() + " from " + extratimednode.getStageMinName() + " to " + extratimednode.getStageMaxName();
-                   	}
-                	else {
-                    	outString = "FAIL! " + "Node " + extratimednode.getPublicEmapId() + " does NOT EXIST!";
-                	}
+						   	outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapId() + " is " + extratimednode.getPublicEmapaId() + " from " + extratimednode.getStageMinName() + " to " + extratimednode.getStageMaxName();
+						}
+						else {
+							outString = "FAIL! " + "Node " + extratimednode.getPublicEmapId() + " does NOT EXIST!";
+						}
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 }
        	    }
         }
@@ -82,9 +85,8 @@ public final class TimedNodeForm extends Form {
      * Returns the Leafs based on the given request. It will gather all form fields,
      * process and validate the fields and retrieve the requested LEafs using the Leaf DAO 
      * associated with this form.
-     * @throws Exception 
      */
-    public String findTimedNodeByEmapaAndStage(HttpServletRequest request) throws Exception {
+    public String findTimedNodeByEmapaAndStage(HttpServletRequest request) {
         
     	ExtraTimedNode extratimednode = new ExtraTimedNode();
     	String outString = "";
@@ -99,14 +101,19 @@ public final class TimedNodeForm extends Form {
             	if ( outString.equals("")) {
 
                     if (isSuccess()) {
-                    	if (extratimednodeDAO.existEmapaIdAndStageSeq(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq())) {
-                        	extratimednode = extratimednodeDAO.findByEmapaAndStage(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq());
+                    	try {
+							if (extratimednodeDAO.existEmapaIdAndStageSeq(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq())) {
+								extratimednode = extratimednodeDAO.findByEmapaAndStage(extratimednode.getPublicEmapaId(), extratimednode.getStageSeq());
 
-                        	outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapaId() + " is " + extratimednode.getPublicEmapId() + " at Stage Sequence " + extratimednode.getStageSeq();
-                    	}
-                    	else {
-                        	outString = "FAIL! " + "Node " + extratimednode.getPublicEmapaId() + " does NOT EXIST at Stage Sequence " + extratimednode.getStageSeq();
-                    	}
+								outString = "SUCCESS: " + "Node " + extratimednode.getPublicEmapaId() + " is " + extratimednode.getPublicEmapId() + " at Stage Sequence " + extratimednode.getStageSeq();
+							}
+							else {
+								outString = "FAIL! " + "Node " + extratimednode.getPublicEmapaId() + " does NOT EXIST at Stage Sequence " + extratimednode.getStageSeq();
+							}
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
                     }
             	}
        	    }

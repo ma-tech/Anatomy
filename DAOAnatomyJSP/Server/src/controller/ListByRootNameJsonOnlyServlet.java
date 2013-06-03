@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,7 @@ public class ListByRootNameJsonOnlyServlet extends HttpServlet {
         // Obtain the UserDAO from DAOFactory by Config.
         this.leafDAO = Config.getInstance(getServletContext()).getDAOFactory().getDAOImpl(LeafDAO.class);
     }
+
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -41,22 +43,15 @@ public class ListByRootNameJsonOnlyServlet extends HttpServlet {
         LeafForm leafForm = new LeafForm(leafDAO);
 
         // Process request and get result.
-        List<Leaf> leafs;
-		
-        try {
+        List<Leaf> leafs = leafForm.listLeafsByRootNameByChildDesc(request);
+        String leafTree = leafDAO.convertLeafListToStringJsonLines(leafs);
+        
+        java.io.PrintWriter out = response.getWriter();
+        response.setContentType("text/html");           
+        response.setHeader("Cache-Control", "no-cache");
+        //System.out.println(leafTree);
+        out.println(leafTree);
 
-			leafs = leafForm.listLeafsByRootNameByChildDesc(request);
-	        String leafTree = leafDAO.convertLeafListToStringJsonLines(leafs);
-	        
-	        java.io.PrintWriter out = response.getWriter();
-	        response.setContentType("text/html");           
-	        response.setHeader("Cache-Control", "no-cache");
-	        //System.out.println(leafTree);
-	        out.println(leafTree);
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
+
 }

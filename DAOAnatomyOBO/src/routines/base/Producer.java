@@ -366,11 +366,18 @@ public class Producer {
                             		obocomponentList.get(i).getEnd() + "\n");
                         }
                         
+                        /*
                         if ( obocomponentList.get(i).isPresent() == false ) {
                         	
-                            outputFile.write("relationship: present_in " +
-                                    Boolean.valueOf(obocomponentList.get(i).isPresent()) + "\n");
+                        	if ( !(obocomponentList.get(i).getNamespace().equals("group_term") ||
+                        			obocomponentList.get(i).getNamespace().equals("new_group_namespace") ||
+                        			obocomponentList.get(i).getNamespace().equals("theiler_stage") ) ) {
+
+                                outputFile.write("relationship: present_in " +
+                                        Boolean.valueOf(obocomponentList.get(i).isPresent()) + "\n");
+                            }
                         }
+                        */
 
                         for (int j=0; j<obocomponentList.get(i).getSynonyms().size(); j++) {
                         	

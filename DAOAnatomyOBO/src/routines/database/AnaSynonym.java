@@ -152,12 +152,12 @@ public class AnaSynonym {
             	   throw new DatabaseException("anasynonym.insertANA_SYNONYM : insertANA_OBJECT");
                }
                
-               for ( OBOComponent synCompie: synonymCompList ) {
+               for ( OBOComponent synComponent: synonymCompList ) {
 
                    //proceed with insertion
-                   int intSYN_OID = Integer.parseInt( synCompie.getDBID() );
-                   int intSYN_OBJECT_FK = Integer.parseInt( synCompie.getID() );
-                   String strSYN_SYNONYM = synCompie.getName();
+                   int intSYN_OID = Integer.parseInt( synComponent.getDBID() );
+                   int intSYN_OBJECT_FK = Integer.parseInt( synComponent.getID() );
+                   String strSYN_SYNONYM = synComponent.getName();
 
                    Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
 

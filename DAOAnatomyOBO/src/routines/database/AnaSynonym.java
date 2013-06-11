@@ -120,6 +120,8 @@ public class AnaSynonym {
     	
         Wrapper.printMessage("anasynonym.insertANA_SYNONYM : " + calledFrom, "***", this.requestMsgLevel);
         	
+        setProcessed( true );
+        
         OBOComponent component;
 
         ArrayList<OBOComponent> synonymCompList = new ArrayList<OBOComponent>();
@@ -253,7 +255,7 @@ public class AnaSynonym {
         		//System.out.println("newSynonymsTermList.isEmpty() = " + newSynonymsTermList.isEmpty());
 
         		//insert Synonyms in ANA_SYNONYM
-                if ( insertANA_SYNONYM( newSynonymsTermList, "UPDATE" ) ) {
+                if ( !insertANA_SYNONYM( newSynonymsTermList, "UPDATE" ) ) {
 
                 	throw new DatabaseException("anasynonym.updateANA_SYNONYM : insertANA_SYNONYM");
                 }
@@ -266,7 +268,7 @@ public class AnaSynonym {
         	else {
         		
                 //delete Synonyms in ANA_SYNONYM
-                if ( deleteANA_SYNONYM( oldSynonymsTermList, "UPDATE" ) ) {
+                if ( !deleteANA_SYNONYM( oldSynonymsTermList, "UPDATE" ) ) {
 
                 	throw new DatabaseException("anasynonym.updateANA_SYNONYM : deleteANA_SYNONYM");
                 }

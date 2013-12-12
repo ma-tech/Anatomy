@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage "Table".
@@ -39,7 +39,7 @@
 *                 JOIN ANA_TIMED_NODE   e  ON f.ANO_OID       = e.ATN_NODE_FK
 *                 JOIN ANA_STAGE        g  ON g.STG_OID       = e.ATN_STAGE_FK
 *                 
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -59,6 +59,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
      *   3. ATN_STAGE_FK             - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK    - varchar(20)      
      *   5. ATN_PUBLIC_ID            - varchar(20)
+     *   6. ATN_DISPLAY_ID           - varchar(20)      
      *         
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
@@ -86,6 +87,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
      *   3. ATN_STAGE_FK             - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK    - varchar(20)      
      *   5. ATN_PUBLIC_ID            - varchar(20)
+     *   6. ATN_DISPLAY_ID           - varchar(20)      
      *         
      *   1. ANO_OID                  - int(10) unsigned 
      *   2. ANO_SPECIES_FK           - varchar(20)      
@@ -108,6 +110,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     private long stageFKI; 
     private String stageModifierFKI;
     private String publicTimedNodeIdI;
+    private String displayTimedNodeIdI;
     private Long oidNodeI; 
     private String speciesFKNodeI; 
     private String componentNameI; 
@@ -131,6 +134,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     private long stageFKII; 
     private String stageModifierFKII;
     private String publicTimedNodeIdII;
+    private String displayTimedNodeIdII;
     private Long oidNodeII; 
     private String speciesFKNodeII; 
     private String componentNameII; 
@@ -151,7 +155,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
      * Default constructor.
      */
     public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -162,6 +166,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     		long stageFKI, 
     		String stageModifierFKI,
     		String publicTimedNodeIdI,
+    		String displayTimedNodeIdI,
     		Long oidNodeI, 
     		String speciesFKNodeI, 
     		String componentNameI, 
@@ -185,6 +190,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     		long stageFKII, 
     		String stageModifierFKII,
     		String publicTimedNodeIdII,
+    		String displayTimedNodeIdII,
     		Long oidNodeII, 
     		String speciesFKNodeII, 
     		String componentNameII, 
@@ -205,6 +211,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     	this.stageFKI = stageFKI;
     	this.stageModifierFKI = stageModifierFKI;
     	this.publicTimedNodeIdI = publicTimedNodeIdI;
+    	this.displayTimedNodeIdI = displayTimedNodeIdI;
     	this.oidNodeI = oidNodeI;
     	this.speciesFKNodeI = speciesFKNodeI;
     	this.componentNameI = componentNameI;
@@ -228,6 +235,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     	this.stageFKII = stageFKII;
     	this.stageModifierFKII = stageModifierFKII;
     	this.publicTimedNodeIdII = publicTimedNodeIdII;
+    	this.displayTimedNodeIdII = displayTimedNodeIdII;
     	this.oidNodeII = oidNodeII;
     	this.speciesFKNodeII = speciesFKNodeII;
     	this.componentNameII = componentNameII;
@@ -258,6 +266,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     }
     public String getPublicTimedNodeIdI() {
         return publicTimedNodeIdI;
+    }
+    public String getDisplayTimedNodeIdI() {
+        return displayTimedNodeIdI;
     }
 
     public Long getOidNodeI() {
@@ -354,6 +365,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String getPublicTimedNodeIdII() {
         return publicTimedNodeIdII;
     }
+    public String getDisplayTimedNodeIdII() {
+        return displayTimedNodeIdII;
+    }
 
     public Long getOidStageII() {
         return oidStageII;
@@ -392,6 +406,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     }
     public void setPublicTimedNodeIdI(String publicTimedNodeIdI) {
         this.publicTimedNodeIdI = publicTimedNodeIdI;
+    }
+    public void setDisplayTimedNodeIdI(String displayTimedNodeIdI) {
+        this.displayTimedNodeIdI = displayTimedNodeIdI;
     }
 
     public void setOidI(Long oidNodeI) {
@@ -488,6 +505,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setPublicTimedNodeIdII(String publicTimedNodeIdII) {
         this.publicTimedNodeIdII = publicTimedNodeIdII;
     }
+    public void setDisplayTimedNodeIdII(String displayTimedNodeIdII) {
+        this.displayTimedNodeIdII = displayTimedNodeIdII;
+    }
 
     public void setOidStageII(Long oidStageII) {
         this.oidStageII = oidStageII;
@@ -523,6 +543,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     		this.getStageFKI() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKI() &&
     		this.getStageModifierFKI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKI()) && 
     		this.getPublicTimedNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdI()) && 
+    		this.getDisplayTimedNodeIdI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDisplayTimedNodeIdI()) && 
     		this.getOidNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidNodeI()) &&
     		this.getSpeciesFKNodeI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKNodeI()) && 
     		this.getComponentNameI().equals(daojointimednodenodestagerelationshipnodetimednodestage.getComponentNameI()) && 
@@ -553,6 +574,7 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     		this.getStageFKII() == daojointimednodenodestagerelationshipnodetimednodestage.getStageFKII() &&
     		this.getStageModifierFKII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getStageModifierFKII()) && 
     		this.getPublicTimedNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getPublicTimedNodeIdII()) && 
+    		this.getDisplayTimedNodeIdII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getDisplayTimedNodeIdII()) && 
     		this.getOidStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getOidStageII()) &&
     		this.getSpeciesFKStageII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getSpeciesFKStageII()) && 
     		this.getNameII().equals(daojointimednodenodestagerelationshipnodetimednodestage.getNameII()) && 
@@ -576,18 +598,18 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public String toString() {
     	
         return String.format("JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage\n" +
-        		"TimedNodeI [ oidTimedNodeI=%d, nodeFKI=%d, stageFKI=%d, stageModifierFKI=%s, publicTimedNodeIdI=%s ]\n" +
+        		"TimedNodeI [ oidTimedNodeI=%d, nodeFKI=%d, stageFKI=%d, stageModifierFKI=%s, publicTimedNodeIdI=%s, displayTimedNodeIdI=%s ]\n" +
         		"NodeI [ oidNodeI=%d, speciesFKI=%s, componentNameI=%s, primaryI=%b, groupI=%b, publicIdI=%s, descriptionNodeI=%s ]\n" +
         		"StageI [ oidStageI=%d, speciesFKI=%s, nameI=%s, sequenceI=%d, descriptionStageI=%s, extraTextI=%s, publicStageIdI=%s  ]\n" + 
                 "Relationship [ oidRel=%d, typeFK=%s, childFK=%d, parentFK=%d ]\n" + 
-        		"TimedNodeII [ oidTimedNodeII=%d, nodeFKII=%d, stageFKII=%d, stageModifierFKII=%s, publicTimedNodeIdII=%s ]\n" +
+        		"TimedNodeII [ oidTimedNodeII=%d, nodeFKII=%d, stageFKII=%d, stageModifierFKII=%s, publicTimedNodeIdII=%s, displayTimedNodeIdII=%s, oldPublicTimedNodeIdII=%s, oldDisplayTimedNodeIdII=%s ]\n" +
         		"NodeII [ oidNodeII=%d, speciesFKII=%s, componentNameII=%s, primaryII=%b, groupII=%b, publicIdII=%s, descriptionNodeII=%s ]\n" +
         		"StageII [ oidStageII=%d, speciesFKII=%s, nameII=%s, sequenceII=%d, descriptionStageII=%s, extraTextII=%s, publicStageIdII=%s ]", 
-        		oidTimedNodeI, nodeFKI, stageFKI, stageModifierFKI, publicTimedNodeIdI, 
+        		oidTimedNodeI, nodeFKI, stageFKI, stageModifierFKI, publicTimedNodeIdI, displayTimedNodeIdI,  
         		oidNodeI, speciesFKNodeI, componentNameI, primaryI, groupI, publicNodeIdI, descriptionNodeI,
         		oidStageI, speciesFKStageI, nameI, sequenceI, descriptionStageI, extraTextI, publicStageIdI,
                 oidRel, typeFK, childFK, parentFK,
-        		oidTimedNodeII, nodeFKII, stageFKII, stageModifierFKII, publicTimedNodeIdII, 
+        		oidTimedNodeII, nodeFKII, stageFKII, stageModifierFKII, publicTimedNodeIdII, displayTimedNodeIdII, 
         		oidNodeII, speciesFKNodeII, componentNameII, primaryII, groupII, publicNodeIdII, descriptionNodeII,
         		oidStageII, speciesFKStageII, nameII, sequenceII, descriptionStageII, extraTextII, publicStageIdII);
     }

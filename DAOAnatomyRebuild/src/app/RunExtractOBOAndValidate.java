@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Reads an OBO File and Loads it into an existing 
 *                Anatomy database;
@@ -53,7 +53,7 @@ package app;
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that accesses an Anatomy Database via a DAO Layer;
 *                Finds are performed using each Data Access Object 
@@ -81,15 +81,15 @@ import java.util.ArrayList;
 import org.apache.commons.io.IOUtils;
 
 import obomodel.OBOComponent;
+import oboroutines.GenerateEditorPDF;
+import oboroutines.GenerateEditorReport;
+import oboroutines.MapBuilder;
+import oboroutines.Parser;
+import oboroutines.TreeBuilder;
+import oboroutines.ValidateComponents;
 
 import utility.ExecuteCommand;
 
-import routines.base.GenerateEditorPDF;
-import routines.base.GenerateEditorReport;
-import routines.base.MapBuilder;
-import routines.base.TreeBuilder;
-import routines.base.Parser;
-import routines.base.ValidateComponents;
 
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
@@ -121,7 +121,7 @@ public class RunExtractOBOAndValidate {
 		    // Find a OBOFile
 		    OBOFile obofile = obofileDAO.findWithBinary(Oid);
 		    
-		    String requestMsgLevel = daofactory.getLevel();
+		    String requestMsgLevel = obofactory.getMsgLevel();
 		    
             // Open streams.
 	        OutputStream output = null;

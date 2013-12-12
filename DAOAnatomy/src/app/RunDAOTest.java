@@ -16,12 +16,9 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
-* Description:  A Main Class that reads in a OBO file and Writes it out again 
-*
-* Required Files:
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A runnable class that does various "find" operations 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *

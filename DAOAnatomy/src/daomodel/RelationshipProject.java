@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the RelationshipProject Table.
 *                ANA_RELATIONSHIP_PROJECT
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -51,7 +51,7 @@ public class RelationshipProject {
      * Default constructor.
      */
     public RelationshipProject() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*

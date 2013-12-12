@@ -9,7 +9,11 @@ public class TestWrapper {
     	try {
     		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
     		
-            System.out.println("HELLO WORLD!");
+    		String message = "HELLO WORLD!";
+
+    		System.out.println(message);
+            
+            Wrapper.printMessage(message, "*", "*");
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}

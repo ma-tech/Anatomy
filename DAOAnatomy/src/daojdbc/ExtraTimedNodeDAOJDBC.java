@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the ExtraTimedNode DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the ExtraTimedNode DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -219,7 +219,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
             
@@ -234,7 +234,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         }
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return extratimednode;
@@ -277,7 +277,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             
             resultSet = preparedStatement.executeQuery();
 
@@ -289,7 +289,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -372,7 +372,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             }
             else {
@@ -384,7 +384,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -401,7 +401,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -446,13 +446,13 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
             if ( searchFirst.equals("")) {
             	
                 String sql = SQL_ROW_COUNT;
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             }
             else {
             	
                 String sql = SQL_ROW_COUNT_WHERE;
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -469,7 +469,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

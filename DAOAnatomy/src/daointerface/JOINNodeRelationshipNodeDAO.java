@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the 
 *                JOINNodeRelationshipNode model.
@@ -24,7 +24,7 @@
 *               This DAO should be used as a central point for the mapping between 
 *                the JOINNodeRelationshipNode DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -62,5 +62,10 @@ public interface JOINNodeRelationshipNodeDAO extends BaseDAO {
      * Returns a list of ALL rows, otherwise null.
      */
     public List<JOINNodeRelationshipNode> listAllByChildIdAndParentId(String childId, String parentId) throws Exception;
+
+    /*
+     * Returns a list of ALL IS_A rows, otherwise null.
+     */
+	public List<JOINNodeRelationshipNode> listAllIsAsByChild(String childId) throws Exception;
     
 }

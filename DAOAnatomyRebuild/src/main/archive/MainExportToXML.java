@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class 
 * 
@@ -55,7 +55,7 @@ public class MainExportToXML {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunExportToXML.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), obofactory, daofactory );
+            RunExportToXML.run( obofactory.getMsgLevel(), obofactory, daofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

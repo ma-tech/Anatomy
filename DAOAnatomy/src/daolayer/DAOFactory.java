@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  
 * 
@@ -72,7 +72,7 @@
 * 
 *  DAOFactory javabase = DAOFactory.getInstance("anatomy008");
 *  NodeDAO nodeDAO = javabase.getnodeDAO();
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -119,12 +119,17 @@ public abstract class DAOFactory {
 
     private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
             new String[] 
-        	    {"*****","****","***","**","*"}
+        	    {"*****",
+            	"****",
+            	"***",
+            	"**",
+            	"*"}
             ));
     
     private static final Set<String> VALID_BOOLS = new HashSet<String>(Arrays.asList(
             new String[] 
-        	    {"true","false"}
+        	    {"true",
+            	"false"}
             ));
 
     private static final Set<String> VALID_METHODS = new HashSet<String>(Arrays.asList(
@@ -273,11 +278,11 @@ public abstract class DAOFactory {
                 	Wrapper.printMessage("          : driverClassName         : " + driverClassName, "*", level);
                 	Wrapper.printMessage("          : username                : " + username, "*", level);
                 	Wrapper.printMessage("          : password                : " + password, "*", level);
-                	Wrapper.printMessage("          : debug                   : " + debug, "*", level);
-                	Wrapper.printMessage("          : update                  : " + update, "*", level);
                 	Wrapper.printMessage("          : sqloutput               : " + sqloutput, "*", level);
-                	Wrapper.printMessage("          : strMsgLevel             : " + strMsgLevel, "*", level);
-                	Wrapper.printMessage("          : strAccessMethod         : " + strAccessMethod, "*", level);
+                	Wrapper.printMessage("          : access                  : " + strAccessMethod, "*", level);
+                	Wrapper.printMessage("          : update                  : " + update, "*", level);
+                	Wrapper.printMessage("          : debug                   : " + debug, "*", level);
+                	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
                 }
                 
                 if (strDebug.equals("false")) {
@@ -362,7 +367,7 @@ public abstract class DAOFactory {
     public abstract boolean isUpdate();
     public abstract String getUrl();
     public abstract String getSqloutput();
-    public abstract String getLevel();
+    public abstract String getMsgLevel();
     public abstract String getAccessMethod();
 
 }
@@ -409,7 +414,7 @@ class DriverManagerDAOFactory extends DAOFactory {
     public String getSqloutput() {
         return sqloutput;
     }
-    public String getLevel() {
+    public String getMsgLevel() {
         return level;
     }
     public String getAccessMethod() {
@@ -454,7 +459,7 @@ class DataSourceDAOFactory extends DAOFactory {
     public String getSqloutput() {
         return sqloutput;
     }
-    public String getLevel() {
+    public String getMsgLevel() {
         return level;
     }
     public String getAccessMethod() {
@@ -511,7 +516,7 @@ class DataSourceWithLoginDAOFactory extends DAOFactory {
     public String getSqloutput() {
         return sqloutput;
     }
-    public String getLevel() {
+    public String getMsgLevel() {
         return level;
     }
     public String getAccessMethod() {

@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the OBO User Table.
 *                ANA_OBO_USER
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -35,6 +35,13 @@ package daomodel;
 
 public class User {
     // Properties ---------------------------------------------------------------------------------
+	/*
+	 * 1. AOU_OID          - bigint(20) unsigned NOT NULL AUTO_INCREMENT
+	 * 2. AOU_NAME         - varchar(255) NOT NULL
+	 * 3. AOU_PASSWORD     - varchar(255) NOT NULL
+	 * 4. AOU_EMAIL        - varchar(255) NOT NULL
+	 * 5. AOU_ORGANISATION - varchar(255) DEFAULT NULL
+	 */
     private Long oid;
     private String username;
     private String password;
@@ -46,7 +53,7 @@ public class User {
      * Default constructor.
      */
     public User() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -145,7 +152,7 @@ public class User {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this User. Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

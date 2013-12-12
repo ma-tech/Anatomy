@@ -1,0 +1,4410 @@
+format-version: 1.2
+date: 04:11:2013 11:46
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS16
+name: TS16
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25781
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:1461
+name: embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1526
+name: cavities and their linings
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1527
+name: intraembryonic coelom
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1526
+
+[Term]
+id: EMAP:1528
+name: intraembryonic coelom pericardial component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:1529
+name: pericardial component cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1528
+
+[Term]
+id: EMAP:1530
+name: pericardial component mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1528
+
+[Term]
+id: EMAP:1531
+name: pericardial component parietal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1530
+
+[Term]
+id: EMAP:1532
+name: pericardial component visceral mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1530
+
+[Term]
+id: EMAP:1537
+name: intraembryonic coelom peritoneal component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:1538
+name: peritoneal component cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1537
+
+[Term]
+id: EMAP:1539
+name: peritoneal component mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1537
+
+[Term]
+id: EMAP:1540
+name: peritoneal component parietal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1539
+
+[Term]
+id: EMAP:1541
+name: peritoneal component visceral mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1539
+
+[Term]
+id: EMAP:1533
+name: pericardio-peritoneal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:1534
+name: pericardio-peritoneal canal cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1533
+
+[Term]
+id: EMAP:1535
+name: pericardio-peritoneal canal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1533
+
+[Term]
+id: EMAP:1536
+name: pericardio-peritoneal canal parietal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1535
+
+[Term]
+id: EMAP:1542
+name: intraembryonic coelom pleural component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:1543
+name: pleural component cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1542
+
+[Term]
+id: EMAP:1544
+name: pleural component mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1542
+
+[Term]
+id: EMAP:1545
+name: pleural component parietal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1544
+
+[Term]
+id: EMAP:1546
+name: pleural component visceral mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1544
+
+[Term]
+id: EMAP:14734
+name: pleuro-peritoneal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:14739
+name: pleuro-peritoneal canal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:14734
+
+[Term]
+id: EMAP:14744
+name: pleuro-peritoneal canal parietal mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:14739
+
+[Term]
+id: EMAP:14749
+name: pleuro-peritoneal canal cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:14734
+
+[Term]
+id: EMAP:1547
+name: ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1548
+name: surface ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1547
+
+[Term]
+id: EMAP:1557
+name: mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1558
+name: head mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+relationship: part_of EMAP:31898
+
+[Term]
+id: EMAP:1559
+name: mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1558
+
+[Term]
+id: EMAP:15251
+name: mesenchyme derived from somites 01-04
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1559
+
+[Term]
+id: EMAP:1560
+name: head mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1558
+
+[Term]
+id: EMAP:1561
+name: trunk mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+relationship: part_of EMAP:31883
+
+[Term]
+id: EMAP:1562
+name: trunk mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1561
+
+[Term]
+id: EMAP:1563
+name: trunk mesenchyme derived from neural crest lateral migration pathway
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1562
+
+[Term]
+id: EMAP:1564
+name: trunk mesenchyme derived from neural crest medial migration pathway
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1562
+
+[Term]
+id: EMAP:15242
+name: trunk mesenchyme derived from neural crest non-migrating cells
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1562
+
+[Term]
+id: EMAP:1567
+name: trunk paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1561
+relationship: part_of EMAP:33817
+
+[Term]
+id: EMAP:1568
+name: trunk somite group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1567
+relationship: part_of EMAP:31174
+
+[Term]
+id: EMAP:1569
+name: somite 05
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1570
+name: somite 05 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1569
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1571
+name: somite 05 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1569
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1572
+name: somite 05 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1569
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1573
+name: somite 06
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1574
+name: somite 06 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1573
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1575
+name: somite 06 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1573
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1576
+name: somite 06 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1573
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1577
+name: somite 07
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1578
+name: somite 07 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1577
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1579
+name: somite 07 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1577
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1580
+name: somite 07 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1577
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1581
+name: somite 08
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1582
+name: somite 08 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1581
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1583
+name: somite 08 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1581
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1584
+name: somite 08 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1581
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1585
+name: somite 09
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1586
+name: somite 09 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1585
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1587
+name: somite 09 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1585
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1588
+name: somite 09 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1585
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1589
+name: somite 10
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1590
+name: somite 10 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1589
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1591
+name: somite 10 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1589
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1592
+name: somite 10 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1589
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1593
+name: somite 11
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1594
+name: somite 11 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1593
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1595
+name: somite 11 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1593
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1596
+name: somite 11 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1593
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1597
+name: somite 12
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1598
+name: somite 12 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1597
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1599
+name: somite 12 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1597
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1600
+name: somite 12 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1597
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1601
+name: somite 13
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1602
+name: somite 13 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1601
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1603
+name: somite 13 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1601
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1604
+name: somite 13 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1601
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1605
+name: somite 14
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1606
+name: somite 14 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1605
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1607
+name: somite 14 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1605
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1608
+name: somite 14 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1605
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1609
+name: somite 15
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1610
+name: somite 15 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1609
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1611
+name: somite 15 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1609
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1612
+name: somite 15 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1609
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1613
+name: somite 16
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1614
+name: somite 16 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1613
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1615
+name: somite 16 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1613
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1616
+name: somite 16 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1613
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1617
+name: somite 17
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1618
+name: somite 17 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1617
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1619
+name: somite 17 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1617
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1620
+name: somite 17 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1617
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1621
+name: somite 18
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1622
+name: somite 18 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1621
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1623
+name: somite 18 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1621
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1624
+name: somite 18 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1621
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1625
+name: somite 19
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1626
+name: somite 19 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1625
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1627
+name: somite 19 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1625
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1628
+name: somite 19 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1625
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1629
+name: somite 20
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1630
+name: somite 20 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1629
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1631
+name: somite 20 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1629
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1632
+name: somite 20 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1629
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1633
+name: somite 21
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1634
+name: somite 21 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1633
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1635
+name: somite 21 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1633
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1636
+name: somite 21 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1633
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1637
+name: somite 22
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1638
+name: somite 22 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1637
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1639
+name: somite 22 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1637
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1640
+name: somite 22 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1637
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1641
+name: somite 23
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1642
+name: somite 23 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1641
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1643
+name: somite 23 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1641
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1644
+name: somite 23 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1641
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1645
+name: somite 24
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1646
+name: somite 24 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1645
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1647
+name: somite 24 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1645
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1648
+name: somite 24 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1645
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1649
+name: somite 25
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1650
+name: somite 25 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1649
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1651
+name: somite 25 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1649
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1652
+name: somite 25 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1649
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1653
+name: somite 26
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1654
+name: somite 26 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1653
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1655
+name: somite 26 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1653
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1656
+name: somite 26 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1653
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1657
+name: somite 27
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1658
+name: somite 27 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1657
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1659
+name: somite 27 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1657
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1660
+name: somite 27 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1657
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1661
+name: somite 28
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1662
+name: somite 28 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1661
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1663
+name: somite 28 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1661
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1664
+name: somite 28 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1661
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1665
+name: somite 29
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1666
+name: somite 29 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1665
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1667
+name: somite 29 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1665
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1668
+name: somite 29 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1665
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1669
+name: somite 30
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+
+[Term]
+id: EMAP:1670
+name: somite 30 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1669
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:1671
+name: somite 30 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1669
+relationship: part_of EMAP:31181
+
+[Term]
+id: EMAP:1672
+name: somite 30 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1669
+relationship: part_of EMAP:31147
+
+[Term]
+id: EMAP:1673
+name: septum transversum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1561
+
+[Term]
+id: EMAP:1674
+name: septum transversum non-hepatic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1673
+
+[Term]
+id: EMAP:14757
+name: future central tendon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1674
+
+[Term]
+id: EMAP:1565
+name: mesenchyme derived from somatopleure
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1561
+
+[Term]
+id: EMAP:1566
+name: mesenchyme derived from splanchnopleure
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1561
+
+[Term]
+id: EMAP:1676
+name: organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1809
+name: cardiovascular system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:1827
+name: heart
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1809
+
+[Term]
+id: EMAP:1856
+name: heart mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1857
+name: dorsal mesocardium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1856
+
+[Term]
+id: EMAP:1858
+name: transverse pericardial sinus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1857
+
+[Term]
+id: EMAP:1868
+name: sinus venosus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1869
+name: sinus venosus left horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1868
+
+[Term]
+id: EMAP:1870
+name: sinus venosus right horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1868
+
+[Term]
+id: EMAP:1846
+name: bulbus cordis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1847
+name: bulbus cordis caudal half
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1846
+
+[Term]
+id: EMAP:1848
+name: bulbus cordis caudal half cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1847
+
+[Term]
+id: EMAP:1850
+name: bulbus cordis caudal half cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1847
+
+[Term]
+id: EMAP:1849
+name: bulbus cordis caudal half endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1847
+
+[Term]
+id: EMAP:1851
+name: bulbus cordis rostral half
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1846
+
+[Term]
+id: EMAP:1852
+name: bulbus cordis rostral half cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1851
+
+[Term]
+id: EMAP:1854
+name: bulbus cordis rostral half cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1851
+
+[Term]
+id: EMAP:1853
+name: bulbus cordis rostral half endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1851
+
+[Term]
+id: EMAP:1859
+name: outflow tract
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1861
+name: outflow tract cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1859
+
+[Term]
+id: EMAP:1862
+name: outflow tract endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1859
+
+[Term]
+id: EMAP:1863
+name: outflow tract mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1859
+
+[Term]
+id: EMAP:1860
+name: aortico-pulmonary spiral septum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1859
+
+[Term]
+id: EMAP:1864
+name: primitive ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1865
+name: primitive ventricle cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1864
+
+[Term]
+id: EMAP:1867
+name: primitive ventricle cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1864
+
+[Term]
+id: EMAP:1866
+name: primitive ventricle endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1864
+
+[Term]
+id: EMAP:1828
+name: atrio-ventricular canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1829
+name: atrium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1830
+name: common atrial chamber
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1829
+
+[Term]
+id: EMAP:1831
+name: common atrial chamber left part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1830
+
+[Term]
+id: EMAP:1832
+name: common atrial chamber left part cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1831
+
+[Term]
+id: EMAP:1833
+name: common atrial chamber left part endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1831
+
+[Term]
+id: EMAP:1834
+name: left auricular region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1831
+
+[Term]
+id: EMAP:1835
+name: left auricular region endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1834
+
+[Term]
+id: EMAP:1836
+name: left auricular region cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1834
+
+[Term]
+id: EMAP:1837
+name: common atrial chamber left part cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1831
+
+[Term]
+id: EMAP:1838
+name: common atrial chamber right part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1830
+
+[Term]
+id: EMAP:1839
+name: common atrial chamber right part cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1838
+
+[Term]
+id: EMAP:1840
+name: common atrial chamber right part endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1838
+
+[Term]
+id: EMAP:1841
+name: common atrial chamber right part cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1838
+
+[Term]
+id: EMAP:1842
+name: right auricular region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1838
+
+[Term]
+id: EMAP:1843
+name: right auricular region endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1842
+
+[Term]
+id: EMAP:1844
+name: right auricular region cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1842
+
+[Term]
+id: EMAP:1845
+name: bulboventricular groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1855
+name: endocardial cushion tissue
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:1810
+name: arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1809
+
+[Term]
+id: EMAP:1815
+name: dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1817
+name: left dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1815
+
+[Term]
+id: EMAP:1818
+name: right dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1815
+
+[Term]
+id: EMAP:1816
+name: common dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1815
+
+[Term]
+id: EMAP:1825
+name: vitelline artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1819
+name: internal carotid artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1822
+name: umbilical artery embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1823
+name: left umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1822
+
+[Term]
+id: EMAP:1824
+name: right umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1822
+
+[Term]
+id: EMAP:1811
+name: branchial arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1812
+name: 1st arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1811
+
+[Term]
+id: EMAP:1813
+name: 2nd arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1811
+
+[Term]
+id: EMAP:1814
+name: 3rd arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1811
+
+[Term]
+id: EMAP:15266
+name: intersegmental artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1810
+
+[Term]
+id: EMAP:1871
+name: venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1809
+
+[Term]
+id: EMAP:1877
+name: primary head vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1880
+name: umbilical vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1881
+name: left umbilical vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1880
+
+[Term]
+id: EMAP:1882
+name: vitelline vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1883
+name: left vitelline vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1882
+
+[Term]
+id: EMAP:1884
+name: right vitelline vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1882
+
+[Term]
+id: EMAP:1872
+name: cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1873
+name: anterior cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1872
+
+[Term]
+id: EMAP:1874
+name: common cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1872
+
+[Term]
+id: EMAP:1875
+name: posterior cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1872
+
+[Term]
+id: EMAP:1876
+name: inter-subcardinal venous anastomosis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1878
+name: subcardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1879
+name: supracardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1871
+
+[Term]
+id: EMAP:1826
+name: blood
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1809
+
+[Term]
+id: EMAP:1780
+name: sensory organ
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:1781
+name: ear
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1780
+
+[Term]
+id: EMAP:1782
+name: inner ear
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1781
+
+[Term]
+id: EMAP:1783
+name: otocyst
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1782
+
+[Term]
+id: EMAP:1784
+name: otocyst associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1783
+
+[Term]
+id: EMAP:1785
+name: otocyst epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1783
+
+[Term]
+id: EMAP:15262
+name: otocyst lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1783
+
+[Term]
+id: EMAP:1786
+name: eye
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1780
+
+[Term]
+id: EMAP:1788
+name: eye mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1786
+
+[Term]
+id: EMAP:1789
+name: optic cup
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1786
+
+[Term]
+id: EMAP:1790
+name: optic cup inner layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1789
+
+[Term]
+id: EMAP:1791
+name: optic cup intraretinal space
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1789
+
+[Term]
+id: EMAP:1792
+name: optic cup outer layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1789
+
+[Term]
+id: EMAP:1793
+name: optic stalk
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1786
+
+[Term]
+id: EMAP:1787
+name: lens pit
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1786
+
+[Term]
+id: EMAP:1794
+name: nose
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1780
+
+[Term]
+id: EMAP:1795
+name: naso-lacrimal groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1794
+
+[Term]
+id: EMAP:1798
+name: nasal process
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1794
+
+[Term]
+id: EMAP:1799
+name: fronto-nasal process
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1798
+
+[Term]
+id: EMAP:1800
+name: frontal process
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1799
+
+[Term]
+id: EMAP:1801
+name: frontal process ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1800
+
+[Term]
+id: EMAP:1802
+name: frontal process mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1800
+
+[Term]
+id: EMAP:1803
+name: latero-nasal process
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1799
+
+[Term]
+id: EMAP:1804
+name: latero-nasal process ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1803
+
+[Term]
+id: EMAP:1805
+name: latero-nasal process mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1803
+
+[Term]
+id: EMAP:1806
+name: medial-nasal process
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1799
+
+[Term]
+id: EMAP:1807
+name: medial-nasal process ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1806
+
+[Term]
+id: EMAP:1808
+name: medial-nasal process mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1806
+
+[Term]
+id: EMAP:1796
+name: olfactory pit
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1794
+
+[Term]
+id: EMAP:1797
+name: nasal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1796
+
+[Term]
+id: EMAP:1677
+name: visceral organ
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:1678
+name: alimentary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1677
+
+[Term]
+id: EMAP:1691
+name: gut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1678
+
+[Term]
+id: EMAP:1911
+name: hindgut diverticulum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:1912
+name: hindgut diverticulum associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1911
+
+[Term]
+id: EMAP:1913
+name: hindgut diverticulum epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1911
+
+[Term]
+id: EMAP:1914
+name: hindgut diverticulum vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1911
+
+[Term]
+id: EMAP:6908
+name: hindgut diverticulum lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1911
+
+[Term]
+id: EMAP:1921
+name: midgut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:1922
+name: midgut associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1921
+
+[Term]
+id: EMAP:1923
+name: midgut epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1921
+
+[Term]
+id: EMAP:1926
+name: midgut vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1921
+
+[Term]
+id: EMAP:1924
+name: midgut mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1921
+
+[Term]
+id: EMAP:1925
+name: midgut dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1924
+
+[Term]
+id: EMAP:6917
+name: midgut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1921
+
+[Term]
+id: EMAP:1904
+name: foregut-midgut junction
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:1905
+name: foregut-midgut junction associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:1908
+name: foregut-midgut junction mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:1909
+name: foregut-midgut junction dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1908
+
+[Term]
+id: EMAP:1910
+name: foregut-midgut junction ventral mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1908
+
+[Term]
+id: EMAP:1906
+name: foregut-midgut junction epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:1907
+name: foregut-midgut junction vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:6959
+name: foregut-midgut junction lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:1692
+name: foregut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:1897
+name: rest of foregut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:1898
+name: rest of foregut associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1897
+
+[Term]
+id: EMAP:1899
+name: rest of foregut epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1897
+
+[Term]
+id: EMAP:1900
+name: rest of foregut vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1897
+
+[Term]
+id: EMAP:1901
+name: rest of foregut mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1897
+
+[Term]
+id: EMAP:1902
+name: rest of foregut dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1901
+
+[Term]
+id: EMAP:1903
+name: rest of foregut ventral mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1901
+
+[Term]
+id: EMAP:7014
+name: rest of foregut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1897
+
+[Term]
+id: EMAP:1693
+name: foregut gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:1694
+name: thyroid primordium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1693
+
+[Term]
+id: EMAP:1695
+name: thyroid primordium associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1694
+
+[Term]
+id: EMAP:1696
+name: thyroid primordium endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1694
+
+[Term]
+id: EMAP:1893
+name: pharynx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:1894
+name: pharynx associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1893
+
+[Term]
+id: EMAP:1895
+name: pharynx epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1893
+
+[Term]
+id: EMAP:1896
+name: pharynx vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1893
+
+[Term]
+id: EMAP:6938
+name: pharynx lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1893
+
+[Term]
+id: EMAP:1887
+name: oesophagus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:1888
+name: oesophagus associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1887
+
+[Term]
+id: EMAP:1889
+name: oesophagus epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1887
+
+[Term]
+id: EMAP:1890
+name: oesophagus mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1887
+
+[Term]
+id: EMAP:1891
+name: dorsal meso-oesophagus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1890
+
+[Term]
+id: EMAP:1892
+name: oesophagus vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1887
+
+[Term]
+id: EMAP:6930
+name: oesophagus lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1887
+
+[Term]
+id: EMAP:1915
+name: hindgut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:1916
+name: hindgut associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1915
+
+[Term]
+id: EMAP:1917
+name: hindgut epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1915
+
+[Term]
+id: EMAP:1918
+name: hindgut mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1915
+
+[Term]
+id: EMAP:1919
+name: hindgut dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1918
+
+[Term]
+id: EMAP:1920
+name: hindgut vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1915
+
+[Term]
+id: EMAP:6996
+name: hindgut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1915
+
+[Term]
+id: EMAP:1679
+name: oral region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1678
+
+[Term]
+id: EMAP:1680
+name: oral region gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1679
+
+[Term]
+id: EMAP:1681
+name: pituitary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1680
+
+[Term]
+id: EMAP:1682
+name: Rathke's pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1681
+
+[Term]
+id: EMAP:14763
+name: Rathke's pouch wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1682
+
+[Term]
+id: EMAP:14768
+name: Rathke's pouch lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1682
+
+[Term]
+id: EMAP:1927
+name: oral epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1679
+
+[Term]
+id: EMAP:7010
+name: oral region cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1679
+
+[Term]
+id: EMAP:1885
+name: anal region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1678
+
+[Term]
+id: EMAP:1886
+name: cloacal membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1885
+
+[Term]
+id: EMAP:1957
+name: genitourinary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1677
+
+[Term]
+id: EMAP:1965
+name: nephric cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:27561
+name: genitourinary system associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:1966
+name: nephric duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:1961
+name: mesonephros
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:1962
+name: mesonephros associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1961
+
+[Term]
+id: EMAP:1963
+name: mesonephros non-tubular part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1961
+
+[Term]
+id: EMAP:1964
+name: mesonephric tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1961
+
+[Term]
+id: EMAP:1958
+name: gonad
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:1960
+name: primordial germ cells
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1958
+
+[Term]
+id: EMAP:1937
+name: respiratory system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1677
+
+[Term]
+id: EMAP:1938
+name: lung
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1937
+
+[Term]
+id: EMAP:1939
+name: left lung rudiment
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1938
+
+[Term]
+id: EMAP:1940
+name: left lung rudiment associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1939
+
+[Term]
+id: EMAP:1941
+name: left lung rudiment epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1939
+
+[Term]
+id: EMAP:1942
+name: left lung rudiment vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1939
+
+[Term]
+id: EMAP:1943
+name: right lung rudiment
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1938
+
+[Term]
+id: EMAP:1944
+name: right lung rudiment associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1943
+
+[Term]
+id: EMAP:1945
+name: right lung rudiment epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1943
+
+[Term]
+id: EMAP:1946
+name: right lung rudiment vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1943
+
+[Term]
+id: EMAP:1947
+name: respiratory tract
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1937
+
+[Term]
+id: EMAP:1948
+name: lower respiratory tract
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1947
+
+[Term]
+id: EMAP:28870
+name: laryngo-tracheal groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1948
+
+[Term]
+id: EMAP:1949
+name: main bronchus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1948
+
+[Term]
+id: EMAP:1950
+name: main bronchus associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1949
+
+[Term]
+id: EMAP:1951
+name: main bronchus epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1949
+
+[Term]
+id: EMAP:1952
+name: main bronchus vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1949
+
+[Term]
+id: EMAP:1953
+name: trachea
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1948
+
+[Term]
+id: EMAP:1954
+name: trachea associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1953
+
+[Term]
+id: EMAP:1955
+name: trachea epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1953
+
+[Term]
+id: EMAP:1956
+name: trachea vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1953
+
+[Term]
+id: EMAP:1928
+name: liver and biliary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1677
+
+[Term]
+id: EMAP:1929
+name: cystic duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1928
+
+[Term]
+id: EMAP:1930
+name: gall bladder primordium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1928
+
+[Term]
+id: EMAP:1931
+name: hepatic duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1928
+
+[Term]
+id: EMAP:1932
+name: hepatic duct extrahepatic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1931
+
+[Term]
+id: EMAP:1933
+name: hepatic duct intrahepatic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1931
+
+[Term]
+id: EMAP:1934
+name: liver
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1928
+
+[Term]
+id: EMAP:1935
+name: hepatic primordium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1904
+
+[Term]
+id: EMAP:1936
+name: hepatic primordium parenchyma
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1935
+
+[Term]
+id: EMAP:1683
+name: nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:1684
+name: central nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1683
+
+[Term]
+id: EMAP:1685
+name: future brain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1684
+
+[Term]
+id: EMAP:1713
+name: future midbrain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:1714
+name: future midbrain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1713
+
+[Term]
+id: EMAP:1715
+name: future midbrain lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1713
+
+[Term]
+id: EMAP:1716
+name: future midbrain ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1715
+
+[Term]
+id: EMAP:1717
+name: mesencephalic vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1713
+
+[Term]
+id: EMAP:1718
+name: future midbrain roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1713
+
+[Term]
+id: EMAP:1719
+name: future rhombencephalon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:1720
+name: 4th ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:33247
+
+[Term]
+id: EMAP:1721
+name: rhombomere 01
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1722
+name: rhombomere 01 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1721
+
+[Term]
+id: EMAP:1723
+name: rhombomere 01 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1721
+
+[Term]
+id: EMAP:1724
+name: rhombomere 01 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1723
+
+[Term]
+id: EMAP:1725
+name: rhombomere 01 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1721
+
+[Term]
+id: EMAP:1726
+name: rhombomere 02
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1727
+name: rhombomere 02 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1726
+
+[Term]
+id: EMAP:1728
+name: rhombomere 02 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1726
+
+[Term]
+id: EMAP:1729
+name: rhombomere 02 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1728
+
+[Term]
+id: EMAP:1730
+name: rhombomere 02 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1726
+
+[Term]
+id: EMAP:1731
+name: rhombomere 03
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1732
+name: rhombomere 03 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1731
+
+[Term]
+id: EMAP:1733
+name: rhombomere 03 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1731
+
+[Term]
+id: EMAP:1734
+name: rhombomere 03 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1733
+
+[Term]
+id: EMAP:1735
+name: rhombomere 03 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1731
+
+[Term]
+id: EMAP:1736
+name: rhombomere 04
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1737
+name: rhombomere 04 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1736
+
+[Term]
+id: EMAP:1738
+name: rhombomere 04 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1736
+
+[Term]
+id: EMAP:1739
+name: rhombomere 04 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1738
+
+[Term]
+id: EMAP:1740
+name: rhombomere 04 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1736
+
+[Term]
+id: EMAP:1741
+name: rhombomere 05
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1742
+name: rhombomere 05 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1741
+
+[Term]
+id: EMAP:1743
+name: rhombomere 05 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1741
+
+[Term]
+id: EMAP:1744
+name: rhombomere 05 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1743
+
+[Term]
+id: EMAP:1745
+name: rhombomere 05 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1741
+
+[Term]
+id: EMAP:1746
+name: rhombomere 06
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1747
+name: rhombomere 06 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1746
+
+[Term]
+id: EMAP:1748
+name: rhombomere 06 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1746
+
+[Term]
+id: EMAP:1749
+name: rhombomere 06 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1748
+
+[Term]
+id: EMAP:1750
+name: rhombomere 06 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1746
+
+[Term]
+id: EMAP:1751
+name: rhombomere 07
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1752
+name: rhombomere 07 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1751
+
+[Term]
+id: EMAP:1753
+name: rhombomere 07 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1751
+
+[Term]
+id: EMAP:1754
+name: rhombomere 07 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1753
+
+[Term]
+id: EMAP:1755
+name: rhombomere 07 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1751
+
+[Term]
+id: EMAP:1756
+name: rhombomere 08
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+relationship: is_a EMAP:34798
+
+[Term]
+id: EMAP:1758
+name: rhombomere 08 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1756
+
+[Term]
+id: EMAP:1759
+name: rhombomere 08 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1756
+
+[Term]
+id: EMAP:1760
+name: rhombomere 08 ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1759
+
+[Term]
+id: EMAP:1757
+name: rhombomere 08 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1756
+
+[Term]
+id: EMAP:1686
+name: future forebrain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:1687
+name: diencephalon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1686
+
+[Term]
+id: EMAP:1697
+name: 3rd ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+relationship: is_a EMAP:33247
+
+[Term]
+id: EMAP:1698
+name: diencephalic part of interventricular foramen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1697
+
+[Term]
+id: EMAP:1699
+name: optic recess
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1697
+
+[Term]
+id: EMAP:1700
+name: diencephalon floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+
+[Term]
+id: EMAP:1688
+name: diencephalon gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+
+[Term]
+id: EMAP:1689
+name: pituitary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1688
+
+[Term]
+id: EMAP:1690
+name: infundibular recess of 3rd ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1689
+
+[Term]
+id: EMAP:1701
+name: lamina terminalis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+
+[Term]
+id: EMAP:1702
+name: diencephalon lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+
+[Term]
+id: EMAP:1703
+name: diencephalon ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1702
+
+[Term]
+id: EMAP:1704
+name: diencephalon roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1687
+
+[Term]
+id: EMAP:1705
+name: telencephalon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1686
+
+[Term]
+id: EMAP:1706
+name: telencephalic vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1705
+relationship: is_a EMAP:33247
+
+[Term]
+id: EMAP:1707
+name: telencephalic part of interventricular foramen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1706
+
+[Term]
+id: EMAP:1709
+name: telencephalon floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1705
+
+[Term]
+id: EMAP:1710
+name: telencephalon lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1705
+
+[Term]
+id: EMAP:1711
+name: telencephalon ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1710
+
+[Term]
+id: EMAP:1712
+name: telencephalon roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1705
+
+[Term]
+id: EMAP:1761
+name: future spinal cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1684
+
+[Term]
+id: EMAP:1762
+name: caudal neuropore
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1761
+
+[Term]
+id: EMAP:1763
+name: neural tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1761
+
+[Term]
+id: EMAP:1764
+name: neural tube floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1763
+
+[Term]
+id: EMAP:1765
+name: neural tube lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1763
+
+[Term]
+id: EMAP:1766
+name: neural lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1763
+
+[Term]
+id: EMAP:1767
+name: neural luminal occlusion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1766
+
+[Term]
+id: EMAP:1768
+name: neural tube roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1763
+
+[Term]
+id: EMAP:1769
+name: central nervous system ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1684
+relationship: is_a EMAP:34187
+
+[Term]
+id: EMAP:1770
+name: cranial ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1769
+
+[Term]
+id: EMAP:1771
+name: facio-acoustic VII-VIII ganglion complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1770
+
+[Term]
+id: EMAP:1772
+name: glossopharyngeal IX ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1770
+
+[Term]
+id: EMAP:1773
+name: glossopharyngeal-vagus IX-X ganglion complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1770
+
+[Term]
+id: EMAP:1774
+name: trigeminal V ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1770
+
+[Term]
+id: EMAP:1775
+name: vagus X ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1770
+
+[Term]
+id: EMAP:1776
+name: peripheral nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1683
+
+[Term]
+id: EMAP:1777
+name: spinal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1776
+
+[Term]
+id: EMAP:1778
+name: spinal ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1777
+relationship: is_a EMAP:34028
+
+[Term]
+id: EMAP:1779
+name: dorsal root ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1778
+
+[Term]
+id: EMAP:14976
+name: C1 dorsal root ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1779
+
+[Term]
+id: EMAP:1462
+name: branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1463
+name: 1st branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:1464
+name: 1st branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1465
+name: 1st branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1464
+
+[Term]
+id: EMAP:1466
+name: 1st branchial membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1467
+name: 1st branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1466
+
+[Term]
+id: EMAP:1468
+name: 1st branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1466
+
+[Term]
+id: EMAP:1469
+name: 1st branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1470
+name: 1st branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1469
+
+[Term]
+id: EMAP:1471
+name: 1st branchial arch mandibular component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1472
+name: 1st branchial arch mandibular component ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1471
+
+[Term]
+id: EMAP:1473
+name: 1st branchial arch mandibular component endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1471
+
+[Term]
+id: EMAP:1474
+name: 1st branchial arch mandibular component mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1471
+
+[Term]
+id: EMAP:1475
+name: 1st branchial arch mandibular component mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1474
+
+[Term]
+id: EMAP:1476
+name: 1st branchial arch mandibular component mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1474
+
+[Term]
+id: EMAP:1477
+name: 1st branchial arch maxillary component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1478
+name: 1st branchial arch maxillary component ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1477
+
+[Term]
+id: EMAP:1479
+name: 1st branchial arch maxillary component endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1477
+
+[Term]
+id: EMAP:1480
+name: 1st branchial arch maxillary component mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1477
+
+[Term]
+id: EMAP:1481
+name: 1st branchial arch maxillary component mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1480
+
+[Term]
+id: EMAP:1482
+name: 1st branchial arch maxillary component mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1480
+
+[Term]
+id: EMAP:1483
+name: 1st branchial arch maxillary-mandibular groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:1484
+name: 1st branchial arch maxillary-mandibular groove ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1483
+
+[Term]
+id: EMAP:1485
+name: 2nd branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:1488
+name: 2nd branchial membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1490
+name: 2nd branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1488
+
+[Term]
+id: EMAP:1489
+name: 2nd branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1488
+
+[Term]
+id: EMAP:1491
+name: 2nd branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1492
+name: 2nd branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1491
+
+[Term]
+id: EMAP:1493
+name: 2nd branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1494
+name: 2nd branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1495
+name: 2nd branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1496
+name: 2nd branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1495
+
+[Term]
+id: EMAP:1497
+name: 2nd branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1495
+
+[Term]
+id: EMAP:1486
+name: 2nd branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1485
+
+[Term]
+id: EMAP:1487
+name: 2nd branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1486
+
+[Term]
+id: EMAP:1498
+name: 3rd branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:1508
+name: 3rd branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1509
+name: 3rd branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1510
+name: 3rd branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1511
+name: 3rd branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1510
+
+[Term]
+id: EMAP:1512
+name: 3rd branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1510
+
+[Term]
+id: EMAP:1499
+name: 3rd branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1500
+name: 3rd branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1499
+
+[Term]
+id: EMAP:1501
+name: 3rd branchial membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1502
+name: 3rd branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1501
+
+[Term]
+id: EMAP:1503
+name: 3rd branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1501
+
+[Term]
+id: EMAP:1504
+name: 3rd branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1498
+
+[Term]
+id: EMAP:1505
+name: 3rd branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1504
+
+[Term]
+id: EMAP:1506
+name: 3rd branchial pouch dorsal endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1505
+
+[Term]
+id: EMAP:1507
+name: 3rd branchial pouch ventral endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1505
+
+[Term]
+id: EMAP:1513
+name: 4th branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:1514
+name: 4th branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1515
+name: 4th branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1514
+
+[Term]
+id: EMAP:1516
+name: 4th branchial membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1517
+name: 4th branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1516
+
+[Term]
+id: EMAP:1518
+name: 4th branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1516
+
+[Term]
+id: EMAP:1519
+name: 4th branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1520
+name: 4th branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1519
+
+[Term]
+id: EMAP:1521
+name: 4th branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1522
+name: 4th branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1523
+name: 4th branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1513
+
+[Term]
+id: EMAP:1524
+name: 4th branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1523
+
+[Term]
+id: EMAP:1525
+name: 4th branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1523
+
+[Term]
+id: EMAP:1675
+name: notochord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1549
+name: limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1550
+name: forelimb bud
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1549
+
+[Term]
+id: EMAP:1551
+name: forelimb bud ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1550
+
+[Term]
+id: EMAP:1552
+name: forelimb bud apical ectodermal ridge
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1551
+relationship: is_a EMAP:33705
+
+[Term]
+id: EMAP:1553
+name: forelimb bud mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1550
+
+[Term]
+id: EMAP:1554
+name: hindlimb bud
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1549
+
+[Term]
+id: EMAP:1555
+name: hindlimb bud ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1554
+
+[Term]
+id: EMAP:1556
+name: hindlimb bud mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1554
+
+[Term]
+id: EMAP:1967
+name: tail
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1968
+name: tail mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+relationship: part_of EMAP:1967
+
+[Term]
+id: EMAP:1969
+name: tail mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1968
+
+[Term]
+id: EMAP:1970
+name: tail paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1968
+relationship: part_of EMAP:33817
+
+[Term]
+id: EMAP:1992
+name: unsegmented mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1970
+
+[Term]
+id: EMAP:1971
+name: tail somite group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1970
+relationship: part_of EMAP:31174
+
+[Term]
+id: EMAP:1972
+name: somite 31
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+
+[Term]
+id: EMAP:1973
+name: somite 31 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1972
+relationship: part_of EMAP:31106
+
+[Term]
+id: EMAP:1974
+name: somite 31 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1972
+relationship: part_of EMAP:31127
+
+[Term]
+id: EMAP:1975
+name: somite 31 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1972
+relationship: part_of EMAP:31152
+
+[Term]
+id: EMAP:1976
+name: somite 32
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+
+[Term]
+id: EMAP:1977
+name: somite 32 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1976
+relationship: part_of EMAP:31106
+
+[Term]
+id: EMAP:1978
+name: somite 32 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1976
+relationship: part_of EMAP:31127
+
+[Term]
+id: EMAP:1979
+name: somite 32 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1976
+relationship: part_of EMAP:31152
+
+[Term]
+id: EMAP:1980
+name: somite 33
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+
+[Term]
+id: EMAP:1981
+name: somite 33 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1980
+relationship: part_of EMAP:31106
+
+[Term]
+id: EMAP:1982
+name: somite 33 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1980
+relationship: part_of EMAP:31127
+
+[Term]
+id: EMAP:1983
+name: somite 33 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1980
+relationship: part_of EMAP:31152
+
+[Term]
+id: EMAP:1984
+name: somite 34
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+
+[Term]
+id: EMAP:1985
+name: somite 34 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1984
+relationship: part_of EMAP:31106
+
+[Term]
+id: EMAP:1986
+name: somite 34 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1984
+relationship: part_of EMAP:31127
+
+[Term]
+id: EMAP:1987
+name: somite 34 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1984
+relationship: part_of EMAP:31152
+
+[Term]
+id: EMAP:1988
+name: somite 35
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+
+[Term]
+id: EMAP:1989
+name: somite 35 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1988
+relationship: part_of EMAP:31106
+
+[Term]
+id: EMAP:1990
+name: somite 35 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1988
+relationship: part_of EMAP:31127
+
+[Term]
+id: EMAP:1991
+name: somite 35 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1988
+relationship: part_of EMAP:31152
+
+[Term]
+id: EMAP:1993
+name: tail nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1967
+
+[Term]
+id: EMAP:1994
+name: tail central nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1993
+
+[Term]
+id: EMAP:1995
+name: tail future spinal cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1994
+
+[Term]
+id: EMAP:1996
+name: neural plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1995
+
+[Term]
+id: EMAP:1997
+name: tail neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1996
+
+[Term]
+id: EMAP:15265
+name: tail neural tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1995
+
+[Term]
+id: EMAP:13222
+name: skeleton
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:33500
+
+[Term]
+id: EMAP:13223
+name: axial skeleton
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13222
+
+[Term]
+id: EMAP:13224
+name: axial skeleton cervical region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13223
+
+[Term]
+id: EMAP:13225
+name: cervical vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13224
+relationship: is_a EMAP:33214
+
+[Term]
+id: EMAP:13226
+name: C1 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13227
+name: C2 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13228
+name: C3 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13229
+name: C4 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13230
+name: C5 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13231
+name: C6 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13232
+name: C7 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13225
+
+[Term]
+id: EMAP:13233
+name: axial skeleton thoracic region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13223
+
+[Term]
+id: EMAP:13234
+name: thoracic vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13233
+relationship: is_a EMAP:33214
+
+[Term]
+id: EMAP:13235
+name: T1 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13234
+
+[Term]
+id: EMAP:13236
+name: T2 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13234
+
+[Term]
+id: EMAP:13237
+name: T3 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13234
+
+[Term]
+id: EMAP:13238
+name: T4 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13234
+
+[Term]
+id: EMAP:13239
+name: T5 vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13234
+
+[Term]
+id: EMAP:1998
+name: extraembryonic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:1999
+name: extraembryonic vascular system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:2000
+name: extraembryonic arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1999
+
+[Term]
+id: EMAP:2001
+name: umbilical artery extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:2000
+
+[Term]
+id: EMAP:2002
+name: common umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:2001
+
+[Term]
+id: EMAP:2003
+name: extraembryonic venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1999
+
+[Term]
+id: EMAP:2004
+name: umbilical vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:2003
+
+[Term]
+id: EMAP:2005
+name: common umbilical vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:2004
+
+[Term]
+id: EMAP:26116
+name: umbilical cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:26128
+name: umbilical cord mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:26116
+
+[Term]
+id: EMAP:26140
+name: vitelline duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:26116
+
+[Term]
+id: EMAP:26152
+name: vitelline vein vitelline duct part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:26140
+
+[Term]
+id: EMAP:29698
+name: trunk dermomyotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+relationship: part_of EMAP:31112
+
+[Term]
+id: EMAP:1820
+name: principal artery to forelimb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:15266
+
+[Term]
+id: EMAP:1821
+name: principal artery to hindlimb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:15266
+
+[Term]
+id: EMAP:31067
+name: yolk sac
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:31081
+name: yolk sac endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31067
+
+[Term]
+id: EMAP:31095
+name: yolk sac mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31067
+
+[Term]
+id: EMAP:31106
+name: tail dermomyotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+relationship: part_of EMAP:31112
+
+[Term]
+id: EMAP:31181
+name: trunk myocoele group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+relationship: part_of EMAP:31137
+
+[Term]
+id: EMAP:31127
+name: tail myocoele group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+relationship: part_of EMAP:31137
+
+[Term]
+id: EMAP:31147
+name: trunk sclerotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1568
+relationship: part_of EMAP:31162
+
+[Term]
+id: EMAP:31152
+name: tail sclerotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1971
+relationship: part_of EMAP:31162
+
+[Term]
+id: EMAP:31174
+name: somite group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:33817
+
+[Term]
+id: EMAP:31112
+name: dermomyotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31174
+
+[Term]
+id: EMAP:31137
+name: myocoele group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:31162
+name: sclerotome group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31174
+
+[Term]
+id: EMAP:31883
+name: trunk
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:31898
+name: head
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:31927
+name: yolk sac blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31067
+
+[Term]
+id: EMAP:31979
+name: chorionic plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31993
+
+[Term]
+id: EMAP:31993
+name: chorioallantoic placenta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32013
+name: spongiotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32142
+
+[Term]
+id: EMAP:32030
+name: labyrinthine zone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32142
+
+[Term]
+id: EMAP:32042
+name: 1st branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32050
+
+[Term]
+id: EMAP:32046
+name: 1st branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:32050
+name: 1st branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:32054
+name: 1st branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32050
+
+[Term]
+id: EMAP:32060
+name: chorion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32075
+name: amnion ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32089
+
+[Term]
+id: EMAP:32089
+name: amnion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32122
+name: exocoelomic cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32199
+
+[Term]
+id: EMAP:32128
+name: amniotic cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32199
+
+[Term]
+id: EMAP:32142
+name: trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32156
+name: polar trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32142
+
+[Term]
+id: EMAP:32173
+name: syncytiotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32241
+
+[Term]
+id: EMAP:32179
+name: cytotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32241
+
+[Term]
+id: EMAP:32185
+name: yolk sac cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32199
+
+[Term]
+id: EMAP:32199
+name: extraembryonic component cavities
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32213
+name: parietal endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32227
+
+[Term]
+id: EMAP:32227
+name: extraembryonic endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1998
+
+[Term]
+id: EMAP:32241
+name: ectoplacental cone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32156
+
+[Term]
+id: EMAP:32247
+name: Reichert's membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32213
+
+[Term]
+id: EMAP:33214
+name: vertebral pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:13223
+
+[Term]
+id: EMAP:33247
+name: brain ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:33260
+name: future brain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:33304
+name: alimentary system epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1678
+
+[Term]
+id: EMAP:33317
+name: floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1684
+
+[Term]
+id: EMAP:33332
+name: endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:33341
+name: cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:33347
+name: cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1827
+
+[Term]
+id: EMAP:33441
+name: limb mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1549
+
+[Term]
+id: EMAP:33458
+name: limb ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1549
+
+[Term]
+id: EMAP:33500
+name: musculoskeletal system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:33615
+name: extraembryonic blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1999
+
+[Term]
+id: EMAP:33631
+name: mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+
+[Term]
+id: EMAP:33639
+name: pre-cartilage condensation
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+
+[Term]
+id: EMAP:33655
+name: epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:33694
+name: blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1809
+
+[Term]
+id: EMAP:33705
+name: apical ectodermal ridge
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:33458
+
+[Term]
+id: EMAP:33710
+name: atrium endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1829
+
+[Term]
+id: EMAP:33722
+name: atrium cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1829
+
+[Term]
+id: EMAP:33753
+name: branchial arch membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33761
+name: branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33769
+name: branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:33801
+
+[Term]
+id: EMAP:33777
+name: branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33785
+name: branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33793
+name: branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33801
+name: branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1462
+
+[Term]
+id: EMAP:33809
+name: branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:33801
+
+[Term]
+id: EMAP:33817
+name: paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1557
+
+[Term]
+id: EMAP:33874
+name: tail ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1967
+
+[Term]
+id: EMAP:33937
+name: pituitary gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34883
+
+[Term]
+id: EMAP:33947
+name: tail neural tube floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:15265
+
+[Term]
+id: EMAP:33956
+name: ear epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1781
+
+[Term]
+id: EMAP:34028
+name: peripheral nervous system ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1776
+relationship: is_a EMAP:34187
+
+[Term]
+id: EMAP:34071
+name: respiratory system epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1937
+
+[Term]
+id: EMAP:34083
+name: respiratory tract epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1947
+
+[Term]
+id: EMAP:34138
+name: dermatome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31112
+
+[Term]
+id: EMAP:34153
+name: trunk dermatome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:34159
+name: myotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31112
+
+[Term]
+id: EMAP:34175
+name: trunk myotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:29698
+
+[Term]
+id: EMAP:34187
+name: ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1683
+
+[Term]
+id: EMAP:34226
+name: midbrain-hindbrain junction
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1685
+
+[Term]
+id: EMAP:34242
+name: mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1527
+
+[Term]
+id: EMAP:34274
+name: lung epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1938
+
+[Term]
+id: EMAP:34314
+name: lung associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1938
+
+[Term]
+id: EMAP:34326
+name: lung vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1938
+
+[Term]
+id: EMAP:34433
+name: inner ear epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1782
+
+[Term]
+id: EMAP:34456
+name: inner ear associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1782
+
+[Term]
+id: EMAP:34471
+name: alimentary system associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1678
+
+[Term]
+id: EMAP:34606
+name: gut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:34621
+name: gut associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:34635
+name: gut dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34649
+
+[Term]
+id: EMAP:34649
+name: gut mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:34720
+name: future forebrain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1686
+
+[Term]
+id: EMAP:34743
+name: foregut epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:34753
+name: foregut associated mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1692
+
+[Term]
+id: EMAP:34774
+name: gut epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:34787
+name: rhombomere roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34798
+
+[Term]
+id: EMAP:34792
+name: rhombomere lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34798
+
+[Term]
+id: EMAP:34795
+name: rhombomere ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34792
+
+[Term]
+id: EMAP:34798
+name: rhombomere
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1719
+
+[Term]
+id: EMAP:34801
+name: rhombomere floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:34798
+
+[Term]
+id: EMAP:34803
+name: future forebrain roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1686
+
+[Term]
+id: EMAP:34807
+name: future forebrain lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1686
+
+[Term]
+id: EMAP:34883
+name: gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1676
+
+[Term]
+id: EMAP:34910
+name: 1st branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1463
+
+[Term]
+id: EMAP:34951
+name: gut gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1691
+
+[Term]
+id: EMAP:34979
+name: endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1461
+relationship: part_of EMAP:25781
+
+[Term]
+id: EMAP:35018
+name: cloaca
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1957
+
+[Term]
+id: EMAP:35019
+name: common atrial chamber cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1830
+
+[Term]
+id: EMAP:35022
+name: common atrial chamber endocardial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1830
+
+[Term]
+id: EMAP:35025
+name: common atrial chamber cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1830
+
+[Term]
+id: EMAP:35028
+name: fronto-nasal process mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1799
+
+[Term]
+id: EMAP:35033
+name: fronto-nasal process ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:1799
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

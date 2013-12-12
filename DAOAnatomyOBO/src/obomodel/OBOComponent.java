@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Wrapper Object for an OBO OBOComponent
 *
@@ -2731,7 +2731,7 @@ public class OBOComponent {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this User. Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

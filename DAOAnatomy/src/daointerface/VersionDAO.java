@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the Version model.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Version DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -48,7 +48,7 @@ public interface VersionDAO extends BaseDAO {
     public Version findByOid(long oid) throws Exception;
     
     /*
-     * Returns the version from the database matching the given OID, otherwise null.
+     * Returns the most recent version from the database matching the given OID, otherwise null.
      */
     public Version findMostRecent() throws Exception;
     
@@ -65,9 +65,10 @@ public interface VersionDAO extends BaseDAO {
     /*
      * Save the given version in the database.
      * 
-     *  If the Version OID is null, 
-     *   then it will invoke "create(Version)", 
-     *   else it will invoke "update(Version)".
+     *  IF the Version OID is null THEN, 
+     *   it will invoke "create(Version)",
+     *  ELSE 
+     *   it will invoke "update(Version)".
      */
     public void save(Version version) throws Exception;
     
@@ -75,23 +76,26 @@ public interface VersionDAO extends BaseDAO {
      * Create the given version in the database. 
      * 
      *  The version OID must be null, otherwise it will throw IllegalArgumentException.
-     *  If the version OID value is unknown, rather use save(Version).
-     *   After creating, the DAO will set the obtained ID in the given version.
+     *  
+     *  If the version OID value is unknown, use save(Version) instead
+     *  
+     *   After creating, the DAO will set the obtained ID in the supplied version.
      */
     public void create(Version version) throws IllegalArgumentException, Exception;
 
     /*
      * Update the given version in the database.
      * 
-     *  The version OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the version OID value is unknown, rather use save(Version)}.
+     *  The version OID must NOT be null, otherwise it will throw IllegalArgumentException.
+     *   
+     *  If the version OID value is known, use save(Version) instead.
      */
     public void update(Version version) throws Exception;
      
     /*
      * Delete the given version from the database.
      *  
-     *  After deleting, the DAO will set the ID of the given version to null.
+     *  After deleting, the DAO will set the ID of the supplied version to null.
      */
     public void delete(Version version) throws Exception;
     
@@ -104,7 +108,7 @@ public interface VersionDAO extends BaseDAO {
         throws Exception;
 
     /*
-     * Returns total amount of rows in table.
+     * Returns total amount of rows in table for 2 possible search values.
      */
     public int count(String searchFirst, String searchSecond) throws Exception;
 

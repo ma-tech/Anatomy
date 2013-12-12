@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Java class to generate Random Numbers
 * 
@@ -39,25 +39,60 @@ import java.util.Collections;
 public class GenerateRandom {
 	
     private static String [] validValues = new String[] 
-   	    {"*****","****","***","**","*"};
+   	    {"*****",
+    	"****",
+    	"***",
+    	"**",
+    	"*"};
 
     private static String [] validNotes = new String[] 
-       	    {"A","A\u266F/B\u266D","B","C","C\u266F/D\u266D","D","D\u266F/E\u266D","E","F","F\u266F/G\u266D","G","G\u266F/A\u266D"};
+    	{"A",
+    	"A\u266F/B\u266D",
+    	"B",
+    	"C",
+    	"C\u266F/D\u266D",
+    	"D",
+    	"D\u266F/E\u266D",
+    	"E",
+    	"F",
+    	"F\u266F/G\u266D",
+    	"G",
+    	"G\u266F/A\u266D"};
 
     private static String [] validKeys = new String[] 
-       	    {"Major","Minor"};
+       	{"Major",
+    	"Minor"};
 
     private static String [] validShapes = new String[] 
-       	    {"C Shape","A Shape","G Shape","E Shape","D Shape"};
+       	{"C Shape",
+    	"A Shape",
+    	"G Shape",
+    	"E Shape",
+    	"D Shape"};
 
     private static String [] validModes = new String[] 
-       	    {"Ionian","Dorian","Phrygian","Lydian","Mixolydian","Aeolian","Locrian"};
+       	{"Ionian",
+    	"Dorian",
+    	"Phrygian",
+    	"Lydian",
+    	"Mixolydian",
+    	"Aeolian",
+    	"Locrian"};
 
     private static String [] validChords = new String[] 
-       	    {"Major 7th","Minor 7th","Minor 7th","Major 7th","Dominant 7th","Minor 7th","Minor 7th \u266D 5th"};
+       	{"Major 7th",
+    	"Minor 7th",
+    	"Minor 7th",
+    	"Major 7th",
+    	"Dominant 7th",
+    	"Minor 7th",
+    	"Minor 7th \u266D 5th"};
 
     private static String [] validFrets = new String[] 
-       	    {"1","2","3","4"};
+       	{"1",
+    	"2",
+    	"3",
+    	"4"};
 
     
     public static int getRandom(int lowerLimit, int upperLimit) throws Exception {

@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Lists the contents of an OBOFile
 *
@@ -59,7 +59,7 @@ public class MainListOBOFileContents{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunListOBOFileContents.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            RunListOBOFileContents.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

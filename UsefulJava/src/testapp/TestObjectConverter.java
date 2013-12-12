@@ -78,76 +78,76 @@ public class TestObjectConverter {
     		long l2;
             
             // 1.  integerToBoolean
-    		//System.out.println("1.  integerToBoolean");
-    		//System.out.println("Integer " + o1_integer);
+    		System.out.println("1.  integerToBoolean");
+    		System.out.println("Integer " + o1_integer);
     		b1 = ObjectConverter.convert(o1_integer, Boolean.class);
-    		//System.out.println("Boolean " + b1);
+    		System.out.println("Boolean " + b1);
 
             // 2. booleanToInteger
-    		//System.out.println("2. booleanToInteger");
-    		//System.out.println("Boolean " + o2_boolean);
+    		System.out.println("2. booleanToInteger");
+    		System.out.println("Boolean " + o2_boolean);
     		i1 = ObjectConverter.convert(o2_boolean, Integer.class);
-    		//System.out.println("Integer " + i1);
+    		System.out.println("Integer " + i1);
 
             // 3.  doubleToBigDecimal
-    		//System.out.println("3.  doubleToBigDecimal");
-    		//System.out.println("Double " + o3_double);
+    		System.out.println("3.  doubleToBigDecimal");
+    		System.out.println("Double " + o3_double);
     		bd1 = ObjectConverter.convert(o3_double, BigDecimal.class);
-    		//System.out.println("BigDecimal " + bd1);
+    		System.out.println("BigDecimal " + bd1);
     		
             // 4.  bigDecimalToDouble
-    		//System.out.println("4.  bigDecimalToDouble");
-    		//System.out.println("BigDecimal " + o4_bigdecimal);
+    		System.out.println("4.  bigDecimalToDouble");
+    		System.out.println("BigDecimal " + o4_bigdecimal);
     		d1 = ObjectConverter.convert(o4_bigdecimal, Double.class);
-    		//System.out.println("Double " + d1);
+    		System.out.println("Double " + d1);
     		
     		// 5.  integerToString
-    		//System.out.println("5.  integerToString");
-    		//System.out.println("Integer " + o5_integer);
+    		System.out.println("5.  integerToString");
+    		System.out.println("Integer " + o5_integer);
     		s1 = ObjectConverter.convert(o5_integer, String.class);
-    		//System.out.println("String " + s1);
+    		System.out.println("String " + s1);
     		
             // 6.  stringToInteger
-    		//System.out.println("6.  stringToInteger");
-    		//System.out.println("String " + o6_string);
+    		System.out.println("6.  stringToInteger");
+    		System.out.println("String " + o6_string);
     		i2 = ObjectConverter.convert(o6_string, Integer.class);
-    		//System.out.println("Integer " + i2);
+    		System.out.println("Integer " + i2);
     		
             // 7.  booleanToString
-    		//System.out.println("7.  booleanToString");
-    		//System.out.println("Boolean " + o7_boolean);
+    		System.out.println("7.  booleanToString");
+    		System.out.println("Boolean " + o7_boolean);
     		s2 = ObjectConverter.convert(o7_boolean, String.class);
-    		//System.out.println("String " + s2);
+    		System.out.println("String " + s2);
     		
             // 8.  stringToBoolean
-    		//System.out.println("8.  stringToBoolean");
-    		//System.out.println("String " + o8_string);
+    		System.out.println("8.  stringToBoolean");
+    		System.out.println("String " + o8_string);
     		b2 = ObjectConverter.convert(o8_string, Boolean.class);
-    		//System.out.println("Boolean " + b2);
+    		System.out.println("Boolean " + b2);
     		
             // 9.  longToString
-    		//System.out.println("9.  longToString");
-    		//System.out.println("Long " + o9_long);
+    		System.out.println("9.  longToString");
+    		System.out.println("Long " + o9_long);
     		s3 = ObjectConverter.convert(o9_long, String.class);
-    		//System.out.println("String " + s3);
+    		System.out.println("String " + s3);
 
     		// 10. stringToLong
-    		//System.out.println("10. stringToLong");
-    		//System.out.println("String " + o10_string);
+    		System.out.println("10. stringToLong");
+    		System.out.println("String " + o10_string);
     		l1 = ObjectConverter.convert(o10_string, Long.class);
-    		//System.out.println("Long " + l1);
+    		System.out.println("Long " + l1);
 
     		// 11. longToInteger
-    		//System.out.println("11. longToInteger");
-    		//System.out.println("Long " + o11_long);
+    		System.out.println("11. longToInteger");
+    		System.out.println("Long " + o11_long);
     		i3 = ObjectConverter.convert(o11_long, Integer.class);
-    		//System.out.println("Integer " + i3);
+    		System.out.println("Integer " + i3);
 
             // 12. integerToLong
-    		//System.out.println("12. integerToLong");
-    		//System.out.println("Integer " + o12_integer);
+    		System.out.println("12. integerToLong");
+    		System.out.println("Integer " + o12_integer);
     		l2 = ObjectConverter.convert(o12_integer, Long.class);
-    		//System.out.println("Long " + l2);
+    		System.out.println("Long " + l2);
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}

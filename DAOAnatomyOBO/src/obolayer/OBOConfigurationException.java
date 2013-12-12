@@ -16,13 +16,13 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents an exception in the OBO configuration which cannot be 
 *                resolved at runtime, such as a missing resource in the classpath, a missing 
 *                property in the properties file, etcetera.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *

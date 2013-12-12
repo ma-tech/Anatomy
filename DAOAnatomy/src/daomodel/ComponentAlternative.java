@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                ComponentAlternative Table - ANA_OBO_COMPONENT_ALTERNATIVE
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -36,9 +36,9 @@ package daomodel;
 public class ComponentAlternative {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *   ACS_OID        - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACS_OBO_ID     - varchar(25) NOT NULL,
-     *   ACS_OBO_ALT_ID - varchar(25) NOT NULL,
+     *   ACA_OID        - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+     *   ACA_OBO_ID     - varchar(25) NOT NULL,
+     *   ACA_OBO_ALT_ID - varchar(25) NOT NULL,
 	 */
     private Long oid;
     private String id;
@@ -49,7 +49,7 @@ public class ComponentAlternative {
      * Default constructor.
      */
     public ComponentAlternative() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -116,7 +116,7 @@ public class ComponentAlternative {
 
     /*
      * Returns the String representation of this ComponentAlternative.
-     *  Not required, it just pleases reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

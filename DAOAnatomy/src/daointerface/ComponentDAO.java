@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the Component model.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Component DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -54,7 +54,7 @@ public interface ComponentDAO extends BaseDAO {
     public Component findByOboId(String oboid) throws Exception;
     
     /*
-     * Returns the daocomponent from the database matching the given OBI Name, otherwise null.
+     * Returns the daocomponent from the database matching the given OBO Name, otherwise null.
      */
     public Component findByOboName(String oboname) throws Exception;
     
@@ -64,7 +64,7 @@ public interface ComponentDAO extends BaseDAO {
     public List<Component> listAll() throws Exception;
     
     /*
-     * Returns a list of ALL components, otherwise null.
+     * Returns a list of ALL components, ordered by EMAPA Id, otherwise null.
      */
     public List<Component> listAllOrderByEMAPA() throws Exception;
     
@@ -83,9 +83,12 @@ public interface ComponentDAO extends BaseDAO {
     public void save(Component daocomponent) throws Exception;
 
     /*
-     * Create the given daocomponent in the database. 
+     * Create the given daocomponent in the database.
+     *  
      *  The daocomponent OID must be null, otherwise it will throw IllegalArgumentException.
+     * 
      *  If the daocomponent OID value is unknown, rather use save(Component).
+     *  
      * After creating, the DAO will set the obtained ID in the given daocomponent.
      */
     public void create(Component daocomponent) throws IllegalArgumentException, Exception;
@@ -94,18 +97,21 @@ public interface ComponentDAO extends BaseDAO {
      * Update the given daocomponent in the database.
      * 
      *  The daocomponent OID must not be null, otherwise it will throw IllegalArgumentException. 
+     *  
      *  If the daocomponent OID value is unknown, rather use save(Component)}.
      */
     public void update(Component daocomponent) throws Exception;
      
     /*
      *  Delete the given daocomponent from the database. 
+     *  
      *  After deleting, the DAO will set the ID of the given daocomponent to null.
      */
     public void delete(Component daocomponent) throws Exception;
     
     /*
-     *  Delete the given daocomponent from the database. 
+     *  Delete the all daocomponents from the database.
+     *   
      *  After deleting, the DAO will set the ID of the given daocomponent to null.
      */
     public void empty() throws Exception;
@@ -119,7 +125,8 @@ public interface ComponentDAO extends BaseDAO {
         throws Exception;
     
     /*
-     * Returns total amount of rows in table.
+     * Returns total amount of rows in table
+     *  for the given search terms
      */
     public int count(String searchFirst, String searchSecond) throws Exception;
 
@@ -133,10 +140,4 @@ public interface ComponentDAO extends BaseDAO {
      */
     public int maximumOid() throws Exception;
     
-    /*
-     * Returns the maximum Oid. in table.
-     */
-    public int maximum(String sql) throws Exception;
-    
-
 }

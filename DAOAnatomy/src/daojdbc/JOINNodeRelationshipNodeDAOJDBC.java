@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the JOINNodeRelationshipNode DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the JOINNodeRelationshipNode DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -73,6 +73,17 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
         "JOIN ANA_NODE b ON REL_PARENT_FK = b.ANO_OID " +
         "WHERE REL_RELATIONSHIP_TYPE_FK = 'part-of' ";
         
+    private static final String SQL_LIST_ALL_ISAS_BY_CHILD =
+    	"SELECT " +
+    	"a.ANO_OID, a.ANO_SPECIES_FK, a.ANO_COMPONENT_NAME, a.ANO_IS_PRIMARY, a.ANO_IS_GROUP, a.ANO_PUBLIC_ID, a.ANO_DESCRIPTION, " +
+    	"REL_OID, REL_RELATIONSHIP_TYPE_FK, REL_CHILD_FK, REL_PARENT_FK, " +
+    	"b.ANO_OID, b.ANO_SPECIES_FK, b.ANO_COMPONENT_NAME, b.ANO_IS_PRIMARY, b.ANO_IS_GROUP, b.ANO_PUBLIC_ID, b.ANO_DESCRIPTION " +
+    	"FROM ANA_NODE a " +
+    	"JOIN ANA_RELATIONSHIP ON REL_CHILD_FK = a.ANO_OID " +
+    	"JOIN ANA_NODE b ON REL_PARENT_FK = b.ANO_OID " +
+    	"WHERE REL_RELATIONSHIP_TYPE_FK = 'is-a' " +
+    	"AND a.ANO_OID = ? ";
+    
     private static final String SQL_LIST_ALL_BY_PARENT_ID =
         "SELECT " +
         "a.ANO_OID, a.ANO_SPECIES_FK, a.ANO_COMPONENT_NAME, a.ANO_IS_PRIMARY, a.ANO_IS_GROUP, a.ANO_PUBLIC_ID, a.ANO_DESCRIPTION, " +
@@ -134,6 +145,14 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
     }
 
     /*
+     * Returns a list of ALL PART_OF rows, otherwise null.
+     */
+    public List<JOINNodeRelationshipNode> listAllIsAsByChild(String childId) throws Exception {
+    	
+        return list(SQL_LIST_ALL_ISAS_BY_CHILD, childId);
+    }
+
+    /*
      * Returns a list of ALL rows, otherwise null.
      */
     public List<JOINNodeRelationshipNode> listAllByParentId(String parentId) throws Exception {
@@ -163,7 +182,7 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -177,7 +196,7 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return noderelationshipnodes;

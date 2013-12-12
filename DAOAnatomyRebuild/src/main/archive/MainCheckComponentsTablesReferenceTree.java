@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class 
 * 
@@ -54,7 +54,7 @@ public class MainCheckComponentsTablesReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckComponentsTablesReferenceTree.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
+            CheckComponentsTablesReferenceTree.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

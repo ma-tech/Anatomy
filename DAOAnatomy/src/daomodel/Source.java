@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the Source Table.
 *                ANA_SOURCE
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -53,7 +53,7 @@ public class Source {
      * Default constructor.
      */
     public Source() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -136,7 +136,7 @@ public class Source {
     }
 
     /*
-     * Returns the String representation of this Node. Not required, it just pleases reading logs.
+     * Returns the String representation of this Node. Not required, it just makes reading logs easier.
      */
     public String toString() {
       

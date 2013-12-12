@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                ComponentOrder Table - ANA_OBO_COMPONENT_ORDER
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,7 +37,7 @@ public class ComponentOrder {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   ACO_OID               - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACO_OBO_ID            - varchar(25) NOT NULL,
+     *   ACO_OBO_CHILD         - varchar(25) NOT NULL,
      *   ACO_OBO_PARENT        - varchar(25) NOT NULL,
      *   ACO_OBO_TYPE          - varchar(25) NOT NULL,
      *   ACO_OBO_ALPHA_ORDER   - int(20) unsigned NULL,
@@ -55,7 +55,7 @@ public class ComponentOrder {
      * Default constructor.
      */
     public ComponentOrder() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -120,13 +120,13 @@ public class ComponentOrder {
     /*
      * Is this ComponentOrder the same as the Supplied ComponentOrder?
      */
-    public boolean isSameAs(ComponentOrder daocomponent){
+    public boolean isSameAs(ComponentOrder daocomponentorder){
     	
-    	if ( this.getChild().equals(daocomponent.getChild()) && 
-             this.getParent() == daocomponent.getParent() && 
-             this.getType() == daocomponent.getType() && 
-             this.getAlphaorder() == daocomponent.getAlphaorder() && 
-             this.getSpecialorder() == daocomponent.getSpecialorder() ){
+    	if ( this.getChild().equals(daocomponentorder.getChild()) && 
+             this.getParent() == daocomponentorder.getParent() && 
+             this.getType() == daocomponentorder.getType() && 
+             this.getAlphaorder() == daocomponentorder.getAlphaorder() && 
+             this.getSpecialorder() == daocomponentorder.getSpecialorder() ){
 
         	return true;
         }
@@ -149,7 +149,7 @@ public class ComponentOrder {
 
     /*
      * Returns the String representation of this ComponentOrder.
-     *  Not required, it just pleases reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

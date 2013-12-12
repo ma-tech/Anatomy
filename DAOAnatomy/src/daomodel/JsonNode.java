@@ -16,13 +16,13 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a Node formatted in JSON
 *               This class represents an object that represents JSON node values
 *                especially for using with AJAX calls from jsTree
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -49,7 +49,7 @@ public class JsonNode {
      * Default constructor.
      */
     public JsonNode() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*

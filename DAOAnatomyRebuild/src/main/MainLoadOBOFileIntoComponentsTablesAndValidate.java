@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
 *                against the existing anatomy database
@@ -43,10 +43,11 @@ import obolayer.OBOFactory;
 
 import daointerface.ThingDAO;
 
-import routines.runnable.LoadOBOFileIntoComponentsTablesAndValidate;
+import routines.aggregated.EmptyComponentsTables;
+import routines.runnable.LoadInputOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
 
-import app.gudmap.RunOBOValidateComponentsOrder;
+import app.gudmap.RunOBOValidateComponentsOrder; 
 
 
 public class MainLoadOBOFileIntoComponentsTablesAndValidate{
@@ -64,9 +65,10 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
             
-            LoadOBOFileIntoComponentsTablesAndValidate.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
-            RunOBOCheckComponentsOrdering.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
-            RunOBOValidateComponentsOrder.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            EmptyComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            LoadInputOBOFileIntoComponentsTablesAndValidate.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            RunOBOCheckComponentsOrdering.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            RunOBOValidateComponentsOrder.run( obofactory.getMsgLevel(), daofactory, obofactory) ;
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

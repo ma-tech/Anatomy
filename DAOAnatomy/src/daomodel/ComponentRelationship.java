@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                ComponentRelationship Table - ANA_OBO_COMPONENT_RELATIONSHIP
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,7 +37,7 @@ public class ComponentRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   ACR_OID             - bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-     *   ACR_OBO_ID          - varchar(25) NOT NULL,
+     *   ACR_OBO_CHILD       - varchar(25) NOT NULL,
      *   ACR_OBO_CHILD_START - int NOT NULL,
      *   ACR_OBO_CHILD_STOP  - int NOT NULL,
      *   ACR_OBO_TYPE        - varchar(25) NOT NULL,
@@ -55,7 +55,7 @@ public class ComponentRelationship {
      * Default constructor.
      */
     public ComponentRelationship() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -120,13 +120,13 @@ public class ComponentRelationship {
     /*
      * Is this ComponentRelationship the same as the Supplied ComponentRelationship?
      */
-    public boolean isSameAs(ComponentRelationship daocomponent){
+    public boolean isSameAs(ComponentRelationship daocomponentrelationship){
     	
-    	if ( this.getChild().equals(daocomponent.getChild()) && 
-    		this.getChildStart() == daocomponent.getChildStart() && 
-    		this.getChildStop() == daocomponent.getChildStop() && 
-    		this.getType().equals(daocomponent.getType()) && 
-    		this.getParent().equals(daocomponent.getParent()) ) {
+    	if ( this.getChild().equals(daocomponentrelationship.getChild()) && 
+    		this.getChildStart() == daocomponentrelationship.getChildStart() && 
+    		this.getChildStop() == daocomponentrelationship.getChildStop() && 
+    		this.getType().equals(daocomponentrelationship.getType()) && 
+    		this.getParent().equals(daocomponentrelationship.getParent()) ) {
     			 
         	return true;
         }
@@ -149,7 +149,7 @@ public class ComponentRelationship {
 
     /*
      * Returns the String representation of this ComponentRelationship.
-     *  Not required, it just pleases reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

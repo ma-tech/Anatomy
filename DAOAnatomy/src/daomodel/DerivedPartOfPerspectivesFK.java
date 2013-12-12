@@ -16,13 +16,13 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a Data Transfer Object for the 
 *                DerivedPartOfPerspectivesFK Table - ANAD_PART_OF_PERSPECTIVE
 *                  with Foreign Keys materialised
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -61,7 +61,7 @@ public class DerivedPartOfPerspectivesFK {
      * Default constructor.
      */
     public DerivedPartOfPerspectivesFK() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*

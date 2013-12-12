@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Updates Anatomy Database From the Components Tables
 *
@@ -57,7 +57,7 @@ public class MainRebuildRelationshipProjectFromComponentsTables{
         
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RebuildRelationshipProjectFromComponentsTables.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory);
+            RebuildRelationshipProjectFromComponentsTables.run( daofactory.getMsgLevel(), daofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

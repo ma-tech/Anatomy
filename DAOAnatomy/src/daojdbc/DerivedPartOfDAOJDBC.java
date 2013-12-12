@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedPartOf DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the DerivedPartOf DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -210,7 +210,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
@@ -224,7 +224,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedpartof;
@@ -252,7 +252,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -266,7 +266,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedpartofs;
@@ -307,7 +307,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -320,7 +320,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -329,7 +329,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -371,7 +371,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -388,7 +388,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANAD_PART_OF Skipped", "***", daoFactory.getMsgLevel());
             }
             
         } 
@@ -398,7 +398,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
      
@@ -424,7 +424,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -441,7 +441,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -450,7 +450,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
     
@@ -467,7 +467,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
@@ -477,7 +477,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -579,7 +579,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -594,7 +594,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             } 
             finally {
             	
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -620,7 +620,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -635,7 +635,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             } 
             finally {
             	
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -680,11 +680,11 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             
             if (searchFirst.equals("")){
             	
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
             }
             else {
             	
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -700,7 +700,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedPartOfPerspectivesFK DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the DerivedPartOfPerspectivesFK DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -321,7 +321,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -334,7 +334,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(),connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(),connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -368,7 +368,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
@@ -381,7 +381,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -415,7 +415,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -428,7 +428,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -466,7 +466,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
                 
                 resultSet = preparedStatement.executeQuery();
             
@@ -479,7 +479,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
         }
@@ -538,7 +538,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
@@ -551,7 +551,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
         	
         }
@@ -568,7 +568,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
         	try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_ID, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_ID, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
@@ -581,7 +581,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
         }
@@ -597,7 +597,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
             try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
@@ -610,7 +610,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
         	
         }
@@ -628,7 +628,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
         	try {
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH_AND_ID, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE_BY_PERSPECTIVE_AND_PATH_AND_ID, false, values);
 
                 resultSet = preparedStatement.executeQuery();
 
@@ -641,7 +641,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 throw new DAOException(e);
             } 
             finally {
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
         }
         	

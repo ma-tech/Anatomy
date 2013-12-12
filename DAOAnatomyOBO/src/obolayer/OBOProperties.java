@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Wrapper Class for accessing OBO Components
 *
@@ -27,7 +27,7 @@
 * There is a property getter which only returns the property prefixed with 'specificKey.' and 
 *  provides the option to indicate whether the property is mandatory or not.
 *
-* http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *

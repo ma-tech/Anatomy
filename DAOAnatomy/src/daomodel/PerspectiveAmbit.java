@@ -16,13 +16,13 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the PerspectiveAmbit Table.
 *                ANA_PERSPECTIVE_AMBIT
-*                 A List of all the Start and Stop nodes for Each Perspective 
+*                 (A List of all the Start and Stop nodes for Each Perspective) 
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Mabooleanenance:  Log changes below, with most recent at top of list.
 *
@@ -56,7 +56,7 @@ public class PerspectiveAmbit {
      * Default constructor.
      */
     public PerspectiveAmbit() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -123,7 +123,7 @@ public class PerspectiveAmbit {
      */
     public boolean isSameAs(PerspectiveAmbit daoperspectiveambit){
 
-    	if (this.getPerspectiveFK().equals(daoperspectiveambit.getPerspectiveFK()) &&
+    	if ( this.getPerspectiveFK().equals(daoperspectiveambit.getPerspectiveFK()) &&
     		this.getNodeFK() == daoperspectiveambit.getNodeFK() &&
     		this.isStart() == daoperspectiveambit.isStart() &&
     		this.isStop() == daoperspectiveambit.isStop() &&
@@ -148,7 +148,7 @@ public class PerspectiveAmbit {
     }
 
     /*
-     * Returns the String representation of this Node. Not required, it just pleases reading logs.
+     * Returns the String representation of this Node. Not required, it just makes reading logs easier.
      */
     public String toString() {
         

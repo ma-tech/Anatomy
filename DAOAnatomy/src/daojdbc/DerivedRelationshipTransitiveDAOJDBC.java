@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedRelationshipTransitive DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the DerivedRelationshipTransitive DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -122,7 +122,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             
             resultSet = preparedStatement.executeQuery();
 
@@ -138,7 +138,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return derivedrelationshiptransitives;
@@ -189,7 +189,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
             	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -205,7 +205,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
             } 
             finally {
             	
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -229,7 +229,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
             	
                 connection = daoFactory.getConnection();
 
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
                 resultSet = preparedStatement.executeQuery();
             
@@ -245,7 +245,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
             } 
             finally {
             	
-                close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+                close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
             }
 
             return dataList;
@@ -274,11 +274,11 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
 
             if (searchTerm.equals("")){
             	
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
             }
             else {
             	
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_WHERE, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -294,7 +294,7 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class 
 * 
@@ -58,7 +58,7 @@ public class MainOBOValidateComponentOrder {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunOBOValidateComponentsOrder.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            RunOBOValidateComponentsOrder.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }    	
     	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }

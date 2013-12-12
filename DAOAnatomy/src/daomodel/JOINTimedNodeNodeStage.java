@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINTimedNodeNodeStage "Table".
@@ -29,7 +29,7 @@
 *        		  JOIN ANA_NODE         ON ANO_OID = ATN_NODE_FK
 *                 JOIN ANA_STAGE        ON STG_OID = ATN_STAGE_FK
 *                 
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -49,6 +49,7 @@ public class JOINTimedNodeNodeStage {
      *   3. ATN_STAGE_FK          - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
      *   5. ATN_PUBLIC_ID         - varchar(20)     
+     *   6. ATN_DISPLAY_ID        - varchar(20)      
      *   
      *   1. ANO_OID               - int(10) unsigned 
      *   2. ANO_SPECIES_FK        - varchar(20)      
@@ -71,6 +72,8 @@ public class JOINTimedNodeNodeStage {
     private long stageFK; 
     private String stageModifierFK;
     private String publicTimedNodeId;
+    private String displayTimedNodeId;
+    
     private Long oidNode; 
     private String speciesFKNode; 
     private String componentName; 
@@ -79,6 +82,7 @@ public class JOINTimedNodeNodeStage {
     private String publicNodeId; 
     private String descriptionNode; 
     private Long oidStage; 
+    
     private String speciesFKStage; 
     private String name; 
     private long sequence;
@@ -91,7 +95,7 @@ public class JOINTimedNodeNodeStage {
      * Default constructor.
      */
     public JOINTimedNodeNodeStage() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -102,6 +106,7 @@ public class JOINTimedNodeNodeStage {
     		long stageFK,
     		String stageModifierFK,
     		String publicTimedNodeId,
+    		String displayTimedNodeId,
     		Long oidNode, 
     	    String speciesFKNode,
     	    String componentName, 
@@ -122,6 +127,7 @@ public class JOINTimedNodeNodeStage {
         this.stageFK = stageFK; 
         this.stageModifierFK = stageModifierFK;
         this.publicTimedNodeId = publicTimedNodeId;
+        this.displayTimedNodeId = displayTimedNodeId;
         this.oidNode = oidNode;
 	    this.speciesFKNode = speciesFKNode;
 	    this.componentName = componentName;
@@ -153,6 +159,9 @@ public class JOINTimedNodeNodeStage {
     }
     public String getPublicTimedNodeId() {
         return publicTimedNodeId;
+    }
+    public String getDisplayTimedNodeId() {
+        return displayTimedNodeId;
     }
 
     public Long getOidNode() {
@@ -215,6 +224,9 @@ public class JOINTimedNodeNodeStage {
     public void setPublicTimedNodeId(String publicTimedNodeId) {
         this.publicTimedNodeId = publicTimedNodeId;
     }
+    public void setDisplayTimedNodeId(String displayTimedNodeId) {
+        this.displayTimedNodeId = displayTimedNodeId;
+    }
 
     public void setOid(Long oidNode) {
         this.oidNode = oidNode;
@@ -271,6 +283,7 @@ public class JOINTimedNodeNodeStage {
     		this.getStageFK() == daojointimednodenodestage.getStageFK() &&
     		this.getStageModifierFK().equals(daojointimednodenodestage.getStageModifierFK()) && 
     		this.getPublicTimedNodeId().equals(daojointimednodenodestage.getPublicTimedNodeId()) && 
+    		this.getDisplayTimedNodeId().equals(daojointimednodenodestage.getDisplayTimedNodeId()) && 
     		this.getOidNode().equals(daojointimednodenodestage.getOidNode()) &&
     		this.getSpeciesFKNode().equals(daojointimednodenodestage.getSpeciesFKNode()) && 
     		this.getComponentName().equals(daojointimednodenodestage.getComponentName()) && 
@@ -312,10 +325,10 @@ public class JOINTimedNodeNodeStage {
     public String toString() {
     	
         return String.format("JOINTimedNodeNodeStage\n" +
-        		"TimedNode [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s ]\n" +
+        		"TimedNode [ oidTimedNode=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s, displayTimedNodeId=%s ]\n" +
         		"Node [ oidNode=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, descriptionNode=%s ]\n" +
         		"Stage [ oidStage=%d, speciesFK=%s, name=%s, sequence=%d, descriptionStage=%s, extraText=%s, publicStageId=%s  ]", 
-        		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, 
+        		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, displayTimedNodeId,  
         		oidNode, speciesFKNode, componentName, primary, group, publicNodeId, descriptionNode,
         		oidStage, speciesFKStage, name, sequence, descriptionStage, extraText, publicStageId);
     }

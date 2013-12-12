@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
 *                against the existing anatomy database
@@ -61,7 +61,7 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidateBackground{
             DAOFactory daofactory = DAOFactory.getInstance(args[1]);
     		long OBOFileRowNumber = ObjectConverter.convert(args[0], Long.class);
             
-            RunExtractOBOAndValidate.run(OBOFileRowNumber, daofactory, obofactory);
+            RunExtractOBOAndValidate.run( OBOFileRowNumber, daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

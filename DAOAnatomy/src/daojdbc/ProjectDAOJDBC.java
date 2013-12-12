@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the Project DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Project DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -103,7 +103,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -117,7 +117,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return versions;

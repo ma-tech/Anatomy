@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  Generate an MD5Hash for a given String
 *                MD5 is kind of an one-way encryption. 

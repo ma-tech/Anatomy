@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class 
 * 
@@ -56,7 +56,7 @@ public class MainOBOResetComponentsOrderAlpha {
         
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            RunOBOResetComponentsOrderAlpha.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory);
+            RunOBOResetComponentsOrderAlpha.run( daofactory.getMsgLevel(), daofactory );
         }
         
     	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

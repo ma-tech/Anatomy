@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
 *                database with the extracted data.
@@ -60,7 +60,7 @@ public class MainCheckFileReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckFileReferenceTree.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
+            CheckFileReferenceTree.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

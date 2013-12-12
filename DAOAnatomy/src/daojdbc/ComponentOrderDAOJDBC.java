@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentOrder DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the ComponentOrder DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -316,7 +316,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
@@ -330,7 +330,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return daocomponentorder;
@@ -350,7 +350,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -364,7 +364,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return componentorders;
@@ -393,7 +393,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
             
             if ( daoFactory.isUpdate() ) {
 
@@ -406,7 +406,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -415,7 +415,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -446,7 +446,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -463,7 +463,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -472,7 +472,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
      
@@ -497,7 +497,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -514,7 +514,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -523,7 +523,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
     
@@ -539,7 +539,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -552,7 +552,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_OBO_COMPONENT_ORDER Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -561,7 +561,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
     
@@ -578,7 +578,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
@@ -588,7 +588,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -659,7 +659,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
@@ -674,7 +674,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -715,7 +715,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -730,7 +730,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -749,7 +749,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT_ALL, false);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -764,7 +764,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;

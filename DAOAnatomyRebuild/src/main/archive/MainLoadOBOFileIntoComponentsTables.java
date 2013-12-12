@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class that Loads an OBOFile Into Components Tables in the 
 *                Anatomy Database 
@@ -36,7 +36,7 @@ import utility.Wrapper;
 import java.util.List;
 import java.util.ArrayList;
 
-import obolayer.ComponentOBO;
+import obolayer.OBOComponentAccess;
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
@@ -64,13 +64,13 @@ public class MainLoadOBOFileIntoComponentsTables {
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
     	    // Obtain DAOs.
-            ComponentOBO componentOBO = obofactory.getComponentOBO();
+            OBOComponentAccess obocomponentaccess = obofactory.getOBOComponentAccess();
 
             List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
-            obocomponents = componentOBO.listAll();
+            obocomponents = obocomponentaccess.listAllInput();
 
 
-            LoadOBOFileIntoComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory, obocomponents );
+            LoadOBOFileIntoComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory, obocomponents );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

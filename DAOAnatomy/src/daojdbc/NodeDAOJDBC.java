@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the Node DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Node DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -300,7 +300,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
@@ -314,7 +314,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return node;
@@ -334,7 +334,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -348,7 +348,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return nodes;
@@ -381,7 +381,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -394,7 +394,7 @@ public final class NodeDAOJDBC implements NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_NODE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_NODE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -403,7 +403,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -437,7 +437,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -454,7 +454,7 @@ public final class NodeDAOJDBC implements NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_NODE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_NODE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -463,7 +463,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
      
@@ -489,7 +489,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -506,7 +506,7 @@ public final class NodeDAOJDBC implements NodeDAO {
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_NODE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_NODE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -515,7 +515,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
     
@@ -532,7 +532,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
@@ -542,7 +542,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -619,7 +619,7 @@ public final class NodeDAOJDBC implements NodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             }
             else {
@@ -631,7 +631,7 @@ public final class NodeDAOJDBC implements NodeDAO {
                         rowCount
                     };
                 String sql = String.format(SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE, sqlSortField, sortDirection);
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -648,7 +648,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -693,13 +693,13 @@ public final class NodeDAOJDBC implements NodeDAO {
             if ( searchFirst.equals("")) {
             	
                 String sql = SQL_ROW_COUNT;
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             }
             else {
             	
                 String sql = SQL_ROW_COUNT_WHERE;
-                preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+                preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -716,7 +716,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -735,7 +735,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -751,7 +751,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return maximum;

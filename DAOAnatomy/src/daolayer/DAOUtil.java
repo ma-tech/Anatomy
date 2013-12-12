@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  utility class for DAO's.
 * 
@@ -28,7 +28,7 @@
 *                - several quiet close methods
 *                - a MD5 hasher which conforms to MySQL's own md5() function.
 *
-*  Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+*  Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *

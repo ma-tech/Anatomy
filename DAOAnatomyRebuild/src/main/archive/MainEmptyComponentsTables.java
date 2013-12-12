@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Empties the Components Tables in the Anatomy Database
 *
@@ -55,7 +55,7 @@ public class MainEmptyComponentsTables {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            EmptyComponentsTables.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
+            EmptyComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

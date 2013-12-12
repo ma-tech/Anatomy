@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the ComponentOrder model.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the ComponentOrder DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -48,42 +48,42 @@ public interface ComponentOrderDAO extends BaseDAO {
     public ComponentOrder findByOid(long oid) throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorders from the database sorted by Special Ordering, otherwise null.
      */
     public List<ComponentOrder> listOrderByParentBySpecialOrder() throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorders from the database sorted by Alphabetical Ordering, otherwise null.
      */
     public List<ComponentOrder> listOrderByParentByAlphaOrder() throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorders from the database matching the given Parent ID, sorted by Alphabetical Ordering, otherwise null.
      */
     public List<ComponentOrder> listByParentAlphaOrder(String parentId) throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorders from the database matching the Parent ID, sorted by Special Ordering, otherwise null.
      */
     public List<ComponentOrder> listByParentSpecialOrder(String parentId) throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorders from the database matching the given Parent ID and Child IDs, otherwise null.
      */
     public List<ComponentOrder> listByChildIdAndParentID(String childId, String parentId) throws Exception;
     
     /*
-     * Returns the daocomponentorder from the database matching the given OID, otherwise null.
+     * Returns the daocomponentorder from the database matching the given Parent ID and Child IDs, PartOF relationships only, otherwise null.
      */
     public List<ComponentOrder> listPartOfByChildIdAndParentID(String childId, String parentId) throws Exception;
     
     /*
-     * Returns the daocomponentorders from the database matching the given OBO ID, otherwise null.
+     * Returns the daocomponentorders from the database matching the given Child ID, otherwise null.
      */
     public List<ComponentOrder> listByChild(String child) throws Exception;
     
     /*
-     * Returns the daocomponentorders from the database matching the given OBI Name, otherwise null.
+     * Returns the daocomponentorders from the database matching the given Parent ID, otherwise null.
      */
     public List<ComponentOrder> listByParent(String parent) throws Exception;
     
@@ -93,7 +93,7 @@ public interface ComponentOrderDAO extends BaseDAO {
     public List<ComponentOrder> listAll() throws Exception;
     
     /*
-     * Returns a list of ALL componentorders, otherwise null.
+     * Returns a list of ALL componentorders, PartOf Relationships ONLY, otherwise null.
      */
     public List<ComponentOrder> listAllPartOfs() throws Exception;
     
@@ -113,28 +113,33 @@ public interface ComponentOrderDAO extends BaseDAO {
 
     /*
      * Create the given daocomponentorder in the database. 
+     * 
      *  The daocomponentorder OID must be null, otherwise it will throw IllegalArgumentException.
+     *  
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder).
+     *  
      *   After creating, the DAO will set the obtained ID in the given daocomponentorder.
      */
     public void create(ComponentOrder daocomponentorder) throws IllegalArgumentException, Exception;
     
     /*
      * Update the given daocomponentorder in the database.
+     * 
      *  The daocomponentorder OID must not be null, otherwise it will throw IllegalArgumentException. 
+     *  
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder)}.
      */
     public void update(ComponentOrder daocomponentorder) throws Exception;
      
     /*
      *  Delete the given daocomponentorder from the database. 
+     *  
      *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
      */
     public void delete(ComponentOrder daocomponentorder) throws Exception;
     
     /*
-     *  Delete the given daocomponentorder from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
+     *  Delete All daocomponentorders from the database. 
      */
     public void empty() throws Exception;
     
@@ -147,7 +152,7 @@ public interface ComponentOrderDAO extends BaseDAO {
         throws Exception;
     
     /*
-     * Returns total amount of rows in table.
+     * Returns total amount of rows in table, for the given search terms
      */
     public int count(String searchFirst, String searchSecond) throws Exception;
 

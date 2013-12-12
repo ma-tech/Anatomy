@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Wrapper Class for accessing OBO Components
 *
@@ -50,7 +50,7 @@
 *  OBOFactory fileobo = OBOFactory.getInstance("file");
 *  FileOBO fileOBO = fileobo.getFileOBO();
 * 
-* See http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* See 
 * 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -74,16 +74,18 @@ import java.util.Set;
 import daolayer.DAOConfigurationException;
 
 import obomodel.OBOComponent;
-import obomodel.Relation;
+import obomodel.OBORelation;
+import oboroutines.Parser;
+import oboroutines.Producer;
 
-import routines.base.Parser;
-import routines.base.Producer;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
+import utility.FileNamingDateTime;
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
+    private static final String PROPERTY_OBO_BASE_FILE = "obobasefile";
     private static final String PROPERTY_OBO_IN_FILE = "oboinfile";
     private static final String PROPERTY_OBO_OUT_FILE = "obooutfile";
     private static final String PROPERTY_OBO_OUT_FILE_VERSION = "obooutfileversion";
@@ -91,7 +93,6 @@ public abstract class OBOFactory {
     private static final String PROPERTY_OBO_OUT_FILE_SAVED_BY = "obooutfilesavedby";
     private static final String PROPERTY_OBO_OUT_FILE_REMARK = "obooutfileremark";
     private static final String PROPERTY_SUMMARY_REPORT = "summaryreport";
-    private static final String PROPERTY_SUMMARY_REPORT_PDF = "summaryreportpdf";
     private static final String PROPERTY_DEBUG = "debug";
     private static final String PROPERTY_SPECIES = "species";
     private static final String PROPERTY_PROJECT = "project";
@@ -111,16 +112,22 @@ public abstract class OBOFactory {
     private static final String PROPERTY_MAX_STAGE_SEQUENCE = "maxstagesequence";
     private static final String PROPERTY_ALTERNATIVES = "alternatives";
     private static final String PROPERTY_TIMED_COMPONENTS = "timedcomponents";
+    private static final String PROPERTY_GENERATE_IDENTIFIERS = "generateidentifiers";
     private static final String PROPERTY_MESSAGE_LEVEL = "msglevel";
 
     private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
             new String[] 
-        	    {"*****","****","***","**","*"}
+        	    {"*****",
+            	"****",
+            	"***",
+            	"**",
+            	"*"}
             ));
 
     private static final Set<String> VALID_BOOLS = new HashSet<String>(Arrays.asList(
             new String[] 
-        	    {"true","false"}
+        	    {"true",
+            	"false"}
             ));
 
     // Actions ------------------------------------------------------------------------------------
@@ -138,14 +145,14 @@ public abstract class OBOFactory {
         
         String filename = properties.getName();
 
+        String strOboBaseFile = properties.getProperty(PROPERTY_OBO_BASE_FILE, false);
         String strOboInFile = properties.getProperty(PROPERTY_OBO_IN_FILE, true);
-        String strOboOutFile = properties.getProperty(PROPERTY_OBO_OUT_FILE, false);
+        String strOboOutFileName = properties.getProperty(PROPERTY_OBO_OUT_FILE, false);
         String strOboOutFileVersion = properties.getProperty(PROPERTY_OBO_OUT_FILE_VERSION, false);
         String strOboOutFileNameSpace = properties.getProperty(PROPERTY_OBO_OUT_FILE_NAMESPACE, false);
         String strOboOutFileSavedBy = properties.getProperty(PROPERTY_OBO_OUT_FILE_SAVED_BY, false);
         String strOboOutFileRemark = properties.getProperty(PROPERTY_OBO_OUT_FILE_REMARK, false);
         String strSummaryReport = properties.getProperty(PROPERTY_SUMMARY_REPORT, false);
-        String strSummaryReportPdf = properties.getProperty(PROPERTY_SUMMARY_REPORT_PDF, false);
         String strDebug = properties.getProperty(PROPERTY_DEBUG, true);
         String strSpecies = properties.getProperty(PROPERTY_SPECIES, true);
         String strProject = properties.getProperty(PROPERTY_PROJECT, true);
@@ -165,14 +172,23 @@ public abstract class OBOFactory {
         String strMaxStageSequence = properties.getProperty(PROPERTY_MAX_STAGE_SEQUENCE, true);
         String strAlternatives = properties.getProperty(PROPERTY_ALTERNATIVES, true);
         String strTimedComponents = properties.getProperty(PROPERTY_TIMED_COMPONENTS, true);
+        String strGenerateIdentifiers = properties.getProperty(PROPERTY_GENERATE_IDENTIFIERS, true);
         String strMsgLevel = properties.getProperty(PROPERTY_MESSAGE_LEVEL, true);
 
+        String strOboOutFileDateTime = utility.FileNamingDateTime.now();
+
+        String strSummaryReportPdf = strSummaryReport;
+        
+        strSummaryReport = strSummaryReport + "/" + strOboOutFileDateTime + "_SummaryReport.txt";
+        strSummaryReportPdf = strSummaryReportPdf + "/" + strOboOutFileDateTime + "_SummaryReport.pdf";
+        
         int intMinStageSequence = ObjectConverter.convert(strMinStageSequence, Integer.class);
         int intMaxStageSequence = ObjectConverter.convert(strMaxStageSequence, Integer.class);
         
         boolean boolDebug = false;
         boolean boolAlternatives = false;
         boolean boolTimedComponents = false;
+        boolean boolGenerateIdentifiers = false;
         
         String level = "";
 
@@ -213,12 +229,30 @@ public abstract class OBOFactory {
     		
             if (strTimedComponents.equals("true")) {
             	
-            	boolAlternatives = true;
+            	boolTimedComponents = true;
             }
             
             if (strTimedComponents.equals("false")) {
             	
-            	boolAlternatives = false;
+            	boolTimedComponents = false;
+            }
+    	}
+
+    	if ( !VALID_BOOLS.contains( strGenerateIdentifiers ) ) {
+        	
+            throw new OBOConfigurationException(
+                    "GenerateIdentifiers '" + strGenerateIdentifiers + "' : INVALID Value!");
+    	}
+    	else {
+    		
+            if (strGenerateIdentifiers.equals("true")) {
+            	
+            	boolGenerateIdentifiers = true;
+            }
+            
+            if (strGenerateIdentifiers.equals("false")) {
+            	
+            	boolGenerateIdentifiers = false;
             }
     	}
 
@@ -247,15 +281,15 @@ public abstract class OBOFactory {
         	Wrapper.printMessage("========= :", "*", level);
         	Wrapper.printMessage("DEBUG     : OBO Properties File     : " + filename, "*", level);
         	Wrapper.printMessage("--------- :", "*", level);
+        	Wrapper.printMessage("          : obobasefile             : " + strOboBaseFile, "*", level);
         	Wrapper.printMessage("          : oboinfile               : " + strOboInFile, "*", level);
-        	Wrapper.printMessage("          : obooutfile              : " + strOboOutFile, "*", level);
+        	Wrapper.printMessage("          : obooutfile              : " + strOboOutFileName, "*", level);
         	Wrapper.printMessage("          : obooutfileversion       : " + strOboOutFileVersion, "*", level);
         	Wrapper.printMessage("          : obooutfilenamespace     : " + strOboOutFileNameSpace, "*", level);
         	Wrapper.printMessage("          : obooutfilesavedby       : " + strOboOutFileSavedBy, "*", level);
         	Wrapper.printMessage("          : obooutfileremark        : " + strOboOutFileRemark, "*", level);
         	Wrapper.printMessage("          : summaryreport           : " + strSummaryReport, "*", level);
         	Wrapper.printMessage("          : summaryreportpdf        : " + strSummaryReportPdf, "*", level);
-        	Wrapper.printMessage("          : debug                   : " + strDebug, "*", level);
         	Wrapper.printMessage("          : species                 : " + strSpecies, "*", level);
         	Wrapper.printMessage("          : project                 : " + strProject, "*", level);
         	Wrapper.printMessage("          : AbstractClassName       : " + strAbstractClassName, "*", level);
@@ -274,6 +308,8 @@ public abstract class OBOFactory {
         	Wrapper.printMessage("          : MaxStageSequence        : " + strMaxStageSequence, "*", level);
         	Wrapper.printMessage("          : Alternatives            : " + strAlternatives, "*", level);
         	Wrapper.printMessage("          : TimedComponents         : " + strTimedComponents, "*", level);
+        	Wrapper.printMessage("          : GenerateIdentifiers     : " + strGenerateIdentifiers, "*", level);
+        	Wrapper.printMessage("          : debug                   : " + strDebug, "*", level);
         	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
         	Wrapper.printMessage("========= :", "*", level);
         }
@@ -285,8 +321,11 @@ public abstract class OBOFactory {
         // If driver is specified, then load it to let it register itself with DriverManager.
         if (infile.exists()) {
         	
-            instance = new FileOBOFactory(strOboInFile, 
-            		strOboOutFile, 
+            instance = new FileOBOFactory(
+            		strOboBaseFile, 
+            		strOboInFile,
+            		strOboOutFileName, 
+            		strOboOutFileDateTime, 
             		strOboOutFileVersion, 
             		strOboOutFileNameSpace, 
             		strOboOutFileSavedBy, 
@@ -312,6 +351,7 @@ public abstract class OBOFactory {
             		intMaxStageSequence,
             		boolAlternatives,
             		boolTimedComponents,
+            		boolGenerateIdentifiers,
             		strMsgLevel);
         }
         else {
@@ -327,14 +367,17 @@ public abstract class OBOFactory {
      * Returns a connection to the database. Package private so that it can be used inside the OBO
      * package only.
      */
-    abstract ArrayList<OBOComponent> getComponents() throws OBOException, IOException, Exception;
-    abstract String getComponentContent() throws OBOException, IOException, Exception;
+    abstract ArrayList<OBOComponent> getInputComponents() throws OBOException, IOException, Exception;
+    abstract String getInputComponentContent() throws OBOException, IOException, Exception;
+    abstract ArrayList<OBOComponent> getBaseComponents() throws OBOException, IOException, Exception;
+    abstract String getBaseComponentContent() throws OBOException, IOException, Exception;
     abstract boolean writeComponents( String stage ) throws OBOException, Exception;
     abstract boolean isDebug();
     abstract String getSummaryReport();
     abstract String getSummaryReportPdf();
+    abstract String getBaseFile();
     abstract String getInputFile();
-    abstract String getOutputFile();
+    abstract String getOutputFileName();
     abstract String getOutputFileVersion();
     abstract String getOutputFileNameSpace();
     abstract String getOutputFileSavedBy();
@@ -356,19 +399,19 @@ public abstract class OBOFactory {
 	abstract int getMinStageSequence();
 	abstract int getMaxStageSequence();
     abstract boolean isAlternatives();
-    abstract boolean isTimedComponents();
-	abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
-    abstract void setRelations(ArrayList<Relation> arrayrellist);
+    abstract boolean isGenerateIdentifiers();
+    abstract void setComponents(ArrayList<OBOComponent> arrayobolist);
+    abstract void setOBORelations(ArrayList<OBORelation> arrayrellist);
     abstract void addComponents(ArrayList<OBOComponent> arrayobolist);
-	abstract String getMsgLevel();
+	public abstract String getMsgLevel();
     
     // OBO getters --------------------------------------------------------------------------------
     /*
      * Returns the ... OBO associated with the current OBOFactory.
      */
-    public ComponentOBO getComponentOBO() {
+    public OBOComponentAccess getOBOComponentAccess() {
     	
-        return new ComponentOBO(this);
+        return new OBOComponentAccess(this);
     }
 
     // You can add more OBO getters here.
@@ -380,8 +423,10 @@ public abstract class OBOFactory {
  */
 class FileOBOFactory extends OBOFactory {
     
+	private String oboBaseFile;
 	private String oboInFile;
-	private String oboOutFile;
+	private String oboOutFileName;
+	private String oboOutFileDateTime;
 	private String oboOutFileVersion;
 	private String oboOutFileNameSpace;
 	private String oboOutFileSavedBy;
@@ -407,13 +452,17 @@ class FileOBOFactory extends OBOFactory {
     private int intMaxStageSequence;
     private boolean boolAlternatives;
     private boolean boolTimedComponents;
+    private boolean boolGenerateIdentifiers;
     private String msgLevel;
 	
     private ArrayList<OBOComponent> obocomponentList;
-    private ArrayList <Relation> oborelationList;
+    private ArrayList <OBORelation> oborelationList;
 
-    FileOBOFactory(String oboInFile, 
-    		String oboOutFile, 
+    FileOBOFactory(
+    		String oboBaseFile, 
+    		String oboInFile,
+    		String oboOutFileName, 
+    		String oboOutFileDateTime, 
     		String oboOutFileVersion, 
     		String oboOutFileNameSpace, 
     		String oboOutFileSavedBy, 
@@ -439,10 +488,13 @@ class FileOBOFactory extends OBOFactory {
     		int intMaxStageSequence, 
     		boolean boolAlternatives,  
     		boolean boolTimedComponents,
+    		boolean boolGenerateIdentifiers,
     		String msgLevel) {
     
+    	this.oboBaseFile = oboBaseFile;
     	this.oboInFile = oboInFile;
-    	this.oboOutFile = oboOutFile;
+    	this.oboOutFileName = oboOutFileName;
+    	this.oboOutFileDateTime = oboOutFileDateTime;
     	this.oboOutFileVersion = oboOutFileVersion;
     	this.oboOutFileNameSpace = oboOutFileNameSpace;
     	this.oboOutFileSavedBy = oboOutFileSavedBy;
@@ -468,10 +520,11 @@ class FileOBOFactory extends OBOFactory {
 	    this.intMaxStageSequence = intMaxStageSequence;
         this.boolAlternatives = boolAlternatives;
         this.boolTimedComponents = boolTimedComponents;
+        this.boolGenerateIdentifiers = boolGenerateIdentifiers;
         this.msgLevel = msgLevel;
     }
 
-    ArrayList<OBOComponent> getComponents() throws Exception {
+    ArrayList<OBOComponent> getInputComponents() throws Exception {
     	
     	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
     	
@@ -486,7 +539,22 @@ class FileOBOFactory extends OBOFactory {
     	return componentList;
     }
     
-    String getComponentContent() throws Exception {
+    ArrayList<OBOComponent> getBaseComponents() throws Exception {
+    	
+    	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
+    	
+    	Parser parser = new Parser(
+    			this.msgLevel,
+    			this.oboBaseFile,
+    			this.boolAlternatives,
+    			this.species);
+    	
+    	componentList = parser.getComponents();
+    	
+    	return componentList;
+    }
+    
+    String getInputComponentContent() throws Exception {
     	
     	Parser parser = new Parser(
     			this.msgLevel,
@@ -499,11 +567,25 @@ class FileOBOFactory extends OBOFactory {
     	return componentContent;
     }
     
+    String getBaseComponentContent() throws Exception {
+    	
+    	Parser parser = new Parser(
+    			this.msgLevel,
+    			this.oboBaseFile,
+    			this.boolAlternatives,
+    			this.species);
+    	
+    	String componentContent = parser.getFileContent();
+    	
+    	return componentContent;
+    }
+    
     boolean writeComponents( String stage ) throws Exception {
     	
     	Producer producer = new Producer(
     			this.msgLevel,
-    			this.oboOutFile, 
+    			this.oboOutFileName, 
+    			this.oboOutFileDateTime,
     			this.oboOutFileVersion,
     			this.oboOutFileNameSpace,
     			this.oboOutFileSavedBy,
@@ -533,11 +615,14 @@ class FileOBOFactory extends OBOFactory {
     String getSummaryReportPdf() {
     	return summaryReportPdf;
     }
+    String getBaseFile() {
+    	return oboBaseFile;
+    }
     String getInputFile() {
     	return oboInFile;
     }
-    String getOutputFile() {
-    	return oboOutFile;
+    String getOutputFileName() {
+    	return oboOutFileName;
     }
     String getOutputFileVersion() {
     	return oboOutFileVersion;
@@ -599,14 +684,17 @@ class FileOBOFactory extends OBOFactory {
     boolean isTimedComponents() {
     	return boolTimedComponents;
     }
-    String getMsgLevel(){    	
+    boolean isGenerateIdentifiers() {
+    	return boolGenerateIdentifiers;
+    }
+    public String getMsgLevel(){    	
     	return msgLevel;
     }
     
     void setComponents(ArrayList<OBOComponent> obocomponentList) {
     	this.obocomponentList = obocomponentList;
     }
-    void setRelations(ArrayList<Relation> oborelationList) {
+    void setOBORelations(ArrayList<OBORelation> oborelationList) {
     	this.oborelationList = oborelationList;
     }
     void addComponents(ArrayList<OBOComponent> obocomponentList) {

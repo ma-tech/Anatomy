@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINNodeRelationshipRelationshipProject "Table".
@@ -28,7 +28,7 @@
 *                 JOIN ANA_NODE                  ON REL_PARENT_FK = ANO_OID 
 *                 JOIN ANA_RELATIONSHIP_PROJECT  ON REL_OID       = RLP_RELATIONSHIP_FK 
 *                 
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -82,7 +82,7 @@ public class JOINNodeRelationshipRelationshipProject {
      * Default constructor.
      */
     public JOINNodeRelationshipRelationshipProject() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*

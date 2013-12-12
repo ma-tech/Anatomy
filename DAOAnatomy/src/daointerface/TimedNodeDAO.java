@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the TimedNode model.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Timed Node DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -53,22 +53,22 @@ public interface TimedNodeDAO extends BaseDAO {
     public TimedNode findByOid(long oid) throws Exception;
     
     /*
-     * Returns a list of ALL timednodes by Parent FK, otherwise null.
+     * Returns a list of ALL timednodes by Node FK, otherwise null.
      */
     public List<TimedNode> listByNodeFK(long nodeFK) throws Exception;
     
     /*
-     * Returns a list of ALL timednodes by Parent FK, otherwise null.
+     * Returns a list of ALL timednodes by Stage FK, otherwise null.
      */
     public List<TimedNode> listByStageFK(long stageFK) throws Exception;
     
     /*
-     * Returns a list of ALL timednodes by Parent FK, otherwise null.
+     * Returns a list of ALL timednodes by Timed Node Public ID FK, otherwise null.
      */
     public List<TimedNode> listByPublicID(String publicID) throws Exception;
     
     /*
-     * Returns a list of ALL timednodes By Display Id, otherwise null.
+     * Returns a list of ALL timednodes By Timed Node Display Id, otherwise null.
      */
     public List<TimedNode> listByDisplayId() throws Exception;
     
@@ -78,12 +78,12 @@ public interface TimedNodeDAO extends BaseDAO {
     public List<TimedNode> listAll() throws Exception;
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL timednodes, ordered by Public Id, otherwise null.
      */
     public List<TimedNode> listAllOrderByPublicId() throws Exception;
     
     /*
-     * Returns a list of ALL timednodes, otherwise null.
+     * Returns a list of ALL timednodes, ordered by Display ID, otherwise null.
      */
     public List<TimedNode> listAllOrderByDisplayId() throws Exception;
     
@@ -116,7 +116,9 @@ public interface TimedNodeDAO extends BaseDAO {
      * Create the given timednode in the database.
      *  
      *  The timednode OID must be null, otherwise it will throw IllegalArgumentException.
-     *  If the timednode OID value is unknown, rather use save(TimedNode).
+     *  
+     *  If the timednode OID value is unknown, use save(TimedNode) instead.
+     *  
      *   After creating, the DAO will set the obtained ID in the given timednode.
      */
     public void create(TimedNode timednode) throws IllegalArgumentException, Exception;
@@ -124,7 +126,8 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Update the given timednode in the database.
      * 
-     *  The timednode OID must not be null, otherwise it will throw IllegalArgumentException. 
+     *  The timednode OID must not be null, otherwise it will throw IllegalArgumentException.
+     *   
      *  If the timednode OID value is unknown, rather use save(TimedNode).
      */
     public void update(TimedNode timednode) throws Exception;
@@ -145,6 +148,7 @@ public interface TimedNodeDAO extends BaseDAO {
     
      /*
      * Returns list of TimedNodes for Display purposes
+     *  
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
@@ -152,12 +156,12 @@ public interface TimedNodeDAO extends BaseDAO {
         throws Exception;
     
     /*
-     * Returns total amount of rows in table.
+     * Returns total number of rows in table.
      */
     public int count(String searchFirst, String searchSecond) throws Exception;
 
     /*
-     * Returns total amount of rows in table.
+     * Returns the largest used Public (EMAP) Id.
      */
     public int maximum(String sql) throws Exception;
     

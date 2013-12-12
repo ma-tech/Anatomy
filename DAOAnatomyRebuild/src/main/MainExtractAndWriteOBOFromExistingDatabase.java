@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Executable Class that Extracts And Write OBOComponents From an 
 *                Existing Anatomy Database
@@ -56,7 +56,7 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            ExtractAndWriteOBOFromExistingDatabase.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory );
+            ExtractAndWriteOBOFromExistingDatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

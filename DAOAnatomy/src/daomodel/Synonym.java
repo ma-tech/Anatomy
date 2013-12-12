@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the Synonym Table.
 *                ANA_SYNONYM
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -49,7 +49,7 @@ public class Synonym {
      * Default constructor.
      */
     public Synonym() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*

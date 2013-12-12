@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        RunDAOTest.java
+* Title:        RunDAOList.java
 *
 * Date:         2012
 *
@@ -16,12 +16,9 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
-* Description:  A Main Class that reads in a OBO file and Writes it out again 
-*
-* Required Files:
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A runnable class that does some "List" procedures
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -114,7 +111,7 @@ public class RunDAOList {
 	        Wrapper.printMessage("RunDAOList.run", "*", "*");
 
 	        // Obtain DAOs.
-	        LogDAO logDAO = daofactory.getDAOImpl(LogDAO.class);
+	        //LogDAO logDAO = daofactory.getDAOImpl(LogDAO.class);
 	        
 	        /*
 	        List<Log> logList = logDAO.display(0, 10, "oid", true, "", "");

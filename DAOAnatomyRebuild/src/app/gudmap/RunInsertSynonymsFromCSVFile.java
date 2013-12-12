@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyOBO
+* Project:      DAOAnatomyRebuild
 *
 * Title:        UpdateDatabaseFromComponentsTables.java
 *
@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Reads an OBO File and Loads it into an existing 
 *                Anatomy database;
@@ -43,6 +43,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import obomodel.OBOComponent;
+import oboroutines.database.AnaSynonym;
+import oboroutines.database.DatabaseException;
 
 import daolayer.DAOFactory;
 
@@ -50,8 +52,6 @@ import utility.CsvUtil;
 import utility.FileUtil;
 import utility.Wrapper;
 
-import routines.database.AnaSynonym;
-import routines.database.DatabaseException;
 
 
 public class RunInsertSynonymsFromCSVFile {

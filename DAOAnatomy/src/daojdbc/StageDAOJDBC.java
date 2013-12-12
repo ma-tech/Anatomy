@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the Stage DTO.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the Stage DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -247,7 +247,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             if (resultSet.next()) {
@@ -261,7 +261,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return stage;
@@ -282,7 +282,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -296,7 +296,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return stages;
@@ -328,7 +328,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -341,7 +341,7 @@ public final class StageDAOJDBC implements StageDAO{
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Create ANA_STAGE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Create ANA_STAGE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -350,7 +350,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, generatedKeys);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
         }
     }
     
@@ -383,7 +383,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_UPDATE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -400,7 +400,7 @@ public final class StageDAOJDBC implements StageDAO{
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Update ANA_STAGE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Update ANA_STAGE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -409,7 +409,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
      
@@ -435,7 +435,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
 
             if ( daoFactory.isUpdate() ) {
 
@@ -452,7 +452,7 @@ public final class StageDAOJDBC implements StageDAO{
             }
             else {
             	
-    		    Wrapper.printMessage("UPDATE: Delete ANA_STAGE Skipped", "***", daoFactory.getLevel());
+    		    Wrapper.printMessage("UPDATE: Delete ANA_STAGE Skipped", "***", daoFactory.getMsgLevel());
             }
         } 
         catch (SQLException e) {
@@ -461,7 +461,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(),connection, preparedStatement);
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
     
@@ -478,7 +478,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
             exist = resultSet.next();
         } 
@@ -488,7 +488,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return exist;
@@ -562,7 +562,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
         
@@ -578,7 +578,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return dataList;
@@ -619,7 +619,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false, values);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -635,7 +635,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -654,7 +654,7 @@ public final class StageDAOJDBC implements StageDAO{
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -670,7 +670,7 @@ public final class StageDAOJDBC implements StageDAO{
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return value;

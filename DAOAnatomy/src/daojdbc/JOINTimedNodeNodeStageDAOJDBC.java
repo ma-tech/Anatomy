@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the 
 *                JOINTimedNodeNodeStage DTO.
@@ -24,7 +24,7 @@
 *               This DAO should be used as a central point for the mapping between 
 *                the JOINTimedNodeNodeStage DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -57,7 +57,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
-        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
+        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID, " +
         "ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, " +
         "STG_OID, STG_SPECIES_FK, STG_NAME, STG_SEQUENCE, STG_DESCRIPTION, STG_SHORT_EXTRA_TEXT, STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE " +
@@ -66,7 +66,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
         
     private static final String SQL_LIST_ALL_BY_STAGE_NAME =
         "SELECT " +
-        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
+        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID, " +
         "ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, " +
         "STG_OID, STG_SPECIES_FK, STG_NAME, STG_SEQUENCE, STG_DESCRIPTION, STG_SHORT_EXTRA_TEXT, STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE " +
@@ -77,7 +77,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
             
     private static final String SQL_FIND_BY_EMAP =
     	"SELECT " +
-        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, " +
+        "ATN_OID, ATN_NODE_FK, ATN_STAGE_FK, ATN_STAGE_MODIFIER_FK, ATN_PUBLIC_ID, ATN_DISPLAY_ID, " +
         "ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, " +
         "STG_OID, STG_SPECIES_FK, STG_NAME, STG_SEQUENCE, STG_DESCRIPTION, STG_SHORT_EXTRA_TEXT, STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE " +
@@ -131,7 +131,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
 
             resultSet = preparedStatement.executeQuery();
             
@@ -146,7 +146,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
         }
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return jointimednodenodestage;
@@ -182,7 +182,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -196,7 +196,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return jointimednodenodestages;
@@ -214,6 +214,7 @@ public final class JOINTimedNodeNodeStageDAOJDBC implements JOINTimedNodeNodeSta
        		resultSet.getLong("ATN_STAGE_FK"), 
        		resultSet.getString("ATN_STAGE_MODIFIER_FK"),
        		resultSet.getString("ATN_PUBLIC_ID"),
+       		resultSet.getString("ATN_DISPLAY_ID"),
        		resultSet.getLong("ANO_OID"), 
        		resultSet.getString("ANO_SPECIES_FK"), 
        		resultSet.getString("ANO_COMPONENT_NAME"), 

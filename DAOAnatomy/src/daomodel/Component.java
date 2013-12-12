@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                Component Table - ANA_OBO_COMPONENT
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -69,7 +69,7 @@ public class Component {
      * Default constructor.
      */
     public Component() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -226,7 +226,7 @@ public class Component {
 
     /*
      * Returns the String representation of this Component.
-     *  Not required, it just pleases reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

@@ -16,13 +16,13 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the 
 *                JOINTimedNodeStage "Table".
 *                ANA_TIMED_NODE & ANA_STAGE Joined on ATN_STAGE_FK and STG_OID
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -42,7 +42,7 @@ public class JOINTimedNodeStage {
      *   3. ATN_STAGE_FK          - int(10) unsigned 
      *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
      *   5. ATN_PUBLIC_ID         - varchar(20)      
-     *   6. ATN_DISPLAY_ID        - varchar(20)    
+     *   6. ATN_DISPLAY_ID        - varchar(20)      
      *     
      *   1. STG_OID               - int(10) unsigned
      *   2. STG_SPECIES_FK        - varchar(20)      
@@ -71,7 +71,7 @@ public class JOINTimedNodeStage {
      * Default constructor.
      */
     public JOINTimedNodeStage() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -239,7 +239,7 @@ public class JOINTimedNodeStage {
         return String.format("JOINTimedNodeStage\n" +
         		"TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicTimedNodeId=%s, displayTimedNodeId=%s ]" +
         		"Stage [ oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s ]", 
-        		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, displayTimedNodeId, 
+        		oidTimedNode, nodeFK, stageFK, stageModifierFK, publicTimedNodeId, displayTimedNodeId,  
         		oidStage, speciesFK, name, sequence, description, extraText, publicStageId);
     }
 }

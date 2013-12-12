@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Access Object for the 
 *                JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage DTO.
@@ -24,7 +24,7 @@
 *               This DAO should be used as a central point for the mapping between 
 *                the JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -59,11 +59,11 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_LIST_ALL =
         "SELECT " +
-        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, " +
+        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, a.ATN_DISPLAY_ID, " +
         "b.ANO_OID, b.ANO_SPECIES_FK, b.ANO_COMPONENT_NAME, b.ANO_IS_PRIMARY, b.ANO_IS_GROUP, b.ANO_PUBLIC_ID, b.ANO_DESCRIPTION, " +
         "c.STG_OID, c.STG_SPECIES_FK, c.STG_NAME, c.STG_SEQUENCE, c.STG_DESCRIPTION, c.STG_SHORT_EXTRA_TEXT, c.STG_PUBLIC_ID, " +
         "d.REL_OID, d.REL_RELATIONSHIP_TYPE_FK, d.REL_CHILD_FK, d.REL_PARENT_FK, " +
-        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, " +
+        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, e.ATN_DISPLAY_ID, " +
         "f.ANO_OID, f.ANO_SPECIES_FK, f.ANO_COMPONENT_NAME, f.ANO_IS_PRIMARY, f.ANO_IS_GROUP, f.ANO_PUBLIC_ID, f.ANO_DESCRIPTION, " +
         "g.STG_OID, g.STG_SPECIES_FK, g.STG_NAME, g.STG_SEQUENCE, g.STG_DESCRIPTION, g.STG_SHORT_EXTRA_TEXT, g.STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE a " +
@@ -76,11 +76,11 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
             
     private static final String SQL_LIST_ALL_BY_STAGE_NAME =
         "SELECT " +
-        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, " +
+        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, a.ATN_DISPLAY_ID, " +
         "b.ANO_OID, b.ANO_SPECIES_FK, b.ANO_COMPONENT_NAME, b.ANO_IS_PRIMARY, b.ANO_IS_GROUP, b.ANO_PUBLIC_ID, b.ANO_DESCRIPTION, " +
         "c.STG_OID, c.STG_SPECIES_FK, c.STG_NAME, c.STG_SEQUENCE, c.STG_DESCRIPTION, c.STG_SHORT_EXTRA_TEXT, c.STG_PUBLIC_ID, " +
         "d.REL_OID, d.REL_RELATIONSHIP_TYPE_FK, d.REL_CHILD_FK, d.REL_PARENT_FK, " +
-        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, " +
+        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, e.ATN_DISPLAY_ID, " +
         "f.ANO_OID, f.ANO_SPECIES_FK, f.ANO_COMPONENT_NAME, f.ANO_IS_PRIMARY, f.ANO_IS_GROUP, f.ANO_PUBLIC_ID, f.ANO_DESCRIPTION, " +
         "g.STG_OID, g.STG_SPECIES_FK, g.STG_NAME, g.STG_SEQUENCE, g.STG_DESCRIPTION, g.STG_SHORT_EXTRA_TEXT, g.STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE a " +
@@ -96,11 +96,11 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
         
     private static final String SQL_LIST_ALL_BY_STAGE_NAME_BY_PARENT =
         "SELECT " +
-        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, " +
+        "a.ATN_OID, a.ATN_NODE_FK, a.ATN_STAGE_FK, a.ATN_STAGE_MODIFIER_FK, a.ATN_PUBLIC_ID, a.ATN_DISPLAY_ID, " +
         "b.ANO_OID, b.ANO_SPECIES_FK, b.ANO_COMPONENT_NAME, b.ANO_IS_PRIMARY, b.ANO_IS_GROUP, b.ANO_PUBLIC_ID, b.ANO_DESCRIPTION, " +
         "c.STG_OID, c.STG_SPECIES_FK, c.STG_NAME, c.STG_SEQUENCE, c.STG_DESCRIPTION, c.STG_SHORT_EXTRA_TEXT, c.STG_PUBLIC_ID, " +
         "d.REL_OID, d.REL_RELATIONSHIP_TYPE_FK, d.REL_CHILD_FK, d.REL_PARENT_FK, " +
-        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, " +
+        "e.ATN_OID, e.ATN_NODE_FK, e.ATN_STAGE_FK, e.ATN_STAGE_MODIFIER_FK, e.ATN_PUBLIC_ID, e.ATN_DISPLAY_ID, " +
         "f.ANO_OID, f.ANO_SPECIES_FK, f.ANO_COMPONENT_NAME, f.ANO_IS_PRIMARY, f.ANO_IS_GROUP, f.ANO_PUBLIC_ID, f.ANO_DESCRIPTION, " +
         "g.STG_OID, g.STG_SPECIES_FK, g.STG_NAME, g.STG_SEQUENCE, g.STG_DESCRIPTION, g.STG_SHORT_EXTRA_TEXT, g.STG_PUBLIC_ID " +
         "FROM ANA_TIMED_NODE a " +
@@ -181,7 +181,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
         try {
         	
             connection = daoFactory.getConnection();
-            preparedStatement = prepareStatement(daoFactory.getLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
             resultSet = preparedStatement.executeQuery();
         
             while (resultSet.next()) {
@@ -195,7 +195,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
         } 
         finally {
         	
-            close(daoFactory.getLevel(), connection, preparedStatement, resultSet);
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
         return jointimednodestages;
@@ -214,6 +214,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
     			resultSet.getLong("a.ATN_STAGE_FK"), 
     			resultSet.getString("a.ATN_STAGE_MODIFIER_FK"),
     			resultSet.getString("a.ATN_PUBLIC_ID"),
+    			resultSet.getString("a.ATN_DISPLAY_ID"),
     			resultSet.getLong("b.ANO_OID"), 
     			resultSet.getString("b.ANO_SPECIES_FK"), 
     			resultSet.getString("b.ANO_COMPONENT_NAME"), 
@@ -237,6 +238,7 @@ public final class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAOJDBC i
     			resultSet.getLong("e.ATN_STAGE_FK"), 
     			resultSet.getString("e.ATN_STAGE_MODIFIER_FK"),
     			resultSet.getString("e.ATN_PUBLIC_ID"),
+    			resultSet.getString("e.ATN_DISPLAY_ID"),
     			resultSet.getLong("f.ANO_OID"), 
     			resultSet.getString("f.ANO_SPECIES_FK"), 
     			resultSet.getString("f.ANO_COMPONENT_NAME"), 

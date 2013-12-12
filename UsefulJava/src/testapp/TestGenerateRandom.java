@@ -11,22 +11,10 @@ public class TestGenerateRandom {
 
     		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-    		/*
     		for (int idx = 1; idx <= 10; ++idx){
 
                 Wrapper.printMessage("GenerateRandom.getRandomString(): " + GenerateRandom.getRandomString(), "*", "*");
     	    }
-
-    		for (int idx = 1; idx <= 10; ++idx){
-
-                Wrapper.printMessage("GenerateRandom.getRandomPentatonic(): " + GenerateRandom.getRandomPentatonic(), "*", "*");
-    	    }
-    	    
-    	    for (int idx = 1; idx <= 10; ++idx){
-
-                Wrapper.printMessage("GenerateRandom.getRandomChord(): " + GenerateRandom.getRandomChord(), "*", "*");
-    	    }
-    	    */
 
     		System.out.println(GenerateRandom.randomString(-229985452) + " " + GenerateRandom.randomString(-147909649));
 
@@ -42,12 +30,23 @@ public class TestGenerateRandom {
     	        
     			System.out.println(GenerateRandom.randomString(b[i]));
     		}
-    	    /*
+
+    		/*
+    		for (int idx = 1; idx <= 10; ++idx){
+
+                Wrapper.printMessage("GenerateRandom.getRandomPentatonic(): " + GenerateRandom.getRandomPentatonic(), "*", "*");
+    	    }
+    	    
     	    for (int idx = 1; idx <= 10; ++idx){
+
+                Wrapper.printMessage("GenerateRandom.getRandomChord(): " + GenerateRandom.getRandomChord(), "*", "*");
+    	    }
+
+    		for (int idx = 1; idx <= 10; ++idx){
 
                 Wrapper.printMessage("GenerateRandom.getRandomFretPattern(): " + GenerateRandom.getRandomFretPattern(), "*", "*");
          	}
-        	*/
+         	*/
 
 
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

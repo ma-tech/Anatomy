@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the Version Table.
 *                ANA_VERSION
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -51,7 +51,7 @@ public class Version {
      * Default constructor.
      */
     public Version() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -131,7 +131,7 @@ public class Version {
 
     /*
      * Returns the String representation of this Version. 
-     *  Not required, it just make reading logs easier.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

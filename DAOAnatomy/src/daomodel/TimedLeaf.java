@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the Timed Leaf "Table".
 *               This Object is a wrapper to the output from a UNION SQL statement:
@@ -69,7 +69,7 @@
 *   11. GRAND_CHILD_DESC - What the Grand-Child actually is! eg. 'compacted morula'
 *                           OR 'No Children' for Non-Leaf Nodes
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -172,7 +172,7 @@ public class TimedLeaf {
      * Default constructor.
      */
     public TimedLeaf() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -317,7 +317,7 @@ public class TimedLeaf {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this User. Not required, it just makes reading logs easier.
      */
     public String toString() {
 

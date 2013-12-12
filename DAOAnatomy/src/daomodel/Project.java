@@ -16,12 +16,12 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the Project Table.
 *                ANA_PROJECT
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,7 +37,7 @@ public class Project {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *  Columns:
-     *   1. APJ_NAME - char(300
+     *   1. APJ_NAME - char(30)
 	 */
     private String name; 
 
@@ -46,7 +46,7 @@ public class Project {
      * Default constructor.
      */
     public Project() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -79,8 +79,23 @@ public class Project {
     }
 
     /*
+     * Is this Project the same as the Supplied Project?
+     */
+    public boolean isSameAs(Project daoproject){
+
+    	if ( this.getName().equals(daoproject.getName()) ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
+
+    /*
      * Returns the String representation of this project.
-     *  Not required, it just pleases reading logs.
+     *  Not required, it just makes reading logs easier.
      */
     public String toString() {
         return String.format("Project [ name=%s ]", 

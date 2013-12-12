@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
 *                tables in the Anatomy database .

@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that reads in a OBO file and Writes it out again 
 *
@@ -41,7 +41,7 @@ import obomodel.OBOComponent;
 import obolayer.OBOFactory;
 import obolayer.OBOException;
 
-import obolayer.ComponentOBO;
+import obolayer.OBOComponentAccess;
 
 import daolayer.DAOFactory;
 
@@ -53,24 +53,24 @@ public class RunOBOTest {
 
 		try {
 	        // Obtain DAOs.
-	        ComponentOBO componentOBO = obofactory.getComponentOBO();
+	        OBOComponentAccess obocomponentaccess = obofactory.getOBOComponentAccess();
 
 	        // Read in OBO File
 	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
-	        obocomponents = componentOBO.listAll();
+	        obocomponents = obocomponentaccess.listAllInput();
 	        
 	        Wrapper.printMessage("Number of File Components Read In = " + obocomponents.size(), "***", requestMsgLevel);
 
 	        // Write out Obo File
-	        componentOBO.setComponentList((ArrayList<OBOComponent>) obocomponents);
+	        obocomponentaccess.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        
-	        if (componentOBO.writeAll( "Abstract" )) {
+	        if (obocomponentaccess.writeAll( "Abstract" )) {
 
-	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + componentOBO.outputFile(), "***", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + obocomponentaccess.outputFileName(), "***", requestMsgLevel);
 	        }
 	        else {
 	            
-	        	Wrapper.printMessage("Obo File FAILED to write to " + componentOBO.outputFile(), "***", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File FAILED to write to " + obocomponentaccess.outputFileName(), "***", requestMsgLevel);
 	        }
 	        
 		}

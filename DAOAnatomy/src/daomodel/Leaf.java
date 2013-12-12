@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This class represents a SQL Database Transfer Object for the "Leaf" Table.
 *                This is best described in the following SQL Statement:
@@ -85,7 +85,7 @@
 *   14. GRAND_CHILD_DESC - What the Grand-Child actually is! eg. 'compacted morula'
 *                           OR 'No Children' for Non-Leaf Nodes
 *                           
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -119,7 +119,7 @@ public class Leaf {
      * Default constructor.
      */
     public Leaf() {
-        // Always keep the default constructor alive in a Javabean class.
+        
     }
 
     /*
@@ -274,7 +274,7 @@ public class Leaf {
     }
 
     /*
-     * Returns the String representation of this User. Not required, it just pleases reading logs.
+     * Returns the String representation of this User. Not required, it just makes reading logs easier.
      */
     public String toString() {
     	

@@ -16,7 +16,7 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  A Main Class that Validates the Components Tables Against the Existing 
 *                Database
@@ -61,8 +61,8 @@ public class MainValidateComponentsTablesAgainstExistingDatabase{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
             
-            ValidateComponentsTablesAgainstExistingDatabase.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
-            RunOBOCheckComponentsOrdering.run(daofactory.getDAOImpl(ThingDAO.class).getLevel(), daofactory, obofactory);
+            ValidateComponentsTablesAgainstExistingDatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            RunOBOCheckComponentsOrdering.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

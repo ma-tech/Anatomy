@@ -16,9 +16,9 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
-* Description:  A Java class to print Prologue and Epilogues to Main Classes 
+* Description:  A Java class to print Prologue and Epilogues to Sysout
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -40,11 +40,20 @@ import java.util.Set;
 public class Wrapper {
 	
      /*
-      * A List of Valid Message Levels - LOW, MEDIUM & HIGH 
+      * A List of Valid Message Levels
+      *  HIGH        - *, 
+      *  MEDIUM-HIGH - **, 
+      *  MEDIUM      - ***, 
+      *  MEDIUM-LOW  - ****, 
+      *  LOW         - *****
       */
      private static final Set<String> VALID_VALUES = new HashSet<String>(Arrays.asList(
         new String[] 
-    	    {"*****","****","***","**","*"}
+    	    {"*****",
+        	"****",
+        	"***",
+        	"**",
+        	"*"}
         ));
 
 	/*
@@ -109,12 +118,7 @@ public class Wrapper {
         char padChar = ' ';
 
         /*
-    	 * Check that the messagePriority and requestPriority values are one of 
-    	 * HIGH        - *, 
-    	 * MEDIUM-HIGH - **, 
-    	 * MEDIUM      - ***, 
-    	 * MEDIUM-LOW  - ****, 
-    	 * LOW         - *****
+    	 * Check that the messagePriority and requestPriority values are allowable
     	 */
     	if ( VALID_VALUES.contains( messagePriority ) &&
     		VALID_VALUES.contains( requestPriority ) ) {

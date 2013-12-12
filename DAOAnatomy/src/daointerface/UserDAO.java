@@ -16,14 +16,14 @@
 *               Western General Hospital,
 *               Edinburgh, EH4 2XU, UK.
 *
-* Version: 1
+* Version:      1
 *
 * Description:  This interface represents a contract for a DAO for the User model.
 *  
 *               This DAO should be used as a central point for the mapping between 
 *                the User DTO and a SQL database.
 *
-* Link:         http://balusc.blogspot.com/2008/07/dao-tutorial-data-layer.html
+* Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -54,34 +54,41 @@ public interface UserDAO extends BaseDAO {
  
     /*
      * Returns a list of all users from the database ordered by user OID. 
-     *  The list is never null and is empty when the database does not contain any user.
+     *  The list is never null and is empty when the database does not contain any users.
      */
     public List<User> list() throws Exception;
 
     /*
-     * Create the given user in the database. 
+     * Create the supplied user in the database. 
      * 
-     * The user OID must be null, otherwise it will throw IllegalArgumentException. 
-     *  If the user OID value is unknown, rather use save(User).
+     * IF the user OID value is unknown then use save(User) instead
+     * 
      *  After creating, the DAO will set the obtained OID in the given user.
      */
     public void create(User user) throws IllegalArgumentException, Exception;
 
     /*
-     * Update the given user in the database. 
-     *  The user OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the user OID value is unknown, rather use save(User).
+     * Update the supplied user in the database.
+     *  
+     *  The user OID must NOT be null, otherwise it will throw IllegalArgumentException.
+     *   
+     *  If the user OID value is unknown, instead use save(User).
      */
     public void update(User user) throws Exception;
 
     /*
-     * Save the given user in the database. 
-     *  If the user OID is null, then it will invoke create(User), else it will invoke update(User).
+     * Save the given user in the database.
+     *  
+     *  If the user OID is null, THEN
+     *   create(User) in invoked 
+     *  ELSE 
+     *   save(User) in invoked 
      */
     public void save(User user) throws Exception;
 
     /*
-     * Delete the given user from the database. 
+     * Delete the given user from the database.
+     *  
      *  After deleting, the DAO will set the ID of the given user to null.
      */
     public void delete(User user) throws Exception;
@@ -92,12 +99,12 @@ public interface UserDAO extends BaseDAO {
     public boolean existOid(long Oid) throws Exception;
 
     /*
-     * Returns true if the given username exist in the database.
+     * Returns true if the given username exists in the database.
      */
     public boolean existUsername(String username) throws Exception;
 
     /*
-     * Returns true if the given email address exist in the database.
+     * Returns true if the given email address exists in the database.
      */
     public boolean existEmail(String email) throws Exception;
 

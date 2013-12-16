@@ -16,6 +16,8 @@
 cd /Users/mwicks/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps
 
 echo 'RELOAD mouse011 Anatomy Database from /Users/mwicks/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps'
-echo 'drop database mouse011; create database mouse011;' | mysql -uroot -pbanana mouse011
-mysql -uroot -pbanana mouse011 < mySqlSchemaAndDataAndRoutinesDump.sql
+#echo 'drop database mouse011; create database mouse011;' | mysql -uroot -pbanana mouse011
+echo 'drop database mouse011; create database mouse011;' | mysql -uroot mouse011
+#mysql -uroot -pbanana mouse011 < mySqlSchemaAndDataAndRoutinesDump.sql
+mysql -uroot mouse011 < mySqlSchemaAndDataAndRoutinesDump.sql
 #mysql -uroot -pbanana mouse011 < Mouse010mySqlSchemaAndDataAndRoutinesDump.sql

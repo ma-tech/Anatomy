@@ -1,0 +1,87 @@
+
+Editor Report for Import of OBO File: /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromMouse010/OBOInput/EMAP/INPUT.obo
+
+
+REPORT UPDATE SUMMARY
+
+=====================
+
+   Total Components from OBO File : 5639
+
+A. Critical Components in file    : 0
+
+B. New Components created         : 0
+
+C. Modified Components            : 0
+
+D. Deleted Components             : 1
+
+   Unchanged Components           : 5605
+
+
+--------------------------------------------------------------------------------
+
+
+A. CRITICAL COMPONENTS: REQUIRE REVISION
+
+   =====================================
+
+  Total Critical Components: 0
+  -----------------------------
+
+
+B. NEW COMPONENTS
+
+   ==============
+
+  Total New Components: 0
+  -------------------------------
+
+
+
+C. MODIFIED COMPONENTS
+
+   ===================
+
+  Total Modified Components: 0
+  -------------------------------
+
+
+D. DELETE COMPONENTS
+
+   ==================
+
+  Total Deleted Components: 1
+  -----------------------------
+
+  1. EMAPA:16035 - zona pellucida
+
+  DETAILS
+  -------
+
+   Deleted OBOComponent 1
+    ID        : EMAPA:16035
+    Name      : zona pellucida
+    Starts At : TS01
+    Ends At   : TS28
+    Parents   : []
+    Synonyms  : []
+    Change Check Status : DELETE
+    Rules Check Status  : PASSED
+    Comments  : 
+     1.  Component has been deleted correctly from OBO File and can be scheduled for deletion in database
+     2.  INFO: Obsolete Term
+     3.  Obsolete term formerly linked to : []
+
+
+
+
+----------------------------------------
+----------------------------------------
+----------------Appendix----------------
+----------------------------------------
+
+CRITICAL terms = Terms that require revision.
+NEW terms = Terms that did not exist in the original file/database.
+MODIFIED terms = Terms that have a changed property.
+DELETE terms = Terms that exist in the original file/database but are no longer in the current file.

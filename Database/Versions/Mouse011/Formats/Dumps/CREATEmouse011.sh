@@ -16,4 +16,5 @@
 cd /Users/mwicks/GitMahost/Anatomy/Database/Versions/Mouse010/Formats/Dumps
 
 echo 'Create mouse011 Anatomy Database from Desktop'
-echo 'create database mouse011;' | mysql -uroot -pbanana
+#echo 'create database mouse011;' | mysql -uroot -pbanana
+echo 'create database mouse011;' | mysql -uroot

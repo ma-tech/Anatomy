@@ -16,4 +16,5 @@
 cd /Users/mwicks/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps
 
 echo 'BACKUP mouse011 Anatomy Database to /Users/mwicks/GitMahost/Anatomy/Database/Versions/Mouse011/Formats/Dumps'
-mysqldump -uroot -pbanana --routines mouse011 > mySqlSchemaAndDataAndRoutinesDump.sql
+mysqldump -uroot --routines mouse011 > mySqlSchemaAndDataAndRoutinesDump.sql
+#mysqldump -uroot -pbanana --routines mouse011 > mySqlSchemaAndDataAndRoutinesDump.sql

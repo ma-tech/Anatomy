@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Usefulsrc"/>
-	<classpathentry kind="src" path="OBOsrc"/>
 	<classpathentry kind="src" path="DAOsrc"/>
+	<classpathentry kind="src" path="OBOsrc"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/commons-io-2.1.jar"/>
 	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/JavaLibraries/iText-2.1.6.jar"/>

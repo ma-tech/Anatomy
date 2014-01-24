@@ -134,15 +134,23 @@ public abstract class OBOFactory {
     /*
      * Returns a new OBOFactory instance for the given database name.
      */
-    public static OBOFactory getInstance(String name) throws Exception {
+    public static OBOFactory getInstance(String property) throws Exception {
     	
-        if (name == null) {
+        if (property == null) {
         	
             throw new OBOConfigurationException("OBO name is null.");
         }
 
-        OBOProperties properties = new OBOProperties(name);
-        
+        OBOProperties properties = new OBOProperties(property);
+
+        return getInstanceDetails(properties);
+    }
+    
+    /*
+     * Returns a new OBOFactory instance for the given database name.
+     */
+    public static OBOFactory getInstanceDetails(OBOProperties properties) throws Exception {
+    	
         String filename = properties.getName();
 
         String strOboBaseFile = properties.getProperty(PROPERTY_OBO_BASE_FILE, false);

@@ -67,7 +67,7 @@ public final class OBOComponentAccess {
      */
     public List<OBOComponent> listAllBase() throws Exception {
     	
-        return listInput();
+        return listBase();
     }
     
     /*
@@ -100,7 +100,7 @@ public final class OBOComponentAccess {
 
         try {
         	
-        	obocomponents = oboFactory.getInputComponents();
+        	obocomponents = oboFactory.getBaseComponents();
         } 
         catch (OBOConfigurationException e) {
         	

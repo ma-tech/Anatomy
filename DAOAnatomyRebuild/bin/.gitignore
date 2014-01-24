@@ -1,4 +1,3 @@
-/app
-/daointerface
-/daojdbc
-/daolayer
+/oboroutines
+/obomodel
+/obolayer

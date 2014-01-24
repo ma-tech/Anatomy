@@ -2148,11 +2148,11 @@ public class OBOComponent {
         orderdiff =  this.compareOrderComments(obocomponent, orderdiff);
 
         /*
-        if ( this.getID().equals("EMAPA:35041") ) {
+        if ( this.getID().equals("EMAPA:32806") 
+        	|| ( obocomponent.getID().equals("EMAPA:32806") ) ) {
         	
-            //System.out.println("orderdiff               : " + orderdiff );
-            //System.out.println("this.toString()         : " + this.toString());
-            //System.out.println("obocomponent.toString() : " + obocomponent.toString());
+            System.out.println("this.getName()         : " + this.getName());
+            System.out.println("obocomponent.getName() : " + obocomponent.getName());
         }
         */
         

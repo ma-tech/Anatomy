@@ -41,9 +41,8 @@ import daolayer.DAOFactory;
 
 import obolayer.OBOFactory;
 
-import daointerface.ThingDAO;
-
 import routines.aggregated.EmptyComponentsTables;
+
 import routines.runnable.LoadInputOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
 

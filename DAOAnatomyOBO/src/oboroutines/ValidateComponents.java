@@ -38,10 +38,8 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import obomodel.OBOComponent;
-
 import obolayer.OBOFactory;
 import obolayer.OBOException;
-
 import utility.Wrapper;
 
 public class ValidateComponents {
@@ -511,7 +509,7 @@ public class ValidateComponents {
         //if ( this.abstractRootList.isEmpty() ){
         if ( vRoots.isEmpty() ){
         	
-            System.out.println("Failed NO TREE ROOTS!");
+        	Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren : Failed NO TREE ROOTS!", "*", this.requestMsgLevel);
             //no tree roots have the namespace configured for the abstract 
             // anatomy in the gui 
             //might be incorrectly named namespace
@@ -530,13 +528,13 @@ public class ValidateComponents {
                 }
                 else {
 
+            		/*
                 	if ( obocomponent.getID().equals("EMAPA:29976") || ( obocomponent.getID().equals("JFA:0003000") ) ) {
-                		/*
                         System.out.println("Failed Condition #1");
                         System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
                         System.out.println("abstractclassobocomponent.getNamespace() = " + abstractclassobocomponent.getNamespace());
-                        */
                 	}
+                    */
                 }
                 
                 //is a new group term
@@ -547,13 +545,13 @@ public class ValidateComponents {
                 }
                 else {
 
+                	/*
                 	if ( obocomponent.getID().equals("EMAPA:29976") || ( obocomponent.getID().equals("JFA:0003000") ) ) {
-                		/*
                         System.out.println("Failed Condition #2");
                         System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
                         System.out.println("groupclassobocomponent.getNamespace() = " + groupclassobocomponent.getNamespace());
-                        */
                 	}
+                    */
                 }
                 
                 //is a new group term
@@ -564,14 +562,13 @@ public class ValidateComponents {
                 }
                 else {
 
+                	/*
                 	if ( obocomponent.getID().equals("EMAPA:29976") || ( obocomponent.getID().equals("JFA:0003000") ) ) {
-                		/*
                         System.out.println("Failed Condition #3");
                         System.out.println("obocomponent.getNamespace() = " + obocomponent.getNamespace());
                         System.out.println("grouptermclassobocomponent.getNamespace() = " + grouptermclassobocomponent.getNamespace());
-                        
-                        */
                 	}
+                    */
                 }
             }
 
@@ -965,11 +962,12 @@ public class ValidateComponents {
             //set to unchanged 
             proposed.setStatusChange("NONE");
             proposed.setStatusRule("UNCHECKED");
+
             /*
-            if ( proposed.getID().equals("EMAPA:29976") 
+            if ( proposed.getID().equals("EMAPA:32806") 
         	|| ( proposed.getID().equals("JFA:0003000") ) ) {
             	
-                System.out.println("proposed.toString():" + proposed.toString());
+                System.out.println("proposed.toString()  :" + proposed.toString());
             }
             */
 
@@ -981,19 +979,18 @@ public class ValidateComponents {
                 reference = k.next();
 
                 /*
-                if ( proposed.getID().equals("EMAPA:29976") 
-            	|| ( proposed.getID().equals("JFA:0003000") ) ) {
+                if ( reference.getID().equals("EMAPA:32806") 
+            	&& ( proposed.getID().equals("EMAPA:32806") ) ) {
                 	
                     System.out.println("reference.toString():" + reference.toString());
-                    System.out.println("proposed.getID     :" + proposed.getID() );
-                    System.out.println("reference.getID():" + reference.getID() );
                 }
                 */
 
                 //if found,
                 if ( proposed.getID().equals( reference.getID() ) ) {
+
                 	/*
-                    if ( proposed.getID().equals("EMAPA:29976") 
+                	if ( proposed.getID().equals("EMAPA:32806") 
                 	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                     	
                         System.out.println("Here AAAAA!");
@@ -1003,7 +1000,7 @@ public class ValidateComponents {
                     if ( proposed.commentsContain("INFO: Obsolete Term")) {
                     
                     	/*
-                        if ( proposed.getID().equals("EMAPA:29976") 
+                        if ( proposed.getID().equals("EMAPA:32806") 
                        	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                         	
                             System.out.println("Here BBBBB!");
@@ -1020,10 +1017,19 @@ public class ValidateComponents {
                     }
                     else {
 
+                    	/*
+                        if ( proposed.getID().equals("EMAPA:32806") 
+                        	|| ( reference.getID().equals("EMAPA:32806") ) ) {
+                            	
+                        	System.out.println("proposed.getName()  : " + proposed.getName());
+                        	System.out.println("reference.getName() : " + reference.getName());
+                        }
+                        */
+
                         if (proposed.isOBOComponentSameAs(reference) ) {
 
                         	/*
-                            if ( proposed.getID().equals("EMAPA:29976") 
+                            if ( proposed.getID().equals("EMAPA:32806") 
                            	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                             	
                             	System.out.println("Here CCCCC!");
@@ -1038,7 +1044,7 @@ public class ValidateComponents {
                         else {
 
                         	/*
-                            if ( proposed.getID().equals("EMAPA:29976") 
+                            if ( proposed.getID().equals("EMAPA:32806") 
                             || ( proposed.getID().equals("JFA:0003000") ) ) {
                             	
                                 System.out.println("Here DDDDD!");
@@ -1071,7 +1077,7 @@ public class ValidateComponents {
             if ( proposed.getStatusChange().equals("DELETE") ) {
 
             	/*
-                if ( proposed.getID().equals("EMAPA:29976") 
+                if ( proposed.getID().equals("EMAPA:32806") 
             	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                 	
                 	System.out.println("Here EEEEE!");
@@ -1081,7 +1087,7 @@ public class ValidateComponents {
             	if ( !flagFound ) {
             	
             		/*
-                    if ( proposed.getID().equals("EMAPA:29976") 
+                    if ( proposed.getID().equals("EMAPA:32806") 
                 	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                     	
                     	System.out.println("Here FFFFF!");
@@ -1098,7 +1104,7 @@ public class ValidateComponents {
                 if ( !flagFound ){
             	
                 	/*
-                    if ( proposed.getID().equals("EMAPA:29976") 
+                    if ( proposed.getID().equals("EMAPA:32806") 
                 	|| ( proposed.getID().equals("JFA:0003000") ) ) {
                         	
                     	System.out.println("Here GGGGG!");

@@ -3,7 +3,7 @@
 /daojdbc
 /daolayer
 /daomodel
+/oboroutines
 /main
-/test
-/utility
-/testapp
+/obolayer
+/obomodel

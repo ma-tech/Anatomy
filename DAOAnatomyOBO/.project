@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>DAOAnatomySrc</name>
+			<type>2</type>
+			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomyJavaLayer/src</location>
+		</link>
+		<link>
 			<name>DAOsrc</name>
 			<type>2</type>
 			<location>/Users/mwicks/GitMahost/Anatomy/DAOAnatomy/src</location>

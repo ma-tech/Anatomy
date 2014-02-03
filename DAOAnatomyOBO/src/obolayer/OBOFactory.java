@@ -65,123 +65,71 @@ package obolayer;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-import daolayer.DAOConfigurationException;
-
+import obolayer.OBOConfigurationException;
+import obolayer.OBOFactory;
+import obolayer.OBOProperty;
 import obomodel.OBOComponent;
 import obomodel.OBORelation;
 import oboroutines.Parser;
 import oboroutines.Producer;
-
-
 import utility.ObjectConverter;
 import utility.Wrapper;
-import utility.FileNamingDateTime;
+
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------
-    private static final String PROPERTY_OBO_BASE_FILE = "obobasefile";
-    private static final String PROPERTY_OBO_IN_FILE = "oboinfile";
-    private static final String PROPERTY_OBO_OUT_FILE = "obooutfile";
-    private static final String PROPERTY_OBO_OUT_FILE_VERSION = "obooutfileversion";
-    private static final String PROPERTY_OBO_OUT_FILE_NAMESPACE = "obooutfilenamespace";
-    private static final String PROPERTY_OBO_OUT_FILE_SAVED_BY = "obooutfilesavedby";
-    private static final String PROPERTY_OBO_OUT_FILE_REMARK = "obooutfileremark";
-    private static final String PROPERTY_SUMMARY_REPORT = "summaryreport";
-    private static final String PROPERTY_DEBUG = "debug";
-    private static final String PROPERTY_SPECIES = "species";
-    private static final String PROPERTY_PROJECT = "project";
-    private static final String PROPERTY_ABSTRACT_CLASS_NAME = "abstractclassname";
-    private static final String PROPERTY_ABSTRACT_CLASS_ID = "abstractclassid";
-    private static final String PROPERTY_ABSTRACT_CLASS_NAMESPACE = "abstractclassnamespace";
-    private static final String PROPERTY_STAGE_CLASS_NAME = "stageclassname";
-    private static final String PROPERTY_STAGE_CLASS_ID = "stageclassid";
-    private static final String PROPERTY_STAGE_CLASS_NAMESPACE = "stageclassnamespace";
-    private static final String PROPERTY_GROUP_CLASS_NAME = "groupclassname";
-    private static final String PROPERTY_GROUP_CLASS_ID = "groupclassid";
-    private static final String PROPERTY_GROUP_CLASS_NAMESPACE = "groupclassnamespace";
-    private static final String PROPERTY_GROUP_TERM_CLASS_NAME = "grouptermclassname";
-    private static final String PROPERTY_GROUP_TERM_CLASS_ID = "grouptermclassid";
-    private static final String PROPERTY_GROUP_TERM_CLASS_NAMESPACE = "grouptermclassnamespace";
-    private static final String PROPERTY_MIN_STAGE_SEQUENCE = "minstagesequence";
-    private static final String PROPERTY_MAX_STAGE_SEQUENCE = "maxstagesequence";
-    private static final String PROPERTY_ALTERNATIVES = "alternatives";
-    private static final String PROPERTY_TIMED_COMPONENTS = "timedcomponents";
-    private static final String PROPERTY_GENERATE_IDENTIFIERS = "generateidentifiers";
-    private static final String PROPERTY_MESSAGE_LEVEL = "msglevel";
-
-    private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
-            new String[] 
-        	    {"*****",
-            	"****",
-            	"***",
-            	"**",
-            	"*"}
-            ));
-
-    private static final Set<String> VALID_BOOLS = new HashSet<String>(Arrays.asList(
-            new String[] 
-        	    {"true",
-            	"false"}
-            ));
+    private static final String PROPERTIES_FILE = "obo.properties";
 
     // Actions ------------------------------------------------------------------------------------
     /*
      * Returns a new OBOFactory instance for the given database name.
      */
-    public static OBOFactory getInstance(String property) throws Exception {
+    public static OBOFactory getInstance(String name) throws Exception {
     	
-        if (property == null) {
+        OBOFactory instance = null;
+
+        if (name == null) {
         	
             throw new OBOConfigurationException("OBO name is null.");
         }
 
-        OBOProperties properties = new OBOProperties(property);
+        OBOProperty oboproperty = OBOProperty.findProperties(PROPERTIES_FILE, name);
 
-        return getInstanceDetails(properties);
-    }
-    
-    /*
-     * Returns a new OBOFactory instance for the given database name.
-     */
-    public static OBOFactory getInstanceDetails(OBOProperties properties) throws Exception {
-    	
-        String filename = properties.getName();
+        String strFilename = PROPERTIES_FILE;
 
-        String strOboBaseFile = properties.getProperty(PROPERTY_OBO_BASE_FILE, false);
-        String strOboInFile = properties.getProperty(PROPERTY_OBO_IN_FILE, true);
-        String strOboOutFileName = properties.getProperty(PROPERTY_OBO_OUT_FILE, false);
-        String strOboOutFileVersion = properties.getProperty(PROPERTY_OBO_OUT_FILE_VERSION, false);
-        String strOboOutFileNameSpace = properties.getProperty(PROPERTY_OBO_OUT_FILE_NAMESPACE, false);
-        String strOboOutFileSavedBy = properties.getProperty(PROPERTY_OBO_OUT_FILE_SAVED_BY, false);
-        String strOboOutFileRemark = properties.getProperty(PROPERTY_OBO_OUT_FILE_REMARK, false);
-        String strSummaryReport = properties.getProperty(PROPERTY_SUMMARY_REPORT, false);
-        String strDebug = properties.getProperty(PROPERTY_DEBUG, true);
-        String strSpecies = properties.getProperty(PROPERTY_SPECIES, true);
-        String strProject = properties.getProperty(PROPERTY_PROJECT, true);
-        String strAbstractClassName = properties.getProperty(PROPERTY_ABSTRACT_CLASS_NAME, true);
-        String strAbstractClassId = properties.getProperty(PROPERTY_ABSTRACT_CLASS_ID, true);
-        String strAbstractClassNamespace = properties.getProperty(PROPERTY_ABSTRACT_CLASS_NAMESPACE, true);
-        String strStageClassName = properties.getProperty(PROPERTY_STAGE_CLASS_NAME, true);
-        String strStageClassId = properties.getProperty(PROPERTY_STAGE_CLASS_ID, true);
-        String strStageClassNamespace = properties.getProperty(PROPERTY_STAGE_CLASS_NAMESPACE, true);
-        String strGroupClassName = properties.getProperty(PROPERTY_GROUP_CLASS_NAME, true);
-        String strGroupClassId = properties.getProperty(PROPERTY_GROUP_CLASS_ID, true);
-        String strGroupClassNamespace = properties.getProperty(PROPERTY_GROUP_CLASS_NAMESPACE, true);
-        String strGroupTermClassName = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_NAME, true);
-        String strGroupTermClassId = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_ID, true);
-        String strGroupTermClassNamespace = properties.getProperty(PROPERTY_GROUP_TERM_CLASS_NAMESPACE, true);
-        String strMinStageSequence = properties.getProperty(PROPERTY_MIN_STAGE_SEQUENCE, true);
-        String strMaxStageSequence = properties.getProperty(PROPERTY_MAX_STAGE_SEQUENCE, true);
-        String strAlternatives = properties.getProperty(PROPERTY_ALTERNATIVES, true);
-        String strTimedComponents = properties.getProperty(PROPERTY_TIMED_COMPONENTS, true);
-        String strGenerateIdentifiers = properties.getProperty(PROPERTY_GENERATE_IDENTIFIERS, true);
-        String strMsgLevel = properties.getProperty(PROPERTY_MESSAGE_LEVEL, true);
+        String strMajorKey = oboproperty.getMajorKey();
+
+        String strAbstractClassId = oboproperty.getAbstractClassId();
+        String strAbstractClassName = oboproperty.getAbstractClassName();
+        String strAbstractClassNamespace = oboproperty.getAbstractClassNameSpace();
+        String strAlternatives = oboproperty.getAlternatives();
+        String strDebug = oboproperty.getDebug();
+        String strGenerateIdentifiers = oboproperty.getGenerateIdentifiers();
+        String strGroupClassId = oboproperty.getGroupClassId();
+        String strGroupClassName = oboproperty.getGroupClassName();
+        String strGroupClassNamespace = oboproperty.getGroupClassNameSpace();
+        String strGroupTermClassId = oboproperty.getGroupTermClassId();
+        String strGroupTermClassName = oboproperty.getGroupTermClassName();
+        String strGroupTermClassNamespace = oboproperty.getGroupTermClassNameSpace();
+        String strMaxStageSequence = oboproperty.getMaxStageSequence();
+        String strMinStageSequence = oboproperty.getMinStageSequence();
+        String strMsgLevel = oboproperty.getMsgLevel();
+        String strOboBaseFile = oboproperty.getOboBaseFile();
+        String strOboInFile = oboproperty.getOboInFile();
+        String strOboOutFileName = oboproperty.getOboOutFile();
+        String strOboOutFileNameSpace = oboproperty.getOboOutFileNameSpace();
+        String strOboOutFileRemark = oboproperty.getOboOutFileRemark();
+        String strOboOutFileSavedBy = oboproperty.getOboOutFileSavedBy();
+        String strOboOutFileVersion = oboproperty.getOboOutFileVersion();
+        String strProject = oboproperty.getProject();
+        String strSpecies = oboproperty.getSpecies();
+        String strStageClassId = oboproperty.getStageClassId();
+        String strStageClassName = oboproperty.getStageClassName();
+        String strStageClassNamespace = oboproperty.getStageClassNameSpace();
+        String strSummaryReport = oboproperty.getSummaryReport();
+        String strTimedComponents = oboproperty.getTimedComponents();
 
         String strOboOutFileDateTime = utility.FileNamingDateTime.now();
 
@@ -193,137 +141,51 @@ public abstract class OBOFactory {
         int intMinStageSequence = ObjectConverter.convert(strMinStageSequence, Integer.class);
         int intMaxStageSequence = ObjectConverter.convert(strMaxStageSequence, Integer.class);
         
-        boolean boolDebug = false;
-        boolean boolAlternatives = false;
-        boolean boolTimedComponents = false;
-        boolean boolGenerateIdentifiers = false;
+        boolean boolAlternatives = oboproperty.isAlternatives();
+        boolean boolDebug = oboproperty.isDebug();
+        boolean boolGenerateIdentifiers = oboproperty.isGenerateIdentifiers();
+        boolean boolTimedComponents = oboproperty.isTimedComponents();
         
-        String level = "";
-
-    	if ( !VALID_LEVELS.contains( strMsgLevel ) ) {
+    	if (oboproperty.isDebug()) {
         	
-            throw new DAOConfigurationException(
-                    "Message Level '" + strMsgLevel + "' : INVALID Value!");
-    	}
-    	else {
-    		
-    		level = strMsgLevel;
-    	}
-    		
-    	if ( !VALID_BOOLS.contains( strAlternatives ) ) {
-        	
-            throw new OBOConfigurationException(
-                    "Alternatives '" + strAlternatives + "' : INVALID Value!");
-    	}
-    	else {
-    		
-            if (strAlternatives.equals("true")) {
-            	
-            	boolAlternatives = true;
-            }
-            
-            if (strAlternatives.equals("false")) {
-            	
-            	boolAlternatives = false;
-            }
-    	}
-
-    	if ( !VALID_BOOLS.contains( strTimedComponents ) ) {
-        	
-            throw new OBOConfigurationException(
-                    "TimedComponents '" + strTimedComponents + "' : INVALID Value!");
-    	}
-    	else {
-    		
-            if (strTimedComponents.equals("true")) {
-            	
-            	boolTimedComponents = true;
-            }
-            
-            if (strTimedComponents.equals("false")) {
-            	
-            	boolTimedComponents = false;
-            }
-    	}
-
-    	if ( !VALID_BOOLS.contains( strGenerateIdentifiers ) ) {
-        	
-            throw new OBOConfigurationException(
-                    "GenerateIdentifiers '" + strGenerateIdentifiers + "' : INVALID Value!");
-    	}
-    	else {
-    		
-            if (strGenerateIdentifiers.equals("true")) {
-            	
-            	boolGenerateIdentifiers = true;
-            }
-            
-            if (strGenerateIdentifiers.equals("false")) {
-            	
-            	boolGenerateIdentifiers = false;
-            }
-    	}
-
-    	if ( !VALID_BOOLS.contains( strDebug ) ) {
-        	
-            throw new OBOConfigurationException(
-                    "Debug '" + strDebug + "' : INVALID Value!");
-    	}
-    	else {
-    		
-            if (strDebug.equals("true")) {
-            	
-            	boolDebug = true;
-            }
-            
-            if (strDebug.equals("false")) {
-            	
-            	boolDebug = false;
-            }
-    	}
-
-    	if (strDebug.equals("true")) {
-        	
-        	boolDebug = true;
-        	//"========= : "
-        	Wrapper.printMessage("========= :", "*", level);
-        	Wrapper.printMessage("DEBUG     : OBO Properties File     : " + filename, "*", level);
-        	Wrapper.printMessage("--------- :", "*", level);
-        	Wrapper.printMessage("          : obobasefile             : " + strOboBaseFile, "*", level);
-        	Wrapper.printMessage("          : oboinfile               : " + strOboInFile, "*", level);
-        	Wrapper.printMessage("          : obooutfile              : " + strOboOutFileName, "*", level);
-        	Wrapper.printMessage("          : obooutfileversion       : " + strOboOutFileVersion, "*", level);
-        	Wrapper.printMessage("          : obooutfilenamespace     : " + strOboOutFileNameSpace, "*", level);
-        	Wrapper.printMessage("          : obooutfilesavedby       : " + strOboOutFileSavedBy, "*", level);
-        	Wrapper.printMessage("          : obooutfileremark        : " + strOboOutFileRemark, "*", level);
-        	Wrapper.printMessage("          : summaryreport           : " + strSummaryReport, "*", level);
-        	Wrapper.printMessage("          : summaryreportpdf        : " + strSummaryReportPdf, "*", level);
-        	Wrapper.printMessage("          : species                 : " + strSpecies, "*", level);
-        	Wrapper.printMessage("          : project                 : " + strProject, "*", level);
-        	Wrapper.printMessage("          : AbstractClassName       : " + strAbstractClassName, "*", level);
-        	Wrapper.printMessage("          : AbstractClassId         : " + strAbstractClassId, "*", level);
-        	Wrapper.printMessage("          : AbstractClassNamespace  : " + strAbstractClassNamespace, "*", level);
-        	Wrapper.printMessage("          : StageClassName          : " + strStageClassName, "*", level);
-        	Wrapper.printMessage("          : StageClassId            : " + strStageClassId, "*", level);
-        	Wrapper.printMessage("          : StageClassNamespace     : " + strStageClassNamespace, "*", level);
-        	Wrapper.printMessage("          : GroupClassName          : " + strGroupClassName, "*", level);
-        	Wrapper.printMessage("          : GroupClassId            : " + strGroupClassId, "*", level);
-        	Wrapper.printMessage("          : GroupClassNamespace     : " + strGroupClassNamespace, "*", level);
-        	Wrapper.printMessage("          : GroupTermClassName      : " + strGroupTermClassName, "*", level);
-        	Wrapper.printMessage("          : GroupTermClassId        : " + strGroupTermClassId, "*", level);
-        	Wrapper.printMessage("          : GroupTermClassNamespace : " + strGroupTermClassNamespace, "*", level);
-        	Wrapper.printMessage("          : MinStageSequence        : " + strMinStageSequence, "*", level);
-        	Wrapper.printMessage("          : MaxStageSequence        : " + strMaxStageSequence, "*", level);
-        	Wrapper.printMessage("          : Alternatives            : " + strAlternatives, "*", level);
-        	Wrapper.printMessage("          : TimedComponents         : " + strTimedComponents, "*", level);
-        	Wrapper.printMessage("          : GenerateIdentifiers     : " + strGenerateIdentifiers, "*", level);
-        	Wrapper.printMessage("          : debug                   : " + strDebug, "*", level);
-        	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
-        	Wrapper.printMessage("========= :", "*", level);
+        	Wrapper.printMessage("=====     :", "*", strMsgLevel);
+        	Wrapper.printMessage("DEBUG     : OBO Properties File     : " + strFilename, "*", strMsgLevel);
+        	Wrapper.printMessage("-----     : -------------------", "*", strMsgLevel);
+        	Wrapper.printMessage("          : MajorKey                : " + strMajorKey, "*", strMsgLevel);
+        	Wrapper.printMessage("          : --------                :", "*", strMsgLevel);
+        	Wrapper.printMessage("          : abstractclassid         : " + strAbstractClassId, "*", strMsgLevel);
+        	Wrapper.printMessage("          : abstractclassname       : " + strAbstractClassName, "*", strMsgLevel);
+        	Wrapper.printMessage("          : abstractclassnamespace  : " + strAbstractClassNamespace, "*", strMsgLevel);
+        	Wrapper.printMessage("          : alternatives            : " + strAlternatives, "*", strMsgLevel);
+        	Wrapper.printMessage("          : debug                   : " + strDebug, "*", strMsgLevel);
+        	Wrapper.printMessage("          : generateidentifiers     : " + strGenerateIdentifiers, "*", strMsgLevel);
+        	Wrapper.printMessage("          : groupclassid            : " + strGroupClassId, "*", strMsgLevel);
+        	Wrapper.printMessage("          : groupclassname          : " + strGroupClassName, "*", strMsgLevel);
+        	Wrapper.printMessage("          : groupclassnamespace     : " + strGroupClassNamespace, "*", strMsgLevel);
+        	Wrapper.printMessage("          : grouptermclassid        : " + strGroupTermClassId, "*", strMsgLevel);
+        	Wrapper.printMessage("          : grouptermclassname      : " + strGroupTermClassName, "*", strMsgLevel);
+        	Wrapper.printMessage("          : grouptermclassnamespace : " + strGroupTermClassNamespace, "*", strMsgLevel);
+        	Wrapper.printMessage("          : maxstagesequence        : " + strMaxStageSequence, "*", strMsgLevel);
+        	Wrapper.printMessage("          : minstagesequence        : " + strMinStageSequence, "*", strMsgLevel);
+        	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obobasefile             : " + strOboBaseFile, "*", strMsgLevel);
+        	Wrapper.printMessage("          : oboinfile               : " + strOboInFile, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obooutfile              : " + strOboOutFileName, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obooutfilenamespace     : " + strOboOutFileNameSpace, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obooutfileremark        : " + strOboOutFileRemark, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obooutfilesavedby       : " + strOboOutFileSavedBy, "*", strMsgLevel);
+        	Wrapper.printMessage("          : obooutfileversion       : " + strOboOutFileVersion, "*", strMsgLevel);
+        	Wrapper.printMessage("          : project                 : " + strProject, "*", strMsgLevel);
+        	Wrapper.printMessage("          : species                 : " + strSpecies, "*", strMsgLevel);
+        	Wrapper.printMessage("          : stageclassid            : " + strStageClassId, "*", strMsgLevel);
+        	Wrapper.printMessage("          : stageclassname          : " + strStageClassName, "*", strMsgLevel);
+        	Wrapper.printMessage("          : stageclassnamespace     : " + strStageClassNamespace, "*", strMsgLevel);
+        	Wrapper.printMessage("          : summaryreport           : " + strSummaryReport, "*", strMsgLevel);
+        	Wrapper.printMessage("          : summaryreportpdf        : " + strSummaryReportPdf, "*", strMsgLevel);
+        	Wrapper.printMessage("          : timedcomponents         : " + strTimedComponents, "*", strMsgLevel);
+        	Wrapper.printMessage("========= :", "*", strMsgLevel);
         }
         
-        OBOFactory instance;
-
         File infile = new File (strOboInFile);
         
         // If driver is specified, then load it to let it register itself with DriverManager.

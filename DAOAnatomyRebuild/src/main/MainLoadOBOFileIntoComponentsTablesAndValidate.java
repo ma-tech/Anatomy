@@ -36,16 +36,13 @@
 package main;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
-
+import daolayer.DAOProperty;
 import obolayer.OBOFactory;
-
+import obolayer.OBOProperty;
 import routines.aggregated.EmptyComponentsTables;
-
 import routines.runnable.LoadInputOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
-
 import app.gudmap.RunOBOValidateComponentsOrder; 
 
 
@@ -55,14 +52,19 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 2) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
+        	OBOProperty oboproperty = new OBOProperty();
+        	oboproperty.setOBOProperty(args[0], args[1]);
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[2], args[3]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[3]);
             
             EmptyComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
             LoadInputOBOFileIntoComponentsTablesAndValidate.run( obofactory.getMsgLevel(), daofactory, obofactory );

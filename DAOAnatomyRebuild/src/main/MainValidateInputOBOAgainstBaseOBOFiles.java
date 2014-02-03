@@ -36,6 +36,7 @@ package main;
 import utility.Wrapper;
 
 import obolayer.OBOFactory;
+import obolayer.OBOProperty;
 
 import routines.runnable.ValidateInputOBOAgainstBaseOBOFiles;
 
@@ -46,13 +47,16 @@ public class MainValidateInputOBOAgainstBaseOBOFiles{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 1) {
+		if (args.length != 2) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Argument passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
-        
-        	OBOFactory obofactory = OBOFactory.getInstance(args[0]);
+
+        	OBOProperty oboproperty = new OBOProperty();
+        	oboproperty.setOBOProperty(args[0], args[1]);
+
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             
             ValidateInputOBOAgainstBaseOBOFiles.run( obofactory.getMsgLevel(), obofactory );
         }

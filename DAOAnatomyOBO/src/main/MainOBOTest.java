@@ -33,10 +33,12 @@ package main;
 import utility.Wrapper;
 
 import obolayer.OBOFactory;
-
-import daointerface.ThingDAO;
+import obolayer.OBOProperty;
 
 import daolayer.DAOFactory;
+import daolayer.DAOProperty;
+
+import daointerface.ThingDAO;
 
 import app.RunOBOTest;
 
@@ -46,14 +48,20 @@ public class MainOBOTest {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-        if (args.length != 2) {
+        if (args.length != 4) {
 
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
+        	
+        	OBOProperty oboproperty = new OBOProperty();
+        	oboproperty.setOBOProperty(args[0], args[1]);
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[2], args[3]);
 
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
             RunOBOTest.run( daofactory.getDAOImpl(ThingDAO.class).getLevel(), obofactory, daofactory );
         }

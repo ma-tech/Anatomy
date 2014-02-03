@@ -32,9 +32,9 @@
 package main;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
-
+import daolayer.DAOProperty;
+import app.RunDAOList;
 import app.RunDAOTest;
 
 public class MainDAOTest {
@@ -45,13 +45,18 @@ public class MainDAOTest {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-        /*
-         * MAINLINE
-         */
-        // Obtain DAOFactory.
-        DAOFactory daofactory = DAOFactory.getInstance("mouse011Localhost");
+        if (args.length != 2) {
 
-        RunDAOTest.run(daofactory);
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+        }
+        else {
+        	
+            DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+        	
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
+            RunDAOTest.run(daofactory);
+        }
 
     	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }

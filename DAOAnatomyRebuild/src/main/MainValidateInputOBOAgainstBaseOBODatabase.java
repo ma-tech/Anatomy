@@ -36,11 +36,10 @@
 package main;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;	
-
+import daolayer.DAOProperty;
 import obolayer.OBOFactory;
-
+import obolayer.OBOProperty;
 import routines.runnable.ValidateInputOBOAgainstBaseOBODatabase;
 
 
@@ -50,14 +49,20 @@ public class MainValidateInputOBOAgainstBaseOBODatabase{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 2) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
-        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	OBOProperty oboproperty = new OBOProperty();
+        	oboproperty.setOBOProperty(args[0], args[1]);
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[2], args[3]);
+
+        	OBOFactory obofactory = OBOFactory.getInstance(args[3]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
             
             ValidateInputOBOAgainstBaseOBODatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
         }

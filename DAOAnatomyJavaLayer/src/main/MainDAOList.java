@@ -33,6 +33,7 @@ package main;
 import utility.Wrapper;
 
 import daolayer.DAOFactory;
+import daolayer.DAOProperty;
 
 import app.RunDAOList;
 
@@ -42,14 +43,16 @@ public class MainDAOList {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-        if (args.length != 1) {
+        if (args.length != 2) {
 
-		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
-
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
-
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+        	
+    		DAOFactory daofactory = DAOFactory.getInstance(args[1]);
             RunDAOList.run( daofactory );
         }
 

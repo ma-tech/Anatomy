@@ -100,43 +100,14 @@ import java.util.Set;
 
 import utility.ExecuteCommand;
 import utility.Wrapper;
-
 import daointerface.BaseDAO;
 
 
 public abstract class DAOFactory {
     // Constants ----------------------------------------------------------------------------------
-    private static final String PROPERTY_URL = "url";
-    private static final String PROPERTY_DRIVER = "driver";
-    private static final String PROPERTY_USERNAME = "username";
-    private static final String PROPERTY_PASSWORD = "password";
+    private static final String PROPERTIES_FILE = "dao.properties";
     private static final String JNDI_ROOT = "java:comp/env/";
-    private static final String PROPERTY_DEBUG = "debug";
-    private static final String PROPERTY_UPDATE = "update";
-    private static final String PROPERTY_SQL_OUTPUT = "sqloutput";
-    private static final String PROPERTY_MESSAGE_LEVEL = "msglevel";
-    private static final String PROPERTY_ACCESS_METHOD = "access";
-
-    private static final Set<String> VALID_LEVELS = new HashSet<String>(Arrays.asList(
-            new String[] 
-        	    {"*****",
-            	"****",
-            	"***",
-            	"**",
-            	"*"}
-            ));
     
-    private static final Set<String> VALID_BOOLS = new HashSet<String>(Arrays.asList(
-            new String[] 
-        	    {"true",
-            	"false"}
-            ));
-
-    private static final Set<String> VALID_METHODS = new HashSet<String>(Arrays.asList(
-            new String[] 
-        	    {"JDBC"}
-            ));
-
     // Actions ------------------------------------------------------------------------------------
 
     public <DAO extends BaseDAO> DAO getDAOImpl(Class<DAO> daoInterface)
@@ -202,125 +173,78 @@ public abstract class DAOFactory {
             throw new DAOConfigurationException("Database name is null.");
         }
 
-        DAOProperties properties = new DAOProperties(name);
+        DAOProperty daoproperty = DAOProperty.findProperties(PROPERTIES_FILE, name);
         
-        String filename = properties.getName();
+        String strFilename = PROPERTIES_FILE;
         
-        String url = properties.getProperty(PROPERTY_URL, true);
-        String driverClassName = properties.getProperty(PROPERTY_DRIVER, false);
-        String password = properties.getProperty(PROPERTY_PASSWORD, false);
-        String username = properties.getProperty(PROPERTY_USERNAME, password != null);
-        String strDebug = properties.getProperty(PROPERTY_DEBUG, true);
-        String strUpdate = properties.getProperty(PROPERTY_UPDATE, true);
-        String sqloutput = properties.getProperty(PROPERTY_SQL_OUTPUT, false);
-        String strMsgLevel = properties.getProperty(PROPERTY_MESSAGE_LEVEL, true);
-        String strAccessMethod = properties.getProperty(PROPERTY_ACCESS_METHOD, true);
+        String strMajorKey = daoproperty.getMajorKey();
 
-    	boolean update = false;
-        boolean debug = false;
+        String strAccessMethod = daoproperty.getAccess();
+        String strDebug = daoproperty.getDebug();
+        String strDriverClassName = daoproperty.getDriver();
+        String strMsgLevel = daoproperty.getMsglevel();
+        String strPassword = daoproperty.getPassword();
+        String strSqloutput = daoproperty.getSqloutput();
+        String strUpdate = daoproperty.getUpdate();
+        String strUrl = daoproperty.getUrl();
+        String strUsername = daoproperty.getUsername();
 
-        String level = "";
-        String access = "";
-
-        try {
-            	
-        	if ( !VALID_METHODS.contains( strAccessMethod ) ) {
-        	
-                throw new DAOConfigurationException(
-                		"Access Method '" + strAccessMethod + "' : INVALID Value!");
-        	}
-        	else {
-        		
-        		access = strAccessMethod;
-        	}
-        		
-        	if ( !VALID_LEVELS.contains( strMsgLevel ) ) {
-            	
-                throw new DAOConfigurationException(
-                        "Message Level '" + strMsgLevel + "' : INVALID Value!");
-        	}
-        	else {
-        		
-        		level = strMsgLevel;
-        	}
-        		
-        	if ( !VALID_BOOLS.contains( strUpdate ) ) {
-            	
-                throw new DAOConfigurationException(
-                        "Update '" + strUpdate + "' : INVALID Value!");
-        	}
-        	else {
-        		
-                if (strUpdate.equals("true")) {
-                	
-                	update = true;
-                }
-                if (strUpdate.equals("false")) {
-                	
-                	update = true;
-                }
-        	}
+    	try {
+            if (daoproperty.isDebug()) {
             
-        	if ( !VALID_BOOLS.contains( strDebug ) ) {
+    			Wrapper.printMessage("=====     :", "*", strMsgLevel);
+            	Wrapper.printMessage("DEBUG     : DAO Properties File     : " + strFilename, "*", strMsgLevel);
+            	Wrapper.printMessage("-----     : -------------------", "*", strMsgLevel);
+            	Wrapper.printMessage("          : MajorKey                : " + strMajorKey, "*", strMsgLevel);
+            	Wrapper.printMessage("          : --------                :", "*", strMsgLevel);
+            	Wrapper.printMessage("          : access                  : " + strAccessMethod, "*", strMsgLevel);
+            	Wrapper.printMessage("          : debug                   : " + strDebug, "*", strMsgLevel);
+            	Wrapper.printMessage("          : driver                  : " + strDriverClassName, "*", strMsgLevel);
+            	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", strMsgLevel);
+            	Wrapper.printMessage("          : password                : " + strPassword, "*", strMsgLevel);
+            	Wrapper.printMessage("          : sqloutput               : " + strSqloutput, "*", strMsgLevel);
+            	Wrapper.printMessage("          : update                  : " + strUpdate, "*", strMsgLevel);
+            	Wrapper.printMessage("          : url                     : " + strUrl, "*", strMsgLevel);
+            	Wrapper.printMessage("          : username                : " + strUsername, "*", strMsgLevel);
+            }
+
+            if ( daoproperty.isDebug() ) {
             	
-                throw new DAOConfigurationException(
-                        "Debug '" + strDebug + "' : INVALID Value!");
-        	}
-        	else {
-        		
-                if (strDebug.equals("true")) {
+                if ( strSqloutput != null) {
                 	
-                	debug = true;
-                	Wrapper.printMessage("========= :", "*", level);
-                	Wrapper.printMessage("DEBUG     : DAO Properties File     : " + filename, "*", level);
-                	Wrapper.printMessage("--------- :", "*", level);
-                	Wrapper.printMessage("          : url                     : " + url, "*", level);
-                	Wrapper.printMessage("          : driverClassName         : " + driverClassName, "*", level);
-                	Wrapper.printMessage("          : username                : " + username, "*", level);
-                	Wrapper.printMessage("          : password                : " + password, "*", level);
-                	Wrapper.printMessage("          : sqloutput               : " + sqloutput, "*", level);
-                	Wrapper.printMessage("          : access                  : " + strAccessMethod, "*", level);
-                	Wrapper.printMessage("          : update                  : " + update, "*", level);
-                	Wrapper.printMessage("          : debug                   : " + debug, "*", level);
-                	Wrapper.printMessage("          : msglevel                : " + strMsgLevel, "*", level);
-                }
-                
-                if (strDebug.equals("false")) {
-                	
-                	debug = false;
-                }
-        	}
-        		
-            if ( debug ) {
-            	
-                if ( sqloutput != null) {
-                	
-                    String commandString1 = "rm " + sqloutput;
+                    String commandString1 = "rm " + strSqloutput;
                     ArrayList<String> results = new ArrayList<String>();
                     
             		results = ExecuteCommand.execute(commandString1);
 
-                	Wrapper.printMessage("--------- :", "*", level);
-                	Wrapper.printMessage("          : Empty SQL Command Log File", "*", level);
-                	Wrapper.printMessage("          : Command: " + commandString1, "*", level);
+                	Wrapper.printMessage("--------- :", "*", strMsgLevel);
+                	Wrapper.printMessage("          : Empty SQL Command Log File", "*", strMsgLevel);
+                	Wrapper.printMessage("          : Command: " + commandString1, "*", strMsgLevel);
 
                 	Iterator<String> iteratorresults = results.iterator();
 
                   	while (iteratorresults.hasNext()) {
                   		
-                    	Wrapper.printMessage("                 " + iteratorresults.next(), "*", level);
+                    	Wrapper.printMessage("                 " + iteratorresults.next(), "*", strMsgLevel);
                   	}
                 }
 
-                Wrapper.printMessage("========= :", "*", level);
+                Wrapper.printMessage("========= :", "*", strMsgLevel);
             }
-            
-            // If driver is specified, then load it to let it register itself with DriverManager.
-            if (driverClassName != null) {
-                
-            	Class.forName(driverClassName);
 
-            	instance = new DriverManagerDAOFactory(access, level, update, debug, sqloutput, url, username, password);
+            // If driver is specified, then load it to let it register itself with DriverManager.
+            if (strDriverClassName != null) {
+                
+            	Class.forName(strDriverClassName);
+
+            	instance = new DriverManagerDAOFactory(strAccessMethod, 
+            			strMsgLevel, 
+            			daoproperty.isUpdate(), 
+            			daoproperty.isDebug(), 
+            			strSqloutput, 
+            			strUrl, 
+            			strUsername, 
+            			strPassword);
                 
             }
             // Else assume URL as DataSource URL and lookup it in the JNDI.
@@ -328,32 +252,34 @@ public abstract class DAOFactory {
             	
                 DataSource dataSource;
                 
-                dataSource = (DataSource) new InitialContext().lookup(JNDI_ROOT + url);
+                dataSource = (DataSource) new InitialContext().lookup(JNDI_ROOT + strUrl);
                 
-                if (username != null) {
+                if (strUsername != null) {
                 	
-                    instance = new DataSourceWithLoginDAOFactory(access, level, update, debug, sqloutput, dataSource, username, password);
+                    instance = new DataSourceWithLoginDAOFactory(strAccessMethod,
+                    		strMsgLevel, 
+                    		daoproperty.isUpdate(), 
+                    		daoproperty.isDebug(), 
+                    		strSqloutput, 
+                    		dataSource, 
+                    		strUsername, 
+                    		strPassword);
                 }
                 else {
                 	
-                    instance = new DataSourceDAOFactory(access, level, update, debug, sqloutput, dataSource);
+                    instance = new DataSourceDAOFactory(strAccessMethod, 
+                    		strMsgLevel, 
+                    		daoproperty.isUpdate(), 
+                    		daoproperty.isDebug(), 
+                    		strSqloutput, 
+                    		dataSource);
                 }
             }
-    	}
-        catch (ClassNotFoundException e) {
-        	
-            throw new DAOConfigurationException(
-                "Driver class '" + driverClassName + "' is missing in classpath.", e);
-        }
-        catch (NamingException e) {
-        	
-            throw new DAOConfigurationException(
-                "DataSource '" + url + "' is missing in JNDI.", e);
-        }
+		} 
     	catch (Exception e) {
-    		
-    		e.printStackTrace();
-    	}
+
+			e.printStackTrace();
+		}
 
         return instance;
     }

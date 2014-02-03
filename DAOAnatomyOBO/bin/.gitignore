@@ -1,7 +1,12 @@
-/app
-/daointerface
 /daojdbc
 /daolayer
 /daomodel
+/app
+/daointerface
 /main
-/test
+/obolayer
+/obomodel
+/oboroutines
+/dao.properties
+/utility
+/testapp

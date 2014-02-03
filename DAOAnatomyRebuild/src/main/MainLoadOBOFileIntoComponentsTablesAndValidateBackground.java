@@ -37,11 +37,10 @@ package main;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
-
+import daolayer.DAOProperty;
 import obolayer.OBOFactory;
-
+import obolayer.OBOProperty;
 import app.RunExtractOBOAndValidate;
 
 
@@ -51,15 +50,21 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidateBackground{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 3) {
+		if (args.length != 5) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 3 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
-        	OBOFactory obofactory = OBOFactory.getInstance(args[2]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
-    		long OBOFileRowNumber = ObjectConverter.convert(args[0], Long.class);
+        	OBOProperty oboproperty = new OBOProperty();
+        	oboproperty.setOBOProperty(args[0], args[1]);
+        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[2], args[3]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[3]);
+
+            long OBOFileRowNumber = ObjectConverter.convert(args[4], Long.class);
             
             RunExtractOBOAndValidate.run( OBOFileRowNumber, daofactory, obofactory );
         }

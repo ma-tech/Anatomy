@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        TimedLeafDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Timed Leaf DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Timed Leaf DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,125 +53,11 @@ import daointerface.TimedLeafDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
+
 public final class TimedLeafDAOJDBC implements TimedLeafDAO{
 	// Constants ----------------------------------------------------------------------------------
 
-	// DEPRECATED!!
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_NAME_BY_CHILD_DESC_OLD =
-			"SELECT  " +
-					"  ANAV_STAGE AS STAGE, " +
-					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
-					"  ANAV_NAME_1 AS ROOT_NAME, " +
-					"  ANAV_DESC_1 AS ROOT_DESC, " +
-					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
-					"  'LEAF' AS CHILD_ID, " +
-					"  ANAV_NAME_2 AS CHILD_NAME, " + 
-					"  ANAV_DESC_2 AS CHILD_DESC, " + 
-					"  'No Children' AS GRAND_CHILD_ID, " + 
-					"  'No Children' AS GRAND_CHILD_NAME, " +
-					"  'No Children' AS GRAND_CHILD_DESC, " +
-					" ATN_NODE_FK AS NODE_ID, " +
-					" ANO_PUBLIC_ID AS ABSTRACT_NAME " +
-					" FROM ANAV_TIMED_LEAF_RELATION " +
-					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
-					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
-					" WHERE ANAV_NAME_1 = ?  " +
-					" AND ANAV_STAGE = ?  " +
-					"UNION " +
-					"SELECT " +
-					"  STG_NAME AS STAGE, " +
-					"  ANAV_ID_1, " +
-					"  ANAV_NAME_1, " + 
-					"  ANAV_DESC_1, " +
-					"  CAST(ANAV_OID_2 AS CHAR), " + 
-					"  ANAV_ID_2, " +
-					"  ANAV_NAME_2, " +
-					"  ANAV_DESC_2, " +
-					"  ANAV_ID_3, " +
-					"  ANAV_NAME_3, " +
-					"  ANAV_DESC_3, " +
-					"  ATN_NODE_FK, " +
-					"  ANO_PUBLIC_ID " +
-					" FROM ANAV_TIMED_GRAND_RELATION " +
-					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
-					" JOIN ANA_TIMED_NODE ON ATN_PUBLIC_ID= ANAV_NAME_2 " +
-					" JOIN ANA_NODE ON ANO_OID=ATN_NODE_FK " +
-					" WHERE ANAV_NAME_1 = ? " +
-					" AND STG_NAME = ? " +
-					"ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
-
-	// DEPRECATED!!
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_OLD =
-			"SELECT  " +
-					"  ANAV_STAGE AS STAGE, " +
-					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
-					"  ANAV_NAME_1 AS ROOT_NAME, " +
-					"  ANAV_DESC_1 AS ROOT_DESC, " +
-					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
-					"  'LEAF' AS CHILD_ID, " +
-					"  ANAV_NAME_2 AS CHILD_NAME, " + 
-					"  ANAV_DESC_2 AS CHILD_DESC, " + 
-					"  'No Children' AS GRAND_CHILD_ID, " + 
-					"  'No Children' AS GRAND_CHILD_NAME, " +
-					"  'No Children' AS GRAND_CHILD_DESC " +
-					" FROM ANAV_TIMED_LEAF_RELATION " +
-					" WHERE ANAV_DESC_1 = ?  " +
-					" AND ANAV_STAGE = ?  " +
-					"UNION " +
-					"SELECT " +
-					"  STG_NAME AS STAGE, " +
-					"  ANAV_ID_1, " +
-					"  ANAV_NAME_1, " + 
-					"  ANAV_DESC_1, " +
-					"  CAST(ANAV_OID_2 AS CHAR), " + 
-					"  ANAV_ID_2, " +
-					"  ANAV_NAME_2, " +
-					"  ANAV_DESC_2, " +
-					"  ANAV_ID_3, " +
-					"  ANAV_NAME_3, " +
-					"  ANAV_DESC_3 " +
-					" FROM ANAV_TIMED_GRAND_RELATION " +
-					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
-					" WHERE ANAV_DESC_1 = ? " +
-					" AND STG_NAME = ? " +
-					" ORDER BY CHILD_ID DESC, CHILD_NAME DESC ";
-	// DEPRECATED!!
-	private static final String SQL_LIST_ALL_NODES_BY_ROOT_DESC_BY_CHILD_DESC_OLD =
-			"SELECT  " +
-					"  ANAV_STAGE AS STAGE, " +
-					"  CAST(ANAV_OID_1 AS CHAR) AS ROOT_OID, " + 
-					"  ANAV_NAME_1 AS ROOT_NAME, " +
-					"  ANAV_DESC_1 AS ROOT_DESC, " +
-					"  CAST(ANAV_OID_2 AS CHAR) AS CHILD_OID, " + 
-					"  'LEAF' AS CHILD_ID, " +
-					"  ANAV_NAME_2 AS CHILD_NAME, " + 
-					"  ANAV_DESC_2 AS CHILD_DESC, " + 
-					"  'No Children' AS GRAND_CHILD_ID, " + 
-					"  'No Children' AS GRAND_CHILD_NAME, " +
-					"  'No Children' AS GRAND_CHILD_DESC " +
-					" FROM ANAV_TIMED_LEAF_RELATION " +
-					" WHERE ANAV_DESC_1 = ?  " +
-					" AND ANAV_STAGE = ?  " +
-					"UNION " +
-					"SELECT " +
-					"  STG_NAME AS STAGE, " +
-					"  ANAV_ID_1, " +
-					"  ANAV_NAME_1, " + 
-					"  ANAV_DESC_1, " +
-					"  CAST(ANAV_OID_2 AS CHAR), " + 
-					"  ANAV_ID_2, " +
-					"  ANAV_NAME_2, " +
-					"  ANAV_DESC_2, " +
-					"  ANAV_ID_3, " +
-					"  ANAV_NAME_3, " +
-					"  ANAV_DESC_3, " +
-					"  ATN_NODE_FK " +
-					" FROM ANAV_TIMED_GRAND_RELATION " +
-					" JOIN ANA_STAGE ON STG_OID = ANAV_STAGE " +
-					" WHERE ANAV_DESC_1 = ? " +
-					" AND STG_NAME = ? " +
-					" ORDER BY CHILD_DESC ";
-	
 	//////////////////////////////////////////////////////////////////
 	//##PS modified to return ANO_OID (node ID)
 	/////////////////////////////////////////////////////////////////
@@ -356,8 +240,8 @@ public final class TimedLeafDAOJDBC implements TimedLeafDAO{
 
 	// Constructors -------------------------------------------------------------------------------
 	/*
-	 * Construct an Leaf DAO for the given DAOFactory.
-	 *  Package private so that it can be constructed inside the DAO package only.
+	 * Construct an Leaf Data Access Object for the given DAOFactory.
+	 *  Package private so that it can be constructed inside the Data Access Object package only.
 	 */
     public TimedLeafDAOJDBC() {
     	

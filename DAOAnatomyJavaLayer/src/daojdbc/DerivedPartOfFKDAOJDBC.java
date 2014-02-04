@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DerivedPartOfDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedPartOf DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the DerivedPartOf DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,8 @@ import daointerface.DerivedPartOfFKDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
     // Constants ----------------------------------------------------------------------------------
@@ -132,8 +132,8 @@ public final class DerivedPartOfFKDAOJDBC implements DerivedPartOfFKDAO{
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a DerivedPartOf DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a DerivedPartOf Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public DerivedPartOfFKDAOJDBC() {
     	

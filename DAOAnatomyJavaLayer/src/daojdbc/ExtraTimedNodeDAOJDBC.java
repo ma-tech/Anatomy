@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ExtraTimedNodeDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ExtraTimedNode DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ExtraTimedNode DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,13 +42,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import daomodel.Editor;
 import daomodel.ExtraTimedNode;
 
 import daointerface.ExtraTimedNodeDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -162,8 +161,8 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ExtraTimedNode DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ExtraTimedNode Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ExtraTimedNodeDAOJDBC() {
     	

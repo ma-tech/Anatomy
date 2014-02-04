@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        LogDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Log model.
+* Description:  This interface represents a contract for a Data Access Object for the Log model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Log DTO and a SQL database.
 *
 * Link:         
@@ -38,8 +38,8 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
-import daomodel.Log;
 
+import daomodel.Log;
 
 public interface LogDAO extends BaseDAO {
 	
@@ -88,7 +88,7 @@ public interface LogDAO extends BaseDAO {
      * 
      *  The log OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the log OID value is unknown, rather use save(Log).
-     *   After creating, the DAO will set the obtained ID in the given log.
+     *   After creating, the Data Access Object will set the obtained ID in the given log.
      */
     public void create(Log log) throws IllegalArgumentException, Exception;
     
@@ -103,7 +103,7 @@ public interface LogDAO extends BaseDAO {
     /*
      *  Delete the given log from the database. 
      *  
-     *  After deleting, the DAO will set the ID of the given log to null.
+     *  After deleting, the Data Access Object will set the ID of the given log to null.
      */
     public void delete(Log log) throws Exception;
     

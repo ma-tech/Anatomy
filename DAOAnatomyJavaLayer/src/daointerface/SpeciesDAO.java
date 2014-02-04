@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SpeciesDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Species model.
+* Description:  This interface represents a contract for a Data Access Object for the Species model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Species DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Species;
 
 public interface SpeciesDAO extends BaseDAO {
@@ -71,7 +72,7 @@ public interface SpeciesDAO extends BaseDAO {
      * Create the given species in the database. 
      *  The species OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the species OID value is unknown, rather use save(Species).
-     *   After creating, the DAO will set the obtained ID in the given species.
+     *   After creating, the Data Access Object will set the obtained ID in the given species.
      */
     public void create(Species species) throws IllegalArgumentException, Exception;
     
@@ -86,7 +87,7 @@ public interface SpeciesDAO extends BaseDAO {
     /*
      * Delete the given species from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given species to null.
+     *  After deleting, the Data Access Object will set the ID of the given species to null.
      */
     public void delete(Species species) throws Exception;
     

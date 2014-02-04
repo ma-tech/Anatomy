@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        RunDAOList.java
 *
@@ -58,7 +58,7 @@ import daomodel.Component;
 //import daomodel.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage;
 //import daomodel.JOINTimedNodeStage;
 //import daomodel.Leaf;
-import daomodel.Log;
+//import daomodel.Log;
 //import daomodel.Node;
 //import daomodel.OBOFile;
 //import daomodel.PerspectiveAmbit;
@@ -100,7 +100,7 @@ import daointerface.ComponentDAO;
 //import daointerface.JOINTimedNodeNodeStageRelationshipNodeTimedNodeStageDAO;
 //import daointerface.JOINTimedNodeStageDAO;
 //import daointerface.LeafDAO;
-import daointerface.LogDAO;
+//import daointerface.LogDAO;
 
 public class RunDAOList {
 

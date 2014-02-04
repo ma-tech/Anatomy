@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        TimedNodeDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the TimedNode model.
+* Description:  This interface represents a contract for a Data Access Object for the TimedNode model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Timed Node DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.TimedNode;
 
 public interface TimedNodeDAO extends BaseDAO {
@@ -119,7 +120,7 @@ public interface TimedNodeDAO extends BaseDAO {
      *  
      *  If the timednode OID value is unknown, use save(TimedNode) instead.
      *  
-     *   After creating, the DAO will set the obtained ID in the given timednode.
+     *   After creating, the Data Access Object will set the obtained ID in the given timednode.
      */
     public void create(TimedNode timednode) throws IllegalArgumentException, Exception;
     
@@ -135,14 +136,14 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Delete the given timednode from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given timednode to null.
+     *  After deleting, the Data Access Object will set the ID of the given timednode to null.
      */
     public void delete(TimedNode timednode) throws Exception;
     
     /*
      * Delete the given timednode from the database.
      * 
-     *  After deleting, the DAO will set the ID of the given timednode to null.
+     *  After deleting, the Data Access Object will set the ID of the given timednode to null.
      */
     public void deleteByNodeAndStage(long nodeFK, long stageFK) throws Exception;
     

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentOrderDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentOrder DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentOrder DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,8 @@ import daointerface.JOINComponentOrderComponentComponentDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class JOINComponentOrderComponentComponentDAOJDBC implements JOINComponentOrderComponentComponentDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -71,8 +71,8 @@ public final class JOINComponentOrderComponentComponentDAOJDBC implements JOINCo
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentOrder DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentOrder Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public JOINComponentOrderComponentComponentDAOJDBC() {
     	

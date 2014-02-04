@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DerivedPartOfDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedPartOf DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the DerivedPartOf DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,6 +43,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.DerivedPartOf;
 
 import daointerface.DerivedPartOfDAO;
@@ -52,10 +52,9 @@ import daointerface.DerivedPartOfDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
-import utility.Wrapper;
+import static daolayer.DAOUtil.*;
 
 public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
-
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
@@ -134,9 +133,9 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a DerivedPartOf DAO for the given DAOFactory.
+     * Construct a DerivedPartOf Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public DerivedPartOfDAOJDBC() {
     	
@@ -277,7 +276,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
      * 
      *  The derivedpartof OID must be null, otherwise it will throw IllegalArgumentException.
      *   If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
-     *    After creating, the DAO will set the obtained ID in the given derivedpartof.
+     *    After creating, the Data Access Object will set the obtained ID in the given derivedpartof.
      */
     public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, Exception {
     	
@@ -405,7 +404,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     /*
      * Delete the given derivedpartof from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given derivedpartof to null.
+     *  After deleting, the Data Access Object will set the ID of the given derivedpartof to null.
      */
     public void delete(DerivedPartOf derivedpartof) throws Exception {
     	

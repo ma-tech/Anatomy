@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        RunListOBOFileContents.java
 *
@@ -37,7 +37,7 @@ package app;
 
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        RunExtractOBOAndValidate.java
 *
@@ -55,7 +55,7 @@ package app;
 *
 * Version:      1
 *
-* Description:  A Main Class that accesses an Anatomy Database via a DAO Layer;
+* Description:  A Main Class that accesses an Anatomy Database via a Data Access Object Layer;
 *                Finds are performed using each Data Access Object 
 *
 *               Required Files:

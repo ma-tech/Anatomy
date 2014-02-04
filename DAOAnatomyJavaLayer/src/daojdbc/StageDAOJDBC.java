@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        StageDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Stage DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Stage DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,14 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Stage;
 
 import daointerface.StageDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class StageDAOJDBC implements StageDAO{
     // Constants ----------------------------------------------------------------------------------
@@ -131,9 +131,9 @@ public final class StageDAOJDBC implements StageDAO{
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Stage DAO for the given DAOFactory.
+     * Construct a Stage Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public StageDAOJDBC() {
     	
@@ -307,7 +307,7 @@ public final class StageDAOJDBC implements StageDAO{
      *  
      *  The stage OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the stage OID value is unknown, rather use save(Stage).
-     *   After creating, the DAO will set the obtained ID in the given stage.
+     *   After creating, the Data Access Object will set the obtained ID in the given stage.
      */
     public void create(Stage stage) throws IllegalArgumentException, Exception {
     	
@@ -416,7 +416,7 @@ public final class StageDAOJDBC implements StageDAO{
     /*
      * Delete the given stage from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given stage to null.
+     *  After deleting, the Data Access Object will set the ID of the given stage to null.
      */
     public void delete(Stage stage) throws Exception {
     	

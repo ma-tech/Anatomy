@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentAlternativeDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentAlternative DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentAlternative DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,8 +52,9 @@ import daointerface.ComponentAlternativeDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
-public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDAO {
-	
+import static daolayer.DAOUtil.*;
+
+public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDAO {	
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
         "SELECT ACA_OID, ACA_OBO_ID, ACA_OBO_ALT_ID  " +
@@ -140,8 +139,8 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentAlternative DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentAlternative Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentAlternativeDAOJDBC() {
     	
@@ -314,7 +313,7 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
      * 
      *  The daocomponentalternative OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentalternative OID value is unknown, rather use save(ComponentAlternative).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentalternative.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentalternative.
      */
     public void create(ComponentAlternative daocomponentalternative) throws IllegalArgumentException, Exception {
 
@@ -412,7 +411,7 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
      
     /*
      *  Delete the given daocomponentalternative from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentalternative to null.
      */
     public void delete(ComponentAlternative daocomponentalternative) throws Exception {
     	
@@ -463,7 +462,7 @@ public final class ComponentAlternativeDAOJDBC implements ComponentAlternativeDA
     
     /*
      *  Delete the given daocomponentalternative from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentalternative to null.
      */
     public void empty() throws Exception {
     	

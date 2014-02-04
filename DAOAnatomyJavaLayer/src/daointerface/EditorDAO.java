@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        EditorDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Editor model.
+* Description:  This interface represents a contract for a Data Access Object for the Editor model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Editor DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Editor;
 
 public interface EditorDAO extends BaseDAO {
@@ -56,7 +57,7 @@ public interface EditorDAO extends BaseDAO {
      * Create the given editor in the database. 
      * The editor OID must be null, otherwise it will throw IllegalArgumentException.
      * If the editor OID value is unknown, rather use save(Editor).
-     * After creating, the DAO will set the obtained ID in the given editor.
+     * After creating, the Data Access Object will set the obtained ID in the given editor.
      */
     public void create(Editor editor) throws IllegalArgumentException, Exception;
     
@@ -69,7 +70,7 @@ public interface EditorDAO extends BaseDAO {
     
     /*
      * Delete the given editor from the database. 
-     *  After deleting, the DAO will set the ID of the given editor to null.
+     *  After deleting, the Data Access Object will set the ID of the given editor to null.
      */
     public void delete(Editor editor) throws Exception;
     

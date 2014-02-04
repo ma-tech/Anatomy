@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentOrderDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the ComponentOrder model.
+* Description:  This interface represents a contract for a Data Access Object for the ComponentOrder model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentOrder DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.ComponentOrder;
 
 public interface ComponentOrderDAO extends BaseDAO {
@@ -118,7 +119,7 @@ public interface ComponentOrderDAO extends BaseDAO {
      *  
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder).
      *  
-     *   After creating, the DAO will set the obtained ID in the given daocomponentorder.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentorder.
      */
     public void create(ComponentOrder daocomponentorder) throws IllegalArgumentException, Exception;
     
@@ -134,7 +135,7 @@ public interface ComponentOrderDAO extends BaseDAO {
     /*
      *  Delete the given daocomponentorder from the database. 
      *  
-     *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentorder to null.
      */
     public void delete(ComponentOrder daocomponentorder) throws Exception;
     

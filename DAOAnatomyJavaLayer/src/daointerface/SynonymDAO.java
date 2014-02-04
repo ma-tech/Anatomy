@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SynonymDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Synonym model.
+* Description:  This interface represents a contract for a Data Access Object for the Synonym model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Synonym DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Synonym;
 
 public interface SynonymDAO extends BaseDAO {
@@ -82,7 +83,7 @@ public interface SynonymDAO extends BaseDAO {
      *  
      *  The synonym OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the synonym OID value is unknown, rather use save(Synonym).
-     *   After creating, the DAO will set the obtained ID in the given synonym.
+     *   After creating, the Data Access Object will set the obtained ID in the given synonym.
      */
     public void create(Synonym synonym) throws IllegalArgumentException, Exception;
     
@@ -96,7 +97,7 @@ public interface SynonymDAO extends BaseDAO {
      
     /*
      * Delete the given synonym from the database. 
-     *  After deleting, the DAO will set the ID of the given synonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given synonym to null.
      */
     public void delete(Synonym synonym) throws Exception;
      

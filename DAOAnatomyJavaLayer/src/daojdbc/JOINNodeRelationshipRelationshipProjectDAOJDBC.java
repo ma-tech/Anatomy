@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        JOINNodeRelationshipRelationshipProjectDAO.java
 *
@@ -21,7 +21,7 @@
 * Description:  This class represents a SQL Database Access Object for the 
 *                JOINNodeRelationshipRelationshipProject DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the JOINNodeRelationshipRelationshipProject DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,6 +50,8 @@ import daointerface.JOINNodeRelationshipRelationshipProjectDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class JOINNodeRelationshipRelationshipProjectDAOJDBC implements JOINNodeRelationshipRelationshipProjectDAO{
     // Constants ----------------------------------------------------------------------------------
@@ -90,9 +90,9 @@ public final class JOINNodeRelationshipRelationshipProjectDAOJDBC implements JOI
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a JOINNodeRelationshipRelationshipProject DAO for the given DAOFactory.
+     * Construct a JOINNodeRelationshipRelationshipProject Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public JOINNodeRelationshipRelationshipProjectDAOJDBC() {
     	

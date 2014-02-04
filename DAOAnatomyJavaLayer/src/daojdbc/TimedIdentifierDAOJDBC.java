@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        TimedIdentifierDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Timed Identifier DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Timed Identifier DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,14 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.TimedIdentifier;
 
 import daointerface.TimedIdentifierDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class TimedIdentifierDAOJDBC implements TimedIdentifierDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -104,9 +104,9 @@ public final class TimedIdentifierDAOJDBC implements TimedIdentifierDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a TimedIdentifier DAO for the given DAOFactory.
+     * Construct a TimedIdentifier Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public TimedIdentifierDAOJDBC() {
     	
@@ -240,7 +240,7 @@ public final class TimedIdentifierDAOJDBC implements TimedIdentifierDAO {
      *  
      *  The timedidentifier OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the timedidentifier OID value is unknown, rather use save(TimedIdentifier).
-     *   After creating, the DAO will set the obtained ID in the given timedidentifier.
+     *   After creating, the Data Access Object will set the obtained ID in the given timedidentifier.
      */
     public void create(TimedIdentifier timedidentifier) throws IllegalArgumentException, Exception {
     	
@@ -341,7 +341,7 @@ public final class TimedIdentifierDAOJDBC implements TimedIdentifierDAO {
     /*
      * Delete the given timedidentifier from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given timedidentifier to null.
+     *  After deleting, the Data Access Object will set the ID of the given timedidentifier to null.
      */
     public void delete(TimedIdentifier timedidentifier) throws Exception {
     	

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        PerspectiveDAO.java
 *
@@ -21,7 +21,7 @@
 * Description:  This class represents a SQL Database Access Object for the 
 *                Perspective DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Perspective DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,6 +50,8 @@ import daointerface.PerspectiveDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class PerspectiveDAOJDBC implements PerspectiveDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -102,8 +102,8 @@ public final class PerspectiveDAOJDBC implements PerspectiveDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Perspective DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Perspective Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public PerspectiveDAOJDBC() {
     	
@@ -208,7 +208,7 @@ public final class PerspectiveDAOJDBC implements PerspectiveDAO {
      * Create the given perspective in the database. 
      * The perspective OID must be null, otherwise it will throw IllegalArgumentException.
      * If the perspective OID value is unknown, rather use save(Perspective).
-     * After creating, the DAO will set the obtained ID in the given perspective.
+     * After creating, the Data Access Object will set the obtained ID in the given perspective.
      */
     public void create(Perspective perspective) throws IllegalArgumentException, Exception {
     	
@@ -285,7 +285,7 @@ public final class PerspectiveDAOJDBC implements PerspectiveDAO {
     
     /*
      * Delete the given perspective from the database. 
-     *  After deleting, the DAO will set the ID of the given perspective to null.
+     *  After deleting, the Data Access Object will set the ID of the given perspective to null.
      */
     public void delete(Perspective perspective) throws Exception {
     	

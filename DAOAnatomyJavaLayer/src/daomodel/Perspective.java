@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        Perspective.java
 *
@@ -24,11 +24,11 @@
 *
 * Link:         
 * 
-* Mabooleanenance:  Log changes below, with most recent at top of list.
+* Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
-* Mike Wicks; 8th Decemeber 2013; Create Class
+* Mike Wicks; 8th December 2013; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */

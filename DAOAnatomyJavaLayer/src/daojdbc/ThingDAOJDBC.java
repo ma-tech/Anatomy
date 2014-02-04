@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ThingDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Thing (Object) DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Thing (Object) DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,16 +43,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Thing;
 
 import daointerface.ThingDAO;
-
-import utility.Wrapper;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 import daolayer.DAOConfigurationException;
 
+import static daolayer.DAOUtil.*;
 
 public final class ThingDAOJDBC implements ThingDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -112,8 +111,8 @@ public final class ThingDAOJDBC implements ThingDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Thing DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Thing Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ThingDAOJDBC() {
     	
@@ -269,7 +268,7 @@ public final class ThingDAOJDBC implements ThingDAO {
      * 
      *  The thing OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the thing OID value is unknown, rather use save(Thing).
-     *   After creating, the DAO will set the obtained ID in the given thing.
+     *   After creating, the Data Access Object will set the obtained ID in the given thing.
      */
     public void create(Thing thing) throws IllegalArgumentException, Exception {
     	
@@ -373,7 +372,7 @@ public final class ThingDAOJDBC implements ThingDAO {
     /*
      * Delete the given thing from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given thing to null.
+     *  After deleting, the Data Access Object will set the ID of the given thing to null.
      */
     public void delete(Thing thing) throws Exception {
     	

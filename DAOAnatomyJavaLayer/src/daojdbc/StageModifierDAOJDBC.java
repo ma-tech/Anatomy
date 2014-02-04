@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        StageModifierDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the StageModifier DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the StageModifier DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,8 @@ import daointerface.StageModifierDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class StageModifierDAOJDBC implements StageModifierDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -101,8 +101,8 @@ public final class StageModifierDAOJDBC implements StageModifierDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a StageModifier DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a StageModifier Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public StageModifierDAOJDBC() {
     	
@@ -207,7 +207,7 @@ public final class StageModifierDAOJDBC implements StageModifierDAO {
      * Create the given stagemodifier in the database. 
      * The stagemodifier OID must be null, otherwise it will throw IllegalArgumentException.
      * If the stagemodifier OID value is unknown, rather use save(StageModifier).
-     * After creating, the DAO will set the obtained ID in the given stagemodifier.
+     * After creating, the Data Access Object will set the obtained ID in the given stagemodifier.
      */    
     public void create(StageModifier stagemodifier) throws IllegalArgumentException, Exception {
     	
@@ -282,7 +282,7 @@ public final class StageModifierDAOJDBC implements StageModifierDAO {
      
     /*
      * Delete the given stagemodifier from the database. 
-     *  After deleting, the DAO will set the ID of the given stagemodifier to null.
+     *  After deleting, the Data Access Object will set the ID of the given stagemodifier to null.
      */
     public void delete(StageModifier stagemodifier) throws Exception {
     	

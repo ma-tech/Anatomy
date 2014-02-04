@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        OBOEmptyComponents.java
 *

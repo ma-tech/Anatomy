@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SourceDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Source DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Source DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Source;
 
 public interface SourceDAO extends BaseDAO {
@@ -56,7 +57,7 @@ public interface SourceDAO extends BaseDAO {
      * Create the given source in the database. 
      * The source OID must be null, otherwise it will throw IllegalArgumentException.
      * If the source OID value is unknown, rather use save(Source).
-     * After creating, the DAO will set the obtained ID in the given source.
+     * After creating, the Data Access Object will set the obtained ID in the given source.
      */    
     public void create(Source source) throws IllegalArgumentException, Exception;
     
@@ -69,7 +70,7 @@ public interface SourceDAO extends BaseDAO {
      
     /*
      * Delete the given source from the database. 
-     *  After deleting, the DAO will set the ID of the given source to null.
+     *  After deleting, the Data Access Object will set the ID of the given source to null.
      */
     public void delete(Source source) throws Exception;
     

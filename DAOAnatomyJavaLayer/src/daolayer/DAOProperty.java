@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DAOProperty.java
 *
@@ -18,8 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Transfer Object for the 
-*                DAOProperty Table - ANA_OBO_COMPONENT
+* Description:  Access to a Java Properties File for Anatomy Data Access Objects
+*                Writes the required set to a dao.properties file for further use
+*                Input properties files can have multiple entries
 *
 * Link:         
 * 
@@ -27,7 +28,7 @@
 *
 * Who; When; What;
 *
-* Mike Wicks; 21st March 2012; Create Class
+* Mike Wicks; 4th February 2014; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
@@ -42,6 +43,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.File;
+
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Properties;

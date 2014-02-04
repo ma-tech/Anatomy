@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentRelationshipDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentRelationship DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentRelationship DTO and a SQL database.
 *
 * Link:         
@@ -35,7 +35,7 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
+import utility.Wrapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,7 +52,7 @@ import daointerface.ComponentRelationshipDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
-import utility.Wrapper;
+import static daolayer.DAOUtil.*;
 
 public final class ComponentRelationshipDAOJDBC implements ComponentRelationshipDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -138,8 +138,8 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentRelationship DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentRelationship Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentRelationshipDAOJDBC() {
     	
@@ -303,7 +303,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
      * Create the given daocomponentrelationship in the database. 
      *  The daocomponentrelationship OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentrelationship OID value is unknown, rather use save(ComponentRelationship).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentrelationship.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentrelationship.
      */
     public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, Exception {
 
@@ -406,7 +406,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
      
     /*
      *  Delete the given daocomponentrelationship from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentrelationship to null.
      */
     public void delete(ComponentRelationship daocomponentrelationship) throws Exception {
     	
@@ -456,7 +456,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     
     /*
      *  Delete the given daocomponentrelationship from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentrelationship to null.
      */
     public void empty() throws Exception {
     	

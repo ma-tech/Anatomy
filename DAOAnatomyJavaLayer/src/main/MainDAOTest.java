@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        MainDAOTest.java
 *
@@ -20,6 +20,10 @@
 *
 * Description:  A Main Executable Class 
 * 
+* Usage:        "main.MainDAOTest 
+*                /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                 mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -32,9 +36,10 @@
 package main;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
-import app.RunDAOList;
+
 import app.RunDAOTest;
 
 public class MainDAOTest {

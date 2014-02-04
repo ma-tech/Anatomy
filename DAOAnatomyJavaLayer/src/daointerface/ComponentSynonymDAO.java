@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentSynonymDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the ComponentSynonym model.
+* Description:  This interface represents a contract for a Data Access Object for the ComponentSynonym model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentSynonym DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.ComponentSynonym;
 
 public interface ComponentSynonymDAO extends BaseDAO {
@@ -81,7 +82,7 @@ public interface ComponentSynonymDAO extends BaseDAO {
      * 
      *  The daocomponentsynonym OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentsynonym OID value is unknown, rather use save(ComponentSynonym).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentsynonym.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentsynonym.
      */
     public void create(ComponentSynonym daocomponentsynonym) throws IllegalArgumentException, Exception;
     
@@ -94,13 +95,13 @@ public interface ComponentSynonymDAO extends BaseDAO {
      
     /*
      *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentsynonym to null.
      */
     public void delete(ComponentSynonym daocomponentsynonym) throws Exception;
     
     /*
      *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentsynonym to null.
      */
     public void empty() throws Exception;
     

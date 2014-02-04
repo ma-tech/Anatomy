@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DAOFactory.java
 *
@@ -20,58 +20,13 @@
 *
 * Description:  
 * 
-* This class represents a DAO factory for a SQL database. 
+* This class represents a Data Access Object factory for a SQL database. 
 * 
 *  You can use "getInstance(String)" to obtain a new instance for the given database name. 
 *  The specific instance returned depends on the properties file configuration. 
-*  You can obtain DAO's for the DAO factory instance using the DAO getters.
+*  You can obtain Data Access Objects for the Data Access Object factory instance using the Data Access Object getters.
 * 
-* This class requires a properties file named 'dao.properties' in the classpath with under each
-* the following properties:
 * 
-*  name.url *
-*  name.driver
-*  name.username
-*  name.password
-*  name.debug *
-*  name.update *
-* 
-* Those marked with * are required, others are optional and can be left away or empty. 
-* 
-* Only the username is required when any password is specified.
-* 
-*  The 'name' must represent the database name in "getInstance(String)".
-*  
-*  The 'name.url' must represent either the JDBC URL or JNDI name of the database.
-*  The 'name.driver' must represent the full qualified class name of the JDBC driver.
-*  The 'name.username' must represent the username of the database login.
-*  The 'name.password' must represent the password of the database login.
-* 
-*  The 'name.debug' states whether the factory is to print out SQL statements and other Information
-*   to System.out.
-*  The 'name.update' states whether the factory is to UPDATE the database.
-*  
-*  
-* If you specify the driver property, then the url property will be assumed as JDBC URL.
-*  
-* If you omit the driver property, then the url property will be assumed as JNDI name. 
-* 
-* When using JNDI with username/password preconfigured, you can omit the username and 
-*  password properties as well.
-* 
-* Here are basic examples of valid properties for a MySQL database with the name 'anatomy008':
-* 
-*  anatomy008.url = jdbc:mysql://localhost:3306/anatomy008
-*  anatomy008.driver = com.mysql.jdbc.Driver
-*  anatomy008.username = root
-*  anatomy008.password = banana
-* 
-*  anatomy008.jndi.url = jdbc/anatomy008
-* 
-* Here is a basic use example:
-* 
-*  DAOFactory javabase = DAOFactory.getInstance("anatomy008");
-*  NodeDAO nodeDAO = javabase.getnodeDAO();
 * Link:         
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -90,16 +45,13 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 import utility.ExecuteCommand;
 import utility.Wrapper;
+
 import daointerface.BaseDAO;
 
 
@@ -193,7 +145,7 @@ public abstract class DAOFactory {
             if (daoproperty.isDebug()) {
             
     			Wrapper.printMessage("=====     :", "*", strMsgLevel);
-            	Wrapper.printMessage("DEBUG     : DAO Properties File     : " + strFilename, "*", strMsgLevel);
+            	Wrapper.printMessage("DEBUG     : Data Access Object Properties File     : " + strFilename, "*", strMsgLevel);
             	Wrapper.printMessage("-----     : -------------------", "*", strMsgLevel);
             	Wrapper.printMessage("          : MajorKey                : " + strMajorKey, "*", strMsgLevel);
             	Wrapper.printMessage("          : --------                :", "*", strMsgLevel);
@@ -286,7 +238,7 @@ public abstract class DAOFactory {
 
     /*
      * Returns a connection to the database. 
-     *  Package private so that it can be used inside the DAO package only.
+     *  Package private so that it can be used inside the Data Access Object package only.
      */
     public abstract Connection getConnection() throws SQLException;
     public abstract boolean isDebug();

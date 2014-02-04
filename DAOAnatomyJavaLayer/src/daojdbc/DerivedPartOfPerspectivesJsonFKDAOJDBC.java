@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DerivedPartOfPerspectivesJsonFKDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the DerivedPartOfPerspectivesJsonFK DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the DerivedPartOfPerspectivesJsonFK DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,8 @@ import daointerface.DerivedPartOfPerspectivesJsonFKDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class DerivedPartOfPerspectivesJsonFKDAOJDBC implements DerivedPartOfPerspectivesJsonFKDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -89,8 +89,8 @@ public final class DerivedPartOfPerspectivesJsonFKDAOJDBC implements DerivedPart
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a DerivedPartOf DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a DerivedPartOf Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public DerivedPartOfPerspectivesJsonFKDAOJDBC() {
     	

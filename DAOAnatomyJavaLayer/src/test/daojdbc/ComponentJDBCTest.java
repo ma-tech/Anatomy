@@ -1,15 +1,13 @@
 package test.daojdbc;
 
 import daointerface.ComponentDAO;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
-
+import daolayer.DAOProperty;
 import daomodel.Component;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -28,7 +26,10 @@ public class ComponentJDBCTest {
 	
 	@BeforeClass
     public static void testSetUp() throws Exception {
-		
+
+    	DAOProperty daoproperty = new DAOProperty();
+    	daoproperty.setDAOProperty("/Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input", "test011Localhost");
+
 		componentDAO = daofactory.getInstance("test011Localhost").getDAOImpl(ComponentDAO.class);
 		
 		component1 = new Component( (long) 286920, "epithelial layer of rest of oviduct", "EMAPA:29907", "TBD", "TBD", "abstract_anatomy", "", false, "TS28", "TS28", false, "", "UNCHECKED" );

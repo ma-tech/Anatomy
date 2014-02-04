@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        VersionDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Version model.
+* Description:  This interface represents a contract for a Data Access Object for the Version model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Version DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Version;
 
 public interface VersionDAO extends BaseDAO {
@@ -79,7 +80,7 @@ public interface VersionDAO extends BaseDAO {
      *  
      *  If the version OID value is unknown, use save(Version) instead
      *  
-     *   After creating, the DAO will set the obtained ID in the supplied version.
+     *   After creating, the Data Access Object will set the obtained ID in the supplied version.
      */
     public void create(Version version) throws IllegalArgumentException, Exception;
 
@@ -95,7 +96,7 @@ public interface VersionDAO extends BaseDAO {
     /*
      * Delete the given version from the database.
      *  
-     *  After deleting, the DAO will set the ID of the supplied version to null.
+     *  After deleting, the Data Access Object will set the ID of the supplied version to null.
      */
     public void delete(Version version) throws Exception;
     

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DAOUtil.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  utility class for DAO's.
+* Description:  utility class for Data Access Objects.
 * 
-*               This class contains commonly used DAO logic which has been re-factored into
+*               This class contains commonly used Data Access Object logic which has been re-factored into
 *                single static methods.
 *                 
 *               It contains:

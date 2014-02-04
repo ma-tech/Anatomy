@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SynonymDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Synonym DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Synonym DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,15 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Synonym;
 
 import daointerface.SynonymDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class SynonymDAOJDBC implements SynonymDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -116,8 +115,8 @@ public final class SynonymDAOJDBC implements SynonymDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Synonym DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Synonym Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public SynonymDAOJDBC() {
     	
@@ -266,7 +265,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
      *  
      *  The synonym OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the synonym OID value is unknown, rather use save(Synonym).
-     *   After creating, the DAO will set the obtained ID in the given synonym.
+     *   After creating, the Data Access Object will set the obtained ID in the given synonym.
      */
     public void create(Synonym synonym) throws IllegalArgumentException, Exception {
     	
@@ -366,7 +365,7 @@ public final class SynonymDAOJDBC implements SynonymDAO {
      
     /*
      * Delete the given synonym from the database. 
-     *  After deleting, the DAO will set the ID of the given synonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given synonym to null.
      */
     public void delete(Synonym synonym) throws Exception {
     	

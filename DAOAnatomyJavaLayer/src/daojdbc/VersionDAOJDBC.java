@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        VersionDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Version DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Version DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,15 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Version;
 
 import daointerface.VersionDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class VersionDAOJDBC implements VersionDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -117,9 +116,9 @@ public final class VersionDAOJDBC implements VersionDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Version DAO for the given DAOFactory.
+     * Construct a Version Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public VersionDAOJDBC() {
     	
@@ -261,7 +260,7 @@ public final class VersionDAOJDBC implements VersionDAO {
      * 
      *  The version OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the version OID value is unknown, rather use save(Version).
-     *   After creating, the DAO will set the obtained ID in the given version.
+     *   After creating, the Data Access Object will set the obtained ID in the given version.
      */
     public void create(Version version) throws IllegalArgumentException, Exception {
     	
@@ -362,7 +361,7 @@ public final class VersionDAOJDBC implements VersionDAO {
     /*
      * Delete the given version from the database.
      *  
-     *  After deleting, the DAO will set the ID of the given version to null.
+     *  After deleting, the Data Access Object will set the ID of the given version to null.
      */
     public void delete(Version version) throws Exception {
     	

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentRelationshipDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the ComponentRelationship model.
+* Description:  This interface represents a contract for a Data Access Object for the ComponentRelationship model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentRelationship DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.ComponentRelationship;
 
 public interface ComponentRelationshipDAO extends BaseDAO {
@@ -90,7 +91,7 @@ public interface ComponentRelationshipDAO extends BaseDAO {
      * Create the given daocomponentrelationship in the database. 
      *  The daocomponentrelationship OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentrelationship OID value is unknown, rather use save(ComponentRelationship).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentrelationship.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentrelationship.
      */
     public void create(ComponentRelationship daocomponentrelationship) throws IllegalArgumentException, Exception;
     
@@ -103,13 +104,13 @@ public interface ComponentRelationshipDAO extends BaseDAO {
      
     /*
      *  Delete the given daocomponentrelationship from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentrelationship to null.
      */
     public void delete(ComponentRelationship daocomponentrelationship) throws Exception;
     
     /*
      *  Delete the given daocomponentrelationship from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentrelationship to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentrelationship to null.
      */
     public void empty() throws Exception;
     

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        OBOFileDAO.java
 *
@@ -21,7 +21,7 @@
 * Description:  This class represents a SQL Database Access Object for the 
 *                OBOFile DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the OBOFile DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +51,7 @@ import daointerface.OBOFileDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class OBOFileDAOJDBC implements OBOFileDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -123,8 +122,8 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a OBOFile DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a OBOFile Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public OBOFileDAOJDBC() {
     	
@@ -314,7 +313,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
      *  The OBOFile OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the OBOFile OID value is unknown, rather use #save(obofile).
      *  
-     * After creating, the DAO will set the obtained ID in the given obofile.
+     * After creating, the Data Access Object will set the obtained ID in the given obofile.
      */
     public void create(OBOFile obofile) throws IllegalArgumentException, Exception {
     	
@@ -452,7 +451,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     
     /*
      * Delete the given obofile from the database. 
-     *  After deleting, the DAO will set the ID of the given obofile to null.
+     *  After deleting, the Data Access Object will set the ID of the given obofile to null.
      */
     public void delete(OBOFile obofile) throws Exception {
     	

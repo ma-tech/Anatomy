@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        ListOBOComponentsFromExistingDatabase.java
 *
@@ -25,7 +25,7 @@
 * Who; When; What;
 *
 * Mike Wicks; September 2010; Tidy up and Document
-* Mike Wicks; February 2012; Completely rewrite to use standardised DAO Layer
+* Mike Wicks; February 2012; Completely rewrite to use standardised Data Access Object Layer
 * Mike Wicks; November 2012; More Tidying up
 * 
 *----------------------------------------------------------------------------------------------

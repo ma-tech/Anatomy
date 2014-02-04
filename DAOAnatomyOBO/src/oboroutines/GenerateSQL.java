@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyOBO
+* Project:      DAOAnatomyJavaLayerOBO
 *
 * Title:        GenerateSQL.java
 *
@@ -54,7 +54,7 @@
 * Who; When; What;
 *
 * Mike Wicks; September 2010; Tidy up and Document
-* Mike Wicks; March 2012; Completely rewrite to use a standardised DAO Layer
+* Mike Wicks; March 2012; Completely rewrite to use a standardised Data Access Object Layer
 * Mike Wicks; Nov 2012; Refactor, move All Database access to wrapper objects around Tables
 *
 *----------------------------------------------------------------------------------------------

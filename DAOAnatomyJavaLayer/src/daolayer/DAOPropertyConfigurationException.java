@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DAOConfigurationException.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This class represents an exception in the DAO configuration which cannot be 
-*                resolved at runtime, such as a missing resource in the classpath, a missing 
-*                property in the properties file, etcetera.
+* Description:  This class represents an exception in the Data Access Object Property 
+*                configuration which cannot be resolved at runtime, such as a missing 
+*                Input Properties file
 *
 * Link:         
 * 
@@ -28,7 +28,7 @@
 *
 * Who; When; What;
 *
-* Mike Wicks; 21st March 2012; Create Class
+* Mike Wicks; 4th February 2014; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */

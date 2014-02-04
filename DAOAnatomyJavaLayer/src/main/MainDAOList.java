@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyOBO
+* Project:      DAOAnatomyJavaLayerOBO
 *
 * Title:        MainOBOTest.java
 *
@@ -19,6 +19,12 @@
 * Version:      1
 *
 * Description:  A Main Executable Class 
+* 
+* Usage:        "main.MainDAOList 
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *

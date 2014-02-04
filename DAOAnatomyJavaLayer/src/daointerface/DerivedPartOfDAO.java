@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DerivedPartOfDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the DerivedPartOf model.
+* Description:  This interface represents a contract for a Data Access Object for the DerivedPartOf model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the DerivedPartOf DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.DerivedPartOf;
 
 public interface DerivedPartOfDAO extends BaseDAO {
@@ -77,7 +78,7 @@ public interface DerivedPartOfDAO extends BaseDAO {
      * 
      *  The derivedpartof OID must be null, otherwise it will throw IllegalArgumentException.
      *   If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
-     *    After creating, the DAO will set the obtained ID in the given derivedpartof.
+     *    After creating, the Data Access Object will set the obtained ID in the given derivedpartof.
      */
     public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, Exception;
     
@@ -92,7 +93,7 @@ public interface DerivedPartOfDAO extends BaseDAO {
     /*
      * Delete the given derivedpartof from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given derivedpartof to null.
+     *  After deleting, the Data Access Object will set the ID of the given derivedpartof to null.
      */
     public void delete(DerivedPartOf derivedpartof) throws Exception;
     

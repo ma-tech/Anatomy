@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ThingDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Thing (Object) model.
+* Description:  This interface represents a contract for a Data Access Object for the Thing (Object) model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Thing (Object) DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Thing;
 
 public interface ThingDAO extends BaseDAO {
@@ -81,7 +82,7 @@ public interface ThingDAO extends BaseDAO {
      * 
      *  The thing OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the thing OID value is unknown, rather use save(Thing).
-     *   After creating, the DAO will set the obtained ID in the given thing.
+     *   After creating, the Data Access Object will set the obtained ID in the given thing.
      */
     public void create(Thing thing) throws IllegalArgumentException, Exception;
     
@@ -96,7 +97,7 @@ public interface ThingDAO extends BaseDAO {
     /*
      * Delete the given thing from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given thing to null.
+     *  After deleting, the Data Access Object will set the ID of the given thing to null.
      */
     public void delete(Thing thing) throws Exception;
     

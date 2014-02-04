@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        RunDAOTestUpdate.java
 *
@@ -30,7 +30,6 @@
 */
 package app;
 
-import utility.ObjectConverter;
 import utility.Wrapper;
 
 import daomodel.Component;

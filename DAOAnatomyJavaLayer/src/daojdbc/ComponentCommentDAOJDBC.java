@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentCommentDAO.java
 *
@@ -18,10 +18,10 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Access Object for the Log DTO.
+* Description:  This class represents a SQL Database Access Object for the ComponentComment DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
-*                the Log DTO and a SQL database.
+*               This Data Access Object should be used as a central point for the mapping between 
+*                the ComponentComment DTO and a SQL database.
 *
 * Link:         
 * 
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +51,8 @@ import daointerface.ComponentCommentDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -118,8 +118,8 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentComment DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentComment Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentCommentDAOJDBC() {
     	
@@ -260,7 +260,7 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
      * 
      *  The daocomponentcomment OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentcomment OID value is unknown, rather use save(ComponentComment).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentcomment.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentcomment.
      */
     public void create(ComponentComment daocomponentcomment) throws IllegalArgumentException, Exception {
 
@@ -363,7 +363,7 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
      
     /*
      *  Delete the given daocomponentcomment from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentcomment to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentcomment to null.
      */
     public void delete(ComponentComment daocomponentcomment) throws Exception {
     	
@@ -414,7 +414,7 @@ public final class ComponentCommentDAOJDBC implements ComponentCommentDAO {
     
     /*
      *  Delete the given daocomponentcomment from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentcomment to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentcomment to null.
      */
     public void empty() throws Exception {
     	

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        RelationshipProjectDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the RelationshipProject model.
+* Description:  This interface represents a contract for a Data Access Object for the RelationshipProject model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Relationship DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.RelationshipProject;
 
 public interface RelationshipProjectDAO extends BaseDAO {
@@ -92,7 +93,7 @@ public interface RelationshipProjectDAO extends BaseDAO {
      *  
      *  The relationshipproject OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
-     *   After creating, the DAO will set the obtained ID in the given relationshipproject.
+     *   After creating, the Data Access Object will set the obtained ID in the given relationshipproject.
      */
     public void create(RelationshipProject relationshipproject) throws IllegalArgumentException, Exception;
     
@@ -107,7 +108,7 @@ public interface RelationshipProjectDAO extends BaseDAO {
     /*
      * Delete the given relationshipproject from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given relationshipproject to null.
+     *  After deleting, the Data Access Object will set the ID of the given relationshipproject to null.
      */
     public void delete(RelationshipProject relationshipproject) throws Exception;
     

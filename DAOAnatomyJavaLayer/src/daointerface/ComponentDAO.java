@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Component model.
+* Description:  This interface represents a contract for a Data Access Object for the Component model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Component DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Component;
 
 public interface ComponentDAO extends BaseDAO {
@@ -89,7 +90,7 @@ public interface ComponentDAO extends BaseDAO {
      * 
      *  If the daocomponent OID value is unknown, rather use save(Component).
      *  
-     * After creating, the DAO will set the obtained ID in the given daocomponent.
+     * After creating, the Data Access Object will set the obtained ID in the given daocomponent.
      */
     public void create(Component daocomponent) throws IllegalArgumentException, Exception;
     
@@ -105,14 +106,14 @@ public interface ComponentDAO extends BaseDAO {
     /*
      *  Delete the given daocomponent from the database. 
      *  
-     *  After deleting, the DAO will set the ID of the given daocomponent to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponent to null.
      */
     public void delete(Component daocomponent) throws Exception;
     
     /*
      *  Delete the all daocomponents from the database.
      *   
-     *  After deleting, the DAO will set the ID of the given daocomponent to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponent to null.
      */
     public void empty() throws Exception;
     

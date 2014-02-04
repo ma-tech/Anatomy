@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        DAOException.java
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  This class represents a generic DAO exception.
+* Description:  This class represents a generic Data Access Object exception.
 *                It should wrap any exception of the underlying code, such as SQLExceptions.
 *                
 * Link:         

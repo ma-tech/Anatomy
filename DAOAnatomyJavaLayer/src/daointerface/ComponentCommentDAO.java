@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentCommentDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the ComponentComment model.
+* Description:  This interface represents a contract for a Data Access Object for the ComponentComment model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Log DTO and a SQL database.
 *
 * Link:         
@@ -35,10 +35,10 @@
 */
 package daointerface;
 
-
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.ComponentComment;
 
 public interface ComponentCommentDAO extends BaseDAO {
@@ -78,7 +78,7 @@ public interface ComponentCommentDAO extends BaseDAO {
      * 
      *  The daocomponentcomment OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentcomment OID value is unknown, rather use save(ComponentComment).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentcomment.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentcomment.
      */
     public void create(ComponentComment daocomponentcomment) throws IllegalArgumentException, Exception;
     
@@ -92,13 +92,13 @@ public interface ComponentCommentDAO extends BaseDAO {
      
     /*
      *  Delete the given daocomponentcomment from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentcomment to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentcomment to null.
      */
     public void delete(ComponentComment daocomponentcomment) throws Exception;
     
     /*
      *  Delete the given daocomponentcomment from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentcomment to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentcomment to null.
      */
     public void empty() throws Exception;
     

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        EditorDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Editor DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Editor DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,8 @@ import daointerface.EditorDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class EditorDAOJDBC implements EditorDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -99,8 +99,8 @@ public final class EditorDAOJDBC implements EditorDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Editor DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Editor Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public EditorDAOJDBC() {
     	
@@ -205,7 +205,7 @@ public final class EditorDAOJDBC implements EditorDAO {
      * Create the given editor in the database. 
      * The editor OID must be null, otherwise it will throw IllegalArgumentException.
      * If the editor OID value is unknown, rather use save(Editor).
-     * After creating, the DAO will set the obtained ID in the given editor.
+     * After creating, the Data Access Object will set the obtained ID in the given editor.
      */
     public void create(Editor editor) throws IllegalArgumentException, Exception {
     	
@@ -282,7 +282,7 @@ public final class EditorDAOJDBC implements EditorDAO {
     
     /*
      * Delete the given editor from the database. 
-     *  After deleting, the DAO will set the ID of the given editor to null.
+     *  After deleting, the Data Access Object will set the ID of the given editor to null.
      */
     public void delete(Editor editor) throws Exception {
     	

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        OBOFileDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the OBOFile model.
+* Description:  This interface represents a contract for a Data Access Object for the OBOFile model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the OBOFile DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.OBOFile;
 
 public interface OBOFileDAO extends BaseDAO {
@@ -68,7 +69,7 @@ public interface OBOFileDAO extends BaseDAO {
      *  The OBOFile OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the OBOFile OID value is unknown, rather use #save(obofile).
      *  
-     * After creating, the DAO will set the obtained ID in the given obofile.
+     * After creating, the Data Access Object will set the obtained ID in the given obofile.
      */
     public void create(OBOFile obofile) throws IllegalArgumentException, Exception;
     
@@ -89,7 +90,7 @@ public interface OBOFileDAO extends BaseDAO {
     
     /*
      * Delete the given obofile from the database. 
-     *  After deleting, the DAO will set the ID of the given obofile to null.
+     *  After deleting, the Data Access Object will set the ID of the given obofile to null.
      */
     public void delete(OBOFile obofile) throws Exception;
     

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyRebuild
+* Project:      DAOAnatomyJavaLayerRebuild
 *
 * Title:        RunDAOTest.java
 *
@@ -55,7 +55,7 @@ import daomodel.ComponentOrder;
 import daomodel.ComponentRelationship;
 import daomodel.ComponentSynonym;
 import daomodel.Editor;
-import daomodel.Log;
+//import daomodel.Log;
 import daomodel.Node;
 import daomodel.OBOFile;
 import daomodel.PerspectiveAmbit;
@@ -97,7 +97,7 @@ import daointerface.ComponentOrderDAO;
 import daointerface.ComponentRelationshipDAO;
 import daointerface.ComponentSynonymDAO;
 import daointerface.EditorDAO;
-import daointerface.LogDAO;
+//import daointerface.LogDAO;
 import daointerface.NodeDAO;
 import daointerface.OBOFileDAO;
 import daointerface.PerspectiveAmbitDAO;
@@ -146,7 +146,7 @@ public class RunDAOTest {
 	        //JOINTimedNodeStageDAO jointimednodestageDAO = daofactory.getDAOImpl(JOINTimedNodeStageDAO.class);
 	        //JsonNodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
 	        //LeafDAO leafDAO = daofactory.getDAOImpl(LeafDAO.class);
-	        LogDAO logDAO = daofactory.getDAOImpl(LogDAO.class);
+	        //LogDAO logDAO = daofactory.getDAOImpl(LogDAO.class);
 	        NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
 	        OBOFileDAO obofileDAO = daofactory.getDAOImpl(OBOFileDAO.class);
 	        PerspectiveAmbitDAO perspectiveambitDAO = daofactory.getDAOImpl(PerspectiveAmbitDAO.class);

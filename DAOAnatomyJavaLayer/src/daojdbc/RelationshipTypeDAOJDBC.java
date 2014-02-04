@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        RelationshipTypeDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the RelationshipType DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the RelationshipType DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,15 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.RelationshipType;
 
 import daointerface.RelationshipTypeDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class RelationshipTypeDAOJDBC implements RelationshipTypeDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -106,8 +105,8 @@ public final class RelationshipTypeDAOJDBC implements RelationshipTypeDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a RelationshipType DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a RelationshipType Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public RelationshipTypeDAOJDBC() {
     	
@@ -240,7 +239,7 @@ public final class RelationshipTypeDAOJDBC implements RelationshipTypeDAO {
      * Create the given relationshiptype in the database. 
      *  The relationshiptype OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the relationshiptype OID value is unknown, rather use save(RelationshipType).
-     *   After creating, the DAO will set the obtained ID in the given relationshiptype.
+     *   After creating, the Data Access Object will set the obtained ID in the given relationshiptype.
      */
     public void create(RelationshipType relationshiptype) throws IllegalArgumentException, Exception {
     	
@@ -339,7 +338,7 @@ public final class RelationshipTypeDAOJDBC implements RelationshipTypeDAO {
     /*
      * Delete the given relationshiptype from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given relationshiptype to null.
+     *  After deleting, the Data Access Object will set the ID of the given relationshiptype to null.
      */
     public void delete(RelationshipType relationshiptype) throws Exception {
     	

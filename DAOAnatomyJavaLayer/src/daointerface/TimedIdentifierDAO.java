@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        TimedIdentifierDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the TimedIdentifier model.
+* Description:  This interface represents a contract for a Data Access Object for the TimedIdentifier model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Timed Node DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.TimedIdentifier;
 
 public interface TimedIdentifierDAO extends BaseDAO {
@@ -74,7 +75,7 @@ public interface TimedIdentifierDAO extends BaseDAO {
      *  
      *  If the timedidentifier OID value is unknown, use save(TimedIdentifier) instead.
      *  
-     *   After creating, the DAO will set the obtained ID in the given timedidentifier.
+     *   After creating, the Data Access Object will set the obtained ID in the given timedidentifier.
      */
     public void create(TimedIdentifier timedidentifier) throws IllegalArgumentException, Exception;
     
@@ -90,7 +91,7 @@ public interface TimedIdentifierDAO extends BaseDAO {
     /*
      * Delete the given timedidentifier from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given timedidentifier to null.
+     *  After deleting, the Data Access Object will set the ID of the given timedidentifier to null.
      */
     public void delete(TimedIdentifier timedidentifier) throws Exception;
     

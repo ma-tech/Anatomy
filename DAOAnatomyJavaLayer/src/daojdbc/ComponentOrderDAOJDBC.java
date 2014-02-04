@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentOrderDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentOrder DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentOrder DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +51,8 @@ import daointerface.ComponentOrderDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -169,8 +169,8 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentOrder DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentOrder Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentOrderDAOJDBC() {
     	
@@ -374,7 +374,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
      * Create the given daocomponentorder in the database. 
      *  The daocomponentorder OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentorder OID value is unknown, rather use save(ComponentOrder).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentorder.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentorder.
      */
     public void create(ComponentOrder daocomponentorder) throws IllegalArgumentException, Exception {
 
@@ -478,7 +478,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
      
     /*
      *  Delete the given daocomponentorder from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentorder to null.
      */
     public void delete(ComponentOrder daocomponentorder) throws Exception {
     	
@@ -529,7 +529,7 @@ public final class ComponentOrderDAOJDBC implements ComponentOrderDAO {
     
     /*
      *  Delete the given daocomponentorder from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentorder to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentorder to null.
      */
     public void empty() throws Exception {
     	

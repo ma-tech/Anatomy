@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyOBO
+* Project:      DAOAnatomyJavaLayerOBO
 *
 * Title:        GenerateEditorReport.java
 *
@@ -24,7 +24,7 @@
 * Who; When; What;
 *
 * Mike Wicks; September 2010; Tidy up and Document
-* Mike Wicks; February 2012; Completely rewrite to use standardised DAO Layer
+* Mike Wicks; February 2012; Completely rewrite to use standardised Data Access Object Layer
 * 
 *----------------------------------------------------------------------------------------------
 */

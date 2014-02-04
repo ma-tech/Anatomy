@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SpeciesDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Species DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Species DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,15 +43,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Species;
 
 import daointerface.SpeciesDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class SpeciesDAOJDBC implements SpeciesDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -107,8 +106,8 @@ public final class SpeciesDAOJDBC implements SpeciesDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Species DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Species Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public SpeciesDAOJDBC() {
     	
@@ -241,7 +240,7 @@ public final class SpeciesDAOJDBC implements SpeciesDAO {
      * Create the given species in the database. 
      *  The species OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the species OID value is unknown, rather use save(Species).
-     *   After creating, the DAO will set the obtained ID in the given species.
+     *   After creating, the Data Access Object will set the obtained ID in the given species.
      */
     public void create(Species species) throws IllegalArgumentException, Exception {
     	
@@ -342,7 +341,7 @@ public final class SpeciesDAOJDBC implements SpeciesDAO {
     /*
      * Delete the given species from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given species to null.
+     *  After deleting, the Data Access Object will set the ID of the given species to null.
      */
     public void delete(Species species) throws Exception {
     	

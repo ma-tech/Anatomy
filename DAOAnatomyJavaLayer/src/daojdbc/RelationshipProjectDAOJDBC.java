@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        RelationshipProjectDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Relationship DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Relationship DTO and a SQL database.
 *
 * Link:         
@@ -35,7 +35,7 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
+import utility.Wrapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,11 +49,10 @@ import daomodel.RelationshipProject;
 
 import daointerface.RelationshipProjectDAO;
 
-import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class RelationshipProjectDAOJDBC implements RelationshipProjectDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -125,9 +124,9 @@ public final class RelationshipProjectDAOJDBC implements RelationshipProjectDAO 
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a RelationshipProject DAO for the given DAOFactory.
+     * Construct a RelationshipProject Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public RelationshipProjectDAOJDBC() {
     	
@@ -292,7 +291,7 @@ public final class RelationshipProjectDAOJDBC implements RelationshipProjectDAO 
      *  
      *  The relationshipproject OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the relationshipproject OID value is unknown, rather use save(RelationshipProject).
-     *   After creating, the DAO will set the obtained ID in the given relationshipproject.
+     *   After creating, the Data Access Object will set the obtained ID in the given relationshipproject.
      */
     public void create(RelationshipProject relationshipproject) throws IllegalArgumentException, Exception {
     	
@@ -395,7 +394,7 @@ public final class RelationshipProjectDAOJDBC implements RelationshipProjectDAO 
     /*
      * Delete the given relationshipproject from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given relationshipproject to null.
+     *  After deleting, the Data Access Object will set the ID of the given relationshipproject to null.
      */
     public void delete(RelationshipProject relationshipproject) throws Exception {
     	

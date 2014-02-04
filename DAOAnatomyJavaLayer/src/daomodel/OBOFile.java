@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        OBOFile.java
 *
@@ -34,9 +34,8 @@
 package daomodel;
 
 import java.io.InputStream;
-import java.io.Serializable;
 
-public class OBOFile implements Serializable {
+public class OBOFile {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   AOF_OID                 - bigint(20) unsigned NOT NULL AUTO_INCREMENT,

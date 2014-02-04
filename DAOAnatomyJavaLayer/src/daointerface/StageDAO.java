@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        StageDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Stage model.
+* Description:  This interface represents a contract for a Data Access Object for the Stage model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Stage DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Stage;
 
 public interface StageDAO extends BaseDAO {
@@ -97,7 +98,7 @@ public interface StageDAO extends BaseDAO {
      *  
      *  The stage OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the stage OID value is unknown, rather use save(Stage).
-     *   After creating, the DAO will set the obtained ID in the given stage.
+     *   After creating, the Data Access Object will set the obtained ID in the given stage.
      */
     public void create(Stage stage) throws IllegalArgumentException, Exception;
     
@@ -112,7 +113,7 @@ public interface StageDAO extends BaseDAO {
     /*
      * Delete the given stage from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given stage to null.
+     *  After deleting, the Data Access Object will set the ID of the given stage to null.
      */
     public void delete(Stage stage) throws Exception;
     

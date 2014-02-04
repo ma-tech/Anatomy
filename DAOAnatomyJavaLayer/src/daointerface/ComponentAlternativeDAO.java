@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentAlternativeDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the ComponentAlternative model.
+* Description:  This interface represents a contract for a Data Access Object for the ComponentAlternative model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentAlternative DTO and a SQL database.
 *
 * Link:         
@@ -40,7 +40,6 @@ import java.util.List;
 import daointerface.BaseDAO;
 
 import daomodel.ComponentAlternative;
-
 
 public interface ComponentAlternativeDAO extends BaseDAO {
 
@@ -99,7 +98,7 @@ public interface ComponentAlternativeDAO extends BaseDAO {
      * 
      *  The daocomponentalternative OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentalternative OID value is unknown, rather use save(ComponentAlternative).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentalternative.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentalternative.
      */
     public void create(ComponentAlternative daocomponentalternative) throws IllegalArgumentException, Exception;
     
@@ -112,13 +111,13 @@ public interface ComponentAlternativeDAO extends BaseDAO {
      
     /*
      *  Delete the given daocomponentalternative from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentalternative to null.
      */
     public void delete(ComponentAlternative daocomponentalternative) throws Exception;
     
     /*
      *  Delete the given daocomponentalternative from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentalternative to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentalternative to null.
      */
     public void empty() throws Exception;
 

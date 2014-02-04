@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        UserDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the User DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the User DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,6 +50,7 @@ import daointerface.UserDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
+import static daolayer.DAOUtil.*;
 
 public final class UserDAOJDBC implements UserDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -108,8 +107,8 @@ public final class UserDAOJDBC implements UserDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct an User DAO for the given DAOFactory. Package private so that it can be constructed
-     * inside the DAO package only.
+     * Construct an User Data Access Object for the given DAOFactory. Package private so that it can be constructed
+     * inside the Data Access Object package only.
      */
     public UserDAOJDBC() {
     	
@@ -214,7 +213,7 @@ public final class UserDAOJDBC implements UserDAO {
      * 
      * The user OID must be null, otherwise it will throw IllegalArgumentException. 
      *  If the user OID value is unknown, rather use save(User).
-     *  After creating, the DAO will set the obtained OID in the given user.
+     *  After creating, the Data Access Object will set the obtained OID in the given user.
      */
     public void create(User user) throws IllegalArgumentException, Exception {
         
@@ -327,7 +326,7 @@ public final class UserDAOJDBC implements UserDAO {
 
     /*
      * Delete the given user from the database. 
-     *  After deleting, the DAO will set the ID of the given user to null.
+     *  After deleting, the Data Access Object will set the ID of the given user to null.
      */
     public void delete(User user) throws Exception {
 

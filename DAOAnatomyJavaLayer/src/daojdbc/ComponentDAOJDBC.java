@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Component DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Component DTO and a SQL database.
 *
 * Link:         
@@ -34,8 +34,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +51,8 @@ import daointerface.ComponentDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class ComponentDAOJDBC implements ComponentDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -141,8 +141,8 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Component DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a Component Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentDAOJDBC() {
     	
@@ -306,7 +306,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
      * Create the given daocomponent in the database. 
      *  The daocomponent OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponent OID value is unknown, rather use save(Component).
-     * After creating, the DAO will set the obtained ID in the given daocomponent.
+     * After creating, the Data Access Object will set the obtained ID in the given daocomponent.
      */
     public void create(Component daocomponent) throws IllegalArgumentException, Exception {
 
@@ -425,7 +425,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
      
     /*
      *  Delete the given daocomponent from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponent to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponent to null.
      */
     public void delete(Component daocomponent) throws Exception {
     	
@@ -476,7 +476,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     
     /*
      *  Delete the given daocomponent from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponent to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponent to null.
      */
     public void empty() throws Exception {
     	

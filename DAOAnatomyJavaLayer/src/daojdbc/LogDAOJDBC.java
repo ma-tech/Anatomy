@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        LogDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the Log DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Log DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,6 +43,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.Log;
 
 import daointerface.LogDAO;
@@ -52,7 +52,7 @@ import daointerface.LogDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
-import utility.Wrapper;
+import static daolayer.DAOUtil.*;
 
 public final class LogDAOJDBC implements LogDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -122,9 +122,9 @@ public final class LogDAOJDBC implements LogDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Log DAO for the given DAOFactory.
+     * Construct a Log Data Access Object for the given DAOFactory.
      * 
-     *  Package private so that it can be constructed inside the DAO package only.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public LogDAOJDBC() {
     	
@@ -281,7 +281,7 @@ public final class LogDAOJDBC implements LogDAO {
      * 
      *  The log OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the log OID value is unknown, rather use save(Log).
-     *   After creating, the DAO will set the obtained ID in the given log.
+     *   After creating, the Data Access Object will set the obtained ID in the given log.
      */
     public void create(Log log) throws IllegalArgumentException, Exception {
     	
@@ -392,7 +392,7 @@ public final class LogDAOJDBC implements LogDAO {
     /*
      *  Delete the given log from the database. 
      *  
-     *  After deleting, the DAO will set the ID of the given log to null.
+     *  After deleting, the Data Access Object will set the ID of the given log to null.
      */
     public void delete(Log log) throws Exception {
     	

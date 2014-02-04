@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        NodeDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Node DTO.  
+* Description:  This interface represents a contract for a Data Access Object for the Node DTO.  
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Node DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Node;
 
 public interface NodeDAO extends BaseDAO {
@@ -118,7 +119,7 @@ public interface NodeDAO extends BaseDAO {
      * 
      *  The node OID must be null, otherwise it will throw IllegalArgumentException.
      *   If the node OID value is unknown, rather use save(Node).
-     *    After creating, the DAO will set the obtained ID in the given node.
+     *    After creating, the Data Access Object will set the obtained ID in the given node.
      */
     public void create(Node node) throws IllegalArgumentException, Exception;
     
@@ -135,7 +136,7 @@ public interface NodeDAO extends BaseDAO {
     /*
      *  Delete the given node from the database. 
      *  
-     *  After deleting, the DAO will set the ID of the given node to null.
+     *  After deleting, the Data Access Object will set the ID of the given node to null.
      */
     public void delete(Node node) throws Exception;
     

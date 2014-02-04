@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ExtraTimedNodeDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  TThis interface represents a contract for a DAO for the ExtraTimedNode model.
+* Description:  TThis interface represents a contract for a Data Access Object for the ExtraTimedNode model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ExtraTimedNode DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.ExtraTimedNode;
 
 public interface ExtraTimedNodeDAO extends BaseDAO {

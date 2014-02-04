@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        SourceFormatDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the SourceFormat DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the SourceFormat DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.SourceFormat;
 
 public interface SourceFormatDAO extends BaseDAO {
@@ -56,7 +57,7 @@ public interface SourceFormatDAO extends BaseDAO {
      * Create the given sourceformat in the database. 
      * The sourceformat OID must be null, otherwise it will throw IllegalArgumentException.
      * If the sourceformat OID value is unknown, rather use save(SourceFormat).
-     * After creating, the DAO will set the obtained ID in the given sourceformat.
+     * After creating, the Data Access Object will set the obtained ID in the given sourceformat.
      */    
     public void create(SourceFormat sourceformat) throws IllegalArgumentException, Exception;
     
@@ -69,7 +70,7 @@ public interface SourceFormatDAO extends BaseDAO {
      
     /*
      * Delete the given sourceformat from the database. 
-     *  After deleting, the DAO will set the ID of the given sourceformat to null.
+     *  After deleting, the Data Access Object will set the ID of the given sourceformat to null.
      */
     public void delete(SourceFormat sourceformat) throws Exception;
     

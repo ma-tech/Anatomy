@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        ComponentSynonymDAO.java
 *
@@ -20,7 +20,7 @@
 *
 * Description:  This class represents a SQL Database Access Object for the ComponentSynonym DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the ComponentSynonym DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 */
 package daojdbc;
 
-import static daolayer.DAOUtil.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,6 +43,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import daomodel.ComponentSynonym;
 
 import daointerface.ComponentSynonymDAO;
@@ -52,7 +52,7 @@ import daointerface.ComponentSynonymDAO;
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
-import utility.Wrapper;
+import static daolayer.DAOUtil.*;
 
 public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -121,8 +121,8 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
     
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a ComponentSynonym DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a ComponentSynonym Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public ComponentSynonymDAOJDBC() {
     	
@@ -271,7 +271,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
      * 
      *  The daocomponentsynonym OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the daocomponentsynonym OID value is unknown, rather use save(ComponentSynonym).
-     *   After creating, the DAO will set the obtained ID in the given daocomponentsynonym.
+     *   After creating, the Data Access Object will set the obtained ID in the given daocomponentsynonym.
      */
     public void create(ComponentSynonym daocomponentsynonym) throws IllegalArgumentException, Exception {
 
@@ -369,7 +369,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
      
     /*
      *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentsynonym to null.
      */
     public void delete(ComponentSynonym daocomponentsynonym) throws Exception {
     	
@@ -420,7 +420,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
     
     /*
      *  Delete the given daocomponentsynonym from the database. 
-     *  After deleting, the DAO will set the ID of the given daocomponentsynonym to null.
+     *  After deleting, the Data Access Object will set the ID of the given daocomponentsynonym to null.
      */
     public void empty() throws Exception {
     	

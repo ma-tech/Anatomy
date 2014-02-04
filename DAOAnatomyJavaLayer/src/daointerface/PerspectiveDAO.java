@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        PerspectiveDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Perspective model.
+* Description:  This interface represents a contract for a Data Access Object for the Perspective model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Perspective DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Perspective;
 
 public interface PerspectiveDAO extends BaseDAO {
@@ -57,7 +58,7 @@ public interface PerspectiveDAO extends BaseDAO {
      * Create the given perspective in the database. 
      * The perspective OID must be null, otherwise it will throw IllegalArgumentException.
      * If the perspective OID value is unknown, rather use save(Perspective).
-     * After creating, the DAO will set the obtained ID in the given perspective.
+     * After creating, the Data Access Object will set the obtained ID in the given perspective.
      */
     public void create(Perspective perspective) throws IllegalArgumentException, Exception;
     
@@ -70,7 +71,7 @@ public interface PerspectiveDAO extends BaseDAO {
     
     /*
      * Delete the given perspective from the database. 
-     *  After deleting, the DAO will set the ID of the given perspective to null.
+     *  After deleting, the Data Access Object will set the ID of the given perspective to null.
      */
     public void delete(Perspective perspective) throws Exception;
     

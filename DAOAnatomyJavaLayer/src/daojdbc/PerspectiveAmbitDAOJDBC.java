@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        PerspectiveAmbitDAO.java
 *
@@ -21,7 +21,7 @@
 * Description:  This class represents a SQL Database Access Object for the 
 *                PerspectiveAmbit DTO.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the PerspectiveAmbit DTO and a SQL database.
 *
 * Link:         
@@ -35,8 +35,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package daojdbc;
-
-import static daolayer.DAOUtil.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,6 +50,8 @@ import daointerface.PerspectiveAmbitDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
+import static daolayer.DAOUtil.*;
 
 public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
     // Constants ----------------------------------------------------------------------------------
@@ -106,8 +106,8 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a PerspectiveAmbit DAO for the given DAOFactory.
-     *  Package private so that it can be constructed inside the DAO package only.
+     * Construct a PerspectiveAmbit Data Access Object for the given DAOFactory.
+     *  Package private so that it can be constructed inside the Data Access Object package only.
      */
     public PerspectiveAmbitDAOJDBC() {
     	
@@ -212,7 +212,7 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
      * Create the given perspectiveAmbit in the database. 
      * The perspectiveAmbit OID must be null, otherwise it will throw IllegalArgumentException.
      * If the perspectiveAmbit OID value is unknown, rather use save(PerspectiveAmbit).
-     * After creating, the DAO will set the obtained ID in the given perspectiveAmbit.
+     * After creating, the Data Access Object will set the obtained ID in the given perspectiveAmbit.
      */
     public void create(PerspectiveAmbit perspectiveAmbit) throws IllegalArgumentException, Exception {
     	
@@ -297,7 +297,7 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
     
     /*
      * Delete the given perspectiveAmbit from the database. 
-     *  After deleting, the DAO will set the ID of the given perspectiveAmbit to null.
+     *  After deleting, the Data Access Object will set the ID of the given perspectiveAmbit to null.
      */
     public void delete(PerspectiveAmbit perspectiveAmbit) throws Exception {
     	

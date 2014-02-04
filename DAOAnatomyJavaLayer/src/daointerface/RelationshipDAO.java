@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomy
+* Project:      DAOAnatomyJavaLayer
 *
 * Title:        RelationshipDAO.java
 *
@@ -18,9 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This interface represents a contract for a DAO for the Relationship model.
+* Description:  This interface represents a contract for a Data Access Object for the Relationship model.
 *  
-*               This DAO should be used as a central point for the mapping between 
+*               This Data Access Object should be used as a central point for the mapping between 
 *                the Relationship DTO and a SQL database.
 *
 * Link:         
@@ -38,6 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
+
 import daomodel.Relationship;
 
 public interface RelationshipDAO extends BaseDAO {
@@ -96,7 +97,7 @@ public interface RelationshipDAO extends BaseDAO {
      * Create the given relationship in the database. 
      *  The relationship OID must be null, otherwise it will throw IllegalArgumentException.
      *  If the relationship OID value is unknown, rather use save(Relationship).
-     *   After creating, the DAO will set the obtained ID in the given relationship.
+     *   After creating, the Data Access Object will set the obtained ID in the given relationship.
      */
     public void create(Relationship relationship) throws IllegalArgumentException, Exception;
     
@@ -111,7 +112,7 @@ public interface RelationshipDAO extends BaseDAO {
     /*
      * Delete the given relationship from the database. 
      * 
-     *  After deleting, the DAO will set the ID of the given relationship to null.
+     *  After deleting, the Data Access Object will set the ID of the given relationship to null.
      */
     public void delete(Relationship relationship) throws Exception;
     

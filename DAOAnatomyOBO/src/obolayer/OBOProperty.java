@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayer
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOProperty.java
 *
@@ -18,8 +18,9 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Transfer Object for the 
-*                OBOProperty Table - ANA_OBO_COMPONENT
+* Description:  Access to a Java Properties File for Anatomy OBO Data Access Objects
+*                Writes the required set to a obo.properties file for further use
+*                Input properties files can have multiple entries
 *
 * Link:         
 * 
@@ -49,7 +50,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import daolayer.DAOProperty;
 import utility.FileUtil;
 
 public class OBOProperty {

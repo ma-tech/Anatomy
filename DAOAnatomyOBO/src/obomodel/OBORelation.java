@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
-* Title:        Relation.java
+* Title:        OBORelation.java
 *
 * Date:         2012
 *
@@ -31,7 +31,6 @@
 package obomodel;
 
 public class OBORelation {
-	// Constants ----------------------------------------------------------------------------------
     // Vars ---------------------------------------------------------------------------------------
 	private String id;
     private String name;

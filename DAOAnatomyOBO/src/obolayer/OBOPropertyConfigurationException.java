@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayer
+* Project:      DAOAnatomyOBO
 *
-* Title:        DAOConfigurationException.java
+* Title:        OBOConfigurationException.java
 *
 * Date:         2012
 *

@@ -1,6 +1,6 @@
 /*
 -----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        Parser.java
 *
@@ -47,10 +47,10 @@ import org.geneontology.oboedit.datamodel.OBOSession;
 import org.geneontology.oboedit.datamodel.impl.OBOClassImpl;
 import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
-import obomodel.OBOComponent;
-
-import utility.StringStreamConverter;
 import utility.Wrapper;
+import utility.StringStreamConverter;
+
+import obomodel.OBOComponent;
 
 public class Parser {
 

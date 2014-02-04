@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOComponentAccess.java
 *
@@ -28,10 +28,14 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package obolayer;
+package oboaccess;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import obolayer.OBOConfigurationException;
+import obolayer.OBOException;
+import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 import obomodel.OBORelation;
@@ -40,7 +44,7 @@ public final class OBOComponentAccess {
     // Constants ----------------------------------------------------------------------------------
 
     // Vars ---------------------------------------------------------------------------------------
-    private OBOFactory oboFactory;
+	public OBOFactory oboFactory;
     
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -48,7 +52,7 @@ public final class OBOComponentAccess {
      * 
      *  Package private so that it can be constructed inside the OBO package only.
      */
-    OBOComponentAccess(OBOFactory oboFactory) {
+    public OBOComponentAccess(OBOFactory oboFactory) {
     	
         this.oboFactory = oboFactory;
     }

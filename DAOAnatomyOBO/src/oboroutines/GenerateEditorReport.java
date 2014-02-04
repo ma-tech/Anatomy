@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        GenerateEditorReport.java
 *
@@ -43,9 +43,9 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.OBOComponent;
-
 import utility.Wrapper;
+
+import obomodel.OBOComponent;
 
 public class GenerateEditorReport {
 	// Attributes ----------------------------------------------------------------------------------

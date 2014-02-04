@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOException.java
 *
@@ -19,7 +19,7 @@
 * Version:      1
 *
 * Description:  This class represents a generic OBO exception.
-*                It should wrap any exception of the underlying code, such as SQLExceptions.
+*                It should wrap any exception of the underlying code, such as File IO Exceptions.
 *                
 * Link:         
 * 

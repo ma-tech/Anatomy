@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        GenerateSQL.java
 *
@@ -17,7 +17,7 @@
 *
 * Version:      1
 *
-* Description:  Produce a tree structure from an ArrayList of OBO Components
+* Description:  The MAIN Anatomy Database Update Class
 *               
 *               Methods:
 *                1.  inserts
@@ -31,9 +31,9 @@
 *                4.  createDifferenceTimedComponents
 *                5.  createDifferenceSynonyms
 *                6.  createDifferenceParents
-*                7. getChangedStagesTermList
-*                8. getChangedNamesTermList
-*                9. getChangedSynonymsTermList
+*                7.  getChangedStagesTermList
+*                8.  getChangedNamesTermList
+*                9.  getChangedSynonymsTermList
 *                10. getChangedParentsTermList
 *                11. getChangedPrimaryStatusTermList
 *                12. getNewParentsTermList
@@ -63,11 +63,12 @@ package oboroutines;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+
+import utility.Wrapper;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -91,9 +92,6 @@ import oboroutines.database.AnaSynonym;
 import oboroutines.database.AnaTimedNode;
 import oboroutines.database.AnaVersion;
 import oboroutines.database.DatabaseException;
-
-
-import utility.Wrapper;
 
 public class GenerateSQL {
 	// Properties ---------------------------------------------------------------------------------

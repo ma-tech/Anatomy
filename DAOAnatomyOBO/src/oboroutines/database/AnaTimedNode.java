@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        AnaTimedNode.java
 *
@@ -18,8 +18,9 @@
 * Version:      1
 *
 * Description:  A Wrapper Class for the Table ANA_TIMED_NODE;
+* 
 *                Constructor requires a DAOFactory Object;
-*                Pass the Class Methods: a List of OBOComponents; CalledFrom String
+*                 Pass the Class Methods: a List of OBOComponents; CalledFrom String
 *               
 *               Methods:
 *                1. insertANA_TIMED_NODE
@@ -42,6 +43,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import utility.Wrapper;
+import utility.MySQLDateTime;
+
 import daointerface.LogDAO;
 import daointerface.StageDAO;
 import daointerface.ThingDAO;
@@ -62,11 +66,8 @@ import daomodel.Version;
 import daomodel.JOINTimedNodeStage;
 
 import obomodel.OBOComponent;
+
 import oboroutines.database.AnaObject;
-
-
-import utility.MySQLDateTime;
-import utility.Wrapper;
 
 public class AnaTimedNode {
 	// Properties ---------------------------------------------------------------------------------

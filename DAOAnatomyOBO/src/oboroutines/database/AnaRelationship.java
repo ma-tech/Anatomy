@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        AnaRelationship.java
 *
@@ -43,6 +43,9 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import utility.Wrapper;
+import utility.MySQLDateTime;
+
 import daointerface.ComponentOrderDAO;
 import daointerface.LogDAO;
 import daointerface.NodeDAO;
@@ -65,10 +68,8 @@ import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
 
 import obomodel.OBOComponent;
-import oboroutines.TreeBuilder;
 
-import utility.MySQLDateTime;
-import utility.Wrapper;
+import oboroutines.TreeBuilder;
 
 public class AnaRelationship {
 	// Properties ---------------------------------------------------------------------------------

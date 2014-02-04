@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        AnaSynonym.java
 *
@@ -18,8 +18,9 @@
 * Version:      1
 *
 * Description:  A Wrapper Class for the Table ANA_SYNONYM;
+* 
 *                Constructor requires a DAOFactory Object;
-*                Pass the Class Methods: a List of OBOComponents; CalledFrom String
+*                 Pass the Class Methods: a List of OBOComponents; CalledFrom String
 *               
 *               Methods:
 *                1. insertANA_SYNONYM
@@ -41,6 +42,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import utility.Wrapper;
+import utility.MySQLDateTime;
+
 import daointerface.LogDAO;
 import daointerface.SynonymDAO;
 import daointerface.ThingDAO;
@@ -55,9 +59,6 @@ import daomodel.Thing;
 import daomodel.Version;
 
 import obomodel.OBOComponent;
-
-import utility.MySQLDateTime;
-import utility.Wrapper;
 
 public class AnaSynonym {
 	// Properties ---------------------------------------------------------------------------------

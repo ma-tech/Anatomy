@@ -18,10 +18,11 @@
 * Version:      1
 *
 * Description:  A Wrapper Class for the Table ANA_VERSION;
+* 
 *                Constructor requires a DAOFactory Object;
-*                Pass the Class Methods: a List of OBOComponents; CalledFrom String
+*                 Pass the Class Methods: a List of OBOComponents; CalledFrom String
 *               
-*               Methods:
+*               Main Methods:
 *                1. insertANA_VERSION
 *
 * Maintenance:  Log changes below, with most recent at top of list.
@@ -36,6 +37,8 @@ package oboroutines.database;
 
 import java.util.ArrayList;
 
+import utility.Wrapper;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
@@ -44,8 +47,6 @@ import daointerface.VersionDAO;
 import daomodel.Version;
 
 import obomodel.OBOComponent;
-
-import utility.Wrapper;
 
 public class AnaVersion {
 	// Properties ---------------------------------------------------------------------------------

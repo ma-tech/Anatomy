@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        TreeBuilder.java
 *
@@ -38,12 +38,11 @@ import java.util.Enumeration;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import obomodel.OBOComponent;
-
 import utility.Wrapper;
 
+import obomodel.OBOComponent;
+
 public class TreeBuilder {
-    
     // pass from MapBuilder
     private Map<String, Vector<String>> mapChildren;
 

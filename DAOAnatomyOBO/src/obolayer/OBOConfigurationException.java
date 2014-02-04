@@ -1,6 +1,6 @@
 /*
 *---------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOConfigurationException.java
 *

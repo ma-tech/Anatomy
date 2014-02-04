@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        RunOBOTest.java
 *
@@ -18,10 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that reads in a OBO file and Writes it out again 
-*
-* Required Files:
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Runnable Class that reads in a OBO file and Writes it out again 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -36,20 +33,18 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import obomodel.OBOComponent;
+
+import oboaccess.OBOComponentAccess;
 
 import obolayer.OBOFactory;
 import obolayer.OBOException;
 
-import obolayer.OBOComponentAccess;
-
-import daolayer.DAOFactory;
-
-import utility.Wrapper;
-
 public class RunOBOTest {
 
-	public static void run ( String requestMsgLevel, OBOFactory obofactory, DAOFactory daofactory) throws Exception {
+	public static void run ( OBOFactory obofactory) throws Exception {
 
 		try {
 	        // Obtain DAOs.
@@ -59,18 +54,18 @@ public class RunOBOTest {
 	        List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
 	        obocomponents = obocomponentaccess.listAllInput();
 	        
-	        Wrapper.printMessage("Number of File Components Read In = " + obocomponents.size(), "***", requestMsgLevel);
+	        Wrapper.printMessage("Number of File Components Read In = " + obocomponents.size(), "***", obofactory.getMsgLevel()) ;
 
 	        // Write out Obo File
 	        obocomponentaccess.setComponentList((ArrayList<OBOComponent>) obocomponents);
 	        
 	        if (obocomponentaccess.writeAll( "Abstract" )) {
 
-	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + obocomponentaccess.outputFileName(), "***", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File SUCCESSFULLY written to " + obocomponentaccess.outputFileName(), "***", obofactory.getMsgLevel() );
 	        }
 	        else {
 	            
-	        	Wrapper.printMessage("Obo File FAILED to write to " + obocomponentaccess.outputFileName(), "***", requestMsgLevel);
+	        	Wrapper.printMessage("Obo File FAILED to write to " + obocomponentaccess.outputFileName(), "***", obofactory.getMsgLevel() );
 	        }
 	        
 		}

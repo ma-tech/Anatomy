@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        AnaObject.java
 *
@@ -18,8 +18,9 @@
 * Version:      1
 *
 * Description:  A Wrapper Class for the Table ANA_OBJECT;
+* 
 *                Constructor requires a DAOFactory Object;
-*                Pass the Class Methods: a List of OBOComponents; CalledFrom String
+*                 Pass the Class Methods: a List of OBOComponents; CalledFrom String
 *               
 *               Methods:
 *                1. insertANA_OBJECT
@@ -39,6 +40,8 @@ package oboroutines.database;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import utility.Wrapper;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
@@ -49,12 +52,9 @@ import daointerface.TimedNodeDAO;
 import daomodel.Thing;
 
 import obomodel.OBOComponent;
-import utility.Wrapper;
 
 public class AnaObject {
 	// Properties ---------------------------------------------------------------------------------
-    private DAOFactory daofactory; 
-
     private String requestMsgLevel; 
 	
     //check whether was processed all the way
@@ -85,8 +85,6 @@ public class AnaObject {
 
             Wrapper.printMessage("anaobject.constructor", "***", this.requestMsgLevel);
 
-            this.daofactory = daofactory;
-        	
         	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
         	this.nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
         	this.timednodeDAO = daofactory.getDAOImpl(TimedNodeDAO.class);

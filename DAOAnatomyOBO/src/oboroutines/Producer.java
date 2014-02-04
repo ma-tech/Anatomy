@@ -1,31 +1,31 @@
 /*
 -----------------------------------------------------------------------------------------------
-# Project:      DAOAnatomyOBO
-#
-# Title:        Producer.java
-#
-# Date:         2012
-#
-# Author:       Mike Wicks
-#
-# Copyright:    2012
-#               Medical Research Council, UK.
-#               All rights reserved.
-#
-# Address:      MRC Human Genetics Unit,
-#               Western General Hospital,
-#               Edinburgh, EH4 2XU, UK.
-#
-# Version: 1
-#
-# Description:  Produced an OBO File from an ArrayList of OBO Components
-#
-# Maintenance:  Log changes below, with most recent at top of list.
-#
-# Who; When; What;
-#
-# Mike Wicks; February 2012; Create Class
-#
+* Project:      DAOAnatomyOBO
+*
+* Title:        Producer.java
+*
+* Date:         2012
+*
+* Author:       Mike Wicks
+*
+* Copyright:    2012
+*               Medical Research Council, UK.
+*               All rights reserved.
+*
+* Address:      MRC Human Genetics Unit,
+*               Western General Hospital,
+*               Edinburgh, EH4 2XU, UK.
+*
+* Version: 1
+*
+* Description:  Produced an OBO File from an ArrayList of OBO Components
+*
+* Maintenance:  Log changes below, with most recent at top of list.
+*
+* Who; When; What;
+*
+* Mike Wicks; February 2012; Create Class
+*
 -----------------------------------------------------------------------------------------------
 */
 package oboroutines;
@@ -40,9 +40,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
+import utility.Wrapper;
+
 import obomodel.OBOComponent;
 import obomodel.OBORelation;
-import utility.Wrapper;
 
 public class Producer {
 
@@ -50,31 +51,17 @@ public class Producer {
     private static String MOUSE_STAGE =  "Theiler Stage";
     private static String CHICK_STAGE =  "Theiler Stage";
 
-    private static String HUMAN_STAGE_US =  "carnegie_stage";
-    private static String MOUSE_STAGE_US =  "theiler_stage";
-    private static String CHICK_STAGE_US =  "theiler_stage";
-
     private static String HUMAN_NAME = "Abstract human developmental anatomy";
-    //private static String MOUSE_NAME = "Abstract anatomy";
     private static String MOUSE_NAME = "Anatomical Structure";
     private static String CHICK_NAME = "Abstract anatomy";
-
-    private static String HUMAN_NAME_ABSTRACT = "Abstract human developmental anatomy";
-    private static String MOUSE_NAME_ABSTRACT = "Anatomical structure";
-    private static String CHICK_NAME_ABSTRACT = "Abstract anatomy";
 
     private static String HUMAN_NAME_ABSTRACT_US = "Abstract human developmental anatomy";
     private static String MOUSE_NAME_ABSTRACT_US = "anatomical_structure";
     private static String CHICK_NAME_ABSTRACT_US = "Abstract anatomy";
 
-    private static String HUMAN_NAME_TIMED = "Timed human developmental anatomy";
-    private static String MOUSE_NAME_TIMED = "Stage Specific Anatomical Structure";
-    private static String CHICK_NAME_TIMED = "Abstract anatomy";
-
     private static String HUMAN_NAME_TIMED_US = "Timed human developmental anatomy";
     private static String MOUSE_NAME_TIMED_US = "stage_specific_anatomical_structure";
     private static String CHICK_NAME_TIMED_US = "Abstract anatomy";
-
 
     // Attributes ---------------------------------------------------------------------------------
     private String fileName;

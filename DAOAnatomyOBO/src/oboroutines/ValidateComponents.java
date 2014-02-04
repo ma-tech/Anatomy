@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        CheckComponents.java renamed
 *               ValidateComponents.java
@@ -37,13 +37,14 @@ import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import obomodel.OBOComponent;
-import obolayer.OBOFactory;
-import obolayer.OBOException;
 import utility.Wrapper;
 
-public class ValidateComponents {
+import obomodel.OBOComponent;
 
+import obolayer.OBOFactory;
+import obolayer.OBOException;
+
+public class ValidateComponents {
 	// CONSTANTS
     private static final int ERROR_STAGE = -1;
     

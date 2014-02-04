@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        OBOComponent.java
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Wrapper Object for an OBO OBOComponent
+* Description:  A Wrapper Object for an OBO Component
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *

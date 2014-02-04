@@ -1,6 +1,6 @@
 /*
-*---------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+---------------------------------------------------------------------------------------------
+* Project:      DAOAnatomyOBO
 *
 * Title:        MapBuilder.java
 *
@@ -28,7 +28,7 @@
 * Mike Wicks; March 2012; More rejigging
 * Mike Wicks; November 2012; Yet More rejigging
 *
-*---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 */
 package oboroutines;
 
@@ -38,9 +38,9 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.Iterator;
 
-import obomodel.OBOComponent;
-
 import utility.Wrapper;
+
+import obomodel.OBOComponent;
 
 public class MapBuilder {
 

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerOBO
+* Project:      DAOAnatomyOBO
 *
 * Title:        AnaNode.java
 *
@@ -18,8 +18,9 @@
 * Version:      1
 *
 * Description:  A Wrapper Class for the Table ANA_NODE;
+* 
 *                Constructor requires a DAOFactory Object;
-*                Pass the Class Methods: a List of OBOComponents; CalledFrom String
+*                 Pass the Class Methods: a List of OBOComponents; CalledFrom String
 *               
 *               Methods:
 *                1.  insertANA_NODE
@@ -50,7 +51,6 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Vector;
 
-
 import utility.Wrapper;
 import utility.MySQLDateTime;
 
@@ -80,6 +80,7 @@ import daomodel.Thing;
 import daomodel.Version;
 
 import obomodel.OBOComponent;
+
 import oboroutines.TreeBuilder;
 
 public class AnaNode {

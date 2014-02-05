@@ -1,6 +1,7 @@
 package testapp;
 
 import utility.Wrapper;
+import utility.MD5Hash;
 
 public class TestMD5Hash {
 
@@ -9,7 +10,7 @@ public class TestMD5Hash {
     	try {
     		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-            System.out.println("utility.MD5Hash.convert(\"banana\") " + utility.MD5Hash.convert("banana"));
+            System.out.println("utility.MD5Hash.convert(\"banana\") " + MD5Hash.convert("banana"));
             
             Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     	}

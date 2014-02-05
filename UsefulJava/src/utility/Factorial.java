@@ -19,6 +19,7 @@
 * Version:      1
 *
 * Description:  A Java class to calculate Factorials of given numbers
+*                And why not?
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *

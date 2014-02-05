@@ -1,10 +1,8 @@
 package testapp;
 
-import utility.StringPad;
-
-import utility.ObjectConverter;
-
 import utility.Wrapper;
+import utility.StringPad;
+import utility.ObjectConverter;
 
 public class TestPad {
 

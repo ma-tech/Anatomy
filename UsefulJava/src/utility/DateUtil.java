@@ -6,7 +6,7 @@
 *
 * Date:         2012
 *
-* Author:       Mike Wicks
+* Author:       BalusC
 *
 * Copyright:    2012
 *               Medical Research Council, UK.

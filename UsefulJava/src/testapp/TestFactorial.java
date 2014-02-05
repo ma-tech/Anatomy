@@ -1,7 +1,6 @@
 package testapp;
 
 import utility.Wrapper;
-
 import utility.Factorial;
 
 public class TestFactorial {

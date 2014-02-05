@@ -1,9 +1,8 @@
 package testapp;
 
-import utility.Wrapper;
-
 import java.io.File;
 
+import utility.Wrapper;
 import utility.FileUtil;
 
 public class TestFileSize {

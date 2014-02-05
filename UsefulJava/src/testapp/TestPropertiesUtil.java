@@ -1,12 +1,8 @@
 package testapp;
 
-//import java.util.ArrayList;
-//import java.util.Iterator;
+import utility.Wrapper;
 
 import daolayer.DAOProperty;
-
-//import utility.FileUtil;
-import utility.Wrapper;
 
 public class TestPropertiesUtil {
 

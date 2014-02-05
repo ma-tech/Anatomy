@@ -1,7 +1,5 @@
 package testapp;
 
-import utility.Wrapper;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +7,7 @@ import java.util.List;
 import java.io.File;
 import java.io.InputStream;
 
+import utility.Wrapper;
 import utility.CsvUtil;
 import utility.FileUtil;
 

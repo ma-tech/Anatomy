@@ -1,7 +1,7 @@
 package testapp;
 
-import utility.GenerateRandom;
 import utility.Wrapper;
+import utility.GenerateRandom;
 
 public class TestGenerateRandom {
 

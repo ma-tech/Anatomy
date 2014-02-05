@@ -1,9 +1,8 @@
 package testapp;
 
-import utility.Wrapper;
-
 import java.math.BigDecimal;
 
+import utility.Wrapper;
 import utility.ObjectConverter;
 
 public class TestObjectConverter {

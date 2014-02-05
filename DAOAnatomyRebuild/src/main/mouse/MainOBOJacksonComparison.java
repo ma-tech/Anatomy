@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainOBOJacksonComparison.java
 *
@@ -28,7 +28,6 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main.mouse;
 
 import utility.Wrapper;

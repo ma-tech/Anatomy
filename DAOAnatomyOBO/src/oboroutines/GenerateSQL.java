@@ -97,8 +97,6 @@ public class GenerateSQL {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel;
-	
     //file properties
     private String strSpecies;
     private String project;
@@ -147,7 +145,6 @@ public class GenerateSQL {
     
     // Constructors -------------------------------------------------------------------------------
     public GenerateSQL(
-    		String requestMsgLevel,
     		DAOFactory daofactory, 
     		OBOFactory obofactory, 
             ArrayList<OBOComponent> proposedTermList,
@@ -160,9 +157,7 @@ public class GenerateSQL {
     		
         	this.daofactory = daofactory;
 
-        	this.requestMsgLevel = requestMsgLevel;
-
-            Wrapper.printMessage("generatesql.constructor", "***", this.requestMsgLevel);
+            Wrapper.printMessage("generatesql.constructor", "***", this.daofactory.getMsgLevel());
             
             this.project = obofactory.getOBOComponentAccess().project();
             this.strSpecies = obofactory.getOBOComponentAccess().species();
@@ -222,7 +217,7 @@ public class GenerateSQL {
 
                     	Wrapper.printMessage("generatesql.constructor:SQL queries for New OBOComponent " +
                                 component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!", "*", this.requestMsgLevel);
+                                " with rule violation have been generated!", "*", this.daofactory.getMsgLevel());
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -244,7 +239,7 @@ public class GenerateSQL {
 
                 		Wrapper.printMessage("generatesql.constructor:SQL queries for Deleted OBOComponent " +
                                 component.getID() + " " + component.getName() +
-                                " with rule violation have been generated!", "*", this.requestMsgLevel);
+                                " with rule violation have been generated!", "*", this.daofactory.getMsgLevel());
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -266,7 +261,7 @@ public class GenerateSQL {
                         
                     	Wrapper.printMessage("generatesql.constructor:SQL queries for Changed OBOComponent " +
                                     component.getID() + " " + component.getName() +
-                                    " with rule violation have been generated!", "*", this.requestMsgLevel);
+                                    " with rule violation have been generated!", "*", this.daofactory.getMsgLevel());
                         setProcessed( false );
                     }
                     else if ( component.getStatusRule().equals("PASSED") ) {
@@ -313,7 +308,7 @@ public class GenerateSQL {
                 		deletedComponents.isEmpty() && 
                 		changedComponents.isEmpty() ) ) {
 
-                	AnaVersion anaversion = new AnaVersion( this.requestMsgLevel, this.daofactory);
+                	AnaVersion anaversion = new AnaVersion( this.daofactory);
 
                 	if ( !anaversion.insertANA_VERSION() ) {
 
@@ -330,7 +325,7 @@ public class GenerateSQL {
                     deletes( deletedComponents );
 
                     // Rebuild ANA_RELATIONSHIP_PROJECT
-                    AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
+                    AnaRelationship anarelationship = new AnaRelationship( this.daofactory );
 
                     if ( !anarelationship.rebuildANA_RELATIONSHIP_PROJECT()) {
 
@@ -345,7 +340,7 @@ public class GenerateSQL {
 
             	Wrapper.printMessage("generatesql.constructor:No record inserted: Database Update " +
                         "did not occur because SYSTEM failed to detect any " +
-                        "changes in the OBO File!", "*", this.requestMsgLevel);
+                        "changes in the OBO File!", "*", this.daofactory.getMsgLevel());
             	setProcessed( false );
             }
     	}
@@ -376,14 +371,14 @@ public class GenerateSQL {
     //  Wrapper Routine for ALL INSERTS to the database
     private void inserts( ArrayList<OBOComponent> newComponents ) throws Exception {
 
-        Wrapper.printMessage("generatesql.inserts", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.inserts", "***", this.daofactory.getMsgLevel());
     		
     	try {
     		
             if (newComponents.size() > 0) {
             	
                 // INSERTS into ANA_NODE
-                AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
+                AnaNode ananode = new AnaNode( this.daofactory );
                 
                 if ( !ananode.insertANA_NODE( newComponents, 
                 		this.boolGenerateIdentifiers,
@@ -395,7 +390,7 @@ public class GenerateSQL {
                 }
                 
                 // INSERTS into ANA_RELATIONSHIP
-                AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
+                AnaRelationship anarelationship = new AnaRelationship( this.daofactory );
                 
                 if ( !anarelationship.insertANA_RELATIONSHIP( ananode.getUpdatedComponentList(),
                 		"INSERT",
@@ -411,7 +406,7 @@ public class GenerateSQL {
                 }
                 
                 // INSERTS into ANA_TIMED_NODE
-                AnaTimedNode anatimednode = new AnaTimedNode( this.requestMsgLevel, this.daofactory );
+                AnaTimedNode anatimednode = new AnaTimedNode( this.daofactory );
                 
                 if ( !anatimednode.insertANA_TIMED_NODE( ananode.getUpdatedComponentList(),
                 		this.boolGenerateIdentifiers,
@@ -422,7 +417,7 @@ public class GenerateSQL {
                 }
                 
                 // INSERTS into ANA_SYNONYM
-                AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
+                AnaSynonym anasynonym = new AnaSynonym( this.daofactory.getMsgLevel(), this.daofactory );
                 
                 if ( !anasynonym.insertANA_SYNONYM( newComponents, 
                 		"INSERT" ) ) {
@@ -466,14 +461,14 @@ public class GenerateSQL {
     */
     private void deletes( ArrayList<OBOComponent> deletedComponentsIn ) throws Exception {
     	
-        Wrapper.printMessage("generatesql.deletes", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.deletes", "***", this.daofactory.getMsgLevel());
     		
     	try {
     		
             if ( deletedComponentsIn.size() > 0 ) {
 
             	// delete components, set DBIDs and get only components that have dbids based on emap id
-                AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
+                AnaNode ananode = new AnaNode( this.daofactory );
 
                 if ( !ananode.setDatabaseOIDs(deletedComponentsIn, 
                 		"INSERT") ){
@@ -503,7 +498,7 @@ public class GenerateSQL {
     //  Wrapper Routine for ALL UPDATES to the database
     private void updates( ArrayList<OBOComponent> changedComponentsIn ) throws Exception {
     	
-        Wrapper.printMessage("generatesql.updates", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.updates", "***", this.daofactory.getMsgLevel());
     		
     	try {
     		
@@ -512,7 +507,7 @@ public class GenerateSQL {
                 //System.out.println("changedComponentsIn.size() = " + changedComponentsIn.size());
 
                 //modify components, set DBIDs and get only components that have dbids based on emap id
-                AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
+                AnaNode ananode = new AnaNode( this.daofactory );
 
                 if ( !ananode.setDatabaseOIDs(changedComponentsIn, 
                 		"INSERT") ){
@@ -525,7 +520,7 @@ public class GenerateSQL {
                 //get components whose stage ranges have changed
                 //find ranges of stages that need to be inserted/deleted, create
                 // temporary components for ranges and perform insertion and deletion for modified stage ranges
-                AnaTimedNode anatimednode = new AnaTimedNode( this.requestMsgLevel, this.daofactory );
+                AnaTimedNode anatimednode = new AnaTimedNode( this.daofactory );
 
                 if ( !anatimednode.updateANA_TIMED_NODE( createDifferenceTimedComponents( getChangedStagesTermList( ananode.getStartingComponentList() ) ),
                 		this.boolGenerateIdentifiers,
@@ -552,7 +547,7 @@ public class GenerateSQL {
                     //find ranges of stages that need to be inserted/deleted, create
                     // temporary components for ranges
                     //perform insertion and deletion for modified synonyms
-                    AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
+                    AnaSynonym anasynonym = new AnaSynonym( this.daofactory.getMsgLevel(), this.daofactory );
 
                     if ( !anasynonym.updateANA_SYNONYM( this.diffCreateSynList, 
                     		this.diffDeleteSynList, 
@@ -568,7 +563,7 @@ public class GenerateSQL {
                 		
                 //find ranges of stages that need to be inserted/deleted, create temporary components for ranges
                 //perform insertion and deletion for modified parent relationships
-                AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
+                AnaRelationship anarelationship = new AnaRelationship( this.daofactory );
 
                 if ( !anarelationship.insertANA_RELATIONSHIP( this.diffCreateRelList, 
                 		"INSERT",
@@ -652,7 +647,7 @@ public class GenerateSQL {
    */
     private ArrayList<OBOComponent> validateDeleteTermList(ArrayList<OBOComponent> deletedTermList) throws Exception {
 
-        Wrapper.printMessage("generatesql.validateDeleteTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.validateDeleteTermList", "***", this.daofactory.getMsgLevel());
         	
         ArrayList<OBOComponent> dbTermList = new ArrayList<OBOComponent>();
         Vector<String> dependentDescendants = new Vector<String>();
@@ -698,34 +693,34 @@ public class GenerateSQL {
     // deleteComponentFromAllTables
     private void deleteComponentFromAllTables (ArrayList <OBOComponent> validDeleteTermList) throws Exception {
 
-        Wrapper.printMessage("generatesql.deleteComponentFromAllTables", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.deleteComponentFromAllTables", "***", this.daofactory.getMsgLevel());
         	
         try {
         	
             if ( !validDeleteTermList.isEmpty() ) {
 
-                AnaTimedNode anatimednode = new AnaTimedNode( this.requestMsgLevel, this.daofactory );
+                AnaTimedNode anatimednode = new AnaTimedNode( this.daofactory );
 
                 if ( !anatimednode.deleteANA_TIMED_NODE(validDeleteTermList, "DELETE") ) {
 
                     throw new DatabaseException("anatimednode.deleteANA_TIMED_NODE for DELETE");
                 }
 
-                AnaNode ananode = new AnaNode( this.requestMsgLevel, this.daofactory );
+                AnaNode ananode = new AnaNode( this.daofactory );
                 
                 if ( !ananode.deleteANA_NODE(validDeleteTermList, this.strSpecies, "DELETE") ) {
 
                 	throw new DatabaseException("ananode.deleteANA_NODE for DELETE");
                 }
 
-                AnaSynonym anasynonym = new AnaSynonym( this.requestMsgLevel, this.daofactory );
+                AnaSynonym anasynonym = new AnaSynonym( this.daofactory.getMsgLevel(), this.daofactory );
                 
                 if ( !anasynonym.deleteANA_SYNONYM(validDeleteTermList, "DELETE") ) {
              	
                 	throw new DatabaseException("anasynonym.deleteANA_SYNONYM for DELETE");
                 }
               
-                AnaRelationship anarelationship = new AnaRelationship( this.requestMsgLevel, this.daofactory );
+                AnaRelationship anarelationship = new AnaRelationship( this.daofactory );
                 
                 if ( !anarelationship.deleteANA_RELATIONSHIP(validDeleteTermList, "DELETE") ) {
              	
@@ -749,7 +744,7 @@ public class GenerateSQL {
     // recursiveGetDependentDescendants 
 	private Vector<String> recursiveGetDependentDescendants(String componentID, Vector< String > componentIDs, boolean invalidDelete) throws Exception {
 
-        Wrapper.printMessage("generatesql.recursiveGetDependentDescendants", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.recursiveGetDependentDescendants", "***", this.daofactory.getMsgLevel());
         	
         Vector< String > descendants = componentIDs;
         Vector< String > childrenIDs = new Vector<String>();
@@ -832,7 +827,7 @@ public class GenerateSQL {
     //  method to measure difference in stage ranges between modified components and existing components in DB
     private ArrayList<OBOComponent> createDifferenceTimedComponents( ArrayList<OBOComponent> diffStageTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceTimedComponents", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceTimedComponents", "***", this.daofactory.getMsgLevel());
         	
         ArrayList<OBOComponent> diffCreateTimedCompList = new ArrayList<OBOComponent>();
         
@@ -975,7 +970,7 @@ public class GenerateSQL {
     // createDifferenceSynonyms
     private void createDifferenceSynonyms( ArrayList<OBOComponent> diffSynonymTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceSynonyms", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceSynonyms", "***", this.daofactory.getMsgLevel());
         	
         OBOComponent databasecomponent = new OBOComponent();
         OBOComponent deletesynonymcomponent = new OBOComponent();
@@ -1074,7 +1069,7 @@ public class GenerateSQL {
     //method to detect difference in parents between modified components and existing components in DB
     private void createDifferenceParents( ArrayList<OBOComponent> diffParentTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.createDifferenceParents", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.createDifferenceParents", "***", this.daofactory.getMsgLevel());
         	
         OBOComponent databasecomponent = new OBOComponent();
         OBOComponent deleteRelComponent = new OBOComponent();
@@ -1154,7 +1149,7 @@ public class GenerateSQL {
                     	databasecomponent.addChildOfType("connected-to");
                     }
                     else {
-                        Wrapper.printMessage("generatesql.createDifferenceParents:UNKNOWN Relationship Type = " + joinnoderelationship.getTypeFK() +"!", "*", this.requestMsgLevel);
+                        Wrapper.printMessage("generatesql.createDifferenceParents:UNKNOWN Relationship Type = " + joinnoderelationship.getTypeFK() +"!", "*", this.daofactory.getMsgLevel());
                     }
               	}
                 
@@ -1314,7 +1309,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed stages
     private ArrayList<OBOComponent> getChangedStagesTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedStagesTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedStagesTermList", "***", this.daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1333,7 +1328,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed names
     private ArrayList<OBOComponent> getChangedNamesTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedNamesTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedNamesTermList", "***", this.daofactory.getMsgLevel());
         
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1352,7 +1347,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed synonyms
     private ArrayList<OBOComponent> getChangedSynonymsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedSynonymsTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedSynonymsTermList", "***", this.daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1376,7 +1371,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed parents
     private ArrayList<OBOComponent> getChangedParentsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedParentsTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedParentsTermList", "***", this.daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1400,7 +1395,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed synonyms
     private ArrayList<OBOComponent> getChangedPrimaryStatusTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getChangedPrimaryStatusTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getChangedPrimaryStatusTermList", "***", this.daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         
@@ -1419,7 +1414,7 @@ public class GenerateSQL {
     // method to sort through modified component list for changed parents
     private ArrayList<OBOComponent> getNewParentsTermList( ArrayList<OBOComponent> changedTermList ) throws Exception {
 
-        Wrapper.printMessage("generatesql.getNewParentsTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("generatesql.getNewParentsTermList", "***", this.daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> termList = new ArrayList<OBOComponent>();
         

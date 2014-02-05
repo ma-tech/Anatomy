@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainCheckDatabaseReferenceTree.java
 *
@@ -36,7 +36,6 @@ import routines.runnable.archive.CheckDatabaseReferenceTree;
 
 import obolayer.OBOFactory;
 
-import daointerface.ThingDAO;
 import daolayer.DAOFactory;
 
 public class MainCheckDatabaseReferenceTree {
@@ -54,7 +53,7 @@ public class MainCheckDatabaseReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckDatabaseReferenceTree.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            CheckDatabaseReferenceTree.run( daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

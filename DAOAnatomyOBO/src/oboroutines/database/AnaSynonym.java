@@ -64,8 +64,6 @@ public class AnaSynonym {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel; 
-	
     //check whether was processed all the way
     private boolean processed;
     
@@ -87,11 +85,9 @@ public class AnaSynonym {
     	
     	try {
     		
-           	this.requestMsgLevel = requestMsgLevel;
-
-            Wrapper.printMessage("anasynonym.constructor", "***", this.requestMsgLevel);
-
             this.daofactory = daofactory;
+
+            Wrapper.printMessage("anasynonym.constructor", "***", this.daofactory.getMsgLevel());
 
         	this.synonymDAO = daofactory.getDAOImpl(SynonymDAO.class);
         	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
@@ -119,7 +115,7 @@ public class AnaSynonym {
     //  Insert new rows into ANA_SYNONYM
     public boolean insertANA_SYNONYM( ArrayList<OBOComponent> newTermList, String calledFrom ) throws Exception {
     	
-        Wrapper.printMessage("anasynonym.insertANA_SYNONYM : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.insertANA_SYNONYM : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         setProcessed( true );
         
@@ -148,7 +144,7 @@ public class AnaSynonym {
            
            if ( !synonymCompList.isEmpty() ) {
         	   
-               AnaObject anaobject = new AnaObject(this.requestMsgLevel, this.daofactory);
+               AnaObject anaobject = new AnaObject( this.daofactory );
                
                if ( !anaobject.insertANA_OBJECT(synonymCompList, "ANA_SYNONYM") ) {
 
@@ -191,7 +187,7 @@ public class AnaSynonym {
     //  Delete rows from ANA_SYNONYM
     public boolean deleteANA_SYNONYM( ArrayList<OBOComponent> deleteSynComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM : " + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.deleteANA_SYNONYM : " + calledFrom , "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -243,7 +239,7 @@ public class AnaSynonym {
 			ArrayList<OBOComponent> oldSynonymsTermList, 
 			String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.updateANA_SYNONYM : " + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.updateANA_SYNONYM : " + calledFrom , "***", this.daofactory.getMsgLevel());
     	
         try {
         	
@@ -293,7 +289,7 @@ public class AnaSynonym {
     //  Insert into ANA_LOG for ANA_SYNONYM Insertions or Deletions
     public boolean logANA_SYNONYM( Synonym synonym, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anasynonym.logANA_SYNONYM : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anasynonym.logANA_SYNONYM : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         long longLogLoggedOID = 0;
         long longLogOID = 0;

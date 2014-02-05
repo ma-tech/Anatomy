@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainListOBOFileContents.java
 *
@@ -18,11 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Lists the contents of an OBOFile
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -41,8 +37,6 @@ import app.RunListOBOFileContents;
 import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
 
 public class MainListOBOFileContents{
 

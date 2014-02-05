@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        UpdateDatabaseFromComponentsTables.java
+* Title:        RunInsertSynonymsFromCSVFile.java
 *
 * Date:         2012
 *
@@ -18,13 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
-*                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Description:  A Main Class that Adds Synonyms to the Synonym table from a CSV file
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -42,21 +37,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import utility.Wrapper;
+import utility.CsvUtil;
+import utility.FileUtil;
+
 import obomodel.OBOComponent;
+
 import oboroutines.database.AnaSynonym;
 import oboroutines.database.DatabaseException;
 
 import daolayer.DAOFactory;
 
-import utility.CsvUtil;
-import utility.FileUtil;
-import utility.Wrapper;
-
-
-
 public class RunInsertSynonymsFromCSVFile {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory) throws Exception {
+	public static void run( DAOFactory daofactory) throws Exception {
 
         // Format InputStream for CSV.
         InputStream csvInput = FileUtil.readStream(new File("/Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromMouse010/OBOInput/CsvSynonyms/JanesGUSynonyms_2013-05-29.csv"));
@@ -146,7 +140,7 @@ public class RunInsertSynonymsFromCSVFile {
         	
         	OBOComponent oboComponent = iteratorComponents.next();
 
-            Wrapper.printMessage(oboComponent.toString() , "***", requestMsgLevel);
+            Wrapper.printMessage(oboComponent.toString() , "***", daofactory.getMsgLevel());
             
             // Create Output List of OBOComponents
         	ArrayList<String> componentSynonyms = new ArrayList<String>();
@@ -159,12 +153,12 @@ public class RunInsertSynonymsFromCSVFile {
             	
             	String synonym = iteratorComponentSynonyms.next();
 
-                Wrapper.printMessage("SYNONYM: " + synonym , "***", requestMsgLevel);
+                Wrapper.printMessage("SYNONYM: " + synonym , "***", daofactory.getMsgLevel());
             }
         }
         
         // INSERTS into ANA_SYNONYM
-        AnaSynonym anasynonym = new AnaSynonym( requestMsgLevel, daofactory );
+        AnaSynonym anasynonym = new AnaSynonym( daofactory.getMsgLevel(), daofactory );
         
         if ( !anasynonym.insertANA_SYNONYM( synonymComponents, "INSERT" ) ) {
 

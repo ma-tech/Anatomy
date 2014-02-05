@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainOBOValidateComponents.java
 *
@@ -28,13 +28,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main.mouse;
 
 import utility.Wrapper;
 
 import app.mouse.RunOBOValidateComponents;
-
 
 public class MainOBOValidateComponents {
 	/*

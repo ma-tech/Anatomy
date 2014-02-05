@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        CheckFileReferenceTree.java
 *
@@ -18,11 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and validates it against itself.
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,25 +33,25 @@ package routines.runnable.archive;
 import java.util.List;
 import java.util.ArrayList;
 
+import utility.Wrapper;
+
 import daolayer.DAOFactory;
 
 import obolayer.OBOFactory;
-import obolayer.OBOComponentAccess;
+import oboaccess.OBOComponentAccess;
 
 import obomodel.OBOComponent;
 import oboroutines.MapBuilder;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
 
-import utility.Wrapper;
-
 public class CheckFileReferenceTree {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
     	try {
     		
-    	    Wrapper.printMessage("checkfilereferencetree.run", "***", requestMsgLevel);
+    	    Wrapper.printMessage("checkfilereferencetree.run", "***", daofactory.getMsgLevel());
 
     	    OBOComponentAccess obocomponentaccess = obofactory.getOBOComponentAccess();
 
@@ -65,14 +61,13 @@ public class CheckFileReferenceTree {
             ArrayList<OBOComponent> parseOldTermList = (ArrayList<OBOComponent>) obocomponents;
             
             //Build hashmap of components
-            MapBuilder mapbuilder = new MapBuilder( requestMsgLevel, parseOldTermList);
+            MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), parseOldTermList);
             //Build tree
-            TreeBuilder treebuilder = new TreeBuilder( requestMsgLevel, mapbuilder);
+            TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder);
 
             //check for rules violation
             ValidateComponents validatecomponents =
-                new ValidateComponents( requestMsgLevel,
-                		obofactory, 
+                new ValidateComponents( obofactory, 
                 		parseOldTermList, 
                 		treebuilder);
 
@@ -81,24 +76,24 @@ public class CheckFileReferenceTree {
             	
         	    Wrapper.printMessage("checkfilereferencetree.run : \n=======\nPASSED!\n=======\n" +
                         "Loading Default Reference Tree From Input OBO File:\n===\n" +
-            			"All Components in the Reference Tree are OK!\n", "***", requestMsgLevel);
+            			"All Components in the Reference Tree are OK!\n", "***", daofactory.getMsgLevel());
             }
             else {
             	
         	    Wrapper.printMessage("checkfilereferencetree.run : \n=======\nERRORS!\n=======\n" +
                         "Loading Default Reference Tree From Input OBO File:\n" + 
-                		"Some components in the Reference Tree contain rule violations.\n", "***", requestMsgLevel);
+                		"Some components in the Reference Tree contain rule violations.\n", "***", daofactory.getMsgLevel());
                 
                 OBOComponent probobocomponent =
                         (OBOComponent) validatecomponents.getProblemTermList().get(0);
                 
-        	    Wrapper.printMessage("checkfilereferencetree.run : no. of components with problems = " + validatecomponents.getProblemTermList().size() + "\n", "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run : no. of components with problems = " + validatecomponents.getProblemTermList().size() + "\n", "***", daofactory.getMsgLevel());
                 
-        	    Wrapper.printMessage("checkfilereferencetree.run : checkComments = " + probobocomponent.getCheckComments(), "***", requestMsgLevel);
-        	    Wrapper.printMessage("checkfilereferencetree.run : orderComments = " + probobocomponent.getOrderComment(), "***", requestMsgLevel);
-        	    Wrapper.printMessage("checkfilereferencetree.run : userComments = " + probobocomponent.getUserComments(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run : checkComments = " + probobocomponent.getCheckComments(), "***", daofactory.getMsgLevel());
+        	    Wrapper.printMessage("checkfilereferencetree.run : orderComments = " + probobocomponent.getOrderComment(), "***", daofactory.getMsgLevel());
+        	    Wrapper.printMessage("checkfilereferencetree.run : userComments = " + probobocomponent.getUserComments(), "***", daofactory.getMsgLevel());
                 
-        	    Wrapper.printMessage("checkfilereferencetree.run : probobocomponent = " + probobocomponent.toString(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkfilereferencetree.run : probobocomponent = " + probobocomponent.toString(), "***", daofactory.getMsgLevel());
             }
     	}
     	catch (Exception exception) {

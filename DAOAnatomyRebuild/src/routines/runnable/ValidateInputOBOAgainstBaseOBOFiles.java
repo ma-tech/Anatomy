@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        ValidateInputOBOAgainstBaseOBOFiles.java
 *
@@ -18,12 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
-*                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class that Reads an OBO File (INPUT), compares and validates it against
+*                another OBO file (BASE)
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,9 +33,9 @@ package routines.runnable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-import obolayer.OBOComponentAccess;
+import utility.Wrapper;
+
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
@@ -50,20 +46,13 @@ import oboroutines.MapBuilder;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
 
-import routines.aggregated.EmptyComponentsTables;
-import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromOBOFile;
-import routines.aggregated.LoadOBOFileIntoComponentsTables;
-
-import daolayer.DAOFactory;
-
-import utility.Wrapper;
 
 public class ValidateInputOBOAgainstBaseOBOFiles {
 
-	public static void run(String requestMsgLevel, OBOFactory obofactory) throws Exception {
+	public static void run(OBOFactory obofactory) throws Exception {
     	
-	    Wrapper.printMessage("validateinputoboagainstbaseobo.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("validateinputoboagainstbaseobo.run", "***", obofactory.getMsgLevel());
 
         String baseFile = obofactory.getOBOComponentAccess().baseFile();
 	    String inputFile = obofactory.getOBOComponentAccess().inputFile();
@@ -71,28 +60,27 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
         String summaryReportPdf = obofactory.getOBOComponentAccess().summaryReportPdf();
 
         // Get all INPUT OBO components
-        ListOBOComponentsFromOBOFile inputimportcomponents = new ListOBOComponentsFromOBOFile(requestMsgLevel, obofactory, "INPUT");
-        MapBuilder inputmapbuilder = new MapBuilder( requestMsgLevel, inputimportcomponents.getObocomponentList());
-        TreeBuilder inputtreebuilder = new TreeBuilder( requestMsgLevel, inputmapbuilder);
+        ListOBOComponentsFromOBOFile inputimportcomponents = new ListOBOComponentsFromOBOFile( obofactory, "INPUT" );
+        MapBuilder inputmapbuilder = new MapBuilder( obofactory.getMsgLevel(), inputimportcomponents.getObocomponentList());
+        TreeBuilder inputtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), inputmapbuilder);
 
         // Get all BASE OBO components
-        ListOBOComponentsFromOBOFile baseimportcomponents = new ListOBOComponentsFromOBOFile(requestMsgLevel, obofactory, "BASE");
-        //MapBuilder basemapbuilder = new MapBuilder( requestMsgLevel, baseimportcomponents.getTermList());
-        //TreeBuilder basetreebuilder = new TreeBuilder( requestMsgLevel, basemapbuilder);
+        ListOBOComponentsFromOBOFile baseimportcomponents = new ListOBOComponentsFromOBOFile( obofactory, "BASE" );
+        //MapBuilder basemapbuilder = new MapBuilder( obofactory.getMsgLevel(), baseimportcomponents.getTermList());
+        //TreeBuilder basetreebuilder = new TreeBuilder( obofactory.getMsgLevel(), basemapbuilder);
 
         //check for rules violation
 	    ValidateComponents validatecomponents =
-	            new ValidateComponents( requestMsgLevel,
-	            		obofactory, 
+	            new ValidateComponents( obofactory, 
 	            		inputimportcomponents.getObocomponentList(), 
 	            		baseimportcomponents.getObocomponentList(), 
 	            		inputtreebuilder);
         
         String validation = "";
 
-	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", requestMsgLevel);
+	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", obofactory.getMsgLevel());
+	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", obofactory.getMsgLevel());
+	    Wrapper.printMessage("validateinputoboagainstbaseobo.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", obofactory.getMsgLevel());
 
         ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
         newComponents = validatecomponents.getNewTermList();
@@ -102,7 +90,7 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
     		
     		OBOComponent component = iteratorNewTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : NEW component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> modComponents = new ArrayList<OBOComponent>();
@@ -113,7 +101,7 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : MOD component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> delComponents = new ArrayList<OBOComponent>();
@@ -124,7 +112,7 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobo.run : DEL component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
         if ( validatecomponents.getProblemTermList().isEmpty() ) {
@@ -136,12 +124,12 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
         	validation = "FAILED VALIDATION";
         }
 
-        Wrapper.printMessage("validateinputoboagainstbaseobo.run : Validated? " + validation, "***", requestMsgLevel);
+        Wrapper.printMessage("validateinputoboagainstbaseobo.run : Validated? " + validation, "***", obofactory.getMsgLevel());
 
         //generate txt summary report
-        GenerateEditorReport generateeditorreport = new GenerateEditorReport( requestMsgLevel, validatecomponents, inputFile, summaryReport);
+        GenerateEditorReport generateeditorreport = new GenerateEditorReport( obofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( requestMsgLevel, validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
     }
 }

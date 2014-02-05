@@ -73,8 +73,6 @@ public class AnaTimedNode {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel; 
-	
     //check whether was processed all the way
     private boolean processed;
     
@@ -95,16 +93,13 @@ public class AnaTimedNode {
     	
     }
 
-    public AnaTimedNode( String requestMsgLevel, 
-    		DAOFactory daofactory) {
+    public AnaTimedNode( DAOFactory daofactory ) {
     	
     	try {
     		
-           	this.requestMsgLevel = requestMsgLevel;
-
-            Wrapper.printMessage("anatimednode.constructor", "***", this.requestMsgLevel);
-
             this.daofactory = daofactory;
+
+            Wrapper.printMessage("anatimednode.constructor", "***", this.daofactory.getMsgLevel());
 
         	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
         	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
@@ -139,7 +134,7 @@ public class AnaTimedNode {
     		String calledFrom, 
     		String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
     		
         OBOComponent component;
         boolean flagInsert = false;
@@ -150,7 +145,7 @@ public class AnaTimedNode {
         	if ( newTermList.size() > 0 ) {
         		
                 //INSERT timed component obj_oids into ANA_OBJECT
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
+                AnaObject anaobject = new AnaObject( this.daofactory);
                 
                 if ( !anaobject.getMaxPublicId() ) {
 
@@ -237,7 +232,7 @@ public class AnaTimedNode {
                             }
                             else {
                          	   
-                                Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.requestMsgLevel);
+                                Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.daofactory.getMsgLevel());
                             }
                     	}
                     	else {
@@ -259,7 +254,7 @@ public class AnaTimedNode {
                             }
                             else {
                          	   
-                                Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.requestMsgLevel);
+                                Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.daofactory.getMsgLevel());
                             }
                     	}
 
@@ -271,7 +266,7 @@ public class AnaTimedNode {
             if ( !timedComps.isEmpty() ) {
             	
                 //INSERT timed component obj_oids into ANA_OBJECT
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
+                AnaObject anaobject = new AnaObject( this.daofactory);
                 
                 if ( !anaobject.insertANA_OBJECT(timedComps, "ANA_TIMED_NODE") ) {
 
@@ -358,7 +353,7 @@ public class AnaTimedNode {
     public boolean deleteANA_TIMED_NODE( ArrayList<OBOComponent> deleteTimedComponents, 
     		String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.deleteANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         ArrayList<OBOComponent> logDeleteTimedComponents = new ArrayList<OBOComponent>();
         
@@ -443,7 +438,7 @@ public class AnaTimedNode {
 			String calledFrom, 
 			String strSpecies) throws Exception {
 
-        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.updateANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -482,7 +477,7 @@ public class AnaTimedNode {
     public boolean logANA_TIMED_NODE( TimedNode timednode, 
     		String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anatimednode.logANA_TIMED_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anatimednode.logANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         //System.out.println("timednode.toString() = " + timednode.toString());
 

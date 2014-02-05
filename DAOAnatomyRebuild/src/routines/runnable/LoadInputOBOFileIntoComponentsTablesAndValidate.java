@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        LoadInputOBOFileIntoComponentsTablesAndValidate.java
 *
@@ -18,12 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
+* Description:  A Class that Reads an OBO File and Loads it into the Components tables in the 
 *                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -43,7 +39,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import obolayer.OBOComponentAccess;
+import utility.Wrapper;
+import utility.ObjectConverter;
+
+import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
@@ -57,21 +57,17 @@ import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
 
-
 import daolayer.DAOFactory;
 
 import daointerface.OBOFileDAO;
 
 import daomodel.OBOFile;
 
-import utility.ObjectConverter;
-import utility.Wrapper;
-
 public class LoadInputOBOFileIntoComponentsTablesAndValidate {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run( DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run", "***", daofactory.getMsgLevel());
 
 	    String inputFile = obofactory.getOBOComponentAccess().inputFile();
         String summaryReport = obofactory.getOBOComponentAccess().summaryReport();
@@ -80,7 +76,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
         // Obtain DAOs.
 	    OBOFileDAO obofileDAO = daofactory.getDAOImpl(OBOFileDAO.class);
         
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Clear Out OBOFile Table", "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Clear Out OBOFile Table", "***", daofactory.getMsgLevel());
     
 	    List<OBOFile> obofiles = new ArrayList<OBOFile>();
         obofiles = obofileDAO.listAll();
@@ -104,29 +100,28 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
         obocomponents = obocomponentaccess.listAllInput();
 
 	    //import Obo File from obo.properties, file.oboinfile
-        LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, obocomponents);
+        LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, obocomponents);
         
         //import Obo File from obo.properties, file.oboinfile
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
-        MapBuilder newmapbuilder = new MapBuilder( requestMsgLevel, importcomponents.getTermList());
-        TreeBuilder newtreebuilder = new TreeBuilder( requestMsgLevel, newmapbuilder);
+        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
+        MapBuilder newmapbuilder = new MapBuilder( daofactory.getMsgLevel(), importcomponents.getTermList());
+        TreeBuilder newtreebuilder = new TreeBuilder( daofactory.getMsgLevel(), newmapbuilder);
 
         //import Database from dao.properties, anatomy008.url
-        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
+        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
 
         //check for rules violation
 	    ValidateComponents validatecomponents =
-            new ValidateComponents( requestMsgLevel,
-            		obofactory, 
+            new ValidateComponents( obofactory, 
             		importcomponents.getTermList(), 
             		importdatabase.getTermList(), 
             		newtreebuilder);
         
         String validation = "";
 
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", daofactory.getMsgLevel());
 
         ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
         newComponents = validatecomponents.getNewTermList();
@@ -136,7 +131,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorNewTerms.next();
 
-    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : NEW component.toString() " + component.toString(), "***", daofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> modComponents = new ArrayList<OBOComponent>();
@@ -147,7 +142,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : MOD component.toString() " + component.toString(), "***", daofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> delComponents = new ArrayList<OBOComponent>();
@@ -158,7 +153,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
+    		//Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : DEL component.toString() " + component.toString(), "***", daofactory.getMsgLevel());
      	}
 
         if ( validatecomponents.getProblemTermList().isEmpty() ) {
@@ -170,13 +165,13 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
         	validation = "FAILED VALIDATION";
         }
 
-        Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Validated? " + validation, "***", requestMsgLevel);
+        Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Validated? " + validation, "***", daofactory.getMsgLevel());
 
         //generate txt summary report
-        GenerateEditorReport generateeditorreport = new GenerateEditorReport( requestMsgLevel, validatecomponents, inputFile, summaryReport);
+        GenerateEditorReport generateeditorreport = new GenerateEditorReport( daofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( requestMsgLevel, validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
         
         File infile = new File(inputFile);
         InputStream inputstreamin = new FileInputStream(infile);
@@ -185,7 +180,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
         File pdffile = new File(summaryReportPdf);
         InputStream inputstreampdf = new FileInputStream(pdffile);
         
-	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Write to OBOFile Table", "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstablesandvalidate.run : Write to OBOFile Table", "***", daofactory.getMsgLevel());
 	    
         // Create an OBOFile Object
 

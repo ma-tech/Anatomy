@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        RunOBOLoadComponents.java
+* Title:        RunOBOJacksonComparison.java
 *
 * Date:         2012
 *
@@ -18,12 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-*                database with the extracted data.
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class that does some comparisons
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -43,6 +38,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import utility.Wrapper;
+import utility.FileUtil;
+import utility.CsvUtil;
+import utility.ObjectConverter;
+
 import daointerface.ComponentDAO;
 import daointerface.JOINTimedNodeNodeStageDAO;
 
@@ -50,11 +50,6 @@ import daolayer.DAOFactory;
 
 import daomodel.Component;
 import daomodel.JOINTimedNodeNodeStage;
-
-import utility.FileUtil;
-import utility.CsvUtil;
-import utility.ObjectConverter;
-import utility.Wrapper;
 
 public class RunOBOJacksonComparison {
 

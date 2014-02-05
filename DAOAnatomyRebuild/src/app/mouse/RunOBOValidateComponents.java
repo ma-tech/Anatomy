@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        OBOValidateComponents.java
+* Title:        RunOBOValidateComponents.java
 *
 * Date:         2012
 *
@@ -18,11 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
-*                tables in the Anatomy database .
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
+* Description:  A Main Class that Validates the Stage Ranges of data  previously loaded 
+*                into ANA_COMPONENT... tables in the Anatomy database .
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *

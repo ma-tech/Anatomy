@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        RunExportToXML.java
 *
@@ -34,17 +34,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import obolayer.OBOFactory;
-
-import daolayer.DAOException;
-import daolayer.DAOFactory;
-
-import daointerface.NodeDAO;
-import daointerface.RelationshipDAO;
-
-import daomodel.Node;
-import daomodel.Relationship;
-
 import java.io.File;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -62,16 +51,25 @@ import org.w3c.dom.Element;
 
 import utility.Wrapper;
 
+import obolayer.OBOFactory;
+
+import daolayer.DAOException;
+import daolayer.DAOFactory;
+
+import daointerface.NodeDAO;
+import daointerface.RelationshipDAO;
+
+import daomodel.Node;
+import daomodel.Relationship;
+
 public class RunExportToXML {
 
-	public static void run ( String requestMsgLevel, OBOFactory obofactory, DAOFactory daofactory ) {
+	public static void run ( OBOFactory obofactory, DAOFactory daofactory ) {
     	
     	try {
             // Obtain DAOs.
             NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
             RelationshipDAO relationshipDAO = daofactory.getDAOImpl(RelationshipDAO.class);
-
-            int i = 0;
 
             List<Node> nodes = new ArrayList<Node>();
             nodes = nodeDAO.listAll();
@@ -319,7 +317,7 @@ public class RunExportToXML {
      
     		transformer.transform(source, result);
      
-    	    Wrapper.printMessage("File saved from RunExportToXML!", "***", requestMsgLevel);
+    	    Wrapper.printMessage("File saved from RunExportToXML!", "***", daofactory.getMsgLevel());
     	}
 		catch (DAOException daoexception) {
 			

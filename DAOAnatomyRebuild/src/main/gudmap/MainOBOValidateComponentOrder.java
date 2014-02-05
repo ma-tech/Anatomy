@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOValidateComponents.java
+* Title:        MainOBOValidateComponentOrder.java
 *
 * Date:         2012
 *
@@ -18,7 +18,11 @@
 *
 * Version:      1
 *
-* Description:  A Main Executable Class 
+* Description:  A Main Executable Class that Validates the Ordering the Components Order table
+* 
+* Usage:        "main.MainOBOValidateComponentOrder 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -28,18 +32,12 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main.gudmap;
 
-import obolayer.OBOFactory;
-import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
-
 import utility.Wrapper;
-
+import daolayer.DAOFactory;
+import daolayer.DAOProperty;
 import app.gudmap.RunOBOValidateComponentsOrder;
-
 
 public class MainOBOValidateComponentOrder {
 	/*
@@ -55,10 +53,11 @@ public class MainOBOValidateComponentOrder {
         }
         else {
         
-        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RunOBOValidateComponentsOrder.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            RunOBOValidateComponentsOrder.run( daofactory );
         }    	
     	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
     }

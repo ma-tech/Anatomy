@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainExtractAndWriteOBOFromComponentsTables.java
 *
@@ -36,8 +36,6 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
-
 import routines.runnable.archive.ExtractAndWriteOBOFromComponentsTables;
 
 public class MainExtractAndWriteOBOFromComponentsTables {
@@ -55,7 +53,7 @@ public class MainExtractAndWriteOBOFromComponentsTables {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            ExtractAndWriteOBOFromComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            ExtractAndWriteOBOFromComponentsTables.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

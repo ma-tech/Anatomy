@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainUpdateDatabaseFromComponentsTables.java
 *
@@ -20,10 +20,12 @@
 *
 * Description:  A Main Class that Updates Anatomy Database From the Components Tables
 *
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Usage:       "main.MainUpdateDatabaseFromComponentsTables
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -34,16 +36,18 @@
 */
 package main;
 
+import utility.Wrapper;
+
 import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
 import app.gudmap.RunOBOResetComponentsOrderAlpha;
-import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-import daointerface.ThingDAO;
-import routines.runnable.UpdateDatabaseFromComponentsTables;
 
+import routines.runnable.UpdateDatabaseFromComponentsTables;
 
 public class MainUpdateDatabaseFromComponentsTables{
 
@@ -65,11 +69,11 @@ public class MainUpdateDatabaseFromComponentsTables{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            UpdateDatabaseFromComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            UpdateDatabaseFromComponentsTables.run( daofactory, obofactory );
             
-            RunOBOResetComponentsOrderAlpha.run( obofactory.getMsgLevel(), daofactory );
+            RunOBOResetComponentsOrderAlpha.run( daofactory );
             
-            RebuildRelationshipProjectFromComponentsTables.run( obofactory.getMsgLevel(), daofactory );
+            RebuildRelationshipProjectFromComponentsTables.run( daofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

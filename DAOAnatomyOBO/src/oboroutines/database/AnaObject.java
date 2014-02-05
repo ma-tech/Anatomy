@@ -55,8 +55,8 @@ import obomodel.OBOComponent;
 
 public class AnaObject {
 	// Properties ---------------------------------------------------------------------------------
-    private String requestMsgLevel; 
-	
+    private DAOFactory daofactory; 
+
     //check whether was processed all the way
     private boolean processed;
     
@@ -77,13 +77,13 @@ public class AnaObject {
     
     }
 
-    public AnaObject( String requestMsgLevel, DAOFactory daofactory) {
+    public AnaObject( DAOFactory daofactory) {
     	
     	try {
 
-        	this.requestMsgLevel = requestMsgLevel;
+            this.daofactory = daofactory;
 
-            Wrapper.printMessage("anaobject.constructor", "***", this.requestMsgLevel);
+            Wrapper.printMessage("anaobject.constructor", "***", this.daofactory.getMsgLevel());
 
         	this.thingDAO = daofactory.getDAOImpl(ThingDAO.class);
         	this.nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
@@ -110,7 +110,7 @@ public class AnaObject {
 
     	setProcessed( true );
 
-        Wrapper.printMessage("anaobject.insertANA_OBJECT : Inserts for Table : " + calledFromTable, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.insertANA_OBJECT : Inserts for Table : " + calledFromTable, "***", this.daofactory.getMsgLevel());
         	
         OBOComponent component = new OBOComponent();
 
@@ -164,7 +164,7 @@ public class AnaObject {
     //  Delete rows from ANA_OBJECT
     public boolean deleteANA_OBJECT( ArrayList<OBOComponent> deleteObjects, String calledFromTable ) throws Exception {
 
-        Wrapper.printMessage("anaobject.deleteANA_OBJECT : Deletes to ANA_OBJECT for Table : " + calledFromTable, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.deleteANA_OBJECT : Deletes to ANA_OBJECT for Table : " + calledFromTable, "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -200,7 +200,7 @@ public class AnaObject {
     // getMaxObjectID - OID Surrogate Keys
     public boolean getMaxOID() throws Exception {
 
-        Wrapper.printMessage("anaobject.getMaxObjectID()", "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.getMaxObjectID()", "***", this.daofactory.getMsgLevel());
         	
         try {
 
@@ -226,7 +226,7 @@ public class AnaObject {
     // getMaxPublicId - Public EMAPA/EMAP from ANA_NODE/ANA_TIMED_NODE
     public boolean getMaxPublicId() throws Exception {
 
-        Wrapper.printMessage("anaobject.getMaxPublicId()", "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaobject.getMaxPublicId()", "***", this.daofactory.getMsgLevel());
         	
     	try {
 

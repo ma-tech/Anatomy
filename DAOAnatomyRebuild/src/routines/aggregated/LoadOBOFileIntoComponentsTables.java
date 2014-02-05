@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        LoadOBOFileIntoComponentsTables.java
 *
@@ -18,13 +18,9 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-*                database with the extracted data.
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Description:  This Class extracts a list of components from an OBO file, and loads the data 
+*                into the Components tables of the Anatomy database.
+*                
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -38,6 +34,9 @@ package routines.aggregated;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import utility.Wrapper;
+import utility.ObjectConverter;
 
 import obolayer.OBOFactory;
 
@@ -58,14 +57,11 @@ import daomodel.ComponentOrder;
 import daomodel.ComponentRelationship;
 import daomodel.ComponentSynonym;
 
-import utility.ObjectConverter;
-import utility.Wrapper;
-
 public class LoadOBOFileIntoComponentsTables {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory, List<OBOComponent> obocomponents) throws Exception {
+	public static void run( DAOFactory daofactory, OBOFactory obofactory, List<OBOComponent> obocomponents) throws Exception {
 
-	    Wrapper.printMessage("loadobofileintocomponentstables.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstables.run", "***", daofactory.getMsgLevel());
 
         // Obtain DAOs.
         ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
@@ -308,13 +304,13 @@ public class LoadOBOFileIntoComponentsTables {
 
       	}
 
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : ---------------------------------------------------------------", "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + ObjectConverter.convert(componentDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + ObjectConverter.convert(componentrelationshipDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + ObjectConverter.convert(componentcommentDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_ORDER        = " + ObjectConverter.convert(componentorderDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + ObjectConverter.convert(componentsynonymDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + ObjectConverter.convert(componentalternativeDAO.countAll(), String.class), "***", requestMsgLevel);
-	    Wrapper.printMessage("loadobofileintocomponentstables.run : ---------------------------------------------------------------", "***", requestMsgLevel);
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT              = " + ObjectConverter.convert(componentDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_RELATIONSHIP = " + ObjectConverter.convert(componentrelationshipDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_COMMENTS     = " + ObjectConverter.convert(componentcommentDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_ORDER        = " + ObjectConverter.convert(componentorderDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_SYNONYM      = " + ObjectConverter.convert(componentsynonymDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : The Number of Rows INSERTed into ANA_OBO_COMPONENT_ALTERNATIVE  = " + ObjectConverter.convert(componentalternativeDAO.countAll(), String.class), "***", daofactory.getMsgLevel());
+	    Wrapper.printMessage("loadobofileintocomponentstables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());
     }
 }

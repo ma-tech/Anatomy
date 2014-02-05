@@ -1,43 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
-*
-* Title:        RunListOBOFileContents.java
-*
-* Date:         2012
-*
-* Author:       Mike Wicks
-*
-* Copyright:    2012
-*               Medical Research Council, UK.
-*               All rights reserved.
-*
-* Address:      MRC Human Genetics Unit,
-*               Western General Hospital,
-*               Edinburgh, EH4 2XU, UK.
-*
-* Version:      1
-*
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
-*                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
-* Maintenance:  Log changes below, with most recent at top of list.
-*
-* Who; When; What;
-*
-* Mike Wicks; February 2012; Create Class
-*
-*----------------------------------------------------------------------------------------------
-*/
-package app;
-
-/*
-*----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        RunExtractOBOAndValidate.java
 *
@@ -69,6 +32,7 @@ package app;
 *
 *----------------------------------------------------------------------------------------------
 */
+package app;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,20 +40,21 @@ import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
+
 import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
+import utility.ExecuteCommand;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.MapBuilder;
 import oboroutines.Parser;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
-import utility.ExecuteCommand;
-
 
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
@@ -103,11 +68,7 @@ import daomodel.OBOFile;
 
 import obolayer.OBOFactory;
 
-import utility.Wrapper;
-
-
 public class RunExtractOBOAndValidate {
-	
 	/*
 	 * run Method
 	 */
@@ -120,8 +81,6 @@ public class RunExtractOBOAndValidate {
 		    
 		    // Find a OBOFile
 		    OBOFile obofile = obofileDAO.findWithBinary(Oid);
-		    
-		    String requestMsgLevel = obofactory.getMsgLevel();
 		    
             // Open streams.
 	        OutputStream output = null;
@@ -154,7 +113,7 @@ public class RunExtractOBOAndValidate {
         	ArrayList<OBOComponent> componentList = new ArrayList<OBOComponent>();
         	
         	Parser parser = new Parser(
-        			requestMsgLevel,
+        			daofactory.getMsgLevel(),
         			filePath,
         			false,
         			"mouse");
@@ -164,20 +123,20 @@ public class RunExtractOBOAndValidate {
         	//Wrapper.printMessage("componentList.size()   = " + componentList.size(), "*", "*");
 
     	    //import Obo File from obo.properties, file.oboinfile
-            LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, componentList);
+            LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, componentList);
             
 
             //import Database from dao.properties, anatomy008.url
-            ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
+            ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
             ArrayList<OBOComponent> parseOldTermList = importdatabase.getTermList();
 
             //Build hashmap of components
-            MapBuilder mapbuilder = new MapBuilder( requestMsgLevel, componentList );
+            MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), componentList );
             //Build tree
-            TreeBuilder treebuilder = new TreeBuilder( requestMsgLevel, mapbuilder );
+            TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder );
 
             //check for rules violation
-            ValidateComponents validatecomponents = new ValidateComponents( requestMsgLevel, obofactory, componentList, parseOldTermList, treebuilder);
+            ValidateComponents validatecomponents = new ValidateComponents( obofactory, componentList, parseOldTermList, treebuilder);
             
             if ( validatecomponents.getProblemTermList().isEmpty() ) {
             	obofile.setValidation("VALIDATED");
@@ -187,9 +146,9 @@ public class RunExtractOBOAndValidate {
             }
             
             //generate txt summary report
-            GenerateEditorReport generateeditorreport = new GenerateEditorReport( requestMsgLevel, validatecomponents, filePath, filePathTextReport );
+            GenerateEditorReport generateeditorreport = new GenerateEditorReport( daofactory.getMsgLevel(), validatecomponents, filePath, filePathTextReport );
             //generate txt summary report
-            GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( requestMsgLevel, validatecomponents, treebuilder, filePath, filePathPdfReport );
+            GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, treebuilder, filePath, filePathPdfReport );
 
             file = new File(filePath);
             input = new FileInputStream(file);

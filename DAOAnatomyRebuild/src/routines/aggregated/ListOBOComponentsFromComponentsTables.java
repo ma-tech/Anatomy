@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        ListOBOComponentsFromComponentsTables.java
 *
@@ -19,8 +19,8 @@
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
-* Description:  This Class extracts a list of components from the database, and builds a list 
-*                in the OBO style.
+* Description:  This Class extracts a list of components from the COMPONENTS tables in the 
+*                anatomy database, and builds a list in the OBO style.
 *
 * Who; When; What;
 *
@@ -35,6 +35,9 @@ package routines.aggregated;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import utility.Wrapper;
+import utility.ObjectConverter;
 
 import daointerface.ComponentAlternativeDAO;
 import daointerface.ComponentCommentDAO;
@@ -57,22 +60,15 @@ import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
-import utility.ObjectConverter;
-import utility.Wrapper;
-
 public class ListOBOComponentsFromComponentsTables {
     // Properties ---------------------------------------------------------------------------------
     // global variables
     private ArrayList <OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     
-    private String requestMsgLevel;
-    
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromComponentsTables(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+    public ListOBOComponentsFromComponentsTables( DAOFactory daofactory, OBOFactory obofactory ) throws Exception {
     	
-		this.requestMsgLevel = requestMsgLevel;
-		
-		Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor", "***", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor", "***", daofactory.getMsgLevel());
 
     	try {
     		
@@ -219,7 +215,7 @@ public class ListOBOComponentsFromComponentsTables {
            		
            		if ( "part_of".equals(obocomponent.getName()) ) {
 
-           			Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor:obocomponent.toString() = " + obocomponent.toString(), "*", requestMsgLevel);
+           			Wrapper.printMessage("listobocomponentsfromcomponentstables.constructor:obocomponent.toString() = " + obocomponent.toString(), "*", daofactory.getMsgLevel());
            		}
           	}
     	}

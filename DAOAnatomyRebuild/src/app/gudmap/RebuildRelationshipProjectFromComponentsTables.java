@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        UpdateDatabaseFromComponentsTables.java
+* Title:        RebuildRelationshipProjectFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -18,12 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
-*                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class that rebuilds the Relationship Project Table
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,16 +32,15 @@ package app.gudmap;
 
 import oboroutines.database.AnaRelationship;
 import oboroutines.database.DatabaseException;
+
 import daolayer.DAOFactory;
-
-
 
 public class RebuildRelationshipProjectFromComponentsTables {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory) throws Exception {
+	public static void run( DAOFactory daofactory) throws Exception {
 
         // Rebuild ANA_RELATIONSHIP_PROJECT
-        AnaRelationship anarelationship = new AnaRelationship( requestMsgLevel, daofactory );
+        AnaRelationship anarelationship = new AnaRelationship( daofactory );
 
         if ( !anarelationship.rebuildANA_RELATIONSHIP_PROJECT()) {
 

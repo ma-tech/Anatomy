@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainExtractAndWriteOBOFromExistingDatabase.java
 *
@@ -21,6 +21,12 @@
 * Description:  A Main Executable Class that Extracts And Write OBOComponents From an 
 *                Existing Anatomy Database
 * 
+* Usage:        "main.MainExtractAndWriteOBOFromExistingDatabase 
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -32,11 +38,13 @@
 package main;
 
 import utility.Wrapper;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
-import daointerface.ThingDAO;
+
 import routines.runnable.ExtractAndWriteOBOFromExistingDatabase;
 
 public class MainExtractAndWriteOBOFromExistingDatabase {
@@ -59,7 +67,7 @@ public class MainExtractAndWriteOBOFromExistingDatabase {
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            ExtractAndWriteOBOFromExistingDatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            ExtractAndWriteOBOFromExistingDatabase.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

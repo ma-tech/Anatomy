@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainCheckComponentsTablesReferenceTree.java
 *
@@ -34,7 +34,6 @@ import utility.Wrapper;
 
 import obolayer.OBOFactory;
 
-import daointerface.ThingDAO;
 import daolayer.DAOFactory;
 
 import routines.runnable.archive.CheckComponentsTablesReferenceTree;
@@ -54,7 +53,7 @@ public class MainCheckComponentsTablesReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckComponentsTablesReferenceTree.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            CheckComponentsTablesReferenceTree.run( daofactory, obofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

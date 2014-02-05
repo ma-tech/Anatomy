@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        MainUpdateDatabaseFromComponentsTables.java
+* Title:        MainInsertSynonymsFromCSVFile.java
 *
 * Date:         2012
 *
@@ -18,12 +18,12 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Updates Anatomy Database From the Components Tables
+* Description:  A Main Class that Inserts Synonyms into the Anatomy Database From a CSV file
 *
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Usage:        "main.RunInsertSynonymsFromCSVFile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -37,11 +37,9 @@ package main.gudmap;
 import utility.Wrapper;
 
 import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
+import daolayer.DAOProperty;
 
 import app.gudmap.RunInsertSynonymsFromCSVFile;
-
 
 public class MainInsertSynonymsFromCSVFile{
 
@@ -55,9 +53,11 @@ public class MainInsertSynonymsFromCSVFile{
         }
         else {
         
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RunInsertSynonymsFromCSVFile.run( daofactory.getMsgLevel(), daofactory );
+            RunInsertSynonymsFromCSVFile.run( daofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

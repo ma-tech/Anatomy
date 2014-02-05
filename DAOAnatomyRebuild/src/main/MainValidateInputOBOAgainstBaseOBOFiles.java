@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainValidateInputOBOAgainstBaseOBOFiles.java
 *
@@ -20,9 +20,10 @@
 *
 * Description:  A Main Class that Loads 2 OBOFiles into memory, and validates INPUT against BASE.
 *
-*               Required Files:
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Usage:       "main.MainValidateInputOBOAgainstBaseOBOFiles
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -39,7 +40,6 @@ import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
 import routines.runnable.ValidateInputOBOAgainstBaseOBOFiles;
-
 
 public class MainValidateInputOBOAgainstBaseOBOFiles{
 
@@ -58,7 +58,7 @@ public class MainValidateInputOBOAgainstBaseOBOFiles{
 
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             
-            ValidateInputOBOAgainstBaseOBOFiles.run( obofactory.getMsgLevel(), obofactory );
+            ValidateInputOBOAgainstBaseOBOFiles.run( obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -94,23 +94,22 @@ public class ValidateComponents {
     //flag for proceeding with each check in entire class
     private boolean proceed;
     
-    private String requestMsgLevel;
+    private OBOFactory obofactory;
+    
     //----------------------------------------------------------------------------------------------
 
     // Constructor ---------------------------------------------------------------------------------
     //  A - 2 Lists of Terms
-    public ValidateComponents(
-    		String requestMsgLevel,  
-    		OBOFactory obofactory,
+    public ValidateComponents(OBOFactory obofactory,
     		ArrayList<OBOComponent> newTermList, 
             ArrayList<OBOComponent> oldTermList, 
             TreeBuilder treebuilder ) {
+    	
+    	this.obofactory = obofactory;
 
     	try {
     		
-            this.requestMsgLevel = requestMsgLevel;
-            
-            Wrapper.printMessage("validatecomponents.constructor #1 - 2 Lists", "***", this.requestMsgLevel);
+            Wrapper.printMessage("validatecomponents.constructor #1 - 2 Lists", "***", this.obofactory.getMsgLevel());
 
         	// 1: set abstract class parameters
             // 2: set stage class parameters
@@ -217,17 +216,15 @@ public class ValidateComponents {
 
     // Constructor ---------------------------------------------------------------------------------
     //  B - 1 List of Terms
-    public ValidateComponents(
-    		String requestMsgLevel, 
-    		OBOFactory obofactory, 
+    public ValidateComponents(OBOFactory obofactory, 
     		ArrayList<OBOComponent> newTermList, 
     		TreeBuilder treebuilder) {
+    	
+    	this.obofactory = obofactory;
 
     	try {
     		
-            this.requestMsgLevel = requestMsgLevel;
-    	
-            Wrapper.printMessage("validatecomponents.constructor #2 - 1 List", "***", this.requestMsgLevel);
+            Wrapper.printMessage("validatecomponents.constructor #2 - 1 List", "***", this.obofactory.getMsgLevel());
 
             // 1: set abstract class parameters
             // 2: set stage class parameters
@@ -321,7 +318,7 @@ public class ValidateComponents {
      */
    public void clearStatusComments( ArrayList<OBOComponent>termList ) throws Exception{
 
-       Wrapper.printMessage("validatecomponents.clearStatusComments", "***", this.requestMsgLevel);
+       Wrapper.printMessage("validatecomponents.clearStatusComments", "***", this.obofactory.getMsgLevel());
        	
        for ( OBOComponent obocomponent: termList ){
     	   
@@ -355,7 +352,7 @@ public class ValidateComponents {
     	 *   we need to check that these conform to the root characteristics
     	 * 
     	 */
-        Wrapper.printMessage("validatecomponents.validateConfiguredRoots", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.validateConfiguredRoots", "***", this.obofactory.getMsgLevel());
         
         String rootNameSpace = "";
         String rootName = "";
@@ -501,7 +498,7 @@ public class ValidateComponents {
      */
     private ArrayList<OBOComponent> getAbstractAnatomyChildren(TreeBuilder treebuilder) throws Exception{
 
-        Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren", "***", this.obofactory.getMsgLevel());
         
         ArrayList<OBOComponent> abstractAnatomyChildren = new ArrayList<OBOComponent>();
         
@@ -510,7 +507,7 @@ public class ValidateComponents {
         //if ( this.abstractRootList.isEmpty() ){
         if ( vRoots.isEmpty() ){
         	
-        	Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren : Failed NO TREE ROOTS!", "*", this.requestMsgLevel);
+        	Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren : Failed NO TREE ROOTS!", "*", this.obofactory.getMsgLevel());
             //no tree roots have the namespace configured for the abstract 
             // anatomy in the gui 
             //might be incorrectly named namespace
@@ -619,7 +616,7 @@ public class ValidateComponents {
      */
     private void validatePaths(TreeBuilder treebuilder) throws Exception{
 
-        Wrapper.printMessage("validatecomponents.validatePaths", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.validatePaths", "***", this.obofactory.getMsgLevel());
         
         Vector<DefaultMutableTreeNode[]> paths = new Vector<DefaultMutableTreeNode[]>();
 
@@ -683,7 +680,7 @@ public class ValidateComponents {
      */
     private void checkAbstractAnatomyLinks( ) throws Exception {
 
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks", "***", this.obofactory.getMsgLevel());
 
         //RED CHECK
         
@@ -716,7 +713,7 @@ public class ValidateComponents {
                     obocomponent.getStartSequence() == ERROR_STAGE ) {
 
                     Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:"+ obocomponent.getID() + ": " +
-                            "Relation: Starts At -- Missing starts_at stage!", "*", this.requestMsgLevel);
+                            "Relation: Starts At -- Missing starts_at stage!", "*", this.obofactory.getMsgLevel());
 
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Relation: starts_at -- Missing " +
@@ -729,7 +726,7 @@ public class ValidateComponents {
                     obocomponent.getStartSequence() != ERROR_STAGE ) {
 
                     Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:"+ obocomponent.getID() + ": " +
-                            "Relation: Ends At -- Missing ends_at stage!", "*", this.requestMsgLevel);
+                            "Relation: Ends At -- Missing ends_at stage!", "*", this.obofactory.getMsgLevel());
                                
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("validatecomponents.checkAbstractAnatomyLinks:" + "Relation: ends_at -- " +
@@ -745,7 +742,7 @@ public class ValidateComponents {
                         	
                         Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                                 "Relation: Ends At + Starts At -- Ends_at stage " +
-                                "earlier than Starts_at stage!", "*", this.requestMsgLevel);
+                                "earlier than Starts_at stage!", "*", this.obofactory.getMsgLevel());
                         
                         obocomponent.setFlagMissingRel(true);
                         obocomponent.setCheckComment("Relation: starts_at, ends_at " +
@@ -759,7 +756,7 @@ public class ValidateComponents {
                         Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                                 "Relation: Stages are out of range! [Start: " +
                                 obocomponent.getStartSequence() + ", Ends: " +
-                                obocomponent.getEndSequence() + "]", "*", this.requestMsgLevel);
+                                obocomponent.getEndSequence() + "]", "*", this.obofactory.getMsgLevel());
 
                         obocomponent.setFlagMissingRel(true);
                         obocomponent.setCheckComment("Relation: starts_at, ends_at " +
@@ -779,7 +776,7 @@ public class ValidateComponents {
                 if (obocomponent.getChildOfs().isEmpty() ){
                 	
                     Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
-                            "Relation: Part Of -- No parent entry!", "*", this.requestMsgLevel);
+                            "Relation: Part Of -- No parent entry!", "*", this.obofactory.getMsgLevel());
                     
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Relation: part_of -- " +
@@ -795,7 +792,7 @@ public class ValidateComponents {
 
                     Wrapper.printMessage("validatecomponents.checkAbstractAnatomyLinks:" + obocomponent.getID() + ": " +
                             "Relation: Part Of -- Parent has been deleted from " +
-                            "file!", "*", this.requestMsgLevel);
+                            "file!", "*", this.obofactory.getMsgLevel());
 
                     obocomponent.setFlagMissingRel(true);
                     obocomponent.setCheckComment("Orphan component -- Phantom " +
@@ -842,7 +839,7 @@ public class ValidateComponents {
      */
 	private void checkAbstractAnatomyStages() throws Exception{
 
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyStages", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyStages", "***", this.obofactory.getMsgLevel());
 
 		//get the primary path for each component
         // for each path, iterate through each node and convert to component
@@ -902,7 +899,7 @@ public class ValidateComponents {
      */
     private void checkAbstractAnatomyParents(TreeBuilder tree) throws Exception{
         
-        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyParents", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkAbstractAnatomyParents", "***", this.obofactory.getMsgLevel());
         
         int primaryParents = 0;
         ArrayList<String> primaryParentsList = new ArrayList<String>();
@@ -949,7 +946,7 @@ public class ValidateComponents {
      */
     private void checkChanges() throws Exception {
 
-        Wrapper.printMessage("validatecomponents.checkChanges", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.checkChanges", "***", this.obofactory.getMsgLevel());
         
         OBOComponent proposed, reference;
         boolean flagFound;
@@ -1061,7 +1058,7 @@ public class ValidateComponents {
                             
                             	proposed.setCheckComment( diff );
                             	
-                                Wrapper.printMessage("validatecomponents.checkChanges:Comments diff = " + diff + "!", "***", this.requestMsgLevel);
+                                Wrapper.printMessage("validatecomponents.checkChanges:Comments diff = " + diff + "!", "***", this.obofactory.getMsgLevel());
                            }
                             
                         	this.changesTermList.add(proposed);
@@ -1180,8 +1177,8 @@ public class ValidateComponents {
                 //add to problemTermList, disallowed deletions
                 this.problemTermList.add(reference);
 
-                Wrapper.printMessage("validatecomponents.checkChanges:Failed OBOComponent = " + reference.getID() + "!", "*", this.requestMsgLevel);
-                Wrapper.printMessage("validatecomponents.checkChanges:" + reference.toString() + "!", "*", this.requestMsgLevel);
+                Wrapper.printMessage("validatecomponents.checkChanges:Failed OBOComponent = " + reference.getID() + "!", "*", this.obofactory.getMsgLevel());
+                Wrapper.printMessage("validatecomponents.checkChanges:" + reference.toString() + "!", "*", this.obofactory.getMsgLevel());
 
                 this.changesTermList.add(reference);
             }
@@ -1204,7 +1201,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getNewTermList() throws Exception{
         
-        Wrapper.printMessage("validatecomponents.getNewTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getNewTermList", "***", this.obofactory.getMsgLevel());
            	
     	ArrayList<OBOComponent> newTerms = new ArrayList<OBOComponent>();
         
@@ -1221,7 +1218,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getDeletedTermList() throws Exception{
         
-        Wrapper.printMessage("validatecomponents.getDeletedTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getDeletedTermList", "***", this.obofactory.getMsgLevel());
         
         ArrayList<OBOComponent>deletedTerms = new ArrayList<OBOComponent>();
         
@@ -1238,7 +1235,7 @@ public class ValidateComponents {
     
     public ArrayList<OBOComponent> getModifiedTermList() throws Exception{
     
-        Wrapper.printMessage("validatecomponents.getModifiedTermList", "***", this.requestMsgLevel);
+        Wrapper.printMessage("validatecomponents.getModifiedTermList", "***", this.obofactory.getMsgLevel());
         
     	ArrayList<OBOComponent>modifiedTerms = new ArrayList<OBOComponent>();
         

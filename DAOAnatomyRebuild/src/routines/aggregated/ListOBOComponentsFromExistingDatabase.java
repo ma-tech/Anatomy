@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        ListOBOComponentsFromExistingDatabase.java
 *
@@ -17,10 +17,10 @@
 *
 * Version:      1
 *
-* Maintenance:  Log changes below, with most recent at top of list.
+* Description:  This Class extracts a list of components from the Base tables in the anatomy 
+*                database, and builds a list in the OBO style.
 *
-* Description:  This Class extracts a list of components from the database, and builds a list 
-*                in the OBO style.
+* Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
@@ -35,6 +35,9 @@ package routines.aggregated;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
+
+import utility.Wrapper;
+import utility.ObjectConverter;
 
 import daolayer.DAOException;
 import daolayer.DAOFactory;
@@ -64,9 +67,6 @@ import obolayer.OBOFactory;
 import obomodel.OBOComponent;
 import obomodel.OBORelation;
 
-import utility.ObjectConverter;
-import utility.Wrapper;
-
 public class ListOBOComponentsFromExistingDatabase {
     // Properties ---------------------------------------------------------------------------------
     // global variables
@@ -74,8 +74,6 @@ public class ListOBOComponentsFromExistingDatabase {
     private ArrayList <OBORelation> relationList = new ArrayList <OBORelation>();
     
     private boolean defaultroot;
-    
-    private String requestMsgLevel;
     
     private static String HUMAN_NAME_SPACE = "human_developmental_anatomy";
     //private static String MOUSE_NAME_SPACE = "abstract_anatomy";
@@ -122,13 +120,11 @@ public class ListOBOComponentsFromExistingDatabase {
     private static String CHICK_STAGE_MIN =  "EGK-I";
     
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromExistingDatabase(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot ) throws Exception {
+    public ListOBOComponentsFromExistingDatabase( DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot ) throws Exception {
     	
     	this.defaultroot = defaultroot;
     	
-		this.requestMsgLevel = requestMsgLevel;
-		
-		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#1", "***", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#1", "***", daofactory.getMsgLevel());
 
 		try {
 			
@@ -159,7 +155,7 @@ public class ListOBOComponentsFromExistingDatabase {
       		}
       		else {
       			
-      			Wrapper.printMessage("1 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+      			Wrapper.printMessage("1 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
       		}
 
       		List<Node> nodes = new ArrayList<Node>();
@@ -195,7 +191,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("2 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+              			Wrapper.printMessage("2 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
               		}
 
               		obocomponent.addChildOfType( "IS_A" );
@@ -218,7 +214,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("3 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+              			Wrapper.printMessage("3 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
               		}
 
                     obocomponent.setID( node.getPublicId() );
@@ -280,7 +276,7 @@ public class ListOBOComponentsFromExistingDatabase {
                         }
                         else {
                         	
-                    	    Wrapper.printMessage("4 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Relationship Type = " + nrrpJoin.getTypeFK(), "*", this.requestMsgLevel);
+                    	    Wrapper.printMessage("4 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Relationship Type = " + nrrpJoin.getTypeFK(), "*", daofactory.getMsgLevel());
                         }
                     }
 
@@ -358,7 +354,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("5 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+              			Wrapper.printMessage("5 - listobocomponentsfromexistingdatabase.constructor#1:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
               		}
 
                   	while (iteratorTnsJoin.hasNext()) {
@@ -393,13 +389,11 @@ public class ListOBOComponentsFromExistingDatabase {
         }
     }
 
-    public ListOBOComponentsFromExistingDatabase(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot, String stage ) throws Exception {
+    public ListOBOComponentsFromExistingDatabase( DAOFactory daofactory, OBOFactory obofactory, boolean defaultroot, String stage ) throws Exception {
     	
     	this.defaultroot = defaultroot;
     	
-		this.requestMsgLevel = requestMsgLevel;
-		
-		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2", "***", this.requestMsgLevel);
+		Wrapper.printMessage("listobocomponentsfromexistingdatabase.constructor#2", "***", daofactory.getMsgLevel());
 
 		try {
     		
@@ -425,7 +419,7 @@ public class ListOBOComponentsFromExistingDatabase {
       		}
       		else {
       			
-      			Wrapper.printMessage("6 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+      			Wrapper.printMessage("6 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
       		}
 
 
@@ -462,7 +456,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("7 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+              			Wrapper.printMessage("7 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
               		}
 
               		obocomponent.addChildOfType( "IS_A" );
@@ -485,7 +479,7 @@ public class ListOBOComponentsFromExistingDatabase {
               		}
               		else {
               			
-              			Wrapper.printMessage("8 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", this.requestMsgLevel);
+              			Wrapper.printMessage("8 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Species = " + obofactory.getOBOComponentAccess().species(), "*", daofactory.getMsgLevel());
               		}
 
                     obocomponent.setID( jointimednodenodestage.getPublicTimedNodeId() );
@@ -546,7 +540,7 @@ public class ListOBOComponentsFromExistingDatabase {
                         }
                         else {
 
-                    	    Wrapper.printMessage("9 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Relationship Type = " + tnnsrntnsJoin.getTypeFK(), "*", this.requestMsgLevel);
+                    	    Wrapper.printMessage("9 - listobocomponentsfromexistingdatabase.constructor#2:UNKNOWN Relationship Type = " + tnnsrntnsJoin.getTypeFK(), "*", daofactory.getMsgLevel());
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        CheckComponentsTablesReferenceTree.java
 *
@@ -18,11 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and validates it against itself.
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -38,9 +34,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+import utility.Wrapper;
+
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
+
 import oboroutines.MapBuilder;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
@@ -49,30 +48,27 @@ import routines.aggregated.ListOBOComponentsFromComponentsTables;
 
 import daolayer.DAOFactory;
 
-import utility.Wrapper;
-
 public class CheckComponentsTablesReferenceTree {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run( DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-	    Wrapper.printMessage("checkcomponentstablesreferencetree.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("checkcomponentstablesreferencetree.run", "***", daofactory.getMsgLevel());
 
 	    //import database components table contents into OBOComponent format
-    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
+    	ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
         
         ArrayList<OBOComponent> parseOldTermList = (ArrayList<OBOComponent>) obocomponents;
         
         //Build hashmap of components
-        MapBuilder mapbuilder = new MapBuilder( requestMsgLevel, parseOldTermList);
+        MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), parseOldTermList);
         //Build tree
-        TreeBuilder treebuilder = new TreeBuilder( requestMsgLevel, mapbuilder);
+        TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder);
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( requestMsgLevel,
-            		obofactory, 
+            new ValidateComponents( obofactory, 
             		parseOldTermList, 
             		treebuilder);
 
@@ -81,17 +77,17 @@ public class CheckComponentsTablesReferenceTree {
         	
     	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : =======\nPASSED!\n=======\n" +
                     "Loading Default Reference Tree From Database Components Tables:\n" +
-            		"All Components in the Reference Tree are OK!", "***", requestMsgLevel);
+            		"All Components in the Reference Tree are OK!", "***", daofactory.getMsgLevel());
         }
         else {
         	
     	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : =======\nFAILED!\n=======\n" +
                     "Loading Default Reference Tree From Database Components Tables:\n" +
-            		"Some components in the Reference Tree contain rule violations.", "***", requestMsgLevel);
+            		"Some components in the Reference Tree contain rule violations.", "***", daofactory.getMsgLevel());
 
     	    ArrayList<OBOComponent> problemTermList = validatecomponents.getProblemTermList();
             
-    	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : \nThere are " + problemTermList.size() + " problems!\n", "***", requestMsgLevel);
+    	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : \nThere are " + problemTermList.size() + " problems!\n", "***", daofactory.getMsgLevel());
     	    
     	    Iterator<OBOComponent> iteratorComponent = problemTermList.iterator();
 
@@ -102,7 +98,7 @@ public class CheckComponentsTablesReferenceTree {
           		i++;
           		OBOComponent obocomponent = iteratorComponent.next();
 
-        	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : Problem Component #" + i + ": " + obocomponent.toString(), "***", requestMsgLevel);
+        	    Wrapper.printMessage("checkcomponentstablesreferencetree.run : Problem Component #" + i + ": " + obocomponent.toString(), "***", daofactory.getMsgLevel());
           	}
         }
     }

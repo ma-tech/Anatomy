@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        MainOBOValidateComponents.java
+* Title:        MainOBOResetComponentsOrderAlpha.java
 *
 * Date:         2012
 *
@@ -18,7 +18,12 @@
 *
 * Version:      1
 *
-* Description:  A Main Executable Class 
+* Description:  A Main Executable Class that resets the Ordering the Components Order table
+*                into Alphabetic ordering
+* 
+* Usage:        "main.MainOBOResetComponentsOrderAlpha 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -28,17 +33,14 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main.gudmap;
-
-import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
 
 import utility.Wrapper;
 
-import app.gudmap.RunOBOResetComponentsOrderAlpha;
+import daolayer.DAOFactory;
+import daolayer.DAOProperty;
 
+import app.gudmap.RunOBOResetComponentsOrderAlpha;
 
 public class MainOBOResetComponentsOrderAlpha {
 	/*
@@ -48,15 +50,17 @@ public class MainOBOResetComponentsOrderAlpha {
     	
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-        if (args.length != 1) {
+        if (args.length != 2) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Argument passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RunOBOResetComponentsOrderAlpha.run( daofactory.getMsgLevel(), daofactory );
+            RunOBOResetComponentsOrderAlpha.run( daofactory );
         }
         
     	Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

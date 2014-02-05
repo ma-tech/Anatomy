@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainEmptyComponentsTables.java
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Empties the Components Tables in the Anatomy Database
+* Description:  A Main Class
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -34,11 +34,7 @@ import utility.Wrapper;
 
 import routines.aggregated.EmptyComponentsTables;
 
-import obolayer.OBOFactory;
-
 import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
 
 public class MainEmptyComponentsTables {
 
@@ -46,16 +42,15 @@ public class MainEmptyComponentsTables {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 2) {
+		if (args.length != 1) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
-        	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            EmptyComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            EmptyComponentsTables.run( daofactory );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

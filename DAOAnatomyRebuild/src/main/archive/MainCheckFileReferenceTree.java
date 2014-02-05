@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainCheckFileReferenceTree.java
 *
@@ -18,12 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and populates 4 tables in the anatomy
-*                database with the extracted data.
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -43,8 +38,6 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
-
 public class MainCheckFileReferenceTree {
 
 	public static void main(String[] args) throws Exception {
@@ -60,7 +53,7 @@ public class MainCheckFileReferenceTree {
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            CheckFileReferenceTree.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            CheckFileReferenceTree.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

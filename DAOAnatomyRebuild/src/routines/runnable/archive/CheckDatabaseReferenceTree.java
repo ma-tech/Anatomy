@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        CheckDatabaseReferenceTree.java
 *
@@ -18,11 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an Anatomy Database and validates it against itself
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*
+* Description:
+*   
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,7 +32,10 @@ package routines.runnable.archive;
 
 import java.util.ArrayList;
 
+import utility.Wrapper;
+
 import obomodel.OBOComponent;
+
 import oboroutines.MapBuilder;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
@@ -46,29 +46,26 @@ import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 
 import daolayer.DAOFactory;
 
-import utility.Wrapper;
-
 public class CheckDatabaseReferenceTree {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run( DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     
-	    Wrapper.printMessage("checkdatabasereferencetree.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("checkdatabasereferencetree.run", "***", daofactory.getMsgLevel());
 
 	    //import database
-    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( requestMsgLevel, daofactory, obofactory, true );
+    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
 
         ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
         ArrayList<OBOComponent> parseOldTermList = expTermList;
         
         //Build hashmap of components
-        MapBuilder mapbuilder = new MapBuilder( requestMsgLevel, parseOldTermList);
+        MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), parseOldTermList);
         //Build tree
-        TreeBuilder treebuilder = new TreeBuilder( requestMsgLevel, mapbuilder);
+        TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder);
 
         //check for rules violation
         ValidateComponents validatecomponents =
-            new ValidateComponents( requestMsgLevel,
-            		obofactory, 
+            new ValidateComponents( obofactory, 
             		parseOldTermList, 
             		treebuilder);
 
@@ -77,7 +74,7 @@ public class CheckDatabaseReferenceTree {
 
     	    Wrapper.printMessage("checkdatabasereferencetree.run :  \n" +
                     "Loading Default Reference Tree From ANATOMY DATABASE:\n===\n" +
-        			"All Components in the Reference Tree are OK!", "***", requestMsgLevel);
+        			"All Components in the Reference Tree are OK!", "***", daofactory.getMsgLevel());
         }
         else {
         	
@@ -85,13 +82,13 @@ public class CheckDatabaseReferenceTree {
                     "Loading Default Reference TreeFrom ANATOMY DATABASE:\n===\n" + 
             		"Some components in the Reference Tree contain rule violations.\n" +
                     "Please load the reference under the proposed tab to fix the problem; \n" +
-                    "Alternatively, please select another reference.", "***", requestMsgLevel);
+                    "Alternatively, please select another reference.", "***", daofactory.getMsgLevel());
 
             OBOComponent probobocomponent =
                     (OBOComponent) validatecomponents.getProblemTermList().get(0);
             
-    	    Wrapper.printMessage("checkdatabasereferencetree.run : no. of components with problems = " + validatecomponents.getProblemTermList().size(), "***", requestMsgLevel);
-    	    Wrapper.printMessage("checkdatabasereferencetree.run : comments = " + probobocomponent.getCheckComments(), "***", requestMsgLevel);
+    	    Wrapper.printMessage("checkdatabasereferencetree.run : no. of components with problems = " + validatecomponents.getProblemTermList().size(), "***", daofactory.getMsgLevel());
+    	    Wrapper.printMessage("checkdatabasereferencetree.run : comments = " + probobocomponent.getCheckComments(), "***", daofactory.getMsgLevel());
         }
     }
 }

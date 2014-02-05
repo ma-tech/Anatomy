@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainLoadOBOFileIntoComponentsTablesAndValidate.java
 *
@@ -21,10 +21,12 @@
 * Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
 *                against the existing anatomy database
 *
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Usage:        "main.MainLoadOBOFileIntoComponentsTablesAndValidate 
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -36,15 +38,19 @@
 package main;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
+
 import routines.aggregated.EmptyComponentsTables;
+
 import routines.runnable.LoadInputOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
-import app.gudmap.RunOBOValidateComponentsOrder; 
 
+import app.gudmap.RunOBOValidateComponentsOrder; 
 
 public class MainLoadOBOFileIntoComponentsTablesAndValidate{
 
@@ -66,10 +72,13 @@ public class MainLoadOBOFileIntoComponentsTablesAndValidate{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
             
-            EmptyComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory );
-            LoadInputOBOFileIntoComponentsTablesAndValidate.run( obofactory.getMsgLevel(), daofactory, obofactory );
-            RunOBOCheckComponentsOrdering.run( obofactory.getMsgLevel(), daofactory, obofactory );
-            RunOBOValidateComponentsOrder.run( obofactory.getMsgLevel(), daofactory, obofactory) ;
+            EmptyComponentsTables.run( daofactory );
+            
+            LoadInputOBOFileIntoComponentsTablesAndValidate.run( daofactory, obofactory );
+            
+            RunOBOCheckComponentsOrdering.run( daofactory );
+            
+            RunOBOValidateComponentsOrder.run( daofactory) ;
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

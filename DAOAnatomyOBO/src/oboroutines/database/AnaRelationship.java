@@ -75,8 +75,6 @@ public class AnaRelationship {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel; 
-	
     //check whether was processed all the way
     private boolean processed;
     
@@ -97,15 +95,13 @@ public class AnaRelationship {
     	
     }
 
-    public AnaRelationship( String requestMsgLevel, DAOFactory daofactory) {
+    public AnaRelationship( DAOFactory daofactory) {
     	
     	try {
     		
-        	this.requestMsgLevel = requestMsgLevel;
-
-            Wrapper.printMessage("anarelationship.constructor", "***", this.requestMsgLevel);
-
             this.daofactory = daofactory;
+
+            Wrapper.printMessage("anarelationship.constructor", "***", this.daofactory.getMsgLevel());
 
         	this.logDAO = daofactory.getDAOImpl(LogDAO.class);
         	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
@@ -145,7 +141,7 @@ public class AnaRelationship {
     		OBOComponent groupclassobocomponent, 
     		OBOComponent grouptermclassobocomponent) throws Exception {
     	
-        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         ArrayList<OBOComponent> insertRelObjects = new ArrayList<OBOComponent>();
         
@@ -171,7 +167,7 @@ public class AnaRelationship {
           
                 if ( !project.equals("GUDMAP") && !project.equals("EMAP") ) {
                 	
-                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Project Value = " + project , "*", this.requestMsgLevel);
+                    Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Project Value = " + project , "*", this.daofactory.getMsgLevel());
                 }
 
                 for ( int i = 0; i< newTermList.size(); i++) {
@@ -263,7 +259,7 @@ public class AnaRelationship {
                         }
                         else {
                         	
-                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Species = " + strSpecies, "*", this.requestMsgLevel);
+                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Species = " + strSpecies, "*", this.daofactory.getMsgLevel());
                             flagInsert = false;
                         }
 
@@ -323,7 +319,7 @@ public class AnaRelationship {
                 if ( !insertRelObjects.isEmpty() ) {
                 	
                     //INSERT INTO ANA_OBJECT and set DBIDs
-                    AnaObject anaobject = new AnaObject(this.requestMsgLevel, this.daofactory);
+                    AnaObject anaobject = new AnaObject( this.daofactory );
                     
                     if ( !anaobject.insertANA_OBJECT( insertRelObjects, "ANA_RELATIONSHIP" ) ) {
 
@@ -385,7 +381,7 @@ public class AnaRelationship {
                         }
                         else {
 
-                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.requestMsgLevel);
+                        	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.daofactory.getMsgLevel());
                         }
 
                         intREL_CHILD_FK = Integer.parseInt( insertRelObject.getID() );
@@ -407,7 +403,7 @@ public class AnaRelationship {
                         	
                             Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : Exception caught for child " + 
                                     insertRelObject.getID() + " parent " +
-                                    insertRelObject.getChildOfs().toString(), "*", this.requestMsgLevel);
+                                    insertRelObject.getChildOfs().toString(), "*", this.daofactory.getMsgLevel());
                             e.printStackTrace();
                         }
                     	
@@ -446,7 +442,7 @@ public class AnaRelationship {
     //  Delete from ANA_RELATIONSHIP
     public boolean deleteANA_RELATIONSHIP( ArrayList<OBOComponent> deleteRelComponents, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anarelationship.deleteANA_RELATIONSHIP : " + calledFrom , "***", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.deleteANA_RELATIONSHIP : " + calledFrom , "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -495,7 +491,7 @@ public class AnaRelationship {
 	//  rebuild ANA_RELATIONSHIP_PROJECT
     public boolean rebuildANA_RELATIONSHIP_PROJECT() throws Exception {
 
-        Wrapper.printMessage("anarelationship.rebuildANA_RELATIONSHIP_PROJECT", "***", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.rebuildANA_RELATIONSHIP_PROJECT", "***", this.daofactory.getMsgLevel());
         	
         ArrayList<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
         ArrayList<RelationshipProject> relationshipprojects = new ArrayList<RelationshipProject>(); 
@@ -567,7 +563,7 @@ public class AnaRelationship {
     //  Insert into ANA_LOG for ANA_RELATIONSHIP Insertions or Deletions
     public boolean logANA_RELATIONSHIP( Relationship relationship, String calledFrom ) throws Exception {
 
-        Wrapper.printMessage("anarelationship.logANA_RELATIONSHIP : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("anarelationship.logANA_RELATIONSHIP : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         try {
         	

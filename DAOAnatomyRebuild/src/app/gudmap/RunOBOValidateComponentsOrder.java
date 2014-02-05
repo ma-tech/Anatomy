@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        OBOValidateComponents.java
+* Title:        RunOBOValidateComponents.java
 *
 * Date:         2012
 *
@@ -21,9 +21,6 @@
 * Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
 *                tables in the Anatomy database .
 *
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -37,8 +34,6 @@ package app.gudmap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import obolayer.OBOFactory;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
@@ -54,11 +49,11 @@ import daomodel.ComponentOrder;
 
 public class RunOBOValidateComponentsOrder{
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run( DAOFactory daofactory ) throws Exception {
     	
     	try {
     		
-	        Wrapper.printMessage("RunOBOValidateComponentsOrder.run", "***", requestMsgLevel);
+	        Wrapper.printMessage("RunOBOValidateComponentsOrder.run", "***", daofactory.getMsgLevel());
 
             // Obtain DAOs.
             ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);

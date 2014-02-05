@@ -52,8 +52,6 @@ public class AnaVersion {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel; 
-	
     //check whether was processed all the way
     private boolean processed;
     
@@ -66,16 +64,14 @@ public class AnaVersion {
     	
     }
 
-    public AnaVersion( String requestMsgLevel, DAOFactory daofactory) {
+    public AnaVersion( DAOFactory daofactory) {
 
     	try {
     		
-           	this.requestMsgLevel = requestMsgLevel;
+            this.daofactory = daofactory;        	
 
-            Wrapper.printMessage("anaversion.constructor", "***", this.requestMsgLevel);
+            Wrapper.printMessage("anaversion.constructor", "***", this.daofactory.getMsgLevel());
 
-            this.daofactory = daofactory;
-        	
         	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
 
         	setProcessed( true );
@@ -96,7 +92,7 @@ public class AnaVersion {
     //  Insert a new row into ANA_VERSION
     public boolean insertANA_VERSION() throws Exception {
 
-        Wrapper.printMessage("anaversion.insertANA_VERSION", "***", this.requestMsgLevel);
+        Wrapper.printMessage("anaversion.insertANA_VERSION", "***", this.daofactory.getMsgLevel());
         	
         int intVersionEntries = 0;
 
@@ -107,7 +103,7 @@ public class AnaVersion {
             ArrayList< OBOComponent > verTermList = new ArrayList<OBOComponent>();
             verTermList.add( vercomponent );
             
-            AnaObject anaobject = new AnaObject(this.requestMsgLevel, this.daofactory);
+            AnaObject anaobject = new AnaObject( this.daofactory );
             
             if ( !anaobject.insertANA_OBJECT( verTermList, "ANA_VERSION" ) ) {
 

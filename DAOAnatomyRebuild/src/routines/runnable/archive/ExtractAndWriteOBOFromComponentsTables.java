@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        OBOExtractOBOFromExistingDatabase.java
 *
@@ -18,12 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an Anatomy Database and Writes out the data in OBO
-*                Format
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -38,27 +33,28 @@ package routines.runnable.archive;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import obomodel.OBOComponent;
 
 import obolayer.OBOFactory;
-import obolayer.OBOComponentAccess;
+
+import oboaccess.OBOComponentAccess;
 
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 
 import daolayer.DAOFactory;
 
-import utility.Wrapper;
-
 public class ExtractAndWriteOBOFromComponentsTables {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run( DAOFactory daofactory, OBOFactory obofactory) throws Exception {
 
-	    Wrapper.printMessage("extractandwriteobofromcomponentstables.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("extractandwriteobofromcomponentstables.run", "***", daofactory.getMsgLevel());
 
 	    OBOComponentAccess obocomponentaccess = obofactory.getOBOComponentAccess();
         
         //import database components table contents into OBOComponent format
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
+        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
         obocomponents = importcomponents.getTermList();
         
@@ -67,11 +63,11 @@ public class ExtractAndWriteOBOFromComponentsTables {
         
         if ( obocomponentaccess.writeAll( "Abstract" ) ) {
 
-        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run : Obo File SUCCESSFULLY written to " + obocomponentaccess.outputFileName() + " for Species " + obofactory.getOBOComponentAccess().species() + " and Project " + obofactory.getOBOComponentAccess().project(), "***", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run : Obo File SUCCESSFULLY written to " + obocomponentaccess.outputFileName() + " for Species " + obofactory.getOBOComponentAccess().species() + " and Project " + obofactory.getOBOComponentAccess().project(), "***", daofactory.getMsgLevel());
         }
         else {
         	
-        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run : Obo File FAILED written to " + obocomponentaccess.outputFileName() + " for Species " + obofactory.getOBOComponentAccess().species() + " and Project " + obofactory.getOBOComponentAccess().project(), "***", requestMsgLevel);
+        	Wrapper.printMessage("extractandwriteobofromcomponentstables.run : Obo File FAILED written to " + obocomponentaccess.outputFileName() + " for Species " + obofactory.getOBOComponentAccess().species() + " and Project " + obofactory.getOBOComponentAccess().project(), "***", daofactory.getMsgLevel());
         }
     }
 }

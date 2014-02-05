@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainLoadOBOFileIntoComponentsTablesAndValidateBackground.java
 *
@@ -20,11 +20,14 @@
 *
 * Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
 *                against the existing anatomy database
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* 
+* Usage:        "main.MainLoadOBOFileIntoComponentsTablesAndValidateBackground 
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost
+*                    5"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,14 +38,16 @@
 */
 package main;
 
-import utility.ObjectConverter;
 import utility.Wrapper;
+import utility.ObjectConverter;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-import app.RunExtractOBOAndValidate;
 
+import app.RunExtractOBOAndValidate;
 
 public class MainLoadOBOFileIntoComponentsTablesAndValidateBackground{
 

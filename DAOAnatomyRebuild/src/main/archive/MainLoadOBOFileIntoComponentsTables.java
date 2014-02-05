@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainLoadOBOFileIntoComponentsTables.java
 *
@@ -18,8 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Executable Class that Loads an OBOFile Into Components Tables in the 
-*                Anatomy Database 
+* Description:  A Main Executable Class 
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -36,17 +35,15 @@ import utility.Wrapper;
 import java.util.List;
 import java.util.ArrayList;
 
-import obolayer.OBOComponentAccess;
+import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
-
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
-
 
 public class MainLoadOBOFileIntoComponentsTables {
 
@@ -70,7 +67,7 @@ public class MainLoadOBOFileIntoComponentsTables {
             obocomponents = obocomponentaccess.listAllInput();
 
 
-            LoadOBOFileIntoComponentsTables.run( obofactory.getMsgLevel(), daofactory, obofactory, obocomponents );
+            LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, obocomponents );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

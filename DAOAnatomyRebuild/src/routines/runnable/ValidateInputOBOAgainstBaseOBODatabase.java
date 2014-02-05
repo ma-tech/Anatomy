@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        ValidateInputOBOAgainstBaseOBODatabase.java
 *
@@ -18,12 +18,8 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Reads an OBO File and Loads it into an existing 
-*                Anatomy database;
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class that Reads an OBO File (INPUT), compares and validates it against
+*                an Anatomy database
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -39,7 +35,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import obolayer.OBOComponentAccess;
+import utility.Wrapper;
+
+import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
@@ -56,13 +55,11 @@ import routines.aggregated.LoadOBOFileIntoComponentsTables;
 
 import daolayer.DAOFactory;
 
-import utility.Wrapper;
-
 public class ValidateInputOBOAgainstBaseOBODatabase {
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory, OBOFactory obofactory) throws Exception {
+	public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
     	
-	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run", "***", requestMsgLevel);
+	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run", "***", obofactory.getMsgLevel());
 
 	    // Obtain DAOs.
         OBOComponentAccess obocomponentaccess = obofactory.getOBOComponentAccess();
@@ -75,34 +72,33 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         // Get all INPUT OBO components
         List<OBOComponent> inputobocomponents = new ArrayList<OBOComponent>();
         inputobocomponents = obocomponentaccess.listAllInput();
-        EmptyComponentsTables.run( requestMsgLevel, daofactory, obofactory );
-        LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, inputobocomponents);
-        ListOBOComponentsFromComponentsTables inputimportcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
-        MapBuilder inputmapbuilder = new MapBuilder( requestMsgLevel, inputimportcomponents.getTermList());
-        TreeBuilder inputtreebuilder = new TreeBuilder( requestMsgLevel, inputmapbuilder);
+        EmptyComponentsTables.run( daofactory );
+        LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, inputobocomponents) ;
+        ListOBOComponentsFromComponentsTables inputimportcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
+        MapBuilder inputmapbuilder = new MapBuilder( obofactory.getMsgLevel(), inputimportcomponents.getTermList());
+        TreeBuilder inputtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), inputmapbuilder);
 
         // Get all BASE OBO components
         List<OBOComponent> baseobocomponents = new ArrayList<OBOComponent>();
         baseobocomponents = obocomponentaccess.listAllBase();
-        EmptyComponentsTables.run( requestMsgLevel, daofactory, obofactory );
-        LoadOBOFileIntoComponentsTables.run(requestMsgLevel, daofactory, obofactory, baseobocomponents);
-        ListOBOComponentsFromComponentsTables baseimportcomponents = new ListOBOComponentsFromComponentsTables( requestMsgLevel, daofactory, obofactory );
-        //MapBuilder basemapbuilder = new MapBuilder( requestMsgLevel, baseimportcomponents.getTermList());
-        //TreeBuilder basetreebuilder = new TreeBuilder( requestMsgLevel, basemapbuilder);
+        EmptyComponentsTables.run( daofactory );
+        LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, baseobocomponents );
+        ListOBOComponentsFromComponentsTables baseimportcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
+        //MapBuilder basemapbuilder = new MapBuilder( obofactory.getMsgLevel(), baseimportcomponents.getTermList());
+        //TreeBuilder basetreebuilder = new TreeBuilder( obofactory.getMsgLevel(), basemapbuilder);
 
         //check for rules violation
 	    ValidateComponents validatecomponents =
-            new ValidateComponents( requestMsgLevel,
-            		obofactory, 
+            new ValidateComponents( obofactory, 
             		inputimportcomponents.getTermList(), 
             		baseimportcomponents.getTermList(), 
             		inputtreebuilder);
 
 	    String validation = "";
 
-	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", requestMsgLevel);
-	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", requestMsgLevel);
+	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getNewTermList().size()      " + validatecomponents.getNewTermList().size(), "***", obofactory.getMsgLevel());
+	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getModifiedTermList().size() " + validatecomponents.getModifiedTermList().size(), "***", obofactory.getMsgLevel());
+	    Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : validatecomponents.getDeletedTermList().size()  " + validatecomponents.getDeletedTermList().size(), "***", obofactory.getMsgLevel());
 
         ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
         newComponents = validatecomponents.getNewTermList();
@@ -112,7 +108,7 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
     		
     		OBOComponent component = iteratorNewTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : NEW component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : NEW component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> modComponents = new ArrayList<OBOComponent>();
@@ -123,7 +119,7 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
     		
     		OBOComponent component = iteratorModTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : MOD component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : MOD component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
      	ArrayList<OBOComponent> delComponents = new ArrayList<OBOComponent>();
@@ -134,7 +130,7 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
     		
     		OBOComponent component = iteratorDelTerms.next();
 
-    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : DEL component.toString() " + component.toString(), "***", requestMsgLevel);
+    		Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : DEL component.toString() " + component.toString(), "***", obofactory.getMsgLevel());
      	}
 
         if ( validatecomponents.getProblemTermList().isEmpty() ) {
@@ -146,12 +142,12 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         	validation = "FAILED VALIDATION";
         }
 
-        Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : Validated? " + validation, "***", requestMsgLevel);
+        Wrapper.printMessage("validateinputoboagainstbaseobodatabase.run : Validated? " + validation, "***", obofactory.getMsgLevel());
 
         //generate txt summary report
-        GenerateEditorReport generateeditorreport = new GenerateEditorReport( requestMsgLevel, validatecomponents, inputFile, summaryReport);
+        GenerateEditorReport generateeditorreport = new GenerateEditorReport( obofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( requestMsgLevel, validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
     }
 }

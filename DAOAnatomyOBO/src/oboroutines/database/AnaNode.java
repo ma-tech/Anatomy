@@ -127,14 +127,13 @@ public class AnaNode {
     	
     }
 
-    public AnaNode( String requestMsgLevel, 
-    		DAOFactory daofactory) {
+    public AnaNode( DAOFactory daofactory) {
     	
     	try {
     		
-        	this.requestMsgLevel = requestMsgLevel;
+            this.daofactory = daofactory;
 
-            Wrapper.printMessage("ananode.constructor", "***", this.requestMsgLevel);
+            Wrapper.printMessage("ananode.constructor", "***", this.daofactory.getMsgLevel());
             	
             this.daofactory = daofactory;
 
@@ -180,7 +179,7 @@ public class AnaNode {
     		String strSpecies, 
     		TreeBuilder treebuilder ) throws Exception {
 
-        Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         int intANO_OID = 0;
         
@@ -203,7 +202,7 @@ public class AnaNode {
         	if ( !newTermList.isEmpty() ) {
 
         		//insert into ANA_OBJECT first
-                AnaObject anaobject = new AnaObject( this.requestMsgLevel, this.daofactory);
+                AnaObject anaobject = new AnaObject( this.daofactory );
                 
                 if ( !anaobject.insertANA_OBJECT(newTermList, "ANA_NODE") ) {
 
@@ -262,7 +261,7 @@ public class AnaNode {
                     	}
                     	else {
                         
-                    		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
+                    		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.daofactory.getMsgLevel());
                     	}
                 	}
                 	else {
@@ -307,7 +306,7 @@ public class AnaNode {
                     	}
                     	else {
                         
-                    		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.requestMsgLevel);
+                    		Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom + "; " + "UNKNOWN Species Value = " + strANO_SPECIES_FK, "*", this.daofactory.getMsgLevel());
                     	}
                 	}
 
@@ -342,7 +341,7 @@ public class AnaNode {
     private void insertANA_OBO_COMPONENT_ALTERNATIVE( String oldPublicId, 
     		String newPublicId ) throws Exception {
       
-        Wrapper.printMessage("ananode.insertANA_OBO_COMPONENT_ALTERNATIVE", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.insertANA_OBO_COMPONENT_ALTERNATIVE", "***", this.daofactory.getMsgLevel());
         
     	try {
     		
@@ -377,7 +376,7 @@ public class AnaNode {
     private void updateANA_OBO_COMPONENT( String oldPublicId, 
     		String newPublicId ) throws Exception   {
 
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT", "***", this.daofactory.getMsgLevel());
 
         try {
         	
@@ -403,7 +402,7 @@ public class AnaNode {
     private void updateANA_OBO_COMPONENT_SYNONYM( String oldPublicId, 
     		String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_SYNONYM", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_SYNONYM", "***", this.daofactory.getMsgLevel());
         
         try {
         	
@@ -436,7 +435,7 @@ public class AnaNode {
     private void updateANA_OBO_COMPONENT_COMMENT( String oldPublicId, 
     		String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_COMMENT", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_COMMENT", "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -469,7 +468,7 @@ public class AnaNode {
     private void updateANA_OBO_COMPONENT_RELATIONSHIP( String oldPublicId, 
     		String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_RELATIONSHIP", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_RELATIONSHIP", "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -514,7 +513,7 @@ public class AnaNode {
     private void updateANA_OBO_COMPONENT_ORDER( String oldPublicId, 
     		String newPublicId ) throws Exception  {
         
-        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_ORDER", "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_OBO_COMPONENT_ORDER", "***", this.daofactory.getMsgLevel());
         	
         try {
         	
@@ -560,7 +559,7 @@ public class AnaNode {
     		String strSpecies, 
     		String calledFrom ) throws Exception  {
 
-        Wrapper.printMessage("ananode.deleteANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.deleteANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         OBOComponent component;
 
@@ -611,7 +610,7 @@ public class AnaNode {
     		String calledFrom, 
     		String strSpecies ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         try {
 
@@ -652,7 +651,7 @@ public class AnaNode {
     		String calledFrom, 
     		String strSpecies ) throws Exception  {
 
-        Wrapper.printMessage("ananode.updateANA_NODE_primary : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.updateANA_NODE_primary : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         try {
 
@@ -693,7 +692,7 @@ public class AnaNode {
     public boolean setDatabaseOIDs( ArrayList<OBOComponent> termList, 
     		String calledFrom )  throws Exception {
 
-        Wrapper.printMessage("ananode.setDatabaseOIDs : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.setDatabaseOIDs : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         OBOComponent component = new OBOComponent();
         
@@ -763,7 +762,7 @@ public class AnaNode {
     		String calledFrom, 
     		String strSpecies ) throws Exception  {
 
-        Wrapper.printMessage("ananode.logANA_NODE : " + calledFrom, "***", this.requestMsgLevel);
+        Wrapper.printMessage("ananode.logANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
         try {
                 	

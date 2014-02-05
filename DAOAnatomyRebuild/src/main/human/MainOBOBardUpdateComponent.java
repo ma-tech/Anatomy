@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainOBOBardUpdateComponent.java
 *
@@ -28,13 +28,11 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-
 package main.human;
 
 import utility.Wrapper;
 
 import app.human.RunOBOBardUpdateComponent;
-
 
 public class MainOBOBardUpdateComponent {
 	/*

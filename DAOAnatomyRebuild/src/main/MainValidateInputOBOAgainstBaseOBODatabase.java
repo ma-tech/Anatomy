@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        MainValidateInputOBOAgainstBaseOBO.java
+* Title:        MainValidateInputOBOAgainstBaseOBODatabase.java
 *
 * Date:         2012
 *
@@ -21,10 +21,12 @@
 * Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
 *                against the existing anatomy databas in OBO Format.
 *
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Usage:       "main.MainValidateInputOBOAgainstBaseOBODatabase
+*                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -36,12 +38,14 @@
 package main;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;	
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-import routines.runnable.ValidateInputOBOAgainstBaseOBODatabase;
 
+import routines.runnable.ValidateInputOBOAgainstBaseOBODatabase;
 
 public class MainValidateInputOBOAgainstBaseOBODatabase{
 
@@ -64,7 +68,7 @@ public class MainValidateInputOBOAgainstBaseOBODatabase{
         	OBOFactory obofactory = OBOFactory.getInstance(args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[1]);
             
-            ValidateInputOBOAgainstBaseOBODatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            ValidateInputOBOAgainstBaseOBODatabase.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

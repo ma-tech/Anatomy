@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        MainUpdateDatabaseFromComponentsTables.java
+* Title:        MainRebuildRelationshipProjectFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -18,12 +18,13 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Updates Anatomy Database From the Components Tables
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
-*
+* Description:  A Main Executable Class that Rebuilds the Relationship Project table in the
+*                Anatomy Database From the Components Tables
+* 
+* Usage:        "main.MainRebuildRelationshipProjectFromComponentsTables 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
+* 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,13 +36,9 @@
 package main.gudmap;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
-
-import daointerface.ThingDAO;
-
+import daolayer.DAOProperty;
 import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
-
 
 public class MainRebuildRelationshipProjectFromComponentsTables{
 
@@ -49,15 +46,17 @@ public class MainRebuildRelationshipProjectFromComponentsTables{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 1) {
+		if (args.length != 2) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Argument passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Argument passed to this program!", "*", "*");
         }
         else {
         
-            DAOFactory daofactory = DAOFactory.getInstance(args[0]);
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[0], args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[1]);
 
-            RebuildRelationshipProjectFromComponentsTables.run( daofactory.getMsgLevel(), daofactory );
+            RebuildRelationshipProjectFromComponentsTables.run( daofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

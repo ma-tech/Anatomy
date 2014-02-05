@@ -1,8 +1,8 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
-* Title:        OBOValidateComponents.java
+* Title:        RunOBOResetComponentsOrderAlpha.java
 *
 * Date:         2012
 *
@@ -18,11 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Validates OBO data previously loaded into ANA_COMPONENT... 
-*                tables in the Anatomy database .
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
+* Description:  A Main Class that resets the Ordering of Terms into Alphabetic Ordering
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -37,8 +33,6 @@ package app.gudmap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import obolayer.OBOFactory;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
@@ -56,11 +50,11 @@ import daomodel.JOINComponentOrderComponentComponent;
 
 public class RunOBOResetComponentsOrderAlpha{
 
-	public static void run(String requestMsgLevel, DAOFactory daofactory) throws Exception {
+	public static void run( DAOFactory daofactory ) throws Exception {
     	
     	try {
     		
-	        Wrapper.printMessage("RunOBOResetComponentsOrderAlpha.run", "***", requestMsgLevel);
+	        Wrapper.printMessage("RunOBOResetComponentsOrderAlpha.run", "***", daofactory.getMsgLevel());
 
             // Obtain DAOs.
             ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);

@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        MainValidateComponentsTablesAgainstExistingDatabase.java
 *
@@ -18,12 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Validates the Components Tables Against the Existing 
-*                Database
-*
-*               Required Files:
-*                1. dao.properties file contains the database access attributes
-*                2. obo.properties file contains the OBO file access attributes
+* Description:  A Main Class 
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -41,9 +36,8 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
-
 import routines.runnable.RunOBOCheckComponentsOrdering;
+
 import routines.runnable.archive.ValidateComponentsTablesAgainstExistingDatabase;
 
 public class MainValidateComponentsTablesAgainstExistingDatabase{
@@ -61,8 +55,8 @@ public class MainValidateComponentsTablesAgainstExistingDatabase{
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
             
-            ValidateComponentsTablesAgainstExistingDatabase.run( obofactory.getMsgLevel(), daofactory, obofactory );
-            RunOBOCheckComponentsOrdering.run( obofactory.getMsgLevel(), daofactory, obofactory );
+            ValidateComponentsTablesAgainstExistingDatabase.run( daofactory, obofactory );
+            RunOBOCheckComponentsOrdering.run( daofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

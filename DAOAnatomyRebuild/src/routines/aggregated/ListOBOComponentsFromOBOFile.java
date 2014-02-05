@@ -1,6 +1,6 @@
 /*
 *----------------------------------------------------------------------------------------------
-* Project:      DAOAnatomyJavaLayerRebuild
+* Project:      DAOAnatomyRebuild
 *
 * Title:        ListOBOComponentsFromOBOFile.java
 *
@@ -19,7 +19,7 @@
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
-* Description:  This Class extracts a list of components from the database, and builds a list 
+* Description:  This Class extracts a list of components from an OBO file, and builds a list 
 *                in the OBO style.
 *
 * Who; When; What;
@@ -35,26 +35,24 @@ package routines.aggregated;
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.Wrapper;
+
 import obomodel.OBOComponent;
 
-import obolayer.OBOComponentAccess;
+import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
 import obolayer.OBOException;
-
-import utility.Wrapper;
 
 public class ListOBOComponentsFromOBOFile {
     // Properties ---------------------------------------------------------------------------------
     // global variables
     private ArrayList<OBOComponent> obocomponentList = new ArrayList <OBOComponent>();
     
-    
     // Constructor --------------------------------------------------------------------------------
-    public ListOBOComponentsFromOBOFile(String requestMsgLevel, 
-    		OBOFactory obofactory, 
-    		String fileType) throws Exception {
+    public ListOBOComponentsFromOBOFile( OBOFactory obofactory, String fileType) throws Exception {
     	
-        Wrapper.printMessage("listobocomponentsfromobofile.constructor", "***", requestMsgLevel);
+        Wrapper.printMessage("listobocomponentsfromobofile.constructor", "***", obofactory.getMsgLevel());
         
         try {
         	
@@ -84,7 +82,7 @@ public class ListOBOComponentsFromOBOFile {
         		
                 this.obocomponentList = null;
                 
-                Wrapper.printMessage("ERROR! Invalid File " + fileType + " passed to ListOBOComponentsFromOBOFile", "*", "*");
+                Wrapper.printMessage("ERROR! Invalid File " + fileType + " passed to ListOBOComponentsFromOBOFile", "*", obofactory.getMsgLevel());
         	}
         	
         }

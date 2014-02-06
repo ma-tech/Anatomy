@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="OBOsrc"/>
+	<classpathentry kind="src" path="DAOsrc"/>
+	<classpathentry kind="src" path="Usefulsrc"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DAOAnatomyOBO"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/SourceCode/Java/JavaLibraries/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/SourceCode/Java/JavaLibraries/iText-2.1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/SourceCode/Java/JavaLibraries/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/SourceCode/Java/JavaLibraries/oboedit.jar"/>
+	<classpathentry kind="lib" path="/Users/mwicks/GitMahost/Anatomy/SourceCode/Java/JavaLibraries/org.geneontology.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

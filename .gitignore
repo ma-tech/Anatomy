@@ -1,5 +1,4 @@
 *py.class
-*py.class
 *pyc
 .DS_Store
 *.log
@@ -8,5 +7,8 @@
 .pyc
 *.pyc
 *.class
-*.class
-DAOAnatomyJSP/.classpath
+*/*/*/*/*/*/*/.DS_Store
+*/*/*/*/*/*/.DS_Store
+*/*/*/*/.DS_Store
+*/*/.DS_Store
+*/.DS_Store

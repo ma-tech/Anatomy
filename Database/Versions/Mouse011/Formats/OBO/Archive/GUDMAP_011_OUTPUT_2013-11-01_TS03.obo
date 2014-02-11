@@ -1,0 +1,110 @@
+format-version: 1.2
+date: 04:11:2013 11:46
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS03
+name: TS03
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25768
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:10
+name: second polar body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25768
+
+[Term]
+id: EMAP:11
+name: zona pellucida
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25768
+
+[Term]
+id: EMAP:8
+name: 4-8 cell stage embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25768
+
+[Term]
+id: EMAP:9
+name: compacted morula
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25768
+
+[Term]
+id: EMAP:31922
+name: 4-cell stage embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:8
+
+[Term]
+id: EMAP:31923
+name: 8-cell stage embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:8
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

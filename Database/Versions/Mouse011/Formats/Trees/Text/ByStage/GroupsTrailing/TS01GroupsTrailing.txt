@@ -1,0 +1,43 @@
+
+============================================================
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS01
+
+
+TS01 Whole mouse Excluding Groups
+
+EMAP:0025766   mouse
+EMAP:0000001   + first polar body
+EMAP:0000002   + one-cell stage embryo
+EMAP:0031909   + polar body group
+EMAP:0000001   | + first polar body
+EMAP:0000003   | \ second polar body
+EMAP:0000003   + second polar body
+EMAP:0000004   \ zona pellucida
+
+
+
+==================================================================
+
+
+
+TS01 Whole mouse Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025766   mouse

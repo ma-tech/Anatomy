@@ -1,0 +1,2648 @@
+
+Editor Report for Import of OBO File: /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromMouse010/OBOInput/GUDMAP_011_INPUT_2013-11-05_Abstract_MNW.obo
+
+
+REPORT UPDATE SUMMARY
+
+=====================
+
+   Total Components from OBO File : 5641
+
+A. Critical Components in file    : 0
+
+B. New Components created         : 19
+
+C. Modified Components            : 155
+
+D. Deleted Components             : 2
+
+   Unchanged Components           : 5432
+
+
+--------------------------------------------------------------------------------
+
+
+A. CRITICAL COMPONENTS: REQUIRE REVISION
+
+   =====================================
+
+  Total Critical Components: 0
+  -----------------------------
+
+
+B. NEW COMPONENTS
+
+   ==============
+
+  Total New Components: 19
+  -------------------------------
+
+  1. JFA:0003019 - nerve of uterus
+  2. JFA:0003024 - nerve of primitive bladder
+  3. JFA:0003023 - nerve of labia
+  4. JFA:0003022 - nerve of clitoris
+  5. JFA:0003021 - nerve of genital tubercle of female
+  6. JFA:0003020 - nerve of vagina
+  7. JFA:0003009 - nerve of epididymis
+  8. JFA:0003008 - nerve of seminal vesicle
+  9. JFA:0003010 - nerve of ductus deferens
+  10. JFA:0003015 - nerve of scrotum
+  11. JFA:0003016 - nerve of ovary
+  12. JFA:0003017 - nerve of oviduct
+  13. JFA:0003018 - nerve of uterine horn
+  14. JFA:0003011 - nerve of ejaculatory duct
+  15. JFA:0003012 - nerve of bulbourethral gland
+  16. JFA:0003013 - nerve of genital tubercle of male
+  17. JFA:0003014 - nerve of penis
+  18. JFA:0003007 - nerve of penile urethra
+  19. JFA:0003000 - nerve of ureter
+
+  DETAILS
+  -------
+
+   New OBOComponent 1
+    ID        : JFA:0003019
+    Name      : nerve of uterus
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29915]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 2
+    ID        : JFA:0003024
+    Name      : nerve of primitive bladder
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:30870]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 3
+    ID        : JFA:0003023
+    Name      : nerve of labia
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30837]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 4
+    ID        : JFA:0003022
+    Name      : nerve of clitoris
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30819]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 5
+    ID        : JFA:0003021
+    Name      : nerve of genital tubercle of female
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:18680]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 6
+    ID        : JFA:0003020
+    Name      : nerve of vagina
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18986]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 7
+    ID        : JFA:0003009
+    Name      : nerve of epididymis
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19290]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 8
+    ID        : JFA:0003008
+    Name      : nerve of seminal vesicle
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19180]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 9
+    ID        : JFA:0003010
+    Name      : nerve of ductus deferens
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18681]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 10
+    ID        : JFA:0003015
+    Name      : nerve of scrotum
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:19296]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 11
+    ID        : JFA:0003016
+    Name      : nerve of ovary
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 12
+    ID        : JFA:0003017
+    Name      : nerve of oviduct
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18984]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 13
+    ID        : JFA:0003018
+    Name      : nerve of uterine horn
+    Starts At : TS27
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 14
+    ID        : JFA:0003011
+    Name      : nerve of ejaculatory duct
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19088]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 15
+    ID        : JFA:0003012
+    Name      : nerve of bulbourethral gland
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19286]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 16
+    ID        : JFA:0003013
+    Name      : nerve of genital tubercle of male
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:17969]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 17
+    ID        : JFA:0003014
+    Name      : nerve of penis
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:18682]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 18
+    ID        : JFA:0003007
+    Name      : nerve of penile urethra
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30944]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 19
+    ID        : JFA:0003000
+    Name      : nerve of ureter
+    Starts At : TS26
+    Ends At   : TS28
+    Parents   : [EMAPA:17950]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+
+C. MODIFIED COMPONENTS
+
+   ===================
+
+  Total Modified Components: 155
+  -------------------------------
+
+  1. EMAPA:16369 - presumptive nephric duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:16369 has synonyms [Wolffian duct]
+
+  2. EMAPA:31296 - resident macrophages of the cortex
+       - Different Synonyms - Referenced OBOComponent EMAPA:31296 has synonyms [renal monocytes of the cortex]
+
+  3. EMAPA:27684 - upper limb of comma-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27684 has synonyms [distal limb of comma-shaped body]
+
+  4. EMAPA:27687 - lower limb of comma-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27687 has synonyms [proximal limb of comma-shaped body]
+
+  5. EMAPA:16367 - genitourinary system
+       - Different Synonyms - Referenced OBOComponent EMAPA:16367 has synonyms [urogenital system]
+
+  6. EMAPA:27697 - ureteric trunk
+       - Different Synonyms - Referenced OBOComponent EMAPA:27697 has synonyms [ureteric stalk]
+
+  7. EMAPA:27694 - ureteric tip
+       - Different Synonyms - Referenced OBOComponent EMAPA:27694 has synonyms [ampulla]
+
+  8. EMAPA:31273 - resident macrophages
+       - Different Synonyms - Referenced OBOComponent EMAPA:31273 has synonyms [renal monocytes]
+
+  9. EMAPA:29161 - degenerating mesonephric portion of male paramesonephric duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:29161 has synonyms [Mullerian duct]
+
+  10. EMAPA:31281 - anlage of loop of Henle
+       - Different Synonyms - Referenced OBOComponent EMAPA:31281 has synonyms [primitive loop of Henle]
+
+  11. EMAPA:31270 - nephrogenic interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:31270 has synonyms [peripheral blastema]
+
+  12. EMAPA:28077 - pelvic urothelial lining
+       - Different Synonyms - Referenced OBOComponent EMAPA:28077 has synonyms [pelvic urothelium]
+
+  13. EMAPA:28089 - urothelium of ureter
+       - Different Synonyms - Referenced OBOComponent EMAPA:28089 has synonyms [transitional epithelium]
+
+  14. EMAPA:28850 - ureteral smooth muscle layer interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:28850 has synonyms [Cajal cell]
+
+  15. EMAPA:28811 - ureteral smooth muscle layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28811 has synonyms [presumptive ureteral smooth muscle layer]
+
+  16. EMAPA:28049 - immature loop of Henle
+       - Different Synonyms - Referenced OBOComponent EMAPA:28049 has synonyms [anlagen of loop of Henle]
+
+  17. EMAPA:27625 - ureteric tip
+       - Different Synonyms - Referenced OBOComponent EMAPA:27625 has synonyms [ureteric ampulla]
+
+  18. EMAPA:27627 - ureteric stalk
+       - Different Synonyms - Referenced OBOComponent EMAPA:27627 has synonyms [ureteric trunk]
+
+  19. EMAPA:27621 - cap mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27621 has synonyms [condensed mesenchyme]
+
+  20. EMAPA:31367 - resident macrophage of the perihilar interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:31367 has synonyms [renal monocytes of the perihilar interstitium]
+
+  21. EMAPA:27615 - parametanephric mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27615 has synonyms [associated mesenchyme]
+
+  22. EMAPA:27605 - ureteric tip
+       - Different Synonyms - Referenced OBOComponent EMAPA:27605 has synonyms [ureteric ampulla]
+
+  23. EMAPA:27608 - ureteric stalk
+       - Different Name - Referenced OBOComponent EMAPA:27608 has name [ureteric stalk]
+       - Different Synonyms - Referenced OBOComponent EMAPA:27608 has synonyms [ureteric trunk]
+
+  24. EMAPA:29067 - follicle cell of primary follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:29067 has synonyms [granulosa cell of primary follicle]
+
+  25. EMAPA:31333 - resident macrophages of the medulla
+       - Different Synonyms - Referenced OBOComponent EMAPA:31333 has synonyms [renal monocytes of the medulla]
+
+  26. EMAPA:27671 - nephrogenic interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:27671 has synonyms [peripheral blastema]
+
+  27. EMAPA:27665 - paramesonephric duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:27665 has synonyms [Mullerian duct]
+
+  28. EMAPA:27657 - posterior gonadal mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27657 has synonyms [caudal gonadal mesenchyme]
+
+  29. EMAPA:27653 - anterior gonadal mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27653 has synonyms [rostral gonadal mesenchyme]
+
+  30. EMAPA:27640 - cloacal epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:27640 has synonyms [distal urethral mesenchyme]
+
+  31. EMAPA:30767 - follicle cell of tertiary follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:30767 has synonyms [granulosa cell of tertiary follicle]
+
+  32. EMAPA:30763 - tertiary follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:30763 has synonyms [antral follicle]
+
+  33. EMAPA:30777 - Graafian follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:30777 has synonyms [pre-ovulatory follicle]
+
+  34. EMAPA:31389 - resident macrophage of the outer medulla
+       - Different Synonyms - Referenced OBOComponent EMAPA:31389 has synonyms [renal monocytes of the outer medulla]
+
+  35. EMAPA:29034 - uterine horn muscular layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:29034 has synonyms [myometrium]
+
+  36. EMAPA:29030 - uterine horn epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:29030 has synonyms [endometrium]
+
+  37. EMAPA:30781 - germinal cell of mature follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:30781 has synonyms [granulosa]
+
+  38. EMAPA:18326 - renal medullary interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:18326 has synonyms [medullary stroma]
+
+  39. EMAPA:18329 - labial swelling
+       - Different Synonyms - Referenced OBOComponent EMAPA:18329 has synonyms [labia]
+
+  40. EMAPA:31404 - resident macrophage of the inner medulla
+       - Different Synonyms - Referenced OBOComponent EMAPA:31404 has synonyms [renal monocytes of the inner medulla]
+
+  41. EMAPA:19089 - gubernaculum
+       - Different Synonyms - Referenced OBOComponent EMAPA:19089 has synonyms [caudal suspensory ligament]
+
+  42. EMAPA:29880 - ruptured follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:29880 has synonyms [ovulated follicle]
+
+  43. EMAPA:29884 - germinal cell of ruptured follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:29884 has synonyms [granulosa]
+
+  44. EMAPA:29878 - apoptotic germinal cell
+       - Different Synonyms - Referenced OBOComponent EMAPA:29878 has synonyms [apoptotic granulosa]
+
+  45. EMAPA:31464 - renal large blood vessel
+       - Different Name - Referenced OBOComponent EMAPA:31464 has name [renal large blood vessel]
+       - Different Primary Status - Referenced OBOComponent was a Primary component.
+
+  46. EMAPA:31469 - renal small blood vessel
+       - Different Name - Referenced OBOComponent EMAPA:31469 has name [renal small blood vessel]
+       - Different Primary Status - Referenced OBOComponent was a Primary component.
+
+  47. EMAPA:29862 - secondary follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:29862 has synonyms [antral follicle]
+
+  48. EMAPA:27749 - ureteric tip
+       - Different Synonyms - Referenced OBOComponent EMAPA:27749 has synonyms [ureteric ampulla]
+
+  49. EMAPA:27742 - pretubular aggregate
+       - Different Synonyms - Referenced OBOComponent EMAPA:27742 has synonyms [pretubular condensate]
+
+  50. EMAPA:29866 - follicle cell of secondary follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:29866 has synonyms [granulosa cell of secondary follicle]
+
+  51. EMAPA:27735 - cap mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27735 has synonyms [condensed mesenchyme]
+
+  52. EMAPA:27770 - capillary loop renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27770 has synonyms [renal corpuscle of the stage III nephron]
+
+  53. EMAPA:27772 - visceral epithelium of capillary loop renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27772 has synonyms [podocyte layer]
+
+  54. EMAPA:27764 - proximal segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27764 has synonyms [lower limb of s-shaped body]
+
+  55. EMAPA:27762 - medial segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27762 has synonyms [mid-portion of s-shaped body]
+
+  56. EMAPA:27760 - distal segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27760 has synonyms [upper limb of s-shaped body]
+
+  57. EMAPA:27756 - s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27756 has synonyms [stage II nephron]
+
+  58. EMAPA:27790 - renal connecting tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:27790 has synonyms [renal connecting tubule of capillary loop nephron]
+
+  59. EMAPA:27788 - early distal tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:27788 has synonyms [early distal tubule of capillary loop nephron]
+
+  60. EMAPA:27784 - early proximal tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:27784 has synonyms [early proximal tubule of capillary loop nephron]
+
+  61. EMAPA:27782 - renal tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:27782 has synonyms [renal tubule of capillary loop nephron]
+
+  62. EMAPA:30484 - distal genital tubercle of female
+       - Different Synonyms - Referenced OBOComponent EMAPA:30484 has synonyms [glans of female]
+
+  63. EMAPA:30478 - preputial swelling of female
+       - Different Synonyms - Referenced OBOComponent EMAPA:30478 has synonyms [prepuce of female]
+
+  64. EMAPA:28601 - urothelium of bladder
+       - Different Synonyms - Referenced OBOComponent EMAPA:28601 has synonyms [epithelium of bladder]
+
+  65. EMAPA:17645 - cap mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:17645 has synonyms [condensed mesenchyme]
+
+  66. EMAPA:28679 - vasculature of bladder
+       - Different Synonyms - Referenced OBOComponent EMAPA:28679 has synonyms [blood vessel of bladder]
+
+  67. EMAPA:31521 - early distal tubule of capillary loop nephron
+       - Different Synonyms - Referenced OBOComponent EMAPA:31521 has synonyms [anlage of distal tubule]
+
+  68. EMAPA:31511 - early distal tubule of capillary loop nephron
+       - Different Synonyms - Referenced OBOComponent EMAPA:31511 has synonyms [anlage of distal tubule]
+
+  69. EMAPA:18685 - seminiferous cord
+       - Different Synonyms - Referenced OBOComponent EMAPA:18685 has synonyms [seminiferous tubule]
+
+  70. EMAPA:18687 - interstitium of the testis
+       - Different Synonyms - Referenced OBOComponent EMAPA:18687 has synonyms [interstitial tissue]
+
+  71. EMAPA:18682 - penis
+       - Different Synonyms - Referenced OBOComponent EMAPA:18682 has synonyms [genital tubercle of male]
+
+  72. EMAPA:18681 - ductus deferens
+       - Different Synonyms - Referenced OBOComponent EMAPA:18681 has synonyms [vas deferens]
+
+  73. EMAPA:31543 - early proximal tubule of capillary loop nephron
+       - Different Synonyms - Referenced OBOComponent EMAPA:31543 has synonyms [anlage of proximal tubule]
+
+  74. EMAPA:31544 - early proximal tubule of capillary loop nephron
+       - Different Synonyms - Referenced OBOComponent EMAPA:31544 has synonyms [anlage of proximal tubule]
+
+  75. EMAPA:27877 - medial segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27877 has synonyms [mid-portion of s-shaped body]
+
+  76. EMAPA:27883 - proximal segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27883 has synonyms [lower limb of s-shaped body]
+
+  77. EMAPA:27871 - distal segment of s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27871 has synonyms [upper limb of s-shaped body]
+
+  78. EMAPA:27853 - s-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27853 has synonyms [stage II nephron]
+
+  79. EMAPA:27841 - upper limb of comma-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27841 has synonyms [distal limb of comma-shaped body]
+
+  80. EMAPA:27847 - lower limb of comma-shaped body
+       - Different Synonyms - Referenced OBOComponent EMAPA:27847 has synonyms [proximal limb of comma-shaped body]
+
+  81. EMAPA:30522 - tunica albuginea of ovary
+       - Different Synonyms - Referenced OBOComponent EMAPA:30522 has synonyms [ovarian capsule]
+
+  82. EMAPA:29220 - preputial swelling of male
+       - Different Synonyms - Referenced OBOComponent EMAPA:29220 has synonyms [prepuce of male]
+
+  83. EMAPA:29205 - distal genital tubercle of male
+       - Different Synonyms - Referenced OBOComponent EMAPA:29205 has synonyms [glans of male]
+
+  84. EMAPA:28506 - developing capillary loop stage nephron GROUP
+       - Different Synonyms - Referenced OBOComponent EMAPA:28506 has synonyms [stage III nephron]
+
+  85. EMAPA:28561 - ureteral mesenchyme subepithelial layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28561 has synonyms [presumptive lamina propria]
+
+  86. EMAPA:27913 - visceral epithelium of capillary loop renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27913 has synonyms [podocyte layer]
+
+  87. EMAPA:27943 - maturing renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27943 has synonyms [renal corpuscle of Stage IV nephron]
+
+  88. EMAPA:27949 - maturing glomerular tuft
+       - Different Synonyms - Referenced OBOComponent EMAPA:27949 has synonyms [maturing glomerulus]
+
+  89. EMAPA:28570 - ureteral mesenchyme outer layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28570 has synonyms [presumptive adventitia]
+
+  90. EMAPA:27907 - capillary loop renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27907 has synonyms [renal corpuscle of the stage III nephron]
+
+  91. EMAPA:28567 - ureteral mesenchyme middle layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28567 has synonyms [presumptive ureteral smooth muscle layer]
+
+  92. EMAPA:28588 - superficial cell layer of ureter
+       - Different Synonyms - Referenced OBOComponent EMAPA:28588 has synonyms [umbrella cell]
+
+  93. EMAPA:27967 - visceral epithelium of maturing renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27967 has synonyms [podocyte layer]
+
+  94. EMAPA:29196 - degenerating rest of paramesonephric duct of male
+       - Different Synonyms - Referenced OBOComponent EMAPA:29196 has synonyms [degenerating Mullerian duct]
+
+  95. EMAPA:27985 - urinary space of renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:27985 has synonyms [Bowman's space]
+
+  96. EMAPA:27973 - Bowman's capsule
+       - Different Synonyms - Referenced OBOComponent EMAPA:27973 has synonyms [glomerular capsule]
+
+  97. EMAPA:28485 - maturing nephron
+       - Different Synonyms - Referenced OBOComponent EMAPA:28485 has synonyms [stage IV nephron]
+
+  98. EMAPA:28407 - collecting duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:28407 has synonyms [ureteric tree]
+
+  99. EMAPA:28405 - ureteric trunk
+       - Different Synonyms - Referenced OBOComponent EMAPA:28405 has synonyms [ureteric stalk]
+
+  100. EMAPA:28370 - inner medullary collecting duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:28370 has synonyms [papillary collecting duct]
+
+  101. EMAPA:16857 - gonad
+       - Different Synonyms - Referenced OBOComponent EMAPA:16857 has synonyms [gonad primordium]
+
+  102. EMAPA:28396 - distal straight tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:28396 has synonyms [thick ascending limb]
+
+  103. EMAPA:28393 - distal convoluted tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:28393 has synonyms [second convoluted tubule]
+
+  104. EMAPA:28328 - thin ascending limb
+       - Different Synonyms - Referenced OBOComponent EMAPA:28328 has synonyms [ascending thin limb]
+
+  105. EMAPA:28331 - premacula segment of distal straight tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:28331 has synonyms [thick ascending limb]
+
+  106. EMAPA:28358 - bend of loop of Henle inner medullary portion
+       - Different Synonyms - Referenced OBOComponent EMAPA:28358 has synonyms [bend, U-turn]
+
+  107. EMAPA:28364 - inner medullary interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:28364 has synonyms [papillary interstitium]
+
+  108. EMAPA:28361 - thin ascending limb
+       - Different Synonyms - Referenced OBOComponent EMAPA:28361 has synonyms [ascending thin limb]
+
+  109. EMAPA:28349 - inner medulla
+       - Different Synonyms - Referenced OBOComponent EMAPA:28349 has synonyms [papilla]
+
+  110. EMAPA:17953 - nephrogenic interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:17953 has synonyms [peripheral blastema]
+
+  111. EMAPA:17956 - phallic urethra of male
+       - Different Synonyms - Referenced OBOComponent EMAPA:17956 has synonyms [external urethra of male]
+
+  112. EMAPA:17963 - surface epithelium of ovary
+       - Different Synonyms - Referenced OBOComponent EMAPA:17963 has synonyms [coelomic epithelium]
+
+  113. EMAPA:17969 - genital tubercle of male
+       - Different Synonyms - Referenced OBOComponent EMAPA:17969 has synonyms [penis anlage]
+
+  114. EMAPA:28287 - renal proximal convoluted tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:28287 has synonyms [first convoluted tubule]
+
+  115. EMAPA:31247 - follicle cell of primordial follicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:31247 has synonyms [granulosa cell]
+
+  116. EMAPA:30819 - clitoris
+       - Different Synonyms - Referenced OBOComponent EMAPA:30819 has synonyms [genital tubercle of female]
+
+  117. EMAPA:28269 - part of afferent arteriole forming the juxtaglomerular complex
+       - Different Synonyms - Referenced OBOComponent EMAPA:28269 has synonyms [renin-producing cell]
+
+  118. EMAPA:29794 - anterior prostate gland
+       - Different Synonyms - Referenced OBOComponent EMAPA:29794 has synonyms [coagulating gland]
+
+  119. EMAPA:28263 - urinary space of renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:28263 has synonyms [Bowman's space]
+
+  120. EMAPA:28257 - Bowman's capsule
+       - Different Synonyms - Referenced OBOComponent EMAPA:28257 has synonyms [glomerular capsule]
+
+  121. EMAPA:28254 - visceral epithelium of mature renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:28254 has synonyms [podocyte layer]
+
+  122. EMAPA:28239 - glomerular tuft
+       - Different Synonyms - Referenced OBOComponent EMAPA:28239 has synonyms [glomerulus]
+
+  123. EMAPA:28236 - mature renal corpuscle
+       - Different Synonyms - Referenced OBOComponent EMAPA:28236 has synonyms [Malpighian corpuscle]
+
+  124. EMAPA:32268 - superficial cell layer of prostatic urethra
+       - Different Synonyms - Referenced OBOComponent EMAPA:32268 has synonyms [superficial epithelial layer of prostatic urethra]
+
+  125. EMAPA:16577 - nephric duct
+       - Different Synonyms - Referenced OBOComponent EMAPA:16577 has synonyms [Wolffian duct]
+
+  126. EMAPA:19180 - seminal vesicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:19180 has synonyms [vesicular seminalis]
+
+  127. EMAPA:19176 - rest of interstitium of the testis
+       - Different Synonyms - Referenced OBOComponent EMAPA:19176 has synonyms [non-specific mesenchyme]
+
+  128. EMAPA:19174 - female external inguinal ring
+       - Different Synonyms - Referenced OBOComponent EMAPA:19174 has synonyms [external, superficial]
+
+  129. EMAPA:19173 - female internal inguinal ring
+       - Different Synonyms - Referenced OBOComponent EMAPA:19173 has synonyms [deep, internal]
+
+  130. EMAPA:30870 - primitive bladder
+       - Different Synonyms - Referenced OBOComponent EMAPA:30870 has synonyms [cranial urogenital sinus]
+
+  131. EMAPA:29671 - distal straight tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:29671 has synonyms [thick ascending limb]
+
+  132. EMAPA:28136 - renal cortical interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:28136 has synonyms [cortical stroma]
+
+  133. EMAPA:28937 - paramesonephric duct of female, mesonephric portion
+       - Different Synonyms - Referenced OBOComponent EMAPA:28937 has synonyms [Mullerian duct of female]
+
+  134. EMAPA:30150 - ureteral smooth muscle layer interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:30150 has synonyms [Cajal cell]
+
+  135. EMAPA:29683 - premacula segment of distal straight tubule
+       - Different Synonyms - Referenced OBOComponent EMAPA:29683 has synonyms [thick ascending limb]
+
+  136. EMAPA:30917 - phallic urethra of female
+       - Different Synonyms - Referenced OBOComponent EMAPA:30917 has synonyms [external urethra of female]
+
+  137. EMAPA:28965 - meiotic germ cell
+       - Different Synonyms - Referenced OBOComponent EMAPA:28965 has synonyms [oocyte]
+
+  138. EMAPA:28971 - premeiotic germ cell
+       - Different Synonyms - Referenced OBOComponent EMAPA:28971 has synonyms [oogonia]
+
+  139. EMAPA:27599 - nephric duct, metanephric portion
+       - Different Synonyms - Referenced OBOComponent EMAPA:27599 has synonyms [mesonephric duct, metanephric portion]
+
+  140. EMAPA:27570 - posterior gonadal mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27570 has synonyms [caudal gonadal mesenchyme]
+
+  141. EMAPA:17373 - metanephros
+       - Different Synonyms - Referenced OBOComponent EMAPA:17373 has synonyms [kidney]
+
+  142. EMAPA:27566 - anterior gonadal mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:27566 has synonyms [rostral gonadal mesenchyme]
+
+  143. EMAPA:27564 - coelomic epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:27564 has synonyms [germinal epithelium]
+
+  144. EMAPA:17385 - gonadal mesenchyme
+       - Different Synonyms - Referenced OBOComponent EMAPA:17385 has synonyms [mesenchyme]
+
+  145. EMAPA:17384 - coelomic epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:17384 has synonyms [germinal epithelium]
+
+  146. EMAPA:17383 - gonad
+       - Different Synonyms - Referenced OBOComponent EMAPA:17383 has synonyms [gonad primordium]
+
+  147. EMAPA:27577 - cloacal epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:27577 has synonyms [distal urethral epithelium]
+
+  148. EMAPA:18985 - uterine horn
+       - Different Synonyms - Referenced OBOComponent EMAPA:18985 has synonyms [uterus]
+
+  149. EMAPA:18999 - lower part of vagina
+       - Different Synonyms - Referenced OBOComponent EMAPA:18999 has synonyms [sinus vagina]
+
+  150. EMAPA:18993 - efferent duct of seminal vesicle
+       - Different Synonyms - Referenced OBOComponent EMAPA:18993 has synonyms [vasa efferentia]
+
+  151. EMAPA:31021 - bend of immature loop of Henle
+       - Different Synonyms - Referenced OBOComponent EMAPA:31021 has synonyms [U-turn]
+
+  152. EMAPA:30043 - renal medullary capillary
+       - Different Synonyms - Referenced OBOComponent EMAPA:30043 has synonyms [vasa recta]
+
+  153. EMAPA:19286 - bulbourethral gland
+       - Different Synonyms - Referenced OBOComponent EMAPA:19286 has synonyms [Cowper's gland]
+
+  154. EMAPA:30077 - dorsal genital swelling
+       - Different Synonyms - Referenced OBOComponent EMAPA:30077 has synonyms [dorsal genital tubercle]
+
+  155. EMAPA:30079 - ventrolateral genital swelling
+       - Different Synonyms - Referenced OBOComponent EMAPA:30079 has synonyms [ventrolateral genital tubercle]
+
+
+  DETAILS
+  -------
+
+   Modified OBOComponent 1
+    ID        : EMAPA:16369
+    Name      : presumptive nephric duct
+    Starts At : TS13
+    Ends At   : TS13
+    Parents   : [EMAPA:16367]
+    Synonyms  : [Wolffian duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:16369 has synonyms [Wolffian duct]
+
+   Modified OBOComponent 2
+    ID        : EMAPA:31296
+    Name      : resident macrophages of the cortex
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:28136]
+    Synonyms  : [renal monocytes of the cortex]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31296 has synonyms [renal monocytes of the cortex]
+
+   Modified OBOComponent 3
+    ID        : EMAPA:27684
+    Name      : upper limb of comma-shaped body
+    Starts At : TS20
+    Ends At   : TS21
+    Parents   : [EMAPA:27681]
+    Synonyms  : [distal limb of comma-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27684 has synonyms [distal limb of comma-shaped body]
+
+   Modified OBOComponent 4
+    ID        : EMAPA:27687
+    Name      : lower limb of comma-shaped body
+    Starts At : TS20
+    Ends At   : TS21
+    Parents   : [EMAPA:27681]
+    Synonyms  : [proximal limb of comma-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27687 has synonyms [proximal limb of comma-shaped body]
+
+   Modified OBOComponent 5
+    ID        : EMAPA:16367
+    Name      : genitourinary system
+    Starts At : TS13
+    Ends At   : TS18
+    Parents   : [EMAPA:16245]
+    Synonyms  : [urogenital system]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:16367 has synonyms [urogenital system]
+
+   Modified OBOComponent 6
+    ID        : EMAPA:27697
+    Name      : ureteric trunk
+    Starts At : TS20
+    Ends At   : TS20
+    Parents   : [EMAPA:17646]
+    Synonyms  : [ureteric stalk]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27697 has synonyms [ureteric stalk]
+
+   Modified OBOComponent 7
+    ID        : EMAPA:27694
+    Name      : ureteric tip
+    Starts At : TS20
+    Ends At   : TS20
+    Parents   : [EMAPA:17646, EMAPA:31562]
+    Synonyms  : [ampulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27694 has synonyms [ampulla]
+
+   Modified OBOComponent 8
+    ID        : EMAPA:31273
+    Name      : resident macrophages
+    Starts At : TS20
+    Ends At   : TS21
+    Parents   : [EMAPA:27690]
+    Synonyms  : [renal monocytes]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31273 has synonyms [renal monocytes]
+
+   Modified OBOComponent 9
+    ID        : EMAPA:29161
+    Name      : degenerating mesonephric portion of male paramesonephric duct
+    Starts At : TS22
+    Ends At   : TS23
+    Parents   : [EMAPA:29138]
+    Synonyms  : [Mullerian duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29161 has synonyms [Mullerian duct]
+
+   Modified OBOComponent 10
+    ID        : EMAPA:31281
+    Name      : anlage of loop of Henle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:31571, EMAPA:18976]
+    Synonyms  : [primitive loop of Henle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31281 has synonyms [primitive loop of Henle]
+
+   Modified OBOComponent 11
+    ID        : EMAPA:31270
+    Name      : nephrogenic interstitium
+    Starts At : TS20
+    Ends At   : TS21
+    Parents   : [EMAPA:31562, EMAPA:27690]
+    Synonyms  : [peripheral blastema]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31270 has synonyms [peripheral blastema]
+
+   Modified OBOComponent 12
+    ID        : EMAPA:28077
+    Name      : pelvic urothelial lining
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:17948]
+    Synonyms  : [pelvic urothelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28077 has synonyms [pelvic urothelium]
+
+   Modified OBOComponent 13
+    ID        : EMAPA:28089
+    Name      : urothelium of ureter
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:17950]
+    Synonyms  : [transitional epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28089 has synonyms [transitional epithelium]
+
+   Modified OBOComponent 14
+    ID        : EMAPA:28850
+    Name      : ureteral smooth muscle layer interstitium
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28844]
+    Synonyms  : [Cajal cell]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28850 has synonyms [Cajal cell]
+
+   Modified OBOComponent 15
+    ID        : EMAPA:28811
+    Name      : ureteral smooth muscle layer
+    Starts At : TS23
+    Ends At   : TS24
+    Parents   : [EMAPA:27711]
+    Synonyms  : [presumptive ureteral smooth muscle layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28811 has synonyms [presumptive ureteral smooth muscle layer]
+
+   Modified OBOComponent 16
+    ID        : EMAPA:28049
+    Name      : immature loop of Henle
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:28445, EMAPA:19279]
+    Synonyms  : [anlagen of loop of Henle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28049 has synonyms [anlagen of loop of Henle]
+
+   Modified OBOComponent 17
+    ID        : EMAPA:27625
+    Name      : ureteric tip
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17376]
+    Synonyms  : [ureteric ampulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27625 has synonyms [ureteric ampulla]
+
+   Modified OBOComponent 18
+    ID        : EMAPA:27627
+    Name      : ureteric stalk
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17376]
+    Synonyms  : [ureteric trunk]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27627 has synonyms [ureteric trunk]
+
+   Modified OBOComponent 19
+    ID        : EMAPA:27621
+    Name      : cap mesenchyme
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17375]
+    Synonyms  : [condensed mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27621 has synonyms [condensed mesenchyme]
+
+   Modified OBOComponent 20
+    ID        : EMAPA:31367
+    Name      : resident macrophage of the perihilar interstitium
+    Starts At : TS24
+    Ends At   : TS28
+    Parents   : [EMAPA:28083]
+    Synonyms  : [renal monocytes of the perihilar interstitium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31367 has synonyms [renal monocytes of the perihilar interstitium]
+
+   Modified OBOComponent 21
+    ID        : EMAPA:27615
+    Name      : parametanephric mesenchyme
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17366]
+    Synonyms  : [associated mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27615 has synonyms [associated mesenchyme]
+
+   Modified OBOComponent 22
+    ID        : EMAPA:27605
+    Name      : ureteric tip
+    Starts At : TS18
+    Ends At   : TS18
+    Parents   : [EMAPA:17209]
+    Synonyms  : [ureteric ampulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27605 has synonyms [ureteric ampulla]
+
+   Modified OBOComponent 23
+    ID        : EMAPA:27608
+    Name      : ureteric stalk
+    Starts At : TS18
+    Ends At   : TS18
+    Parents   : [EMAPA:17209]
+    Synonyms  : [ureteric trunk]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:27608 has name [ureteric stalk]
+     2.  Different Synonyms - Referenced OBOComponent EMAPA:27608 has synonyms [ureteric trunk]
+
+   Modified OBOComponent 24
+    ID        : EMAPA:29067
+    Name      : follicle cell of primary follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:19284]
+    Synonyms  : [granulosa cell of primary follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29067 has synonyms [granulosa cell of primary follicle]
+
+   Modified OBOComponent 25
+    ID        : EMAPA:31333
+    Name      : resident macrophages of the medulla
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:18326]
+    Synonyms  : [renal monocytes of the medulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31333 has synonyms [renal monocytes of the medulla]
+
+   Modified OBOComponent 26
+    ID        : EMAPA:27671
+    Name      : nephrogenic interstitium
+    Starts At : TS20
+    Ends At   : TS20
+    Parents   : [EMAPA:17373]
+    Synonyms  : [peripheral blastema]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27671 has synonyms [peripheral blastema]
+
+   Modified OBOComponent 27
+    ID        : EMAPA:27665
+    Name      : paramesonephric duct
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:27644]
+    Synonyms  : [Mullerian duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27665 has synonyms [Mullerian duct]
+
+   Modified OBOComponent 28
+    ID        : EMAPA:27657
+    Name      : posterior gonadal mesenchyme
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17385]
+    Synonyms  : [caudal gonadal mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27657 has synonyms [caudal gonadal mesenchyme]
+
+   Modified OBOComponent 29
+    ID        : EMAPA:27653
+    Name      : anterior gonadal mesenchyme
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17385]
+    Synonyms  : [rostral gonadal mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27653 has synonyms [rostral gonadal mesenchyme]
+
+   Modified OBOComponent 30
+    ID        : EMAPA:27640
+    Name      : cloacal epithelium
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:27638]
+    Synonyms  : [distal urethral mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27640 has synonyms [distal urethral mesenchyme]
+
+   Modified OBOComponent 31
+    ID        : EMAPA:30767
+    Name      : follicle cell of tertiary follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30763]
+    Synonyms  : [granulosa cell of tertiary follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30767 has synonyms [granulosa cell of tertiary follicle]
+
+   Modified OBOComponent 32
+    ID        : EMAPA:30763
+    Name      : tertiary follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [antral follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30763 has synonyms [antral follicle]
+
+   Modified OBOComponent 33
+    ID        : EMAPA:30777
+    Name      : Graafian follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [pre-ovulatory follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30777 has synonyms [pre-ovulatory follicle]
+
+   Modified OBOComponent 34
+    ID        : EMAPA:31389
+    Name      : resident macrophage of the outer medulla
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28337]
+    Synonyms  : [renal monocytes of the outer medulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31389 has synonyms [renal monocytes of the outer medulla]
+
+   Modified OBOComponent 35
+    ID        : EMAPA:29034
+    Name      : uterine horn muscular layer
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : [myometrium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29034 has synonyms [myometrium]
+
+   Modified OBOComponent 36
+    ID        : EMAPA:29030
+    Name      : uterine horn epithelium
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : [endometrium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29030 has synonyms [endometrium]
+
+   Modified OBOComponent 37
+    ID        : EMAPA:30781
+    Name      : germinal cell of mature follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30777]
+    Synonyms  : [granulosa]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30781 has synonyms [granulosa]
+
+   Modified OBOComponent 38
+    ID        : EMAPA:18326
+    Name      : renal medullary interstitium
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:19279, EMAPA:28518]
+    Synonyms  : [medullary stroma]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18326 has synonyms [medullary stroma]
+
+   Modified OBOComponent 39
+    ID        : EMAPA:18329
+    Name      : labial swelling
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:17959, EMAPA:30984]
+    Synonyms  : [labia]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18329 has synonyms [labia]
+
+   Modified OBOComponent 40
+    ID        : EMAPA:31404
+    Name      : resident macrophage of the inner medulla
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28364]
+    Synonyms  : [renal monocytes of the inner medulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31404 has synonyms [renal monocytes of the inner medulla]
+
+   Modified OBOComponent 41
+    ID        : EMAPA:19089
+    Name      : gubernaculum
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:17968, EMAPA:28533]
+    Synonyms  : [caudal suspensory ligament]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19089 has synonyms [caudal suspensory ligament]
+
+   Modified OBOComponent 42
+    ID        : EMAPA:29880
+    Name      : ruptured follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [ovulated follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29880 has synonyms [ovulated follicle]
+
+   Modified OBOComponent 43
+    ID        : EMAPA:29884
+    Name      : germinal cell of ruptured follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29880]
+    Synonyms  : [granulosa]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29884 has synonyms [granulosa]
+
+   Modified OBOComponent 44
+    ID        : EMAPA:29878
+    Name      : apoptotic germinal cell
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29874]
+    Synonyms  : [apoptotic granulosa]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29878 has synonyms [apoptotic granulosa]
+
+   Modified OBOComponent 45
+    ID        : EMAPA:31464
+    Name      : renal large blood vessel
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:16103]
+    Synonyms  : []
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:31464 has name [renal large blood vessel]
+     2.  Different Primary Status - Referenced OBOComponent was a Primary component.
+
+   Modified OBOComponent 46
+    ID        : EMAPA:31469
+    Name      : renal small blood vessel
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:17373]
+    Synonyms  : []
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:31469 has name [renal small blood vessel]
+     2.  Different Primary Status - Referenced OBOComponent was a Primary component.
+
+   Modified OBOComponent 47
+    ID        : EMAPA:29862
+    Name      : secondary follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [antral follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29862 has synonyms [antral follicle]
+
+   Modified OBOComponent 48
+    ID        : EMAPA:27749
+    Name      : ureteric tip
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:28407, EMAPA:28477, EMAPA:27721]
+    Synonyms  : [ureteric ampulla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27749 has synonyms [ureteric ampulla]
+
+   Modified OBOComponent 49
+    ID        : EMAPA:27742
+    Name      : pretubular aggregate
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:27721]
+    Synonyms  : [pretubular condensate]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27742 has synonyms [pretubular condensate]
+
+   Modified OBOComponent 50
+    ID        : EMAPA:29866
+    Name      : follicle cell of secondary follicle
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29862]
+    Synonyms  : [granulosa cell of secondary follicle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29866 has synonyms [granulosa cell of secondary follicle]
+
+   Modified OBOComponent 51
+    ID        : EMAPA:27735
+    Name      : cap mesenchyme
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:27721]
+    Synonyms  : [condensed mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27735 has synonyms [condensed mesenchyme]
+
+   Modified OBOComponent 52
+    ID        : EMAPA:27770
+    Name      : capillary loop renal corpuscle
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:17954, EMAPA:17373]
+    Synonyms  : [renal corpuscle of the stage III nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27770 has synonyms [renal corpuscle of the stage III nephron]
+
+   Modified OBOComponent 53
+    ID        : EMAPA:27772
+    Name      : visceral epithelium of capillary loop renal corpuscle
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27770]
+    Synonyms  : [podocyte layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27772 has synonyms [podocyte layer]
+
+   Modified OBOComponent 54
+    ID        : EMAPA:27764
+    Name      : proximal segment of s-shaped body
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27756]
+    Synonyms  : [lower limb of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27764 has synonyms [lower limb of s-shaped body]
+
+   Modified OBOComponent 55
+    ID        : EMAPA:27762
+    Name      : medial segment of s-shaped body
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27756]
+    Synonyms  : [mid-portion of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27762 has synonyms [mid-portion of s-shaped body]
+
+   Modified OBOComponent 56
+    ID        : EMAPA:27760
+    Name      : distal segment of s-shaped body
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27756]
+    Synonyms  : [upper limb of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27760 has synonyms [upper limb of s-shaped body]
+
+   Modified OBOComponent 57
+    ID        : EMAPA:27756
+    Name      : s-shaped body
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:17373, EMAPA:17954]
+    Synonyms  : [stage II nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27756 has synonyms [stage II nephron]
+
+   Modified OBOComponent 58
+    ID        : EMAPA:27790
+    Name      : renal connecting tubule
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27782]
+    Synonyms  : [renal connecting tubule of capillary loop nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27790 has synonyms [renal connecting tubule of capillary loop nephron]
+
+   Modified OBOComponent 59
+    ID        : EMAPA:27788
+    Name      : early distal tubule
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27782]
+    Synonyms  : [early distal tubule of capillary loop nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27788 has synonyms [early distal tubule of capillary loop nephron]
+
+   Modified OBOComponent 60
+    ID        : EMAPA:27784
+    Name      : early proximal tubule
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:27782]
+    Synonyms  : [early proximal tubule of capillary loop nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27784 has synonyms [early proximal tubule of capillary loop nephron]
+
+   Modified OBOComponent 61
+    ID        : EMAPA:27782
+    Name      : renal tubule
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:17954, EMAPA:17373]
+    Synonyms  : [renal tubule of capillary loop nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27782 has synonyms [renal tubule of capillary loop nephron]
+
+   Modified OBOComponent 62
+    ID        : EMAPA:30484
+    Name      : distal genital tubercle of female
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:18680]
+    Synonyms  : [glans of female]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30484 has synonyms [glans of female]
+
+   Modified OBOComponent 63
+    ID        : EMAPA:30478
+    Name      : preputial swelling of female
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:18680]
+    Synonyms  : [prepuce of female]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30478 has synonyms [prepuce of female]
+
+   Modified OBOComponent 64
+    ID        : EMAPA:28601
+    Name      : urothelium of bladder
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:18321]
+    Synonyms  : [epithelium of bladder]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28601 has synonyms [epithelium of bladder]
+
+   Modified OBOComponent 65
+    ID        : EMAPA:17645
+    Name      : cap mesenchyme
+    Starts At : TS20
+    Ends At   : TS20
+    Parents   : [EMAPA:31562, EMAPA:17373]
+    Synonyms  : [condensed mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17645 has synonyms [condensed mesenchyme]
+
+   Modified OBOComponent 66
+    ID        : EMAPA:28679
+    Name      : vasculature of bladder
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:18321]
+    Synonyms  : [blood vessel of bladder]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28679 has synonyms [blood vessel of bladder]
+
+   Modified OBOComponent 67
+    ID        : EMAPA:31521
+    Name      : early distal tubule of capillary loop nephron
+    Starts At : TS25
+    Ends At   : TS27
+    Parents   : [EMAPA:28390, EMAPA:31571]
+    Synonyms  : [anlage of distal tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31521 has synonyms [anlage of distal tubule]
+
+   Modified OBOComponent 68
+    ID        : EMAPA:31511
+    Name      : early distal tubule of capillary loop nephron
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:28007, EMAPA:31571]
+    Synonyms  : [anlage of distal tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31511 has synonyms [anlage of distal tubule]
+
+   Modified OBOComponent 69
+    ID        : EMAPA:18685
+    Name      : seminiferous cord
+    Starts At : TS23
+    Ends At   : TS27
+    Parents   : [EMAPA:17972]
+    Synonyms  : [seminiferous tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18685 has synonyms [seminiferous tubule]
+
+   Modified OBOComponent 70
+    ID        : EMAPA:18687
+    Name      : interstitium of the testis
+    Starts At : TS20
+    Ends At   : TS28
+    Parents   : [EMAPA:17972]
+    Synonyms  : [interstitial tissue]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18687 has synonyms [interstitial tissue]
+
+   Modified OBOComponent 71
+    ID        : EMAPA:18682
+    Name      : penis
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:30977, EMAPA:17968]
+    Synonyms  : [genital tubercle of male]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18682 has synonyms [genital tubercle of male]
+
+   Modified OBOComponent 72
+    ID        : EMAPA:18681
+    Name      : ductus deferens
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:17968, EMAPA:28533]
+    Synonyms  : [vas deferens]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18681 has synonyms [vas deferens]
+
+   Modified OBOComponent 73
+    ID        : EMAPA:31543
+    Name      : early proximal tubule of capillary loop nephron
+    Starts At : TS25
+    Ends At   : TS27
+    Parents   : [EMAPA:28284, EMAPA:31571]
+    Synonyms  : [anlage of proximal tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31543 has synonyms [anlage of proximal tubule]
+
+   Modified OBOComponent 74
+    ID        : EMAPA:31544
+    Name      : early proximal tubule of capillary loop nephron
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:31571, EMAPA:28003]
+    Synonyms  : [anlage of proximal tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31544 has synonyms [anlage of proximal tubule]
+
+   Modified OBOComponent 75
+    ID        : EMAPA:27877
+    Name      : medial segment of s-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27853]
+    Synonyms  : [mid-portion of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27877 has synonyms [mid-portion of s-shaped body]
+
+   Modified OBOComponent 76
+    ID        : EMAPA:27883
+    Name      : proximal segment of s-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27853]
+    Synonyms  : [lower limb of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27883 has synonyms [lower limb of s-shaped body]
+
+   Modified OBOComponent 77
+    ID        : EMAPA:27871
+    Name      : distal segment of s-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27853]
+    Synonyms  : [upper limb of s-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27871 has synonyms [upper limb of s-shaped body]
+
+   Modified OBOComponent 78
+    ID        : EMAPA:27853
+    Name      : s-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:17954, EMAPA:28500, EMAPA:17952]
+    Synonyms  : [stage II nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27853 has synonyms [stage II nephron]
+
+   Modified OBOComponent 79
+    ID        : EMAPA:27841
+    Name      : upper limb of comma-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27835]
+    Synonyms  : [distal limb of comma-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27841 has synonyms [distal limb of comma-shaped body]
+
+   Modified OBOComponent 80
+    ID        : EMAPA:27847
+    Name      : lower limb of comma-shaped body
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27835]
+    Synonyms  : [proximal limb of comma-shaped body]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27847 has synonyms [proximal limb of comma-shaped body]
+
+   Modified OBOComponent 81
+    ID        : EMAPA:30522
+    Name      : tunica albuginea of ovary
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [ovarian capsule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30522 has synonyms [ovarian capsule]
+
+   Modified OBOComponent 82
+    ID        : EMAPA:29220
+    Name      : preputial swelling of male
+    Starts At : TS21
+    Ends At   : TS23
+    Parents   : [EMAPA:17969]
+    Synonyms  : [prepuce of male]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29220 has synonyms [prepuce of male]
+
+   Modified OBOComponent 83
+    ID        : EMAPA:29205
+    Name      : distal genital tubercle of male
+    Starts At : TS21
+    Ends At   : TS22
+    Parents   : [EMAPA:17969]
+    Synonyms  : [glans of male]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29205 has synonyms [glans of male]
+
+   Modified OBOComponent 84
+    ID        : EMAPA:28506
+    Name      : developing capillary loop stage nephron GROUP
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:17952]
+    Synonyms  : [stage III nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28506 has synonyms [stage III nephron]
+
+   Modified OBOComponent 85
+    ID        : EMAPA:28561
+    Name      : ureteral mesenchyme subepithelial layer
+    Starts At : TS20
+    Ends At   : TS24
+    Parents   : [EMAPA:27711]
+    Synonyms  : [presumptive lamina propria]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28561 has synonyms [presumptive lamina propria]
+
+   Modified OBOComponent 86
+    ID        : EMAPA:27913
+    Name      : visceral epithelium of capillary loop renal corpuscle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27907]
+    Synonyms  : [podocyte layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27913 has synonyms [podocyte layer]
+
+   Modified OBOComponent 87
+    ID        : EMAPA:27943
+    Name      : maturing renal corpuscle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:17954, EMAPA:28527, EMAPA:17952, EMAPA:28485, EMAPA:28445]
+    Synonyms  : [renal corpuscle of Stage IV nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27943 has synonyms [renal corpuscle of Stage IV nephron]
+
+   Modified OBOComponent 88
+    ID        : EMAPA:27949
+    Name      : maturing glomerular tuft
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27943]
+    Synonyms  : [maturing glomerulus]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27949 has synonyms [maturing glomerulus]
+
+   Modified OBOComponent 89
+    ID        : EMAPA:28570
+    Name      : ureteral mesenchyme outer layer
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:27711]
+    Synonyms  : [presumptive adventitia]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28570 has synonyms [presumptive adventitia]
+
+   Modified OBOComponent 90
+    ID        : EMAPA:27907
+    Name      : capillary loop renal corpuscle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:17952, EMAPA:17954, EMAPA:28506, EMAPA:28527]
+    Synonyms  : [renal corpuscle of the stage III nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27907 has synonyms [renal corpuscle of the stage III nephron]
+
+   Modified OBOComponent 91
+    ID        : EMAPA:28567
+    Name      : ureteral mesenchyme middle layer
+    Starts At : TS21
+    Ends At   : TS22
+    Parents   : [EMAPA:27711]
+    Synonyms  : [presumptive ureteral smooth muscle layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28567 has synonyms [presumptive ureteral smooth muscle layer]
+
+   Modified OBOComponent 92
+    ID        : EMAPA:28588
+    Name      : superficial cell layer of ureter
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:28089]
+    Synonyms  : [umbrella cell]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28588 has synonyms [umbrella cell]
+
+   Modified OBOComponent 93
+    ID        : EMAPA:27967
+    Name      : visceral epithelium of maturing renal corpuscle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27949]
+    Synonyms  : [podocyte layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27967 has synonyms [podocyte layer]
+
+   Modified OBOComponent 94
+    ID        : EMAPA:29196
+    Name      : degenerating rest of paramesonephric duct of male
+    Starts At : TS22
+    Ends At   : TS23
+    Parents   : [EMAPA:17968]
+    Synonyms  : [degenerating Mullerian duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29196 has synonyms [degenerating Mullerian duct]
+
+   Modified OBOComponent 95
+    ID        : EMAPA:27985
+    Name      : urinary space of renal corpuscle
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27973]
+    Synonyms  : [Bowman's space]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27985 has synonyms [Bowman's space]
+
+   Modified OBOComponent 96
+    ID        : EMAPA:27973
+    Name      : Bowman's capsule
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:27943]
+    Synonyms  : [glomerular capsule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27973 has synonyms [glomerular capsule]
+
+   Modified OBOComponent 97
+    ID        : EMAPA:28485
+    Name      : maturing nephron
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:17952]
+    Synonyms  : [stage IV nephron]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28485 has synonyms [stage IV nephron]
+
+   Modified OBOComponent 98
+    ID        : EMAPA:28407
+    Name      : collecting duct
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:17373]
+    Synonyms  : [ureteric tree]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28407 has synonyms [ureteric tree]
+
+   Modified OBOComponent 99
+    ID        : EMAPA:28405
+    Name      : ureteric trunk
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:28477, EMAPA:17373]
+    Synonyms  : [ureteric stalk]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28405 has synonyms [ureteric stalk]
+
+   Modified OBOComponent 100
+    ID        : EMAPA:28370
+    Name      : inner medullary collecting duct
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28349, EMAPA:28494]
+    Synonyms  : [papillary collecting duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28370 has synonyms [papillary collecting duct]
+
+   Modified OBOComponent 101
+    ID        : EMAPA:16857
+    Name      : gonad
+    Starts At : TS16
+    Ends At   : TS18
+    Parents   : [EMAPA:16367]
+    Synonyms  : [gonad primordium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:16857 has synonyms [gonad primordium]
+
+   Modified OBOComponent 102
+    ID        : EMAPA:28396
+    Name      : distal straight tubule
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28387, EMAPA:31566]
+    Synonyms  : [thick ascending limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28396 has synonyms [thick ascending limb]
+
+   Modified OBOComponent 103
+    ID        : EMAPA:28393
+    Name      : distal convoluted tubule
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:31566, EMAPA:28387]
+    Synonyms  : [second convoluted tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28393 has synonyms [second convoluted tubule]
+
+   Modified OBOComponent 104
+    ID        : EMAPA:28328
+    Name      : thin ascending limb
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28322]
+    Synonyms  : [ascending thin limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28328 has synonyms [ascending thin limb]
+
+   Modified OBOComponent 105
+    ID        : EMAPA:28331
+    Name      : premacula segment of distal straight tubule
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28322]
+    Synonyms  : [thick ascending limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28331 has synonyms [thick ascending limb]
+
+   Modified OBOComponent 106
+    ID        : EMAPA:28358
+    Name      : bend of loop of Henle inner medullary portion
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28352]
+    Synonyms  : [bend, U-turn]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28358 has synonyms [bend, U-turn]
+
+   Modified OBOComponent 107
+    ID        : EMAPA:28364
+    Name      : inner medullary interstitium
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28518, EMAPA:28349]
+    Synonyms  : [papillary interstitium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28364 has synonyms [papillary interstitium]
+
+   Modified OBOComponent 108
+    ID        : EMAPA:28361
+    Name      : thin ascending limb
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28352]
+    Synonyms  : [ascending thin limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28361 has synonyms [ascending thin limb]
+
+   Modified OBOComponent 109
+    ID        : EMAPA:28349
+    Name      : inner medulla
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:19279]
+    Synonyms  : [papilla]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28349 has synonyms [papilla]
+
+   Modified OBOComponent 110
+    ID        : EMAPA:17953
+    Name      : nephrogenic interstitium
+    Starts At : TS21
+    Ends At   : TS28
+    Parents   : [EMAPA:28518, EMAPA:27721]
+    Synonyms  : [peripheral blastema]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17953 has synonyms [peripheral blastema]
+
+   Modified OBOComponent 111
+    ID        : EMAPA:17956
+    Name      : phallic urethra of male
+    Starts At : TS23
+    Ends At   : TS27
+    Parents   : [EMAPA:18692]
+    Synonyms  : [external urethra of male]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17956 has synonyms [external urethra of male]
+
+   Modified OBOComponent 112
+    ID        : EMAPA:17963
+    Name      : surface epithelium of ovary
+    Starts At : TS20
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : [coelomic epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17963 has synonyms [coelomic epithelium]
+
+   Modified OBOComponent 113
+    ID        : EMAPA:17969
+    Name      : genital tubercle of male
+    Starts At : TS20
+    Ends At   : TS24
+    Parents   : [EMAPA:28533, EMAPA:30977, EMAPA:17968]
+    Synonyms  : [penis anlage]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17969 has synonyms [penis anlage]
+
+   Modified OBOComponent 114
+    ID        : EMAPA:28287
+    Name      : renal proximal convoluted tubule
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28281, EMAPA:31566]
+    Synonyms  : [first convoluted tubule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28287 has synonyms [first convoluted tubule]
+
+   Modified OBOComponent 115
+    ID        : EMAPA:31247
+    Name      : follicle cell of primordial follicle
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:30755]
+    Synonyms  : [granulosa cell]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31247 has synonyms [granulosa cell]
+
+   Modified OBOComponent 116
+    ID        : EMAPA:30819
+    Name      : clitoris
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30984, EMAPA:17959]
+    Synonyms  : [genital tubercle of female]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30819 has synonyms [genital tubercle of female]
+
+   Modified OBOComponent 117
+    ID        : EMAPA:28269
+    Name      : part of afferent arteriole forming the juxtaglomerular complex
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28266, EMAPA:30449]
+    Synonyms  : [renin-producing cell]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28269 has synonyms [renin-producing cell]
+
+   Modified OBOComponent 118
+    ID        : EMAPA:29794
+    Name      : anterior prostate gland
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:19287]
+    Synonyms  : [coagulating gland]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29794 has synonyms [coagulating gland]
+
+   Modified OBOComponent 119
+    ID        : EMAPA:28263
+    Name      : urinary space of renal corpuscle
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28257]
+    Synonyms  : [Bowman's space]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28263 has synonyms [Bowman's space]
+
+   Modified OBOComponent 120
+    ID        : EMAPA:28257
+    Name      : Bowman's capsule
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28236]
+    Synonyms  : [glomerular capsule]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28257 has synonyms [glomerular capsule]
+
+   Modified OBOComponent 121
+    ID        : EMAPA:28254
+    Name      : visceral epithelium of mature renal corpuscle
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28239]
+    Synonyms  : [podocyte layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28254 has synonyms [podocyte layer]
+
+   Modified OBOComponent 122
+    ID        : EMAPA:28239
+    Name      : glomerular tuft
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28236]
+    Synonyms  : [glomerulus]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28239 has synonyms [glomerulus]
+
+   Modified OBOComponent 123
+    ID        : EMAPA:28236
+    Name      : mature renal corpuscle
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28491, EMAPA:17954, EMAPA:17952]
+    Synonyms  : [Malpighian corpuscle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28236 has synonyms [Malpighian corpuscle]
+
+   Modified OBOComponent 124
+    ID        : EMAPA:32268
+    Name      : superficial cell layer of prostatic urethra
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30952]
+    Synonyms  : [superficial epithelial layer of prostatic urethra]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:32268 has synonyms [superficial epithelial layer of prostatic urethra]
+
+   Modified OBOComponent 125
+    ID        : EMAPA:16577
+    Name      : nephric duct
+    Starts At : TS14
+    Ends At   : TS16
+    Parents   : [EMAPA:16367]
+    Synonyms  : [Wolffian duct]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:16577 has synonyms [Wolffian duct]
+
+   Modified OBOComponent 126
+    ID        : EMAPA:19180
+    Name      : seminal vesicle
+    Starts At : TS24
+    Ends At   : TS28
+    Parents   : [EMAPA:17968]
+    Synonyms  : [vesicular seminalis]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19180 has synonyms [vesicular seminalis]
+
+   Modified OBOComponent 127
+    ID        : EMAPA:19176
+    Name      : rest of interstitium of the testis
+    Starts At : TS20
+    Ends At   : TS28
+    Parents   : [EMAPA:18687]
+    Synonyms  : [non-specific mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19176 has synonyms [non-specific mesenchyme]
+
+   Modified OBOComponent 128
+    ID        : EMAPA:19174
+    Name      : female external inguinal ring
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:19172]
+    Synonyms  : [external, superficial]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19174 has synonyms [external, superficial]
+
+   Modified OBOComponent 129
+    ID        : EMAPA:19173
+    Name      : female internal inguinal ring
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:19172]
+    Synonyms  : [deep, internal]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19173 has synonyms [deep, internal]
+
+   Modified OBOComponent 130
+    ID        : EMAPA:30870
+    Name      : primitive bladder
+    Starts At : TS20
+    Ends At   : TS21
+    Parents   : [EMAPA:17379]
+    Synonyms  : [cranial urogenital sinus]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30870 has synonyms [cranial urogenital sinus]
+
+   Modified OBOComponent 131
+    ID        : EMAPA:29671
+    Name      : distal straight tubule
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29665]
+    Synonyms  : [thick ascending limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29671 has synonyms [thick ascending limb]
+
+   Modified OBOComponent 132
+    ID        : EMAPA:28136
+    Name      : renal cortical interstitium
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:28518, EMAPA:17952]
+    Synonyms  : [cortical stroma]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28136 has synonyms [cortical stroma]
+
+   Modified OBOComponent 133
+    ID        : EMAPA:28937
+    Name      : paramesonephric duct of female, mesonephric portion
+    Starts At : TS20
+    Ends At   : TS23
+    Parents   : [EMAPA:28909]
+    Synonyms  : [Mullerian duct of female]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28937 has synonyms [Mullerian duct of female]
+
+   Modified OBOComponent 134
+    ID        : EMAPA:30150
+    Name      : ureteral smooth muscle layer interstitium
+    Starts At : TS23
+    Ends At   : TS24
+    Parents   : [EMAPA:28811]
+    Synonyms  : [Cajal cell]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30150 has synonyms [Cajal cell]
+
+   Modified OBOComponent 135
+    ID        : EMAPA:29683
+    Name      : premacula segment of distal straight tubule
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29679]
+    Synonyms  : [thick ascending limb]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29683 has synonyms [thick ascending limb]
+
+   Modified OBOComponent 136
+    ID        : EMAPA:30917
+    Name      : phallic urethra of female
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:28747]
+    Synonyms  : [external urethra of female]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30917 has synonyms [external urethra of female]
+
+   Modified OBOComponent 137
+    ID        : EMAPA:28965
+    Name      : meiotic germ cell
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:17965]
+    Synonyms  : [oocyte]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28965 has synonyms [oocyte]
+
+   Modified OBOComponent 138
+    ID        : EMAPA:28971
+    Name      : premeiotic germ cell
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:17965]
+    Synonyms  : [oogonia]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28971 has synonyms [oogonia]
+
+   Modified OBOComponent 139
+    ID        : EMAPA:27599
+    Name      : nephric duct, metanephric portion
+    Starts At : TS17
+    Ends At   : TS18
+    Parents   : [EMAPA:28425, EMAPA:16367]
+    Synonyms  : [mesonephric duct, metanephric portion]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27599 has synonyms [mesonephric duct, metanephric portion]
+
+   Modified OBOComponent 140
+    ID        : EMAPA:27570
+    Name      : posterior gonadal mesenchyme
+    Starts At : TS17
+    Ends At   : TS18
+    Parents   : [EMAPA:16858]
+    Synonyms  : [caudal gonadal mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27570 has synonyms [caudal gonadal mesenchyme]
+
+   Modified OBOComponent 141
+    ID        : EMAPA:17373
+    Name      : metanephros
+    Starts At : TS19
+    Ends At   : TS28
+    Parents   : [EMAPA:17366]
+    Synonyms  : [kidney]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17373 has synonyms [kidney]
+
+   Modified OBOComponent 142
+    ID        : EMAPA:27566
+    Name      : anterior gonadal mesenchyme
+    Starts At : TS17
+    Ends At   : TS18
+    Parents   : [EMAPA:16858]
+    Synonyms  : [rostral gonadal mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27566 has synonyms [rostral gonadal mesenchyme]
+
+   Modified OBOComponent 143
+    ID        : EMAPA:27564
+    Name      : coelomic epithelium
+    Starts At : TS17
+    Ends At   : TS18
+    Parents   : [EMAPA:16857]
+    Synonyms  : [germinal epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27564 has synonyms [germinal epithelium]
+
+   Modified OBOComponent 144
+    ID        : EMAPA:17385
+    Name      : gonadal mesenchyme
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17383]
+    Synonyms  : [mesenchyme]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17385 has synonyms [mesenchyme]
+
+   Modified OBOComponent 145
+    ID        : EMAPA:17384
+    Name      : coelomic epithelium
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17383]
+    Synonyms  : [germinal epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17384 has synonyms [germinal epithelium]
+
+   Modified OBOComponent 146
+    ID        : EMAPA:17383
+    Name      : gonad
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17381]
+    Synonyms  : [gonad primordium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:17383 has synonyms [gonad primordium]
+
+   Modified OBOComponent 147
+    ID        : EMAPA:27577
+    Name      : cloacal epithelium
+    Starts At : TS17
+    Ends At   : TS18
+    Parents   : [EMAPA:27573]
+    Synonyms  : [distal urethral epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:27577 has synonyms [distal urethral epithelium]
+
+   Modified OBOComponent 148
+    ID        : EMAPA:18985
+    Name      : uterine horn
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:17959]
+    Synonyms  : [uterus]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18985 has synonyms [uterus]
+
+   Modified OBOComponent 149
+    ID        : EMAPA:18999
+    Name      : lower part of vagina
+    Starts At : TS24
+    Ends At   : TS28
+    Parents   : [EMAPA:18986]
+    Synonyms  : [sinus vagina]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18999 has synonyms [sinus vagina]
+
+   Modified OBOComponent 150
+    ID        : EMAPA:18993
+    Name      : efferent duct of seminal vesicle
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:17968]
+    Synonyms  : [vasa efferentia]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:18993 has synonyms [vasa efferentia]
+
+   Modified OBOComponent 151
+    ID        : EMAPA:31021
+    Name      : bend of immature loop of Henle
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:28049, EMAPA:31414]
+    Synonyms  : [U-turn]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:31021 has synonyms [U-turn]
+
+   Modified OBOComponent 152
+    ID        : EMAPA:30043
+    Name      : renal medullary capillary
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:31443, EMAPA:28157, EMAPA:31469, EMAPA:28457]
+    Synonyms  : [vasa recta]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30043 has synonyms [vasa recta]
+
+   Modified OBOComponent 153
+    ID        : EMAPA:19286
+    Name      : bulbourethral gland
+    Starts At : TS26
+    Ends At   : TS28
+    Parents   : [EMAPA:19285]
+    Synonyms  : [Cowper's gland]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19286 has synonyms [Cowper's gland]
+
+   Modified OBOComponent 154
+    ID        : EMAPA:30077
+    Name      : dorsal genital swelling
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17382]
+    Synonyms  : [dorsal genital tubercle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30077 has synonyms [dorsal genital tubercle]
+
+   Modified OBOComponent 155
+    ID        : EMAPA:30079
+    Name      : ventrolateral genital swelling
+    Starts At : TS19
+    Ends At   : TS19
+    Parents   : [EMAPA:17382]
+    Synonyms  : [ventrolateral genital tubercle]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30079 has synonyms [ventrolateral genital tubercle]
+
+D. DELETE COMPONENTS
+
+   ==================
+
+  Total Deleted Components: 2
+  -----------------------------
+
+  1. EMAPA:29964 - endothelial layer of renal vein
+  2. EMAPA:29976 - endothelial layer of renal artery
+
+  DETAILS
+  -------
+
+   Deleted OBOComponent 1
+    ID        : EMAPA:29964
+    Name      : endothelial layer of renal vein
+    Starts At : TS01
+    Ends At   : TS28
+    Parents   : []
+    Synonyms  : []
+    Change Check Status : DELETE
+    Rules Check Status  : PASSED
+    Comments  : 
+     1.  Component has been deleted correctly from OBO File and can be scheduled for deletion in database
+     2.  INFO: Obsolete Term
+     3.  Obsolete term formerly linked to : [EMAPA:28376]
+
+   Deleted OBOComponent 2
+    ID        : EMAPA:29976
+    Name      : endothelial layer of renal artery
+    Starts At : TS01
+    Ends At   : TS28
+    Parents   : []
+    Synonyms  : []
+    Change Check Status : DELETE
+    Rules Check Status  : PASSED
+    Comments  : 
+     1.  Component has been deleted correctly from OBO File and can be scheduled for deletion in database
+     2.  INFO: Obsolete Term
+     3.  Obsolete term formerly linked to : [EMAPA:28373]
+
+
+
+
+----------------------------------------
+----------------------------------------
+----------------Appendix----------------
+----------------------------------------
+
+CRITICAL terms = Terms that require revision.
+NEW terms = Terms that did not exist in the original file/database.
+MODIFIED terms = Terms that have a changed property.
+DELETE terms = Terms that exist in the original file/database but are no longer in the current file.

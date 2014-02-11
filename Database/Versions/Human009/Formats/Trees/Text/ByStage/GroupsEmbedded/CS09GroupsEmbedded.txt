@@ -1,0 +1,923 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS09
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EHDA:13      human
+EHDA:8125    \ human conceptus
+EHDA:8191      + human conceptus extraembryonic component
+EHDA:8817      | + allantoic diverticulum
+EHDA:7094      | | + allantoic diverticulum eithelium
+EHDA:7091      | | \ allantoic diverticulum mesenchyme
+EHDA:5549      | + extraembryonic cavities
+EHDA:16889     | | + amniotic cavity
+EHDA:16718     | | | + amniotic duct
+EHDA:16718     | | | \ amniotic duct
+EHDA:11948     | | + chorionic cavity
+EHDA:12367     | | | \ coelomic cavity lumen
+EHDA:7292      | | |   + extraembryonic coelum
+EHDA:14693     | | |   + pericardial cavity lumen
+EHDA:8324      | | |   | + dorsal mesocardium
+EHDA:8945      | | |   | \ primitive heart tube
+EHDA:19631     | | |   |   + interventricular sulcus
+EHDA:8448      | | |   |   + primitive heart tube endocardium
+EHDA:2849      | | |   |   | + primitive heart tube lumen
+EHDA:13658     | | |   |   | + sinus venosus
+EHDA:12491     | | |   |   | | + sinus venosus left horn
+EHDA:12496     | | |   |   | | \ sinus venosus right horn
+EHDA:12491     | | |   |   | + sinus venosus left horn
+EHDA:12496     | | |   |   | + sinus venosus right horn
+EHDA:9910      | | |   |   | + primitive left ventricle endocardium
+EHDA:9910      | | |   |   | + primitive left ventricle endocardium
+EHDA:19619     | | |   |   | + primitive right ventricle endocardium
+EHDA:19619     | | |   |   | \ primitive right ventricle endocardium
+EHDA:15760     | | |   |   + primitive heart tube jelly
+EHDA:8388      | | |   |   \ primitive heart tube myocardium
+EHDA:15760     | | |   |     \ primitive heart tube jelly
+EHDA:13601     | | |   \ septum transversum
+EHDA:7292      | | + extraembryonic coelum
+EHDA:13615     | | \ secondary yolk sac cavity
+EHDA:11245     | + connecting stalk
+EHDA:11205     | | + connecting stalk blood vessels
+EHDA:4678      | | | + extraembryonic umbilical artery left
+EHDA:18465     | | | + extraembryonic umbilical artery right
+EHDA:4666      | | | + extraembryonic umbilical vein left
+EHDA:4008      | | | | \ umbilical vein left
+EHDA:18503     | | | \ extraembryonic umbilical vein right
+EHDA:16505     | | |   + umbilical vein right
+EHDA:16396     | | |   \ vitelline vein right
+EHDA:11221     | | + connecting stalk mesenchyme
+EHDA:5574      | | \ extraembryonic vascular system
+EHDA:5517      | |   + extraembryonic arterial system
+EHDA:4678      | |   | + extraembryonic umbilical artery left
+EHDA:18465     | |   | \ extraembryonic umbilical artery right
+EHDA:5562      | |   \ extraembryonic venous system
+EHDA:4666      | |     + extraembryonic umbilical vein left
+EHDA:4008      | |     | \ umbilical vein left
+EHDA:18503     | |     \ extraembryonic umbilical vein right
+EHDA:16505     | |       + umbilical vein right
+EHDA:16396     | |       \ vitelline vein right
+EHDA:5539      | + extraembryonic endoderm
+EHDA:6920      | \ extraembryonic membranes
+EHDA:17115     |   + amnion
+EHDA:17213     |   | + amnion ectoderm
+EHDA:17165     |   | \ amnion mesenchyme
+EHDA:11967     |   + chorion
+EHDA:7529      |   | + chorion cytotrophoblast
+EHDA:7100      |   | | \ chorionic villus cytotrophoblast
+EHDA:11948     |   | + chorionic cavity
+EHDA:12367     |   | | \ coelomic cavity lumen
+EHDA:7292      |   | |   + extraembryonic coelum
+EHDA:14693     |   | |   + pericardial cavity lumen
+EHDA:8324      |   | |   | + dorsal mesocardium
+EHDA:8945      |   | |   | \ primitive heart tube
+EHDA:19631     |   | |   |   + interventricular sulcus
+EHDA:8448      |   | |   |   + primitive heart tube endocardium
+EHDA:2849      |   | |   |   | + primitive heart tube lumen
+EHDA:13658     |   | |   |   | + sinus venosus
+EHDA:12491     |   | |   |   | | + sinus venosus left horn
+EHDA:12496     |   | |   |   | | \ sinus venosus right horn
+EHDA:12491     |   | |   |   | + sinus venosus left horn
+EHDA:12496     |   | |   |   | + sinus venosus right horn
+EHDA:9910      |   | |   |   | + primitive left ventricle endocardium
+EHDA:9910      |   | |   |   | + primitive left ventricle endocardium
+EHDA:19619     |   | |   |   | + primitive right ventricle endocardium
+EHDA:19619     |   | |   |   | \ primitive right ventricle endocardium
+EHDA:15760     |   | |   |   + primitive heart tube jelly
+EHDA:8388      |   | |   |   \ primitive heart tube myocardium
+EHDA:15760     |   | |   |     \ primitive heart tube jelly
+EHDA:13601     |   | |   \ septum transversum
+EHDA:7512      |   | + chorion mesenchyme
+EHDA:7009      |   | | \ chorionic villus mesenchyme
+EHDA:10319     |   | + chorion syncytiotrophoblast
+EHDA:7411      |   | | + chorion lacunae
+EHDA:7025      |   | | \ chorionic villus syncytiotropbalst
+EHDA:6993      |   | \ chorionic villus
+EHDA:7100      |   |   + chorionic villus cytotrophoblast
+EHDA:7009      |   |   + chorionic villus mesenchyme
+EHDA:7025      |   |   \ chorionic villus syncytiotropbalst
+EHDA:9925      |   \ secondary yolk sac
+EHDA:8817      |     + allantoic diverticulum
+EHDA:7094      |     | + allantoic diverticulum eithelium
+EHDA:7091      |     | \ allantoic diverticulum mesenchyme
+EHDA:13615     |     + secondary yolk sac cavity
+EHDA:9898      |     + secondary yolk sac endoderm
+EHDA:7094      |     | \ allantoic diverticulum eithelium
+EHDA:9877      |     \ secondary yolk sac mesenchyme
+EHDA:7091      |       + allantoic diverticulum mesenchyme
+EHDA:13760     |       + angioblast clusters
+EHDA:9303      |       + yolk sac primordial germ cells
+EHDA:18416     |       + yolk sac blood islands
+EHDA:13760     |       | + angioblast clusters
+EHDA:14355     |       | + haematoblasts
+EHDA:7548      |       | | \ blood cells
+EHDA:14355     |       | \ haematoblasts
+EHDA:7548      |       |   \ blood cells
+EHDA:18416     |       \ yolk sac blood islands
+EHDA:13760     |         + angioblast clusters
+EHDA:14355     |         + haematoblasts
+EHDA:7548      |         | \ blood cells
+EHDA:14355     |         \ haematoblasts
+EHDA:7548      |           \ blood cells
+EHDA:8157      \ human embryo
+EHDA:7168        + coelomic cavity
+EHDA:12367       | + coelomic cavity lumen
+EHDA:7292        | | + extraembryonic coelum
+EHDA:14693       | | + pericardial cavity lumen
+EHDA:8324        | | | + dorsal mesocardium
+EHDA:8945        | | | \ primitive heart tube
+EHDA:19631       | | |   + interventricular sulcus
+EHDA:8448        | | |   + primitive heart tube endocardium
+EHDA:2849        | | |   | + primitive heart tube lumen
+EHDA:13658       | | |   | + sinus venosus
+EHDA:12491       | | |   | | + sinus venosus left horn
+EHDA:12496       | | |   | | \ sinus venosus right horn
+EHDA:12491       | | |   | + sinus venosus left horn
+EHDA:12496       | | |   | + sinus venosus right horn
+EHDA:9910        | | |   | + primitive left ventricle endocardium
+EHDA:9910        | | |   | + primitive left ventricle endocardium
+EHDA:19619       | | |   | + primitive right ventricle endocardium
+EHDA:19619       | | |   | \ primitive right ventricle endocardium
+EHDA:15760       | | |   + primitive heart tube jelly
+EHDA:8388        | | |   \ primitive heart tube myocardium
+EHDA:15760       | | |     \ primitive heart tube jelly
+EHDA:13601       | | \ septum transversum
+EHDA:7180        | \ pericaridal cavity
+EHDA:14693       |   \ pericardial cavity lumen
+EHDA:8324        |     + dorsal mesocardium
+EHDA:8945        |     \ primitive heart tube
+EHDA:19631       |       + interventricular sulcus
+EHDA:8448        |       + primitive heart tube endocardium
+EHDA:2849        |       | + primitive heart tube lumen
+EHDA:13658       |       | + sinus venosus
+EHDA:12491       |       | | + sinus venosus left horn
+EHDA:12496       |       | | \ sinus venosus right horn
+EHDA:12491       |       | + sinus venosus left horn
+EHDA:12496       |       | + sinus venosus right horn
+EHDA:9910        |       | + primitive left ventricle endocardium
+EHDA:9910        |       | + primitive left ventricle endocardium
+EHDA:19619       |       | + primitive right ventricle endocardium
+EHDA:19619       |       | \ primitive right ventricle endocardium
+EHDA:15760       |       + primitive heart tube jelly
+EHDA:8388        |       \ primitive heart tube myocardium
+EHDA:15760       |         \ primitive heart tube jelly
+EHDA:8395        + ectoderm
+EHDA:9303        | + yolk sac primordial germ cells
+EHDA:12524       | + neural ectoderm
+EHDA:19598       | | + brain neural ectoderm
+EHDA:14815       | | | + mesencephalon floor plate
+EHDA:14727       | | | + mesencephalon neural fold
+EHDA:9185        | | | | \ mesencephalic neural crest
+EHDA:9246        | | | + pro-rhombomere a
+EHDA:9336        | | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | | \ pro-rhombomere a neural fold
+EHDA:9312        | | | |   \ pro-rhombomere a neural crest
+EHDA:9336        | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | + pro-rhombomere a neural fold
+EHDA:9312        | | | | \ pro-rhombomere a neural crest
+EHDA:9512        | | | + pro-rhombomere b
+EHDA:9449        | | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | | \ pro-rhombomere b neural fold
+EHDA:9449        | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | + pro-rhombomere b neural fold
+EHDA:9486        | | | + pro-rhombomere c
+EHDA:9498        | | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | | \ pro-rhombomere c neural fold
+EHDA:9498        | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | + pro-rhombomere c neural fold
+EHDA:4021        | | | + pro-rhombomere d
+EHDA:4027        | | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | | \ pro-rhombomere d neural fold
+EHDA:4027        | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | + pro-rhombomere d neural fold
+EHDA:13740       | | | \ prosencephalon neural fold
+EHDA:19598       | | + brain neural ectoderm
+EHDA:14815       | | | + mesencephalon floor plate
+EHDA:14727       | | | + mesencephalon neural fold
+EHDA:9185        | | | | \ mesencephalic neural crest
+EHDA:9246        | | | + pro-rhombomere a
+EHDA:9336        | | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | | \ pro-rhombomere a neural fold
+EHDA:9312        | | | |   \ pro-rhombomere a neural crest
+EHDA:9336        | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | + pro-rhombomere a neural fold
+EHDA:9312        | | | | \ pro-rhombomere a neural crest
+EHDA:9512        | | | + pro-rhombomere b
+EHDA:9449        | | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | | \ pro-rhombomere b neural fold
+EHDA:9449        | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | + pro-rhombomere b neural fold
+EHDA:9486        | | | + pro-rhombomere c
+EHDA:9498        | | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | | \ pro-rhombomere c neural fold
+EHDA:9498        | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | + pro-rhombomere c neural fold
+EHDA:4021        | | | + pro-rhombomere d
+EHDA:4027        | | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | | \ pro-rhombomere d neural fold
+EHDA:4027        | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | + pro-rhombomere d neural fold
+EHDA:13740       | | | \ prosencephalon neural fold
+EHDA:12640       | | + trunk neural ectoderm
+EHDA:12525       | | | \ neural fold
+EHDA:12640       | | \ trunk neural ectoderm
+EHDA:12525       | |   \ neural fold
+EHDA:12524       | + neural ectoderm
+EHDA:19598       | | + brain neural ectoderm
+EHDA:14815       | | | + mesencephalon floor plate
+EHDA:14727       | | | + mesencephalon neural fold
+EHDA:9185        | | | | \ mesencephalic neural crest
+EHDA:9246        | | | + pro-rhombomere a
+EHDA:9336        | | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | | \ pro-rhombomere a neural fold
+EHDA:9312        | | | |   \ pro-rhombomere a neural crest
+EHDA:9336        | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | + pro-rhombomere a neural fold
+EHDA:9312        | | | | \ pro-rhombomere a neural crest
+EHDA:9512        | | | + pro-rhombomere b
+EHDA:9449        | | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | | \ pro-rhombomere b neural fold
+EHDA:9449        | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | + pro-rhombomere b neural fold
+EHDA:9486        | | | + pro-rhombomere c
+EHDA:9498        | | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | | \ pro-rhombomere c neural fold
+EHDA:9498        | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | + pro-rhombomere c neural fold
+EHDA:4021        | | | + pro-rhombomere d
+EHDA:4027        | | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | | \ pro-rhombomere d neural fold
+EHDA:4027        | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | + pro-rhombomere d neural fold
+EHDA:13740       | | | \ prosencephalon neural fold
+EHDA:19598       | | + brain neural ectoderm
+EHDA:14815       | | | + mesencephalon floor plate
+EHDA:14727       | | | + mesencephalon neural fold
+EHDA:9185        | | | | \ mesencephalic neural crest
+EHDA:9246        | | | + pro-rhombomere a
+EHDA:9336        | | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | | \ pro-rhombomere a neural fold
+EHDA:9312        | | | |   \ pro-rhombomere a neural crest
+EHDA:9336        | | | + pro-rhombomere a floor plate
+EHDA:9220        | | | + pro-rhombomere a neural fold
+EHDA:9312        | | | | \ pro-rhombomere a neural crest
+EHDA:9512        | | | + pro-rhombomere b
+EHDA:9449        | | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | | \ pro-rhombomere b neural fold
+EHDA:9449        | | | + pro-rhombomere b floor plate
+EHDA:9479        | | | + pro-rhombomere b neural fold
+EHDA:9486        | | | + pro-rhombomere c
+EHDA:9498        | | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | | \ pro-rhombomere c neural fold
+EHDA:9498        | | | + pro-rhombomere c floor plate
+EHDA:4056        | | | + pro-rhombomere c neural fold
+EHDA:4021        | | | + pro-rhombomere d
+EHDA:4027        | | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | | \ pro-rhombomere d neural fold
+EHDA:4027        | | | + pro-rhombomere d floor plate
+EHDA:4046        | | | + pro-rhombomere d neural fold
+EHDA:13740       | | | \ prosencephalon neural fold
+EHDA:12640       | | + trunk neural ectoderm
+EHDA:12525       | | | \ neural fold
+EHDA:12640       | | \ trunk neural ectoderm
+EHDA:12525       | |   \ neural fold
+EHDA:10344       | + surface ectoderm
+EHDA:17307       | | + buccopharyngeal membrane ectoderm
+EHDA:17069       | | + otic placode
+EHDA:16012       | | | + otic placode associated mesenchyme
+EHDA:16008       | | | \ otic placode epithelium
+EHDA:12507       | | + branchial placode group
+EHDA:17069       | | | \ otic placode
+EHDA:16012       | | |   + otic placode associated mesenchyme
+EHDA:16008       | | |   \ otic placode epithelium
+EHDA:16008       | | + otic placode epithelium
+EHDA:16008       | | \ otic placode epithelium
+EHDA:10344       | \ surface ectoderm
+EHDA:17307       |   + buccopharyngeal membrane ectoderm
+EHDA:17069       |   + otic placode
+EHDA:16012       |   | + otic placode associated mesenchyme
+EHDA:16008       |   | \ otic placode epithelium
+EHDA:12507       |   + branchial placode group
+EHDA:17069       |   | \ otic placode
+EHDA:16012       |   |   + otic placode associated mesenchyme
+EHDA:16008       |   |   \ otic placode epithelium
+EHDA:16008       |   + otic placode epithelium
+EHDA:16008       |   \ otic placode epithelium
+EHDA:8010        + endoderm
+EHDA:14925       | + early foregut endoderm
+EHDA:19616       | | + buccopharyngeal membrane endoderm
+EHDA:4271        | | \ foregut-midgut junction endoderm
+EHDA:8544        | + prechordal plate
+EHDA:8544        | \ prechordal plate
+EHDA:9366        + mesenchyme
+EHDA:11612       | + head mesenchyme
+EHDA:11517       | | + head mesenchyme from head neural crest
+EHDA:6468        | | | \ mesenchyme from rhombencephalic neural crest
+EHDA:16012       | | |   + otic placode associated mesenchyme
+EHDA:16012       | | |   \ otic placode associated mesenchyme
+EHDA:11529       | | \ head paraxial mesenchyme
+EHDA:5466        | |   + unsegmented head paraxial mesenchyme
+EHDA:12570       | |   | + somite 01
+EHDA:12595       | |   | \ somite 02
+EHDA:11535       | |   + head somite group
+EHDA:12570       | |   | + somite 01
+EHDA:12595       | |   | \ somite 02
+EHDA:11535       | |   \ head somite group
+EHDA:12570       | |     + somite 01
+EHDA:12595       | |     \ somite 02
+EHDA:18931       | \ trunk and cervical mesenchyme
+EHDA:13601       |   + septum transversum
+EHDA:14274       |   + trunk and cervical paraxial mesoderm
+EHDA:5458        |   \ trunk unsegmented mesenchyme
+EHDA:8972        + mesoderm
+EHDA:11529       | + head paraxial mesenchyme
+EHDA:5466        | | + unsegmented head paraxial mesenchyme
+EHDA:12570       | | | + somite 01
+EHDA:12595       | | | \ somite 02
+EHDA:11535       | | + head somite group
+EHDA:12570       | | | + somite 01
+EHDA:12595       | | | \ somite 02
+EHDA:11535       | | \ head somite group
+EHDA:12570       | |   + somite 01
+EHDA:12595       | |   \ somite 02
+EHDA:9366        | + mesenchyme
+EHDA:11612       | | + head mesenchyme
+EHDA:11517       | | | + head mesenchyme from head neural crest
+EHDA:6468        | | | | \ mesenchyme from rhombencephalic neural crest
+EHDA:16012       | | | |   + otic placode associated mesenchyme
+EHDA:16012       | | | |   \ otic placode associated mesenchyme
+EHDA:11529       | | | \ head paraxial mesenchyme
+EHDA:5466        | | |   + unsegmented head paraxial mesenchyme
+EHDA:12570       | | |   | + somite 01
+EHDA:12595       | | |   | \ somite 02
+EHDA:11535       | | |   + head somite group
+EHDA:12570       | | |   | + somite 01
+EHDA:12595       | | |   | \ somite 02
+EHDA:11535       | | |   \ head somite group
+EHDA:12570       | | |     + somite 01
+EHDA:12595       | | |     \ somite 02
+EHDA:18931       | | \ trunk and cervical mesenchyme
+EHDA:13601       | |   + septum transversum
+EHDA:14274       | |   + trunk and cervical paraxial mesoderm
+EHDA:5458        | |   \ trunk unsegmented mesenchyme
+EHDA:13601       | + septum transversum
+EHDA:14274       | + trunk and cervical paraxial mesoderm
+EHDA:5458        | + trunk unsegmented mesenchyme
+EHDA:5466        | + unsegmented head paraxial mesenchyme
+EHDA:12570       | | + somite 01
+EHDA:12595       | | \ somite 02
+EHDA:7623        | + intermediate mesoderm
+EHDA:2908        | | \ 5-7 cervical nephrotomes
+EHDA:7623        | + intermediate mesoderm
+EHDA:2908        | | \ 5-7 cervical nephrotomes
+EHDA:4527        | + lateral plate mesoderm
+EHDA:12581       | | + somatopleure
+EHDA:12581       | | + somatopleure
+EHDA:8912        | | + splanchnopleure
+EHDA:13952       | | | + body venous capillary plexus
+EHDA:4008        | | | | + umbilical vein left
+EHDA:16505       | | | | + umbilical vein right
+EHDA:4326        | | | | + vitelline vein left
+EHDA:16396       | | | | + vitelline vein right
+EHDA:9940        | | | | + vitelline venous plexus
+EHDA:4326        | | | | | + vitelline vein left
+EHDA:16396       | | | | | \ vitelline vein right
+EHDA:9940        | | | | \ vitelline venous plexus
+EHDA:4326        | | | |   + vitelline vein left
+EHDA:16396       | | | |   \ vitelline vein right
+EHDA:8324        | | | + dorsal mesocardium
+EHDA:2868        | | | + respiratory primordium associated mesenchyme
+EHDA:2992        | | | | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2992        | | | + respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:14705       | | | + cardiogenic splanchnopleure
+EHDA:2823        | | | | + endocardiogenic tissue
+EHDA:8448        | | | | | + primitive heart tube endocardium
+EHDA:2849        | | | | | | + primitive heart tube lumen
+EHDA:13658       | | | | | | + sinus venosus
+EHDA:12491       | | | | | | | + sinus venosus left horn
+EHDA:12496       | | | | | | | \ sinus venosus right horn
+EHDA:12491       | | | | | | + sinus venosus left horn
+EHDA:12496       | | | | | | + sinus venosus right horn
+EHDA:9910        | | | | | | + primitive left ventricle endocardium
+EHDA:9910        | | | | | | + primitive left ventricle endocardium
+EHDA:19619       | | | | | | + primitive right ventricle endocardium
+EHDA:19619       | | | | | | \ primitive right ventricle endocardium
+EHDA:2849        | | | | | \ primitive heart tube lumen
+EHDA:14706       | | | | \ myocardial plate
+EHDA:8388        | | | |   \ primitive heart tube myocardium
+EHDA:15760       | | | |     \ primitive heart tube jelly
+EHDA:14705       | | | \ cardiogenic splanchnopleure
+EHDA:2823        | | |   + endocardiogenic tissue
+EHDA:8448        | | |   | + primitive heart tube endocardium
+EHDA:2849        | | |   | | + primitive heart tube lumen
+EHDA:13658       | | |   | | + sinus venosus
+EHDA:12491       | | |   | | | + sinus venosus left horn
+EHDA:12496       | | |   | | | \ sinus venosus right horn
+EHDA:12491       | | |   | | + sinus venosus left horn
+EHDA:12496       | | |   | | + sinus venosus right horn
+EHDA:9910        | | |   | | + primitive left ventricle endocardium
+EHDA:9910        | | |   | | + primitive left ventricle endocardium
+EHDA:19619       | | |   | | + primitive right ventricle endocardium
+EHDA:19619       | | |   | | \ primitive right ventricle endocardium
+EHDA:2849        | | |   | \ primitive heart tube lumen
+EHDA:14706       | | |   \ myocardial plate
+EHDA:8388        | | |     \ primitive heart tube myocardium
+EHDA:15760       | | |       \ primitive heart tube jelly
+EHDA:8912        | | \ splanchnopleure
+EHDA:13952       | |   + body venous capillary plexus
+EHDA:4008        | |   | + umbilical vein left
+EHDA:16505       | |   | + umbilical vein right
+EHDA:4326        | |   | + vitelline vein left
+EHDA:16396       | |   | + vitelline vein right
+EHDA:9940        | |   | + vitelline venous plexus
+EHDA:4326        | |   | | + vitelline vein left
+EHDA:16396       | |   | | \ vitelline vein right
+EHDA:9940        | |   | \ vitelline venous plexus
+EHDA:4326        | |   |   + vitelline vein left
+EHDA:16396       | |   |   \ vitelline vein right
+EHDA:8324        | |   + dorsal mesocardium
+EHDA:2868        | |   + respiratory primordium associated mesenchyme
+EHDA:2992        | |   | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2992        | |   + respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:14705       | |   + cardiogenic splanchnopleure
+EHDA:2823        | |   | + endocardiogenic tissue
+EHDA:8448        | |   | | + primitive heart tube endocardium
+EHDA:2849        | |   | | | + primitive heart tube lumen
+EHDA:13658       | |   | | | + sinus venosus
+EHDA:12491       | |   | | | | + sinus venosus left horn
+EHDA:12496       | |   | | | | \ sinus venosus right horn
+EHDA:12491       | |   | | | + sinus venosus left horn
+EHDA:12496       | |   | | | + sinus venosus right horn
+EHDA:9910        | |   | | | + primitive left ventricle endocardium
+EHDA:9910        | |   | | | + primitive left ventricle endocardium
+EHDA:19619       | |   | | | + primitive right ventricle endocardium
+EHDA:19619       | |   | | | \ primitive right ventricle endocardium
+EHDA:2849        | |   | | \ primitive heart tube lumen
+EHDA:14706       | |   | \ myocardial plate
+EHDA:8388        | |   |   \ primitive heart tube myocardium
+EHDA:15760       | |   |     \ primitive heart tube jelly
+EHDA:14705       | |   \ cardiogenic splanchnopleure
+EHDA:2823        | |     + endocardiogenic tissue
+EHDA:8448        | |     | + primitive heart tube endocardium
+EHDA:2849        | |     | | + primitive heart tube lumen
+EHDA:13658       | |     | | + sinus venosus
+EHDA:12491       | |     | | | + sinus venosus left horn
+EHDA:12496       | |     | | | \ sinus venosus right horn
+EHDA:12491       | |     | | + sinus venosus left horn
+EHDA:12496       | |     | | + sinus venosus right horn
+EHDA:9910        | |     | | + primitive left ventricle endocardium
+EHDA:9910        | |     | | + primitive left ventricle endocardium
+EHDA:19619       | |     | | + primitive right ventricle endocardium
+EHDA:19619       | |     | | \ primitive right ventricle endocardium
+EHDA:2849        | |     | \ primitive heart tube lumen
+EHDA:14706       | |     \ myocardial plate
+EHDA:8388        | |       \ primitive heart tube myocardium
+EHDA:15760       | |         \ primitive heart tube jelly
+EHDA:4527        | \ lateral plate mesoderm
+EHDA:12581       |   + somatopleure
+EHDA:12581       |   + somatopleure
+EHDA:8912        |   + splanchnopleure
+EHDA:13952       |   | + body venous capillary plexus
+EHDA:4008        |   | | + umbilical vein left
+EHDA:16505       |   | | + umbilical vein right
+EHDA:4326        |   | | + vitelline vein left
+EHDA:16396       |   | | + vitelline vein right
+EHDA:9940        |   | | + vitelline venous plexus
+EHDA:4326        |   | | | + vitelline vein left
+EHDA:16396       |   | | | \ vitelline vein right
+EHDA:9940        |   | | \ vitelline venous plexus
+EHDA:4326        |   | |   + vitelline vein left
+EHDA:16396       |   | |   \ vitelline vein right
+EHDA:8324        |   | + dorsal mesocardium
+EHDA:2868        |   | + respiratory primordium associated mesenchyme
+EHDA:2992        |   | | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2992        |   | + respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:14705       |   | + cardiogenic splanchnopleure
+EHDA:2823        |   | | + endocardiogenic tissue
+EHDA:8448        |   | | | + primitive heart tube endocardium
+EHDA:2849        |   | | | | + primitive heart tube lumen
+EHDA:13658       |   | | | | + sinus venosus
+EHDA:12491       |   | | | | | + sinus venosus left horn
+EHDA:12496       |   | | | | | \ sinus venosus right horn
+EHDA:12491       |   | | | | + sinus venosus left horn
+EHDA:12496       |   | | | | + sinus venosus right horn
+EHDA:9910        |   | | | | + primitive left ventricle endocardium
+EHDA:9910        |   | | | | + primitive left ventricle endocardium
+EHDA:19619       |   | | | | + primitive right ventricle endocardium
+EHDA:19619       |   | | | | \ primitive right ventricle endocardium
+EHDA:2849        |   | | | \ primitive heart tube lumen
+EHDA:14706       |   | | \ myocardial plate
+EHDA:8388        |   | |   \ primitive heart tube myocardium
+EHDA:15760       |   | |     \ primitive heart tube jelly
+EHDA:14705       |   | \ cardiogenic splanchnopleure
+EHDA:2823        |   |   + endocardiogenic tissue
+EHDA:8448        |   |   | + primitive heart tube endocardium
+EHDA:2849        |   |   | | + primitive heart tube lumen
+EHDA:13658       |   |   | | + sinus venosus
+EHDA:12491       |   |   | | | + sinus venosus left horn
+EHDA:12496       |   |   | | | \ sinus venosus right horn
+EHDA:12491       |   |   | | + sinus venosus left horn
+EHDA:12496       |   |   | | + sinus venosus right horn
+EHDA:9910        |   |   | | + primitive left ventricle endocardium
+EHDA:9910        |   |   | | + primitive left ventricle endocardium
+EHDA:19619       |   |   | | + primitive right ventricle endocardium
+EHDA:19619       |   |   | | \ primitive right ventricle endocardium
+EHDA:2849        |   |   | \ primitive heart tube lumen
+EHDA:14706       |   |   \ myocardial plate
+EHDA:8388        |   |     \ primitive heart tube myocardium
+EHDA:15760       |   |       \ primitive heart tube jelly
+EHDA:8912        |   \ splanchnopleure
+EHDA:13952       |     + body venous capillary plexus
+EHDA:4008        |     | + umbilical vein left
+EHDA:16505       |     | + umbilical vein right
+EHDA:4326        |     | + vitelline vein left
+EHDA:16396       |     | + vitelline vein right
+EHDA:9940        |     | + vitelline venous plexus
+EHDA:4326        |     | | + vitelline vein left
+EHDA:16396       |     | | \ vitelline vein right
+EHDA:9940        |     | \ vitelline venous plexus
+EHDA:4326        |     |   + vitelline vein left
+EHDA:16396       |     |   \ vitelline vein right
+EHDA:8324        |     + dorsal mesocardium
+EHDA:2868        |     + respiratory primordium associated mesenchyme
+EHDA:2992        |     | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2992        |     + respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:14705       |     + cardiogenic splanchnopleure
+EHDA:2823        |     | + endocardiogenic tissue
+EHDA:8448        |     | | + primitive heart tube endocardium
+EHDA:2849        |     | | | + primitive heart tube lumen
+EHDA:13658       |     | | | + sinus venosus
+EHDA:12491       |     | | | | + sinus venosus left horn
+EHDA:12496       |     | | | | \ sinus venosus right horn
+EHDA:12491       |     | | | + sinus venosus left horn
+EHDA:12496       |     | | | + sinus venosus right horn
+EHDA:9910        |     | | | + primitive left ventricle endocardium
+EHDA:9910        |     | | | + primitive left ventricle endocardium
+EHDA:19619       |     | | | + primitive right ventricle endocardium
+EHDA:19619       |     | | | \ primitive right ventricle endocardium
+EHDA:2849        |     | | \ primitive heart tube lumen
+EHDA:14706       |     | \ myocardial plate
+EHDA:8388        |     |   \ primitive heart tube myocardium
+EHDA:15760       |     |     \ primitive heart tube jelly
+EHDA:14705       |     \ cardiogenic splanchnopleure
+EHDA:2823        |       + endocardiogenic tissue
+EHDA:8448        |       | + primitive heart tube endocardium
+EHDA:2849        |       | | + primitive heart tube lumen
+EHDA:13658       |       | | + sinus venosus
+EHDA:12491       |       | | | + sinus venosus left horn
+EHDA:12496       |       | | | \ sinus venosus right horn
+EHDA:12491       |       | | + sinus venosus left horn
+EHDA:12496       |       | | + sinus venosus right horn
+EHDA:9910        |       | | + primitive left ventricle endocardium
+EHDA:9910        |       | | + primitive left ventricle endocardium
+EHDA:19619       |       | | + primitive right ventricle endocardium
+EHDA:19619       |       | | \ primitive right ventricle endocardium
+EHDA:2849        |       | \ primitive heart tube lumen
+EHDA:14706       |       \ myocardial plate
+EHDA:8388        |         \ primitive heart tube myocardium
+EHDA:15760       |           \ primitive heart tube jelly
+EHDA:6747        + neural crest
+EHDA:6516        | \ head neural crest
+EHDA:11517       |   + head mesenchyme from head neural crest
+EHDA:6468        |   | \ mesenchyme from rhombencephalic neural crest
+EHDA:16012       |   |   + otic placode associated mesenchyme
+EHDA:16012       |   |   \ otic placode associated mesenchyme
+EHDA:9185        |   + mesencephalic neural crest
+EHDA:5162        |   \ rhombencephalic neural crest
+EHDA:9312        |     \ pro-rhombomere a neural crest
+EHDA:12829       + notochordal plate
+EHDA:17238       + organ system group
+EHDA:17250       | + alimentary system
+EHDA:17858       | | + buccopharyngeal membrane
+EHDA:17307       | | | + buccopharyngeal membrane ectoderm
+EHDA:19616       | | | \ buccopharyngeal membrane endoderm
+EHDA:11268       | | + gut region
+EHDA:3837        | | | + foregut region
+EHDA:19616       | | | | + buccopharyngeal membrane endoderm
+EHDA:2881        | | | | + laryngo-tracheal groove
+EHDA:14925       | | | | + early foregut endoderm
+EHDA:19616       | | | | | + buccopharyngeal membrane endoderm
+EHDA:4271        | | | | | \ foregut-midgut junction endoderm
+EHDA:17574       | | | | \ pharyngeal arch region
+EHDA:8083        | | | |   + 1st arch
+EHDA:8093        | | | |   | \ 1st arch artery
+EHDA:2826        | | | |   + respiratory primordium
+EHDA:2868        | | | |   | + respiratory primordium associated mesenchyme
+EHDA:2992        | | | |   | | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2862        | | | |   | \ respiratory primordium epithelium
+EHDA:12507       | | | |   \ branchial placode group
+EHDA:17069       | | | |     \ otic placode
+EHDA:16012       | | | |       + otic placode associated mesenchyme
+EHDA:16008       | | | |       \ otic placode epithelium
+EHDA:4065        | | | + foregut-midgut junction region
+EHDA:4305        | | | | + foregut-midgut junction associated mesenchyme
+EHDA:4271        | | | | \ foregut-midgut junction endoderm
+EHDA:15001       | | | \ gut tissues
+EHDA:14871       | | |   \ gut epithelium
+EHDA:19616       | | |     + buccopharyngeal membrane endoderm
+EHDA:14925       | | |     + early foregut endoderm
+EHDA:19616       | | |     | + buccopharyngeal membrane endoderm
+EHDA:4271        | | |     | \ foregut-midgut junction endoderm
+EHDA:4271        | | |     \ foregut-midgut junction endoderm
+EHDA:16631       | | \ oral region
+EHDA:17307       | |   + buccopharyngeal membrane ectoderm
+EHDA:9942        | |   \ stomatodaeum
+EHDA:14665       | + cardiovascular system
+EHDA:15745       | | + cardiac system
+EHDA:8324        | | | + dorsal mesocardium
+EHDA:2823        | | | + endocardiogenic tissue
+EHDA:8448        | | | | + primitive heart tube endocardium
+EHDA:2849        | | | | | + primitive heart tube lumen
+EHDA:13658       | | | | | + sinus venosus
+EHDA:12491       | | | | | | + sinus venosus left horn
+EHDA:12496       | | | | | | \ sinus venosus right horn
+EHDA:12491       | | | | | + sinus venosus left horn
+EHDA:12496       | | | | | + sinus venosus right horn
+EHDA:9910        | | | | | + primitive left ventricle endocardium
+EHDA:9910        | | | | | + primitive left ventricle endocardium
+EHDA:19619       | | | | | + primitive right ventricle endocardium
+EHDA:19619       | | | | | \ primitive right ventricle endocardium
+EHDA:2849        | | | | \ primitive heart tube lumen
+EHDA:15812       | | | + heart-associated blood vessels
+EHDA:14002       | | | | + heart associated arteries
+EHDA:15772       | | | | | + aortic sac
+EHDA:8312        | | | | | \ paired dorsal aortae
+EHDA:4655        | | | | |   + left dorsal aorta
+EHDA:18509       | | | | |   \ right dorsal aorta
+EHDA:14014       | | | | \ heart associated veins
+EHDA:13658       | | | |   \ sinus venosus
+EHDA:12491       | | | |     + sinus venosus left horn
+EHDA:12496       | | | |     \ sinus venosus right horn
+EHDA:14706       | | | + myocardial plate
+EHDA:8388        | | | | \ primitive heart tube myocardium
+EHDA:15760       | | | |   \ primitive heart tube jelly
+EHDA:14693       | | | + pericardial cavity lumen
+EHDA:8324        | | | | + dorsal mesocardium
+EHDA:8945        | | | | \ primitive heart tube
+EHDA:19631       | | | |   + interventricular sulcus
+EHDA:8448        | | | |   + primitive heart tube endocardium
+EHDA:2849        | | | |   | + primitive heart tube lumen
+EHDA:13658       | | | |   | + sinus venosus
+EHDA:12491       | | | |   | | + sinus venosus left horn
+EHDA:12496       | | | |   | | \ sinus venosus right horn
+EHDA:12491       | | | |   | + sinus venosus left horn
+EHDA:12496       | | | |   | + sinus venosus right horn
+EHDA:9910        | | | |   | + primitive left ventricle endocardium
+EHDA:9910        | | | |   | + primitive left ventricle endocardium
+EHDA:19619       | | | |   | + primitive right ventricle endocardium
+EHDA:19619       | | | |   | \ primitive right ventricle endocardium
+EHDA:15760       | | | |   + primitive heart tube jelly
+EHDA:8388        | | | |   \ primitive heart tube myocardium
+EHDA:15760       | | | |     \ primitive heart tube jelly
+EHDA:8945        | | | \ primitive heart tube
+EHDA:19631       | | |   + interventricular sulcus
+EHDA:8448        | | |   + primitive heart tube endocardium
+EHDA:2849        | | |   | + primitive heart tube lumen
+EHDA:13658       | | |   | + sinus venosus
+EHDA:12491       | | |   | | + sinus venosus left horn
+EHDA:12496       | | |   | | \ sinus venosus right horn
+EHDA:12491       | | |   | + sinus venosus left horn
+EHDA:12496       | | |   | + sinus venosus right horn
+EHDA:9910        | | |   | + primitive left ventricle endocardium
+EHDA:9910        | | |   | + primitive left ventricle endocardium
+EHDA:19619       | | |   | + primitive right ventricle endocardium
+EHDA:19619       | | |   | \ primitive right ventricle endocardium
+EHDA:15760       | | |   + primitive heart tube jelly
+EHDA:8388        | | |   \ primitive heart tube myocardium
+EHDA:15760       | | |     \ primitive heart tube jelly
+EHDA:13860       | | \ vascular system
+EHDA:15975       | |   + arterial system
+EHDA:17560       | |   | + aortic arch arteries
+EHDA:8093        | |   | | + 1st arch artery
+EHDA:15772       | |   | | \ aortic sac
+EHDA:14321       | |   | + body arteries
+EHDA:13809       | |   | | + aortic system
+EHDA:15772       | |   | | | + aortic sac
+EHDA:8312        | |   | | | \ paired dorsal aortae
+EHDA:4655        | |   | | |   + left dorsal aorta
+EHDA:18509       | |   | | |   \ right dorsal aorta
+EHDA:14002       | |   | | \ heart associated arteries
+EHDA:15772       | |   | |   + aortic sac
+EHDA:8312        | |   | |   \ paired dorsal aortae
+EHDA:4655        | |   | |     + left dorsal aorta
+EHDA:18509       | |   | |     \ right dorsal aorta
+EHDA:13878       | |   | \ head arteries
+EHDA:13134       | |   |   \ brain arterial system
+EHDA:14680       | |   |     \ carotid artery system
+EHDA:18257       | |   + blood
+EHDA:7548        | |   | + blood cells
+EHDA:7135        | |   | \ serum
+EHDA:6372        | |   \ venous system
+EHDA:14172       | |     + body veins
+EHDA:14014       | |     | + heart associated veins
+EHDA:13658       | |     | | \ sinus venosus
+EHDA:12491       | |     | |   + sinus venosus left horn
+EHDA:12496       | |     | |   \ sinus venosus right horn
+EHDA:4008        | |     | + umbilical vein left
+EHDA:16505       | |     | + umbilical vein right
+EHDA:4326        | |     | + vitelline vein left
+EHDA:16396       | |     | \ vitelline vein right
+EHDA:14186       | |     + embryonic venous capillary plexus
+EHDA:14198       | |     | + head and neck venous capillary plexus
+EHDA:13952       | |     | + body venous capillary plexus
+EHDA:4008        | |     | | + umbilical vein left
+EHDA:16505       | |     | | + umbilical vein right
+EHDA:4326        | |     | | + vitelline vein left
+EHDA:16396       | |     | | + vitelline vein right
+EHDA:9940        | |     | | + vitelline venous plexus
+EHDA:4326        | |     | | | + vitelline vein left
+EHDA:16396       | |     | | | \ vitelline vein right
+EHDA:9940        | |     | | \ vitelline venous plexus
+EHDA:4326        | |     | |   + vitelline vein left
+EHDA:16396       | |     | |   \ vitelline vein right
+EHDA:13952       | |     | \ body venous capillary plexus
+EHDA:4008        | |     |   + umbilical vein left
+EHDA:16505       | |     |   + umbilical vein right
+EHDA:4326        | |     |   + vitelline vein left
+EHDA:16396       | |     |   + vitelline vein right
+EHDA:9940        | |     |   + vitelline venous plexus
+EHDA:4326        | |     |   | + vitelline vein left
+EHDA:16396       | |     |   | \ vitelline vein right
+EHDA:9940        | |     |   \ vitelline venous plexus
+EHDA:4326        | |     |     + vitelline vein left
+EHDA:16396       | |     |     \ vitelline vein right
+EHDA:14160       | |     \ head and neck veins
+EHDA:14198       | |       \ head and neck venous capillary plexus
+EHDA:10945       | + haemolymphoid system
+EHDA:18257       | | \ blood
+EHDA:7548        | |   + blood cells
+EHDA:7135        | |   \ serum
+EHDA:8222        | + integumental system
+EHDA:10344       | | \ surface ectoderm
+EHDA:17307       | |   + buccopharyngeal membrane ectoderm
+EHDA:17069       | |   + otic placode
+EHDA:16012       | |   | + otic placode associated mesenchyme
+EHDA:16008       | |   | \ otic placode epithelium
+EHDA:12507       | |   + branchial placode group
+EHDA:17069       | |   | \ otic placode
+EHDA:16012       | |   |   + otic placode associated mesenchyme
+EHDA:16008       | |   |   \ otic placode epithelium
+EHDA:16008       | |   + otic placode epithelium
+EHDA:16008       | |   \ otic placode epithelium
+EHDA:12528       | + nervous system
+EHDA:15051       | | + central nervous system
+EHDA:17637       | | | + brain
+EHDA:13134       | | | | + brain arterial system
+EHDA:14680       | | | | | \ carotid artery system
+EHDA:14786       | | | | + mesencephalon
+EHDA:14815       | | | | | + mesencephalon floor plate
+EHDA:14727       | | | | | \ mesencephalon neural fold
+EHDA:9185        | | | | |   \ mesencephalic neural crest
+EHDA:13734       | | | | + prosencephalon
+EHDA:13740       | | | | | \ prosencephalon neural fold
+EHDA:5302        | | | | \ rhombencephalon
+EHDA:5162        | | | |   + rhombencephalic neural crest
+EHDA:9312        | | | |   | \ pro-rhombomere a neural crest
+EHDA:9063        | | | |   + pro-rhombomere group
+EHDA:9246        | | | |   | + pro-rhombomere a
+EHDA:9336        | | | |   | | + pro-rhombomere a floor plate
+EHDA:9220        | | | |   | | \ pro-rhombomere a neural fold
+EHDA:9312        | | | |   | |   \ pro-rhombomere a neural crest
+EHDA:9512        | | | |   | + pro-rhombomere b
+EHDA:9449        | | | |   | | + pro-rhombomere b floor plate
+EHDA:9479        | | | |   | | \ pro-rhombomere b neural fold
+EHDA:9486        | | | |   | + pro-rhombomere c
+EHDA:9498        | | | |   | | + pro-rhombomere c floor plate
+EHDA:4056        | | | |   | | \ pro-rhombomere c neural fold
+EHDA:4021        | | | |   | \ pro-rhombomere d
+EHDA:4027        | | | |   |   + pro-rhombomere d floor plate
+EHDA:4046        | | | |   |   \ pro-rhombomere d neural fold
+EHDA:9020        | | | |   + rhombencephalon floor plate
+EHDA:9336        | | | |   | + pro-rhombomere a floor plate
+EHDA:9449        | | | |   | + pro-rhombomere b floor plate
+EHDA:9498        | | | |   | + pro-rhombomere c floor plate
+EHDA:4027        | | | |   | \ pro-rhombomere d floor plate
+EHDA:9020        | | | |   \ rhombencephalon floor plate
+EHDA:9336        | | | |     + pro-rhombomere a floor plate
+EHDA:9449        | | | |     + pro-rhombomere b floor plate
+EHDA:9498        | | | |     + pro-rhombomere c floor plate
+EHDA:4027        | | | |     \ pro-rhombomere d floor plate
+EHDA:12082       | | | \ CNS caudal region
+EHDA:12525       | | |   \ neural fold
+EHDA:12524       | | \ neural ectoderm
+EHDA:19598       | |   + brain neural ectoderm
+EHDA:14815       | |   | + mesencephalon floor plate
+EHDA:14727       | |   | + mesencephalon neural fold
+EHDA:9185        | |   | | \ mesencephalic neural crest
+EHDA:9246        | |   | + pro-rhombomere a
+EHDA:9336        | |   | | + pro-rhombomere a floor plate
+EHDA:9220        | |   | | \ pro-rhombomere a neural fold
+EHDA:9312        | |   | |   \ pro-rhombomere a neural crest
+EHDA:9336        | |   | + pro-rhombomere a floor plate
+EHDA:9220        | |   | + pro-rhombomere a neural fold
+EHDA:9312        | |   | | \ pro-rhombomere a neural crest
+EHDA:9512        | |   | + pro-rhombomere b
+EHDA:9449        | |   | | + pro-rhombomere b floor plate
+EHDA:9479        | |   | | \ pro-rhombomere b neural fold
+EHDA:9449        | |   | + pro-rhombomere b floor plate
+EHDA:9479        | |   | + pro-rhombomere b neural fold
+EHDA:9486        | |   | + pro-rhombomere c
+EHDA:9498        | |   | | + pro-rhombomere c floor plate
+EHDA:4056        | |   | | \ pro-rhombomere c neural fold
+EHDA:9498        | |   | + pro-rhombomere c floor plate
+EHDA:4056        | |   | + pro-rhombomere c neural fold
+EHDA:4021        | |   | + pro-rhombomere d
+EHDA:4027        | |   | | + pro-rhombomere d floor plate
+EHDA:4046        | |   | | \ pro-rhombomere d neural fold
+EHDA:4027        | |   | + pro-rhombomere d floor plate
+EHDA:4046        | |   | + pro-rhombomere d neural fold
+EHDA:13740       | |   | \ prosencephalon neural fold
+EHDA:19598       | |   + brain neural ectoderm
+EHDA:14815       | |   | + mesencephalon floor plate
+EHDA:14727       | |   | + mesencephalon neural fold
+EHDA:9185        | |   | | \ mesencephalic neural crest
+EHDA:9246        | |   | + pro-rhombomere a
+EHDA:9336        | |   | | + pro-rhombomere a floor plate
+EHDA:9220        | |   | | \ pro-rhombomere a neural fold
+EHDA:9312        | |   | |   \ pro-rhombomere a neural crest
+EHDA:9336        | |   | + pro-rhombomere a floor plate
+EHDA:9220        | |   | + pro-rhombomere a neural fold
+EHDA:9312        | |   | | \ pro-rhombomere a neural crest
+EHDA:9512        | |   | + pro-rhombomere b
+EHDA:9449        | |   | | + pro-rhombomere b floor plate
+EHDA:9479        | |   | | \ pro-rhombomere b neural fold
+EHDA:9449        | |   | + pro-rhombomere b floor plate
+EHDA:9479        | |   | + pro-rhombomere b neural fold
+EHDA:9486        | |   | + pro-rhombomere c
+EHDA:9498        | |   | | + pro-rhombomere c floor plate
+EHDA:4056        | |   | | \ pro-rhombomere c neural fold
+EHDA:9498        | |   | + pro-rhombomere c floor plate
+EHDA:4056        | |   | + pro-rhombomere c neural fold
+EHDA:4021        | |   | + pro-rhombomere d
+EHDA:4027        | |   | | + pro-rhombomere d floor plate
+EHDA:4046        | |   | | \ pro-rhombomere d neural fold
+EHDA:4027        | |   | + pro-rhombomere d floor plate
+EHDA:4046        | |   | + pro-rhombomere d neural fold
+EHDA:13740       | |   | \ prosencephalon neural fold
+EHDA:12640       | |   + trunk neural ectoderm
+EHDA:12525       | |   | \ neural fold
+EHDA:12640       | |   \ trunk neural ectoderm
+EHDA:12525       | |     \ neural fold
+EHDA:4832        | + respiratory system
+EHDA:4820        | | \ respiratory tract
+EHDA:5232        | |   + lower respiratory tract
+EHDA:2881        | |   | + laryngo-tracheal groove
+EHDA:2826        | |   | \ respiratory primordium
+EHDA:2868        | |   |   + respiratory primordium associated mesenchyme
+EHDA:2992        | |   |   | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2862        | |   |   \ respiratory primordium epithelium
+EHDA:5899        | |   \ upper respiratory tract
+EHDA:17574       | |     \ pharyngeal arch region
+EHDA:8083        | |       + 1st arch
+EHDA:8093        | |       | \ 1st arch artery
+EHDA:2826        | |       + respiratory primordium
+EHDA:2868        | |       | + respiratory primordium associated mesenchyme
+EHDA:2992        | |       | | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2862        | |       | \ respiratory primordium epithelium
+EHDA:12507       | |       \ branchial placode group
+EHDA:17069       | |         \ otic placode
+EHDA:16012       | |           + otic placode associated mesenchyme
+EHDA:16008       | |           \ otic placode epithelium
+EHDA:13558       | + sensory system
+EHDA:8436        | | \ ear
+EHDA:8063        | |   \ inner ear
+EHDA:17069       | |     \ otic placode
+EHDA:16012       | |       + otic placode associated mesenchyme
+EHDA:16008       | |       \ otic placode epithelium
+EHDA:4875        | \ urinary system
+EHDA:3835        |   \ pronephros
+EHDA:2908        |     \ 5-7 cervical nephrotomes
+EHDA:17574       + pharyngeal arch region
+EHDA:8083        | + 1st arch
+EHDA:8093        | | \ 1st arch artery
+EHDA:2826        | + respiratory primordium
+EHDA:2868        | | + respiratory primordium associated mesenchyme
+EHDA:2992        | | | \ respiratory primordium associated mesenchyme from splanchnopleure
+EHDA:2862        | | \ respiratory primordium epithelium
+EHDA:12507       | \ branchial placode group
+EHDA:17069       |   \ otic placode
+EHDA:16012       |     + otic placode associated mesenchyme
+EHDA:16008       |     \ otic placode epithelium
+EHDA:9611        \ primitive streak
+EHDA:12853         + primitive node
+EHDA:8942          + primitive groove
+EHDA:8942          + primitive groove
+EHDA:9664          + primitive pit
+EHDA:9664          \ primitive pit

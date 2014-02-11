@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <component name="mouse" id="25766">
+    <stage name="TS01"/>
+    <component isPrimary="true" name="first polar body" id="1">
+      <printName>first polar body</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>01</stopEmbryoStage>
+      <parentId>25766</parentId>
+    </component>
+    <childrenId>1</childrenId>
+    <component isPrimary="true" name="one-cell stage" id="2">
+      <printName>one-cell stage</printName>
+      <abbreviation/>
+      <synonym>fertilized egg</synonym>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>01</stopEmbryoStage>
+      <parentId>25766</parentId>
+    </component>
+    <childrenId>2</childrenId>
+    <component isPrimary="true" name="second polar body" id="3">
+      <printName>second polar body</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25766</parentId>
+    </component>
+    <childrenId>3</childrenId>
+    <component isPrimary="true" name="zona pellucida" id="4">
+      <printName>zona pellucida</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25766</parentId>
+    </component>
+    <childrenId>4</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

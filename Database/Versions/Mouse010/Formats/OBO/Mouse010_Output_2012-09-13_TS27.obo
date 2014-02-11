@@ -1,0 +1,2721 @@
+format-version: 1.2
+date: 14:03:2013 09:52
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 010
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS27
+name: TS27
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:30155
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:30154
+name: organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30155
+
+[Term]
+id: EMAP:30153
+name: visceral organ
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30154
+
+[Term]
+id: EMAP:30243
+name: urinary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30153
+
+[Term]
+id: EMAP:30400
+name: urinary system mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30402
+name: urogenital mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30400
+
+[Term]
+id: EMAP:30401
+name: rest of mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30400
+
+[Term]
+id: EMAP:30247
+name: metanephros
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30276
+name: pelvis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30278
+name: pelvic urothelial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30276
+
+[Term]
+id: EMAP:30279
+name: perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30276
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30277
+name: pelvic smooth muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30276
+
+[Term]
+id: EMAP:30250
+name: calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30251
+name: major calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30250
+
+[Term]
+id: EMAP:30252
+name: minor calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30250
+
+[Term]
+id: EMAP:30249
+name: renal capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30282
+name: nephrogenic zone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30283
+name: nephrogenic interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30282
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30284
+name: cap mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30282
+
+[Term]
+id: EMAP:30285
+name: pretubular aggregate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30282
+
+[Term]
+id: EMAP:30248
+name: ureteric tip
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30280
+relationship: part_of EMAP:30282
+
+[Term]
+id: EMAP:31052
+name: ureteric tree terminal branch excluding tip itself
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30280
+relationship: part_of EMAP:30282
+
+[Term]
+id: EMAP:30287
+name: renal cortex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30316
+name: renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30318
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30303
+name: comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30318
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30304
+name: upper limb of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30303
+
+[Term]
+id: EMAP:30305
+name: lower limb of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30303
+
+[Term]
+id: EMAP:30319
+name: s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30318
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30324
+name: renal connecting tubule of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30319
+
+[Term]
+id: EMAP:30320
+name: distal segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30319
+
+[Term]
+id: EMAP:30325
+name: medial segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30319
+
+[Term]
+id: EMAP:30321
+name: proximal segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30319
+
+[Term]
+id: EMAP:30322
+name: visceral epithelium of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30321
+
+[Term]
+id: EMAP:30323
+name: parietal epithelium of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30321
+
+[Term]
+id: EMAP:30307
+name: capillary loop renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30314
+relationship: part_of EMAP:30317
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30308
+name: visceral epithelium of capillary loop renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30307
+
+[Term]
+id: EMAP:30312
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30307
+
+[Term]
+id: EMAP:30311
+name: associated interstitium of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30307
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30309
+name: presumptive mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30307
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30310
+name: presumptive endothelium of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30307
+relationship: part_of EMAP:30417
+
+[Term]
+id: EMAP:30264
+name: maturing renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30306
+relationship: part_of EMAP:30314
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30268
+name: maturing glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30264
+
+[Term]
+id: EMAP:30271
+name: glomerular capillary system of maturing glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30268
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30270
+name: glomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30268
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30269
+name: visceral epithelium of maturing renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30268
+
+[Term]
+id: EMAP:30971
+name: glomerular basement membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30268
+
+[Term]
+id: EMAP:30272
+name: Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30264
+
+[Term]
+id: EMAP:30274
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30272
+
+[Term]
+id: EMAP:30273
+name: urinary space of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30272
+
+[Term]
+id: EMAP:30275
+name: glomerular mesangium of Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30272
+
+[Term]
+id: EMAP:30265
+name: juxtaglomerular arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30264
+relationship: part_of EMAP:30417
+
+[Term]
+id: EMAP:30266
+name: afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30265
+
+[Term]
+id: EMAP:30267
+name: efferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30265
+
+[Term]
+id: EMAP:30253
+name: cortical renal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30288
+relationship: part_of EMAP:30306
+relationship: part_of EMAP:30314
+relationship: part_of EMAP:30317
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30263
+name: renal connecting tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:30254
+name: renal proximal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:30255
+name: early proximal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30254
+
+[Term]
+id: EMAP:30256
+name: renal proximal convoluted tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30254
+relationship: part_of EMAP:31793
+
+[Term]
+id: EMAP:30257
+name: renal distal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:30261
+name: early distal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30257
+
+[Term]
+id: EMAP:30262
+name: distal convoluted tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30257
+relationship: part_of EMAP:31793
+
+[Term]
+id: EMAP:30258
+name: distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30257
+relationship: part_of EMAP:31793
+
+[Term]
+id: EMAP:30260
+name: macula densa
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30258
+relationship: part_of EMAP:30452
+
+[Term]
+id: EMAP:30259
+name: postmacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30258
+
+[Term]
+id: EMAP:30281
+name: cortical collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30286
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30315
+name: renal cortical interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30326
+name: renal cortical vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30328
+name: renal cortical arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30326
+
+[Term]
+id: EMAP:30330
+name: interlobular artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30328
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31441
+relationship: part_of EMAP:31467
+
+[Term]
+id: EMAP:30329
+name: arcuate artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30328
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31441
+relationship: part_of EMAP:31467
+
+[Term]
+id: EMAP:30331
+name: renal cortical venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30326
+
+[Term]
+id: EMAP:30333
+name: interlobular vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30331
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31455
+relationship: part_of EMAP:31467
+
+[Term]
+id: EMAP:30332
+name: arcuate vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30331
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31455
+relationship: part_of EMAP:31467
+
+[Term]
+id: EMAP:30327
+name: renal cortical capillary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30326
+relationship: part_of EMAP:31448
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30289
+name: mature renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+relationship: part_of EMAP:30288
+relationship: part_of EMAP:30361
+
+[Term]
+id: EMAP:30291
+name: glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30289
+
+[Term]
+id: EMAP:30294
+name: glomerular capillary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30291
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31448
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30295
+name: glomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30291
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30293
+name: glomerular basement membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30291
+
+[Term]
+id: EMAP:30292
+name: visceral epithelium of mature renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30291
+
+[Term]
+id: EMAP:30300
+name: Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30289
+
+[Term]
+id: EMAP:30301
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30300
+
+[Term]
+id: EMAP:30302
+name: urinary space of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30300
+
+[Term]
+id: EMAP:30296
+name: afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30289
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31455
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30297
+name: part of afferent arteriole forming the juxtaglomerular complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30296
+relationship: part_of EMAP:30452
+
+[Term]
+id: EMAP:30298
+name: rest of afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30296
+
+[Term]
+id: EMAP:30290
+name: efferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30289
+relationship: part_of EMAP:31455
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30299
+name: extraglomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30289
+relationship: part_of EMAP:30362
+relationship: part_of EMAP:30452
+
+[Term]
+id: EMAP:30334
+name: renal medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30357
+name: renal medullary vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:30358
+name: renal medullary arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30357
+relationship: part_of EMAP:31441
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30360
+name: renal medullary venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30357
+relationship: part_of EMAP:31455
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30359
+name: renal medullary capillary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30357
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31448
+relationship: part_of EMAP:31474
+
+[Term]
+id: EMAP:30343
+name: outer medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:30351
+name: loop of Henle, outer medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30343
+relationship: part_of EMAP:31498
+
+[Term]
+id: EMAP:30353
+name: thin descending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30351
+
+[Term]
+id: EMAP:30352
+name: thin ascending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30351
+
+[Term]
+id: EMAP:30354
+name: premacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30351
+
+[Term]
+id: EMAP:30356
+name: proximal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30351
+
+[Term]
+id: EMAP:30350
+name: outer medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30343
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30349
+name: outer medullary collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30286
+relationship: part_of EMAP:30343
+
+[Term]
+id: EMAP:30335
+name: inner medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:30339
+name: loop of Henle, inner medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30335
+relationship: part_of EMAP:31498
+
+[Term]
+id: EMAP:30341
+name: thin descending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30339
+
+[Term]
+id: EMAP:30340
+name: bend of loop of Henle inner medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30339
+
+[Term]
+id: EMAP:30342
+name: thin ascending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30339
+
+[Term]
+id: EMAP:30337
+name: inner medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30335
+relationship: part_of EMAP:30362
+
+[Term]
+id: EMAP:30336
+name: inner medullary collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30286
+relationship: part_of EMAP:30335
+
+[Term]
+id: EMAP:30416
+name: urorectal septum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30363
+name: ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30369
+name: urothelium of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30363
+
+[Term]
+id: EMAP:30371
+name: intermediate cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30369
+
+[Term]
+id: EMAP:30372
+name: basal cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30369
+
+[Term]
+id: EMAP:30373
+name: superficial cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30369
+
+[Term]
+id: EMAP:30368
+name: adventitia of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30363
+
+[Term]
+id: EMAP:30367
+name: lamina propria of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30363
+
+[Term]
+id: EMAP:30364
+name: ureteral smooth muscle layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30363
+
+[Term]
+id: EMAP:30365
+name: ureteral smooth muscle layer smooth muscle component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30364
+
+[Term]
+id: EMAP:30366
+name: ureteral smooth muscle layer interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30364
+
+[Term]
+id: EMAP:30858
+name: ureteral vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30363
+relationship: part_of EMAP:31775
+
+[Term]
+id: EMAP:30374
+name: bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30380
+name: urothelium of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30382
+name: urothelium of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30380
+
+[Term]
+id: EMAP:30381
+name: urothelium of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30380
+
+[Term]
+id: EMAP:30383
+name: urothelium of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30380
+
+[Term]
+id: EMAP:30388
+name: muscularis mucosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30390
+name: muscularis mucosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30388
+
+[Term]
+id: EMAP:30389
+name: muscularis mucosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30388
+
+[Term]
+id: EMAP:30391
+name: muscularis mucosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30388
+
+[Term]
+id: EMAP:30376
+name: detrusor muscle of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30378
+name: detrusor muscle of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30376
+
+[Term]
+id: EMAP:30377
+name: detrusor muscle of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30376
+
+[Term]
+id: EMAP:30379
+name: detrusor muscle of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30376
+
+[Term]
+id: EMAP:30392
+name: serosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30395
+name: serosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30392
+
+[Term]
+id: EMAP:30393
+name: serosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30392
+
+[Term]
+id: EMAP:30394
+name: serosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30392
+
+[Term]
+id: EMAP:30375
+name: vasculature of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30384
+name: adventitia of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30385
+name: adventitia of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30384
+
+[Term]
+id: EMAP:30387
+name: adventitia of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30384
+
+[Term]
+id: EMAP:30386
+name: adventitia of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30384
+
+[Term]
+id: EMAP:30396
+name: lamina propria of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:30397
+name: lamina propria of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30396
+
+[Term]
+id: EMAP:30398
+name: lamina propria of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30396
+
+[Term]
+id: EMAP:30399
+name: lamina propria of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30396
+
+[Term]
+id: EMAP:30244
+name: renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31441
+
+[Term]
+id: EMAP:30245
+name: endothelial layer of renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30244
+
+[Term]
+id: EMAP:30465
+name: endothelium of renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30244
+
+[Term]
+id: EMAP:30246
+name: smooth muscle layer of renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30244
+
+[Term]
+id: EMAP:30404
+name: renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+relationship: part_of EMAP:30417
+relationship: part_of EMAP:31455
+
+[Term]
+id: EMAP:30405
+name: endothelial layer of renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30404
+
+[Term]
+id: EMAP:30466
+name: endothelium of renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30404
+
+[Term]
+id: EMAP:30406
+name: smooth muscle layer of renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30404
+
+[Term]
+id: EMAP:30403
+name: urachus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30407
+name: urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30412
+name: pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30407
+
+[Term]
+id: EMAP:30415
+name: urothelium of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+
+[Term]
+id: EMAP:30414
+name: mesenchymal layer of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+
+[Term]
+id: EMAP:30413
+name: muscle layer of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+
+[Term]
+id: EMAP:30408
+name: phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30407
+
+[Term]
+id: EMAP:30409
+name: urothelium of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30408
+
+[Term]
+id: EMAP:30411
+name: mesenchymal layer of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30408
+
+[Term]
+id: EMAP:30410
+name: muscle layer of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30408
+
+[Term]
+id: EMAP:30418
+name: urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:30419
+name: pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30418
+
+[Term]
+id: EMAP:30421
+name: urothelium of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+
+[Term]
+id: EMAP:30422
+name: mesenchymal layer of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+
+[Term]
+id: EMAP:30420
+name: muscle layer of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+
+[Term]
+id: EMAP:30922
+name: phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30418
+
+[Term]
+id: EMAP:30933
+name: urothelium of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30922
+
+[Term]
+id: EMAP:30937
+name: mesenchymal layer of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30922
+
+[Term]
+id: EMAP:30941
+name: muscle layer of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30922
+
+[Term]
+id: EMAP:30156
+name: reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30153
+
+[Term]
+id: EMAP:30203
+name: female reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30156
+
+[Term]
+id: EMAP:30208
+name: mesovarium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30224
+name: ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30232
+name: surface epithelium of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:30225
+name: rete ovarii of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:30227
+name: mesenchymal stroma of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:30228
+name: cortical component of mesenchymal stroma
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30227
+
+[Term]
+id: EMAP:31039
+name: pre-granulosa cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30228
+relationship: part_of EMAP:31062
+
+[Term]
+id: EMAP:31044
+name: rest of cortical component of mesenchymal stroma of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30228
+
+[Term]
+id: EMAP:30229
+name: medullary component of mesenchymal stroma
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30227
+
+[Term]
+id: EMAP:30231
+name: developing vasculature of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+relationship: part_of EMAP:31784
+
+[Term]
+id: EMAP:30525
+name: tunica albuginea of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:31033
+name: meiotic oocytes
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+relationship: part_of EMAP:31062
+
+[Term]
+id: EMAP:30209
+name: Mullerian tubercle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30204
+name: labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+relationship: part_of EMAP:30989
+
+[Term]
+id: EMAP:30437
+name: mesenchymal layer of labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30204
+
+[Term]
+id: EMAP:30442
+name: surface epithelium of labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30204
+
+[Term]
+id: EMAP:30211
+name: genital tubercle of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+relationship: part_of EMAP:30989
+
+[Term]
+id: EMAP:30212
+name: crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30211
+
+[Term]
+id: EMAP:30728
+name: mesenchyme of crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30212
+
+[Term]
+id: EMAP:30733
+name: surface epithelium of crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30212
+
+[Term]
+id: EMAP:30213
+name: glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30211
+
+[Term]
+id: EMAP:30718
+name: mesenchyme of glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30213
+
+[Term]
+id: EMAP:30723
+name: surface epithelium of glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30213
+
+[Term]
+id: EMAP:30702
+name: prepuce of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30211
+
+[Term]
+id: EMAP:30706
+name: prepuce mesenchyme of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30702
+
+[Term]
+id: EMAP:30710
+name: prepuce surface epithelium of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30702
+
+[Term]
+id: EMAP:30714
+name: preputial gland of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30702
+
+[Term]
+id: EMAP:30219
+name: female cystic vesicular appendage
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30214
+name: oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30215
+name: epithelial layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30214
+
+[Term]
+id: EMAP:30216
+name: muscle layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30214
+
+[Term]
+id: EMAP:30217
+name: outer layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30214
+
+[Term]
+id: EMAP:30205
+name: uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30207
+name: uterine horn epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30205
+
+[Term]
+id: EMAP:30206
+name: uterine horn muscular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30205
+
+[Term]
+id: EMAP:30679
+name: outer layer of uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30205
+
+[Term]
+id: EMAP:30236
+name: vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30240
+name: upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30236
+
+[Term]
+id: EMAP:30241
+name: epithelial layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30240
+relationship: part_of EMAP:30995
+
+[Term]
+id: EMAP:30242
+name: muscular layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30240
+relationship: part_of EMAP:31001
+
+[Term]
+id: EMAP:30237
+name: lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30236
+
+[Term]
+id: EMAP:30238
+name: epithelial layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30237
+relationship: part_of EMAP:30995
+
+[Term]
+id: EMAP:30239
+name: muscular layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30237
+relationship: part_of EMAP:31001
+
+[Term]
+id: EMAP:30218
+name: suspensory ligament of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30220
+name: female inguinal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30221
+name: female inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30223
+name: female internal inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30221
+
+[Term]
+id: EMAP:30222
+name: female external inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30221
+
+[Term]
+id: EMAP:30157
+name: male reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30156
+
+[Term]
+id: EMAP:30159
+name: mesorchium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30171
+name: testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30175
+name: mediastinum testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30185
+name: rete testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30176
+name: interstitium of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30178
+name: fetal Leydig cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30176
+
+[Term]
+id: EMAP:30177
+name: rest of interstitium of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30176
+
+[Term]
+id: EMAP:30172
+name: developing vasculature of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+relationship: part_of EMAP:31784
+
+[Term]
+id: EMAP:30173
+name: coelomic vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30172
+
+[Term]
+id: EMAP:30174
+name: interstitial vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30172
+
+[Term]
+id: EMAP:30181
+name: seminiferous cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30183
+name: germ cell of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30181
+
+[Term]
+id: EMAP:30184
+name: Sertoli cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30181
+
+[Term]
+id: EMAP:30182
+name: peritubular myoid cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30181
+
+[Term]
+id: EMAP:30180
+name: tunica albuginea of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30179
+name: tunica vaginalis testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:30168
+name: ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30169
+name: muscle layer of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30168
+
+[Term]
+id: EMAP:30170
+name: epithelium of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30168
+
+[Term]
+id: EMAP:30753
+name: outer layer of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30168
+
+[Term]
+id: EMAP:30161
+name: penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+relationship: part_of EMAP:30982
+
+[Term]
+id: EMAP:30162
+name: glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30161
+
+[Term]
+id: EMAP:30645
+name: mesenchyme of glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30162
+
+[Term]
+id: EMAP:30649
+name: surface epithelium of glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30162
+
+[Term]
+id: EMAP:30163
+name: prepuce of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30161
+
+[Term]
+id: EMAP:30653
+name: prepuce mesenchyme of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30163
+
+[Term]
+id: EMAP:30658
+name: prepuce surface epithelium of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30163
+
+[Term]
+id: EMAP:30662
+name: preputial gland of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30163
+
+[Term]
+id: EMAP:30164
+name: crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30161
+
+[Term]
+id: EMAP:30667
+name: mesenchyme of crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30164
+
+[Term]
+id: EMAP:30671
+name: surface epithelium of crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30164
+
+[Term]
+id: EMAP:30196
+name: efferent duct of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30158
+name: appendix epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30195
+name: appendix testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30160
+name: ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30187
+name: gubernaculum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30198
+name: male inguinal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30188
+name: seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30186
+name: male cystic vesicular appendage
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30165
+name: male inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30167
+name: male external inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30165
+
+[Term]
+id: EMAP:30166
+name: male internal inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30165
+
+[Term]
+id: EMAP:30736
+name: scrotal fold
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+relationship: part_of EMAP:30982
+
+[Term]
+id: EMAP:30742
+name: scrotal fold mesenchyme of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30736
+
+[Term]
+id: EMAP:30739
+name: scrotal fold surface epithelium of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30736
+
+[Term]
+id: EMAP:30199
+name: epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30200
+name: caput epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:30615
+name: epithelium of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30200
+relationship: part_of EMAP:31008
+
+[Term]
+id: EMAP:30619
+name: muscle layer of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30200
+relationship: part_of EMAP:31016
+
+[Term]
+id: EMAP:30623
+name: adventitia of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30200
+relationship: part_of EMAP:31012
+
+[Term]
+id: EMAP:30202
+name: cauda epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:30591
+name: epithelium of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30202
+relationship: part_of EMAP:31008
+
+[Term]
+id: EMAP:30595
+name: muscle layer of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30202
+relationship: part_of EMAP:31016
+
+[Term]
+id: EMAP:30599
+name: adventitia of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30202
+relationship: part_of EMAP:31012
+
+[Term]
+id: EMAP:30201
+name: corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:30603
+name: epithelium of corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30201
+relationship: part_of EMAP:31008
+
+[Term]
+id: EMAP:30607
+name: muscle layer of corpus of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30201
+relationship: part_of EMAP:31016
+
+[Term]
+id: EMAP:30611
+name: adventitia of corpus of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30201
+relationship: part_of EMAP:31012
+
+[Term]
+id: EMAP:30192
+name: male accessory gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30193
+name: bulbourethral gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30192
+
+[Term]
+id: EMAP:30194
+name: prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30192
+
+[Term]
+id: EMAP:30361
+name: early nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30417
+name: renal vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+relationship: part_of EMAP:31775
+
+[Term]
+id: EMAP:30306
+name: maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30288
+name: mature nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30286
+name: ureteric trunk
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+relationship: part_of EMAP:30280
+
+[Term]
+id: EMAP:30318
+name: early tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30317
+name: developing capillary loop stage nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30362
+name: renal interstitium group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:30314
+name: late tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:31012
+name: adventitia of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:31008
+name: epithelium of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:31016
+name: muscle layer of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:30452
+name: juxtaglomerular complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:30982
+name: male external genitalia
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30157
+
+[Term]
+id: EMAP:30989
+name: female external genitalia
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30203
+
+[Term]
+id: EMAP:30995
+name: epithelium of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30236
+
+[Term]
+id: EMAP:31001
+name: muscular layer of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30236
+
+[Term]
+id: EMAP:31062
+name: ovigerous cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:30280
+name: collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:31365
+name: perihilar fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30279
+
+[Term]
+id: EMAP:31371
+name: resident macrophage of the perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30279
+
+[Term]
+id: EMAP:31377
+name: rest of perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30279
+
+[Term]
+id: EMAP:31382
+name: premacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30258
+
+[Term]
+id: EMAP:31287
+name: anlage of loop of Henle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+relationship: part_of EMAP:31824
+
+[Term]
+id: EMAP:31294
+name: renal cortical fibroblasts
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30315
+
+[Term]
+id: EMAP:31302
+name: resident macrophages of the cortex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30315
+
+[Term]
+id: EMAP:31310
+name: rest of renal cortical interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30315
+
+[Term]
+id: EMAP:31317
+name: renal cortical lymphatics
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:31324
+name: renal cortical nerves
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30287
+
+[Term]
+id: EMAP:31387
+name: outer medullary fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30350
+
+[Term]
+id: EMAP:31392
+name: resident macrophage of the outer medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30350
+
+[Term]
+id: EMAP:31397
+name: rest of outer medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30350
+
+[Term]
+id: EMAP:31402
+name: inner medullary fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30337
+
+[Term]
+id: EMAP:31407
+name: resident macrophage of the inner medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30337
+
+[Term]
+id: EMAP:31352
+name: renal medullary lymphatics
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:31359
+name: renal medullary nerves
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:31245
+name: primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30224
+
+[Term]
+id: EMAP:31246
+name: oocyte of primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31245
+
+[Term]
+id: EMAP:31248
+name: follicle cell of primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:31245
+
+[Term]
+id: EMAP:31218
+name: developing vasculature of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30214
+
+[Term]
+id: EMAP:31213
+name: developing vasculature of uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30205
+
+[Term]
+id: EMAP:31223
+name: developing vasculature of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30240
+relationship: part_of EMAP:31233
+
+[Term]
+id: EMAP:31228
+name: developing vasculature of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30237
+relationship: part_of EMAP:31233
+
+[Term]
+id: EMAP:31243
+name: surface epithelium of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30171
+
+[Term]
+id: EMAP:31193
+name: developing vasculature of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30168
+
+[Term]
+id: EMAP:31208
+name: developing vasculature of caput epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30200
+relationship: part_of EMAP:31239
+
+[Term]
+id: EMAP:31198
+name: developing vasculature of cauda epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30202
+relationship: part_of EMAP:31239
+
+[Term]
+id: EMAP:31203
+name: developing vasculature of corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30201
+relationship: part_of EMAP:31239
+
+[Term]
+id: EMAP:31187
+name: developing vasculature of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:31498
+name: Loop of Henle group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30288
+relationship: part_of EMAP:30334
+
+[Term]
+id: EMAP:31233
+name: developing vasculature of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30236
+
+[Term]
+id: EMAP:31239
+name: developing vasculature system of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30199
+
+[Term]
+id: EMAP:31441
+name: renal arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:31448
+name: renal capillaries
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:31455
+name: renal venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:31467
+name: large blood vessels
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30154
+
+[Term]
+id: EMAP:31474
+name: small blood vessels
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30247
+
+[Term]
+id: EMAP:31615
+name: early proximal tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30255
+relationship: part_of EMAP:31818
+
+[Term]
+id: EMAP:31621
+name: early distal tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30261
+relationship: part_of EMAP:31818
+
+[Term]
+id: EMAP:31627
+name: renal connecting tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30263
+relationship: part_of EMAP:31824
+
+[Term]
+id: EMAP:31633
+name: renal connecting tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30263
+relationship: part_of EMAP:31818
+
+[Term]
+id: EMAP:31636
+name: renal connecting tubule of mature nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30263
+relationship: part_of EMAP:31793
+
+[Term]
+id: EMAP:31642
+name: early distal tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30261
+relationship: part_of EMAP:31824
+
+[Term]
+id: EMAP:31648
+name: pelvic ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:31659
+name: nerve of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:31699
+name: renal connecting segment of renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30316
+
+[Term]
+id: EMAP:31707
+name: early proximal tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30255
+relationship: part_of EMAP:31824
+
+[Term]
+id: EMAP:31716
+name: renal connecting segment of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30303
+
+[Term]
+id: EMAP:31724
+name: proximal renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30316
+
+[Term]
+id: EMAP:31730
+name: distal renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30316
+
+[Term]
+id: EMAP:31740
+name: nerve of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30922
+relationship: part_of EMAP:31811
+
+[Term]
+id: EMAP:31775
+name: developing vasculature of urinary system GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:31784
+name: developing vasculature of reproductive system GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30156
+
+[Term]
+id: EMAP:31789
+name: nerve of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+relationship: part_of EMAP:31811
+
+[Term]
+id: EMAP:31793
+name: cortical renal tubule of mature nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:31799
+name: nerve of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+relationship: part_of EMAP:31811
+
+[Term]
+id: EMAP:31805
+name: nerve of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30408
+relationship: part_of EMAP:31811
+
+[Term]
+id: EMAP:31811
+name: nerves of urethra GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30243
+
+[Term]
+id: EMAP:31818
+name: cortical renal tubule of maturing nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:31824
+name: cortical renal tubule of capillary loop nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30253
+
+[Term]
+id: EMAP:32319
+name: urothelium of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30415
+
+[Term]
+id: EMAP:32323
+name: mesenchymal layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30237
+
+[Term]
+id: EMAP:32328
+name: basal cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32497
+
+[Term]
+id: EMAP:32334
+name: basal cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32319
+
+[Term]
+id: EMAP:32338
+name: vasculature of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+
+[Term]
+id: EMAP:32344
+name: superficial cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32497
+
+[Term]
+id: EMAP:32350
+name: urothelium of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30421
+
+[Term]
+id: EMAP:32357
+name: superficial cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32350
+
+[Term]
+id: EMAP:32363
+name: basal cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32350
+
+[Term]
+id: EMAP:32370
+name: mesenchymal layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30160
+
+[Term]
+id: EMAP:32374
+name: mesenchymal layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30240
+
+[Term]
+id: EMAP:32380
+name: superficial cell layer of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30380
+
+[Term]
+id: EMAP:32387
+name: basal cell layer of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30380
+
+[Term]
+id: EMAP:32394
+name: submucosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30374
+
+[Term]
+id: EMAP:32401
+name: submucosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32394
+
+[Term]
+id: EMAP:32408
+name: submucosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32394
+
+[Term]
+id: EMAP:32414
+name: mesenchymal pad of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30414
+
+[Term]
+id: EMAP:32418
+name: peri-prostatic mesenchyme of prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30194
+
+[Term]
+id: EMAP:32424
+name: urothelium of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30421
+
+[Term]
+id: EMAP:32428
+name: vasculature of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+
+[Term]
+id: EMAP:32434
+name: superficial cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32319
+
+[Term]
+id: EMAP:32439
+name: neural crest derivative of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30412
+
+[Term]
+id: EMAP:32442
+name: mesenchymal pad of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30422
+
+[Term]
+id: EMAP:32445
+name: neural crest derivative of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30419
+
+[Term]
+id: EMAP:32449
+name: muscle layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30160
+
+[Term]
+id: EMAP:32454
+name: epithelial layer of prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30194
+
+[Term]
+id: EMAP:32460
+name: superficial cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32424
+
+[Term]
+id: EMAP:32466
+name: basal cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32424
+
+[Term]
+id: EMAP:32470
+name: submucosa of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32574
+
+[Term]
+id: EMAP:32474
+name: lamina propria of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32583
+
+[Term]
+id: EMAP:32478
+name: muscularis mucosa of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32580
+
+[Term]
+id: EMAP:32482
+name: lamina propria of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32580
+
+[Term]
+id: EMAP:32486
+name: muscularis mucosa of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32583
+
+[Term]
+id: EMAP:32490
+name: submucosa of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32583
+
+[Term]
+id: EMAP:32497
+name: urothelium of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30415
+
+[Term]
+id: EMAP:32507
+name: submucosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32394
+
+[Term]
+id: EMAP:32513
+name: intermediate cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32424
+
+[Term]
+id: EMAP:32519
+name: intermediate cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32350
+
+[Term]
+id: EMAP:32525
+name: intermediate cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32497
+
+[Term]
+id: EMAP:32529
+name: submucosa of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32577
+
+[Term]
+id: EMAP:32533
+name: muscularis mucosa of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32577
+
+[Term]
+id: EMAP:32537
+name: lamina propria of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32577
+
+[Term]
+id: EMAP:32541
+name: lamina propria of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32574
+
+[Term]
+id: EMAP:32545
+name: muscularis mucosa of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32574
+
+[Term]
+id: EMAP:32549
+name: submucosa of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32580
+
+[Term]
+id: EMAP:32555
+name: intermediate cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:32319
+
+[Term]
+id: EMAP:32564
+name: vasculature of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30188
+
+[Term]
+id: EMAP:32568
+name: vasculature of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30160
+
+[Term]
+id: EMAP:32569
+name: rest of inner medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30337
+
+[Term]
+id: EMAP:32574
+name: mesenchymal layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30414
+
+[Term]
+id: EMAP:32577
+name: mesenchymal layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30422
+
+[Term]
+id: EMAP:32580
+name: mesenchymal layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30422
+
+[Term]
+id: EMAP:32583
+name: mesenchymal layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30414
+
+[Term]
+id: EMAP:32592
+name: epithelial layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30160
+
+[Term]
+id: EMAP:32596
+name: epithelial layer of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30188
+
+[Term]
+id: EMAP:32600
+name: adventitia of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30188
+
+[Term]
+id: EMAP:32604
+name: muscle layer of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:30188
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

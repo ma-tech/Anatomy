@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mouseAnatomyReport>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
+  <perspective>Whole mouse</perspective>
+  <stage>TS02</stage>
+  <excludingGroupsTree>
+    <timedComponent emapId="EMAP:25767">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:5">
+        <name>second polar body</name>
+        <emapaId>EMAPA:16034</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:6">
+        <name>two-cell stage</name>
+        <emapaId>EMAPA:16036</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:7">
+        <name>zona pellucida</name>
+        <emapaId>EMAPA:16035</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+    </timedComponent>
+  </excludingGroupsTree>
+  <onlyGroupsTree>
+    <groupStatusKey>
+      <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
+      <groupStatus status="isGroup">Term a group.</groupStatus>
+      <groupStatus status="isGroupDirectDescendant">Term is directly contained in a group.</groupStatus>
+      <groupStatus status="isGroupIndirectDescendant">Term is indirectly contained in a group.</groupStatus>
+    </groupStatusKey>
+    <timedComponent emapId="EMAP:25767">
+      <name>mouse</name>
+      <emapaId>EMAPA:25765</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+  </onlyGroupsTree>
+</mouseAnatomyReport>

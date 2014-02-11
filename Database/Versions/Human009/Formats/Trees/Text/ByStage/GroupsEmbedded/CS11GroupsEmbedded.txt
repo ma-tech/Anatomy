@@ -1,0 +1,2106 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS11
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EHDA:15      human
+EHDA:8127    \ human conceptus
+EHDA:8193      + human conceptus extraembryonic component
+EHDA:5551      | + extraembryonic cavities
+EHDA:16891     | | + amniotic cavity
+EHDA:11950     | | + chorionic cavity
+EHDA:12369     | | | \ coelomic cavity lumen
+EHDA:7294      | | |   + extraembryonic coelum
+EHDA:19561     | | |   + future diaphragm
+EHDA:8655      | | |   | \ pleuroperitoneal membranes
+EHDA:3073      | | |   + liver and biliary system
+EHDA:18274     | | |   | + biliary bud
+EHDA:18304     | | |   | | + biliary bud extrahepatic part
+EHDA:18304     | | |   | | + biliary bud extrahepatic part
+EHDA:18239     | | |   | | + biliary bud intrahepatic part
+EHDA:18239     | | |   | | \ biliary bud intrahepatic part
+EHDA:18273     | | |   | + early biliary bud
+EHDA:18274     | | |   | | \ biliary bud
+EHDA:18304     | | |   | |   + biliary bud extrahepatic part
+EHDA:18304     | | |   | |   + biliary bud extrahepatic part
+EHDA:18239     | | |   | |   + biliary bud intrahepatic part
+EHDA:18239     | | |   | |   \ biliary bud intrahepatic part
+EHDA:11426     | | |   | \ hepatic diverticulum
+EHDA:14695     | | |   + pericardial cavity lumen
+EHDA:8326      | | |   | + dorsal mesocardium
+EHDA:19513     | | |   | | \ transverse pericardial sinus
+EHDA:15578     | | |   | + parietal pericardial cavity mesothelium
+EHDA:8947      | | |   | \ primitive heart tube
+EHDA:19633     | | |   |   + interventricular sulcus
+EHDA:8450      | | |   |   + primitive heart tube endocardium
+EHDA:2851      | | |   |   | + primitive heart tube lumen
+EHDA:13660     | | |   |   | + sinus venosus
+EHDA:12642     | | |   |   | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493     | | |   |   | | + sinus venosus left horn
+EHDA:12498     | | |   |   | | \ sinus venosus right horn
+EHDA:12493     | | |   |   | + sinus venosus left horn
+EHDA:12498     | | |   |   | + sinus venosus right horn
+EHDA:12642     | | |   |   | + primitive heart tube common atrial chamber endocardium
+EHDA:16334     | | |   |   | + conus cordis
+EHDA:16334     | | |   |   | + conus cordis
+EHDA:9912      | | |   |   | + primitive left ventricle endocardium
+EHDA:9912      | | |   |   | + primitive left ventricle endocardium
+EHDA:19621     | | |   |   | + primitive right ventricle endocardium
+EHDA:19621     | | |   |   | \ primitive right ventricle endocardium
+EHDA:15762     | | |   |   + primitive heart tube jelly
+EHDA:8390      | | |   |   + primitive heart tube myocardium
+EHDA:15762     | | |   |   | \ primitive heart tube jelly
+EHDA:9918      | | |   |   + primitive heart tube visceral pericardium
+EHDA:15680     | | |   |   \ truncus arteriosus
+EHDA:8055      | | |   + pericardio-peritoneal canal cavity
+EHDA:8138      | | |   + peritoneal cavity lumen
+EHDA:10896     | | |   | + hindgut region
+EHDA:16643     | | |   | | + anal region
+EHDA:15415     | | |   | | | \ internal anal region
+EHDA:17073     | | |   | | |   + allantois
+EHDA:7067      | | |   | | |   | + allantoic epithelium
+EHDA:7077      | | |   | | |   | + allantoic mesenchyme
+EHDA:9838      | | |   | | |   | \ allantois primordial germ cells
+EHDA:12447     | | |   | | |   + cloaca
+EHDA:15508     | | |   | | |   | + cloacal epithelium
+EHDA:15557     | | |   | | |   | \ cloacal lumen
+EHDA:14399     | | |   | | |   \ internal anal region mesenchyme
+EHDA:15492     | | |   | | + early hindgut
+EHDA:10798     | | |   | | | + early hindgut associated mesenchyme
+EHDA:5026      | | |   | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059      | | |   | | | + hindgut part of future large intestine
+EHDA:5026      | | |   | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      | | |   | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800     | | |   | | | \ early hindgut epithelium
+EHDA:15508     | | |   | | |   + cloacal epithelium
+EHDA:5040      | | |   | | |   \ hindgut part of future large intestine epithelium
+EHDA:15521     | | |   | | + hindgut mesothelium
+EHDA:15492     | | |   | | | + early hindgut
+EHDA:10798     | | |   | | | | + early hindgut associated mesenchyme
+EHDA:5026      | | |   | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059      | | |   | | | | + hindgut part of future large intestine
+EHDA:5026      | | |   | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      | | |   | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800     | | |   | | | | \ early hindgut epithelium
+EHDA:15508     | | |   | | | |   + cloacal epithelium
+EHDA:5040      | | |   | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059      | | |   | | | \ hindgut part of future large intestine
+EHDA:5026      | | |   | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      | | |   | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059      | | |   | | \ hindgut part of future large intestine
+EHDA:5026      | | |   | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      | | |   | |   \ hindgut part of future large intestine epithelium
+EHDA:10521     | | |   | \ midgut region
+EHDA:14958     | | |   |   + early midgut region
+EHDA:10517     | | |   |   | + early midgut associated mesenchyme
+EHDA:10558     | | |   |   | \ early midgut epithelium
+EHDA:15228     | | |   |   \ midgut mesothelium
+EHDA:13603     | | |   \ septum transversum
+EHDA:11426     | | |     + hepatic diverticulum
+EHDA:13675     | | |     \ septum transversum mesenchyme
+EHDA:7294      | | + extraembryonic coelum
+EHDA:13617     | | \ secondary yolk sac cavity
+EHDA:11247     | + connecting stalk
+EHDA:11207     | | + connecting stalk blood vessels
+EHDA:4680      | | | + extraembryonic umbilical artery left
+EHDA:3998      | | | | \ umbilical artery left
+EHDA:18467     | | | + extraembryonic umbilical artery right
+EHDA:16512     | | | | \ umbilical artery right
+EHDA:4668      | | | + extraembryonic umbilical vein left
+EHDA:4010      | | | | \ umbilical vein left
+EHDA:18505     | | | \ extraembryonic umbilical vein right
+EHDA:16507     | | |   + umbilical vein right
+EHDA:16398     | | |   \ vitelline vein right
+EHDA:11223     | | + connecting stalk mesenchyme
+EHDA:5576      | | \ extraembryonic vascular system
+EHDA:5519      | |   + extraembryonic arterial system
+EHDA:7147      | |   | + blood haematopoietic stem cells
+EHDA:4680      | |   | + extraembryonic umbilical artery left
+EHDA:3998      | |   | | \ umbilical artery left
+EHDA:18467     | |   | + extraembryonic umbilical artery right
+EHDA:16512     | |   | | \ umbilical artery right
+EHDA:4691      | |   | + extraembryonic vitelline artery left
+EHDA:3992      | |   | | \ vitelline arterial plexus left
+EHDA:18432     | |   | \ extraembryonic vitelline artery right
+EHDA:16437     | |   |   \ vitelline arterial plexus right
+EHDA:5564      | |   \ extraembryonic venous system
+EHDA:4668      | |     + extraembryonic umbilical vein left
+EHDA:4010      | |     | \ umbilical vein left
+EHDA:18505     | |     + extraembryonic umbilical vein right
+EHDA:16507     | |     | + umbilical vein right
+EHDA:16398     | |     | \ vitelline vein right
+EHDA:4555      | |     + extraembryonic vitelline vein left
+EHDA:4328      | |     | \ vitelline vein left
+EHDA:18436     | |     \ extraembryonic vitelline vein right
+EHDA:16398     | |       \ vitelline vein right
+EHDA:6922      | \ extraembryonic membranes
+EHDA:17117     |   + amnion
+EHDA:17215     |   | + amnion ectoderm
+EHDA:17167     |   | \ amnion mesenchyme
+EHDA:11969     |   + chorion
+EHDA:7531      |   | + chorion cytotrophoblast
+EHDA:7102      |   | | \ chorionic villus cytotrophoblast
+EHDA:11950     |   | + chorionic cavity
+EHDA:12369     |   | | \ coelomic cavity lumen
+EHDA:7294      |   | |   + extraembryonic coelum
+EHDA:19561     |   | |   + future diaphragm
+EHDA:8655      |   | |   | \ pleuroperitoneal membranes
+EHDA:3073      |   | |   + liver and biliary system
+EHDA:18274     |   | |   | + biliary bud
+EHDA:18304     |   | |   | | + biliary bud extrahepatic part
+EHDA:18304     |   | |   | | + biliary bud extrahepatic part
+EHDA:18239     |   | |   | | + biliary bud intrahepatic part
+EHDA:18239     |   | |   | | \ biliary bud intrahepatic part
+EHDA:18273     |   | |   | + early biliary bud
+EHDA:18274     |   | |   | | \ biliary bud
+EHDA:18304     |   | |   | |   + biliary bud extrahepatic part
+EHDA:18304     |   | |   | |   + biliary bud extrahepatic part
+EHDA:18239     |   | |   | |   + biliary bud intrahepatic part
+EHDA:18239     |   | |   | |   \ biliary bud intrahepatic part
+EHDA:11426     |   | |   | \ hepatic diverticulum
+EHDA:14695     |   | |   + pericardial cavity lumen
+EHDA:8326      |   | |   | + dorsal mesocardium
+EHDA:19513     |   | |   | | \ transverse pericardial sinus
+EHDA:15578     |   | |   | + parietal pericardial cavity mesothelium
+EHDA:8947      |   | |   | \ primitive heart tube
+EHDA:19633     |   | |   |   + interventricular sulcus
+EHDA:8450      |   | |   |   + primitive heart tube endocardium
+EHDA:2851      |   | |   |   | + primitive heart tube lumen
+EHDA:13660     |   | |   |   | + sinus venosus
+EHDA:12642     |   | |   |   | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493     |   | |   |   | | + sinus venosus left horn
+EHDA:12498     |   | |   |   | | \ sinus venosus right horn
+EHDA:12493     |   | |   |   | + sinus venosus left horn
+EHDA:12498     |   | |   |   | + sinus venosus right horn
+EHDA:12642     |   | |   |   | + primitive heart tube common atrial chamber endocardium
+EHDA:16334     |   | |   |   | + conus cordis
+EHDA:16334     |   | |   |   | + conus cordis
+EHDA:9912      |   | |   |   | + primitive left ventricle endocardium
+EHDA:9912      |   | |   |   | + primitive left ventricle endocardium
+EHDA:19621     |   | |   |   | + primitive right ventricle endocardium
+EHDA:19621     |   | |   |   | \ primitive right ventricle endocardium
+EHDA:15762     |   | |   |   + primitive heart tube jelly
+EHDA:8390      |   | |   |   + primitive heart tube myocardium
+EHDA:15762     |   | |   |   | \ primitive heart tube jelly
+EHDA:9918      |   | |   |   + primitive heart tube visceral pericardium
+EHDA:15680     |   | |   |   \ truncus arteriosus
+EHDA:8055      |   | |   + pericardio-peritoneal canal cavity
+EHDA:8138      |   | |   + peritoneal cavity lumen
+EHDA:10896     |   | |   | + hindgut region
+EHDA:16643     |   | |   | | + anal region
+EHDA:15415     |   | |   | | | \ internal anal region
+EHDA:17073     |   | |   | | |   + allantois
+EHDA:7067      |   | |   | | |   | + allantoic epithelium
+EHDA:7077      |   | |   | | |   | + allantoic mesenchyme
+EHDA:9838      |   | |   | | |   | \ allantois primordial germ cells
+EHDA:12447     |   | |   | | |   + cloaca
+EHDA:15508     |   | |   | | |   | + cloacal epithelium
+EHDA:15557     |   | |   | | |   | \ cloacal lumen
+EHDA:14399     |   | |   | | |   \ internal anal region mesenchyme
+EHDA:15492     |   | |   | | + early hindgut
+EHDA:10798     |   | |   | | | + early hindgut associated mesenchyme
+EHDA:5026      |   | |   | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059      |   | |   | | | + hindgut part of future large intestine
+EHDA:5026      |   | |   | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      |   | |   | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800     |   | |   | | | \ early hindgut epithelium
+EHDA:15508     |   | |   | | |   + cloacal epithelium
+EHDA:5040      |   | |   | | |   \ hindgut part of future large intestine epithelium
+EHDA:15521     |   | |   | | + hindgut mesothelium
+EHDA:15492     |   | |   | | | + early hindgut
+EHDA:10798     |   | |   | | | | + early hindgut associated mesenchyme
+EHDA:5026      |   | |   | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059      |   | |   | | | | + hindgut part of future large intestine
+EHDA:5026      |   | |   | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      |   | |   | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800     |   | |   | | | | \ early hindgut epithelium
+EHDA:15508     |   | |   | | | |   + cloacal epithelium
+EHDA:5040      |   | |   | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059      |   | |   | | | \ hindgut part of future large intestine
+EHDA:5026      |   | |   | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      |   | |   | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059      |   | |   | | \ hindgut part of future large intestine
+EHDA:5026      |   | |   | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040      |   | |   | |   \ hindgut part of future large intestine epithelium
+EHDA:10521     |   | |   | \ midgut region
+EHDA:14958     |   | |   |   + early midgut region
+EHDA:10517     |   | |   |   | + early midgut associated mesenchyme
+EHDA:10558     |   | |   |   | \ early midgut epithelium
+EHDA:15228     |   | |   |   \ midgut mesothelium
+EHDA:13603     |   | |   \ septum transversum
+EHDA:11426     |   | |     + hepatic diverticulum
+EHDA:13675     |   | |     \ septum transversum mesenchyme
+EHDA:7514      |   | + chorion mesenchyme
+EHDA:7011      |   | | \ chorionic villus mesenchyme
+EHDA:10321     |   | + chorion syncytiotrophoblast
+EHDA:7027      |   | | \ chorionic villus syncytiotropbalst
+EHDA:6995      |   | \ chorionic villus
+EHDA:7102      |   |   + chorionic villus cytotrophoblast
+EHDA:7011      |   |   + chorionic villus mesenchyme
+EHDA:7027      |   |   \ chorionic villus syncytiotropbalst
+EHDA:9927      |   \ secondary yolk sac
+EHDA:13617     |     + secondary yolk sac cavity
+EHDA:9900      |     + secondary yolk sac endoderm
+EHDA:9879      |     \ secondary yolk sac mesenchyme
+EHDA:13762     |       + angioblast clusters
+EHDA:7147      |       | + blood haematopoietic stem cells
+EHDA:4691      |       | + extraembryonic vitelline artery left
+EHDA:3992      |       | | \ vitelline arterial plexus left
+EHDA:18432     |       | + extraembryonic vitelline artery right
+EHDA:16437     |       | | \ vitelline arterial plexus right
+EHDA:4555      |       | + extraembryonic vitelline vein left
+EHDA:4328      |       | | \ vitelline vein left
+EHDA:18436     |       | \ extraembryonic vitelline vein right
+EHDA:16398     |       |   \ vitelline vein right
+EHDA:18418     |       + yolk sac blood islands
+EHDA:13762     |       | + angioblast clusters
+EHDA:7147      |       | | + blood haematopoietic stem cells
+EHDA:4691      |       | | + extraembryonic vitelline artery left
+EHDA:3992      |       | | | \ vitelline arterial plexus left
+EHDA:18432     |       | | + extraembryonic vitelline artery right
+EHDA:16437     |       | | | \ vitelline arterial plexus right
+EHDA:4555      |       | | + extraembryonic vitelline vein left
+EHDA:4328      |       | | | \ vitelline vein left
+EHDA:18436     |       | | \ extraembryonic vitelline vein right
+EHDA:16398     |       | |   \ vitelline vein right
+EHDA:14357     |       | + haematoblasts
+EHDA:7550      |       | | \ blood cells
+EHDA:14357     |       | \ haematoblasts
+EHDA:7550      |       |   \ blood cells
+EHDA:18418     |       \ yolk sac blood islands
+EHDA:13762     |         + angioblast clusters
+EHDA:7147      |         | + blood haematopoietic stem cells
+EHDA:4691      |         | + extraembryonic vitelline artery left
+EHDA:3992      |         | | \ vitelline arterial plexus left
+EHDA:18432     |         | + extraembryonic vitelline artery right
+EHDA:16437     |         | | \ vitelline arterial plexus right
+EHDA:4555      |         | + extraembryonic vitelline vein left
+EHDA:4328      |         | | \ vitelline vein left
+EHDA:18436     |         | \ extraembryonic vitelline vein right
+EHDA:16398     |         |   \ vitelline vein right
+EHDA:14357     |         + haematoblasts
+EHDA:7550      |         | \ blood cells
+EHDA:14357     |         \ haematoblasts
+EHDA:7550      |           \ blood cells
+EHDA:8159      \ human embryo
+EHDA:7170        + coelomic cavity
+EHDA:7158        | + coelomic cavity lining
+EHDA:8170        | | \ peritoneal cavity lining
+EHDA:15287       | |   + foregut mesothelium
+EHDA:2820        | |   | \ lower foregut region
+EHDA:3850        | |   |   + lower foregut region associated mesenchyme
+EHDA:4307        | |   |   | \ foregut-midgut junction associated mesenchyme
+EHDA:4060        | |   |   \ lower foregut region endoderm
+EHDA:2763        | |   + mesonephros mesothelium
+EHDA:15228       | |   \ midgut mesothelium
+EHDA:12369       | + coelomic cavity lumen
+EHDA:7294        | | + extraembryonic coelum
+EHDA:19561       | | + future diaphragm
+EHDA:8655        | | | \ pleuroperitoneal membranes
+EHDA:3073        | | + liver and biliary system
+EHDA:18274       | | | + biliary bud
+EHDA:18304       | | | | + biliary bud extrahepatic part
+EHDA:18304       | | | | + biliary bud extrahepatic part
+EHDA:18239       | | | | + biliary bud intrahepatic part
+EHDA:18239       | | | | \ biliary bud intrahepatic part
+EHDA:18273       | | | + early biliary bud
+EHDA:18274       | | | | \ biliary bud
+EHDA:18304       | | | |   + biliary bud extrahepatic part
+EHDA:18304       | | | |   + biliary bud extrahepatic part
+EHDA:18239       | | | |   + biliary bud intrahepatic part
+EHDA:18239       | | | |   \ biliary bud intrahepatic part
+EHDA:11426       | | | \ hepatic diverticulum
+EHDA:14695       | | + pericardial cavity lumen
+EHDA:8326        | | | + dorsal mesocardium
+EHDA:19513       | | | | \ transverse pericardial sinus
+EHDA:15578       | | | + parietal pericardial cavity mesothelium
+EHDA:8947        | | | \ primitive heart tube
+EHDA:19633       | | |   + interventricular sulcus
+EHDA:8450        | | |   + primitive heart tube endocardium
+EHDA:2851        | | |   | + primitive heart tube lumen
+EHDA:13660       | | |   | + sinus venosus
+EHDA:12642       | | |   | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | | |   | | + sinus venosus left horn
+EHDA:12498       | | |   | | \ sinus venosus right horn
+EHDA:12493       | | |   | + sinus venosus left horn
+EHDA:12498       | | |   | + sinus venosus right horn
+EHDA:12642       | | |   | + primitive heart tube common atrial chamber endocardium
+EHDA:16334       | | |   | + conus cordis
+EHDA:16334       | | |   | + conus cordis
+EHDA:9912        | | |   | + primitive left ventricle endocardium
+EHDA:9912        | | |   | + primitive left ventricle endocardium
+EHDA:19621       | | |   | + primitive right ventricle endocardium
+EHDA:19621       | | |   | \ primitive right ventricle endocardium
+EHDA:15762       | | |   + primitive heart tube jelly
+EHDA:8390        | | |   + primitive heart tube myocardium
+EHDA:15762       | | |   | \ primitive heart tube jelly
+EHDA:9918        | | |   + primitive heart tube visceral pericardium
+EHDA:15680       | | |   \ truncus arteriosus
+EHDA:8055        | | + pericardio-peritoneal canal cavity
+EHDA:8138        | | + peritoneal cavity lumen
+EHDA:10896       | | | + hindgut region
+EHDA:16643       | | | | + anal region
+EHDA:15415       | | | | | \ internal anal region
+EHDA:17073       | | | | |   + allantois
+EHDA:7067        | | | | |   | + allantoic epithelium
+EHDA:7077        | | | | |   | + allantoic mesenchyme
+EHDA:9838        | | | | |   | \ allantois primordial germ cells
+EHDA:12447       | | | | |   + cloaca
+EHDA:15508       | | | | |   | + cloacal epithelium
+EHDA:15557       | | | | |   | \ cloacal lumen
+EHDA:14399       | | | | |   \ internal anal region mesenchyme
+EHDA:15492       | | | | + early hindgut
+EHDA:10798       | | | | | + early hindgut associated mesenchyme
+EHDA:5026        | | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | | | | + hindgut part of future large intestine
+EHDA:5026        | | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | | | | \ early hindgut epithelium
+EHDA:15508       | | | | |   + cloacal epithelium
+EHDA:5040        | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:15521       | | | | + hindgut mesothelium
+EHDA:15492       | | | | | + early hindgut
+EHDA:10798       | | | | | | + early hindgut associated mesenchyme
+EHDA:5026        | | | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | | | | | + hindgut part of future large intestine
+EHDA:5026        | | | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | | | | | \ early hindgut epithelium
+EHDA:15508       | | | | | |   + cloacal epithelium
+EHDA:5040        | | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | | | | \ hindgut part of future large intestine
+EHDA:5026        | | | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | | | \ hindgut part of future large intestine
+EHDA:5026        | | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | |   \ hindgut part of future large intestine epithelium
+EHDA:10521       | | | \ midgut region
+EHDA:14958       | | |   + early midgut region
+EHDA:10517       | | |   | + early midgut associated mesenchyme
+EHDA:10558       | | |   | \ early midgut epithelium
+EHDA:15228       | | |   \ midgut mesothelium
+EHDA:13603       | | \ septum transversum
+EHDA:11426       | |   + hepatic diverticulum
+EHDA:13675       | |   \ septum transversum mesenchyme
+EHDA:8047        | + pericardio-peritoneal canal
+EHDA:8055        | | + pericardio-peritoneal canal cavity
+EHDA:8076        | | \ pericardio-peritoneal canal mesothelium
+EHDA:7182        | + pericaridal cavity
+EHDA:15578       | | + parietal pericardial cavity mesothelium
+EHDA:14695       | | \ pericardial cavity lumen
+EHDA:8326        | |   + dorsal mesocardium
+EHDA:19513       | |   | \ transverse pericardial sinus
+EHDA:15578       | |   + parietal pericardial cavity mesothelium
+EHDA:8947        | |   \ primitive heart tube
+EHDA:19633       | |     + interventricular sulcus
+EHDA:8450        | |     + primitive heart tube endocardium
+EHDA:2851        | |     | + primitive heart tube lumen
+EHDA:13660       | |     | + sinus venosus
+EHDA:12642       | |     | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | |     | | + sinus venosus left horn
+EHDA:12498       | |     | | \ sinus venosus right horn
+EHDA:12493       | |     | + sinus venosus left horn
+EHDA:12498       | |     | + sinus venosus right horn
+EHDA:12642       | |     | + primitive heart tube common atrial chamber endocardium
+EHDA:16334       | |     | + conus cordis
+EHDA:16334       | |     | + conus cordis
+EHDA:9912        | |     | + primitive left ventricle endocardium
+EHDA:9912        | |     | + primitive left ventricle endocardium
+EHDA:19621       | |     | + primitive right ventricle endocardium
+EHDA:19621       | |     | \ primitive right ventricle endocardium
+EHDA:15762       | |     + primitive heart tube jelly
+EHDA:8390        | |     + primitive heart tube myocardium
+EHDA:15762       | |     | \ primitive heart tube jelly
+EHDA:9918        | |     + primitive heart tube visceral pericardium
+EHDA:15680       | |     \ truncus arteriosus
+EHDA:7193        | \ peritoneal cavity
+EHDA:8170        |   + peritoneal cavity lining
+EHDA:15287       |   | + foregut mesothelium
+EHDA:2820        |   | | \ lower foregut region
+EHDA:3850        |   | |   + lower foregut region associated mesenchyme
+EHDA:4307        |   | |   | \ foregut-midgut junction associated mesenchyme
+EHDA:4060        |   | |   \ lower foregut region endoderm
+EHDA:2763        |   | + mesonephros mesothelium
+EHDA:15228       |   | \ midgut mesothelium
+EHDA:8138        |   \ peritoneal cavity lumen
+EHDA:10896       |     + hindgut region
+EHDA:16643       |     | + anal region
+EHDA:15415       |     | | \ internal anal region
+EHDA:17073       |     | |   + allantois
+EHDA:7067        |     | |   | + allantoic epithelium
+EHDA:7077        |     | |   | + allantoic mesenchyme
+EHDA:9838        |     | |   | \ allantois primordial germ cells
+EHDA:12447       |     | |   + cloaca
+EHDA:15508       |     | |   | + cloacal epithelium
+EHDA:15557       |     | |   | \ cloacal lumen
+EHDA:14399       |     | |   \ internal anal region mesenchyme
+EHDA:15492       |     | + early hindgut
+EHDA:10798       |     | | + early hindgut associated mesenchyme
+EHDA:5026        |     | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        |     | | + hindgut part of future large intestine
+EHDA:5026        |     | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        |     | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       |     | | \ early hindgut epithelium
+EHDA:15508       |     | |   + cloacal epithelium
+EHDA:5040        |     | |   \ hindgut part of future large intestine epithelium
+EHDA:15521       |     | + hindgut mesothelium
+EHDA:15492       |     | | + early hindgut
+EHDA:10798       |     | | | + early hindgut associated mesenchyme
+EHDA:5026        |     | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        |     | | | + hindgut part of future large intestine
+EHDA:5026        |     | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        |     | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       |     | | | \ early hindgut epithelium
+EHDA:15508       |     | | |   + cloacal epithelium
+EHDA:5040        |     | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        |     | | \ hindgut part of future large intestine
+EHDA:5026        |     | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        |     | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        |     | \ hindgut part of future large intestine
+EHDA:5026        |     |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        |     |   \ hindgut part of future large intestine epithelium
+EHDA:10521       |     \ midgut region
+EHDA:14958       |       + early midgut region
+EHDA:10517       |       | + early midgut associated mesenchyme
+EHDA:10558       |       | \ early midgut epithelium
+EHDA:15228       |       \ midgut mesothelium
+EHDA:8397        + ectoderm
+EHDA:10346       | + surface ectoderm
+EHDA:17309       | | + buccopharyngeal membrane ectoderm
+EHDA:7628        | | | + Rathkes pouch epithelium
+EHDA:16124       | | | | \ Rathkes pouch invagination
+EHDA:16126       | | | \ oral epithelium from ectoderm
+EHDA:7628        | | |   \ Rathkes pouch epithelium
+EHDA:16124       | | |     \ Rathkes pouch invagination
+EHDA:17071       | | + otic placode
+EHDA:17067       | | | + otic pit
+EHDA:16014       | | | + otic placode associated mesenchyme
+EHDA:16010       | | | \ otic placode epithelium
+EHDA:12509       | | + branchial placode group
+EHDA:17071       | | | \ otic placode
+EHDA:17067       | | |   + otic pit
+EHDA:16014       | | |   + otic placode associated mesenchyme
+EHDA:16010       | | |   \ otic placode epithelium
+EHDA:8215        | | + 1st arch groove ectoderm
+EHDA:8215        | | + 1st arch groove ectoderm
+EHDA:8525        | | + 1st arch mandibular ectoderm
+EHDA:8525        | | + 1st arch mandibular ectoderm
+EHDA:8473        | | + 1st arch maxillary ectoderm
+EHDA:8473        | | + 1st arch maxillary ectoderm
+EHDA:8592        | | + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8592        | | + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8306        | | + 2nd arch ectoderm
+EHDA:8306        | | + 2nd arch ectoderm
+EHDA:7286        | | + 3rd arch ectoderm
+EHDA:7286        | | + 3rd arch ectoderm
+EHDA:2781        | | + 4th arch ectoderm
+EHDA:2781        | | + 4th arch ectoderm
+EHDA:7373        | | + 4th arch pharyngeal groove ectoderm
+EHDA:7373        | | + 4th arch pharyngeal groove ectoderm
+EHDA:12416       | | + nasal placode
+EHDA:12416       | | + nasal placode
+EHDA:16010       | | + otic placode epithelium
+EHDA:16010       | | + otic placode epithelium
+EHDA:7502        | | + tail bud surface ectoderm
+EHDA:7502        | | \ tail bud surface ectoderm
+EHDA:10346       | \ surface ectoderm
+EHDA:17309       |   + buccopharyngeal membrane ectoderm
+EHDA:7628        |   | + Rathkes pouch epithelium
+EHDA:16124       |   | | \ Rathkes pouch invagination
+EHDA:16126       |   | \ oral epithelium from ectoderm
+EHDA:7628        |   |   \ Rathkes pouch epithelium
+EHDA:16124       |   |     \ Rathkes pouch invagination
+EHDA:17071       |   + otic placode
+EHDA:17067       |   | + otic pit
+EHDA:16014       |   | + otic placode associated mesenchyme
+EHDA:16010       |   | \ otic placode epithelium
+EHDA:12509       |   + branchial placode group
+EHDA:17071       |   | \ otic placode
+EHDA:17067       |   |   + otic pit
+EHDA:16014       |   |   + otic placode associated mesenchyme
+EHDA:16010       |   |   \ otic placode epithelium
+EHDA:8215        |   + 1st arch groove ectoderm
+EHDA:8215        |   + 1st arch groove ectoderm
+EHDA:8525        |   + 1st arch mandibular ectoderm
+EHDA:8525        |   + 1st arch mandibular ectoderm
+EHDA:8473        |   + 1st arch maxillary ectoderm
+EHDA:8473        |   + 1st arch maxillary ectoderm
+EHDA:8592        |   + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8592        |   + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8306        |   + 2nd arch ectoderm
+EHDA:8306        |   + 2nd arch ectoderm
+EHDA:7286        |   + 3rd arch ectoderm
+EHDA:7286        |   + 3rd arch ectoderm
+EHDA:2781        |   + 4th arch ectoderm
+EHDA:2781        |   + 4th arch ectoderm
+EHDA:7373        |   + 4th arch pharyngeal groove ectoderm
+EHDA:7373        |   + 4th arch pharyngeal groove ectoderm
+EHDA:12416       |   + nasal placode
+EHDA:12416       |   + nasal placode
+EHDA:16010       |   + otic placode epithelium
+EHDA:16010       |   + otic placode epithelium
+EHDA:7502        |   + tail bud surface ectoderm
+EHDA:7502        |   \ tail bud surface ectoderm
+EHDA:8012        + endoderm
+EHDA:10800       | + early hindgut epithelium
+EHDA:15508       | | + cloacal epithelium
+EHDA:5040        | | \ hindgut part of future large intestine epithelium
+EHDA:10558       | + early midgut epithelium
+EHDA:8546        | + prechordal plate
+EHDA:8546        | \ prechordal plate
+EHDA:9368        + mesenchyme
+EHDA:11614       | + head mesenchyme
+EHDA:5393        | | + eye mesenchyme
+EHDA:11519       | | + head mesenchyme from head neural crest
+EHDA:5393        | | | + eye mesenchyme
+EHDA:6522        | | | + mesenchyme from future diencephalic neural crest
+EHDA:4864        | | | + mesenchyme from mesencephalic neural crest
+EHDA:6470        | | | \ mesenchyme from rhombencephalic neural crest
+EHDA:8501        | | |   + 1st arch mandibular mesenchyme from neural crest
+EHDA:8638        | | |   + 1st arch maxillary mesenchyme from neural crest
+EHDA:8365        | | |   + 2nd arch mesenchyme from neural crest
+EHDA:8287        | | |   | \ 2nd arch artery
+EHDA:7349        | | |   + 3rd arch mesenchyme from neural crest
+EHDA:6984        | | |   + 4th arch mesenchyme from neural crest
+EHDA:16014       | | |   + otic placode associated mesenchyme
+EHDA:16014       | | |   \ otic placode associated mesenchyme
+EHDA:11531       | | \ head paraxial mesenchyme
+EHDA:15151       | |   + head dermomyotome group
+EHDA:11549       | |   | + dermomyotome 01
+EHDA:10927       | |   | + hypoglossal cord
+EHDA:11462       | |   | + dermomyotome 02
+EHDA:11467       | |   | + dermomyotome 03
+EHDA:11473       | |   | \ dermomyotome 04
+EHDA:15281       | |   \ head sclerotome group
+EHDA:15929       | |     + sclerotome 01
+EHDA:15924       | |     + sclerotome 02
+EHDA:15741       | |     + sclerotome 03
+EHDA:15732       | |     \ sclerotome 04
+EHDA:8959        | + mesenchyme from somatopleure
+EHDA:8956        | + mesenchyme from splanchnopleure
+EHDA:10798       | | + early hindgut associated mesenchyme
+EHDA:5026        | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:10517       | | + early midgut associated mesenchyme
+EHDA:15521       | | \ hindgut mesothelium
+EHDA:15492       | |   + early hindgut
+EHDA:10798       | |   | + early hindgut associated mesenchyme
+EHDA:5026        | |   | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | |   | + hindgut part of future large intestine
+EHDA:5026        | |   | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | |   | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | |   | \ early hindgut epithelium
+EHDA:15508       | |   |   + cloacal epithelium
+EHDA:5040        | |   |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | |   \ hindgut part of future large intestine
+EHDA:5026        | |     + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | |     \ hindgut part of future large intestine epithelium
+EHDA:18933       | \ trunk and cervical mesenchyme
+EHDA:10418       |   + cervical mesenchyme from cervical neural crest
+EHDA:13603       |   + septum transversum
+EHDA:11426       |   | + hepatic diverticulum
+EHDA:13675       |   | \ septum transversum mesenchyme
+EHDA:14617       |   + trunk and cervical dermatome group
+EHDA:3019        |   | + dermatome 13
+EHDA:3027        |   | + dermatome 14
+EHDA:3028        |   | + dermatome 15
+EHDA:3041        |   | + dermatome 16
+EHDA:3005        |   | + dermatome 17
+EHDA:3062        |   | + dermatome 18
+EHDA:2840        |   | + dermatome 19
+EHDA:2825        |   | \ dermatome 20
+EHDA:14520       |   + trunk and cervical dermomyotome group
+EHDA:11478       |   | + dermomyotome 05
+EHDA:11485       |   | + dermomyotome 06
+EHDA:11490       |   | + dermomyotome 07
+EHDA:11503       |   | + dermomyotome 08
+EHDA:11508       |   | + dermomyotome 09
+EHDA:9833        |   | + dermomyotome 10
+EHDA:9844        |   | + dermomyotome 11
+EHDA:9839        |   | + dermomyotome 12
+EHDA:9765        |   | + dermomyotome 13
+EHDA:3019        |   | | + dermatome 13
+EHDA:3013        |   | | \ myotome 13
+EHDA:9730        |   | + dermomyotome 14
+EHDA:3027        |   | | + dermatome 14
+EHDA:3020        |   | | \ myotome 14
+EHDA:9813        |   | + dermomyotome 15
+EHDA:3028        |   | | + dermatome 15
+EHDA:3029        |   | | \ myotome 15
+EHDA:9800        |   | + dermomyotome 16
+EHDA:3041        |   | | + dermatome 16
+EHDA:3035        |   | | \ myotome 16
+EHDA:9823        |   | + dermomyotome 17
+EHDA:3005        |   | | + dermatome 17
+EHDA:3006        |   | | \ myotome 17
+EHDA:9818        |   | + dermomyotome 18
+EHDA:3062        |   | | + dermatome 18
+EHDA:2852        |   | | \ myotome 18
+EHDA:9828        |   | + dermomyotome 19
+EHDA:2840        |   | | + dermatome 19
+EHDA:2860        |   | | \ myotome 19
+EHDA:9585        |   | \ dermomyotome 20
+EHDA:2825        |   |   + dermatome 20
+EHDA:2848        |   |   \ myotome 20
+EHDA:14628       |   + trunk and cervical myotome group
+EHDA:3013        |   | + myotome 13
+EHDA:3020        |   | + myotome 14
+EHDA:3029        |   | + myotome 15
+EHDA:3035        |   | + myotome 16
+EHDA:3006        |   | + myotome 17
+EHDA:2852        |   | + myotome 18
+EHDA:2860        |   | + myotome 19
+EHDA:2848        |   | \ myotome 20
+EHDA:14276       |   + trunk and cervical paraxial mesoderm
+EHDA:12704       |   | + somite 13
+EHDA:9765        |   | | + dermomyotome 13
+EHDA:3019        |   | | | + dermatome 13
+EHDA:3013        |   | | | \ myotome 13
+EHDA:16232       |   | | \ sclerotome 13
+EHDA:12701       |   | + somite 14
+EHDA:9730        |   | | + dermomyotome 14
+EHDA:3027        |   | | | + dermatome 14
+EHDA:3020        |   | | | \ myotome 14
+EHDA:16023       |   | | \ sclerotome 14
+EHDA:12702       |   | + somite 15
+EHDA:9813        |   | | + dermomyotome 15
+EHDA:3028        |   | | | + dermatome 15
+EHDA:3029        |   | | | \ myotome 15
+EHDA:16018       |   | | \ sclerotome 15
+EHDA:12707       |   | + somite 16
+EHDA:9800        |   | | + dermomyotome 16
+EHDA:3041        |   | | | + dermatome 16
+EHDA:3035        |   | | | \ myotome 16
+EHDA:16064       |   | | \ sclerotome 16
+EHDA:12708       |   | + somite 17
+EHDA:9823        |   | | + dermomyotome 17
+EHDA:3005        |   | | | + dermatome 17
+EHDA:3006        |   | | | \ myotome 17
+EHDA:16031       |   | | \ sclerotome 17
+EHDA:12705       |   | + somite 18
+EHDA:9818        |   | | + dermomyotome 18
+EHDA:3062        |   | | | + dermatome 18
+EHDA:2852        |   | | | \ myotome 18
+EHDA:16106       |   | | \ sclerotome 18
+EHDA:12706       |   | + somite 19
+EHDA:9828        |   | | + dermomyotome 19
+EHDA:2840        |   | | | + dermatome 19
+EHDA:2860        |   | | | \ myotome 19
+EHDA:16072       |   | | \ sclerotome 19
+EHDA:12768       |   | + somite 20
+EHDA:9585        |   | | + dermomyotome 20
+EHDA:2825        |   | | | + dermatome 20
+EHDA:2848        |   | | | \ myotome 20
+EHDA:13240       |   | | \ sclerotome 20
+EHDA:7404        |   | + tail bud paraxial mesoderm
+EHDA:12574       |   | \ trunk and cervical somite group
+EHDA:12704       |   |   + somite 13
+EHDA:9765        |   |   | + dermomyotome 13
+EHDA:3019        |   |   | | + dermatome 13
+EHDA:3013        |   |   | | \ myotome 13
+EHDA:16232       |   |   | \ sclerotome 13
+EHDA:12701       |   |   + somite 14
+EHDA:9730        |   |   | + dermomyotome 14
+EHDA:3027        |   |   | | + dermatome 14
+EHDA:3020        |   |   | | \ myotome 14
+EHDA:16023       |   |   | \ sclerotome 14
+EHDA:12702       |   |   + somite 15
+EHDA:9813        |   |   | + dermomyotome 15
+EHDA:3028        |   |   | | + dermatome 15
+EHDA:3029        |   |   | | \ myotome 15
+EHDA:16018       |   |   | \ sclerotome 15
+EHDA:12707       |   |   + somite 16
+EHDA:9800        |   |   | + dermomyotome 16
+EHDA:3041        |   |   | | + dermatome 16
+EHDA:3035        |   |   | | \ myotome 16
+EHDA:16064       |   |   | \ sclerotome 16
+EHDA:12708       |   |   + somite 17
+EHDA:9823        |   |   | + dermomyotome 17
+EHDA:3005        |   |   | | + dermatome 17
+EHDA:3006        |   |   | | \ myotome 17
+EHDA:16031       |   |   | \ sclerotome 17
+EHDA:12705       |   |   + somite 18
+EHDA:9818        |   |   | + dermomyotome 18
+EHDA:3062        |   |   | | + dermatome 18
+EHDA:2852        |   |   | | \ myotome 18
+EHDA:16106       |   |   | \ sclerotome 18
+EHDA:12706       |   |   + somite 19
+EHDA:9828        |   |   | + dermomyotome 19
+EHDA:2840        |   |   | | + dermatome 19
+EHDA:2860        |   |   | | \ myotome 19
+EHDA:16072       |   |   | \ sclerotome 19
+EHDA:12768       |   |   \ somite 20
+EHDA:9585        |   |     + dermomyotome 20
+EHDA:2825        |   |     | + dermatome 20
+EHDA:2848        |   |     | \ myotome 20
+EHDA:13240       |   |     \ sclerotome 20
+EHDA:14530       |   + trunk and cervical sclerotome group
+EHDA:15696       |   | + sclerotome 05
+EHDA:15685       |   | + sclerotome 06
+EHDA:15825       |   | + sclerotome 07
+EHDA:15781       |   | + sclerotome 08
+EHDA:15767       |   | + sclerotome 09
+EHDA:16227       |   | + sclerotome 10
+EHDA:16195       |   | + sclerotome 11
+EHDA:16238       |   | + sclerotome 12
+EHDA:16232       |   | + sclerotome 13
+EHDA:16023       |   | + sclerotome 14
+EHDA:16018       |   | + sclerotome 15
+EHDA:16064       |   | + sclerotome 16
+EHDA:16031       |   | + sclerotome 17
+EHDA:16106       |   | + sclerotome 18
+EHDA:16072       |   | + sclerotome 19
+EHDA:13240       |   | \ sclerotome 20
+EHDA:12574       |   + trunk and cervical somite group
+EHDA:12704       |   | + somite 13
+EHDA:9765        |   | | + dermomyotome 13
+EHDA:3019        |   | | | + dermatome 13
+EHDA:3013        |   | | | \ myotome 13
+EHDA:16232       |   | | \ sclerotome 13
+EHDA:12701       |   | + somite 14
+EHDA:9730        |   | | + dermomyotome 14
+EHDA:3027        |   | | | + dermatome 14
+EHDA:3020        |   | | | \ myotome 14
+EHDA:16023       |   | | \ sclerotome 14
+EHDA:12702       |   | + somite 15
+EHDA:9813        |   | | + dermomyotome 15
+EHDA:3028        |   | | | + dermatome 15
+EHDA:3029        |   | | | \ myotome 15
+EHDA:16018       |   | | \ sclerotome 15
+EHDA:12707       |   | + somite 16
+EHDA:9800        |   | | + dermomyotome 16
+EHDA:3041        |   | | | + dermatome 16
+EHDA:3035        |   | | | \ myotome 16
+EHDA:16064       |   | | \ sclerotome 16
+EHDA:12708       |   | + somite 17
+EHDA:9823        |   | | + dermomyotome 17
+EHDA:3005        |   | | | + dermatome 17
+EHDA:3006        |   | | | \ myotome 17
+EHDA:16031       |   | | \ sclerotome 17
+EHDA:12705       |   | + somite 18
+EHDA:9818        |   | | + dermomyotome 18
+EHDA:3062        |   | | | + dermatome 18
+EHDA:2852        |   | | | \ myotome 18
+EHDA:16106       |   | | \ sclerotome 18
+EHDA:12706       |   | + somite 19
+EHDA:9828        |   | | + dermomyotome 19
+EHDA:2840        |   | | | + dermatome 19
+EHDA:2860        |   | | | \ myotome 19
+EHDA:16072       |   | | \ sclerotome 19
+EHDA:12768       |   | \ somite 20
+EHDA:9585        |   |   + dermomyotome 20
+EHDA:2825        |   |   | + dermatome 20
+EHDA:2848        |   |   | \ myotome 20
+EHDA:13240       |   |   \ sclerotome 20
+EHDA:18944       |   \ trunk mesenchyme from trunk neural crest
+EHDA:8974        + mesoderm
+EHDA:11531       | + head paraxial mesenchyme
+EHDA:15151       | | + head dermomyotome group
+EHDA:11549       | | | + dermomyotome 01
+EHDA:10927       | | | + hypoglossal cord
+EHDA:11462       | | | + dermomyotome 02
+EHDA:11467       | | | + dermomyotome 03
+EHDA:11473       | | | \ dermomyotome 04
+EHDA:15281       | | \ head sclerotome group
+EHDA:15929       | |   + sclerotome 01
+EHDA:15924       | |   + sclerotome 02
+EHDA:15741       | |   + sclerotome 03
+EHDA:15732       | |   \ sclerotome 04
+EHDA:9368        | + mesenchyme
+EHDA:11614       | | + head mesenchyme
+EHDA:5393        | | | + eye mesenchyme
+EHDA:11519       | | | + head mesenchyme from head neural crest
+EHDA:5393        | | | | + eye mesenchyme
+EHDA:6522        | | | | + mesenchyme from future diencephalic neural crest
+EHDA:4864        | | | | + mesenchyme from mesencephalic neural crest
+EHDA:6470        | | | | \ mesenchyme from rhombencephalic neural crest
+EHDA:8501        | | | |   + 1st arch mandibular mesenchyme from neural crest
+EHDA:8638        | | | |   + 1st arch maxillary mesenchyme from neural crest
+EHDA:8365        | | | |   + 2nd arch mesenchyme from neural crest
+EHDA:8287        | | | |   | \ 2nd arch artery
+EHDA:7349        | | | |   + 3rd arch mesenchyme from neural crest
+EHDA:6984        | | | |   + 4th arch mesenchyme from neural crest
+EHDA:16014       | | | |   + otic placode associated mesenchyme
+EHDA:16014       | | | |   \ otic placode associated mesenchyme
+EHDA:11531       | | | \ head paraxial mesenchyme
+EHDA:15151       | | |   + head dermomyotome group
+EHDA:11549       | | |   | + dermomyotome 01
+EHDA:10927       | | |   | + hypoglossal cord
+EHDA:11462       | | |   | + dermomyotome 02
+EHDA:11467       | | |   | + dermomyotome 03
+EHDA:11473       | | |   | \ dermomyotome 04
+EHDA:15281       | | |   \ head sclerotome group
+EHDA:15929       | | |     + sclerotome 01
+EHDA:15924       | | |     + sclerotome 02
+EHDA:15741       | | |     + sclerotome 03
+EHDA:15732       | | |     \ sclerotome 04
+EHDA:8959        | | + mesenchyme from somatopleure
+EHDA:8956        | | + mesenchyme from splanchnopleure
+EHDA:10798       | | | + early hindgut associated mesenchyme
+EHDA:5026        | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:10517       | | | + early midgut associated mesenchyme
+EHDA:15521       | | | \ hindgut mesothelium
+EHDA:15492       | | |   + early hindgut
+EHDA:10798       | | |   | + early hindgut associated mesenchyme
+EHDA:5026        | | |   | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | |   | + hindgut part of future large intestine
+EHDA:5026        | | |   | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | |   | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | |   | \ early hindgut epithelium
+EHDA:15508       | | |   |   + cloacal epithelium
+EHDA:5040        | | |   |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | |   \ hindgut part of future large intestine
+EHDA:5026        | | |     + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | |     \ hindgut part of future large intestine epithelium
+EHDA:18933       | | \ trunk and cervical mesenchyme
+EHDA:10418       | |   + cervical mesenchyme from cervical neural crest
+EHDA:13603       | |   + septum transversum
+EHDA:11426       | |   | + hepatic diverticulum
+EHDA:13675       | |   | \ septum transversum mesenchyme
+EHDA:14617       | |   + trunk and cervical dermatome group
+EHDA:3019        | |   | + dermatome 13
+EHDA:3027        | |   | + dermatome 14
+EHDA:3028        | |   | + dermatome 15
+EHDA:3041        | |   | + dermatome 16
+EHDA:3005        | |   | + dermatome 17
+EHDA:3062        | |   | + dermatome 18
+EHDA:2840        | |   | + dermatome 19
+EHDA:2825        | |   | \ dermatome 20
+EHDA:14520       | |   + trunk and cervical dermomyotome group
+EHDA:11478       | |   | + dermomyotome 05
+EHDA:11485       | |   | + dermomyotome 06
+EHDA:11490       | |   | + dermomyotome 07
+EHDA:11503       | |   | + dermomyotome 08
+EHDA:11508       | |   | + dermomyotome 09
+EHDA:9833        | |   | + dermomyotome 10
+EHDA:9844        | |   | + dermomyotome 11
+EHDA:9839        | |   | + dermomyotome 12
+EHDA:9765        | |   | + dermomyotome 13
+EHDA:3019        | |   | | + dermatome 13
+EHDA:3013        | |   | | \ myotome 13
+EHDA:9730        | |   | + dermomyotome 14
+EHDA:3027        | |   | | + dermatome 14
+EHDA:3020        | |   | | \ myotome 14
+EHDA:9813        | |   | + dermomyotome 15
+EHDA:3028        | |   | | + dermatome 15
+EHDA:3029        | |   | | \ myotome 15
+EHDA:9800        | |   | + dermomyotome 16
+EHDA:3041        | |   | | + dermatome 16
+EHDA:3035        | |   | | \ myotome 16
+EHDA:9823        | |   | + dermomyotome 17
+EHDA:3005        | |   | | + dermatome 17
+EHDA:3006        | |   | | \ myotome 17
+EHDA:9818        | |   | + dermomyotome 18
+EHDA:3062        | |   | | + dermatome 18
+EHDA:2852        | |   | | \ myotome 18
+EHDA:9828        | |   | + dermomyotome 19
+EHDA:2840        | |   | | + dermatome 19
+EHDA:2860        | |   | | \ myotome 19
+EHDA:9585        | |   | \ dermomyotome 20
+EHDA:2825        | |   |   + dermatome 20
+EHDA:2848        | |   |   \ myotome 20
+EHDA:14628       | |   + trunk and cervical myotome group
+EHDA:3013        | |   | + myotome 13
+EHDA:3020        | |   | + myotome 14
+EHDA:3029        | |   | + myotome 15
+EHDA:3035        | |   | + myotome 16
+EHDA:3006        | |   | + myotome 17
+EHDA:2852        | |   | + myotome 18
+EHDA:2860        | |   | + myotome 19
+EHDA:2848        | |   | \ myotome 20
+EHDA:14276       | |   + trunk and cervical paraxial mesoderm
+EHDA:12704       | |   | + somite 13
+EHDA:9765        | |   | | + dermomyotome 13
+EHDA:3019        | |   | | | + dermatome 13
+EHDA:3013        | |   | | | \ myotome 13
+EHDA:16232       | |   | | \ sclerotome 13
+EHDA:12701       | |   | + somite 14
+EHDA:9730        | |   | | + dermomyotome 14
+EHDA:3027        | |   | | | + dermatome 14
+EHDA:3020        | |   | | | \ myotome 14
+EHDA:16023       | |   | | \ sclerotome 14
+EHDA:12702       | |   | + somite 15
+EHDA:9813        | |   | | + dermomyotome 15
+EHDA:3028        | |   | | | + dermatome 15
+EHDA:3029        | |   | | | \ myotome 15
+EHDA:16018       | |   | | \ sclerotome 15
+EHDA:12707       | |   | + somite 16
+EHDA:9800        | |   | | + dermomyotome 16
+EHDA:3041        | |   | | | + dermatome 16
+EHDA:3035        | |   | | | \ myotome 16
+EHDA:16064       | |   | | \ sclerotome 16
+EHDA:12708       | |   | + somite 17
+EHDA:9823        | |   | | + dermomyotome 17
+EHDA:3005        | |   | | | + dermatome 17
+EHDA:3006        | |   | | | \ myotome 17
+EHDA:16031       | |   | | \ sclerotome 17
+EHDA:12705       | |   | + somite 18
+EHDA:9818        | |   | | + dermomyotome 18
+EHDA:3062        | |   | | | + dermatome 18
+EHDA:2852        | |   | | | \ myotome 18
+EHDA:16106       | |   | | \ sclerotome 18
+EHDA:12706       | |   | + somite 19
+EHDA:9828        | |   | | + dermomyotome 19
+EHDA:2840        | |   | | | + dermatome 19
+EHDA:2860        | |   | | | \ myotome 19
+EHDA:16072       | |   | | \ sclerotome 19
+EHDA:12768       | |   | + somite 20
+EHDA:9585        | |   | | + dermomyotome 20
+EHDA:2825        | |   | | | + dermatome 20
+EHDA:2848        | |   | | | \ myotome 20
+EHDA:13240       | |   | | \ sclerotome 20
+EHDA:7404        | |   | + tail bud paraxial mesoderm
+EHDA:12574       | |   | \ trunk and cervical somite group
+EHDA:12704       | |   |   + somite 13
+EHDA:9765        | |   |   | + dermomyotome 13
+EHDA:3019        | |   |   | | + dermatome 13
+EHDA:3013        | |   |   | | \ myotome 13
+EHDA:16232       | |   |   | \ sclerotome 13
+EHDA:12701       | |   |   + somite 14
+EHDA:9730        | |   |   | + dermomyotome 14
+EHDA:3027        | |   |   | | + dermatome 14
+EHDA:3020        | |   |   | | \ myotome 14
+EHDA:16023       | |   |   | \ sclerotome 14
+EHDA:12702       | |   |   + somite 15
+EHDA:9813        | |   |   | + dermomyotome 15
+EHDA:3028        | |   |   | | + dermatome 15
+EHDA:3029        | |   |   | | \ myotome 15
+EHDA:16018       | |   |   | \ sclerotome 15
+EHDA:12707       | |   |   + somite 16
+EHDA:9800        | |   |   | + dermomyotome 16
+EHDA:3041        | |   |   | | + dermatome 16
+EHDA:3035        | |   |   | | \ myotome 16
+EHDA:16064       | |   |   | \ sclerotome 16
+EHDA:12708       | |   |   + somite 17
+EHDA:9823        | |   |   | + dermomyotome 17
+EHDA:3005        | |   |   | | + dermatome 17
+EHDA:3006        | |   |   | | \ myotome 17
+EHDA:16031       | |   |   | \ sclerotome 17
+EHDA:12705       | |   |   + somite 18
+EHDA:9818        | |   |   | + dermomyotome 18
+EHDA:3062        | |   |   | | + dermatome 18
+EHDA:2852        | |   |   | | \ myotome 18
+EHDA:16106       | |   |   | \ sclerotome 18
+EHDA:12706       | |   |   + somite 19
+EHDA:9828        | |   |   | + dermomyotome 19
+EHDA:2840        | |   |   | | + dermatome 19
+EHDA:2860        | |   |   | | \ myotome 19
+EHDA:16072       | |   |   | \ sclerotome 19
+EHDA:12768       | |   |   \ somite 20
+EHDA:9585        | |   |     + dermomyotome 20
+EHDA:2825        | |   |     | + dermatome 20
+EHDA:2848        | |   |     | \ myotome 20
+EHDA:13240       | |   |     \ sclerotome 20
+EHDA:14530       | |   + trunk and cervical sclerotome group
+EHDA:15696       | |   | + sclerotome 05
+EHDA:15685       | |   | + sclerotome 06
+EHDA:15825       | |   | + sclerotome 07
+EHDA:15781       | |   | + sclerotome 08
+EHDA:15767       | |   | + sclerotome 09
+EHDA:16227       | |   | + sclerotome 10
+EHDA:16195       | |   | + sclerotome 11
+EHDA:16238       | |   | + sclerotome 12
+EHDA:16232       | |   | + sclerotome 13
+EHDA:16023       | |   | + sclerotome 14
+EHDA:16018       | |   | + sclerotome 15
+EHDA:16064       | |   | + sclerotome 16
+EHDA:16031       | |   | + sclerotome 17
+EHDA:16106       | |   | + sclerotome 18
+EHDA:16072       | |   | + sclerotome 19
+EHDA:13240       | |   | \ sclerotome 20
+EHDA:12574       | |   + trunk and cervical somite group
+EHDA:12704       | |   | + somite 13
+EHDA:9765        | |   | | + dermomyotome 13
+EHDA:3019        | |   | | | + dermatome 13
+EHDA:3013        | |   | | | \ myotome 13
+EHDA:16232       | |   | | \ sclerotome 13
+EHDA:12701       | |   | + somite 14
+EHDA:9730        | |   | | + dermomyotome 14
+EHDA:3027        | |   | | | + dermatome 14
+EHDA:3020        | |   | | | \ myotome 14
+EHDA:16023       | |   | | \ sclerotome 14
+EHDA:12702       | |   | + somite 15
+EHDA:9813        | |   | | + dermomyotome 15
+EHDA:3028        | |   | | | + dermatome 15
+EHDA:3029        | |   | | | \ myotome 15
+EHDA:16018       | |   | | \ sclerotome 15
+EHDA:12707       | |   | + somite 16
+EHDA:9800        | |   | | + dermomyotome 16
+EHDA:3041        | |   | | | + dermatome 16
+EHDA:3035        | |   | | | \ myotome 16
+EHDA:16064       | |   | | \ sclerotome 16
+EHDA:12708       | |   | + somite 17
+EHDA:9823        | |   | | + dermomyotome 17
+EHDA:3005        | |   | | | + dermatome 17
+EHDA:3006        | |   | | | \ myotome 17
+EHDA:16031       | |   | | \ sclerotome 17
+EHDA:12705       | |   | + somite 18
+EHDA:9818        | |   | | + dermomyotome 18
+EHDA:3062        | |   | | | + dermatome 18
+EHDA:2852        | |   | | | \ myotome 18
+EHDA:16106       | |   | | \ sclerotome 18
+EHDA:12706       | |   | + somite 19
+EHDA:9828        | |   | | + dermomyotome 19
+EHDA:2840        | |   | | | + dermatome 19
+EHDA:2860        | |   | | | \ myotome 19
+EHDA:16072       | |   | | \ sclerotome 19
+EHDA:12768       | |   | \ somite 20
+EHDA:9585        | |   |   + dermomyotome 20
+EHDA:2825        | |   |   | + dermatome 20
+EHDA:2848        | |   |   | \ myotome 20
+EHDA:13240       | |   |   \ sclerotome 20
+EHDA:18944       | |   \ trunk mesenchyme from trunk neural crest
+EHDA:13603       | + septum transversum
+EHDA:11426       | | + hepatic diverticulum
+EHDA:13675       | | \ septum transversum mesenchyme
+EHDA:13675       | + septum transversum mesenchyme
+EHDA:14276       | + trunk and cervical paraxial mesoderm
+EHDA:12704       | | + somite 13
+EHDA:9765        | | | + dermomyotome 13
+EHDA:3019        | | | | + dermatome 13
+EHDA:3013        | | | | \ myotome 13
+EHDA:16232       | | | \ sclerotome 13
+EHDA:12701       | | + somite 14
+EHDA:9730        | | | + dermomyotome 14
+EHDA:3027        | | | | + dermatome 14
+EHDA:3020        | | | | \ myotome 14
+EHDA:16023       | | | \ sclerotome 14
+EHDA:12702       | | + somite 15
+EHDA:9813        | | | + dermomyotome 15
+EHDA:3028        | | | | + dermatome 15
+EHDA:3029        | | | | \ myotome 15
+EHDA:16018       | | | \ sclerotome 15
+EHDA:12707       | | + somite 16
+EHDA:9800        | | | + dermomyotome 16
+EHDA:3041        | | | | + dermatome 16
+EHDA:3035        | | | | \ myotome 16
+EHDA:16064       | | | \ sclerotome 16
+EHDA:12708       | | + somite 17
+EHDA:9823        | | | + dermomyotome 17
+EHDA:3005        | | | | + dermatome 17
+EHDA:3006        | | | | \ myotome 17
+EHDA:16031       | | | \ sclerotome 17
+EHDA:12705       | | + somite 18
+EHDA:9818        | | | + dermomyotome 18
+EHDA:3062        | | | | + dermatome 18
+EHDA:2852        | | | | \ myotome 18
+EHDA:16106       | | | \ sclerotome 18
+EHDA:12706       | | + somite 19
+EHDA:9828        | | | + dermomyotome 19
+EHDA:2840        | | | | + dermatome 19
+EHDA:2860        | | | | \ myotome 19
+EHDA:16072       | | | \ sclerotome 19
+EHDA:12768       | | + somite 20
+EHDA:9585        | | | + dermomyotome 20
+EHDA:2825        | | | | + dermatome 20
+EHDA:2848        | | | | \ myotome 20
+EHDA:13240       | | | \ sclerotome 20
+EHDA:7404        | | + tail bud paraxial mesoderm
+EHDA:12574       | | \ trunk and cervical somite group
+EHDA:12704       | |   + somite 13
+EHDA:9765        | |   | + dermomyotome 13
+EHDA:3019        | |   | | + dermatome 13
+EHDA:3013        | |   | | \ myotome 13
+EHDA:16232       | |   | \ sclerotome 13
+EHDA:12701       | |   + somite 14
+EHDA:9730        | |   | + dermomyotome 14
+EHDA:3027        | |   | | + dermatome 14
+EHDA:3020        | |   | | \ myotome 14
+EHDA:16023       | |   | \ sclerotome 14
+EHDA:12702       | |   + somite 15
+EHDA:9813        | |   | + dermomyotome 15
+EHDA:3028        | |   | | + dermatome 15
+EHDA:3029        | |   | | \ myotome 15
+EHDA:16018       | |   | \ sclerotome 15
+EHDA:12707       | |   + somite 16
+EHDA:9800        | |   | + dermomyotome 16
+EHDA:3041        | |   | | + dermatome 16
+EHDA:3035        | |   | | \ myotome 16
+EHDA:16064       | |   | \ sclerotome 16
+EHDA:12708       | |   + somite 17
+EHDA:9823        | |   | + dermomyotome 17
+EHDA:3005        | |   | | + dermatome 17
+EHDA:3006        | |   | | \ myotome 17
+EHDA:16031       | |   | \ sclerotome 17
+EHDA:12705       | |   + somite 18
+EHDA:9818        | |   | + dermomyotome 18
+EHDA:3062        | |   | | + dermatome 18
+EHDA:2852        | |   | | \ myotome 18
+EHDA:16106       | |   | \ sclerotome 18
+EHDA:12706       | |   + somite 19
+EHDA:9828        | |   | + dermomyotome 19
+EHDA:2840        | |   | | + dermatome 19
+EHDA:2860        | |   | | \ myotome 19
+EHDA:16072       | |   | \ sclerotome 19
+EHDA:12768       | |   \ somite 20
+EHDA:9585        | |     + dermomyotome 20
+EHDA:2825        | |     | + dermatome 20
+EHDA:2848        | |     | \ myotome 20
+EHDA:13240       | |     \ sclerotome 20
+EHDA:7625        | + intermediate mesoderm
+EHDA:12552       | | \ nephric cord
+EHDA:9077        | |   + mesonephros mesenchyme
+EHDA:7147        | |   | + blood haematopoietic stem cells
+EHDA:9118        | |   | \ mesonephros tubule
+EHDA:12555       | |   \ nephric duct
+EHDA:7625        | + intermediate mesoderm
+EHDA:12552       | | \ nephric cord
+EHDA:9077        | |   + mesonephros mesenchyme
+EHDA:7147        | |   | + blood haematopoietic stem cells
+EHDA:9118        | |   | \ mesonephros tubule
+EHDA:12555       | |   \ nephric duct
+EHDA:4529        | + lateral plate mesoderm
+EHDA:14399       | | \ internal anal region mesenchyme
+EHDA:4529        | \ lateral plate mesoderm
+EHDA:14399       |   \ internal anal region mesenchyme
+EHDA:6749        + neural crest
+EHDA:12700       | + cervical neural crest
+EHDA:10418       | | \ cervical mesenchyme from cervical neural crest
+EHDA:6518        | + head neural crest
+EHDA:5700        | | + facio-acoustic neural crest
+EHDA:11519       | | + head mesenchyme from head neural crest
+EHDA:5393        | | | + eye mesenchyme
+EHDA:6522        | | | + mesenchyme from future diencephalic neural crest
+EHDA:4864        | | | + mesenchyme from mesencephalic neural crest
+EHDA:6470        | | | \ mesenchyme from rhombencephalic neural crest
+EHDA:8501        | | |   + 1st arch mandibular mesenchyme from neural crest
+EHDA:8638        | | |   + 1st arch maxillary mesenchyme from neural crest
+EHDA:8365        | | |   + 2nd arch mesenchyme from neural crest
+EHDA:8287        | | |   | \ 2nd arch artery
+EHDA:7349        | | |   + 3rd arch mesenchyme from neural crest
+EHDA:6984        | | |   + 4th arch mesenchyme from neural crest
+EHDA:16014       | | |   + otic placode associated mesenchyme
+EHDA:16014       | | |   \ otic placode associated mesenchyme
+EHDA:15208       | | + future diencephalon neural crest
+EHDA:6522        | | | + mesenchyme from future diencephalic neural crest
+EHDA:11391       | | | \ optic (D1) neural crest
+EHDA:5393        | | |   \ eye mesenchyme
+EHDA:9187        | | + mesencephalic neural crest
+EHDA:5700        | | | + facio-acoustic neural crest
+EHDA:4864        | | | + mesenchyme from mesencephalic neural crest
+EHDA:17226       | | | \ otic neural crest
+EHDA:11391       | | + optic (D1) neural crest
+EHDA:5393        | | | \ eye mesenchyme
+EHDA:17226       | | + otic neural crest
+EHDA:5164        | | \ rhombencephalic neural crest
+EHDA:11344       | |   + glossopharyngeal neural crest
+EHDA:11351       | |   | \ glossopharyngeal IX ganglion
+EHDA:13178       | |   + occipital neural crest
+EHDA:9314        | |   + pro-rhombomere a neural crest
+EHDA:8501        | |   | + 1st arch mandibular mesenchyme from neural crest
+EHDA:8638        | |   | + 1st arch maxillary mesenchyme from neural crest
+EHDA:19219       | |   | + trigeminal V ganglion
+EHDA:19237       | |   | \ trigeminal neural crest
+EHDA:9483        | |   + pro-rhombomere b neural crest
+EHDA:8365        | |   | + 2nd arch mesenchyme from neural crest
+EHDA:8287        | |   | | \ 2nd arch artery
+EHDA:5702        | |   | \ acoustico-facial VII-VIII ganglion complex
+EHDA:4054        | |   + pro-rhombomere c neural crest
+EHDA:7349        | |   | + 3rd arch mesenchyme from neural crest
+EHDA:6984        | |   | + 4th arch mesenchyme from neural crest
+EHDA:11344       | |   | + glossopharyngeal neural crest
+EHDA:11351       | |   | | \ glossopharyngeal IX ganglion
+EHDA:6163        | |   | + vagal neural crest
+EHDA:6079        | |   | | \ vagal X ganglion
+EHDA:6163        | |   | \ vagal neural crest
+EHDA:6079        | |   |   \ vagal X ganglion
+EHDA:4045        | |   + pro-rhombomere d neural crest
+EHDA:10927       | |   | + hypoglossal cord
+EHDA:13178       | |   | \ occipital neural crest
+EHDA:19237       | |   \ trigeminal neural crest
+EHDA:8897        | \ trunk neural crest
+EHDA:18944       |   \ trunk mesenchyme from trunk neural crest
+EHDA:12823       + notochord
+EHDA:17240       + organ system group
+EHDA:17252       | + alimentary system
+EHDA:17860       | | + buccopharyngeal membrane
+EHDA:17309       | | | + buccopharyngeal membrane ectoderm
+EHDA:7628        | | | | + Rathkes pouch epithelium
+EHDA:16124       | | | | | \ Rathkes pouch invagination
+EHDA:16126       | | | | \ oral epithelium from ectoderm
+EHDA:7628        | | | |   \ Rathkes pouch epithelium
+EHDA:16124       | | | |     \ Rathkes pouch invagination
+EHDA:19618       | | | \ buccopharyngeal membrane endoderm
+EHDA:11270       | | + gut region
+EHDA:3839        | | | + foregut region
+EHDA:19618       | | | | + buccopharyngeal membrane endoderm
+EHDA:2883        | | | | + laryngo-tracheal groove
+EHDA:4063        | | | | + foregut gland
+EHDA:19779       | | | | | \ thyroid primordium
+EHDA:15287       | | | | + foregut mesothelium
+EHDA:2820        | | | | | \ lower foregut region
+EHDA:3850        | | | | |   + lower foregut region associated mesenchyme
+EHDA:4307        | | | | |   | \ foregut-midgut junction associated mesenchyme
+EHDA:4060        | | | | |   \ lower foregut region endoderm
+EHDA:2820        | | | | + lower foregut region
+EHDA:3850        | | | | | + lower foregut region associated mesenchyme
+EHDA:4307        | | | | | | \ foregut-midgut junction associated mesenchyme
+EHDA:4060        | | | | | \ lower foregut region endoderm
+EHDA:17576       | | | | \ pharyngeal arch region
+EHDA:8085        | | | |   + 1st arch
+EHDA:8095        | | | |   | + 1st arch artery
+EHDA:8215        | | | |   | + 1st arch groove ectoderm
+EHDA:8531        | | | |   | + 1st arch mandibular component
+EHDA:8525        | | | |   | | + 1st arch mandibular ectoderm
+EHDA:8519        | | | |   | | + 1st arch mandibular endoderm
+EHDA:8513        | | | |   | | \ 1st arch mandibular mesenchyme
+EHDA:8507        | | | |   | |   + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        | | | |   | |   \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8490        | | | |   | + 1st arch maxillary component
+EHDA:8473        | | | |   | | + 1st arch maxillary ectoderm
+EHDA:8669        | | | |   | | + 1st arch maxillary endoderm
+EHDA:8632        | | | |   | | \ 1st arch maxillary mesenchyme
+EHDA:8647        | | | |   | |   + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        | | | |   | |   \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8592        | | | |   | + 1st arch maxillary-mandibular groove ectoderm
+EHDA:7696        | | | |   | \ 1st arch pouch endoderm
+EHDA:8519        | | | |   |   + 1st arch mandibular endoderm
+EHDA:8669        | | | |   |   \ 1st arch maxillary endoderm
+EHDA:2828        | | | |   + respiratory primordium
+EHDA:2982        | | | |   | + lung bud
+EHDA:2988        | | | |   | | + lung bud associated mesenchyme
+EHDA:2990        | | | |   | | \ lung bud epithelium
+EHDA:6253        | | | |   | + lung system
+EHDA:2982        | | | |   | | \ lung bud
+EHDA:2988        | | | |   | |   + lung bud associated mesenchyme
+EHDA:2990        | | | |   | |   \ lung bud epithelium
+EHDA:2870        | | | |   | + respiratory primordium associated mesenchyme
+EHDA:2864        | | | |   | \ respiratory primordium epithelium
+EHDA:2990        | | | |   |   \ lung bud epithelium
+EHDA:8291        | | | |   + 2nd arch
+EHDA:8287        | | | |   | + 2nd arch artery
+EHDA:8306        | | | |   | + 2nd arch ectoderm
+EHDA:8414        | | | |   | + 2nd arch endoderm
+EHDA:8421        | | | |   | \ 2nd arch mesenchyme
+EHDA:8371        | | | |   |   + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        | | | |   |   \ 2nd arch mesenchyme from neural crest
+EHDA:8287        | | | |   |     \ 2nd arch artery
+EHDA:8376        | | | |   + 3rd arch
+EHDA:7286        | | | |   | + 3rd arch ectoderm
+EHDA:7262        | | | |   | + 3rd arch endoderm
+EHDA:19779       | | | |   | | \ thyroid primordium
+EHDA:7363        | | | |   | + 3rd arch mesenchyme
+EHDA:7368        | | | |   | | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        | | | |   | | \ 3rd arch mesenchyme from neural crest
+EHDA:7268        | | | |   | \ 3rd arch pouch endoderm
+EHDA:7343        | | | |   + 4th arch
+EHDA:2781        | | | |   | + 4th arch ectoderm
+EHDA:2775        | | | |   | + 4th arch endoderm
+EHDA:6974        | | | |   | + 4th arch mesenchyme
+EHDA:6979        | | | |   | | + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        | | | |   | | \ 4th arch mesenchyme from neural crest
+EHDA:7373        | | | |   | + 4th arch pharyngeal groove ectoderm
+EHDA:7315        | | | |   | \ 4th arch pharyngeal pouch endoderm
+EHDA:12509       | | | |   + branchial placode group
+EHDA:17071       | | | |   | \ otic placode
+EHDA:17067       | | | |   |   + otic pit
+EHDA:16014       | | | |   |   + otic placode associated mesenchyme
+EHDA:16010       | | | |   |   \ otic placode epithelium
+EHDA:7975        | | | |   + early pharyngeal arch endoderm
+EHDA:8519        | | | |   | + 1st arch mandibular endoderm
+EHDA:8669        | | | |   | + 1st arch maxillary endoderm
+EHDA:7696        | | | |   | + 1st arch pouch endoderm
+EHDA:8519        | | | |   | | + 1st arch mandibular endoderm
+EHDA:8669        | | | |   | | \ 1st arch maxillary endoderm
+EHDA:8414        | | | |   | + 2nd arch endoderm
+EHDA:7262        | | | |   | + 3rd arch endoderm
+EHDA:19779       | | | |   | | \ thyroid primordium
+EHDA:7268        | | | |   | + 3rd arch pouch endoderm
+EHDA:2775        | | | |   | + 4th arch endoderm
+EHDA:7315        | | | |   | + 4th arch pharyngeal pouch endoderm
+EHDA:2864        | | | |   | \ respiratory primordium epithelium
+EHDA:2990        | | | |   |   \ lung bud epithelium
+EHDA:7963        | | | |   \ pharyngeal arch associated mesenchyme
+EHDA:8513        | | | |     + 1st arch mandibular mesenchyme
+EHDA:8507        | | | |     | + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        | | | |     | \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8632        | | | |     + 1st arch maxillary mesenchyme
+EHDA:8647        | | | |     | + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        | | | |     | \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8421        | | | |     + 2nd arch mesenchyme
+EHDA:8371        | | | |     | + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        | | | |     | \ 2nd arch mesenchyme from neural crest
+EHDA:8287        | | | |     |   \ 2nd arch artery
+EHDA:7363        | | | |     + 3rd arch mesenchyme
+EHDA:7368        | | | |     | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        | | | |     | \ 3rd arch mesenchyme from neural crest
+EHDA:6974        | | | |     \ 4th arch mesenchyme
+EHDA:6979        | | | |       + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        | | | |       \ 4th arch mesenchyme from neural crest
+EHDA:4067        | | | + foregut-midgut junction region
+EHDA:18273       | | | | + early biliary bud
+EHDA:18274       | | | | | \ biliary bud
+EHDA:18304       | | | | |   + biliary bud extrahepatic part
+EHDA:18304       | | | | |   + biliary bud extrahepatic part
+EHDA:18239       | | | | |   + biliary bud intrahepatic part
+EHDA:18239       | | | | |   \ biliary bud intrahepatic part
+EHDA:4307        | | | | + foregut-midgut junction associated mesenchyme
+EHDA:4217        | | | | + foregut-midgut junction epithelium
+EHDA:11426       | | | | \ hepatic diverticulum
+EHDA:15003       | | | + gut tissues
+EHDA:14873       | | | | + gut epithelium
+EHDA:19618       | | | | | + buccopharyngeal membrane endoderm
+EHDA:15508       | | | | | + cloacal epithelium
+EHDA:10800       | | | | | + early hindgut epithelium
+EHDA:15508       | | | | | | + cloacal epithelium
+EHDA:5040        | | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10558       | | | | | + early midgut epithelium
+EHDA:7975        | | | | | + early pharyngeal arch endoderm
+EHDA:8519        | | | | | | + 1st arch mandibular endoderm
+EHDA:8669        | | | | | | + 1st arch maxillary endoderm
+EHDA:7696        | | | | | | + 1st arch pouch endoderm
+EHDA:8519        | | | | | | | + 1st arch mandibular endoderm
+EHDA:8669        | | | | | | | \ 1st arch maxillary endoderm
+EHDA:8414        | | | | | | + 2nd arch endoderm
+EHDA:7262        | | | | | | + 3rd arch endoderm
+EHDA:19779       | | | | | | | \ thyroid primordium
+EHDA:7268        | | | | | | + 3rd arch pouch endoderm
+EHDA:2775        | | | | | | + 4th arch endoderm
+EHDA:7315        | | | | | | + 4th arch pharyngeal pouch endoderm
+EHDA:2864        | | | | | | \ respiratory primordium epithelium
+EHDA:2990        | | | | | |   \ lung bud epithelium
+EHDA:4217        | | | | | + foregut-midgut junction epithelium
+EHDA:5040        | | | | | + hindgut part of future large intestine epithelium
+EHDA:4060        | | | | | + lower foregut region endoderm
+EHDA:11019       | | | | | \ pharyngeal arch endoderm
+EHDA:8519        | | | | |   + 1st arch mandibular endoderm
+EHDA:8669        | | | | |   + 1st arch maxillary endoderm
+EHDA:7696        | | | | |   + 1st arch pouch endoderm
+EHDA:8519        | | | | |   | + 1st arch mandibular endoderm
+EHDA:8669        | | | | |   | \ 1st arch maxillary endoderm
+EHDA:8414        | | | | |   + 2nd arch endoderm
+EHDA:7262        | | | | |   + 3rd arch endoderm
+EHDA:19779       | | | | |   | \ thyroid primordium
+EHDA:7268        | | | | |   + 3rd arch pouch endoderm
+EHDA:2775        | | | | |   + 4th arch endoderm
+EHDA:7315        | | | | |   \ 4th arch pharyngeal pouch endoderm
+EHDA:14551       | | | | \ gut mesothelium
+EHDA:15287       | | | |   + foregut mesothelium
+EHDA:2820        | | | |   | \ lower foregut region
+EHDA:3850        | | | |   |   + lower foregut region associated mesenchyme
+EHDA:4307        | | | |   |   | \ foregut-midgut junction associated mesenchyme
+EHDA:4060        | | | |   |   \ lower foregut region endoderm
+EHDA:15521       | | | |   + hindgut mesothelium
+EHDA:15492       | | | |   | + early hindgut
+EHDA:10798       | | | |   | | + early hindgut associated mesenchyme
+EHDA:5026        | | | |   | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | | |   | | + hindgut part of future large intestine
+EHDA:5026        | | | |   | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | |   | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | | |   | | \ early hindgut epithelium
+EHDA:15508       | | | |   | |   + cloacal epithelium
+EHDA:5040        | | | |   | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | | |   | \ hindgut part of future large intestine
+EHDA:5026        | | | |   |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | |   |   \ hindgut part of future large intestine epithelium
+EHDA:15228       | | | |   \ midgut mesothelium
+EHDA:10896       | | | + hindgut region
+EHDA:16643       | | | | + anal region
+EHDA:15415       | | | | | \ internal anal region
+EHDA:17073       | | | | |   + allantois
+EHDA:7067        | | | | |   | + allantoic epithelium
+EHDA:7077        | | | | |   | + allantoic mesenchyme
+EHDA:9838        | | | | |   | \ allantois primordial germ cells
+EHDA:12447       | | | | |   + cloaca
+EHDA:15508       | | | | |   | + cloacal epithelium
+EHDA:15557       | | | | |   | \ cloacal lumen
+EHDA:14399       | | | | |   \ internal anal region mesenchyme
+EHDA:15492       | | | | + early hindgut
+EHDA:10798       | | | | | + early hindgut associated mesenchyme
+EHDA:5026        | | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | | | | + hindgut part of future large intestine
+EHDA:5026        | | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | | | | \ early hindgut epithelium
+EHDA:15508       | | | | |   + cloacal epithelium
+EHDA:5040        | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:15521       | | | | + hindgut mesothelium
+EHDA:15492       | | | | | + early hindgut
+EHDA:10798       | | | | | | + early hindgut associated mesenchyme
+EHDA:5026        | | | | | | | \ hindgut part of future large intestine associated mesenchyme
+EHDA:5059        | | | | | | + hindgut part of future large intestine
+EHDA:5026        | | | | | | | + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | | | | \ hindgut part of future large intestine epithelium
+EHDA:10800       | | | | | | \ early hindgut epithelium
+EHDA:15508       | | | | | |   + cloacal epithelium
+EHDA:5040        | | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | | | | \ hindgut part of future large intestine
+EHDA:5026        | | | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | | |   \ hindgut part of future large intestine epithelium
+EHDA:5059        | | | | \ hindgut part of future large intestine
+EHDA:5026        | | | |   + hindgut part of future large intestine associated mesenchyme
+EHDA:5040        | | | |   \ hindgut part of future large intestine epithelium
+EHDA:10521       | | | \ midgut region
+EHDA:14958       | | |   + early midgut region
+EHDA:10517       | | |   | + early midgut associated mesenchyme
+EHDA:10558       | | |   | \ early midgut epithelium
+EHDA:15228       | | |   \ midgut mesothelium
+EHDA:16633       | | \ oral region
+EHDA:17309       | |   + buccopharyngeal membrane ectoderm
+EHDA:7628        | |   | + Rathkes pouch epithelium
+EHDA:16124       | |   | | \ Rathkes pouch invagination
+EHDA:16126       | |   | \ oral epithelium from ectoderm
+EHDA:7628        | |   |   \ Rathkes pouch epithelium
+EHDA:16124       | |   |     \ Rathkes pouch invagination
+EHDA:9944        | |   + stomatodaeum
+EHDA:14244       | |   + future tongue
+EHDA:10927       | |   | \ hypoglossal cord
+EHDA:16654       | |   + oral epithelium
+EHDA:16126       | |   | \ oral epithelium from ectoderm
+EHDA:7628        | |   |   \ Rathkes pouch epithelium
+EHDA:16124       | |   |     \ Rathkes pouch invagination
+EHDA:16621       | |   \ oral region gland group
+EHDA:7642        | |     \ pituitary primordium
+EHDA:7628        | |       \ Rathkes pouch epithelium
+EHDA:16124       | |         \ Rathkes pouch invagination
+EHDA:14667       | + cardiovascular system
+EHDA:15747       | | + cardiac system
+EHDA:8326        | | | + dorsal mesocardium
+EHDA:19513       | | | | \ transverse pericardial sinus
+EHDA:15814       | | | + heart-associated blood vessels
+EHDA:14004       | | | | + heart associated arteries
+EHDA:15774       | | | | | + aortic sac
+EHDA:15680       | | | | | | \ truncus arteriosus
+EHDA:8314        | | | | | \ paired dorsal aortae
+EHDA:4657        | | | | |   + left dorsal aorta
+EHDA:13826       | | | | |   | + fused midline dorsal aorta
+EHDA:7147        | | | | |   | | \ blood haematopoietic stem cells
+EHDA:3998        | | | | |   | \ umbilical artery left
+EHDA:18511       | | | | |   \ right dorsal aorta
+EHDA:13826       | | | | |     + fused midline dorsal aorta
+EHDA:7147        | | | | |     | \ blood haematopoietic stem cells
+EHDA:16512       | | | | |     \ umbilical artery right
+EHDA:14016       | | | | \ heart associated veins
+EHDA:13660       | | | |   \ sinus venosus
+EHDA:12642       | | | |     + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | | | |     + sinus venosus left horn
+EHDA:12498       | | | |     \ sinus venosus right horn
+EHDA:14695       | | | + pericardial cavity lumen
+EHDA:8326        | | | | + dorsal mesocardium
+EHDA:19513       | | | | | \ transverse pericardial sinus
+EHDA:15578       | | | | + parietal pericardial cavity mesothelium
+EHDA:8947        | | | | \ primitive heart tube
+EHDA:19633       | | | |   + interventricular sulcus
+EHDA:8450        | | | |   + primitive heart tube endocardium
+EHDA:2851        | | | |   | + primitive heart tube lumen
+EHDA:13660       | | | |   | + sinus venosus
+EHDA:12642       | | | |   | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | | | |   | | + sinus venosus left horn
+EHDA:12498       | | | |   | | \ sinus venosus right horn
+EHDA:12493       | | | |   | + sinus venosus left horn
+EHDA:12498       | | | |   | + sinus venosus right horn
+EHDA:12642       | | | |   | + primitive heart tube common atrial chamber endocardium
+EHDA:16334       | | | |   | + conus cordis
+EHDA:16334       | | | |   | + conus cordis
+EHDA:9912        | | | |   | + primitive left ventricle endocardium
+EHDA:9912        | | | |   | + primitive left ventricle endocardium
+EHDA:19621       | | | |   | + primitive right ventricle endocardium
+EHDA:19621       | | | |   | \ primitive right ventricle endocardium
+EHDA:15762       | | | |   + primitive heart tube jelly
+EHDA:8390        | | | |   + primitive heart tube myocardium
+EHDA:15762       | | | |   | \ primitive heart tube jelly
+EHDA:9918        | | | |   + primitive heart tube visceral pericardium
+EHDA:15680       | | | |   \ truncus arteriosus
+EHDA:8947        | | | \ primitive heart tube
+EHDA:19633       | | |   + interventricular sulcus
+EHDA:8450        | | |   + primitive heart tube endocardium
+EHDA:2851        | | |   | + primitive heart tube lumen
+EHDA:13660       | | |   | + sinus venosus
+EHDA:12642       | | |   | | + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | | |   | | + sinus venosus left horn
+EHDA:12498       | | |   | | \ sinus venosus right horn
+EHDA:12493       | | |   | + sinus venosus left horn
+EHDA:12498       | | |   | + sinus venosus right horn
+EHDA:12642       | | |   | + primitive heart tube common atrial chamber endocardium
+EHDA:16334       | | |   | + conus cordis
+EHDA:16334       | | |   | + conus cordis
+EHDA:9912        | | |   | + primitive left ventricle endocardium
+EHDA:9912        | | |   | + primitive left ventricle endocardium
+EHDA:19621       | | |   | + primitive right ventricle endocardium
+EHDA:19621       | | |   | \ primitive right ventricle endocardium
+EHDA:15762       | | |   + primitive heart tube jelly
+EHDA:8390        | | |   + primitive heart tube myocardium
+EHDA:15762       | | |   | \ primitive heart tube jelly
+EHDA:9918        | | |   + primitive heart tube visceral pericardium
+EHDA:15680       | | |   \ truncus arteriosus
+EHDA:13862       | | \ vascular system
+EHDA:15977       | |   + arterial system
+EHDA:17562       | |   | + aortic arch arteries
+EHDA:8095        | |   | | + 1st arch artery
+EHDA:15774       | |   | | + aortic sac
+EHDA:15680       | |   | | | \ truncus arteriosus
+EHDA:8287        | |   | | \ 2nd arch artery
+EHDA:14323       | |   | + body arteries
+EHDA:13811       | |   | | + aortic system
+EHDA:15774       | |   | | | + aortic sac
+EHDA:15680       | |   | | | | \ truncus arteriosus
+EHDA:13826       | |   | | | + fused midline dorsal aorta
+EHDA:7147        | |   | | | | \ blood haematopoietic stem cells
+EHDA:8314        | |   | | | \ paired dorsal aortae
+EHDA:4657        | |   | | |   + left dorsal aorta
+EHDA:13826       | |   | | |   | + fused midline dorsal aorta
+EHDA:7147        | |   | | |   | | \ blood haematopoietic stem cells
+EHDA:3998        | |   | | |   | \ umbilical artery left
+EHDA:18511       | |   | | |   \ right dorsal aorta
+EHDA:13826       | |   | | |     + fused midline dorsal aorta
+EHDA:7147        | |   | | |     | \ blood haematopoietic stem cells
+EHDA:16512       | |   | | |     \ umbilical artery right
+EHDA:14004       | |   | | + heart associated arteries
+EHDA:15774       | |   | | | + aortic sac
+EHDA:15680       | |   | | | | \ truncus arteriosus
+EHDA:8314        | |   | | | \ paired dorsal aortae
+EHDA:4657        | |   | | |   + left dorsal aorta
+EHDA:13826       | |   | | |   | + fused midline dorsal aorta
+EHDA:7147        | |   | | |   | | \ blood haematopoietic stem cells
+EHDA:3998        | |   | | |   | \ umbilical artery left
+EHDA:18511       | |   | | |   \ right dorsal aorta
+EHDA:13826       | |   | | |     + fused midline dorsal aorta
+EHDA:7147        | |   | | |     | \ blood haematopoietic stem cells
+EHDA:16512       | |   | | |     \ umbilical artery right
+EHDA:3998        | |   | | + umbilical artery left
+EHDA:16512       | |   | | + umbilical artery right
+EHDA:8825        | |   | | \ vitelline arteries
+EHDA:3992        | |   | |   + vitelline arterial plexus left
+EHDA:16437       | |   | |   \ vitelline arterial plexus right
+EHDA:13880       | |   | \ head arteries
+EHDA:13136       | |   |   \ brain arterial system
+EHDA:14682       | |   |     \ carotid artery system
+EHDA:18259       | |   + blood
+EHDA:7550        | |   | + blood cells
+EHDA:7147        | |   | + blood haematopoietic stem cells
+EHDA:7137        | |   | \ serum
+EHDA:6374        | |   \ venous system
+EHDA:14174       | |     + body veins
+EHDA:14644       | |     | + cardinal vein system
+EHDA:11167       | |     | | + common cardinal vein left
+EHDA:14102       | |     | | + common cardinal vein right
+EHDA:8581        | |     | | + posterior cardinal vein left
+EHDA:14114       | |     | | + posterior cardinal vein right
+EHDA:16677       | |     | | + precardinal vein left
+EHDA:14125       | |     | | \ precardinal vein right
+EHDA:14016       | |     | + heart associated veins
+EHDA:13660       | |     | | \ sinus venosus
+EHDA:12642       | |     | |   + primitive heart tube common atrial chamber endocardium
+EHDA:12493       | |     | |   + sinus venosus left horn
+EHDA:12498       | |     | |   \ sinus venosus right horn
+EHDA:4010        | |     | + umbilical vein left
+EHDA:16507       | |     | + umbilical vein right
+EHDA:4328        | |     | + vitelline vein left
+EHDA:16398       | |     | \ vitelline vein right
+EHDA:14188       | |     + embryonic venous capillary plexus
+EHDA:14200       | |     | + head and neck venous capillary plexus
+EHDA:8479        | |     | | \ primary head vein
+EHDA:13954       | |     | + body venous capillary plexus
+EHDA:11167       | |     | | + common cardinal vein left
+EHDA:14102       | |     | | + common cardinal vein right
+EHDA:8581        | |     | | + posterior cardinal vein left
+EHDA:14114       | |     | | + posterior cardinal vein right
+EHDA:16677       | |     | | + precardinal vein left
+EHDA:14125       | |     | | + precardinal vein right
+EHDA:4010        | |     | | + umbilical vein left
+EHDA:16507       | |     | | + umbilical vein right
+EHDA:4328        | |     | | + vitelline vein left
+EHDA:16398       | |     | | \ vitelline vein right
+EHDA:13954       | |     | \ body venous capillary plexus
+EHDA:11167       | |     |   + common cardinal vein left
+EHDA:14102       | |     |   + common cardinal vein right
+EHDA:8581        | |     |   + posterior cardinal vein left
+EHDA:14114       | |     |   + posterior cardinal vein right
+EHDA:16677       | |     |   + precardinal vein left
+EHDA:14125       | |     |   + precardinal vein right
+EHDA:4010        | |     |   + umbilical vein left
+EHDA:16507       | |     |   + umbilical vein right
+EHDA:4328        | |     |   + vitelline vein left
+EHDA:16398       | |     |   \ vitelline vein right
+EHDA:14162       | |     \ head and neck veins
+EHDA:14200       | |       + head and neck venous capillary plexus
+EHDA:8479        | |       | \ primary head vein
+EHDA:8479        | |       \ primary head vein
+EHDA:9651        | + glandular system
+EHDA:9629        | | \ endocrine glandular system
+EHDA:19779       | |   \ thyroid primordium
+EHDA:10947       | + haemolymphoid system
+EHDA:18259       | | \ blood
+EHDA:7550        | |   + blood cells
+EHDA:7147        | |   + blood haematopoietic stem cells
+EHDA:7137        | |   \ serum
+EHDA:8224        | + integumental system
+EHDA:10346       | | \ surface ectoderm
+EHDA:17309       | |   + buccopharyngeal membrane ectoderm
+EHDA:7628        | |   | + Rathkes pouch epithelium
+EHDA:16124       | |   | | \ Rathkes pouch invagination
+EHDA:16126       | |   | \ oral epithelium from ectoderm
+EHDA:7628        | |   |   \ Rathkes pouch epithelium
+EHDA:16124       | |   |     \ Rathkes pouch invagination
+EHDA:17071       | |   + otic placode
+EHDA:17067       | |   | + otic pit
+EHDA:16014       | |   | + otic placode associated mesenchyme
+EHDA:16010       | |   | \ otic placode epithelium
+EHDA:12509       | |   + branchial placode group
+EHDA:17071       | |   | \ otic placode
+EHDA:17067       | |   |   + otic pit
+EHDA:16014       | |   |   + otic placode associated mesenchyme
+EHDA:16010       | |   |   \ otic placode epithelium
+EHDA:8215        | |   + 1st arch groove ectoderm
+EHDA:8215        | |   + 1st arch groove ectoderm
+EHDA:8525        | |   + 1st arch mandibular ectoderm
+EHDA:8525        | |   + 1st arch mandibular ectoderm
+EHDA:8473        | |   + 1st arch maxillary ectoderm
+EHDA:8473        | |   + 1st arch maxillary ectoderm
+EHDA:8592        | |   + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8592        | |   + 1st arch maxillary-mandibular groove ectoderm
+EHDA:8306        | |   + 2nd arch ectoderm
+EHDA:8306        | |   + 2nd arch ectoderm
+EHDA:7286        | |   + 3rd arch ectoderm
+EHDA:7286        | |   + 3rd arch ectoderm
+EHDA:2781        | |   + 4th arch ectoderm
+EHDA:2781        | |   + 4th arch ectoderm
+EHDA:7373        | |   + 4th arch pharyngeal groove ectoderm
+EHDA:7373        | |   + 4th arch pharyngeal groove ectoderm
+EHDA:12416       | |   + nasal placode
+EHDA:12416       | |   + nasal placode
+EHDA:16010       | |   + otic placode epithelium
+EHDA:16010       | |   + otic placode epithelium
+EHDA:7502        | |   + tail bud surface ectoderm
+EHDA:7502        | |   \ tail bud surface ectoderm
+EHDA:3073        | + liver and biliary system
+EHDA:18274       | | + biliary bud
+EHDA:18304       | | | + biliary bud extrahepatic part
+EHDA:18304       | | | + biliary bud extrahepatic part
+EHDA:18239       | | | + biliary bud intrahepatic part
+EHDA:18239       | | | \ biliary bud intrahepatic part
+EHDA:18273       | | + early biliary bud
+EHDA:18274       | | | \ biliary bud
+EHDA:18304       | | |   + biliary bud extrahepatic part
+EHDA:18304       | | |   + biliary bud extrahepatic part
+EHDA:18239       | | |   + biliary bud intrahepatic part
+EHDA:18239       | | |   \ biliary bud intrahepatic part
+EHDA:11426       | | \ hepatic diverticulum
+EHDA:12530       | + nervous system
+EHDA:15053       | | \ central nervous system
+EHDA:17639       | |   + brain
+EHDA:13136       | |   | + brain arterial system
+EHDA:14682       | |   | | \ carotid artery system
+EHDA:14788       | |   | + mesencephalon
+EHDA:9184        | |   | | + mesencephalic vesicle
+EHDA:14817       | |   | | + mesencephalon floor plate
+EHDA:14870       | |   | | + mesencephalon lateral wall
+EHDA:14759       | |   | | \ mesencephalon roof plate
+EHDA:13736       | |   | + prosencephalon
+EHDA:5116        | |   | | + early neurohypohysial region
+EHDA:3836        | |   | | + prosencephalic vesicle
+EHDA:12515       | |   | | + rostral neuropore
+EHDA:15355       | |   | | + future diencephalon
+EHDA:6507        | |   | | | + future diencephalon D1 neuromere
+EHDA:5025        | |   | | | | + future diencephalon D1  roof plate
+EHDA:6515        | |   | | | | + future diencephalon D1 chiasmatic plate
+EHDA:6511        | |   | | | | \ future diencephalon D1 lateral wall
+EHDA:11391       | |   | | | |   + optic (D1) neural crest
+EHDA:5393        | |   | | | |   | \ eye mesenchyme
+EHDA:5039        | |   | | | |   + non-optic region of D1 lateral wall
+EHDA:5039        | |   | | | |   + non-optic region of D1 lateral wall
+EHDA:5037        | |   | | | |   + optic primordium
+EHDA:5051        | |   | | | |   | + optic sulcus
+EHDA:5051        | |   | | | |   | \ optic sulcus
+EHDA:5037        | |   | | | |   \ optic primordium
+EHDA:5051        | |   | | | |     + optic sulcus
+EHDA:5051        | |   | | | |     \ optic sulcus
+EHDA:15208       | |   | | | + future diencephalon neural crest
+EHDA:6522        | |   | | | | + mesenchyme from future diencephalic neural crest
+EHDA:11391       | |   | | | | \ optic (D1) neural crest
+EHDA:5393        | |   | | | |   \ eye mesenchyme
+EHDA:6513        | |   | | | \ future diencephalon D2 neuromere
+EHDA:15350       | |   | | |   + future diencephalon D2 floor plate
+EHDA:5116        | |   | | |   | + early neurohypohysial region
+EHDA:5116        | |   | | |   | \ early neurohypohysial region
+EHDA:15337       | |   | | |   + future diencephalon D2 lateral wall
+EHDA:15197       | |   | | |   \ future diencephalon D2 roof plate
+EHDA:6467        | |   | | + future telencephalon
+EHDA:13737       | |   | | | + future telencephalon floor plate
+EHDA:13739       | |   | | | + future telencephalon lateral wall
+EHDA:13737       | |   | | | | + future telencephalon floor plate
+EHDA:6509        | |   | | | | \ future telencephalon medium
+EHDA:5118        | |   | | | |   + future telencephalon medium anterior wall
+EHDA:5120        | |   | | | |   \ future telencephalon medium floor plate
+EHDA:6509        | |   | | | \ future telencephalon medium
+EHDA:5118        | |   | | |   + future telencephalon medium anterior wall
+EHDA:5120        | |   | | |   \ future telencephalon medium floor plate
+EHDA:13742       | |   | | \ prosencephalon neural fold
+EHDA:5025        | |   | |   + future diencephalon D1  roof plate
+EHDA:6515        | |   | |   + future diencephalon D1 chiasmatic plate
+EHDA:6511        | |   | |   + future diencephalon D1 lateral wall
+EHDA:11391       | |   | |   | + optic (D1) neural crest
+EHDA:5393        | |   | |   | | \ eye mesenchyme
+EHDA:5039        | |   | |   | + non-optic region of D1 lateral wall
+EHDA:5039        | |   | |   | + non-optic region of D1 lateral wall
+EHDA:5037        | |   | |   | + optic primordium
+EHDA:5051        | |   | |   | | + optic sulcus
+EHDA:5051        | |   | |   | | \ optic sulcus
+EHDA:5037        | |   | |   | \ optic primordium
+EHDA:5051        | |   | |   |   + optic sulcus
+EHDA:5051        | |   | |   |   \ optic sulcus
+EHDA:15350       | |   | |   + future diencephalon D2 floor plate
+EHDA:5116        | |   | |   | + early neurohypohysial region
+EHDA:5116        | |   | |   | \ early neurohypohysial region
+EHDA:15337       | |   | |   + future diencephalon D2 lateral wall
+EHDA:15197       | |   | |   + future diencephalon D2 roof plate
+EHDA:13739       | |   | |   \ future telencephalon lateral wall
+EHDA:13737       | |   | |     + future telencephalon floor plate
+EHDA:6509        | |   | |     \ future telencephalon medium
+EHDA:5118        | |   | |       + future telencephalon medium anterior wall
+EHDA:5120        | |   | |       \ future telencephalon medium floor plate
+EHDA:5304        | |   | \ rhombencephalon
+EHDA:5164        | |   |   + rhombencephalic neural crest
+EHDA:11344       | |   |   | + glossopharyngeal neural crest
+EHDA:11351       | |   |   | | \ glossopharyngeal IX ganglion
+EHDA:13178       | |   |   | + occipital neural crest
+EHDA:9314        | |   |   | + pro-rhombomere a neural crest
+EHDA:8501        | |   |   | | + 1st arch mandibular mesenchyme from neural crest
+EHDA:8638        | |   |   | | + 1st arch maxillary mesenchyme from neural crest
+EHDA:19219       | |   |   | | + trigeminal V ganglion
+EHDA:19237       | |   |   | | \ trigeminal neural crest
+EHDA:9483        | |   |   | + pro-rhombomere b neural crest
+EHDA:8365        | |   |   | | + 2nd arch mesenchyme from neural crest
+EHDA:8287        | |   |   | | | \ 2nd arch artery
+EHDA:5702        | |   |   | | \ acoustico-facial VII-VIII ganglion complex
+EHDA:4054        | |   |   | + pro-rhombomere c neural crest
+EHDA:7349        | |   |   | | + 3rd arch mesenchyme from neural crest
+EHDA:6984        | |   |   | | + 4th arch mesenchyme from neural crest
+EHDA:11344       | |   |   | | + glossopharyngeal neural crest
+EHDA:11351       | |   |   | | | \ glossopharyngeal IX ganglion
+EHDA:6163        | |   |   | | + vagal neural crest
+EHDA:6079        | |   |   | | | \ vagal X ganglion
+EHDA:6163        | |   |   | | \ vagal neural crest
+EHDA:6079        | |   |   | |   \ vagal X ganglion
+EHDA:4045        | |   |   | + pro-rhombomere d neural crest
+EHDA:10927       | |   |   | | + hypoglossal cord
+EHDA:13178       | |   |   | | \ occipital neural crest
+EHDA:19237       | |   |   | \ trigeminal neural crest
+EHDA:9323        | |   |   + rhombencephalic vesicle
+EHDA:9065        | |   |   + pro-rhombomere group
+EHDA:9248        | |   |   | + pro-rhombomere a
+EHDA:9338        | |   |   | | + pro-rhombomere a floor plate
+EHDA:9327        | |   |   | | + pro-rhombomere a lateral wall
+EHDA:9516        | |   |   | | \ pro-rhombomere a roof plate
+EHDA:9028        | |   |   | + rhombencephalon lateral wall
+EHDA:9327        | |   |   | | + pro-rhombomere a lateral wall
+EHDA:9446        | |   |   | | + pro-rhombomere b lateral wall
+EHDA:9495        | |   |   | | + pro-rhombomere c lateral wall
+EHDA:4037        | |   |   | | \ pro-rhombomere d lateral wall
+EHDA:9032        | |   |   | + rhombencephalon roof plate
+EHDA:9516        | |   |   | | + pro-rhombomere a roof plate
+EHDA:9491        | |   |   | | + pro-rhombomere b roof plate
+EHDA:4058        | |   |   | | \ pro-rhombomere c roof plate
+EHDA:9514        | |   |   | + pro-rhombomere b
+EHDA:9451        | |   |   | | + pro-rhombomere b floor plate
+EHDA:9446        | |   |   | | + pro-rhombomere b lateral wall
+EHDA:9491        | |   |   | | \ pro-rhombomere b roof plate
+EHDA:9488        | |   |   | + pro-rhombomere c
+EHDA:9500        | |   |   | | + pro-rhombomere c floor plate
+EHDA:9495        | |   |   | | + pro-rhombomere c lateral wall
+EHDA:4058        | |   |   | | \ pro-rhombomere c roof plate
+EHDA:4023        | |   |   | \ pro-rhombomere d
+EHDA:4029        | |   |   |   + pro-rhombomere d floor plate
+EHDA:4037        | |   |   |   \ pro-rhombomere d lateral wall
+EHDA:9028        | |   |   + rhombencephalon lateral wall
+EHDA:9327        | |   |   | + pro-rhombomere a lateral wall
+EHDA:9446        | |   |   | + pro-rhombomere b lateral wall
+EHDA:9495        | |   |   | + pro-rhombomere c lateral wall
+EHDA:4037        | |   |   | \ pro-rhombomere d lateral wall
+EHDA:9032        | |   |   + rhombencephalon roof plate
+EHDA:9516        | |   |   | + pro-rhombomere a roof plate
+EHDA:9491        | |   |   | + pro-rhombomere b roof plate
+EHDA:4058        | |   |   | \ pro-rhombomere c roof plate
+EHDA:9022        | |   |   + rhombencephalon floor plate
+EHDA:9338        | |   |   | + pro-rhombomere a floor plate
+EHDA:9451        | |   |   | + pro-rhombomere b floor plate
+EHDA:9500        | |   |   | + pro-rhombomere c floor plate
+EHDA:4029        | |   |   | \ pro-rhombomere d floor plate
+EHDA:9022        | |   |   \ rhombencephalon floor plate
+EHDA:9338        | |   |     + pro-rhombomere a floor plate
+EHDA:9451        | |   |     + pro-rhombomere b floor plate
+EHDA:9500        | |   |     + pro-rhombomere c floor plate
+EHDA:4029        | |   |     \ pro-rhombomere d floor plate
+EHDA:12084       | |   + CNS caudal region
+EHDA:14316       | |   | + future spinal cord
+EHDA:12650       | |   | \ neural tube
+EHDA:14313       | |   |   + caudal neuropore
+EHDA:9626        | |   |   + future spinal cord lumen
+EHDA:10751       | |   |   + neural tube floor plate
+EHDA:10766       | |   |   \ neural tube lateral wall
+EHDA:12700       | |   |     \ cervical neural crest
+EHDA:10418       | |   |       \ cervical mesenchyme from cervical neural crest
+EHDA:15090       | |   + CNS ganglion
+EHDA:15069       | |   | \ CNS cranial ganglion
+EHDA:5702        | |   |   + acoustico-facial VII-VIII ganglion complex
+EHDA:11351       | |   |   + glossopharyngeal IX ganglion
+EHDA:19219       | |   |   + trigeminal V ganglion
+EHDA:6079        | |   |   \ vagal X ganglion
+EHDA:9640        | |   + CNS ventricular system
+EHDA:14313       | |   | + caudal neuropore
+EHDA:9626        | |   | + future spinal cord lumen
+EHDA:9184        | |   | + mesencephalic vesicle
+EHDA:3836        | |   | + prosencephalic vesicle
+EHDA:9323        | |   | + rhombencephalic vesicle
+EHDA:12515       | |   | \ rostral neuropore
+EHDA:10782       | |   \ meninges
+EHDA:4834        | + respiratory system
+EHDA:12869       | | + nose
+EHDA:12416       | | | \ nasal placode
+EHDA:4822        | | \ respiratory tract
+EHDA:5234        | |   + lower respiratory tract
+EHDA:2883        | |   | + laryngo-tracheal groove
+EHDA:6253        | |   | + lung system
+EHDA:2982        | |   | | \ lung bud
+EHDA:2988        | |   | |   + lung bud associated mesenchyme
+EHDA:2990        | |   | |   \ lung bud epithelium
+EHDA:2828        | |   | \ respiratory primordium
+EHDA:2982        | |   |   + lung bud
+EHDA:2988        | |   |   | + lung bud associated mesenchyme
+EHDA:2990        | |   |   | \ lung bud epithelium
+EHDA:6253        | |   |   + lung system
+EHDA:2982        | |   |   | \ lung bud
+EHDA:2988        | |   |   |   + lung bud associated mesenchyme
+EHDA:2990        | |   |   |   \ lung bud epithelium
+EHDA:2870        | |   |   + respiratory primordium associated mesenchyme
+EHDA:2864        | |   |   \ respiratory primordium epithelium
+EHDA:2990        | |   |     \ lung bud epithelium
+EHDA:5901        | |   \ upper respiratory tract
+EHDA:17576       | |     \ pharyngeal arch region
+EHDA:8085        | |       + 1st arch
+EHDA:8095        | |       | + 1st arch artery
+EHDA:8215        | |       | + 1st arch groove ectoderm
+EHDA:8531        | |       | + 1st arch mandibular component
+EHDA:8525        | |       | | + 1st arch mandibular ectoderm
+EHDA:8519        | |       | | + 1st arch mandibular endoderm
+EHDA:8513        | |       | | \ 1st arch mandibular mesenchyme
+EHDA:8507        | |       | |   + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        | |       | |   \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8490        | |       | + 1st arch maxillary component
+EHDA:8473        | |       | | + 1st arch maxillary ectoderm
+EHDA:8669        | |       | | + 1st arch maxillary endoderm
+EHDA:8632        | |       | | \ 1st arch maxillary mesenchyme
+EHDA:8647        | |       | |   + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        | |       | |   \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8592        | |       | + 1st arch maxillary-mandibular groove ectoderm
+EHDA:7696        | |       | \ 1st arch pouch endoderm
+EHDA:8519        | |       |   + 1st arch mandibular endoderm
+EHDA:8669        | |       |   \ 1st arch maxillary endoderm
+EHDA:2828        | |       + respiratory primordium
+EHDA:2982        | |       | + lung bud
+EHDA:2988        | |       | | + lung bud associated mesenchyme
+EHDA:2990        | |       | | \ lung bud epithelium
+EHDA:6253        | |       | + lung system
+EHDA:2982        | |       | | \ lung bud
+EHDA:2988        | |       | |   + lung bud associated mesenchyme
+EHDA:2990        | |       | |   \ lung bud epithelium
+EHDA:2870        | |       | + respiratory primordium associated mesenchyme
+EHDA:2864        | |       | \ respiratory primordium epithelium
+EHDA:2990        | |       |   \ lung bud epithelium
+EHDA:8291        | |       + 2nd arch
+EHDA:8287        | |       | + 2nd arch artery
+EHDA:8306        | |       | + 2nd arch ectoderm
+EHDA:8414        | |       | + 2nd arch endoderm
+EHDA:8421        | |       | \ 2nd arch mesenchyme
+EHDA:8371        | |       |   + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        | |       |   \ 2nd arch mesenchyme from neural crest
+EHDA:8287        | |       |     \ 2nd arch artery
+EHDA:8376        | |       + 3rd arch
+EHDA:7286        | |       | + 3rd arch ectoderm
+EHDA:7262        | |       | + 3rd arch endoderm
+EHDA:19779       | |       | | \ thyroid primordium
+EHDA:7363        | |       | + 3rd arch mesenchyme
+EHDA:7368        | |       | | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        | |       | | \ 3rd arch mesenchyme from neural crest
+EHDA:7268        | |       | \ 3rd arch pouch endoderm
+EHDA:7343        | |       + 4th arch
+EHDA:2781        | |       | + 4th arch ectoderm
+EHDA:2775        | |       | + 4th arch endoderm
+EHDA:6974        | |       | + 4th arch mesenchyme
+EHDA:6979        | |       | | + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        | |       | | \ 4th arch mesenchyme from neural crest
+EHDA:7373        | |       | + 4th arch pharyngeal groove ectoderm
+EHDA:7315        | |       | \ 4th arch pharyngeal pouch endoderm
+EHDA:12509       | |       + branchial placode group
+EHDA:17071       | |       | \ otic placode
+EHDA:17067       | |       |   + otic pit
+EHDA:16014       | |       |   + otic placode associated mesenchyme
+EHDA:16010       | |       |   \ otic placode epithelium
+EHDA:7975        | |       + early pharyngeal arch endoderm
+EHDA:8519        | |       | + 1st arch mandibular endoderm
+EHDA:8669        | |       | + 1st arch maxillary endoderm
+EHDA:7696        | |       | + 1st arch pouch endoderm
+EHDA:8519        | |       | | + 1st arch mandibular endoderm
+EHDA:8669        | |       | | \ 1st arch maxillary endoderm
+EHDA:8414        | |       | + 2nd arch endoderm
+EHDA:7262        | |       | + 3rd arch endoderm
+EHDA:19779       | |       | | \ thyroid primordium
+EHDA:7268        | |       | + 3rd arch pouch endoderm
+EHDA:2775        | |       | + 4th arch endoderm
+EHDA:7315        | |       | + 4th arch pharyngeal pouch endoderm
+EHDA:2864        | |       | \ respiratory primordium epithelium
+EHDA:2990        | |       |   \ lung bud epithelium
+EHDA:7963        | |       \ pharyngeal arch associated mesenchyme
+EHDA:8513        | |         + 1st arch mandibular mesenchyme
+EHDA:8507        | |         | + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        | |         | \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8632        | |         + 1st arch maxillary mesenchyme
+EHDA:8647        | |         | + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        | |         | \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8421        | |         + 2nd arch mesenchyme
+EHDA:8371        | |         | + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        | |         | \ 2nd arch mesenchyme from neural crest
+EHDA:8287        | |         |   \ 2nd arch artery
+EHDA:7363        | |         + 3rd arch mesenchyme
+EHDA:7368        | |         | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        | |         | \ 3rd arch mesenchyme from neural crest
+EHDA:6974        | |         \ 4th arch mesenchyme
+EHDA:6979        | |           + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        | |           \ 4th arch mesenchyme from neural crest
+EHDA:13560       | + sensory system
+EHDA:8438        | | + ear
+EHDA:8065        | | | \ inner ear
+EHDA:17071       | | |   \ otic placode
+EHDA:17067       | | |     + otic pit
+EHDA:16014       | | |     + otic placode associated mesenchyme
+EHDA:16010       | | |     \ otic placode epithelium
+EHDA:12869       | | + nose
+EHDA:12416       | | | \ nasal placode
+EHDA:16814       | | \ optic system
+EHDA:5361        | |   \ eye
+EHDA:5393        | |     + eye mesenchyme
+EHDA:11391       | |     + optic (D1) neural crest
+EHDA:5393        | |     | \ eye mesenchyme
+EHDA:5037        | |     \ optic primordium
+EHDA:5051        | |       + optic sulcus
+EHDA:5051        | |       \ optic sulcus
+EHDA:4877        | \ urinary system
+EHDA:17073       |   + allantois
+EHDA:7067        |   | + allantoic epithelium
+EHDA:7077        |   | + allantoic mesenchyme
+EHDA:9838        |   | \ allantois primordial germ cells
+EHDA:12447       |   + cloaca
+EHDA:15508       |   | + cloacal epithelium
+EHDA:15557       |   | \ cloacal lumen
+EHDA:9066        |   + mesonephros
+EHDA:9077        |   | + mesonephros mesenchyme
+EHDA:7147        |   | | + blood haematopoietic stem cells
+EHDA:9118        |   | | \ mesonephros tubule
+EHDA:2763        |   | + mesonephros mesothelium
+EHDA:9118        |   | \ mesonephros tubule
+EHDA:12552       |   + nephric cord
+EHDA:9077        |   | + mesonephros mesenchyme
+EHDA:7147        |   | | + blood haematopoietic stem cells
+EHDA:9118        |   | | \ mesonephros tubule
+EHDA:12555       |   | \ nephric duct
+EHDA:12555       |   \ nephric duct
+EHDA:17576       + pharyngeal arch region
+EHDA:8085        | + 1st arch
+EHDA:8095        | | + 1st arch artery
+EHDA:8215        | | + 1st arch groove ectoderm
+EHDA:8531        | | + 1st arch mandibular component
+EHDA:8525        | | | + 1st arch mandibular ectoderm
+EHDA:8519        | | | + 1st arch mandibular endoderm
+EHDA:8513        | | | \ 1st arch mandibular mesenchyme
+EHDA:8507        | | |   + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        | | |   \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8490        | | + 1st arch maxillary component
+EHDA:8473        | | | + 1st arch maxillary ectoderm
+EHDA:8669        | | | + 1st arch maxillary endoderm
+EHDA:8632        | | | \ 1st arch maxillary mesenchyme
+EHDA:8647        | | |   + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        | | |   \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8592        | | + 1st arch maxillary-mandibular groove ectoderm
+EHDA:7696        | | \ 1st arch pouch endoderm
+EHDA:8519        | |   + 1st arch mandibular endoderm
+EHDA:8669        | |   \ 1st arch maxillary endoderm
+EHDA:2828        | + respiratory primordium
+EHDA:2982        | | + lung bud
+EHDA:2988        | | | + lung bud associated mesenchyme
+EHDA:2990        | | | \ lung bud epithelium
+EHDA:6253        | | + lung system
+EHDA:2982        | | | \ lung bud
+EHDA:2988        | | |   + lung bud associated mesenchyme
+EHDA:2990        | | |   \ lung bud epithelium
+EHDA:2870        | | + respiratory primordium associated mesenchyme
+EHDA:2864        | | \ respiratory primordium epithelium
+EHDA:2990        | |   \ lung bud epithelium
+EHDA:8291        | + 2nd arch
+EHDA:8287        | | + 2nd arch artery
+EHDA:8306        | | + 2nd arch ectoderm
+EHDA:8414        | | + 2nd arch endoderm
+EHDA:8421        | | \ 2nd arch mesenchyme
+EHDA:8371        | |   + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        | |   \ 2nd arch mesenchyme from neural crest
+EHDA:8287        | |     \ 2nd arch artery
+EHDA:8376        | + 3rd arch
+EHDA:7286        | | + 3rd arch ectoderm
+EHDA:7262        | | + 3rd arch endoderm
+EHDA:19779       | | | \ thyroid primordium
+EHDA:7363        | | + 3rd arch mesenchyme
+EHDA:7368        | | | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        | | | \ 3rd arch mesenchyme from neural crest
+EHDA:7268        | | \ 3rd arch pouch endoderm
+EHDA:7343        | + 4th arch
+EHDA:2781        | | + 4th arch ectoderm
+EHDA:2775        | | + 4th arch endoderm
+EHDA:6974        | | + 4th arch mesenchyme
+EHDA:6979        | | | + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        | | | \ 4th arch mesenchyme from neural crest
+EHDA:7373        | | + 4th arch pharyngeal groove ectoderm
+EHDA:7315        | | \ 4th arch pharyngeal pouch endoderm
+EHDA:12509       | + branchial placode group
+EHDA:17071       | | \ otic placode
+EHDA:17067       | |   + otic pit
+EHDA:16014       | |   + otic placode associated mesenchyme
+EHDA:16010       | |   \ otic placode epithelium
+EHDA:7975        | + early pharyngeal arch endoderm
+EHDA:8519        | | + 1st arch mandibular endoderm
+EHDA:8669        | | + 1st arch maxillary endoderm
+EHDA:7696        | | + 1st arch pouch endoderm
+EHDA:8519        | | | + 1st arch mandibular endoderm
+EHDA:8669        | | | \ 1st arch maxillary endoderm
+EHDA:8414        | | + 2nd arch endoderm
+EHDA:7262        | | + 3rd arch endoderm
+EHDA:19779       | | | \ thyroid primordium
+EHDA:7268        | | + 3rd arch pouch endoderm
+EHDA:2775        | | + 4th arch endoderm
+EHDA:7315        | | + 4th arch pharyngeal pouch endoderm
+EHDA:2864        | | \ respiratory primordium epithelium
+EHDA:2990        | |   \ lung bud epithelium
+EHDA:7963        | \ pharyngeal arch associated mesenchyme
+EHDA:8513        |   + 1st arch mandibular mesenchyme
+EHDA:8507        |   | + 1st arch mandibular mesenchyme from head mesenchyme
+EHDA:8501        |   | \ 1st arch mandibular mesenchyme from neural crest
+EHDA:8632        |   + 1st arch maxillary mesenchyme
+EHDA:8647        |   | + 1st arch maxillary mesenchyme from head mesenchyme
+EHDA:8638        |   | \ 1st arch maxillary mesenchyme from neural crest
+EHDA:8421        |   + 2nd arch mesenchyme
+EHDA:8371        |   | + 2nd arch mesenchyme from head mesenchyme
+EHDA:8365        |   | \ 2nd arch mesenchyme from neural crest
+EHDA:8287        |   |   \ 2nd arch artery
+EHDA:7363        |   + 3rd arch mesenchyme
+EHDA:7368        |   | + 3rd arch mesenchyme from head mesenchyme
+EHDA:7349        |   | \ 3rd arch mesenchyme from neural crest
+EHDA:6974        |   \ 4th arch mesenchyme
+EHDA:6979        |     + 4th arch mesenchyme from head mesenchyme
+EHDA:6984        |     \ 4th arch mesenchyme from neural crest
+EHDA:10297       \ tail bud
+EHDA:7404          + tail bud paraxial mesoderm
+EHDA:7502          \ tail bud surface ectoderm

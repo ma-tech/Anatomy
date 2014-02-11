@@ -1,0 +1,172 @@
+format-version: 1.2
+date: 11:11:2013 15:43
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS07
+name: TS07
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAP:25772
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAP:42
+name: embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25772
+
+[Term]
+id: EMAP:43
+name: epiblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25772
+relationship: part_of EMAP:42
+
+[Term]
+id: EMAP:44
+name: primitive endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25772
+relationship: part_of EMAP:42
+
+[Term]
+id: EMAP:45
+name: extraembryonic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:25772
+
+[Term]
+id: EMAP:53
+name: trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:54
+name: mural trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:53
+
+[Term]
+id: EMAP:55
+name: polar trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:53
+
+[Term]
+id: EMAP:56
+name: ectoplacental cone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:55
+
+[Term]
+id: EMAP:48
+name: extraembryonic endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:50
+name: parietal endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:51
+name: Reichert's membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:50
+
+[Term]
+id: EMAP:49
+name: intermediate endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:52
+name: visceral endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:48
+
+[Term]
+id: EMAP:46
+name: extraembryonic component cavities
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:45
+
+[Term]
+id: EMAP:47
+name: yolk sac cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:46
+
+[Term]
+id: EMAP:34975
+name: extraembryonic ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAP:45
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

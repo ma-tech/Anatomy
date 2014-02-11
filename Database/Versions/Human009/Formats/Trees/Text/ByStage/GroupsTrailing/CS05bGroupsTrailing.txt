@@ -1,0 +1,73 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS05b
+
+
+CS05b Whole Human Excluding Groups
+
+EHDA:7       human
+EHDA:8119    \ human conceptus
+EHDA:8185      + human conceptus extraembryonic component
+EHDA:5543      | + extraembryonic cavities
+EHDA:16883     | | + amniotic cavity
+EHDA:18250     | | + blastocoel
+EHDA:8808      | | | + primary yolk sac cavity
+EHDA:5173      | | | \ reticulum
+EHDA:7560      | | |   \ primary yolk sac mesenchyme
+EHDA:8808      | | \ primary yolk sac cavity
+EHDA:5533      | + extraembryonic endoderm
+EHDA:7541      | | \ primary yolk sac endoderm
+EHDA:6914      | + extraembryonic membranes
+EHDA:17109     | | + amnion
+EHDA:17207     | | | \ amnion ectoderm
+EHDA:7412      | | + primary yolk sac
+EHDA:8808      | | | + primary yolk sac cavity
+EHDA:7541      | | | + primary yolk sac endoderm
+EHDA:7560      | | | \ primary yolk sac mesenchyme
+EHDA:18959     | | \ trophectoderm
+EHDA:11407     | |   + mural trophectoderm cytotrophoblast
+EHDA:6938      | |   | \ mural trophectoderm syncytiotrophoblast
+EHDA:6938      | |   + mural trophectoderm syncytiotrophoblast
+EHDA:11405     | |   + polar trophectoderm cytotrophoblast
+EHDA:10294     | |   \ polar trophectoderm syncytiotrophoblast
+EHDA:6935      | |     \ trophoblastic lacunae
+EHDA:5173      | \ reticulum
+EHDA:7560      |   \ primary yolk sac mesenchyme
+EHDA:8151      \ human embryo
+EHDA:8259        + epiblast
+EHDA:5173        | + reticulum
+EHDA:7560        | | \ primary yolk sac mesenchyme
+EHDA:17132       | + amnioblasts
+EHDA:17207       | | \ amnion ectoderm
+EHDA:17132       | \ amnioblasts
+EHDA:17207       |   \ amnion ectoderm
+EHDA:10977       \ hypoblast
+EHDA:5533          \ extraembryonic endoderm
+EHDA:7541            \ primary yolk sac endoderm
+
+
+
+==================================================================
+
+
+
+CS05b Whole Human Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

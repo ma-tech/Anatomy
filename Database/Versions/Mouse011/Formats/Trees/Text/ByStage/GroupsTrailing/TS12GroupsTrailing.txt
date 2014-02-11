@@ -1,0 +1,568 @@
+
+============================================================
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS12
+
+
+TS12 Whole mouse Excluding Groups
+
+EMAP:0025777   mouse
+EMAP:0000208   + branchial arch
+EMAP:0000209   | + 1st branchial arch
+EMAP:0000217   | | + 1st branchial arch ectoderm
+EMAP:0000218   | | + 1st branchial arch endoderm
+EMAP:0000219   | | + 1st branchial arch mesenchyme
+EMAP:0000221   | | | + 1st branchial arch mesenchyme derived from head mesoderm
+EMAP:0000220   | | | \ 1st branchial arch mesenchyme derived from neural crest
+EMAP:0000210   | | + 1st branchial groove
+EMAP:0000211   | | | \ 1st branchial groove ectoderm
+EMAP:0000212   | | + 1st branchial membrane
+EMAP:0000213   | | | + 1st branchial membrane ectoderm
+EMAP:0000214   | | | \ 1st branchial membrane endoderm
+EMAP:0000215   | | \ 1st branchial pouch
+EMAP:0000216   | |   \ 1st branchial pouch endoderm
+EMAP:0033781   | + branchial arch ectoderm
+EMAP:0033789   | + branchial arch endoderm
+EMAP:0033749   | + branchial arch membrane
+EMAP:0033797   | + branchial arch mesenchyme
+EMAP:0033765   | | + branchial arch mesenchyme derived from head mesoderm
+EMAP:0033805   | | \ branchial arch mesenchyme derived from neural crest
+EMAP:0033757   | + branchial groove
+EMAP:0033773   | \ branchial pouch
+EMAP:0000222   + cavities and their linings
+EMAP:0000223   | \ intraembryonic coelom
+EMAP:0034238   |   + mesothelium
+EMAP:0000224   |   + intraembryonic coelom pericardial component
+EMAP:0000225   |   | + pericardial component cavity
+EMAP:0000226   |   | \ pericardial component mesothelium
+EMAP:0000227   |   + intraembryonic coelom pericardio-peritoneal component
+EMAP:0000228   |   | + pericardio-peritoneal component cavity
+EMAP:0000229   |   | \ pericardio-peritoneal component mesothelium
+EMAP:0000230   |   \ intraembryonic coelom peritoneal component
+EMAP:0000231   |     + peritoneal component cavity
+EMAP:0000232   |     \ peritoneal component mesothelium
+EMAP:0000233   + ectoderm
+EMAP:0000234   | + neural ectoderm
+EMAP:0000235   | | + future brain
+EMAP:0034970   | | | + future brain neural fold
+EMAP:0034972   | | | | \ future brain neural crest
+EMAP:0000236   | | | + future midbrain
+EMAP:0000237   | | | | + future midbrain floor plate
+EMAP:0000238   | | | | \ future midbrain neural fold
+EMAP:0000239   | | | |   \ future midbrain neural crest
+EMAP:0000240   | | | + future prosencephalon
+EMAP:0000241   | | | | + future prosencephalon floor plate
+EMAP:0000242   | | | | \ future prosencephalon neural fold
+EMAP:0000243   | | | |   \ future prosencephalon neural crest
+EMAP:0000244   | | | + future rhombencephalon
+EMAP:0000245   | | | | + anterior pro-rhombomere (syn: pro-rhombomere A; rhombomere A)
+EMAP:0000246   | | | | | + anterior pro-rhombomere floor plate
+EMAP:0000247   | | | | | \ anterior pro-rhombomere neural fold
+EMAP:0000248   | | | | |   \ anterior pro-rhombomere neural crest
+EMAP:0000249   | | | | + early hindbrain neural ectoderm
+EMAP:0000250   | | | | | + early hindbrain floor plate
+EMAP:0000251   | | | | | \ early hindbrain neural fold
+EMAP:0000252   | | | | |   \ early hindbrain neural crest
+EMAP:0034804   | | | | + future rhombencephalon floor plate
+EMAP:0033610   | | | | + future rhombencephalon neural fold
+EMAP:0000253   | | | | + posterior pro-rhombomere (syn: pro-rhombomere B; rhombomere B)
+EMAP:0000254   | | | | | + posterior pro-rhombomere floor plate
+EMAP:0000255   | | | | | \ posterior pro-rhombomere neural fold
+EMAP:0000256   | | | | |   \ posterior pro-rhombomere neural crest
+EMAP:0000257   | | | | \ pre-otic sulcus
+EMAP:0034227   | | | \ midbrain-hindbrain junction
+EMAP:0000258   | | + future spinal cord
+EMAP:0000259   | | | + neural plate
+EMAP:0000260   | | | | \ future spinal cord neural fold
+EMAP:0000261   | | | |   \ future spinal cord neural crest
+EMAP:0000262   | | | \ neural tube
+EMAP:0000263   | | |   + future spinal cord floor plate
+EMAP:0000264   | | |   + future spinal cord lateral wall
+EMAP:0000265   | | |   + future spinal cord neural lumen
+EMAP:0000266   | | |   \ future spinal cord roof plate
+EMAP:0033608   | | \ neural fold
+EMAP:0033651   | |   \ neural crest
+EMAP:0000267   | \ surface ectoderm
+EMAP:0000268   + endoderm
+EMAP:0000269   | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0000374   + extraembryonic component
+EMAP:0000375   | + allantois
+EMAP:0000376   | | \ allantois mesenchyme
+EMAP:0000377   | + amnion
+EMAP:0000378   | | + amnion ectoderm
+EMAP:0000379   | | \ amnion mesenchyme
+EMAP:0000384   | + chorion
+EMAP:0000385   | | + chorion ectoderm
+EMAP:0000386   | | \ chorion mesenchyme
+EMAP:0000380   | + extraembryonic component cavities
+EMAP:0000381   | | + amniotic cavity
+EMAP:0000382   | | + exocoelomic cavity
+EMAP:0000383   | | \ yolk sac cavity
+EMAP:0032168   | + extraembryonic ectoderm
+EMAP:0000387   | + extraembryonic endoderm
+EMAP:0000388   | | + parietal endoderm
+EMAP:0000389   | | | \ Reichert's membrane
+EMAP:0000390   | | \ visceral endoderm
+EMAP:0031918   | + extraembryonic mesenchyme
+EMAP:0000391   | + trophectoderm
+EMAP:0000392   | | + mural trophectoderm
+EMAP:0000393   | | | \ primary trophoblast giant cells
+EMAP:0000394   | | \ polar trophectoderm
+EMAP:0000395   | |   \ ectoplacental cone
+EMAP:0000396   | |     + cytotrophoblast
+EMAP:0000397   | |     \ syncytiotrophoblast
+EMAP:0000398   | \ yolk sac
+EMAP:0000399   |   + yolk sac endoderm
+EMAP:0000400   |   \ yolk sac mesenchyme
+EMAP:0000401   |     \ blood island
+EMAP:0031894   + head
+EMAP:0000271   | \ head mesenchyme
+EMAP:0000273   |   + head mesenchyme derived from neural crest
+EMAP:0000274   |   | \ trigeminal neural crest
+EMAP:0000275   |   + head paraxial mesenchyme
+EMAP:0000276   |   | \ head somite group
+EMAP:0000277   |   |   + somite 01
+EMAP:0000278   |   |   + somite 02
+EMAP:0000279   |   |   + somite 03
+EMAP:0000280   |   |   \ somite 04
+EMAP:0000272   |   \ mesenchyme derived from head mesoderm
+EMAP:0015247   |     \ mesenchyme derived from somites 01-04
+EMAP:0000270   + mesenchyme
+EMAP:0000271   | + head mesenchyme
+EMAP:0000273   | | + head mesenchyme derived from neural crest
+EMAP:0000274   | | | \ trigeminal neural crest
+EMAP:0000275   | | + head paraxial mesenchyme
+EMAP:0000276   | | | \ head somite group
+EMAP:0000277   | | |   + somite 01
+EMAP:0000278   | | |   + somite 02
+EMAP:0000279   | | |   + somite 03
+EMAP:0000280   | | |   \ somite 04
+EMAP:0000272   | | \ mesenchyme derived from head mesoderm
+EMAP:0015247   | |   \ mesenchyme derived from somites 01-04
+EMAP:0033627   | + mesenchyme derived from neural crest
+EMAP:0033813   | + paraxial mesenchyme
+EMAP:0000275   | | + head paraxial mesenchyme
+EMAP:0000276   | | | \ head somite group
+EMAP:0000277   | | |   + somite 01
+EMAP:0000278   | | |   + somite 02
+EMAP:0000279   | | |   + somite 03
+EMAP:0000280   | | |   \ somite 04
+EMAP:0031170   | | + somite group
+EMAP:0000276   | | | + head somite group
+EMAP:0000277   | | | | + somite 01
+EMAP:0000278   | | | | + somite 02
+EMAP:0000279   | | | | + somite 03
+EMAP:0000280   | | | | \ somite 04
+EMAP:0000288   | | | \ trunk somite group
+EMAP:0000289   | | |   + somite 05
+EMAP:0000290   | | |   + somite 06
+EMAP:0000291   | | |   + somite 07
+EMAP:0000292   | | |   \ somite 08
+EMAP:0000287   | | \ trunk paraxial mesenchyme
+EMAP:0000288   | |   + trunk somite group
+EMAP:0000289   | |   | + somite 05
+EMAP:0000290   | |   | + somite 06
+EMAP:0000291   | |   | + somite 07
+EMAP:0000292   | |   | \ somite 08
+EMAP:0000293   | |   \ unsegmented mesenchyme
+EMAP:0000281   | \ trunk mesenchyme
+EMAP:0000282   |   + intermediate mesoderm
+EMAP:0000283   |   + lateral plate mesenchyme
+EMAP:0000284   |   | + somatopleure
+EMAP:0000285   |   | \ splanchnopleure
+EMAP:0000294   |   + primordial germ cells
+EMAP:0000287   |   \ trunk paraxial mesenchyme
+EMAP:0000288   |     + trunk somite group
+EMAP:0000289   |     | + somite 05
+EMAP:0000290   |     | + somite 06
+EMAP:0000291   |     | + somite 07
+EMAP:0000292   |     | \ somite 08
+EMAP:0000293   |     \ unsegmented mesenchyme
+EMAP:0000295   + notochord
+EMAP:0000296   + notochordal plate
+EMAP:0000297   + organ system
+EMAP:0000307   | + cardiovascular system
+EMAP:0000308   | | + arterial system
+EMAP:0000311   | | | + dorsal aorta
+EMAP:0000312   | | | | + left dorsal aorta
+EMAP:0000313   | | | | \ right dorsal aorta
+EMAP:0000314   | | | \ vitelline artery
+EMAP:0033690   | | + blood vessel
+EMAP:0000315   | | + heart
+EMAP:0033337   | | | + cardiac jelly
+EMAP:0033343   | | | + cardiac muscle
+EMAP:0000316   | | | + cardiogenic plate (syn: heart rudiment; myocardial plate)
+EMAP:0000317   | | | + early primitive heart tube
+EMAP:0000318   | | | | + early primitive heart tube cardiac jelly
+EMAP:0000320   | | | | + early primitive heart tube cardiac muscle
+EMAP:0000319   | | | | \ early primitive heart tube endocardial tube
+EMAP:0033328   | | | + endocardial tube
+EMAP:0000321   | | | + heart mesentery
+EMAP:0000322   | | | | \ dorsal mesocardium
+EMAP:0000323   | | | |   \ transverse pericardial sinus
+EMAP:0000324   | | | + primitive heart tube
+EMAP:0000325   | | | | + bulbus cordis
+EMAP:0000326   | | | | | + bulbus cordis caudal half
+EMAP:0000327   | | | | | | + bulbus cordis caudal half cardiac jelly
+EMAP:0000329   | | | | | | + bulbus cordis caudal half cardiac muscle
+EMAP:0000328   | | | | | | \ bulbus cordis caudal half endocardial tube
+EMAP:0000330   | | | | | \ bulbus cordis rostral half
+EMAP:0000331   | | | | |   + bulbus cordis rostral half cardiac jelly
+EMAP:0000333   | | | | |   + bulbus cordis rostral half cardiac muscle
+EMAP:0000332   | | | | |   \ bulbus cordis rostral half endocardial tube
+EMAP:0000334   | | | | + common atrial chamber
+EMAP:0000335   | | | | | + common atrial chamber cardiac jelly
+EMAP:0000337   | | | | | + common atrial chamber cardiac muscle
+EMAP:0000336   | | | | | \ common atrial chamber endocardial tube
+EMAP:0000338   | | | | + outflow tract
+EMAP:0000339   | | | | | + outflow tract cardiac jelly
+EMAP:0000340   | | | | | + outflow tract endocardial tube
+EMAP:0000341   | | | | | \ outflow tract mesenchyme
+EMAP:0000342   | | | | \ primitive ventricle
+EMAP:0000343   | | | |   + primitive ventricle cardiac jelly
+EMAP:0000345   | | | |   + primitive ventricle cardiac muscle
+EMAP:0000344   | | | |   \ primitive ventricle endocardial tube
+EMAP:0000346   | | | \ sinus venosus
+EMAP:0000347   | | |   + sinus venosus left horn
+EMAP:0000348   | | |   \ sinus venosus right horn
+EMAP:0000349   | | \ venous system
+EMAP:0000350   | |   + anterior cardinal vein
+EMAP:0000351   | |   + primary head vein
+EMAP:0000352   | |   + umbilical vein embryonic part
+EMAP:0000353   | |   \ vitelline vein embryonic part
+EMAP:0000298   | + sensory organ
+EMAP:0000299   | | + ear
+EMAP:0033952   | | | + ear epithelium
+EMAP:0000300   | | | \ inner ear
+EMAP:0034452   | | |   + inner ear associated mesenchyme
+EMAP:0034429   | | |   + inner ear epithelium
+EMAP:0000301   | | |   \ otic placode
+EMAP:0000302   | | |     + otic placode associated mesenchyme
+EMAP:0000303   | | |     \ otic placode epithelium
+EMAP:0000304   | | \ eye
+EMAP:0000305   | |   \ optic sulcus
+EMAP:0000306   | |     \ optic sulcus neural ectoderm
+EMAP:0000354   | \ visceral organ
+EMAP:0000355   |   \ alimentary system
+EMAP:0034467   |     + alimentary system associated mesenchyme
+EMAP:0033300   |     + alimentary system epithelium
+EMAP:0000356   |     + gut
+EMAP:0000357   |     | + foregut diverticulum
+EMAP:0000358   |     | | + foregut diverticulum associated mesenchyme
+EMAP:0000359   |     | | + foregut diverticulum endoderm
+EMAP:0006902   |     | | \ foregut diverticulum lumen
+EMAP:0034617   |     | + gut associated mesenchyme
+EMAP:0034788   |     | + gut endoderm
+EMAP:0034602   |     | + gut lumen
+EMAP:0000360   |     | + hindgut diverticulum
+EMAP:0000361   |     | | + hindgut diverticulum associated mesenchyme
+EMAP:0000362   |     | | + hindgut diverticulum endoderm
+EMAP:0006904   |     | | + hindgut diverticulum lumen
+EMAP:0000363   |     | | \ hindgut diverticulum primordial germ cell
+EMAP:0000364   |     | \ midgut
+EMAP:0000365   |     |   + midgut associated mesenchyme
+EMAP:0000366   |     |   + midgut endoderm
+EMAP:0006913   |     |   \ midgut lumen
+EMAP:0000367   |     + mouth-foregut junction
+EMAP:0000368   |     | \ buccopharyngeal membrane
+EMAP:0000369   |     |   + buccopharyngeal membrane ectoderm
+EMAP:0000370   |     |   \ buccopharyngeal membrane endoderm
+EMAP:0000371   |     \ oral region
+EMAP:0000372   |       \ stomatodaeum (syn: mouth pit; oral pit; stomatodeum; stomodaeum; stomodeum)
+EMAP:0000373   + primitive streak
+EMAP:0034968   | \ node
+EMAP:0031879   \ trunk
+EMAP:0000281     \ trunk mesenchyme
+EMAP:0000282       + intermediate mesoderm
+EMAP:0000283       + lateral plate mesenchyme
+EMAP:0000284       | + somatopleure
+EMAP:0000285       | \ splanchnopleure
+EMAP:0000294       + primordial germ cells
+EMAP:0000287       \ trunk paraxial mesenchyme
+EMAP:0000288         + trunk somite group
+EMAP:0000289         | + somite 05
+EMAP:0000290         | + somite 06
+EMAP:0000291         | + somite 07
+EMAP:0000292         | \ somite 08
+EMAP:0000293         \ unsegmented mesenchyme
+
+
+
+==================================================================
+
+
+
+TS12 Whole mouse Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025777   mouse
+EMAP:0000207 G + embryo
+EMAP:0000208 > | + branchial arch
+EMAP:0000209 ~ | | + 1st branchial arch
+EMAP:0000217 ~ | | | + 1st branchial arch ectoderm
+EMAP:0000218 ~ | | | + 1st branchial arch endoderm
+EMAP:0000219 ~ | | | + 1st branchial arch mesenchyme
+EMAP:0000221 ~ | | | | + 1st branchial arch mesenchyme derived from head mesoderm
+EMAP:0000220 ~ | | | | \ 1st branchial arch mesenchyme derived from neural crest
+EMAP:0000210 ~ | | | + 1st branchial groove
+EMAP:0000211 ~ | | | | \ 1st branchial groove ectoderm
+EMAP:0000212 ~ | | | + 1st branchial membrane
+EMAP:0000213 ~ | | | | + 1st branchial membrane ectoderm
+EMAP:0000214 ~ | | | | \ 1st branchial membrane endoderm
+EMAP:0000215 ~ | | | \ 1st branchial pouch
+EMAP:0000216 ~ | | |   \ 1st branchial pouch endoderm
+EMAP:0033781 ~ | | + branchial arch ectoderm
+EMAP:0033789 ~ | | + branchial arch endoderm
+EMAP:0033749 ~ | | + branchial arch membrane
+EMAP:0033797 ~ | | + branchial arch mesenchyme
+EMAP:0033765 ~ | | | + branchial arch mesenchyme derived from head mesoderm
+EMAP:0033805 ~ | | | \ branchial arch mesenchyme derived from neural crest
+EMAP:0033757 ~ | | + branchial groove
+EMAP:0033773 ~ | | \ branchial pouch
+EMAP:0000222 > | + cavities and their linings
+EMAP:0000223 ~ | | \ intraembryonic coelom
+EMAP:0034238 ~ | |   + mesothelium
+EMAP:0000224 ~ | |   + intraembryonic coelom pericardial component
+EMAP:0000225 ~ | |   | + pericardial component cavity
+EMAP:0000226 ~ | |   | \ pericardial component mesothelium
+EMAP:0000227 ~ | |   + intraembryonic coelom pericardio-peritoneal component
+EMAP:0000228 ~ | |   | + pericardio-peritoneal component cavity
+EMAP:0000229 ~ | |   | \ pericardio-peritoneal component mesothelium
+EMAP:0000230 ~ | |   \ intraembryonic coelom peritoneal component
+EMAP:0000231 ~ | |     + peritoneal component cavity
+EMAP:0000232 ~ | |     \ peritoneal component mesothelium
+EMAP:0000233 > | + ectoderm
+EMAP:0000234 ~ | | + neural ectoderm
+EMAP:0000235 ~ | | | + future brain
+EMAP:0034970 ~ | | | | + future brain neural fold
+EMAP:0034972 ~ | | | | | \ future brain neural crest
+EMAP:0000236 ~ | | | | + future midbrain
+EMAP:0000237 ~ | | | | | + future midbrain floor plate
+EMAP:0000238 ~ | | | | | \ future midbrain neural fold
+EMAP:0000239 ~ | | | | |   \ future midbrain neural crest
+EMAP:0000240 ~ | | | | + future prosencephalon
+EMAP:0000241 ~ | | | | | + future prosencephalon floor plate
+EMAP:0000242 ~ | | | | | \ future prosencephalon neural fold
+EMAP:0000243 ~ | | | | |   \ future prosencephalon neural crest
+EMAP:0000244 ~ | | | | + future rhombencephalon
+EMAP:0000245 ~ | | | | | + anterior pro-rhombomere (syn: pro-rhombomere A; rhombomere A)
+EMAP:0000246 ~ | | | | | | + anterior pro-rhombomere floor plate
+EMAP:0000247 ~ | | | | | | \ anterior pro-rhombomere neural fold
+EMAP:0000248 ~ | | | | | |   \ anterior pro-rhombomere neural crest
+EMAP:0000249 ~ | | | | | + early hindbrain neural ectoderm
+EMAP:0000250 ~ | | | | | | + early hindbrain floor plate
+EMAP:0000251 ~ | | | | | | \ early hindbrain neural fold
+EMAP:0000252 ~ | | | | | |   \ early hindbrain neural crest
+EMAP:0034804 ~ | | | | | + future rhombencephalon floor plate
+EMAP:0033610 ~ | | | | | + future rhombencephalon neural fold
+EMAP:0000253 ~ | | | | | + posterior pro-rhombomere (syn: pro-rhombomere B; rhombomere B)
+EMAP:0000254 ~ | | | | | | + posterior pro-rhombomere floor plate
+EMAP:0000255 ~ | | | | | | \ posterior pro-rhombomere neural fold
+EMAP:0000256 ~ | | | | | |   \ posterior pro-rhombomere neural crest
+EMAP:0000257 ~ | | | | | \ pre-otic sulcus
+EMAP:0034227 ~ | | | | \ midbrain-hindbrain junction
+EMAP:0000258 ~ | | | + future spinal cord
+EMAP:0000259 ~ | | | | + neural plate
+EMAP:0000260 ~ | | | | | \ future spinal cord neural fold
+EMAP:0000261 ~ | | | | |   \ future spinal cord neural crest
+EMAP:0000262 ~ | | | | \ neural tube
+EMAP:0000263 ~ | | | |   + future spinal cord floor plate
+EMAP:0000264 ~ | | | |   + future spinal cord lateral wall
+EMAP:0000265 ~ | | | |   + future spinal cord neural lumen
+EMAP:0000266 ~ | | | |   \ future spinal cord roof plate
+EMAP:0033608 ~ | | | \ neural fold
+EMAP:0033651 ~ | | |   \ neural crest
+EMAP:0000267 ~ | | \ surface ectoderm
+EMAP:0000268 > | + endoderm
+EMAP:0000269 ~ | | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0031894 > | + head
+EMAP:0000271 ~ | | \ head mesenchyme
+EMAP:0000273 ~ | |   + head mesenchyme derived from neural crest
+EMAP:0000274 ~ | |   | \ trigeminal neural crest
+EMAP:0000275 ~ | |   + head paraxial mesenchyme
+EMAP:0000276 ~ | |   | \ head somite group
+EMAP:0000277 ~ | |   |   + somite 01
+EMAP:0000278 ~ | |   |   + somite 02
+EMAP:0000279 ~ | |   |   + somite 03
+EMAP:0000280 ~ | |   |   \ somite 04
+EMAP:0000272 ~ | |   \ mesenchyme derived from head mesoderm
+EMAP:0015247 ~ | |     \ mesenchyme derived from somites 01-04
+EMAP:0000270 > | + mesenchyme
+EMAP:0000271 ~ | | + head mesenchyme
+EMAP:0000273 ~ | | | + head mesenchyme derived from neural crest
+EMAP:0000274 ~ | | | | \ trigeminal neural crest
+EMAP:0000275 ~ | | | + head paraxial mesenchyme
+EMAP:0000276 ~ | | | | \ head somite group
+EMAP:0000277 ~ | | | |   + somite 01
+EMAP:0000278 ~ | | | |   + somite 02
+EMAP:0000279 ~ | | | |   + somite 03
+EMAP:0000280 ~ | | | |   \ somite 04
+EMAP:0000272 ~ | | | \ mesenchyme derived from head mesoderm
+EMAP:0015247 ~ | | |   \ mesenchyme derived from somites 01-04
+EMAP:0033627 ~ | | + mesenchyme derived from neural crest
+EMAP:0033813 ~ | | + paraxial mesenchyme
+EMAP:0000275 ~ | | | + head paraxial mesenchyme
+EMAP:0000276 ~ | | | | \ head somite group
+EMAP:0000277 ~ | | | |   + somite 01
+EMAP:0000278 ~ | | | |   + somite 02
+EMAP:0000279 ~ | | | |   + somite 03
+EMAP:0000280 ~ | | | |   \ somite 04
+EMAP:0031170 ~ | | | + somite group
+EMAP:0000276 ~ | | | | + head somite group
+EMAP:0000277 ~ | | | | | + somite 01
+EMAP:0000278 ~ | | | | | + somite 02
+EMAP:0000279 ~ | | | | | + somite 03
+EMAP:0000280 ~ | | | | | \ somite 04
+EMAP:0000288 ~ | | | | \ trunk somite group
+EMAP:0000289 ~ | | | |   + somite 05
+EMAP:0000290 ~ | | | |   + somite 06
+EMAP:0000291 ~ | | | |   + somite 07
+EMAP:0000292 ~ | | | |   \ somite 08
+EMAP:0000287 ~ | | | \ trunk paraxial mesenchyme
+EMAP:0000288 ~ | | |   + trunk somite group
+EMAP:0000289 ~ | | |   | + somite 05
+EMAP:0000290 ~ | | |   | + somite 06
+EMAP:0000291 ~ | | |   | + somite 07
+EMAP:0000292 ~ | | |   | \ somite 08
+EMAP:0000293 ~ | | |   \ unsegmented mesenchyme
+EMAP:0000281 ~ | | \ trunk mesenchyme
+EMAP:0000282 ~ | |   + intermediate mesoderm
+EMAP:0000283 ~ | |   + lateral plate mesenchyme
+EMAP:0000284 ~ | |   | + somatopleure
+EMAP:0000285 ~ | |   | \ splanchnopleure
+EMAP:0000294 ~ | |   + primordial germ cells
+EMAP:0000287 ~ | |   \ trunk paraxial mesenchyme
+EMAP:0000288 ~ | |     + trunk somite group
+EMAP:0000289 ~ | |     | + somite 05
+EMAP:0000290 ~ | |     | + somite 06
+EMAP:0000291 ~ | |     | + somite 07
+EMAP:0000292 ~ | |     | \ somite 08
+EMAP:0000293 ~ | |     \ unsegmented mesenchyme
+EMAP:0000295 > | + notochord
+EMAP:0000296 > | + notochordal plate
+EMAP:0000297 > | + organ system
+EMAP:0000307 ~ | | + cardiovascular system
+EMAP:0000308 ~ | | | + arterial system
+EMAP:0000311 ~ | | | | + dorsal aorta
+EMAP:0000312 ~ | | | | | + left dorsal aorta
+EMAP:0000313 ~ | | | | | \ right dorsal aorta
+EMAP:0000314 ~ | | | | \ vitelline artery
+EMAP:0033690 ~ | | | + blood vessel
+EMAP:0000315 ~ | | | + heart
+EMAP:0033337 ~ | | | | + cardiac jelly
+EMAP:0033343 ~ | | | | + cardiac muscle
+EMAP:0000316 ~ | | | | + cardiogenic plate (syn: heart rudiment; myocardial plate)
+EMAP:0000317 ~ | | | | + early primitive heart tube
+EMAP:0000318 ~ | | | | | + early primitive heart tube cardiac jelly
+EMAP:0000320 ~ | | | | | + early primitive heart tube cardiac muscle
+EMAP:0000319 ~ | | | | | \ early primitive heart tube endocardial tube
+EMAP:0033328 ~ | | | | + endocardial tube
+EMAP:0000321 ~ | | | | + heart mesentery
+EMAP:0000322 ~ | | | | | \ dorsal mesocardium
+EMAP:0000323 ~ | | | | |   \ transverse pericardial sinus
+EMAP:0000324 ~ | | | | + primitive heart tube
+EMAP:0000325 ~ | | | | | + bulbus cordis
+EMAP:0000326 ~ | | | | | | + bulbus cordis caudal half
+EMAP:0000327 ~ | | | | | | | + bulbus cordis caudal half cardiac jelly
+EMAP:0000329 ~ | | | | | | | + bulbus cordis caudal half cardiac muscle
+EMAP:0000328 ~ | | | | | | | \ bulbus cordis caudal half endocardial tube
+EMAP:0000330 ~ | | | | | | \ bulbus cordis rostral half
+EMAP:0000331 ~ | | | | | |   + bulbus cordis rostral half cardiac jelly
+EMAP:0000333 ~ | | | | | |   + bulbus cordis rostral half cardiac muscle
+EMAP:0000332 ~ | | | | | |   \ bulbus cordis rostral half endocardial tube
+EMAP:0000334 ~ | | | | | + common atrial chamber
+EMAP:0000335 ~ | | | | | | + common atrial chamber cardiac jelly
+EMAP:0000337 ~ | | | | | | + common atrial chamber cardiac muscle
+EMAP:0000336 ~ | | | | | | \ common atrial chamber endocardial tube
+EMAP:0000338 ~ | | | | | + outflow tract
+EMAP:0000339 ~ | | | | | | + outflow tract cardiac jelly
+EMAP:0000340 ~ | | | | | | + outflow tract endocardial tube
+EMAP:0000341 ~ | | | | | | \ outflow tract mesenchyme
+EMAP:0000342 ~ | | | | | \ primitive ventricle
+EMAP:0000343 ~ | | | | |   + primitive ventricle cardiac jelly
+EMAP:0000345 ~ | | | | |   + primitive ventricle cardiac muscle
+EMAP:0000344 ~ | | | | |   \ primitive ventricle endocardial tube
+EMAP:0000346 ~ | | | | \ sinus venosus
+EMAP:0000347 ~ | | | |   + sinus venosus left horn
+EMAP:0000348 ~ | | | |   \ sinus venosus right horn
+EMAP:0000349 ~ | | | \ venous system
+EMAP:0000350 ~ | | |   + anterior cardinal vein
+EMAP:0000351 ~ | | |   + primary head vein
+EMAP:0000352 ~ | | |   + umbilical vein embryonic part
+EMAP:0000353 ~ | | |   \ vitelline vein embryonic part
+EMAP:0000298 ~ | | + sensory organ
+EMAP:0000299 ~ | | | + ear
+EMAP:0033952 ~ | | | | + ear epithelium
+EMAP:0000300 ~ | | | | \ inner ear
+EMAP:0034452 ~ | | | |   + inner ear associated mesenchyme
+EMAP:0034429 ~ | | | |   + inner ear epithelium
+EMAP:0000301 ~ | | | |   \ otic placode
+EMAP:0000302 ~ | | | |     + otic placode associated mesenchyme
+EMAP:0000303 ~ | | | |     \ otic placode epithelium
+EMAP:0000304 ~ | | | \ eye
+EMAP:0000305 ~ | | |   \ optic sulcus
+EMAP:0000306 ~ | | |     \ optic sulcus neural ectoderm
+EMAP:0000354 ~ | | \ visceral organ
+EMAP:0000355 ~ | |   \ alimentary system
+EMAP:0034467 ~ | |     + alimentary system associated mesenchyme
+EMAP:0033300 ~ | |     + alimentary system epithelium
+EMAP:0000356 ~ | |     + gut
+EMAP:0000357 ~ | |     | + foregut diverticulum
+EMAP:0000358 ~ | |     | | + foregut diverticulum associated mesenchyme
+EMAP:0000359 ~ | |     | | + foregut diverticulum endoderm
+EMAP:0006902 ~ | |     | | \ foregut diverticulum lumen
+EMAP:0034617 ~ | |     | + gut associated mesenchyme
+EMAP:0034788 ~ | |     | + gut endoderm
+EMAP:0034602 ~ | |     | + gut lumen
+EMAP:0000360 ~ | |     | + hindgut diverticulum
+EMAP:0000361 ~ | |     | | + hindgut diverticulum associated mesenchyme
+EMAP:0000362 ~ | |     | | + hindgut diverticulum endoderm
+EMAP:0006904 ~ | |     | | + hindgut diverticulum lumen
+EMAP:0000363 ~ | |     | | \ hindgut diverticulum primordial germ cell
+EMAP:0000364 ~ | |     | \ midgut
+EMAP:0000365 ~ | |     |   + midgut associated mesenchyme
+EMAP:0000366 ~ | |     |   + midgut endoderm
+EMAP:0006913 ~ | |     |   \ midgut lumen
+EMAP:0000367 ~ | |     + mouth-foregut junction
+EMAP:0000368 ~ | |     | \ buccopharyngeal membrane
+EMAP:0000369 ~ | |     |   + buccopharyngeal membrane ectoderm
+EMAP:0000370 ~ | |     |   \ buccopharyngeal membrane endoderm
+EMAP:0000371 ~ | |     \ oral region
+EMAP:0000372 ~ | |       \ stomatodaeum (syn: mouth pit; oral pit; stomatodeum; stomodaeum; stomodeum)
+EMAP:0000373 > | + primitive streak
+EMAP:0034968 ~ | | \ node
+EMAP:0031879 > | \ trunk
+EMAP:0000281 ~ |   \ trunk mesenchyme
+EMAP:0000282 ~ |     + intermediate mesoderm
+EMAP:0000283 ~ |     + lateral plate mesenchyme
+EMAP:0000284 ~ |     | + somatopleure
+EMAP:0000285 ~ |     | \ splanchnopleure
+EMAP:0000294 ~ |     + primordial germ cells
+EMAP:0000287 ~ |     \ trunk paraxial mesenchyme
+EMAP:0000288 ~ |       + trunk somite group
+EMAP:0000289 ~ |       | + somite 05
+EMAP:0000290 ~ |       | + somite 06
+EMAP:0000291 ~ |       | + somite 07
+EMAP:0000292 ~ |       | \ somite 08
+EMAP:0000293 ~ |       \ unsegmented mesenchyme
+EMAP:0000270   + mesenchyme
+EMAP:0033813   | \ paraxial mesenchyme
+EMAP:0031170   |   \ somite group
+EMAP:0000297   \ organ system
+EMAP:0000354     \ visceral organ

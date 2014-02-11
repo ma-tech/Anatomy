@@ -1,0 +1,135 @@
+
+============================================================
+===== Anatomy Database Version 10, 2012-09-14 11:50:33 =====
+============================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS11
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:0025776   mouse
+EMAP:0000148   + cavities and their linings
+EMAP:0000149   | \ intraembryonic coelom
+EMAP:0000150   + ectoderm
+EMAP:0000151   | + neural ectoderm
+EMAP:0000152   | | + future brain
+EMAP:0000153   | | | \ future brain neural fold
+EMAP:0000154   | | |   \ future brain neural crest
+EMAP:0000155   | | + future spinal cord
+EMAP:0000156   | | | + future spinal cord neural fold
+EMAP:0000157   | | | | \ future spinal cord neural crest
+EMAP:0000158   | | | \ neural plate
+EMAP:0033607   | | \ neural fold
+EMAP:0033650   | |   \ neural crest
+EMAP:0000159   | \ surface ectoderm
+EMAP:0000147 G + embryo
+EMAP:0000148 > | + cavities and their linings
+EMAP:0000149 ~ | | \ intraembryonic coelom
+EMAP:0000150 > | + ectoderm
+EMAP:0000151 ~ | | + neural ectoderm
+EMAP:0000152 ~ | | | + future brain
+EMAP:0000153 ~ | | | | \ future brain neural fold
+EMAP:0000154 ~ | | | |   \ future brain neural crest
+EMAP:0000155 ~ | | | + future spinal cord
+EMAP:0000156 ~ | | | | + future spinal cord neural fold
+EMAP:0000157 ~ | | | | | \ future spinal cord neural crest
+EMAP:0000158 ~ | | | | \ neural plate
+EMAP:0033607 ~ | | | \ neural fold
+EMAP:0033650 ~ | | |   \ neural crest
+EMAP:0000159 ~ | | \ surface ectoderm
+EMAP:0000160 > | + endoderm
+EMAP:0000161 ~ | | + definitive endoderm
+EMAP:0000162 ~ | | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0034991 > | + head
+EMAP:0000164 ~ | | \ head mesenchyme
+EMAP:0000166 ~ | |   + head mesenchyme derived from neural crest
+EMAP:0000165 ~ | |   \ mesenchyme derived from head mesoderm
+EMAP:0015246 ~ | |     \ mesenchyme derived from somites 01-04
+EMAP:0000163 > | + mesenchyme
+EMAP:0000164 ~ | | + head mesenchyme
+EMAP:0000166 ~ | | | + head mesenchyme derived from neural crest
+EMAP:0000165 ~ | | | \ mesenchyme derived from head mesoderm
+EMAP:0015246 ~ | | |   \ mesenchyme derived from somites 01-04
+EMAP:0033626 ~ | | \ mesenchyme derived from neural crest
+EMAP:0033852 > | + mesendoderm
+EMAP:0000167 > | + mesoderm
+EMAP:0000168 > | + notochordal plate
+EMAP:0000169 > | + notochordal process
+EMAP:0000170 > | + organ system
+EMAP:0000171 ~ | | \ cardiovascular system
+EMAP:0000172 ~ | |   \ heart
+EMAP:0000173 ~ | |     \ cardiogenic plate (syn: heart rudiment; myocardial plate)
+EMAP:0000174 > | \ primitive streak
+EMAP:0000175 ~ |   \ node
+EMAP:0000160   + endoderm
+EMAP:0000161   | + definitive endoderm
+EMAP:0000162   | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:0000176   + extraembryonic component
+EMAP:0000177   | + allantois
+EMAP:0000178   | | \ allantois mesoderm
+EMAP:0000179   | + amnion
+EMAP:0000180   | | + amnion ectoderm
+EMAP:0000181   | | \ amnion mesoderm
+EMAP:0000187   | + chorion
+EMAP:0000188   | | + chorion ectoderm
+EMAP:0032107   | | + chorion mesenchyme
+EMAP:0000189   | | \ chorion mesoderm
+EMAP:0000182   | + extraembryonic component cavities
+EMAP:0000183   | | + amniotic cavity
+EMAP:0000184   | | + ectoplacental cavity
+EMAP:0000185   | | + exocoelomic cavity
+EMAP:0000186   | | \ yolk sac cavity
+EMAP:0032167   | + extraembryonic ectoderm
+EMAP:0000190   | + extraembryonic endoderm
+EMAP:0000191   | | + intermediate endoderm
+EMAP:0000192   | | + parietal endoderm
+EMAP:0000193   | | | \ Reichert's membrane
+EMAP:0000194   | | \ visceral endoderm
+EMAP:0031917   | + extraembryonic mesenchyme
+EMAP:0031916   | + extraembryonic mesoderm
+EMAP:0000195   | + trophectoderm
+EMAP:0000196   | | + mural trophectoderm
+EMAP:0000197   | | | \ primary trophoblast giant cells
+EMAP:0000198   | | \ polar trophectoderm
+EMAP:0000199   | |   \ ectoplacental cone
+EMAP:0000200   | |     + cytotrophoblast
+EMAP:0000201   | |     \ syncytiotrophoblast
+EMAP:0000202   | \ yolk sac
+EMAP:0000203   |   + yolk sac endoderm
+EMAP:0000204   |   \ yolk sac mesoderm
+EMAP:0000205   |     + blood island
+EMAP:0000206   |     \ primordial germ cells
+EMAP:0034991   + head
+EMAP:0000164   | \ head mesenchyme
+EMAP:0000166   |   + head mesenchyme derived from neural crest
+EMAP:0000165   |   \ mesenchyme derived from head mesoderm
+EMAP:0015246   |     \ mesenchyme derived from somites 01-04
+EMAP:0000163   + mesenchyme
+EMAP:0000164   | + head mesenchyme
+EMAP:0000166   | | + head mesenchyme derived from neural crest
+EMAP:0000165   | | \ mesenchyme derived from head mesoderm
+EMAP:0015246   | |   \ mesenchyme derived from somites 01-04
+EMAP:0033626   | \ mesenchyme derived from neural crest
+EMAP:0033852   + mesendoderm
+EMAP:0000167   + mesoderm
+EMAP:0000168   + notochordal plate
+EMAP:0000169   + notochordal process
+EMAP:0000170   + organ system
+EMAP:0000171   | \ cardiovascular system
+EMAP:0000172   |   \ heart
+EMAP:0000173   |     \ cardiogenic plate (syn: heart rudiment; myocardial plate)
+EMAP:0000174   \ primitive streak
+EMAP:0000175     \ node

@@ -1,0 +1,36 @@
+
+===========================================================
+===== Anatomy Database Version 9, 2012-07-12 14:22:55 =====
+===========================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS06
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:25771   mouse
+EMAP:31    G + embryo
+EMAP:32    > | + epiblast
+EMAP:33    > | \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)
+EMAP:32      + epiblast
+EMAP:34      + extraembryonic component
+EMAP:35      | + cavities and their linings
+EMAP:36      | | \ blastocoelic cavity
+EMAP:37      | + extraembryonic endoderm
+EMAP:38      | | \ parietal endoderm
+EMAP:39      | \ trophectoderm
+EMAP:40      |   + mural trophectoderm
+EMAP:41      |   \ polar trophectoderm
+EMAP:33      \ primitive endoderm (syn: hypoblast; primary endoderm; proximal endoderm; visceral endoderm)

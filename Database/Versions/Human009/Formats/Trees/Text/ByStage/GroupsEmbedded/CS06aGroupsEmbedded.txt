@@ -1,0 +1,78 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS06a
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EHDA:9       human
+EHDA:8121    \ human conceptus
+EHDA:8187      + human conceptus extraembryonic component
+EHDA:5545      | + extraembryonic cavities
+EHDA:16885     | | + amniotic cavity
+EHDA:16714     | | | + amniotic duct
+EHDA:16714     | | | \ amniotic duct
+EHDA:11944     | | + chorionic cavity
+EHDA:13611     | | \ secondary yolk sac cavity
+EHDA:11241     | + connecting stalk
+EHDA:11217     | | \ connecting stalk mesenchyme
+EHDA:5535      | + extraembryonic endoderm
+EHDA:6916      | \ extraembryonic membranes
+EHDA:17111     |   + amnion
+EHDA:17209     |   | + amnion ectoderm
+EHDA:17161     |   | \ amnion mesenchyme
+EHDA:11963     |   + chorion
+EHDA:7525      |   | + chorion cytotrophoblast
+EHDA:7096      |   | | \ chorionic villus cytotrophoblast
+EHDA:11944     |   | + chorionic cavity
+EHDA:7508      |   | + chorion mesenchyme
+EHDA:7005      |   | | \ chorionic villus mesenchyme
+EHDA:10315     |   | + chorion syncytiotrophoblast
+EHDA:7021      |   | | \ chorionic villus syncytiotropbalst
+EHDA:6989      |   | \ chorionic villus
+EHDA:7096      |   |   + chorionic villus cytotrophoblast
+EHDA:7005      |   |   + chorionic villus mesenchyme
+EHDA:7021      |   |   \ chorionic villus syncytiotropbalst
+EHDA:9921      |   \ secondary yolk sac
+EHDA:13611     |     + secondary yolk sac cavity
+EHDA:9894      |     + secondary yolk sac endoderm
+EHDA:9873      |     \ secondary yolk sac mesenchyme
+EHDA:18412     |       + yolk sac blood islands
+EHDA:14351     |       | + haematoblasts
+EHDA:7544      |       | | \ blood cells
+EHDA:14351     |       | \ haematoblasts
+EHDA:7544      |       |   \ blood cells
+EHDA:18412     |       \ yolk sac blood islands
+EHDA:14351     |         + haematoblasts
+EHDA:7544      |         | \ blood cells
+EHDA:14351     |         \ haematoblasts
+EHDA:7544      |           \ blood cells
+EHDA:8153      \ human embryo
+EHDA:11395       + definitive endoderm
+EHDA:8391        + ectoderm
+EHDA:10979       + hypoblast
+EHDA:5535        | + extraembryonic endoderm
+EHDA:9894        | \ secondary yolk sac endoderm
+EHDA:17234       \ organ system group
+EHDA:14661         + cardiovascular system
+EHDA:13856         | \ vascular system
+EHDA:18253         |   \ blood
+EHDA:7544          |     \ blood cells
+EHDA:10941         \ haemolymphoid system
+EHDA:18253           \ blood
+EHDA:7544              \ blood cells

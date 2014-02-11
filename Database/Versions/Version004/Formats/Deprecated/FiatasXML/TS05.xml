@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <component name="mouse" id="25770">
+    <stage name="TS05"/>
+    <component isPrimary="true" name="extraembryonic component" id="25">
+      <printName>extraembryonic component</printName>
+      <abbreviation/>
+      <startEmbryoStage>04</startEmbryoStage>
+      <stopEmbryoStage>26</stopEmbryoStage>
+      <parentId>25770</parentId>
+      <component isPrimary="true" name="cavities and their linings" id="26">
+        <printName>extraembryonic component.cavities and their linings</printName>
+        <abbreviation/>
+        <startEmbryoStage>04</startEmbryoStage>
+        <stopEmbryoStage>06</stopEmbryoStage>
+        <parentId>25</parentId>
+        <component isPrimary="true" name="blastocoelic cavity" id="27">
+          <printName>extraembryonic component.cavities and their linings.blastocoelic cavity</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>06</stopEmbryoStage>
+          <parentId>26</parentId>
+        </component>
+        <childrenId>27</childrenId>
+      </component>
+      <childrenId>26</childrenId>
+      <component isPrimary="true" name="trophectoderm" id="28">
+        <printName>extraembryonic component.trophectoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>04</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>25</parentId>
+        <component isPrimary="true" name="mural trophectoderm" id="29">
+          <printName>extraembryonic component.trophectoderm.mural trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>28</parentId>
+        </component>
+        <childrenId>29</childrenId>
+        <component isPrimary="true" name="polar trophectoderm" id="30">
+          <printName>extraembryonic component.trophectoderm.polar trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>28</parentId>
+        </component>
+        <childrenId>30</childrenId>
+      </component>
+      <childrenId>28</childrenId>
+    </component>
+    <childrenId>25</childrenId>
+    <component isPrimary="true" name="inner cell mass" id="24">
+      <printName>inner cell mass</printName>
+      <abbreviation/>
+      <startEmbryoStage>04</startEmbryoStage>
+      <stopEmbryoStage>05</stopEmbryoStage>
+      <parentId>25770</parentId>
+    </component>
+    <childrenId>24</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

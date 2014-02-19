@@ -209,6 +209,25 @@ public final class PerspectiveAmbitDAOJDBC implements PerspectiveAmbitDAO {
     }
 
     /*
+     * Save the given perspectiveambit in the database.
+     * 
+     *  If the PerspectiveAmbit OID is null, 
+     *   then it will invoke "create(PerspectiveAmbit)", 
+     *   else it will invoke "update(PerspectiveAmbit)".
+     */
+    public void save(PerspectiveAmbit perspectiveambit) throws Exception {
+     
+    	if (perspectiveambit.getOid() == null) {
+    		
+            create(perspectiveambit);
+        }
+    	else {
+    		
+            update(perspectiveambit);
+        }
+    }
+
+    /*
      * Create the given perspectiveAmbit in the database. 
      * The perspectiveAmbit OID must be null, otherwise it will throw IllegalArgumentException.
      * If the perspectiveAmbit OID value is unknown, rather use save(PerspectiveAmbit).

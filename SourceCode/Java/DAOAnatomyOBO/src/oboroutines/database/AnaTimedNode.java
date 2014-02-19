@@ -38,6 +38,9 @@
 */
 package oboroutines.database;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,7 +48,6 @@ import java.util.Vector;
 
 import utility.Wrapper;
 import utility.MySQLDateTime;
-
 import daointerface.LogDAO;
 import daointerface.StageDAO;
 import daointerface.ThingDAO;
@@ -53,20 +55,17 @@ import daointerface.TimedNodeDAO;
 import daointerface.TimedIdentifierDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINTimedNodeStageDAO;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daomodel.Log;
 import daomodel.Stage;
+import daomodel.Synonym;
 import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.TimedIdentifier;
 import daomodel.Version;
 import daomodel.JOINTimedNodeStage;
-
 import obomodel.OBOComponent;
-
 import oboroutines.database.AnaObject;
 
 public class AnaTimedNode {
@@ -86,6 +85,10 @@ public class AnaTimedNode {
     private LogDAO logDAO;
     
     private long longLOG_VERSION_FK;
+    
+    //input Synonym list 
+    private ArrayList<TimedNode> timednodeList;
+   
 
 
     // Constructors -------------------------------------------------------------------------------
@@ -111,6 +114,8 @@ public class AnaTimedNode {
         	
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
+            
+            this.timednodeList = new ArrayList<TimedNode>();
 
         	setProcessed( true );
     	}
@@ -135,10 +140,16 @@ public class AnaTimedNode {
     		String strSpecies) throws Exception {
 
         Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
+        
+        PrintStream original = System.out;
+        
+        //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("/Users/mwicks/Desktop/output.txt"))));
     		
         OBOComponent component;
         boolean flagInsert = false;
     	int intCurrentPublicID  = 0;
+    	
+        this.timednodeList.clear();
     	
         try {
         	
@@ -209,6 +220,9 @@ public class AnaTimedNode {
                         timedComponent.setStartSequence(j, strSpecies);
                         timedComponent.setEndSequence(j, strSpecies);
                         
+                        //System.out.println("timedComponent.getStart() = " + timedComponent.getStart());
+                        //System.out.println("timedComponent.getEnd() = " + timedComponent.getEnd());
+
                         char padChar = '0';
                         
                         intCurrentPublicID = intCurrentPublicID + 1;
@@ -239,23 +253,29 @@ public class AnaTimedNode {
                     		
                             if (strSpecies.equals("mouse")) {
                            	   
-                            	timedComponent.setID( "EMAPT:" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
-                                timedComponent.setDisplayId( "EMAPT:00" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
+                                //System.out.println("component.getID().substring(6, 11) = " + component.getID().substring(6, 11));
+                                //System.out.println("timedComponent.getStart().substring(2, 4) = " + timedComponent.getStart().substring(2, 4));
+
+                            	timedComponent.setID( "EMAPT:" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
+                                timedComponent.setDisplayId( "EMAPT:00" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
                             }
                             else if (strSpecies.equals("human")) {
                          	   
-                            	timedComponent.setID( "EHDAT:" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
-                                timedComponent.setDisplayId( "EHDAT:00" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
+                            	timedComponent.setID( "EHDAT:" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
+                                timedComponent.setDisplayId( "EHDAT:00" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
                             }
                             else if (strSpecies.equals("chick")) {
                          	   
-                            	timedComponent.setID( "ECAPT:" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
-                                timedComponent.setDisplayId( "ECAPT:00" + component.getID().substring(6, 10) + component.getStart().substring(2, 3) );
+                            	timedComponent.setID( "ECAPT:" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
+                                timedComponent.setDisplayId( "ECAPT:00" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
                             }
                             else {
                          	   
                                 Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom + ";" + " UNKNOWN Species Value = " + strSpecies, "*", this.daofactory.getMsgLevel());
                             }
+                            
+                            //System.out.println("timedComponent.getID() = " + timedComponent.getID());
+                            //System.out.println("timedComponent.getDisplayId() = " + timedComponent.getDisplayId());
                     	}
 
                         timedComps.add(timedComponent);
@@ -311,7 +331,7 @@ public class AnaTimedNode {
                         Stage stage = this.stageDAO.findBySequence((long) intCompieStage);
                         
                         intATN_STAGE_FK = stage.getOid().intValue();
-                        
+                        	
                         //System.out.println("intCompieStage = " + intCompieStage);
                         //System.out.println("stage.toString() = " + stage.toString());
                     }
@@ -327,11 +347,19 @@ public class AnaTimedNode {
                 		
                     	throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : logANA_TIMED_NODE");
                 	}
+                	
+                    this.timednodeList.add(timednode);
                     
                     this.timednodeDAO.create(timednode);
 
                     intPrevNode = intATN_NODE_FK;
                 }
+                
+              	// Update ANA_OBJECT
+               if ( !anaobject.updateANA_OBJECTinsertANA_TIMED_NODE(this.timednodeList) ) {
+
+             	   throw new DatabaseException("ananode.insertANA_TIMED_NODE : updateANA_OBJECTinsertANA_TIMED_NODE");
+               }
             }
         }
         catch ( DAOException dao ) {
@@ -344,6 +372,8 @@ public class AnaTimedNode {
         	setProcessed( false );
             ex.printStackTrace();
         }
+        
+        //System.setOut(original);
         
         return isProcessed();
     }

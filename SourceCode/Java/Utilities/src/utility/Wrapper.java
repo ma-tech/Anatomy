@@ -69,6 +69,50 @@ public class Wrapper {
 	}
 
 	/*
+	 * Print Duration nicely when given 2 times in Milliseconds
+	 */
+    public static String printSystemDurationMilliSeconds(long startTime, long endTime) throws Exception {
+
+    	// Duration in Seconds
+    	long duration = ( endTime / 1000 )- ( startTime / 1000 );
+
+    	if ( duration/3600 > 0 ) {
+
+    		return String.format("%d hours, %d minutes and %d seconds", duration / 3600, (duration % 3600) / 60, (duration % 60) );
+    	}
+    	else if ( ( duration % 3600) / 60 > 0 ) {
+    		
+        	return String.format("%d minutes and %d seconds", (duration%3600)/60, (duration%60) );
+    	}
+    	else {
+        	
+        	return String.format("%d seconds", (duration%60) );
+    	}
+	}
+
+	/*
+	 * Print Duration nicely when given 2 times in Milliseconds
+	 */
+    public static String printSystemDurationSeconds(long startTime, long endTime) throws Exception {
+
+    	// Duration in Seconds
+    	long duration = endTime - startTime;
+
+    	if ( duration/3600 > 0 ) {
+
+    		return String.format("%d hours, %d minutes and %d seconds", duration / 3600, (duration % 3600) / 60, (duration % 60) );
+    	}
+    	else if ( ( duration % 3600) / 60 > 0 ) {
+    		
+        	return String.format("%d minutes and %d seconds", (duration%3600)/60, (duration%60) );
+    	}
+    	else {
+        	
+        	return String.format("%d seconds", (duration%60) );
+    	}
+	}
+
+	/*
 	 * Print a Prologue Message to Sysout
 	 */
     public static long printPrologue(String requestPriority, String executingClass) throws Exception {
@@ -95,7 +139,6 @@ public class Wrapper {
     public static void printEpilogue(String requestPriority, String executingClass, long startTime) throws Exception {
 
     	long endTime = System.currentTimeMillis();
-    	long duration = endTime - startTime;
     	
     	Date endDate = new Date();
     	String dateString = endDate.toString();
@@ -106,7 +149,7 @@ public class Wrapper {
     	String underlines = StringPad.pad("", executingClass.length(), dash);
     	
         Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
-        Wrapper.printMessage("DONE      : " + executingClass + ".java on " + parsed.toString() + " took " + duration / 1000 + " seconds", "*", requestPriority);
+        Wrapper.printMessage("DONE      : " + executingClass + ".java on " + parsed.toString() + " took " + Wrapper.printSystemDurationMilliSeconds(startTime, endTime), "*", requestPriority);
         Wrapper.printMessage("========= : " + underlines, "*", requestPriority);
     }
 

@@ -138,4 +138,14 @@ public class Version {
         return String.format("Version [ oid=%d, number=%s, date=%s, comments=%s ]", 
             oid, number, date, comments); 
     }
+
+    /*
+     * Returns the String representation of this Version. 
+     *  Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, number=%s, date=%s, comments=%s", 
+            oid, number, date, comments); 
+    }
 }

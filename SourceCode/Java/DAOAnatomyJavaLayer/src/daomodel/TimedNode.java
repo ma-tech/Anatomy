@@ -156,4 +156,14 @@ public class TimedNode {
         return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s ]", 
             oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
     }
+
+    /*
+     * Returns the String representation of this Timed Node. 
+     *  Not required, it just makes reading logs easier
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s", 
+            oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
+    }
 }

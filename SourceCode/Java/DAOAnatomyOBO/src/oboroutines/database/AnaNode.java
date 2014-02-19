@@ -104,6 +104,9 @@ public class AnaNode {
     private ComponentSynonymDAO componentsynonymDAO;
     private ComponentCommentDAO componentcommentDAO;
 
+    //input Node list 
+    private ArrayList<Node> nodeList;
+    
     //input term list 
     private ArrayList<OBOComponent> startingComponentList;
     
@@ -151,6 +154,8 @@ public class AnaNode {
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
 
+            this.nodeList = new ArrayList<Node>();
+
             this.startingComponentList = new ArrayList<OBOComponent>();
             this.updatedComponentList = new ArrayList<OBOComponent>();
             this.unDeletedComponentList = new ArrayList<OBOComponent>();
@@ -196,6 +201,8 @@ public class AnaNode {
         OBOComponent component;
 
         this.updatedComponentList = null;
+        
+        this.nodeList.clear();
         
         try {
 
@@ -277,6 +284,8 @@ public class AnaNode {
                    
                 	Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
 
+                	this.nodeList.add(node);
+                	
                 	//System.out.println("node.toString() = " + node.toString());
                 	
                 	if ( !logANA_NODE( node, calledFrom, strSpecies ) ) {
@@ -319,6 +328,13 @@ public class AnaNode {
                 	// update new component with generated emapa id
                 	component.setID(strANO_PUBLIC_ID);
                    	component.setDisplayId(strANO_DISPLAY_ID);                   
+                   	
+                }
+                
+               	// Update ANA_OBJECT
+                if ( !anaobject.updateANA_OBJECTinsertANA_NODE(this.nodeList) ) {
+
+              	   throw new DatabaseException("ananode.insertANA_NODE : updateANA_OBJECTinsertANA_NODE");
                 }
            }
         }

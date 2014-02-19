@@ -44,20 +44,17 @@ import java.util.Vector;
 
 import utility.Wrapper;
 import utility.MySQLDateTime;
-
 import daointerface.LogDAO;
 import daointerface.SynonymDAO;
 import daointerface.ThingDAO;
 import daointerface.VersionDAO;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daomodel.Log;
+import daomodel.Relationship;
 import daomodel.Synonym;
 import daomodel.Thing;
 import daomodel.Version;
-
 import obomodel.OBOComponent;
 
 public class AnaSynonym {
@@ -75,6 +72,9 @@ public class AnaSynonym {
     
     private long longLOG_VERSION_FK;
 
+    //input Synonym list 
+    private ArrayList<Synonym> synonymList;
+    
     
     // Constructors -------------------------------------------------------------------------------
     public AnaSynonym() {
@@ -96,6 +96,8 @@ public class AnaSynonym {
 
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
+            
+            this.synonymList = new ArrayList<Synonym>();
 
         	setProcessed( true );
     	}
@@ -120,6 +122,8 @@ public class AnaSynonym {
         setProcessed( true );
         
         OBOComponent component;
+        
+        this.synonymList.clear();
 
         ArrayList<OBOComponent> synonymCompList = new ArrayList<OBOComponent>();
 
@@ -152,20 +156,28 @@ public class AnaSynonym {
                }
                
                for ( OBOComponent synComponent: synonymCompList ) {
-
-                   //proceed with insertion
-                   int intSYN_OID = Integer.parseInt( synComponent.getDBID() );
+            	   //proceed with insertion
+                  
+            	   int intSYN_OID = Integer.parseInt( synComponent.getDBID() );
                    int intSYN_OBJECT_FK = Integer.parseInt( synComponent.getID() );
                    String strSYN_SYNONYM = synComponent.getName();
 
                    Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
 
-                  	if ( !logANA_SYNONYM( synonym, calledFrom) ) {
+                   if ( !logANA_SYNONYM( synonym, calledFrom) ) {
                 		
                     	throw new DatabaseException("anasynonym.insertANA_SYNONYM : logANA_SYNONYM");
-                	}
+                   }
+
+                   this.synonymList.add(synonym);
 
                    this.synonymDAO.create(synonym);
+               }
+               
+              	// Update ANA_OBJECT
+               if ( !anaobject.updateANA_OBJECTinsertANA_SYNONYM(this.synonymList) ) {
+
+             	   throw new DatabaseException("ananode.insertANA_SYNONYM : updateANA_OBJECTinsertANA_SYNONYM");
                }
            }
         }

@@ -136,4 +136,14 @@ public class Relationship {
         return String.format("Relationship [ oid=%d, typeFK=%s, childFK=%d, parentFK=%d ]", 
             oid, typeFK, childFK, parentFK);
     }
+
+    /*
+     * Returns the String representation of this Relationship.
+     *  Not required, it just aids log reading.
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, typeFK=%s, childFK=%d, parentFK=%d", 
+            oid, typeFK, childFK, parentFK);
+    }
 }

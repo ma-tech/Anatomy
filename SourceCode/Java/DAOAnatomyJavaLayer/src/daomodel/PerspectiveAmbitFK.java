@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyJavaLayer
 *
-* Title:        PerspectiveAmbit.java
+* Title:        PerspectiveAmbitFK.java
 *
 * Date:         2012
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Transfer Object for the PerspectiveAmbit Table.
+* Description:  This class represents a SQL Database Transfer Object for the PerspectiveAmbitFK Table.
 *                ANA_PERSPECTIVE_AMBIT
 *                 (A List of all the Start and Stop nodes for Each Perspective) 
 *
@@ -34,19 +34,19 @@
 */
 package daomodel;
 
-public class PerspectiveAmbit {
+public class PerspectiveAmbitFK {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   1. PAM_OID            - boolean(10) unsigned
      *   2. PAM_PERSPECTIVE_FK - varchar(25)
-     *   3. PAM_NODE_FK        - boolean(10) unsigned
+     *   3. ANO_PUBLIC_ID        - varchar(25)
      *   4. PAM_IS_START       - tinyboolean(1)
      *   5. PAM_IS_STOP        - tinyboolean(1)
      *   6. PAM_COMMENTS       - varchar(255)
  	 */
     private Long oid; 
     private String perspectiveFK; 
-    private long nodeFK; 
+    private String publicId; 
     private boolean start;
     private boolean stop;
     private String comments; 
@@ -55,23 +55,23 @@ public class PerspectiveAmbit {
     /*
      * Default constructor.
      */
-    public PerspectiveAmbit() {
+    public PerspectiveAmbitFK() {
         
     }
 
     /*
      * Minimal constructor. Contains required fields.
      */
-    public PerspectiveAmbit(Long oid, 
+    public PerspectiveAmbitFK(Long oid, 
     	    String perspectiveFK,  
-    	    long nodeFK, 
+    	    String publicId, 
     	    boolean start, 
     	    boolean stop, 
     	    String comments) {
     	
         this.oid = oid;
 	    this.perspectiveFK = perspectiveFK;
-	    this.nodeFK = nodeFK;
+	    this.publicId = publicId;
 	    this.start = start;
 	    this.stop = stop;
 	    this.comments = comments;
@@ -84,8 +84,8 @@ public class PerspectiveAmbit {
     public String getPerspectiveFK() {
         return perspectiveFK;
     }
-    public long getNodeFK() {
-        return nodeFK;
+    public String getPublicId() {
+        return publicId;
     }
     public boolean isStart() {
         return start;
@@ -104,8 +104,8 @@ public class PerspectiveAmbit {
     public void setPerspectiveFK(String perspectiveFK) {
         this.perspectiveFK = perspectiveFK;
     }
-    public void setNodeFK(long nodeFK) {
-        this.nodeFK = nodeFK;
+    public void setPublicId(String publicId) {
+        this.publicId = publicId;
     }
     public void setStart(boolean start) {
         this.start = start;
@@ -119,15 +119,15 @@ public class PerspectiveAmbit {
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * Is this PerspectiveAmbit the same as the Supplied PerspectiveAmbit?
+     * Is this PerspectiveAmbitFK the same as the Supplied PerspectiveAmbitFK?
      */
-    public boolean isSameAs(PerspectiveAmbit daoperspectiveambit){
+    public boolean isSameAs(PerspectiveAmbitFK daoperspectiveambitfk){
 
-    	if ( this.getPerspectiveFK().equals(daoperspectiveambit.getPerspectiveFK()) &&
-    		this.getNodeFK() == daoperspectiveambit.getNodeFK() &&
-    		this.isStart() == daoperspectiveambit.isStart() &&
-    		this.isStop() == daoperspectiveambit.isStop() &&
-    		this.getComments().equals(daoperspectiveambit.getComments()) ) {
+    	if ( this.getPerspectiveFK().equals(daoperspectiveambitfk.getPerspectiveFK()) &&
+    		this.getPublicId().equals(daoperspectiveambitfk.getPublicId()) &&
+    		this.isStart() == daoperspectiveambitfk.isStart() &&
+    		this.isStop() == daoperspectiveambitfk.isStop() &&
+    		this.getComments().equals(daoperspectiveambitfk.getComments()) ) {
 
         	return true;
         }
@@ -142,8 +142,8 @@ public class PerspectiveAmbit {
      */
     public boolean equals(Object other) {
       
-    	return (other instanceof PerspectiveAmbit) && (oid != null) 
-        		? oid.equals(((PerspectiveAmbit) other).oid) 
+    	return (other instanceof PerspectiveAmbitFK) && (oid != null) 
+        		? oid.equals(((PerspectiveAmbitFK) other).oid) 
         		: (other == this);
     }
 
@@ -152,13 +152,7 @@ public class PerspectiveAmbit {
      */
     public String toString() {
         
-    	return String.format("PerspectiveAmbit [ oid=%d, perspectiveFK=%s, nodeFK=%s, start=%b, stop=%b, comments=%s ]", 
-            oid, perspectiveFK, nodeFK, start, stop, comments); 
-    }
-
-    public String toStringThing() {
-        
-    	return String.format("oid=%d, perspectiveFK=%s, nodeFK=%s, start=%b, stop=%b, comments=%s", 
-            oid, perspectiveFK, nodeFK, start, stop, comments); 
+    	return String.format("PerspectiveAmbitFK [ oid=%d, perspectiveFK=%s, publicId=%s, start=%b, stop=%b, comments=%s ]", 
+            oid, perspectiveFK, publicId, start, stop, comments); 
     }
 }

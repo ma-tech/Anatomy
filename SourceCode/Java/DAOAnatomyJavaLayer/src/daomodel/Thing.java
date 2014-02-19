@@ -43,14 +43,14 @@ public class Thing {
      *   1. OBJ_OID               - int(10) unsigned 
      *   2. OBJ_CREATION_DATETIME - datetime         
      *   3. OBJ_CREATOR_FK        - int(10) unsigned 
-     *   4. OBJ_TABLE             - varchar(255)
-     *   5. OBJ_DESCRIPTION       - varchar(255)
+     *   4. OBJ_DESCRIPTION       - varchar(255)
+     *   5. OBJ_TABLE             - varchar(255)
 	 */
     private Long oid; 
     private String creationDateTime; 
     private long creatorFK; 
-    private String table; 
     private String description; 
+    private String table; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
@@ -66,14 +66,14 @@ public class Thing {
     public Thing(Long oid, 
     		String creationDateTime, 
     		long creatorFK,
-    		String table,
-		    String description) {
+		    String description,
+    		String table) {
     	
         this.oid = oid;
         this.creationDateTime = creationDateTime; 
         this.creatorFK = creatorFK;
-        this.table = table; 
         this.description = description; 
+        this.table = table; 
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -86,11 +86,11 @@ public class Thing {
     public long getCreatorFK() {
         return creatorFK;
     }
-    public String getTable() {
-        return table;
-    }
     public String getDescription() {
         return description;
+    }
+    public String getTable() {
+        return table;
     }
 
     // Setters ------------------------------------------------------------------------------------
@@ -103,11 +103,11 @@ public class Thing {
     public void setCreatorFK(long creatorFK) {
         this.creatorFK = creatorFK;
     }
-    public void setTable(String table) {
-        this.table = table;
-    }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public void setTable(String table) {
+        this.table = table;
     }
 
     // Override -----------------------------------------------------------------------------------
@@ -118,8 +118,8 @@ public class Thing {
 
     	if (this.getCreationDateTime().equals(daothing.getCreationDateTime()) &&
     		this.getCreatorFK() == daothing.getCreatorFK() &&
-    		this.getTable().equals(daothing.getTable()) &&
-    		this.getDescription().equals(daothing.getDescription()) ) {
+    		this.getDescription().equals(daothing.getDescription()) &&
+    		this.getTable().equals(daothing.getTable()) ) {
 
         	return true;
         }
@@ -146,7 +146,7 @@ public class Thing {
      */
     public String toString() {
     	
-        return String.format("Object [ oid=%d, creationDateTime=%s, creatorFK=%d, table=%s, description=%s ]", 
-            oid, creationDateTime, creatorFK, table, description);
+        return String.format("Object [ oid=%d, creationDateTime=%s, creatorFK=%d, description=%s, table=%s ]", 
+            oid, creationDateTime, creatorFK, description, table);
     }
 }

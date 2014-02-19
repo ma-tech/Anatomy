@@ -37,7 +37,6 @@
 */
 package oboroutines.database;
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.HashMap;
@@ -66,7 +65,6 @@ import daomodel.RelationshipProject;
 import daomodel.Thing;
 import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
-
 import obomodel.OBOComponent;
 
 import oboroutines.TreeBuilder;
@@ -89,6 +87,10 @@ public class AnaRelationship {
     private JOINNodeRelationshipNodeDAO joinnoderelationshipnodeDAO;
 
     private long longLOG_VERSION_FK;
+
+    //input Relationship list 
+    private ArrayList<Relationship> relationshipList;
+    
 
     // Constructors -------------------------------------------------------------------------------
     public AnaRelationship() {
@@ -115,6 +117,8 @@ public class AnaRelationship {
         	Version version = versionDAO.findMostRecent();
             this.longLOG_VERSION_FK = version.getOid();
        	
+            this.relationshipList = new ArrayList<Relationship>();
+
         	setProcessed( true );
     	}
         catch ( DAOException dao ) {
@@ -158,6 +162,8 @@ public class AnaRelationship {
         int intREL_CHILD_FK = 0;
         int intREL_PARENT_FK = 0;
 
+        this.relationshipList.clear();
+        
         try {
         	
             //get max pk from referenced ana_relationship_project
@@ -418,10 +424,19 @@ public class AnaRelationship {
                     		
                         	throw new DatabaseException("anarelationship.insertANA_RELATIONSHIP : logANA_RELATIONSHIP");
                     	}
+                    	
+                    	this.relationshipList.add(relationship);
 
                         this.relationshipDAO.create(relationship);
                     }
-                }
+
+                   	// Update ANA_OBJECT
+                    if ( !anaobject.updateANA_OBJECTinsertANA_RELATIONSHIP(this.relationshipList) ) {
+
+                  	   throw new DatabaseException("ananode.insertANA_RELATIONSHIP : updateANA_OBJECTinsertANA_RELATIONSHIP");
+                    }
+                }                
+                
             }
         }
         catch ( DAOException dao ) {

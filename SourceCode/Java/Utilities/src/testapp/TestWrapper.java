@@ -11,11 +11,19 @@ public class TestWrapper {
     		
     		String message = "HELLO WORLD!";
 
-    		System.out.println(message);
+    		//System.out.println(message);
+    		
             
-            Wrapper.printMessage(message, "*", "*");
+            //Wrapper.printMessage(message, "*", "*");
 
-            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);
+    		long startTime1 = startTime - 10000000;
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime1);
+            
+    		long startTime2 = startTime - 1000000;
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime2);
+            
+    		long startTime3 = startTime - 1000;
+            Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime3);
     	}
     	catch (Exception e) {
     		

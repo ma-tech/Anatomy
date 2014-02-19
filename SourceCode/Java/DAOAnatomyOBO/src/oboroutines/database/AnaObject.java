@@ -49,6 +49,11 @@ import daointerface.NodeDAO;
 import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
 
+import daomodel.Relationship;
+import daomodel.Synonym;
+import daomodel.Version;
+import daomodel.TimedNode;
+import daomodel.Node;
 import daomodel.Thing;
 
 import obomodel.OBOComponent;
@@ -138,7 +143,7 @@ public class AnaObject {
                     //update new components with ano_oid/atn_oid
                     component.setDBID(Integer.toString(intOBJ_OID));
 
-                    Thing thing = new Thing((long) intOBJ_OID, datetime, sysadmin, calledFromTable, description);
+                    Thing thing = new Thing((long) intOBJ_OID, datetime, sysadmin, description, calledFromTable);
 
                     this.thingDAO.create(thing);
                     
@@ -160,6 +165,233 @@ public class AnaObject {
         return isProcessed();
     }
 
+
+    // update rows in ANA_OBJECT for New Inserts to ANA_NDOE
+    public boolean updateANA_OBJECTinsertANA_NODE( ArrayList<Node> newNodeList ) throws Exception {
+
+    	setProcessed( true );
+
+        Wrapper.printMessage("anaobject.updateANA_OBJECTinsertANA_NODE", "***", this.daofactory.getMsgLevel());
+        	
+        try {
+        	
+            if ( !newNodeList.isEmpty() ) {
+
+            	Iterator<Node> iteratorNodes = newNodeList.iterator();
+            	
+                while ( iteratorNodes.hasNext() ) {
+                	
+                	Node node = iteratorNodes.next();
+
+                    Thing thing = this.thingDAO.findByOid(node.getOid());
+                    
+                    if ( thing == null ) {
+                    	
+                    	throw new DatabaseException("ananode.updateANA_OBJECTinsertANA_NODE : Object Not Found for OID = " + node.getOid());
+                    }
+                    else {
+                    	
+                    	thing.setDescription(node.toStringThing());
+                    	this.thingDAO.update(thing);
+                    }
+                }
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+            ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }
+
+    // update rows in ANA_OBJECT for New Inserts to ANA_TIMED_NDOE
+    public boolean updateANA_OBJECTinsertANA_TIMED_NODE( ArrayList<TimedNode> newTimedNodeList ) throws Exception {
+
+    	setProcessed( true );
+
+        Wrapper.printMessage("anaobject.updateANA_OBJECTinsertANA_TIMED_NODE", "***", this.daofactory.getMsgLevel());
+        	
+        try {
+        	
+            if ( !newTimedNodeList.isEmpty() ) {
+
+            	Iterator<TimedNode> iteratorTimedNodes = newTimedNodeList.iterator();
+            	
+                while ( iteratorTimedNodes.hasNext() ) {
+                	
+                	TimedNode timednode = iteratorTimedNodes.next();
+
+                    Thing thing = this.thingDAO.findByOid(timednode.getOid());
+                    
+                    if ( thing == null ) {
+                    	
+                    	throw new DatabaseException("ananode.updateANA_OBJECTinsertANA_TIMED_NODE : Object Not Found for OID = " + timednode.getOid());
+                    }
+                    else {
+                    	
+                    	thing.setDescription(timednode.toStringThing());
+                    	this.thingDAO.update(thing);
+                    }
+                }
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+            ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }
+
+
+    // update rows in ANA_OBJECT for New Inserts to ANA_VERSION
+    public boolean updateANA_OBJECTinsertANA_VERSION( ArrayList<Version> newVersionList ) throws Exception {
+
+    	setProcessed( true );
+
+        Wrapper.printMessage("anaobject.updateANA_OBJECTinsertANA_VERSION", "***", this.daofactory.getMsgLevel());
+        	
+        try {
+        	
+            if ( !newVersionList.isEmpty() ) {
+
+            	Iterator<Version> iteratorVersions = newVersionList.iterator();
+            	
+                while ( iteratorVersions.hasNext() ) {
+                	
+                	Version version = iteratorVersions.next();
+
+                    Thing thing = this.thingDAO.findByOid(version.getOid());
+                    
+                    if ( thing == null ) {
+                    	
+                    	throw new DatabaseException("ananode.updateANA_OBJECTinsertANA_VERSION : Object Not Found for OID = " + version.getOid());
+                    }
+                    else {
+                    	
+                    	thing.setDescription(version.toStringThing());
+                    	this.thingDAO.update(thing);
+                    }
+                }
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+            ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }
+
+    // update rows in ANA_OBJECT for New Inserts to tANA_RELATIONSHIP
+    public boolean updateANA_OBJECTinsertANA_RELATIONSHIP( ArrayList<Relationship> newRelationshipList ) throws Exception {
+
+    	setProcessed( true );
+
+        Wrapper.printMessage("anaobject.updateANA_OBJECTinsertANA_RELATIONSHIP", "***", this.daofactory.getMsgLevel());
+        	
+        try {
+        	
+            if ( !newRelationshipList.isEmpty() ) {
+
+            	Iterator<Relationship> iteratorRelationships = newRelationshipList.iterator();
+            	
+                while ( iteratorRelationships.hasNext() ) {
+                	
+                	Relationship relationship = iteratorRelationships.next();
+
+                    Thing thing = this.thingDAO.findByOid(relationship.getOid());
+                    
+                    if ( thing == null ) {
+                    	
+                    	throw new DatabaseException("ananode.updateANA_OBJECTinsertANA_RELATIONSHIP : Object Not Found for OID = " + relationship.getOid());
+                    }
+                    else {
+                    	
+                    	thing.setDescription(relationship.toStringThing());
+                    	this.thingDAO.update(thing);
+                    }
+                }
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+            ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }
+
+
+    // update rows in ANA_OBJECT for New Inserts to ANA_SYNONYM
+    public boolean updateANA_OBJECTinsertANA_SYNONYM( ArrayList<Synonym> newSynonymList ) throws Exception {
+
+    	setProcessed( true );
+
+        Wrapper.printMessage("anaobject.updateANA_OBJECTinsertANA_RELATIONSHIP", "***", this.daofactory.getMsgLevel());
+        	
+        try {
+        	
+            if ( !newSynonymList.isEmpty() ) {
+
+            	Iterator<Synonym> iteratorSynonyms = newSynonymList.iterator();
+            	
+                while ( iteratorSynonyms.hasNext() ) {
+                	
+                	Synonym synonym = iteratorSynonyms.next();
+
+                    Thing thing = this.thingDAO.findByOid(synonym.getOid());
+                    
+                    if ( thing == null ) {
+                    	
+                    	throw new DatabaseException("ananode.updateANA_OBJECTinsertANA_RELATIONSHIP : Object Not Found for OID = " + synonym.getOid());
+                    }
+                    else {
+                    	
+                    	thing.setDescription(synonym.toStringThing());
+                    	this.thingDAO.update(thing);
+                    }
+                }
+            }
+        }
+        catch ( DAOException dao ) {
+        	
+        	setProcessed( false );
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+        	setProcessed( false );
+            ex.printStackTrace();
+        } 
+        
+        return isProcessed();
+    }
 
     //  Delete rows from ANA_OBJECT
     public boolean deleteANA_OBJECT( ArrayList<OBOComponent> deleteObjects, String calledFromTable ) throws Exception {

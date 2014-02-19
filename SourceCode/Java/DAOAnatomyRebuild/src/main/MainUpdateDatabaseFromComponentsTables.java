@@ -36,18 +36,19 @@
 */
 package main;
 
-import utility.Wrapper;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 
+import utility.Wrapper;
 import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
 import app.gudmap.RunOBOResetComponentsOrderAlpha;
-
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
-
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-
 import routines.runnable.UpdateDatabaseFromComponentsTables;
+import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 
 public class MainUpdateDatabaseFromComponentsTables{
 
@@ -55,9 +56,9 @@ public class MainUpdateDatabaseFromComponentsTables{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 4) {
+		if (args.length != 5) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
@@ -69,11 +70,19 @@ public class MainUpdateDatabaseFromComponentsTables{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
+            //PrintStream original = System.out;
+            
+            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
+            
             UpdateDatabaseFromComponentsTables.run( daofactory, obofactory );
             
             RunOBOResetComponentsOrderAlpha.run( daofactory );
             
             RebuildRelationshipProjectFromComponentsTables.run( daofactory );
+            
+            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
+
+            //System.setOut(original);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

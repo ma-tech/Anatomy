@@ -58,6 +58,9 @@ public class AnaVersion {
     //Data Access Objects (DAOs)
     private VersionDAO versionDAO;
     
+    //input Version list 
+    private ArrayList<Version> versionList;
+    
     
     // Constructors -------------------------------------------------------------------------------
     public AnaVersion() {
@@ -71,6 +74,8 @@ public class AnaVersion {
             this.daofactory = daofactory;        	
 
             Wrapper.printMessage("anaversion.constructor", "***", this.daofactory.getMsgLevel());
+            
+            this.versionList = new ArrayList<Version>();
 
         	this.versionDAO = daofactory.getDAOImpl(VersionDAO.class);
 
@@ -96,6 +101,8 @@ public class AnaVersion {
         	
         int intVersionEntries = 0;
 
+        this.versionList.clear();
+        
         try {
         	
       	    //insert into ANA_OBJECT
@@ -127,7 +134,15 @@ public class AnaVersion {
 
             Version version = new Version((long) intVER_OID, (long) intVER_NUMBER, strVER_DATE, strVER_COMMENTS);
 
+        	this.versionList.add(version);
+
             this.versionDAO.create(version);
+            
+           	// Update ANA_OBJECT
+            if ( !anaobject.updateANA_OBJECTinsertANA_VERSION(this.versionList) ) {
+
+          	   throw new DatabaseException("ananode.insertVERSION : updateANA_OBJECTinsertANA_VERSION");
+             }
 
         } 
         catch ( DAOException dao ) {

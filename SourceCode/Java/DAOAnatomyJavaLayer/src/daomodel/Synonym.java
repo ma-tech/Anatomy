@@ -123,4 +123,14 @@ public class Synonym {
         return String.format("Synonym [ oid=%d, thingFK=%d, name=%s ]", 
             oid, thingFK, name); 
     }
+
+    /*
+     * Returns the String representation of this Synonym. 
+     *  Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, thingFK=%d, name=%s", 
+            oid, thingFK, name); 
+    }
 }

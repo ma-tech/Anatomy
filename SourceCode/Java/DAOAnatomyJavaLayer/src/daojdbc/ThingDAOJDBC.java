@@ -276,8 +276,8 @@ public final class ThingDAOJDBC implements ThingDAO {
     		thing.getOid(),
     		thing.getCreationDateTime(),
     		thing.getCreatorFK(),
-   			thing.getTable(),
-   			thing.getDescription()
+   			thing.getDescription(),
+   			thing.getTable()
         };
 
         Connection connection = null;
@@ -328,8 +328,8 @@ public final class ThingDAOJDBC implements ThingDAO {
     	Object[] values = {
     		thing.getCreationDateTime(),
     		thing.getCreatorFK(),
-    		thing.getTable(),
    			thing.getDescription(),
+    		thing.getTable(),
    			thing.getOid()
         };
 
@@ -635,8 +635,8 @@ public final class ThingDAOJDBC implements ThingDAO {
       		resultSet.getLong("OBJ_OID"), 
        		resultSet.getString("OBJ_CREATION_DATETIME"), 
        		resultSet.getLong("OBJ_CREATOR_FK"), 
-       		resultSet.getString("OBJ_TABLE"),
-       		resultSet.getString("OBJ_DESCRIPTION")
+       		resultSet.getString("OBJ_DESCRIPTION"),
+       		resultSet.getString("OBJ_TABLE")
         );
     }
 }

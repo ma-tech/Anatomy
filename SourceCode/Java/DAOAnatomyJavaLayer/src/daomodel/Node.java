@@ -194,4 +194,14 @@ public class Node {
         return String.format("Node [ oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s, displayId=%s ]", 
             oid, speciesFK, componentName, primary, group, publicId, description, displayId); 
     }
+
+    /*
+     * Returns the String representation of this Node.
+     *  Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, speciesFK=%s, componentName=%s, primary=%b, group=%b, publicId=%s, description=%s, displayId=%s", 
+            oid, speciesFK, componentName, primary, group, publicId, description, displayId); 
+    }
 }

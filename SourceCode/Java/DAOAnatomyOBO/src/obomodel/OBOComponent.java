@@ -98,6 +98,8 @@ public class OBOComponent {
     private DefaultMutableTreeNode[] primaryPath;
     private Vector<DefaultMutableTreeNode[]> paths;
 
+    private String fullRelations;
+
     // Constructors -------------------------------------------------------------------------------
     /*
      * Default constructor.
@@ -1996,6 +1998,39 @@ public class OBOComponent {
         
         return -1;
     }
+    public void setChildOfFullString() {
+    	
+        Iterator<String> iteratorChildOfs = this.getChildOfs().iterator();
+       
+        String output = "";
+        String thisChildOf = "";
+        String thisChildOfType = "";
+        
+        int index = 0;
+        int count = 0;
+
+        while (iteratorChildOfs.hasNext()) {
+        	
+        	count++;
+        	
+        	thisChildOf = iteratorChildOfs.next();
+        	index = getChildOfIndex( thisChildOf );
+
+        	thisChildOfType = this.childOfTypes.get(index);
+        	
+        	if ( count == 1 ) {
+        		
+            	output = output + thisChildOfType + "-" + thisChildOf;
+        	}
+        	else {
+        		
+            	output = output + "," + thisChildOfType + "-" + thisChildOf;
+        	}
+        	
+        }
+        
+        this.fullRelations = output;
+    }
     public void addChildOfType( String childOfType ) {
         this.childOfTypes.add( childOfType ); 
     }
@@ -2737,5 +2772,14 @@ public class OBOComponent {
     	
         return String.format("\nOBOComponent [ id=%s, name=%s, statusChange=%s, statusRule=%s, dbID=%s, newid=%s, namespace=%s, group=%b, start=%s, end=%s, present=%b ]", 
         		id, name, statusChange, statusRule, dbID, newid, namespace, group, start, end, present);
+    }
+
+    /*
+     * Returns the String representation of this User. Not required, it just makes reading logs easier.
+     */
+    public String toStringFull() {
+    	
+        return String.format("%s,%s,%s,%s,%s,%b", 
+        		id, start, end, fullRelations, name, group);
     }
 }

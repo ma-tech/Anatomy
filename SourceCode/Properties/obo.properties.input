@@ -1,3 +1,34 @@
+-- EMPTY MOUSE 011 OBO FILE
+empty011LocalhostOBOfile.obobasefile=/Users/mwicks/GitMahost/AnatomyData/BASE.obo
+empty011LocalhostOBOfile.oboinfile=/Users/mwicks/GitMahost/AnatomyData/INPUT.obo
+empty011LocalhostOBOfile.obooutfile=/Users/mwicks/GitMahost/AnatomyData
+empty011LocalhostOBOfile.summaryreport=/Users/mwicks/GitMahost/AnatomyData
+empty011LocalhostOBOfile.obooutfileremark=Version 011
+empty011LocalhostOBOfile.obooutfileversion=1.2
+empty011LocalhostOBOfile.obooutfilenamespace=mouse_ontology
+empty011LocalhostOBOfile.obooutfilesavedby=Mike Wicks
+empty011LocalhostOBOfile.species=mouse
+empty011LocalhostOBOfile.project=EMAP
+empty011LocalhostOBOfile.abstractclassid=EMAPA:0
+empty011LocalhostOBOfile.abstractclassnamespace=anatomical_structure
+empty011LocalhostOBOfile.abstractclassname=Anatomical structure
+empty011LocalhostOBOfile.stageclassname=Theiler stage
+empty011LocalhostOBOfile.stageclassid=TS:0
+empty011LocalhostOBOfile.stageclassnamespace=theiler_stage
+empty011LocalhostOBOfile.groupclassname=Tmp new group
+empty011LocalhostOBOfile.groupclassid=Tmp_new_group
+empty011LocalhostOBOfile.groupclassnamespace=new_group_namespace
+empty011LocalhostOBOfile.grouptermclassname=Group term
+empty011LocalhostOBOfile.grouptermclassid=group_term
+empty011LocalhostOBOfile.grouptermclassnamespace=group_term
+empty011LocalhostOBOfile.minstagesequence=0
+empty011LocalhostOBOfile.maxstagesequence=27
+empty011LocalhostOBOfile.alternatives=false
+empty011LocalhostOBOfile.timedcomponents=false
+empty011LocalhostOBOfile.generateidentifiers=false
+empty011LocalhostOBOfile.debug=true
+empty011LocalhostOBOfile.msglevel=*
+
 -- Jenkins MOUSE 011 OBO FILE
 mouse011AberlourJenkinsOBOfile.obobasefile=/opt/Ontology/EMAP/Base/BASE.obo
 -- mouse011AberlourJenkinsOBOfile.oboinfile=/opt/Ontology/repositories/mouse/INPUT.obo

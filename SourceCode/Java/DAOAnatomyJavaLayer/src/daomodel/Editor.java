@@ -111,4 +111,13 @@ public class Editor {
     	return String.format("Editor [ oid=%d, name=%s ]", 
             oid, name); 
     }
+    
+    /*
+     * Returns the String representation of this Node. Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+      
+    	return String.format("oid=%d, name=%s", 
+            oid, name); 
+    }
 }

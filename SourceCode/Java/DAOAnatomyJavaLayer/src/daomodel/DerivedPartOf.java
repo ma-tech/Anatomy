@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class DerivedPartOf {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -118,6 +120,46 @@ public class DerivedPartOf {
     	this.parentFK = parentFK;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     */
+    public DerivedPartOf(Long oid,
+    		String speciesFK, 
+    		String nodeStartFK, 
+    		String nodeStopFK,
+    		String pathStartFK, 
+    		String pathStopFK,
+    		String nodeFK, 
+    		String sequence, 
+    		String depth, 
+    		String fullPath, 
+    		String fullPathOids, 
+    		String fullPathJsonHead, 
+    		String fullPathJsonTail, 
+    		String primary, 
+    		String primaryPath, 
+    		String parentFK) {
+    	
+    	this.oid = oid;
+    	this.speciesFK = speciesFK;
+    	this.nodeStartFK = ObjectConverter.convert(nodeStartFK, Long.class);
+    	this.nodeStopFK = ObjectConverter.convert(nodeStopFK, Long.class);
+    	this.pathStartFK = ObjectConverter.convert(pathStartFK, Long.class);
+    	this.pathStopFK = ObjectConverter.convert(pathStopFK, Long.class);
+    	this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    	this.sequence = ObjectConverter.convert(sequence, Long.class);
+    	this.depth = ObjectConverter.convert(depth, Long.class);
+    	this.fullPath = fullPath;
+    	this.fullPathOids = fullPathOids;
+    	this.fullPathJsonHead = fullPathJsonHead;
+    	this.fullPathJsonTail = fullPathJsonTail;
+    	this.primary = ObjectConverter.convert(primary, Boolean.class);
+    	this.primaryPath = ObjectConverter.convert(primaryPath, Boolean.class);
+    	this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+    }
+
     // SPECIAL Getters ------------------------------------------------------------------------------------
     public String getFullPathJson() {
         return fullPathJsonHead + fullPathJsonTail;
@@ -183,23 +225,44 @@ public class DerivedPartOf {
     public void setNodeStartFK(long nodeStartFK) {
         this.nodeStartFK = nodeStartFK;
     } 
+    public void setNodeStartFK(String nodeStartFK) {
+        this.nodeStartFK = ObjectConverter.convert(nodeStartFK, Long.class);
+    } 
     public void setNodeStopFK(long nodeStopFK) {
         this.nodeStopFK = nodeStopFK;
+    }
+    public void setNodeStopFK(String nodeStopFK) {
+        this.nodeStopFK = ObjectConverter.convert(nodeStopFK, Long.class);
     }
     public void setPathStartFK(long pathStartFK) {
         this.pathStartFK = pathStartFK;
     } 
+    public void setPathStartFK(String pathStartFK) {
+        this.pathStartFK = ObjectConverter.convert(pathStartFK, Long.class);
+    } 
     public void setPathStopFK(long pathStopFK) {
         this.pathStopFK = pathStopFK;
+    }
+    public void setPathStopFK(String pathStopFK) {
+        this.pathStopFK = ObjectConverter.convert(pathStopFK, Long.class);
     }
     public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     } 
+    public void setNodeFK(String nodeFK) {
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    } 
     public void setSequence(long sequence) {
         this.sequence = sequence;
     } 
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
+    } 
     public void setDepth(long depth) {
         this.depth = depth;
+    } 
+    public void setDepth(String depth) {
+        this.depth = ObjectConverter.convert(depth, Long.class);
     } 
     public void setFullPath(String fullPath) {
         this.fullPath = fullPath;
@@ -216,11 +279,20 @@ public class DerivedPartOf {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     } 
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    } 
     public void setPrimaryPath(boolean primaryPath) {
         this.primaryPath = primaryPath;
     } 
+    public void setPrimaryPath(String primaryPath) {
+        this.primaryPath = ObjectConverter.convert(primaryPath, Boolean.class);
+    } 
     public void setParentFK(long parentFK) {
         this.parentFK = parentFK;
+    } 
+    public void setParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     } 
 
     // Helper -------------------------------------------------------------------------------------

@@ -129,16 +129,16 @@ public interface ComponentDAO extends BaseDAO {
      * Returns total amount of rows in table
      *  for the given search terms
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws Exception;
+    public long countAll() throws Exception;
 
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws Exception;
+    public long maximumOid() throws Exception;
     
 }

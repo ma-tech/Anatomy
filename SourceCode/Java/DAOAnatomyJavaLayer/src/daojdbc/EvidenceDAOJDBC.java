@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyJavaLayer
 *
-* Title:        ProjectDAO.java
+* Title:        EvidenceDAO.java
 *
 * Date:         2012
 *
@@ -18,10 +18,10 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Access Object for the Project DTO.
+* Description:  This class represents a SQL Database Access Object for the Evidence DTO.
 *  
 *               This Data Access Object should be used as a central point for the mapping between 
-*                the Project DTO and a SQL database.
+*                the Evidence DTO and a SQL database.
 *
 * Link:         
 * 
@@ -43,51 +43,51 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import daomodel.Project;
+import daomodel.Evidence;
 
-import daointerface.ProjectDAO;
+import daointerface.EvidenceDAO;
 
 import daolayer.DAOFactory;
 import daolayer.DAOException;
 
 import static daolayer.DAOUtil.*;
 
-public final class ProjectDAOJDBC implements ProjectDAO {
+public final class EvidenceDAOJDBC implements EvidenceDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT APJ_NAME " +
-        "FROM ANA_PROJECT " +
-        "WHERE APJ_NAME LIKE ? " +
+        "SELECT EVI_NAME " +
+        "FROM ANA_EVIDENCE " +
+        "WHERE EVI_NAME LIKE ? " +
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
     private static final String SQL_ROW_COUNT =
         "SELECT COUNT(*) AS VALUE " +
-        "FROM ANA_PROJECT " +
-        "WHERE APJ_NAME LIKE ? ";
+        "FROM ANA_EVIDENCE " +
+        "WHERE EVI_NAME LIKE ? ";
 
     private static final String SQL_FIND_BY_NAME =
-        "SELECT APJ_NAME " +
-        "FROM ANA_PROJECT " +
-        "WHERE APJ_NAME = ?";
+        "SELECT EVI_NAME " +
+        "FROM ANA_EVIDENCE " +
+        "WHERE EVI_NAME = ?";
     
     private static final String SQL_LIST_ALL =
-        "SELECT APJ_NAME " +
-        "FROM ANA_PROJECT ";
+        "SELECT EVI_NAME " +
+        "FROM ANA_EVIDENCE ";
     
     private static final String SQL_INSERT =
-        "INSERT INTO ANA_PROJECT " +
-        "(APJ_NAME) " +
+        "INSERT INTO ANA_EVIDENCE " +
+        "(EVI_NAME) " +
         "VALUES (?)";
 
     private static final String SQL_UPDATE =
-        "UPDATE ANA_PROJECT " +
-        "SET APJ_NAME = ? " + 
-        "WHERE APJ_NAME = ?";
+        "UPDATE ANA_EVIDENCE " +
+        "SET EVI_NAME = ? " + 
+        "WHERE EVI_NAME = ?";
     
     private static final String SQL_DELETE =
-        "DELETE FROM ANA_PROJECT " +
-        "WHERE APJ_NAME = ?";
+        "DELETE FROM ANA_EVIDENCE " +
+        "WHERE EVI_NAME = ?";
 
 
     // Vars ---------------------------------------------------------------------------------------
@@ -95,14 +95,14 @@ public final class ProjectDAOJDBC implements ProjectDAO {
 
     // Constructors -------------------------------------------------------------------------------
     /*
-     * Construct a Project Data Access Object for the given DAOFactory.
+     * Construct a Evidence Data Access Object for the given DAOFactory.
      *  Package private so that it can be constructed inside the Data Access Object package only.
      */
-    public ProjectDAOJDBC() {
+    public EvidenceDAOJDBC() {
     	
     }
     
-    public ProjectDAOJDBC(DAOFactory daoFactory) {
+    public EvidenceDAOJDBC(DAOFactory daoFactory) {
     	
         this.daoFactory = daoFactory;
     }
@@ -114,23 +114,23 @@ public final class ProjectDAOJDBC implements ProjectDAO {
 	}
     
     /*
-     * Returns the project from the database matching the given OID, otherwise null.
+     * Returns the evidence from the database matching the given OID, otherwise null.
      */
-    public Project findByName(String name) throws Exception {
+    public Evidence findByName(String name) throws Exception {
     	
         return find(SQL_FIND_BY_NAME, name);
     }
 
     /*
-     * Returns the project from the database matching the given 
+     * Returns the evidence from the database matching the given 
      *  SQL query with the given values.
      */
-    private Project find(String sql, Object... values) throws Exception {
+    private Evidence find(String sql, Object... values) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Project project = null;
+        Evidence evidence = null;
 
         try {
         	
@@ -140,7 +140,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             
             if (resultSet.next()) {
             	
-                project = mapProject(resultSet);
+                evidence = mapEvidence(resultSet);
             }
         } 
         catch (SQLException e) {
@@ -152,27 +152,27 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
-        return project;
+        return evidence;
     }
 
     /*
-     * Returns a list of ALL projects, otherwise null.
+     * Returns a list of ALL evidences, otherwise null.
      */
-    public List<Project> listAll() throws Exception {
+    public List<Evidence> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL, (Object[]) null);
     }
     
     /*
-     * Returns a list of all projects from the database. 
-     *  The list is never null and is empty when the database does not contain any projects.
+     * Returns a list of all evidences from the database. 
+     *  The list is never null and is empty when the database does not contain any evidences.
      */
-    public List<Project> list(String sql, Object... values) throws Exception {
+    public List<Evidence> list(String sql, Object... values) throws Exception {
     	
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Project> projects = new ArrayList<Project>();
+        List<Evidence> evidences = new ArrayList<Evidence>();
 
         try {
         	
@@ -182,7 +182,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             
             while (resultSet.next()) {
             	
-                projects.add(mapProject(resultSet));
+                evidences.add(mapEvidence(resultSet));
             }
         } 
         catch (SQLException e) {
@@ -194,19 +194,19 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
         }
 
-        return projects;
+        return evidences;
     }
 
     /*
-     * Create the given project in the database. 
-     * The project OID must be null, otherwise it will throw IllegalArgumentException.
-     * If the project OID value is unknown, rather use save(Project).
-     * After creating, the Data Access Object will set the obtained ID in the given project.
+     * Create the given evidence in the database. 
+     * The evidence OID must be null, otherwise it will throw IllegalArgumentException.
+     * If the evidence OID value is unknown, rather use save(Evidence).
+     * After creating, the Data Access Object will set the obtained ID in the given evidence.
      */
-    public void create(Project project) throws IllegalArgumentException, Exception {
+    public void create(Evidence evidence) throws IllegalArgumentException, Exception {
     	
         Object[] values = {
-        	project.getName()
+        	evidence.getName()
         };
 
         Connection connection = null;
@@ -221,7 +221,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             
             if (affectedRows == 0) {
             	
-                throw new DAOException("Creating project failed, no rows affected.");
+                throw new DAOException("Creating evidence failed, no rows affected.");
             }
         } 
         catch (SQLException e) {
@@ -235,19 +235,19 @@ public final class ProjectDAOJDBC implements ProjectDAO {
     }
     
     /*
-     * Update the given project in the database.
-     *  The project OID must not be null, otherwise it will throw IllegalArgumentException. 
-     *  If the project OID value is unknown, rather use save(Project)}.
+     * Update the given evidence in the database.
+     *  The evidence OID must not be null, otherwise it will throw IllegalArgumentException. 
+     *  If the evidence OID value is unknown, rather use save(Evidence)}.
      */
-    public void update(Project project) throws Exception {
+    public void update(Evidence evidence) throws Exception {
     	
-        if (project.getName() == null) {
+        if (evidence.getName() == null) {
         	
-            throw new IllegalArgumentException("Project is not created yet, so the project OID cannot be null.");
+            throw new IllegalArgumentException("Evidence is not created yet, so the evidence OID cannot be null.");
         }
 
         Object[] values = {
-        	project.getName()
+        	evidence.getName()
         };
 
         Connection connection = null;
@@ -261,7 +261,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             
             if (affectedRows == 0) {
             	
-                throw new DAOException("Updating project failed, no rows affected.");
+                throw new DAOException("Updating evidence failed, no rows affected.");
             }
         } 
         catch (SQLException e) {
@@ -275,18 +275,18 @@ public final class ProjectDAOJDBC implements ProjectDAO {
     }
     
     /*
-     * Delete the given project from the database. 
-     *  After deleting, the Data Access Object will set the ID of the given project to null.
+     * Delete the given evidence from the database. 
+     *  After deleting, the Data Access Object will set the ID of the given evidence to null.
      */
-    public void delete(Project project) throws Exception {
+    public void delete(Evidence evidence) throws Exception {
     	
         Object[] values = { 
-        	project.getName() 
+        	evidence.getName() 
         };
 
-        if (project.getName() == null) {
+        if (evidence.getName() == null) {
         	
-            throw new IllegalArgumentException("Project is not created yet, so the project OID cannot be null.");
+            throw new IllegalArgumentException("Evidence is not created yet, so the evidence OID cannot be null.");
         }
 
         Connection connection = null;
@@ -300,11 +300,11 @@ public final class ProjectDAOJDBC implements ProjectDAO {
             
             if (affectedRows == 0) {
             	
-                throw new DAOException("Deleting project failed, no rows affected.");
+                throw new DAOException("Deleting evidence failed, no rows affected.");
             } 
             else {
             	
-            	project.setName(null);
+            	evidence.setName(null);
             }
         } 
         catch (SQLException e) {
@@ -322,13 +322,13 @@ public final class ProjectDAOJDBC implements ProjectDAO {
      *  starting at the given first index with the given row count,
      *  sorted by the given sort field and sort order.
      */
-    public List<Project> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm)
+    public List<Evidence> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchTerm)
         throws Exception {
     	
-    	String sqlSortField = "APJ_NAME";
+    	String sqlSortField = "EVI_NAME";
 
         if (sortField.equals("name")) {
-        	sqlSortField = "APJ_NAME";      
+        	sqlSortField = "EVI_NAME";      
         }
         
         String searchWithWildCards = "";
@@ -354,7 +354,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         
-        List<Project> dataList = new ArrayList<Project>();
+        List<Evidence> dataList = new ArrayList<Evidence>();
 
         try {
         	
@@ -365,7 +365,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
         
             while (resultSet.next()) {
             	
-                dataList.add(mapProject(resultSet));
+                dataList.add(mapEvidence(resultSet));
             }
             
         } 
@@ -434,10 +434,10 @@ public final class ProjectDAOJDBC implements ProjectDAO {
     /*
      * Map the current row of the given ResultSet to an User.
      */
-    private static Project mapProject(ResultSet resultSet) throws SQLException {
+    private static Evidence mapEvidence(ResultSet resultSet) throws SQLException {
     	
-        return new Project(
-       		resultSet.getString("APJ_NAME")
+        return new Evidence(
+       		resultSet.getString("EVI_NAME")
         );
     }
 }

@@ -50,9 +50,11 @@ public class RunDAOTestUpdate {
 	        // Obtain DAOs.
 	        ComponentDAO componentDAO = daofactory.getDAOImpl(ComponentDAO.class);
 
-	        Component component11 = new Component( null, "extraembryonic venous system", "EMAPA:99999", "TBD", "TBD", "abstract_anatomy", "", false, "TS13", "TS26", false, "", "UNCHECKED" );
+	        Component component11 = new Component( null, "extraembryonic venous system", "EMAPA:99999", "TBD", "TBD", "abstract_anatomy", "", "false", "TS13", "TS26", "false", "", "UNCHECKED" );
 
-	        Component component12 = new Component( (long) 1, "extraembryonic venous system", "EMAPA:16374", "TBD", "TBD", "abstract_anatomy", "", false, "TS13", "TS26", false, "", "UNCHECKED" );
+	        long longOid = 1;
+	        
+	        Component component12 = new Component( longOid, "extraembryonic venous system", "EMAPA:16374", "TBD", "TBD", "abstract_anatomy", "", "false", "TS13", "TS26", "false", "", "UNCHECKED" );
 
 	        //ComponentDAO
 	    	System.out.println("Before CREATE");
@@ -61,7 +63,7 @@ public class RunDAOTestUpdate {
 	    	System.out.println("After CREATE");
 	    	System.out.println(component11.toStringJava());
 	    	
-	    	component12 = componentDAO.findByOid((long) componentDAO.maximumOid());
+	    	component12 = componentDAO.findByOid( componentDAO.maximumOid() );
 	    	System.out.println("Before DELETE");
 	    	System.out.println(component11.toStringJava());
 	    	componentDAO.delete(component11);

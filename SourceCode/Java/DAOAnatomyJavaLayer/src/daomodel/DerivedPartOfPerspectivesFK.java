@@ -34,6 +34,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 /*
  * This class represents a Data Transfer Object for the DerivedPartOfPerspectivesFK. 
  */
@@ -88,6 +90,30 @@ public class DerivedPartOfPerspectivesFK {
     	this.nodeEmap = nodeEmap;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     * 
+     */
+    public DerivedPartOfPerspectivesFK(String perspectiveFK,
+    		String fullPath, 
+    		String fullPathOids,
+    		String fullPathJson, 
+    		String ancestor,    		
+    		String nodeEmapa,
+    		String nodeEmap
+    		) {
+    	
+    	this.perspectiveFK = perspectiveFK;
+    	this.fullPath = fullPath;
+    	this.fullPathOids = fullPathOids;
+    	this.fullPathJson = fullPathJson;
+    	this.ancestor = ObjectConverter.convert(ancestor, Integer.class);
+    	this.nodeEmapa = nodeEmapa;
+    	this.nodeEmap = nodeEmap;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public String getPerspectiveFK() {
         return perspectiveFK;
@@ -101,14 +127,14 @@ public class DerivedPartOfPerspectivesFK {
     public String getFullPathJson() {
         return fullPathJson;
     }
+    public int getAncestor() {
+        return ancestor;
+    } 
     public String getNodeEmapa() {
         return nodeEmapa;
     } 
     public String getNodeEmap() {
         return nodeEmap;
-    } 
-    public int getAncestor() {
-        return ancestor;
     } 
 
     // Setters ------------------------------------------------------------------------------------
@@ -124,14 +150,17 @@ public class DerivedPartOfPerspectivesFK {
     public void setFullPathJson(String fullPathJson) {
         this.fullPathJson = fullPathJson;
     } 
+    public void setAncestor(int ancestor) {
+        this.ancestor = ancestor;
+    } 
+    public void setAncestor(String ancestor) {
+        this.ancestor = ObjectConverter.convert(ancestor, Integer.class);
+    } 
     public void setNodeEmapa(String nodeEmapa) {
         this.nodeEmapa = nodeEmapa;
     } 
     public void setNodeEmap(String nodeEmap) {
         this.nodeEmap = nodeEmap;
-    } 
-    public void setAncestor(int ancestor) {
-        this.ancestor = ancestor;
     } 
 
     // Override -----------------------------------------------------------------------------------

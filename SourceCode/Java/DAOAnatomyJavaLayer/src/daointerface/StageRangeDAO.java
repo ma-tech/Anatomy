@@ -78,33 +78,33 @@ public interface StageRangeDAO extends BaseDAO {
     /*
      * Returns a count of ALL stages ranges by existing child and existing parent
      */
-    public int countByExistingChildExistingParent() throws Exception;
+    public long countByExistingChildExistingParent() throws Exception;
     
     /*
      * Returns a count of ALL stages ranges by existing child and proposed parent
      */
-    public int countByExistingChildProposedParent() throws Exception;
+    public long countByExistingChildProposedParent() throws Exception;
     
     /*
      * Returns a count of ALL stages ranges by proposed child and proposed parent
      */
-    public int countByProposedChildProposedParent() throws Exception;
+    public long countByProposedChildProposedParent() throws Exception;
     
     /*
      * Returns a count of ALL stages ranges by proposed child and existing parent
      */
-    public int countlistByProposedChildExistingParent() throws Exception;
+    public long countlistByProposedChildExistingParent() throws Exception;
     
     /*
      * Returns a count of ALL stages ranges by existing child and existing parent from the 
      *  current database
      */
-    public int countlistByExistingChildExistingParentDatabase() throws Exception;
+    public long countlistByExistingChildExistingParentDatabase() throws Exception;
     
 
     /*
      * Returns a of the number of rows in query.
      */
-    public int count(String sql) throws Exception;
+    public long count(String sql) throws Exception;
  
 }

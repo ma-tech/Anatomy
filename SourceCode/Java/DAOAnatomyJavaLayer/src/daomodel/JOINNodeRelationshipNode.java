@@ -40,6 +40,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINNodeRelationshipNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -71,10 +73,12 @@ public class JOINNodeRelationshipNode {
     private boolean Agroup;
     private String ApublicId; 
     private String Adescription; 
+
     private Long oidRelationship; 
     private String typeFK; 
     private long childFK; 
     private long parentFK;
+
     private Long BoidNode; 
     private String BspeciesFK; 
     private String BcomponentName; 
@@ -129,6 +133,48 @@ public class JOINNodeRelationshipNode {
 	    this.BcomponentName = BcomponentName;
 	    this.Bprimary = Bprimary;
 	    this.Bgroup = Bgroup;
+	    this.BpublicId = BpublicId;
+	    this.Bdescription = Bdescription;
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINNodeRelationshipNode(long AoidNode, 
+    	    String AspeciesFK,
+    	    String AcomponentName, 
+    	    String Aprimary,
+    	    String Agroup,
+    	    String ApublicId,
+    	    String Adescription,
+    	    Long oidRelationship, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK,
+    		Long BoidNode, 
+    	    String BspeciesFK,
+    	    String BcomponentName, 
+    	    String Bprimary,
+    	    String Bgroup,
+    	    String BpublicId,
+    	    String Bdescription) {
+    	
+        this.AoidNode = AoidNode;
+	    this.AspeciesFK = AspeciesFK;
+	    this.AcomponentName = AcomponentName;
+	    this.Aprimary = ObjectConverter.convert(Aprimary, Boolean.class);
+	    this.Agroup = ObjectConverter.convert(Agroup, Boolean.class);
+	    this.ApublicId = ApublicId;
+	    this.Adescription = Adescription;
+        this.oidRelationship = oidRelationship;
+        this.typeFK = typeFK; 
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+        this.BoidNode = BoidNode;
+	    this.BspeciesFK = BspeciesFK;
+	    this.BcomponentName = BcomponentName;
+	    this.Bprimary = ObjectConverter.convert(Bprimary, Boolean.class);
+	    this.Bgroup = ObjectConverter.convert(Bgroup, Boolean.class);
 	    this.BpublicId = BpublicId;
 	    this.Bdescription = Bdescription;
     }
@@ -204,8 +250,14 @@ public class JOINNodeRelationshipNode {
     public void setAPrimary(boolean Aprimary) {
         this.Aprimary = Aprimary;
     }
+    public void setAPrimary(String Aprimary) {
+        this.Aprimary = ObjectConverter.convert(Aprimary, Boolean.class);
+    }
     public void setAGroup(boolean Agroup) {
         this.Agroup = Agroup;
+    }
+    public void setAGroup(String Agroup) {
+        this.Agroup = ObjectConverter.convert(Agroup, Boolean.class);
     }
     public void setAPublicId(String ApublicId) {
         this.ApublicId = ApublicId;
@@ -223,8 +275,14 @@ public class JOINNodeRelationshipNode {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     public void setBOidNode(Long BoidNode) {
@@ -239,8 +297,14 @@ public class JOINNodeRelationshipNode {
     public void setBPrimary(boolean Bprimary) {
         this.Bprimary = Bprimary;
     }
+    public void setBPrimary(String Bprimary) {
+        this.Bprimary = ObjectConverter.convert(Bprimary, Boolean.class);
+    }
     public void setBGroup(boolean Bgroup) {
         this.Bgroup = Bgroup;
+    }
+    public void setBGroup(String Bgroup) {
+        this.Bgroup = ObjectConverter.convert(Bgroup, Boolean.class);
     }
     public void setBPublicId(String BpublicId) {
         this.BpublicId = BpublicId;

@@ -47,7 +47,7 @@ public interface NodeDAO extends BaseDAO {
     /*
      * Returns the maximum EMAPA id.
      */
-    public int maximumEmapa() throws Exception; 
+    public long maximumEmapa() throws Exception; 
     
     /*
      * Returns the node from the database matching the given OID, otherwise null.
@@ -153,12 +153,12 @@ public interface NodeDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
     
 
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws Exception;
+    public long maximum(String sql) throws Exception;
 
 }

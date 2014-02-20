@@ -39,19 +39,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import utility.ObjectConverter;
 import utility.WhatIsThisString;
-
 import daomodel.DerivedPartOfPerspectivesFK;
-
 import daointerface.DerivedPartOfPerspectivesFKDAO;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
-
 import static daolayer.DAOUtil.*;
 
 public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPerspectivesFKDAO {
@@ -284,9 +280,9 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
         int start = -1;
         
         if (WhatIsThisString.isItNumeric(searchStartStage)){
-            start = Integer.parseInt(searchStartStage);
+            start = ObjectConverter.convert(searchStartStage, Integer.class);
         }
-		searchStartStage = Integer.toString(start);
+        searchStartStage = ObjectConverter.convert(start, String.class);
 
         searchEMAPAIdWithWildCards = "EMAPA:" + searchId;
         searchEMAPIdWithWildCards = "EMAP:" + searchId;
@@ -490,7 +486,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
     /**
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective) throws Exception {
+    public long count(String searchTerm, String searchId, String searchDirection, String searchStartStage, String searchEndStage, String searchPerspective) throws Exception {
 
         String searchTermWithWildCards = "";
         String searchEMAPAIdWithWildCards = "";
@@ -514,10 +510,10 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
         int start = 0;
         
         if (WhatIsThisString.isItNumeric(searchStartStage)){
-            start = Integer.parseInt(searchStartStage);
+            start = ObjectConverter.convert(searchStartStage, Integer.class);
         }
 
-		searchStartStage = Integer.toString(start);
+		searchStartStage = ObjectConverter.convert(start, String.class); 
 
         searchEMAPAIdWithWildCards = "EMAPA:" + searchId;
         searchEMAPIdWithWildCards = "EMAP:" + searchId;
@@ -525,7 +521,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         if (searchTerm.equals("") && searchId.equals("")){
         	
@@ -542,7 +538,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 
@@ -572,7 +568,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 
@@ -601,7 +597,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 
@@ -632,7 +628,7 @@ public final class DerivedPartOfPerspectivesFKDAOJDBC implements DerivedPartOfPe
                 resultSet = preparedStatement.executeQuery();
 
                 if (resultSet.next()) {
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 

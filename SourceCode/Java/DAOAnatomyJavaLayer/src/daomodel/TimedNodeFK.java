@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyJavaLayer
 *
-* Title:        TimedNode.java
+* Title:        TimedNodeFK.java
 *
 * Date:         2012
 *
@@ -33,21 +33,19 @@
 */
 package daomodel;
 
-import utility.ObjectConverter;
-
-public class TimedNode {
+public class TimedNodeFK {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   1. ATN_OID               - int(10) unsigned 
-     *   2. ATN_NODE_FK           - int(10) unsigned 
-     *   3. ATN_STAGE_FK          - int(10) unsigned 
+     *   2. ANO_PUBLIC_ID         - varchar(20)     
+     *   3. STG_NAME              - varchar(20)
      *   4. ATN_STAGE_MODIFIER_FK - varchar(20)      
      *   5. ATN_PUBLIC_ID         - varchar(20)      
      *   6. ATN_DISPLAY_ID        - varchar(20)      
 	 */
     private Long oid; 
-    private long nodeFK; 
-    private long stageFK; 
+    private String nodeNameFK; 
+    private String stageNameFK; 
     private String stageModifierFK;
     private String publicId;
     private String displayId;
@@ -56,41 +54,23 @@ public class TimedNode {
     /*
      * Default constructor.
      */
-    public TimedNode() {
+    public TimedNodeFK() {
         
     }
 
     /*
      * Minimal constructor. Contains required fields.
      */
-    public TimedNode(Long oid, 
-    		long nodeFK, 
-    		long stageFK,
+    public TimedNodeFK(Long oid, 
+    		String nodeNameFK, 
+    		String stageNameFK,
     		String stageModifierFK,
     		String publicId,
     		String displayId) {
     	
         this.oid = oid;
-        this.nodeFK = nodeFK; 
-        this.stageFK = stageFK; 
-        this.stageModifierFK = stageModifierFK;
-        this.publicId = publicId;
-        this.displayId = displayId;
-    }
-
-    /*
-     * Minimal constructor. Contains required fields.
-     */
-    public TimedNode(Long oid, 
-    		String nodeFK, 
-    		String stageFK,
-    		String stageModifierFK,
-    		String publicId,
-    		String displayId) {
-    	
-        this.oid = oid;
-        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
-        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
+        this.nodeNameFK = nodeNameFK; 
+        this.stageNameFK = stageNameFK; 
         this.stageModifierFK = stageModifierFK;
         this.publicId = publicId;
         this.displayId = displayId;
@@ -100,11 +80,11 @@ public class TimedNode {
     public Long getOid() {
         return oid;
     }
-    public long getNodeFK() {
-        return nodeFK;
+    public String getNodeNameFK() {
+        return nodeNameFK;
     }
-    public long getStageFK() {
-        return stageFK;
+    public String getStageNameFK() {
+        return stageNameFK;
     }
     public String getStageModifierFK() {
         return stageModifierFK;
@@ -120,17 +100,11 @@ public class TimedNode {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setNodeFK(long nodeFK) {
-        this.nodeFK = nodeFK;
+    public void setNodeNameFK(String nodeNameFK) {
+        this.nodeNameFK = nodeNameFK;
     }
-    public void setNodeFK(String nodeFK) {
-        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
-    }
-    public void setStageFK(long stageFK) {
-        this.stageFK = stageFK;
-    }
-    public void setStageFK(String stageFK) {
-        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
+    public void setStageNameFK(String stageNameFK) {
+        this.stageNameFK = stageNameFK;
     }
     public void setStageModifierFK(String stageModifierFK) {
         this.stageModifierFK = stageModifierFK;
@@ -144,12 +118,12 @@ public class TimedNode {
 
     // Helper -------------------------------------------------------------------------------------
     /*
-     * Is this TimedNode the same as the Supplied TimedNode?
+     * Is this TimedNodeFK the same as the Supplied TimedNodeFK?
      */
-    public boolean isSameAs(TimedNode daotimednode){
+    public boolean isSameAs(TimedNodeFK daotimednode){
 
-    	if (this.getNodeFK() == daotimednode.getNodeFK() &&
-    		this.getStageFK() == daotimednode.getStageFK() &&
+    	if (this.getNodeNameFK().equals(daotimednode.getNodeNameFK()) &&
+    		this.getStageNameFK().equals(daotimednode.getStageNameFK()) &&
     		this.getStageModifierFK().equals(daotimednode.getStageModifierFK()) &&
     		this.getPublicId().equals(daotimednode.getPublicId()) &&
     		this.getDisplayId().equals(daotimednode.getDisplayId()) ) {
@@ -168,8 +142,8 @@ public class TimedNode {
      */
     public boolean equals(Object other) {
     	
-        return (other instanceof TimedNode) && (oid != null) 
-        		? oid.equals(((TimedNode) other).oid) 
+        return (other instanceof TimedNodeFK) && (oid != null) 
+        		? oid.equals(((TimedNodeFK) other).oid) 
         		: (other == this);
     }
 
@@ -179,8 +153,8 @@ public class TimedNode {
      */
     public String toString() {
     	
-        return String.format("TimedNode [ oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s ]", 
-            oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
+        return String.format("TimedNodeFK [ oid=%d, nodeNameFK=%s, stageNameFK=%s, stageModifierFK=%s, publicId=%s, displayId=%s ]", 
+            oid, nodeNameFK, stageNameFK, stageModifierFK, publicId, displayId);
     }
 
     /*
@@ -189,7 +163,7 @@ public class TimedNode {
      */
     public String toStringThing() {
     	
-        return String.format("oid=%d, nodeFK=%d, stageFK=%d, stageModifierFK=%s, publicId=%s, displayId=%s", 
-            oid, nodeFK, stageFK, stageModifierFK, publicId, displayId);
+        return String.format("oid=%d, nodeNameFK=%s, stageNameFK=%s, stageModifierFK=%s, publicId=%s, displayId=%s", 
+            oid, nodeNameFK, stageNameFK, stageModifierFK, publicId, displayId);
     }
 }

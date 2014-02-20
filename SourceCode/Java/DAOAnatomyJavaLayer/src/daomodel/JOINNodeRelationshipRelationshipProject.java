@@ -40,6 +40,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINNodeRelationshipRelationshipProject {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -68,10 +70,12 @@ public class JOINNodeRelationshipRelationshipProject {
     private boolean group;
     private String publicId; 
     private String description; 
+    
     private Long oidRelationship; 
     private String typeFK; 
     private long childFK; 
     private long parentFK;
+    
     private Long oidRelationshipProject; 
     private long relationshipFK; 
     private String projectFK; 
@@ -119,6 +123,42 @@ public class JOINNodeRelationshipRelationshipProject {
         this.relationshipFK = relationshipFK; 
         this.projectFK = projectFK; 
         this.sequenceFK = sequenceFK;
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINNodeRelationshipRelationshipProject(Long oidNode, 
+    	    String speciesFK,
+    	    String componentName, 
+    	    String primary,
+    	    String group,
+    	    String publicId,
+    	    String description,
+    	    Long oidRelationship, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK, 
+    		Long oidRelationshipProject, 
+    		String relationshipFK, 
+    		String projectFK, 
+    		String sequenceFK) {
+    	
+        this.oidNode = oidNode;
+	    this.speciesFK = speciesFK;
+	    this.componentName = componentName;
+	    this.primary = ObjectConverter.convert(primary, Boolean.class);
+	    this.group = ObjectConverter.convert(group, Boolean.class);
+	    this.publicId = publicId;
+	    this.description = description;
+        this.oidRelationship = oidRelationship;
+        this.typeFK = typeFK; 
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+        this.oidRelationshipProject = oidRelationshipProject;
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+        this.projectFK = projectFK; 
+        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -183,8 +223,14 @@ public class JOINNodeRelationshipRelationshipProject {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    }
     public void setGroup(boolean group) {
         this.group = group;
+    }
+    public void setGroup(String group) {
+        this.group = ObjectConverter.convert(group, Boolean.class);
     }
     public void setPublicId(String publicId) {
         this.publicId = publicId;
@@ -202,8 +248,14 @@ public class JOINNodeRelationshipRelationshipProject {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     public void setOidRelationshipProject(Long oidRelationshipProject) {
@@ -212,11 +264,17 @@ public class JOINNodeRelationshipRelationshipProject {
     public void setRelationshipFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
+    public void setRelationshipFK(String relationshipFK) {
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+    }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
     public void setSequenceFK(long sequenceFK) {
         this.sequenceFK = sequenceFK;
+    }
+    public void setSequenceFK(String sequenceFK) {
+        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);
     }
 
     // Helper -------------------------------------------------------------------------------------

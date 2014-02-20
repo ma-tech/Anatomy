@@ -37,6 +37,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Stage {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -84,6 +86,26 @@ public class Stage {
         this.publicId = publicId; 
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Stage(Long oid, 
+    		String speciesFK, 
+    		String name, 
+    		String sequence, 
+    		String description, 
+    		String extraText, 
+    		String publicId) {
+    	
+        this.oid = oid;
+        this.speciesFK = speciesFK; 
+        this.name = name; 
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
+        this.description = description;
+        this.extraText = extraText; 
+        this.publicId = publicId; 
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -119,6 +141,9 @@ public class Stage {
     }
     public void setSequence(long sequence) {
         this.sequence = sequence;
+    }
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
     }
     public void setDescription(String description) {
         this.description = description;
@@ -169,6 +194,16 @@ public class Stage {
     public String toString() {
     	
         return String.format("Stage [ oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s ]", 
+            oid, speciesFK, name, sequence, description, extraText, publicId);
+    }
+
+    /*
+     * Returns the String representation of this Stage. 
+     *  Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+    	
+        return String.format("oid=%d, speciesFK=%s, name=%s, sequence=%d, description=%s, extraText=%s, publicId=%s", 
             oid, speciesFK, name, sequence, description, extraText, publicId);
     }
 }

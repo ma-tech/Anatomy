@@ -339,7 +339,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by existing child and existing parent
      */
-    public int countByExistingChildExistingParent() throws Exception {
+    public long countByExistingChildExistingParent() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT);
     }
@@ -347,7 +347,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by existing child and proposed parent
      */
-    public int countByExistingChildProposedParent() throws Exception {
+    public long countByExistingChildProposedParent() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_PROPOSED_PARENT);
     }
@@ -355,7 +355,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by proposed child and proposed parent
      */
-    public int countByProposedChildProposedParent() throws Exception {
+    public long countByProposedChildProposedParent() throws Exception {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_PROPOSED_PARENT);
     }
@@ -363,7 +363,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
     /*
      * Returns a count of ALL stages ranges by proposed child and existing parent
      */
-    public int countlistByProposedChildExistingParent() throws Exception {
+    public long countlistByProposedChildExistingParent() throws Exception {
     	
         return count(SQL_COUNT_PROPOSED_CHILD_EXISTING_PARENT);
     }
@@ -372,7 +372,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
      * Returns a count of ALL stages ranges by existing child and existing parent from the 
      *  current database
      */
-    public int countlistByExistingChildExistingParentDatabase() throws Exception {
+    public long countlistByExistingChildExistingParentDatabase() throws Exception {
     	
         return count(SQL_COUNT_EXISTING_CHILD_EXISTING_PARENT_DB);
     }
@@ -415,12 +415,12 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
     /*
      * Returns a of the number of rows in query.
      */
-    public int count(String sql) throws Exception {
+    public long count(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -431,7 +431,7 @@ public final class StageRangeDAOJDBC implements StageRangeDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 

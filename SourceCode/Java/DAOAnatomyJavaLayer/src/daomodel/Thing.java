@@ -37,6 +37,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Thing {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -76,6 +78,22 @@ public class Thing {
         this.table = table; 
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Thing(Long oid, 
+    		String creationDateTime, 
+    		String creatorFK,
+		    String description,
+    		String table) {
+    	
+        this.oid = oid;
+        this.creationDateTime = creationDateTime; 
+        this.creatorFK = ObjectConverter.convert(creatorFK, Long.class);
+        this.description = description; 
+        this.table = table; 
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -102,6 +120,9 @@ public class Thing {
     }
     public void setCreatorFK(long creatorFK) {
         this.creatorFK = creatorFK;
+    }
+    public void setCreatorFK(String creatorFK) {
+        this.creatorFK = ObjectConverter.convert(creatorFK, Long.class);
     }
     public void setDescription(String description) {
         this.description = description;

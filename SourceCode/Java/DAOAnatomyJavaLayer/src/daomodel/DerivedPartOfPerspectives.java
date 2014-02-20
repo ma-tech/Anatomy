@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class DerivedPartOfPerspectives {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -72,6 +74,24 @@ public class DerivedPartOfPerspectives {
     	this.nodeFK = nodeFK;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     * 
+     */
+    public DerivedPartOfPerspectives(String perspectiveFK,
+    		String partOfFK, 
+    		String ancestor,    		
+    		String nodeFK
+    		) {
+    	
+    	this.perspectiveFK = perspectiveFK;
+    	this.partOfFK = ObjectConverter.convert(partOfFK, Long.class);
+    	this.ancestor = ObjectConverter.convert(ancestor, Integer.class);
+    	this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public String getPerspectiveFK() {
         return perspectiveFK;
@@ -79,11 +99,11 @@ public class DerivedPartOfPerspectives {
     public long getPartOfFK() {
         return partOfFK;
     }
-    public long getNodeFK() {
-        return nodeFK;
-    } 
     public int getAncestor() {
         return ancestor;
+    } 
+    public long getNodeFK() {
+        return nodeFK;
     } 
 
     // Setters ------------------------------------------------------------------------------------
@@ -93,11 +113,20 @@ public class DerivedPartOfPerspectives {
     public void setPartOfFK(long partOfFK) {
         this.partOfFK = partOfFK;
     } 
-    public void setNodeFK(long nodeFK) {
-        this.nodeFK = nodeFK;
+    public void setPartOfFK(String partOfFK) {
+        this.partOfFK = ObjectConverter.convert(partOfFK, Long.class);
     } 
     public void setAncestor(int ancestor) {
         this.ancestor = ancestor;
+    } 
+    public void setAncestor(String ancestor) {
+        this.ancestor = ObjectConverter.convert(ancestor, Integer.class);
+    } 
+    public void setNodeFK(long nodeFK) {
+        this.nodeFK = nodeFK;
+    } 
+    public void setNodeFK(String nodeFK) {
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
     } 
 
     // Override -----------------------------------------------------------------------------------

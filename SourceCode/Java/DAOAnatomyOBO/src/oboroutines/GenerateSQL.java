@@ -68,23 +68,19 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daointerface.SynonymDAO;
 import daointerface.JOINNodeRelationshipDAO;
 import daointerface.JOINNodeRelationshipNodeDAO;
 import daointerface.JOINTimedNodeStageDAO;
-
 import daomodel.Synonym;
 import daomodel.JOINNodeRelationship;
 import daomodel.JOINNodeRelationshipNode;
-
 import obolayer.OBOException;
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
 import oboroutines.database.AnaNode;
 import oboroutines.database.AnaRelationship;
@@ -835,18 +831,18 @@ public class GenerateSQL {
         	
             for (OBOComponent component: diffStageTermList) {
 
-                int startSequence = this.jointimednodestageDAO.minSequenceByNodeFk(Long.valueOf(component.getDBID()));
+                long longStartSequence = this.jointimednodestageDAO.minSequenceByNodeFk( ObjectConverter.convert(component.getDBID(), Long.class));
                 
-                int endSequence = this.jointimednodestageDAO.maxSequenceByNodeFk(Long.valueOf(component.getDBID()));
+                long longEndSequence = this.jointimednodestageDAO.maxSequenceByNodeFk( ObjectConverter.convert(component.getDBID(), Long.class) );
 
-                //System.out.println("startSequence                = " + startSequence);
-                //System.out.println("endSequence                  = " + endSequence);
+                //System.out.println("longStartSequence                = " + longStartSequence);
+                //System.out.println("longEndSequence                  = " + longEndSequence);
                 //System.out.println("component.getStartSequence() = " + component.getStartSequence());
                 //System.out.println("component.getEndSequence()   = " + component.getEndSequence());
                 
                 //compare stage ranges between component and databasecomponent
                 // for creating new timed components
-                if ( startSequence > component.getStartSequence() ) {
+                if ( longStartSequence > component.getStartSequence() ) {
                    
                     //System.out.println("HERE AAAAA");
 
@@ -856,7 +852,7 @@ public class GenerateSQL {
                 	createtimedcomponent.setName( component.getName() );
                 	createtimedcomponent.setDBID( component.getDBID() );
                 	createtimedcomponent.setStart( component.getStart() );
-                	createtimedcomponent.setEndSequence( startSequence - 1, this.strSpecies );
+                	createtimedcomponent.setEndSequence( longStartSequence - 1, this.strSpecies );
                 	createtimedcomponent.setStatusChange("INSERT");
                 	createtimedcomponent.setStatusRule("PASSED");
                 	
@@ -872,7 +868,7 @@ public class GenerateSQL {
                 	diffCreateTimedCompList.add( createtimedcomponent );
                 }
                 
-                if ( endSequence < component.getEndSequence() ) {
+                if ( longEndSequence < component.getEndSequence() ) {
                    
                     //System.out.println("HERE BBBBB");
 
@@ -881,7 +877,7 @@ public class GenerateSQL {
                 	createtimedcomponent.setID( component.getID() );
                 	createtimedcomponent.setName( component.getName() );                   
                 	createtimedcomponent.setDBID( component.getDBID() );
-                	createtimedcomponent.setStartSequence( endSequence + 1, this.strSpecies );
+                	createtimedcomponent.setStartSequence( longEndSequence + 1, this.strSpecies );
                 	createtimedcomponent.setEndSequence( component.getEndSequence(), this.strSpecies );
                 	createtimedcomponent.setStatusChange("INSERT");
                 	createtimedcomponent.setStatusRule("PASSED");
@@ -899,7 +895,7 @@ public class GenerateSQL {
                 }
                 
                 //for deleting existing timed components
-                if ( startSequence < component.getStartSequence() ) {
+                if ( longStartSequence < component.getStartSequence() ) {
                    
                     //System.out.println("HERE CCCCC");
 
@@ -908,7 +904,7 @@ public class GenerateSQL {
                 	delTimedComponent.setID( component.getID() );
                 	delTimedComponent.setName( component.getName() );
                 	delTimedComponent.setDBID( component.getDBID() );
-                	delTimedComponent.setStartSequence( startSequence, this.strSpecies );
+                	delTimedComponent.setStartSequence( longStartSequence, this.strSpecies );
                 	delTimedComponent.setEndSequence( component.getStartSequence() - 1, this.strSpecies );
                 	delTimedComponent.setStatusChange("DELETE");
                 	delTimedComponent.setStatusRule("PASSED");
@@ -925,7 +921,7 @@ public class GenerateSQL {
                 	diffCreateTimedCompList.add( delTimedComponent );
                 }
                 
-                if ( endSequence > component.getEndSequence() ) {
+                if ( longEndSequence > component.getEndSequence() ) {
                     
                     //System.out.println("HERE DDDDD");
 
@@ -935,7 +931,7 @@ public class GenerateSQL {
                     delTimedComponent.setName( component.getName() );
                     delTimedComponent.setDBID( component.getDBID() );
                     delTimedComponent.setStartSequence( component.getEndSequence() + 1, this.strSpecies );
-                    delTimedComponent.setEndSequence( endSequence, this.strSpecies );
+                    delTimedComponent.setEndSequence( longEndSequence, this.strSpecies );
                     delTimedComponent.setStatusChange("DELETE");
                     delTimedComponent.setStatusRule("PASSED");
 
@@ -989,7 +985,7 @@ public class GenerateSQL {
             //for each component where parents have changed
             for (OBOComponent component: diffSynonymTermList) {
 
-            	ArrayList<Synonym> synonymlist = (ArrayList<Synonym>) this.synonymDAO.listByObjectFK(Long.valueOf(component.getDBID()));
+            	ArrayList<Synonym> synonymlist = (ArrayList<Synonym>) this.synonymDAO.listByObjectFK( ObjectConverter.convert(component.getDBID(), Long.class));
             	
                 //reset temporary component's parents for each component
                 databasecomponent.setSynonyms( new ArrayList<String>() );
@@ -1094,7 +1090,7 @@ public class GenerateSQL {
                 databasecomponent.setChildOfs( new ArrayList<String>() );
                 databasecomponent.setChildOfTypes( new ArrayList<String>() );
 
-                ArrayList<JOINNodeRelationship> joinnoderelationships = (ArrayList<JOINNodeRelationship>) this.joinnoderelationshipDAO.listAllByChild(Long.valueOf(component.getDBID()));
+                ArrayList<JOINNodeRelationship> joinnoderelationships = (ArrayList<JOINNodeRelationship>) this.joinnoderelationshipDAO.listAllByChild( ObjectConverter.convert(component.getDBID(), Long.class));
 
               	Iterator<JOINNodeRelationship> iteratorjoinnoderelationship = joinnoderelationships.iterator();
 

@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class ComponentOrder {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -76,6 +78,24 @@ public class ComponentOrder {
         this.specialorder = specialorder;
     }
     
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public ComponentOrder(Long oid,
+    		String child, 
+    		String parent,
+    		String type,
+    		String alphaorder,
+    		String specialorder) {
+    	
+    	this.oid = oid;
+    	this.child = child;
+        this.parent = parent;
+        this.type = type;
+        this.alphaorder = ObjectConverter.convert(alphaorder, Long.class);
+        this.specialorder = ObjectConverter.convert(specialorder, Long.class);
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return this.oid;
@@ -112,8 +132,14 @@ public class ComponentOrder {
     public void setAlphaorder( long alphaorder ) {
         this.alphaorder = alphaorder;
     }
+    public void setAlphaorder( String alphaorder ) {
+        this.alphaorder = ObjectConverter.convert(alphaorder, Long.class);
+    }
     public void setSpecialorder( long specialorder ) {
         this.specialorder = specialorder;
+    }
+    public void setSpecialorder( String specialorder ) {
+        this.specialorder = ObjectConverter.convert(specialorder, Long.class);
     }
     
     // Helpers ------------------------------------------------------------------------------------

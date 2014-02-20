@@ -610,7 +610,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -637,7 +637,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -648,7 +648,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {
@@ -666,12 +666,12 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws Exception {
+    public long countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -682,7 +682,7 @@ public final class ComponentRelationshipDAOJDBC implements ComponentRelationship
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {

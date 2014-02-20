@@ -111,11 +111,11 @@ public interface VersionDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table for 2 possible search values.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws Exception;
+    public long countAll() throws Exception;
 
 }

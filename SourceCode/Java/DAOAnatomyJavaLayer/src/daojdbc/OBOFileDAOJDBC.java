@@ -673,7 +673,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchTable) throws Exception {
+    public long count(String searchTerm, String searchTable) throws Exception {
 
         String searchWithWildCards = "%" + searchTerm + "%";
         String tableWithWildCards = "%" + searchTable + "%";
@@ -686,7 +686,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -697,7 +697,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {

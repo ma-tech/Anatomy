@@ -47,7 +47,7 @@ public interface RelationshipProjectDAO extends BaseDAO {
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws Exception;
+    public long maximumOid() throws Exception;
     
     /*
      * Returns the relationshipproject from the database matching the given OID, otherwise null.
@@ -123,11 +123,11 @@ public interface RelationshipProjectDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws Exception;
+    public long maximum(String sql) throws Exception;
 
 }

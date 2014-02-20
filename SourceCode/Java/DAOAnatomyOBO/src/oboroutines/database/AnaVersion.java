@@ -99,7 +99,7 @@ public class AnaVersion {
 
         Wrapper.printMessage("anaversion.insertANA_VERSION", "***", this.daofactory.getMsgLevel());
         	
-        int intVersionEntries = 0;
+        long longVersionEntries = 0;
 
         this.versionList.clear();
         
@@ -118,7 +118,7 @@ public class AnaVersion {
             }
             
             //find out which round of update this is to the db
-     	    intVersionEntries = this.versionDAO.countAll();
+     	    longVersionEntries = this.versionDAO.countAll();
      	   
             if ( !anaobject.getMaxOID() ) {
 
@@ -126,13 +126,13 @@ public class AnaVersion {
             }
 
             //prepare values for insertion
-            int intVER_OID = anaobject.getCurrentMaxObjectId();
+            long longVER_OID = anaobject.getCurrentMaxObjectId();
 
-            int intVER_NUMBER = ++intVersionEntries;
+            long longVER_NUMBER = ++longVersionEntries;
             String strVER_DATE = utility.MySQLDateTime.now();
             String strVER_COMMENTS = "DB2OBO Update - Editing the ontology";
 
-            Version version = new Version((long) intVER_OID, (long) intVER_NUMBER, strVER_DATE, strVER_COMMENTS);
+            Version version = new Version(longVER_OID, longVER_NUMBER, strVER_DATE, strVER_COMMENTS);
 
         	this.versionList.add(version);
 

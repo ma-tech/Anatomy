@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Node {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -79,6 +81,28 @@ public class Node {
 	    this.componentName = componentName;
 	    this.primary = primary;
 	    this.group = group;
+	    this.publicId = publicId;
+	    this.description = description;
+	    this.displayId = displayId;
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Node(Long oid, 
+    	    String speciesFK,
+    	    String componentName, 
+    	    String primary,
+    	    String group,
+    	    String publicId,
+    	    String description,
+    	    String displayId) {
+    	
+        this.oid = oid;
+	    this.speciesFK = speciesFK;
+	    this.componentName = componentName;
+	    this.primary = ObjectConverter.convert(primary, Boolean.class);
+	    this.group = ObjectConverter.convert(group, Boolean.class);
 	    this.publicId = publicId;
 	    this.description = description;
 	    this.displayId = displayId;
@@ -139,8 +163,14 @@ public class Node {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    }
     public void setGroup(boolean group) {
         this.group = group;
+    }
+    public void setGroup(String group) {
+        this.group = ObjectConverter.convert(group, Boolean.class);
     }
     public void setPublicId(String publicId) {
         this.publicId = publicId;

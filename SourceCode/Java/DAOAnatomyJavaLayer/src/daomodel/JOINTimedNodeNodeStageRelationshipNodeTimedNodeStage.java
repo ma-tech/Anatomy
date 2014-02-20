@@ -51,6 +51,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -251,6 +253,99 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     	this.publicStageIdII = publicStageIdII;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage(Long oidTimedNodeI, 
+    		String nodeFKI, 
+    		String stageFKI, 
+    		String stageModifierFKI,
+    		String publicTimedNodeIdI,
+    		String displayTimedNodeIdI,
+    		Long oidNodeI, 
+    		String speciesFKNodeI, 
+    		String componentNameI, 
+    		String primaryI,
+    		String groupI,
+    		String publicNodeIdI, 
+    		String descriptionNodeI, 
+    		Long oidStageI, 
+    		String speciesFKStageI, 
+    		String nameI, 
+    		String sequenceI,
+    		String descriptionStageI,
+    		String extraTextI, 
+    		String publicStageIdI, 
+    		Long oidRel, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK,
+    		Long oidTimedNodeII, 
+    		String nodeFKII, 
+    		String stageFKII, 
+    		String stageModifierFKII,
+    		String publicTimedNodeIdII,
+    		String displayTimedNodeIdII,
+    		Long oidNodeII, 
+    		String speciesFKNodeII, 
+    		String componentNameII, 
+    		String primaryII,
+    		String groupII,
+    		String publicNodeIdII, 
+    		String descriptionNodeII, 
+    		Long oidStageII, 
+    		String speciesFKStageII, 
+    		String nameII, 
+    		Long sequenceII,
+    		String descriptionStageII,
+    		String extraTextII, 
+    		String publicStageIdII) {
+    	
+    	this.oidTimedNodeI = oidTimedNodeI;
+    	this.nodeFKI = ObjectConverter.convert(nodeFKI, Long.class);
+    	this.stageFKI = ObjectConverter.convert(stageFKI, Long.class);
+    	this.stageModifierFKI = stageModifierFKI;
+    	this.publicTimedNodeIdI = publicTimedNodeIdI;
+    	this.displayTimedNodeIdI = displayTimedNodeIdI;
+    	this.oidNodeI = oidNodeI;
+    	this.speciesFKNodeI = speciesFKNodeI;
+    	this.componentNameI = componentNameI;
+    	this.primaryI = ObjectConverter.convert(primaryI, Boolean.class);
+    	this.groupI = ObjectConverter.convert(groupI, Boolean.class);
+    	this.publicNodeIdI = publicNodeIdI;
+    	this.descriptionNodeI = descriptionNodeI;
+    	this.oidStageI = oidStageI;
+    	this.speciesFKStageI = speciesFKStageI;
+    	this.nameI = nameI;
+    	this.sequenceI = ObjectConverter.convert(sequenceI, Long.class);
+    	this.descriptionStageI = descriptionStageI;
+    	this.extraTextI = extraTextI;
+    	this.publicStageIdI = publicStageIdI;
+    	this.oidRel = oidRel;
+    	this.typeFK = typeFK;
+    	this.childFK = ObjectConverter.convert(childFK, Long.class);
+    	this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+    	this.oidTimedNodeII = oidTimedNodeII;
+    	this.nodeFKII = ObjectConverter.convert(nodeFKII, Long.class);
+    	this.stageFKII = ObjectConverter.convert(stageFKII, Long.class);
+    	this.stageModifierFKII = stageModifierFKII;
+    	this.publicTimedNodeIdII = publicTimedNodeIdII;
+    	this.displayTimedNodeIdII = displayTimedNodeIdII;
+    	this.oidNodeII = oidNodeII;
+    	this.speciesFKNodeII = speciesFKNodeII;
+    	this.componentNameII = componentNameII;
+    	this.primaryII = ObjectConverter.convert(primaryII, Boolean.class);
+    	this.groupII = ObjectConverter.convert(groupII, Boolean.class);
+    	this.publicNodeIdII = publicNodeIdII;
+    	this.descriptionNodeII = descriptionNodeII;
+    	this.speciesFKStageII = speciesFKStageII;
+    	this.nameII = nameII;
+    	this.sequenceII = sequenceII;
+    	this.descriptionStageII = descriptionStageII;
+    	this.extraTextII = extraTextII;
+    	this.publicStageIdII = publicStageIdII;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOidTimedNodeI() {
         return oidTimedNodeI;
@@ -398,8 +493,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setNodeFKI(long nodeFKI) {
         this.nodeFKI = nodeFKI;
     }
+    public void setNodeFKI(String nodeFKI) {
+        this.nodeFKI = ObjectConverter.convert(nodeFKI, Long.class);
+    }
     public void setStageFKI(long stageFKI) {
         this.stageFKI = stageFKI;
+    }
+    public void setStageFKI(String stageFKI) {
+        this.stageFKI = ObjectConverter.convert(stageFKI, Long.class);
     }
     public void setStageModifierFKI(String stageModifierFKI) {
         this.stageModifierFKI = stageModifierFKI;
@@ -423,8 +524,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setPrimaryI(boolean primaryI) {
         this.primaryI = primaryI;
     }
+    public void setPrimaryI(String primaryI) {
+        this.primaryI = ObjectConverter.convert(primaryI, Boolean.class);
+    }
     public void setGroupI(boolean groupI) {
         this.groupI = groupI;
+    }
+    public void setGroupI(String groupI) {
+        this.groupI = ObjectConverter.convert(groupI, Boolean.class);
     }
     public void setPublicNodeIdI(String publicNodeIdI) {
         this.publicNodeIdI = publicNodeIdI;
@@ -445,6 +552,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setSequenceI(long sequenceI) {
         this.sequenceI = sequenceI;
     }
+    public void setSequenceI(String sequenceI) {
+        this.sequenceI = ObjectConverter.convert(sequenceI, Long.class);
+    }
     public void setDescriptionStageI(String descriptionStageI) {
         this.descriptionStageI = descriptionStageI;
     }
@@ -464,8 +574,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     public void setOidII(Long oidNodeII) {
@@ -480,8 +596,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setPrimaryII(boolean primaryII) {
         this.primaryII = primaryII;
     }
+    public void setPrimaryII(String primaryII) {
+        this.primaryII = ObjectConverter.convert(primaryII, Boolean.class);
+    }
     public void setGroupII(boolean groupII) {
         this.groupII = groupII;
+    }
+    public void setGroupII(String groupII) {
+        this.groupII = ObjectConverter.convert(groupII, Boolean.class);
     }
     public void setPublicNodeIdII(String publicNodeIdII) {
         this.publicNodeIdII = publicNodeIdII;
@@ -496,8 +618,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public void setNodeFKII(long nodeFKII) {
         this.nodeFKII = nodeFKII;
     }
+    public void setNodeFKII(String nodeFKII) {
+        this.nodeFKII = ObjectConverter.convert(nodeFKII, Long.class);
+    }
     public void setStageFKII(long stageFKII) {
         this.stageFKII = stageFKII;
+    }
+    public void setStageFKII(String stageFKII) {
+        this.stageFKII = ObjectConverter.convert(stageFKII, Long.class);
     }
     public void setStageModifierFKII(String stageModifierFKII) {
         this.stageModifierFKII = stageModifierFKII;
@@ -520,6 +648,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     }
     public void setSequenceII(long sequenceII) {
         this.sequenceII = sequenceII;
+    }
+    public void setSequenceII(String sequenceII) {
+        this.sequenceII = ObjectConverter.convert(sequenceII, Long.class);
     }
     public void setDescriptionStageII(String descriptionStageII) {
         this.descriptionStageII = descriptionStageII;

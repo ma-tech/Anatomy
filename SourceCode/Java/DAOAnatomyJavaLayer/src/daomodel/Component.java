@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Component {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -104,6 +106,38 @@ public class Component {
         this.statusrule = statusrule;
     }
     
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Component(Long oid,
+    		String name, 
+    		String id,
+    		String dbid,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		String group,
+    		String start,
+    		String end,
+    		String present, 
+    		String statuschange, 
+    		String statusrule) {
+    	
+    	this.oid = oid;
+    	this.name = name;
+    	this.id = id;
+    	this.dbid = dbid;
+    	this.newid = newid;
+    	this.namespace = namespace;
+    	this.definition = definition;
+    	this.group = ObjectConverter.convert(group, Boolean.class);
+    	this.start = start;
+    	this.end = end;
+    	this.present = ObjectConverter.convert(present, Boolean.class);
+        this.statuschange = statuschange;
+        this.statusrule = statusrule;
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return this.oid;
@@ -170,6 +204,9 @@ public class Component {
     public void setGroup( boolean group ) {
         this.group = group;
     }
+    public void setGroup( String group ) {
+        this.group = ObjectConverter.convert(group, Boolean.class);
+    }
     public void setStart( String start ) {
     	this.start = start;
     }
@@ -178,6 +215,9 @@ public class Component {
     }
     public void setPresent( boolean present ){
         this.present = present;
+    }
+    public void setPresent( String present ){
+        this.present = ObjectConverter.convert(present, Boolean.class);
     }
     public void setStatusChange(String statuschange){
         this.statuschange = statuschange;
@@ -248,7 +288,7 @@ public class Component {
      */
     public String toStringJava() {
     	
-        return String.format("component%d = new Component( (long) %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", %b, \"%s\", \"%s\", %b, \"%s\", \"%s\" );", 
+        return String.format("component%d = new Component( %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", %b, \"%s\", \"%s\", %b, \"%s\", \"%s\" );", 
         		oid, oid, name, id, dbid, newid, namespace, definition, group, start, end, present, statuschange, statusrule );
     }
 

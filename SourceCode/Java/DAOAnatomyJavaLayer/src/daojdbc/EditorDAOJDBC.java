@@ -430,7 +430,7 @@ public final class EditorDAOJDBC implements EditorDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm) throws Exception {
+    public long count(String searchTerm) throws Exception {
 
         String searchWithWildCards = "";
 
@@ -449,7 +449,7 @@ public final class EditorDAOJDBC implements EditorDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -460,7 +460,7 @@ public final class EditorDAOJDBC implements EditorDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 

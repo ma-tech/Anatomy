@@ -102,6 +102,6 @@ public interface RelationshipTypeDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
 }

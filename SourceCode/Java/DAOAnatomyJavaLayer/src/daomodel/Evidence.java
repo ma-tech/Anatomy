@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyJavaLayer
 *
-* Title:        Perspective.java
+* Title:        Evidence.java
 *
 * Date:         2012
 *
@@ -18,9 +18,8 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Transfer Object for the Perspective Table.
-*                ANA_PERSPECTIVE_AMBIT
-*                 (A List of all the Perspectives) 
+* Description:  This class represents a SQL Database Transfer Object for the 
+*                Evidence Table - ANA_EVIDENCE
 *
 * Link:         
 * 
@@ -28,63 +27,54 @@
 *
 * Who; When; What;
 *
-* Mike Wicks; 8th December 2013; Create Class
+* Mike Wicks; 21st March 2012; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
 package daomodel;
 
-public class Perspective {
+public class Evidence {
     // Properties ---------------------------------------------------------------------------------
 	/*
-     *   1. PSP_NAME           - varchar(25)
-     *   2. PSP_COMMENTS       - varchar(1024)
- 	 */
+     *   1. EVI_NAME - varchar(50)
+	 */
     private String name; 
-    private String comments; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
      * Default constructor.
      */
-    public Perspective() {
+    public Evidence() {
         
     }
 
     /*
      * Minimal constructor. Contains required fields.
      */
-    public Perspective(String name,  
-    	    String comments) {
+    public Evidence(
+    	    String name) {
     	
 	    this.name = name;
-	    this.comments = comments;
     }
 
     // Getters ------------------------------------------------------------------------------------
     public String getName() {
         return name;
     }
-    public String getComments() {
-        return comments;
-    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setName(String name) {
         this.name = name;
     }
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * Is this PerspectiveAmbit the same as the Supplied PerspectiveAmbit?
+     * Is this Evidence the same as the Supplied Evidence?
      */
-    public boolean isSameAs(Perspective daoperspective){
+    public boolean isSameAs(Evidence daoevidence){
 
-    	if ( this.getName().equals(daoperspective.getName()) &&
-    		this.getComments().equals(daoperspective.getComments()) ) {
+
+    	if ( this.getName().equals(daoevidence.getName()) ) {
 
         	return true;
         }
@@ -95,21 +85,11 @@ public class Perspective {
     }
 
     /*
-     * The relation ID is unique for each Node. So this should compare Node by ID only.
-     */
-    public boolean equals(Object other) {
-      
-    	return (other instanceof Perspective) && (name != null) 
-        		? name.equals(((Perspective) other).name) 
-        		: (other == this);
-    }
-
-    /*
      * Returns the String representation of this Node. Not required, it just makes reading logs easier.
      */
     public String toString() {
-        
-    	return String.format("Perspective [ name=%s, comments=%s ]", 
-            name, comments); 
+      
+    	return String.format("Evidence [ name=%s ]", 
+            name); 
     }
 }

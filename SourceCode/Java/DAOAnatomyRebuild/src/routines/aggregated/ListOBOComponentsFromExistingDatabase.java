@@ -222,7 +222,9 @@ public class ListOBOComponentsFromExistingDatabase {
                     obocomponent.setIsPrimary( node.isPrimary() );
 
                     // query for the node's partOf relationship---------------------------------------------
-                    List<JOINNodeRelationshipRelationshipProject> nrrpJoins = nrrpjoinDAO.listAllByChildAndProject(Long.valueOf(obocomponent.getDBID()), obofactory.getOBOComponentAccess().project());
+                    List<JOINNodeRelationshipRelationshipProject> nrrpJoins = nrrpjoinDAO.listAllByChildAndProject(
+                    		ObjectConverter.convert(obocomponent.getDBID(), Long.class),
+                    		obofactory.getOBOComponentAccess().project());
                     
                     Iterator<JOINNodeRelationshipRelationshipProject> iteratorNrrpJoin = nrrpJoins.iterator();
                         
@@ -294,7 +296,8 @@ public class ListOBOComponentsFromExistingDatabase {
                     }
 
                     // query for the node's synonyms--------------------------------------------------------
-                    List<Synonym> synonyms = synonymDAO.listByObjectFK( Long.valueOf(obocomponent.getDBID()) );
+                    List<Synonym> synonyms = synonymDAO.listByObjectFK( 
+                    		ObjectConverter.convert(obocomponent.getDBID(), Long.class));
                     
                     Iterator<Synonym> iteratorSynonym = synonyms.iterator();
                         
@@ -330,11 +333,14 @@ public class ListOBOComponentsFromExistingDatabase {
                     }
 
                     // query for the node's start and end stage---------------------------------------------
-                    List<JOINTimedNodeStage> tnsJoins = jointimednodestageDAO.listAllByNodeFkOrderByStageSequence( Long.valueOf(obocomponent.getDBID()) );
+                    List<JOINTimedNodeStage> tnsJoins = jointimednodestageDAO.listAllByNodeFkOrderByStageSequence( 
+                    		ObjectConverter.convert(obocomponent.getDBID(), Long.class));
                     
                     Iterator<JOINTimedNodeStage> iteratorTnsJoin = tnsJoins.iterator();
                     
-                    int rowCount = jointimednodestageDAO.countAllByNodeFk( Long.valueOf(obocomponent.getDBID()) );
+                    long longRowCount = jointimednodestageDAO.countAllByNodeFk( 
+                    		ObjectConverter.convert(obocomponent.getDBID(), Long.class));
+                    
               		int i = 0;
 
               		if ( obofactory.getOBOComponentAccess().species().equals("mouse") ) {
@@ -368,7 +374,7 @@ public class ListOBOComponentsFromExistingDatabase {
                   			obocomponent.setStart( tnsJoin.getName() );
                   		}
                   		
-                  		if ( i == rowCount) {
+                  		if ( i == longRowCount) {
                   			
                   			obocomponent.setEnd( tnsJoin.getName() );
                   		}

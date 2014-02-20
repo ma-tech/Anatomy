@@ -39,6 +39,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINNodeRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -62,7 +64,8 @@ public class JOINNodeRelationship {
     private boolean group;
     private String publicId; 
     private String description; 
-    private long oidRelationship; 
+
+    private Long oidRelationship; 
     private String typeFK; 
     private long childFK; 
     private long parentFK;
@@ -101,6 +104,34 @@ public class JOINNodeRelationship {
         this.typeFK = typeFK; 
         this.childFK = childFK; 
         this.parentFK = parentFK;
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINNodeRelationship(Long oidNode, 
+    	    String speciesFK,
+    	    String componentName, 
+    	    String primary,
+    	    String group,
+    	    String publicId,
+    	    String description,
+    	    Long oidRelationship, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK) {
+    	
+        this.oidNode = oidNode;
+	    this.speciesFK = speciesFK;
+	    this.componentName = componentName;
+	    this.primary = ObjectConverter.convert(primary, Boolean.class);
+	    this.group = ObjectConverter.convert(group, Boolean.class);
+	    this.publicId = publicId;
+	    this.description = description;
+        this.oidRelationship = oidRelationship;
+        this.typeFK = typeFK; 
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -152,8 +183,14 @@ public class JOINNodeRelationship {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    }
     public void setGroup(boolean group) {
         this.group = group;
+    }
+    public void setGroup(String group) {
+        this.group = ObjectConverter.convert(group, Boolean.class);
     }
     public void setPublicId(String publicId) {
         this.publicId = publicId;
@@ -171,8 +208,14 @@ public class JOINNodeRelationship {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     // Helper -------------------------------------------------------------------------------------

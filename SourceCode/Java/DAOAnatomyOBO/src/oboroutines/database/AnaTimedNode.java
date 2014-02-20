@@ -46,8 +46,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.MySQLDateTime;
+
 import daointerface.LogDAO;
 import daointerface.StageDAO;
 import daointerface.ThingDAO;
@@ -55,8 +57,10 @@ import daointerface.TimedNodeDAO;
 import daointerface.TimedIdentifierDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINTimedNodeStageDAO;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
 import daomodel.Log;
 import daomodel.Stage;
 import daomodel.Synonym;
@@ -66,6 +70,7 @@ import daomodel.TimedIdentifier;
 import daomodel.Version;
 import daomodel.JOINTimedNodeStage;
 import obomodel.OBOComponent;
+
 import oboroutines.database.AnaObject;
 
 public class AnaTimedNode {
@@ -141,13 +146,13 @@ public class AnaTimedNode {
 
         Wrapper.printMessage("anatimednode.insertANA_TIMED_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         
-        PrintStream original = System.out;
+        //PrintStream original = System.out;
         
         //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("/Users/mwicks/Desktop/output.txt"))));
     		
         OBOComponent component;
         boolean flagInsert = false;
-    	int intCurrentPublicID  = 0;
+    	long longCurrentPublicID  = 0;
     	
         this.timednodeList.clear();
     	
@@ -163,10 +168,10 @@ public class AnaTimedNode {
               	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : getMaxPublicId");
                 }
 
-                intCurrentPublicID = anaobject.getCurrentMaxPublicId();
+                longCurrentPublicID = anaobject.getCurrentMaxPublicId();
                 
                 //System.out.println("anaobject.getCurrentMaxPublicId() = " + anaobject.getCurrentMaxPublicId());
-                //System.out.println("intCurrentPublicID = " + intCurrentPublicID);
+                //System.out.println("longCurrentPublicID = " + longCurrentPublicID);
         	}
              
             //create timed components in ANA_OBJECT
@@ -208,10 +213,10 @@ public class AnaTimedNode {
 
                 if (flagInsert) {
              	   
-                    //intCurrentPublicID = intCurrentPublicID + 1;
+                    //longCurrentPublicID = longCurrentPublicID + 1;
 
                     //make a time component record for each stage
-                    for (int j = component.getStartSequence(); j <= component.getEndSequence(); j++ ) {
+                    for (int j = ObjectConverter.convert(component.getStartSequence(), Integer.class); j <= component.getEndSequence(); j++ ) {
 
                         OBOComponent timedComponent = new OBOComponent();
                         		
@@ -225,24 +230,24 @@ public class AnaTimedNode {
 
                         char padChar = '0';
                         
-                        intCurrentPublicID = intCurrentPublicID + 1;
+                        longCurrentPublicID = longCurrentPublicID + 1;
 
                     	if ( generateIdentifiers ) {
                     		
                             if (strSpecies.equals("mouse")) {
                           	   
-                                timedComponent.setID( "EMAP:" + intCurrentPublicID );
-                                timedComponent.setDisplayId( "EMAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
+                                timedComponent.setID( "EMAP:" + longCurrentPublicID );
+                                timedComponent.setDisplayId( "EMAP:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar) );
                             }
                             else if (strSpecies.equals("human")) {
                          	   
-                                timedComponent.setID( "EHDA:" + intCurrentPublicID );
-                                timedComponent.setDisplayId( "EHDA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
+                                timedComponent.setID( "EHDA:" + longCurrentPublicID );
+                                timedComponent.setDisplayId( "EHDA:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar) );
                             }
                             else if (strSpecies.equals("chick")) {
                          	   
-                                timedComponent.setID( "ECAP:" + intCurrentPublicID );
-                                timedComponent.setDisplayId( "ECAP:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar) );
+                                timedComponent.setID( "ECAP:" + longCurrentPublicID );
+                                timedComponent.setDisplayId( "ECAP:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar) );
                             }
                             else {
                          	   
@@ -293,33 +298,33 @@ public class AnaTimedNode {
                	   throw new DatabaseException("anatimednode.insertANA_TIMED_NODE : insertANA_OBJECT:ANA_TIMED_NODE");
                 }
 
-                int intPrevNode = 0;
-                int intCompieStage = 0;
+                long longPrevNode = 0;
+                long intCompieStage = 0;
 
                 for (int k = 0; k< timedComps.size(); k++) {
                 	
                     component = timedComps.get(k);
 
                     //prepare values
-                    int intATN_OID = Integer.parseInt( component.getDBID() );
-                    int intATN_NODE_FK = Integer.parseInt( component.getNamespace() );
-                    int intATN_STAGE_FK = 0;
+                    long longATN_OID = ObjectConverter.convert(component.getDBID(), Long.class);
+                    long longATN_NODE_FK = ObjectConverter.convert(component.getNamespace(), Long.class);
+                    long longATN_STAGE_FK = 0;
 
                     //System.out.println("component.getStart() = " + component.getStart());
                     //System.out.println("component.getEnd() = " + component.getEnd());
 
                     if ( component.getStart().equals( component.getEnd() ) ) {
                     	
-                        Stage stage = this.stageDAO.findByName( component.getStart());
+                        Stage stage = this.stageDAO.findByName( component.getStart() );
                         
-                        intATN_STAGE_FK = stage.getOid().intValue();
+                        longATN_STAGE_FK = stage.getOid();
                         
                         //System.out.println("intCompieStage = " + intCompieStage);
                         //System.out.println("stage.toString() = " + stage.toString());
                     }
                     else {
                     	
-                        if (intPrevNode != intATN_NODE_FK) {
+                        if (longPrevNode != longATN_NODE_FK) {
                         	
                             intCompieStage = component.getStartSequence();
                         }
@@ -328,9 +333,9 @@ public class AnaTimedNode {
                             intCompieStage++;
                         }
                         
-                        Stage stage = this.stageDAO.findBySequence((long) intCompieStage);
+                        Stage stage = this.stageDAO.findBySequence(ObjectConverter.convert(intCompieStage, Long.class) );
                         
-                        intATN_STAGE_FK = stage.getOid().intValue();
+                        longATN_STAGE_FK = stage.getOid();
                         	
                         //System.out.println("intCompieStage = " + intCompieStage);
                         //System.out.println("stage.toString() = " + stage.toString());
@@ -339,7 +344,7 @@ public class AnaTimedNode {
                     String strATN_PUBLIC_ID = component.getID();
                     String strATN_DISPLAY_ID = component.getDisplayId();
                     
-                    TimedNode timednode = new TimedNode((long) intATN_OID, (long) intATN_NODE_FK, (long) intATN_STAGE_FK, null, strATN_PUBLIC_ID, strATN_DISPLAY_ID );
+                    TimedNode timednode = new TimedNode( longATN_OID, longATN_NODE_FK, longATN_STAGE_FK, null, strATN_PUBLIC_ID, strATN_DISPLAY_ID );
                     
                     //System.out.println("timednode.toString() = " + timednode.toString());
 
@@ -352,7 +357,7 @@ public class AnaTimedNode {
                     
                     this.timednodeDAO.create(timednode);
 
-                    intPrevNode = intATN_NODE_FK;
+                    longPrevNode = longATN_NODE_FK;
                 }
                 
               	// Update ANA_OBJECT
@@ -400,7 +405,7 @@ public class AnaTimedNode {
                     	logDeleteTimedComponents.add(component);
                     	
                         ArrayList<JOINTimedNodeStage> jointimednodestages = 
-                        		(ArrayList<JOINTimedNodeStage>) jointimednodestageDAO.listAllByNodeFkOrderByStageName( Long.valueOf( component.getDBID() ) );
+                        		(ArrayList<JOINTimedNodeStage>) jointimednodestageDAO.listAllByNodeFkOrderByStageName( ObjectConverter.convert(component.getDBID(), Long.class) );
                 		
                         Iterator<JOINTimedNodeStage> iteratorJointimednodestages = jointimednodestages.iterator();
                         
@@ -524,9 +529,6 @@ public class AnaTimedNode {
         vATNcolumns.add("ATN_PUBLIC_ID");
         vATNcolumns.add("ATN_NODE_FK");
         vATNcolumns.add("ATN_DISPLAY_ID");
-        
-        //column values for selection from ANA_TIMED_NODE
-        //int intATN_OID = 0;
         
         //column values for insertion into ANA_LOG
         String strLOG_COLUMN_NAME = "";

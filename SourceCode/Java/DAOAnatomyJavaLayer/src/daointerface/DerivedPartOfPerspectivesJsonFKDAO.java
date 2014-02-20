@@ -54,6 +54,6 @@ public interface DerivedPartOfPerspectivesJsonFKDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchPerspective) throws Exception;
+    public long count(String searchTerm, String searchPerspective) throws Exception;
 
 }

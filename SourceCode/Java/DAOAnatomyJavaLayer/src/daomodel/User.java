@@ -71,7 +71,11 @@ public class User {
     /*
      * Full constructor. Contains required and optional fields.
      */
-    public User(Long oid, String username, String password, String email, String organisation) {
+    public User(Long oid, 
+    		String username, 
+    		String password, 
+    		String email, 
+    		String organisation) {
     	
         this(oid, username, password);
         this.email = email;

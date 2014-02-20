@@ -42,9 +42,9 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.MySQLDateTime;
-
 import daointerface.ComponentOrderDAO;
 import daointerface.LogDAO;
 import daointerface.NodeDAO;
@@ -53,10 +53,8 @@ import daointerface.RelationshipProjectDAO;
 import daointerface.ThingDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINNodeRelationshipNodeDAO;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daomodel.ComponentOrder;
 import daomodel.Log;
 import daomodel.Node;
@@ -66,7 +64,6 @@ import daomodel.Thing;
 import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
 import obomodel.OBOComponent;
-
 import oboroutines.TreeBuilder;
 
 public class AnaRelationship {
@@ -155,12 +152,12 @@ public class AnaRelationship {
         
         boolean flagInsert;
         
-        int intREL_OID = 0;
+        long longREL_OID = 0;
         
         String strREL_RELATIONSHIP_TYPE_FK = "";
 
-        int intREL_CHILD_FK = 0;
-        int intREL_PARENT_FK = 0;
+        long longREL_CHILD_FK = 0;
+        long longREL_PARENT_FK = 0;
 
         this.relationshipList.clear();
         
@@ -339,7 +336,7 @@ public class AnaRelationship {
                     //INSERT INTO ANA_RELATIONSHIP AND ANA_RELATIONSHIP_PROJECT
                     for ( OBOComponent insertRelObject : updatedNewTermList ) {
                     	
-                        intREL_OID = Integer.parseInt( insertRelObject.getDBID() );
+                        longREL_OID = ObjectConverter.convert(insertRelObject.getDBID(), Long.class);
 
                         if ( insertRelObject.getChildOfTypes().get(0).equals("PART_OF")) {
                         	
@@ -390,20 +387,20 @@ public class AnaRelationship {
                         	Wrapper.printMessage("anarelationship.insertANA_RELATIONSHIP : UNKNOWN Relationship Type = " + insertRelObject.getChildOfTypes().get(0), "*", this.daofactory.getMsgLevel());
                         }
 
-                        intREL_CHILD_FK = Integer.parseInt( insertRelObject.getID() );
+                        longREL_CHILD_FK = ObjectConverter.convert(insertRelObject.getID(), Long.class);
 
-                        int intRLP_SEQUENCE = 0;
+                        long longRLP_SEQUENCE = 0;
                         
                         if ( !insertRelObject.getOrderComment().equals("") ) {
                         	
-                            intRLP_SEQUENCE = Integer.parseInt( insertRelObject.getOrderComment() );
+                            longRLP_SEQUENCE = ObjectConverter.convert(insertRelObject.getOrderComment(), Long.class);
                         }
 
                         try {
                         	
-                            int intTryREL_PARENT_FK = 0;
-                            intTryREL_PARENT_FK = Integer.parseInt( insertRelObject.getChildOfs().get(0) );
-                            intREL_PARENT_FK = intTryREL_PARENT_FK;
+                            long longTryREL_PARENT_FK = 0;
+                            longTryREL_PARENT_FK = ObjectConverter.convert(insertRelObject.getChildOfs().get(0), Long.class);
+                            longREL_PARENT_FK = longTryREL_PARENT_FK;
                         }
                         catch(Exception e) {
                         	
@@ -415,10 +412,10 @@ public class AnaRelationship {
                     	
                         if ( !insertRelObject.getOrderComment().equals("") ) {
                         	
-                            intRLP_SEQUENCE = Integer.parseInt( insertRelObject.getOrderComment() );
+                            longRLP_SEQUENCE = ObjectConverter.convert(insertRelObject.getOrderComment(), Long.class);
                         }
 
-                        Relationship relationship = new Relationship((long) intREL_OID, strREL_RELATIONSHIP_TYPE_FK, (long) intREL_CHILD_FK, (long) intREL_PARENT_FK);
+                        Relationship relationship = new Relationship( longREL_OID, strREL_RELATIONSHIP_TYPE_FK, longREL_CHILD_FK, longREL_PARENT_FK);
                 
                     	if ( !logANA_RELATIONSHIP( relationship, calledFrom ) ) {
                     		
@@ -466,7 +463,7 @@ public class AnaRelationship {
                 for ( OBOComponent deleteRelCompie: deleteRelComponents ) {
 
                 	ArrayList<Relationship> relationships = 
-                			(ArrayList<Relationship>) relationshipDAO.listByChildFK(Long.valueOf(deleteRelCompie.getDBID()));
+                			(ArrayList<Relationship>) relationshipDAO.listByChildFK( ObjectConverter.convert(deleteRelCompie.getDBID(), Long.class));
 
                 	Iterator<Relationship> iteratorrelationship = relationships.iterator();
 
@@ -510,7 +507,8 @@ public class AnaRelationship {
         	
         ArrayList<ComponentOrder> componentorders = new ArrayList<ComponentOrder>();
         ArrayList<RelationshipProject> relationshipprojects = new ArrayList<RelationshipProject>(); 
-        int intMAX_PK = 0;
+
+        long intMAX_PK = 0;
         
         try {
         	
@@ -542,7 +540,7 @@ public class AnaRelationship {
             		
                     //get max primary key for ana_relationship_project
                     intMAX_PK++; 
-                    RelationshipProject relationshipproject1 = new RelationshipProject((long) intMAX_PK, 
+                    RelationshipProject relationshipproject1 = new RelationshipProject( intMAX_PK, 
                     		joinnoderelationship.getOidRelationship(), 
                     		"EMAP", 
                     		componentorder.getAlphaorder());
@@ -551,7 +549,7 @@ public class AnaRelationship {
                     
                     //get max primary key for ana_relationship_project
                     intMAX_PK++; 
-                    RelationshipProject relationshipproject2 = new RelationshipProject((long) intMAX_PK, 
+                    RelationshipProject relationshipproject2 = new RelationshipProject( intMAX_PK, 
                     		joinnoderelationship.getOidRelationship(), 
                     		"GUDMAP", 
                     		componentorder.getSpecialorder());
@@ -595,7 +593,7 @@ public class AnaRelationship {
             vRELcolumns.add("REL_CHILD_FK");
             
             //column values for selection from ANA_RELATIONSHIP
-            int intREL_OID = 0;
+            long longREL_OID = 0;
             
             //column values for insertion into ANA_LOG
             String strLOG_COLUMN_NAME = "";
@@ -623,7 +621,7 @@ public class AnaRelationship {
             }
             
             //get max log_oid from new database
-        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+        	longLogOID = logDAO.maximumOid(); 
 
             //clear HashMap relOldValues
             relOldValues.clear();

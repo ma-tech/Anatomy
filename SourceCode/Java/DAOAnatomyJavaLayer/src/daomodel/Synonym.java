@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Synonym {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -64,6 +66,18 @@ public class Synonym {
 	    this.name = name;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Synonym(Long oid, 
+    		String thingFK,
+    	    String name) {
+    	
+        this.oid = oid;
+	    this.thingFK = ObjectConverter.convert(thingFK, Long.class);
+	    this.name = name;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -81,6 +95,9 @@ public class Synonym {
     }
     public void setThingFK(long thingFK) {
         this.thingFK = thingFK;
+    }
+    public void setThingFK(String thingFK) {
+        this.thingFK = ObjectConverter.convert(thingFK, Long.class);
     }
     public void setName(String name) {
         this.name = name;

@@ -77,12 +77,12 @@ public interface StageDAO extends BaseDAO {
     /*
      * Returns the Maximum stage sequence in the database.
      */
-    public int valueMaxSequence() throws Exception;
+    public long valueMaxSequence() throws Exception;
 
     /*
      * Returns the Minimum stage sequence in the database.
      */
-    public int valueMinSequence() throws Exception;
+    public long valueMinSequence() throws Exception;
 
     /*
      * Save the given stage in the database.
@@ -128,11 +128,11 @@ public interface StageDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
     /*
      * Returns total amount of rows in table.
      */
-    public int value(String sql) throws Exception;
+    public long value(String sql) throws Exception;
 
 }

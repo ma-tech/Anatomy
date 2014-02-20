@@ -181,7 +181,7 @@ public final class NodeDAOJDBC implements NodeDAO {
     /*
      * Returns the maximum EMAPA id.
      */
-    public int maximumEmapa() throws Exception {
+    public long maximumEmapa() throws Exception {
     	
         return maximum(SQL_MAX_EMAPA);
     }
@@ -656,7 +656,7 @@ public final class NodeDAOJDBC implements NodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -683,7 +683,7 @@ public final class NodeDAOJDBC implements NodeDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -705,7 +705,7 @@ public final class NodeDAOJDBC implements NodeDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 
@@ -724,12 +724,12 @@ public final class NodeDAOJDBC implements NodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws Exception {
+    public long maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int maximum = 0;
+        long maximum = 0;
 
         try {
         	
@@ -740,7 +740,7 @@ public final class NodeDAOJDBC implements NodeDAO {
 
             if (resultSet.next()) {
             	
-            	maximum = resultSet.getInt("MAXIMUM");
+            	maximum = resultSet.getLong("MAXIMUM");
             }
             
         } 

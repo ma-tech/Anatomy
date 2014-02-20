@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Version {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -60,13 +62,24 @@ public class Version {
      * The Full Constructor is the Minimal Constructor
      * 
      */
-    public Version(Long oid, 
+    public Version(long oid, 
     		long number,
     		String date, 
     		String comments) {
 
     	this.oid = oid;
 	    this.number = number;
+	    this.date = date;
+	    this.comments = comments;
+    }
+
+    public Version(String oid, 
+    		String number,
+    		String date, 
+    		String comments) {
+
+    	this.oid = ObjectConverter.convert(oid, Long.class);
+	    this.number = ObjectConverter.convert(number, Long.class);
 	    this.date = date;
 	    this.comments = comments;
     }
@@ -91,6 +104,9 @@ public class Version {
     }
     public void setNumber(long number) {
         this.number = number;
+    }
+    public void setNumber(String number) {
+        this.number = ObjectConverter.convert(number, Long.class);
     }
     public void setDate(String date) {
         this.date = date;

@@ -36,6 +36,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class ExtraTimedNode {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -97,6 +99,33 @@ public class ExtraTimedNode {
         this.stageMaxName = stageMaxName;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public ExtraTimedNode(long oid, 
+    		String nodeFK, 
+    		String stageFK,
+    		String stageModifierFK,
+    		String publicEmapId,
+    		String publicEmapaId,
+    		String stageName,
+    		String stageSeq,
+    		String stageMinName,
+    		String stageMaxName
+    		) {
+    	
+        this.oid = oid;
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
+        this.stageModifierFK = stageModifierFK;
+        this.publicEmapId = publicEmapId;
+        this.publicEmapaId = publicEmapaId;
+        this.stageName = stageName;
+        this.stageSeq = ObjectConverter.convert(stageSeq, Long.class);
+        this.stageMinName = stageMinName;
+        this.stageMaxName = stageMaxName;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -136,8 +165,14 @@ public class ExtraTimedNode {
     public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
+    public void setNodeFK(String nodeFK) {
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    }
     public void setStageFK(long stageFK) {
         this.stageFK = stageFK;
+    }
+    public void setStageFK(String stageFK) {
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
     }
     public void setStageModifierFK(String stageModifierFK) {
         this.stageModifierFK = stageModifierFK;
@@ -153,6 +188,9 @@ public class ExtraTimedNode {
     }
     public void setStageSeq(long stageSeq) {
         this.stageSeq = stageSeq;
+    }
+    public void setStageSeq(String stageSeq) {
+        this.stageSeq = ObjectConverter.convert(stageSeq, Long.class);
     }
     public void setStageMinName(String stageMinName) {
         this.stageMinName = stageMinName;

@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Source {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -72,6 +74,22 @@ public class Source {
 	    this.year = year;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Source(Long oid, 
+    	    String name,
+    	    String authors, 
+    	    String formatFK,
+    	    String year) {
+    	
+        this.oid = oid;
+	    this.name = name;
+	    this.authors = authors;
+	    this.formatFK = formatFK;
+	    this.year = ObjectConverter.convert(year, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -104,6 +122,9 @@ public class Source {
     }
     public void setYear(long year) {
         this.year = year;
+    }
+    public void setYear(String year) {
+        this.year = ObjectConverter.convert(year, Long.class);
     }
 
     // Helper -------------------------------------------------------------------------------------
@@ -141,6 +162,15 @@ public class Source {
     public String toString() {
       
     	return String.format("Source [ oid=%d, name=%s, authors=%s, formatFK=%s, year=%d ]", 
+            oid, name, authors, formatFK, year); 
+    }
+
+    /*
+     * Returns the String representation of this Node. Not required, it just makes reading logs easier.
+     */
+    public String toStringThing() {
+      
+    	return String.format("oid=%d, name=%s, authors=%s, formatFK=%s, year=%d", 
             oid, name, authors, formatFK, year); 
     }
 }

@@ -565,7 +565,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -592,7 +592,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -603,7 +603,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {
@@ -621,12 +621,12 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws Exception {
+    public long countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -637,7 +637,7 @@ public final class ComponentSynonymDAOJDBC implements ComponentSynonymDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {

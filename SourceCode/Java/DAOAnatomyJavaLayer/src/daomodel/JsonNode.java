@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JsonNode {
     
     private String ID;
@@ -75,6 +77,31 @@ public class JsonNode {
         this.endStage = endStage;
         this.name = name;
         this.childCount = childCount;
+    }
+    
+    /*
+     * Constructor for Timed JsonNode
+     */
+    public JsonNode(String extID, String ID, String abstractID, String timedStage, String name, String childCount) {        
+        this.extID = extID;
+        this.ID = ID;
+        this.abstractID = abstractID;
+        this.timedStage = timedStage; 
+        this.name = name;
+        this.childCount = ObjectConverter.convert(childCount, Integer.class);
+    }
+    
+    /*
+     * Constructor for Abstract JsonNode
+     */
+    public JsonNode(String extID, String ID, String abstractID, String startStage, String endStage, String name, String childCount) {        
+        this.extID = extID;
+        this.ID = ID;
+        this.abstractID = abstractID;
+        this.startStage = startStage; 
+        this.endStage = endStage;
+        this.name = name;
+        this.childCount = ObjectConverter.convert(childCount, Integer.class);
     }
     
     // Getters ------------------------------------------------------------------------------------
@@ -121,6 +148,9 @@ public class JsonNode {
     }
     public void setChildCount(int childCount) {
         this.childCount = childCount;
+    }
+    public void setChildCount(String childCount) {
+        this.childCount = ObjectConverter.convert(childCount, Integer.class);
     }
     
     // Helper -------------------------------------------------------------------------------------

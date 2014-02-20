@@ -40,22 +40,19 @@ package oboroutines.database;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daointerface.NodeDAO;
 import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
-
 import daomodel.Relationship;
 import daomodel.Synonym;
 import daomodel.Version;
 import daomodel.TimedNode;
 import daomodel.Node;
 import daomodel.Thing;
-
 import obomodel.OBOComponent;
 
 public class AnaObject {
@@ -70,8 +67,8 @@ public class AnaObject {
     private NodeDAO nodeDAO;
     private TimedNodeDAO timednodeDAO;
     
-    private int currentMaxObjectId;
-    private int currentMaxPublicId;
+    private long longCurrentMaxObjectId;
+    private long longCurrentMaxPublicId;
 
     // Updated list of Components with new OIDs in
     private ArrayList<OBOComponent> updatedNewTermList;
@@ -126,7 +123,7 @@ public class AnaObject {
             	throw new DatabaseException("anaobject.insertANA_OBJECT : getMaxOID()");
             }
 
-            int intOBJ_OID = 0;
+            long longOBJ_OID = 0;
             String datetime = utility.MySQLDateTime.now();
             long sysadmin = 2;
             String description = "";
@@ -138,12 +135,12 @@ public class AnaObject {
                     component = newTermList.get(i);
 
                     //database values
-                    intOBJ_OID = ++this.currentMaxObjectId;
+                    longOBJ_OID = ++this.longCurrentMaxObjectId;
 
                     //update new components with ano_oid/atn_oid
-                    component.setDBID(Integer.toString(intOBJ_OID));
+                    component.setDBID(ObjectConverter.convert(longOBJ_OID, String.class));
 
-                    Thing thing = new Thing((long) intOBJ_OID, datetime, sysadmin, description, calledFromTable);
+                    Thing thing = new Thing(longOBJ_OID, datetime, sysadmin, description, calledFromTable);
 
                     this.thingDAO.create(thing);
                     
@@ -408,7 +405,7 @@ public class AnaObject {
                 	
                 	OBOComponent deleteObject = iteratorDeleteObjects.next();
 
-                	Thing thing = thingDAO.findByOid(Long.valueOf(deleteObject.getDBID())); 
+                	Thing thing = thingDAO.findByOid( ObjectConverter.convert(deleteObject.getDBID(), Long.class)); 
 
                     thingDAO.delete(thing);
                 }
@@ -437,7 +434,7 @@ public class AnaObject {
         try {
 
         	//get max oid from referenced database
-        	this.currentMaxObjectId = this.thingDAO.maximumOid();
+        	this.longCurrentMaxObjectId = this.thingDAO.maximumOid();
 
         }
         catch ( DAOException dao ) {
@@ -463,16 +460,16 @@ public class AnaObject {
     	try {
 
         	//get max oid from referenced database
-        	int currentMaxEMAPAId = this.nodeDAO.maximumEmapa();
-        	int currentMaxEMAPId = this.timednodeDAO.maximumEmap();
+        	long longCurrentMaxEMAPAId = this.nodeDAO.maximumEmapa();
+        	long longCurrentMaxEMAPId = this.timednodeDAO.maximumEmap();
         	
-        	if ( currentMaxEMAPAId > currentMaxEMAPId ) {
+        	if ( longCurrentMaxEMAPAId > longCurrentMaxEMAPId ) {
         		
-        		this.currentMaxPublicId = currentMaxEMAPAId;
+        		this.longCurrentMaxPublicId = longCurrentMaxEMAPAId;
         	}
         	else {
         		
-        		this.currentMaxPublicId = currentMaxEMAPId;
+        		this.longCurrentMaxPublicId = longCurrentMaxEMAPId;
         	}
         }
         catch ( DAOException dao ) {
@@ -497,11 +494,11 @@ public class AnaObject {
     public ArrayList<OBOComponent> getUpdatedNewTermList() {
         return this.updatedNewTermList;
     }
-    public int getCurrentMaxPublicId() {
-        return this.currentMaxPublicId;
+    public long getCurrentMaxPublicId() {
+        return this.longCurrentMaxPublicId;
     }
-    public int getCurrentMaxObjectId() {
-        return this.currentMaxObjectId;
+    public long getCurrentMaxObjectId() {
+        return this.longCurrentMaxObjectId;
     }
     
     // Setters ------------------------------------------------------------------------------------
@@ -511,10 +508,10 @@ public class AnaObject {
     public void setUpdatedNewTermList( ArrayList<OBOComponent> updatedNewTermList) {
         this.updatedNewTermList = updatedNewTermList;
     }
-    public void setCurrentMaxPublicId( int currentMaxPublicId ) {
-        this.currentMaxPublicId = currentMaxPublicId;
+    public void setCurrentMaxPublicId( long currentMaxPublicId ) {
+        this.longCurrentMaxPublicId = currentMaxPublicId;
     }
-    public void setCurrentMaxObjectId( int currentMaxObjectId ) {
-        this.currentMaxObjectId = currentMaxObjectId;
+    public void setCurrentMaxObjectId( long longCurrentMaxObjectId ) {
+        this.longCurrentMaxObjectId = longCurrentMaxObjectId;
     }
 }

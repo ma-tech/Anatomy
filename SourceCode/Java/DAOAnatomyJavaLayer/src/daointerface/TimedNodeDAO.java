@@ -46,7 +46,7 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Returns the maximum EMAP id.
      */
-    public int maximumEmap() throws Exception;
+    public long maximumEmap() throws Exception;
     
     /*
      * Returns the TimedNode from the database matching the given OID, otherwise null.
@@ -159,11 +159,11 @@ public interface TimedNodeDAO extends BaseDAO {
     /*
      * Returns total number of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
     /*
      * Returns the largest used Public (EMAP) Id.
      */
-    public int maximum(String sql) throws Exception;
+    public long maximum(String sql) throws Exception;
     
 }

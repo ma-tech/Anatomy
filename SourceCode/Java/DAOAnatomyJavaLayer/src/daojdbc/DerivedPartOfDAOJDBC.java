@@ -644,7 +644,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -671,7 +671,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -690,7 +690,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {

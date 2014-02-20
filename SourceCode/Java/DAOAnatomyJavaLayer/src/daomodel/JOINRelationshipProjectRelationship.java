@@ -39,6 +39,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINRelationshipProjectRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -56,6 +58,7 @@ public class JOINRelationshipProjectRelationship {
     private long relationshipFK; 
     private String projectFK; 
     private long sequenceFK;
+
     private Long oidRelationship; 
     private String typeFK; 
     private long childFK; 
@@ -94,6 +97,31 @@ public class JOINRelationshipProjectRelationship {
         this.parentFK = parentFK;
     }
 
+    /*
+     * Full constructor. Contains required and optional fields.
+     * 
+     * The Full Constructor is the Minimal Constructor
+     * 
+     */
+    public JOINRelationshipProjectRelationship(long oidRelationshipProject, 
+    		String relationshipFK, 
+    		String projectFK, 
+    		String sequenceFK,
+    	    Long oidRelationship, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK) {
+    	
+        this.oidRelationshipProject = oidRelationshipProject;
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+        this.projectFK = projectFK; 
+        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);
+        this.oidRelationship = oidRelationship;
+        this.typeFK = typeFK; 
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOidRelationshipProject() {
         return oidRelationshipProject;
@@ -128,11 +156,17 @@ public class JOINRelationshipProjectRelationship {
     public void setRelationshipFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
+    public void setRelationshipFK(String relationshipFK) {
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+    }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
     public void setSequenceFK(long sequenceFK) {
         this.sequenceFK = sequenceFK;
+    }
+    public void setSequenceFK(String sequenceFK) {
+        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);;
     }
 
     public void setOidRelationship(Long oidRelationship) {
@@ -144,8 +178,14 @@ public class JOINRelationshipProjectRelationship {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     // Override -----------------------------------------------------------------------------------

@@ -114,7 +114,7 @@ public class ComponentJDBCTest {
     @Test  
     public void testCreateNullOid() throws Exception {
     	componentDAO.create(component3);
-    	component4 = componentDAO.findByOid((long) componentDAO.maximumOid());
+    	component4 = componentDAO.findByOid( componentDAO.maximumOid());
     	componentDAO.delete(component4);
     	assertTrue(component4.isSameAs(component3));
     	
@@ -122,7 +122,7 @@ public class ComponentJDBCTest {
     @Test 
     public void testSaveNullOid() throws Exception {
     	componentDAO.save(component3);
-    	component4 = componentDAO.findByOid((long) componentDAO.maximumOid());
+    	component4 = componentDAO.findByOid( componentDAO.maximumOid());
     	componentDAO.delete(component4);
     	assertTrue(component4.isSameAs(component3));
     }

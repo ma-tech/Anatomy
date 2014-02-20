@@ -111,7 +111,7 @@ public class RunOBOValidateComponents {
             	StageRange stagerange = iteratorStageRange.next();
            		i++;
            		
-    	        Wrapper.printMessage("RunOBOValidateComponents.run : " + Integer.toString(i) + stagerange.reportStageRange(), "*", "*");
+    	        Wrapper.printMessage("RunOBOValidateComponents.run : " + i + stagerange.reportStageRange(), "*", "*");
           	}
 
     	}

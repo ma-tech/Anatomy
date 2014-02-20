@@ -35,6 +35,8 @@ package daomodel;
 
 import java.io.InputStream;
 
+import utility.ObjectConverter;
+
 public class OBOFile {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -245,6 +247,169 @@ public class OBOFile {
         this.pdfreportlength = pdfreportlength; 
         this.pdfreportdate = pdfreportdate; 
     }
+    
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		InputStream content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author) {
+    	
+        this.oid = oid;
+        this.name = name; 
+        this.content = content; 
+        this.contenttype = contenttype;
+        this.contentlength = ObjectConverter.convert(contentlength, Long.class); 
+        this.contentdate = contentdate; 
+        this.validation = validation; 
+        this.author = author; 
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author) {
+    	
+        this.oid = oid;
+        this.name = name; 
+        this.content = null;
+        this.contenttype = contenttype;
+        this.contentlength = ObjectConverter.convert(contentlength, Long.class);
+        this.contentdate = contentdate; 
+        this.validation = validation; 
+        this.author = author; 
+    }
+
+    /*
+     * Fuller constructor. 
+     *  Contains required and optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		InputStream content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    	    InputStream textreport,
+    	    String textreporttype,
+    	    String textreportlength,
+    	    String textreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author);
+
+    	this.textreportname = textreportname; 
+    	this.textreport = textreport; 
+        this.textreporttype = textreporttype; 
+        this.textreportlength = ObjectConverter.convert(textreportlength, Long.class);
+        this.textreportdate = textreportdate; 
+    }
+
+    /*
+     * Fuller constructor. 
+     *  Contains required and optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    		String textreport,
+    	    String textreporttype,
+    	    String textreportlength,
+    	    String textreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author);
+
+    	this.textreportname = textreportname; 
+    	this.textreport = null; 
+        this.textreporttype = textreporttype; 
+        this.textreportlength = ObjectConverter.convert(textreportlength, Long.class);
+        this.textreportdate = textreportdate; 
+    }
+
+    /*
+     * Full constructor. 
+     *  Contains required and more optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		InputStream content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    	    InputStream textreport,
+    	    String textreporttype,
+    	    String textreportlength,
+    	    String textreportdate, 
+    		String pdfreportname, 
+    	    InputStream pdfreport,
+    	    String pdfreporttype,
+    	    String pdfreportlength,
+    	    String pdfreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author, textreportname, textreport, textreporttype, textreportlength, textreportdate);
+
+    	this.pdfreportname = pdfreportname; 
+    	this.pdfreport = pdfreport; 
+        this.pdfreporttype = pdfreporttype; 
+        this.pdfreportlength = ObjectConverter.convert(pdfreportlength, Long.class);
+        this.pdfreportdate = pdfreportdate; 
+    }
+
+    /*
+     * Full constructor. 
+     *  Contains required and more optional fields.
+     */
+    public OBOFile(Long oid, 
+    		String name, 
+    		String content,
+    		String contenttype,
+    		String contentlength,
+    		String contentdate,
+    		String validation,
+    		String author, 
+    		String textreportname, 
+    		String textreport,
+    	    String textreporttype,
+    	    String textreportlength,
+    	    String textreportdate, 
+    		String pdfreportname, 
+    		String pdfreport,
+    	    String pdfreporttype,
+    	    String pdfreportlength,
+    	    String pdfreportdate) {
+
+    	this(oid, name, content, contenttype, contentlength, contentdate, validation, author, textreportname, textreport, textreporttype, textreportlength, textreportdate);
+
+    	this.pdfreportname = pdfreportname; 
+    	this.pdfreport = null; 
+        this.pdfreporttype = pdfreporttype; 
+        this.pdfreportlength = ObjectConverter.convert(pdfreportlength, Long.class);
+        this.pdfreportdate = pdfreportdate; 
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -320,6 +485,9 @@ public class OBOFile {
     public void setContentlength(long contentlength) {
         this.contentlength = contentlength;
     }
+    public void setContentlength(String contentlength) {
+        this.contentlength = ObjectConverter.convert(contentlength, Long.class);
+    }
     public void setContentdate(String contentdate) {
         this.contentdate = contentdate;
     }
@@ -343,6 +511,9 @@ public class OBOFile {
     }
     public void setTextreportlength(long textreportlength) {
     	this.textreportlength = textreportlength;
+    }
+    public void setTextreportlength(String textreportlength) {
+    	this.textreportlength = ObjectConverter.convert(textreportlength, Long.class);
     }
     public void setTextreportdate(String textreportdate) {
     	this.textreportdate = textreportdate;

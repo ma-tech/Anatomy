@@ -162,7 +162,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     /*
      * Returns the maximum Oid.
      */
-    public int maximumOid() throws Exception {
+    public long maximumOid() throws Exception {
     	
         return maximum(SQL_MAX_OID);
     }
@@ -651,7 +651,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -678,7 +678,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -689,7 +689,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {
@@ -707,12 +707,12 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int countAll() throws Exception {
+    public long countAll() throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -723,7 +723,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
         } 
         catch (SQLException e) {
@@ -741,12 +741,12 @@ public final class ComponentDAOJDBC implements ComponentDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int maximum(String sql) throws Exception {
+    public long maximum(String sql) throws Exception {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int maximum = 0;
+        long maximum = 0;
 
         try {
         	
@@ -757,7 +757,7 @@ public final class ComponentDAOJDBC implements ComponentDAO {
 
             if (resultSet.next()) {
             	
-            	maximum = resultSet.getInt("MAXIMUM");
+            	maximum = resultSet.getLong("MAXIMUM");
             }
             
         } 

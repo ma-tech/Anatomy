@@ -59,6 +59,6 @@ public interface DerivedRelationshipTransitiveDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm) throws Exception;
+    public long count(String searchTerm) throws Exception;
 
 }

@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class DerivedRelationshipTransitive {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -71,6 +73,23 @@ public class DerivedRelationshipTransitive {
     	this.ancestorFK = ancestorFK;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     * 
+     */
+    public DerivedRelationshipTransitive(Long oid,
+    	    String relTypeFK, 
+    	    String descendantFK, 
+    	    String ancestorFK) {
+    	
+    	this.oid = oid;
+    	this.relTypeFK = relTypeFK;
+    	this.descendantFK = ObjectConverter.convert(descendantFK, Long.class);
+    	this.ancestorFK = ObjectConverter.convert(ancestorFK, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -95,8 +114,14 @@ public class DerivedRelationshipTransitive {
     public void setDescendantFK(long descendantFK) {
         this.descendantFK = descendantFK;
     } 
+    public void setDescendantFK(String descendantFK) {
+        this.descendantFK = ObjectConverter.convert(descendantFK, Long.class);
+    } 
     public void setAncestorFK(long ancestorFK) {
         this.ancestorFK = ancestorFK;
+    }
+    public void setAncestorFK(String ancestorFK) {
+        this.ancestorFK = ObjectConverter.convert(ancestorFK, Long.class);
     }
 
     // Override -----------------------------------------------------------------------------------

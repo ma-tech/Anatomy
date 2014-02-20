@@ -219,14 +219,14 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchPerspective) throws Exception {
+    public long count(String searchTerm, String searchPerspective) throws Exception {
 
         String searchWithWildCards = searchTerm;
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         if (searchTerm.equals("")){
         	
@@ -244,7 +244,7 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
 
                 if (resultSet.next()) {
                 	
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 
@@ -274,7 +274,7 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
 
                 if (resultSet.next()) {
                 	
-                    count = resultSet.getInt("VALUE");
+                    count = resultSet.getLong("VALUE");
                 }
                 
             } 

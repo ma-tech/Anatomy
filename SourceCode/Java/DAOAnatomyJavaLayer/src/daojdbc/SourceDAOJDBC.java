@@ -460,7 +460,7 @@ public final class SourceDAOJDBC implements SourceDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchExtra) throws Exception {
+    public long count(String searchTerm, String searchExtra) throws Exception {
 
         String searchWithWildCards = "";
         String extraWithWildCards = "";
@@ -489,7 +489,7 @@ public final class SourceDAOJDBC implements SourceDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -500,7 +500,7 @@ public final class SourceDAOJDBC implements SourceDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 

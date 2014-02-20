@@ -164,16 +164,16 @@ public class RunDAOTest {
 	        VersionDAO versionDAO = daofactory.getDAOImpl(VersionDAO.class);
 
 	        // Find Node with OID = 33
-	        int oid = 33;
+	        long oid = 33;
 	        
 	        oid = 286970;
 
 	        //ComponentDAO
-	        if ( componentDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Component with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	Component component = componentDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	Component component = componentDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + component.toString(), "*", "*");
 	        }
 	        else {
@@ -184,11 +184,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //ComponentAlternativeDAO
-	        if ( componentalternativeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentalternativeDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ComponentAlternative with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ComponentAlternative componentalternative = componentalternativeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ComponentAlternative componentalternative = componentalternativeDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + componentalternative.toString(), "*", "*");
 	        }
 	        else {
@@ -199,11 +199,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //ComponentCommentDAO
-	        if ( componentcommentDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentcommentDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ComponentComment with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ComponentComment componentcomment = componentcommentDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ComponentComment componentcomment = componentcommentDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + componentcomment.toString(), "*", "*");
 	        }
 	        else {
@@ -214,11 +214,11 @@ public class RunDAOTest {
 	        oid = 37429;
 	        
 	        //ComponentOrderDAO
-	        if ( componentorderDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentorderDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ComponentOrder with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ComponentOrder componentorder = componentorderDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ComponentOrder componentorder = componentorderDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + componentorder.toString(), "*", "*");
 	        }
 	        else {
@@ -229,11 +229,11 @@ public class RunDAOTest {
 	        oid = 315711;
 	        
 	        //ComponentRelationshipDAO
-	        if ( componentrelationshipDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentrelationshipDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ComponentRelationship with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ComponentRelationship componentrelationship = componentrelationshipDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ComponentRelationship componentrelationship = componentrelationshipDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + componentrelationship.toString(), "*", "*");
 	        }
 	        else {
@@ -244,11 +244,11 @@ public class RunDAOTest {
 	        oid = 18154;
 
 	        //ComponentSynonymDAO
-	        if ( componentsynonymDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( componentsynonymDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ComponentSynonym with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ComponentSynonym componentsynonym = componentsynonymDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ComponentSynonym componentsynonym = componentsynonymDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + componentsynonym.toString(), "*", "*");
 	        }
 	        else {
@@ -259,11 +259,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //DerivedPartOfDAO
-	        if ( derivedpartofDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( derivedpartofDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The DerivedPartOf with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	DerivedPartOf derivedpartof = derivedpartofDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	DerivedPartOf derivedpartof = derivedpartofDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + derivedpartof.toString(), "*", "*");
 	        }
 	        else {
@@ -274,11 +274,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //DerivedPartOfFKDAO
-	        if ( derivedpartoffkDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( derivedpartoffkDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The DerivedPartOfFK with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	DerivedPartOfFK derivedpartoffk = derivedpartoffkDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	DerivedPartOfFK derivedpartoffk = derivedpartoffkDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + derivedpartoffk.toString(), "*", "*");
 	        }
 	        else {
@@ -297,11 +297,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //EditorDAO
-	        if ( editorDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( editorDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Editor with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	Editor editor = editorDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	Editor editor = editorDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + editor.toString(), "*", "*");
 	        }
 	        else {
@@ -312,11 +312,11 @@ public class RunDAOTest {
 	        oid = 34;
 
 	        //ExtraTimedNodeDAO
-	        if ( extratimednodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( extratimednodeDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The ExtraTimedNode with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	ExtraTimedNode extratimednode = extratimednodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	ExtraTimedNode extratimednode = extratimednodeDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + extratimednode.toString(), "*", "*");
 	        }
 	        else {
@@ -340,11 +340,11 @@ public class RunDAOTest {
 
 	        //LogDAO
 	        /*
-	        if ( logDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( logDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Log with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Log log = logDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Log log = logDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + log.toString(), "*", "*");
 	        }
 	        else {
@@ -356,11 +356,11 @@ public class RunDAOTest {
 	        oid = 33;
 
 	        //NodeDAO
-	        if ( nodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( nodeDAO.existOid(oid) ) {
 
 	            Wrapper.printMessage("RunDAOTest.run : " + "The Node with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-	        	Node node = nodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+	        	Node node = nodeDAO.findByOid(oid);
 	            Wrapper.printMessage("RunDAOTest.run : " + node.toString(), "*", "*");
 	        }
 	        else {
@@ -371,11 +371,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //OBOFileDAO
-	        if ( obofileDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( obofileDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The OBOFile with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        OBOFile obofile = obofileDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        OBOFile obofile = obofileDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + obofile.toString(), "*", "*");
 	        }
 	        else {
@@ -386,11 +386,11 @@ public class RunDAOTest {
 	        oid = 31616;
 
 	        //PerspectiveAmbitDAO
-	        if ( perspectiveambitDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( perspectiveambitDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The PerspectiveAmbit with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        PerspectiveAmbit perspectiveambit = perspectiveambitDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        PerspectiveAmbit perspectiveambit = perspectiveambitDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + perspectiveambit.toString(), "*", "*");
 	        }
 	        else {
@@ -404,11 +404,11 @@ public class RunDAOTest {
 	        oid = 83;
 
 	        //RelationshipDAO
-	        if ( relationshipDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( relationshipDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Relationship with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Relationship relationship = relationshipDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Relationship relationship = relationshipDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + relationship.toString(), "*", "*");
 	        }
 	        else {
@@ -419,11 +419,11 @@ public class RunDAOTest {
 	        oid = 12071;
 
 	        //RelationshipProjectDAO
-	        if ( relationshipprojectDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( relationshipprojectDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The RelationshipProject with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        RelationshipProject relationshipproject = relationshipprojectDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        RelationshipProject relationshipproject = relationshipprojectDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + relationshipproject.toString(), "*", "*");
 	        }
 	        else {
@@ -434,11 +434,11 @@ public class RunDAOTest {
 	        oid = 4;
 
 	        //SourceDAO
-	        if ( sourceDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( sourceDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Source with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Source source = sourceDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Source source = sourceDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + source.toString(), "*", "*");
 	        }
 	        else {
@@ -451,11 +451,11 @@ public class RunDAOTest {
 	        oid = 7;
 
 	        //StageDAO
-	        if ( stageDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( stageDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Stage with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Stage stage = stageDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Stage stage = stageDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + stage.toString(), "*", "*");
 	        }
 	        else {
@@ -468,11 +468,11 @@ public class RunDAOTest {
 	        oid = 739;
 
 	        //SynonymDAO
-	        if ( synonymDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( synonymDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Synonym with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Synonym synonym = synonymDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Synonym synonym = synonymDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + synonym.toString(), "*", "*");
 	        }
 	        else {
@@ -483,11 +483,11 @@ public class RunDAOTest {
 	        oid = 100;
 
 	        //ThingDAO
-	        if ( thingDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( thingDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Thing with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Thing thing = thingDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Thing thing = thingDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + thing.toString(), "*", "*");
 	        }
 	        else {
@@ -498,11 +498,11 @@ public class RunDAOTest {
 	        oid = 34;
 
 	        //TimedNodeDAO
-	        if ( timednodeDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( timednodeDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The TimedNode with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        TimedNode timednode = timednodeDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        TimedNode timednode = timednodeDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + timednode.toString(), "*", "*");
 	        }
 	        else {
@@ -513,11 +513,11 @@ public class RunDAOTest {
 	        oid = 1;
 
 	        //UserDAO
-	        if ( userDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( userDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The User with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        User user = userDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        User user = userDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + user.toString(), "*", "*");
 	        }
 	        else {
@@ -528,11 +528,11 @@ public class RunDAOTest {
 	        oid = 33977;
 
 	        //VersionDAO
-	        if ( versionDAO.existOid(ObjectConverter.convert(oid, Long.class)) ) {
+	        if ( versionDAO.existOid(oid) ) {
 
 		        Wrapper.printMessage("RunDAOTest.run : " + "The Version with an OID of " + ObjectConverter.convert(oid, String.class) + " EXISTS!", "*", "*");
 
-		        Version version = versionDAO.findByOid(ObjectConverter.convert(oid, Long.class));
+		        Version version = versionDAO.findByOid(oid);
 		        Wrapper.printMessage("RunDAOTest.run : " + version.toString(), "*", "*");
 	        }
 	        else {

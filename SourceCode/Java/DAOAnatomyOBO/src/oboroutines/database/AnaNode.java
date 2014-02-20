@@ -51,6 +51,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Vector;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.MySQLDateTime;
 
@@ -186,7 +187,7 @@ public class AnaNode {
 
         Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
-        int intANO_OID = 0;
+        long longANO_OID = 0;
         
         String strANO_SPECIES_FK = "";
         String strANO_COMPONENT_NAME = "";
@@ -225,7 +226,7 @@ public class AnaNode {
                 	component = this.updatedComponentList.get(i);
 
                 	//prepare values
-                	intANO_OID = Integer.parseInt(component.getDBID());
+                	longANO_OID = ObjectConverter.convert(component.getDBID(), Long.class);
                 	strANO_SPECIES_FK = strSpecies;
                 	strANO_COMPONENT_NAME = component.getName();
                    
@@ -247,24 +248,24 @@ public class AnaNode {
                     		throw new DatabaseException("ananode.insertANA_NODE : anaobject.getMaxPublicId()");
                     	}
 
-                    	int intCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
+                    	long longCurrentPublicID = anaobject.getCurrentMaxPublicId() + 1;
                 	   
                     	char padChar = '0';
                        
                     	if (strANO_SPECIES_FK.equals("mouse")) {
                    	   
-                        	strANO_PUBLIC_ID = "EMAPA:" + intCurrentPublicID;
-                    		strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                        	strANO_PUBLIC_ID = "EMAPA:" + longCurrentPublicID;
+                    		strANO_DISPLAY_ID = "EMAPA:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar);
                     	}
                     	else if (strANO_SPECIES_FK.equals("chick")) {
                     	
-                    		strANO_PUBLIC_ID = "ECAPA:" + intCurrentPublicID;
-                    		strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                    		strANO_PUBLIC_ID = "ECAPA:" + longCurrentPublicID;
+                    		strANO_DISPLAY_ID = "ECAPA:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar);
                     	}
                     	else if (strANO_SPECIES_FK.equals("human")) {
                     	
-                    		strANO_PUBLIC_ID = "EHDAA:" + intCurrentPublicID;
-                    		strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(intCurrentPublicID, 7, padChar);
+                    		strANO_PUBLIC_ID = "EHDAA:" + longCurrentPublicID;
+                    		strANO_DISPLAY_ID = "EHDAA:" + utility.StringPad.pad(longCurrentPublicID, 7, padChar);
                     	}
                     	else {
                         
@@ -282,7 +283,7 @@ public class AnaNode {
                 	// Column 7
                 	strANO_DESCRIPTION = "";
                    
-                	Node node = new Node((long) intANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID);
+                	Node node = new Node( longANO_OID, strANO_SPECIES_FK, strANO_COMPONENT_NAME, boolANO_IS_PRIMARY, boolANO_IS_GROUP, strANO_PUBLIC_ID, strANO_DESCRIPTION, strANO_DISPLAY_ID );
 
                 	this.nodeList.add(node);
                 	
@@ -322,8 +323,8 @@ public class AnaNode {
                 	// Update the ANA_OBO_COMPONENT tables ...
                 	insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
 
-                	// update new components with ano_oid
-                	component.setDBID(Integer.toString(intANO_OID));
+                	// update new components with ano_oid                	
+                	component.setDBID( ObjectConverter.convert(longANO_OID, String.class) );
                    
                 	// update new component with generated emapa id
                 	component.setID(strANO_PUBLIC_ID);
@@ -588,9 +589,9 @@ public class AnaNode {
         			component = termList.get(i);
 
         			// Delete the ANA_NODE rows, if any
-        			if ( nodeDAO.existOid(Long.valueOf(component.getDBID()))) {
+        			if ( nodeDAO.existOid( ObjectConverter.convert(component.getDBID(), Long.class) ) ) {
 
-        				Node node = nodeDAO.findByOid(Long.valueOf(component.getDBID()));
+        				Node node = nodeDAO.findByOid( ObjectConverter.convert(component.getDBID(), Long.class) );
 
         				Thing thing = thingDAO.findByOid(node.getOid()); 
 

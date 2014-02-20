@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class RelationshipProject {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -70,6 +72,22 @@ public class RelationshipProject {
         this.sequence = sequence;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     */
+    public RelationshipProject(Long oid, 
+    		String relationshipFK, 
+    		String projectFK, 
+    		String sequence) {
+    	
+        this.oid = oid;
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+        this.projectFK = projectFK; 
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -91,11 +109,17 @@ public class RelationshipProject {
     public void SetTypeFK(long relationshipFK) {
         this.relationshipFK = relationshipFK;
     }
+    public void SetTypeFK(String relationshipFK) {
+        this.relationshipFK = ObjectConverter.convert(relationshipFK, Long.class);
+    }
     public void setProjectFK(String projectFK) {
         this.projectFK = projectFK;
     }
     public void setSequence(long sequence) {
         this.sequence = sequence;
+    }
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
     }
 
     // Override -----------------------------------------------------------------------------------

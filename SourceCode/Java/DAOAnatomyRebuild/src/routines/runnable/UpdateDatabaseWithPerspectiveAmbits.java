@@ -146,7 +146,7 @@ public class UpdateDatabaseWithPerspectiveAmbits {
         		
             Iterator<PerspectiveAmbit> iteratorPerspectiveAmbit = listPerspectiveAmbit.iterator();
             
-            int intOBJ_OID = thingDAO.maximumOid();
+            long longOBJ_OID = thingDAO.maximumOid();
             
             String datetime = utility.MySQLDateTime.now();
             long sysadmin = 2;
@@ -156,11 +156,11 @@ public class UpdateDatabaseWithPerspectiveAmbits {
 
          		PerspectiveAmbit perspectiveambit = iteratorPerspectiveAmbit.next();
          		
-                intOBJ_OID++;
+                longOBJ_OID++;
 
-                perspectiveambit.setOid((long) intOBJ_OID);
+                perspectiveambit.setOid( longOBJ_OID);
                 
-                Thing thing = new Thing((long) intOBJ_OID, datetime, sysadmin, perspectiveambit.toStringThing(), calledFromTable);
+                Thing thing = new Thing( longOBJ_OID, datetime, sysadmin, perspectiveambit.toStringThing(), calledFromTable);
 
                 thingDAO.create(thing);
                 

@@ -39,9 +39,7 @@ import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
 import java.awt.Color;
-
 import java.io.FileOutputStream;
-
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.Vector;
@@ -49,8 +47,8 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
-
 import obomodel.OBOComponent;
 
 public class GenerateEditorPDF {
@@ -375,7 +373,7 @@ public class GenerateEditorPDF {
         Wrapper.printMessage("generateeditorpdf.makeSummaryTableEntry", "****", this.requestMsgLevel);
         	
         Cell cell = new Cell();
-        Chunk chkEntry = new Chunk( Integer.toString(entry),
+        Chunk chkEntry = new Chunk( ObjectConverter.convert(entry, String.class),
                 new Font( Font.COURIER, 12, style, color ) );
         cell.add( chkEntry );
 
@@ -393,7 +391,7 @@ public class GenerateEditorPDF {
                     new Font( Font.COURIER, 10, Font.ITALIC ) );
             pdfDocument.add( chkSummaryLabel );
             
-            Chunk chkSummaryItem = new Chunk( Integer.toString(item),
+            Chunk chkSummaryItem = new Chunk( ObjectConverter.convert(item, String.class),
                     new Font( Font.COURIER, 10, Font.BOLD ) );
             pdfDocument.add( chkSummaryItem );
             
@@ -642,7 +640,7 @@ public class GenerateEditorPDF {
             Chunk chkTotalLabel = new Chunk( strSubheader,
                     new Font( Font.NORMAL, 10, Font.ITALIC, headerColor ) );
             //Color.RED
-            Chunk chkTotalEntry = new Chunk( Integer.toString( termList.size() ),
+            Chunk chkTotalEntry = new Chunk( ObjectConverter.convert(termList.size(), String.class),
                     new Font( Font.NORMAL, 10, Font.BOLD, headerColor ) );
             pdfDocument.add( chkTotalLabel );
             pdfDocument.add( chkTotalEntry );

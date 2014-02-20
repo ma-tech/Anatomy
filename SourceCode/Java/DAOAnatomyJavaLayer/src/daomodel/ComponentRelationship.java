@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class ComponentRelationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -76,6 +78,24 @@ public class ComponentRelationship {
         this.parent = parent;
     }
     
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public ComponentRelationship(Long oid,
+    		String child, 
+    		String childStart,
+    		String childStop,
+    		String type,
+    		String parent) {
+    	
+    	this.oid = oid;
+    	this.child = child;
+    	this.childStart = ObjectConverter.convert(childStart, Long.class);
+    	this.childStop = ObjectConverter.convert(childStop, Long.class);
+    	this.type = type;
+        this.parent = parent;
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return this.oid;
@@ -106,8 +126,14 @@ public class ComponentRelationship {
     public void setChildStart( long childStart ) {
         this.childStart = childStart;
     }
+    public void setChildStart( String childStart ) {
+        this.childStart = ObjectConverter.convert(childStart, Long.class);
+    }
     public void setChildStop( long childStop ) {
         this.childStop = childStop;
+    }
+    public void setChildStop( String childStop ) {
+        this.childStop = ObjectConverter.convert(childStop, Long.class);
     }
     public void setType( String type ) {
         this.type = type;

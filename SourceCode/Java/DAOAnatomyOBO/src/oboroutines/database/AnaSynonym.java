@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.MySQLDateTime;
 import daointerface.LogDAO;
@@ -158,11 +159,11 @@ public class AnaSynonym {
                for ( OBOComponent synComponent: synonymCompList ) {
             	   //proceed with insertion
                   
-            	   int intSYN_OID = Integer.parseInt( synComponent.getDBID() );
-                   int intSYN_OBJECT_FK = Integer.parseInt( synComponent.getID() );
+            	   long longSYN_OID = ObjectConverter.convert(synComponent.getDBID(), Long.class); 
+            	   long longSYN_OBJECT_FK = ObjectConverter.convert(synComponent.getID(), Long.class); 
                    String strSYN_SYNONYM = synComponent.getName();
 
-                   Synonym synonym = new Synonym((long) intSYN_OID, (long) intSYN_OBJECT_FK, strSYN_SYNONYM);
+                   Synonym synonym = new Synonym(longSYN_OID, longSYN_OBJECT_FK, strSYN_SYNONYM);
 
                    if ( !logANA_SYNONYM( synonym, calledFrom) ) {
                 		
@@ -209,7 +210,7 @@ public class AnaSynonym {
             	
                 for ( OBOComponent deletesynonymcomponent: deleteSynComponents ) {
                 	
-                	synonyms = (ArrayList<Synonym>) synonymDAO.listByObjectFK(Long.valueOf( deletesynonymcomponent.getDBID() ));
+                	synonyms = (ArrayList<Synonym>) synonymDAO.listByObjectFK( ObjectConverter.convert(deletesynonymcomponent.getDBID(), Long.class) );
                 			
                     Iterator<Synonym> iteratorSynonyms = synonyms.iterator();
                     
@@ -315,8 +316,6 @@ public class AnaSynonym {
         vSYNcolumns.add("SYN_SYNONYM");
 
         //column values for selection from ANA_SYNONYM
-        //int intSYN_OID = 0;
-
         String strLOG_COMMENTS = "";
         String strLOG_DATETIME = MySQLDateTime.now();
 
@@ -344,7 +343,7 @@ public class AnaSynonym {
         try {
 
         	//get max log_oid from new database
-        	longLogOID = utility.ObjectConverter.convert(logDAO.maximumOid(), Long.class);
+        	longLogOID = logDAO.maximumOid(); 
 
             //clear HashMap synOldValues
             synOldValues.clear();

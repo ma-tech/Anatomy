@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 
 public class JOINComponentOrderComponentComponent {
     // Properties ---------------------------------------------------------------------------------
@@ -191,6 +193,81 @@ public class JOINComponentOrderComponentComponent {
 
     }
     
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINComponentOrderComponentComponent(Long oid,
+    		String child, 
+    		String parent,
+    		String type,
+    		String alphaorder,
+    		String specialorder,
+    		
+    		Long oidChild,
+    		String nameChild, 
+    		String idChild,
+    		String dbidChild,
+    		String newidChild,
+    		String namespaceChild,
+    		String definitionChild,
+    		String groupChild,
+    		String startChild,
+    		String endChild,
+    		String presentChild, 
+    		String statuschangeChild, 
+    		String statusruleChild,
+    		
+    		Long oidParent,
+    		String nameParent, 
+    		String idParent,
+    		String dbidParent,
+    		String newidParent,
+    		String namespaceParent,
+    		String definitionParent,
+    		String groupParent,
+    		String startParent,
+    		String endParent,
+    		String presentParent, 
+    		String statuschangeParent, 
+    		String statusruleParent) {
+    	
+    	this.oid = oid;
+    	this.child = child;
+        this.parent = parent;
+        this.type = type;
+        this.alphaorder = ObjectConverter.convert(alphaorder, Long.class);
+        this.specialorder = ObjectConverter.convert(specialorder, Long.class);
+        
+    	this.oidChild = oidChild;
+    	this.nameChild = nameChild;
+    	this.idChild = idChild;
+    	this.dbidChild = dbidChild;
+    	this.newidChild = newidChild;
+    	this.namespaceChild = namespaceChild;
+    	this.definitionChild = definitionChild;
+    	this.groupChild = ObjectConverter.convert(groupChild, Boolean.class);
+    	this.startChild = startChild;
+    	this.endChild = endChild;
+    	this.presentChild = ObjectConverter.convert(presentChild, Boolean.class);
+        this.statuschangeChild = statuschangeChild;
+        this.statusruleChild = statusruleChild;
+    	
+    	this.oidParent = oidParent;
+    	this.nameParent = nameParent;
+    	this.idParent = idParent;
+    	this.dbidParent = dbidParent;
+    	this.newidParent = newidParent;
+    	this.namespaceParent = namespaceParent;
+    	this.definitionParent = definitionParent;
+    	this.groupParent = ObjectConverter.convert(groupParent, Boolean.class);
+    	this.startParent = startParent;
+    	this.endParent = endParent;
+    	this.presentParent = ObjectConverter.convert(presentParent, Boolean.class);
+        this.statuschangeParent = statuschangeParent;
+        this.statusruleParent = statusruleParent;
+
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return this.oid;
@@ -307,8 +384,14 @@ public class JOINComponentOrderComponentComponent {
     public void setAlphaorder( long alphaorder ) {
         this.alphaorder = alphaorder;
     }
+    public void setAlphaorder( String alphaorder ) {
+        this.alphaorder = ObjectConverter.convert(alphaorder, Long.class);
+    }
     public void setSpecialorder( long specialorder ) {
         this.specialorder = specialorder;
+    }
+    public void setSpecialorder( String specialorder ) {
+        this.specialorder = ObjectConverter.convert(specialorder, Long.class);
     }
     
     public void setOidChild( Long oidChild ) {
@@ -335,6 +418,9 @@ public class JOINComponentOrderComponentComponent {
     public void setGroupChild( boolean groupChild ) {
         this.groupChild = groupChild;
     }
+    public void setGroupChild( String groupChild ) {
+        this.groupChild = ObjectConverter.convert(groupChild, Boolean.class);
+    }
     public void setStartChild( String startChild ) {
     	this.startChild = startChild;
     }
@@ -343,6 +429,9 @@ public class JOINComponentOrderComponentComponent {
     }
     public void setPresentChild( boolean presentChild ){
         this.presentChild = presentChild;
+    }
+    public void setPresentChild( String presentChild ){
+        this.presentChild = ObjectConverter.convert(presentChild, Boolean.class);
     }
     public void setStatusChangeChild(String statuschangeChild){
         this.statuschangeChild = statuschangeChild;
@@ -375,6 +464,9 @@ public class JOINComponentOrderComponentComponent {
     public void setGroupParent( boolean groupParent ) {
         this.groupParent = groupParent;
     }
+    public void setGroupParent( String groupParent ) {
+        this.groupParent = ObjectConverter.convert(groupParent, Boolean.class);
+    }
     public void setStartParent( String startParent ) {
     	this.startParent = startParent;
     }
@@ -383,6 +475,9 @@ public class JOINComponentOrderComponentComponent {
     }
     public void setPresentParent( boolean presentParent ){
         this.presentParent = presentParent;
+    }
+    public void setPresentParent( String presentParent ){
+        this.presentParent = ObjectConverter.convert(presentParent, Boolean.class);
     }
     public void setStatusChangeParent(String statuschangeParent){
         this.statuschangeParent = statuschangeParent;

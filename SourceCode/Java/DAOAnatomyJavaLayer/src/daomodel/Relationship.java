@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Relationship {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -70,6 +72,22 @@ public class Relationship {
         this.parentFK = parentFK;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     */
+    public Relationship(Long oid, 
+    		String typeFK, 
+    		String childFK, 
+    		String parentFK) {
+    	
+        this.oid = oid;
+        this.typeFK = typeFK; 
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -94,8 +112,14 @@ public class Relationship {
     public void setChildFK(long childFK) {
         this.childFK = childFK;
     }
+    public void setChildFK(String childFK) {
+        this.childFK = ObjectConverter.convert(childFK, Long.class);;
+    }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
+    }
+    public void getParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);;
     }
 
     // Override -----------------------------------------------------------------------------------

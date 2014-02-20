@@ -34,6 +34,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class PerspectiveAmbitFK {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -77,6 +79,24 @@ public class PerspectiveAmbitFK {
 	    this.comments = comments;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public PerspectiveAmbitFK(Long oid, 
+    	    String perspectiveFK,  
+    	    String publicId, 
+    	    String start, 
+    	    String stop, 
+    	    String comments) {
+    	
+        this.oid = oid;
+	    this.perspectiveFK = perspectiveFK;
+	    this.publicId = publicId;
+	    this.start = ObjectConverter.convert(start, Boolean.class);
+	    this.stop = ObjectConverter.convert(stop, Boolean.class);
+	    this.comments = comments;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -110,8 +130,14 @@ public class PerspectiveAmbitFK {
     public void setStart(boolean start) {
         this.start = start;
     }
+    public void setStart(String start) {
+        this.start = ObjectConverter.convert(start, Boolean.class);
+    }
     public void setStop(boolean stop) {
         this.stop = stop;
+    }
+    public void setStop(String stop) {
+        this.stop = ObjectConverter.convert(stop, Boolean.class);
     }
     public void setComments(String comments) {
         this.comments = comments;

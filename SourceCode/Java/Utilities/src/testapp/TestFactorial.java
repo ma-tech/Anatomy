@@ -1,5 +1,6 @@
 package testapp;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.Factorial;
 
@@ -10,7 +11,7 @@ public class TestFactorial {
     	try {
     		long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
     		
-            int input = Integer.parseInt(args[0]);
+            int input = ObjectConverter.convert(args[0], Integer.class);
             double result = Factorial.factorial(input);
             System.out.println(input + " Factorial is: " + result);
 

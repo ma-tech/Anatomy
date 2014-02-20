@@ -409,7 +409,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception {
+    public long count(String searchFirst, String searchSecond) throws Exception {
 
         String searchFirstWithWildCards = "";
         String searchSecondWithWildCards = "";
@@ -436,7 +436,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -458,7 +458,7 @@ public final class ExtraTimedNodeDAOJDBC implements ExtraTimedNodeDAO {
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 

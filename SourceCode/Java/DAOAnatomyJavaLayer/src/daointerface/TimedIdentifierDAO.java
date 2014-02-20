@@ -107,6 +107,6 @@ public interface TimedIdentifierDAO extends BaseDAO {
     /*
      * Returns total number of rows in table.
      */
-    public int count(String searchFirst, String searchSecond) throws Exception;
+    public long count(String searchFirst, String searchSecond) throws Exception;
 
 }

@@ -38,6 +38,7 @@ import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
 
 public class OBOComponent {
@@ -49,6 +50,7 @@ public class OBOComponent {
     private static final int MIN_MOUSE_STAGE = 0;
     private static final int MIN_HUMAN_STAGE = 0;
     private static final int MIN_CHICK_STAGE = 0;
+    
     private static final String MIN_MOUSE_STAGE_STR = "TS01";
     private static final String MIN_HUMAN_STAGE_STR = "CS01";
     private static final String MIN_CHICK_STAGE_STR = "EGK-I";
@@ -56,6 +58,7 @@ public class OBOComponent {
     private static final int MAX_MOUSE_STAGE = 27;
     private static final int MAX_HUMAN_STAGE = 25;
     private static final int MAX_CHICK_STAGE = 60;
+    
     private static final String MAX_MOUSE_STAGE_STR = "TS28";
     private static final String MAX_HUMAN_STAGE_STR = "CS23";
     private static final String MAX_CHICK_STAGE_STR = "HH48";
@@ -71,8 +74,8 @@ public class OBOComponent {
     private boolean group;
     private String start;
     private String end;
-    private int startSequence;
-    private int endSequence;
+    private long startSequence;
+    private long endSequence;
     private boolean present;
     private ArrayList<String> childOfs;
     private ArrayList<String> childOfTypes;
@@ -289,6 +292,153 @@ public class OBOComponent {
         this.timedComponents = timedComponents;
     }
     
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public OBOComponent(String name, 
+    		String id,
+    		String displayId,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		String group,
+    		String start,
+    		String end,
+    		String present, 
+    		String statusChange, 
+    		String statusRule) {
+    	
+    	this.name = name;
+    	this.id = id;
+    	this.displayId = displayId;
+    	this.dbID = dbID;
+    	this.newid = newid;
+    	this.namespace = namespace;
+    	this.definition = definition;
+    	this.group = ObjectConverter.convert(group, Boolean.class);
+
+    	setStart(start);
+    	setEnd(end);
+
+    	this.present = ObjectConverter.convert(present, Boolean.class);
+        this.statusChange = statusChange;
+        this.statusRule = statusRule;
+
+        this.childOfs = new ArrayList<String>();
+        this.childOfTypes = new ArrayList<String>();
+        this.synonyms = new ArrayList<String>();
+        this.userComments = new ArrayList<String>();
+        this.orderComment = "";
+        
+        this.flagMissingRel = false;
+        this.flagLifeTime = false;
+        
+        this.paths = new Vector<DefaultMutableTreeNode[]>();
+        this.isPrimary = true;
+        this.primaryPath = null;
+
+        this.comments = new TreeSet<String>();
+    }
+
+    /*
+     * Fuller constructor. Contains required and optional fields.
+     */
+    public OBOComponent(String name, 
+    		String id,
+    		String displayId,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		String group,
+    		String start,
+    		String end,
+    		String present, 
+    		String statusChange, 
+    		String statusRule,
+    		ArrayList<String> childOfs,
+    		ArrayList<String> childOfTypes,
+    		ArrayList<String> synonyms, 
+    		ArrayList<String> userComments,
+    		String orderComment,
+    		TreeSet<String> comments) {
+    	
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
+
+    	this.childOfs = childOfs;
+        this.childOfTypes = childOfTypes;
+        this.synonyms = synonyms;
+        this.userComments = userComments;
+        this.orderComment = orderComment;
+        this.comments = comments;
+    }
+    
+    /*
+     * Fuller constructor. Contains required and optional fields.
+     */
+    public OBOComponent(String name, 
+    		String id,
+    		String displayId,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		String group,
+    		String start,
+    		String end,
+    		String present, 
+    		String statusChange, 
+    		String statusRule,
+    		ArrayList<String> childOfs,
+    		ArrayList<String> childOfTypes,
+    		ArrayList<String> synonyms, 
+    		ArrayList<String> userComments,
+    		String orderComment,
+    		TreeSet<String> comments,
+    		ArrayList<String> alternativeIds) {
+    	
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
+
+    	this.childOfs = childOfs;
+        this.childOfTypes = childOfTypes;
+        this.synonyms = synonyms;
+        this.userComments = userComments;
+        this.orderComment = orderComment;
+        this.comments = comments;
+        this.alternativeIds = alternativeIds;
+    }
+    
+    /*
+     * Even MORE Fuller constructor. Contains required and optional fields.
+     */
+    public OBOComponent(String name, 
+    		String id,
+    		String displayId,
+    		String dbID,
+    		String newid,
+    		String namespace,
+    		String definition,
+    		String group,
+    		String start,
+    		String end,
+    		String present, 
+    		String statusChange, 
+    		String statusRule,
+    		ArrayList<String> childOfs,
+    		ArrayList<String> childOfTypes,
+    		ArrayList<String> synonyms, 
+    		ArrayList<String> userComments,
+    		String orderComment,
+    		TreeSet<String> comments,
+    		ArrayList<String> alternativeIds,
+    		ArrayList<String> timedComponents) {
+    	
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
+
+        this.timedComponents = timedComponents;
+    }
+    
     // Getters ------------------------------------------------------------------------------------
     public String getID() {
         return this.id;
@@ -367,10 +517,10 @@ public class OBOComponent {
         return this.group;
     }
     
-    public int getStartSequence() {
+    public long getStartSequence() {
         return startSequence;
     }
-    public int getEndSequence() {
+    public long getEndSequence() {
         return endSequence;
     }
     
@@ -818,7 +968,7 @@ public class OBOComponent {
         }
     }
 
-    public void setStartSequence( int startSequence, String species ) {
+    public void setStartSequence( long startSequence, String species ) {
     	
         this.startSequence = startSequence;
     	
@@ -1557,7 +1707,7 @@ public class OBOComponent {
         }
     }
 
-    public void setEndSequence( int endSequence, String species ) {
+    public void setEndSequence( long endSequence, String species ) {
     	
         this.endSequence = endSequence;
     	
@@ -1949,17 +2099,29 @@ public class OBOComponent {
     public void setFlagMissingRel(boolean flag){
         this.flagMissingRel = flag;
     } 
+    public void setFlagMissingRel(String flag){
+        this.flagMissingRel = ObjectConverter.convert(flag, Boolean.class);
+    } 
     public void setFlagLifeTime(boolean flag){
         this.flagLifeTime = flag;
     }
+    public void setFlagLifeTime(String flag){
+        this.flagLifeTime = ObjectConverter.convert(flag, Boolean.class);
+    }
     public void setIsPrimary(boolean isprimary){
         this.isPrimary = isprimary;
+    }
+    public void setIsPrimary(String isprimary){
+        this.isPrimary = ObjectConverter.convert(isprimary, Boolean.class);
     }
     public void setPaths( Vector<DefaultMutableTreeNode[]> paths ){
         this.paths = paths;
     }
     public void setGroup(boolean group){
         this.group = group;
+    }
+    public void setGroup(String group){
+        this.group = ObjectConverter.convert(group, Boolean.class);
     }
     public void setPrimaryPath( DefaultMutableTreeNode[] path ){
         this.primaryPath = path;
@@ -2599,7 +2761,6 @@ public class OBOComponent {
                 
             		strNumber = results[k];
                     strNumber = strNumber.replaceAll("order=", "");
-                    //intOrder = Integer.parseInt( strNumber.split(" ")[0] );
                 }
                 catch(NumberFormatException nEx){
 

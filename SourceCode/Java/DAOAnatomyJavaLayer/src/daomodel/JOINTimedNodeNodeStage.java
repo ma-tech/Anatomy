@@ -41,6 +41,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINTimedNodeNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -81,8 +83,8 @@ public class JOINTimedNodeNodeStage {
     private boolean group;
     private String publicNodeId; 
     private String descriptionNode; 
-    private Long oidStage; 
     
+    private Long oidStage; 
     private String speciesFKStage; 
     private String name; 
     private long sequence;
@@ -139,6 +141,52 @@ public class JOINTimedNodeNodeStage {
         this.speciesFKStage = speciesFKStage; 
         this.name = name; 
         this.sequence = sequence;
+        this.descriptionStage = descriptionStage;
+        this.extraText = extraText; 
+        this.publicStageId = publicStageId; 
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINTimedNodeNodeStage(Long oidTimedNode, 
+    		String nodeFK, 
+    		String stageFK,
+    		String stageModifierFK,
+    		String publicTimedNodeId,
+    		String displayTimedNodeId,
+    		Long oidNode, 
+    	    String speciesFKNode,
+    	    String componentName, 
+    	    String primary,
+    	    String group,
+    	    String publicNodeId,
+    	    String descriptionNode,
+    	    Long oidStage, 
+    		String speciesFKStage, 
+    		String name, 
+    		String sequence, 
+    		String descriptionStage, 
+    		String extraText, 
+    		String publicStageId) {
+    	
+        this.oidTimedNode = oidTimedNode;
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
+        this.stageModifierFK = stageModifierFK;
+        this.publicTimedNodeId = publicTimedNodeId;
+        this.displayTimedNodeId = displayTimedNodeId;
+        this.oidNode = oidNode;
+	    this.speciesFKNode = speciesFKNode;
+	    this.componentName = componentName;
+	    this.primary = ObjectConverter.convert(primary, Boolean.class);
+	    this.group = ObjectConverter.convert(group, Boolean.class);
+	    this.publicNodeId = publicNodeId;
+	    this.descriptionNode = descriptionNode;
+        this.oidStage = oidStage;
+        this.speciesFKStage = speciesFKStage; 
+        this.name = name; 
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
         this.descriptionStage = descriptionStage;
         this.extraText = extraText; 
         this.publicStageId = publicStageId; 
@@ -215,8 +263,14 @@ public class JOINTimedNodeNodeStage {
     public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
+    public void setNodeFK(String nodeFK) {
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    }
     public void setStageFK(long stageFK) {
         this.stageFK = stageFK;
+    }
+    public void setStageFK(String stageFK) {
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
     }
     public void setStageModifierFK(String stageModifierFK) {
         this.stageModifierFK = stageModifierFK;
@@ -240,8 +294,14 @@ public class JOINTimedNodeNodeStage {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    }
     public void setGroup(boolean group) {
         this.group = group;
+    }
+    public void setGroup(String group) {
+        this.group = ObjectConverter.convert(group, Boolean.class);
     }
     public void setPublicNodeId(String publicNodeId) {
         this.publicNodeId = publicNodeId;
@@ -261,6 +321,9 @@ public class JOINTimedNodeNodeStage {
     }
     public void setSequence(long sequence) {
         this.sequence = sequence;
+    }
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
     }
     public void setDescriptionStage(String descriptionStage) {
         this.descriptionStage = descriptionStage;

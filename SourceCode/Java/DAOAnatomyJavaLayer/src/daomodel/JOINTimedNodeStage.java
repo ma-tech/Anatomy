@@ -34,6 +34,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class JOINTimedNodeStage {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -58,7 +60,7 @@ public class JOINTimedNodeStage {
     private String stageModifierFK;
     private String publicTimedNodeId;
     private String displayTimedNodeId;
-    private Long oidStage; 
+    private long oidStage; 
     private String speciesFK; 
     private String name; 
     private long sequence;
@@ -101,6 +103,38 @@ public class JOINTimedNodeStage {
         this.speciesFK = speciesFK; 
         this.name = name; 
         this.sequence = sequence;
+        this.description = description;
+        this.extraText = extraText; 
+        this.publicStageId = publicStageId; 
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public JOINTimedNodeStage(Long oidTimedNode, 
+    		String nodeFK, 
+    		String stageFK,
+    		String stageModifierFK,
+    		String publicTimedNodeId,
+    		String displayTimedNodeId,
+    		Long oidStage, 
+    		String speciesFK, 
+    		String name, 
+    		String sequence, 
+    		String description, 
+    		String extraText, 
+    		String publicStageId) {
+    	
+        this.oidTimedNode = oidTimedNode;
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
+        this.stageModifierFK = stageModifierFK;
+        this.publicTimedNodeId = publicTimedNodeId;
+        this.displayTimedNodeId = displayTimedNodeId;
+        this.oidStage = oidStage;
+        this.speciesFK = speciesFK; 
+        this.name = name; 
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
         this.description = description;
         this.extraText = extraText; 
         this.publicStageId = publicStageId; 
@@ -155,8 +189,14 @@ public class JOINTimedNodeStage {
     public void setNodeFK(long nodeFK) {
         this.nodeFK = nodeFK;
     }
+    public void setNodeFK(String nodeFK) {
+        this.nodeFK = ObjectConverter.convert(nodeFK, Long.class);
+    }
     public void setStageFK(long stageFK) {
         this.stageFK = stageFK;
+    }
+    public void setStageFK(String stageFK) {
+        this.stageFK = ObjectConverter.convert(stageFK, Long.class);
     }
     public void setStageModifierFK(String stageModifierFK) {
         this.stageModifierFK = stageModifierFK;
@@ -179,6 +219,9 @@ public class JOINTimedNodeStage {
     }
     public void setSequence(long sequence) {
         this.sequence = sequence;
+    }
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
     }
     public void setDescription(String description) {
         this.description = description;

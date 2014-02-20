@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class DerivedPartOfFK {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -99,7 +101,7 @@ public class DerivedPartOfFK {
     		String fullPathJsonTail, 
     		boolean primary, 
     		boolean primaryPath, 
-    		Long parentFK) {
+    		long parentFK) {
     	
     	this.oid = oid;
     	this.speciesFK   = speciesFK;
@@ -117,6 +119,47 @@ public class DerivedPartOfFK {
     	this.primary     = primary;
     	this.primaryPath = primaryPath;
     	this.parentFK    = parentFK;
+    }
+
+    /*
+     * Minimal constructor. Contains required fields.
+     * Full constructor. Contains required and optional fields.
+     *  The Full Constructor is the Minimal Constructor
+     * 
+     */
+    public DerivedPartOfFK(Long oid,
+    		String speciesFK, 
+    		String nodeStart, 
+    		String nodeStop,
+    		String pathStart, 
+    		String pathStop,
+    		String node, 
+    		String sequence, 
+    		String depth, 
+    		String fullPath, 
+    		String fullPathOids, 
+    		String fullPathJsonHead, 
+    		String fullPathJsonTail, 
+    		String primary, 
+    		String primaryPath, 
+    		String parentFK) {
+    	
+    	this.oid = oid;
+    	this.speciesFK   = speciesFK;
+    	this.nodeStart   = nodeStart;
+    	this.nodeStop    = nodeStop;
+    	this.pathStart   = pathStart;
+    	this.pathStop    = pathStop;
+    	this.node        = node;
+    	this.sequence    = ObjectConverter.convert(sequence, Long.class);
+    	this.depth       = ObjectConverter.convert(depth, Long.class);
+    	this.fullPath = fullPath;
+    	this.fullPathOids = fullPathOids;
+    	this.fullPathJsonHead = fullPathJsonHead;
+    	this.fullPathJsonTail = fullPathJsonTail;
+    	this.primary     = ObjectConverter.convert(primary, Boolean.class);
+    	this.primaryPath = ObjectConverter.convert(primaryPath, Boolean.class);
+    	this.parentFK    = ObjectConverter.convert(parentFK, Long.class);
     }
 
     // SPECIAL Getters ------------------------------------------------------------------------------------
@@ -199,8 +242,14 @@ public class DerivedPartOfFK {
     public void setSequence(long sequence) {
         this.sequence = sequence;
     } 
+    public void setSequence(String sequence) {
+        this.sequence = ObjectConverter.convert(sequence, Long.class);
+    } 
     public void setDepth(long depth) {
         this.depth = depth;
+    } 
+    public void setDepth(String depth) {
+        this.depth = ObjectConverter.convert(depth, Long.class);
     } 
     public void setFullPath(String fullPath) {
         this.fullPath = fullPath;
@@ -217,11 +266,20 @@ public class DerivedPartOfFK {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     } 
+    public void setPrimary(String primary) {
+        this.primary = ObjectConverter.convert(primary, Boolean.class);
+    } 
     public void setPrimaryPath(boolean primaryPath) {
         this.primaryPath = primaryPath;
     } 
+    public void setPrimaryPath(String primaryPath) {
+        this.primaryPath = ObjectConverter.convert(primaryPath, Boolean.class);
+    } 
     public void setParentFK(long parentFK) {
         this.parentFK = parentFK;
+    } 
+    public void setParentFK(String parentFK) {
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     } 
 
     // Override -----------------------------------------------------------------------------------

@@ -207,7 +207,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int countAllByNodeFk(long nodeFk) throws Exception {
+    public long countAllByNodeFk(long nodeFk) throws Exception {
     	
         return count(SQL_COUNT_ALL_BY_NODE_FK, nodeFk);
     }
@@ -215,7 +215,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int maxSequenceByNodeFk(long nodeFk) throws Exception {
+    public long maxSequenceByNodeFk(long nodeFk) throws Exception {
     	
         return maxMin(SQL_MAX_SEQUENCE_BY_NODE_FK, nodeFk);
     }
@@ -223,7 +223,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns a count of ALL jointimednodestages by node FK, otherwise null.
      */
-    public int minSequenceByNodeFk(long nodeFk) throws Exception {
+    public long minSequenceByNodeFk(long nodeFk) throws Exception {
     	
         return maxMin(SQL_MIN_SEQUENCE_BY_NODE_FK, nodeFk);
     }
@@ -265,7 +265,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String sql, long key) throws Exception {
+    public long count(String sql, long key) throws Exception {
 
         Object[] values = {
         		key
@@ -274,7 +274,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -284,7 +284,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 
@@ -303,7 +303,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
     /*
      * Returns total amount of rows in table.
      */
-    public int maxMin(String sql, long key) throws Exception {
+    public long maxMin(String sql, long key) throws Exception {
 
         Object[] values = {
         		key
@@ -312,7 +312,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        long count = 0;
 
         try {
         	
@@ -323,7 +323,7 @@ public final class JOINTimedNodeStageDAOJDBC implements JOINTimedNodeStageDAO{
 
             if (resultSet.next()) {
             	
-                count = resultSet.getInt("VALUE");
+                count = resultSet.getLong("VALUE");
             }
             
         } 

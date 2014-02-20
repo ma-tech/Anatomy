@@ -33,6 +33,8 @@
 */
 package daomodel;
 
+import utility.ObjectConverter;
+
 public class Log {
     // Properties ---------------------------------------------------------------------------------
 	/*
@@ -84,6 +86,28 @@ public class Log {
     	this.table = table;
     }
 
+    /*
+     * Minimal constructor. Contains required fields.
+     */
+    public Log(Long oid,
+    		String loggedOid, 
+    		String versionFK, 
+    		   String columnName,
+    	       String oldValue, 
+    		   String comments, 
+    		   String datetime, 
+    		   String table) {
+    	
+    	this.oid = oid;
+    	this.loggedOid = ObjectConverter.convert(loggedOid, Long.class);
+    	this.versionFK = ObjectConverter.convert(versionFK, Long.class);
+    	this.columnName = columnName;
+    	this.oldValue = oldValue;
+    	this.comments = comments;
+    	this.datetime = datetime;
+    	this.table = table;
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public Long getOid() {
         return oid;
@@ -117,8 +141,14 @@ public class Log {
     public void setLoggedOid(long loggedOid) {
         this.loggedOid = loggedOid;
     } 
+    public void setLoggedOid(String loggedOid) {
+        this.loggedOid = ObjectConverter.convert(loggedOid, Long.class);
+    } 
     public void setVersionFK(long versionFK) {
         this.versionFK = versionFK;
+    } 
+    public void setVersionFK(String versionFK) {
+        this.versionFK = ObjectConverter.convert(versionFK, Long.class);
     } 
     public void setColumnName(String columnName) {
         this.columnName = columnName;
@@ -184,7 +214,7 @@ public class Log {
      */
     public String toStringJava() {
     	
-        return String.format("log%d = new Log( (long) %d, (long) %d, (long) %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\" );", 
+        return String.format("log%d = new Log( %d, %d, %d, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\" );", 
         		oid, oid, loggedOid, versionFK, columnName, oldValue, comments, datetime, table );
     }
 

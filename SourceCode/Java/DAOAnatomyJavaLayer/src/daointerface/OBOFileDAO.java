@@ -116,6 +116,6 @@ public interface OBOFileDAO extends BaseDAO {
     /*
      * Returns total amount of rows in table.
      */
-    public int count(String searchTerm, String searchTable) throws Exception;
+    public long count(String searchTerm, String searchTable) throws Exception;
 
 }

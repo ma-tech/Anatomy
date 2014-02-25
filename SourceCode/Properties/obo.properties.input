@@ -1,8 +1,8 @@
 -- EMPTY MOUSE 011 OBO FILE
-empty011LocalhostOBOfile.obobasefile=/Users/mwicks/GitMahost/AnatomyData/BASE.obo
-empty011LocalhostOBOfile.oboinfile=/Users/mwicks/GitMahost/AnatomyData/INPUT.obo
-empty011LocalhostOBOfile.obooutfile=/Users/mwicks/GitMahost/AnatomyData
-empty011LocalhostOBOfile.summaryreport=/Users/mwicks/GitMahost/AnatomyData
+empty011LocalhostOBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/BASE.obo
+empty011LocalhostOBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/INPUT.obo
+empty011LocalhostOBOfile.obooutfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO
+empty011LocalhostOBOfile.summaryreport=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/Reports
 empty011LocalhostOBOfile.obooutfileremark=Version 011
 empty011LocalhostOBOfile.obooutfileversion=1.2
 empty011LocalhostOBOfile.obooutfilenamespace=mouse_ontology

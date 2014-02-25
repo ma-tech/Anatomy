@@ -1,0 +1,177 @@
+format-version: 1.2
+date: 25:02:2014 10:31
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS07
+name: TS07
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAPT:2576507
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAPT:1604607
+name: trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604207
+
+[Term]
+id: EMAPT:1604807
+name: polar trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604607
+
+[Term]
+id: EMAPT:1604707
+name: mural trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604607
+
+[Term]
+id: EMAPT:1604207
+name: extraembryonic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576507
+
+[Term]
+id: EMAPT:1603907
+name: embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576507
+
+[Term]
+id: EMAPT:1606507
+name: extraembryonic ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604207
+
+[Term]
+id: EMAPT:1605507
+name: yolk sac cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605407
+
+[Term]
+id: EMAPT:1605407
+name: extraembryonic component cavities
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604207
+
+[Term]
+id: EMAPT:1605307
+name: parietal endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605207
+
+[Term]
+id: EMAPT:1605207
+name: extraembryonic endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604207
+
+[Term]
+id: EMAPT:1605907
+name: ectoplacental cone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604807
+
+[Term]
+id: EMAPT:1605807
+name: visceral endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605207
+
+[Term]
+id: EMAPT:1605707
+name: Reichert's membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605307
+
+[Term]
+id: EMAPT:1605607
+name: intermediate endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605207
+
+[Term]
+id: EMAPT:1605107
+name: primitive endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603907
+relationship: part_of EMAPT:2576507
+
+[Term]
+id: EMAPT:1605007
+name: epiblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603907
+relationship: part_of EMAPT:2576507
+
+[Term]
+id: EMAPT:1603507
+name: zona pellucida
+namespace: stage_specific_anatomical_structure
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

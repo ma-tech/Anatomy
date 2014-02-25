@@ -1,0 +1,2786 @@
+format-version: 1.2
+date: 25:02:2014 10:33
+saved-by: Mike Wicks
+default-namespace: mouse_ontology
+remark: Version 011
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+[Term]
+id: TS27
+name: TS27
+namespace: theiler_stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EMAPT:2576527
+name: mouse
+namespace: stage_specific_anatomical_structure
+relationship: is_a EMAP:0
+
+[Term]
+id: EMAPT:3062727
+name: scrotal fold surface epithelium of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2931627
+
+[Term]
+id: EMAPT:3062427
+name: scrotal fold mesenchyme of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2931627
+
+[Term]
+id: EMAPT:2912227
+name: coelomic vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2911427
+
+[Term]
+id: EMAPT:2913027
+name: interstitial vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2911427
+
+[Term]
+id: EMAPT:3129627
+name: resident macrophages of the cortex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2813627
+
+[Term]
+id: EMAPT:2911427
+name: developing vasculature of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+relationship: part_of EMAPT:3156427
+
+[Term]
+id: EMAPT:3066427
+name: mesenchyme of crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929427
+
+[Term]
+id: EMAPT:3066827
+name: surface epithelium of crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929427
+
+[Term]
+id: EMAPT:3128127
+name: anlage of loop of Henle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+relationship: part_of EMAPT:3157127
+
+[Term]
+id: EMAPT:3067527
+name: outer layer of uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898527
+
+[Term]
+id: EMAPT:3128827
+name: renal cortical fibroblasts
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2813627
+
+[Term]
+id: EMAPT:3064227
+name: mesenchyme of glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898827
+
+[Term]
+id: EMAPT:3064627
+name: surface epithelium of glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898827
+
+[Term]
+id: EMAPT:3065027
+name: prepuce mesenchyme of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898927
+
+[Term]
+id: EMAPT:3065527
+name: prepuce surface epithelium of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898927
+
+[Term]
+id: EMAPT:3065927
+name: preputial gland of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898927
+
+[Term]
+id: EMAPT:2807727
+name: pelvic urothelial lining
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1794827
+
+[Term]
+id: EMAPT:2886227
+name: proximal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2832227
+
+[Term]
+id: EMAPT:2885627
+name: mesenchymal layer of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795627
+
+[Term]
+id: EMAPT:2885327
+name: urothelium of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795627
+
+[Term]
+id: EMAPT:2885927
+name: muscle layer of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795627
+
+[Term]
+id: EMAPT:2808927
+name: urothelium of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+
+[Term]
+id: EMAPT:2885027
+name: ureteral smooth muscle layer interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2884427
+
+[Term]
+id: EMAPT:2808327
+name: perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1794827
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2884427
+name: ureteral smooth muscle layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+
+[Term]
+id: EMAPT:2884727
+name: ureteral smooth muscle layer smooth muscle component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2884427
+
+[Term]
+id: EMAPT:2888027
+name: mesenchymal stroma of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:3069927
+name: prepuce of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868027
+
+[Term]
+id: EMAPT:2880127
+name: intermediate cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808927
+
+[Term]
+id: EMAPT:2880627
+name: basal cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808927
+
+[Term]
+id: EMAPT:2884127
+name: lamina propria of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+
+[Term]
+id: EMAPT:2801127
+name: renal connecting tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:2883627
+name: adventitia of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2882627
+
+[Term]
+id: EMAPT:2883127
+name: adventitia of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2882627
+
+[Term]
+id: EMAPT:2882627
+name: adventitia of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:2888827
+name: developing vasculature of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+relationship: part_of EMAPT:3156427
+
+[Term]
+id: EMAPT:3136727
+name: resident macrophage of the perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808327
+
+[Term]
+id: EMAPT:3136127
+name: perihilar fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808327
+
+[Term]
+id: EMAPT:2999527
+name: endothelium of renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2837327
+
+[Term]
+id: EMAPT:3135427
+name: renal medullary nerves
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+
+[Term]
+id: EMAPT:3134727
+name: renal medullary lymphatics
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+
+[Term]
+id: EMAPT:2906127
+name: muscular layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899927
+relationship: part_of EMAPT:3099727
+
+[Term]
+id: EMAPT:3131227
+name: renal cortical lymphatics
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:3131927
+name: renal cortical nerves
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:3130427
+name: rest of renal cortical interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2813627
+
+[Term]
+id: EMAPT:3072027
+name: surface epithelium of glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1917027
+
+[Term]
+id: EMAPT:3072527
+name: mesenchyme of crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1916927
+
+[Term]
+id: EMAPT:3073027
+name: surface epithelium of crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1916927
+
+[Term]
+id: EMAPT:3075127
+name: outer layer of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868127
+
+[Term]
+id: EMAPT:2900927
+name: cortical component of mesenchymal stroma
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2888027
+
+[Term]
+id: EMAPT:3075727
+name: oocyte of primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3075527
+
+[Term]
+id: EMAPT:3075527
+name: primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:2901427
+name: medullary component of mesenchymal stroma
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2888027
+
+[Term]
+id: EMAPT:3137927
+name: premacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2839627
+
+[Term]
+id: EMAPT:3137327
+name: rest of perihilar interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808327
+
+[Term]
+id: EMAPT:3138927
+name: resident macrophage of the outer medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2833727
+
+[Term]
+id: EMAPT:3138427
+name: outer medullary fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2833727
+
+[Term]
+id: EMAPT:2903427
+name: uterine horn muscular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898527
+
+[Term]
+id: EMAPT:2903027
+name: uterine horn epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898527
+
+[Term]
+id: EMAPT:3139427
+name: rest of outer medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2833727
+
+[Term]
+id: EMAPT:3139927
+name: inner medullary fibroblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2836427
+
+[Term]
+id: EMAPT:2904627
+name: muscle layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898427
+
+[Term]
+id: EMAPT:2904327
+name: epithelial layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898427
+
+[Term]
+id: EMAPT:2904927
+name: outer layer of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898427
+
+[Term]
+id: EMAPT:3079727
+name: vasculature of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1918027
+
+[Term]
+id: EMAPT:3079927
+name: vasculature of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1908827
+
+[Term]
+id: EMAPT:2905527
+name: muscular layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898727
+relationship: part_of EMAPT:3099727
+
+[Term]
+id: EMAPT:2905827
+name: epithelial layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899927
+relationship: part_of EMAPT:3099127
+
+[Term]
+id: EMAPT:2905227
+name: epithelial layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898727
+relationship: part_of EMAPT:3099127
+
+[Term]
+id: EMAPT:2875927
+name: urothelium of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+
+[Term]
+id: EMAPT:2875327
+name: pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2874727
+
+[Term]
+id: EMAPT:2874727
+name: urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:2870927
+name: muscle layer of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+
+[Term]
+id: EMAPT:2870327
+name: mesenchymal layer of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+
+[Term]
+id: EMAPT:1833127
+name: mediastinum testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:1833227
+name: rete testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:1832927
+name: labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+relationship: part_of EMAPT:3098427
+
+[Term]
+id: EMAPT:1832827
+name: Mullerian tubercle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:3140927
+name: rest of inner medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2836427
+
+[Term]
+id: EMAPT:3140427
+name: resident macrophage of the inner medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2836427
+
+[Term]
+id: EMAPT:2876527
+name: mesenchymal layer of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+
+[Term]
+id: EMAPT:2877127
+name: muscle layer of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+
+[Term]
+id: EMAPT:1908927
+name: gubernaculum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1908827
+name: ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1908527
+name: suspensory ligament of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1908727
+name: appendix testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1908627
+name: appendix epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3146427
+name: renal large blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610327
+
+[Term]
+id: EMAPT:2772127
+name: nephrogenic zone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:3146927
+name: renal small blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:3145027
+name: renal venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:2774927
+name: ureteric tip
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2772127
+relationship: part_of EMAPT:2840727
+
+[Term]
+id: EMAPT:2774227
+name: pretubular aggregate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2772127
+
+[Term]
+id: EMAPT:2773527
+name: cap mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2772127
+
+[Term]
+id: EMAPT:3071127
+name: preputial gland of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3069927
+
+[Term]
+id: EMAPT:3071527
+name: mesenchyme of glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1917027
+
+[Term]
+id: EMAPT:3144327
+name: renal capillaries
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:3070727
+name: prepuce surface epithelium of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3069927
+
+[Term]
+id: EMAPT:1832327
+name: urachus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:3070327
+name: prepuce mesenchyme of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3069927
+
+[Term]
+id: EMAPT:3143627
+name: renal arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:1832127
+name: bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:1610327
+name: organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576527
+
+[Term]
+id: EMAPT:3043327
+name: mesenchymal layer of labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832927
+
+[Term]
+id: EMAPT:3043827
+name: surface epithelium of labial swelling
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832927
+
+[Term]
+id: EMAPT:2931627
+name: scrotal fold
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+relationship: part_of EMAPT:3097727
+
+[Term]
+id: EMAPT:3504727
+name: nerve of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:3504627
+name: nerve of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:3504927
+name: nerve of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868127
+
+[Term]
+id: EMAPT:3504827
+name: nerve of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1918027
+
+[Term]
+id: EMAPT:3505327
+name: nerve of uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898527
+
+[Term]
+id: EMAPT:3505427
+name: nerve of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1908827
+
+[Term]
+id: EMAPT:3505527
+name: nerve of bulbourethral gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928627
+
+[Term]
+id: EMAPT:3505127
+name: nerve of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:3505227
+name: nerve of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898427
+
+[Term]
+id: EMAPT:3504527
+name: nerve of genital tubercle of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868027
+
+[Term]
+id: EMAPT:2930727
+name: male inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:2930427
+name: male cystic vesicular appendage
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:2931327
+name: male internal inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2930727
+
+[Term]
+id: EMAPT:2931027
+name: male external inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2930727
+
+[Term]
+id: EMAPT:2861927
+name: muscularis mucosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:2861327
+name: urothelium of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2860127
+
+[Term]
+id: EMAPT:2860127
+name: urothelium of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:2860727
+name: urothelium of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2860127
+
+[Term]
+id: EMAPT:3044527
+name: epithelium of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:3044727
+name: muscle layer of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:3044927
+name: juxtaglomerular complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:2863727
+name: detrusor muscle of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:3044327
+name: adventitia of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:2864327
+name: detrusor muscle of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2863727
+
+[Term]
+id: EMAPT:2862527
+name: muscularis mucosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2861927
+
+[Term]
+id: EMAPT:2863127
+name: muscularis mucosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2861927
+
+[Term]
+id: EMAPT:2864927
+name: detrusor muscle of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2863727
+
+[Term]
+id: EMAPT:2782927
+name: renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2850027
+
+[Term]
+id: EMAPT:2866127
+name: serosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:2867327
+name: serosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2866127
+
+[Term]
+id: EMAPT:2866727
+name: serosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2866127
+
+[Term]
+id: EMAPT:2867927
+name: vasculature of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:2869727
+name: urothelium of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+
+[Term]
+id: EMAPT:3152627
+name: nerve of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:3152227
+name: pelvic ganglion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:3152127
+name: early distal tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2839027
+relationship: part_of EMAPT:3157127
+
+[Term]
+id: EMAPT:3151727
+name: renal connecting tubule of mature nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2801127
+relationship: part_of EMAPT:3156627
+
+[Term]
+id: EMAPT:3151627
+name: renal connecting tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2801127
+relationship: part_of EMAPT:3157027
+
+[Term]
+id: EMAPT:3151527
+name: renal connecting tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2801127
+relationship: part_of EMAPT:3157127
+
+[Term]
+id: EMAPT:3151427
+name: early distal tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2839027
+relationship: part_of EMAPT:3157027
+
+[Term]
+id: EMAPT:3151227
+name: early proximal tubule of maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2828427
+relationship: part_of EMAPT:3157027
+
+[Term]
+id: EMAPT:1869227
+name: urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:3505727
+name: nerve of penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868227
+
+[Term]
+id: EMAPT:3505927
+name: nerve of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+
+[Term]
+id: EMAPT:3156527
+name: nerve of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+relationship: part_of EMAPT:3156927
+
+[Term]
+id: EMAPT:3156627
+name: cortical renal tubule of mature nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:3156327
+name: developing vasculature of urinary system GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:3156427
+name: developing vasculature of reproductive system GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1738127
+
+[Term]
+id: EMAPT:1867727
+name: major calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1867627
+
+[Term]
+id: EMAPT:1867627
+name: calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:3156927
+name: nerves of urethra GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:3156727
+name: nerve of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+relationship: part_of EMAPT:3156927
+
+[Term]
+id: EMAPT:3156827
+name: nerve of phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795627
+relationship: part_of EMAPT:3156927
+
+[Term]
+id: EMAPT:3155227
+name: mesenchymal layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2870327
+
+[Term]
+id: EMAPT:3155327
+name: mesenchymal layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2876527
+
+[Term]
+id: EMAPT:3155427
+name: mesenchymal layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2876527
+
+[Term]
+id: EMAPT:1868027
+name: genital tubercle of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+relationship: part_of EMAPT:3098427
+
+[Term]
+id: EMAPT:3155027
+name: mesenchymal layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2870327
+
+[Term]
+id: EMAPT:3155127
+name: nerve of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3091727
+relationship: part_of EMAPT:3156927
+
+[Term]
+id: EMAPT:1868627
+name: germ cell of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868527
+
+[Term]
+id: EMAPT:1868527
+name: seminiferous cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:1868727
+name: interstitium of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:1868227
+name: penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+relationship: part_of EMAPT:3097727
+
+[Term]
+id: EMAPT:1868127
+name: ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1867827
+name: minor calyx
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1867627
+
+[Term]
+id: EMAPT:1867927
+name: renal capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:3154027
+name: renal connecting segment of renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2782927
+
+[Term]
+id: EMAPT:3154327
+name: early proximal tubule of capillary loop nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2828427
+relationship: part_of EMAPT:3157127
+
+[Term]
+id: EMAPT:3154727
+name: proximal renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2782927
+
+[Term]
+id: EMAPT:3154827
+name: distal renal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2782927
+
+[Term]
+id: EMAPT:3154527
+name: renal connecting segment of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2783527
+
+[Term]
+id: EMAPT:2789527
+name: visceral epithelium of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2788327
+
+[Term]
+id: EMAPT:2787727
+name: medial segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2785327
+
+[Term]
+id: EMAPT:2788327
+name: proximal segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2785327
+
+[Term]
+id: EMAPT:2786527
+name: renal connecting tubule of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2785327
+
+[Term]
+id: EMAPT:2787127
+name: distal segment of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2785327
+
+[Term]
+id: EMAPT:2785327
+name: s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2850027
+
+[Term]
+id: EMAPT:2784127
+name: upper limb of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2783527
+
+[Term]
+id: EMAPT:2784727
+name: lower limb of comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2783527
+
+[Term]
+id: EMAPT:2783527
+name: comma-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2850027
+
+[Term]
+id: EMAPT:3157127
+name: cortical renal tubule of capillary loop nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:3157027
+name: cortical renal tubule of maturing nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:3052227
+name: tunica albuginea of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:2927427
+name: epithelium of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868127
+
+[Term]
+id: EMAPT:2927027
+name: muscle layer of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868127
+
+[Term]
+id: EMAPT:1624527
+name: visceral organ
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610327
+
+[Term]
+id: EMAPT:2924427
+name: peritubular myoid cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868527
+
+[Term]
+id: EMAPT:2851827
+name: renal interstitium group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:2850627
+name: developing capillary loop stage nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:2850027
+name: early tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:2792527
+name: associated interstitium of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2790727
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2791327
+name: visceral epithelium of capillary loop renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2790727
+
+[Term]
+id: EMAPT:2791927
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2790727
+
+[Term]
+id: EMAPT:2794327
+name: maturing renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2848527
+relationship: part_of EMAPT:2852727
+
+[Term]
+id: EMAPT:2852727
+name: late tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:2794927
+name: maturing glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794327
+
+[Term]
+id: EMAPT:2793127
+name: presumptive mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2790727
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2793727
+name: presumptive endothelium of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2790727
+relationship: part_of EMAPT:2845727
+
+[Term]
+id: EMAPT:2790727
+name: capillary loop renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2850627
+relationship: part_of EMAPT:2852727
+
+[Term]
+id: EMAPT:2790127
+name: parietal epithelium of s-shaped body
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2788327
+
+[Term]
+id: EMAPT:2858827
+name: superficial cell layer of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2808927
+
+[Term]
+id: EMAPT:2796727
+name: visceral epithelium of maturing renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794927
+
+[Term]
+id: EMAPT:2795527
+name: glomerular capillary system of maturing glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794927
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:2796127
+name: glomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794927
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2798527
+name: urinary space of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2797327
+
+[Term]
+id: EMAPT:2799127
+name: juxtaglomerular arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794327
+relationship: part_of EMAPT:2845727
+
+[Term]
+id: EMAPT:2797927
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2797327
+
+[Term]
+id: EMAPT:2797327
+name: Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794327
+
+[Term]
+id: EMAPT:2849127
+name: mature nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:2849427
+name: ureteric trunk
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+relationship: part_of EMAPT:2840727
+
+[Term]
+id: EMAPT:2848527
+name: maturing nephron
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:2845727
+name: renal vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+relationship: part_of EMAPT:3156327
+
+[Term]
+id: EMAPT:2840727
+name: collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:2840227
+name: postmacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2839627
+
+[Term]
+id: EMAPT:2838727
+name: renal distal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:2837627
+name: renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3145027
+
+[Term]
+id: EMAPT:2837327
+name: renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3143627
+
+[Term]
+id: EMAPT:2837027
+name: inner medullary collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2834927
+relationship: part_of EMAPT:2849427
+
+[Term]
+id: EMAPT:2839627
+name: distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2838727
+relationship: part_of EMAPT:3156627
+
+[Term]
+id: EMAPT:2839927
+name: macula densa
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2839627
+relationship: part_of EMAPT:3044927
+
+[Term]
+id: EMAPT:2839327
+name: distal convoluted tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2838727
+relationship: part_of EMAPT:3156627
+
+[Term]
+id: EMAPT:2839027
+name: early distal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2838727
+
+[Term]
+id: EMAPT:2833727
+name: outer medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2831027
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2834627
+name: outer medullary collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2831027
+relationship: part_of EMAPT:2849427
+
+[Term]
+id: EMAPT:1794827
+name: pelvis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:2832527
+name: thin descending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2832227
+
+[Term]
+id: EMAPT:2832827
+name: thin ascending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2832227
+
+[Term]
+id: EMAPT:1795027
+name: ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:2833127
+name: premacula segment of distal straight tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2832227
+
+[Term]
+id: EMAPT:2835827
+name: bend of loop of Henle inner medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2835227
+
+[Term]
+id: EMAPT:2836427
+name: inner medullary interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2834927
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2836127
+name: thin ascending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2835227
+
+[Term]
+id: EMAPT:2834927
+name: inner medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+
+[Term]
+id: EMAPT:2835227
+name: loop of Henle, inner medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928027
+relationship: part_of EMAPT:2834927
+
+[Term]
+id: EMAPT:2835527
+name: thin descending limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2835227
+
+[Term]
+id: EMAPT:1795327
+name: nephrogenic interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2772127
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:1795227
+name: renal cortex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:1795427
+name: early nephron GROUP
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:1795627
+name: phallic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1869227
+
+[Term]
+id: EMAPT:1795927
+name: female reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1738127
+
+[Term]
+id: EMAPT:1796127
+name: mesovarium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:2832227
+name: loop of Henle, outer medullary portion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928027
+relationship: part_of EMAPT:2831027
+
+[Term]
+id: EMAPT:1796227
+name: ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1796627
+name: rete ovarii of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:1796327
+name: surface epithelium of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:1796827
+name: male reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1738127
+
+[Term]
+id: EMAPT:2831027
+name: outer medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+
+[Term]
+id: EMAPT:1797227
+name: testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1797127
+name: mesorchium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3003727
+name: renal cortical capillary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2814227
+relationship: part_of EMAPT:3144327
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:3123527
+name: developing vasculature system of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:3003127
+name: glomerular mesangium of Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2797327
+
+[Term]
+id: EMAPT:2828127
+name: renal proximal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1897627
+
+[Term]
+id: EMAPT:2828427
+name: early proximal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2828127
+
+[Term]
+id: EMAPT:2828727
+name: renal proximal convoluted tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2828127
+relationship: part_of EMAPT:3156627
+
+[Term]
+id: EMAPT:3124027
+name: surface epithelium of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:3124727
+name: follicle cell of primordial follicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3075527
+
+[Term]
+id: EMAPT:2827227
+name: rest of afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2826627
+
+[Term]
+id: EMAPT:2827527
+name: efferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823627
+relationship: part_of EMAPT:3145027
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:2827827
+name: extraglomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823627
+relationship: part_of EMAPT:2851827
+relationship: part_of EMAPT:3044927
+
+[Term]
+id: EMAPT:3121427
+name: developing vasculature of oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898427
+
+[Term]
+id: EMAPT:3001127
+name: endothelium of renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2837627
+
+[Term]
+id: EMAPT:3001927
+name: smooth muscle layer of renal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2837627
+
+[Term]
+id: EMAPT:3121927
+name: developing vasculature of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898727
+relationship: part_of EMAPT:3122927
+
+[Term]
+id: EMAPT:2826027
+name: parietal epithelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2825727
+
+[Term]
+id: EMAPT:2826627
+name: afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823627
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3145027
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:2826927
+name: part of afferent arteriole forming the juxtaglomerular complex
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2826627
+relationship: part_of EMAPT:3044927
+
+[Term]
+id: EMAPT:2826327
+name: urinary space of renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2825727
+
+[Term]
+id: EMAPT:3122427
+name: developing vasculature of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899927
+relationship: part_of EMAPT:3122927
+
+[Term]
+id: EMAPT:3000327
+name: smooth muscle layer of renal artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2837327
+
+[Term]
+id: EMAPT:2824827
+name: glomerular mesangium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823927
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:3122927
+name: developing vasculature of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:2825727
+name: Bowman's capsule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823627
+
+[Term]
+id: EMAPT:2978627
+name: epithelial layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1908827
+
+[Term]
+id: EMAPT:2825427
+name: visceral epithelium of mature renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823927
+
+[Term]
+id: EMAPT:2825127
+name: glomerular basement membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823927
+
+[Term]
+id: EMAPT:2977127
+name: epithelial layer of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1918027
+
+[Term]
+id: EMAPT:2977527
+name: adventitia of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1918027
+
+[Term]
+id: EMAPT:2977327
+name: muscle layer of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1918027
+
+[Term]
+id: EMAPT:3120427
+name: developing vasculature of caput epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929127
+relationship: part_of EMAPT:3123527
+
+[Term]
+id: EMAPT:3120927
+name: developing vasculature of uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898527
+
+[Term]
+id: EMAPT:2975527
+name: epithelium of corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929327
+relationship: part_of EMAPT:3044527
+
+[Term]
+id: EMAPT:2975727
+name: muscle layer of corpus of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929327
+relationship: part_of EMAPT:3044727
+
+[Term]
+id: EMAPT:2975927
+name: adventitia of corpus of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929327
+relationship: part_of EMAPT:3044327
+
+[Term]
+id: EMAPT:2976127
+name: epithelium of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929127
+relationship: part_of EMAPT:3044527
+
+[Term]
+id: EMAPT:2976327
+name: muscle layer of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929127
+relationship: part_of EMAPT:3044727
+
+[Term]
+id: EMAPT:2976527
+name: adventitia of caput of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929127
+relationship: part_of EMAPT:3044327
+
+[Term]
+id: EMAPT:2975327
+name: adventitia of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929227
+relationship: part_of EMAPT:3044327
+
+[Term]
+id: EMAPT:2975127
+name: muscle layer of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929227
+relationship: part_of EMAPT:3044727
+
+[Term]
+id: EMAPT:2824527
+name: glomerular capillary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823927
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3144327
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:2823927
+name: glomerular tuft
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2823627
+
+[Term]
+id: EMAPT:2823027
+name: afferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2799127
+
+[Term]
+id: EMAPT:2823327
+name: efferent arteriole
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2799127
+
+[Term]
+id: EMAPT:2823627
+name: mature renal corpuscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2849127
+
+[Term]
+id: EMAPT:2822127
+name: arcuate vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2815227
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3145027
+relationship: part_of EMAPT:3146427
+
+[Term]
+id: EMAPT:3230827
+name: submucosa of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155327
+
+[Term]
+id: EMAPT:3230927
+name: muscularis mucosa of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155327
+
+[Term]
+id: EMAPT:3230627
+name: intermediate cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3226427
+
+[Term]
+id: EMAPT:3230727
+name: intermediate cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3230027
+
+[Term]
+id: EMAPT:3230427
+name: submucosa of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3227527
+
+[Term]
+id: EMAPT:3230527
+name: intermediate cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3228227
+
+[Term]
+id: EMAPT:3230027
+name: urothelium of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2869727
+
+[Term]
+id: EMAPT:2821827
+name: interlobular vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2815227
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3145027
+relationship: part_of EMAPT:3146427
+
+[Term]
+id: EMAPT:2821527
+name: arcuate artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2814727
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3143627
+relationship: part_of EMAPT:3146427
+
+[Term]
+id: EMAPT:2821227
+name: interlobular artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2814727
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3143627
+relationship: part_of EMAPT:3146427
+
+[Term]
+id: EMAPT:3231127
+name: lamina propria of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155227
+
+[Term]
+id: EMAPT:3231227
+name: muscularis mucosa of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155227
+
+[Term]
+id: EMAPT:3231327
+name: submucosa of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155427
+
+[Term]
+id: EMAPT:3231427
+name: intermediate cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3225827
+
+[Term]
+id: EMAPT:3231027
+name: lamina propria of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155327
+
+[Term]
+id: EMAPT:3225927
+name: mesenchymal layer of lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899927
+
+[Term]
+id: EMAPT:3225827
+name: urothelium of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2869727
+
+[Term]
+id: EMAPT:3226127
+name: basal cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3225827
+
+[Term]
+id: EMAPT:3226227
+name: vasculature of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+
+[Term]
+id: EMAPT:3226027
+name: basal cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3230027
+
+[Term]
+id: EMAPT:3229827
+name: submucosa of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155027
+
+[Term]
+id: EMAPT:3229627
+name: lamina propria of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155427
+
+[Term]
+id: EMAPT:3229727
+name: muscularis mucosa of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155027
+
+[Term]
+id: EMAPT:3228927
+name: muscle layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1908827
+
+[Term]
+id: EMAPT:3228627
+name: neural crest derivative of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1899527
+
+[Term]
+id: EMAPT:3228727
+name: mesenchymal pad of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2876527
+
+[Term]
+id: EMAPT:3228827
+name: neural crest derivative of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+
+[Term]
+id: EMAPT:3229327
+name: submucosa of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155227
+
+[Term]
+id: EMAPT:3229227
+name: basal cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3228227
+
+[Term]
+id: EMAPT:3229527
+name: muscularis mucosa of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155427
+
+[Term]
+id: EMAPT:3229427
+name: lamina propria of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3155027
+
+[Term]
+id: EMAPT:3229127
+name: superficial cell layer of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3228227
+
+[Term]
+id: EMAPT:3229027
+name: epithelial layer of prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928727
+
+[Term]
+id: EMAPT:3227627
+name: submucosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3227527
+
+[Term]
+id: EMAPT:3227727
+name: submucosa of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3227527
+
+[Term]
+id: EMAPT:3227427
+name: basal cell layer of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2860127
+
+[Term]
+id: EMAPT:3227527
+name: submucosa of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:3228027
+name: mesenchymal pad of pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2870327
+
+[Term]
+id: EMAPT:3228427
+name: superficial cell layer of ventral pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3225827
+
+[Term]
+id: EMAPT:3228327
+name: vasculature of pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875327
+
+[Term]
+id: EMAPT:3228227
+name: urothelium of ventral pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875927
+
+[Term]
+id: EMAPT:3228127
+name: peri-prostatic mesenchyme of prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928727
+
+[Term]
+id: EMAPT:3226327
+name: superficial cell layer of dorsal pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3230027
+
+[Term]
+id: EMAPT:3226427
+name: urothelium of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2875927
+
+[Term]
+id: EMAPT:3226627
+name: superficial cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3226427
+
+[Term]
+id: EMAPT:3226727
+name: basal cell layer of dorsal pelvic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3226427
+
+[Term]
+id: EMAPT:3227027
+name: mesenchymal layer of ejaculatory duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1908827
+
+[Term]
+id: EMAPT:3227327
+name: superficial cell layer of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2860127
+
+[Term]
+id: EMAPT:3227227
+name: mesenchymal layer of upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898727
+
+[Term]
+id: EMAPT:3119927
+name: developing vasculature of corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929327
+relationship: part_of EMAPT:3123527
+
+[Term]
+id: EMAPT:3119427
+name: developing vasculature of cauda epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929227
+relationship: part_of EMAPT:3123527
+
+[Term]
+id: EMAPT:1918027
+name: seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3118827
+name: developing vasculature of ductus deferens
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868127
+
+[Term]
+id: EMAPT:3118227
+name: developing vasculature of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:1916927
+name: crus of clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868027
+
+[Term]
+id: EMAPT:3085027
+name: ureteral vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+relationship: part_of EMAPT:3156327
+
+[Term]
+id: EMAPT:1917927
+name: tunica vaginalis testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:1917727
+name: Sertoli cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868527
+
+[Term]
+id: EMAPT:1917627
+name: rest of interstitium of the testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868727
+
+[Term]
+id: EMAPT:1917527
+name: fetal Leydig cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868727
+
+[Term]
+id: EMAPT:1917427
+name: female external inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1917227
+
+[Term]
+id: EMAPT:1917327
+name: female internal inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1917227
+
+[Term]
+id: EMAPT:1917227
+name: female inguinal ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1917127
+name: female inguinal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1917027
+name: glans clitoris
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868027
+
+[Term]
+id: EMAPT:3013727
+name: muscularis mucosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2861927
+
+[Term]
+id: EMAPT:3013027
+name: serosa of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2866127
+
+[Term]
+id: EMAPT:2814727
+name: renal cortical arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2814227
+
+[Term]
+id: EMAPT:2814227
+name: renal cortical vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+
+[Term]
+id: EMAPT:3012327
+name: detrusor muscle of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2863727
+
+[Term]
+id: EMAPT:2813627
+name: renal cortical interstitium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:2851827
+
+[Term]
+id: EMAPT:2813027
+name: cortical collecting duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:2849427
+
+[Term]
+id: EMAPT:2969327
+name: epithelium of cauda of epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929227
+relationship: part_of EMAPT:3044527
+
+[Term]
+id: EMAPT:2816727
+name: renal medullary venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2815727
+relationship: part_of EMAPT:3145027
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:2816227
+name: renal medullary arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2815727
+relationship: part_of EMAPT:3143627
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:3093427
+name: mesenchymal layer of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3091727
+
+[Term]
+id: EMAPT:3093027
+name: urothelium of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3091727
+
+[Term]
+id: EMAPT:3014427
+name: adventitia of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2882627
+
+[Term]
+id: EMAPT:2815227
+name: renal cortical venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2814227
+
+[Term]
+id: EMAPT:2815727
+name: renal medullary vasculature
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+
+[Term]
+id: EMAPT:3093827
+name: muscle layer of phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3091727
+
+[Term]
+id: EMAPT:3091727
+name: phallic urethra of female
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2874727
+
+[Term]
+id: EMAPT:3011627
+name: lamina propria of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3008827
+
+[Term]
+id: EMAPT:3010227
+name: lamina propria of fundus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3008827
+
+[Term]
+id: EMAPT:3010927
+name: lamina propria of trigone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3008827
+
+[Term]
+id: EMAPT:2691327
+name: male inguinal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1737327
+name: metanephros
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:1736827
+name: urogenital mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736727
+
+[Term]
+id: EMAPT:1736727
+name: urinary system mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:1736627
+name: urinary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624527
+
+[Term]
+id: EMAPT:2812027
+name: pelvic smooth muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1794827
+
+[Term]
+id: EMAPT:1738127
+name: reproductive system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624527
+
+[Term]
+id: EMAPT:1738027
+name: urorectal septum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736627
+
+[Term]
+id: EMAPT:2811427
+name: adventitia of ureter
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795027
+
+[Term]
+id: EMAPT:1898527
+name: uterine horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1898427
+name: oviduct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1897627
+name: cortical renal tubule
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795227
+relationship: part_of EMAPT:1795427
+relationship: part_of EMAPT:2848527
+relationship: part_of EMAPT:2849127
+relationship: part_of EMAPT:2850627
+relationship: part_of EMAPT:2852727
+
+[Term]
+id: EMAPT:1897827
+name: female cystic vesicular appendage
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1899927
+name: lower part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:1899527
+name: pelvic urethra of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1869227
+
+[Term]
+id: EMAPT:1899327
+name: efferent duct of seminal vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:1898827
+name: glans penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868227
+
+[Term]
+id: EMAPT:1898927
+name: prepuce of male
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868227
+
+[Term]
+id: EMAPT:1898627
+name: vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1898727
+name: upper part of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:3008827
+name: lamina propria of bladder
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1832127
+
+[Term]
+id: EMAPT:3105827
+name: ovigerous cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+
+[Term]
+id: EMAPT:2960927
+name: rest of mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1736727
+
+[Term]
+id: EMAPT:3099127
+name: epithelium of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:3004327
+name: renal medullary capillary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2815727
+relationship: part_of EMAPT:2845727
+relationship: part_of EMAPT:3144327
+relationship: part_of EMAPT:3146927
+
+[Term]
+id: EMAPT:3102527
+name: meiotic oocytes
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796227
+relationship: part_of EMAPT:3105827
+
+[Term]
+id: EMAPT:3099727
+name: muscular layer of vagina
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1898627
+
+[Term]
+id: EMAPT:3098427
+name: female external genitalia
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1795927
+
+[Term]
+id: EMAPT:1927927
+name: renal medulla
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1737327
+
+[Term]
+id: EMAPT:1928527
+name: male accessory gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3104527
+name: ureteric tree terminal branch excluding tip itself
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2772127
+relationship: part_of EMAPT:2840727
+
+[Term]
+id: EMAPT:1928027
+name: Loop of Henle group
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1927927
+relationship: part_of EMAPT:2849127
+
+[Term]
+id: EMAPT:1928727
+name: prostate gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928527
+
+[Term]
+id: EMAPT:1928627
+name: bulbourethral gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1928527
+
+[Term]
+id: EMAPT:1928927
+name: tunica albuginea of testis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1797227
+
+[Term]
+id: EMAPT:3097727
+name: male external genitalia
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3104027
+name: rest of cortical component of mesenchymal stroma of ovary
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2900927
+
+[Term]
+id: EMAPT:3008127
+name: urothelium of neck
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2860127
+
+[Term]
+id: EMAPT:3103527
+name: pre-granulosa cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2900927
+relationship: part_of EMAPT:3105827
+
+[Term]
+id: EMAPT:1929427
+name: crus penis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1868227
+
+[Term]
+id: EMAPT:1929327
+name: corpus epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:1929227
+name: cauda epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:1929127
+name: caput epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1929027
+
+[Term]
+id: EMAPT:1929027
+name: epididymis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1796827
+
+[Term]
+id: EMAPT:3096527
+name: glomerular basement membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2794927
+
+[Term]
+id: EMAPT:1603527
+name: zona pellucida
+namespace: stage_specific_anatomical_structure
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

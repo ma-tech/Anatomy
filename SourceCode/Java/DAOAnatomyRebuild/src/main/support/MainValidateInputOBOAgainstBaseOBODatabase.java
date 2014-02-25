@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainValidateInputOBOAgainstBaseOBOFiles.java
+* Title:        MainValidateInputOBOAgainstBaseOBODatabase.java
 *
 * Date:         2012
 *
@@ -18,47 +18,57 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Loads 2 OBOFiles into memory, and validates INPUT against BASE.
+* Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
+*                against the existing anatomy databas in OBO Format.
 *
-* Usage:       "main.MainValidateInputOBOAgainstBaseOBOFiles
+* Usage:       "main.MainValidateInputOBOAgainstBaseOBODatabase
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
-*                 mouse011JenkinsOBOfile"
+*                 mouse011JenkinsOBOfile 
+*                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
+*                   mouse011GudmapLocalhost"
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
-* Mike Wicks; December 2013; Create Class
+* Mike Wicks; February 2012; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
-package main;
+package main.support;
 
 import utility.Wrapper;
+
+import daolayer.DAOFactory;	
+import daolayer.DAOProperty;
 
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
-import routines.runnable.ValidateInputOBOAgainstBaseOBOFiles;
+import routines.runnable.ValidateInputOBOAgainstBaseOBODatabase;
 
-public class MainValidateInputOBOAgainstBaseOBOFiles{
+public class MainValidateInputOBOAgainstBaseOBODatabase{
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 2) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
-
+        
         	OBOProperty oboproperty = new OBOProperty();
         	oboproperty.setOBOProperty(args[0], args[1]);
+        	
+        	DAOProperty daoproperty = new DAOProperty();
+        	daoproperty.setDAOProperty(args[2], args[3]);
 
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
+            DAOFactory daofactory = DAOFactory.getInstance(args[3]);
             
-            ValidateInputOBOAgainstBaseOBOFiles.run( obofactory );
+            ValidateInputOBOAgainstBaseOBODatabase.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

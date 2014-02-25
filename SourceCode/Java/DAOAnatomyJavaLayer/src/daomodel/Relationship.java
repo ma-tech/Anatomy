@@ -98,8 +98,14 @@ public class Relationship {
     public long getChildFK() {
         return childFK;
     }
+    public String getChildFKAsString() {
+        return ObjectConverter.convert(childFK, String.class);
+    }
     public long getParentFK() {
         return parentFK;
+    }
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------
@@ -113,13 +119,13 @@ public class Relationship {
         this.childFK = childFK;
     }
     public void setChildFK(String childFK) {
-        this.childFK = ObjectConverter.convert(childFK, Long.class);;
+        this.childFK = ObjectConverter.convert(childFK, Long.class);
     }
     public void getParentFK(long parentFK) {
         this.parentFK = parentFK;
     }
     public void getParentFK(String parentFK) {
-        this.parentFK = ObjectConverter.convert(parentFK, Long.class);;
+        this.parentFK = ObjectConverter.convert(parentFK, Long.class);
     }
 
     // Override -----------------------------------------------------------------------------------

@@ -106,8 +106,14 @@ public class ComponentRelationship {
     public long getChildStart() {
         return this.childStart;
     }
+    public String getChildStartAsString() {
+        return ObjectConverter.convert(childStart, String.class);
+    }
     public long getChildStop() {
         return this.childStop;
+    }
+    public String getChildStopAsString() {
+        return ObjectConverter.convert(childStop, String.class);
     }
     public String getType() {
         return this.type;

@@ -163,6 +163,9 @@ public class Component {
     public boolean isGroup() {
         return this.group;
     }
+    public String getGroup() {
+        return ObjectConverter.convert(group, String.class);
+    }
     public String getStart() {
     	return this.start;
     }
@@ -171,6 +174,9 @@ public class Component {
     }
     public boolean isPresent(){
         return this.present;
+    }
+    public String getPresent(){
+        return ObjectConverter.convert(present, String.class);
     }
     public String getStatusChange(){
         return this.statuschange;

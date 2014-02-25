@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainExtractAndWriteOBOFromExistingDatabase.java
+* Title:        MainUpdateDatabaseWithPerspectiveAmbits.java
 *
 * Date:         2012
 *
@@ -18,10 +18,9 @@
 *
 * Version:      1
 *
-* Description:  A Main Executable Class that Extracts And Write OBOComponents From an 
-*                Existing Anatomy Database
-* 
-* Usage:        "main.MainExtractAndWriteOBOFromExistingDatabase 
+* Description:  A Main Class that Updates Anatomy Database with the Perspecive Ambits from File
+*
+* Usage:       "main.MainUpdateDatabaseFromComponentsTables
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
@@ -38,36 +37,34 @@
 package main;
 
 import utility.Wrapper;
-
+import daolayer.DAOFactory;
+import daolayer.DAOProperty;
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
-import daolayer.DAOFactory;
-import daolayer.DAOProperty;
+import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 
-import routines.runnable.ExtractAndWriteOBOFromExistingDatabase;
-
-public class MainExtractAndWriteOBOFromExistingDatabase {
+public class Main3UpdateDatabaseWithPerspectiveAmbits{
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 5) {
+		if (args.length != 6 ) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
         	OBOProperty oboproperty = new OBOProperty();
         	oboproperty.setOBOProperty(args[0], args[1]);
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-        		
+
         	DAOProperty daoproperty = new DAOProperty();
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            ExtractAndWriteOBOFromExistingDatabase.run( daofactory, obofactory );
+            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

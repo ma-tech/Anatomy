@@ -166,7 +166,7 @@ public class JOINRelationshipProjectRelationship {
         this.sequenceFK = sequenceFK;
     }
     public void setSequenceFK(String sequenceFK) {
-        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);;
+        this.sequenceFK = ObjectConverter.convert(sequenceFK, Long.class);
     }
 
     public void setOidRelationship(Long oidRelationship) {

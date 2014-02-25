@@ -91,6 +91,9 @@ public class Version {
     public long getNumber() {
         return number;
     }
+    public String getNumberAsString() {
+        return ObjectConverter.convert(number, String.class);
+    }
     public String getDate() {
         return date;
     }

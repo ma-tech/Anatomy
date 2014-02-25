@@ -33,7 +33,6 @@ package app;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import java.io.File;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -44,21 +43,18 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
- 
+
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import utility.ObjectConverter;
 import utility.Wrapper;
-
 import obolayer.OBOFactory;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daointerface.NodeDAO;
 import daointerface.RelationshipDAO;
-
 import daomodel.Node;
 import daomodel.Relationship;
 
@@ -244,7 +240,7 @@ public class RunExportToXML {
         		
         		// data element
         		Element dataElement3 = doc.createElement("data");
-        		dataElement3.setTextContent(((Integer) node.getPrimary()).toString());
+        		dataElement3.setTextContent(node.getPrimary());
         		nodeElement.appendChild(dataElement3);
         		
         		dataElementAttr = doc.createAttribute("key");
@@ -253,7 +249,7 @@ public class RunExportToXML {
         		
         		// data element
         		Element dataElement4 = doc.createElement("data");
-        		dataElement4.setTextContent(((Integer) node.getGroup()).toString());
+        		dataElement4.setTextContent(node.getGroup());
         		nodeElement.appendChild(dataElement4);
         		
         		dataElementAttr = doc.createAttribute("key");

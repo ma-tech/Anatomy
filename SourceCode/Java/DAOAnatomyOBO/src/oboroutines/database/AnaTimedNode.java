@@ -38,9 +38,6 @@
 */
 package oboroutines.database;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,7 +60,6 @@ import daolayer.DAOFactory;
 
 import daomodel.Log;
 import daomodel.Stage;
-import daomodel.Synonym;
 import daomodel.Thing;
 import daomodel.TimedNode;
 import daomodel.TimedIdentifier;

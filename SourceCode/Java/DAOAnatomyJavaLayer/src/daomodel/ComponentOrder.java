@@ -112,8 +112,14 @@ public class ComponentOrder {
     public long getAlphaorder() {
         return this.alphaorder;
     }
+    public String getAlphaorderAsString() {
+        return ObjectConverter.convert(alphaorder, String.class);
+    }
     public long getSpecialorder() {
         return this.specialorder;
+    }
+    public String getSpecialorderAsString() {
+        return ObjectConverter.convert(specialorder, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------

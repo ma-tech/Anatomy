@@ -166,7 +166,7 @@ public final class SourceFormatDAOJDBC implements SourceFormatDAO {
      */
     public List<SourceFormat> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

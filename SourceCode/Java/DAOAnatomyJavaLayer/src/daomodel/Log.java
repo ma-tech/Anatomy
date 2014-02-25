@@ -115,8 +115,14 @@ public class Log {
     public long getLoggedOid() {
         return loggedOid;
     } 
+    public String getLoggedOidAsString() {
+        return ObjectConverter.convert(loggedOid, String.class);
+    } 
     public long getVersionFK() {
         return versionFK;
+    } 
+    public String getVersionFKAsString() {
+        return ObjectConverter.convert(versionFK, String.class);
     } 
     public String getColumnName() {
         return columnName;

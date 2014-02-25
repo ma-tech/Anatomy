@@ -160,7 +160,7 @@ public final class ProjectDAOJDBC implements ProjectDAO {
      */
     public List<Project> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

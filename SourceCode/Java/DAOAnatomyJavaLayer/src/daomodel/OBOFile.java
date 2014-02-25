@@ -426,6 +426,9 @@ public class OBOFile {
     public long getContentlength() {
         return contentlength;
     }
+    public String getContentlengthAsString() {
+        return ObjectConverter.convert(contentlength, String.class);
+    }
     public String getContentdate() {
         return contentdate;
     }
@@ -447,6 +450,9 @@ public class OBOFile {
     public long getTextreportlength() {
         return textreportlength;
     }
+    public String getTextreportlengthAsString() {
+        return ObjectConverter.convert(textreportlength, String.class);
+    }
     public String getTextreportdate() {
         return textreportdate;
     }
@@ -461,6 +467,9 @@ public class OBOFile {
     }
     public long getPdfreportlength() {
         return pdfreportlength;
+    }
+    public String getPdfreportlengthAsString() {
+        return ObjectConverter.convert(pdfreportlength, String.class);
     }
     public String getPdfreportdate() {
         return pdfreportdate;

@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainUpdateDatabaseFromComponentsTables.java
+* Title:        MainLoadOBOFileIntoComponentsTablesAndValidate.java
 *
 * Date:         2012
 *
@@ -18,9 +18,10 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Updates Anatomy Database From the Components Tables
+* Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
+*                against the existing anatomy database
 *
-* Usage:       "main.MainUpdateDatabaseFromComponentsTables
+* Usage:        "main.MainLoadOBOFileIntoComponentsTablesAndValidate 
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
@@ -34,55 +35,39 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package main;
-
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+package main.support;
 
 import utility.Wrapper;
-import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
-import app.gudmap.RunOBOResetComponentsOrderAlpha;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-import routines.runnable.UpdateDatabaseFromComponentsTables;
-import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 
-public class MainUpdateDatabaseFromComponentsTables{
+import routines.runnable.PrintOutOBOFile;
+
+public class MainPrintOutOBOFile{
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 6) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
         	OBOProperty oboproperty = new OBOProperty();
         	oboproperty.setOBOProperty(args[0], args[1]);
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-
+        	
         	DAOProperty daoproperty = new DAOProperty();
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
-
-            //PrintStream original = System.out;
             
-            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
-            
-            UpdateDatabaseFromComponentsTables.run( daofactory, obofactory );
-            
-            RunOBOResetComponentsOrderAlpha.run( daofactory );
-            
-            RebuildRelationshipProjectFromComponentsTables.run( daofactory );
-            
-            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
-
-            //System.setOut(original);
+            PrintOutOBOFile.run( daofactory, obofactory );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

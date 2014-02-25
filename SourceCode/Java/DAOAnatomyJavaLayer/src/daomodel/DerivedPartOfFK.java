@@ -192,8 +192,14 @@ public class DerivedPartOfFK {
     public long getSequence() {
         return sequence;
     } 
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
+    } 
     public long getDepth() {
         return depth;
+    } 
+    public String getDepthAsString() {
+        return ObjectConverter.convert(depth, String.class);
     } 
     public String getFullPath() {
         return fullPath;
@@ -210,11 +216,20 @@ public class DerivedPartOfFK {
     public boolean isPrimary() {
         return primary;
     } 
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    } 
     public boolean isPrimaryPath() {
         return primaryPath;
     } 
+    public String getPrimaryPath() {
+        return ObjectConverter.convert(primaryPath, String.class);
+    } 
     public long getParentFK() {
         return parentFK;
+    } 
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     } 
 
     // Setters ------------------------------------------------------------------------------------

@@ -237,7 +237,7 @@ public final class OBOFileDAOJDBC implements OBOFileDAO {
      */
     public List<OBOFile> listAllWithBinary() throws Exception {
     	
-        return listWithBinary(SQL_LIST_ALL, (Object[]) null);
+        return listWithBinary(SQL_LIST_ALL);
     }
     
     /*

@@ -199,8 +199,14 @@ public class JOINTimedNodeNodeStage {
     public long getNodeFK() {
         return nodeFK;
     }
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    }
     public long getStageFK() {
         return stageFK;
+    }
+    public String getStageFKAsString() {
+        return ObjectConverter.convert(stageFK, String.class);
     }
     public String getStageModifierFK() {
         return stageModifierFK;
@@ -224,8 +230,14 @@ public class JOINTimedNodeNodeStage {
     public boolean isPrimary() {
         return primary;
     }
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    }
     public boolean isGroup() {
         return group;
+    }
+    public String getGroup() {
+        return ObjectConverter.convert(group, String.class);
     }
     public String getPublicNodeId() {
         return publicNodeId;
@@ -245,6 +257,9 @@ public class JOINTimedNodeNodeStage {
     }
     public long getSequence() {
         return sequence;
+    }
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
     }
     public String getDescriptionStage() {
         return descriptionStage;

@@ -33,6 +33,7 @@ package routines.runnable;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,23 +45,26 @@ import obolayer.OBOFactory;
 import daolayer.DAOException;
 import daolayer.DAOFactory;
 
-public class UpdateDatabaseWithBaseData {
+public class OutputDatabaseToCSV {
 	
 	public static void run(DAOFactory daofactory, OBOFactory obofactory, String fileName, char separator ) throws Exception {
 		
-		Wrapper.printMessage("UpdateDatabaseWithBaseData.run", "***", obofactory.getMsgLevel());
+		Wrapper.printMessage("OutputDatabaseToCSV.run", "***", obofactory.getMsgLevel());
 	    
         try {
         	
-            // Format InputStream for Anatomy.
-            InputStream csvInput = FileUtil.readStream(new File( fileName ));
+            // Create Empty Anatomy Object
+        	Anatomy anatomy = new Anatomy( daofactory );
+        	
+        	// Populate the Anatomy Array with Data from 16 Tables 
+        	anatomy.createCSV2DArrayFromDatabase();
+        	
+         	// Format Anatomy into an InputStream
+            InputStream csvInput = CsvUtil.formatCsv(anatomy.getCsv2DStringArray(), separator);
+
+            // Save Anatomy to file
+            FileUtil.write(new File( fileName ), csvInput);
             
-            // Create Anatomy List
-        	Anatomy anatomy = new Anatomy( daofactory, CsvUtil.parseCsv(csvInput, ';') );
-        	
-        	// Update the Database with the Anatomy Data
-        	anatomy.updateDatabase();
-        	
         }
         catch ( DAOException dao ) {
         	

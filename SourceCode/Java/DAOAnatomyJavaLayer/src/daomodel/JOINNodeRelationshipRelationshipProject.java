@@ -174,8 +174,14 @@ public class JOINNodeRelationshipRelationshipProject {
     public boolean isPrimary() {
         return primary;
     }
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    }
     public boolean isGroup() {
         return group;
+    }
+    public String getGroup() {
+        return ObjectConverter.convert(group, String.class);
     }
     public String getPublicId() {
         return publicId;
@@ -193,8 +199,14 @@ public class JOINNodeRelationshipRelationshipProject {
     public long getChildFK() {
         return childFK;
     }
+    public String getChildFKAsString() {
+        return ObjectConverter.convert(childFK, String.class);
+    }
     public long getParentFK() {
         return parentFK;
+    }
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     }
 
     public Long getOidRelationshipProject() {
@@ -203,11 +215,17 @@ public class JOINNodeRelationshipRelationshipProject {
     public long getRelationshipFK() {
         return relationshipFK;
     }
+    public String getRelationshipFKAsString() {
+        return ObjectConverter.convert(relationshipFK, String.class);
+    }
     public String getProjectFK() {
         return projectFK;
     }
     public long getSequenceFK() {
         return sequenceFK;
+    }
+    public String getSequenceFKAsString() {
+        return ObjectConverter.convert(sequenceFK, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------

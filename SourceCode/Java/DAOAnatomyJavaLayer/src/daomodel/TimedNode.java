@@ -103,8 +103,14 @@ public class TimedNode {
     public long getNodeFK() {
         return nodeFK;
     }
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    }
     public long getStageFK() {
         return stageFK;
+    }
+    public String getStageFKAsString() {
+        return ObjectConverter.convert(stageFK, String.class);
     }
     public String getStageModifierFK() {
         return stageModifierFK;

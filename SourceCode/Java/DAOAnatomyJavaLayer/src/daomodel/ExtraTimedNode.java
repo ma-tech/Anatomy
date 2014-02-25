@@ -133,8 +133,14 @@ public class ExtraTimedNode {
     public long getNodeFK() {
         return nodeFK;
     }
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    }
     public long getStageFK() {
         return stageFK;
+    }
+    public String getStageFKAsString() {
+        return ObjectConverter.convert(stageFK, String.class);
     }
     public String getStageModifierFK() {
         return stageModifierFK;
@@ -150,6 +156,9 @@ public class ExtraTimedNode {
     }
     public long getStageSeq() {
         return stageSeq;
+    }
+    public String getStageSeqAsString() {
+        return ObjectConverter.convert(stageSeq, String.class);
     }
     public String getStageMinName() {
         return stageMinName;

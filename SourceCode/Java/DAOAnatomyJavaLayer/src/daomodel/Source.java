@@ -106,6 +106,9 @@ public class Source {
     public long getYear() {
         return year;
     }
+    public String getYearAsString() {
+        return ObjectConverter.convert(year, String.class);
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {

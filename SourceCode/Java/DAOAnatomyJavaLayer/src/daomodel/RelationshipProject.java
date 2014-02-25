@@ -95,11 +95,17 @@ public class RelationshipProject {
     public long getRelationshipFK() {
         return relationshipFK;
     }
+    public String getRelationshipFKAsString() {
+        return ObjectConverter.convert(relationshipFK, String.class);
+    }
     public String getProjectFK() {
         return projectFK;
     }
     public long getSequence() {
         return sequence;
+    }
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyJavaLayer
 *
-* Title:        Synonym.java
+* Title:        SynonymFK.java
 *
 * Date:         2012
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  This class represents a SQL Database Transfer Object for the Synonym Table.
+* Description:  This class represents a SQL Database Transfer Object for the SynonymFK Table.
 *                ANA_SYNONYM
 *
 * Link:         
@@ -33,9 +33,7 @@
 */
 package daomodel;
 
-import utility.ObjectConverter;
-
-public class Synonym {
+public class SynonymFK {
     // Properties ---------------------------------------------------------------------------------
 	/*
      *   1. SYN_OID         - int(10) unsigned
@@ -43,38 +41,26 @@ public class Synonym {
      *   3. SYN_SYNONYM     - varchar(100)
 	 */
     private Long oid; 
-    private long thingFK; 
+    private String thingNameFK; 
     private String name; 
 
     // Constructors -------------------------------------------------------------------------------
     /*
      * Default constructor.
      */
-    public Synonym() {
+    public SynonymFK() {
         
     }
 
     /*
      * Minimal constructor. Contains required fields.
      */
-    public Synonym(Long oid, 
-    		long thingFK,
+    public SynonymFK(Long oid, 
+    		String thingNameFK,
     	    String name) {
     	
         this.oid = oid;
-	    this.thingFK = thingFK;
-	    this.name = name;
-    }
-
-    /*
-     * Minimal constructor. Contains required fields.
-     */
-    public Synonym(Long oid, 
-    		String thingFK,
-    	    String name) {
-    	
-        this.oid = oid;
-	    this.thingFK = ObjectConverter.convert(thingFK, Long.class);
+	    this.thingNameFK = thingNameFK;
 	    this.name = name;
     }
 
@@ -82,11 +68,8 @@ public class Synonym {
     public Long getOid() {
         return oid;
     }
-    public long getThingFK() {
-        return thingFK;
-    }
-    public String getThingFKAsString() {
-        return ObjectConverter.convert(thingFK, String.class);
+    public String getThingNameFK() {
+        return thingNameFK;
     }
     public String getName() {
         return name;
@@ -96,11 +79,8 @@ public class Synonym {
     public void setOid(Long oid) {
         this.oid = oid;
     }
-    public void setThingFK(long thingFK) {
-        this.thingFK = thingFK;
-    }
-    public void setThingFK(String thingFK) {
-        this.thingFK = ObjectConverter.convert(thingFK, Long.class);
+    public void setThingNameFK(String thingNameFK) {
+        this.thingNameFK = thingNameFK;
     }
     public void setName(String name) {
         this.name = name;
@@ -108,11 +88,11 @@ public class Synonym {
 
     // Override -----------------------------------------------------------------------------------
     /*
-     * Is this Synonym the same as the Supplied Synonym?
+     * Is this SynonymFK the same as the Supplied SynonymFK?
      */
-    public boolean isSameAs(Synonym daosynonym){
+    public boolean isSameAs(SynonymFK daosynonym){
 
-    	if (this.getThingFK() == daosynonym.getThingFK() &&
+    	if (this.getThingNameFK().equals(daosynonym.getThingNameFK()) &&
     		this.getName().equals(daosynonym.getName()) ) {
 
         	return true;
@@ -124,33 +104,33 @@ public class Synonym {
     }
 
     /*
-     * The OID is unique for each Synonym.
-     *  So this should compare Synonym by OID only.
+     * The OID is unique for each SynonymFK.
+     *  So this should compare SynonymFK by OID only.
      */
     public boolean equals(Object other) {
     	
-        return (other instanceof Synonym) && (oid != null) 
-        		? oid.equals(((Synonym) other).oid) 
+        return (other instanceof SynonymFK) && (oid != null) 
+        		? oid.equals(((SynonymFK) other).oid) 
         		: (other == this);
     }
 
     /*
-     * Returns the String representation of this Synonym. 
+     * Returns the String representation of this SynonymFK. 
      *  Not required, it just makes reading logs easier.
      */
     public String toString() {
     	
-        return String.format("Synonym [ oid=%d, thingFK=%d, name=%s ]", 
-            oid, thingFK, name); 
+        return String.format("SynonymFK [ oid=%d, thingNameFK=%s, name=%s ]", 
+            oid, thingNameFK, name); 
     }
 
     /*
-     * Returns the String representation of this Synonym. 
+     * Returns the String representation of this SynonymFK. 
      *  Not required, it just makes reading logs easier.
      */
     public String toStringThing() {
     	
-        return String.format("oid=%d, thingFK=%d, name=%s", 
-            oid, thingFK, name); 
+        return String.format("oid=%d, thingNameFK=%d, name=%s", 
+            oid, thingNameFK, name); 
     }
 }

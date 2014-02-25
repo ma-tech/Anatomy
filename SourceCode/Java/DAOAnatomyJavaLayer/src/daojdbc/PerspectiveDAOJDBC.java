@@ -167,7 +167,7 @@ public final class PerspectiveDAOJDBC implements PerspectiveDAO {
      */
     public List<Perspective> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainLoadOBOFileIntoComponentsTablesAndValidateBackground.java
+* Title:        MainUpdateDatabaseWithPerspectiveAmbits.java
 *
 * Date:         2012
 *
@@ -18,15 +18,13 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
-*                against the existing anatomy database
-* 
-* Usage:        "main.MainLoadOBOFileIntoComponentsTablesAndValidateBackground 
+* Description:  A Main Class that Updates Anatomy Database with the Perspecive Ambits from File
+*
+* Usage:       "main.MainUpdateDatabaseFromComponentsTables
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
-*                   mouse011GudmapLocalhost
-*                    5"
+*                   mouse011GudmapLocalhost"
 * 
 * Maintenance:  Log changes below, with most recent at top of list.
 *
@@ -36,10 +34,13 @@
 *
 *----------------------------------------------------------------------------------------------
 */
-package main;
+package main.support;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 
 import utility.Wrapper;
-import utility.ObjectConverter;
 
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
@@ -47,31 +48,37 @@ import daolayer.DAOProperty;
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
-import app.RunExtractOBOAndValidate;
+import routines.runnable.OutputDatabaseToCSV;
 
-public class MainLoadOBOFileIntoComponentsTablesAndValidateBackground{
+public class MainOutputDatabaseToCSV {
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 5) {
+		if (args.length != 6 ) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
         	OBOProperty oboproperty = new OBOProperty();
         	oboproperty.setOBOProperty(args[0], args[1]);
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
-        	
+
         	DAOProperty daoproperty = new DAOProperty();
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            long OBOFileRowNumber = ObjectConverter.convert(args[4], Long.class);
+            //PrintStream original = System.out;
             
-            RunExtractOBOAndValidate.run( OBOFileRowNumber, daofactory, obofactory );
+            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[5]))));
+            
+            char separator = ';';
+            
+            OutputDatabaseToCSV.run( daofactory, obofactory, args[4], separator );
+            
+            //System.setOut(original);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

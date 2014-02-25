@@ -42,17 +42,21 @@ import java.util.Iterator;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
 import daointerface.NodeDAO;
 import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
+
 import daomodel.Relationship;
 import daomodel.Synonym;
 import daomodel.Version;
 import daomodel.TimedNode;
 import daomodel.Node;
 import daomodel.Thing;
+
 import obomodel.OBOComponent;
 
 public class AnaObject {

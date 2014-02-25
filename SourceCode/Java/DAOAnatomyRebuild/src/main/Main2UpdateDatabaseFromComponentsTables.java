@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainUpdateDatabaseWithPerspectiveAmbits.java
+* Title:        MainUpdateDatabaseFromComponentsTables.java
 *
 * Date:         2012
 *
@@ -18,7 +18,7 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Updates Anatomy Database with the Perspecive Ambits from File
+* Description:  A Main Class that Updates Anatomy Database From the Components Tables
 *
 * Usage:       "main.MainUpdateDatabaseFromComponentsTables
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
@@ -41,19 +41,22 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import utility.Wrapper;
+import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
+import app.gudmap.RunOBOResetComponentsOrderAlpha;
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-import routines.runnable.UpdateDatabaseWithBaseData;
+import routines.runnable.UpdateDatabaseFromComponentsTables;
+import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 
-public class MainUpdateDatabaseWithBaseData {
+public class Main2UpdateDatabaseFromComponentsTables{
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 6 ) {
+		if (args.length != 6) {
 			
 		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
         }
@@ -69,10 +72,16 @@ public class MainUpdateDatabaseWithBaseData {
 
             //PrintStream original = System.out;
             
-            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[5]))));
+            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
             
-            UpdateDatabaseWithBaseData.run( daofactory, obofactory, args[4] );
+            UpdateDatabaseFromComponentsTables.run( daofactory, obofactory );
             
+            RunOBOResetComponentsOrderAlpha.run( daofactory );
+            
+            RebuildRelationshipProjectFromComponentsTables.run( daofactory );
+            
+            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
+
             //System.setOut(original);
         }
 

@@ -121,7 +121,10 @@ public class Node {
     public boolean isPrimary() {
         return primary;
     }
-    public int getPrimary() {
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    }
+    public int getPrimaryAsInt() {
         if ( primary ) {
         	return 1;
         }
@@ -132,7 +135,10 @@ public class Node {
     public boolean isGroup() {
         return group;
     }
-    public int getGroup() {
+    public String getGroup() {
+        return ObjectConverter.convert(group, String.class);
+    }
+    public int getGroupAsInt() {
         if ( group ) {
         	return 1;
         }

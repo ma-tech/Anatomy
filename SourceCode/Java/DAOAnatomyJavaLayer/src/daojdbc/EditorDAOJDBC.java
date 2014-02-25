@@ -164,7 +164,7 @@ public final class EditorDAOJDBC implements EditorDAO {
      */
     public List<Editor> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

@@ -107,11 +107,20 @@ public class PerspectiveAmbit {
     public long getNodeFK() {
         return nodeFK;
     }
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    }
     public boolean isStart() {
         return start;
     }
+    public String getStart() {
+        return ObjectConverter.convert(start, String.class);
+    }
     public boolean isStop() {
         return stop;
+    }
+    public String getStop() {
+        return ObjectConverter.convert(stop, String.class);
     }
     public String getComments() {
         return comments;

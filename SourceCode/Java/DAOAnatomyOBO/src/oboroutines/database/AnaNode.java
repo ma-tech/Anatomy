@@ -88,8 +88,6 @@ public class AnaNode {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 
 
-    private String requestMsgLevel; 
-	
     //check whether was processed all the way
     private boolean processed;
     

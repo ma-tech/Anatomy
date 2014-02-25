@@ -284,8 +284,14 @@ public class JOINComponentOrderComponentComponent {
     public long getAlphaorder() {
         return this.alphaorder;
     }
+    public String getAlphaorderAsString() {
+        return ObjectConverter.convert(this.alphaorder, String.class);
+    }
     public long getSpecialorder() {
         return this.specialorder;
+    }
+    public String getSpecialorderAsString() {
+        return ObjectConverter.convert(this.specialorder, String.class);
     }
 
     public Long getOidChild() {
@@ -312,6 +318,9 @@ public class JOINComponentOrderComponentComponent {
     public boolean isGroupChild() {
         return this.groupChild;
     }
+    public String getGroupChild() {
+        return ObjectConverter.convert(this.groupChild, String.class);
+    }
     public String getStartChild() {
     	return this.startChild;
     }
@@ -320,6 +329,9 @@ public class JOINComponentOrderComponentComponent {
     }
     public boolean isPresentChild(){
         return this.presentChild;
+    }
+    public String getPresentChild(){
+        return ObjectConverter.convert(this.presentChild, String.class);
     }
     public String getStatusChangeChild(){
         return this.statuschangeChild;
@@ -352,6 +364,9 @@ public class JOINComponentOrderComponentComponent {
     public boolean isGroupParent() {
         return this.groupParent;
     }
+    public String getGroupParent() {
+        return ObjectConverter.convert(this.groupParent, String.class);
+    }
     public String getStartParent() {
     	return this.startParent;
     }
@@ -360,6 +375,9 @@ public class JOINComponentOrderComponentComponent {
     }
     public boolean isPresentParent(){
         return this.presentParent;
+    }
+    public String getPresentParent(){
+        return ObjectConverter.convert(this.presentParent, String.class);
     }
     public String getStatusChangeParent(){
         return this.statuschangeParent;

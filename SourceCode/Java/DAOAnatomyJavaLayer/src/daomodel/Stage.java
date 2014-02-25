@@ -119,6 +119,9 @@ public class Stage {
     public long getSequence() {
         return sequence;
     }
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
+    }
     public String getDescription() {
         return description;
     }

@@ -110,8 +110,14 @@ public class PerspectiveAmbitFK {
     public boolean isStart() {
         return start;
     }
+    public String getStart() {
+        return ObjectConverter.convert(start, String.class);
+    }
     public boolean isStop() {
         return stop;
+    }
+    public String getStop() {
+        return ObjectConverter.convert(stop, String.class);
     }
     public String getComments() {
         return comments;

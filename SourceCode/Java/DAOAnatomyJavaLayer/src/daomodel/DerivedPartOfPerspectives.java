@@ -99,11 +99,20 @@ public class DerivedPartOfPerspectives {
     public long getPartOfFK() {
         return partOfFK;
     }
+    public String getPartOfFKAsString() {
+        return ObjectConverter.convert(partOfFK, String.class);
+    }
     public int getAncestor() {
         return ancestor;
     } 
+    public String getAncestorAsString() {
+        return ObjectConverter.convert(ancestor, String.class);
+    } 
     public long getNodeFK() {
         return nodeFK;
+    } 
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
     } 
 
     // Setters ------------------------------------------------------------------------------------

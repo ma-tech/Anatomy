@@ -100,8 +100,14 @@ public class DerivedRelationshipTransitive {
     public long getDescendantFK() {
         return descendantFK;
     } 
+    public String getDescendantFKAsString() {
+        return ObjectConverter.convert(descendantFK, String.class);
+    } 
     public long getAncestorFK() {
         return ancestorFK;
+    }
+    public String getAncestorFKAsString() {
+        return ObjectConverter.convert(ancestorFK, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------

@@ -130,6 +130,9 @@ public class DerivedPartOfPerspectivesFK {
     public int getAncestor() {
         return ancestor;
     } 
+    public String getAncestorAsString() {
+        return ObjectConverter.convert(ancestor, String.class);
+    } 
     public String getNodeEmapa() {
         return nodeEmapa;
     } 

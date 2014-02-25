@@ -175,23 +175,44 @@ public class DerivedPartOf {
     public long getNodeStartFK() {
         return nodeStartFK;
     } 
+    public String getNodeStartFKAsString() {
+        return ObjectConverter.convert(nodeStartFK, String.class);
+    } 
     public long getNodeStopFK() {
         return nodeStopFK;
+    }
+    public String getNodeStopFKAsString() {
+        return ObjectConverter.convert(nodeStopFK, String.class);
     }
     public long getPathStartFK() {
         return pathStartFK;
     } 
+    public String getPathStartFKAsString() {
+        return ObjectConverter.convert(pathStartFK, String.class);
+    } 
     public long getPathStopFK() {
         return pathStopFK;
+    }
+    public String getPathStopFKAsString() {
+        return ObjectConverter.convert(pathStopFK, String.class);
     }
     public long getNodeFK() {
         return nodeFK;
     } 
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    } 
     public long getSequence() {
         return sequence;
     } 
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
+    } 
     public long getDepth() {
         return depth;
+    } 
+    public String getDepthAsString() {
+        return ObjectConverter.convert(depth, String.class);
     } 
     public String getFullPath() {
         return fullPath;
@@ -208,11 +229,20 @@ public class DerivedPartOf {
     public boolean isPrimary() {
         return primary;
     } 
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    } 
     public boolean isPrimaryPath() {
         return primaryPath;
     } 
+    public String getPrimaryPath() {
+        return ObjectConverter.convert(primaryPath, String.class);
+    } 
     public long getParentFK() {
         return parentFK;
+    } 
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     } 
 
     // Setters ------------------------------------------------------------------------------------

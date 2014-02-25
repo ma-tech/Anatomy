@@ -147,8 +147,14 @@ public class JOINNodeRelationship {
     public boolean isPrimary() {
         return primary;
     }
+    public String getPrimary() {
+        return ObjectConverter.convert(primary, String.class);
+    }
     public boolean isGroup() {
         return group;
+    }
+    public String getGroup() {
+        return ObjectConverter.convert(group, String.class);
     }
     public String getPublicId() {
         return publicId;
@@ -166,8 +172,14 @@ public class JOINNodeRelationship {
     public long getChildFK() {
         return childFK;
     }
+    public String getChildFKAsString() {
+        return ObjectConverter.convert(childFK, String.class);
+    }
     public long getParentFK() {
         return parentFK;
+    }
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     }
 
     // Setters ------------------------------------------------------------------------------------

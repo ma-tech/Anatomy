@@ -104,6 +104,9 @@ public class Thing {
     public long getCreatorFK() {
         return creatorFK;
     }
+    public String getCreatorFKAsString() {
+        return ObjectConverter.convert(creatorFK, String.class);
+    }
     public String getDescription() {
         return description;
     }

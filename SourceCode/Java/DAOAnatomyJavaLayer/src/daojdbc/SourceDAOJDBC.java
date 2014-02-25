@@ -169,7 +169,7 @@ public final class SourceDAOJDBC implements SourceDAO {
      */
     public List<Source> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

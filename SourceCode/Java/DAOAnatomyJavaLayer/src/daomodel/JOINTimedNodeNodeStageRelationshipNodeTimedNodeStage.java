@@ -353,8 +353,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public long getNodeFKI() {
         return nodeFKI;
     }
+    public String getNodeFKIAsString() {
+        return ObjectConverter.convert(nodeFKI, String.class);
+    }
     public long getStageFKI() {
         return stageFKI;
+    }
+    public String getStageFKIAsString() {
+        return ObjectConverter.convert(stageFKI, String.class);
     }
     public String getStageModifierFKI() {
         return stageModifierFKI;
@@ -378,8 +384,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public boolean isPrimaryI() {
         return primaryI;
     }
+    public String getPrimaryI() {
+        return ObjectConverter.convert(primaryI, String.class);
+    }
     public boolean isGroupI() {
         return groupI;
+    }
+    public String getGroupI() {
+        return ObjectConverter.convert(groupI, String.class);
     }
     public String getPublicNodeIdI() {
         return publicNodeIdI;
@@ -400,6 +412,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public long getSequenceI() {
         return sequenceI;
     }
+    public String getSequenceIAsString() {
+        return ObjectConverter.convert(sequenceI, String.class);
+    }
     public String getDescriptionStageI() {
         return descriptionStageI;
     }
@@ -419,8 +434,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public long getChildFK() {
         return childFK;
     }
+    public String getChildFKAsString() {
+        return ObjectConverter.convert(childFK, String.class);
+    }
     public long getParentFK() {
         return parentFK;
+    }
+    public String getParentFKAsString() {
+        return ObjectConverter.convert(parentFK, String.class);
     }
 
     public Long getOidNodeII() {
@@ -435,8 +456,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public boolean isPrimaryII() {
         return primaryII;
     }
+    public String getPrimaryII() {
+        return ObjectConverter.convert(primaryII, String.class);
+    }
     public boolean isGroupII() {
         return groupII;
+    }
+    public String getGroupII() {
+        return ObjectConverter.convert(groupII, String.class);
     }
     public String getPublicNodeIdII() {
         return publicNodeIdII;
@@ -451,8 +478,14 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     public long getNodeFKII() {
         return nodeFKII;
     }
+    public String getNodeFKIIAsString() {
+        return ObjectConverter.convert(nodeFKII, String.class);
+    }
     public long getStageFKII() {
         return stageFKII;
+    }
+    public String getStageFKIIAsString() {
+        return ObjectConverter.convert(stageFKII, String.class);
     }
     public String getStageModifierFKII() {
         return stageModifierFKII;
@@ -475,6 +508,9 @@ public class JOINTimedNodeNodeStageRelationshipNodeTimedNodeStage {
     }
     public long getSequenceII() {
         return sequenceII;
+    }
+    public String getSequenceIIAsString() {
+        return ObjectConverter.convert(sequenceII, String.class);
     }
     public String getDescriptionStageII() {
         return descriptionStageII;

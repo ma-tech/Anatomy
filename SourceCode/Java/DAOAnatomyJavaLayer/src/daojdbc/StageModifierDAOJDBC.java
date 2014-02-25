@@ -166,7 +166,7 @@ public final class StageModifierDAOJDBC implements StageModifierDAO {
      */
     public List<StageModifier> listAll() throws Exception {
     	
-        return list(SQL_LIST_ALL, (Object[]) null);
+        return list(SQL_LIST_ALL);
     }
     
     /*

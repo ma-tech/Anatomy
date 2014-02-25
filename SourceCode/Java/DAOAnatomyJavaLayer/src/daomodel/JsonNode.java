@@ -126,6 +126,9 @@ public class JsonNode {
     public int getChildCount() {
         return childCount;
     }
+    public String getChildCountAsString() {
+        return ObjectConverter.convert(childCount, String.class);
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setExtID(String extID) {

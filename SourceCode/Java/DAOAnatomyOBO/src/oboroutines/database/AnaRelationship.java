@@ -45,6 +45,7 @@ import java.util.Vector;
 import utility.ObjectConverter;
 import utility.Wrapper;
 import utility.MySQLDateTime;
+
 import daointerface.ComponentOrderDAO;
 import daointerface.LogDAO;
 import daointerface.NodeDAO;
@@ -53,8 +54,10 @@ import daointerface.RelationshipProjectDAO;
 import daointerface.ThingDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINNodeRelationshipNodeDAO;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
 import daomodel.ComponentOrder;
 import daomodel.Log;
 import daomodel.Node;
@@ -64,6 +67,7 @@ import daomodel.Thing;
 import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
 import obomodel.OBOComponent;
+
 import oboroutines.TreeBuilder;
 
 public class AnaRelationship {

@@ -147,8 +147,14 @@ public class JOINTimedNodeStage {
     public long getNodeFK() {
         return nodeFK;
     }
+    public String getNodeFKAsString() {
+        return ObjectConverter.convert(nodeFK, String.class);
+    }
     public long getStageFK() {
         return stageFK;
+    }
+    public String getStageFKAsString() {
+        return ObjectConverter.convert(stageFK, String.class);
     }
     public String getStageModifierFK() {
         return stageModifierFK;
@@ -171,6 +177,9 @@ public class JOINTimedNodeStage {
     }
     public long getSequence() {
         return sequence;
+    }
+    public String getSequenceAsString() {
+        return ObjectConverter.convert(sequence, String.class);
     }
     public String getDescription() {
         return description;

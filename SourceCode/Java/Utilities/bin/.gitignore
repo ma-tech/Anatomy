@@ -1,2 +1,5 @@
 /daomodel
 /csvmodel
+/daointerface
+/daojdbc
+/daolayer

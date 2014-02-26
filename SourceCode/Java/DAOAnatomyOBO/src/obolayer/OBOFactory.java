@@ -41,6 +41,9 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
+import utility.Wrapper;
+import utility.ObjectConverter;
+
 import oboaccess.OBOComponentAccess;
 
 import obolayer.OBOConfigurationException;
@@ -52,9 +55,6 @@ import obomodel.OBORelation;
 
 import oboroutines.Parser;
 import oboroutines.Producer;
-
-import utility.ObjectConverter;
-import utility.Wrapper;
 
 public abstract class OBOFactory {
     // Constants ----------------------------------------------------------------------------------

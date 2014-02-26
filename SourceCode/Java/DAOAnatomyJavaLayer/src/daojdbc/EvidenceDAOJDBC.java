@@ -39,13 +39,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import daomodel.Evidence;
+
 import daointerface.EvidenceDAO;
+
 import daolayer.DAOFactory;
 import daolayer.DAOException;
+
 import static daolayer.DAOUtil.*;
 
 public final class EvidenceDAOJDBC implements EvidenceDAO {

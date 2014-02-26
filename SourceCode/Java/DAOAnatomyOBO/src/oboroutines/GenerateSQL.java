@@ -68,20 +68,26 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import utility.ObjectConverter;
 import utility.Wrapper;
+import utility.ObjectConverter;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
 import daointerface.SynonymDAO;
 import daointerface.JOINNodeRelationshipDAO;
 import daointerface.JOINNodeRelationshipNodeDAO;
 import daointerface.JOINTimedNodeStageDAO;
+
 import daomodel.Synonym;
 import daomodel.JOINNodeRelationship;
 import daomodel.JOINNodeRelationshipNode;
+
 import obolayer.OBOException;
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
 import oboroutines.database.AnaNode;
 import oboroutines.database.AnaRelationship;
 import oboroutines.database.AnaSynonym;

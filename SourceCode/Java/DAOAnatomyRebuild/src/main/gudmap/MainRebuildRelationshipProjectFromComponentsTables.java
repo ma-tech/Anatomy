@@ -36,8 +36,10 @@
 package main.gudmap;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
 
 public class MainRebuildRelationshipProjectFromComponentsTables{

@@ -47,8 +47,9 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import utility.ObjectConverter;
 import utility.Wrapper;
+import utility.ObjectConverter;
+
 import obomodel.OBOComponent;
 
 public class GenerateEditorPDF {

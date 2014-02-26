@@ -36,8 +36,6 @@ import obolayer.OBOFactory;
 
 import daolayer.DAOFactory;
 
-import daointerface.ThingDAO;
-
 import app.RunExportToXML;
 
 public class MainExportToXML {

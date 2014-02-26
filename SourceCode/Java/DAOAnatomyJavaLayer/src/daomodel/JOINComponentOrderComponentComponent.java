@@ -35,7 +35,6 @@ package daomodel;
 
 import utility.ObjectConverter;
 
-
 public class JOINComponentOrderComponentComponent {
     // Properties ---------------------------------------------------------------------------------
 	/*

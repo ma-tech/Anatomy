@@ -38,6 +38,7 @@ import java.util.List;
 import utility.Wrapper;
 
 import obolayer.OBOFactory;
+
 import oboaccess.OBOComponentAccess;
 
 import obomodel.OBOComponent;

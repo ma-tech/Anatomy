@@ -33,13 +33,16 @@ package routines.runnable;
 
 import java.io.File;
 import java.io.InputStream;
+
 import java.util.Iterator;
 import java.util.List;
 
-import csvmodel.Anatomy;
 import utility.CsvUtil;
 import utility.FileUtil;
 import utility.Wrapper;
+
+import csvmodel.Anatomy;
+
 import obolayer.OBOFactory;
 import daolayer.DAOException;
 import daolayer.DAOFactory;

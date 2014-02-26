@@ -41,12 +41,16 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import utility.Wrapper;
+
 import app.gudmap.RebuildRelationshipProjectFromComponentsTables;
 import app.gudmap.RunOBOResetComponentsOrderAlpha;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
+
 import routines.runnable.UpdateDatabaseFromComponentsTables;
 import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 

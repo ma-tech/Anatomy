@@ -38,8 +38,8 @@ import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import utility.ObjectConverter;
 import utility.Wrapper;
+import utility.ObjectConverter;
 
 public class OBOComponent {
 

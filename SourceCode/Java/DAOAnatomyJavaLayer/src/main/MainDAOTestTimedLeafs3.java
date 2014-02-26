@@ -37,7 +37,6 @@ import daolayer.DAOFactory;
 
 import app.RunDAOTestTimedLeafsSubRoutine3;
 
-
 public class MainDAOTestTimedLeafs3 {
 	/*
 	 * Main Class

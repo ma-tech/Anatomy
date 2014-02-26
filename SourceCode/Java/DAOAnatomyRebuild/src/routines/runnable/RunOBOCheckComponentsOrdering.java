@@ -43,8 +43,6 @@ import daointerface.ComponentOrderDAO;
 
 import daomodel.ComponentOrder;
 
-import obolayer.OBOFactory;
-
 public class RunOBOCheckComponentsOrdering {
 
 	public static void run(DAOFactory daofactory) throws Exception {

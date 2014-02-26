@@ -42,13 +42,18 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
+
 import routines.aggregated.EmptyComponentsTables;
+
 import routines.runnable.LoadInputOBOFileIntoComponentsTablesAndValidate;
 import routines.runnable.RunOBOCheckComponentsOrdering;
+
 import app.gudmap.RunOBOValidateComponentsOrder; 
 
 public class Main1LoadOBOFileIntoComponentsTablesAndValidate{

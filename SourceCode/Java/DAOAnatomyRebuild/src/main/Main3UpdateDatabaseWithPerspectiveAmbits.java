@@ -37,8 +37,10 @@
 package main;
 
 import utility.Wrapper;
+
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
+
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 

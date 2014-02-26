@@ -1,8 +1,0 @@
-The recipe for converting a Version 1 database to a Version 2 database
-is
-
-1. Run the SQL in schemaPre.sql
-2. Run the SQL in controlScript.sql
-3. Run the SQL in schemaPost.sql
-
-

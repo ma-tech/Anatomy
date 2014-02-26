@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<request>
+	<mouseAnatomyReport>
+		<stage>
+			TS05
+		</stage>
+		<excludingGroupsTree>
+			<timedComponent emapId="EMAP:0025770">
+				<name emapId="EMAP:0025770">
+					mouse
+				</name>
+				<emapaId emapId="EMAP:0025770">
+					EMAPA:0025765
+				</emapaId>
+				<groupPathStatus emapId="EMAP:0025770">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EMAP:0000025">
+					<name emapId="EMAP:0000025">
+						extraembryonic component
+					</name>
+					<emapaId emapId="EMAP:0000025">
+						EMAPA:0016042
+					</emapaId>
+					<groupPathStatus emapId="EMAP:0000025">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:0000026">
+						<name emapId="EMAP:0000026">
+							extraembryonic cavities and their linings
+						</name>
+						<emapaId emapId="EMAP:0000026">
+							EMAPA:0016043
+						</emapaId>
+						<groupPathStatus emapId="EMAP:0000026">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:0000027">
+							<name emapId="EMAP:0000027">
+								blastocoelic cavity
+							</name>
+							<emapaId emapId="EMAP:0000027">
+								EMAPA:0016044
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000027">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EMAP:0000028">
+						<name emapId="EMAP:0000028">
+							trophectoderm
+						</name>
+						<emapaId emapId="EMAP:0000028">
+							EMAPA:0016046
+						</emapaId>
+						<groupPathStatus emapId="EMAP:0000028">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EMAP:0000029">
+							<name emapId="EMAP:0000029">
+								mural trophectoderm
+							</name>
+							<emapaId emapId="EMAP:0000029">
+								EMAPA:0016047
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000029">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EMAP:0000030">
+							<name emapId="EMAP:0000030">
+								polar trophectoderm
+							</name>
+							<emapaId emapId="EMAP:0000030">
+								EMAPA:0016048
+							</emapaId>
+							<groupPathStatus emapId="EMAP:0000030">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EMAP:0000024">
+					<name emapId="EMAP:0000024">
+						inner cell mass
+					</name>
+					<emapaId emapId="EMAP:0000024">
+						EMAPA:0016041
+					</emapaId>
+					<groupPathStatus emapId="EMAP:0000024">
+						notInGroupPath
+					</groupPathStatus>
+				</timedComponent>
+			</timedComponent>
+		</excludingGroupsTree>
+		<onlyGroupsTree>
+			<groupStatusKey>
+				<groupStatus status="notInGroupPath">
+					Term is not a group nor is it contained in a group.
+				</groupStatus>
+				<groupStatus status="isGroup">
+					Term a group
+				</groupStatus>
+				<groupStatus status="isGroupDirectDescendant">
+					Term is directly contained in a group.
+				</groupStatus>
+				<groupStatus status="isGroupIndirectDescendant">
+					Term is indirectly contained in a group.
+				</groupStatus>
+			</groupStatusKey>
+			<timedComponent emapId="EMAP:0025770">
+				<name emapId="EMAP:0025770">
+					mouse
+				</name>
+				<emapaId emapId="EMAP:0025770">
+					EMAPA:0025765
+				</emapaId>
+				<groupPathStatus emapId="EMAP:0025770">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EMAP:0000023">
+					<name emapId="EMAP:0000023">
+						embryo
+					</name>
+					<emapaId emapId="EMAP:0000023">
+						EMAPA:0016039
+					</emapaId>
+					<groupPathStatus emapId="EMAP:0000023">
+						isGroup
+					</groupPathStatus>
+					<timedComponent emapId="EMAP:0000024">
+						<name emapId="EMAP:0000024">
+							inner cell mass
+						</name>
+						<emapaId emapId="EMAP:0000024">
+							EMAPA:0016041
+						</emapaId>
+						<groupPathStatus emapId="EMAP:0000024">
+							isGroupDirectDescendant
+						</groupPathStatus>
+					</timedComponent>
+				</timedComponent>
+			</timedComponent>
+		</onlyGroupsTree>
+	</mouseAnatomyReport>
+	<anatomyDatabaseVersion date="2012-09-14 11:50:33" number="10"/>
+	<perspective>
+		Whole mouse
+	</perspective>
+</request>

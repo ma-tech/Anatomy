@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2011-01-18 10:34:49</date>
+  <species>mouse</species>
+  <component name="mouse" id="25768">
+    <stage name="TS03"/>
+    <component isPrimary="true" name="4-8 cell stage" id="8">
+      <printName>4-8 cell stage</printName>
+      <abbreviation/>
+      <startEmbryoStage>03</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25768</parentId>
+      <component isPrimary="true" name="4-cell stage" id="31922">
+        <printName>4-8 cell stage.4-cell stage</printName>
+        <abbreviation/>
+        <synonym>4-cell embryo</synonym>
+        <startEmbryoStage>03</startEmbryoStage>
+        <stopEmbryoStage>03</stopEmbryoStage>
+        <parentId>8</parentId>
+      </component>
+      <childrenId>31922</childrenId>
+      <component isPrimary="true" name="8-cell stage" id="31923">
+        <printName>4-8 cell stage.8-cell stage</printName>
+        <abbreviation/>
+        <synonym>8-cell embryo</synonym>
+        <startEmbryoStage>03</startEmbryoStage>
+        <stopEmbryoStage>03</stopEmbryoStage>
+        <parentId>8</parentId>
+      </component>
+      <childrenId>31923</childrenId>
+    </component>
+    <childrenId>8</childrenId>
+    <component isPrimary="true" name="compacted morula" id="9">
+      <printName>compacted morula</printName>
+      <abbreviation/>
+      <startEmbryoStage>03</startEmbryoStage>
+      <stopEmbryoStage>04</stopEmbryoStage>
+      <parentId>25768</parentId>
+    </component>
+    <childrenId>9</childrenId>
+    <component isPrimary="true" name="second polar body" id="10">
+      <printName>second polar body</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25768</parentId>
+    </component>
+    <childrenId>10</childrenId>
+    <component isPrimary="true" name="zona pellucida" id="11">
+      <printName>zona pellucida</printName>
+      <abbreviation/>
+      <startEmbryoStage>01</startEmbryoStage>
+      <stopEmbryoStage>03</stopEmbryoStage>
+      <parentId>25768</parentId>
+    </component>
+    <childrenId>11</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

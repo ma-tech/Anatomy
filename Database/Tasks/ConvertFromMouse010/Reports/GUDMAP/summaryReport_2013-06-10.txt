@@ -1,0 +1,615 @@
+
+Editor Report for Import of OBO File: /Users/mwicks/GitMahost/Anatomy/Database/Tasks/ConvertFromMouse010/OBOInput/GUDMAP_011_INPUT_3013-05-23_Abstract_WITH_SYNONYMS_MNW.obo
+
+
+REPORT UPDATE SUMMARY
+
+=====================
+
+   Total Components from OBO File : 5650
+
+A. Critical Components in file    : 0
+
+B. New Components created         : 28
+
+C. Modified Components            : 13
+
+D. Deleted Components             : 2
+
+   Unchanged Components           : 5574
+
+
+--------------------------------------------------------------------------------
+
+
+A. CRITICAL COMPONENTS: REQUIRE REVISION
+
+   =====================================
+
+  Total Critical Components: 0
+  -----------------------------
+
+
+B. NEW COMPONENTS
+
+   ==============
+
+  Total New Components: 28
+  -------------------------------
+
+  1. JFA:0003019 - nerve of uterus
+  2. JFA:0003025 - nerve of primitive bladder epithelium
+  3. JFA:0003024 - nerve of primitive bladder
+  4. JFA:0003023 - nerve of labia
+  5. JFA:0003022 - nerve of clitoris
+  6. JFA:0003027 - nerve of primitive bladder developing vasculature
+  7. JFA:0003026 - nerve of primitive bladder mesenchyme
+  8. JFA:0003021 - nerve of genital tubercle of female
+  9. JFA:0003020 - nerve of vagina
+  10. JFA:0003009 - nerve of epididymis
+  11. JFA:0003008 - nerve of seminal vesicle
+  12. JFA:0003010 - nerve of ductus deferens
+  13. JFA:0003015 - nerve of scrotum
+  14. JFA:0003016 - nerve of ovary
+  15. JFA:0003017 - nerve of oviduct
+  16. JFA:0003018 - nerve of uterine horn
+  17. JFA:0003011 - nerve of ejaculatory duct
+  18. JFA:0003012 - nerve of bulbourethral gland
+  19. JFA:0003013 - nerve of genital tubercle of male
+  20. JFA:0003014 - nerve of penis
+  21. JFA:0003006 - nerve of bladder blood vessel
+  22. JFA:0003007 - nerve of penile urethra
+  23. JFA:0003004 - nerve of bladder detrusor muscle
+  24. JFA:0003005 - nerve of bladder serosa/adventitia
+  25. JFA:0003002 - nerve of bladder suburothelial stroma
+  26. JFA:0003003 - nerve of bladder lamina propria
+  27. JFA:0003000 - nerve of ureter
+  28. JFA:0003001 - nerve of bladder urothelium
+
+  DETAILS
+  -------
+
+   New OBOComponent 1
+    ID        : JFA:0003019
+    Name      : nerve of uterus
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:29915]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 2
+    ID        : JFA:0003025
+    Name      : nerve of primitive bladder epithelium
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [JFA:0003024]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 3
+    ID        : JFA:0003024
+    Name      : nerve of primitive bladder
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [EMAPA:30870]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 4
+    ID        : JFA:0003023
+    Name      : nerve of labia
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30837]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 5
+    ID        : JFA:0003022
+    Name      : nerve of clitoris
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30819]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 6
+    ID        : JFA:0003027
+    Name      : nerve of primitive bladder developing vasculature
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [JFA:0003024]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 7
+    ID        : JFA:0003026
+    Name      : nerve of primitive bladder mesenchyme
+    Starts At : TS21
+    Ends At   : TS21
+    Parents   : [JFA:0003024]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 8
+    ID        : JFA:0003021
+    Name      : nerve of genital tubercle of female
+    Starts At : TS22
+    Ends At   : TS27
+    Parents   : [EMAPA:18680]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 9
+    ID        : JFA:0003020
+    Name      : nerve of vagina
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18986]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 10
+    ID        : JFA:0003009
+    Name      : nerve of epididymis
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19290]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 11
+    ID        : JFA:0003008
+    Name      : nerve of seminal vesicle
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19180]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 12
+    ID        : JFA:0003010
+    Name      : nerve of ductus deferens
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18681]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 13
+    ID        : JFA:0003015
+    Name      : nerve of scrotum
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:19296]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 14
+    ID        : JFA:0003016
+    Name      : nerve of ovary
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:17962]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 15
+    ID        : JFA:0003017
+    Name      : nerve of oviduct
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:18984]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 16
+    ID        : JFA:0003018
+    Name      : nerve of uterine horn
+    Starts At : TS27
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 17
+    ID        : JFA:0003011
+    Name      : nerve of ejaculatory duct
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19088]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 18
+    ID        : JFA:0003012
+    Name      : nerve of bulbourethral gland
+    Starts At : TS27
+    Ends At   : TS28
+    Parents   : [EMAPA:19286]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 19
+    ID        : JFA:0003013
+    Name      : nerve of genital tubercle of male
+    Starts At : TS22
+    Ends At   : TS24
+    Parents   : [EMAPA:17969]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 20
+    ID        : JFA:0003014
+    Name      : nerve of penis
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:18682]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 21
+    ID        : JFA:0003006
+    Name      : nerve of bladder blood vessel
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 22
+    ID        : JFA:0003007
+    Name      : nerve of penile urethra
+    Starts At : TS28
+    Ends At   : TS28
+    Parents   : [EMAPA:30944]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 23
+    ID        : JFA:0003004
+    Name      : nerve of bladder detrusor muscle
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 24
+    ID        : JFA:0003005
+    Name      : nerve of bladder serosa/adventitia
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 25
+    ID        : JFA:0003002
+    Name      : nerve of bladder suburothelial stroma
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 26
+    ID        : JFA:0003003
+    Name      : nerve of bladder lamina propria
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 27
+    ID        : JFA:0003000
+    Name      : nerve of ureter
+    Starts At : TS26
+    Ends At   : TS28
+    Parents   : [EMAPA:17950]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+   New OBOComponent 28
+    ID        : JFA:0003001
+    Name      : nerve of bladder urothelium
+    Starts At : TS22
+    Ends At   : TS28
+    Parents   : [EMAPA:31526]
+    Synonyms  : []
+    Change Check Status : INSERT
+    Rules Check Status  : PASSED
+
+
+C. MODIFIED COMPONENTS
+
+   ===================
+
+  Total Modified Components: 13
+  -------------------------------
+
+  1. EMAPA:28850 - ureteral smooth muscle layer interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:28850 has synonyms [Cajal cell, interstitium]
+
+  2. EMAPA:27608 - ureteric stalk
+       - Different Name - Referenced OBOComponent EMAPA:27608 has name [ureteric stalk]
+
+  3. EMAPA:29034 - uterine horn muscular layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:29034 has synonyms [muscular layer, myometrium]
+
+  4. EMAPA:29030 - uterine horn epithelium
+       - Different Synonyms - Referenced OBOComponent EMAPA:29030 has synonyms [endometrium, epithelium]
+
+  5. EMAPA:31464 - renal large blood vessel
+       - Different Name - Referenced OBOComponent EMAPA:31464 has name [renal large blood vessel]
+       - Different Primary Status - Referenced OBOComponent was a Primary component.
+
+  6. EMAPA:31469 - renal small blood vessel
+       - Different Name - Referenced OBOComponent EMAPA:31469 has name [renal small blood vessel]
+       - Different Primary Status - Referenced OBOComponent was a Primary component.
+
+  7. EMAPA:28561 - ureteral mesenchyme subepithelial layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28561 has synonyms [presumptive lamina propria, subepithelial layer]
+
+  8. EMAPA:28570 - ureteral mesenchyme outer layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28570 has synonyms [outer layer, presumptive adventitia]
+
+  9. EMAPA:28567 - ureteral mesenchyme middle layer
+       - Different Synonyms - Referenced OBOComponent EMAPA:28567 has synonyms [middle layer, presumptive ureteral smooth muscle layer]
+
+  10. EMAPA:28358 - bend of loop of Henle inner medullary portion
+       - Different Synonyms - Referenced OBOComponent EMAPA:28358 has synonyms [bend, U-turn]
+
+  11. EMAPA:19174 - female external inguinal ring
+       - Different Synonyms - Referenced OBOComponent EMAPA:19174 has synonyms [external, superficial]
+
+  12. EMAPA:19173 - female internal inguinal ring
+       - Different Synonyms - Referenced OBOComponent EMAPA:19173 has synonyms [deep, internal]
+
+  13. EMAPA:30150 - ureteral smooth muscle layer interstitium
+       - Different Synonyms - Referenced OBOComponent EMAPA:30150 has synonyms [Cajal cell, interstitium]
+
+
+  DETAILS
+  -------
+
+   Modified OBOComponent 1
+    ID        : EMAPA:28850
+    Name      : ureteral smooth muscle layer interstitium
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28844]
+    Synonyms  : [Cajal cell, interstitium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28850 has synonyms [Cajal cell, interstitium]
+
+   Modified OBOComponent 2
+    ID        : EMAPA:27608
+    Name      : ureteric stalk
+    Starts At : TS18
+    Ends At   : TS18
+    Parents   : [EMAPA:17209]
+    Synonyms  : []
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:27608 has name [ureteric stalk]
+
+   Modified OBOComponent 3
+    ID        : EMAPA:29034
+    Name      : uterine horn muscular layer
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : [muscular layer, myometrium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29034 has synonyms [muscular layer, myometrium]
+
+   Modified OBOComponent 4
+    ID        : EMAPA:29030
+    Name      : uterine horn epithelium
+    Starts At : TS24
+    Ends At   : TS27
+    Parents   : [EMAPA:18985]
+    Synonyms  : [endometrium, epithelium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:29030 has synonyms [endometrium, epithelium]
+
+   Modified OBOComponent 5
+    ID        : EMAPA:31464
+    Name      : renal large blood vessel
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:16103]
+    Synonyms  : []
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:31464 has name [renal large blood vessel]
+     2.  Different Primary Status - Referenced OBOComponent was a Primary component.
+
+   Modified OBOComponent 6
+    ID        : EMAPA:31469
+    Name      : renal small blood vessel
+    Starts At : TS23
+    Ends At   : TS28
+    Parents   : [EMAPA:17373]
+    Synonyms  : []
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Name - Referenced OBOComponent EMAPA:31469 has name [renal small blood vessel]
+     2.  Different Primary Status - Referenced OBOComponent was a Primary component.
+
+   Modified OBOComponent 7
+    ID        : EMAPA:28561
+    Name      : ureteral mesenchyme subepithelial layer
+    Starts At : TS20
+    Ends At   : TS24
+    Parents   : [EMAPA:27711]
+    Synonyms  : [presumptive lamina propria, subepithelial layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28561 has synonyms [presumptive lamina propria, subepithelial layer]
+
+   Modified OBOComponent 8
+    ID        : EMAPA:28570
+    Name      : ureteral mesenchyme outer layer
+    Starts At : TS21
+    Ends At   : TS24
+    Parents   : [EMAPA:27711]
+    Synonyms  : [outer layer, presumptive adventitia]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28570 has synonyms [outer layer, presumptive adventitia]
+
+   Modified OBOComponent 9
+    ID        : EMAPA:28567
+    Name      : ureteral mesenchyme middle layer
+    Starts At : TS21
+    Ends At   : TS22
+    Parents   : [EMAPA:27711]
+    Synonyms  : [middle layer, presumptive ureteral smooth muscle layer]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28567 has synonyms [middle layer, presumptive ureteral smooth muscle layer]
+
+   Modified OBOComponent 10
+    ID        : EMAPA:28358
+    Name      : bend of loop of Henle inner medullary portion
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:28352]
+    Synonyms  : [bend, U-turn]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:28358 has synonyms [bend, U-turn]
+
+   Modified OBOComponent 11
+    ID        : EMAPA:19174
+    Name      : female external inguinal ring
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:19172]
+    Synonyms  : [external, superficial]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19174 has synonyms [external, superficial]
+
+   Modified OBOComponent 12
+    ID        : EMAPA:19173
+    Name      : female internal inguinal ring
+    Starts At : TS25
+    Ends At   : TS28
+    Parents   : [EMAPA:19172]
+    Synonyms  : [deep, internal]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:19173 has synonyms [deep, internal]
+
+   Modified OBOComponent 13
+    ID        : EMAPA:30150
+    Name      : ureteral smooth muscle layer interstitium
+    Starts At : TS23
+    Ends At   : TS24
+    Parents   : [EMAPA:28811]
+    Synonyms  : [Cajal cell, interstitium]
+    Change Check Status : UPDATE
+    Rules Check Status  : PASSED
+    Changed Property    : 
+     1.  Different Synonyms - Referenced OBOComponent EMAPA:30150 has synonyms [Cajal cell, interstitium]
+
+D. DELETE COMPONENTS
+
+   ==================
+
+  Total Deleted Components: 2
+  -----------------------------
+
+  1. EMAPA:29964 - endothelial layer of renal vein
+  2. EMAPA:29976 - endothelial layer of renal artery
+
+  DETAILS
+  -------
+
+   Deleted OBOComponent 1
+    ID        : EMAPA:29964
+    Name      : endothelial layer of renal vein
+    Starts At : TS01
+    Ends At   : TS28
+    Parents   : []
+    Synonyms  : []
+    Change Check Status : DELETE
+    Rules Check Status  : PASSED
+    Comments  : 
+     1.  Component has been deleted correctly from OBO File and can be scheduled for deletion in database
+     2.  INFO: Obsolete Term
+     3.  Obsolete term formerly linked to : [EMAPA:28376]
+
+   Deleted OBOComponent 2
+    ID        : EMAPA:29976
+    Name      : endothelial layer of renal artery
+    Starts At : TS01
+    Ends At   : TS28
+    Parents   : []
+    Synonyms  : []
+    Change Check Status : DELETE
+    Rules Check Status  : PASSED
+    Comments  : 
+     1.  Component has been deleted correctly from OBO File and can be scheduled for deletion in database
+     2.  INFO: Obsolete Term
+     3.  Obsolete term formerly linked to : [EMAPA:28373]
+
+
+
+
+----------------------------------------
+----------------------------------------
+----------------Appendix----------------
+----------------------------------------
+
+CRITICAL terms = Terms that require revision.
+NEW terms = Terms that did not exist in the original file/database.
+MODIFIED terms = Terms that have a changed property.
+DELETE terms = Terms that exist in the original file/database but are no longer in the current file.

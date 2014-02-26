@@ -1,0 +1,122 @@
+
+===========================================================
+===== Anatomy Database Version 2, 2012-09-13 10:31:41 =====
+===========================================================
+
+
+
+
+===== Whole Human Anatomy =====
+
+
+
+Stage CS07
+
+
+CS07 Whole Human Excluding Groups
+
+EHDA:11      human
+EHDA:8123    \ human conceptus
+EHDA:8189      + human conceptus extraembryonic component
+EHDA:5547      | + extraembryonic cavities
+EHDA:16887     | | + amniotic cavity
+EHDA:16716     | | | + amniotic duct
+EHDA:16716     | | | \ amniotic duct
+EHDA:11946     | | + chorionic cavity
+EHDA:13613     | | \ secondary yolk sac cavity
+EHDA:11243     | + connecting stalk
+EHDA:7542      | | + connecting stalk blood islands
+EHDA:11203     | | | \ connecting stalk blood vessels
+EHDA:11203     | | + connecting stalk blood vessels
+EHDA:11219     | | \ connecting stalk mesenchyme
+EHDA:7542      | |   \ connecting stalk blood islands
+EHDA:11203     | |     \ connecting stalk blood vessels
+EHDA:5537      | + extraembryonic endoderm
+EHDA:6918      | \ extraembryonic membranes
+EHDA:17113     |   + amnion
+EHDA:17211     |   | + amnion ectoderm
+EHDA:17163     |   | \ amnion mesenchyme
+EHDA:11965     |   + chorion
+EHDA:7527      |   | + chorion cytotrophoblast
+EHDA:7098      |   | | \ chorionic villus cytotrophoblast
+EHDA:11946     |   | + chorionic cavity
+EHDA:7510      |   | + chorion mesenchyme
+EHDA:7007      |   | | \ chorionic villus mesenchyme
+EHDA:10317     |   | + chorion syncytiotrophoblast
+EHDA:7409      |   | | + chorion lacunae
+EHDA:7023      |   | | \ chorionic villus syncytiotropbalst
+EHDA:6991      |   | \ chorionic villus
+EHDA:7098      |   |   + chorionic villus cytotrophoblast
+EHDA:7007      |   |   + chorionic villus mesenchyme
+EHDA:7023      |   |   \ chorionic villus syncytiotropbalst
+EHDA:9923      |   \ secondary yolk sac
+EHDA:13613     |     + secondary yolk sac cavity
+EHDA:9896      |     + secondary yolk sac endoderm
+EHDA:9875      |     \ secondary yolk sac mesenchyme
+EHDA:13758     |       + angioblast clusters
+EHDA:9301      |       + yolk sac primordial germ cells
+EHDA:18414     |       + yolk sac blood islands
+EHDA:13758     |       | + angioblast clusters
+EHDA:14353     |       | + haematoblasts
+EHDA:7546      |       | | \ blood cells
+EHDA:14353     |       | \ haematoblasts
+EHDA:7546      |       |   \ blood cells
+EHDA:18414     |       \ yolk sac blood islands
+EHDA:13758     |         + angioblast clusters
+EHDA:14353     |         + haematoblasts
+EHDA:7546      |         | \ blood cells
+EHDA:14353     |         \ haematoblasts
+EHDA:7546      |           \ blood cells
+EHDA:8155      \ human embryo
+EHDA:8393        + ectoderm
+EHDA:9301        | \ yolk sac primordial germ cells
+EHDA:8008        + endoderm
+EHDA:8542        | + prechordal plate
+EHDA:8542        | \ prechordal plate
+EHDA:9364        + mesenchyme
+EHDA:11610       | \ head mesenchyme
+EHDA:8970        + mesoderm
+EHDA:9364        | + mesenchyme
+EHDA:11610       | | \ head mesenchyme
+EHDA:7500        | + mesoderm blood islands
+EHDA:18255       | | \ blood
+EHDA:7546        | |   \ blood cells
+EHDA:7500        | \ mesoderm blood islands
+EHDA:18255       |   \ blood
+EHDA:7546        |     \ blood cells
+EHDA:12831       + notochordal process
+EHDA:17236       + organ system group
+EHDA:14663       | + cardiovascular system
+EHDA:13858       | | \ vascular system
+EHDA:18255       | |   + blood
+EHDA:7546        | |   | \ blood cells
+EHDA:7500        | |   \ mesoderm blood islands
+EHDA:18255       | |     \ blood
+EHDA:7546        | |       \ blood cells
+EHDA:10943       | \ haemolymphoid system
+EHDA:18255       |   \ blood
+EHDA:7546        |     \ blood cells
+EHDA:9609        \ primitive streak
+EHDA:12851         + primitive node
+EHDA:12831         | \ notochordal process
+EHDA:8940          + primitive groove
+EHDA:8940          + primitive groove
+EHDA:9662          + primitive pit
+EHDA:9662          \ primitive pit
+
+
+
+==================================================================
+
+
+
+CS07 Whole Human Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

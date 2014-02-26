@@ -1,0 +1,6141 @@
+format-version: 1.2
+date: 25:09:2012 16:19
+saved-by: Mike Wicks
+default-namespace: human_developmental_anatomy
+remark: Jonathon Bard Human Ontology
+
+[Term]
+id: EHDA:0
+name: Timed human developmental anatomy
+namespace: human_developmental_anatomy
+
+[Term]
+id: group_term
+name: Group term
+namespace: group_term
+
+[Term]
+id: TS:0
+name: Carnegie stage
+namespace: carnegie stage
+
+[Term]
+id: CS12
+name: CS12
+namespace: carnegie stage
+relationship: is_a TS:0
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+namespace: new_group_namespace
+
+[Term]
+id: EHDA:16
+name: human
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:0
+
+[Term]
+id: EHDA:2746
+name: valve
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:2764
+name: mesonephros mesothelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16844
+relationship: develops_from EHDA:8171
+relationship: part_of EHDA:9067
+
+[Term]
+id: EHDA:2776
+name: 4th arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:7344
+relationship: develops_from EHDA:7976
+
+[Term]
+id: EHDA:2782
+name: 4th arch ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:7344
+
+[Term]
+id: EHDA:2821
+name: lower foregut region
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:15288
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:3840
+
+[Term]
+id: EHDA:2822
+name: dermatome 21
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9579
+
+[Term]
+id: EHDA:2824
+name: dermatome 22
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9574
+
+[Term]
+id: EHDA:2829
+name: respiratory primordium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: develops_from EHDA:17577
+relationship: part_of EHDA:5235
+
+[Term]
+id: EHDA:2831
+name: myotome 21
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9579
+
+[Term]
+id: EHDA:2861
+name: myotome 22
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9574
+
+[Term]
+id: EHDA:2865
+name: respiratory primordium epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: part_of EHDA:2829
+relationship: develops_from EHDA:7976
+
+[Term]
+id: EHDA:2867
+name: dermatome 23
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9569
+
+[Term]
+id: EHDA:2871
+name: respiratory primordium associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:2829
+
+[Term]
+id: EHDA:2873
+name: myotome 23
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9569
+
+[Term]
+id: EHDA:2884
+name: laryngo-tracheal groove
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18818
+relationship: located_in EHDA:3840
+relationship: part_of EHDA:5235
+
+[Term]
+id: EHDA:2888
+name: dermatome 26
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9538
+
+[Term]
+id: EHDA:2891
+name: myotome 26
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9538
+
+[Term]
+id: EHDA:2899
+name: myotome 27
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9525
+
+[Term]
+id: EHDA:2907
+name: dermatome 27
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9525
+
+[Term]
+id: EHDA:2909
+name: myotome 24
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9550
+
+[Term]
+id: EHDA:2913
+name: dermatome 24
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9550
+
+[Term]
+id: EHDA:2917
+name: myotome 25
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9544
+
+[Term]
+id: EHDA:2918
+name: dermatome 25
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9544
+
+[Term]
+id: EHDA:2983
+name: lung bud
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: develops_from EHDA:2829
+relationship: part_of EHDA:6254
+
+[Term]
+id: EHDA:2989
+name: lung bud associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:2983
+
+[Term]
+id: EHDA:2991
+name: lung bud epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: develops_from EHDA:2865
+relationship: part_of EHDA:2983
+
+[Term]
+id: EHDA:2994
+name: respiratory primordium associated mesenchyme from pharyngeal arch mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:2871
+relationship: develops_from EHDA:3008
+relationship: develops_from EHDA:6975
+
+[Term]
+id: EHDA:3008
+name: 6th arch mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:3021
+relationship: part_of EHDA:7964
+
+[Term]
+id: EHDA:3014
+name: 6th arch mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:3008
+relationship: develops_from EHDA:4055
+relationship: part_of EHDA:6471
+
+[Term]
+id: EHDA:3021
+name: 6th arch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11598
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:3030
+name: 6th arch mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:3008
+
+[Term]
+id: EHDA:3036
+name: 6th arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:3021
+relationship: develops_from EHDA:7976
+
+[Term]
+id: EHDA:3042
+name: 6th arch ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:3021
+
+[Term]
+id: EHDA:3063
+name: liver
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13049
+relationship: develops_from EHDA:13676
+relationship: is_a EHDA:13696
+relationship: is_a EHDA:16257
+relationship: part_of EHDA:3074
+relationship: part_of EHDA:9630
+relationship: part_of EHDA:9680
+
+[Term]
+id: EHDA:3074
+name: liver and biliary system
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:12370
+relationship: part_of EHDA:15800
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:3094
+name: limb system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:3150
+name: stem cell population
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:3182
+name: somite
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10627
+relationship: is_a EHDA:18063
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:3208
+name: developing mesenchymal structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:3234
+name: dermatome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12211
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:3260
+name: myotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12211
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:3286
+name: neuronal white matter
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16454
+
+[Term]
+id: EHDA:3312
+name: neuronal grey matter
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16454
+
+[Term]
+id: EHDA:3338
+name: neuronal column
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10171
+relationship: has_part EHDA:10223
+relationship: has_part EHDA:10249
+relationship: is_a EHDA:3312
+
+[Term]
+id: EHDA:3364
+name: differentiating neuronal condensation
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:14431
+relationship: is_a EHDA:16416
+relationship: has_part EHDA:6059
+
+[Term]
+id: EHDA:3390
+name: developing germ cell population
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:3423
+name: differentiating neuroepithelium
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:14431
+relationship: is_a EHDA:3744
+relationship: has_part EHDA:6059
+
+[Term]
+id: EHDA:3484
+name: excreta
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20086
+
+[Term]
+id: EHDA:3510
+name: developing epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+relationship: is_a EHDA:17927
+
+[Term]
+id: EHDA:3536
+name: autonomic neuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4290
+
+[Term]
+id: EHDA:3562
+name: fin
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19006
+
+[Term]
+id: EHDA:3588
+name: secretion
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20086
+
+[Term]
+id: EHDA:3614
+name: capillary bed
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16969
+
+[Term]
+id: EHDA:3640
+name: acellular extracellular matrix
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17097
+
+[Term]
+id: EHDA:3666
+name: sensory ganglion
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:12667
+relationship: has_part EHDA:14774
+relationship: is_a EHDA:18099
+relationship: has_part EHDA:3718
+
+[Term]
+id: EHDA:3692
+name: autonomic ganglion
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:12667
+relationship: has_part EHDA:14774
+relationship: is_a EHDA:18099
+relationship: has_part EHDA:3536
+relationship: has_part EHDA:3872
+relationship: has_part EHDA:3907
+
+[Term]
+id: EHDA:3718
+name: sensory neuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3872
+
+[Term]
+id: EHDA:3744
+name: neuroepithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3510
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:3770
+name: proliferating neuroepithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:3840
+name: foregut region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11271
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:3851
+name: lower foregut region associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:2821
+
+[Term]
+id: EHDA:3872
+name: afferent neuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4290
+
+[Term]
+id: EHDA:3884
+name: forebrain
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+relationship: part_of EHDA:17640
+
+[Term]
+id: EHDA:3907
+name: efferent neuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4290
+
+[Term]
+id: EHDA:3979
+name: syncytiotrophoblast cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:7457
+
+[Term]
+id: EHDA:3993
+name: vitelline arterial plexus left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:4692
+relationship: part_of EHDA:8826
+
+[Term]
+id: EHDA:3999
+name: umbilical artery left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:14324
+relationship: develops_from EHDA:4658
+relationship: develops_from EHDA:4681
+
+[Term]
+id: EHDA:4011
+name: umbilical vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14175
+relationship: develops_from EHDA:4669
+
+[Term]
+id: EHDA:4055
+name: pro-rhombomere c neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:5165
+
+[Term]
+id: EHDA:4061
+name: lower foregut region endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:2821
+
+[Term]
+id: EHDA:4064
+name: foregut gland
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:3840
+
+[Term]
+id: EHDA:4068
+name: foregut-midgut junction region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11271
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:4158
+name: lens placode
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:5362
+
+[Term]
+id: EHDA:4218
+name: foregut-midgut junction epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:4068
+
+[Term]
+id: EHDA:4230
+name: foregut-midgut junction gland
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13004
+relationship: part_of EHDA:4068
+
+[Term]
+id: EHDA:4290
+name: neuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18153
+
+[Term]
+id: EHDA:4308
+name: foregut-midgut junction associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:3851
+relationship: part_of EHDA:4068
+
+[Term]
+id: EHDA:4329
+name: vitelline vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14175
+relationship: develops_from EHDA:4556
+
+[Term]
+id: EHDA:4341
+name: adenohypophysial pouch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: part_of EHDA:7632
+
+[Term]
+id: EHDA:4483
+name: lateral migration pathway NC-derived mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:18945
+relationship: part_of EHDA:18945
+
+[Term]
+id: EHDA:4530
+name: lateral plate mesoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:8975
+relationship: part_of EHDA:8975
+
+[Term]
+id: EHDA:4556
+name: extraembryonic vitelline vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13763
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5565
+
+[Term]
+id: EHDA:4596
+name: germ cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6360
+
+[Term]
+id: EHDA:4658
+name: left dorsal aorta
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8315
+
+[Term]
+id: EHDA:4669
+name: extraembryonic umbilical vein left
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11208
+relationship: is_a EHDA:11566
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5565
+
+[Term]
+id: EHDA:4681
+name: extraembryonic umbilical artery left
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11208
+relationship: is_a EHDA:11696
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5520
+
+[Term]
+id: EHDA:4692
+name: extraembryonic vitelline artery left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: develops_from EHDA:13763
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5520
+
+[Term]
+id: EHDA:4736
+name: interneuron
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4290
+
+[Term]
+id: EHDA:4763
+name: early liver parenchyma
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+relationship: part_of EHDA:3063
+relationship: develops_from EHDA:3063
+
+[Term]
+id: EHDA:4779
+name: neuron associated cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9049
+
+[Term]
+id: EHDA:4823
+name: respiratory tract
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:4835
+
+[Term]
+id: EHDA:4835
+name: respiratory system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:4865
+name: mesenchyme from mesencephalic neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11520
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:4878
+name: urinary system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15800
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:4942
+name: blood cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16050
+
+[Term]
+id: EHDA:4996
+name: circulating cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:5027
+name: hindgut part of future large intestine associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:5060
+
+[Term]
+id: EHDA:5041
+name: hindgut part of future large intestine epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5060
+
+[Term]
+id: EHDA:5060
+name: hindgut part of future large intestine
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10897
+relationship: located_in EHDA:15522
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:5069
+name: commisural plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10057
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:5078
+name: telencephalon medium anterior wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10057
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:5087
+name: neurohypohysial region
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5191
+relationship: part_of EHDA:7632
+
+[Term]
+id: EHDA:5104
+name: stratified epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6863
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:5150
+name: stromal cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:8991
+
+[Term]
+id: EHDA:5165
+name: rhombencephalic neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:5305
+relationship: part_of EHDA:6519
+
+[Term]
+id: EHDA:5191
+name: diencephalon D2 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5331
+
+[Term]
+id: EHDA:5208
+name: diencephalon D2 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5331
+
+[Term]
+id: EHDA:5235
+name: lower respiratory tract
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:4823
+
+[Term]
+id: EHDA:5270
+name: early rhombomere 01
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:5290
+name: lamina terminalis
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10057
+relationship: is_a EHDA:17819
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:5305
+name: rhombencephalon
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17640
+
+[Term]
+id: EHDA:5325
+name: diencephalon D1 neuromere
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9204
+
+[Term]
+id: EHDA:5331
+name: diencephalon D2 neuromere
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9204
+
+[Term]
+id: EHDA:5336
+name: diencephalon D1 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5325
+
+[Term]
+id: EHDA:5339
+name: diencephalon D1 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5325
+
+[Term]
+id: EHDA:5342
+name: diencephalon D1 chiasmatic plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5325
+
+[Term]
+id: EHDA:5345
+name: diencephalon D2 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5331
+
+[Term]
+id: EHDA:5362
+name: eye
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12920
+relationship: part_of EHDA:16815
+
+[Term]
+id: EHDA:5379
+name: early rhombomere 02
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:5394
+name: eye mesenchyme
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:11392
+relationship: part_of EHDA:11520
+relationship: part_of EHDA:11615
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:5362
+
+[Term]
+id: EHDA:5417
+name: nucleate cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:7485
+
+[Term]
+id: EHDA:5520
+name: extraembryonic arterial system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:5577
+
+[Term]
+id: EHDA:5529
+name: early rhombomere 03
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:5552
+name: extraembryonic cavities
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17148
+relationship: located_in EHDA:8194
+
+[Term]
+id: EHDA:5565
+name: extraembryonic venous system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:5577
+
+[Term]
+id: EHDA:5577
+name: extraembryonic vascular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11248
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:5634
+name: midbrain sulcus limitans
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:10604
+relationship: is_a EHDA:18818
+
+[Term]
+id: EHDA:5688
+name: early rhombomere 04
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:5701
+name: facio-acoustic neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:6519
+
+[Term]
+id: EHDA:5703
+name: acoustico-facial VII-VIII ganglion complex
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15070
+relationship: develops_from EHDA:15996
+relationship: is_a EHDA:18099
+
+[Term]
+id: EHDA:5813
+name: early rhombomere 05
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:5852
+name: cell in vivo
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:5954
+
+[Term]
+id: EHDA:5896
+name: upper limb bud mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:5923
+relationship: develops_from EHDA:8960
+
+[Term]
+id: EHDA:5902
+name: upper respiratory tract
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:4823
+
+[Term]
+id: EHDA:5923
+name: upper limb
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18600
+relationship: part_of EHDA:3094
+
+[Term]
+id: EHDA:5932
+name: upper limb bud ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5923
+relationship: part_of EHDA:8225
+
+[Term]
+id: EHDA:5954
+name: cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16
+
+[Term]
+id: EHDA:6033
+name: neuron neural crest derived
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4290
+
+[Term]
+id: EHDA:6059
+name: neuroblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6305
+
+[Term]
+id: EHDA:6080
+name: vagal X ganglion
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15070
+relationship: is_a EHDA:18099
+relationship: develops_from EHDA:6164
+
+[Term]
+id: EHDA:6111
+name: male germ cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4596
+
+[Term]
+id: EHDA:6144
+name: cell by class
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:5852
+
+[Term]
+id: EHDA:6164
+name: vagal neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:4055
+relationship: develops_from EHDA:4055
+
+[Term]
+id: EHDA:6179
+name: female germ cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4596
+
+[Term]
+id: EHDA:6197
+name: right ventricle endocardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15327
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:19622
+
+[Term]
+id: EHDA:6231
+name: left ventricle endocardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15327
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:6337
+
+[Term]
+id: EHDA:6254
+name: lung system
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:2829
+relationship: part_of EHDA:5235
+
+[Term]
+id: EHDA:6305
+name: non-terminally differentiated cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6144
+
+[Term]
+id: EHDA:6337
+name: left ventricle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15634
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:6360
+name: germ line cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:6375
+name: venous system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13863
+
+[Term]
+id: EHDA:6398
+name: stem cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:6471
+name: mesenchyme from rhombencephalic neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11520
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:6494
+name: duct epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6863
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:6519
+name: head neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:6750
+
+[Term]
+id: EHDA:6523
+name: mesenchyme from future diencephalic neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11520
+relationship: develops_from EHDA:15209
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:6576
+name: blood vessel endothelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6659
+
+[Term]
+id: EHDA:6621
+name: columnar/cuboidal epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6863
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:6659
+name: squamous epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6863
+
+[Term]
+id: EHDA:6695
+name: chondroblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6305
+relationship: is_a EHDA:7740
+relationship: is_a EHDA:8991
+
+[Term]
+id: EHDA:6735
+name: fibroblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:8991
+
+[Term]
+id: EHDA:6750
+name: neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:6808
+name: medial migration pathway NC-derived mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:18945
+relationship: develops_from EHDA:18945
+
+[Term]
+id: EHDA:6829
+name: osteoblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6305
+relationship: is_a EHDA:8991
+
+[Term]
+id: EHDA:6863
+name: epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6899
+
+[Term]
+id: EHDA:6899
+name: cell by histology
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6144
+
+[Term]
+id: EHDA:6923
+name: extraembryonic membranes
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:8194
+
+[Term]
+id: EHDA:6975
+name: 4th arch mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7344
+relationship: part_of EHDA:7964
+
+[Term]
+id: EHDA:6980
+name: 4th arch mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:6975
+
+[Term]
+id: EHDA:6985
+name: 4th arch mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:4055
+relationship: part_of EHDA:6471
+relationship: part_of EHDA:6975
+
+[Term]
+id: EHDA:6996
+name: chorionic villus
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11970
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:7012
+name: chorionic villus mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17663
+relationship: part_of EHDA:6996
+relationship: develops_from EHDA:7515
+
+[Term]
+id: EHDA:7028
+name: chorionic villus syncytiotropbalst
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10322
+relationship: is_a EHDA:11774
+relationship: part_of EHDA:6996
+
+[Term]
+id: EHDA:7051
+name: trunk and cervical sclerotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12042
+
+[Term]
+id: EHDA:7068
+name: allantoic epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: part_of EHDA:17074
+
+[Term]
+id: EHDA:7078
+name: allantoic mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17074
+relationship: is_a EHDA:17507
+
+[Term]
+id: EHDA:7103
+name: chorionic villus cytotrophoblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:6996
+relationship: develops_from EHDA:7532
+
+[Term]
+id: EHDA:7138
+name: serum
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:18260
+relationship: is_a EHDA:19194
+
+[Term]
+id: EHDA:7148
+name: blood haematopoietic stem cells
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:13763
+relationship: develops_from EHDA:13827
+relationship: part_of EHDA:18260
+relationship: is_a EHDA:3150
+relationship: develops_from EHDA:5520
+relationship: develops_from EHDA:9078
+
+[Term]
+id: EHDA:7159
+name: coelomic cavity lining
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16844
+relationship: part_of EHDA:7171
+
+[Term]
+id: EHDA:7171
+name: coelomic cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:7183
+name: pericaridal cavity
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:7171
+
+[Term]
+id: EHDA:7194
+name: peritoneal cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7171
+
+[Term]
+id: EHDA:7257
+name: 3rd arch groove ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:8377
+
+[Term]
+id: EHDA:7263
+name: 3rd arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8377
+
+[Term]
+id: EHDA:7269
+name: 3rd arch pouch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:18818
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8377
+
+[Term]
+id: EHDA:7287
+name: 3rd arch ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:8377
+
+[Term]
+id: EHDA:7295
+name: extraembryonic coelum
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: attached_to EHDA:12370
+relationship: located_in EHDA:5552
+
+[Term]
+id: EHDA:7316
+name: 4th arch pharyngeal pouch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:7344
+relationship: develops_from EHDA:7976
+
+[Term]
+id: EHDA:7344
+name: 4th arch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11598
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:7350
+name: 3rd arch mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:4055
+relationship: part_of EHDA:6471
+relationship: part_of EHDA:7364
+
+[Term]
+id: EHDA:7354
+name: 3rd ventricle
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: located_in EHDA:9204
+relationship: part_of EHDA:9641
+
+[Term]
+id: EHDA:7364
+name: 3rd arch mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7964
+relationship: part_of EHDA:8377
+
+[Term]
+id: EHDA:7369
+name: 3rd arch mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:7364
+
+[Term]
+id: EHDA:7374
+name: 4th arch pharyngeal groove ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:7344
+
+[Term]
+id: EHDA:7392
+name: electrically active cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:7405
+name: tail bud paraxial mesoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10298
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:17507
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:7457
+name: multinucleate cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:5417
+
+[Term]
+id: EHDA:7485
+name: cell by nuclear number
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6144
+
+[Term]
+id: EHDA:7503
+name: tail bud surface ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10298
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:7515
+name: chorion mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11970
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17507
+
+[Term]
+id: EHDA:7532
+name: chorion cytotrophoblast
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11970
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17791
+relationship: is_a EHDA:17901
+
+[Term]
+id: EHDA:7551
+name: blood cells
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:14358
+relationship: is_a EHDA:16870
+relationship: part_of EHDA:18260
+
+[Term]
+id: EHDA:7626
+name: intermediate mesoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:8975
+relationship: part_of EHDA:8975
+
+[Term]
+id: EHDA:7632
+name: pituitary
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13696
+relationship: part_of EHDA:15911
+relationship: part_of EHDA:3884
+relationship: part_of EHDA:9630
+
+[Term]
+id: EHDA:7643
+name: pituitary primordium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16622
+relationship: is_a EHDA:18626
+
+[Term]
+id: EHDA:7665
+name: primordial germ cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6360
+
+[Term]
+id: EHDA:7697
+name: 1st arch pouch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:7740
+name: collagen secreting cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11091
+
+[Term]
+id: EHDA:7901
+name: cuticle secreting cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11091
+relationship: is_a EHDA:6863
+
+[Term]
+id: EHDA:7964
+name: pharyngeal arch associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:7976
+name: early pharyngeal arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: part_of EHDA:17577
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:8048
+name: pericardio-peritoneal canal
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:16742
+relationship: part_of EHDA:7171
+
+[Term]
+id: EHDA:8056
+name: pericardio-peritoneal canal cavity
+namespace: human_developmental_anatomy
+relationship: develops_in EHDA:12370
+relationship: is_a EHDA:13546
+relationship: located_in EHDA:8048
+
+[Term]
+id: EHDA:8066
+name: inner ear
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8439
+
+[Term]
+id: EHDA:8077
+name: pericardio-peritoneal canal mesothelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16844
+relationship: part_of EHDA:8048
+
+[Term]
+id: EHDA:8086
+name: 1st arch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11598
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:8096
+name: 1st arch artery
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:17563
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:8128
+name: human conceptus
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16
+relationship: is_a EHDA:19034
+
+[Term]
+id: EHDA:8139
+name: peritoneal cavity lumen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12070
+relationship: develops_in EHDA:12370
+relationship: located_in EHDA:7194
+
+[Term]
+id: EHDA:8160
+name: human embryo
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18491
+relationship: part_of EHDA:8128
+
+[Term]
+id: EHDA:8171
+name: peritoneal cavity lining
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16844
+relationship: develops_from EHDA:7159
+relationship: part_of EHDA:7194
+
+[Term]
+id: EHDA:8194
+name: human conceptus extraembryonic component
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:8128
+
+[Term]
+id: EHDA:8203
+name: interatrial septum
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:18892
+
+[Term]
+id: EHDA:8212
+name: interatrial septum foramen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13474
+relationship: located_in EHDA:8203
+
+[Term]
+id: EHDA:8216
+name: 1st arch groove ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:17791
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:8225
+name: integumental system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:8261
+name: 2nd arch pouch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8292
+
+[Term]
+id: EHDA:8266
+name: 2nd arch groove ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:8292
+
+[Term]
+id: EHDA:8288
+name: 2nd arch artery
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:17563
+relationship: part_of EHDA:8292
+relationship: develops_from EHDA:8366
+
+[Term]
+id: EHDA:8292
+name: 2nd arch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11598
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:8307
+name: 2nd arch ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:8292
+
+[Term]
+id: EHDA:8315
+name: paired dorsal aortae
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13812
+relationship: part_of EHDA:14005
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:8327
+name: dorsal mesocardium
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:14696
+relationship: part_of EHDA:15748
+relationship: is_a EHDA:17356
+
+[Term]
+id: EHDA:8366
+name: 2nd arch mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:6471
+relationship: part_of EHDA:8422
+
+[Term]
+id: EHDA:8372
+name: 2nd arch mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:8422
+
+[Term]
+id: EHDA:8377
+name: 3rd arch
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11598
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:8398
+name: ectoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:8415
+name: 2nd arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:18818
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8292
+
+[Term]
+id: EHDA:8422
+name: 2nd arch mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7964
+relationship: part_of EHDA:8292
+
+[Term]
+id: EHDA:8439
+name: ear
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13561
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:8474
+name: 1st arch maxillary ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:8491
+
+[Term]
+id: EHDA:8480
+name: primary head vein
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:14163
+relationship: develops_from EHDA:14201
+
+[Term]
+id: EHDA:8491
+name: 1st arch maxillary component
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:8502
+name: 1st arch mandibular mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:6471
+relationship: part_of EHDA:8514
+
+[Term]
+id: EHDA:8508
+name: 1st arch mandibular mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:8514
+
+[Term]
+id: EHDA:8514
+name: 1st arch mandibular mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7964
+relationship: part_of EHDA:8532
+
+[Term]
+id: EHDA:8520
+name: 1st arch mandibular endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7697
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8532
+
+[Term]
+id: EHDA:8526
+name: 1st arch mandibular ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:8532
+
+[Term]
+id: EHDA:8532
+name: 1st arch mandibular component
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:8582
+name: posterior cardinal vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:8593
+name: 1st arch maxillary-mandibular groove ectoderm
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:17791
+relationship: is_a EHDA:18818
+relationship: part_of EHDA:8086
+
+[Term]
+id: EHDA:8611
+name: muscle precursor cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6305
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:8633
+name: 1st arch maxillary mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:7964
+relationship: part_of EHDA:8491
+
+[Term]
+id: EHDA:8639
+name: 1st arch maxillary mesenchyme from neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:6471
+relationship: part_of EHDA:8633
+
+[Term]
+id: EHDA:8648
+name: 1st arch maxillary mesenchyme from head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:8633
+
+[Term]
+id: EHDA:8656
+name: pleuroperitoneal membranes
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:19562
+
+[Term]
+id: EHDA:8670
+name: 1st arch maxillary endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11020
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7697
+relationship: develops_from EHDA:7976
+relationship: part_of EHDA:8491
+
+[Term]
+id: EHDA:8745
+name: early rhombomere 08 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:19046
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8758
+name: early rhombomere 06 floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15668
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8762
+name: early rhombomere 07 floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15389
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8784
+name: early rhombomere 01 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5270
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8786
+name: early rhombomere 01 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5270
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8788
+name: epicardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: develops_from EHDA:13676
+relationship: part_of EHDA:15186
+relationship: is_a EHDA:16844
+
+[Term]
+id: EHDA:8798
+name: early rhombomere 04 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5688
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8809
+name: early rhombomere 05 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5813
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8819
+name: early rhombomere 02 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5379
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8822
+name: early rhombomere 03 floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5529
+relationship: part_of EHDA:9023
+
+[Term]
+id: EHDA:8826
+name: vitelline arteries
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:14324
+relationship: part_of EHDA:15800
+
+[Term]
+id: EHDA:8894
+name: early rhombomere 06 roof plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15668
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8898
+name: trunk neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:6750
+
+[Term]
+id: EHDA:8900
+name: early rhombomere 05 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5813
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8910
+name: early rhombomere 04 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5688
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8914
+name: early rhombomere 03 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5529
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8924
+name: early rhombomere 02 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5379
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8937
+name: early rhombomere 06 lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15668
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:8943
+name: early rhombomere 07 lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15389
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:8948
+name: early rhombomere 08 lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:19046
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:8950
+name: early rhombomere 08 roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:19046
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8954
+name: early rhombomere 07 roof plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15389
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:9033
+
+[Term]
+id: EHDA:8957
+name: mesenchyme from splanchnopleure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:9369
+
+[Term]
+id: EHDA:8960
+name: mesenchyme from somatopleure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:9369
+
+[Term]
+id: EHDA:8975
+name: mesoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:8991
+name: connective tissue cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:9012
+name: early rhombomere 03 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5529
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:9014
+name: early rhombomere 05 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5813
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:9016
+name: early rhombomere 02 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5379
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:9018
+name: early rhombomere 04 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5688
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:9023
+name: rhombencephalon floor plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:5305
+relationship: develops_from EHDA:5305
+
+[Term]
+id: EHDA:9025
+name: early rhombomere 01 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5270
+relationship: part_of EHDA:9029
+
+[Term]
+id: EHDA:9029
+name: rhombencephalon lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:5305
+
+[Term]
+id: EHDA:9033
+name: rhombencephalon roof plate
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:5305
+
+[Term]
+id: EHDA:9049
+name: neural cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:9061
+name: early rhombomere group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:5305
+
+[Term]
+id: EHDA:9067
+name: mesonephros
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+relationship: part_of EHDA:4878
+
+[Term]
+id: EHDA:9078
+name: mesonephros mesenchyme
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12553
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:9067
+
+[Term]
+id: EHDA:9119
+name: mesonephros tubule
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16742
+relationship: part_of EHDA:9067
+relationship: develops_from EHDA:9078
+
+[Term]
+id: EHDA:9140
+name: pia mater
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10783
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:9182
+name: midbrain vesicle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:11882
+
+[Term]
+id: EHDA:9204
+name: diencephalon
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:3884
+
+[Term]
+id: EHDA:9239
+name: early rhombomere 08 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: part_of EHDA:8948
+relationship: develops_from EHDA:8948
+
+[Term]
+id: EHDA:9249
+name: early rhombomere 07 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: develops_from EHDA:8943
+relationship: part_of EHDA:8943
+
+[Term]
+id: EHDA:9262
+name: early rhombomere 06 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: develops_from EHDA:8937
+relationship: part_of EHDA:8937
+
+[Term]
+id: EHDA:9278
+name: striated muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10545
+
+[Term]
+id: EHDA:9298
+name: early rhombomere 05 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: develops_from EHDA:9014
+relationship: part_of EHDA:9014
+
+[Term]
+id: EHDA:9324
+name: rhombencephalic vesicle
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: located_in EHDA:5305
+relationship: part_of EHDA:9641
+
+[Term]
+id: EHDA:9369
+name: mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:8160
+relationship: develops_from EHDA:8975
+
+[Term]
+id: EHDA:9434
+name: early rhombomere 03 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: part_of EHDA:9012
+relationship: develops_from EHDA:9012
+
+[Term]
+id: EHDA:9441
+name: early rhombomere 04 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: part_of EHDA:9018
+relationship: develops_from EHDA:9018
+
+[Term]
+id: EHDA:9467
+name: cardiac muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9278
+
+[Term]
+id: EHDA:9492
+name: early rhombomere 01 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: part_of EHDA:9025
+relationship: develops_from EHDA:9025
+
+[Term]
+id: EHDA:9501
+name: early rhombomere 02 marginal layer
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+relationship: develops_from EHDA:9016
+relationship: part_of EHDA:9016
+
+[Term]
+id: EHDA:9525
+name: dermomyotome 27
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12815
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9538
+name: dermomyotome 26
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12788
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9544
+name: dermomyotome 25
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12787
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9550
+name: dermomyotome 24
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12786
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9555
+name: dermomyotome 29
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12820
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9561
+name: dermomyotome 28
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12819
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9569
+name: dermomyotome 23
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12785
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9574
+name: dermomyotome 22
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12822
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9579
+name: dermomyotome 21
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: develops_from EHDA:12767
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9586
+name: dermomyotome 20
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9592
+name: mesomere M2 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:9849
+
+[Term]
+id: EHDA:9600
+name: mesomere M1 lateral wall
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+relationship: part_of EHDA:9860
+
+[Term]
+id: EHDA:9613
+name: mesomere M1 floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10580
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:9860
+
+[Term]
+id: EHDA:9621
+name: mesomere M1 roof plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10673
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:9860
+
+[Term]
+id: EHDA:9627
+name: future spinal cord lumen
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:12651
+relationship: is_a EHDA:13546
+relationship: part_of EHDA:9641
+
+[Term]
+id: EHDA:9630
+name: endocrine glandular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:9652
+
+[Term]
+id: EHDA:9641
+name: CNS ventricular system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11856
+relationship: part_of EHDA:15054
+
+[Term]
+id: EHDA:9652
+name: glandular system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13205
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:9680
+name: exocrine glandular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:9652
+
+[Term]
+id: EHDA:9713
+name: mesomere M2 roof plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10673
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:9849
+
+[Term]
+id: EHDA:9720
+name: mesomere M2 floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10580
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:9849
+
+[Term]
+id: EHDA:9731
+name: dermomyotome 14
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9749
+name: myotube
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10405
+relationship: is_a EHDA:7457
+relationship: is_a EHDA:9278
+
+[Term]
+id: EHDA:9766
+name: dermomyotome 13
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9784
+name: somatic cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:9801
+name: dermomyotome 16
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9814
+name: dermomyotome 15
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9819
+name: dermomyotome 18
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9824
+name: dermomyotome 17
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9829
+name: dermomyotome 19
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9834
+name: dermomyotome 10
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9840
+name: dermomyotome 12
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9845
+name: dermomyotome 11
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:9849
+name: mesomere M2
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9913
+
+[Term]
+id: EHDA:9860
+name: mesomere M1
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9913
+
+[Term]
+id: EHDA:9864
+name: early yolk sac stalk
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14959
+relationship: is_a EHDA:16742
+relationship: develops_from EHDA:9901
+
+[Term]
+id: EHDA:9868
+name: hindgut primordial germ cells
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10897
+relationship: is_a EHDA:12211
+
+[Term]
+id: EHDA:9880
+name: secondary yolk sac mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:9928
+
+[Term]
+id: EHDA:9901
+name: secondary yolk sac endoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:9928
+
+[Term]
+id: EHDA:9913
+name: mesomere group
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:9928
+name: secondary yolk sac
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11856
+relationship: is_a EHDA:11882
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:6923
+
+[Term]
+id: EHDA:9967
+name: cell by function
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6144
+
+[Term]
+id: EHDA:9993
+name: roof of third ventricle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10139
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:10016
+name: secretory cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:10045
+name: fat cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:8991
+
+[Term]
+id: EHDA:10057
+name: telencephalon medium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10139
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:10080
+name: mesenchymal cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6899
+
+[Term]
+id: EHDA:10106
+name: chondrocyte
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:7740
+
+[Term]
+id: EHDA:10130
+name: telencephalon floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10139
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:10139
+name: telencephalon
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:3884
+
+[Term]
+id: EHDA:10148
+name: early telencephalic vesicle
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:10139
+relationship: is_a EHDA:11882
+relationship: part_of EHDA:9641
+
+[Term]
+id: EHDA:10153
+name: telencephalon lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10139
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+
+[Term]
+id: EHDA:10171
+name: astrocyte
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10249
+
+[Term]
+id: EHDA:10197
+name: macroglial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12667
+
+[Term]
+id: EHDA:10223
+name: microglial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12667
+
+[Term]
+id: EHDA:10249
+name: oligodendrocyte
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10197
+
+[Term]
+id: EHDA:10280
+name: glial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:4779
+
+[Term]
+id: EHDA:10298
+name: tail bud
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:10322
+name: chorion syncytiotrophoblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11774
+relationship: part_of EHDA:11970
+relationship: is_a EHDA:17148
+
+[Term]
+id: EHDA:10347
+name: surface ectoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: part_of EHDA:8225
+relationship: develops_from EHDA:8398
+relationship: part_of EHDA:8398
+
+[Term]
+id: EHDA:10389
+name: cervical lateral migration pathway NC-derived mesenchyme
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10419
+relationship: part_of EHDA:10419
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:10405
+name: skeletal muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10545
+
+[Term]
+id: EHDA:10419
+name: cervical mesenchyme from cervical neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:10427
+name: cervical medial migration pathway NC-derived
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10419
+relationship: develops_from EHDA:10419
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:10451
+name: smooth muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10545
+
+[Term]
+id: EHDA:10484
+name: flight muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10545
+
+[Term]
+id: EHDA:10518
+name: early midgut associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14959
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:8957
+
+[Term]
+id: EHDA:10522
+name: midgut region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11271
+relationship: is_a EHDA:16562
+relationship: located_in EHDA:8139
+
+[Term]
+id: EHDA:10545
+name: muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18153
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:10559
+name: early midgut epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: part_of EHDA:14959
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:10580
+name: midbrain floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:10604
+name: midbrain
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+relationship: part_of EHDA:17640
+
+[Term]
+id: EHDA:10627
+name: epithelial vesicle
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:10653
+name: neuroendocrine cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18153
+
+[Term]
+id: EHDA:10673
+name: midbrain roof plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:10685
+name: midbrain pia mater
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10694
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:9140
+
+[Term]
+id: EHDA:10694
+name: midbrain meninges
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:10710
+name: midbrain lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10604
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:3744
+
+[Term]
+id: EHDA:10752
+name: neural tube floor plate
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12651
+relationship: is_a EHDA:17979
+
+[Term]
+id: EHDA:10767
+name: neural tube lateral wall
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12651
+relationship: is_a EHDA:3744
+
+[Term]
+id: EHDA:10783
+name: meninges
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15054
+relationship: is_a EHDA:16536
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:10897
+name: hindgut region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11271
+relationship: is_a EHDA:17195
+relationship: located_in EHDA:8139
+
+[Term]
+id: EHDA:10928
+name: hypoglossal cord
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14245
+relationship: develops_from EHDA:15152
+relationship: is_a EHDA:18320
+
+[Term]
+id: EHDA:10948
+name: haemolymphoid system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:11020
+name: pharyngeal arch endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14874
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:11042
+name: accessory XI ganglion
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15070
+relationship: is_a EHDA:18099
+
+[Term]
+id: EHDA:11091
+name: extracellular matrix secreting cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10016
+relationship: is_a EHDA:5150
+
+[Term]
+id: EHDA:11139
+name: mesenchyme condensation cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10080
+
+[Term]
+id: EHDA:11158
+name: right atrium valves
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12855
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:11168
+name: common cardinal vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:11208
+name: connecting stalk blood vessels
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11248
+relationship: is_a EHDA:17148
+
+[Term]
+id: EHDA:11224
+name: connecting stalk mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11248
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17507
+
+[Term]
+id: EHDA:11248
+name: connecting stalk
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:8194
+
+[Term]
+id: EHDA:11271
+name: gut region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15800
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17253
+
+[Term]
+id: EHDA:11345
+name: glossopharyngeal neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:4055
+relationship: part_of EHDA:5165
+
+[Term]
+id: EHDA:11352
+name: glossopharyngeal IX ganglion
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:11345
+relationship: develops_from EHDA:12503
+relationship: part_of EHDA:15070
+relationship: is_a EHDA:18099
+
+[Term]
+id: EHDA:11385
+name: optic recess
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12070
+relationship: located_in EHDA:7354
+relationship: develops_from EHDA:7354
+
+[Term]
+id: EHDA:11392
+name: optic (D1) neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15209
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:5362
+relationship: part_of EHDA:6519
+
+[Term]
+id: EHDA:11463
+name: dermomyotome 02
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:15152
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11468
+name: dermomyotome 03
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:15152
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11474
+name: dermomyotome 04
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:15152
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11479
+name: dermomyotome 05
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11486
+name: dermomyotome 06
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11491
+name: dermomyotome 07
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11504
+name: dermomyotome 08
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11509
+name: dermomyotome 09
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:14521
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11520
+name: head mesenchyme from head neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11615
+relationship: is_a EHDA:16536
+relationship: is_a EHDA:17507
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:6519
+
+[Term]
+id: EHDA:11532
+name: head paraxial mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11615
+relationship: is_a EHDA:17507
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:8975
+
+[Term]
+id: EHDA:11537
+name: heart
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:14696
+relationship: part_of EHDA:15748
+relationship: part_of EHDA:15800
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:11550
+name: dermomyotome 01
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12108
+relationship: part_of EHDA:15152
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:11566
+name: vein
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: is_a EHDA:11670
+relationship: is_a EHDA:16969
+relationship: has_part EHDA:6576
+
+[Term]
+id: EHDA:11598
+name: protuberance
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18978
+relationship: is_a EHDA:19849
+
+[Term]
+id: EHDA:11615
+name: head mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:9369
+
+[Term]
+id: EHDA:11638
+name: migrating epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:6863
+
+[Term]
+id: EHDA:11670
+name: blood vessel
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16742
+relationship: has_part EHDA:6576
+
+[Term]
+id: EHDA:11696
+name: artery
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11670
+relationship: has_part EHDA:6576
+
+[Term]
+id: EHDA:11722
+name: afferent nerve
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18185
+relationship: has_part EHDA:3872
+
+[Term]
+id: EHDA:11748
+name: efferent nerve
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17443
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18185
+relationship: has_part EHDA:3907
+
+[Term]
+id: EHDA:11774
+name: syncytium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+relationship: has_part EHDA:7457
+
+[Term]
+id: EHDA:11800
+name: pit
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18978
+relationship: is_a EHDA:19849
+
+[Term]
+id: EHDA:11828
+name: regenerating anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:11856
+name: enclosed anatomical space
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20060
+
+[Term]
+id: EHDA:11882
+name: open anatomical space
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20060
+
+[Term]
+id: EHDA:11908
+name: tooth
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:11951
+name: chorionic cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11856
+relationship: located_in EHDA:11970
+relationship: located_in EHDA:5552
+
+[Term]
+id: EHDA:11970
+name: chorion
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:6923
+
+[Term]
+id: EHDA:12016
+name: bone condensation
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17443
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6829
+
+[Term]
+id: EHDA:12042
+name: sclerotome
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10080
+relationship: is_a EHDA:12211
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:12070
+name: open cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+
+[Term]
+id: EHDA:12085
+name: CNS caudal region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15054
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:12108
+name: dermomyotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17901
+relationship: is_a EHDA:18063
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:12134
+name: non-connected developing functional system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:12160
+name: row
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:12211
+name: migrating developing tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:12239
+name: epithelial cord
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17901
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:5104
+
+[Term]
+id: EHDA:12267
+name: vascular plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16969
+relationship: has_part EHDA:6576
+
+[Term]
+id: EHDA:12301
+name: developing epithelial placode
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3510
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:12370
+name: coelomic cavity lumen
+namespace: human_developmental_anatomy
+relationship: develops_in EHDA:11951
+relationship: is_a EHDA:12070
+relationship: part_of EHDA:15800
+relationship: located_in EHDA:7171
+
+[Term]
+id: EHDA:12417
+name: nasal placode
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12870
+
+[Term]
+id: EHDA:12448
+name: cloaca
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15416
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:4878
+
+[Term]
+id: EHDA:12494
+name: sinus venosus left horn
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:13661
+
+[Term]
+id: EHDA:12499
+name: sinus venosus right horn
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:13661
+
+[Term]
+id: EHDA:12501
+name: trigeminal placode
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12510
+
+[Term]
+id: EHDA:12503
+name: epibranchial placode 2
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12510
+
+[Term]
+id: EHDA:12505
+name: epibranchial placode 3
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12510
+
+[Term]
+id: EHDA:12510
+name: branchial placode group
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:17577
+
+[Term]
+id: EHDA:12512
+name: epibranchial placode 1
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12510
+
+[Term]
+id: EHDA:12531
+name: nervous system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:12542
+name: left atrium endocardiium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12690
+relationship: part_of EHDA:15327
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:12553
+name: nephric cord
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:4878
+relationship: develops_from EHDA:7626
+
+[Term]
+id: EHDA:12556
+name: nephric duct
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12553
+relationship: is_a EHDA:16742
+relationship: part_of EHDA:4878
+
+[Term]
+id: EHDA:12575
+name: trunk and cervical somite group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12160
+relationship: develops_from EHDA:14277
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:12651
+name: neural tube
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12085
+relationship: is_a EHDA:16742
+
+[Term]
+id: EHDA:12667
+name: glial cell (sensu Vertebrata)
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:10280
+
+[Term]
+id: EHDA:12680
+name: right atrium endocardium
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12499
+relationship: part_of EHDA:12855
+relationship: part_of EHDA:15327
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:12690
+name: left atrium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:18892
+
+[Term]
+id: EHDA:12723
+name: fat tissue
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10045
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:12767
+name: somite 21
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12785
+name: somite 23
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12786
+name: somite 24
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12787
+name: somite 25
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12788
+name: somite 26
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12803
+name: single-cell tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:12815
+name: somite 27
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12819
+name: somite 28
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12820
+name: somite 29
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12822
+name: somite 22
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12575
+relationship: develops_from EHDA:14277
+relationship: is_a EHDA:14858
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:12824
+name: notochord
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:12855
+name: right atrium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:18892
+
+[Term]
+id: EHDA:12870
+name: nose
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12920
+relationship: part_of EHDA:13561
+relationship: part_of EHDA:4835
+
+[Term]
+id: EHDA:12900
+name: sclerotome 26
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12788
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:12920
+name: sense organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:12945
+name: sclerotome 27
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12815
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:12965
+name: fluid-based anatomical entity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:12984
+name: sclerotome 28
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12819
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13004
+name: gland
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:13029
+name: sclerotome 29
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12820
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13049
+name: ducted gland
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13004
+
+[Term]
+id: EHDA:13069
+name: sclerotome 22
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12822
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13088
+name: ligament
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11091
+relationship: is_a EHDA:13398
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6735
+
+[Term]
+id: EHDA:13100
+name: sclerotome 23
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12785
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13119
+name: tendon
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11091
+relationship: is_a EHDA:13398
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6735
+
+[Term]
+id: EHDA:13137
+name: brain arterial system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13881
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:17640
+
+[Term]
+id: EHDA:13146
+name: sclerotome 24
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12786
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:13165
+name: aponeurosis
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11091
+relationship: is_a EHDA:13398
+relationship: has_part EHDA:8991
+
+[Term]
+id: EHDA:13179
+name: occipital neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:5165
+
+[Term]
+id: EHDA:13185
+name: sclerotome 25
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12787
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13205
+name: non-connected functional system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:13235
+name: sclerotome 21
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12767
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13241
+name: sclerotome 20
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:13271
+name: cartilage
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13398
+relationship: part_of EHDA:18453
+
+[Term]
+id: EHDA:13304
+name: membrane bone
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13429
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6829
+
+[Term]
+id: EHDA:13330
+name: sesamoid bone
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10106
+relationship: is_a EHDA:13361
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6695
+
+[Term]
+id: EHDA:13361
+name: endochondral bone
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10106
+relationship: is_a EHDA:13429
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6695
+relationship: has_part EHDA:6829
+
+[Term]
+id: EHDA:13398
+name: matrix-based tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:13429
+name: bone
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:13474
+name: foramen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18978
+relationship: is_a EHDA:19849
+
+[Term]
+id: EHDA:13520
+name: lumen of epithelial sac
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11856
+
+[Term]
+id: EHDA:13546
+name: lumen of tube
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+
+[Term]
+id: EHDA:13561
+name: sensory system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15911
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:13570
+name: interatrial septum primum
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:8203
+
+[Term]
+id: EHDA:13604
+name: septum transversum
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:12370
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:18934
+relationship: develops_from EHDA:8975
+
+[Term]
+id: EHDA:13618
+name: secondary yolk sac cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13520
+relationship: located_in EHDA:5552
+relationship: located_in EHDA:9928
+
+[Term]
+id: EHDA:13661
+name: sinus venosus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:14017
+
+[Term]
+id: EHDA:13676
+name: septum transversum mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13604
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:8975
+
+[Term]
+id: EHDA:13696
+name: ductless gland
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13004
+
+[Term]
+id: EHDA:13722
+name: keratin-based structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17097
+
+[Term]
+id: EHDA:13763
+name: angioblast clusters
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:18419
+relationship: is_a EHDA:3208
+relationship: part_of EHDA:9880
+
+[Term]
+id: EHDA:13812
+name: aortic system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14324
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:13827
+name: fused midline dorsal aorta
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:13812
+relationship: develops_from EHDA:18512
+relationship: develops_from EHDA:4658
+
+[Term]
+id: EHDA:13863
+name: vascular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14668
+
+[Term]
+id: EHDA:13881
+name: head arteries
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15911
+relationship: part_of EHDA:15978
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:13908
+name: upper limb bud mesenchyme from somatopleure mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:5896
+
+[Term]
+id: EHDA:13917
+name: upper limb bud mesenchyeme from myotomes
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:5896
+
+[Term]
+id: EHDA:13934
+name: conducting muscle tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:13955
+name: body venous capillary plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:14189
+relationship: part_of EHDA:14189
+
+[Term]
+id: EHDA:13987
+name: liver capillary plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:15531
+
+[Term]
+id: EHDA:14005
+name: heart associated arteries
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14324
+relationship: part_of EHDA:15815
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:14017
+name: heart associated veins
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14175
+relationship: part_of EHDA:15815
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:14103
+name: common cardinal vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:14115
+name: posterior cardinal vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:14126
+name: precardinal vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:14163
+name: head and neck veins
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:6375
+
+[Term]
+id: EHDA:14175
+name: body veins
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:6375
+
+[Term]
+id: EHDA:14189
+name: embryonic venous capillary plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:6375
+
+[Term]
+id: EHDA:14201
+name: head and neck venous capillary plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: part_of EHDA:14163
+relationship: part_of EHDA:14189
+
+[Term]
+id: EHDA:14245
+name: future tongue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+relationship: part_of EHDA:16634
+
+[Term]
+id: EHDA:14277
+name: trunk and cervical paraxial mesoderm
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:18934
+relationship: develops_from EHDA:8975
+
+[Term]
+id: EHDA:14314
+name: caudal neuropore
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:12651
+relationship: is_a EHDA:13474
+relationship: part_of EHDA:9641
+
+[Term]
+id: EHDA:14317
+name: future spinal cord
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12085
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:14324
+name: body arteries
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15800
+relationship: part_of EHDA:15978
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:14358
+name: haematoblasts
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:18419
+relationship: develops_from EHDA:18419
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:14400
+name: internal anal region mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15416
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:4530
+
+[Term]
+id: EHDA:14431
+name: neuroglioblast
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6305
+
+[Term]
+id: EHDA:14445
+name: dermatome 28
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9561
+
+[Term]
+id: EHDA:14460
+name: obliquely striated muscle cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9278
+
+[Term]
+id: EHDA:14472
+name: myotome 28
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9561
+
+[Term]
+id: EHDA:14473
+name: dermatome 29
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:14579
+relationship: part_of EHDA:14618
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9555
+
+[Term]
+id: EHDA:14474
+name: myotome 29
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14629
+relationship: is_a EHDA:14984
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:9555
+
+[Term]
+id: EHDA:14493
+name: apoptosis fated cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9967
+
+[Term]
+id: EHDA:14521
+name: trunk and cervical dermomyotome group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12160
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:14531
+name: trunk and cervical sclerotome group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12160
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:14539
+name: heart lumen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: located_in EHDA:15327
+
+[Term]
+id: EHDA:14552
+name: gut mesothelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15004
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:14579
+name: trunk and cervical dermatome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3234
+
+[Term]
+id: EHDA:14618
+name: trunk and cervical dermatome group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12160
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:14629
+name: trunk and cervical myotome group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12160
+relationship: part_of EHDA:18934
+
+[Term]
+id: EHDA:14645
+name: cardinal vein system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14175
+
+[Term]
+id: EHDA:14668
+name: cardiovascular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:14683
+name: carotid artery system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13137
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:14696
+name: pericardial cavity lumen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12070
+relationship: develops_in EHDA:12370
+relationship: part_of EHDA:15748
+relationship: located_in EHDA:7183
+
+[Term]
+id: EHDA:14733
+name: right venous valve leaflet endocardium
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12680
+relationship: part_of EHDA:15327
+relationship: part_of EHDA:16498
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:14774
+name: Schwann cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12667
+
+[Term]
+id: EHDA:14803
+name: head somite
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:3182
+
+[Term]
+id: EHDA:14832
+name: cell by ploidy
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:6144
+
+[Term]
+id: EHDA:14858
+name: trunk somite
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:3182
+
+[Term]
+id: EHDA:14874
+name: gut epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15004
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:14913
+name: head myotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3260
+
+[Term]
+id: EHDA:14940
+name: head dermomyotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17901
+
+[Term]
+id: EHDA:14959
+name: early midgut region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10522
+relationship: is_a EHDA:12160
+
+[Term]
+id: EHDA:14984
+name: trunk and cervical myotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3260
+
+[Term]
+id: EHDA:15004
+name: gut tissues
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11271
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:15038
+name: head dermatome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3234
+
+[Term]
+id: EHDA:15054
+name: central nervous system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12531
+
+[Term]
+id: EHDA:15070
+name: CNS cranial ganglion
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15091
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:15091
+name: CNS ganglion
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15054
+
+[Term]
+id: EHDA:15152
+name: head dermomyotome group
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11532
+relationship: is_a EHDA:12160
+
+[Term]
+id: EHDA:15186
+name: heart tissues
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:15209
+name: future diencephalon neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:6519
+
+[Term]
+id: EHDA:15229
+name: midgut mesothelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10522
+relationship: part_of EHDA:14552
+relationship: is_a EHDA:16844
+relationship: develops_from EHDA:8171
+
+[Term]
+id: EHDA:15259
+name: head sclerotome
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12042
+
+[Term]
+id: EHDA:15282
+name: head sclerotome group
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11532
+relationship: is_a EHDA:12160
+
+[Term]
+id: EHDA:15288
+name: foregut mesothelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14552
+relationship: is_a EHDA:16844
+relationship: part_of EHDA:3840
+relationship: develops_from EHDA:8171
+
+[Term]
+id: EHDA:15305
+name: interatrial septum primum heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13570
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:15327
+name: endocardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15186
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:15340
+name: left atrium heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12690
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:15351
+name: atrioventricular canal region jelly
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15882
+relationship: is_a EHDA:17097
+
+[Term]
+id: EHDA:15358
+name: atrioventicular pre-cushion mesenchyme
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:15351
+relationship: part_of EHDA:15616
+relationship: part_of EHDA:15882
+relationship: is_a EHDA:17356
+relationship: develops_from EHDA:8788
+
+[Term]
+id: EHDA:15363
+name: right ventrical heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+relationship: part_of EHDA:19622
+
+[Term]
+id: EHDA:15380
+name: right atrium heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12855
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:15389
+name: early rhombomere 07
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:15391
+name: left ventrical heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+relationship: part_of EHDA:6337
+
+[Term]
+id: EHDA:15416
+name: internal anal region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16644
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:15453
+name: interatrial septum primum endocardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13570
+relationship: part_of EHDA:15327
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:15509
+name: cloacal epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:12448
+relationship: part_of EHDA:14874
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:15522
+name: hindgut mesothelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10897
+relationship: part_of EHDA:14552
+relationship: is_a EHDA:16844
+relationship: develops_from EHDA:8957
+
+[Term]
+id: EHDA:15531
+name: liver vascular system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:3063
+
+[Term]
+id: EHDA:15558
+name: cloacal lumen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: located_in EHDA:12448
+
+[Term]
+id: EHDA:15579
+name: parietal pericardial cavity mesothelium
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:14696
+relationship: is_a EHDA:16844
+relationship: part_of EHDA:7183
+
+[Term]
+id: EHDA:15616
+name: heart mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15186
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:15634
+name: ventricular region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:15645
+name: atrioventricular region endocardium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15327
+relationship: part_of EHDA:15882
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:15656
+name: atrioventricular region heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15882
+relationship: part_of EHDA:15999
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:15668
+name: early rhombomere 06
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:15686
+name: sclerotome 06
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:15697
+name: sclerotome 05
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:15715
+name: chitin-based structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17097
+
+[Term]
+id: EHDA:15733
+name: sclerotome 04
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15259
+relationship: part_of EHDA:15282
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:15742
+name: sclerotome 03
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15259
+relationship: part_of EHDA:15282
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:15748
+name: cardiac system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14668
+
+[Term]
+id: EHDA:15768
+name: sclerotome 09
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:15775
+name: aortic sac
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:13812
+relationship: part_of EHDA:14005
+relationship: develops_from EHDA:17563
+
+[Term]
+id: EHDA:15782
+name: sclerotome 08
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:15800
+name: body
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15946
+
+[Term]
+id: EHDA:15815
+name: heart-associated blood vessels
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15748
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:15826
+name: sclerotome 07
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:15844
+name: tail
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19006
+
+[Term]
+id: EHDA:15870
+name: neck
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15946
+
+[Term]
+id: EHDA:15882
+name: atrioventricular region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:15891
+name: outflow tract neural crest
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15616
+relationship: located_in EHDA:16277
+relationship: is_a EHDA:17663
+relationship: is_a EHDA:18063
+relationship: develops_from EHDA:3014
+relationship: develops_from EHDA:6985
+relationship: develops_from EHDA:7350
+
+[Term]
+id: EHDA:15911
+name: head
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15946
+
+[Term]
+id: EHDA:15925
+name: sclerotome 02
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15259
+relationship: part_of EHDA:15282
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:15930
+name: sclerotome 01
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15259
+relationship: part_of EHDA:15282
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:15946
+name: organism subdivision
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:15961
+name: otocyst epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15996
+relationship: develops_from EHDA:16011
+
+[Term]
+id: EHDA:15963
+name: otocyst associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15996
+relationship: develops_from EHDA:16015
+relationship: is_a EHDA:17507
+
+[Term]
+id: EHDA:15978
+name: arterial system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13863
+
+[Term]
+id: EHDA:15996
+name: otocyst
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: develops_from EHDA:17072
+relationship: part_of EHDA:8066
+relationship: develops_from EHDA:8398
+
+[Term]
+id: EHDA:15999
+name: heart muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15186
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:16011
+name: otic placode epithelium
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: part_of EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:17072
+
+[Term]
+id: EHDA:16015
+name: otic placode associated mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17072
+relationship: is_a EHDA:17507
+relationship: develops_from EHDA:6471
+relationship: part_of EHDA:6471
+
+[Term]
+id: EHDA:16019
+name: sclerotome 15
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16024
+name: sclerotome 14
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16032
+name: sclerotome 17
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16050
+name: hematopoietic cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:9784
+
+[Term]
+id: EHDA:16065
+name: sclerotome 16
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16073
+name: sclerotome 19
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+
+[Term]
+id: EHDA:16091
+name: hermaphroditic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:16107
+name: sclerotome 18
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16111
+name: oral epithelium from endoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16655
+relationship: is_a EHDA:17791
+relationship: develops_from EHDA:7976
+
+[Term]
+id: EHDA:16127
+name: oral epithelium from ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16655
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:16150
+name: male organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17000
+
+[Term]
+id: EHDA:16162
+name: adenohypophysis invagination
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13546
+relationship: located_in EHDA:4341
+
+[Term]
+id: EHDA:16182
+name: female organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17000
+
+[Term]
+id: EHDA:16196
+name: sclerotome 11
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16214
+name: simple organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:16228
+name: sclerotome 10
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16233
+name: sclerotome 13
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16239
+name: sclerotome 12
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:14531
+relationship: is_a EHDA:18063
+relationship: is_a EHDA:7051
+
+[Term]
+id: EHDA:16257
+name: compound organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16271
+name: outflow tract endocardium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:15327
+relationship: part_of EHDA:16321
+
+[Term]
+id: EHDA:16277
+name: outflow tract cardiac jelly
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16321
+relationship: is_a EHDA:17097
+
+[Term]
+id: EHDA:16296
+name: outflow tract muscle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15999
+relationship: part_of EHDA:16321
+relationship: is_a EHDA:17382
+
+[Term]
+id: EHDA:16321
+name: heart outflow
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:16352
+name: apoptosing developing anatomical entity
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:14493
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:16364
+name: pancreas dorsal primordium mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17507
+relationship: part_of EHDA:17715
+relationship: develops_from EHDA:8957
+
+[Term]
+id: EHDA:16383
+name: larva
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:16399
+name: vitelline vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14175
+relationship: develops_from EHDA:18437
+relationship: develops_from EHDA:18506
+
+[Term]
+id: EHDA:16416
+name: developing anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16433
+name: otocyst lumen
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13520
+relationship: located_in EHDA:15996
+relationship: develops_from EHDA:17068
+
+[Term]
+id: EHDA:16438
+name: vitelline arterial plexus right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:18433
+relationship: part_of EHDA:8826
+
+[Term]
+id: EHDA:16454
+name: neural tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:16486
+name: muscle tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:16498
+name: right venous valve
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11158
+relationship: is_a EHDA:2746
+
+[Term]
+id: EHDA:16508
+name: umbilical vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14175
+relationship: develops_from EHDA:18506
+
+[Term]
+id: EHDA:16513
+name: umbilical artery right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:14324
+relationship: part_of EHDA:15800
+relationship: develops_from EHDA:18468
+relationship: develops_from EHDA:18512
+
+[Term]
+id: EHDA:16536
+name: anatomical group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16562
+name: multi-tissue structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16594
+name: functioning and developing structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:16622
+name: oral region gland group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: part_of EHDA:16634
+
+[Term]
+id: EHDA:16634
+name: oral region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15911
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17253
+
+[Term]
+id: EHDA:16644
+name: anal region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10897
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17195
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16655
+name: oral epithelium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16634
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:16675
+name: retinal disc
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16708
+relationship: develops_from EHDA:16708
+relationship: is_a EHDA:3744
+
+[Term]
+id: EHDA:16678
+name: precardinal vein left
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13955
+relationship: part_of EHDA:14645
+
+[Term]
+id: EHDA:16696
+name: protogynous hermaphroditic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16916
+
+[Term]
+id: EHDA:16708
+name: optic vesicle
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:5325
+relationship: develops_from EHDA:5336
+relationship: part_of EHDA:5362
+
+[Term]
+id: EHDA:16742
+name: epithelial tube
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:6494
+
+[Term]
+id: EHDA:16754
+name: optic vesicle proximal part
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16708
+relationship: develops_from EHDA:16708
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:16792
+name: epithelial sac
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:16815
+name: optic system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:13561
+
+[Term]
+id: EHDA:16844
+name: mesothelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17819
+
+[Term]
+id: EHDA:16870
+name: simple tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:16892
+name: amniotic cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11856
+relationship: located_in EHDA:5552
+
+[Term]
+id: EHDA:16916
+name: sequential hermaphroditic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16091
+
+[Term]
+id: EHDA:16942
+name: synchronous hermaphroditic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16091
+
+[Term]
+id: EHDA:16969
+name: epithelial plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16742
+relationship: has_part EHDA:6494
+
+[Term]
+id: EHDA:17000
+name: gonochoristic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:17026
+name: arborising epithelial duct system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: has_part EHDA:6494
+
+[Term]
+id: EHDA:17053
+name: protandrous hermaphroditic organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16916
+
+[Term]
+id: EHDA:17068
+name: otic pit
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11800
+relationship: located_in EHDA:17072
+
+[Term]
+id: EHDA:17072
+name: otic placode
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:10347
+relationship: is_a EHDA:12301
+relationship: part_of EHDA:12510
+relationship: part_of EHDA:8066
+
+[Term]
+id: EHDA:17074
+name: allantois
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15416
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:4878
+
+[Term]
+id: EHDA:17097
+name: acellular anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:17118
+name: amnion
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:6923
+
+[Term]
+id: EHDA:17148
+name: extraembryonic structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:17168
+name: amnion mesenchyme
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17118
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17507
+
+[Term]
+id: EHDA:17195
+name: anatomical cluster
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:17216
+name: amnion ectoderm
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17118
+relationship: is_a EHDA:17148
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:17227
+name: otic neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:6519
+
+[Term]
+id: EHDA:17229
+name: oronasal cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12070
+relationship: located_in EHDA:16634
+
+[Term]
+id: EHDA:17241
+name: organ system group
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19817
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:17253
+name: alimentary system
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:17241
+
+[Term]
+id: EHDA:17291
+name: epithelial cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19875
+
+[Term]
+id: EHDA:17324
+name: striated muscle sphincter
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18320
+relationship: has_part EHDA:9278
+
+[Term]
+id: EHDA:17356
+name: mesenchymal tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:17382
+name: cardiac muscle tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16486
+relationship: has_part EHDA:9467
+
+[Term]
+id: EHDA:17408
+name: smooth muscle sphincter
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10451
+relationship: is_a EHDA:18290
+
+[Term]
+id: EHDA:17443
+name: developing mesenchymal condensation
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11139
+relationship: is_a EHDA:16416
+relationship: is_a EHDA:17507
+relationship: is_a EHDA:3208
+
+[Term]
+id: EHDA:17475
+name: pre-muscle condensation
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17443
+relationship: has_part EHDA:8611
+
+[Term]
+id: EHDA:17507
+name: dense mesenchyme tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: has_part EHDA:6735
+
+[Term]
+id: EHDA:17542
+name: cartilagenous condensation
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17443
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6695
+
+[Term]
+id: EHDA:17563
+name: aortic arch arteries
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15800
+relationship: part_of EHDA:15978
+relationship: is_a EHDA:17195
+
+[Term]
+id: EHDA:17577
+name: pharyngeal arch region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15870
+relationship: is_a EHDA:17195
+relationship: part_of EHDA:3840
+relationship: part_of EHDA:5902
+relationship: part_of EHDA:8160
+
+[Term]
+id: EHDA:17583
+name: pancreas primordium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: is_a EHDA:18626
+relationship: part_of EHDA:4230
+relationship: part_of EHDA:9630
+relationship: part_of EHDA:9680
+
+[Term]
+id: EHDA:17621
+name: migrating mesenchyme population
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10080
+relationship: is_a EHDA:12211
+relationship: is_a EHDA:17356
+
+[Term]
+id: EHDA:17640
+name: brain
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15054
+relationship: part_of EHDA:15911
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:17663
+name: loose mesenchyme tissue
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11091
+relationship: is_a EHDA:17356
+relationship: has_part EHDA:6735
+
+[Term]
+id: EHDA:17700
+name: pre-cartilage condensation
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:11139
+relationship: is_a EHDA:17443
+relationship: part_of EHDA:18453
+
+[Term]
+id: EHDA:17715
+name: pancreas dorsal primordium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13049
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:17583
+relationship: is_a EHDA:18626
+
+[Term]
+id: EHDA:17734
+name: solid compound organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:17762
+name: cavitated compound organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16257
+
+[Term]
+id: EHDA:17791
+name: unilaminar epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+
+[Term]
+id: EHDA:17819
+name: simple squamous epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: has_part EHDA:6659
+
+[Term]
+id: EHDA:17845
+name: atypical epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+relationship: has_part EHDA:6863
+
+[Term]
+id: EHDA:17875
+name: nerve fiber tract
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3286
+
+[Term]
+id: EHDA:17901
+name: multilaminar epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17927
+
+[Term]
+id: EHDA:17927
+name: epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16870
+
+[Term]
+id: EHDA:17953
+name: basal lamina
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17097
+relationship: part_of EHDA:17927
+
+[Term]
+id: EHDA:17979
+name: columnar epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+
+[Term]
+id: EHDA:18005
+name: simple cuboidal epithelium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17791
+relationship: has_part EHDA:6621
+
+[Term]
+id: EHDA:18031
+name: developing structure with stem cells
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+relationship: has_part EHDA:6398
+
+[Term]
+id: EHDA:18063
+name: transitional anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:18099
+name: ganglion
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16454
+
+[Term]
+id: EHDA:18127
+name: neuronal nucleus
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10171
+relationship: has_part EHDA:10223
+relationship: has_part EHDA:10249
+relationship: is_a EHDA:3312
+
+[Term]
+id: EHDA:18153
+name: electrically responsive cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:7392
+
+[Term]
+id: EHDA:18185
+name: nerve
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16454
+
+[Term]
+id: EHDA:18219
+name: nerve plexus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16454
+relationship: has_part EHDA:3872
+relationship: has_part EHDA:3907
+
+[Term]
+id: EHDA:18240
+name: biliary bud intrahepatic part
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: develops_from EHDA:18275
+relationship: part_of EHDA:18275
+
+[Term]
+id: EHDA:18260
+name: blood
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:10948
+relationship: is_a EHDA:12965
+relationship: part_of EHDA:13863
+relationship: develops_from EHDA:3063
+
+[Term]
+id: EHDA:18275
+name: biliary bud
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: part_of EHDA:3074
+
+[Term]
+id: EHDA:18290
+name: smooth muscle tissue
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10451
+relationship: is_a EHDA:16486
+
+[Term]
+id: EHDA:18305
+name: biliary bud extrahepatic part
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16792
+relationship: part_of EHDA:18275
+relationship: develops_from EHDA:18275
+
+[Term]
+id: EHDA:18320
+name: striated muscle tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16486
+relationship: has_part EHDA:9278
+
+[Term]
+id: EHDA:18348
+name: cell space
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20060
+
+[Term]
+id: EHDA:18374
+name: asexual organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:18400
+name: single cell organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19875
+
+[Term]
+id: EHDA:18419
+name: yolk sac blood islands
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:3208
+relationship: develops_from EHDA:9880
+relationship: part_of EHDA:9880
+
+[Term]
+id: EHDA:18433
+name: extraembryonic vitelline artery right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: develops_from EHDA:13763
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5520
+
+[Term]
+id: EHDA:18437
+name: extraembryonic vitelline vein right
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11566
+relationship: develops_from EHDA:13763
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5565
+
+[Term]
+id: EHDA:18453
+name: skeletal system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19817
+
+[Term]
+id: EHDA:18468
+name: extraembryonic umbilical artery right
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11208
+relationship: is_a EHDA:11696
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5520
+
+[Term]
+id: EHDA:18491
+name: embryo
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:19034
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:18506
+name: extraembryonic umbilical vein right
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11208
+relationship: is_a EHDA:11566
+relationship: is_a EHDA:17148
+relationship: part_of EHDA:5565
+
+[Term]
+id: EHDA:18512
+name: right dorsal aorta
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11696
+relationship: part_of EHDA:8315
+
+[Term]
+id: EHDA:18535
+name: gender-specific anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:18564
+name: surface sense organ
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:12920
+relationship: part_of EHDA:18778
+
+[Term]
+id: EHDA:18600
+name: limb
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17734
+relationship: is_a EHDA:19006
+
+[Term]
+id: EHDA:18626
+name: primordium
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:18655
+name: anlage
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:18752
+name: mesenchymal tissue with stem cells
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19116
+
+[Term]
+id: EHDA:18778
+name: organism surfacef
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15946
+
+[Term]
+id: EHDA:18818
+name: groove
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18978
+relationship: is_a EHDA:19849
+
+[Term]
+id: EHDA:18850
+name: ridge
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18978
+relationship: is_a EHDA:19849
+
+[Term]
+id: EHDA:18871
+name: atrioventricular canal
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13546
+relationship: located_in EHDA:15882
+
+[Term]
+id: EHDA:18892
+name: atrial region
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:11537
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:18934
+name: trunk and cervical mesenchyme
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9369
+
+[Term]
+id: EHDA:18945
+name: trunk mesenchyme from trunk neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17356
+relationship: part_of EHDA:18934
+relationship: develops_from EHDA:8898
+
+[Term]
+id: EHDA:18978
+name: anatomical surface feature
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19849
+relationship: is_a EHDA:20194
+
+[Term]
+id: EHDA:19006
+name: appendage
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:15946
+
+[Term]
+id: EHDA:19034
+name: conceptus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19901
+
+[Term]
+id: EHDA:19046
+name: early rhombomere 08
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:9061
+
+[Term]
+id: EHDA:19062
+name: extraembryonic component
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:19034
+
+[Term]
+id: EHDA:19090
+name: larval anatomical structure
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16383
+relationship: is_a EHDA:16416
+
+[Term]
+id: EHDA:19116
+name: multi-tissue structure with stem cells
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:19142
+name: body cavity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20060
+
+[Term]
+id: EHDA:19168
+name: epithelial tissue with stem cells
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:19116
+
+[Term]
+id: EHDA:19194
+name: acellular fluid anatomical entity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17097
+relationship: is_a EHDA:20086
+
+[Term]
+id: EHDA:19220
+name: trigeminal V ganglion
+namespace: human_developmental_anatomy
+relationship: develops_from EHDA:12501
+relationship: part_of EHDA:15070
+relationship: is_a EHDA:18099
+
+[Term]
+id: EHDA:19238
+name: trigeminal neural crest
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17621
+relationship: is_a EHDA:18063
+relationship: part_of EHDA:5165
+
+[Term]
+id: EHDA:19270
+name: non-joint-associated cartilage
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10106
+relationship: is_a EHDA:13271
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:6695
+
+[Term]
+id: EHDA:19299
+name: synovial membrane
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:17901
+relationship: is_a EHDA:17979
+relationship: part_of EHDA:19357
+relationship: has_part EHDA:5104
+
+[Term]
+id: EHDA:19331
+name: exoskeletal tissue
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13398
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:7901
+
+[Term]
+id: EHDA:19357
+name: synovial joint
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+relationship: part_of EHDA:18453
+
+[Term]
+id: EHDA:19388
+name: fibrous joint
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:13398
+relationship: part_of EHDA:18453
+relationship: has_part EHDA:8991
+
+[Term]
+id: EHDA:19414
+name: hermaphrodite anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18535
+
+[Term]
+id: EHDA:19440
+name: female anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18535
+
+[Term]
+id: EHDA:19466
+name: male anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:18535
+
+[Term]
+id: EHDA:19496
+name: joint-associated cartilage
+namespace: human_developmental_anatomy
+relationship: has_part EHDA:10106
+relationship: is_a EHDA:13271
+relationship: part_of EHDA:13361
+relationship: part_of EHDA:19357
+relationship: has_part EHDA:6695
+
+[Term]
+id: EHDA:19514
+name: transverse pericardial sinus
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:11882
+relationship: located_in EHDA:8327
+
+[Term]
+id: EHDA:19562
+name: future diaphragm
+namespace: human_developmental_anatomy
+relationship: located_in EHDA:12370
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:19622
+name: right ventricle
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15634
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:19656
+name: mucous membrane
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:19682
+name: antenna
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15911
+relationship: is_a EHDA:18564
+relationship: part_of EHDA:18778
+
+[Term]
+id: EHDA:19780
+name: thyroid primordium
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:15870
+relationship: is_a EHDA:17901
+relationship: part_of EHDA:4064
+relationship: develops_from EHDA:7263
+relationship: part_of EHDA:9630
+
+[Term]
+id: EHDA:19817
+name: anatomical system
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16536
+
+[Term]
+id: EHDA:19849
+name: anatomical surface
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20194
+
+[Term]
+id: EHDA:19875
+name: cell
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:19901
+name: multi-cellular organism
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20034
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:19927
+name: cell component
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:19875
+relationship: is_a EHDA:20112
+
+[Term]
+id: EHDA:19953
+name: compound organ component
+namespace: human_developmental_anatomy
+relationship: part_of EHDA:16257
+relationship: is_a EHDA:16562
+
+[Term]
+id: EHDA:20002
+name: anatomical entity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:16
+
+[Term]
+id: EHDA:20034
+name: material anatomical entity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20002
+
+[Term]
+id: EHDA:20060
+name: anatomical space
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20194
+
+[Term]
+id: EHDA:20086
+name: non-tissue substance
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20034
+
+[Term]
+id: EHDA:20112
+name: anatomical structure
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20034
+
+[Term]
+id: EHDA:20142
+name: anatomical point
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20194
+
+[Term]
+id: EHDA:20168
+name: anatomical line
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20194
+
+[Term]
+id: EHDA:20194
+name: immaterial anatomical entity
+namespace: human_developmental_anatomy
+relationship: is_a EHDA:20002
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

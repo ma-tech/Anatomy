@@ -1,0 +1,688 @@
+
+Editor Report for Import of OBO File: /Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateChick009/OBOInput/Start_MNW_2012-09-12.obo
+
+
+REPORT UPDATE SUMMARY
+
+=====================
+
+   Total Components from OBO File : 2474
+
+A. Critical Components in file    : 41
+
+B. New Components created         : 0
+
+C. Modified Components            : 0
+
+D. Deleted Components             : 0
+
+   Unchanged Components           : 0
+
+
+--------------------------------------------------------------------------------
+
+
+A. CRITICAL COMPONENTS: REQUIRE REVISION
+
+   =====================================
+
+  Total Critical Components: 41
+  -----------------------------
+
+  1. part_of - Missing link
+  2. EMAPA:0 - Abstract anatomy
+  3. EMAPA:17472 - hind limb digit 5
+  4. EMAPA:19400 - T12 rib pre-cartilage condensation
+  5. EMAPA:19401 - T13 rib pre-cartilage condensation
+  6. EMAPA:17445 - interdigital region between wing digits 1 and 2
+  7. EMAPA:17441 - wing digit 5
+  8. EMAPA:17454 - interdigital region between wing digits 4 and 5
+  9. EMAPA:25061 - wing digit 2 inter-phalangeal joint
+  10. EMAPA:19386 - L6 vertebral cartilage condensation
+  11. EMAPA:19380 - T12 vertebral cartilage condensation
+  12. EMAPA:19381 - T13 vertebral cartilage condensation
+  13. ID:GUDD0000012 - CLONE OF limb
+  14. EMAPA:19399 - T11 rib pre-cartilage condensation
+  15. EMAPA:19398 - T10 rib pre-cartilage condensation
+  16. EMAPA:19397 - T9 rib pre-cartilage condensation
+  17. EMAPA:19396 - T8 rib pre-cartilage condensation
+  18. EMAPA:18404 - physiological umbilical hernia
+  19. EMAPA:16092 - future spinal cord
+  20. EMAPA:16036 - two-cell stage
+  21. EMAPA:16034 - second polar body
+  22. EMAPA:16033 - one-cell stage
+  23. EMAPA:16032 - first polar body
+  24. EMAPA:16413 - mesenchyme derived from neural crest
+  25. group_term - Group term
+  26. ID:0000140 - hind limb autopod apical ectodermal ridge
+  27. EMAPA:19355 - L6 vertebral pre-cartilage condensation
+  28. EMAPA:19347 - T12 vertebral pre-cartilage condensation
+  29. EMAPA:19348 - T13 vertebral pre-cartilage condensation
+  30. EMAPA:19345 - T10 vertebral pre-cartilage condensation
+  31. EMAPA:19346 - T11 vertebral pre-cartilage condensation
+  32. EMAPA:19343 - T8 vertebral pre-cartilage condensation
+  33. EMAPA:19344 - T9 vertebral pre-cartilage condensation
+  34. EMAPA:19376 - T8 vertebral cartilage condensation
+  35. EMAPA:19377 - T9 vertebral cartilage condensation
+  36. EMAPA:19378 - T10 vertebral cartilage condensation
+  37. EMAPA:19379 - T11 vertebral cartilage condensation
+  38. EMAPA:19365 - S4 vertebral pre-cartilage condensation
+  39. EMAPA:19364 - S3 vertebral pre-cartilage condensation
+  40. HH:0 - Hamburger Hamilton stage
+  41. EMAPA:16680 - process
+
+  DETAILS
+  -------
+
+
+   Problem OBOComponent 1
+    ID        : part_of
+    Name      : Missing link
+    Starts At : 
+    Ends At   : 
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : 
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  Disallowed deletion of component from file - parent to existing components.
+     2.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 2
+    ID        : EMAPA:0
+    Name      : Abstract anatomy
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 3
+    ID        : EMAPA:17472
+    Name      : hind limb digit 5
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 4
+    ID        : EMAPA:19400
+    Name      : T12 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 5
+    ID        : EMAPA:19401
+    Name      : T13 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 6
+    ID        : EMAPA:17445
+    Name      : interdigital region between wing digits 1 and 2
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 7
+    ID        : EMAPA:17441
+    Name      : wing digit 5
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : [digiti minimi, fifth finger]
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 8
+    ID        : EMAPA:17454
+    Name      : interdigital region between wing digits 4 and 5
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 9
+    ID        : EMAPA:25061
+    Name      : wing digit 2 inter-phalangeal joint
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 10
+    ID        : EMAPA:19386
+    Name      : L6 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 11
+    ID        : EMAPA:19380
+    Name      : T12 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 12
+    ID        : EMAPA:19381
+    Name      : T13 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 13
+    ID        : ID:GUDD0000012
+    Name      : CLONE OF limb
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : [limb set, limbs]
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 14
+    ID        : EMAPA:19399
+    Name      : T11 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 15
+    ID        : EMAPA:19398
+    Name      : T10 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 16
+    ID        : EMAPA:19397
+    Name      : T9 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 17
+    ID        : EMAPA:19396
+    Name      : T8 rib pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 18
+    ID        : EMAPA:18404
+    Name      : physiological umbilical hernia
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 19
+    ID        : EMAPA:16092
+    Name      : future spinal cord
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 20
+    ID        : EMAPA:16036
+    Name      : two-cell stage
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 21
+    ID        : EMAPA:16034
+    Name      : second polar body
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 22
+    ID        : EMAPA:16033
+    Name      : one-cell stage
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 23
+    ID        : EMAPA:16032
+    Name      : first polar body
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 24
+    ID        : EMAPA:16413
+    Name      : mesenchyme derived from neural crest
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 25
+    ID        : group_term
+    Name      : Group term
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 26
+    ID        : ID:0000140
+    Name      : hind limb autopod apical ectodermal ridge
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 27
+    ID        : EMAPA:19355
+    Name      : L6 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 28
+    ID        : EMAPA:19347
+    Name      : T12 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 29
+    ID        : EMAPA:19348
+    Name      : T13 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 30
+    ID        : EMAPA:19345
+    Name      : T10 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 31
+    ID        : EMAPA:19346
+    Name      : T11 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 32
+    ID        : EMAPA:19343
+    Name      : T8 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 33
+    ID        : EMAPA:19344
+    Name      : T9 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 34
+    ID        : EMAPA:19376
+    Name      : T8 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 35
+    ID        : EMAPA:19377
+    Name      : T9 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 36
+    ID        : EMAPA:19378
+    Name      : T10 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 37
+    ID        : EMAPA:19379
+    Name      : T11 vertebral cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 38
+    ID        : EMAPA:19365
+    Name      : S4 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 39
+    ID        : EMAPA:19364
+    Name      : S3 vertebral pre-cartilage condensation
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 40
+    ID        : HH:0
+    Name      : Hamburger Hamilton stage
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+
+   Problem OBOComponent 41
+    ID        : EMAPA:16680
+    Name      : process
+    Starts At : EGK-I
+    Ends At   : HH48
+    Parents   : []
+    Synonyms  : []
+    Alternate Paths     : 
+    Change Check Status : UNCHECKED
+    Rules Check Status  : FAILED
+    Comments: 
+     1.  INFO: Root node not defined by OBO2DB NameSpace Configurations.
+
+B. NEW COMPONENTS
+
+   ==============
+
+  Total New Components: 0
+  -------------------------------
+
+
+
+C. MODIFIED COMPONENTS
+
+   ===================
+
+  Total Modified Components: 0
+  -------------------------------
+
+
+D. DELETED COMPONENTS
+
+   ==================
+
+  Total Deleted Components: 0
+  -----------------------------
+
+
+
+
+
+----------------------------------------
+----------------------------------------
+----------------Appendix----------------
+----------------------------------------
+
+CRITICAL terms = Terms that require revision.
+NEW terms = Terms that did not exist in the original file/database.
+MODIFIED terms = Terms that have a changed property.
+DELETED terms = Terms that exist in the original file/database but are no longer in the current file.

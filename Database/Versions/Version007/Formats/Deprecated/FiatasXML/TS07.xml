@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<HGU_MRC_Edinburgh>
+  <date>2007-02-20 15:35:21</date>
+  <species>mouse</species>
+  <component name="mouse" id="25772">
+    <stage name="TS07"/>
+    <component isPrimary="true" name="epiblast" id="43">
+      <printName>epiblast</printName>
+      <abbreviation/>
+      <synonym>primitive ectoderm</synonym>
+      <startEmbryoStage>06</startEmbryoStage>
+      <stopEmbryoStage>08</stopEmbryoStage>
+      <parentId>25772</parentId>
+    </component>
+    <childrenId>43</childrenId>
+    <component isPrimary="true" name="extraembryonic component" id="45">
+      <printName>extraembryonic component</printName>
+      <abbreviation/>
+      <startEmbryoStage>04</startEmbryoStage>
+      <stopEmbryoStage>26</stopEmbryoStage>
+      <parentId>25772</parentId>
+      <component isPrimary="true" name="cavities" id="46">
+        <printName>extraembryonic component.cavities</printName>
+        <abbreviation/>
+        <startEmbryoStage>07</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>45</parentId>
+        <component isPrimary="true" name="yolk sac cavity" id="47">
+          <printName>extraembryonic component.cavities.yolk sac cavity</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>46</parentId>
+        </component>
+        <childrenId>47</childrenId>
+      </component>
+      <childrenId>46</childrenId>
+      <component isPrimary="true" name="endoderm" id="48">
+        <printName>extraembryonic component.endoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>06</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>45</parentId>
+        <component isPrimary="true" name="intermediate endoderm" id="49">
+          <printName>extraembryonic component.endoderm.intermediate endoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>11</stopEmbryoStage>
+          <parentId>48</parentId>
+        </component>
+        <childrenId>49</childrenId>
+        <component isPrimary="true" name="parietal endoderm" id="50">
+          <printName>extraembryonic component.endoderm.parietal endoderm</printName>
+          <abbreviation/>
+          <synonym>distal endoderm</synonym>
+          <startEmbryoStage>06</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>48</parentId>
+          <component isPrimary="true" name="Reichert's membrane" id="51">
+            <printName>extraembryonic component.endoderm.parietal endoderm.Reichert's membrane</printName>
+            <abbreviation/>
+            <startEmbryoStage>07</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>50</parentId>
+          </component>
+          <childrenId>51</childrenId>
+        </component>
+        <childrenId>50</childrenId>
+        <component isPrimary="true" name="visceral endoderm" id="52">
+          <printName>extraembryonic component.endoderm.visceral endoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>07</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>48</parentId>
+        </component>
+        <childrenId>52</childrenId>
+      </component>
+      <childrenId>48</childrenId>
+      <component isPrimary="true" name="trophectoderm" id="53">
+        <printName>extraembryonic component.trophectoderm</printName>
+        <abbreviation/>
+        <startEmbryoStage>04</startEmbryoStage>
+        <stopEmbryoStage>12</stopEmbryoStage>
+        <parentId>45</parentId>
+        <component isPrimary="true" name="mural trophectoderm" id="54">
+          <printName>extraembryonic component.trophectoderm.mural trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>53</parentId>
+        </component>
+        <childrenId>54</childrenId>
+        <component isPrimary="true" name="polar trophectoderm" id="55">
+          <printName>extraembryonic component.trophectoderm.polar trophectoderm</printName>
+          <abbreviation/>
+          <startEmbryoStage>04</startEmbryoStage>
+          <stopEmbryoStage>12</stopEmbryoStage>
+          <parentId>53</parentId>
+          <component isPrimary="true" name="ectoplacental cone" id="56">
+            <printName>extraembryonic component.trophectoderm.polar trophectoderm.ectoplacental cone</printName>
+            <abbreviation/>
+            <startEmbryoStage>07</startEmbryoStage>
+            <stopEmbryoStage>12</stopEmbryoStage>
+            <parentId>55</parentId>
+          </component>
+          <childrenId>56</childrenId>
+        </component>
+        <childrenId>55</childrenId>
+      </component>
+      <childrenId>53</childrenId>
+    </component>
+    <childrenId>45</childrenId>
+    <component isPrimary="true" name="primitive endoderm" id="44">
+      <printName>primitive endoderm</printName>
+      <abbreviation/>
+      <synonym>hypoblast</synonym>
+      <synonym>primary endoderm</synonym>
+      <synonym>proximal endoderm</synonym>
+      <synonym>visceral endoderm</synonym>
+      <startEmbryoStage>06</startEmbryoStage>
+      <stopEmbryoStage>07</stopEmbryoStage>
+      <parentId>25772</parentId>
+    </component>
+    <childrenId>44</childrenId>
+  </component>
+</HGU_MRC_Edinburgh>

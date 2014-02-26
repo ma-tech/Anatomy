@@ -1,0 +1,2735 @@
+
+===========================================================
+===== Anatomy Database Version 4, 2007-02-20 15:35:21 =====
+===========================================================
+
+
+
+
+===== Whole mouse Anatomy =====
+
+
+
+Stage TS21
+
+
+TS21 Whole mouse Excluding Groups
+
+EMAP:25786   mouse
+EMAP:4741    + cavities and their linings
+EMAP:26166   | + cavity of physiological umbilical hernia
+EMAP:26174   | | \ mesothelium
+EMAP:4742    | \ intraembryonic coelom (syn: future pericardial component)
+EMAP:4743    |   + diaphragm
+EMAP:4744    |   | + central tendon
+EMAP:4745    |   | + crus
+EMAP:14815   |   | + dome
+EMAP:14816   |   | | + left
+EMAP:14822   |   | | \ right
+EMAP:7098    |   | + mesothelium
+EMAP:4746    |   | + pleuro-pericardial canal (syn: pleuro-pericardial channel)
+EMAP:4747    |   | | \ mesothelial lining
+EMAP:4748    |   | + pleuro-pericardial folds
+EMAP:4749    |   | + pleuro-peritoneal canal (syn: pleuro-pericardial channel)
+EMAP:4750    |   | | \ mesothelial lining
+EMAP:4751    |   | \ pleuro-peritoneal membrane (syn: pleuro-peritoneal folds)
+EMAP:4752    |   + pericardial component
+EMAP:4753    |   | + cavity
+EMAP:4754    |   | \ mesothelium
+EMAP:4755    |   |   + parietal
+EMAP:4756    |   |   \ visceral
+EMAP:4757    |   + pericardio-peritoneal canal (syn: pericardio-peritoneal channel)
+EMAP:4758    |   | + cavity
+EMAP:4759    |   | \ mesothelium
+EMAP:4760    |   |   \ parietal
+EMAP:4761    |   + peritoneal component
+EMAP:4762    |   | + greater sac
+EMAP:4763    |   | | + cavity
+EMAP:4764    |   | | \ mesothelium
+EMAP:4765    |   | |   + parietal
+EMAP:7068    |   | |   \ visceral
+EMAP:4766    |   | \ omental bursa (syn: lesser sac)
+EMAP:4767    |   |   \ mesothelium
+EMAP:4768    |   |     \ parietal
+EMAP:4769    |   \ pleural component
+EMAP:4770    |     + cavity
+EMAP:4771    |     \ mesothelium
+EMAP:4772    |       + parietal
+EMAP:4773    |       \ visceral
+EMAP:5711    + extraembryonic component
+EMAP:5712    | + cardiovascular system
+EMAP:5713    | | + arterial system
+EMAP:5714    | | | \ umbilical artery
+EMAP:5715    | | |   \ common
+EMAP:5716    | | \ venous system
+EMAP:5717    | |   \ umbilical vein
+EMAP:5718    | |     \ common
+EMAP:26121   | + umbilical cord
+EMAP:26133   | | + mesenchyme (syn: Wharton's jelly)
+EMAP:26145   | | \ vitelline duct
+EMAP:26157   | |   \ vitelline vein
+EMAP:31072   | \ yolk sac
+EMAP:31086   |   + endoderm
+EMAP:31100   |   \ mesenchyme
+EMAP:4774    + limb
+EMAP:4775    | + forelimb
+EMAP:4776    | | + arm
+EMAP:4777    | | | + elbow
+EMAP:4778    | | | | + epithelium
+EMAP:4779    | | | | \ mesenchyme
+EMAP:4780    | | | |   + elbow joint primordium
+EMAP:7101    | | | |   \ rest of mesenchyme
+EMAP:4781    | | | + forearm
+EMAP:4782    | | | | + epithelium
+EMAP:4783    | | | | \ mesenchyme
+EMAP:4784    | | | |   + radius-ulna cartilage condensation (syn: radio-ulna cartilage condensation)
+EMAP:7104    | | | |   \ rest of mesenchyme
+EMAP:4785    | | | + shoulder
+EMAP:4786    | | | | + epithelium
+EMAP:4787    | | | | \ mesenchyme
+EMAP:7107    | | | |   + rest of mesenchyme
+EMAP:4788    | | | |   \ shoulder joint primordium
+EMAP:4789    | | | \ upper arm
+EMAP:4790    | | |   + epithelium
+EMAP:4791    | | |   \ mesenchyme
+EMAP:4792    | | |     + humerus cartilage condensation (syn: humeral cartilage condensation)
+EMAP:7110    | | |     \ rest of mesenchyme
+EMAP:4793    | | \ fore-paw
+EMAP:4794    | |   + digit 1 (syn: first finger; pollex; thumb)
+EMAP:4795    | |   | + epithelium
+EMAP:4796    | |   | \ mesenchyme
+EMAP:4797    | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4798    | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4799    | |   + digit 2 (syn: index finger; second finger)
+EMAP:4800    | |   | + epithelium
+EMAP:14843   | |   | + inter-phalangeal joint
+EMAP:4801    | |   | \ mesenchyme
+EMAP:4802    | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4803    | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4804    | |   + digit 3 (syn: long finger; middle finger; third finger)
+EMAP:4805    | |   | + epithelium
+EMAP:4806    | |   | \ mesenchyme
+EMAP:4807    | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4808    | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4809    | |   + digit 4 (syn: fourth finger)
+EMAP:4810    | |   | + epithelium
+EMAP:4811    | |   | \ mesenchyme
+EMAP:4812    | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4813    | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4814    | |   + digit 5 (syn: digiti minimi; fifth finger)
+EMAP:4815    | |   | + epithelium
+EMAP:4816    | |   | \ mesenchyme
+EMAP:4817    | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4818    | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4820    | |   + interdigital region between digits 1 and 2
+EMAP:4821    | |   | + epithelium
+EMAP:4822    | |   | \ mesenchyme
+EMAP:4823    | |   + interdigital region between digits 2 and 3
+EMAP:4824    | |   | + epithelium
+EMAP:4825    | |   | \ mesenchyme
+EMAP:4826    | |   + interdigital region between digits 3 and 4
+EMAP:4827    | |   | + epithelium
+EMAP:4828    | |   | \ mesenchyme
+EMAP:4829    | |   + interdigital region between digits 4 and 5
+EMAP:4830    | |   | + epithelium
+EMAP:4831    | |   | \ mesenchyme
+EMAP:4832    | |   + mesenchyme
+EMAP:4833    | |   | \ carpus pre-cartilage condensation (syn: carpal pre-cartilage condensation)
+EMAP:4819    | |   \ rest of epithelium
+EMAP:4834    | \ hindlimb
+EMAP:4835    |   + hind-paw
+EMAP:4836    |   | + digit 1 (syn: first toe; hallux; large toe)
+EMAP:4837    |   | | + epithelium
+EMAP:4838    |   | | \ mesenchyme
+EMAP:4839    |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4840    |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4841    |   | + digit 2 (syn: second toe)
+EMAP:4842    |   | | + epithelium
+EMAP:4843    |   | | \ mesenchyme
+EMAP:4844    |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4845    |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4846    |   | + digit 3 (syn: third toe)
+EMAP:4847    |   | | + epithelium
+EMAP:4848    |   | | \ mesenchyme
+EMAP:4849    |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4850    |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4851    |   | + digit 4 (syn: fourth toe)
+EMAP:4852    |   | | + epithelium
+EMAP:4853    |   | | \ mesenchyme
+EMAP:4854    |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4855    |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4856    |   | + digit 5 (syn: fifth toe)
+EMAP:4857    |   | | + epithelium
+EMAP:4858    |   | | \ mesenchyme
+EMAP:4859    |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4860    |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4862    |   | + interdigital region between digits 1 and 2
+EMAP:4863    |   | | + epithelium
+EMAP:4864    |   | | \ mesenchyme
+EMAP:4865    |   | + interdigital region between digits 2 and 3
+EMAP:4866    |   | | + epithelium
+EMAP:4867    |   | | \ mesenchyme
+EMAP:4868    |   | + interdigital region between digits 3 and 4
+EMAP:4869    |   | | + epithelium
+EMAP:4870    |   | | \ mesenchyme
+EMAP:4871    |   | + interdigital region between digits 4 and 5
+EMAP:4872    |   | | + epithelium
+EMAP:4873    |   | | \ mesenchyme
+EMAP:4874    |   | + mesenchyme
+EMAP:4875    |   | | \ future tarsus
+EMAP:4876    |   | |   + calcaneum pre-cartilage condensation
+EMAP:4877    |   | |   + other mesenchyme
+EMAP:4878    |   | |   \ talus pre-cartilage condensation
+EMAP:4861    |   | \ rest of epithelium
+EMAP:4879    |   \ leg
+EMAP:4880    |     + hip
+EMAP:4881    |     | + epithelium
+EMAP:4882    |     | \ mesenchyme
+EMAP:4883    |     |   + hip joint primordium
+EMAP:7113    |     |   \ rest of mesenchyme
+EMAP:4884    |     + knee
+EMAP:4885    |     | + epithelium
+EMAP:4886    |     | \ mesenchyme
+EMAP:4887    |     |   + knee joint primordium
+EMAP:7116    |     |   \ rest of mesenchyme
+EMAP:4888    |     + lower leg (syn: leg)
+EMAP:4889    |     | + epithelium
+EMAP:4890    |     | \ mesenchyme
+EMAP:7119    |     |   + rest of mesenchyme
+EMAP:4891    |     |   \ tibia-fibular pre-cartilage condensation (syn: tibial-fibulal pre-cartilage condensation)
+EMAP:4892    |     \ upper leg (syn: thigh)
+EMAP:4893    |       + epithelium
+EMAP:4894    |       \ mesenchyme
+EMAP:4895    |         + femur cartilage condensation (syn: femoral cartilage condensation)
+EMAP:7122    |         \ rest of mesenchyme
+EMAP:4896    + mesenchyme
+EMAP:4897    | + head mesenchyme
+EMAP:4898    | \ trunk mesenchyme
+EMAP:4899    |   \ body-wall mesenchyme
+EMAP:5595    + skeleton
+EMAP:5596    | + axial skeleton
+EMAP:5597    | | + cervical region
+EMAP:5598    | | | \ vertebral cartilage condensation
+EMAP:5599    | | |   + C1 (syn: atlas)
+EMAP:5600    | | |   + C2 (syn: axis)
+EMAP:13411   | | |   + C3
+EMAP:13412   | | |   + C4
+EMAP:13413   | | |   + C5
+EMAP:13414   | | |   + C6
+EMAP:13415   | | |   \ C7
+EMAP:5604    | | + lumbar region
+EMAP:5605    | | | \ vertebral cartilage condensation
+EMAP:13417   | | |   + L1
+EMAP:13418   | | |   + L2
+EMAP:13419   | | |   + L3
+EMAP:13420   | | |   + L4
+EMAP:13421   | | |   + L5
+EMAP:13422   | | |   \ L6
+EMAP:5606    | | + nucleus pulposus
+EMAP:5607    | | + sacral region
+EMAP:5608    | | | \ vertebral cartilage condensation
+EMAP:13423   | | |   + S1
+EMAP:13424   | | |   + S2
+EMAP:13425   | | |   + S3
+EMAP:13426   | | |   \ S4
+EMAP:5609    | | \ thoracic region
+EMAP:13438   | |   + rib cartilage condensation
+EMAP:13439   | |   | + T1
+EMAP:13440   | |   | + T2
+EMAP:13441   | |   | + T3
+EMAP:13442   | |   | + T4
+EMAP:13443   | |   | \ T5
+EMAP:5610    | |   + rib pre-cartilage condensation
+EMAP:13449   | |   | + T10
+EMAP:13450   | |   | + T11
+EMAP:13451   | |   | + T12
+EMAP:13452   | |   | + T13
+EMAP:13445   | |   | + T6
+EMAP:13446   | |   | + T7
+EMAP:13447   | |   | + T8
+EMAP:13448   | |   | \ T9
+EMAP:5611    | |   \ vertebral cartilage condensation
+EMAP:13454   | |     + T1
+EMAP:13463   | |     + T10
+EMAP:13464   | |     + T11
+EMAP:13465   | |     + T12
+EMAP:13466   | |     + T13
+EMAP:13455   | |     + T2
+EMAP:13456   | |     + T3
+EMAP:13457   | |     + T4
+EMAP:13458   | |     + T5
+EMAP:13459   | |     + T6
+EMAP:13460   | |     + T7
+EMAP:13461   | |     + T8
+EMAP:13462   | |     \ T9
+EMAP:5612    | + cranium
+EMAP:5613    | | + chondrocranium
+EMAP:5614    | | | + basioccipital pre-cartilage condensation
+EMAP:5615    | | | + basisphenoid pre-cartilage condensation
+EMAP:5616    | | | + exoccipital pre-cartilage condensation
+EMAP:5617    | | | + sphenoid bone pre-cartilage condensation
+EMAP:5618    | | | \ temporal bone
+EMAP:5619    | | |   \ petrous part (syn: non-squamous part temporal bone)
+EMAP:5620    | | + vault of skull
+EMAP:5621    | | | + frontal bone primordium
+EMAP:5622    | | | + inter-parietal bone primordium (syn: squamous part of supraoccipital bone primordium)
+EMAP:5623    | | | + parietal bone primordium
+EMAP:5624    | | | \ temporal bone
+EMAP:5625    | | |   \ squamous part
+EMAP:5626    | | \ viscerocranium
+EMAP:5627    | |   + ethmoid bone primordium
+EMAP:5628    | |   \ facial bones primordia
+EMAP:5629    | + pectoral girdle and thoracic body wall
+EMAP:5630    | | + clavicle pre-cartilage condensation
+EMAP:5631    | | \ scapula pre-cartilage condensation
+EMAP:5632    | \ pelvic girdle
+EMAP:5633    |   \ iliac pre-cartilage condensation
+EMAP:5634    + tail
+EMAP:5635    | + mesenchyme
+EMAP:5636    | | + mesenchyme derived from neural crest
+EMAP:5637    | | \ paraxial mesenchyme
+EMAP:5638    | |   + somite
+EMAP:5639    | |   | + somite 40
+EMAP:5640    | |   | | + dermomyotome
+EMAP:5641    | |   | | + myocoele
+EMAP:5642    | |   | | \ sclerotome
+EMAP:5643    | |   | + somite 41
+EMAP:5644    | |   | | + dermomyotome
+EMAP:5645    | |   | | + myocoele
+EMAP:5646    | |   | | \ sclerotome
+EMAP:5647    | |   | + somite 42
+EMAP:5648    | |   | | + dermomyotome
+EMAP:5649    | |   | | + myocoele
+EMAP:5650    | |   | | \ sclerotome
+EMAP:5651    | |   | + somite 43
+EMAP:5652    | |   | | + dermomyotome
+EMAP:5653    | |   | | + myocoele
+EMAP:5654    | |   | | \ sclerotome
+EMAP:5655    | |   | + somite 44
+EMAP:5656    | |   | | + dermomyotome
+EMAP:5657    | |   | | + myocoele
+EMAP:5658    | |   | | \ sclerotome
+EMAP:5659    | |   | + somite 45
+EMAP:5660    | |   | | + dermomyotome
+EMAP:5661    | |   | | + myocoele
+EMAP:5662    | |   | | \ sclerotome
+EMAP:5663    | |   | + somite 46
+EMAP:5664    | |   | | + dermomyotome
+EMAP:5665    | |   | | + myocoele
+EMAP:5666    | |   | | \ sclerotome
+EMAP:5667    | |   | + somite 47
+EMAP:5668    | |   | | + dermomyotome
+EMAP:5669    | |   | | + myocoele
+EMAP:5670    | |   | | \ sclerotome
+EMAP:5671    | |   | + somite 48
+EMAP:5672    | |   | | + dermomyotome
+EMAP:5673    | |   | | + myocoele
+EMAP:5674    | |   | | \ sclerotome
+EMAP:5675    | |   | + somite 49
+EMAP:5676    | |   | | + dermomyotome
+EMAP:5677    | |   | | + myocoele
+EMAP:5678    | |   | | \ sclerotome
+EMAP:5679    | |   | + somite 50
+EMAP:5680    | |   | | + dermomyotome
+EMAP:5681    | |   | | + myocoele
+EMAP:5682    | |   | | \ sclerotome
+EMAP:5683    | |   | + somite 51
+EMAP:5684    | |   | | + dermomyotome
+EMAP:5685    | |   | | + myocoele
+EMAP:5686    | |   | | \ sclerotome
+EMAP:5687    | |   | + somite 52
+EMAP:5688    | |   | | + dermomyotome
+EMAP:5689    | |   | | + myocoele
+EMAP:5690    | |   | | \ sclerotome
+EMAP:5691    | |   | + somite 53
+EMAP:5692    | |   | | + dermomyotome
+EMAP:5693    | |   | | + myocoele
+EMAP:5694    | |   | | \ sclerotome
+EMAP:5695    | |   | + somite 54
+EMAP:5696    | |   | | + dermomyotome
+EMAP:5697    | |   | | + myocoele
+EMAP:5698    | |   | | \ sclerotome
+EMAP:5699    | |   | \ somite 55
+EMAP:5700    | |   |   + dermomyotome
+EMAP:5701    | |   |   + myocoele
+EMAP:5702    | |   |   \ sclerotome
+EMAP:5703    | |   \ unsegmented mesenchyme (syn: presomitic mesenchyme)
+EMAP:5704    | + nervous system
+EMAP:5705    | | \ central nervous system (syn: CNS)
+EMAP:5706    | |   \ spinal cord
+EMAP:5707    | \ skeleton
+EMAP:5708    |   \ axial skeleton
+EMAP:5709    |     + vertebral cartilage condensation
+EMAP:13427   |     | + Tl1
+EMAP:13428   |     | + Tl2
+EMAP:13429   |     | \ Tl3
+EMAP:5710    |     \ vertebral pre-cartilage condensation
+EMAP:13436   |       + Tl10
+EMAP:13437   |       + Tl11
+EMAP:13430   |       + Tl4
+EMAP:13431   |       + Tl5
+EMAP:13432   |       + Tl6
+EMAP:13433   |       + Tl7
+EMAP:13434   |       + Tl8
+EMAP:13435   |       \ Tl9
+EMAP:4900    + vertebral axis muscle system
+EMAP:4901    | + anterior abdominal wall
+EMAP:4902    | | \ skeletal muscle
+EMAP:4903    | |   \ undifferentiated pre-muscle mass
+EMAP:4904    | \ pectoral girdle and thoracic body wall
+EMAP:4905    |   \ skeletal muscle
+EMAP:4906    |     + deltoid pre-muscle mass
+EMAP:4907    |     \ subscapularis pre-muscle mass
+EMAP:4908    \ organ system
+EMAP:5248      + cardiovascular system
+EMAP:5249      | + arterial system
+EMAP:5250      | | + anterior cerebral artery
+EMAP:5251      | | + arch of aorta
+EMAP:25962     | | + ascending aorta
+EMAP:25969     | | | \ coronary artery
+EMAP:5252      | | + basilar artery
+EMAP:5253      | | + common carotid artery
+EMAP:5254      | | + dorsal aorta
+EMAP:5255      | | | + abdominal aorta
+EMAP:5256      | | | + common
+EMAP:5257      | | | + left
+EMAP:5258      | | | | \ post-ductal part of thoracic aorta
+EMAP:5259      | | | \ right
+EMAP:5260      | | + ductus arteriosus
+EMAP:5261      | | + hepatic artery
+EMAP:5262      | | + hyoid artery
+EMAP:5263      | | + iliac artery
+EMAP:5264      | | | + common
+EMAP:5265      | | | + external
+EMAP:5266      | | | \ internal
+EMAP:5267      | | + innominate artery (syn: brachiocephalic artery)
+EMAP:5268      | | + internal carotid artery
+EMAP:5269      | | + intersegmental artery
+EMAP:5274      | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:5275      | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:5270      | | + maxillary artery
+EMAP:26192     | | + median sacral artery
+EMAP:5271      | | + mesenteric artery
+EMAP:26190     | | + middle cerebral artery
+EMAP:5272      | | + ophthalmic artery
+EMAP:5273      | | + posterior cerebral artery
+EMAP:5276      | | + pulmonary artery
+EMAP:26197     | | + pulmonary trunk
+EMAP:5277      | | + renal artery
+EMAP:5278      | | + stapedial artery
+EMAP:5279      | | + subclavian artery
+EMAP:5280      | | + umbilical artery
+EMAP:5281      | | | + left
+EMAP:5282      | | | \ right
+EMAP:5283      | | \ vertebral artery
+EMAP:5284      | + blood
+EMAP:5285      | + heart
+EMAP:5286      | | + atrio-ventricular canal (syn: ependymal canal)
+EMAP:5287      | | + atrio-ventricular cushion tissue (syn: bulbar cushion)
+EMAP:5288      | | + atrium
+EMAP:5289      | | | + interatrial septum
+EMAP:5290      | | | | + septum primum
+EMAP:5291      | | | | | + foramen primum (syn: ostium primum)
+EMAP:5292      | | | | | \ foramen secundum (syn: ostium secundum)
+EMAP:5293      | | | | \ septum secundum
+EMAP:5294      | | | + left atrium
+EMAP:5295      | | | | + auricular region
+EMAP:5297      | | | | | + cardiac muscle (syn: myocardium)
+EMAP:5296      | | | | | \ endocardial lining
+EMAP:5299      | | | | + cardiac muscle (syn: myocardium)
+EMAP:5298      | | | | + endocardial lining
+EMAP:26014     | | | | \ lumen
+EMAP:5300      | | | \ right atrium
+EMAP:5301      | | |   + auricular region
+EMAP:5303      | | |   | + cardiac muscle (syn: myocardium)
+EMAP:5302      | | |   | \ endocardial lining
+EMAP:5305      | | |   + cardiac muscle (syn: myocardium)
+EMAP:5304      | | |   + endocardial lining
+EMAP:26023     | | |   + lumen
+EMAP:5306      | | |   \ valve
+EMAP:5307      | | |     \ venous valve
+EMAP:5308      | | + bulbo-ventricular region
+EMAP:5309      | | | + bulbar cushion
+EMAP:5310      | | | \ bulbar ridge
+EMAP:5311      | | + endocardial cushion tissue (syn: bulbar cushion)
+EMAP:5312      | | + endocardial tissue
+EMAP:5313      | | + mesentery
+EMAP:5314      | | | \ dorsal mesocardium (syn: dorsal mesentery of heart)
+EMAP:5315      | | |   \ transverse pericardial sinus
+EMAP:5316      | | + outflow tract
+EMAP:5317      | | | + aortic component
+EMAP:5318      | | | + aortico-pulmonary spiral septum
+EMAP:5319      | | | \ pulmonary component
+EMAP:5320      | | |   \ proximal part
+EMAP:5321      | | + pericardium
+EMAP:5322      | | | + parietal pericardium
+EMAP:5323      | | | \ visceral pericardium (syn: epicardium)
+EMAP:5324      | | + valve
+EMAP:5325      | | | + aortic valve
+EMAP:5326      | | | + mitral valve (syn: bicuspid valve)
+EMAP:5327      | | | + pulmonary valve
+EMAP:5328      | | | \ tricuspid valve
+EMAP:5329      | | \ ventricle
+EMAP:26032     | |   + interventricular canal
+EMAP:5330      | |   + interventricular groove
+EMAP:5331      | |   + interventricular septum (syn: ependymal septum)
+EMAP:5333      | |   | + cardiac muscle (syn: myocardium)
+EMAP:5332      | |   | \ endocardial lining
+EMAP:5334      | |   + left ventricle
+EMAP:5336      | |   | + cardiac muscle (syn: myocardium)
+EMAP:5335      | |   | + endocardial lining
+EMAP:26041     | |   | \ lumen
+EMAP:5337      | |   \ right ventricle
+EMAP:5339      | |     + cardiac muscle (syn: myocardium)
+EMAP:5338      | |     + endocardial lining
+EMAP:26050     | |     \ lumen
+EMAP:5340      | \ venous system
+EMAP:26199     |   + azygos vein
+EMAP:5341      |   + common iliac vein
+EMAP:5342      |   + ductus venosus
+EMAP:5343      |   + external jugular vein
+EMAP:5344      |   + femoral vein
+EMAP:26201     |   + hemiazygos vein
+EMAP:26203     |   + hepatic vein
+EMAP:5348      |   + internal jugular vein
+EMAP:26058     |   + intersegmental vein (syn: segmental vein)
+EMAP:26208     |   + lingual vein
+EMAP:26066     |   + median sacral vein
+EMAP:5349      |   + mesenteric vein
+EMAP:5350      |   + portal vein
+EMAP:5351      |   + principal vein of forelimb (syn: axial vein of limb)
+EMAP:5352      |   + principal vein of hindlimb (syn: axial vein of limb)
+EMAP:5353      |   + subclavian vein
+EMAP:5357      |   + umbilical vein
+EMAP:5358      |   | \ left
+EMAP:7072      |   \ vena cava
+EMAP:7076      |     + inferior
+EMAP:26075     |     | + intra-hepatic part
+EMAP:26083     |     | | \ communication ductus venosus to portal vein
+EMAP:7086      |     | + post-hepatic part
+EMAP:7090      |     | \ pre-hepatic part
+EMAP:7078      |     \ superior (syn: cranial vena cava)
+EMAP:7080      |       + left
+EMAP:7082      |       \ right
+EMAP:4956      + integumental system
+EMAP:4957      | + gland
+EMAP:4958      | | \ mammary gland
+EMAP:4959      | |   + epithelium
+EMAP:4960      | |   \ mesenchyme
+EMAP:7022      | + physiological umbilical hernia
+EMAP:7025      | | + dermis
+EMAP:7028      | | + epidermis
+EMAP:26091     | | + mesenchyme
+EMAP:26099     | | \ mesothelium
+EMAP:4961      | \ skin
+EMAP:4962      |   + cervical sinus (syn: retro-hyoid depression)
+EMAP:4963      |   + dermis
+EMAP:4964      |   + epidermis
+EMAP:14808     |   + proctodaeum (syn: anal pit)
+EMAP:14810     |   | + caudal one-third of anal canal
+EMAP:14812     |   | \ ectoderm component of anal membrane
+EMAP:4965      |   \ vibrissa (syn: whisker)
+EMAP:4966      |     + dermal component
+EMAP:4967      |     \ epidermal component
+EMAP:4934      + nervous system
+EMAP:4935      | + central nervous system (syn: CNS)
+EMAP:4936      | | + brain
+EMAP:4937      | | | + forebrain
+EMAP:4938      | | | | + diencephalon
+EMAP:4968      | | | | | + 3rd ventricle (syn: diencephalic vesicle)
+EMAP:4969      | | | | | | \ diencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:4970      | | | | | + epithalamus
+EMAP:4971      | | | | | | + mantle layer
+EMAP:4972      | | | | | | + marginal layer
+EMAP:4973      | | | | | | \ ventricular layer
+EMAP:4974      | | | | | + floor plate
+EMAP:4939      | | | | | + gland
+EMAP:4940      | | | | | | \ pituitary
+EMAP:4941      | | | | | |   + adenohypophysis (syn: anterior pituitary)
+EMAP:4942      | | | | | |   | + pars anterior (syn: anterior lobe; pars distalis)
+EMAP:4943      | | | | | |   | + pars intermedia
+EMAP:4944      | | | | | |   | + pars tuberalis
+EMAP:4945      | | | | | |   | \ remnant of Rathke's pouch
+EMAP:4946      | | | | | |   \ neurohypophysis (syn: pars nervosa; posterior pituitary)
+EMAP:4947      | | | | | |     + infundibulum (syn: pituitary stalk)
+EMAP:4948      | | | | | |     \ median eminence
+EMAP:4975      | | | | | + hypothalamus
+EMAP:4976      | | | | | | + mantle layer
+EMAP:4977      | | | | | | + marginal layer
+EMAP:4978      | | | | | | \ ventricular layer
+EMAP:4979      | | | | | + lamina terminalis
+EMAP:4980      | | | | | + lateral wall
+EMAP:4981      | | | | | | + mantle layer
+EMAP:4982      | | | | | | + marginal layer
+EMAP:4983      | | | | | | \ ventricular layer
+EMAP:4984      | | | | | + meninges
+EMAP:4985      | | | | | | + arachnoid mater
+EMAP:4986      | | | | | | + dura mater
+EMAP:4987      | | | | | | + pia mater
+EMAP:12602     | | | | | | \ subarachnoid space
+EMAP:4988      | | | | | + roof plate
+EMAP:4989      | | | | | \ thalamus
+EMAP:4990      | | | | |   + mantle layer
+EMAP:4991      | | | | |   + marginal layer
+EMAP:4992      | | | | |   \ ventricular layer
+EMAP:4993      | | | | \ telencephalon (syn: cerebral hemisphere)
+EMAP:4994      | | | |   + cerebral cortex (syn: neopallium)
+EMAP:4995      | | | |   | + mantle layer
+EMAP:4996      | | | |   | + marginal layer
+EMAP:4997      | | | |   | \ ventricular layer
+EMAP:4998      | | | |   + choroid invagination (syn: tela choroidea)
+EMAP:4999      | | | |   | + choroid fissure
+EMAP:5000      | | | |   | \ choroid plexus
+EMAP:5001      | | | |   + corpus striatum
+EMAP:5008      | | | |   + mantle layer
+EMAP:5009      | | | |   + marginal layer
+EMAP:5010      | | | |   + meninges
+EMAP:5011      | | | |   | + arachnoid mater
+EMAP:5012      | | | |   | + dura mater
+EMAP:5013      | | | |   | + pia mater
+EMAP:12608     | | | |   | \ subarachnoid space
+EMAP:5014      | | | |   + olfactory lobe
+EMAP:5015      | | | |   | \ olfactory cortex
+EMAP:5016      | | | |   |   + mantle layer
+EMAP:5017      | | | |   |   + marginal layer
+EMAP:5018      | | | |   |   \ ventricular layer
+EMAP:5002      | | | |   + telencephalic vesicle (syn: lateral ventricle)
+EMAP:5003      | | | |   | + anterior horn
+EMAP:5004      | | | |   | + inferior horn
+EMAP:5005      | | | |   | + posterior horn
+EMAP:5006      | | | |   | + superior horn
+EMAP:5007      | | | |   | \ telencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:5019      | | | |   \ ventricular layer
+EMAP:5020      | | | + hindbrain (syn: rhombencephalon)
+EMAP:5021      | | | | + 4th ventricle (syn: rhombencephalic vesicle)
+EMAP:5022      | | | | | \ lateral recess
+EMAP:5023      | | | | + medulla oblongata
+EMAP:5024      | | | | | + floor plate
+EMAP:5025      | | | | | + lateral wall
+EMAP:5026      | | | | | | + alar plate
+EMAP:5027      | | | | | | | + mantle layer
+EMAP:5028      | | | | | | | + marginal layer
+EMAP:5029      | | | | | | | \ ventricular layer
+EMAP:5030      | | | | | | + basal plate
+EMAP:5031      | | | | | | | + mantle layer
+EMAP:5032      | | | | | | | + marginal layer
+EMAP:5033      | | | | | | | \ ventricular layer
+EMAP:5034      | | | | | | \ sulcus limitans
+EMAP:5035      | | | | | \ roof (syn: roof plate)
+EMAP:12677     | | | | |   \ choroid plexus (syn: roof plate)
+EMAP:5036      | | | | + meninges
+EMAP:5037      | | | | | + arachnoid mater
+EMAP:5038      | | | | | + dura mater
+EMAP:5039      | | | | | \ pia mater
+EMAP:5040      | | | | \ metencephalon
+EMAP:5041      | | | |   + floor plate
+EMAP:5042      | | | |   + lateral wall
+EMAP:5043      | | | |   | + alar plate
+EMAP:5044      | | | |   | | + cerebellum
+EMAP:14877     | | | |   | | | + lateral part
+EMAP:5045      | | | |   | | | + mantle layer
+EMAP:5046      | | | |   | | | + marginal layer
+EMAP:5047      | | | |   | | | \ ventricular layer
+EMAP:5048      | | | |   | | + mantle layer
+EMAP:5049      | | | |   | | + marginal layer
+EMAP:5050      | | | |   | | \ ventricular layer
+EMAP:5051      | | | |   | + basal plate
+EMAP:5052      | | | |   | | \ pons
+EMAP:5053      | | | |   | |   + mantle layer
+EMAP:5054      | | | |   | |   + marginal layer
+EMAP:5055      | | | |   | |   \ ventricular layer
+EMAP:5056      | | | |   | \ sulcus limitans
+EMAP:5057      | | | |   \ roof
+EMAP:5058      | | | |     \ choroid plexus
+EMAP:5059      | | | \ midbrain (syn: mesencephalon)
+EMAP:5064      | | |   + cerebral aqueduct
+EMAP:5065      | | |   + floor plate
+EMAP:5066      | | |   + lateral wall
+EMAP:5067      | | |   | + mantle layer
+EMAP:5068      | | |   | + marginal layer
+EMAP:5069      | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:5060      | | |   + meninges
+EMAP:5061      | | |   | + arachnoid mater
+EMAP:5062      | | |   | + dura mater
+EMAP:5063      | | |   | + pia mater
+EMAP:12614     | | |   | \ subarachnoid space
+EMAP:5070      | | |   \ roof plate
+EMAP:5071      | | + ganglion
+EMAP:5072      | | | \ cranial
+EMAP:5073      | | |   + facial VII
+EMAP:5074      | | |   + glossopharyngeal IX
+EMAP:5075      | | |   | + inferior (syn: petrosal ganglion)
+EMAP:5076      | | |   | \ superior
+EMAP:5077      | | |   + trigeminal V (syn: semiluminar ganglion)
+EMAP:5078      | | |   + vagus X
+EMAP:5079      | | |   | + inferior (syn: nodose ganglion)
+EMAP:5080      | | |   | \ superior (syn: gasserian ganglion)
+EMAP:5081      | | |   \ vestibulocochlear VIII
+EMAP:5082      | | |     + cochlear component
+EMAP:5083      | | |     \ vestibular component
+EMAP:5084      | | + nerve
+EMAP:5085      | | | \ cranial
+EMAP:5086      | | |   + accessory XI
+EMAP:5087      | | |   | + cranial component
+EMAP:5088      | | |   | \ spinal component
+EMAP:5089      | | |   + facial VII
+EMAP:5090      | | |   + glossopharyngeal IX
+EMAP:5091      | | |   + hypoglossal XII
+EMAP:5092      | | |   + oculomotor III
+EMAP:5093      | | |   + olfactory I
+EMAP:5094      | | |   + optic II
+EMAP:5095      | | |   + trigeminal V
+EMAP:5096      | | |   | + mandibular division
+EMAP:5097      | | |   | + maxillary division
+EMAP:5098      | | |   | \ ophthalmic division
+EMAP:5099      | | |   \ vestibulocochlear VIII
+EMAP:5100      | | |     + cochlear component
+EMAP:5101      | | |     \ vestibular component
+EMAP:5102      | | \ spinal cord
+EMAP:5103      | |   + floor plate
+EMAP:5104      | |   + lateral wall
+EMAP:5105      | |   | + mantle layer
+EMAP:5106      | |   | | + alar columns
+EMAP:5107      | |   | | \ basal columns
+EMAP:5108      | |   | + marginal layer
+EMAP:5109      | |   | + sulcus limitans
+EMAP:5110      | |   | \ ventricular layer (syn: ependymal)
+EMAP:14801     | |   + lumen (syn: central canal; spinal canal)
+EMAP:5111      | |   + meninges
+EMAP:5112      | |   | + arachnoid mater
+EMAP:5113      | |   | + dura mater
+EMAP:5114      | |   | \ pia mater
+EMAP:5115      | |   \ roof plate
+EMAP:5116      | \ peripheral nervous system (syn: PNS)
+EMAP:5117      |   + autonomic
+EMAP:5118      |   | + parasympathetic
+EMAP:5119      |   | | \ nerve
+EMAP:5120      |   | |   \ vagal X nerve trunk
+EMAP:15216     |   | |     + left recurrent laryngeal branch
+EMAP:5123      |   | |     \ right recurrent laryngeal branch
+EMAP:5125      |   | \ sympathetic
+EMAP:5126      |   |   + ganglion
+EMAP:7124      |   |   | + cervical
+EMAP:7126      |   |   | | + inferior (syn: cervico-thoracic; stellate ganglion)
+EMAP:7128      |   |   | | + middle
+EMAP:7130      |   |   | | \ superior
+EMAP:5130      |   |   | \ thoracic
+EMAP:5131      |   |   \ nerve trunk (syn: nerve chain)
+EMAP:5132      |   \ spinal
+EMAP:5133      |     + ganglion
+EMAP:5134      |     | \ dorsal root ganglion (syn: posterior root ganglion)
+EMAP:14981     |     |   \ C1
+EMAP:5144      |     + nerve
+EMAP:5143      |     | + phrenic
+EMAP:5145      |     | \ segmental spinal nerve
+EMAP:5135      |     \ nerve plexus
+EMAP:5136      |       + brachial plexus
+EMAP:5137      |       | + median nerve
+EMAP:5138      |       | + radial nerve
+EMAP:5139      |       | \ ulnar nerve
+EMAP:5140      |       \ lumbo-sacral plexus
+EMAP:15212     |         \ sciatic nerve
+EMAP:5146      + sensory organ
+EMAP:5147      | + ear
+EMAP:5148      | | + external ear
+EMAP:5149      | | | + external auditory meatus
+EMAP:5150      | | | + future tympanic membrane (syn: 1st branchial membrane)
+EMAP:5151      | | | | \ epithelium
+EMAP:5152      | | | \ pinna
+EMAP:5154      | | |   + mesenchyme
+EMAP:15223     | | |   | + mesenchyme condensation (syn: mesenchymal condensation)
+EMAP:15226     | | |   | \ rest of mesenchyme
+EMAP:5155      | | |   \ surface epithelium
+EMAP:5156      | | + inner ear
+EMAP:5157      | | | + endolymphatic appendage (syn: diverticulum)
+EMAP:5158      | | | | + associated mesenchyme
+EMAP:5159      | | | | \ epithelium
+EMAP:5160      | | | + endolymphatic sac
+EMAP:5161      | | | | + associated mesenchyme
+EMAP:5162      | | | | \ epithelium
+EMAP:5163      | | | + labyrinth
+EMAP:5164      | | | | + associated mesenchyme
+EMAP:5165      | | | | \ epithelium
+EMAP:5166      | | | + otic capsule (syn: pre-cartilage)
+EMAP:5167      | | | \ vestibular component (syn: vestibular apparatus)
+EMAP:5168      | | |   + ductus reuniens
+EMAP:5169      | | |   | + associated mesenchyme
+EMAP:5170      | | |   | \ epithelium
+EMAP:5171      | | |   + saccule
+EMAP:5172      | | |   | + associated mesenchyme
+EMAP:5173      | | |   | + cochlea
+EMAP:5174      | | |   | | \ cochlear duct
+EMAP:5175      | | |   | |   + associated mesenchyme
+EMAP:5176      | | |   | |   \ epithelium
+EMAP:5177      | | |   | \ epithelium
+EMAP:5178      | | |   \ utricle
+EMAP:5179      | | |     + associated mesenchyme
+EMAP:5180      | | |     + crus commune
+EMAP:5181      | | |     | + associated mesenchyme
+EMAP:5182      | | |     | \ epithelium
+EMAP:5183      | | |     + epithelium
+EMAP:5184      | | |     + lateral semicircular canal
+EMAP:5185      | | |     | + associated mesenchyme
+EMAP:5186      | | |     | \ epithelium
+EMAP:5187      | | |     + posterior semicircular canal
+EMAP:5188      | | |     | + associated mesenchyme
+EMAP:5189      | | |     | \ epithelium
+EMAP:5190      | | |     \ superior semicircular canal
+EMAP:5191      | | |       + associated mesenchyme
+EMAP:5192      | | |       \ epithelium
+EMAP:5193      | | \ middle ear
+EMAP:5194      | |   + associated mesenchyme
+EMAP:5195      | |   + ossicle
+EMAP:5196      | |   | + incus pre-cartilage condensation
+EMAP:5197      | |   | + malleus pre-cartilage condensation
+EMAP:5198      | |   | \ stapes pre-cartilage condensation
+EMAP:5199      | |   + pharyngo-tympanic tube (syn: Eustacian tube)
+EMAP:5200      | |   \ tubo-tympanic recess
+EMAP:5201      | + eye
+EMAP:12692     | | + choroid
+EMAP:5202      | | + choroidal blood vessels
+EMAP:5203      | | + cornea
+EMAP:5204      | | | + epithelium
+EMAP:5205      | | | \ stroma
+EMAP:5206      | | + eyelid
+EMAP:5207      | | | + inner canthus (syn: nasal canthus)
+EMAP:5208      | | | + lower
+EMAP:5209      | | | | + epithelium
+EMAP:5210      | | | | \ mesenchyme
+EMAP:5211      | | | \ upper
+EMAP:5212      | | |   + epithelium
+EMAP:5213      | | |   \ mesenchyme
+EMAP:5214      | | + hyaloid cavity
+EMAP:5215      | | | + hyaloid vascular plexus
+EMAP:5216      | | | \ vitreous humour
+EMAP:5217      | | + lens
+EMAP:5218      | | | + anterior epithelium
+EMAP:5219      | | | + equatorial epithelium
+EMAP:5220      | | | \ lens fibre (syn: lens fiber)
+EMAP:5221      | | |   + anterior
+EMAP:5222      | | |   \ posterior
+EMAP:5225      | | + optic chiasma
+EMAP:5226      | | + optic stalk
+EMAP:5227      | | | + fissure
+EMAP:5228      | | | \ optic nerve
+EMAP:5229      | | + perioptic mesenchyme
+EMAP:5230      | | + retina
+EMAP:5231      | | | + embryonic fissure (syn: choroid fissure; fissure)
+EMAP:26109     | | | + intraretinal space (syn: intra-retinal space)
+EMAP:5232      | | | + neural retinal epithelium
+EMAP:5233      | | | \ pigmented retinal epithelium (syn: retinal pigmented epithelium)
+EMAP:5223      | | \ skeletal muscle
+EMAP:5224      | |   \ extrinsic ocular pre-muscle mass
+EMAP:5234      | \ nose
+EMAP:5235      |   + naris
+EMAP:5236      |   | + external
+EMAP:5237      |   | + posterior
+EMAP:5238      |   | | \ epithelium
+EMAP:5239      |   | \ primary choana
+EMAP:5240      |   + nasal capsule
+EMAP:5241      |   + nasal cavity
+EMAP:5242      |   | \ epithelium
+EMAP:5243      |   |   + olfactory
+EMAP:5244      |   |   \ respiratory
+EMAP:5245      |   + nasal septum
+EMAP:7133      |   | + epithelium
+EMAP:7136      |   | \ mesenchyme
+EMAP:5246      |   + naso-lacrimal duct
+EMAP:5247      |   \ vomeronasal organ (syn: Jacobson's organ)
+EMAP:7139      |     + epithelium
+EMAP:7142      |     \ mesenchyme
+EMAP:4909      \ visceral organ
+EMAP:4910        + alimentary system
+EMAP:5359        | + anal region
+EMAP:5360        | | + endoderm component of anal membrane
+EMAP:5361        | | \ rostral two-thirds of anal canal
+EMAP:4920        | + gut
+EMAP:4950        | | + foregut
+EMAP:5362        | | | + duodenum
+EMAP:5363        | | | | \ rostral part
+EMAP:5364        | | | |   + associated mesenchyme
+EMAP:5365        | | | |   + epithelium
+EMAP:6927        | | | |   + lumen
+EMAP:5366        | | | |   + mesentery
+EMAP:5367        | | | |   | \ mesoduodenum
+EMAP:5368        | | | |   \ vascular element (syn: artery; vein)
+EMAP:4951        | | | + gland
+EMAP:4952        | | | | + thymus primordium
+EMAP:4953        | | | | \ thyroid
+EMAP:4954        | | | |   + foramen caecum
+EMAP:4955        | | | |   \ thyroglossal duct
+EMAP:5369        | | | + oesophagus
+EMAP:5370        | | | | + associated mesenchyme
+EMAP:5371        | | | | + epithelium
+EMAP:6935        | | | | + lumen
+EMAP:5372        | | | | + mesentery
+EMAP:5373        | | | | | \ dorsal meso-oesophagus
+EMAP:5374        | | | | \ vascular element (syn: artery; vein)
+EMAP:5375        | | | + pharynx
+EMAP:5376        | | | | + associated mesenchyme
+EMAP:5377        | | | | + epithelium
+EMAP:5384        | | | | + hyoid bone pre-cartilage condensation
+EMAP:6943        | | | | + lumen
+EMAP:5378        | | | | + tongue (syn: 1st arch derivative)
+EMAP:5379        | | | | | + epithelium
+EMAP:5380        | | | | | + mesenchyme
+EMAP:5381        | | | | | \ skeletal muscle
+EMAP:5382        | | | | |   \ extrinsic pre-muscle mass
+EMAP:5383        | | | | \ vascular element (syn: artery; vein)
+EMAP:5385        | | | \ stomach
+EMAP:5386        | | |   + fundus
+EMAP:5387        | | |   | + associated mesenchyme
+EMAP:5388        | | |   | + epithelium
+EMAP:6945        | | |   | + lumen
+EMAP:5389        | | |   | \ vascular element (syn: artery; vein)
+EMAP:5390        | | |   + glandular region
+EMAP:5391        | | |   | + associated mesenchyme
+EMAP:5392        | | |   | + epithelium
+EMAP:6948        | | |   | + lumen
+EMAP:5393        | | |   | \ vascular element (syn: artery; vein)
+EMAP:5394        | | |   + mesentery
+EMAP:5395        | | |   | + dorsal mesogastrium
+EMAP:5396        | | |   | \ ventral mesogastrium
+EMAP:5397        | | |   |   \ lesser omentum
+EMAP:5398        | | |   + proventricular region (syn: cutaneous; ependymal region; non-glandular region)
+EMAP:5399        | | |   | + associated mesenchyme
+EMAP:5400        | | |   | + epithelium
+EMAP:6951        | | |   | + lumen
+EMAP:5401        | | |   | \ vascular element (syn: artery; vein)
+EMAP:5402        | | |   \ pyloric region
+EMAP:5403        | | |     + associated mesenchyme
+EMAP:5404        | | |     + epithelium
+EMAP:6954        | | |     + lumen
+EMAP:5405        | | |     + pyloric antrum
+EMAP:5406        | | |     \ vascular element (syn: artery; vein)
+EMAP:4921        | | + foregut-midgut junction
+EMAP:5407        | | | + associated mesenchyme
+EMAP:5408        | | | + epithelium
+EMAP:4922        | | | + gland
+EMAP:4923        | | | | \ pancreas
+EMAP:26222       | | | |   + associated mesenchyme
+EMAP:4924        | | | |   + body
+EMAP:4925        | | | |   | + dorsal pancreatic duct
+EMAP:4926        | | | |   | \ parenchyma (syn: associated mesenchyme)
+EMAP:4927        | | | |   + head
+EMAP:4928        | | | |   | + parenchyma (syn: associated mesenchyme)
+EMAP:4929        | | | |   | + uncinate process
+EMAP:4930        | | | |   | \ ventral pancreatic duct (syn: accessory pancreatic duct; Duct of Santorini)
+EMAP:4931        | | | |   \ tail
+EMAP:4932        | | | |     + dorsal pancreatic duct
+EMAP:4933        | | | |     \ parenchyma (syn: associated mesenchyme)
+EMAP:6964        | | | + lumen
+EMAP:5409        | | | + mesentery
+EMAP:5410        | | | | \ dorsal mesentery
+EMAP:5411        | | | \ vascular element (syn: artery; vein)
+EMAP:5412        | | + hindgut
+EMAP:5413        | | | + perineal body
+EMAP:5414        | | | | + associated mesenchyme
+EMAP:5415        | | | | + epithelium
+EMAP:6966        | | | | + lumen
+EMAP:5416        | | | | \ vascular element (syn: artery; vein)
+EMAP:5417        | | | + rectum
+EMAP:5418        | | | | + associated mesenchyme
+EMAP:5419        | | | | + epithelium
+EMAP:6968        | | | | + lumen
+EMAP:5420        | | | | \ vascular element (syn: artery; vein)
+EMAP:5421        | | | \ rest of hindgut
+EMAP:5422        | | |   + associated mesenchyme
+EMAP:5423        | | |   + epithelium
+EMAP:6970        | | |   + lumen
+EMAP:5424        | | |   + mesentery
+EMAP:5425        | | |   | \ dorsal mesentery
+EMAP:5426        | | |   \ vascular element (syn: artery; vein)
+EMAP:5427        | | \ midgut
+EMAP:5428        | |   + duodenum
+EMAP:5429        | |   | \ caudal part
+EMAP:5430        | |   |   + associated mesenchyme
+EMAP:5431        | |   |   + epithelium
+EMAP:6975        | |   |   + lumen
+EMAP:5432        | |   |   + mesentery
+EMAP:5433        | |   |   | \ mesoduodenum
+EMAP:5434        | |   |   \ vascular element (syn: artery; vein)
+EMAP:5435        | |   + loop
+EMAP:5436        | |   | + associated mesenchyme
+EMAP:5437        | |   | + epithelium
+EMAP:6981        | |   | + lumen
+EMAP:5438        | |   | + mesentery
+EMAP:5439        | |   | | \ dorsal mesentery
+EMAP:5440        | |   | \ vascular element (syn: artery; vein)
+EMAP:5441        | |   \ rest of midgut
+EMAP:5442        | |     + associated mesenchyme
+EMAP:5443        | |     + epithelium
+EMAP:6987        | |     + lumen
+EMAP:5444        | |     + mesentery
+EMAP:5445        | |     | \ dorsal mesentery
+EMAP:5446        | |     \ vascular element (syn: artery; vein)
+EMAP:4911        | \ oral region
+EMAP:5447        |   + epiglottal primordium
+EMAP:4912        |   + gland
+EMAP:4913        |   | \ salivary gland
+EMAP:4914        |   |   + sublingual gland primordium
+EMAP:4915        |   |   | + epithelium
+EMAP:4916        |   |   | \ mesenchyme
+EMAP:4917        |   |   \ submandibular gland primordium
+EMAP:4918        |   |     + epithelium
+EMAP:4919        |   |     \ mesenchyme
+EMAP:5448        |   + lower jaw
+EMAP:7147        |   | + alveolar sulcus
+EMAP:5451        |   | + lip
+EMAP:5449        |   | + Meckel's cartilage
+EMAP:5458        |   | + mesenchyme
+EMAP:5452        |   | + skeleton
+EMAP:5453        |   | | \ mandible
+EMAP:5454        |   | |   + mesenchyme
+EMAP:26506       |   | |   \ ramus
+EMAP:5459        |   | \ tooth
+EMAP:5460        |   |   + incisor
+EMAP:5461        |   |   | + epithelium
+EMAP:5462        |   |   | \ mesenchyme
+EMAP:5463        |   |   \ molar
+EMAP:5464        |   |     + epithelium
+EMAP:5465        |   |     \ mesenchyme
+EMAP:5466        |   + oral cavity
+EMAP:5467        |   + oral epithelium
+EMAP:5468        |   \ upper jaw
+EMAP:5481        |     + alveolar sulcus
+EMAP:5469        |     + lip
+EMAP:5470        |     | + philtrum
+EMAP:12768       |     | \ rest of upper lip
+EMAP:5473        |     + mesenchyme
+EMAP:5474        |     + palatal shelf
+EMAP:5475        |     | + epithelium
+EMAP:5476        |     | \ mesenchyme
+EMAP:5477        |     + premaxilla
+EMAP:5478        |     | \ primary palate (syn: intermaxillary segment)
+EMAP:5479        |     |   + epithelium
+EMAP:5480        |     |   \ mesenchyme
+EMAP:5471        |     + skeleton
+EMAP:5472        |     | \ maxilla
+EMAP:5482        |     \ tooth
+EMAP:5483        |       + incisor
+EMAP:5484        |       | + epithelium
+EMAP:5485        |       | \ mesenchyme
+EMAP:5486        |       \ molar
+EMAP:5487        |         + epithelium
+EMAP:5488        |         \ mesenchyme
+EMAP:5489        + liver and biliary system
+EMAP:5490        | + common bile duct
+EMAP:5491        | + cystic duct
+EMAP:5492        | + gall bladder (syn: gall bladder gland)
+EMAP:5493        | + hepatic duct
+EMAP:5494        | | + extrahepatic part
+EMAP:5495        | | \ intrahepatic part
+EMAP:5496        | \ liver
+EMAP:5497        |   + bare area
+EMAP:5498        |   + hepatic sinusoids
+EMAP:5499        |   \ parenchyma
+EMAP:5541        + respiratory system
+EMAP:15204       | + cartilage
+EMAP:15206       | | + arytenoid
+EMAP:15208       | | \ laryngeal
+EMAP:5543        | + laryngeal aditus
+EMAP:5545        | + lung
+EMAP:5546        | | + left lung
+EMAP:5547        | | | + associated mesenchyme
+EMAP:5548        | | | + epithelium
+EMAP:5549        | | | + hilus
+EMAP:5550        | | | + lobar bronchus
+EMAP:5551        | | | | + associated mesenchyme
+EMAP:5552        | | | | + epithelium
+EMAP:5553        | | | | \ vascular element (syn: artery; vein)
+EMAP:5554        | | | \ vascular element (syn: artery; vein)
+EMAP:5555        | | \ right lung
+EMAP:5556        | |   + accessory lobe
+EMAP:5557        | |   | \ lobar bronchus
+EMAP:5558        | |   |   + associated mesenchyme
+EMAP:5559        | |   |   + epithelium
+EMAP:5560        | |   |   \ vascular element (syn: artery; vein)
+EMAP:5561        | |   + associated mesenchyme
+EMAP:5562        | |   + caudal lobe
+EMAP:5563        | |   | \ lobar bronchus
+EMAP:5564        | |   |   + associated mesenchyme
+EMAP:5565        | |   |   + epithelium
+EMAP:5566        | |   |   \ vascular element (syn: artery; vein)
+EMAP:5567        | |   + cranial lobe
+EMAP:5568        | |   | \ lobar bronchus
+EMAP:5569        | |   |   + associated mesenchyme
+EMAP:5570        | |   |   + epithelium
+EMAP:5571        | |   |   \ vascular element (syn: artery; vein)
+EMAP:5572        | |   + epithelium
+EMAP:5573        | |   + hilus
+EMAP:5574        | |   + middle lobe
+EMAP:5575        | |   | \ lobar bronchus
+EMAP:5576        | |   |   + associated mesenchyme
+EMAP:5577        | |   |   + epithelium
+EMAP:5578        | |   |   \ vascular element (syn: artery; vein)
+EMAP:5579        | |   \ vascular element (syn: artery; vein)
+EMAP:5580        | \ respiratory tract
+EMAP:5581        |   + lower
+EMAP:5582        |   | + main bronchus
+EMAP:5583        |   | | + associated mesenchyme
+EMAP:5584        |   | | + epithelium
+EMAP:5585        |   | | \ vascular element (syn: artery; vein)
+EMAP:5586        |   | \ trachea
+EMAP:5587        |   |   + associated mesenchyme
+EMAP:7034        |   |   + carina tracheae
+EMAP:7040        |   |   | + associated mesenchyme
+EMAP:7046        |   |   | + epithelium
+EMAP:7052        |   |   | \ vascular element
+EMAP:5588        |   |   + epithelium
+EMAP:5589        |   |   \ vascular element (syn: artery; vein)
+EMAP:5590        |   \ upper
+EMAP:5591        |     \ nasopharynx
+EMAP:5592        |       + associated mesenchyme
+EMAP:5593        |       + epithelium
+EMAP:5594        |       \ vascular element (syn: artery; vein)
+EMAP:5500        + urinary system
+EMAP:5502        | + mesentery
+EMAP:29611       | | + rest of mesentery
+EMAP:5503        | | \ urogenital mesentery
+EMAP:5504        | + metanephros (syn: kidney)
+EMAP:27715       | | + renal capsule
+EMAP:27722       | | + nephrogenic zone
+EMAP:5512        | | | + nephrogenic interstitium (syn: peripheral blastema)
+EMAP:27736       | | | + cap mesenchyme (syn: condensed mesenchyme)
+EMAP:27743       | | | + pretubular aggregate (syn: pretubular condensate)
+EMAP:27750       | | | + ureteric tip (syn: ureteric ampulla)
+EMAP:31046       | | | \ ureteric tree terminal branch excluding tip itself
+EMAP:27680       | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:27683       | | + comma-shaped body
+EMAP:27686       | | | + upper limb of comma-shaped body (syn: distal limb of comma-shaped body)
+EMAP:27689       | | | \ lower limb of comma-shaped body (syn: proximal limb of comma-shaped body)
+EMAP:27757       | | + s-shaped body (syn: stage II nephron)
+EMAP:27759       | | | + renal connecting tubule
+EMAP:27761       | | | + distal segment of s-shaped body (syn: upper limb of s-shaped body)
+EMAP:27763       | | | + medial segment of s-shaped body (syn: mid-portion of s-shaped body)
+EMAP:27765       | | | \ proximal segment of s-shaped body (syn: lower limb of s-shaped body)
+EMAP:27767       | | |   + visceral epithelium
+EMAP:27769       | | |   \ parietal epithelium
+EMAP:27771       | | + capillary loop renal corpuscle (syn: renal corpuscle of the stage III nephron)
+EMAP:27777       | | | + associated interstitium
+EMAP:27775       | | | + parietal epithelium
+EMAP:27781       | | | + presumptive endothelium of renal corpuscle
+EMAP:27779       | | | + presumptive mesangium
+EMAP:27773       | | | \ visceral epithelium (syn: podocyte layer)
+EMAP:27783       | | + renal tubule
+EMAP:27785       | | | + early proximal tubule
+EMAP:27787       | | | + anlage of the loop of Henle
+EMAP:27789       | | | + early distal tubule
+EMAP:27791       | | | \ renal connecting tubule
+EMAP:27793       | | + renal interstitium
+EMAP:31280       | | | + renal fibroblasts
+EMAP:31275       | | | + resident macrophages (syn: renal monocytes)
+EMAP:31272       | | | + nephrogenic interstitium (syn: peripheral blastema)
+EMAP:31278       | | | \ rest of renal interstitium
+EMAP:27796       | | + developing vasculature
+EMAP:28406       | | + ureteric trunk (syn: ureteric stalk)
+EMAP:5507        | | \ pelvis
+EMAP:28379       | + renal artery
+EMAP:29996       | | + endothelium of renal artery
+EMAP:30004       | | \ smooth muscle layer of renal artery
+EMAP:28383       | + renal vein
+EMAP:30012       | | + endothelium of renal vein
+EMAP:30020       | | \ smooth muscle layer of renal vein
+EMAP:5509        | + ureter
+EMAP:28585       | | + urothelium (syn: transitional epithelium)
+EMAP:28589       | | | + superficial cellular layer (syn: umbrella cell)
+EMAP:30027       | | | \ deep cellular layer (syn: basal urothelium)
+EMAP:28557       | | + ureteral mesenchyme
+EMAP:28563       | | | + subepithelial layer (syn: presumptive lamina propria)
+EMAP:28568       | | | + middle layer (syn: presumptive ureteral smooth muscle layer)
+EMAP:28571       | | | \ outer layer (syn: presumptive adventitia)
+EMAP:30852       | | \ ureteral vasculature
+EMAP:28549       | + allantois
+EMAP:5517        | + urogenital sinus
+EMAP:30872       | | + primitive bladder (syn: cranial urogenital sinus)
+EMAP:30875       | | | + epithelial layer of primitive bladder
+EMAP:30878       | | | \ mesenchymal layer of primitive bladder
+EMAP:30892       | | \ urethra
+EMAP:30894       | |   + pelvic urethra
+EMAP:30896       | |   + caudal urethra
+EMAP:30898       | |   + urethral plate
+EMAP:30900       | |   \ urethral fold
+EMAP:5521        | + urorectal septum
+EMAP:5516        | \ urogenital membrane
+EMAP:5522        \ reproductive system
+EMAP:5532          + male reproductive system
+EMAP:29140         | + mesonephros of male
+EMAP:5534          | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:29145         | | + mesonephric mesenchyme of male
+EMAP:29150         | | + mesonephric tubule of male
+EMAP:30530         | | | + cranial mesonephric tubule of male
+EMAP:30534         | | | | + mesonephric glomerulus of male
+EMAP:30538         | | | | \ rest of cranial mesonephric tubule of male
+EMAP:30542         | | | \ caudal mesonephric tubule of male
+EMAP:29160         | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Müllerian duct of male)
+EMAP:30462         | | \ coelomic epithelium of male mesonephros
+EMAP:29186         | + paramesonephric duct of male, rest of
+EMAP:29188         | | + epithelium of rest of paramesonephric duct of male
+EMAP:29190         | | \ mesenchyme of rest of paramesonephric duct of male
+EMAP:29174         | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:29182         | | + epithelium of rest of nephric duct of male
+EMAP:29178         | | \ mesenchyme of rest of nephric duct of male
+EMAP:5536          | + testis
+EMAP:5537          | | + coelomic epithelium of testis
+EMAP:29191         | | + rete testis
+EMAP:29076         | | + interstitium of the testis (syn: interstitial tissue)
+EMAP:29084         | | | + fetal Leydig cell
+EMAP:29092         | | | \ rest of interstitium of the testis (syn: non-specific mesenchyme)
+EMAP:29116         | | + developing vasculature of the testis
+EMAP:29124         | | | + coelomic vessel
+EMAP:29132         | | | \ interstitial vessel
+EMAP:29100         | | \ primary sex cord
+EMAP:29108         | |   + Sertoli cell
+EMAP:5539          | |   + germ cell of the testis
+EMAP:29112         | |   \ peritubular myoid cell
+EMAP:5535          | + mesorchium
+EMAP:5533          | \ genital tubercle of male (syn: penis anlage)
+EMAP:29172         |   + genital tubercle surface epithelium of male
+EMAP:30469         |   + distal uretheral epithelium of male
+EMAP:29169         |   + genital tubercle mesenchyme of male
+EMAP:30483         |   \ preputial swelling of male (syn: prepuce of male)
+EMAP:5523          \ female reproductive system
+EMAP:28911           + mesonephros of female
+EMAP:28916           | + mesonephric mesenchyme of female mesonephros
+EMAP:28921           | + mesonephric tubule of female
+EMAP:30546           | | + cranial mesonephric tubule of female
+EMAP:30549           | | | + mesonephric glomerulus of female
+EMAP:30552           | | | \ rest of cranial mesonephric tubule of female
+EMAP:30555           | | \ caudal mesonephric tubule of female
+EMAP:28926           | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
+EMAP:28939           | + paramesonephric duct of female, mesonephric portion (syn: Müllerian duct of female)
+EMAP:28931           | + rete ovarii of mesonephros
+EMAP:28936           | \ coelomic epithelium of female mesonephros
+EMAP:28942           + paramesonephric duct of female, rest of (syn: Müllerian duct of female; rest of)
+EMAP:28958           | + epithelium of rest of paramesonephric duct of female
+EMAP:28962           | \ mesenchyme of rest of paramesonephric duct of female
+EMAP:28946           + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
+EMAP:28950           | + epithelium of rest of nephric duct of female
+EMAP:28954           | \ mesenchyme of rest of nephric duct of female
+EMAP:5526            + ovary
+EMAP:5527            | + surface epithelium of ovary (syn: coelomic epithelium)
+EMAP:5528            | + mesenchymal stroma of ovary
+EMAP:5529            | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:28972           | | + premeiotic germ cell (syn: oogonia)
+EMAP:28967           | | \ meiotic germ cell (syn: oocyte)
+EMAP:28890           | + developing vasculature of ovary
+EMAP:5530            | \ rete ovarii of ovary
+EMAP:5525            + mesovarium
+EMAP:29619           \ genital tubercle of female (syn: clitoris anlage)
+EMAP:29628             + genital tubercle surface epithelium of female
+EMAP:29623             + genital tubercle mesenchyme of female
+EMAP:30472             + distal uretheral epithelium of female
+EMAP:30480             \ preputial swelling of female (syn: prepuce of female)
+
+
+
+==================================================================
+
+
+
+TS21 Whole mouse Showing Only Groups
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAP:25786   mouse
+EMAP:31117 G + dermoyotome group
+EMAP:29706 > | \ tail dermomyotome group
+EMAP:5640  ~ |   + dermomyotome
+EMAP:5652  ~ |   + dermomyotome
+EMAP:5644  ~ |   + dermomyotome
+EMAP:5660  ~ |   + dermomyotome
+EMAP:5656  ~ |   + dermomyotome
+EMAP:5648  ~ |   + dermomyotome
+EMAP:5668  ~ |   + dermomyotome
+EMAP:5672  ~ |   + dermomyotome
+EMAP:5664  ~ |   + dermomyotome
+EMAP:5676  ~ |   + dermomyotome
+EMAP:5680  ~ |   + dermomyotome
+EMAP:5688  ~ |   + dermomyotome
+EMAP:5684  ~ |   + dermomyotome
+EMAP:5692  ~ |   + dermomyotome
+EMAP:5696  ~ |   + dermomyotome
+EMAP:5700  ~ |   \ dermomyotome
+EMAP:4740  G + embryo
+EMAP:4741  > | + cavities and their linings
+EMAP:26166 ~ | | + cavity of physiological umbilical hernia
+EMAP:26174 ~ | | | \ mesothelium
+EMAP:4742  ~ | | \ intraembryonic coelom (syn: future pericardial component)
+EMAP:4743  ~ | |   + diaphragm
+EMAP:4744  ~ | |   | + central tendon
+EMAP:4745  ~ | |   | + crus
+EMAP:14815 ~ | |   | + dome
+EMAP:14816 ~ | |   | | + left
+EMAP:14822 ~ | |   | | \ right
+EMAP:7098  ~ | |   | + mesothelium
+EMAP:4746  ~ | |   | + pleuro-pericardial canal (syn: pleuro-pericardial channel)
+EMAP:4747  ~ | |   | | \ mesothelial lining
+EMAP:4748  ~ | |   | + pleuro-pericardial folds
+EMAP:4749  ~ | |   | + pleuro-peritoneal canal (syn: pleuro-pericardial channel)
+EMAP:4750  ~ | |   | | \ mesothelial lining
+EMAP:4751  ~ | |   | \ pleuro-peritoneal membrane (syn: pleuro-peritoneal folds)
+EMAP:4752  ~ | |   + pericardial component
+EMAP:4753  ~ | |   | + cavity
+EMAP:4754  ~ | |   | \ mesothelium
+EMAP:4755  ~ | |   |   + parietal
+EMAP:4756  ~ | |   |   \ visceral
+EMAP:4757  ~ | |   + pericardio-peritoneal canal (syn: pericardio-peritoneal channel)
+EMAP:4758  ~ | |   | + cavity
+EMAP:4759  ~ | |   | \ mesothelium
+EMAP:4760  ~ | |   |   \ parietal
+EMAP:4761  ~ | |   + peritoneal component
+EMAP:4762  ~ | |   | + greater sac
+EMAP:4763  ~ | |   | | + cavity
+EMAP:4764  ~ | |   | | \ mesothelium
+EMAP:4765  ~ | |   | |   + parietal
+EMAP:7068  ~ | |   | |   \ visceral
+EMAP:4766  ~ | |   | \ omental bursa (syn: lesser sac)
+EMAP:4767  ~ | |   |   \ mesothelium
+EMAP:4768  ~ | |   |     \ parietal
+EMAP:4769  ~ | |   \ pleural component
+EMAP:4770  ~ | |     + cavity
+EMAP:4771  ~ | |     \ mesothelium
+EMAP:4772  ~ | |       + parietal
+EMAP:4773  ~ | |       \ visceral
+EMAP:4774  > | + limb
+EMAP:4775  ~ | | + forelimb
+EMAP:4776  ~ | | | + arm
+EMAP:4777  ~ | | | | + elbow
+EMAP:4778  ~ | | | | | + epithelium
+EMAP:4779  ~ | | | | | \ mesenchyme
+EMAP:4780  ~ | | | | |   + elbow joint primordium
+EMAP:7101  ~ | | | | |   \ rest of mesenchyme
+EMAP:4781  ~ | | | | + forearm
+EMAP:4782  ~ | | | | | + epithelium
+EMAP:4783  ~ | | | | | \ mesenchyme
+EMAP:4784  ~ | | | | |   + radius-ulna cartilage condensation (syn: radio-ulna cartilage condensation)
+EMAP:7104  ~ | | | | |   \ rest of mesenchyme
+EMAP:4785  ~ | | | | + shoulder
+EMAP:4786  ~ | | | | | + epithelium
+EMAP:4787  ~ | | | | | \ mesenchyme
+EMAP:7107  ~ | | | | |   + rest of mesenchyme
+EMAP:4788  ~ | | | | |   \ shoulder joint primordium
+EMAP:4789  ~ | | | | \ upper arm
+EMAP:4790  ~ | | | |   + epithelium
+EMAP:4791  ~ | | | |   \ mesenchyme
+EMAP:4792  ~ | | | |     + humerus cartilage condensation (syn: humeral cartilage condensation)
+EMAP:7110  ~ | | | |     \ rest of mesenchyme
+EMAP:4793  ~ | | | \ fore-paw
+EMAP:4794  ~ | | |   + digit 1 (syn: first finger; pollex; thumb)
+EMAP:4795  ~ | | |   | + epithelium
+EMAP:4796  ~ | | |   | \ mesenchyme
+EMAP:4797  ~ | | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4798  ~ | | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4799  ~ | | |   + digit 2 (syn: index finger; second finger)
+EMAP:4800  ~ | | |   | + epithelium
+EMAP:14843 ~ | | |   | + inter-phalangeal joint
+EMAP:4801  ~ | | |   | \ mesenchyme
+EMAP:4802  ~ | | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4803  ~ | | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4804  ~ | | |   + digit 3 (syn: long finger; middle finger; third finger)
+EMAP:4805  ~ | | |   | + epithelium
+EMAP:4806  ~ | | |   | \ mesenchyme
+EMAP:4807  ~ | | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4808  ~ | | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4809  ~ | | |   + digit 4 (syn: fourth finger)
+EMAP:4810  ~ | | |   | + epithelium
+EMAP:4811  ~ | | |   | \ mesenchyme
+EMAP:4812  ~ | | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4813  ~ | | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4814  ~ | | |   + digit 5 (syn: digiti minimi; fifth finger)
+EMAP:4815  ~ | | |   | + epithelium
+EMAP:4816  ~ | | |   | \ mesenchyme
+EMAP:4817  ~ | | |   |   + metacarpus pre-cartilage condensation (syn: metacarpal pre-cartilage condensation)
+EMAP:4818  ~ | | |   |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4820  ~ | | |   + interdigital region between digits 1 and 2
+EMAP:4821  ~ | | |   | + epithelium
+EMAP:4822  ~ | | |   | \ mesenchyme
+EMAP:4823  ~ | | |   + interdigital region between digits 2 and 3
+EMAP:4824  ~ | | |   | + epithelium
+EMAP:4825  ~ | | |   | \ mesenchyme
+EMAP:4826  ~ | | |   + interdigital region between digits 3 and 4
+EMAP:4827  ~ | | |   | + epithelium
+EMAP:4828  ~ | | |   | \ mesenchyme
+EMAP:4829  ~ | | |   + interdigital region between digits 4 and 5
+EMAP:4830  ~ | | |   | + epithelium
+EMAP:4831  ~ | | |   | \ mesenchyme
+EMAP:4832  ~ | | |   + mesenchyme
+EMAP:4833  ~ | | |   | \ carpus pre-cartilage condensation (syn: carpal pre-cartilage condensation)
+EMAP:4819  ~ | | |   \ rest of epithelium
+EMAP:4834  ~ | | \ hindlimb
+EMAP:4835  ~ | |   + hind-paw
+EMAP:4836  ~ | |   | + digit 1 (syn: first toe; hallux; large toe)
+EMAP:4837  ~ | |   | | + epithelium
+EMAP:4838  ~ | |   | | \ mesenchyme
+EMAP:4839  ~ | |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4840  ~ | |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4841  ~ | |   | + digit 2 (syn: second toe)
+EMAP:4842  ~ | |   | | + epithelium
+EMAP:4843  ~ | |   | | \ mesenchyme
+EMAP:4844  ~ | |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4845  ~ | |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4846  ~ | |   | + digit 3 (syn: third toe)
+EMAP:4847  ~ | |   | | + epithelium
+EMAP:4848  ~ | |   | | \ mesenchyme
+EMAP:4849  ~ | |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4850  ~ | |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4851  ~ | |   | + digit 4 (syn: fourth toe)
+EMAP:4852  ~ | |   | | + epithelium
+EMAP:4853  ~ | |   | | \ mesenchyme
+EMAP:4854  ~ | |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4855  ~ | |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4856  ~ | |   | + digit 5 (syn: fifth toe)
+EMAP:4857  ~ | |   | | + epithelium
+EMAP:4858  ~ | |   | | \ mesenchyme
+EMAP:4859  ~ | |   | |   + metatarsus pre-cartilage condensation (syn: metatarsal pre-cartilage condensation)
+EMAP:4860  ~ | |   | |   \ phalanx pre-cartilage condensation (syn: phalangeal pre-cartilage condensation)
+EMAP:4862  ~ | |   | + interdigital region between digits 1 and 2
+EMAP:4863  ~ | |   | | + epithelium
+EMAP:4864  ~ | |   | | \ mesenchyme
+EMAP:4865  ~ | |   | + interdigital region between digits 2 and 3
+EMAP:4866  ~ | |   | | + epithelium
+EMAP:4867  ~ | |   | | \ mesenchyme
+EMAP:4868  ~ | |   | + interdigital region between digits 3 and 4
+EMAP:4869  ~ | |   | | + epithelium
+EMAP:4870  ~ | |   | | \ mesenchyme
+EMAP:4871  ~ | |   | + interdigital region between digits 4 and 5
+EMAP:4872  ~ | |   | | + epithelium
+EMAP:4873  ~ | |   | | \ mesenchyme
+EMAP:4874  ~ | |   | + mesenchyme
+EMAP:4875  ~ | |   | | \ future tarsus
+EMAP:4876  ~ | |   | |   + calcaneum pre-cartilage condensation
+EMAP:4877  ~ | |   | |   + other mesenchyme
+EMAP:4878  ~ | |   | |   \ talus pre-cartilage condensation
+EMAP:4861  ~ | |   | \ rest of epithelium
+EMAP:4879  ~ | |   \ leg
+EMAP:4880  ~ | |     + hip
+EMAP:4881  ~ | |     | + epithelium
+EMAP:4882  ~ | |     | \ mesenchyme
+EMAP:4883  ~ | |     |   + hip joint primordium
+EMAP:7113  ~ | |     |   \ rest of mesenchyme
+EMAP:4884  ~ | |     + knee
+EMAP:4885  ~ | |     | + epithelium
+EMAP:4886  ~ | |     | \ mesenchyme
+EMAP:4887  ~ | |     |   + knee joint primordium
+EMAP:7116  ~ | |     |   \ rest of mesenchyme
+EMAP:4888  ~ | |     + lower leg (syn: leg)
+EMAP:4889  ~ | |     | + epithelium
+EMAP:4890  ~ | |     | \ mesenchyme
+EMAP:7119  ~ | |     |   + rest of mesenchyme
+EMAP:4891  ~ | |     |   \ tibia-fibular pre-cartilage condensation (syn: tibial-fibulal pre-cartilage condensation)
+EMAP:4892  ~ | |     \ upper leg (syn: thigh)
+EMAP:4893  ~ | |       + epithelium
+EMAP:4894  ~ | |       \ mesenchyme
+EMAP:4895  ~ | |         + femur cartilage condensation (syn: femoral cartilage condensation)
+EMAP:7122  ~ | |         \ rest of mesenchyme
+EMAP:4896  > | + mesenchyme
+EMAP:4897  ~ | | + head mesenchyme
+EMAP:4898  ~ | | \ trunk mesenchyme
+EMAP:4899  ~ | |   \ body-wall mesenchyme
+EMAP:4908  > | + organ system
+EMAP:5248  ~ | | + cardiovascular system
+EMAP:5249  ~ | | | + arterial system
+EMAP:5250  ~ | | | | + anterior cerebral artery
+EMAP:5251  ~ | | | | + arch of aorta
+EMAP:25962 ~ | | | | + ascending aorta
+EMAP:25969 ~ | | | | | \ coronary artery
+EMAP:5252  ~ | | | | + basilar artery
+EMAP:5253  ~ | | | | + common carotid artery
+EMAP:5254  ~ | | | | + dorsal aorta
+EMAP:5255  ~ | | | | | + abdominal aorta
+EMAP:5256  ~ | | | | | + common
+EMAP:5257  ~ | | | | | + left
+EMAP:5258  ~ | | | | | | \ post-ductal part of thoracic aorta
+EMAP:5259  ~ | | | | | \ right
+EMAP:5260  ~ | | | | + ductus arteriosus
+EMAP:5261  ~ | | | | + hepatic artery
+EMAP:5262  ~ | | | | + hyoid artery
+EMAP:5263  ~ | | | | + iliac artery
+EMAP:5264  ~ | | | | | + common
+EMAP:5265  ~ | | | | | + external
+EMAP:5266  ~ | | | | | \ internal
+EMAP:5267  ~ | | | | + innominate artery (syn: brachiocephalic artery)
+EMAP:5268  ~ | | | | + internal carotid artery
+EMAP:5269  ~ | | | | + intersegmental artery
+EMAP:5274  ~ | | | | | + principal artery to forelimb (syn: 7th cervical intersegmental artery; axial artery of forelimb)
+EMAP:5275  ~ | | | | | \ principal artery to hindlimb (syn: 5th lumbar intersegmental artery; axial artery of hindlimb)
+EMAP:5270  ~ | | | | + maxillary artery
+EMAP:26192 ~ | | | | + median sacral artery
+EMAP:5271  ~ | | | | + mesenteric artery
+EMAP:26190 ~ | | | | + middle cerebral artery
+EMAP:5272  ~ | | | | + ophthalmic artery
+EMAP:5273  ~ | | | | + posterior cerebral artery
+EMAP:5276  ~ | | | | + pulmonary artery
+EMAP:26197 ~ | | | | + pulmonary trunk
+EMAP:5277  ~ | | | | + renal artery
+EMAP:5278  ~ | | | | + stapedial artery
+EMAP:5279  ~ | | | | + subclavian artery
+EMAP:5280  ~ | | | | + umbilical artery
+EMAP:5281  ~ | | | | | + left
+EMAP:5282  ~ | | | | | \ right
+EMAP:5283  ~ | | | | \ vertebral artery
+EMAP:5284  ~ | | | + blood
+EMAP:5285  ~ | | | + heart
+EMAP:5286  ~ | | | | + atrio-ventricular canal (syn: ependymal canal)
+EMAP:5287  ~ | | | | + atrio-ventricular cushion tissue (syn: bulbar cushion)
+EMAP:5288  ~ | | | | + atrium
+EMAP:5289  ~ | | | | | + interatrial septum
+EMAP:5290  ~ | | | | | | + septum primum
+EMAP:5291  ~ | | | | | | | + foramen primum (syn: ostium primum)
+EMAP:5292  ~ | | | | | | | \ foramen secundum (syn: ostium secundum)
+EMAP:5293  ~ | | | | | | \ septum secundum
+EMAP:5294  ~ | | | | | + left atrium
+EMAP:5295  ~ | | | | | | + auricular region
+EMAP:5297  ~ | | | | | | | + cardiac muscle (syn: myocardium)
+EMAP:5296  ~ | | | | | | | \ endocardial lining
+EMAP:5299  ~ | | | | | | + cardiac muscle (syn: myocardium)
+EMAP:5298  ~ | | | | | | + endocardial lining
+EMAP:26014 ~ | | | | | | \ lumen
+EMAP:5300  ~ | | | | | \ right atrium
+EMAP:5301  ~ | | | | |   + auricular region
+EMAP:5303  ~ | | | | |   | + cardiac muscle (syn: myocardium)
+EMAP:5302  ~ | | | | |   | \ endocardial lining
+EMAP:5305  ~ | | | | |   + cardiac muscle (syn: myocardium)
+EMAP:5304  ~ | | | | |   + endocardial lining
+EMAP:26023 ~ | | | | |   + lumen
+EMAP:5306  ~ | | | | |   \ valve
+EMAP:5307  ~ | | | | |     \ venous valve
+EMAP:5308  ~ | | | | + bulbo-ventricular region
+EMAP:5309  ~ | | | | | + bulbar cushion
+EMAP:5310  ~ | | | | | \ bulbar ridge
+EMAP:5311  ~ | | | | + endocardial cushion tissue (syn: bulbar cushion)
+EMAP:5312  ~ | | | | + endocardial tissue
+EMAP:5313  ~ | | | | + mesentery
+EMAP:5314  ~ | | | | | \ dorsal mesocardium (syn: dorsal mesentery of heart)
+EMAP:5315  ~ | | | | |   \ transverse pericardial sinus
+EMAP:5316  ~ | | | | + outflow tract
+EMAP:5317  ~ | | | | | + aortic component
+EMAP:5318  ~ | | | | | + aortico-pulmonary spiral septum
+EMAP:5319  ~ | | | | | \ pulmonary component
+EMAP:5320  ~ | | | | |   \ proximal part
+EMAP:5321  ~ | | | | + pericardium
+EMAP:5322  ~ | | | | | + parietal pericardium
+EMAP:5323  ~ | | | | | \ visceral pericardium (syn: epicardium)
+EMAP:5324  ~ | | | | + valve
+EMAP:5325  ~ | | | | | + aortic valve
+EMAP:5326  ~ | | | | | + mitral valve (syn: bicuspid valve)
+EMAP:5327  ~ | | | | | + pulmonary valve
+EMAP:5328  ~ | | | | | \ tricuspid valve
+EMAP:5329  ~ | | | | \ ventricle
+EMAP:26032 ~ | | | |   + interventricular canal
+EMAP:5330  ~ | | | |   + interventricular groove
+EMAP:5331  ~ | | | |   + interventricular septum (syn: ependymal septum)
+EMAP:5333  ~ | | | |   | + cardiac muscle (syn: myocardium)
+EMAP:5332  ~ | | | |   | \ endocardial lining
+EMAP:5334  ~ | | | |   + left ventricle
+EMAP:5336  ~ | | | |   | + cardiac muscle (syn: myocardium)
+EMAP:5335  ~ | | | |   | + endocardial lining
+EMAP:26041 ~ | | | |   | \ lumen
+EMAP:5337  ~ | | | |   \ right ventricle
+EMAP:5339  ~ | | | |     + cardiac muscle (syn: myocardium)
+EMAP:5338  ~ | | | |     + endocardial lining
+EMAP:26050 ~ | | | |     \ lumen
+EMAP:5340  ~ | | | \ venous system
+EMAP:26199 ~ | | |   + azygos vein
+EMAP:5341  ~ | | |   + common iliac vein
+EMAP:5342  ~ | | |   + ductus venosus
+EMAP:5343  ~ | | |   + external jugular vein
+EMAP:5344  ~ | | |   + femoral vein
+EMAP:26201 ~ | | |   + hemiazygos vein
+EMAP:26203 ~ | | |   + hepatic vein
+EMAP:5348  ~ | | |   + internal jugular vein
+EMAP:26058 ~ | | |   + intersegmental vein (syn: segmental vein)
+EMAP:26208 ~ | | |   + lingual vein
+EMAP:26066 ~ | | |   + median sacral vein
+EMAP:5349  ~ | | |   + mesenteric vein
+EMAP:5350  ~ | | |   + portal vein
+EMAP:5351  ~ | | |   + principal vein of forelimb (syn: axial vein of limb)
+EMAP:5352  ~ | | |   + principal vein of hindlimb (syn: axial vein of limb)
+EMAP:5353  ~ | | |   + subclavian vein
+EMAP:5357  ~ | | |   + umbilical vein
+EMAP:5358  ~ | | |   | \ left
+EMAP:7072  ~ | | |   \ vena cava
+EMAP:7076  ~ | | |     + inferior
+EMAP:26075 ~ | | |     | + intra-hepatic part
+EMAP:26083 ~ | | |     | | \ communication ductus venosus to portal vein
+EMAP:7086  ~ | | |     | + post-hepatic part
+EMAP:7090  ~ | | |     | \ pre-hepatic part
+EMAP:7078  ~ | | |     \ superior (syn: cranial vena cava)
+EMAP:7080  ~ | | |       + left
+EMAP:7082  ~ | | |       \ right
+EMAP:4956  ~ | | + integumental system
+EMAP:4957  ~ | | | + gland
+EMAP:4958  ~ | | | | \ mammary gland
+EMAP:4959  ~ | | | |   + epithelium
+EMAP:4960  ~ | | | |   \ mesenchyme
+EMAP:7022  ~ | | | + physiological umbilical hernia
+EMAP:7025  ~ | | | | + dermis
+EMAP:7028  ~ | | | | + epidermis
+EMAP:26091 ~ | | | | + mesenchyme
+EMAP:26099 ~ | | | | \ mesothelium
+EMAP:4961  ~ | | | \ skin
+EMAP:4962  ~ | | |   + cervical sinus (syn: retro-hyoid depression)
+EMAP:4963  ~ | | |   + dermis
+EMAP:4964  ~ | | |   + epidermis
+EMAP:14808 ~ | | |   + proctodaeum (syn: anal pit)
+EMAP:14810 ~ | | |   | + caudal one-third of anal canal
+EMAP:14812 ~ | | |   | \ ectoderm component of anal membrane
+EMAP:4965  ~ | | |   \ vibrissa (syn: whisker)
+EMAP:4966  ~ | | |     + dermal component
+EMAP:4967  ~ | | |     \ epidermal component
+EMAP:4934  ~ | | + nervous system
+EMAP:4935  ~ | | | + central nervous system (syn: CNS)
+EMAP:4936  ~ | | | | + brain
+EMAP:4937  ~ | | | | | + forebrain
+EMAP:4938  ~ | | | | | | + diencephalon
+EMAP:4968  ~ | | | | | | | + 3rd ventricle (syn: diencephalic vesicle)
+EMAP:4969  ~ | | | | | | | | \ diencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:4970  ~ | | | | | | | + epithalamus
+EMAP:4971  ~ | | | | | | | | + mantle layer
+EMAP:4972  ~ | | | | | | | | + marginal layer
+EMAP:4973  ~ | | | | | | | | \ ventricular layer
+EMAP:4974  ~ | | | | | | | + floor plate
+EMAP:4939  ~ | | | | | | | + gland
+EMAP:4940  ~ | | | | | | | | \ pituitary
+EMAP:4941  ~ | | | | | | | |   + adenohypophysis (syn: anterior pituitary)
+EMAP:4942  ~ | | | | | | | |   | + pars anterior (syn: anterior lobe; pars distalis)
+EMAP:4943  ~ | | | | | | | |   | + pars intermedia
+EMAP:4944  ~ | | | | | | | |   | + pars tuberalis
+EMAP:4945  ~ | | | | | | | |   | \ remnant of Rathke's pouch
+EMAP:4946  ~ | | | | | | | |   \ neurohypophysis (syn: pars nervosa; posterior pituitary)
+EMAP:4947  ~ | | | | | | | |     + infundibulum (syn: pituitary stalk)
+EMAP:4948  ~ | | | | | | | |     \ median eminence
+EMAP:4975  ~ | | | | | | | + hypothalamus
+EMAP:4976  ~ | | | | | | | | + mantle layer
+EMAP:4977  ~ | | | | | | | | + marginal layer
+EMAP:4978  ~ | | | | | | | | \ ventricular layer
+EMAP:4979  ~ | | | | | | | + lamina terminalis
+EMAP:4980  ~ | | | | | | | + lateral wall
+EMAP:4981  ~ | | | | | | | | + mantle layer
+EMAP:4982  ~ | | | | | | | | + marginal layer
+EMAP:4983  ~ | | | | | | | | \ ventricular layer
+EMAP:4984  ~ | | | | | | | + meninges
+EMAP:4985  ~ | | | | | | | | + arachnoid mater
+EMAP:4986  ~ | | | | | | | | + dura mater
+EMAP:4987  ~ | | | | | | | | + pia mater
+EMAP:12602 ~ | | | | | | | | \ subarachnoid space
+EMAP:4988  ~ | | | | | | | + roof plate
+EMAP:4989  ~ | | | | | | | \ thalamus
+EMAP:4990  ~ | | | | | | |   + mantle layer
+EMAP:4991  ~ | | | | | | |   + marginal layer
+EMAP:4992  ~ | | | | | | |   \ ventricular layer
+EMAP:4993  ~ | | | | | | \ telencephalon (syn: cerebral hemisphere)
+EMAP:4994  ~ | | | | | |   + cerebral cortex (syn: neopallium)
+EMAP:4995  ~ | | | | | |   | + mantle layer
+EMAP:4996  ~ | | | | | |   | + marginal layer
+EMAP:4997  ~ | | | | | |   | \ ventricular layer
+EMAP:4998  ~ | | | | | |   + choroid invagination (syn: tela choroidea)
+EMAP:4999  ~ | | | | | |   | + choroid fissure
+EMAP:5000  ~ | | | | | |   | \ choroid plexus
+EMAP:5001  ~ | | | | | |   + corpus striatum
+EMAP:5008  ~ | | | | | |   + mantle layer
+EMAP:5009  ~ | | | | | |   + marginal layer
+EMAP:5010  ~ | | | | | |   + meninges
+EMAP:5011  ~ | | | | | |   | + arachnoid mater
+EMAP:5012  ~ | | | | | |   | + dura mater
+EMAP:5013  ~ | | | | | |   | + pia mater
+EMAP:12608 ~ | | | | | |   | \ subarachnoid space
+EMAP:5014  ~ | | | | | |   + olfactory lobe
+EMAP:5015  ~ | | | | | |   | \ olfactory cortex
+EMAP:5016  ~ | | | | | |   |   + mantle layer
+EMAP:5017  ~ | | | | | |   |   + marginal layer
+EMAP:5018  ~ | | | | | |   |   \ ventricular layer
+EMAP:5002  ~ | | | | | |   + telencephalic vesicle (syn: lateral ventricle)
+EMAP:5003  ~ | | | | | |   | + anterior horn
+EMAP:5004  ~ | | | | | |   | + inferior horn
+EMAP:5005  ~ | | | | | |   | + posterior horn
+EMAP:5006  ~ | | | | | |   | + superior horn
+EMAP:5007  ~ | | | | | |   | \ telencephalic part of interventricular foramen (syn: ependymal foramen)
+EMAP:5019  ~ | | | | | |   \ ventricular layer
+EMAP:5020  ~ | | | | | + hindbrain (syn: rhombencephalon)
+EMAP:5021  ~ | | | | | | + 4th ventricle (syn: rhombencephalic vesicle)
+EMAP:5022  ~ | | | | | | | \ lateral recess
+EMAP:5023  ~ | | | | | | + medulla oblongata
+EMAP:5024  ~ | | | | | | | + floor plate
+EMAP:5025  ~ | | | | | | | + lateral wall
+EMAP:5026  ~ | | | | | | | | + alar plate
+EMAP:5027  ~ | | | | | | | | | + mantle layer
+EMAP:5028  ~ | | | | | | | | | + marginal layer
+EMAP:5029  ~ | | | | | | | | | \ ventricular layer
+EMAP:5030  ~ | | | | | | | | + basal plate
+EMAP:5031  ~ | | | | | | | | | + mantle layer
+EMAP:5032  ~ | | | | | | | | | + marginal layer
+EMAP:5033  ~ | | | | | | | | | \ ventricular layer
+EMAP:5034  ~ | | | | | | | | \ sulcus limitans
+EMAP:5035  ~ | | | | | | | \ roof (syn: roof plate)
+EMAP:12677 ~ | | | | | | |   \ choroid plexus (syn: roof plate)
+EMAP:5036  ~ | | | | | | + meninges
+EMAP:5037  ~ | | | | | | | + arachnoid mater
+EMAP:5038  ~ | | | | | | | + dura mater
+EMAP:5039  ~ | | | | | | | \ pia mater
+EMAP:5040  ~ | | | | | | \ metencephalon
+EMAP:5041  ~ | | | | | |   + floor plate
+EMAP:5042  ~ | | | | | |   + lateral wall
+EMAP:5043  ~ | | | | | |   | + alar plate
+EMAP:5044  ~ | | | | | |   | | + cerebellum
+EMAP:14877 ~ | | | | | |   | | | + lateral part
+EMAP:5045  ~ | | | | | |   | | | + mantle layer
+EMAP:5046  ~ | | | | | |   | | | + marginal layer
+EMAP:5047  ~ | | | | | |   | | | \ ventricular layer
+EMAP:5048  ~ | | | | | |   | | + mantle layer
+EMAP:5049  ~ | | | | | |   | | + marginal layer
+EMAP:5050  ~ | | | | | |   | | \ ventricular layer
+EMAP:5051  ~ | | | | | |   | + basal plate
+EMAP:5052  ~ | | | | | |   | | \ pons
+EMAP:5053  ~ | | | | | |   | |   + mantle layer
+EMAP:5054  ~ | | | | | |   | |   + marginal layer
+EMAP:5055  ~ | | | | | |   | |   \ ventricular layer
+EMAP:5056  ~ | | | | | |   | \ sulcus limitans
+EMAP:5057  ~ | | | | | |   \ roof
+EMAP:5058  ~ | | | | | |     \ choroid plexus
+EMAP:5059  ~ | | | | | \ midbrain (syn: mesencephalon)
+EMAP:5064  ~ | | | | |   + cerebral aqueduct
+EMAP:5065  ~ | | | | |   + floor plate
+EMAP:5066  ~ | | | | |   + lateral wall
+EMAP:5067  ~ | | | | |   | + mantle layer
+EMAP:5068  ~ | | | | |   | + marginal layer
+EMAP:5069  ~ | | | | |   | \ ventricular layer (syn: ependymal layer)
+EMAP:5060  ~ | | | | |   + meninges
+EMAP:5061  ~ | | | | |   | + arachnoid mater
+EMAP:5062  ~ | | | | |   | + dura mater
+EMAP:5063  ~ | | | | |   | + pia mater
+EMAP:12614 ~ | | | | |   | \ subarachnoid space
+EMAP:5070  ~ | | | | |   \ roof plate
+EMAP:5071  ~ | | | | + ganglion
+EMAP:5072  ~ | | | | | \ cranial
+EMAP:5073  ~ | | | | |   + facial VII
+EMAP:5074  ~ | | | | |   + glossopharyngeal IX
+EMAP:5075  ~ | | | | |   | + inferior (syn: petrosal ganglion)
+EMAP:5076  ~ | | | | |   | \ superior
+EMAP:5077  ~ | | | | |   + trigeminal V (syn: semiluminar ganglion)
+EMAP:5078  ~ | | | | |   + vagus X
+EMAP:5079  ~ | | | | |   | + inferior (syn: nodose ganglion)
+EMAP:5080  ~ | | | | |   | \ superior (syn: gasserian ganglion)
+EMAP:5081  ~ | | | | |   \ vestibulocochlear VIII
+EMAP:5082  ~ | | | | |     + cochlear component
+EMAP:5083  ~ | | | | |     \ vestibular component
+EMAP:5084  ~ | | | | + nerve
+EMAP:5085  ~ | | | | | \ cranial
+EMAP:5086  ~ | | | | |   + accessory XI
+EMAP:5087  ~ | | | | |   | + cranial component
+EMAP:5088  ~ | | | | |   | \ spinal component
+EMAP:5089  ~ | | | | |   + facial VII
+EMAP:5090  ~ | | | | |   + glossopharyngeal IX
+EMAP:5091  ~ | | | | |   + hypoglossal XII
+EMAP:5092  ~ | | | | |   + oculomotor III
+EMAP:5093  ~ | | | | |   + olfactory I
+EMAP:5094  ~ | | | | |   + optic II
+EMAP:5095  ~ | | | | |   + trigeminal V
+EMAP:5096  ~ | | | | |   | + mandibular division
+EMAP:5097  ~ | | | | |   | + maxillary division
+EMAP:5098  ~ | | | | |   | \ ophthalmic division
+EMAP:5099  ~ | | | | |   \ vestibulocochlear VIII
+EMAP:5100  ~ | | | | |     + cochlear component
+EMAP:5101  ~ | | | | |     \ vestibular component
+EMAP:5102  ~ | | | | \ spinal cord
+EMAP:5103  ~ | | | |   + floor plate
+EMAP:5104  ~ | | | |   + lateral wall
+EMAP:5105  ~ | | | |   | + mantle layer
+EMAP:5106  ~ | | | |   | | + alar columns
+EMAP:5107  ~ | | | |   | | \ basal columns
+EMAP:5108  ~ | | | |   | + marginal layer
+EMAP:5109  ~ | | | |   | + sulcus limitans
+EMAP:5110  ~ | | | |   | \ ventricular layer (syn: ependymal)
+EMAP:14801 ~ | | | |   + lumen (syn: central canal; spinal canal)
+EMAP:5111  ~ | | | |   + meninges
+EMAP:5112  ~ | | | |   | + arachnoid mater
+EMAP:5113  ~ | | | |   | + dura mater
+EMAP:5114  ~ | | | |   | \ pia mater
+EMAP:5115  ~ | | | |   \ roof plate
+EMAP:5116  ~ | | | \ peripheral nervous system (syn: PNS)
+EMAP:5117  ~ | | |   + autonomic
+EMAP:5118  ~ | | |   | + parasympathetic
+EMAP:5119  ~ | | |   | | \ nerve
+EMAP:5120  ~ | | |   | |   \ vagal X nerve trunk
+EMAP:15216 ~ | | |   | |     + left recurrent laryngeal branch
+EMAP:5123  ~ | | |   | |     \ right recurrent laryngeal branch
+EMAP:5125  ~ | | |   | \ sympathetic
+EMAP:5126  ~ | | |   |   + ganglion
+EMAP:7124  ~ | | |   |   | + cervical
+EMAP:7126  ~ | | |   |   | | + inferior (syn: cervico-thoracic; stellate ganglion)
+EMAP:7128  ~ | | |   |   | | + middle
+EMAP:7130  ~ | | |   |   | | \ superior
+EMAP:5130  ~ | | |   |   | \ thoracic
+EMAP:5131  ~ | | |   |   \ nerve trunk (syn: nerve chain)
+EMAP:5132  ~ | | |   \ spinal
+EMAP:5133  ~ | | |     + ganglion
+EMAP:5134  ~ | | |     | \ dorsal root ganglion (syn: posterior root ganglion)
+EMAP:14981 ~ | | |     |   \ C1
+EMAP:5144  ~ | | |     + nerve
+EMAP:5143  ~ | | |     | + phrenic
+EMAP:5145  ~ | | |     | \ segmental spinal nerve
+EMAP:5135  ~ | | |     \ nerve plexus
+EMAP:5136  ~ | | |       + brachial plexus
+EMAP:5137  ~ | | |       | + median nerve
+EMAP:5138  ~ | | |       | + radial nerve
+EMAP:5139  ~ | | |       | \ ulnar nerve
+EMAP:5140  ~ | | |       \ lumbo-sacral plexus
+EMAP:15212 ~ | | |         \ sciatic nerve
+EMAP:5146  ~ | | + sensory organ
+EMAP:5147  ~ | | | + ear
+EMAP:5148  ~ | | | | + external ear
+EMAP:5149  ~ | | | | | + external auditory meatus
+EMAP:5150  ~ | | | | | + future tympanic membrane (syn: 1st branchial membrane)
+EMAP:5151  ~ | | | | | | \ epithelium
+EMAP:5152  ~ | | | | | \ pinna
+EMAP:5154  ~ | | | | |   + mesenchyme
+EMAP:15223 ~ | | | | |   | + mesenchyme condensation (syn: mesenchymal condensation)
+EMAP:15226 ~ | | | | |   | \ rest of mesenchyme
+EMAP:5155  ~ | | | | |   \ surface epithelium
+EMAP:5156  ~ | | | | + inner ear
+EMAP:5157  ~ | | | | | + endolymphatic appendage (syn: diverticulum)
+EMAP:5158  ~ | | | | | | + associated mesenchyme
+EMAP:5159  ~ | | | | | | \ epithelium
+EMAP:5160  ~ | | | | | + endolymphatic sac
+EMAP:5161  ~ | | | | | | + associated mesenchyme
+EMAP:5162  ~ | | | | | | \ epithelium
+EMAP:5163  ~ | | | | | + labyrinth
+EMAP:5164  ~ | | | | | | + associated mesenchyme
+EMAP:5165  ~ | | | | | | \ epithelium
+EMAP:5166  ~ | | | | | + otic capsule (syn: pre-cartilage)
+EMAP:5167  ~ | | | | | \ vestibular component (syn: vestibular apparatus)
+EMAP:5168  ~ | | | | |   + ductus reuniens
+EMAP:5169  ~ | | | | |   | + associated mesenchyme
+EMAP:5170  ~ | | | | |   | \ epithelium
+EMAP:5171  ~ | | | | |   + saccule
+EMAP:5172  ~ | | | | |   | + associated mesenchyme
+EMAP:5173  ~ | | | | |   | + cochlea
+EMAP:5174  ~ | | | | |   | | \ cochlear duct
+EMAP:5175  ~ | | | | |   | |   + associated mesenchyme
+EMAP:5176  ~ | | | | |   | |   \ epithelium
+EMAP:5177  ~ | | | | |   | \ epithelium
+EMAP:5178  ~ | | | | |   \ utricle
+EMAP:5179  ~ | | | | |     + associated mesenchyme
+EMAP:5180  ~ | | | | |     + crus commune
+EMAP:5181  ~ | | | | |     | + associated mesenchyme
+EMAP:5182  ~ | | | | |     | \ epithelium
+EMAP:5183  ~ | | | | |     + epithelium
+EMAP:5184  ~ | | | | |     + lateral semicircular canal
+EMAP:5185  ~ | | | | |     | + associated mesenchyme
+EMAP:5186  ~ | | | | |     | \ epithelium
+EMAP:5187  ~ | | | | |     + posterior semicircular canal
+EMAP:5188  ~ | | | | |     | + associated mesenchyme
+EMAP:5189  ~ | | | | |     | \ epithelium
+EMAP:5190  ~ | | | | |     \ superior semicircular canal
+EMAP:5191  ~ | | | | |       + associated mesenchyme
+EMAP:5192  ~ | | | | |       \ epithelium
+EMAP:5193  ~ | | | | \ middle ear
+EMAP:5194  ~ | | | |   + associated mesenchyme
+EMAP:5195  ~ | | | |   + ossicle
+EMAP:5196  ~ | | | |   | + incus pre-cartilage condensation
+EMAP:5197  ~ | | | |   | + malleus pre-cartilage condensation
+EMAP:5198  ~ | | | |   | \ stapes pre-cartilage condensation
+EMAP:5199  ~ | | | |   + pharyngo-tympanic tube (syn: Eustacian tube)
+EMAP:5200  ~ | | | |   \ tubo-tympanic recess
+EMAP:5201  ~ | | | + eye
+EMAP:12692 ~ | | | | + choroid
+EMAP:5202  ~ | | | | + choroidal blood vessels
+EMAP:5203  ~ | | | | + cornea
+EMAP:5204  ~ | | | | | + epithelium
+EMAP:5205  ~ | | | | | \ stroma
+EMAP:5206  ~ | | | | + eyelid
+EMAP:5207  ~ | | | | | + inner canthus (syn: nasal canthus)
+EMAP:5208  ~ | | | | | + lower
+EMAP:5209  ~ | | | | | | + epithelium
+EMAP:5210  ~ | | | | | | \ mesenchyme
+EMAP:5211  ~ | | | | | \ upper
+EMAP:5212  ~ | | | | |   + epithelium
+EMAP:5213  ~ | | | | |   \ mesenchyme
+EMAP:5214  ~ | | | | + hyaloid cavity
+EMAP:5215  ~ | | | | | + hyaloid vascular plexus
+EMAP:5216  ~ | | | | | \ vitreous humour
+EMAP:5217  ~ | | | | + lens
+EMAP:5218  ~ | | | | | + anterior epithelium
+EMAP:5219  ~ | | | | | + equatorial epithelium
+EMAP:5220  ~ | | | | | \ lens fibre (syn: lens fiber)
+EMAP:5221  ~ | | | | |   + anterior
+EMAP:5222  ~ | | | | |   \ posterior
+EMAP:5225  ~ | | | | + optic chiasma
+EMAP:5226  ~ | | | | + optic stalk
+EMAP:5227  ~ | | | | | + fissure
+EMAP:5228  ~ | | | | | \ optic nerve
+EMAP:5229  ~ | | | | + perioptic mesenchyme
+EMAP:5230  ~ | | | | + retina
+EMAP:5231  ~ | | | | | + embryonic fissure (syn: choroid fissure; fissure)
+EMAP:26109 ~ | | | | | + intraretinal space (syn: intra-retinal space)
+EMAP:5232  ~ | | | | | + neural retinal epithelium
+EMAP:5233  ~ | | | | | \ pigmented retinal epithelium (syn: retinal pigmented epithelium)
+EMAP:5223  ~ | | | | \ skeletal muscle
+EMAP:5224  ~ | | | |   \ extrinsic ocular pre-muscle mass
+EMAP:5234  ~ | | | \ nose
+EMAP:5235  ~ | | |   + naris
+EMAP:5236  ~ | | |   | + external
+EMAP:5237  ~ | | |   | + posterior
+EMAP:5238  ~ | | |   | | \ epithelium
+EMAP:5239  ~ | | |   | \ primary choana
+EMAP:5240  ~ | | |   + nasal capsule
+EMAP:5241  ~ | | |   + nasal cavity
+EMAP:5242  ~ | | |   | \ epithelium
+EMAP:5243  ~ | | |   |   + olfactory
+EMAP:5244  ~ | | |   |   \ respiratory
+EMAP:5245  ~ | | |   + nasal septum
+EMAP:7133  ~ | | |   | + epithelium
+EMAP:7136  ~ | | |   | \ mesenchyme
+EMAP:5246  ~ | | |   + naso-lacrimal duct
+EMAP:5247  ~ | | |   \ vomeronasal organ (syn: Jacobson's organ)
+EMAP:7139  ~ | | |     + epithelium
+EMAP:7142  ~ | | |     \ mesenchyme
+EMAP:4909  ~ | | \ visceral organ
+EMAP:4910  ~ | |   + alimentary system
+EMAP:5359  ~ | |   | + anal region
+EMAP:5360  ~ | |   | | + endoderm component of anal membrane
+EMAP:5361  ~ | |   | | \ rostral two-thirds of anal canal
+EMAP:4920  ~ | |   | + gut
+EMAP:4950  ~ | |   | | + foregut
+EMAP:5362  ~ | |   | | | + duodenum
+EMAP:5363  ~ | |   | | | | \ rostral part
+EMAP:5364  ~ | |   | | | |   + associated mesenchyme
+EMAP:5365  ~ | |   | | | |   + epithelium
+EMAP:6927  ~ | |   | | | |   + lumen
+EMAP:5366  ~ | |   | | | |   + mesentery
+EMAP:5367  ~ | |   | | | |   | \ mesoduodenum
+EMAP:5368  ~ | |   | | | |   \ vascular element (syn: artery; vein)
+EMAP:4951  ~ | |   | | | + gland
+EMAP:4952  ~ | |   | | | | + thymus primordium
+EMAP:4953  ~ | |   | | | | \ thyroid
+EMAP:4954  ~ | |   | | | |   + foramen caecum
+EMAP:4955  ~ | |   | | | |   \ thyroglossal duct
+EMAP:5369  ~ | |   | | | + oesophagus
+EMAP:5370  ~ | |   | | | | + associated mesenchyme
+EMAP:5371  ~ | |   | | | | + epithelium
+EMAP:6935  ~ | |   | | | | + lumen
+EMAP:5372  ~ | |   | | | | + mesentery
+EMAP:5373  ~ | |   | | | | | \ dorsal meso-oesophagus
+EMAP:5374  ~ | |   | | | | \ vascular element (syn: artery; vein)
+EMAP:5375  ~ | |   | | | + pharynx
+EMAP:5376  ~ | |   | | | | + associated mesenchyme
+EMAP:5377  ~ | |   | | | | + epithelium
+EMAP:5384  ~ | |   | | | | + hyoid bone pre-cartilage condensation
+EMAP:6943  ~ | |   | | | | + lumen
+EMAP:5378  ~ | |   | | | | + tongue (syn: 1st arch derivative)
+EMAP:5379  ~ | |   | | | | | + epithelium
+EMAP:5380  ~ | |   | | | | | + mesenchyme
+EMAP:5381  ~ | |   | | | | | \ skeletal muscle
+EMAP:5382  ~ | |   | | | | |   \ extrinsic pre-muscle mass
+EMAP:5383  ~ | |   | | | | \ vascular element (syn: artery; vein)
+EMAP:5385  ~ | |   | | | \ stomach
+EMAP:5386  ~ | |   | | |   + fundus
+EMAP:5387  ~ | |   | | |   | + associated mesenchyme
+EMAP:5388  ~ | |   | | |   | + epithelium
+EMAP:6945  ~ | |   | | |   | + lumen
+EMAP:5389  ~ | |   | | |   | \ vascular element (syn: artery; vein)
+EMAP:5390  ~ | |   | | |   + glandular region
+EMAP:5391  ~ | |   | | |   | + associated mesenchyme
+EMAP:5392  ~ | |   | | |   | + epithelium
+EMAP:6948  ~ | |   | | |   | + lumen
+EMAP:5393  ~ | |   | | |   | \ vascular element (syn: artery; vein)
+EMAP:5394  ~ | |   | | |   + mesentery
+EMAP:5395  ~ | |   | | |   | + dorsal mesogastrium
+EMAP:5396  ~ | |   | | |   | \ ventral mesogastrium
+EMAP:5397  ~ | |   | | |   |   \ lesser omentum
+EMAP:5398  ~ | |   | | |   + proventricular region (syn: cutaneous; ependymal region; non-glandular region)
+EMAP:5399  ~ | |   | | |   | + associated mesenchyme
+EMAP:5400  ~ | |   | | |   | + epithelium
+EMAP:6951  ~ | |   | | |   | + lumen
+EMAP:5401  ~ | |   | | |   | \ vascular element (syn: artery; vein)
+EMAP:5402  ~ | |   | | |   \ pyloric region
+EMAP:5403  ~ | |   | | |     + associated mesenchyme
+EMAP:5404  ~ | |   | | |     + epithelium
+EMAP:6954  ~ | |   | | |     + lumen
+EMAP:5405  ~ | |   | | |     + pyloric antrum
+EMAP:5406  ~ | |   | | |     \ vascular element (syn: artery; vein)
+EMAP:4921  ~ | |   | | + foregut-midgut junction
+EMAP:5407  ~ | |   | | | + associated mesenchyme
+EMAP:5408  ~ | |   | | | + epithelium
+EMAP:4922  ~ | |   | | | + gland
+EMAP:4923  ~ | |   | | | | \ pancreas
+EMAP:26222 ~ | |   | | | |   + associated mesenchyme
+EMAP:4924  ~ | |   | | | |   + body
+EMAP:4925  ~ | |   | | | |   | + dorsal pancreatic duct
+EMAP:4926  ~ | |   | | | |   | \ parenchyma (syn: associated mesenchyme)
+EMAP:4927  ~ | |   | | | |   + head
+EMAP:4928  ~ | |   | | | |   | + parenchyma (syn: associated mesenchyme)
+EMAP:4929  ~ | |   | | | |   | + uncinate process
+EMAP:4930  ~ | |   | | | |   | \ ventral pancreatic duct (syn: accessory pancreatic duct; Duct of Santorini)
+EMAP:4931  ~ | |   | | | |   \ tail
+EMAP:4932  ~ | |   | | | |     + dorsal pancreatic duct
+EMAP:4933  ~ | |   | | | |     \ parenchyma (syn: associated mesenchyme)
+EMAP:6964  ~ | |   | | | + lumen
+EMAP:5409  ~ | |   | | | + mesentery
+EMAP:5410  ~ | |   | | | | \ dorsal mesentery
+EMAP:5411  ~ | |   | | | \ vascular element (syn: artery; vein)
+EMAP:5412  ~ | |   | | + hindgut
+EMAP:5413  ~ | |   | | | + perineal body
+EMAP:5414  ~ | |   | | | | + associated mesenchyme
+EMAP:5415  ~ | |   | | | | + epithelium
+EMAP:6966  ~ | |   | | | | + lumen
+EMAP:5416  ~ | |   | | | | \ vascular element (syn: artery; vein)
+EMAP:5417  ~ | |   | | | + rectum
+EMAP:5418  ~ | |   | | | | + associated mesenchyme
+EMAP:5419  ~ | |   | | | | + epithelium
+EMAP:6968  ~ | |   | | | | + lumen
+EMAP:5420  ~ | |   | | | | \ vascular element (syn: artery; vein)
+EMAP:5421  ~ | |   | | | \ rest of hindgut
+EMAP:5422  ~ | |   | | |   + associated mesenchyme
+EMAP:5423  ~ | |   | | |   + epithelium
+EMAP:6970  ~ | |   | | |   + lumen
+EMAP:5424  ~ | |   | | |   + mesentery
+EMAP:5425  ~ | |   | | |   | \ dorsal mesentery
+EMAP:5426  ~ | |   | | |   \ vascular element (syn: artery; vein)
+EMAP:5427  ~ | |   | | \ midgut
+EMAP:5428  ~ | |   | |   + duodenum
+EMAP:5429  ~ | |   | |   | \ caudal part
+EMAP:5430  ~ | |   | |   |   + associated mesenchyme
+EMAP:5431  ~ | |   | |   |   + epithelium
+EMAP:6975  ~ | |   | |   |   + lumen
+EMAP:5432  ~ | |   | |   |   + mesentery
+EMAP:5433  ~ | |   | |   |   | \ mesoduodenum
+EMAP:5434  ~ | |   | |   |   \ vascular element (syn: artery; vein)
+EMAP:5435  ~ | |   | |   + loop
+EMAP:5436  ~ | |   | |   | + associated mesenchyme
+EMAP:5437  ~ | |   | |   | + epithelium
+EMAP:6981  ~ | |   | |   | + lumen
+EMAP:5438  ~ | |   | |   | + mesentery
+EMAP:5439  ~ | |   | |   | | \ dorsal mesentery
+EMAP:5440  ~ | |   | |   | \ vascular element (syn: artery; vein)
+EMAP:5441  ~ | |   | |   \ rest of midgut
+EMAP:5442  ~ | |   | |     + associated mesenchyme
+EMAP:5443  ~ | |   | |     + epithelium
+EMAP:6987  ~ | |   | |     + lumen
+EMAP:5444  ~ | |   | |     + mesentery
+EMAP:5445  ~ | |   | |     | \ dorsal mesentery
+EMAP:5446  ~ | |   | |     \ vascular element (syn: artery; vein)
+EMAP:4911  ~ | |   | \ oral region
+EMAP:5447  ~ | |   |   + epiglottal primordium
+EMAP:4912  ~ | |   |   + gland
+EMAP:4913  ~ | |   |   | \ salivary gland
+EMAP:4914  ~ | |   |   |   + sublingual gland primordium
+EMAP:4915  ~ | |   |   |   | + epithelium
+EMAP:4916  ~ | |   |   |   | \ mesenchyme
+EMAP:4917  ~ | |   |   |   \ submandibular gland primordium
+EMAP:4918  ~ | |   |   |     + epithelium
+EMAP:4919  ~ | |   |   |     \ mesenchyme
+EMAP:5448  ~ | |   |   + lower jaw
+EMAP:7147  ~ | |   |   | + alveolar sulcus
+EMAP:5451  ~ | |   |   | + lip
+EMAP:5449  ~ | |   |   | + Meckel's cartilage
+EMAP:5458  ~ | |   |   | + mesenchyme
+EMAP:5452  ~ | |   |   | + skeleton
+EMAP:5453  ~ | |   |   | | \ mandible
+EMAP:5454  ~ | |   |   | |   + mesenchyme
+EMAP:26506 ~ | |   |   | |   \ ramus
+EMAP:5459  ~ | |   |   | \ tooth
+EMAP:5460  ~ | |   |   |   + incisor
+EMAP:5461  ~ | |   |   |   | + epithelium
+EMAP:5462  ~ | |   |   |   | \ mesenchyme
+EMAP:5463  ~ | |   |   |   \ molar
+EMAP:5464  ~ | |   |   |     + epithelium
+EMAP:5465  ~ | |   |   |     \ mesenchyme
+EMAP:5466  ~ | |   |   + oral cavity
+EMAP:5467  ~ | |   |   + oral epithelium
+EMAP:5468  ~ | |   |   \ upper jaw
+EMAP:5481  ~ | |   |     + alveolar sulcus
+EMAP:5469  ~ | |   |     + lip
+EMAP:5470  ~ | |   |     | + philtrum
+EMAP:12768 ~ | |   |     | \ rest of upper lip
+EMAP:5473  ~ | |   |     + mesenchyme
+EMAP:5474  ~ | |   |     + palatal shelf
+EMAP:5475  ~ | |   |     | + epithelium
+EMAP:5476  ~ | |   |     | \ mesenchyme
+EMAP:5477  ~ | |   |     + premaxilla
+EMAP:5478  ~ | |   |     | \ primary palate (syn: intermaxillary segment)
+EMAP:5479  ~ | |   |     |   + epithelium
+EMAP:5480  ~ | |   |     |   \ mesenchyme
+EMAP:5471  ~ | |   |     + skeleton
+EMAP:5472  ~ | |   |     | \ maxilla
+EMAP:5482  ~ | |   |     \ tooth
+EMAP:5483  ~ | |   |       + incisor
+EMAP:5484  ~ | |   |       | + epithelium
+EMAP:5485  ~ | |   |       | \ mesenchyme
+EMAP:5486  ~ | |   |       \ molar
+EMAP:5487  ~ | |   |         + epithelium
+EMAP:5488  ~ | |   |         \ mesenchyme
+EMAP:5489  ~ | |   + liver and biliary system
+EMAP:5490  ~ | |   | + common bile duct
+EMAP:5491  ~ | |   | + cystic duct
+EMAP:5492  ~ | |   | + gall bladder (syn: gall bladder gland)
+EMAP:5493  ~ | |   | + hepatic duct
+EMAP:5494  ~ | |   | | + extrahepatic part
+EMAP:5495  ~ | |   | | \ intrahepatic part
+EMAP:5496  ~ | |   | \ liver
+EMAP:5497  ~ | |   |   + bare area
+EMAP:5498  ~ | |   |   + hepatic sinusoids
+EMAP:5499  ~ | |   |   \ parenchyma
+EMAP:5541  ~ | |   + respiratory system
+EMAP:15204 ~ | |   | + cartilage
+EMAP:15206 ~ | |   | | + arytenoid
+EMAP:15208 ~ | |   | | \ laryngeal
+EMAP:5543  ~ | |   | + laryngeal aditus
+EMAP:5545  ~ | |   | + lung
+EMAP:5546  ~ | |   | | + left lung
+EMAP:5547  ~ | |   | | | + associated mesenchyme
+EMAP:5548  ~ | |   | | | + epithelium
+EMAP:5549  ~ | |   | | | + hilus
+EMAP:5550  ~ | |   | | | + lobar bronchus
+EMAP:5551  ~ | |   | | | | + associated mesenchyme
+EMAP:5552  ~ | |   | | | | + epithelium
+EMAP:5553  ~ | |   | | | | \ vascular element (syn: artery; vein)
+EMAP:5554  ~ | |   | | | \ vascular element (syn: artery; vein)
+EMAP:5555  ~ | |   | | \ right lung
+EMAP:5556  ~ | |   | |   + accessory lobe
+EMAP:5557  ~ | |   | |   | \ lobar bronchus
+EMAP:5558  ~ | |   | |   |   + associated mesenchyme
+EMAP:5559  ~ | |   | |   |   + epithelium
+EMAP:5560  ~ | |   | |   |   \ vascular element (syn: artery; vein)
+EMAP:5561  ~ | |   | |   + associated mesenchyme
+EMAP:5562  ~ | |   | |   + caudal lobe
+EMAP:5563  ~ | |   | |   | \ lobar bronchus
+EMAP:5564  ~ | |   | |   |   + associated mesenchyme
+EMAP:5565  ~ | |   | |   |   + epithelium
+EMAP:5566  ~ | |   | |   |   \ vascular element (syn: artery; vein)
+EMAP:5567  ~ | |   | |   + cranial lobe
+EMAP:5568  ~ | |   | |   | \ lobar bronchus
+EMAP:5569  ~ | |   | |   |   + associated mesenchyme
+EMAP:5570  ~ | |   | |   |   + epithelium
+EMAP:5571  ~ | |   | |   |   \ vascular element (syn: artery; vein)
+EMAP:5572  ~ | |   | |   + epithelium
+EMAP:5573  ~ | |   | |   + hilus
+EMAP:5574  ~ | |   | |   + middle lobe
+EMAP:5575  ~ | |   | |   | \ lobar bronchus
+EMAP:5576  ~ | |   | |   |   + associated mesenchyme
+EMAP:5577  ~ | |   | |   |   + epithelium
+EMAP:5578  ~ | |   | |   |   \ vascular element (syn: artery; vein)
+EMAP:5579  ~ | |   | |   \ vascular element (syn: artery; vein)
+EMAP:5580  ~ | |   | \ respiratory tract
+EMAP:5581  ~ | |   |   + lower
+EMAP:5582  ~ | |   |   | + main bronchus
+EMAP:5583  ~ | |   |   | | + associated mesenchyme
+EMAP:5584  ~ | |   |   | | + epithelium
+EMAP:5585  ~ | |   |   | | \ vascular element (syn: artery; vein)
+EMAP:5586  ~ | |   |   | \ trachea
+EMAP:5587  ~ | |   |   |   + associated mesenchyme
+EMAP:7034  ~ | |   |   |   + carina tracheae
+EMAP:7040  ~ | |   |   |   | + associated mesenchyme
+EMAP:7046  ~ | |   |   |   | + epithelium
+EMAP:7052  ~ | |   |   |   | \ vascular element
+EMAP:5588  ~ | |   |   |   + epithelium
+EMAP:5589  ~ | |   |   |   \ vascular element (syn: artery; vein)
+EMAP:5590  ~ | |   |   \ upper
+EMAP:5591  ~ | |   |     \ nasopharynx
+EMAP:5592  ~ | |   |       + associated mesenchyme
+EMAP:5593  ~ | |   |       + epithelium
+EMAP:5594  ~ | |   |       \ vascular element (syn: artery; vein)
+EMAP:5500  ~ | |   + urinary system
+EMAP:5502  ~ | |   | + mesentery
+EMAP:29611 ~ | |   | | + rest of mesentery
+EMAP:5503  ~ | |   | | \ urogenital mesentery
+EMAP:5504  ~ | |   | + metanephros (syn: kidney)
+EMAP:27715 ~ | |   | | + renal capsule
+EMAP:27722 ~ | |   | | + nephrogenic zone
+EMAP:5512  ~ | |   | | | + nephrogenic interstitium (syn: peripheral blastema)
+EMAP:27736 ~ | |   | | | + cap mesenchyme (syn: condensed mesenchyme)
+EMAP:27743 ~ | |   | | | + pretubular aggregate (syn: pretubular condensate)
+EMAP:27750 ~ | |   | | | + ureteric tip (syn: ureteric ampulla)
+EMAP:31046 ~ | |   | | | \ ureteric tree terminal branch excluding tip itself
+EMAP:27680 ~ | |   | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:27683 ~ | |   | | + comma-shaped body
+EMAP:27686 ~ | |   | | | + upper limb of comma-shaped body (syn: distal limb of comma-shaped body)
+EMAP:27689 ~ | |   | | | \ lower limb of comma-shaped body (syn: proximal limb of comma-shaped body)
+EMAP:27757 ~ | |   | | + s-shaped body (syn: stage II nephron)
+EMAP:27759 ~ | |   | | | + renal connecting tubule
+EMAP:27761 ~ | |   | | | + distal segment of s-shaped body (syn: upper limb of s-shaped body)
+EMAP:27763 ~ | |   | | | + medial segment of s-shaped body (syn: mid-portion of s-shaped body)
+EMAP:27765 ~ | |   | | | \ proximal segment of s-shaped body (syn: lower limb of s-shaped body)
+EMAP:27767 ~ | |   | | |   + visceral epithelium
+EMAP:27769 ~ | |   | | |   \ parietal epithelium
+EMAP:27771 ~ | |   | | + capillary loop renal corpuscle (syn: renal corpuscle of the stage III nephron)
+EMAP:27777 ~ | |   | | | + associated interstitium
+EMAP:27775 ~ | |   | | | + parietal epithelium
+EMAP:27781 ~ | |   | | | + presumptive endothelium of renal corpuscle
+EMAP:27779 ~ | |   | | | + presumptive mesangium
+EMAP:27773 ~ | |   | | | \ visceral epithelium (syn: podocyte layer)
+EMAP:27783 ~ | |   | | + renal tubule
+EMAP:27785 ~ | |   | | | + early proximal tubule
+EMAP:27787 ~ | |   | | | + anlage of the loop of Henle
+EMAP:27789 ~ | |   | | | + early distal tubule
+EMAP:27791 ~ | |   | | | \ renal connecting tubule
+EMAP:27793 ~ | |   | | + renal interstitium
+EMAP:31280 ~ | |   | | | + renal fibroblasts
+EMAP:31275 ~ | |   | | | + resident macrophages (syn: renal monocytes)
+EMAP:31272 ~ | |   | | | + nephrogenic interstitium (syn: peripheral blastema)
+EMAP:31278 ~ | |   | | | \ rest of renal interstitium
+EMAP:27796 ~ | |   | | + developing vasculature
+EMAP:28406 ~ | |   | | + ureteric trunk (syn: ureteric stalk)
+EMAP:5507  ~ | |   | | + pelvis
+EMAP:5513  ~ | |   | | + early tubule (syn: early tubule)
+EMAP:27680 ~ | |   | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:27683 ~ | |   | | | + comma-shaped body
+EMAP:27686 ~ | |   | | | | + upper limb of comma-shaped body (syn: distal limb of comma-shaped body)
+EMAP:27689 ~ | |   | | | | \ lower limb of comma-shaped body (syn: proximal limb of comma-shaped body)
+EMAP:27757 ~ | |   | | | + s-shaped body (syn: stage II nephron)
+EMAP:27759 ~ | |   | | | | + renal connecting tubule
+EMAP:27761 ~ | |   | | | | + distal segment of s-shaped body (syn: upper limb of s-shaped body)
+EMAP:27763 ~ | |   | | | | + medial segment of s-shaped body (syn: mid-portion of s-shaped body)
+EMAP:27765 ~ | |   | | | | \ proximal segment of s-shaped body (syn: lower limb of s-shaped body)
+EMAP:27767 ~ | |   | | | |   + visceral epithelium
+EMAP:27769 ~ | |   | | | |   \ parietal epithelium
+EMAP:27771 ~ | |   | | | + capillary loop renal corpuscle (syn: renal corpuscle of the stage III nephron)
+EMAP:27777 ~ | |   | | | | + associated interstitium
+EMAP:27775 ~ | |   | | | | + parietal epithelium
+EMAP:27781 ~ | |   | | | | + presumptive endothelium of renal corpuscle
+EMAP:27779 ~ | |   | | | | + presumptive mesangium
+EMAP:27773 ~ | |   | | | | \ visceral epithelium (syn: podocyte layer)
+EMAP:27783 ~ | |   | | | \ renal tubule
+EMAP:27785 ~ | |   | | |   + early proximal tubule
+EMAP:27787 ~ | |   | | |   + anlage of the loop of Henle
+EMAP:27789 ~ | |   | | |   + early distal tubule
+EMAP:27791 ~ | |   | | |   \ renal connecting tubule
+EMAP:5508  ~ | |   | | \ primitive collecting duct group
+EMAP:27750 ~ | |   | |   + ureteric tip (syn: ureteric ampulla)
+EMAP:28406 ~ | |   | |   \ ureteric trunk (syn: ureteric stalk)
+EMAP:28379 ~ | |   | + renal artery
+EMAP:29996 ~ | |   | | + endothelium of renal artery
+EMAP:30004 ~ | |   | | \ smooth muscle layer of renal artery
+EMAP:28383 ~ | |   | + renal vein
+EMAP:30012 ~ | |   | | + endothelium of renal vein
+EMAP:30020 ~ | |   | | \ smooth muscle layer of renal vein
+EMAP:5509  ~ | |   | + ureter
+EMAP:28585 ~ | |   | | + urothelium (syn: transitional epithelium)
+EMAP:28589 ~ | |   | | | + superficial cellular layer (syn: umbrella cell)
+EMAP:30027 ~ | |   | | | \ deep cellular layer (syn: basal urothelium)
+EMAP:28557 ~ | |   | | + ureteral mesenchyme
+EMAP:28563 ~ | |   | | | + subepithelial layer (syn: presumptive lamina propria)
+EMAP:28568 ~ | |   | | | + middle layer (syn: presumptive ureteral smooth muscle layer)
+EMAP:28571 ~ | |   | | | \ outer layer (syn: presumptive adventitia)
+EMAP:30852 ~ | |   | | \ ureteral vasculature
+EMAP:28549 ~ | |   | + allantois
+EMAP:5517  ~ | |   | + urogenital sinus
+EMAP:30872 ~ | |   | | + primitive bladder (syn: cranial urogenital sinus)
+EMAP:30875 ~ | |   | | | + epithelial layer of primitive bladder
+EMAP:30878 ~ | |   | | | \ mesenchymal layer of primitive bladder
+EMAP:30892 ~ | |   | | \ urethra
+EMAP:30894 ~ | |   | |   + pelvic urethra
+EMAP:30896 ~ | |   | |   + caudal urethra
+EMAP:30898 ~ | |   | |   + urethral plate
+EMAP:30900 ~ | |   | |   \ urethral fold
+EMAP:5521  ~ | |   | + urorectal septum
+EMAP:5516  ~ | |   | + urogenital membrane
+EMAP:28458 ~ | |   | \ renal vasculature
+EMAP:27781 ~ | |   |   + presumptive endothelium of renal corpuscle
+EMAP:28379 ~ | |   |   + renal artery
+EMAP:29996 ~ | |   |   | + endothelium of renal artery
+EMAP:30004 ~ | |   |   | \ smooth muscle layer of renal artery
+EMAP:28383 ~ | |   |   \ renal vein
+EMAP:30012 ~ | |   |     + endothelium of renal vein
+EMAP:30020 ~ | |   |     \ smooth muscle layer of renal vein
+EMAP:5522  ~ | |   \ reproductive system
+EMAP:5532  ~ | |     + male reproductive system
+EMAP:29140 ~ | |     | + mesonephros of male
+EMAP:5534  ~ | |     | | + nephric duct of male, mesonephric portion (syn: mesonephric duct of male; mesonephric portion; Wolffian duct of male)
+EMAP:29145 ~ | |     | | + mesonephric mesenchyme of male
+EMAP:29150 ~ | |     | | + mesonephric tubule of male
+EMAP:30530 ~ | |     | | | + cranial mesonephric tubule of male
+EMAP:30534 ~ | |     | | | | + mesonephric glomerulus of male
+EMAP:30538 ~ | |     | | | | \ rest of cranial mesonephric tubule of male
+EMAP:30542 ~ | |     | | | \ caudal mesonephric tubule of male
+EMAP:29160 ~ | |     | | + paramesonephric duct of male, mesonephric portion (syn: mesonephric portion of male; Müllerian duct of male)
+EMAP:30462 ~ | |     | | \ coelomic epithelium of male mesonephros
+EMAP:29186 ~ | |     | + paramesonephric duct of male, rest of
+EMAP:29188 ~ | |     | | + epithelium of rest of paramesonephric duct of male
+EMAP:29190 ~ | |     | | \ mesenchyme of rest of paramesonephric duct of male
+EMAP:29174 ~ | |     | + nephric duct of male, rest of (syn: mesonephric duct; rest of)
+EMAP:29182 ~ | |     | | + epithelium of rest of nephric duct of male
+EMAP:29178 ~ | |     | | \ mesenchyme of rest of nephric duct of male
+EMAP:5536  ~ | |     | + testis
+EMAP:5537  ~ | |     | | + coelomic epithelium of testis
+EMAP:29191 ~ | |     | | + rete testis
+EMAP:29076 ~ | |     | | + interstitium of the testis (syn: interstitial tissue)
+EMAP:29084 ~ | |     | | | + fetal Leydig cell
+EMAP:29092 ~ | |     | | | \ rest of interstitium of the testis (syn: non-specific mesenchyme)
+EMAP:29116 ~ | |     | | + developing vasculature of the testis
+EMAP:29124 ~ | |     | | | + coelomic vessel
+EMAP:29132 ~ | |     | | | \ interstitial vessel
+EMAP:29100 ~ | |     | | \ primary sex cord
+EMAP:29108 ~ | |     | |   + Sertoli cell
+EMAP:5539  ~ | |     | |   + germ cell of the testis
+EMAP:29112 ~ | |     | |   \ peritubular myoid cell
+EMAP:5535  ~ | |     | + mesorchium
+EMAP:5533  ~ | |     | \ genital tubercle of male (syn: penis anlage)
+EMAP:29172 ~ | |     |   + genital tubercle surface epithelium of male
+EMAP:30469 ~ | |     |   + distal uretheral epithelium of male
+EMAP:29169 ~ | |     |   + genital tubercle mesenchyme of male
+EMAP:30483 ~ | |     |   \ preputial swelling of male (syn: prepuce of male)
+EMAP:5523  ~ | |     \ female reproductive system
+EMAP:28911 ~ | |       + mesonephros of female
+EMAP:28916 ~ | |       | + mesonephric mesenchyme of female mesonephros
+EMAP:28921 ~ | |       | + mesonephric tubule of female
+EMAP:30546 ~ | |       | | + cranial mesonephric tubule of female
+EMAP:30549 ~ | |       | | | + mesonephric glomerulus of female
+EMAP:30552 ~ | |       | | | \ rest of cranial mesonephric tubule of female
+EMAP:30555 ~ | |       | | \ caudal mesonephric tubule of female
+EMAP:28926 ~ | |       | + nephric duct of female, mesonephric portion (syn: mesonephric duct of female; mesonephric portion; Wolffian duct of female)
+EMAP:28939 ~ | |       | + paramesonephric duct of female, mesonephric portion (syn: Müllerian duct of female)
+EMAP:28931 ~ | |       | + rete ovarii of mesonephros
+EMAP:28936 ~ | |       | \ coelomic epithelium of female mesonephros
+EMAP:28942 ~ | |       + paramesonephric duct of female, rest of (syn: Müllerian duct of female; rest of)
+EMAP:28958 ~ | |       | + epithelium of rest of paramesonephric duct of female
+EMAP:28962 ~ | |       | \ mesenchyme of rest of paramesonephric duct of female
+EMAP:28946 ~ | |       + nephric duct of female, rest of (syn: mesonephric duct of female; rest of)
+EMAP:28950 ~ | |       | + epithelium of rest of nephric duct of female
+EMAP:28954 ~ | |       | \ mesenchyme of rest of nephric duct of female
+EMAP:5526  ~ | |       + ovary
+EMAP:5527  ~ | |       | + surface epithelium of ovary (syn: coelomic epithelium)
+EMAP:5528  ~ | |       | + mesenchymal stroma of ovary
+EMAP:5529  ~ | |       | + germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAP:28972 ~ | |       | | + premeiotic germ cell (syn: oogonia)
+EMAP:28967 ~ | |       | | \ meiotic germ cell (syn: oocyte)
+EMAP:28890 ~ | |       | + developing vasculature of ovary
+EMAP:5530  ~ | |       | \ rete ovarii of ovary
+EMAP:5525  ~ | |       + mesovarium
+EMAP:29619 ~ | |       \ genital tubercle of female (syn: clitoris anlage)
+EMAP:29628 ~ | |         + genital tubercle surface epithelium of female
+EMAP:29623 ~ | |         + genital tubercle mesenchyme of female
+EMAP:30472 ~ | |         + distal uretheral epithelium of female
+EMAP:30480 ~ | |         \ preputial swelling of female (syn: prepuce of female)
+EMAP:5595  > | + skeleton
+EMAP:5596  ~ | | + axial skeleton
+EMAP:5597  ~ | | | + cervical region
+EMAP:5598  ~ | | | | \ vertebral cartilage condensation
+EMAP:5599  ~ | | | |   + C1 (syn: atlas)
+EMAP:5600  ~ | | | |   + C2 (syn: axis)
+EMAP:13411 ~ | | | |   + C3
+EMAP:13412 ~ | | | |   + C4
+EMAP:13413 ~ | | | |   + C5
+EMAP:13414 ~ | | | |   + C6
+EMAP:13415 ~ | | | |   \ C7
+EMAP:5604  ~ | | | + lumbar region
+EMAP:5605  ~ | | | | \ vertebral cartilage condensation
+EMAP:13417 ~ | | | |   + L1
+EMAP:13418 ~ | | | |   + L2
+EMAP:13419 ~ | | | |   + L3
+EMAP:13420 ~ | | | |   + L4
+EMAP:13421 ~ | | | |   + L5
+EMAP:13422 ~ | | | |   \ L6
+EMAP:5606  ~ | | | + nucleus pulposus
+EMAP:5607  ~ | | | + sacral region
+EMAP:5608  ~ | | | | \ vertebral cartilage condensation
+EMAP:13423 ~ | | | |   + S1
+EMAP:13424 ~ | | | |   + S2
+EMAP:13425 ~ | | | |   + S3
+EMAP:13426 ~ | | | |   \ S4
+EMAP:5609  ~ | | | \ thoracic region
+EMAP:13438 ~ | | |   + rib cartilage condensation
+EMAP:13439 ~ | | |   | + T1
+EMAP:13440 ~ | | |   | + T2
+EMAP:13441 ~ | | |   | + T3
+EMAP:13442 ~ | | |   | + T4
+EMAP:13443 ~ | | |   | \ T5
+EMAP:5610  ~ | | |   + rib pre-cartilage condensation
+EMAP:13449 ~ | | |   | + T10
+EMAP:13450 ~ | | |   | + T11
+EMAP:13451 ~ | | |   | + T12
+EMAP:13452 ~ | | |   | + T13
+EMAP:13445 ~ | | |   | + T6
+EMAP:13446 ~ | | |   | + T7
+EMAP:13447 ~ | | |   | + T8
+EMAP:13448 ~ | | |   | \ T9
+EMAP:5611  ~ | | |   \ vertebral cartilage condensation
+EMAP:13454 ~ | | |     + T1
+EMAP:13463 ~ | | |     + T10
+EMAP:13464 ~ | | |     + T11
+EMAP:13465 ~ | | |     + T12
+EMAP:13466 ~ | | |     + T13
+EMAP:13455 ~ | | |     + T2
+EMAP:13456 ~ | | |     + T3
+EMAP:13457 ~ | | |     + T4
+EMAP:13458 ~ | | |     + T5
+EMAP:13459 ~ | | |     + T6
+EMAP:13460 ~ | | |     + T7
+EMAP:13461 ~ | | |     + T8
+EMAP:13462 ~ | | |     \ T9
+EMAP:5612  ~ | | + cranium
+EMAP:5613  ~ | | | + chondrocranium
+EMAP:5614  ~ | | | | + basioccipital pre-cartilage condensation
+EMAP:5615  ~ | | | | + basisphenoid pre-cartilage condensation
+EMAP:5616  ~ | | | | + exoccipital pre-cartilage condensation
+EMAP:5617  ~ | | | | + sphenoid bone pre-cartilage condensation
+EMAP:5618  ~ | | | | \ temporal bone
+EMAP:5619  ~ | | | |   \ petrous part (syn: non-squamous part temporal bone)
+EMAP:5620  ~ | | | + vault of skull
+EMAP:5621  ~ | | | | + frontal bone primordium
+EMAP:5622  ~ | | | | + inter-parietal bone primordium (syn: squamous part of supraoccipital bone primordium)
+EMAP:5623  ~ | | | | + parietal bone primordium
+EMAP:5624  ~ | | | | \ temporal bone
+EMAP:5625  ~ | | | |   \ squamous part
+EMAP:5626  ~ | | | \ viscerocranium
+EMAP:5627  ~ | | |   + ethmoid bone primordium
+EMAP:5628  ~ | | |   \ facial bones primordia
+EMAP:5629  ~ | | + pectoral girdle and thoracic body wall
+EMAP:5630  ~ | | | + clavicle pre-cartilage condensation
+EMAP:5631  ~ | | | \ scapula pre-cartilage condensation
+EMAP:5632  ~ | | \ pelvic girdle
+EMAP:5633  ~ | |   \ iliac pre-cartilage condensation
+EMAP:5634  > | + tail
+EMAP:5635  ~ | | + mesenchyme
+EMAP:5636  ~ | | | + mesenchyme derived from neural crest
+EMAP:5637  ~ | | | \ paraxial mesenchyme
+EMAP:5638  ~ | | |   + somite
+EMAP:5639  ~ | | |   | + somite 40
+EMAP:5640  ~ | | |   | | + dermomyotome
+EMAP:5641  ~ | | |   | | + myocoele
+EMAP:5642  ~ | | |   | | \ sclerotome
+EMAP:5643  ~ | | |   | + somite 41
+EMAP:5644  ~ | | |   | | + dermomyotome
+EMAP:5645  ~ | | |   | | + myocoele
+EMAP:5646  ~ | | |   | | \ sclerotome
+EMAP:5647  ~ | | |   | + somite 42
+EMAP:5648  ~ | | |   | | + dermomyotome
+EMAP:5649  ~ | | |   | | + myocoele
+EMAP:5650  ~ | | |   | | \ sclerotome
+EMAP:5651  ~ | | |   | + somite 43
+EMAP:5652  ~ | | |   | | + dermomyotome
+EMAP:5653  ~ | | |   | | + myocoele
+EMAP:5654  ~ | | |   | | \ sclerotome
+EMAP:5655  ~ | | |   | + somite 44
+EMAP:5656  ~ | | |   | | + dermomyotome
+EMAP:5657  ~ | | |   | | + myocoele
+EMAP:5658  ~ | | |   | | \ sclerotome
+EMAP:5659  ~ | | |   | + somite 45
+EMAP:5660  ~ | | |   | | + dermomyotome
+EMAP:5661  ~ | | |   | | + myocoele
+EMAP:5662  ~ | | |   | | \ sclerotome
+EMAP:5663  ~ | | |   | + somite 46
+EMAP:5664  ~ | | |   | | + dermomyotome
+EMAP:5665  ~ | | |   | | + myocoele
+EMAP:5666  ~ | | |   | | \ sclerotome
+EMAP:5667  ~ | | |   | + somite 47
+EMAP:5668  ~ | | |   | | + dermomyotome
+EMAP:5669  ~ | | |   | | + myocoele
+EMAP:5670  ~ | | |   | | \ sclerotome
+EMAP:5671  ~ | | |   | + somite 48
+EMAP:5672  ~ | | |   | | + dermomyotome
+EMAP:5673  ~ | | |   | | + myocoele
+EMAP:5674  ~ | | |   | | \ sclerotome
+EMAP:5675  ~ | | |   | + somite 49
+EMAP:5676  ~ | | |   | | + dermomyotome
+EMAP:5677  ~ | | |   | | + myocoele
+EMAP:5678  ~ | | |   | | \ sclerotome
+EMAP:5679  ~ | | |   | + somite 50
+EMAP:5680  ~ | | |   | | + dermomyotome
+EMAP:5681  ~ | | |   | | + myocoele
+EMAP:5682  ~ | | |   | | \ sclerotome
+EMAP:5683  ~ | | |   | + somite 51
+EMAP:5684  ~ | | |   | | + dermomyotome
+EMAP:5685  ~ | | |   | | + myocoele
+EMAP:5686  ~ | | |   | | \ sclerotome
+EMAP:5687  ~ | | |   | + somite 52
+EMAP:5688  ~ | | |   | | + dermomyotome
+EMAP:5689  ~ | | |   | | + myocoele
+EMAP:5690  ~ | | |   | | \ sclerotome
+EMAP:5691  ~ | | |   | + somite 53
+EMAP:5692  ~ | | |   | | + dermomyotome
+EMAP:5693  ~ | | |   | | + myocoele
+EMAP:5694  ~ | | |   | | \ sclerotome
+EMAP:5695  ~ | | |   | + somite 54
+EMAP:5696  ~ | | |   | | + dermomyotome
+EMAP:5697  ~ | | |   | | + myocoele
+EMAP:5698  ~ | | |   | | \ sclerotome
+EMAP:5699  ~ | | |   | + somite 55
+EMAP:5700  ~ | | |   | | + dermomyotome
+EMAP:5701  ~ | | |   | | + myocoele
+EMAP:5702  ~ | | |   | | \ sclerotome
+EMAP:29706 ~ | | |   | + tail dermomyotome group
+EMAP:5640  ~ | | |   | | + dermomyotome
+EMAP:5652  ~ | | |   | | + dermomyotome
+EMAP:5644  ~ | | |   | | + dermomyotome
+EMAP:5660  ~ | | |   | | + dermomyotome
+EMAP:5656  ~ | | |   | | + dermomyotome
+EMAP:5648  ~ | | |   | | + dermomyotome
+EMAP:5668  ~ | | |   | | + dermomyotome
+EMAP:5672  ~ | | |   | | + dermomyotome
+EMAP:5664  ~ | | |   | | + dermomyotome
+EMAP:5676  ~ | | |   | | + dermomyotome
+EMAP:5680  ~ | | |   | | + dermomyotome
+EMAP:5688  ~ | | |   | | + dermomyotome
+EMAP:5684  ~ | | |   | | + dermomyotome
+EMAP:5692  ~ | | |   | | + dermomyotome
+EMAP:5696  ~ | | |   | | + dermomyotome
+EMAP:5700  ~ | | |   | | \ dermomyotome
+EMAP:31132 ~ | | |   | + tail myocoele group
+EMAP:5657  ~ | | |   | | + myocoele
+EMAP:5649  ~ | | |   | | + myocoele
+EMAP:5641  ~ | | |   | | + myocoele
+EMAP:5645  ~ | | |   | | + myocoele
+EMAP:5653  ~ | | |   | | + myocoele
+EMAP:5661  ~ | | |   | | + myocoele
+EMAP:5665  ~ | | |   | | + myocoele
+EMAP:5669  ~ | | |   | | + myocoele
+EMAP:5673  ~ | | |   | | + myocoele
+EMAP:5685  ~ | | |   | | + myocoele
+EMAP:5677  ~ | | |   | | + myocoele
+EMAP:5689  ~ | | |   | | + myocoele
+EMAP:5681  ~ | | |   | | + myocoele
+EMAP:5701  ~ | | |   | | + myocoele
+EMAP:5697  ~ | | |   | | + myocoele
+EMAP:5693  ~ | | |   | | \ myocoele
+EMAP:31157 ~ | | |   | \ tail sclerotome group
+EMAP:5642  ~ | | |   |   + sclerotome
+EMAP:5654  ~ | | |   |   + sclerotome
+EMAP:5646  ~ | | |   |   + sclerotome
+EMAP:5662  ~ | | |   |   + sclerotome
+EMAP:5658  ~ | | |   |   + sclerotome
+EMAP:5650  ~ | | |   |   + sclerotome
+EMAP:5666  ~ | | |   |   + sclerotome
+EMAP:5674  ~ | | |   |   + sclerotome
+EMAP:5670  ~ | | |   |   + sclerotome
+EMAP:5682  ~ | | |   |   + sclerotome
+EMAP:5678  ~ | | |   |   + sclerotome
+EMAP:5686  ~ | | |   |   + sclerotome
+EMAP:5690  ~ | | |   |   + sclerotome
+EMAP:5702  ~ | | |   |   + sclerotome
+EMAP:5694  ~ | | |   |   + sclerotome
+EMAP:5698  ~ | | |   |   \ sclerotome
+EMAP:5703  ~ | | |   \ unsegmented mesenchyme (syn: presomitic mesenchyme)
+EMAP:5704  ~ | | + nervous system
+EMAP:5705  ~ | | | \ central nervous system (syn: CNS)
+EMAP:5706  ~ | | |   \ spinal cord
+EMAP:5707  ~ | | \ skeleton
+EMAP:5708  ~ | |   \ axial skeleton
+EMAP:5709  ~ | |     + vertebral cartilage condensation
+EMAP:13427 ~ | |     | + Tl1
+EMAP:13428 ~ | |     | + Tl2
+EMAP:13429 ~ | |     | \ Tl3
+EMAP:5710  ~ | |     \ vertebral pre-cartilage condensation
+EMAP:13436 ~ | |       + Tl10
+EMAP:13437 ~ | |       + Tl11
+EMAP:13430 ~ | |       + Tl4
+EMAP:13431 ~ | |       + Tl5
+EMAP:13432 ~ | |       + Tl6
+EMAP:13433 ~ | |       + Tl7
+EMAP:13434 ~ | |       + Tl8
+EMAP:13435 ~ | |       \ Tl9
+EMAP:4900  > | \ vertebral axis muscle system
+EMAP:4901  ~ |   + anterior abdominal wall
+EMAP:4902  ~ |   | \ skeletal muscle
+EMAP:4903  ~ |   |   \ undifferentiated pre-muscle mass
+EMAP:4904  ~ |   \ pectoral girdle and thoracic body wall
+EMAP:4905  ~ |     \ skeletal muscle
+EMAP:4906  ~ |       + deltoid pre-muscle mass
+EMAP:4907  ~ |       \ subscapularis pre-muscle mass
+EMAP:4896    + mesenchyme
+EMAP:4898    | \ trunk mesenchyme
+EMAP:31142 G + myocoele group
+EMAP:31132 > | \ tail myocoele group
+EMAP:5657  ~ |   + myocoele
+EMAP:5649  ~ |   + myocoele
+EMAP:5641  ~ |   + myocoele
+EMAP:5645  ~ |   + myocoele
+EMAP:5653  ~ |   + myocoele
+EMAP:5661  ~ |   + myocoele
+EMAP:5665  ~ |   + myocoele
+EMAP:5669  ~ |   + myocoele
+EMAP:5673  ~ |   + myocoele
+EMAP:5685  ~ |   + myocoele
+EMAP:5677  ~ |   + myocoele
+EMAP:5689  ~ |   + myocoele
+EMAP:5681  ~ |   + myocoele
+EMAP:5701  ~ |   + myocoele
+EMAP:5697  ~ |   + myocoele
+EMAP:5693  ~ |   \ myocoele
+EMAP:31167 G + myocoele group
+EMAP:31157 > | \ tail sclerotome group
+EMAP:5642  ~ |   + sclerotome
+EMAP:5654  ~ |   + sclerotome
+EMAP:5646  ~ |   + sclerotome
+EMAP:5662  ~ |   + sclerotome
+EMAP:5658  ~ |   + sclerotome
+EMAP:5650  ~ |   + sclerotome
+EMAP:5666  ~ |   + sclerotome
+EMAP:5674  ~ |   + sclerotome
+EMAP:5670  ~ |   + sclerotome
+EMAP:5682  ~ |   + sclerotome
+EMAP:5678  ~ |   + sclerotome
+EMAP:5686  ~ |   + sclerotome
+EMAP:5690  ~ |   + sclerotome
+EMAP:5702  ~ |   + sclerotome
+EMAP:5694  ~ |   + sclerotome
+EMAP:5698  ~ |   \ sclerotome
+EMAP:31179 G + somite group
+EMAP:5639  > | + somite 40
+EMAP:5640  ~ | | + dermomyotome
+EMAP:5641  ~ | | + myocoele
+EMAP:5642  ~ | | \ sclerotome
+EMAP:5643  > | + somite 41
+EMAP:5644  ~ | | + dermomyotome
+EMAP:5645  ~ | | + myocoele
+EMAP:5646  ~ | | \ sclerotome
+EMAP:5647  > | + somite 42
+EMAP:5648  ~ | | + dermomyotome
+EMAP:5649  ~ | | + myocoele
+EMAP:5650  ~ | | \ sclerotome
+EMAP:5651  > | + somite 43
+EMAP:5652  ~ | | + dermomyotome
+EMAP:5653  ~ | | + myocoele
+EMAP:5654  ~ | | \ sclerotome
+EMAP:5655  > | + somite 44
+EMAP:5656  ~ | | + dermomyotome
+EMAP:5657  ~ | | + myocoele
+EMAP:5658  ~ | | \ sclerotome
+EMAP:5659  > | + somite 45
+EMAP:5660  ~ | | + dermomyotome
+EMAP:5661  ~ | | + myocoele
+EMAP:5662  ~ | | \ sclerotome
+EMAP:5663  > | + somite 46
+EMAP:5664  ~ | | + dermomyotome
+EMAP:5665  ~ | | + myocoele
+EMAP:5666  ~ | | \ sclerotome
+EMAP:5667  > | + somite 47
+EMAP:5668  ~ | | + dermomyotome
+EMAP:5669  ~ | | + myocoele
+EMAP:5670  ~ | | \ sclerotome
+EMAP:5671  > | + somite 48
+EMAP:5672  ~ | | + dermomyotome
+EMAP:5673  ~ | | + myocoele
+EMAP:5674  ~ | | \ sclerotome
+EMAP:5675  > | + somite 49
+EMAP:5676  ~ | | + dermomyotome
+EMAP:5677  ~ | | + myocoele
+EMAP:5678  ~ | | \ sclerotome
+EMAP:5679  > | + somite 50
+EMAP:5680  ~ | | + dermomyotome
+EMAP:5681  ~ | | + myocoele
+EMAP:5682  ~ | | \ sclerotome
+EMAP:5683  > | + somite 51
+EMAP:5684  ~ | | + dermomyotome
+EMAP:5685  ~ | | + myocoele
+EMAP:5686  ~ | | \ sclerotome
+EMAP:5687  > | + somite 52
+EMAP:5688  ~ | | + dermomyotome
+EMAP:5689  ~ | | + myocoele
+EMAP:5690  ~ | | \ sclerotome
+EMAP:5691  > | + somite 53
+EMAP:5692  ~ | | + dermomyotome
+EMAP:5693  ~ | | + myocoele
+EMAP:5694  ~ | | \ sclerotome
+EMAP:5695  > | + somite 54
+EMAP:5696  ~ | | + dermomyotome
+EMAP:5697  ~ | | + myocoele
+EMAP:5698  ~ | | \ sclerotome
+EMAP:5699  > | \ somite 55
+EMAP:5700  ~ |   + dermomyotome
+EMAP:5701  ~ |   + myocoele
+EMAP:5702  ~ |   \ sclerotome
+EMAP:5634    + tail
+EMAP:5635    | \ mesenchyme
+EMAP:5637    |   \ paraxial mesenchyme
+EMAP:5638    |     \ somite
+EMAP:29706 G |       + tail dermomyotome group
+EMAP:5640  > |       | + dermomyotome
+EMAP:5652  > |       | + dermomyotome
+EMAP:5644  > |       | + dermomyotome
+EMAP:5660  > |       | + dermomyotome
+EMAP:5656  > |       | + dermomyotome
+EMAP:5648  > |       | + dermomyotome
+EMAP:5668  > |       | + dermomyotome
+EMAP:5672  > |       | + dermomyotome
+EMAP:5664  > |       | + dermomyotome
+EMAP:5676  > |       | + dermomyotome
+EMAP:5680  > |       | + dermomyotome
+EMAP:5688  > |       | + dermomyotome
+EMAP:5684  > |       | + dermomyotome
+EMAP:5692  > |       | + dermomyotome
+EMAP:5696  > |       | + dermomyotome
+EMAP:5700  > |       | \ dermomyotome
+EMAP:31132 G |       + tail myocoele group
+EMAP:5657  > |       | + myocoele
+EMAP:5649  > |       | + myocoele
+EMAP:5641  > |       | + myocoele
+EMAP:5645  > |       | + myocoele
+EMAP:5653  > |       | + myocoele
+EMAP:5661  > |       | + myocoele
+EMAP:5665  > |       | + myocoele
+EMAP:5669  > |       | + myocoele
+EMAP:5673  > |       | + myocoele
+EMAP:5685  > |       | + myocoele
+EMAP:5677  > |       | + myocoele
+EMAP:5689  > |       | + myocoele
+EMAP:5681  > |       | + myocoele
+EMAP:5701  > |       | + myocoele
+EMAP:5697  > |       | + myocoele
+EMAP:5693  > |       | \ myocoele
+EMAP:31157 G |       \ tail sclerotome group
+EMAP:5642  > |         + sclerotome
+EMAP:5654  > |         + sclerotome
+EMAP:5646  > |         + sclerotome
+EMAP:5662  > |         + sclerotome
+EMAP:5658  > |         + sclerotome
+EMAP:5650  > |         + sclerotome
+EMAP:5666  > |         + sclerotome
+EMAP:5674  > |         + sclerotome
+EMAP:5670  > |         + sclerotome
+EMAP:5682  > |         + sclerotome
+EMAP:5678  > |         + sclerotome
+EMAP:5686  > |         + sclerotome
+EMAP:5690  > |         + sclerotome
+EMAP:5702  > |         + sclerotome
+EMAP:5694  > |         + sclerotome
+EMAP:5698  > |         \ sclerotome
+EMAP:4908    \ organ system
+EMAP:4909      \ visceral organ
+EMAP:5500        + urinary system
+EMAP:5504        | + metanephros (syn: kidney)
+EMAP:5513  G     | | + early tubule (syn: early tubule)
+EMAP:27680 >     | | | + renal vesicle (syn: epithelial vesicle; stage I nephron)
+EMAP:27683 >     | | | + comma-shaped body
+EMAP:27686 ~     | | | | + upper limb of comma-shaped body (syn: distal limb of comma-shaped body)
+EMAP:27689 ~     | | | | \ lower limb of comma-shaped body (syn: proximal limb of comma-shaped body)
+EMAP:27757 >     | | | + s-shaped body (syn: stage II nephron)
+EMAP:27759 ~     | | | | + renal connecting tubule
+EMAP:27761 ~     | | | | + distal segment of s-shaped body (syn: upper limb of s-shaped body)
+EMAP:27763 ~     | | | | + medial segment of s-shaped body (syn: mid-portion of s-shaped body)
+EMAP:27765 ~     | | | | \ proximal segment of s-shaped body (syn: lower limb of s-shaped body)
+EMAP:27767 ~     | | | |   + visceral epithelium
+EMAP:27769 ~     | | | |   \ parietal epithelium
+EMAP:27771 >     | | | + capillary loop renal corpuscle (syn: renal corpuscle of the stage III nephron)
+EMAP:27777 ~     | | | | + associated interstitium
+EMAP:27775 ~     | | | | + parietal epithelium
+EMAP:27781 ~     | | | | + presumptive endothelium of renal corpuscle
+EMAP:27779 ~     | | | | + presumptive mesangium
+EMAP:27773 ~     | | | | \ visceral epithelium (syn: podocyte layer)
+EMAP:27783 >     | | | \ renal tubule
+EMAP:27785 ~     | | |   + early proximal tubule
+EMAP:27787 ~     | | |   + anlage of the loop of Henle
+EMAP:27789 ~     | | |   + early distal tubule
+EMAP:27791 ~     | | |   \ renal connecting tubule
+EMAP:5508  G     | | \ primitive collecting duct group
+EMAP:27750 >     | |   + ureteric tip (syn: ureteric ampulla)
+EMAP:28406 >     | |   \ ureteric trunk (syn: ureteric stalk)
+EMAP:28458 G     | \ renal vasculature
+EMAP:27781 >     |   + presumptive endothelium of renal corpuscle
+EMAP:28379 >     |   + renal artery
+EMAP:29996 ~     |   | + endothelium of renal artery
+EMAP:30004 ~     |   | \ smooth muscle layer of renal artery
+EMAP:28383 >     |   \ renal vein
+EMAP:30012 ~     |     + endothelium of renal vein
+EMAP:30020 ~     |     \ smooth muscle layer of renal vein
+EMAP:5522        \ reproductive system
+EMAP:5532          + male reproductive system
+EMAP:5523          \ female reproductive system
+EMAP:5526            \ ovary

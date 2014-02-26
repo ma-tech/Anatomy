@@ -1,0 +1,642 @@
+<?xml version="1.0" ?>
+<request>
+	<mouseAnatomyReport>
+		<stage>
+			CS06a
+		</stage>
+		<groupStatusKey>
+			<groupStatus status="notInGroupPath">
+				Term is not a group nor is it contained in a group.
+			</groupStatus>
+			<groupStatus status="isGroup">
+				Term a group
+			</groupStatus>
+			<groupStatus status="isGroupDirectDescendant">
+				Term is directly contained in a group.
+			</groupStatus>
+			<groupStatus status="isGroupIndirectDescendant">
+				Term is indirectly contained in a group.
+			</groupStatus>
+		</groupStatusKey>
+		<timedComponent emapId="EHDA:9">
+			<name emapId="EHDA:9">
+				human
+			</name>
+			<emapaId emapId="EHDA:9">
+				EHDAA:1
+			</emapaId>
+			<groupPathStatus emapId="EHDA:9">
+				notInGroupPath
+			</groupPathStatus>
+			<timedComponent emapId="EHDA:8121">
+				<name emapId="EHDA:8121">
+					human conceptus
+				</name>
+				<emapaId emapId="EHDA:8121">
+					EHDAA:1003
+				</emapaId>
+				<groupPathStatus emapId="EHDA:8121">
+					notInGroupPath
+				</groupPathStatus>
+				<timedComponent emapId="EHDA:8187">
+					<name emapId="EHDA:8187">
+						human conceptus extraembryonic component
+					</name>
+					<emapaId emapId="EHDA:8187">
+						EHDAA:1007
+					</emapaId>
+					<groupPathStatus emapId="EHDA:8187">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EHDA:5545">
+						<name emapId="EHDA:5545">
+							extraembryonic cavities
+						</name>
+						<emapaId emapId="EHDA:5545">
+							EHDAA:550
+						</emapaId>
+						<groupPathStatus emapId="EHDA:5545">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:16885">
+							<name emapId="EHDA:16885">
+								amniotic cavity
+							</name>
+							<emapaId emapId="EHDA:16885">
+								EHDAA:2408
+							</emapaId>
+							<groupPathStatus emapId="EHDA:16885">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:16714">
+								<name emapId="EHDA:16714">
+									amniotic duct
+								</name>
+								<emapaId emapId="EHDA:16714">
+									EHDAA:2390
+								</emapaId>
+								<groupPathStatus emapId="EHDA:16714">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:16714">
+								<name emapId="EHDA:16714">
+									amniotic duct
+								</name>
+								<emapaId emapId="EHDA:16714">
+									EHDAA:2390
+								</emapaId>
+								<groupPathStatus emapId="EHDA:16714">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:11944">
+							<name emapId="EHDA:11944">
+								chorionic cavity
+							</name>
+							<emapaId emapId="EHDA:11944">
+								EHDAA:1670
+							</emapaId>
+							<groupPathStatus emapId="EHDA:11944">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EHDA:13611">
+							<name emapId="EHDA:13611">
+								secondary yolk sac cavity
+							</name>
+							<emapaId emapId="EHDA:13611">
+								EHDAA:1901
+							</emapaId>
+							<groupPathStatus emapId="EHDA:13611">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EHDA:11241">
+						<name emapId="EHDA:11241">
+							connecting stalk
+						</name>
+						<emapaId emapId="EHDA:11241">
+							EHDAA:1574
+						</emapaId>
+						<groupPathStatus emapId="EHDA:11241">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:11217">
+							<name emapId="EHDA:11217">
+								connecting stalk mesenchyme
+							</name>
+							<emapaId emapId="EHDA:11217">
+								EHDAA:1572
+							</emapaId>
+							<groupPathStatus emapId="EHDA:11217">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EHDA:5535">
+						<name emapId="EHDA:5535">
+							extraembryonic endoderm
+						</name>
+						<emapaId emapId="EHDA:5535">
+							EHDAA:549
+						</emapaId>
+						<groupPathStatus emapId="EHDA:5535">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EHDA:6916">
+						<name emapId="EHDA:6916">
+							extraembryonic membranes
+						</name>
+						<emapaId emapId="EHDA:6916">
+							EHDAA:781
+						</emapaId>
+						<groupPathStatus emapId="EHDA:6916">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:17111">
+							<name emapId="EHDA:17111">
+								amnion
+							</name>
+							<emapaId emapId="EHDA:17111">
+								EHDAA:2424
+							</emapaId>
+							<groupPathStatus emapId="EHDA:17111">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:17209">
+								<name emapId="EHDA:17209">
+									amnion ectoderm
+								</name>
+								<emapaId emapId="EHDA:17209">
+									EHDAA:2431
+								</emapaId>
+								<groupPathStatus emapId="EHDA:17209">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:17161">
+								<name emapId="EHDA:17161">
+									amnion mesenchyme
+								</name>
+								<emapaId emapId="EHDA:17161">
+									EHDAA:2428
+								</emapaId>
+								<groupPathStatus emapId="EHDA:17161">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:11963">
+							<name emapId="EHDA:11963">
+								chorion
+							</name>
+							<emapaId emapId="EHDA:11963">
+								EHDAA:1672
+							</emapaId>
+							<groupPathStatus emapId="EHDA:11963">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:7525">
+								<name emapId="EHDA:7525">
+									chorion cytotrophoblast
+								</name>
+								<emapaId emapId="EHDA:7525">
+									EHDAA:885
+								</emapaId>
+								<groupPathStatus emapId="EHDA:7525">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7096">
+									<name emapId="EHDA:7096">
+										chorionic villus cytotrophoblast
+									</name>
+									<emapaId emapId="EHDA:7096">
+										EHDAA:812
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7096">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:11944">
+								<name emapId="EHDA:11944">
+									chorionic cavity
+								</name>
+								<emapaId emapId="EHDA:11944">
+									EHDAA:1670
+								</emapaId>
+								<groupPathStatus emapId="EHDA:11944">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:7508">
+								<name emapId="EHDA:7508">
+									chorion mesenchyme
+								</name>
+								<emapaId emapId="EHDA:7508">
+									EHDAA:884
+								</emapaId>
+								<groupPathStatus emapId="EHDA:7508">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7005">
+									<name emapId="EHDA:7005">
+										chorionic villus mesenchyme
+									</name>
+									<emapaId emapId="EHDA:7005">
+										EHDAA:802
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7005">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:10315">
+								<name emapId="EHDA:10315">
+									chorion syncytiotrophoblast
+								</name>
+								<emapaId emapId="EHDA:10315">
+									EHDAA:1405
+								</emapaId>
+								<groupPathStatus emapId="EHDA:10315">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7021">
+									<name emapId="EHDA:7021">
+										chorionic villus syncytiotropbalst
+									</name>
+									<emapaId emapId="EHDA:7021">
+										EHDAA:803
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7021">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+							<timedComponent emapId="EHDA:6989">
+								<name emapId="EHDA:6989">
+									chorionic villus
+								</name>
+								<emapaId emapId="EHDA:6989">
+									EHDAA:801
+								</emapaId>
+								<groupPathStatus emapId="EHDA:6989">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7096">
+									<name emapId="EHDA:7096">
+										chorionic villus cytotrophoblast
+									</name>
+									<emapaId emapId="EHDA:7096">
+										EHDAA:812
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7096">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:7005">
+									<name emapId="EHDA:7005">
+										chorionic villus mesenchyme
+									</name>
+									<emapaId emapId="EHDA:7005">
+										EHDAA:802
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7005">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+								<timedComponent emapId="EHDA:7021">
+									<name emapId="EHDA:7021">
+										chorionic villus syncytiotropbalst
+									</name>
+									<emapaId emapId="EHDA:7021">
+										EHDAA:803
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7021">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:9921">
+							<name emapId="EHDA:9921">
+								secondary yolk sac
+							</name>
+							<emapaId emapId="EHDA:9921">
+								EHDAA:1367
+							</emapaId>
+							<groupPathStatus emapId="EHDA:9921">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:13611">
+								<name emapId="EHDA:13611">
+									secondary yolk sac cavity
+								</name>
+								<emapaId emapId="EHDA:13611">
+									EHDAA:1901
+								</emapaId>
+								<groupPathStatus emapId="EHDA:13611">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:9894">
+								<name emapId="EHDA:9894">
+									secondary yolk sac endoderm
+								</name>
+								<emapaId emapId="EHDA:9894">
+									EHDAA:1362
+								</emapaId>
+								<groupPathStatus emapId="EHDA:9894">
+									notInGroupPath
+								</groupPathStatus>
+							</timedComponent>
+							<timedComponent emapId="EHDA:9873">
+								<name emapId="EHDA:9873">
+									secondary yolk sac mesenchyme
+								</name>
+								<emapaId emapId="EHDA:9873">
+									EHDAA:1359
+								</emapaId>
+								<groupPathStatus emapId="EHDA:9873">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:18412">
+									<name emapId="EHDA:18412">
+										yolk sac blood islands
+									</name>
+									<emapaId emapId="EHDA:18412">
+										EHDAA:2531
+									</emapaId>
+									<groupPathStatus emapId="EHDA:18412">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:14351">
+										<name emapId="EHDA:14351">
+											haematoblasts
+										</name>
+										<emapaId emapId="EHDA:14351">
+											EHDAA:2036
+										</emapaId>
+										<groupPathStatus emapId="EHDA:14351">
+											notInGroupPath
+										</groupPathStatus>
+										<timedComponent emapId="EHDA:7544">
+											<name emapId="EHDA:7544">
+												blood cells
+											</name>
+											<emapaId emapId="EHDA:7544">
+												EHDAA:888
+											</emapaId>
+											<groupPathStatus emapId="EHDA:7544">
+												notInGroupPath
+											</groupPathStatus>
+										</timedComponent>
+									</timedComponent>
+									<timedComponent emapId="EHDA:14351">
+										<name emapId="EHDA:14351">
+											haematoblasts
+										</name>
+										<emapaId emapId="EHDA:14351">
+											EHDAA:2036
+										</emapaId>
+										<groupPathStatus emapId="EHDA:14351">
+											notInGroupPath
+										</groupPathStatus>
+										<timedComponent emapId="EHDA:7544">
+											<name emapId="EHDA:7544">
+												blood cells
+											</name>
+											<emapaId emapId="EHDA:7544">
+												EHDAA:888
+											</emapaId>
+											<groupPathStatus emapId="EHDA:7544">
+												notInGroupPath
+											</groupPathStatus>
+										</timedComponent>
+									</timedComponent>
+								</timedComponent>
+								<timedComponent emapId="EHDA:18412">
+									<name emapId="EHDA:18412">
+										yolk sac blood islands
+									</name>
+									<emapaId emapId="EHDA:18412">
+										EHDAA:2531
+									</emapaId>
+									<groupPathStatus emapId="EHDA:18412">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:14351">
+										<name emapId="EHDA:14351">
+											haematoblasts
+										</name>
+										<emapaId emapId="EHDA:14351">
+											EHDAA:2036
+										</emapaId>
+										<groupPathStatus emapId="EHDA:14351">
+											notInGroupPath
+										</groupPathStatus>
+										<timedComponent emapId="EHDA:7544">
+											<name emapId="EHDA:7544">
+												blood cells
+											</name>
+											<emapaId emapId="EHDA:7544">
+												EHDAA:888
+											</emapaId>
+											<groupPathStatus emapId="EHDA:7544">
+												notInGroupPath
+											</groupPathStatus>
+										</timedComponent>
+									</timedComponent>
+									<timedComponent emapId="EHDA:14351">
+										<name emapId="EHDA:14351">
+											haematoblasts
+										</name>
+										<emapaId emapId="EHDA:14351">
+											EHDAA:2036
+										</emapaId>
+										<groupPathStatus emapId="EHDA:14351">
+											notInGroupPath
+										</groupPathStatus>
+										<timedComponent emapId="EHDA:7544">
+											<name emapId="EHDA:7544">
+												blood cells
+											</name>
+											<emapaId emapId="EHDA:7544">
+												EHDAA:888
+											</emapaId>
+											<groupPathStatus emapId="EHDA:7544">
+												notInGroupPath
+											</groupPathStatus>
+										</timedComponent>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+				<timedComponent emapId="EHDA:8153">
+					<name emapId="EHDA:8153">
+						human embryo
+					</name>
+					<emapaId emapId="EHDA:8153">
+						EHDAA:1005
+					</emapaId>
+					<groupPathStatus emapId="EHDA:8153">
+						notInGroupPath
+					</groupPathStatus>
+					<timedComponent emapId="EHDA:11395">
+						<name emapId="EHDA:11395">
+							definitive endoderm
+						</name>
+						<emapaId emapId="EHDA:11395">
+							EHDAA:1604
+						</emapaId>
+						<groupPathStatus emapId="EHDA:11395">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EHDA:8391">
+						<name emapId="EHDA:8391">
+							ectoderm
+						</name>
+						<emapaId emapId="EHDA:8391">
+							EHDAA:1042
+						</emapaId>
+						<groupPathStatus emapId="EHDA:8391">
+							notInGroupPath
+						</groupPathStatus>
+					</timedComponent>
+					<timedComponent emapId="EHDA:10979">
+						<name emapId="EHDA:10979">
+							hypoblast
+						</name>
+						<emapaId emapId="EHDA:10979">
+							EHDAA:1532
+						</emapaId>
+						<groupPathStatus emapId="EHDA:10979">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:5535">
+							<name emapId="EHDA:5535">
+								extraembryonic endoderm
+							</name>
+							<emapaId emapId="EHDA:5535">
+								EHDAA:549
+							</emapaId>
+							<groupPathStatus emapId="EHDA:5535">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+						<timedComponent emapId="EHDA:9894">
+							<name emapId="EHDA:9894">
+								secondary yolk sac endoderm
+							</name>
+							<emapaId emapId="EHDA:9894">
+								EHDAA:1362
+							</emapaId>
+							<groupPathStatus emapId="EHDA:9894">
+								notInGroupPath
+							</groupPathStatus>
+						</timedComponent>
+					</timedComponent>
+					<timedComponent emapId="EHDA:17234">
+						<name emapId="EHDA:17234">
+							organ system group
+						</name>
+						<emapaId emapId="EHDA:17234">
+							EHDAA:2434
+						</emapaId>
+						<groupPathStatus emapId="EHDA:17234">
+							notInGroupPath
+						</groupPathStatus>
+						<timedComponent emapId="EHDA:14661">
+							<name emapId="EHDA:14661">
+								cardiovascular system
+							</name>
+							<emapaId emapId="EHDA:14661">
+								EHDAA:2099
+							</emapaId>
+							<groupPathStatus emapId="EHDA:14661">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:13856">
+								<name emapId="EHDA:13856">
+									vascular system
+								</name>
+								<emapaId emapId="EHDA:13856">
+									EHDAA:1944
+								</emapaId>
+								<groupPathStatus emapId="EHDA:13856">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:18253">
+									<name emapId="EHDA:18253">
+										blood
+									</name>
+									<emapaId emapId="EHDA:18253">
+										EHDAA:2518
+									</emapaId>
+									<groupPathStatus emapId="EHDA:18253">
+										notInGroupPath
+									</groupPathStatus>
+									<timedComponent emapId="EHDA:7544">
+										<name emapId="EHDA:7544">
+											blood cells
+										</name>
+										<emapaId emapId="EHDA:7544">
+											EHDAA:888
+										</emapaId>
+										<groupPathStatus emapId="EHDA:7544">
+											notInGroupPath
+										</groupPathStatus>
+									</timedComponent>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+						<timedComponent emapId="EHDA:10941">
+							<name emapId="EHDA:10941">
+								haemolymphoid system
+							</name>
+							<emapaId emapId="EHDA:10941">
+								EHDAA:1527
+							</emapaId>
+							<groupPathStatus emapId="EHDA:10941">
+								notInGroupPath
+							</groupPathStatus>
+							<timedComponent emapId="EHDA:18253">
+								<name emapId="EHDA:18253">
+									blood
+								</name>
+								<emapaId emapId="EHDA:18253">
+									EHDAA:2518
+								</emapaId>
+								<groupPathStatus emapId="EHDA:18253">
+									notInGroupPath
+								</groupPathStatus>
+								<timedComponent emapId="EHDA:7544">
+									<name emapId="EHDA:7544">
+										blood cells
+									</name>
+									<emapaId emapId="EHDA:7544">
+										EHDAA:888
+									</emapaId>
+									<groupPathStatus emapId="EHDA:7544">
+										notInGroupPath
+									</groupPathStatus>
+								</timedComponent>
+							</timedComponent>
+						</timedComponent>
+					</timedComponent>
+				</timedComponent>
+			</timedComponent>
+		</timedComponent>
+	</mouseAnatomyReport>
+	<anatomyDatabaseVersion date="2012-09-13 10:31:41" number="2"/>
+	<perspective>
+		Whole Human
+	</perspective>
+</request>

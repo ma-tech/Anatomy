@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mouseAnatomyReport>
+  <anatomyDatabaseVersion date="2010-04-16 09:59:40" number="6"/>
+  <perspective>Whole mouse</perspective>
+  <stage>TS04</stage>
+  <groupStatusKey>
+    <groupStatus status="notInGroupPath">Term is not a group nor is it contained in a group.</groupStatus>
+    <groupStatus status="isGroup">Term a group.</groupStatus>
+    <groupStatus status="isGroupDirectDescendant">Term is directly contained in a group.</groupStatus>
+    <groupStatus status="isGroupIndirectDescendant">Term is indirectly contained in a group.</groupStatus>
+  </groupStatusKey>
+  <timedComponent emapId="EMAP:25769">
+    <name>mouse</name>
+    <emapaId>EMAPA:25765</emapaId>
+    <groupPathStatus>notInGroupPath</groupPathStatus>
+    <timedComponent emapId="EMAP:13">
+      <name>compacted morula</name>
+      <emapaId>EMAPA:16040</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+    <timedComponent emapId="EMAP:12">
+      <name>embryo</name>
+      <emapaId>EMAPA:16039</emapaId>
+      <groupPathStatus>isGroup</groupPathStatus>
+      <timedComponent emapId="EMAP:13">
+        <name>compacted morula</name>
+        <emapaId>EMAPA:16040</emapaId>
+        <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:14">
+        <name>inner cell mass</name>
+        <emapaId>EMAPA:16041</emapaId>
+        <groupPathStatus>isGroupDirectDescendant</groupPathStatus>
+      </timedComponent>
+    </timedComponent>
+    <timedComponent emapId="EMAP:15">
+      <name>extraembryonic component</name>
+      <emapaId>EMAPA:16042</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+      <timedComponent emapId="EMAP:16">
+        <name>cavities and their linings</name>
+        <emapaId>EMAPA:16043</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:17">
+          <name>blastocoelic cavity</name>
+          <emapaId>EMAPA:16044</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:18">
+        <name>second polar body</name>
+        <emapaId>EMAPA:16045</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+      <timedComponent emapId="EMAP:19">
+        <name>trophectoderm</name>
+        <emapaId>EMAPA:16046</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+        <timedComponent emapId="EMAP:20">
+          <name>mural trophectoderm</name>
+          <emapaId>EMAPA:16047</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+        </timedComponent>
+        <timedComponent emapId="EMAP:21">
+          <name>polar trophectoderm</name>
+          <emapaId>EMAPA:16048</emapaId>
+          <groupPathStatus>notInGroupPath</groupPathStatus>
+        </timedComponent>
+      </timedComponent>
+      <timedComponent emapId="EMAP:22">
+        <name>zona pellucida</name>
+        <emapaId>EMAPA:16049</emapaId>
+        <groupPathStatus>notInGroupPath</groupPathStatus>
+      </timedComponent>
+    </timedComponent>
+    <timedComponent emapId="EMAP:14">
+      <name>inner cell mass</name>
+      <emapaId>EMAPA:16041</emapaId>
+      <groupPathStatus>notInGroupPath</groupPathStatus>
+    </timedComponent>
+  </timedComponent>
+</mouseAnatomyReport>

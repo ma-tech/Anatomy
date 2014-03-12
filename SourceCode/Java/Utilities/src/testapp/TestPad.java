@@ -30,7 +30,7 @@ public class TestPad {
     		paddedString = StringPad.pad(testStringAsInt, testLength, testCharacter); 
     		System.out.println("paddedString(input int)    = " + paddedString);  
 
-            char padChar = ' ';
+            char padChar = '*';
             System.out.println("utility.StringPad.pad(\"*\", 7, padChar):" + utility.StringPad.pad("*", 7, padChar));
             
             padChar = '0';

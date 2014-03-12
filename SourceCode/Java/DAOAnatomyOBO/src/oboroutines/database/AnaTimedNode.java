@@ -46,7 +46,6 @@ import java.util.Vector;
 import utility.Wrapper;
 import utility.ObjectConverter;
 import utility.MySQLDateTime;
-
 import daointerface.LogDAO;
 import daointerface.StageDAO;
 import daointerface.ThingDAO;
@@ -54,10 +53,8 @@ import daointerface.TimedNodeDAO;
 import daointerface.TimedIdentifierDAO;
 import daointerface.VersionDAO;
 import daointerface.JOINTimedNodeStageDAO;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daomodel.Log;
 import daomodel.Stage;
 import daomodel.Thing;
@@ -66,7 +63,6 @@ import daomodel.TimedIdentifier;
 import daomodel.Version;
 import daomodel.JOINTimedNodeStage;
 import obomodel.OBOComponent;
-
 import oboroutines.database.AnaObject;
 
 public class AnaTimedNode {
@@ -253,17 +249,27 @@ public class AnaTimedNode {
                     	else {
                     		
                             if (strSpecies.equals("mouse")) {
-                           	   
-                                //System.out.println("component.getID().substring(6, 11) = " + component.getID().substring(6, 11));
-                                //System.out.println("timedComponent.getStart().substring(2, 4) = " + timedComponent.getStart().substring(2, 4));
 
                             	timedComponent.setID( "EMAPT:" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
                                 timedComponent.setDisplayId( "EMAPT:00" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
                             }
                             else if (strSpecies.equals("human")) {
                          	   
-                            	timedComponent.setID( "EHDAT:" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
-                                timedComponent.setDisplayId( "EHDAT:00" + component.getID().substring(6, 11) + timedComponent.getStart().substring(2, 4) );
+                        		String strPrefix = "EHDAT:";
+                        		String strDigit = component.getID().substring(6);
+
+                            	String strANO_PUBLIC_ID = strPrefix + utility.StringPad.pad(strDigit, 5, '0');
+                        		String strANO_DISPLAY_ID = strPrefix + utility.StringPad.pad(strDigit, 7, '0');
+
+                    			strANO_PUBLIC_ID = strANO_PUBLIC_ID + timedComponent.getStart().substring(2);
+                    			strANO_DISPLAY_ID = strANO_DISPLAY_ID + timedComponent.getStart().substring(2);
+                        		
+                            	timedComponent.setID( strANO_PUBLIC_ID );
+                                timedComponent.setDisplayId( strANO_DISPLAY_ID );
+
+                                //System.out.println("timedComponent.getID()        = " + timedComponent.getID());
+                                //System.out.println("timedComponent.getDisplayId() = " + timedComponent.getDisplayId());
+
                             }
                             else if (strSpecies.equals("chick")) {
                          	   
@@ -340,7 +346,7 @@ public class AnaTimedNode {
                     String strATN_PUBLIC_ID = component.getID();
                     String strATN_DISPLAY_ID = component.getDisplayId();
                     
-                    TimedNode timednode = new TimedNode( longATN_OID, longATN_NODE_FK, longATN_STAGE_FK, null, strATN_PUBLIC_ID, strATN_DISPLAY_ID );
+                    TimedNode timednode = new TimedNode( longATN_OID, longATN_NODE_FK, longATN_STAGE_FK, "", strATN_PUBLIC_ID, strATN_DISPLAY_ID );
                     
                     //System.out.println("timednode.toString() = " + timednode.toString());
 

@@ -59,7 +59,7 @@ public class UpdateDatabaseWithBaseData {
             InputStream csvInput = FileUtil.readStream(new File( fileName ));
             
             // Create Anatomy List
-        	Anatomy anatomy = new Anatomy( daofactory, CsvUtil.parseCsv(csvInput, ';') );
+        	Anatomy anatomy = new Anatomy( daofactory, CsvUtil.parseCsv(csvInput, separator) );
         	
         	// Update the Database with the Anatomy Data
         	anatomy.updateDatabase();

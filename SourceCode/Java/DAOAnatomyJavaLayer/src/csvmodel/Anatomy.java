@@ -586,6 +586,35 @@ public class Anatomy {
 	}
 
 	/*
+     * Create the Mega 2D Array from the 16 Anatomy DB Tables
+     */
+	public void createCSV2DArrayFromDatabaseBaseDataOnly() throws Exception {
+		
+    	try {
+        	
+    		addSpeciesToCSV2DArray();
+    		addEvidenceToCSV2DArray();
+    		addSourceFormatToCSV2DArray();
+    		addStageModifierToCSV2DArray();
+    		addRelationshipTypeToCSV2DArray();
+    		addProjectToCSV2DArray();
+    		addPerspectiveToCSV2DArray();
+    		addEditorToCSV2DArray();
+    		addSourceToCSV2DArray();
+    		addStageToCSV2DArray();
+    		addVersionToCSV2DArray();
+    	}
+    	catch ( DAOException dao ) {
+
+    		dao.printStackTrace();
+    	} 
+    	catch ( Exception ex ) {
+    
+    		ex.printStackTrace();
+    	} 
+	}
+
+	/*
      * update the  Anatomy DB Table from 16 Lists of Objects
      */
 	public void updateDatabase() throws Exception {

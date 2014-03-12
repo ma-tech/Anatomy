@@ -1,13 +1,13 @@
 -- MOUSE EMPTY011 GUDMAP LOCALHOST
-empty011Localhost.url=jdbc:mysql://localhost:3306/empty011
-empty011Localhost.driver=com.mysql.jdbc.Driver
-empty011Localhost.username=root
-empty011Localhost.password=null
-empty011Localhost.debug=true
-empty011Localhost.update=true
-empty011Localhost.sqloutput=/tmp/sqlout.log
-empty011Localhost.msglevel=*
-empty011Localhost.access=JDBC
+mouse011Localhost.url=jdbc:mysql://localhost:3306/mouse011
+mouse011Localhost.driver=com.mysql.jdbc.Driver
+mouse011Localhost.username=root
+mouse011Localhost.password=null
+mouse011Localhost.debug=true
+mouse011Localhost.update=true
+mouse011Localhost.sqloutput=/tmp/sqlout.log
+mouse011Localhost.msglevel=*
+mouse011Localhost.access=JDBC
 
 -- MOUSE VERSION011 GUDMAP LOCALHOST
 mouse011GudmapLocalhost.url=jdbc:mysql://localhost:3306/mouse011
@@ -165,3 +165,14 @@ chick010Localhost.update=true
 chick010Localhost.sqloutput=/tmp/sqlout.log
 chick010Localhost.msglevel=***
 chick010Localhost.access=JDBC
+
+-- HUMAN 010 LOCALHOST
+human010Localhost.url=jdbc:mysql://localhost:3306/human010
+human010Localhost.driver=com.mysql.jdbc.Driver
+human010Localhost.username=root
+human010Localhost.password=null
+human010Localhost.debug=true
+human010Localhost.update=true
+human010Localhost.sqloutput=/tmp/sqlout.log
+human010Localhost.msglevel=*
+human010Localhost.access=JDBC

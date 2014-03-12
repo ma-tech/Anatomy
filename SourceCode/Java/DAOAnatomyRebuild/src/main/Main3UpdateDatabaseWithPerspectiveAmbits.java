@@ -37,13 +37,11 @@
 package main;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
 import daolayer.DAOProperty;
-
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
-
+import routines.runnable.UpdateDatabaseWithBaseData;
 import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
 
 public class Main3UpdateDatabaseWithPerspectiveAmbits{
@@ -66,7 +64,9 @@ public class Main3UpdateDatabaseWithPerspectiveAmbits{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
+            char separator = ';';
+
+            UpdateDatabaseWithBaseData.run( daofactory, obofactory, args[4], separator );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

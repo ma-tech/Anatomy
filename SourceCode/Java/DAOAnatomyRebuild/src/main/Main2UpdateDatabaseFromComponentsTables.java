@@ -84,7 +84,7 @@ public class Main2UpdateDatabaseFromComponentsTables{
             
             RebuildRelationshipProjectFromComponentsTables.run( daofactory );
             
-            UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
+            //UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
 
             //System.setOut(original);
         }

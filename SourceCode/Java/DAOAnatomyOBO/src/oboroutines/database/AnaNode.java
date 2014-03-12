@@ -272,10 +272,11 @@ public class AnaNode {
                 	}
                 	else {
                 		
-                    	strANO_PUBLIC_ID = component.getID();
-                    	
-                    	// TO DO - Add 2 digit padding!
-                		strANO_DISPLAY_ID = component.getID();
+                		String strPrefix = component.getID().substring(0, 6);
+                		String strDigit = component.getID().substring(6);
+                		
+                    	strANO_PUBLIC_ID = strPrefix + utility.StringPad.pad(strDigit, 5, '0');
+                		strANO_DISPLAY_ID = strPrefix + utility.StringPad.pad(strDigit, 7, '0');
                 	}
 
                 	// Column 7

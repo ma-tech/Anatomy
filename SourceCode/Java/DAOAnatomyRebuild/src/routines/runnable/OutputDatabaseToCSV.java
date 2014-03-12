@@ -62,6 +62,7 @@ public class OutputDatabaseToCSV {
         	
         	// Populate the Anatomy Array with Data from 16 Tables 
         	anatomy.createCSV2DArrayFromDatabase();
+        	//anatomy.createCSV2DArrayFromDatabaseBaseDataOnly();
         	
          	// Format Anatomy into an InputStream
             InputStream csvInput = CsvUtil.formatCsv(anatomy.getCsv2DStringArray(), separator);

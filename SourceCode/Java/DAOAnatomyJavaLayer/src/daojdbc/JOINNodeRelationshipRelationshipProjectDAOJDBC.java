@@ -83,7 +83,8 @@ public final class JOINNodeRelationshipRelationshipProjectDAOJDBC implements JOI
         "JOIN ANA_NODE ON REL_PARENT_FK = ANO_OID " +
         "JOIN ANA_RELATIONSHIP_PROJECT ON REL_OID = RLP_RELATIONSHIP_FK " +
         "WHERE REL_CHILD_FK = ? " +
-        "AND RLP_PROJECT_FK = ? ";
+        "AND RLP_PROJECT_FK = ? " +
+        "ORDER BY ANO_PUBLIC_ID ";
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;

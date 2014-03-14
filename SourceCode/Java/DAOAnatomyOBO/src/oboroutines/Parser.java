@@ -201,6 +201,7 @@ public class Parser {
 
             		ArrayList<String> alternativeIds = new ArrayList<String>();
             		ArrayList<String> childOfs = new ArrayList<String>();
+            		ArrayList<String> childOfNames = new ArrayList<String>();
             		ArrayList<String> childOfTypes = new ArrayList<String>();
             		ArrayList<String> synonyms = new ArrayList<String>();
             		ArrayList<String> userComments = new ArrayList<String>();
@@ -253,6 +254,7 @@ public class Parser {
                     		//"NONE",
                     		"UNCHECKED",
                      		childOfs,
+                     		childOfNames,
                     		childOfTypes,
                     		synonyms,
                     		userComments,
@@ -391,6 +393,7 @@ public class Parser {
               	OBOClassImpl oboclassimpl = iteratorObsoletes.next();
                     
                 ArrayList<String> childOfs = new ArrayList<String>();
+                ArrayList<String> childOfNames = new ArrayList<String>();
             	ArrayList<String> childOfTypes = new ArrayList<String>();
             	ArrayList<String> synonyms = new ArrayList<String>();
             	ArrayList<String> userComments = new ArrayList<String>();
@@ -410,6 +413,7 @@ public class Parser {
                     "DELETE",
                     "UNCHECKED",
                     childOfs,
+                    childOfNames,
                     childOfTypes,
                     synonyms,
                     userComments,

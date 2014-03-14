@@ -37,8 +37,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+//import java.util.HashMap;
 import java.util.Iterator;
+//import java.util.List;
+//import java.util.Map;
 
 import utility.Wrapper;
 
@@ -203,12 +207,17 @@ public class Producer {
             outputFile.write("date: " + formattedDate + "\n");
 
             outputFile.write("saved-by: " + fileSavedBy + "\n");
+            outputFile.write("auto-generated-by: Main4ExtractAndWriteOBOFromExistingDatabase.java\n");
             outputFile.write("default-namespace: " + fileNameSpace + "\n");
             outputFile.write("remark: " + fileRemark + "\n\n");
 
             // terms - OBOComponent
             //  for i
             for (int i=0; i<obocomponentList.size(); i++) {
+            	
+            	Collections.sort(obocomponentList);
+            	
+            	//HashMap mapPartOfs = new HashMap();
             	
                 if ( !obocomponentList.get(i).getStatusChange().equals("DELETE") ){
 
@@ -217,6 +226,11 @@ public class Producer {
                     outputFile.write("name: " + obocomponentList.get(i).getName() + "\n");
 
                     /*
+                    if ( stage.equals("Abstract")) {
+                    	
+                        System.out.println("id: " + obocomponentList.get(i).getID());
+                    }
+
                     if ( stage.equals("TS01") ) {
                     	
                         System.out.println("stage = " + stage);
@@ -224,18 +238,22 @@ public class Producer {
                     }
                     */
                     
+                    /*
                 	if ( obocomponentList.get(i).getNamespace().equals("group_term") ) {
 
                         outputFile.write("namespace: " + "group_term" + "\n");
                     }
+                    */
                 	if ( obocomponentList.get(i).getNamespace().equals("theiler_stage") ) {
 
                         outputFile.write("namespace: " + "theiler_stage" + "\n");
                     }
+                	/*
                 	if ( obocomponentList.get(i).getNamespace().equals("new_group_namespace") ) {
 
                         outputFile.write("namespace: " + "new_group_namespace" + "\n");
                     }
+                    */
 
                     if ( stage.equals("Abstract")) {
                     	
@@ -284,102 +302,12 @@ public class Producer {
                     	!obocomponentList.get(i).getNamespace().equals(HUMAN_STAGE) ||
                     	!obocomponentList.get(i).getNamespace().equals(CHICK_STAGE) ||
                     		
-                        !obocomponentList.get(i).getNamespace().equals("new_group_namespace") &&
-                        !obocomponentList.get(i).getNamespace().equals("group_term") &&
+                        //!obocomponentList.get(i).getNamespace().equals("new_group_namespace") &&
+                        //!obocomponentList.get(i).getNamespace().equals("group_term") &&
                         
                         !obocomponentList.get(i).getName().equals(MOUSE_NAME) &&
                         !obocomponentList.get(i).getName().equals(HUMAN_NAME) &&
                         !obocomponentList.get(i).getName().equals(CHICK_NAME) ){
-
-                    	// part_of relationships
-                        for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
-                        	
-                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_FROM")) {
-                        		
-                                outputFile.write("relationship: develops_from " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("LOCATED_IN")) {
-                        		
-                                outputFile.write("relationship: located_in " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_IN")) {
-                        		
-                                outputFile.write("relationship: develops_in " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("HAS_PART")) {
-                        		
-                                outputFile.write("relationship: has_part " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("ATTACHED_TO")) {
-                        		
-                                outputFile.write("relationship: attached_to " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DISJOINT_FROM")) {
-                        		
-                                outputFile.write("relationship: disjoint_from " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("PART_OF")) {
-                        		
-                                outputFile.write("relationship: part_of " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("IS_A")) {
-                        		
-                                outputFile.write("relationship: is_a " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("GROUP_PART_OF")) {
-                        		
-                                outputFile.write("relationship: group_part_of " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("CONNECTED_TO")) {
-                        		
-                                outputFile.write("relationship: connected_to " +
-                                		obocomponentList.get(i).getChildOfs().get(j) + "\n");
-                            }
-                            else {
-                            	
-                        	    Wrapper.printMessage("producer.writeOboFile:UNKNOWN OBORelationship Type = " + obocomponentList.get(i).getChildOfTypes().get(j) + "!", "*", this.msgLevel);
-                            }
-                        }
-
-                        if ( !obocomponentList.get(i).getStart().equals("") ) {
-                        	
-                            outputFile.write("relationship: starts_at " +
-                            		obocomponentList.get(i).getStart() + "\n");
-                        }
-                        
-                        if ( !obocomponentList.get(i).getEnd().equals("") ) {
-                        	
-                            outputFile.write("relationship: ends_at " +
-                            		obocomponentList.get(i).getEnd() + "\n");
-                        }
-                        
-                        /*
-                        if ( obocomponentList.get(i).isPresent() == false ) {
-                        	
-                        	if ( !(obocomponentList.get(i).getNamespace().equals("group_term") ||
-                        			obocomponentList.get(i).getNamespace().equals("new_group_namespace") ||
-                        			obocomponentList.get(i).getNamespace().equals("theiler_stage") ) ) {
-
-                                outputFile.write("relationship: present_in " +
-                                        Boolean.valueOf(obocomponentList.get(i).isPresent()) + "\n");
-                            }
-                        }
-                        */
-
-                        for (int j=0; j<obocomponentList.get(i).getSynonyms().size(); j++) {
-                        	
-                            outputFile.write("related_synonym: \"" +
-                            		obocomponentList.get(i).getSynonyms().get(j) + "\" []\n");
-                        }
 
                         if ( this.boolAlternatives ) {
                         	
@@ -399,15 +327,115 @@ public class Producer {
                             }
                         }
 
+                        if (!obocomponentList.get(i).getOrderComment().equals("")) {
+                        	
+                            outputFile.write("comment: " + obocomponentList.get(i).getOrderComment() + "\n");
+                        }
+
+                        for (int j=0; j<obocomponentList.get(i).getSynonyms().size(); j++) {
+                        	
+                            outputFile.write("synonym: \"" +
+                            		obocomponentList.get(i).getSynonyms().get(j) + "\" RELATED []\n");
+                        }
+
+                        for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
+                        	
+                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("IS_A")) {
+                        		
+                        		//System.out.println("obocomponentList.get(i).getChildOfs().get(j) = " + obocomponentList.get(i).getChildOfs().get(j));
+                        		
+                                outputFile.write("is_a: " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        }
+
+                        if ( !obocomponentList.get(i).getEnd().equals("") ) {
+                        	
+                            outputFile.write("relationship: ends_at " + obocomponentList.get(i).getEnd() + 
+                            		" ! " + obocomponentList.get(i).getEnd() + "\n");
+                        }
+                        
+                    	// part_of relationships
+                        for (int j=0; j<obocomponentList.get(i).getChildOfs().size(); j++) {
+                        	
+                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("ATTACHED_TO")) {
+                        		
+                                outputFile.write("relationship: attached_to " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("CONNECTED_TO")) {
+                        		
+                                outputFile.write("relationship: connected_to " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_FROM")) {
+                        		
+                                outputFile.write("relationship: develops_from " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DEVELOPS_IN")) {
+                        		
+                                outputFile.write("relationship: develops_in " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("DISJOINT_FROM")) {
+                        		
+                                outputFile.write("relationship: disjoint_from " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("GROUP_PART_OF")) {
+                        		
+                                outputFile.write("relationship: group_part_of " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("HAS_PART")) {
+                        		
+                                outputFile.write("relationship: has_part " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	if (obocomponentList.get(i).getChildOfTypes().get(j).equals("IS_A")) {
+                        		
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("LOCATED_IN")) {
+                        		
+                                outputFile.write("relationship: located_in " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                        	else if (obocomponentList.get(i).getChildOfTypes().get(j).equals("PART_OF")) {
+
+                                outputFile.write("relationship: part_of " + obocomponentList.get(i).getChildOfs().get(j) + 
+                                		" ! " + obocomponentList.get(i).getChildOfNames().get(j) + "\n");
+                            }
+                            else {
+                            	
+                        	    Wrapper.printMessage("producer.writeOboFile:UNKNOWN OBORelationship Type = " + obocomponentList.get(i).getChildOfTypes().get(j) + "!", "*", this.msgLevel);
+                            }
+                        }
+
+                        if ( !obocomponentList.get(i).getStart().equals("") ) {
+                        	
+                            outputFile.write("relationship: starts_at " +
+                            		obocomponentList.get(i).getStart() + " ! " + obocomponentList.get(i).getStart() + "\n");
+                        }
+                        
+                        /*
+                        if ( obocomponentList.get(i).isPresent() == false ) {
+                        	
+                        	if ( !(obocomponentList.get(i).getNamespace().equals("group_term") ||
+                        			obocomponentList.get(i).getNamespace().equals("new_group_namespace") ||
+                        			obocomponentList.get(i).getNamespace().equals("theiler_stage") ) ) {
+
+                                outputFile.write("relationship: present_in " +
+                                        Boolean.valueOf(obocomponentList.get(i).isPresent()) + "\n");
+                            }
+                        }
+                        */
+
                         if (obocomponentList.get(i).isGroup()) {
                         	
                             outputFile.write("relationship: is_a group_term\n");
                         }
 
-                        if (!obocomponentList.get(i).getOrderComment().equals("")) {
-                        	
-                            outputFile.write("comment: " + obocomponentList.get(i).getOrderComment() + "\n");
-                        }
                     }
 
                     boolean firstComment = true;

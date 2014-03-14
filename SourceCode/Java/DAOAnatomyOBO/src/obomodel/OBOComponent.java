@@ -41,7 +41,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import utility.Wrapper;
 import utility.ObjectConverter;
 
-public class OBOComponent {
+public class OBOComponent implements Comparable<OBOComponent>{
 
 	// CONSTANTS
     private static final int ERROR_STAGE = -1;
@@ -79,6 +79,7 @@ public class OBOComponent {
     private boolean present;
     private ArrayList<String> childOfs;
     private ArrayList<String> childOfTypes;
+    private ArrayList<String> childOfNames;
     private ArrayList<String> synonyms;
     private String statusChange; //"NONE"|"INSERT"|"UPDATE"|"DELETE"
     private String statusRule;   //"UNCHECKED"|"PASSED"|"FAILED"
@@ -127,6 +128,7 @@ public class OBOComponent {
 
         this.childOfs = new ArrayList<String>();
         this.childOfTypes = new ArrayList<String>();
+        this.childOfNames = new ArrayList<String>();
         this.synonyms = new ArrayList<String>();
         this.userComments = new ArrayList<String>();
         this.orderComment = "";
@@ -180,6 +182,7 @@ public class OBOComponent {
 
         this.childOfs = new ArrayList<String>();
         this.childOfTypes = new ArrayList<String>();
+        this.childOfNames = new ArrayList<String>();
         this.synonyms = new ArrayList<String>();
         this.userComments = new ArrayList<String>();
         this.orderComment = "";
@@ -211,6 +214,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -220,6 +224,7 @@ public class OBOComponent {
     	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
+        this.childOfNames = childOfNames;
         this.childOfTypes = childOfTypes;
         this.synonyms = synonyms;
         this.userComments = userComments;
@@ -244,6 +249,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -254,6 +260,7 @@ public class OBOComponent {
     	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
+    	this.childOfNames = childOfNames;
         this.childOfTypes = childOfTypes;
         this.synonyms = synonyms;
         this.userComments = userComments;
@@ -279,6 +286,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -287,7 +295,7 @@ public class OBOComponent {
     		ArrayList<String> alternativeIds,
     		ArrayList<String> timedComponents) {
     	
-    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfNames, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
 
         this.timedComponents = timedComponents;
     }
@@ -326,6 +334,7 @@ public class OBOComponent {
         this.statusRule = statusRule;
 
         this.childOfs = new ArrayList<String>();
+        this.childOfNames = new ArrayList<String>();
         this.childOfTypes = new ArrayList<String>();
         this.synonyms = new ArrayList<String>();
         this.userComments = new ArrayList<String>();
@@ -358,6 +367,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -367,6 +377,7 @@ public class OBOComponent {
     	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
+    	this.childOfNames = childOfNames;
         this.childOfTypes = childOfTypes;
         this.synonyms = synonyms;
         this.userComments = userComments;
@@ -391,6 +402,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -401,6 +413,7 @@ public class OBOComponent {
     	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule);
 
     	this.childOfs = childOfs;
+    	this.childOfNames = childOfNames;
         this.childOfTypes = childOfTypes;
         this.synonyms = synonyms;
         this.userComments = userComments;
@@ -426,6 +439,7 @@ public class OBOComponent {
     		String statusChange, 
     		String statusRule,
     		ArrayList<String> childOfs,
+    		ArrayList<String> childOfNames,
     		ArrayList<String> childOfTypes,
     		ArrayList<String> synonyms, 
     		ArrayList<String> userComments,
@@ -434,7 +448,7 @@ public class OBOComponent {
     		ArrayList<String> alternativeIds,
     		ArrayList<String> timedComponents) {
     	
-    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
+    	this(name, id, displayId, dbID, newid, namespace, definition, group, start, end, present, statusChange, statusRule, childOfs, childOfNames, childOfTypes, synonyms, userComments, orderComment, comments, alternativeIds);
 
         this.timedComponents = timedComponents;
     }
@@ -472,6 +486,9 @@ public class OBOComponent {
     }
     public ArrayList<String> getChildOfs() {
         return this.childOfs;
+    }
+    public ArrayList<String> getChildOfNames() {
+        return this.childOfNames;
     }
     public ArrayList<String> getChildOfTypes() {
         return this.childOfTypes;
@@ -2074,6 +2091,9 @@ public class OBOComponent {
     public void setChildOfs( ArrayList<String> childOfs ) {
         this.childOfs = childOfs;
     }
+    public void setChildOfNames( ArrayList<String> childOfNames ) {
+        this.childOfNames = childOfNames;
+    }
     public void setChildOfTypes( ArrayList<String> childOfTypes ) {
         this.childOfTypes = childOfTypes;
     }
@@ -2141,6 +2161,9 @@ public class OBOComponent {
     public void addChildOf( String childOf ) {
         this.childOfs.add( childOf ); 
     }
+    public void addChildOfName( String childOfName ) {
+        this.childOfNames.add( childOfName ); 
+    }
     public int getChildOfIndex( String childOf ) {
     	
         Iterator<String> iteratorChildOfs = this.getChildOfs().iterator();
@@ -2204,6 +2227,9 @@ public class OBOComponent {
     }
     public void removeChildOf( String childOf ){
         this.childOfs.remove( childOf );
+    }
+    public void removeChildOfName( String childOfName ){
+        this.childOfNames.remove( childOfName );
     }
     public void removeChildOfType( String childOfType ){
         this.childOfTypes.remove( childOfType );
@@ -2643,6 +2669,16 @@ public class OBOComponent {
                 unprocessed = orderArray[i];
                 unprocessed = unprocessed.replace("\n", "");
                 unprocessed = unprocessed.trim();
+                
+                // Chop off trailing full stops!!
+                if ( unprocessed.length() > 1 ) {
+                	
+                    if ( unprocessed.substring( 0, unprocessed.length() - 1 ).equals(".") ) {
+                    	
+                    	unprocessed = unprocessed.substring( 0, unprocessed.length() - 1 );
+                    }
+                }
+               
                 orderArray[i] = unprocessed;
                 
                 if ( !unprocessed.equals("") ) {
@@ -2943,4 +2979,13 @@ public class OBOComponent {
         return String.format("%s,%s,%s,%s,%s,%b", 
         		id, start, end, fullRelations, name, group);
     }
+    
+    /*
+     * Implement the Comparable Interface to enable ordering of lists of OBOComponents based on ID
+     */
+    public int compareTo(OBOComponent obocomponent) {
+        int lastCmp = id.toUpperCase().compareTo((obocomponent.id).toUpperCase());
+        return (lastCmp != 0 ? lastCmp : id.compareTo(obocomponent.id));
+    }
+
 }

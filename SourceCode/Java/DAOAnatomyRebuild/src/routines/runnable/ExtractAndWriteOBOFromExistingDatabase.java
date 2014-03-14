@@ -92,7 +92,7 @@ public class ExtractAndWriteOBOFromExistingDatabase {
         Stage stage = new Stage();
         
         Iterator<Stage> iteratorStage = stages.iterator();
-        
+
         while ( iteratorStage.hasNext() ) {
         	
            	stage = iteratorStage.next();

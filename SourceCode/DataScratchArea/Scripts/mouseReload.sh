@@ -17,6 +17,6 @@ cd /Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/SQL
 
 echo 'LOAD mouse011 Anatomy Database from /Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/'
 
-#mysql -uroot mouse011 < mySqlSchemaAndDataAndRoutinesDump.sql
-echo 'LOAD mouse011 Anatomy Database from /Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/mySqlSchemaAndDataAndRoutinesDump.sql'
-mysql -uroot mouse011 < mySqlSchemaAndDataAndRoutinesDump.sql
+#mysql -uroot mouse011 < mouseMySqlSchemaAndDataAndRoutinesDump.sql
+echo 'LOAD mouse011 Anatomy Database from /Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/mouseMySqlSchemaAndDataAndRoutinesDump.sql'
+mysql -uroot mouse011 < mouseMySqlSchemaAndDataAndRoutinesDump.sql

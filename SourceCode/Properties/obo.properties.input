@@ -62,7 +62,6 @@ mouse011OBOfile.msglevel=*
 
 -- Jenkins MOUSE 011 OBO FILE
 mouse011AberlourJenkinsOBOfile.obobasefile=/opt/Ontology/EMAP/Base/BASE.obo
--- mouse011AberlourJenkinsOBOfile.oboinfile=/opt/Ontology/repositories/mouse/INPUT.obo
 mouse011AberlourJenkinsOBOfile.oboinfile=/opt/Ontology/EMAP/In/INPUT.obo
 mouse011AberlourJenkinsOBOfile.obooutfile=/opt/Ontology/EMAP/Out
 mouse011AberlourJenkinsOBOfile.summaryreport=/opt/Ontology/EMAP/Reports
@@ -71,7 +70,7 @@ mouse011AberlourJenkinsOBOfile.obooutfileversion=1.2
 mouse011AberlourJenkinsOBOfile.obooutfilenamespace=mouse_ontology
 mouse011AberlourJenkinsOBOfile.obooutfilesavedby=Mike Wicks
 mouse011AberlourJenkinsOBOfile.species=mouse
-mouse011AberlourJenkinsOBOfile.project=EMAP
+mouse011AberlourJenkinsOBOfile.project=GUDMAP
 mouse011AberlourJenkinsOBOfile.abstractclassid=EMAPA:0
 mouse011AberlourJenkinsOBOfile.abstractclassnamespace=anatomical_structure
 mouse011AberlourJenkinsOBOfile.abstractclassname=Anatomical structure

@@ -31,7 +31,6 @@
 package oboroutines;
 
 import java.io.FileInputStream;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Iterator;
@@ -49,7 +48,6 @@ import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
 import utility.Wrapper;
 import utility.StringStreamConverter;
-
 import obomodel.OBOComponent;
 
 public class Parser {
@@ -238,6 +236,20 @@ public class Parser {
                 		userComments.add(words[i]);
                 		orderComments = orderComments + " " + words[i];
                     }
+                    
+                    if ( !oboclassimpl.getDefinition().equalsIgnoreCase("")) {
+                    	
+                        System.out.println("oboclassimpl.getDefinition() = " + oboclassimpl.getDefinition());
+                        System.out.println("oboclassimpl.getDefDbxrefs() = " + oboclassimpl.getDefDbxrefs().toString());
+                        
+                        String [] defDbxrefs = oboclassimpl.getDefDbxrefs().toString().substring(1,oboclassimpl.getDefDbxrefs().toString().length()-1).split(", ");
+                        
+                        for ( String defdbxref : defDbxrefs) {
+                        	
+                            System.out.println("defdbxref = " + defdbxref);
+                        }
+                    }
+                    
 
                     OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
                     		oboclassimpl.getID(), 
@@ -399,6 +411,20 @@ public class Parser {
             	ArrayList<String> userComments = new ArrayList<String>();
             	TreeSet<String> comments = new TreeSet<String>();
 
+                
+                if ( !oboclassimpl.getDefinition().equalsIgnoreCase("")) {
+                	
+                    System.out.println("oboclassimpl.getDefinition() = " + oboclassimpl.getDefinition());
+                    System.out.println("oboclassimpl.getDefDbxrefs() = " + oboclassimpl.getDefDbxrefs());
+                    
+                    String [] defDbxrefs = (String[]) oboclassimpl.getDefDbxrefs().toArray();
+                    
+                    for ( String defdbxref : defDbxrefs) {
+                    	
+                        System.out.println("defdbxref = " + defdbxref);
+                    }                    
+                }
+                
             	OBOComponent obocomponent = new OBOComponent(oboclassimpl.toString(), 
             		oboclassimpl.getID(), 
             		"",

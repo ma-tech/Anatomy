@@ -144,6 +144,16 @@ public class LoadOBOFileIntoComponentsTables {
                     String ordercomment = orderComments[i];
                     String [] words = ordercomment.split(" "); 
                     
+                    
+                    /*
+                    if ( words.length < 3 ) {
+                    	
+                    	System.out.println("obocomponent.getID() = " + obocomponent.getID());
+                    	System.out.println("words = " + words);
+                    	System.out.println("words[0] = " + words[0]);
+                    }
+                    */
+                    
                     /*
                      *  ComponentOrder
                      *      Long oid

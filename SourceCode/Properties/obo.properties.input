@@ -1,3 +1,34 @@
+-- EMPTY MOUSE 012 OBO FILE
+mouse012OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/mouseBASE.obo
+mouse012OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/TERRYH_EMAPA_2014-13-21.obo
+mouse012OBOfile.obooutfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO
+mouse012OBOfile.summaryreport=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/Reports
+mouse012OBOfile.obooutfileremark=Version 012
+mouse012OBOfile.obooutfileversion=1.2
+mouse012OBOfile.obooutfilenamespace=mouse_ontology
+mouse012OBOfile.obooutfilesavedby=Mike Wicks
+mouse012OBOfile.species=mouse
+mouse012OBOfile.project=GUDMAP
+mouse012OBOfile.abstractclassid=EMAPA:0
+mouse012OBOfile.abstractclassnamespace=anatomical_structure
+mouse012OBOfile.abstractclassname=Anatomical structure
+mouse012OBOfile.stageclassname=Theiler stage
+mouse012OBOfile.stageclassid=TS:0
+mouse012OBOfile.stageclassnamespace=theiler_stage
+mouse012OBOfile.groupclassname=Tmp new group
+mouse012OBOfile.groupclassid=Tmp_new_group
+mouse012OBOfile.groupclassnamespace=new_group_namespace
+mouse012OBOfile.grouptermclassname=Group term
+mouse012OBOfile.grouptermclassid=group_term
+mouse012OBOfile.grouptermclassnamespace=group_term
+mouse012OBOfile.minstagesequence=0
+mouse012OBOfile.maxstagesequence=27
+mouse012OBOfile.alternatives=false
+mouse012OBOfile.timedcomponents=false
+mouse012OBOfile.generateidentifiers=false
+mouse012OBOfile.debug=true
+mouse012OBOfile.msglevel=*
+
 -- EMPTY HUMAN 010 OBO FILE
 human010OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/humanBASE.obo
 human010OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/humanINPUT.obo
@@ -31,7 +62,8 @@ human010OBOfile.msglevel=*
 
 -- EMPTY MOUSE 011 OBO FILE
 mouse011OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/mouseBASE.obo
-mouse011OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/mouseINPUT.obo
+-- mouse011OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/mouseINPUT.obo
+mouse011OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO/EMAPA_21_Mar.obo
 mouse011OBOfile.obooutfile=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/OBO
 mouse011OBOfile.summaryreport=/Users/mwicks/GitMahost/Anatomy/SourceCode/DataScratchArea/Reports
 mouse011OBOfile.obooutfileremark=Version 011

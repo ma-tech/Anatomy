@@ -1,15 +1,2 @@
-/app
-/csvmodel
-/daointerface
-/daojdbc
-/daolayer
-/daomodel
-/main
-/oboaccess
-/obolayer
-/obomodel
 /oboroutines
 /routines
-/test
-/utility
-/testapp

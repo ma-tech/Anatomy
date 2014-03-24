@@ -1,3 +1,14 @@
+-- MOUSE EMPTY012 GUDMAP LOCALHOST
+mouse012Localhost.url=jdbc:mysql://localhost:3306/mouse012
+mouse012Localhost.driver=com.mysql.jdbc.Driver
+mouse012Localhost.username=root
+mouse012Localhost.password=null
+mouse012Localhost.debug=true
+mouse012Localhost.update=true
+mouse012Localhost.sqloutput=/tmp/sqlout.log
+mouse012Localhost.msglevel=*
+mouse012Localhost.access=JDBC
+
 -- MOUSE EMPTY011 GUDMAP LOCALHOST
 mouse011Localhost.url=jdbc:mysql://localhost:3306/mouse011
 mouse011Localhost.driver=com.mysql.jdbc.Driver

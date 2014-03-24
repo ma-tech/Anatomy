@@ -1,0 +1,100 @@
+REF_SPECIES;mouse;Mus musculus;EMAPT:;EMAPA:
+ANA_EVIDENCE;text book without experimental reference
+ANA_SOURCE_FORMAT;book
+ANA_SOURCE_FORMAT;personal communication
+ANA_STAGE_MODIFIER;Early
+ANA_STAGE_MODIFIER;Late
+ANA_STAGE_MODIFIER;LostLate
+ANA_RELATIONSHIP_TYPE;derives-from;derives from;develops into
+ANA_RELATIONSHIP_TYPE;part-of;is part of;has part
+ANA_RELATIONSHIP_TYPE;is-a;is a;is an instance of
+ANA_RELATIONSHIP_TYPE;develops-from;develops from;gives rise to
+ANA_RELATIONSHIP_TYPE;located-in;located in;contains
+ANA_RELATIONSHIP_TYPE;develops-in;develops in;hosts the development of
+ANA_RELATIONSHIP_TYPE;disjoint-from;disjoint from;disjoint from
+ANA_RELATIONSHIP_TYPE;surrounds;surrounds;is surrounded by
+ANA_RELATIONSHIP_TYPE;attached-to;attached to;attached to
+ANA_RELATIONSHIP_TYPE;has-part;has part;is part of
+ANA_PROJECT;EMAP
+ANA_PROJECT;EMAGE
+ANA_PROJECT;EUREXPRESS
+ANA_PROJECT;EUREGENE
+ANA_PROJECT;GUDMAP
+ANA_PERSPECTIVE;Adult Kidney (GenePaint);A custom perspective for use with adult kidney images produced by GenePaint for the EuReGene project.  Brigitte Kaissling uses this in Fiatas to annotate such images.  This is a highly idiosyncratic perspective and should not be used for any other purpose.  The whole need for this perspective may go away when we split TS28 into juvinile and adult.
+ANA_PERSPECTIVE;Renal;Renal/Urinary subset of the mouse anatomy ontology.
+ANA_PERSPECTIVE;Urogenital;Reproductive and Renal/Urinary subset of the mouse anatomy ontology.
+ANA_PERSPECTIVE;Whole mouse;The entire mouse anatomy ontology.
+ANA_EDITOR;Duncan Davidson
+ANA_EDITOR;Jonathan Bard
+ANA_EDITOR;sysadmin
+ANA_SOURCE;Grays Anatomy, 38th Edition;ed. by Williams PL, Bannister LH, Berry MH, Collins P, Dyson M, Dussek JE, Ferguson MWJ;book;1995
+ANA_SOURCE;The Anatomical Basis of Mouse Development;Kaufman MH and Bard JBL;book;1999
+ANA_SOURCE;Matthew H. Kaufman personal communication;Kaufman MH;personal communication;1999
+ANA_STAGE;mouse;TS01;0;none;none;none
+ANA_STAGE;mouse;TS02;1;none;none;none
+ANA_STAGE;mouse;TS03;2;none;none;none
+ANA_STAGE;mouse;TS04;3;none;none;none
+ANA_STAGE;mouse;TS05;4;none;none;none
+ANA_STAGE;mouse;TS06;5;none;none;none
+ANA_STAGE;mouse;TS07;6;none;none;none
+ANA_STAGE;mouse;TS08;7;none;none;none
+ANA_STAGE;mouse;TS09;8;none;none;none
+ANA_STAGE;mouse;TS10;9;none;none;none
+ANA_STAGE;mouse;TS11;10;none;none;none
+ANA_STAGE;mouse;TS12;11;none;none;none
+ANA_STAGE;mouse;TS13;12;none;none;none
+ANA_STAGE;mouse;TS14;13;none;none;none
+ANA_STAGE;mouse;TS15;14;none;none;none
+ANA_STAGE;mouse;TS16;15;none;none;none
+ANA_STAGE;mouse;TS17;16;none;none;none
+ANA_STAGE;mouse;TS18;17;none;none;none
+ANA_STAGE;mouse;TS19;18;none;none;none
+ANA_STAGE;mouse;TS20;19;none;none;none
+ANA_STAGE;mouse;TS21;20;none;none;none
+ANA_STAGE;mouse;TS22;21;none;none;none
+ANA_STAGE;mouse;TS23;22;none;none;none
+ANA_STAGE;mouse;TS24;23;none;none;none
+ANA_STAGE;mouse;TS25;24;none;none;none
+ANA_STAGE;mouse;TS26;25;none;none;none
+ANA_STAGE;mouse;TS27;26;none;none;none
+ANA_STAGE;mouse;TS28;27;none;none;none
+ANA_NODE;mouse;mouse;1;0;EMAPA:25765;none;EMAPA:0025765
+ANA_TIMED_NODE;EMAPA:25765;TS01;none;EMAPT:2576501;EMAPT:002576501
+ANA_TIMED_NODE;EMAPA:25765;TS02;none;EMAPT:2576502;EMAPT:002576502
+ANA_TIMED_NODE;EMAPA:25765;TS03;none;EMAPT:2576503;EMAPT:002576503
+ANA_TIMED_NODE;EMAPA:25765;TS04;none;EMAPT:2576504;EMAPT:002576504
+ANA_TIMED_NODE;EMAPA:25765;TS05;none;EMAPT:2576505;EMAPT:002576505
+ANA_TIMED_NODE;EMAPA:25765;TS06;none;EMAPT:2576506;EMAPT:002576506
+ANA_TIMED_NODE;EMAPA:25765;TS07;none;EMAPT:2576507;EMAPT:002576507
+ANA_TIMED_NODE;EMAPA:25765;TS08;none;EMAPT:2576508;EMAPT:002576508
+ANA_TIMED_NODE;EMAPA:25765;TS09;none;EMAPT:2576509;EMAPT:002576509
+ANA_TIMED_NODE;EMAPA:25765;TS10;none;EMAPT:2576510;EMAPT:002576510
+ANA_TIMED_NODE;EMAPA:25765;TS11;none;EMAPT:2576511;EMAPT:002576511
+ANA_TIMED_NODE;EMAPA:25765;TS12;none;EMAPT:2576512;EMAPT:002576512
+ANA_TIMED_NODE;EMAPA:25765;TS13;none;EMAPT:2576513;EMAPT:002576513
+ANA_TIMED_NODE;EMAPA:25765;TS14;none;EMAPT:2576514;EMAPT:002576514
+ANA_TIMED_NODE;EMAPA:25765;TS15;none;EMAPT:2576515;EMAPT:002576515
+ANA_TIMED_NODE;EMAPA:25765;TS16;none;EMAPT:2576516;EMAPT:002576516
+ANA_TIMED_NODE;EMAPA:25765;TS17;none;EMAPT:2576517;EMAPT:002576517
+ANA_TIMED_NODE;EMAPA:25765;TS18;none;EMAPT:2576518;EMAPT:002576518
+ANA_TIMED_NODE;EMAPA:25765;TS19;none;EMAPT:2576519;EMAPT:002576519
+ANA_TIMED_NODE;EMAPA:25765;TS20;none;EMAPT:2576520;EMAPT:002576520
+ANA_TIMED_NODE;EMAPA:25765;TS21;none;EMAPT:2576521;EMAPT:002576521
+ANA_TIMED_NODE;EMAPA:25765;TS22;none;EMAPT:2576522;EMAPT:002576522
+ANA_TIMED_NODE;EMAPA:25765;TS23;none;EMAPT:2576523;EMAPT:002576523
+ANA_TIMED_NODE;EMAPA:25765;TS24;none;EMAPT:2576524;EMAPT:002576524
+ANA_TIMED_NODE;EMAPA:25765;TS25;none;EMAPT:2576525;EMAPT:002576525
+ANA_TIMED_NODE;EMAPA:25765;TS26;none;EMAPT:2576526;EMAPT:002576526
+ANA_TIMED_NODE;EMAPA:25765;TS27;none;EMAPT:2576527;EMAPT:002576527
+ANA_TIMED_NODE;EMAPA:25765;TS28;none;EMAPT:2576528;EMAPT:002576528
+ANA_VERSION;1;2006-05-05 14:59:04;Version created from CIOF file exported by GUDMAP version of EMAP.
+ANA_VERSION;2;2006-08-01 14:44:18;Revision of the GUDMAP/EuReGene anatomy.  This is the first version that was created by revsing the previous database in place, rather than replacing it entirely.  This is the first version that logs changes.
+ANA_VERSION;3;2006-11-10 14:46:08;Third revision of GUDMAP/EuReGene anatomy database.  Includes a great deal of changes in the urogenital parts of the anatomy, non-alphabetical sibling term ordering, and deletes many timed nodes that should have been deleted in earlier revisions.
+ANA_VERSION;4;2007-02-20 15:35:21;Version 4 of GUDMAP/EuReGene anatomy database.  Includes a great deal of changes in the urogenital parts of the anatomy.  It also includes minor changes to the schema to accommodate Xenopus anatomy.
+ANA_VERSION;5;2010-04-16 09:47:57;DB2OBO Update: Editing the ontology
+ANA_VERSION;6;2010-04-16 09:59:40;DB2OBO Update: Editing the ontology
+ANA_VERSION;7;2010-05-19 10:36:04;DB2OBO Update: Editing the ontology
+ANA_VERSION;8;2011-01-18 10:34:49;DB2OBO Update: Editing the ontology
+ANA_VERSION;9;2012-07-12 14:22:55;DB2OBO Update - Editing the ontology
+ANA_VERSION;10;2012-09-14 11:50:33;DB2OBO Update - Editing the ontology
+ANA_VERSION;11;2013-11-11 15:26:30;DB2OBO Update - Editing the ontology

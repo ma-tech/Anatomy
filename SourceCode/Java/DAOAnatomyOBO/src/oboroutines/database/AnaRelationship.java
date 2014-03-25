@@ -534,9 +534,9 @@ public class AnaRelationship {
 
         	while (iteratorJOINNodeRelationshipNode.hasNext()) {
         		
-        		JOINNodeRelationshipNode joinnoderelationship = iteratorJOINNodeRelationshipNode.next();
+        		JOINNodeRelationshipNode joinnoderelationshipnode = iteratorJOINNodeRelationshipNode.next();
 
-            	componentorders = (ArrayList) this.componentorderDAO.listByChildIdAndParentID( joinnoderelationship.getAPublicId(), joinnoderelationship.getBPublicId() );
+            	componentorders = (ArrayList) this.componentorderDAO.listByChildIdAndParentID( joinnoderelationshipnode.getAPublicId(), joinnoderelationshipnode.getBPublicId() );
 
             	if ( componentorders.size() == 1) {
             		
@@ -545,7 +545,7 @@ public class AnaRelationship {
                     //get max primary key for ana_relationship_project
                     intMAX_PK++; 
                     RelationshipProject relationshipproject1 = new RelationshipProject( intMAX_PK, 
-                    		joinnoderelationship.getOidRelationship(), 
+                    		joinnoderelationshipnode.getOidRelationship(), 
                     		"EMAP", 
                     		componentorder.getAlphaorder());
             
@@ -554,7 +554,7 @@ public class AnaRelationship {
                     //get max primary key for ana_relationship_project
                     intMAX_PK++; 
                     RelationshipProject relationshipproject2 = new RelationshipProject( intMAX_PK, 
-                    		joinnoderelationship.getOidRelationship(), 
+                    		joinnoderelationshipnode.getOidRelationship(), 
                     		"GUDMAP", 
                     		componentorder.getSpecialorder());
                   

@@ -1,6 +1,7 @@
 -- EMPTY MOUSE 012 OBO FILE
 mouse012OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/mouseBASE.obo
 mouse012OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/TERRYH_EMAPA_2014-13-21.obo
+-- mouse012OBOfile.oboinfile=/Users/mwicks/Downloads/EMAPA_21_Mar.obo
 mouse012OBOfile.obooutfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO
 mouse012OBOfile.summaryreport=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/Reports
 mouse012OBOfile.obooutfileremark=Version 012
@@ -23,7 +24,7 @@ mouse012OBOfile.grouptermclassid=group_term
 mouse012OBOfile.grouptermclassnamespace=group_term
 mouse012OBOfile.minstagesequence=0
 mouse012OBOfile.maxstagesequence=27
-mouse012OBOfile.alternatives=false
+mouse012OBOfile.alternatives=true
 mouse012OBOfile.timedcomponents=false
 mouse012OBOfile.generateidentifiers=false
 mouse012OBOfile.debug=true

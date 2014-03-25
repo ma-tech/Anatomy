@@ -1,0 +1,128 @@
+format-version: 1.2
+date: 25:03:2014 15:11
+saved-by: Mike Wicks
+auto-generated-by: Main4ExtractAndWriteOBOFromExistingDatabase.java
+default-namespace: mouse_ontology
+remark: Version 012
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: EMAPT:1603905
+name: embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576505 ! mouse
+
+[Term]
+id: EMAPT:1604105
+name: inner cell mass
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603905 ! embryo
+relationship: part_of EMAPT:2576505 ! mouse
+
+[Term]
+id: EMAPT:1604205
+name: extraembryonic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576505 ! mouse
+
+[Term]
+id: EMAPT:1604305
+name: extraembryonic cavities and their linings
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604205 ! extraembryonic component
+
+[Term]
+id: EMAPT:1604405
+name: blastocoelic cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604305 ! extraembryonic cavities and their linings
+
+[Term]
+id: EMAPT:1604605
+name: trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604205 ! extraembryonic component
+
+[Term]
+id: EMAPT:1604705
+name: mural trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604605 ! trophectoderm
+
+[Term]
+id: EMAPT:1604805
+name: polar trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604605 ! trophectoderm
+
+[Term]
+id: EMAPT:2576505
+name: mouse
+namespace: stage_specific_anatomical_structure
+is_a: EMAP:0 ! EMAP:0
+
+[Term]
+id: EMAPT:3598505
+name: ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576505 ! mouse
+
+[Term]
+id: group_term
+name: Group term
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+
+[Term]
+id: TS05
+name: TS05
+namespace: theiler_stage
+is_a: TS:0 ! Theiler stage
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

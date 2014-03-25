@@ -9062,7 +9062,7 @@ id: EMAPA:16981
 name: midbrain roof plate
 namespace: anatomical_structure
 alt_id: EMAPA:17262
-comment: order=6 for EMAPA:16974\norder=5 for EMAPA:16974
+comment: order=6 for EMAPA:16974
 synonym: "midbrain roof" EXACT []
 relationship: ends_at TS28 ! TS28
 relationship: part_of EMAPA:16974 ! midbrain

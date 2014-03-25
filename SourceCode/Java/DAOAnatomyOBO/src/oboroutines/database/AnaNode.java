@@ -320,7 +320,10 @@ public class AnaNode {
                 	}
 
                 	// Update the ANA_OBO_COMPONENT tables ...
-                	insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
+                	if ( !component.getID().equals(strANO_PUBLIC_ID)) {
+                		
+                    	insertANA_OBO_COMPONENT_ALTERNATIVE( component.getID(), strANO_PUBLIC_ID);
+                	}
 
                 	// update new components with ano_oid                	
                 	component.setDBID( ObjectConverter.convert(longANO_OID, String.class) );

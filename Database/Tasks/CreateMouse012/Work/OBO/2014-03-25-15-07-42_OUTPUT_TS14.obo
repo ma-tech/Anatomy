@@ -1,0 +1,3403 @@
+format-version: 1.2
+date: 25:03:2014 15:11
+saved-by: Mike Wicks
+auto-generated-by: Main4ExtractAndWriteOBOFromExistingDatabase.java
+default-namespace: mouse_ontology
+remark: Version 012
+
+[Term]
+id: EMAP:0
+name: Stage Specific Anatomical Structure
+namespace: stage_specific_anatomical_structure
+
+[Term]
+id: EMAPT:1603914
+name: embryo
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1604214
+name: extraembryonic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1604614
+name: trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1604814
+name: polar trophectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604614 ! trophectoderm
+
+[Term]
+id: EMAPT:1605214
+name: extraembryonic endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3598614 ! endoderm
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1605314
+name: parietal endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605214 ! extraembryonic endoderm
+
+[Term]
+id: EMAPT:1605414
+name: extraembryonic component cavities
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1605514
+name: yolk sac cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605414 ! extraembryonic component cavities
+
+[Term]
+id: EMAPT:1605714
+name: Reichert's membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605314 ! parietal endoderm
+
+[Term]
+id: EMAPT:1605914
+name: ectoplacental cone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604814 ! polar trophectoderm
+
+[Term]
+id: EMAPT:1606014
+name: cavities and their linings
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1606214
+name: embryo endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3598614 ! endoderm
+relationship: part_of EMAPT:1603914 ! embryo
+
+[Term]
+id: EMAPT:1606514
+name: extraembryonic ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3598514 ! ectoderm
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1606714
+name: cytotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605914 ! ectoplacental cone
+
+[Term]
+id: EMAPT:1606814
+name: syncytiotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605914 ! ectoplacental cone
+
+[Term]
+id: EMAPT:1606914
+name: embryo ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3598514 ! ectoderm
+relationship: part_of EMAPT:1603914 ! embryo
+
+[Term]
+id: EMAPT:1607214
+name: primitive streak
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1607914
+name: amniotic cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605414 ! extraembryonic component cavities
+
+[Term]
+id: EMAPT:1608114
+name: exocoelomic cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1605414 ! extraembryonic component cavities
+
+[Term]
+id: EMAPT:1608514
+name: yolk sac
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1608614
+name: yolk sac endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1605214 ! extraembryonic endoderm
+relationship: part_of EMAPT:1608514 ! yolk sac
+
+[Term]
+id: EMAPT:1608814
+name: intraembryonic coelom
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1606014 ! cavities and their linings
+
+[Term]
+id: EMAPT:1609614
+name: surface ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1606914 ! embryo ectoderm
+
+[Term]
+id: EMAPT:1609714
+name: mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3586814 ! tissue
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1609814
+name: head mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:3185814 ! head
+
+[Term]
+id: EMAPT:1609914
+name: mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1609814 ! head mesenchyme
+
+[Term]
+id: EMAPT:1610314
+name: organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1610414
+name: cardiovascular system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:1610514
+name: heart
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3594914 ! organ
+relationship: part_of EMAPT:1610414 ! cardiovascular system
+
+[Term]
+id: EMAPT:1610714
+name: allantois
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1610914
+name: amnion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1611014
+name: amnion ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606514 ! extraembryonic ectoderm
+relationship: part_of EMAPT:1610914 ! amnion
+
+[Term]
+id: EMAPT:1611214
+name: chorion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1611714
+name: branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1611814
+name: 1st branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:1611914
+name: 1st branchial groove
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275014 ! branchial groove
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612014
+name: 1st branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3519014 ! branchial groove ectoderm
+relationship: part_of EMAPT:1611914 ! 1st branchial groove
+
+[Term]
+id: EMAPT:1612114
+name: 1st branchial membrane
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3274914 ! branchial arch membrane
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612214
+name: 1st branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:1612114 ! 1st branchial membrane
+
+[Term]
+id: EMAPT:1612314
+name: 1st branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:1612114 ! 1st branchial membrane
+
+[Term]
+id: EMAPT:1612414
+name: 1st branchial pouch
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275214 ! branchial pouch
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612514
+name: 1st branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3519114 ! branchial pouch endoderm
+relationship: part_of EMAPT:1612414 ! 1st branchial pouch
+
+[Term]
+id: EMAPT:1612614
+name: 1st branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612714
+name: 1st branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612814
+name: 1st branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275514 ! branchial arch mesenchyme
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1612914
+name: 1st branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275614 ! branchial arch mesenchyme derived from neural crest
+relationship: part_of EMAPT:1612814 ! 1st branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1613014
+name: 1st branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275114 ! branchial arch mesenchyme derived from head mesoderm
+relationship: part_of EMAPT:1612814 ! 1st branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1613114
+name: intraembryonic coelom pericardial component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1608814 ! intraembryonic coelom
+
+[Term]
+id: EMAPT:1613214
+name: pericardial component cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1613114 ! intraembryonic coelom pericardial component
+
+[Term]
+id: EMAPT:1613314
+name: pericardial component mesothelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3285614 ! mesothelium
+relationship: part_of EMAPT:1613114 ! intraembryonic coelom pericardial component
+
+[Term]
+id: EMAPT:1613714
+name: intraembryonic coelom peritoneal component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1608814 ! intraembryonic coelom
+
+[Term]
+id: EMAPT:1613814
+name: peritoneal component cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1613714 ! intraembryonic coelom peritoneal component
+
+[Term]
+id: EMAPT:1613914
+name: peritoneal component mesothelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3285614 ! mesothelium
+relationship: part_of EMAPT:1613714 ! intraembryonic coelom peritoneal component
+
+[Term]
+id: EMAPT:1616914
+name: head mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3273514 ! mesenchyme derived from neural crest
+relationship: part_of EMAPT:1609814 ! head mesenchyme
+
+[Term]
+id: EMAPT:1617014
+name: trigeminal neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1616914 ! head mesenchyme derived from neural crest
+
+[Term]
+id: EMAPT:1617114
+name: head paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275714 ! paraxial mesenchyme
+relationship: part_of EMAPT:1609814 ! head mesenchyme
+
+[Term]
+id: EMAPT:1617214
+name: head somite
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3116914 ! somite
+relationship: part_of EMAPT:1617114 ! head paraxial mesenchyme
+
+[Term]
+id: EMAPT:1617314
+name: somite 01
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1617214 ! head somite
+relationship: part_of EMAPT:1617114 ! head paraxial mesenchyme
+
+[Term]
+id: EMAPT:1617414
+name: somite 02
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1617214 ! head somite
+relationship: part_of EMAPT:1617114 ! head paraxial mesenchyme
+
+[Term]
+id: EMAPT:1617514
+name: somite 03
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1617214 ! head somite
+relationship: part_of EMAPT:1617114 ! head paraxial mesenchyme
+
+[Term]
+id: EMAPT:1617614
+name: somite 04
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1617214 ! head somite
+relationship: part_of EMAPT:1617114 ! head paraxial mesenchyme
+
+[Term]
+id: EMAPT:1617714
+name: trunk mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:3185714 ! trunk
+
+[Term]
+id: EMAPT:1617814
+name: intermediate mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1617714 ! trunk mesenchyme
+
+[Term]
+id: EMAPT:1618314
+name: trunk paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275714 ! paraxial mesenchyme
+relationship: part_of EMAPT:1617714 ! trunk mesenchyme
+
+[Term]
+id: EMAPT:1618414
+name: trunk somite
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3116914 ! somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1618514
+name: somite 05
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1618614
+name: somite 06
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1618714
+name: somite 07
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1618814
+name: somite 08
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1618914
+name: unsegmented mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1619114
+name: notochord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1619214
+name: sensory organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:1619314
+name: ear
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3595514 ! sensory organ
+relationship: part_of EMAPT:3185814 ! head
+relationship: part_of EMAPT:3600214 ! auditory system
+
+[Term]
+id: EMAPT:1619414
+name: inner ear
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619314 ! ear
+
+[Term]
+id: EMAPT:1619514
+name: otic placode
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619414 ! inner ear
+
+[Term]
+id: EMAPT:1619614
+name: otic placode mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3288514 ! inner ear mesenchyme
+relationship: part_of EMAPT:1619514 ! otic placode
+
+[Term]
+id: EMAPT:1619714
+name: otic placode epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3288314 ! inner ear epithelium
+relationship: part_of EMAPT:1619514 ! otic placode
+
+[Term]
+id: EMAPT:1619814
+name: eye
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3595514 ! sensory organ
+relationship: part_of EMAPT:3185814 ! head
+relationship: part_of EMAPT:3600314 ! visual system
+
+[Term]
+id: EMAPT:1620114
+name: arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3590514 ! vascular system
+
+[Term]
+id: EMAPT:1620414
+name: dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1620114 ! arterial system
+
+[Term]
+id: EMAPT:1620514
+name: left dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1620414 ! dorsal aorta
+
+[Term]
+id: EMAPT:1620614
+name: right dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1620414 ! dorsal aorta
+
+[Term]
+id: EMAPT:1620714
+name: vitelline artery
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3514714 ! artery
+relationship: part_of EMAPT:1620114 ! arterial system
+
+[Term]
+id: EMAPT:1621214
+name: heart mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1621314
+name: dorsal mesocardium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1621214 ! heart mesentery
+
+[Term]
+id: EMAPT:1621414
+name: transverse pericardial sinus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1621314 ! dorsal mesocardium
+
+[Term]
+id: EMAPT:1623714
+name: sinus venosus
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1623814
+name: sinus venosus left horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1623714 ! sinus venosus
+
+[Term]
+id: EMAPT:1623914
+name: sinus venosus right horn
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1623714 ! sinus venosus
+
+[Term]
+id: EMAPT:1624014
+name: venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3590514 ! vascular system
+
+[Term]
+id: EMAPT:1624214
+name: primary head vein
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3590614 ! vein
+relationship: part_of EMAPT:1624014 ! venous system
+
+[Term]
+id: EMAPT:1624314
+name: umbilical vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624014 ! venous system
+relationship: part_of EMAPT:3601814 ! umbilical vein
+
+[Term]
+id: EMAPT:1624414
+name: vitelline vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624014 ! venous system
+relationship: part_of EMAPT:3602114 ! vitelline vein
+
+[Term]
+id: EMAPT:1624514
+name: visceral organ system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:1624614
+name: alimentary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624514 ! visceral organ system
+
+[Term]
+id: EMAPT:1624714
+name: gut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:1625114
+name: hindgut diverticulum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:1625214
+name: hindgut diverticulum mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3290914 ! gut mesenchyme
+relationship: part_of EMAPT:1625114 ! hindgut diverticulum
+
+[Term]
+id: EMAPT:1625514
+name: midgut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:1625614
+name: midgut mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3290914 ! gut mesenchyme
+relationship: part_of EMAPT:1625514 ! midgut
+
+[Term]
+id: EMAPT:1625814
+name: mouth-foregut junction
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:1625914
+name: buccopharyngeal membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1625814 ! mouth-foregut junction
+
+[Term]
+id: EMAPT:1626014
+name: buccopharyngeal membrane ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599014 ! alimentary system ectoderm
+relationship: part_of EMAPT:1625914 ! buccopharyngeal membrane
+
+[Term]
+id: EMAPT:1626114
+name: buccopharyngeal membrane endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599114 ! alimentary system endoderm
+relationship: part_of EMAPT:1625914 ! buccopharyngeal membrane
+
+[Term]
+id: EMAPT:1626214
+name: oral region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:1626314
+name: stomatodeum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1626214 ! oral region
+
+[Term]
+id: EMAPT:1626414
+name: allantois mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3186314 ! extraembryonic mesenchyme
+relationship: part_of EMAPT:1610714 ! allantois
+
+[Term]
+id: EMAPT:1626714
+name: yolk sac mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3186314 ! extraembryonic mesenchyme
+relationship: part_of EMAPT:1608514 ! yolk sac
+
+[Term]
+id: EMAPT:1627214
+name: 2nd branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:1627314
+name: 2nd branchial membrane
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3274914 ! branchial arch membrane
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1627414
+name: 2nd branchial membrane endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:1627314 ! 2nd branchial membrane
+
+[Term]
+id: EMAPT:1627514
+name: 2nd branchial pouch
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275214 ! branchial pouch
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1627614
+name: 2nd branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3519114 ! branchial pouch endoderm
+relationship: part_of EMAPT:1627514 ! 2nd branchial pouch
+
+[Term]
+id: EMAPT:1627714
+name: 2nd branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1627814
+name: 2nd branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1627914
+name: 2nd branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275514 ! branchial arch mesenchyme
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1628014
+name: 2nd branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275114 ! branchial arch mesenchyme derived from head mesoderm
+relationship: part_of EMAPT:1627914 ! 2nd branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1628114
+name: 2nd branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275614 ! branchial arch mesenchyme derived from neural crest
+relationship: part_of EMAPT:1627914 ! 2nd branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1628214
+name: pericardio-peritoneal canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1608814 ! intraembryonic coelom
+
+[Term]
+id: EMAPT:1628314
+name: pericardio-peritoneal canal cavity
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1628214 ! pericardio-peritoneal canal
+
+[Term]
+id: EMAPT:1628414
+name: pericardio-peritoneal canal mesothelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3285614 ! mesothelium
+relationship: part_of EMAPT:1628214 ! pericardio-peritoneal canal
+
+[Term]
+id: EMAPT:1631114
+name: facial neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1616914 ! head mesenchyme derived from neural crest
+
+[Term]
+id: EMAPT:1631214
+name: facio-acoustic neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1616914 ! head mesenchyme derived from neural crest
+
+[Term]
+id: EMAPT:1631314
+name: somite 09
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1631414
+name: somite 10
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1631514
+name: somite 11
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1631614
+name: somite 12
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1631714
+name: somite 13
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1631814
+name: septum transversum
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1617714 ! trunk mesenchyme
+
+[Term]
+id: EMAPT:1631914
+name: septum transversum hepatic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631814 ! septum transversum
+
+[Term]
+id: EMAPT:1632014
+name: septum transversum non-hepatic component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631814 ! septum transversum
+
+[Term]
+id: EMAPT:1632214
+name: optic eminence
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619814 ! eye
+
+[Term]
+id: EMAPT:1632414
+name: optic eminence mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1667314 ! eye mesenchyme
+relationship: part_of EMAPT:1632214 ! optic eminence
+
+[Term]
+id: EMAPT:1632714
+name: common dorsal aorta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1620414 ! dorsal aorta
+
+[Term]
+id: EMAPT:1632814
+name: internal carotid artery
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3514714 ! artery
+relationship: part_of EMAPT:1620114 ! arterial system
+
+[Term]
+id: EMAPT:1632914
+name: left internal carotid artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1632814 ! internal carotid artery
+
+[Term]
+id: EMAPT:1633014
+name: right internal carotid artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1632814 ! internal carotid artery
+
+[Term]
+id: EMAPT:1633114
+name: umbilical artery embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1620114 ! arterial system
+relationship: part_of EMAPT:3601714 ! umbilical artery
+
+[Term]
+id: EMAPT:1633214
+name: blood
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610414 ! cardiovascular system
+
+[Term]
+id: EMAPT:1633314
+name: bulbus cordis
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1633414
+name: bulbus cordis caudal half
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633314 ! bulbus cordis
+
+[Term]
+id: EMAPT:1633514
+name: bulbus cordis caudal half cardiac jelly
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268714 ! cardiac jelly
+relationship: part_of EMAPT:1633414 ! bulbus cordis caudal half
+
+[Term]
+id: EMAPT:1633614
+name: bulbus cordis caudal half endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633414 ! bulbus cordis caudal half
+
+[Term]
+id: EMAPT:1633714
+name: bulbus cordis caudal half cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633414 ! bulbus cordis caudal half
+relationship: part_of EMAPT:3268814 ! cardiac muscle tissue
+
+[Term]
+id: EMAPT:1633814
+name: bulbus cordis rostral half
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633314 ! bulbus cordis
+
+[Term]
+id: EMAPT:1633914
+name: bulbus cordis rostral half cardiac jelly
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268714 ! cardiac jelly
+relationship: part_of EMAPT:1633814 ! bulbus cordis rostral half
+
+[Term]
+id: EMAPT:1634014
+name: bulbus cordis rostral half endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633814 ! bulbus cordis rostral half
+
+[Term]
+id: EMAPT:1634114
+name: bulbus cordis rostral half cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633814 ! bulbus cordis rostral half
+relationship: part_of EMAPT:3268814 ! cardiac muscle tissue
+
+[Term]
+id: EMAPT:1634214
+name: common atrial chamber
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1634314
+name: common atrial chamber cardiac jelly
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268714 ! cardiac jelly
+relationship: part_of EMAPT:1634214 ! common atrial chamber
+
+[Term]
+id: EMAPT:1634414
+name: common atrial chamber endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1634214 ! common atrial chamber
+
+[Term]
+id: EMAPT:1634514
+name: common atrial chamber cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1634214 ! common atrial chamber
+relationship: part_of EMAPT:3268814 ! cardiac muscle tissue
+
+[Term]
+id: EMAPT:1634614
+name: outflow tract
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1634714
+name: outflow tract cardiac jelly
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268714 ! cardiac jelly
+relationship: part_of EMAPT:1634614 ! outflow tract
+
+[Term]
+id: EMAPT:1634814
+name: outflow tract endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1634614 ! outflow tract
+
+[Term]
+id: EMAPT:1634914
+name: outflow tract mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3597314 ! cardiovascular system mesenchyme
+relationship: part_of EMAPT:1634614 ! outflow tract
+
+[Term]
+id: EMAPT:1635014
+name: primitive ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1635114
+name: primitive ventricle cardiac jelly
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268714 ! cardiac jelly
+relationship: part_of EMAPT:1635014 ! primitive ventricle
+
+[Term]
+id: EMAPT:1635214
+name: primitive ventricle endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1635014 ! primitive ventricle
+
+[Term]
+id: EMAPT:1635314
+name: primitive ventricle cardiac muscle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1635014 ! primitive ventricle
+relationship: part_of EMAPT:3268814 ! cardiac muscle tissue
+
+[Term]
+id: EMAPT:1635414
+name: cardinal vein
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3590614 ! vein
+relationship: part_of EMAPT:1624014 ! venous system
+
+[Term]
+id: EMAPT:1635514
+name: anterior cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1635414 ! cardinal vein
+
+[Term]
+id: EMAPT:1635614
+name: common cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1635414 ! cardinal vein
+
+[Term]
+id: EMAPT:1635714
+name: posterior cardinal vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1635414 ! cardinal vein
+
+[Term]
+id: EMAPT:1635814
+name: left umbilical vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624314 ! umbilical vein embryonic part
+relationship: part_of EMAPT:3601914 ! left umbilical vein
+
+[Term]
+id: EMAPT:1635914
+name: right umbilical vein embryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624314 ! umbilical vein embryonic part
+relationship: part_of EMAPT:3602014 ! right umbilical vein
+
+[Term]
+id: EMAPT:1636314
+name: foregut-midgut junction
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:1636414
+name: foregut-midgut junction mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3290914 ! gut mesenchyme
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1636514
+name: foregut-midgut junction mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1636614
+name: foregut-midgut junction dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636514 ! foregut-midgut junction mesentery
+
+[Term]
+id: EMAPT:1636714
+name: genitourinary system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624514 ! visceral organ system
+
+[Term]
+id: EMAPT:1636814
+name: nephric cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636714 ! genitourinary system
+
+[Term]
+id: EMAPT:1637014
+name: extraembryonic vascular system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:1637114
+name: extraembryonic arterial system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637014 ! extraembryonic vascular system
+
+[Term]
+id: EMAPT:1637214
+name: umbilical artery extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637114 ! extraembryonic arterial system
+relationship: part_of EMAPT:3601714 ! umbilical artery
+
+[Term]
+id: EMAPT:1637314
+name: common umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637214 ! umbilical artery extraembryonic part
+
+[Term]
+id: EMAPT:1637414
+name: extraembryonic venous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637014 ! extraembryonic vascular system
+
+[Term]
+id: EMAPT:1637514
+name: umbilical vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637414 ! extraembryonic venous system
+relationship: part_of EMAPT:3601814 ! umbilical vein
+
+[Term]
+id: EMAPT:1637614
+name: common umbilical vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637514 ! umbilical vein extraembryonic part
+
+[Term]
+id: EMAPT:1637714
+name: left umbilical vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637514 ! umbilical vein extraembryonic part
+relationship: part_of EMAPT:3601914 ! left umbilical vein
+
+[Term]
+id: EMAPT:1637814
+name: right umbilical vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637514 ! umbilical vein extraembryonic part
+relationship: part_of EMAPT:3602014 ! right umbilical vein
+
+[Term]
+id: EMAPT:1637914
+name: vitelline vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637414 ! extraembryonic venous system
+relationship: part_of EMAPT:3602114 ! vitelline vein
+
+[Term]
+id: EMAPT:1638014
+name: left vitelline vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637914 ! vitelline vein extraembryonic part
+relationship: part_of EMAPT:3602214 ! left vitelline vein
+
+[Term]
+id: EMAPT:1638114
+name: right vitelline vein extraembryonic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637914 ! vitelline vein extraembryonic part
+relationship: part_of EMAPT:3602314 ! right vitelline vein
+
+[Term]
+id: EMAPT:1638214
+name: 1st branchial arch mandibular component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1638314
+name: 1st branchial arch mandibular component ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612614 ! 1st branchial arch ectoderm
+relationship: part_of EMAPT:1638214 ! 1st branchial arch mandibular component
+
+[Term]
+id: EMAPT:1638414
+name: 1st branchial arch mandibular component endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612714 ! 1st branchial arch endoderm
+relationship: part_of EMAPT:1638214 ! 1st branchial arch mandibular component
+
+[Term]
+id: EMAPT:1638514
+name: 1st branchial arch mandibular component mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612814 ! 1st branchial arch mesenchyme
+relationship: part_of EMAPT:1638214 ! 1st branchial arch mandibular component
+
+[Term]
+id: EMAPT:1638614
+name: 1st branchial arch mandibular component mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1613014 ! 1st branchial arch mesenchyme derived from head mesoderm
+relationship: part_of EMAPT:1638514 ! 1st branchial arch mandibular component mesenchyme
+
+[Term]
+id: EMAPT:1638714
+name: 1st branchial arch mandibular component mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612914 ! 1st branchial arch mesenchyme derived from neural crest
+relationship: part_of EMAPT:1638514 ! 1st branchial arch mandibular component mesenchyme
+
+[Term]
+id: EMAPT:1638814
+name: 1st branchial arch maxillary component
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1638914
+name: 1st branchial arch maxillary component ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612614 ! 1st branchial arch ectoderm
+relationship: part_of EMAPT:1638814 ! 1st branchial arch maxillary component
+
+[Term]
+id: EMAPT:1639014
+name: 1st branchial arch maxillary component endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612714 ! 1st branchial arch endoderm
+relationship: part_of EMAPT:1638814 ! 1st branchial arch maxillary component
+
+[Term]
+id: EMAPT:1639114
+name: 1st branchial arch maxillary component mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612814 ! 1st branchial arch mesenchyme
+relationship: part_of EMAPT:1638814 ! 1st branchial arch maxillary component
+
+[Term]
+id: EMAPT:1639214
+name: 1st branchial arch maxillary component mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1613014 ! 1st branchial arch mesenchyme derived from head mesoderm
+relationship: part_of EMAPT:1639114 ! 1st branchial arch maxillary component mesenchyme
+
+[Term]
+id: EMAPT:1639314
+name: 1st branchial arch maxillary component mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612914 ! 1st branchial arch mesenchyme derived from neural crest
+relationship: part_of EMAPT:1639114 ! 1st branchial arch maxillary component mesenchyme
+
+[Term]
+id: EMAPT:1639414
+name: 1st branchial arch maxillary-mandibular groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611814 ! 1st branchial arch
+
+[Term]
+id: EMAPT:1639514
+name: 1st branchial arch maxillary-mandibular groove ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1612614 ! 1st branchial arch ectoderm
+relationship: part_of EMAPT:1639414 ! 1st branchial arch maxillary-mandibular groove
+
+[Term]
+id: EMAPT:1639614
+name: 2nd branchial groove
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275014 ! branchial groove
+relationship: part_of EMAPT:1627214 ! 2nd branchial arch
+
+[Term]
+id: EMAPT:1639714
+name: 2nd branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3519014 ! branchial groove ectoderm
+relationship: part_of EMAPT:1639614 ! 2nd branchial groove
+
+[Term]
+id: EMAPT:1639814
+name: 2nd branchial membrane ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:1627314 ! 2nd branchial membrane
+
+[Term]
+id: EMAPT:1639914
+name: 3rd branchial arch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:1640014
+name: 3rd branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:1639914 ! 3rd branchial arch
+
+[Term]
+id: EMAPT:1640114
+name: 3rd branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:1639914 ! 3rd branchial arch
+
+[Term]
+id: EMAPT:1640214
+name: 3rd branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275514 ! branchial arch mesenchyme
+relationship: part_of EMAPT:1639914 ! 3rd branchial arch
+
+[Term]
+id: EMAPT:1640314
+name: 3rd branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275114 ! branchial arch mesenchyme derived from head mesoderm
+relationship: part_of EMAPT:1640214 ! 3rd branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1640414
+name: 3rd branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275614 ! branchial arch mesenchyme derived from neural crest
+relationship: part_of EMAPT:1640214 ! 3rd branchial arch mesenchyme
+
+[Term]
+id: EMAPT:1640514
+name: limb
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1640614
+name: forelimb bud
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3594414 ! limb bud
+relationship: part_of EMAPT:1640514 ! limb
+
+[Term]
+id: EMAPT:1640714
+name: forelimb bud ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1640614 ! forelimb bud
+relationship: part_of EMAPT:3270814 ! limb ectoderm
+
+[Term]
+id: EMAPT:1640814
+name: forelimb bud mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3270514 ! limb mesenchyme
+relationship: part_of EMAPT:1640614 ! forelimb bud
+
+[Term]
+id: EMAPT:1640914
+name: lateral mesenchyme derived from mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1617714 ! trunk mesenchyme
+
+[Term]
+id: EMAPT:1641014
+name: mesenchyme derived from somatopleure
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1640914 ! lateral mesenchyme derived from mesoderm
+
+[Term]
+id: EMAPT:1641114
+name: mesenchyme derived from splanchnopleure
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1640914 ! lateral mesenchyme derived from mesoderm
+
+[Term]
+id: EMAPT:1641314
+name: trunk mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1617714 ! trunk mesenchyme
+
+[Term]
+id: EMAPT:1641414
+name: somite 05 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618514 ! somite 05
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1641514
+name: somite 05 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618514 ! somite 05
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1641614
+name: somite 05 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618514 ! somite 05
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1641714
+name: somite 06 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618614 ! somite 06
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1641814
+name: somite 06 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618614 ! somite 06
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1641914
+name: somite 06 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618614 ! somite 06
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1642014
+name: somite 07 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618714 ! somite 07
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1642114
+name: somite 07 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618714 ! somite 07
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1642214
+name: somite 07 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618714 ! somite 07
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1642314
+name: somite 08 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618814 ! somite 08
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1642414
+name: somite 08 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618814 ! somite 08
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1642514
+name: somite 08 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1618814 ! somite 08
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1642614
+name: somite 09 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631314 ! somite 09
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1642714
+name: somite 09 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631314 ! somite 09
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1642814
+name: somite 09 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631314 ! somite 09
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1642914
+name: somite 10 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631414 ! somite 10
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1643014
+name: somite 10 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631414 ! somite 10
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1643114
+name: somite 10 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631414 ! somite 10
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1643214
+name: somite 11 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631514 ! somite 11
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1643314
+name: somite 11 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631514 ! somite 11
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1643414
+name: somite 11 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631514 ! somite 11
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1643514
+name: somite 12 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631614 ! somite 12
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1643614
+name: somite 12 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631614 ! somite 12
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1643714
+name: somite 12 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631614 ! somite 12
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1643814
+name: somite 13 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631714 ! somite 13
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1643914
+name: somite 13 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631714 ! somite 13
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1644014
+name: somite 13 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1631714 ! somite 13
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1644114
+name: somite 14
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1644214
+name: somite 14 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644114 ! somite 14
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1644314
+name: somite 14 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644114 ! somite 14
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1644414
+name: somite 14 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644114 ! somite 14
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1644514
+name: somite 15
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1644614
+name: somite 15 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644514 ! somite 15
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1644714
+name: somite 15 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644514 ! somite 15
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1644814
+name: somite 15 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644514 ! somite 15
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1644914
+name: somite 16
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1645014
+name: somite 16 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644914 ! somite 16
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1645114
+name: somite 16 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644914 ! somite 16
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1645214
+name: somite 16 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1644914 ! somite 16
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1645314
+name: somite 17
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1645414
+name: somite 17 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645314 ! somite 17
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1645514
+name: somite 17 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645314 ! somite 17
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1645614
+name: somite 17 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645314 ! somite 17
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1645714
+name: somite 18
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1645814
+name: somite 18 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645714 ! somite 18
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1645914
+name: somite 18 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645714 ! somite 18
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1646014
+name: somite 18 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1645714 ! somite 18
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1646114
+name: somite 19
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1646214
+name: somite 19 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646114 ! somite 19
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1646314
+name: somite 19 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646114 ! somite 19
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1646414
+name: somite 19 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646114 ! somite 19
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1646514
+name: somite 20
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1618414 ! trunk somite
+relationship: part_of EMAPT:1618314 ! trunk paraxial mesenchyme
+
+[Term]
+id: EMAPT:1646614
+name: somite 20 dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646514 ! somite 20
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:1646714
+name: somite 20 myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646514 ! somite 20
+relationship: part_of EMAPT:3111914 ! trunk myocoele
+
+[Term]
+id: EMAPT:1646814
+name: somite 20 sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646514 ! somite 20
+relationship: part_of EMAPT:3114414 ! trunk sclerotome
+
+[Term]
+id: EMAPT:1646914
+name: nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:1647014
+name: central nervous system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1646914 ! nervous system
+
+[Term]
+id: EMAPT:1647114
+name: early brain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647014 ! central nervous system
+
+[Term]
+id: EMAPT:1647214
+name: early midbrain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:1647314
+name: early midbrain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647214 ! early midbrain
+
+[Term]
+id: EMAPT:1647414
+name: early midbrain lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647214 ! early midbrain
+
+[Term]
+id: EMAPT:1647514
+name: mesencephalic vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647214 ! early midbrain
+
+[Term]
+id: EMAPT:1647614
+name: early midbrain neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647214 ! early midbrain
+
+[Term]
+id: EMAPT:1647714
+name: early midbrain roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647214 ! early midbrain
+
+[Term]
+id: EMAPT:1647814
+name: early hindbrain
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:1647914
+name: early 4th ventricle
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3267514 ! early brain ventricle
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1648014
+name: rhombomere 01
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1648114
+name: rhombomere 01 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648014 ! rhombomere 01
+
+[Term]
+id: EMAPT:1648214
+name: rhombomere 01 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648014 ! rhombomere 01
+
+[Term]
+id: EMAPT:1648314
+name: rhombomere 01 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648014 ! rhombomere 01
+
+[Term]
+id: EMAPT:1648414
+name: rhombomere 02
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1648514
+name: rhombomere 02 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648414 ! rhombomere 02
+
+[Term]
+id: EMAPT:1648614
+name: rhombomere 02 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648414 ! rhombomere 02
+
+[Term]
+id: EMAPT:1648714
+name: rhombomere 02 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648414 ! rhombomere 02
+
+[Term]
+id: EMAPT:1648814
+name: rhombomere 03
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1648914
+name: rhombomere 03 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648814 ! rhombomere 03
+
+[Term]
+id: EMAPT:1649014
+name: rhombomere 03 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648814 ! rhombomere 03
+
+[Term]
+id: EMAPT:1649114
+name: rhombomere 03 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1648814 ! rhombomere 03
+
+[Term]
+id: EMAPT:1649214
+name: rhombomere 04
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1649314
+name: rhombomere 04 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649214 ! rhombomere 04
+
+[Term]
+id: EMAPT:1649414
+name: rhombomere 04 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649214 ! rhombomere 04
+
+[Term]
+id: EMAPT:1649514
+name: rhombomere 04 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649214 ! rhombomere 04
+
+[Term]
+id: EMAPT:1649614
+name: rhombomere 05
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1649714
+name: rhombomere 05 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649614 ! rhombomere 05
+
+[Term]
+id: EMAPT:1649814
+name: rhombomere 05 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649614 ! rhombomere 05
+
+[Term]
+id: EMAPT:1649914
+name: rhombomere 05 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1649614 ! rhombomere 05
+
+[Term]
+id: EMAPT:1650014
+name: rhombomere 06
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1650114
+name: rhombomere 06 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650014 ! rhombomere 06
+
+[Term]
+id: EMAPT:1650214
+name: rhombomere 06 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650014 ! rhombomere 06
+
+[Term]
+id: EMAPT:1650314
+name: rhombomere 06 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650014 ! rhombomere 06
+
+[Term]
+id: EMAPT:1650414
+name: rhombomere 07
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1650514
+name: rhombomere 07 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650414 ! rhombomere 07
+
+[Term]
+id: EMAPT:1650614
+name: rhombomere 07 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650414 ! rhombomere 07
+
+[Term]
+id: EMAPT:1650714
+name: rhombomere 07 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650414 ! rhombomere 07
+
+[Term]
+id: EMAPT:1650814
+name: rhombomere 08
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293314 ! early hindbrain rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:1650914
+name: rhombomere 08 floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650814 ! rhombomere 08
+
+[Term]
+id: EMAPT:1651014
+name: rhombomere 08 lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650814 ! rhombomere 08
+
+[Term]
+id: EMAPT:1651114
+name: rhombomere 08 roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1650814 ! rhombomere 08
+
+[Term]
+id: EMAPT:1651214
+name: prosencephalon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:1651314
+name: prosencephalon floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1651414
+name: future diencephalon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1651514
+name: future diencephalon 3rd ventricle
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3267514 ! early brain ventricle
+relationship: part_of EMAPT:1651414 ! future diencephalon
+
+[Term]
+id: EMAPT:1651614
+name: future diencephalon floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651414 ! future diencephalon
+
+[Term]
+id: EMAPT:1651714
+name: future diencephalon lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651414 ! future diencephalon
+
+[Term]
+id: EMAPT:1651814
+name: future diencephalon neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651414 ! future diencephalon
+
+[Term]
+id: EMAPT:1651914
+name: future diencephalon roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651414 ! future diencephalon
+
+[Term]
+id: EMAPT:1652014
+name: prosencephalon lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1652114
+name: prosencephalic vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1652214
+name: prosencephalon roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1652314
+name: rostral neuropore
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1652414
+name: prosencephalon neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1651214 ! prosencephalon
+
+[Term]
+id: EMAPT:1652514
+name: future spinal cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647014 ! central nervous system
+
+[Term]
+id: EMAPT:1652614
+name: caudal neuropore
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1652514 ! future spinal cord
+
+[Term]
+id: EMAPT:1652714
+name: neural plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1652514 ! future spinal cord
+
+[Term]
+id: EMAPT:1652814
+name: neural fold
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1652714 ! neural plate
+
+[Term]
+id: EMAPT:1652914
+name: future spinal cord neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1652814 ! neural fold
+
+[Term]
+id: EMAPT:1653014
+name: neural tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1652514 ! future spinal cord
+
+[Term]
+id: EMAPT:1653114
+name: neural tube floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653014 ! neural tube
+
+[Term]
+id: EMAPT:1653214
+name: neural tube lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653014 ! neural tube
+
+[Term]
+id: EMAPT:1653314
+name: neural lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653014 ! neural tube
+
+[Term]
+id: EMAPT:1653414
+name: neural luminal occlusion
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653314 ! neural lumen
+
+[Term]
+id: EMAPT:1653514
+name: neural tube roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653014 ! neural tube
+
+[Term]
+id: EMAPT:1653614
+name: otic pit
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619414 ! inner ear
+
+[Term]
+id: EMAPT:1653714
+name: otic pit mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3288514 ! inner ear mesenchyme
+relationship: part_of EMAPT:1653614 ! otic pit
+
+[Term]
+id: EMAPT:1653814
+name: otic pit epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3288314 ! inner ear epithelium
+relationship: part_of EMAPT:1653614 ! otic pit
+
+[Term]
+id: EMAPT:1653914
+name: optic eminence surface ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1609614 ! surface ectoderm
+relationship: part_of EMAPT:1632214 ! optic eminence
+
+[Term]
+id: EMAPT:1654014
+name: optic vesicle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619814 ! eye
+
+[Term]
+id: EMAPT:1654114
+name: optic vesicle neural ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3598914 ! eye neural ectoderm
+relationship: part_of EMAPT:1654014 ! optic vesicle
+
+[Term]
+id: EMAPT:1654214
+name: nose
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3595514 ! sensory organ
+relationship: part_of EMAPT:3185814 ! head
+relationship: part_of EMAPT:3600414 ! olfactory system
+
+[Term]
+id: EMAPT:1654314
+name: olfactory placode
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1654214 ! nose
+
+[Term]
+id: EMAPT:1654414
+name: left umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633114 ! umbilical artery embryonic part
+
+[Term]
+id: EMAPT:1654514
+name: right umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1633114 ! umbilical artery embryonic part
+
+[Term]
+id: EMAPT:1654614
+name: atrioventricular canal
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:1654714
+name: vessels connecting internal carotid artery to primary head veins
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624014 ! venous system
+
+[Term]
+id: EMAPT:1654814
+name: foregut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:1654914
+name: pharyngeal region
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1654814 ! foregut
+
+[Term]
+id: EMAPT:1655014
+name: pharyngeal region mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292314 ! foregut mesenchyme
+relationship: part_of EMAPT:1654914 ! pharyngeal region
+
+[Term]
+id: EMAPT:1655114
+name: pharyngeal region epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292214 ! foregut epithelium
+relationship: part_of EMAPT:1654914 ! pharyngeal region
+
+[Term]
+id: EMAPT:1655214
+name: pharyngeal region vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599414 ! alimentary system vascular element
+relationship: part_of EMAPT:1654914 ! pharyngeal region
+
+[Term]
+id: EMAPT:1655314
+name: rest of foregut
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1654814 ! foregut
+
+[Term]
+id: EMAPT:1655414
+name: rest of foregut mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292314 ! foregut mesenchyme
+relationship: part_of EMAPT:1655314 ! rest of foregut
+
+[Term]
+id: EMAPT:1655514
+name: rest of foregut epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292214 ! foregut epithelium
+relationship: part_of EMAPT:1655314 ! rest of foregut
+
+[Term]
+id: EMAPT:1655614
+name: rest of foregut vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599414 ! alimentary system vascular element
+relationship: part_of EMAPT:1655314 ! rest of foregut
+
+[Term]
+id: EMAPT:1655714
+name: foregut gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1654814 ! foregut
+
+[Term]
+id: EMAPT:1655814
+name: thyroid primordium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1655714 ! foregut gland
+
+[Term]
+id: EMAPT:1655914
+name: thyroid primordium mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292314 ! foregut mesenchyme
+relationship: part_of EMAPT:1655814 ! thyroid primordium
+
+[Term]
+id: EMAPT:1656014
+name: thyroid primordium endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3293014 ! gut endoderm
+relationship: part_of EMAPT:1655814 ! thyroid primordium
+
+[Term]
+id: EMAPT:1656114
+name: biliary bud
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1656214
+name: biliary bud extrahepatic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1656114 ! biliary bud
+
+[Term]
+id: EMAPT:1656314
+name: biliary bud intrahepatic part
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1656114 ! biliary bud
+
+[Term]
+id: EMAPT:1656414
+name: foregut-midgut junction epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292814 ! gut epithelium
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1656614
+name: foregut-midgut junction vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599414 ! alimentary system vascular element
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1656714
+name: hindgut diverticulum epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292814 ! gut epithelium
+relationship: part_of EMAPT:1625114 ! hindgut diverticulum
+
+[Term]
+id: EMAPT:1656814
+name: hindgut diverticulum vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599414 ! alimentary system vascular element
+relationship: part_of EMAPT:1625114 ! hindgut diverticulum
+
+[Term]
+id: EMAPT:1656914
+name: midgut epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292814 ! gut epithelium
+relationship: part_of EMAPT:1625514 ! midgut
+
+[Term]
+id: EMAPT:1657014
+name: midgut vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599414 ! alimentary system vascular element
+relationship: part_of EMAPT:1625514 ! midgut
+
+[Term]
+id: EMAPT:1657214
+name: stomatodeum gland
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1626314 ! stomatodeum
+
+[Term]
+id: EMAPT:1657314
+name: stomodeum pituitary
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1657214 ! stomatodeum gland
+relationship: part_of EMAPT:1626314 ! stomatodeum
+relationship: part_of EMAPT:3279614 ! pituitary
+
+[Term]
+id: EMAPT:1657414
+name: Rathke's pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1657314 ! stomodeum pituitary
+
+[Term]
+id: EMAPT:1657514
+name: stomatodeum rest of ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599014 ! alimentary system ectoderm
+relationship: part_of EMAPT:1626314 ! stomatodeum
+
+[Term]
+id: EMAPT:1657614
+name: genitourinary system mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:1636714 ! genitourinary system
+
+[Term]
+id: EMAPT:1657714
+name: nephric duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636714 ! genitourinary system
+
+[Term]
+id: EMAPT:1657814
+name: primordial germ cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636714 ! genitourinary system
+
+[Term]
+id: EMAPT:1657914
+name: pronephros
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636714 ! genitourinary system
+
+[Term]
+id: EMAPT:1658014
+name: tail bud
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:1667314
+name: eye mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3597114 ! sensory organ mesenchyme
+relationship: part_of EMAPT:1619814 ! eye
+
+[Term]
+id: EMAPT:1668414
+name: branchial arch artery
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3514714 ! artery
+relationship: part_of EMAPT:1620114 ! arterial system
+
+[Term]
+id: EMAPT:1668514
+name: 1st arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1668414 ! branchial arch artery
+
+[Term]
+id: EMAPT:1668614
+name: 2nd arch artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1668414 ! branchial arch artery
+
+[Term]
+id: EMAPT:1684714
+name: hepatic primordium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1837614
+name: hindgut diverticulum lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1625114 ! hindgut diverticulum
+
+[Term]
+id: EMAPT:1837714
+name: midgut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1625514 ! midgut
+
+[Term]
+id: EMAPT:1838614
+name: foregut-midgut junction lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1636314 ! foregut-midgut junction
+
+[Term]
+id: EMAPT:1840014
+name: rest of foregut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1655314 ! rest of foregut
+
+[Term]
+id: EMAPT:1840214
+name: pharyngeal region lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1654914 ! pharyngeal region
+
+[Term]
+id: EMAPT:1842514
+name: gland
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3594914 ! organ
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:1844614
+name: otic pit lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1653614 ! otic pit
+
+[Term]
+id: EMAPT:1881514
+name: gut gland
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1842514 ! gland
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:2503514
+name: future central tendon
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1632014 ! septum transversum non-hepatic component
+
+[Term]
+id: EMAPT:2535614
+name: mesenchyme derived from somites 01-04
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1609914 ! mesenchyme derived from head mesoderm
+
+[Term]
+id: EMAPT:2576514
+name: mouse
+namespace: stage_specific_anatomical_structure
+is_a: EMAP:0 ! EMAP:0
+
+[Term]
+id: EMAPT:2611514
+name: umbilical cord
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:2612714
+name: umbilical cord mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3186314 ! extraembryonic mesenchyme
+relationship: part_of EMAPT:2611514 ! umbilical cord
+
+[Term]
+id: EMAPT:2613914
+name: vitelline duct
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2611514 ! umbilical cord
+
+[Term]
+id: EMAPT:2969514
+name: trunk dermomyotome
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3110914 ! dermomyotome
+relationship: part_of EMAPT:1618414 ! trunk somite
+
+[Term]
+id: EMAPT:3110914
+name: dermomyotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3116914 ! somite
+
+[Term]
+id: EMAPT:3111914
+name: trunk myocoele
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3113414 ! myocoele
+relationship: part_of EMAPT:1618414 ! trunk somite
+
+[Term]
+id: EMAPT:3113414
+name: myocoele
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3116914 ! somite
+
+[Term]
+id: EMAPT:3114414
+name: trunk sclerotome
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3115914 ! sclerotome
+relationship: part_of EMAPT:1618414 ! trunk somite
+
+[Term]
+id: EMAPT:3115914
+name: sclerotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3116914 ! somite
+
+[Term]
+id: EMAPT:3116914
+name: somite
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3275714 ! paraxial mesenchyme
+
+[Term]
+id: EMAPT:3185714
+name: trunk
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3185814
+name: head
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3186014
+name: allantois blood vessel
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3273414 ! extraembryonic blood vessel
+relationship: part_of EMAPT:1610714 ! allantois
+
+[Term]
+id: EMAPT:3186114
+name: allantois endothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610714 ! allantois
+
+[Term]
+id: EMAPT:3186314
+name: extraembryonic mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1609714 ! mesenchyme
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:3186614
+name: yolk sac blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1608514 ! yolk sac
+
+[Term]
+id: EMAPT:3186814
+name: umbilical ring
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:3187214
+name: chorionic plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3187314 ! chorioallantoic placenta
+
+[Term]
+id: EMAPT:3187314
+name: chorioallantoic placenta
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604214 ! extraembryonic component
+
+[Term]
+id: EMAPT:3187414
+name: primary trophoblast giant cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3187714 ! trophoblast giant cell
+
+[Term]
+id: EMAPT:3187514
+name: secondary trophoblast giant cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3187714 ! trophoblast giant cell
+
+[Term]
+id: EMAPT:3187614
+name: spongiotrophoblast
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604614 ! trophectoderm
+
+[Term]
+id: EMAPT:3187714
+name: trophoblast giant cell
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604614 ! trophectoderm
+
+[Term]
+id: EMAPT:3187814
+name: labyrinthine zone
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1604614 ! trophectoderm
+
+[Term]
+id: EMAPT:3267514
+name: early brain ventricle
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:3267714
+name: early brain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:3268314
+name: alimentary system epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3273814 ! epithelium
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:3268414
+name: floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647014 ! central nervous system
+
+[Term]
+id: EMAPT:3268514
+name: endocardial tube
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:3268714
+name: cardiac jelly
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+
+[Term]
+id: EMAPT:3268814
+name: cardiac muscle tissue
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610514 ! heart
+relationship: part_of EMAPT:3271514 ! muscle tissue
+
+[Term]
+id: EMAPT:3270514
+name: limb mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:1640514 ! limb
+
+[Term]
+id: EMAPT:3270814
+name: limb ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606914 ! embryo ectoderm
+relationship: part_of EMAPT:1640514 ! limb
+
+[Term]
+id: EMAPT:3271514
+name: muscle tissue
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3586814 ! tissue
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3273414
+name: extraembryonic blood vessel
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1637014 ! extraembryonic vascular system
+
+[Term]
+id: EMAPT:3273514
+name: mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3596114 ! embryo mesenchyme
+
+[Term]
+id: EMAPT:3273814
+name: epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3586814 ! tissue
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3274314
+name: blood vessel
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599314 ! vascular element
+relationship: part_of EMAPT:3590514 ! vascular system
+
+[Term]
+id: EMAPT:3274914
+name: branchial arch membrane
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275014
+name: branchial groove
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275114
+name: branchial arch mesenchyme derived from head mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3275514 ! branchial arch mesenchyme
+
+[Term]
+id: EMAPT:3275214
+name: branchial pouch
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275314
+name: branchial arch ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606914 ! embryo ectoderm
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275414
+name: branchial arch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606214 ! embryo endoderm
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275514
+name: branchial arch mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:1611714 ! branchial arch
+
+[Term]
+id: EMAPT:3275614
+name: branchial arch mesenchyme derived from neural crest
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3273514 ! mesenchyme derived from neural crest
+relationship: part_of EMAPT:3275514 ! branchial arch mesenchyme
+
+[Term]
+id: EMAPT:3275714
+name: paraxial mesenchyme
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3596114 ! embryo mesenchyme
+
+[Term]
+id: EMAPT:3279614
+name: pituitary
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599914 ! endocrine gland
+relationship: part_of EMAPT:3530614 ! endocrine system
+
+[Term]
+id: EMAPT:3280014
+name: ear epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3595214 ! sensory organ epithelium
+relationship: part_of EMAPT:1619314 ! ear
+
+[Term]
+id: EMAPT:3283814
+name: dermatome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3110914 ! dermomyotome
+
+[Term]
+id: EMAPT:3284014
+name: trunk dermatome
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3283814 ! dermatome
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:3284114
+name: myotome
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3110914 ! dermomyotome
+
+[Term]
+id: EMAPT:3284314
+name: trunk myotome
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3284114 ! myotome
+relationship: part_of EMAPT:2969514 ! trunk dermomyotome
+
+[Term]
+id: EMAPT:3285314
+name: early midbrain-hindbrain junction
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:3285614
+name: mesothelium
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1606014 ! cavities and their linings
+
+[Term]
+id: EMAPT:3288314
+name: inner ear epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3280014 ! ear epithelium
+relationship: part_of EMAPT:1619414 ! inner ear
+
+[Term]
+id: EMAPT:3288514
+name: inner ear mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3597214 ! ear mesenchyme
+relationship: part_of EMAPT:1619414 ! inner ear
+
+[Term]
+id: EMAPT:3288614
+name: alimentary system mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:3290814
+name: gut lumen
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:3290914
+name: gut mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3288614 ! alimentary system mesenchyme
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:3291014
+name: gut dorsal mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3291114 ! gut mesentery
+
+[Term]
+id: EMAPT:3291114
+name: gut mesentery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:3292214
+name: foregut epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3292814 ! gut epithelium
+relationship: part_of EMAPT:1654814 ! foregut
+
+[Term]
+id: EMAPT:3292314
+name: foregut mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3290914 ! gut mesenchyme
+relationship: part_of EMAPT:1654814 ! foregut
+
+[Term]
+id: EMAPT:3292814
+name: gut epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3268314 ! alimentary system epithelium
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:3292914
+name: early hindbrain rhombomere roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3293314 ! early hindbrain rhombomere
+
+[Term]
+id: EMAPT:3293014
+name: gut endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599114 ! alimentary system endoderm
+relationship: part_of EMAPT:1624714 ! gut
+
+[Term]
+id: EMAPT:3293114
+name: early hindbrain rhombomere lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3293314 ! early hindbrain rhombomere
+
+[Term]
+id: EMAPT:3293214
+name: early hindbrain rhombomere ventricular layer
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3536814 ! early hindbrain ventricular layer
+relationship: part_of EMAPT:3293114 ! early hindbrain rhombomere lateral wall
+
+[Term]
+id: EMAPT:3293314
+name: early hindbrain rhombomere
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3594314 ! rhombomere
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3293414
+name: early hindbrain rhombomere floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3293314 ! early hindbrain rhombomere
+
+[Term]
+id: EMAPT:3514414
+name: arterial blood vessel
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3274314 ! blood vessel
+relationship: part_of EMAPT:1620114 ! arterial system
+
+[Term]
+id: EMAPT:3514714
+name: artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3514414 ! arterial blood vessel
+
+[Term]
+id: EMAPT:3519014
+name: branchial groove ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275314 ! branchial arch ectoderm
+relationship: part_of EMAPT:3275014 ! branchial groove
+
+[Term]
+id: EMAPT:3519114
+name: branchial pouch endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3275414 ! branchial arch endoderm
+relationship: part_of EMAPT:3275214 ! branchial pouch
+
+[Term]
+id: EMAPT:3520914
+name: ventricular layer
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647014 ! central nervous system
+
+[Term]
+id: EMAPT:3530614
+name: endocrine system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:3536214
+name: early brain ventricular layer
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3520914 ! ventricular layer
+relationship: part_of EMAPT:1647114 ! early brain
+
+[Term]
+id: EMAPT:3536314
+name: early hindbrain floor plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3536414
+name: early hindbrain lateral wall
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3536514
+name: early hindbrain neural crest
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3536714
+name: early hindbrain roof plate
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3536814
+name: early hindbrain ventricular layer
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3536214 ! early brain ventricular layer
+relationship: part_of EMAPT:1647814 ! early hindbrain
+
+[Term]
+id: EMAPT:3586814
+name: tissue
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3590514
+name: vascular system
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1610414 ! cardiovascular system
+
+[Term]
+id: EMAPT:3590614
+name: vein
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3593214 ! venous blood vessel
+relationship: part_of EMAPT:1624014 ! venous system
+
+[Term]
+id: EMAPT:3593214
+name: venous blood vessel
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3274314 ! blood vessel
+relationship: part_of EMAPT:1624014 ! venous system
+
+[Term]
+id: EMAPT:3594314
+name: rhombomere
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+
+[Term]
+id: EMAPT:3594414
+name: limb bud
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1640514 ! limb
+
+[Term]
+id: EMAPT:3594914
+name: organ
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1603914 ! embryo
+relationship: part_of EMAPT:1610314 ! organ system
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3595214
+name: sensory organ epithelium
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3273814 ! epithelium
+relationship: part_of EMAPT:3595514 ! sensory organ
+
+[Term]
+id: EMAPT:3595514
+name: sensory organ
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3594914 ! organ
+relationship: part_of EMAPT:1619214 ! sensory organ system
+
+[Term]
+id: EMAPT:3596114
+name: embryo mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1609714 ! mesenchyme
+relationship: part_of EMAPT:1603914 ! embryo
+
+[Term]
+id: EMAPT:3597114
+name: sensory organ mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:3595514 ! sensory organ
+
+[Term]
+id: EMAPT:3597214
+name: ear mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3597114 ! sensory organ mesenchyme
+relationship: part_of EMAPT:1619314 ! ear
+
+[Term]
+id: EMAPT:3597314
+name: cardiovascular system mesenchyme
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3596114 ! embryo mesenchyme
+relationship: part_of EMAPT:1610414 ! cardiovascular system
+
+[Term]
+id: EMAPT:3598514
+name: ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3598614
+name: endoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3598714
+name: mesoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3598914
+name: eye neural ectoderm
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:1619814 ! eye
+
+[Term]
+id: EMAPT:3599014
+name: alimentary system ectoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606914 ! embryo ectoderm
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:3599114
+name: alimentary system endoderm
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1606214 ! embryo endoderm
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:3599314
+name: vascular element
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3590514 ! vascular system
+
+[Term]
+id: EMAPT:3599414
+name: alimentary system vascular element
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:3599314 ! vascular element
+relationship: part_of EMAPT:1624614 ! alimentary system
+
+[Term]
+id: EMAPT:3599914
+name: endocrine gland
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1842514 ! gland
+relationship: part_of EMAPT:3530614 ! endocrine system
+
+[Term]
+id: EMAPT:3600214
+name: auditory system
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1619214 ! sensory organ system
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:3600314
+name: visual system
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1619214 ! sensory organ system
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:3600414
+name: olfactory system
+namespace: stage_specific_anatomical_structure
+is_a: EMAPT:1619214 ! sensory organ system
+relationship: part_of EMAPT:1610314 ! organ system
+
+[Term]
+id: EMAPT:3601714
+name: umbilical artery
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3601814
+name: umbilical vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3601914
+name: left umbilical vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3601814 ! umbilical vein
+
+[Term]
+id: EMAPT:3602014
+name: right umbilical vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3601814 ! umbilical vein
+
+[Term]
+id: EMAPT:3602114
+name: vitelline vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:2576514 ! mouse
+
+[Term]
+id: EMAPT:3602214
+name: left vitelline vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3602114 ! vitelline vein
+
+[Term]
+id: EMAPT:3602314
+name: right vitelline vein
+namespace: stage_specific_anatomical_structure
+relationship: part_of EMAPT:3602114 ! vitelline vein
+
+[Term]
+id: group_term
+name: Group term
+
+[Term]
+id: Tmp_new_group
+name: Tmp new group
+
+[Term]
+id: TS14
+name: TS14
+namespace: theiler_stage
+is_a: TS:0 ! Theiler stage
+
+[Term]
+id: TS:0
+name: Theiler stage
+namespace: theiler_stage
+
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: is_a
+name: is_a
+is_transitive: true
+
+[Typedef]
+id: develops_from
+name: develops_from
+is_transitive: true
+
+[Typedef]
+id: develops_in
+name: develops_in
+
+[Typedef]
+id: attached_to
+name: attached_to
+
+[Typedef]
+id: located_in
+name: located_in
+
+[Typedef]
+id: has_part
+name: has_part
+is_transitive: true
+
+[Typedef]
+id: disjoint_from
+name: disjoint_from

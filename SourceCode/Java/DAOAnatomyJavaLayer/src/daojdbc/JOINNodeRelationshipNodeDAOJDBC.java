@@ -82,7 +82,8 @@ public final class JOINNodeRelationshipNodeDAOJDBC implements JOINNodeRelationsh
     	"JOIN ANA_RELATIONSHIP ON REL_CHILD_FK = a.ANO_OID " +
     	"JOIN ANA_NODE b ON REL_PARENT_FK = b.ANO_OID " +
     	"WHERE REL_RELATIONSHIP_TYPE_FK = 'is-a' " +
-    	"AND a.ANO_OID = ? ";
+    	"AND a.ANO_OID = ? " +
+    	"ORDER BY b.ANO_PUBLIC_ID";
     
     private static final String SQL_LIST_ALL_BY_PARENT_ID =
         "SELECT " +

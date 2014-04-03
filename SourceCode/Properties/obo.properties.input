@@ -121,7 +121,7 @@ mouse011AberlourJenkinsOBOfile.maxstagesequence=27
 mouse011AberlourJenkinsOBOfile.alternatives=false
 mouse011AberlourJenkinsOBOfile.timedcomponents=false
 mouse011AberlourJenkinsOBOfile.generateidentifiers=false
-mouse011AberlourJenkinsOBOfile.debug=true
+mouse011AberlourJenkinsOBOfile.debug=false
 mouse011AberlourJenkinsOBOfile.msglevel=*
 
 -- Jenkins MOUSE 011 OBO FILE

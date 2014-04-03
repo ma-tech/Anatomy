@@ -70,8 +70,10 @@ public class RunOBOResetComponentsOrderAlpha{
           		
           		Component component = iteratorComponents.next();
 
-        		List<JOINComponentOrderComponentComponent> joincomponentordercomponentcomponents = joincomponentordercomponentcomponentDAO.listOrderByParentByAlphaOrder(component.getId());
-            	Iterator<JOINComponentOrderComponentComponent> iteratorJOINComponentOrderComponentComponent = joincomponentordercomponentcomponents.iterator();
+        		List<JOINComponentOrderComponentComponent> joincomponentordercomponentcomponents = 
+        				joincomponentordercomponentcomponentDAO.listOrderByParentByAlphaOrder(component.getId());
+            	
+        		Iterator<JOINComponentOrderComponentComponent> iteratorJOINComponentOrderComponentComponent = joincomponentordercomponentcomponents.iterator();
 
         		long l = 0;
         		

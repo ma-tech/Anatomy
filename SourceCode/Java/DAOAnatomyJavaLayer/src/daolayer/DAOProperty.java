@@ -250,13 +250,13 @@ public class DAOProperty {
             }
             if (debug.equals("false")) {
             	
-            	this.debug = true;
+            	this.debug = false;
             }
     	}
     }
     public void setDebug(boolean debug) {
 
-    	this.debug = true;
+    	this.debug = debug;
     }
     public void setDriver(String driver) {
 

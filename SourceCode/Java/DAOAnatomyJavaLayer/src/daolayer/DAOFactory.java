@@ -139,8 +139,9 @@ public abstract class DAOFactory {
         String strUpdate = daoproperty.getUpdate();
         String strUrl = daoproperty.getUrl();
         String strUsername = daoproperty.getUsername();
-
+        
     	try {
+            
             if (daoproperty.isDebug()) {
             
     			Wrapper.printMessage("=====     :", "*", strMsgLevel);

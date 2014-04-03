@@ -81,7 +81,12 @@ public class RunOBOValidateComponentsOrder{
             		if ( l != componentorder.getAlphaorder()) {
             			
             	        errorCount++;
-            	        Wrapper.printMessage(errorCount + " Alpha Ordering Error: Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + "; Expected Order = " + ObjectConverter.convert(l, String.class)+ "; Actual Order = " + componentorder.getAlphaorder(), "*", "*");
+            	        //Wrapper.printMessage(errorCount + " Alpha Ordering Error: Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + "; Expected Order = " + ObjectConverter.convert(l, String.class)+ "; Actual Order = " + componentorder.getAlphaorder(), "*", "*");
+
+            	        Component parentcomponent = componentDAO.findByOboId(componentorder.getParent());
+            	        Component childcomponent = componentDAO.findByOboId(componentorder.getChild());
+            	        
+            	        Wrapper.printMessage("Alpha Ordering Error: " + componentorder.getParent() + "," + parentcomponent.getName() + "," + componentorder.getChild() + "," + childcomponent.getName() + ",ExpectedOrder=" + ObjectConverter.convert(l, String.class) + ",ActualOrder=" + componentorder.getSpecialorder(), "*", "*");
             		}
             		
             		l++;
@@ -100,7 +105,12 @@ public class RunOBOValidateComponentsOrder{
             		if ( l != componentorder.getSpecialorder()) {
             			
             	        errorCount++;
-            	        Wrapper.printMessage(errorCount + " Special Ordering Error: Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + "; Expected Order = " + ObjectConverter.convert(l, String.class)+ "; Actual Order = " + componentorder.getSpecialorder(), "*", "*");
+            	        //Wrapper.printMessage(errorCount + " Special Ordering Error: Parent " + componentorder.getParent() + " Child " + componentorder.getChild() + "; Expected Order = " + ObjectConverter.convert(l, String.class)+ "; Actual Order = " + componentorder.getSpecialorder(), "*", "*");
+            	         
+            	        Component parentcomponent = componentDAO.findByOboId(componentorder.getParent());
+            	        Component childcomponent = componentDAO.findByOboId(componentorder.getChild());
+            	        
+            	        Wrapper.printMessage("Special Ordering Error: " + componentorder.getParent() + "," + parentcomponent.getName() + "," + componentorder.getChild() + "," + childcomponent.getName() + ",ExpectedOrder=" + ObjectConverter.convert(l, String.class) + ",ActualOrder=" + componentorder.getSpecialorder(), "*", "*");
             		}
             		
             		l++;

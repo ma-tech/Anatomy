@@ -31,26 +31,27 @@
 */
 package routines.runnable;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import csvmodel.AnatomyInPerspective;
+import utility.CsvUtil;
+import utility.FileUtil;
 import utility.Wrapper;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.MapBuilder;
 import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
 import routines.aggregated.ListOBOComponentsFromOBOFile;
 
 public class ValidateInputOBOAgainstBaseOBOFiles {
 
-	public static void run(OBOFactory obofactory) throws Exception {
+	public static void run(OBOFactory obofactory, String filename) throws Exception {
     	
 	    Wrapper.printMessage("validateinputoboagainstbaseobo.run", "***", obofactory.getMsgLevel());
 
@@ -127,9 +128,35 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
         Wrapper.printMessage("validateinputoboagainstbaseobo.run : Validated? " + validation, "***", obofactory.getMsgLevel());
 
         //generate txt summary report
-        GenerateEditorReport generateeditorreport = new GenerateEditorReport( obofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
+        GenerateEditorReport generateeditorreport = new GenerateEditorReport( obofactory.getMsgLevel(), 
+        		validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), 
+        		validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        
+        if ( !filename.equals("none") ){
+        	
+            // Format InputStream for Anatomy.
+            InputStream csvInput = FileUtil.readStream(new File( filename ));
+            
+            // Create Anatomy List
+            AnatomyInPerspective anatomyinperspective = new AnatomyInPerspective( CsvUtil.parseCsv(csvInput, ',') );
+        	
+            anatomyinperspective.importCSVFile();
+            
+            String [] parts1 = summaryReport.split("\\.");
+            String newTxtFileName = parts1[0] + "_CUTDOWN." + parts1[1];
+            String [] parts2 = summaryReportPdf.split("\\.");
+            String newPdfFileName = parts2[0] + "_CUTDOWN." + parts2[1];
+
+            //generate txt summary report
+            GenerateEditorReport generateeditorreporcutdown = new GenerateEditorReport( obofactory.getMsgLevel(), 
+            		validatecomponents, inputFile, newTxtFileName, anatomyinperspective);
+            
+            //generate CUT-DOWN pdf summary report
+            GenerateEditorPDF generateeditorpdfcutdown = new GenerateEditorPDF( obofactory.getMsgLevel(), 
+            		validatecomponents, inputtreebuilder, inputFile, newPdfFileName, anatomyinperspective);
+        }
     }
 }

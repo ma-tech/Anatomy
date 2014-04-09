@@ -164,6 +164,11 @@ def regenerateTable():
         stops  = PerspectiveAmbits.getStopAmbitForPerspective(perspectiveName)
         startNodeOids = sets.Set(starts.keys())
         stopNodeOids  = sets.Set(stops.keys())
+        
+        #print perspectiveName
+        #print startNodeOids
+        #print stopNodeOids
+        
         startApos = [PartOfs.getPrimaryPathApoForNodeOid(nodeOid)
                      for nodeOid in startNodeOids]
         apoList = startApos[:]
@@ -179,6 +184,28 @@ def regenerateTable():
             pop.setIsAncestor(False)
             pop.setNodeOid(partOf.getNodeOid())
             pop.insert()
+            
+            #if partOf.getOid() == 68470:
+            #    print 
+            #    print pop.getPerspectiveName()
+            #    print pop.getApoOid()
+            #    print pop.isAncestor()
+            #    print pop.getNodeOid()
+            #    print
+            #    print partOf.getOid()
+            #    print partOf.getSpecies()
+            #    print partOf.getNodeStartStageOid()
+            #    print partOf.getNodeEndStageOid()
+            #    print partOf.getPathStartStageOid()
+            #    print partOf.getPathEndStageOid()
+            #    print partOf.getNodeOid()
+            #    print partOf.getSequence()
+            #    print partOf.getDepth()
+            #    print partOf.getFullPathEmapas()
+            #    print partOf.getFullPath()
+            #    print partOf.isPrimaryPath()
+            #    print partOf.getParentApoOid()
+
             _addToKnowledge(pop)
 
             # if this is not a stop node, then add all its part-of kids
@@ -216,7 +243,9 @@ def regenerateTable():
                  _byApoOid[parentApoOid].get(perspectiveName) == None)):
                 parentApo = PartOfs.getByOid(parentApoOid)
                 ancesApos.add(parentApo)
-
+        
+        
+        
     return
 
 

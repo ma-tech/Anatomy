@@ -38,6 +38,8 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
+import csvmodel.AnatomyInPerspective;
+
 import java.awt.Color;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -49,7 +51,6 @@ import javax.swing.tree.TreePath;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
-
 import obomodel.OBOComponent;
 
 public class GenerateEditorPDF {
@@ -86,6 +87,8 @@ public class GenerateEditorPDF {
     
     private String requestMsgLevel;
     
+    private AnatomyInPerspective anatomyinperspective;
+    
     //----------------------------------------------------------------------------------------------
     // Constructor ---------------------------------------------------------------------------------
 	public GenerateEditorPDF(
@@ -97,8 +100,10 @@ public class GenerateEditorPDF {
 
         this.requestMsgLevel = requestMsgLevel;
         
-        Wrapper.printMessage("generateeditorpdf.constructor", "****", this.requestMsgLevel);
+        Wrapper.printMessage("generateeditorpdf.constructor # 1", "****", this.requestMsgLevel);
 
+        this.anatomyinperspective = null; 
+        
         this.treebuilder = treebuilder;
         this.outputFileName = outputFileName;
         this.inputFileName = inputFileName;
@@ -140,7 +145,8 @@ public class GenerateEditorPDF {
                     "Total Critical Components: ",
                     Color.RED,
                     "Problem OBOComponent ",
-                    "PROBLEM" );
+                    "PROBLEM",
+                    this.anatomyinperspective);
             
             //writing new terms
             pdfDocument.add( Chunk.NEXTPAGE );
@@ -149,7 +155,8 @@ public class GenerateEditorPDF {
                     "Total New Components: ",
                     new Color(0,140,0),
                     "New OBOComponent ",
-                    "NEW" );
+                    "NEW",
+                    this.anatomyinperspective);
             
             //writing modified terms
             pdfDocument.add( Chunk.NEXTPAGE );
@@ -158,7 +165,8 @@ public class GenerateEditorPDF {
                     "Total Modified Components: ",
                     new Color(0,140,0),
                     "Modified OBOComponent ",
-                    "MODIFIED" );
+                    "MODIFIED",
+                    this.anatomyinperspective);
             
             //writing deleted terms
             pdfDocument.add( Chunk.NEXTPAGE );
@@ -167,7 +175,112 @@ public class GenerateEditorPDF {
                     "Total Deleted Components: ",
                     new Color(0,140,0),
                     "Deleted Components ",
-                    "DELETE" );
+                    "DELETE",
+                    this.anatomyinperspective);
+            
+            //appendix
+            writeAppendix();
+            
+            //close pdf file
+            pdfDocument.close();
+            
+            this.isProcessed = true;
+        }
+        catch (Exception e){
+        	
+            e.printStackTrace();
+            isProcessed = false;
+        }
+    }
+
+    // Constructor ---------------------------------------------------------------------------------
+	public GenerateEditorPDF(
+			String requestMsgLevel,
+			ValidateComponents validatecomponents,
+            TreeBuilder treebuilder,
+            String inputFileName,
+            String outputFileName,
+            AnatomyInPerspective anatomyinperspective) throws Exception{
+
+        this.requestMsgLevel = requestMsgLevel;
+        
+        Wrapper.printMessage("generateeditorpdf.constructor # 2", "****", this.requestMsgLevel);
+
+        this.anatomyinperspective = anatomyinperspective; 
+        
+        this.treebuilder = treebuilder;
+        this.outputFileName = outputFileName;
+        this.inputFileName = inputFileName;
+
+        //sort terms from ValidateComponents class into categories
+        //ArrayList<OBOComponent> changedTerms = validatecomponents.getChangesTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
+        
+        problemobocomponents = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
+        
+        this.sortChangedTerms( proposedTerms );        
+        
+    	try {
+    		
+            //create pdf file
+            PdfWriter.getInstance(pdfDocument,
+                    new FileOutputStream( outputFileName ) );
+            pdfDocument.open();
+            
+            //pdf title
+            Paragraph paraMainHeader = new Paragraph();
+            Chunk chkMainHeader = 
+                    new Chunk( "Editor Report for \n Import of OBO File: \n",
+                            new Font( Font.HELVETICA, 14, Font.BOLD ) );
+
+            paraMainHeader.add( chkMainHeader );
+            paraMainHeader.add( Chunk.NEWLINE );
+            paraMainHeader.add( Chunk.NEWLINE );
+            pdfDocument.add( paraMainHeader );
+            
+            //summary
+            writeReportSummary( validatecomponents );
+            writeSummaryTable( validatecomponents );
+            
+            //writing problem terms
+            //writeProblemTerms( problemobocomponents );
+            writeTerms( problemobocomponents,
+                    "CRITICAL COMPONENTS: REQUIRE REVISION",
+                    "Total Critical Components: ",
+                    Color.RED,
+                    "Problem OBOComponent ",
+                    "PROBLEM",
+                    this.anatomyinperspective);
+            
+            //writing new terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( newTerms,
+                    "NEW COMPONENTS",
+                    "Total New Components: ",
+                    new Color(0,140,0),
+                    "New OBOComponent ",
+                    "NEW",
+                    this.anatomyinperspective);
+            
+            //writing modified terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( modifiedTerms,
+                    "MODIFIED COMPONENTS",
+                    "Total Modified Components: ",
+                    new Color(0,140,0),
+                    "Modified OBOComponent ",
+                    "MODIFIED",
+                    this.anatomyinperspective);
+            
+            //writing deleted terms
+            pdfDocument.add( Chunk.NEXTPAGE );
+            writeTerms( deletedTerms,
+                    "DELETE COMPONENTS",
+                    "Total Deleted Components: ",
+                    new Color(0,140,0),
+                    "Deleted Components ",
+                    "DELETE",
+                    this.anatomyinperspective);
             
             //appendix
             writeAppendix();
@@ -621,7 +734,8 @@ public class GenerateEditorPDF {
             String strSubheader,
             Color headerColor, 
             String strTableHeader,
-            String strStatus ) throws Exception{
+            String strStatus,
+            AnatomyInPerspective anatomyinperspective) throws Exception{
 
         Wrapper.printMessage("generateeditorpdf.writeTerms", "****", this.requestMsgLevel);
         	
@@ -654,26 +768,78 @@ public class GenerateEditorPDF {
 
                 for(OBOComponent obocomponent: termList){
                 	
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        if ( obocomponent.getNewID().equals("TBD") ) {
+                        	
+                        	strCompieID = obocomponent.getID();
+                        }
+                        else {
+                        	
+                        	strCompieID = obocomponent.getNewID();
+                        }
+
+                        Paragraph paraListItem = new Paragraph();
+                        Chunk chkListItem = new Chunk( "  " + counter + ". " + 
+                                strCompieID + " - " + obocomponent.getName(),
+                                new Font( Font.NORMAL, 10, Font.NORMAL, 
+                                Color.BLACK ) );
+                        
+                        paraListItem.setLeading( 9 );
+                        paraListItem.add( chkListItem );
+                        pdfDocument.add( paraListItem );
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+                    		
+                    		if ( parts1.length > 2 ) {
+                    			
+                        		System.out.println("obocomponent.getName() = " + obocomponent.getName());
+                        		System.out.println("componentName = " + componentName);
+                    		}
+                    		
+                            if ( obocomponent.getNewID().equals("TBD") ) {
+                            	
+                            	strCompieID = obocomponent.getID();
+                            }
+                            else {
+                            	
+                            	strCompieID = obocomponent.getNewID();
+                            }
+
+                            Paragraph paraListItem = new Paragraph();
+                            Chunk chkListItem = new Chunk( "  " + counter + ". " + 
+                                    strCompieID + " - " + obocomponent.getName(),
+                                    new Font( Font.NORMAL, 10, Font.NORMAL, 
+                                    Color.BLACK ) );
+                            
+                            paraListItem.setLeading( 9 );
+                            paraListItem.add( chkListItem );
+                            pdfDocument.add( paraListItem );
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                     counter++;
                     
-                    if ( obocomponent.getNewID().equals("TBD") ) {
-                    	
-                    	strCompieID = obocomponent.getID();
-                    }
-                    else {
-                    	
-                    	strCompieID = obocomponent.getNewID();
-                    }
-
-                    Paragraph paraListItem = new Paragraph();
-                    Chunk chkListItem = new Chunk( "  " + counter + ". " + 
-                            strCompieID + " - " + obocomponent.getName(),
-                            new Font( Font.NORMAL, 10, Font.NORMAL, 
-                            Color.BLACK ) );
-                    
-                    paraListItem.setLeading( 9 );
-                    paraListItem.add( chkListItem );
-                    pdfDocument.add( paraListItem );
                 }
                 
                 pdfDocument.add( Chunk.NEWLINE );
@@ -692,19 +858,67 @@ public class GenerateEditorPDF {
                 for(OBOComponent obocomponent: termList){
                 	
                     counter++;
-                    pdfDocument.add( Chunk.NEWLINE );
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        pdfDocument.add( Chunk.NEWLINE );
 
-                    if ( obocomponent.getStatusRule().equals("FAILED") ) {
-                    	
-                    	tableColor = Color.RED;
-                    }
-                    else {
-                    	
-                    	tableColor = headerColor;
-                    }
-                    
-                    makeComponentTable( obocomponent, strTableHeader, 
-                            counter, tableColor );
+                        if ( obocomponent.getStatusRule().equals("FAILED") ) {
+                        	
+                        	tableColor = Color.RED;
+                        }
+                        else {
+                        	
+                        	tableColor = headerColor;
+                        }
+                        
+                        makeComponentTable( obocomponent, strTableHeader, 
+                                counter, tableColor );
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+                    		
+                    		if ( parts1.length > 2 ) {
+                    			
+                        		System.out.println("obocomponent.getName() = " + obocomponent.getName());
+                        		System.out.println("componentName = " + componentName);
+                    		}
+
+                    		pdfDocument.add( Chunk.NEWLINE );
+
+                            if ( obocomponent.getStatusRule().equals("FAILED") ) {
+                            	
+                            	tableColor = Color.RED;
+                            }
+                            else {
+                            	
+                            	tableColor = headerColor;
+                            }
+                            
+                            makeComponentTable( obocomponent, strTableHeader, 
+                                    counter, tableColor );
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
+
                 }
             }
         }

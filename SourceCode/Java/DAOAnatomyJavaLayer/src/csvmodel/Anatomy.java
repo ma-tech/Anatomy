@@ -714,6 +714,7 @@ public class Anatomy {
      			this.listStringTimedNode.add(listRow);
      		}
      		if ( listRow.get(0).equals("ANA_PERSPECTIVE_AMBIT")) {
+     			
      			this.listStringPerspectiveAmbit.add(listRow);
      		}
      	}
@@ -1381,8 +1382,7 @@ public class Anatomy {
      			i++;
      		}
 
- 			//System.out.println(perspectiveambitfk.toString());
-            this.listObjectPerspectiveAmbitFK.add(perspectiveambitfk);
+ 			this.listObjectPerspectiveAmbitFK.add(perspectiveambitfk);
      	}        		
     }
 
@@ -1985,11 +1985,11 @@ public class Anatomy {
          		perspectiveambit.setStart(perspectiveambitfk.isStart());
          		perspectiveambit.setStop(perspectiveambitfk.isStop());
          		perspectiveambit.setComments(perspectiveambitfk.getComments());
-                //System.out.println(perspectiveambit.toString());
-                perspectiveambitDAO.create(perspectiveambit);
+                
+         		perspectiveambitDAO.create(perspectiveambit);
 
                 Thing thing = new Thing(longMaxOid, strDatetime, longSysadmin, perspectiveambit.toStringThing(), strCalledFromTable);
-                //System.out.println(thing.toString());
+
                 thingDAO.create(thing);
          	}    		
         }
@@ -2552,8 +2552,8 @@ public class Anatomy {
          	    row.add(3, perspectiveambitfk.getStart());
          	    row.add(4, perspectiveambitfk.getStop());
          	    row.add(5, perspectiveambitfk.getComments());
-         	    
-         	   this.csv2DStringArray.add(row);
+         	  
+         	    this.csv2DStringArray.add(row);
          	}        		
         }
         catch ( DAOException dao ) {

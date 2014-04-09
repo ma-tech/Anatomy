@@ -1,33 +1,33 @@
-ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:17366;false;false;none
-ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:28429;false;false;none
-ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:17381;false;false;none
-ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:16367;false;false;none
-ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:17366;false;false;none
-ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:28429;false;false;none
-ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:16367;false;false;none
-ANA_PERSPECTIVE_AMBIT;Whole mouse;EMAPA:25765;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:18679;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17952;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:19279;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:18676;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17948;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28373;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28376;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:29691;false;false;none
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17373;false;false;include metanephros only to support ubiquitous annotation
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28506;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28485;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28527;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:30449;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:19280;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28500;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28491;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28407;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28494;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28518;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31469;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31443;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28457;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31436;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31450;false;false;suppress expansion of groups to make Fiatas display cleaner
-ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31464;false;false;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:17366;true;false;none
+ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:28429;true;false;none
+ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:17381;true;false;none
+ANA_PERSPECTIVE_AMBIT;Urogenital;EMAPA:16367;true;false;none
+ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:17366;true;false;none
+ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:28429;true;false;none
+ANA_PERSPECTIVE_AMBIT;Renal;EMAPA:16367;true;false;none
+ANA_PERSPECTIVE_AMBIT;Whole mouse;EMAPA:25765;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:18679;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17952;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:19279;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:18676;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17948;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28373;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28376;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:29691;true;false;none
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:17373;true;true;include metanephros only to support ubiquitous annotation
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28506;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28485;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28527;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:30449;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:19280;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28500;false;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28491;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28407;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28494;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28518;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31469;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31443;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:28457;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31436;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31450;true;true;suppress expansion of groups to make Fiatas display cleaner
+ANA_PERSPECTIVE_AMBIT;Adult Kidney (GenePaint);EMAPA:31464;true;true;suppress expansion of groups to make Fiatas display cleaner

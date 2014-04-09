@@ -47,9 +47,9 @@ public class MainValidateInputOBOAgainstBaseOBOFiles{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 2) {
+		if (args.length != 3) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 2 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 3 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
 
@@ -58,7 +58,7 @@ public class MainValidateInputOBOAgainstBaseOBOFiles{
 
         	OBOFactory obofactory = OBOFactory.getInstance(args[1]);
             
-            ValidateInputOBOAgainstBaseOBOFiles.run( obofactory );
+            ValidateInputOBOAgainstBaseOBOFiles.run( obofactory, args[2] );
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

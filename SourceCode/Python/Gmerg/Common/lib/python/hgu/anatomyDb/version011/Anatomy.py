@@ -133,9 +133,9 @@ def generateDerivedData():
     This will (generate code to) empty and repopulate all derived tables.
     """
     # Empty all derivied tables, in reverse order that they are populated.
-    PartOfPerspectives.deleteAll()
-    PartOfs.deleteAll()
-    RelationshipsTransitive.deleteAll()
+    #PartOfPerspectives.deleteAll()
+    #PartOfs.deleteAll()
+    #RelationshipsTransitive.deleteAll()
 
     # Derive the transitive closure of the relationship graph
     RelationshipsTransitive.regenerateTable()

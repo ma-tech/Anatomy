@@ -104,13 +104,18 @@ def _addToKnowledge(anatApo, deferReverse = False ):
             _byParentOid[parentOid] = []
         _byParentOid[parentOid].append(anatApo)
 
-    if anatApo.isPrimaryPath():
-        nodeOid = anatApo.getNodeOid()
+    #if anatApo.isPrimaryPath():
+    nodeOid = anatApo.getNodeOid()
+        #if nodeOid == 4916:
+        #    print nodeOid
+        #    print anatApo.isPrimaryPath()
+        #    print anatApo.getDepth()
+        #    print anatApo.getFullPathEmapas()
         #if nodeOid in _primaryPathByNodeOid:
         #    Util.fatalError([
         #        "Node OID " + str(nodeOid) + " occurs more than once " +
         #        "in " + AnadPartOfDb.TABLE_NAME])
-        _primaryPathByNodeOid[nodeOid] = anatApo
+    _primaryPathByNodeOid[nodeOid] = anatApo
 
     if not deferReverse:
         global _partOfInReverseSequence

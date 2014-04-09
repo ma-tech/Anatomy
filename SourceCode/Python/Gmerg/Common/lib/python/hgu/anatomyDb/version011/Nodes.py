@@ -225,6 +225,9 @@ def connectTheDots():
     _partOfParentsByChild   = {}
 
     for rel in Relationships.PartOfIterator():
+    
+        #print rel.getOid()
+
         connectTheDotsForRelationship(rel)
 
     return

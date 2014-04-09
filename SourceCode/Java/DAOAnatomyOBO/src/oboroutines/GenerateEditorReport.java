@@ -35,7 +35,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.Vector;
@@ -43,8 +42,8 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
+import csvmodel.AnatomyInPerspective;
 import utility.Wrapper;
-
 import obomodel.OBOComponent;
 
 public class GenerateEditorReport {
@@ -82,15 +81,112 @@ public class GenerateEditorReport {
 
     private String requestMsgLevel;
 
+    private AnatomyInPerspective anatomyinperspective;
+    
 
     //----------------------------------------------------------------------------------------------
-    // Constructor ---------------------------------------------------------------------------------
-	public GenerateEditorReport( String requestMsgLevel, ValidateComponents validatecomponents, String infile, String outfile ) throws Exception{
+    // Constructor # 1 -----------------------------------------------------------------------------
+	public GenerateEditorReport( String requestMsgLevel, 
+			ValidateComponents validatecomponents, 
+			String infile, 
+			String outfile ) throws Exception{
 
         this.requestMsgLevel = requestMsgLevel;
         
         Wrapper.printMessage("generateeditorreport.constructor", "****", this.requestMsgLevel);
         	
+        this.anatomyinperspective = null; 
+        
+        //sort terms from ValidateComponents class into categories
+        //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
+        proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
+        
+        problemTerms = (ArrayList<OBOComponent>) validatecomponents.getProblemTermList();
+        
+        sortChangedTerms( proposedTerms );        
+        
+    	try {
+    		
+            outputFileName = outfile;
+            inputFileName = infile;
+            
+            //check filepath exists
+            File file = new File(outputFileName);
+            
+            if (!file.isDirectory()) {
+            	
+                file = file.getParentFile();
+            }
+            
+            if (!file.exists()) {
+            	
+                return;
+            }
+
+            //create text file
+            reportFile = new BufferedWriter( new FileWriter( outputFileName ) );
+            reportFile.newLine();
+            
+            //title
+            reportFile.write("Editor Report for Import of OBO File: " +
+            		inputFileName);
+            reportFile.newLine();
+            reportFile.newLine();
+            
+            //summary
+            writeReportSummary(validatecomponents);
+            
+            //writing problem terms
+            writeProblemTerms( problemTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //writing new terms
+            flushStringWriter();
+            writeNewTerms( newTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //writing modified terms
+            flushStringWriter();
+            writeModifiedTerms( modifiedTerms );
+            reportFile.write( stringWriter.toString() ); 
+            
+            //writing deleted terms
+            flushStringWriter();
+            writeDeletedTerms( deletedTerms );
+            reportFile.write( stringWriter.toString() );
+            
+            //appendix
+            flushStringWriter();
+            writeAppendix();
+            reportFile.write( stringWriter.toString() );
+            
+            printWriter.close();
+            stringWriter.close();
+            reportFile.close();
+            
+            this.isProcessed = true;
+
+        }
+        catch (Exception e){
+        	
+            e.printStackTrace();
+            isProcessed = false;
+        }
+    }
+
+    // Constructor # 2 -----------------------------------------------------------------------------
+	public GenerateEditorReport( String requestMsgLevel, 
+			ValidateComponents validatecomponents, 
+			String infile, 
+			String outfile,
+            AnatomyInPerspective anatomyinperspective ) throws Exception{
+
+        this.requestMsgLevel = requestMsgLevel;
+        
+        Wrapper.printMessage("generateeditorreport.constructor", "****", this.requestMsgLevel);
+        	
+        this.anatomyinperspective = anatomyinperspective; 
+        
         //sort terms from ValidateComponents class into categories
         //ArrayList<OBOComponent> changedTerms = validatecomponent.getChangesTermList();
         proposedTerms = (ArrayList<OBOComponent>) validatecomponents.getProposedTermList();
@@ -276,10 +372,42 @@ public class GenerateEditorReport {
             	
                 for(OBOComponent obocomponent: obocomponents){
                 
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                    	printWriter.println( "  " + counter + ". " +
+                                obocomponent.getID() + " - " + obocomponent.getName() );
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                        	printWriter.println( "  " + counter + ". " +
+                                    obocomponent.getID() + " - " + obocomponent.getName() );
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 	counter++;
                     
-                	printWriter.println( "  " + counter + ". " +
-                            obocomponent.getID() + " - " + obocomponent.getName() );
                 }
 
                 printWriter.println();
@@ -292,49 +420,122 @@ public class GenerateEditorReport {
                 	
                     counter++;
                     
-                    printWriter.println();
-                    printWriter.println();
-                    printWriter.println( "   Problem OBOComponent " +
-                            counter );
-                    printWriter.println( "    ID        : " +
-                            obocomponent.getID() );
-                    printWriter.println( "    Name      : " +
-                            obocomponent.getName() );
-                    printWriter.println( "    Starts At : " +
-                            obocomponent.getStart() );
-                    printWriter.println( "    Ends At   : " +
-                            obocomponent.getEnd() );
-                    printWriter.println( "    Parents   : " + 
-                            obocomponent.getChildOfs() );
-                    printWriter.println( "    Synonyms  : " +
-                            obocomponent.getSynonyms() );
-                    printWriter.println( "    Alternate Paths     : " );
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        printWriter.println();
+                        printWriter.println();
+                        printWriter.println( "   Problem OBOComponent " +
+                                counter );
+                        printWriter.println( "    ID        : " +
+                                obocomponent.getID() );
+                        printWriter.println( "    Name      : " +
+                                obocomponent.getName() );
+                        printWriter.println( "    Starts At : " +
+                                obocomponent.getStart() );
+                        printWriter.println( "    Ends At   : " +
+                                obocomponent.getEnd() );
+                        printWriter.println( "    Parents   : " + 
+                                obocomponent.getChildOfs() );
+                        printWriter.println( "    Synonyms  : " +
+                                obocomponent.getSynonyms() );
+                        printWriter.println( "    Alternate Paths     : " );
+                        
+                        paths = (Vector<DefaultMutableTreeNode[]>) obocomponent.getShortenedPaths();
+                        pathCounter = 0;
+                        
+                        for( DefaultMutableTreeNode[] path : paths ){
+                        
+                        	pathCounter++;
+                            printWriter.println( "     " + pathCounter +
+                                    ".  " + new TreePath(path) );
+                        }
+                        
+                        printWriter.println( "    Change Check Status : " +
+                                obocomponent.getStatusChange() );
+                        printWriter.println( "    Rules Check Status  : " +
+                                obocomponent.getStatusRule() );
+                        printWriter.println( "    Comments: ");
                     
-                    paths = (Vector<DefaultMutableTreeNode[]>) obocomponent.getShortenedPaths();
-                    pathCounter = 0;
-                    
-                    for( DefaultMutableTreeNode[] path : paths ){
-                    
-                    	pathCounter++;
-                        printWriter.println( "     " + pathCounter +
-                                ".  " + new TreePath(path) );
-                    }
-                    
-                    printWriter.println( "    Change Check Status : " +
-                            obocomponent.getStatusChange() );
-                    printWriter.println( "    Rules Check Status  : " +
-                            obocomponent.getStatusRule() );
-                    printWriter.println( "    Comments: ");
-                
-                    comments = obocomponent.getCheckComments();
-                    commentCounter = 0;
-                    
-                    for( String s: comments ){
-                    
-                    	commentCounter++;
-                        printWriter.println( "     " + commentCounter +
-                                ".  " + s );
-                    }
+                        comments = obocomponent.getCheckComments();
+                        commentCounter = 0;
+                        
+                        for( String s: comments ){
+                        
+                        	commentCounter++;
+                            printWriter.println( "     " + commentCounter +
+                                    ".  " + s );
+                        }
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                            printWriter.println();
+                            printWriter.println();
+                            printWriter.println( "   Problem OBOComponent " +
+                                    counter );
+                            printWriter.println( "    ID        : " +
+                                    obocomponent.getID() );
+                            printWriter.println( "    Name      : " +
+                                    obocomponent.getName() );
+                            printWriter.println( "    Starts At : " +
+                                    obocomponent.getStart() );
+                            printWriter.println( "    Ends At   : " +
+                                    obocomponent.getEnd() );
+                            printWriter.println( "    Parents   : " + 
+                                    obocomponent.getChildOfs() );
+                            printWriter.println( "    Synonyms  : " +
+                                    obocomponent.getSynonyms() );
+                            printWriter.println( "    Alternate Paths     : " );
+                            
+                            paths = (Vector<DefaultMutableTreeNode[]>) obocomponent.getShortenedPaths();
+                            pathCounter = 0;
+                            
+                            for( DefaultMutableTreeNode[] path : paths ){
+                            
+                            	pathCounter++;
+                                printWriter.println( "     " + pathCounter +
+                                        ".  " + new TreePath(path) );
+                            }
+                            
+                            printWriter.println( "    Change Check Status : " +
+                                    obocomponent.getStatusChange() );
+                            printWriter.println( "    Rules Check Status  : " +
+                                    obocomponent.getStatusRule() );
+                            printWriter.println( "    Comments: ");
+                        
+                            comments = obocomponent.getCheckComments();
+                            commentCounter = 0;
+                            
+                            for( String s: comments ){
+                            
+                            	commentCounter++;
+                                printWriter.println( "     " + commentCounter +
+                                        ".  " + s );
+                            }
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             }
         }
@@ -368,9 +569,43 @@ public class GenerateEditorReport {
             for(OBOComponent obocomponent: obocomponents){
             	
                 counter++;
-                printWriter.println( "  " + counter + ". " +
-                        obocomponent.getID() + " - " + obocomponent.getName() );
-                //obocomponent.getNewID() + " - " + obocomponent.getName() );
+
+            	/* 
+            	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+            	 */
+            	if ( anatomyinperspective == null ) {
+            		
+            		printWriter.println( "  " + counter + ". " +
+                            obocomponent.getID() + " - " + obocomponent.getName() );
+                    //obocomponent.getNewID() + " - " + obocomponent.getName() );
+
+            	}
+            	/* 
+            	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+            	 *  in the Perspective provided
+            	 */
+            	else {
+            		
+            		/*
+            		 * Is this term in the provided Perspective?
+            		 * Yes - Print it
+            		 */
+                    String [] parts1 = obocomponent.getName().split("\\,");
+                    String componentName = parts1[0];
+
+                	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                     anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                     anatomyinperspective.containsComponentName(componentName) ) {
+
+                		printWriter.println( "  " + counter + ". " +
+                                obocomponent.getID() + " - " + obocomponent.getName() );
+                        //obocomponent.getNewID() + " - " + obocomponent.getName() );
+                		
+                	}
+                	/*
+                	 * No - Ignore the term
+                	 */
+            	}
             }
             
             if ( !obocomponents.isEmpty() ){
@@ -385,37 +620,98 @@ public class GenerateEditorReport {
                 	
                     counter++;
                     
-                    printWriter.println();
-                    printWriter.println( "   New OBOComponent " +
-                            counter );
-                    printWriter.println( "    ID        : " +
-                            obocomponent.getID() );
-                    //obocomponent.getNewID() );
-                    printWriter.println( "    Name      : " +
-                            obocomponent.getName() );
-                    printWriter.println( "    Starts At : " +
-                            obocomponent.getStart() );
-                    printWriter.println( "    Ends At   : " +
-                            obocomponent.getEnd() );
-                    printWriter.println( "    Parents   : " + 
-                            obocomponent.getChildOfs() );
-                    printWriter.println( "    Synonyms  : " +
-                            obocomponent.getSynonyms() );
-                    printWriter.println( "    Change Check Status : " +
-                            obocomponent.getStatusChange() );
-                    printWriter.println( "    Rules Check Status  : " +
-                            obocomponent.getStatusRule() );
-                                
-                    comments = obocomponent.getNewComments();
-                    commentCounter = 0;
-                    
-                    for( String s: comments ){
-                    
-                    	commentCounter++;
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        printWriter.println();
+                        printWriter.println( "   New OBOComponent " +
+                                counter );
+                        printWriter.println( "    ID        : " +
+                                obocomponent.getID() );
+                        //obocomponent.getNewID() );
+                        printWriter.println( "    Name      : " +
+                                obocomponent.getName() );
+                        printWriter.println( "    Starts At : " +
+                                obocomponent.getStart() );
+                        printWriter.println( "    Ends At   : " +
+                                obocomponent.getEnd() );
+                        printWriter.println( "    Parents   : " + 
+                                obocomponent.getChildOfs() );
+                        printWriter.println( "    Synonyms  : " +
+                                obocomponent.getSynonyms() );
+                        printWriter.println( "    Change Check Status : " +
+                                obocomponent.getStatusChange() );
+                        printWriter.println( "    Rules Check Status  : " +
+                                obocomponent.getStatusRule() );
+                                    
+                        comments = obocomponent.getNewComments();
+                        commentCounter = 0;
                         
-                    	printWriter.println( "    Comments  : " +
-                                commentCounter +  ".  " + s );
-                    }
+                        for( String s: comments ){
+                        
+                        	commentCounter++;
+                            
+                        	printWriter.println( "    Comments  : " +
+                                    commentCounter +  ".  " + s );
+                        }
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                            printWriter.println();
+                            printWriter.println( "   New OBOComponent " +
+                                    counter );
+                            printWriter.println( "    ID        : " +
+                                    obocomponent.getID() );
+                            //obocomponent.getNewID() );
+                            printWriter.println( "    Name      : " +
+                                    obocomponent.getName() );
+                            printWriter.println( "    Starts At : " +
+                                    obocomponent.getStart() );
+                            printWriter.println( "    Ends At   : " +
+                                    obocomponent.getEnd() );
+                            printWriter.println( "    Parents   : " + 
+                                    obocomponent.getChildOfs() );
+                            printWriter.println( "    Synonyms  : " +
+                                    obocomponent.getSynonyms() );
+                            printWriter.println( "    Change Check Status : " +
+                                    obocomponent.getStatusChange() );
+                            printWriter.println( "    Rules Check Status  : " +
+                                    obocomponent.getStatusRule() );
+                                        
+                            comments = obocomponent.getNewComments();
+                            commentCounter = 0;
+                            
+                            for( String s: comments ){
+                            
+                            	commentCounter++;
+                                
+                            	printWriter.println( "    Comments  : " +
+                                        commentCounter +  ".  " + s );
+                            }
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             }
         }
@@ -453,17 +749,58 @@ public class GenerateEditorReport {
                 	
                     counter++;
                     
-                    printWriter.println( "  " + counter + ". " +
-                            obocomponent.getID() + " - " + obocomponent.getName() );
-                    comments = obocomponent.getDifferenceComments();
-                    
-                    for( String s: comments ){
-                    
-                    	printWriter.println( "       - " + s );
-                    	
-                    }
-                    
-                    printWriter.println();
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        printWriter.println( "  " + counter + ". " +
+                                obocomponent.getID() + " - " + obocomponent.getName() );
+                        comments = obocomponent.getDifferenceComments();
+                        
+                        for( String s: comments ){
+                        
+                        	printWriter.println( "       - " + s );
+                        	
+                        }
+                        
+                        printWriter.println();
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                            printWriter.println( "  " + counter + ". " +
+                                    obocomponent.getID() + " - " + obocomponent.getName() );
+                            comments = obocomponent.getDifferenceComments();
+                            
+                            for( String s: comments ){
+                            
+                            	printWriter.println( "       - " + s );
+                            	
+                            }
+                            
+                            printWriter.println();
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             
                 printWriter.println();
@@ -476,37 +813,98 @@ public class GenerateEditorReport {
                 
                 	counter++;
                     
-                	printWriter.println();
-                    printWriter.println( "   Modified OBOComponent " +
-                            counter );
-                    printWriter.println( "    ID        : " +
-                            obocomponent.getID() );
-                    printWriter.println( "    Name      : " +
-                            obocomponent.getName() );
-                    printWriter.println( "    Starts At : " +
-                            obocomponent.getStart() );
-                    printWriter.println( "    Ends At   : " +
-                            obocomponent.getEnd() );
-                    printWriter.println( "    Parents   : " + 
-                            obocomponent.getChildOfs() );
-                    printWriter.println( "    Synonyms  : " +
-                            obocomponent.getSynonyms() );
-                    printWriter.println( "    Change Check Status : " +
-                            obocomponent.getStatusChange() );
-                    printWriter.println( "    Rules Check Status  : " +
-                            obocomponent.getStatusRule() );
-                    printWriter.println( "    Changed Property    : ");
-                                
-                    comments = obocomponent.getDifferenceComments();
-                    commentCounter = 0;
-                    
-                    for( String s: comments ){
-                    
-                    	commentCounter++;
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                    	printWriter.println();
+                        printWriter.println( "   Modified OBOComponent " +
+                                counter );
+                        printWriter.println( "    ID        : " +
+                                obocomponent.getID() );
+                        printWriter.println( "    Name      : " +
+                                obocomponent.getName() );
+                        printWriter.println( "    Starts At : " +
+                                obocomponent.getStart() );
+                        printWriter.println( "    Ends At   : " +
+                                obocomponent.getEnd() );
+                        printWriter.println( "    Parents   : " + 
+                                obocomponent.getChildOfs() );
+                        printWriter.println( "    Synonyms  : " +
+                                obocomponent.getSynonyms() );
+                        printWriter.println( "    Change Check Status : " +
+                                obocomponent.getStatusChange() );
+                        printWriter.println( "    Rules Check Status  : " +
+                                obocomponent.getStatusRule() );
+                        printWriter.println( "    Changed Property    : ");
+                                    
+                        comments = obocomponent.getDifferenceComments();
+                        commentCounter = 0;
                         
-                    	printWriter.println( "     " + commentCounter +
-                                ".  " + s );
-                    }
+                        for( String s: comments ){
+                        
+                        	commentCounter++;
+                            
+                        	printWriter.println( "     " + commentCounter +
+                                    ".  " + s );
+                        }
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                        	printWriter.println();
+                            printWriter.println( "   Modified OBOComponent " +
+                                    counter );
+                            printWriter.println( "    ID        : " +
+                                    obocomponent.getID() );
+                            printWriter.println( "    Name      : " +
+                                    obocomponent.getName() );
+                            printWriter.println( "    Starts At : " +
+                                    obocomponent.getStart() );
+                            printWriter.println( "    Ends At   : " +
+                                    obocomponent.getEnd() );
+                            printWriter.println( "    Parents   : " + 
+                                    obocomponent.getChildOfs() );
+                            printWriter.println( "    Synonyms  : " +
+                                    obocomponent.getSynonyms() );
+                            printWriter.println( "    Change Check Status : " +
+                                    obocomponent.getStatusChange() );
+                            printWriter.println( "    Rules Check Status  : " +
+                                    obocomponent.getStatusRule() );
+                            printWriter.println( "    Changed Property    : ");
+                                        
+                            comments = obocomponent.getDifferenceComments();
+                            commentCounter = 0;
+                            
+                            for( String s: comments ){
+                            
+                            	commentCounter++;
+                                
+                            	printWriter.println( "     " + commentCounter +
+                                        ".  " + s );
+                            }
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             }
         }
@@ -544,8 +942,40 @@ public class GenerateEditorReport {
                 	
                     counter++;
                     
-                    printWriter.println( "  " + counter + ". " +
-                            obocomponent.getID() + " - " + obocomponent.getName() );
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                        printWriter.println( "  " + counter + ". " +
+                                obocomponent.getID() + " - " + obocomponent.getName() );
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                            printWriter.println( "  " + counter + ". " +
+                                    obocomponent.getID() + " - " + obocomponent.getName() );
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             
                 printWriter.println();
@@ -558,37 +988,98 @@ public class GenerateEditorReport {
 
                 	counter++;
                     
-                	printWriter.println();
-                    printWriter.println( "   Deleted OBOComponent " +
-                            counter );
-                    printWriter.println( "    ID        : " +
-                            obocomponent.getID() );
-                    printWriter.println( "    Name      : " +
-                            obocomponent.getName() );
-                    printWriter.println( "    Starts At : " +
-                            obocomponent.getStart() );
-                    printWriter.println( "    Ends At   : " +
-                            obocomponent.getEnd() );
-                    printWriter.println( "    Parents   : " + 
-                            obocomponent.getChildOfs() );
-                    printWriter.println( "    Synonyms  : " +
-                            obocomponent.getSynonyms() );
-                    printWriter.println( "    Change Check Status : " +
-                            obocomponent.getStatusChange() );
-                    printWriter.println( "    Rules Check Status  : " +
-                            obocomponent.getStatusRule() );
-                    printWriter.println( "    Comments  : ");
-                                
-                    comments = obocomponent.getCheckComments();
-                    commentCounter = 0;
-                    
-                    for( String s: comments ){
-                    
-                    	commentCounter++;
+                	/* 
+                	 * if we haven't been given an AnatomyInPerspective Object then we print ALL the terms
+                	 */
+                	if ( anatomyinperspective == null ) {
+                		
+                    	printWriter.println();
+                        printWriter.println( "   Deleted OBOComponent " +
+                                counter );
+                        printWriter.println( "    ID        : " +
+                                obocomponent.getID() );
+                        printWriter.println( "    Name      : " +
+                                obocomponent.getName() );
+                        printWriter.println( "    Starts At : " +
+                                obocomponent.getStart() );
+                        printWriter.println( "    Ends At   : " +
+                                obocomponent.getEnd() );
+                        printWriter.println( "    Parents   : " + 
+                                obocomponent.getChildOfs() );
+                        printWriter.println( "    Synonyms  : " +
+                                obocomponent.getSynonyms() );
+                        printWriter.println( "    Change Check Status : " +
+                                obocomponent.getStatusChange() );
+                        printWriter.println( "    Rules Check Status  : " +
+                                obocomponent.getStatusRule() );
+                        printWriter.println( "    Comments  : ");
+                                    
+                        comments = obocomponent.getCheckComments();
+                        commentCounter = 0;
                         
-                    	printWriter.println( "     " + commentCounter +
-                                ".  " + s );
-                    }
+                        for( String s: comments ){
+                        
+                        	commentCounter++;
+                            
+                        	printWriter.println( "     " + commentCounter +
+                                    ".  " + s );
+                        }
+
+                	}
+                	/* 
+                	 * if we HAVE been given an AnatomyInPerspective Object then we check to see if this term 
+                	 *  in the Perspective provided
+                	 */
+                	else {
+                		
+                		/*
+                		 * Is this term in the provided Perspective?
+                		 * Yes - Print it
+                		 */
+                        String [] parts1 = obocomponent.getName().split("\\,");
+                        String componentName = parts1[0];
+
+                    	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
+                         anatomyinperspective.containsComponentName(componentName) ) {
+
+                        	printWriter.println();
+                            printWriter.println( "   Deleted OBOComponent " +
+                                    counter );
+                            printWriter.println( "    ID        : " +
+                                    obocomponent.getID() );
+                            printWriter.println( "    Name      : " +
+                                    obocomponent.getName() );
+                            printWriter.println( "    Starts At : " +
+                                    obocomponent.getStart() );
+                            printWriter.println( "    Ends At   : " +
+                                    obocomponent.getEnd() );
+                            printWriter.println( "    Parents   : " + 
+                                    obocomponent.getChildOfs() );
+                            printWriter.println( "    Synonyms  : " +
+                                    obocomponent.getSynonyms() );
+                            printWriter.println( "    Change Check Status : " +
+                                    obocomponent.getStatusChange() );
+                            printWriter.println( "    Rules Check Status  : " +
+                                    obocomponent.getStatusRule() );
+                            printWriter.println( "    Comments  : ");
+                                        
+                            comments = obocomponent.getCheckComments();
+                            commentCounter = 0;
+                            
+                            for( String s: comments ){
+                            
+                            	commentCounter++;
+                                
+                            	printWriter.println( "     " + commentCounter +
+                                        ".  " + s );
+                            }
+                    		
+                    	}
+                    	/*
+                    	 * No - Ignore the term
+                    	 */
+                	}
                 }
             }
         }

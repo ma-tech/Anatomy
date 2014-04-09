@@ -1,4 +1,4 @@
-#!/usr/bin/env /usr/local/bin/python
+#!/usr/bin/env /usr/bin/python
 # -*- coding: iso-8859-1 -*-
 #-------------------------------------------------------------------
 """

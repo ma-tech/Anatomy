@@ -140,6 +140,9 @@ def _createImmediateRelsWhereChild(currentNode):
                 for ancestorRel in ancestorRels.itervalues():
                     ancestorOid = ancestorRel.getAncestorOid()
                     ancestor = Nodes.getByOid(ancestorOid)
+                    
+                    #print ancestorOid
+                    
                     if not exists(relType = Relationships.PART_OF,
                                   descendentOid = currentOid,
                                   ancestorOid = ancestorOid):
@@ -158,11 +161,11 @@ def _createImmediateRelsWhereChild(currentNode):
                                     "with descendent stage window and",
                                     "ancestor is not a group.",
                                     "Ancestor ID:   " + ancestor.getPublicId() +
-                                    " Name: " + ancestor.getName(),
+                                    " Name: " + ancestor.getComponentName(),
                                     "  Start-Stop: " + ancestorStart.getName() +
                                     "-" + ancestorStop.getName(),
                                     "Descendent ID: " + currentNode.getPublicId() +
-                                    " Name: " + currentNode.getName(),
+                                    " Name: " + currentNode.getComponentName(),
                                     "  Start-Stop: " + start.getName() +
                                     "-" + stop.getName()])
                         else:

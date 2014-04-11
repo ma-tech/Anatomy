@@ -36,18 +36,24 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import csvmodel.AnatomyInPerspective;
+import anatomy.AnatomyInPerspective;
+
 import utility.CsvUtil;
 import utility.FileUtil;
 import utility.Wrapper;
+
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
+
 import routines.aggregated.ListOBOComponentsFromOBOFile;
+
 
 public class ValidateInputOBOAgainstBaseOBOFiles {
 

@@ -48,7 +48,9 @@ import org.geneontology.oboedit.datamodel.impl.OBORestrictionImpl;
 
 import utility.Wrapper;
 import utility.StringStreamConverter;
+
 import obomodel.OBOComponent;
+
 
 public class Parser {
 

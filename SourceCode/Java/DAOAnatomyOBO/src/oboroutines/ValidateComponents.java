@@ -41,8 +41,11 @@ import utility.Wrapper;
 
 import obomodel.OBOComponent;
 
+import oboroutines.archive.TreeBuilder;
+
 import obolayer.OBOFactory;
 import obolayer.OBOException;
+
 
 public class ValidateComponents {
 	// CONSTANTS

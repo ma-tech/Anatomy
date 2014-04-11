@@ -34,18 +34,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 import utility.Wrapper;
-
 import daolayer.DAOFactory;
-
 import obolayer.OBOFactory;
-
 import oboaccess.OBOComponentAccess;
-
 import obomodel.OBOComponent;
-
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 
 public class CheckFileReferenceTree {
 

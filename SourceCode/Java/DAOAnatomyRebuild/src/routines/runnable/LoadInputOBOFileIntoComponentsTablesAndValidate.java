@@ -34,34 +34,25 @@ package routines.runnable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
-
 import oboaccess.OBOComponentAccess;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
-
 import daolayer.DAOFactory;
-
 import daointerface.OBOFileDAO;
-
 import daomodel.OBOFile;
 
 public class LoadInputOBOFileIntoComponentsTablesAndValidate {

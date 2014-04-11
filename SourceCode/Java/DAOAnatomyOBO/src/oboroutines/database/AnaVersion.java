@@ -48,6 +48,7 @@ import daomodel.Version;
 
 import obomodel.OBOComponent;
 
+
 public class AnaVersion {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 

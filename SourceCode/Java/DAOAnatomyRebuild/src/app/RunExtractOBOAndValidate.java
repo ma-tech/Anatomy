@@ -40,32 +40,24 @@ import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
-
 import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
 
 import utility.ExecuteCommand;
-
 import obomodel.OBOComponent;
-
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
-import oboroutines.MapBuilder;
 import oboroutines.Parser;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daointerface.OBOFileDAO;
-
 import daomodel.OBOFile;
-
 import obolayer.OBOFactory;
 
 public class RunExtractOBOAndValidate {

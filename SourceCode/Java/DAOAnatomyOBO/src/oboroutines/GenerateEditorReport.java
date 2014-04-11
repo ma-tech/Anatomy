@@ -42,9 +42,12 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import csvmodel.AnatomyInPerspective;
+import anatomy.AnatomyInPerspective;
+
 import utility.Wrapper;
+
 import obomodel.OBOComponent;
+
 
 public class GenerateEditorReport {
 	// Attributes ----------------------------------------------------------------------------------
@@ -395,8 +398,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                         	printWriter.println( "  " + counter + ". " +
                                     obocomponent.getID() + " - " + obocomponent.getName() );
@@ -484,8 +486,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                             printWriter.println();
                             printWriter.println();
@@ -594,8 +595,7 @@ public class GenerateEditorReport {
                     String componentName = parts1[0];
 
                 	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                     anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                     anatomyinperspective.containsComponentName(componentName) ) {
+                     anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                 		printWriter.println( "  " + counter + ". " +
                                 obocomponent.getID() + " - " + obocomponent.getName() );
@@ -672,8 +672,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                             printWriter.println();
                             printWriter.println( "   New OBOComponent " +
@@ -781,8 +780,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                             printWriter.println( "  " + counter + ". " +
                                     obocomponent.getID() + " - " + obocomponent.getName() );
@@ -865,8 +863,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                         	printWriter.println();
                             printWriter.println( "   Modified OBOComponent " +
@@ -965,8 +962,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                             printWriter.println( "  " + counter + ". " +
                                     obocomponent.getID() + " - " + obocomponent.getName() );
@@ -1040,8 +1036,7 @@ public class GenerateEditorReport {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
 
                         	printWriter.println();
                             printWriter.println( "   Deleted OBOComponent " +

@@ -38,7 +38,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
-import csvmodel.AnatomyInPerspective;
+import anatomy.AnatomyInPerspective;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
@@ -51,7 +51,11 @@ import javax.swing.tree.TreePath;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
+
 import obomodel.OBOComponent;
+
+import oboroutines.archive.TreeBuilder;
+
 
 public class GenerateEditorPDF {
      
@@ -806,8 +810,7 @@ public class GenerateEditorPDF {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
                     		
                     		if ( parts1.length > 2 ) {
                     			
@@ -891,8 +894,7 @@ public class GenerateEditorPDF {
                         String componentName = parts1[0];
 
                     	if ( anatomyinperspective.containsPublicId(obocomponent.getID()) ||
-                         anatomyinperspective.containsComponentName(obocomponent.getName()) ||
-                         anatomyinperspective.containsComponentName(componentName) ) {
+                         anatomyinperspective.containsComponentName(obocomponent.getName()) ) {
                     		
                     		if ( parts1.length > 2 ) {
                     			

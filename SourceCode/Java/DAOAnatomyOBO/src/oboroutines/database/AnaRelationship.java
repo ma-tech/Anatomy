@@ -66,9 +66,11 @@ import daomodel.RelationshipProject;
 import daomodel.Thing;
 import daomodel.Version;
 import daomodel.JOINNodeRelationshipNode;
+
 import obomodel.OBOComponent;
 
-import oboroutines.TreeBuilder;
+
+import oboroutines.archive.TreeBuilder;
 
 public class AnaRelationship {
 	// Properties ---------------------------------------------------------------------------------

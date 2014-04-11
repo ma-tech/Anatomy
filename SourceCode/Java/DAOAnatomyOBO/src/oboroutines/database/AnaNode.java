@@ -81,8 +81,7 @@ import daomodel.Thing;
 import daomodel.Version;
 
 import obomodel.OBOComponent;
-
-import oboroutines.TreeBuilder;
+import oboroutines.archive.TreeBuilder;
 
 public class AnaNode {
 	// Properties ---------------------------------------------------------------------------------

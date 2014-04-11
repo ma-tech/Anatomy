@@ -59,6 +59,7 @@ import daomodel.Thing;
 
 import obomodel.OBOComponent;
 
+
 public class AnaObject {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 

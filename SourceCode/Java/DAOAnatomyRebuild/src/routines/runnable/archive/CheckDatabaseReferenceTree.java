@@ -33,17 +33,12 @@ package routines.runnable.archive;
 import java.util.ArrayList;
 
 import utility.Wrapper;
-
 import obomodel.OBOComponent;
-
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import obolayer.OBOFactory;
-
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
-
 import daolayer.DAOFactory;
 
 public class CheckDatabaseReferenceTree {

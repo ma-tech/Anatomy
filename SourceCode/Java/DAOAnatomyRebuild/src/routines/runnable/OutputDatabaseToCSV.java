@@ -42,7 +42,7 @@ import utility.CsvUtil;
 import utility.FileUtil;
 import utility.Wrapper;
 
-import csvmodel.Anatomy;
+import anatomy.Anatomy;
 
 import obolayer.OBOFactory;
 

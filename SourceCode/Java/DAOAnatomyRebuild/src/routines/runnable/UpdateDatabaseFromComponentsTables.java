@@ -34,19 +34,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import utility.Wrapper;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
 import oboroutines.GenerateSQL;
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
-
 import daolayer.DAOFactory;
 
 public class UpdateDatabaseFromComponentsTables {

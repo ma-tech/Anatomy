@@ -36,23 +36,17 @@ import java.util.Iterator;
 import java.util.List;
 
 import utility.Wrapper;
-
 import oboaccess.OBOComponentAccess;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import routines.aggregated.EmptyComponentsTables;
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
-
 import daolayer.DAOFactory;
 
 public class ValidateInputOBOAgainstBaseOBODatabase {

@@ -61,6 +61,7 @@ import daomodel.Version;
 
 import obomodel.OBOComponent;
 
+
 public class AnaSynonym {
 	// Properties ---------------------------------------------------------------------------------
     private DAOFactory daofactory; 

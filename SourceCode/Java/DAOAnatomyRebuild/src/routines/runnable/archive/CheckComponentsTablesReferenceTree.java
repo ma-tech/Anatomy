@@ -35,17 +35,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 import utility.Wrapper;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
-import oboroutines.MapBuilder;
-import oboroutines.TreeBuilder;
 import oboroutines.ValidateComponents;
-
+import oboroutines.archive.MapBuilder;
+import oboroutines.archive.TreeBuilder;
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
-
 import daolayer.DAOFactory;
 
 public class CheckComponentsTablesReferenceTree {

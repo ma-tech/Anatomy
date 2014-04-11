@@ -88,12 +88,15 @@ import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
+import oboroutines.archive.TreeBuilder;
+
 import oboroutines.database.AnaNode;
 import oboroutines.database.AnaRelationship;
 import oboroutines.database.AnaSynonym;
 import oboroutines.database.AnaTimedNode;
 import oboroutines.database.AnaVersion;
 import oboroutines.database.DatabaseException;
+
 
 public class GenerateSQL {
 	// Properties ---------------------------------------------------------------------------------

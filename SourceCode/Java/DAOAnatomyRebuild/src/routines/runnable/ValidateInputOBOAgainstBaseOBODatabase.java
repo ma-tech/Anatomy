@@ -36,18 +36,25 @@ import java.util.Iterator;
 import java.util.List;
 
 import utility.Wrapper;
+
+import anatomy.TreeAnatomy;
+
 import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
 import routines.aggregated.EmptyComponentsTables;
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
+
 import daolayer.DAOFactory;
+
 
 public class ValidateInputOBOAgainstBaseOBODatabase {
 
@@ -66,27 +73,39 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         // Get all INPUT OBO components
         List<OBOComponent> inputobocomponents = new ArrayList<OBOComponent>();
         inputobocomponents = obocomponentaccess.listAllInput();
+        
         EmptyComponentsTables.run( daofactory );
+        
         LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, inputobocomponents) ;
-        ListOBOComponentsFromComponentsTables inputimportcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
-        MapBuilder inputmapbuilder = new MapBuilder( obofactory.getMsgLevel(), inputimportcomponents.getTermList());
-        TreeBuilder inputtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), inputmapbuilder);
+        
+        ListOBOComponentsFromComponentsTables listobocomponentsfromcomponentstablesIN = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
+	    
+        // Get all the Components in the Components Tables
+	    ArrayList<OBOComponent> arraylistComponentsTables = listobocomponentsfromcomponentstablesIN.getTermList();
+
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomyComponentsTables = new TreeAnatomy(obofactory.getMsgLevel(), arraylistComponentsTables);
 
         // Get all BASE OBO components
         List<OBOComponent> baseobocomponents = new ArrayList<OBOComponent>();
         baseobocomponents = obocomponentaccess.listAllBase();
+        
         EmptyComponentsTables.run( daofactory );
+        
         LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, baseobocomponents );
-        ListOBOComponentsFromComponentsTables baseimportcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
-        //MapBuilder basemapbuilder = new MapBuilder( obofactory.getMsgLevel(), baseimportcomponents.getTermList());
-        //TreeBuilder basetreebuilder = new TreeBuilder( obofactory.getMsgLevel(), basemapbuilder);
+        
+        ListOBOComponentsFromComponentsTables listobocomponentsfromcomponentstablesBASE = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
 
-        //check for rules violation
-	    ValidateComponents validatecomponents =
+        // Get all the Components in the Components Tables
+	    ArrayList<OBOComponent> arraylistComponentsTablesBASE = listobocomponentsfromcomponentstablesBASE.getTermList();
+
+
+	    //check for rules violation
+        ValidateComponents validatecomponents =
             new ValidateComponents( obofactory, 
-            		inputimportcomponents.getTermList(), 
-            		baseimportcomponents.getTermList(), 
-            		inputtreebuilder);
+            		arraylistComponentsTables, 
+            		arraylistComponentsTablesBASE,
+            		treeanatomyComponentsTables);
 
 	    String validation = "";
 
@@ -142,6 +161,6 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         GenerateEditorReport generateeditorreport = new GenerateEditorReport( obofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), validatecomponents, treeanatomyComponentsTables, inputFile, summaryReportPdf);
     }
 }

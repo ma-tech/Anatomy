@@ -34,15 +34,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import utility.Wrapper;
+
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateSQL;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
+
 import daolayer.DAOFactory;
+
+import anatomy.TreeAnatomy;
+
 
 public class UpdateDatabaseFromComponentsTables {
 
@@ -51,21 +57,29 @@ public class UpdateDatabaseFromComponentsTables {
 	    Wrapper.printMessage("updatedatabasefromcomponentstables.run", "***", obofactory.getMsgLevel());
 
 	    ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
-    	MapBuilder newmapbuilder = new MapBuilder( obofactory.getMsgLevel(), importcomponents.getTermList());
-        TreeBuilder newtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), newmapbuilder);
+	    
+	    // Get all the Components in the Components Tables
+	    ArrayList<OBOComponent> arraylistComponentsTables = importcomponents.getTermList();
 
-        //import Database from dao.properties, anatomy008.url
-	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
-        MapBuilder oldmapbuilder = new MapBuilder( obofactory.getMsgLevel(), importdatabase.getTermList());
-        TreeBuilder oldtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), oldmapbuilder);
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomyComponentsTables = new TreeAnatomy(obofactory.getMsgLevel(), arraylistComponentsTables);
+
+	    
+	    // import Database from dao.properties
+	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
+	    
+	    // Get all the Components in the Part-Onomy
+	    ArrayList<OBOComponent> arraylistOBOComponentExistingDB = importdatabase.getObocomponentAllOnomy();
+
 
         //check for rules violation
         ValidateComponents validatecomponents =
             new ValidateComponents( obofactory, 
-            		importcomponents.getTermList(), 
-            		importdatabase.getTermList(), 
-            		newtreebuilder);
+            		arraylistComponentsTables, 
+            		arraylistOBOComponentExistingDB,
+            		treeanatomyComponentsTables);
 
+        
         ArrayList<OBOComponent> newComponents = new ArrayList<OBOComponent>();
         newComponents = validatecomponents.getNewTermList();
         
@@ -105,7 +119,7 @@ public class UpdateDatabaseFromComponentsTables {
         if ( newComponents.size() > 0 ) {
         	
             // Update the Database for NEW Components
-        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, newComponents, newtreebuilder, oldtreebuilder );
+        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, newComponents, treeanatomyComponentsTables );
 
             if ( generatesql.isProcessed()) {
         	    Wrapper.printMessage("updatedatabasefromcomponentstables.run : ===========   ---   --------", "***", obofactory.getMsgLevel());
@@ -122,7 +136,7 @@ public class UpdateDatabaseFromComponentsTables {
         if ( modComponents.size() > 0 ) {
         	
             // Update the Database for Modified Components
-        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, modComponents, newtreebuilder, oldtreebuilder );
+        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, modComponents, treeanatomyComponentsTables );
 
             if ( generatesql.isProcessed()) {
         	    Wrapper.printMessage("updatedatabasefromcomponentstables.run : ===========   ---   --------", "***", obofactory.getMsgLevel());
@@ -139,7 +153,7 @@ public class UpdateDatabaseFromComponentsTables {
         if ( delComponents.size() > 0 ) {
         	
             // Update the Database for Deleted Components
-        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, delComponents, newtreebuilder, oldtreebuilder );
+        	GenerateSQL generatesql = new GenerateSQL( daofactory, obofactory, delComponents,treeanatomyComponentsTables );
 
             if ( generatesql.isProcessed()) {
         	    Wrapper.printMessage("updatedatabasefromcomponentstables.run : ===========   ---   --------", "***", obofactory.getMsgLevel());

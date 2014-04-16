@@ -39,7 +39,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,16 +53,17 @@ import daolayer.DAOException;
 
 import static daolayer.DAOUtil.*;
 
+
 public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     // Constants ----------------------------------------------------------------------------------
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT =
-        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF " +
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_WHERE =
-        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_FULL_PATH_OIDS, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK " +
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK LIKE ? " +
         "AND APO_FULL_PATH LIKE ? " +
@@ -74,25 +74,25 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANAD_PART_OF ";
 
-    private static final String SQL_ROW_COUNT_WHERE =
+     private static final String SQL_ROW_COUNT_WHERE =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK LIKE ? " +
         "AND APO_FULL_PATH LIKE ? ";
 
     private static final String SQL_FIND_BY_OID =
-        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_OID = ?";
     
     private static final String SQL_LIST_ALL =
-        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF ";
         
     private static final String SQL_INSERT =
         "INSERT INTO ANAD_PART_OF " +
-        "(APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK ) " +
-        "VALUES (?, ?, ?, ?, ?)";
+        "(APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK ) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE =
         "UPDATE ANAD_PART_OF SET " +
@@ -106,6 +106,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         "APO_DEPTH = ?, " + 
         "APO_FULL_PATH = ?, " +
         "APO_FULL_PATH_OIDS = ?, " + 
+        "APO_FULL_PATH_EMAPAS = ?, " + 
         "APO_FULL_PATH_JSON_HEAD = ?, " +
         "APO_FULL_PATH_JSON_TAIL = ?, " + 
         "APO_IS_PRIMARY = ?, " + 
@@ -123,10 +124,13 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         "WHERE APO_OID = ?";
 
     private static final String SQL_LIST_BY_NODE_FK =
-        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_FULL_PATH_OIDS, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK " +
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK = ?";
         
+    private static final String SQL_EMPTY =
+        "DELETE FROM ANAD_PART_OF";
+
 
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
@@ -292,6 +296,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     		derivedpartof.getDepth(),
     		derivedpartof.getFullPath(),
    			derivedpartof.getFullPathOids(),
+   			derivedpartof.getFullPathEmapas(),
    			derivedpartof.getFullPathJsonHead(),
     		derivedpartof.getFullPathJsonTail(),
     		derivedpartof.isPrimary(),
@@ -356,6 +361,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
        		derivedpartof.getDepth(),
        		derivedpartof.getFullPath(),
        		derivedpartof.getFullPathOids(),
+       		derivedpartof.getFullPathEmapas(),
       		derivedpartof.getFullPathJsonHead(),
        		derivedpartof.getFullPathJsonTail(),
        		derivedpartof.isPrimary(),
@@ -527,6 +533,9 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         }
     	if (sortField.equals("fullPathOids")) {
         	sqlSortField = "APO_FULL_PATH_OIDS";       
+        }
+    	if (sortField.equals("fullPathEmapas")) {
+        	sqlSortField = "APO_FULL_PATH_EMAPAS";       
         }
         if (sortField.equals("fullPathJsonHead")) {
         	sqlSortField = "APO_FULL_PATH_JSON_HEAD";      
@@ -705,6 +714,80 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         return count;
     }
 
+    
+    /*
+     * Returns total amount of rows in table.
+     */
+    public long countAll() throws Exception {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        long count = 0;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+            	
+                count = resultSet.getLong("VALUE");
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
+        }
+
+        return count;
+    }
+
+    
+    /*
+     *  Empty the ANAD_PART_OF Table from the database. 
+     */
+    public void empty() throws Exception {
+    	
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+
+            if ( daoFactory.isUpdate() ) {
+
+            	int affectedRows = preparedStatement.executeUpdate();
+                
+                if (affectedRows == 0) {
+                	
+                    throw new DAOException("Deleting ALL ANAD_PART_OF failed, no rows affected.");
+                } 
+            }
+            else {
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF Skipped", "***", daoFactory.getMsgLevel());
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
+        }
+    }
+    
+
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to an User.
@@ -723,6 +806,7 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
        		resultSet.getLong("APO_DEPTH"),
        		resultSet.getString("APO_FULL_PATH"),
       		resultSet.getString("APO_FULL_PATH_OIDS"), 
+      		resultSet.getString("APO_FULL_PATH_EMAPAS"), 
        		resultSet.getString("APO_FULL_PATH_JSON_HEAD"), 
        		resultSet.getString("APO_FULL_PATH_JSON_TAIL"), 
        		resultSet.getBoolean("APO_IS_PRIMARY"),

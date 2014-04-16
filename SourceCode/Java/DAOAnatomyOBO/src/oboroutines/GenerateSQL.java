@@ -88,7 +88,7 @@ import obolayer.OBOFactory;
 
 import obomodel.OBOComponent;
 
-import oboroutines.archive.TreeBuilder;
+import anatomy.TreeAnatomy;
 
 import oboroutines.database.AnaNode;
 import oboroutines.database.AnaRelationship;
@@ -107,8 +107,8 @@ public class GenerateSQL {
     private String project;
     private boolean boolGenerateIdentifiers;
     
-    //treebuilder object to use hashmaps to get component (getComponent)
-    private TreeBuilder tree; 
+    //TreeAnatomy object to use hashmaps to get component (getComponent)
+    private TreeAnatomy treeanatomy; 
     
     //term list for relationships to be created for changed parents from modifed components
     private ArrayList<OBOComponent> diffCreateRelList;
@@ -153,8 +153,7 @@ public class GenerateSQL {
     		DAOFactory daofactory, 
     		OBOFactory obofactory, 
             ArrayList<OBOComponent> proposedTermList,
-            TreeBuilder treebuilder,
-            TreeBuilder refTreebuilder ) throws Exception {
+            TreeAnatomy treeanatomy ) throws Exception {
 
     	setProcessed( true );
 
@@ -167,7 +166,7 @@ public class GenerateSQL {
             this.project = obofactory.getOBOComponentAccess().project();
             this.strSpecies = obofactory.getOBOComponentAccess().species();
             
-            this.tree = treebuilder;
+            this.treeanatomy = treeanatomy;
 
             this.diffCreateRelList = new ArrayList<OBOComponent>();
             this.diffDeleteRelList = new ArrayList<OBOComponent>();
@@ -389,7 +388,7 @@ public class GenerateSQL {
                 		this.boolGenerateIdentifiers,
                 		"INSERT", 
                 		this.strSpecies, 
-                		this.tree ) ) {
+                		this.treeanatomy ) ) {
 
              	   throw new DatabaseException("ananode.insertANA_NODE");
                 }
@@ -401,7 +400,7 @@ public class GenerateSQL {
                 		"INSERT",
                 		this.project,
                 		this.strSpecies, 
-                		this.tree,
+                		this.treeanatomy,
                 		this.abstractclassobocomponent, 
                 		this.stageclassobocomponent, 
                 		this.groupclassobocomponent, 
@@ -574,7 +573,7 @@ public class GenerateSQL {
                 		"INSERT",
                 		this.project,
                 		this.strSpecies, 
-                		this.tree,
+                		this.treeanatomy,
                 		this.abstractclassobocomponent, 
                 		this.stageclassobocomponent, 
                 		this.groupclassobocomponent, 
@@ -605,7 +604,7 @@ public class GenerateSQL {
                 		"INSERT",
                 		this.project,
                 		this.strSpecies, 
-                		this.tree,
+                		this.treeanatomy,
                 		this.abstractclassobocomponent, 
                 		this.stageclassobocomponent, 
                 		this.groupclassobocomponent, 
@@ -782,12 +781,12 @@ public class GenerateSQL {
                       check to see whether all dependent descendants have been
                        specified for deletion
                     */
-                    component = this.tree.getComponent(s);
+                    component = this.treeanatomy.getOBOComponentInHashmapTreeProperties(s);
 
                     if ( component==null ) {
                 
                     	invalidDelete = true;
-                        deletedcomponent = this.tree.getComponent( s );
+                        deletedcomponent = this.treeanatomy.getOBOComponentInHashmapTreeProperties( s );
                         
                         deletedcomponent.setCheckComment("Delete Record " +
                             "Warning: Deletion of this term results in " +
@@ -799,7 +798,7 @@ public class GenerateSQL {
 
                     	component.setStatusChange("DELETE");
                         invalidDelete = true;
-                        deletedcomponent = this.tree.getComponent( s );
+                        deletedcomponent = this.treeanatomy.getOBOComponentInHashmapTreeProperties( s );
 
                         deletedcomponent.setCheckComment("Delete Record " +
                             "Warning: Deletion of this term results in " +

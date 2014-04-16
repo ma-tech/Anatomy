@@ -62,10 +62,10 @@ public class ExtractAndWriteOBOFromExistingDatabase {
         
         // Write out Abstract OBO file
         // Extract Components from RAW Database tables into OBOComponent format
-        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
+        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
         
         List<OBOComponent> obocomponents = new ArrayList<OBOComponent>();
-        obocomponents = importdatabase.getTermList();
+        obocomponents = importdatabase.getObocomponentAllOnomy();
         
         List<OBORelation> relations = new ArrayList<OBORelation>();
         relations = importdatabase.getOBORelationList();
@@ -100,7 +100,7 @@ public class ExtractAndWriteOBOFromExistingDatabase {
             importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, stage.getName() );
             
             obocomponents = new ArrayList<OBOComponent>();
-            obocomponents = importdatabase.getTermList();            
+            obocomponents = importdatabase.getObocomponentAllOnomyStaged();    
             relations = new ArrayList<OBORelation>();
             relations = importdatabase.getOBORelationList();
             

@@ -36,11 +36,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import anatomy.AnatomyInPerspective;
-
+import utility.Wrapper;
 import utility.CsvUtil;
 import utility.FileUtil;
-import utility.Wrapper;
+
+import anatomy.AnatomyInPerspective;
+import anatomy.TreeAnatomy;
 
 import obolayer.OBOFactory;
 
@@ -49,8 +50,6 @@ import obomodel.OBOComponent;
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
 
 import routines.aggregated.ListOBOComponentsFromOBOFile;
 
@@ -68,20 +67,22 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
 
         // Get all INPUT OBO components
         ListOBOComponentsFromOBOFile inputimportcomponents = new ListOBOComponentsFromOBOFile( obofactory, "INPUT" );
-        MapBuilder inputmapbuilder = new MapBuilder( obofactory.getMsgLevel(), inputimportcomponents.getObocomponentList());
-        TreeBuilder inputtreebuilder = new TreeBuilder( obofactory.getMsgLevel(), inputmapbuilder);
+
+	    // Get all the Components in the Components Tables
+	    ArrayList<OBOComponent> arraylistComponentsTables = inputimportcomponents.getObocomponentList();
+
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomy = new TreeAnatomy(obofactory.getMsgLevel(), arraylistComponentsTables);
 
         // Get all BASE OBO components
         ListOBOComponentsFromOBOFile baseimportcomponents = new ListOBOComponentsFromOBOFile( obofactory, "BASE" );
-        //MapBuilder basemapbuilder = new MapBuilder( obofactory.getMsgLevel(), baseimportcomponents.getTermList());
-        //TreeBuilder basetreebuilder = new TreeBuilder( obofactory.getMsgLevel(), basemapbuilder);
 
         //check for rules violation
 	    ValidateComponents validatecomponents =
 	            new ValidateComponents( obofactory, 
 	            		inputimportcomponents.getObocomponentList(), 
 	            		baseimportcomponents.getObocomponentList(), 
-	            		inputtreebuilder);
+	            		treeanatomy);
         
         String validation = "";
 
@@ -139,7 +140,7 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
         
         //generate pdf summary report
         GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( obofactory.getMsgLevel(), 
-        		validatecomponents, inputtreebuilder, inputFile, summaryReportPdf);
+        		validatecomponents, treeanatomy, inputFile, summaryReportPdf);
         
         if ( !filename.equals("none") ){
         	
@@ -162,7 +163,7 @@ public class ValidateInputOBOAgainstBaseOBOFiles {
             
             //generate CUT-DOWN pdf summary report
             GenerateEditorPDF generateeditorpdfcutdown = new GenerateEditorPDF( obofactory.getMsgLevel(), 
-            		validatecomponents, inputtreebuilder, inputFile, newPdfFileName, anatomyinperspective);
+            		validatecomponents, treeanatomy, inputFile, newPdfFileName, anatomyinperspective);
         }
     }
 }

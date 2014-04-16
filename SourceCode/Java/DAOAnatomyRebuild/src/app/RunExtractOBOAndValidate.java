@@ -45,20 +45,28 @@ import java.util.ArrayList;
 import org.apache.commons.io.IOUtils;
 
 import utility.ExecuteCommand;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.Parser;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
+import anatomy.TreeAnatomy;
+
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
+
 import daolayer.DAOException;
 import daolayer.DAOFactory;
+
 import daointerface.OBOFileDAO;
+
 import daomodel.OBOFile;
+
 import obolayer.OBOFactory;
+
 
 public class RunExtractOBOAndValidate {
 	/*
@@ -119,16 +127,15 @@ public class RunExtractOBOAndValidate {
             
 
             //import Database from dao.properties, anatomy008.url
-            ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
-            ArrayList<OBOComponent> parseOldTermList = importdatabase.getTermList();
+            ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
+            
+            ArrayList<OBOComponent> parseOldTermList = importdatabase.getObocomponentAllOnomy();
 
-            //Build hashmap of components
-            MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), componentList );
-            //Build tree
-            TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder );
+    	    // Build a Tree from all the Components in the Part-Onomy
+    	    TreeAnatomy treeanatomy = new TreeAnatomy(obofactory.getMsgLevel(), parseOldTermList);
 
             //check for rules violation
-            ValidateComponents validatecomponents = new ValidateComponents( obofactory, componentList, parseOldTermList, treebuilder);
+            ValidateComponents validatecomponents = new ValidateComponents( obofactory, componentList, parseOldTermList, treeanatomy);
             
             if ( validatecomponents.getProblemTermList().isEmpty() ) {
             	obofile.setValidation("VALIDATED");
@@ -140,7 +147,7 @@ public class RunExtractOBOAndValidate {
             //generate txt summary report
             GenerateEditorReport generateeditorreport = new GenerateEditorReport( daofactory.getMsgLevel(), validatecomponents, filePath, filePathTextReport );
             //generate txt summary report
-            GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, treebuilder, filePath, filePathPdfReport );
+            GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, treeanatomy, filePath, filePathPdfReport );
 
             file = new File(filePath);
             input = new FileInputStream(file);

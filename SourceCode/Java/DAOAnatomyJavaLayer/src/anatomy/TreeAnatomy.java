@@ -38,7 +38,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import utility.Wrapper;
-
 import obomodel.OBOComponent;
 
 
@@ -46,32 +45,21 @@ public class TreeAnatomy {
 
     //----------------------------------------------------------------------------------------------
     // Attributes ----------------------------------------------------------------------------------
-
 	private ArrayList<OBOComponent> arraylistOBOComponents;
 
     //< EMAPA : ID -> component object >
-    private HashMap<String, OBOComponent> hashmapTreePropertiesAll;
+    private HashMap<String, OBOComponent> hashmapTreeProperties;
     
     //< EMAPA : ID -> children (emapa:id) >
-    private HashMap<String, Vector<String>> hashmapTreeChildrenAll;
-    
-    //< EMAPA : ID -> children (emapa:id) >
-    private HashMap<String, Vector<String>> hashmapTreeChildrenPartOfs;
+    private HashMap<String, Vector<String>> hashmapTreeChildren;
     
     private Vector<String> vectorRootNodes;
 
 	//map < EMAPA : ID => paths >
-    private HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePathsAll;
+    private HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePaths;
     
-	//map < EMAPA : ID => paths >
-    private HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePathsPartOfs;
-    
-    
-    private DefaultMutableTreeNode defaultmutabletreenodeMotherAll;
+    private DefaultMutableTreeNode defaultmutabletreenodeMother;
 
-    private DefaultMutableTreeNode defaultmutabletreenodeMotherPartOfs;
-
-    
     private String requestMsgLevel;
     
     //----------------------------------------------------------------------------------------------
@@ -83,18 +71,14 @@ public class TreeAnatomy {
 		
         this.arraylistOBOComponents = new ArrayList<OBOComponent>();
         
-        this.hashmapTreePropertiesAll = new HashMap<String, OBOComponent>();
-        this.hashmapTreeChildrenAll = new HashMap<String, Vector<String>>();
-        
-        this.hashmapTreeChildrenPartOfs = new HashMap<String, Vector<String>>();
+        this.hashmapTreeProperties = new HashMap<String, OBOComponent>();
+        this.hashmapTreeChildren = new HashMap<String, Vector<String>>();
         
         this.vectorRootNodes = new Vector<String>();
         
         this.arraylistOBOComponents = new ArrayList<OBOComponent>();
         
-        this.hashmapTreePathsAll = new HashMap<String, Vector<DefaultMutableTreeNode[]>>();
-
-        this.hashmapTreePathsPartOfs = new HashMap<String, Vector<DefaultMutableTreeNode[]>>();
+        this.hashmapTreePaths = new HashMap<String, Vector<DefaultMutableTreeNode[]>>();
 
     }
     
@@ -112,16 +96,15 @@ public class TreeAnatomy {
         
         this.arraylistOBOComponents.addAll(arraylistOBOComponent);
         
-        setRootNodes();
+        setRootNode();
         
-        createHashmapTreePropertiesAll();
-        createHashmapChildrenPropertiesPartOfs();
-        createHashmapChildrenPropertiesAll();
+        createHashmapTreeProperties();
+        
+        createHashmapChildrenProperties();
 
         findRootNodes();
-        
-        recursivelyBuildTreeAll();
-        recursivelyBuildTreePartOfs();
+
+        recursivelyBuildTree();
     }
 
     
@@ -129,76 +112,104 @@ public class TreeAnatomy {
     public ArrayList<OBOComponent> getArraylistOBOComponents() {
         return this.arraylistOBOComponents;
     }
-    public HashMap<String, OBOComponent> getHashmapTreePropertiesAll() {
-        return this.hashmapTreePropertiesAll;
+    public HashMap<String, OBOComponent> getHashmapTreeProperties() {
+        return this.hashmapTreeProperties;
     }
-    public HashMap<String, Vector<String>> getHashmapTreeChildrenAll() {
-        return this.hashmapTreeChildrenAll;
-    }
-    public HashMap<String, Vector<String>> getHashmapTreeChildrenPartOfs() {
-        return this.hashmapTreeChildrenPartOfs;
+    public HashMap<String, Vector<String>> getHashmapTreeChildren() {
+        return this.hashmapTreeChildren;
     }
     public Vector<String> getVectorRootNodes() {
         return this.vectorRootNodes;
     }
-    public HashMap<String, Vector<DefaultMutableTreeNode[]>> getHashmapTreePathsAll() {
-        return this.hashmapTreePathsAll;
+    public HashMap<String, Vector<DefaultMutableTreeNode[]>> getHashmapTreePaths() {
+        return this.hashmapTreePaths;
     }
-    public DefaultMutableTreeNode getDefaultmutabletreenodeMotherAll() {
-        return this.defaultmutabletreenodeMotherAll;
-    }
-    public HashMap<String, Vector<DefaultMutableTreeNode[]>> getHashmapTreePathsPartOfs() {
-        return this.hashmapTreePathsPartOfs;
-    }
-    public DefaultMutableTreeNode getDefaultmutabletreenodeMotherPartOfs() {
-        return this.defaultmutabletreenodeMotherPartOfs;
+    public DefaultMutableTreeNode getDefaultmutabletreenodeMother() {
+        return this.defaultmutabletreenodeMother;
     }
 
     // Setters ------------------------------------------------------------------------------------
     public void setArraylistOBOComponents(ArrayList<OBOComponent> arraylistOBOComponents) {
         this.arraylistOBOComponents = arraylistOBOComponents;
     }
-    public void setHashmapTreePropertiesAll(HashMap<String, OBOComponent> hashmapTreePropertiesAll) {
-        this.hashmapTreePropertiesAll = hashmapTreePropertiesAll;
+    public void setHashmapTreeProperties(HashMap<String, OBOComponent> hashmapTreeProperties) {
+        this.hashmapTreeProperties = hashmapTreeProperties;
     }
-    public void setHashmapTreeChildrenAll(HashMap<String, Vector<String>> hashmapTreeChildrenAll) {
-        this.hashmapTreeChildrenAll = hashmapTreeChildrenAll;
-    }
-    public void setHashmapTreeChildrenPartOfs(HashMap<String, Vector<String>> hashmapTreeChildrenPartOfs) {
-        this.hashmapTreeChildrenPartOfs = hashmapTreeChildrenPartOfs;
+    public void setHashmapTreeChildren(HashMap<String, Vector<String>> hashmapTreeChildren) {
+        this.hashmapTreeChildren = hashmapTreeChildren;
     }
     public void setVectorRootNodes(Vector<String> vectorRootNodes) {
         this.vectorRootNodes = vectorRootNodes;
     }
-    public void setHashmapTreePathsAll(HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePathsAll) {
-        this.hashmapTreePathsAll = hashmapTreePathsAll;
+    public void setHashmapTreePaths(HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePaths) {
+        this.hashmapTreePaths = hashmapTreePaths;
     }
-    public void setDefaultmutabletreenodeMotherAll(DefaultMutableTreeNode defaultmutabletreenodeMotherAll) {
-        this.defaultmutabletreenodeMotherAll = defaultmutabletreenodeMotherAll;
+    public void setDefaultmutabletreenodeMother(DefaultMutableTreeNode defaultmutabletreenodeMother) {
+        this.defaultmutabletreenodeMother = defaultmutabletreenodeMother;
     }
-    public void setHashmapTreePathsPartOfs(HashMap<String, Vector<DefaultMutableTreeNode[]>> hashmapTreePathsPartOfs) {
-        this.hashmapTreePathsPartOfs = hashmapTreePathsPartOfs;
-    }
-    public void setDefaultmutabletreenodeMother(DefaultMutableTreeNode defaultmutabletreenodeMotherPartOfs) {
-        this.defaultmutabletreenodeMotherPartOfs = defaultmutabletreenodeMotherPartOfs;
-    }
-
 
     
     // Helpers ------------------------------------------------------------------------------------
 
-    private void setRootNodes() throws Exception {
+    private void addToDefaultmutabletreenodeMother(DefaultMutableTreeNode rootnode) {
 
-        Wrapper.printMessage("TreeAnatomy.setRootNodes", "*****", this.requestMsgLevel);
-    	
-    	this.defaultmutabletreenodeMotherAll = new DefaultMutableTreeNode("root");
-    	this.defaultmutabletreenodeMotherPartOfs = new DefaultMutableTreeNode("root");
+    	this.defaultmutabletreenodeMother.add( rootnode ) ;
     }
 
     
-    private void createHashmapTreePropertiesAll() throws Exception {
+    private void addToVectorRootNodes(String strEMAPAid) {
+
+    	this.vectorRootNodes.add( strEMAPAid) ;
+    }
+
+    
+    private Vector<String> getVectorFromHashmapTreeChildren(String strEMAPAid) {
+
+    	return this.hashmapTreeChildren.get( strEMAPAid );
+    }
+
+    
+    private void addOBOComponentInHashmapTreeProperties(String strEMAPA, OBOComponent obocomponent) throws Exception{
+
+        this.hashmapTreeProperties.put( strEMAPA, obocomponent) ;
+    }
+    
+
+    public OBOComponent getOBOComponentInHashmapTreeProperties(String strEMAPAid) throws Exception{
+
+        return (OBOComponent) this.hashmapTreeProperties.get( strEMAPAid );
+    }
+    
+ 
+    public Vector<DefaultMutableTreeNode[]> getTreePaths(String strEMAPAid) {
+
+    	return this.hashmapTreePaths.get( strEMAPAid );
+    }
+
+
+    private void putHashmapTreePaths(String strEMAPAid, Vector<DefaultMutableTreeNode[]> paths) {
+
+    	//System.out.println("putHashmapTreePaths " + strEMAPAid);
     	
-        Wrapper.printMessage("TreeAnatomy.createHashmapTreePropertiesAll", "*****", this.requestMsgLevel);
+    	this.hashmapTreePaths.put( strEMAPAid, paths );
+    }
+
+
+    private void putVectorIntoHashmapTreeChildren(String strEMAPAid, Vector<String> stringVector) {
+
+    	this.hashmapTreeChildren.put( strEMAPAid, stringVector );
+    }
+
+
+    private void setRootNode() throws Exception {
+
+    	this.defaultmutabletreenodeMother = new DefaultMutableTreeNode("root");
+    }
+
+    
+    private void createHashmapTreeProperties() throws Exception {
+    	
+        Wrapper.printMessage("TreeAnatomy.createHashmapTreeProperties", "*****", this.requestMsgLevel);
     	
         Iterator<OBOComponent> iteratorObocomponents = this.arraylistOBOComponents.iterator();
         
@@ -206,82 +217,14 @@ public class TreeAnatomy {
       		
       		OBOComponent obocomponent = iteratorObocomponents.next();
             
-            this.hashmapTreePropertiesAll.put(obocomponent.getID(), obocomponent);
+            addOBOComponentInHashmapTreeProperties(obocomponent.getID(), obocomponent);
         }
     }
 
     
-    private void createHashmapChildrenPropertiesPartOfs() throws Exception {
+    private void createHashmapChildrenProperties() throws Exception {
     	
-        Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesPartOfs", "*****", this.requestMsgLevel);
-
-        Iterator<OBOComponent> iteratorObocomponents = this.arraylistOBOComponents.iterator();
-        
-      	while ( iteratorObocomponents.hasNext() ) {
-      		
-      	    OBOComponent obocomponent = iteratorObocomponents.next();
-      		
-      	    Iterator<String> iteratorObocomponentChildOfs = obocomponent.getChildOfs().iterator();
-      	    Iterator<String> iteratorObocomponentChildOfTypes = obocomponent.getChildOfTypes().iterator();
-            
-      	    while ( iteratorObocomponentChildOfs.hasNext() ) {
-            
-      	    	String partOfParent = iteratorObocomponentChildOfs.next();
-      	    	String partOfParentType = iteratorObocomponentChildOfTypes.next();
-              	
-      	    	/*
-      	    	 * PART OF Relationships ONLY
-      	    	 */
-      	    	if ( partOfParentType.equals("PART_OF") ) {
-              	
-      	    		/* 
-                     * RULE CHECK: broken links
-                     */
-      	    		OBOComponent instance_of_comp = (OBOComponent) this.hashmapTreePropertiesAll.get(partOfParent);
-                    
-      	    		if ( instance_of_comp == null ) {
-                    
-      	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesPartOfs : Parent has been deleted from file: " +
-                        		   partOfParent + "!", "*", this.requestMsgLevel);
-                        
-      	    			/* 
-                         * set flagMissingRel to true to display component in red add comment
-                         */
-      	    			obocomponent.setFlagMissingRel(true);
-                        
-      	    			obocomponent.setCheckComment("Broken Link: Phantom parent " +
-                        		   partOfParent + " deleted from OBO file.");
-                        
-      	    			/*
-                         * Add to root nodes so that it can be displayed in the tree
-                         * treebuilder builds branches recursively from a list of
-                         * rootnodes
-                         */
-      	    			this.vectorRootNodes.add(partOfParent);
-                        
-      	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesPartOfs : obocomponent.toString() = " + 
-                                obocomponent.toString() + "!", "*", this.requestMsgLevel);
-      	    		}
-                    
-      	    		Vector<String> stringVector = this.hashmapTreeChildrenPartOfs.get(partOfParent);
-                    
-      	    		if ( stringVector == null ) {
-                    
-      	    			stringVector = new Vector<String>();
-      	    		}
-                    
-      	    		stringVector.add(obocomponent.getID());
-                    
-      	    		this.hashmapTreeChildrenPartOfs.put(partOfParent, stringVector);
-      	    	}
-      	    }
-      	}
-    }
-
-    
-    private void createHashmapChildrenPropertiesAll() throws Exception {
-    	
-        Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesAll", "*****", this.requestMsgLevel);
+        Wrapper.printMessage("TreeAnatomy.createHashmapChildrenProperties", "*****", this.requestMsgLevel);
 
         Iterator<OBOComponent> iteratorObocomponents = this.arraylistOBOComponents.iterator();
         
@@ -301,11 +244,11 @@ public class TreeAnatomy {
   	    		/* 
                  * RULE CHECK: broken links
                  */
-  	    		OBOComponent instance_of_comp = (OBOComponent) this.hashmapTreePropertiesAll.get(Parent);
+  	    		OBOComponent instance_of_comp = getOBOComponentInHashmapTreeProperties(Parent);
                 
   	    		if ( instance_of_comp == null ) {
                 
-  	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesAll : Parent has been deleted from file: " +
+  	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenProperties : Parent has been deleted from file: " +
   	    					Parent + "!", "*", this.requestMsgLevel);
                     
   	    			/* 
@@ -321,13 +264,13 @@ public class TreeAnatomy {
                      * treebuilder builds branches recursively from a list of
                      * rootnodes
                      */
-  	    			this.vectorRootNodes.add(Parent);
+  	    			addToVectorRootNodes(Parent);
                     
-  	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenPropertiesAll : obocomponent.toString() = " + 
+  	    			Wrapper.printMessage("TreeAnatomy.createHashmapChildrenProperties : obocomponent.toString() = " + 
                             obocomponent.toString() + "!", "*", this.requestMsgLevel);
   	    		}
                 
-  	    		Vector<String> stringVector = this.hashmapTreeChildrenAll.get(Parent);
+  	    		Vector<String> stringVector = getVectorFromHashmapTreeChildren(Parent);
                 
   	    		if ( stringVector == null ) {
                 
@@ -336,9 +279,11 @@ public class TreeAnatomy {
                 
   	    		stringVector.add(obocomponent.getID());
                 
-  	    		this.hashmapTreeChildrenAll.put(Parent, stringVector);
+  	    		putVectorIntoHashmapTreeChildren(Parent, stringVector);
       	    }
       	}
+      	
+      	//System.out.println("this.hashmapTreeChildren.size() " + this.hashmapTreeChildren.size());
     }
 
 
@@ -356,59 +301,43 @@ public class TreeAnatomy {
                           obocomponent.getChildOfs().contains( obocomponent.getID() ) ) );
 
             if ( notChildOf ) {
+            	
+            	//System.out.println("Root = " + obocomponent.getID() );
 
-            	this.vectorRootNodes.add( obocomponent.getID() );
+            	addToVectorRootNodes( obocomponent.getID() );
             }
         }
     }
 
     
-    private void addHashmapTreePropertyEntryAll(String strEMAPA, OBOComponent obocomponent) throws Exception{
+    private void recursivelyBuildTree() throws Exception {
 
-        Wrapper.printMessage("TreeAnatomy.addHashmapTreePropertyEntryAll", "*****", this.requestMsgLevel);
-        
-        this.hashmapTreePropertiesAll.put(strEMAPA, obocomponent);
-    }
-    
-
-    private void recursivelyBuildTreeAll() throws Exception {
-
-        Wrapper.printMessage("TreeAnatomy.recursivelyBuildTreeAll", "*****", this.requestMsgLevel);
+        Wrapper.printMessage("TreeAnatomy.recursivelyBuildTree", "*****", this.requestMsgLevel);
         
         //build tree starting from all defined roots
-        for( int i=0; i< vectorRootNodes.size(); i++ ){
-        	
-            DefaultMutableTreeNode rootnode = 
-            		recursivelyAddNodeAll( vectorRootNodes.get(i), 
-            				new DefaultMutableTreeNode[]{this.defaultmutabletreenodeMotherAll} );
+        Iterator<String> iteratorVectorString = this.vectorRootNodes.iterator();
+        
+        while (iteratorVectorString.hasNext()) {
+
+        	String node = iteratorVectorString.next();
             
-            this.defaultmutabletreenodeMotherAll.add(rootnode);
+        	//System.out.println("recursivelyBuildTree " + node);
+        	
+        	DefaultMutableTreeNode rootnode = 
+            		recursivelyAddNode( node,
+            				new DefaultMutableTreeNode[]{getDefaultmutabletreenodeMother()} );
+            
+            addToDefaultmutabletreenodeMother(rootnode);
         }
     }
     
     
-    private void recursivelyBuildTreePartOfs() throws Exception {
+    private DefaultMutableTreeNode recursivelyAddNode(String key, DefaultMutableTreeNode[] parent_path) throws Exception {
 
-        Wrapper.printMessage("TreeAnatomy.recursivelyBuildTreePartOfs", "*****", this.requestMsgLevel);
-        
-        //build tree starting from all defined roots
-        for ( int i=0; i< vectorRootNodes.size(); i++ ) {
-        	
-            DefaultMutableTreeNode rootnode = 
-            		recursivelyAddNodePartOfs( vectorRootNodes.get(i), 
-            				new DefaultMutableTreeNode[]{this.defaultmutabletreenodeMotherPartOfs} );
-            
-            this.defaultmutabletreenodeMotherPartOfs.add(rootnode);
-        }
-    }
-    
-    
-    private DefaultMutableTreeNode recursivelyAddNodeAll(String key, DefaultMutableTreeNode[] parent_path) throws Exception {
-
-        Wrapper.printMessage("TreeAnatomy.recursivelyAddNodeAll", "*****", this.requestMsgLevel);
+        Wrapper.printMessage("TreeAnatomy.recursivelyAddNode", "*****", this.requestMsgLevel);
         	
     	//traverse from root component
-        OBOComponent obocomponent = (OBOComponent) this.hashmapTreePropertiesAll.get(key);
+        OBOComponent obocomponent = getOBOComponentInHashmapTreeProperties(key);
 
         //check that component is not null otherwise create dummy component
         // for node
@@ -422,7 +351,7 @@ public class TreeAnatomy {
             obocomponent.setFlagMissingRel(true);
             obocomponent.setCheckComment("Disallowed deletion of component from file - parent to existing components.");
             
-            this.hashmapTreePropertiesAll.put(key, obocomponent);
+            addOBOComponentInHashmapTreeProperties(key, obocomponent);
         }
 
         //initialise new node for each component
@@ -442,17 +371,27 @@ public class TreeAnatomy {
         } 
         
         //get children for each component
-        Vector<String> vectorString = (Vector<String>) this.hashmapTreeChildrenAll.get(key);
+        Vector<String> vectorString = getVectorFromHashmapTreeChildren(key);
         
         //BUILD PATHS
         //get paths for each component
-        Vector<DefaultMutableTreeNode[]> paths = (Vector<DefaultMutableTreeNode[]>) this.hashmapTreePathsAll.get(key);
+        Vector<DefaultMutableTreeNode[]> paths = getTreePaths(key);
 
         if ( paths == null ) {
         	
             paths = new Vector<DefaultMutableTreeNode[]>();
         }
         
+        /*
+        if ( key.equals("EMAPA:0") ||
+        		key.equals("group_term") ||
+        		key.equals("Tmp_new_group") ||
+        		key.equals("TS:0") ) {
+        	
+            System.out.println("paths.size() " + paths.size());
+        }
+        */
+
         //create new path for each component, copy old path passed from last traversal
         DefaultMutableTreeNode[] new_path = new DefaultMutableTreeNode[parent_path.length+1];
         
@@ -463,98 +402,31 @@ public class TreeAnatomy {
         paths.add(new_path);
         
         //entry in treePaths <component -> paths>
-        hashmapTreePathsAll.put(key, paths);
+        putHashmapTreePaths(key, paths);
         //BUILD PATHS END
 
         //traverse down each branch of the tree to add all child nodes and create paths
-        if ( vectorString != null ){
+        
+        if ( vectorString != null ) {
         	
-            for ( int i=0; i<vectorString.size(); i++ ){
+            Iterator<String> iteratorVectorString = vectorString.iterator();
+            
+            //System.out.println("recursivelyAddNode " + iteratorVectorString.toString());
+            
+            while (iteratorVectorString.hasNext()) {
+
+            	String stringRecurse = iteratorVectorString.next();
             	
-                newnode.add(recursivelyAddNodeAll(vectorString.get(i), new_path));
+                //System.out.println("recursivelyAddNode " + stringRecurse);
+                
+                newnode.add(recursivelyAddNode(stringRecurse, new_path));
             }
         }
-        
+
         return newnode;
     }
     
 
-    private DefaultMutableTreeNode recursivelyAddNodePartOfs(String key, DefaultMutableTreeNode[] parent_path) throws Exception {
-
-        Wrapper.printMessage("TreeAnatomy.recursivelyAddNodePartOfs", "*****", this.requestMsgLevel);
-        	
-    	//traverse from root component
-        OBOComponent obocomponent = (OBOComponent) this.hashmapTreePropertiesAll.get(key);
-
-        //check that component is not null otherwise create dummy component
-        // for node
-        //note: dummy component's sole purpose = a node for tree display;
-        // not included in any component lists
-        if ( obocomponent == null ) {
-        	
-            obocomponent = new OBOComponent();
-            obocomponent.setID(key);
-            obocomponent.setName("Missing link");
-            obocomponent.setFlagMissingRel(true);
-            obocomponent.setCheckComment("Disallowed deletion of component from file - parent to existing components.");
-            
-            this.hashmapTreePropertiesAll.put(key, obocomponent);
-        }
-
-        //initialise new node for each component
-        DefaultMutableTreeNode newnode = new DefaultMutableTreeNode(obocomponent);
-        
-        //check for cycles
-        if ( doesPathcontainComponent(parent_path, obocomponent) ){
-        	
-            obocomponent.setStatusRule("FAILED");
-            obocomponent.setFlagMissingRel(true);
-            TreePath printPath = new TreePath(parent_path);
-            obocomponent.setCheckComment("There appears to be a cycle in your " +
-                    "graph (" + obocomponent.getID() + " appears more than once " +
-                    "in " + printPath + ")");
-            
-            return newnode;
-        } 
-        
-        //get children for each component
-        Vector<String> vectorString = (Vector<String>) this.hashmapTreeChildrenAll.get(key);
-        
-        //BUILD PATHS
-        //get paths for each component
-        Vector<DefaultMutableTreeNode[]> paths = (Vector<DefaultMutableTreeNode[]>) this.hashmapTreePathsPartOfs.get(key);
-
-        if ( paths == null ) {
-        	
-            paths = new Vector<DefaultMutableTreeNode[]>();
-        }
-        
-        //create new path for each component, copy old path passed from last traversal
-        DefaultMutableTreeNode[] new_path = new DefaultMutableTreeNode[parent_path.length+1];
-        
-        System.arraycopy(parent_path, 0, new_path, 0, parent_path.length);
-        
-        //add current component to new path; add new path to paths for current component
-        new_path[parent_path.length] = newnode;
-        paths.add(new_path);
-        
-        //entry in treePaths <component -> paths>
-        hashmapTreePathsPartOfs.put(key, paths);
-        //BUILD PATHS END
-
-        //traverse down each branch of the tree to add all child nodes and create paths
-        if ( vectorString != null){
-        	
-            for ( int i=0; i<vectorString.size(); i++ ){
-            	
-                newnode.add(recursivelyAddNodePartOfs(vectorString.get(i), new_path));
-            }
-        }
-        
-        return newnode;
-    }
-    
-    
     public boolean doesPathcontainComponent(DefaultMutableTreeNode[] path, OBOComponent inobocomponent) throws Exception{
 
         Wrapper.printMessage("TreeAnatomy.doesPathcontainComponent", "*****", this.requestMsgLevel);
@@ -718,44 +590,17 @@ public class TreeAnatomy {
     }
 
     
-    public OBOComponent getComponentInAll(String strEMAPA) throws Exception{
+    public Vector<DefaultMutableTreeNode> getNodes( String strEMAPA, Vector<DefaultMutableTreeNode[]> paths ) throws Exception{
 
-        Wrapper.printMessage("TreeAnatomy.getComponentInAll", "*****", this.requestMsgLevel);
-    	
-    	try {
-    		
-            OBOComponent obocomponent = (OBOComponent) this.hashmapTreePropertiesAll.get(strEMAPA);
-            
-            return obocomponent;
-        }
-        catch ( NullPointerException np ) {
-        	
-            //np.printStackTrace();
-            return null;
-        }
-    }
-
-    
-    public Vector<String> getChildrenInAllBasedOnParent(String strEMAPA) throws Exception{
-        
-        Wrapper.printMessage("TreeAnatomy.getChildrenInAllBasedOnParent", "*****", this.requestMsgLevel);
-        	
-        return (Vector<String>) this.hashmapTreeChildrenAll.get(strEMAPA);
-    }
-
-    
-    public Vector<DefaultMutableTreeNode> getNodesInAll( String strEMAPA ) throws Exception{
-
-        Wrapper.printMessage("TreeAnatomy.getNodesInAll", "*****", this.requestMsgLevel);
+        Wrapper.printMessage("TreeAnatomy.getNodes", "*****", this.requestMsgLevel);
         	
         //method that returns nodes of a component
         
         Vector<DefaultMutableTreeNode> nodes = new Vector<DefaultMutableTreeNode>();
-        Vector<DefaultMutableTreeNode[]> paths = this.getPathsInAll( strEMAPA );
 
         if ( paths == null) {
         	
-            Wrapper.printMessage("TreeAnatomy.getNodesInAll : ID " + strEMAPA + ",  Nodes " + nodes + "!", "*", this.requestMsgLevel);
+            Wrapper.printMessage("TreeAnatomy.getNodes : ID " + strEMAPA + ",  Nodes " + nodes + "!", "*", this.requestMsgLevel);
         }
         
         for ( DefaultMutableTreeNode[] path: paths ){
@@ -768,133 +613,60 @@ public class TreeAnatomy {
         return nodes;
     }
     
-
-    public Vector<DefaultMutableTreeNode[]> getPathsInAll(String strEMAPA) throws Exception{
-
-        Wrapper.printMessage("TreeAnatomy.getPathsInAll", "*****", this.requestMsgLevel);
-        	
-        return this.hashmapTreePathsAll.get(strEMAPA);
-    }
-
     
-    public Vector< DefaultMutableTreeNode > getNodesInPartOfs( String strEMAPA ) throws Exception{
-
-        Wrapper.printMessage("TreeAnatomy.TreeAnatomy", "*****", this.requestMsgLevel);
-        	
-        //method that returns nodes of a component
+    public Vector<DefaultMutableTreeNode[]> getPathsTo(String strEMAPA, Vector<DefaultMutableTreeNode[]> paths) throws Exception{
         
-        Vector<DefaultMutableTreeNode> nodes = new Vector<DefaultMutableTreeNode>();
-        Vector<DefaultMutableTreeNode[]> paths = this.getPathsInPartOfs( strEMAPA );
-
-        if ( paths == null) {
+        Wrapper.printMessage("TreeAnatomy.getPathsTo", "*****", this.requestMsgLevel);
+        
+        if (paths == null) {
         	
-            Wrapper.printMessage("TreeAnatomy.TreeAnatomy : ID " + strEMAPA + ",  Nodes " + nodes + "!", "*", this.requestMsgLevel);
+        	System.out.println("Paths are null!");
         }
         
-        for ( DefaultMutableTreeNode[] path: paths ){
-        	
-            //get last node in each path
-            DefaultMutableTreeNode node = path[path.length - 1];
-            nodes.add(node);
-        } 
-        
-        return nodes;
-    }
-    
-
-    public Vector<DefaultMutableTreeNode[]> getPathsInPartOfs(String strEMAPA) throws Exception{
-
-        Wrapper.printMessage("TreeAnatomy.getPathsInPartOfs", "*****", this.requestMsgLevel);
-        	
-        return this.hashmapTreePathsPartOfs.get(strEMAPA);
-    }
-
-    
-    public Vector<DefaultMutableTreeNode[]> getPathsToInAll(String strEMAPA) throws Exception{
-        
-        Wrapper.printMessage("TreeAnatomy.getPathsToInAll", "*****", this.requestMsgLevel);
-        	
-        Vector<DefaultMutableTreeNode[]> paths = getPathsInAll(strEMAPA);
-
-        for ( int i = 0; i< paths.size(); i++ ){
+        for ( int i = 0; i< paths.size(); i++ ) {
         	
             DefaultMutableTreeNode[] path = paths.get(i);
 
-            if ( path.length > 0 ) {
+            if (path.length > 0) {
             	
-                DefaultMutableTreeNode[] pathTo =
-                        new DefaultMutableTreeNode[path.length - 1];
-                        
+                DefaultMutableTreeNode[] pathTo = new DefaultMutableTreeNode[path.length - 1];
+                
                 System.arraycopy(path, 0, pathTo, 0, path.length - 1);   
                 
                 paths.remove(i);
-                paths.add(pathTo);
-            }
-        }
-        
-        return paths;
-    }
-    
-
-    public Vector<DefaultMutableTreeNode[]> getPathsToInPartOfs(String strEMAPA) throws Exception{
-        
-        Wrapper.printMessage("TreeAnatomy.getPathsToInPartOfs", "*****", this.requestMsgLevel);
-        	
-        Vector<DefaultMutableTreeNode[]> paths = getPathsInPartOfs(strEMAPA);
-
-        for ( int i = 0; i< paths.size(); i++ ){
-        	
-            DefaultMutableTreeNode[] path = paths.get(i);
-
-            if ( path.length > 0 ) {
-            	
-                DefaultMutableTreeNode[] pathTo =
-                        new DefaultMutableTreeNode[path.length - 1];
-                        
-                System.arraycopy(path, 0, pathTo, 0, path.length - 1);
                 
-                paths.remove(i);
                 paths.add(pathTo);
             }
         }
-        
+
         return paths;
     }
     
 
-    public Vector<String> getAsStringPathsToInAll(String strEMAPA) throws Exception{
+    public Vector<String> getAsStringPathsTo(String strEMAPA, Vector<DefaultMutableTreeNode[]> paths) throws Exception{
      
-        Wrapper.printMessage("TreeAnatomy.getAsStringPathsToInAll", "*****", this.requestMsgLevel);
+        Wrapper.printMessage("TreeAnatomy.getAsStringPathsTo", "*****", this.requestMsgLevel);
         	
-    	Vector<DefaultMutableTreeNode[]> paths = getPathsInAll(strEMAPA);
-    	
         Vector<String> strPaths = new Vector<String>();
 
-        for ( int i = 0; i< paths.size(); i++ ){
-        	
-            DefaultMutableTreeNode[] path = paths.get(i);
+        String strPathway = "";
+        		
+        for ( DefaultMutableTreeNode[] path: paths ){
+
+            for (DefaultMutableTreeNode pathway: path){
+
+          		Object nodeInfo = pathway.getUserObject(); 
+                
+                if (nodeInfo instanceof OBOComponent){
+                	
+                	OBOComponent obocomponent = (OBOComponent) nodeInfo;
+                	
+                	strPathway = strPathway + obocomponent.getID() + "(" + obocomponent.getName() + ");";
+                }
+            }
             
-            //System.out.print( path.toString() );
-            strPaths.add( path.toString() );     
-        }
-        
-        return strPaths;
-    }
-    
-
-    public Vector< String > getAsStringPathsToInPartOfs(String strEMAPA) throws Exception{
-     
-        Wrapper.printMessage("TreeAnatomy.getAsStringPathsToInPartOfs", "*****", this.requestMsgLevel);
-        	
-    	Vector< DefaultMutableTreeNode[] > paths = getPathsInPartOfs(strEMAPA);
-    	
-        Vector< String > strPaths = new Vector< String >();
-
-        for ( int i = 0; i< paths.size(); i++ ){
-        	
-            DefaultMutableTreeNode[] path = paths.get(i);
-            //System.out.print( path.toString() );
-            strPaths.add( path.toString() );     
+            strPaths.add( strPathway );
+            strPathway = "";
         }
         
         return strPaths;

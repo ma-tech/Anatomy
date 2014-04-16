@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 	* Project:      DAOAnatomyRebuild
 *
-* Title:        MainLoadOBOFileIntoComponentsTablesAndValidate.java
+* Title:        Main5RebuildDerivedDataTables.java
 *
 * Date:         2012
 *
@@ -18,10 +18,12 @@
 *
 * Version:      1
 *
-* Description:  A Main Class that Loads an OBOFile Into the Components Tables And Validate
-*                against the existing anatomy database
+* Description:  A Main Class that rebuilds the Derived Data Tables in the Anatomy Database
+*                - ANAD_PART_OF
+*                - ANAD_PART_OF_PERSPECTIVE
+*                - ANAD_RELATIONSHIP_TRANSITIVE
 *
-* Usage:        "main.MainLoadOBOFileIntoComponentsTablesAndValidate 
+* Usage:        "main.Main5RebuildDerivedDataTables 
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
@@ -31,11 +33,11 @@
 *
 * Who; When; What;
 *
-* Mike Wicks; February 2012; Create Class
+* Mike Wicks; April 2014; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
-package main.support;
+package main;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
@@ -49,18 +51,18 @@ import daolayer.DAOProperty;
 import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
-import routines.runnable.RealisePathsFromDatabase;
+import routines.runnable.RebuildDerivedDataTables;
 
 
-public class MainRealisePathsFromDatabase{
+public class Main5RebuildDerivedDataTables{
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 5) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
@@ -72,13 +74,13 @@ public class MainRealisePathsFromDatabase{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
             
-            PrintStream original = System.out;
+            //PrintStream original = System.out;
             
-            System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
+            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
             
-            RealisePathsFromDatabase.run( daofactory, obofactory );
+            RebuildDerivedDataTables.run( daofactory, obofactory );
             
-            System.setOut(original);
+            //System.setOut(original);
 
         }
 

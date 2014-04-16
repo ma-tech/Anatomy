@@ -39,9 +39,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import utility.Wrapper;
 
 import daomodel.DerivedPartOfPerspectives;
 
@@ -52,8 +53,18 @@ import daolayer.DAOException;
 
 import static daolayer.DAOUtil.*;
 
+
 public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPerspectivesDAO{
     // Constants ----------------------------------------------------------------------------------
+    private static final String SQL_INSERT =
+        "INSERT INTO ANAD_PART_OF_PERSPECTIVE " +
+        "( POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK ) " +
+        "VALUES (?, ?, ?, ?)";
+
+    private static final String SQL_ROW_COUNT =
+        "SELECT COUNT(*) AS VALUE " +
+        "FROM ANAD_PART_OF_PERSPECTIVE ";
+
     private static final String SQL_ROW_COUNT_BY_PERSPECTIVE =
         "SELECT COUNT(*) AS VALUE " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +
@@ -80,6 +91,10 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         "ORDER BY %s %s "+
         "LIMIT ?, ?";
 
+    private static final String SQL_EMPTY =
+        "DELETE FROM ANAD_PART_OF_PERSPECTIVE";
+
+    
     // Vars ---------------------------------------------------------------------------------------
     private DAOFactory daoFactory;
 
@@ -291,6 +306,131 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         return count;
     }
 
+
+    /*
+     * Returns total amount of rows in table.
+     */
+    public long countAll() throws Exception {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        long count = 0;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_ROW_COUNT, false);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+            	
+                count = resultSet.getLong("VALUE");
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
+        }
+
+        return count;
+    }
+
+
+    /*
+     *  Empty the ANAD_PART_OF_PERSPECTIVE Table from the database. 
+     */
+    public void empty() throws Exception {
+    	
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_EMPTY, false);
+
+            if ( daoFactory.isUpdate() ) {
+
+            	int affectedRows = preparedStatement.executeUpdate();
+                
+                if (affectedRows == 0) {
+                	
+                    throw new DAOException("Deleting ALL ANAD_PART_OF_PERSPECTIVE failed, no rows affected.");
+                } 
+            }
+            else {
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF_PERSPECTIVE Skipped", "***", daoFactory.getMsgLevel());
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
+        }
+    }
+
+
+    /*
+     * Create the given derivedpartof in the database. 
+     * 
+     *  The derivedpartof OID must be null, otherwise it will throw IllegalArgumentException.
+     *   If the derivedpartof OID value is unknown, rather use save(DerivedPartOf).
+     *    After creating, the Data Access Object will set the obtained ID in the given derivedpartof.
+     */
+	public void create(DerivedPartOfPerspectives derivedpartofperspectives)
+			throws IllegalArgumentException, Exception {
+    	
+    	Object[] values = {
+    			derivedpartofperspectives.getPerspectiveFK(),
+    			derivedpartofperspectives.getPartOfFK(),
+    			derivedpartofperspectives.getAncestor(),
+    			derivedpartofperspectives.getNodeFK()
+    	};
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet generatedKeys = null;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_INSERT, true, values);
+
+            if ( daoFactory.isUpdate() ) {
+
+            	int affectedRows = preparedStatement.executeUpdate();
+                
+                if (affectedRows == 0) {
+                	
+                    throw new DAOException("Creating DerivedPartOfPerspectives failed, no rows affected.");
+                } 
+            }
+            else {
+            	
+    		    Wrapper.printMessage("UPDATE: Create ANAD_PART_OF_PERSPECTIVE Skipped", "***", daoFactory.getMsgLevel());
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
+        }
+    }
+
+
     // Helpers ------------------------------------------------------------------------------------
     /*
      * Map the current row of the given ResultSet to an User.
@@ -304,4 +444,5 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
        		resultSet.getLong("POP_NODE_FK")
         );
     }
+
 }

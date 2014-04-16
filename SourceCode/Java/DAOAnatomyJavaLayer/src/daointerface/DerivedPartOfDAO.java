@@ -41,24 +41,29 @@ import daointerface.BaseDAO;
 
 import daomodel.DerivedPartOf;
 
+
 public interface DerivedPartOfDAO extends BaseDAO {
 
     // Actions ------------------------------------------------------------------------------------
+	
     /*
      * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
      */
     public DerivedPartOf findByOid(long oid) throws Exception;
+    
     
     /*
      * Returns a list of ALL derivedpartofs, otherwise null.
      */
     public List<DerivedPartOf> listAll() throws Exception;
     
+    
     /*
      * Returns true if the given derivedpartof OID exists in the database.
      */
     public boolean existOid(long oid) throws Exception;
 
+    
     /*
      * Save the given derivedpartof in the database.
      * 
@@ -68,10 +73,12 @@ public interface DerivedPartOfDAO extends BaseDAO {
      */
     public void save(DerivedPartOf derivedpartof) throws Exception;
     
+    
     /*
      * Returns a list of relationship matching the given Node FK, otherwise null.
      */
     public List<DerivedPartOf> listAllByNodeFK(String nodeFK) throws Exception;
+    
     
     /*
      * Create the given derivedpartof in the database. 
@@ -82,6 +89,7 @@ public interface DerivedPartOfDAO extends BaseDAO {
      */
     public void create(DerivedPartOf derivedpartof) throws IllegalArgumentException, Exception;
     
+    
     /*
      * Update the given derivedpartof in the database.
      * 
@@ -90,12 +98,14 @@ public interface DerivedPartOfDAO extends BaseDAO {
      */
     public void update(DerivedPartOf derivedpartof) throws Exception;
      
+    
     /*
      * Delete the given derivedpartof from the database. 
      * 
      *  After deleting, the Data Access Object will set the ID of the given derivedpartof to null.
      */
     public void delete(DerivedPartOf derivedpartof) throws Exception;
+    
     
     /*
      * Returns list of DerivedPartOfs for Display purposes
@@ -105,9 +115,23 @@ public interface DerivedPartOfDAO extends BaseDAO {
     public List<DerivedPartOf> display(int firstRow, int rowCount, String sortField, boolean sortAscending, String searchFirst, String searchSecond)
         throws Exception;
     
+    
     /*
      * Returns total amount of rows in table.
      */
     public long count(String searchFirst, String searchSecond) throws Exception;
 
+    
+    /*
+     * Returns total amount of rows in table.
+     */
+    public long countAll() throws Exception;
+
+    
+    /*
+     *  Empty the DerivedPartOf table.
+     */
+    public void empty() throws Exception;
+    
+    
 }

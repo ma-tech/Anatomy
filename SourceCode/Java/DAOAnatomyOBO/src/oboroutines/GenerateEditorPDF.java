@@ -54,7 +54,7 @@ import utility.ObjectConverter;
 
 import obomodel.OBOComponent;
 
-import oboroutines.archive.TreeBuilder;
+import anatomy.TreeAnatomy;
 
 
 public class GenerateEditorPDF {
@@ -83,7 +83,7 @@ public class GenerateEditorPDF {
     private int failedUnchangedTerms = 0;
     
     private Document pdfDocument = new Document();
-    private TreeBuilder treebuilder;
+    private TreeAnatomy treeanatomy;
     private String inputFileName;
     private String outputFileName;
 
@@ -98,7 +98,7 @@ public class GenerateEditorPDF {
 	public GenerateEditorPDF(
 			String requestMsgLevel,
 			ValidateComponents validatecomponents,
-            TreeBuilder treebuilder,
+            TreeAnatomy treeanatomy,
             String inputFileName,
             String outputFileName) throws Exception{
 
@@ -108,7 +108,7 @@ public class GenerateEditorPDF {
 
         this.anatomyinperspective = null; 
         
-        this.treebuilder = treebuilder;
+        this.treeanatomy = treeanatomy;
         this.outputFileName = outputFileName;
         this.inputFileName = inputFileName;
 
@@ -201,7 +201,7 @@ public class GenerateEditorPDF {
 	public GenerateEditorPDF(
 			String requestMsgLevel,
 			ValidateComponents validatecomponents,
-            TreeBuilder treebuilder,
+            TreeAnatomy treeanatomy,
             String inputFileName,
             String outputFileName,
             AnatomyInPerspective anatomyinperspective) throws Exception{
@@ -212,7 +212,7 @@ public class GenerateEditorPDF {
 
         this.anatomyinperspective = anatomyinperspective; 
         
-        this.treebuilder = treebuilder;
+        this.treeanatomy = treeanatomy;
         this.outputFileName = outputFileName;
         this.inputFileName = inputFileName;
 
@@ -560,7 +560,7 @@ public class GenerateEditorPDF {
             for ( String parent: obocomponent.getChildOfs() ){
             	
                 parents = parents + parent + "[" + 
-                treebuilder.getComponent( parent ).getName() + "] ";
+                treeanatomy.getOBOComponentInHashmapTreeProperties( parent ).getName() + "] ";
             }
 
             cell = makeLabel("ID"); 

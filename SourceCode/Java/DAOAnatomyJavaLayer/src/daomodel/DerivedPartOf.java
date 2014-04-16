@@ -49,6 +49,7 @@ public class DerivedPartOf {
      *   9.  APO_DEPTH               => int(10)
      *   10. APO_FULL_PATH           => varchar(500)
      *   11. APO_FULL_PATH_OIDS      => varchar(500)
+     *   12. APO_FULL_PATH_EMAPAS    => varchar(500)
      *   12. APO_FULL_PATH_JSON_HEAD => varchar(3000)
      *   13. APO_FULL_PATH_JSON_TAIL => varchar(500)
      *   14. APO_IS_PRIMARY          => tinyint(1)
@@ -66,6 +67,7 @@ public class DerivedPartOf {
     private long depth; 
     private String fullPath; 
     private String fullPathOids; 
+    private String fullPathEmapas; 
     private String fullPathJsonHead; 
     private String fullPathJsonTail; 
     private boolean primary; 
@@ -96,6 +98,7 @@ public class DerivedPartOf {
     		long depth, 
     		String fullPath, 
     		String fullPathOids, 
+    		String fullPathEmapas, 
     		String fullPathJsonHead, 
     		String fullPathJsonTail, 
     		boolean primary, 
@@ -113,6 +116,7 @@ public class DerivedPartOf {
     	this.depth = depth;
     	this.fullPath = fullPath;
     	this.fullPathOids = fullPathOids;
+    	this.fullPathEmapas = fullPathEmapas;
     	this.fullPathJsonHead = fullPathJsonHead;
     	this.fullPathJsonTail = fullPathJsonTail;
     	this.primary = primary;
@@ -136,6 +140,7 @@ public class DerivedPartOf {
     		String depth, 
     		String fullPath, 
     		String fullPathOids, 
+    		String fullPathEmapas, 
     		String fullPathJsonHead, 
     		String fullPathJsonTail, 
     		String primary, 
@@ -153,6 +158,7 @@ public class DerivedPartOf {
     	this.depth = ObjectConverter.convert(depth, Long.class);
     	this.fullPath = fullPath;
     	this.fullPathOids = fullPathOids;
+    	this.fullPathEmapas = fullPathEmapas;
     	this.fullPathJsonHead = fullPathJsonHead;
     	this.fullPathJsonTail = fullPathJsonTail;
     	this.primary = ObjectConverter.convert(primary, Boolean.class);
@@ -219,6 +225,9 @@ public class DerivedPartOf {
     } 
     public String getFullPathOids() {
         return fullPathOids;
+    } 
+    public String getFullPathEmapas() {
+        return fullPathEmapas;
     } 
     public String getFullPathJsonHead() {
         return fullPathJsonHead;
@@ -300,6 +309,9 @@ public class DerivedPartOf {
     public void setFullPathOids(String fullPathOids) {
         this.fullPathOids = fullPathOids;
     } 
+    public void setFullPathEmapas(String fullPathEmapas) {
+        this.fullPathEmapas = fullPathEmapas;
+    } 
     public void setFullPathJsonHead(String fullPathJsonHead) {
         this.fullPathJsonHead = fullPathJsonHead;
     } 
@@ -372,7 +384,7 @@ public class DerivedPartOf {
      */
     public String toString() {
     	
-        return String.format("DerivedPartOf [ oid=%d, speciesFK=%s, nodeStartFK=%d, nodeStopFK=%d, pathStartFK=%d, pathStopFK=%d, nodeFK=%d, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%b, primaryPath=%b, parentFK=%d ]", 
-        		oid, speciesFK, nodeStartFK, nodeStopFK, pathStartFK, pathStopFK, nodeFK, sequence, depth, fullPath, fullPathOids, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
+        return String.format("DerivedPartOf [ oid=%d, speciesFK=%s, nodeStartFK=%d, nodeStopFK=%d, pathStartFK=%d, pathStopFK=%d, nodeFK=%d, sequence=%d, depth=%d, fullPath=%s, fullPathOids=%s, fullPathEmapas=%s, fullPathJsonHead=%s, fullPathJsonTail=%s, primary=%b, primaryPath=%b, parentFK=%d ]", 
+        		oid, speciesFK, nodeStartFK, nodeStopFK, pathStartFK, pathStopFK, nodeFK, sequence, depth, fullPath, fullPathOids, fullPathEmapas, fullPathJsonHead, fullPathJsonTail, primary, primaryPath, parentFK);
     }
 }

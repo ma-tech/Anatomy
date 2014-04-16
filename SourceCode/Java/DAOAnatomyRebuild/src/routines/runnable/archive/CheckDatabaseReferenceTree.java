@@ -33,13 +33,19 @@ package routines.runnable.archive;
 import java.util.ArrayList;
 
 import utility.Wrapper;
+
+import anatomy.TreeAnatomy;
+
 import obomodel.OBOComponent;
+
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
 import obolayer.OBOFactory;
+
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
+
 import daolayer.DAOFactory;
+
 
 public class CheckDatabaseReferenceTree {
 
@@ -48,21 +54,18 @@ public class CheckDatabaseReferenceTree {
 	    Wrapper.printMessage("checkdatabasereferencetree.run", "***", daofactory.getMsgLevel());
 
 	    //import database
-    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
-
-        ArrayList<OBOComponent> expTermList = importdatabase.getTermList();
-        ArrayList<OBOComponent> parseOldTermList = expTermList;
+    	ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "");
+    	
+        ArrayList<OBOComponent> expTermList = importdatabase.getObocomponentAllOnomy();
         
-        //Build hashmap of components
-        MapBuilder mapbuilder = new MapBuilder( daofactory.getMsgLevel(), parseOldTermList);
-        //Build tree
-        TreeBuilder treebuilder = new TreeBuilder( daofactory.getMsgLevel(), mapbuilder);
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomy = new TreeAnatomy(obofactory.getMsgLevel(), expTermList);
 
         //check for rules violation
         ValidateComponents validatecomponents =
             new ValidateComponents( obofactory, 
-            		parseOldTermList, 
-            		treebuilder);
+            		expTermList, 
+            		treeanatomy);
 
         //if file has problems don't allow to load
         if ( validatecomponents.getProblemTermList().isEmpty() ){

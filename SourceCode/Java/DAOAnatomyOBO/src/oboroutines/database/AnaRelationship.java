@@ -69,8 +69,8 @@ import daomodel.JOINNodeRelationshipNode;
 
 import obomodel.OBOComponent;
 
+import anatomy.TreeAnatomy;
 
-import oboroutines.archive.TreeBuilder;
 
 public class AnaRelationship {
 	// Properties ---------------------------------------------------------------------------------
@@ -142,7 +142,7 @@ public class AnaRelationship {
     		String calledFrom, 
     		String project, 
     		String strSpecies, 
-    		TreeBuilder treebuilder,
+    		TreeAnatomy treeanatomy,
     		OBOComponent abstractclassobocomponent, 
     		OBOComponent stageclassobocomponent, 
     		OBOComponent groupclassobocomponent, 
@@ -202,7 +202,7 @@ public class AnaRelationship {
                     	
                         //reset insertflag for each parent
                         flagInsert = true;
-                        OBOComponent parent = (OBOComponent) treebuilder.getComponent( parents.get(j) );
+                        OBOComponent parent = (OBOComponent) treeanatomy.getOBOComponentInHashmapTreeProperties( parents.get(j) );
 
                         String strParentType = "";
                         strParentType = parentTypes.get(j);

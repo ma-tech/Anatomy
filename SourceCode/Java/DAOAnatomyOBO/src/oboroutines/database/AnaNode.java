@@ -81,7 +81,9 @@ import daomodel.Thing;
 import daomodel.Version;
 
 import obomodel.OBOComponent;
-import oboroutines.archive.TreeBuilder;
+
+import anatomy.TreeAnatomy;
+
 
 public class AnaNode {
 	// Properties ---------------------------------------------------------------------------------
@@ -180,7 +182,7 @@ public class AnaNode {
     		boolean generateIdentifiers, 
     		String calledFrom, 
     		String strSpecies, 
-    		TreeBuilder treebuilder ) throws Exception {
+    		TreeAnatomy treeanatomy ) throws Exception {
 
         Wrapper.printMessage("ananode.insertANA_NODE : " + calledFrom, "***", this.daofactory.getMsgLevel());
         	
@@ -302,15 +304,15 @@ public class AnaNode {
                 		
                     	if (strANO_SPECIES_FK.equals("mouse")) {
                      	   
-                    		treebuilder.getComponent( component.getID()).setCheckComment("New EMAPA:ID generated: " + strANO_PUBLIC_ID);
+                    		treeanatomy.getOBOComponentInHashmapTreeProperties( component.getID()).setCheckComment("New EMAPA:ID generated: " + strANO_PUBLIC_ID);
                     	}
                     	else if (strANO_SPECIES_FK.equals("chick")) {
                     	   
-                    		treebuilder.getComponent( component.getID()).setCheckComment("New ECAPA:ID generated: " + strANO_PUBLIC_ID);
+                    		treeanatomy.getOBOComponentInHashmapTreeProperties( component.getID()).setCheckComment("New ECAPA:ID generated: " + strANO_PUBLIC_ID);
                     	}
                     	else if (strANO_SPECIES_FK.equals("human")) {
                     	
-                    		treebuilder.getComponent( component.getID()).setCheckComment("New EHDAA:ID generated: " + strANO_PUBLIC_ID);
+                    		treeanatomy.getOBOComponentInHashmapTreeProperties( component.getID()).setCheckComment("New EHDAA:ID generated: " + strANO_PUBLIC_ID);
                     	}
                     	else {
                         

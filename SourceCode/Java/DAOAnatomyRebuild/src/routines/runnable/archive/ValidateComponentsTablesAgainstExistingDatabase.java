@@ -39,17 +39,23 @@ import java.util.List;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
+
+import anatomy.TreeAnatomy;
+
 import obolayer.OBOFactory;
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
+
 import daolayer.DAOFactory;
+
 import daointerface.OBOFileDAO;
+
 import daomodel.OBOFile;
+
 
 public class ValidateComponentsTablesAgainstExistingDatabase {
 
@@ -82,18 +88,18 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         //import Obo File from obo.properties, file.oboinfile
 	    ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
         
-        MapBuilder newmapbuilder = new MapBuilder( daofactory.getMsgLevel(), importcomponents.getTermList());
-        TreeBuilder newtreebuilder = new TreeBuilder( daofactory.getMsgLevel(), newmapbuilder);
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomy = new TreeAnatomy(obofactory.getMsgLevel(), importcomponents.getTermList());
 
         //import Database from dao.properties, anatomy008.url
-	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
-
+	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
+	    
         //check for rules violation
 	    ValidateComponents validatecomponents =
             new ValidateComponents( obofactory, 
             		importcomponents.getTermList(), 
-            		importdatabase.getTermList(), 
-            		newtreebuilder);
+            		importdatabase.getObocomponentAllOnomy(),
+            		treeanatomy);
         
         String validation = "";
 
@@ -112,7 +118,7 @@ public class ValidateComponentsTablesAgainstExistingDatabase {
         GenerateEditorReport generateeditorreport = new GenerateEditorReport( daofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, treeanatomy, inputFile, summaryReportPdf);
         
         File infile = new File(inputFile);
         InputStream inputstreamin = new FileInputStream(infile);

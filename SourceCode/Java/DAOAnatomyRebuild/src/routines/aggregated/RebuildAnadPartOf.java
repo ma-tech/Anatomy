@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        UpdateDatabaseFromComponentsTables.java
+* Title:        RebuildAnadPartOf.java
 *
 * Date:         2012
 *
@@ -18,17 +18,17 @@
 *
 * Version:      1
 *
-* Description:  A Class that Reads an OBO File and Loads it into an existing Anatomy database;
+* Description:  A Main Class that rebuilds the ANAD_PART_OF Derived Data Table
 *
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
 *
-* Mike Wicks; February 2012; Create Class
+* Mike Wicks; April 2014; Create Class
 *
 *----------------------------------------------------------------------------------------------
 */
-package routines.runnable;
+package routines.aggregated;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,20 +43,26 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
-import anatomy.TreeAnatomy;
+
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
+import anatomy.TreeAnatomy;
+
+import daointerface.DerivedPartOfDAO;
+import daointerface.NodeDAO;
+import daointerface.StageDAO;
+
 import daolayer.DAOFactory;
+
 import daomodel.DerivedPartOf;
 import daomodel.Node;
 import daomodel.Stage;
-import daointerface.NodeDAO;
-import daointerface.StageDAO;
-import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 
 
-public class RealisePathsFromDatabase {
-	
+public class RebuildAnadPartOf {
+
     private static final Set<String> VALID_VALUES = new HashSet<String>(Arrays.asList(
             new String[] 
         	    {"EMAPA:0", "group_term", "Tmp_new_group", "TS:0", "TS01", "TS02", "TS03", "TS04", "TS05", "TS06", "TS07", "TS08", "TS09", 
@@ -65,21 +71,17 @@ public class RealisePathsFromDatabase {
             ));
 
 
-	public static void run(DAOFactory daofactory, OBOFactory obofactory) throws Exception {
-    	
-	    Wrapper.printMessage("realisepathsfromdatabase.run", "***", obofactory.getMsgLevel());
+	public static void run( DAOFactory daofactory, OBOFactory obofactory, 
+			TreeAnatomy treeanatomyPartOnomy, ArrayList<OBOComponent> arraylistOBOComponent ) 
+					throws Exception {
+
+	    Wrapper.printMessage("RebuildAnadPartOf.run", "***", daofactory.getMsgLevel());
+
+	    // Obtain DAOs.
+	    DerivedPartOfDAO derivedpartofDAO = daofactory.getDAOImpl(DerivedPartOfDAO.class);
 
 	    StageDAO stageDAO = daofactory.getDAOImpl(StageDAO.class);
 	    NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
-	    
-        //import Database from dao.properties
-	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
-	    
-	    // Get all the Components in the Part-Onomy
-	    ArrayList<OBOComponent> arraylistOBOComponent = importdatabase.getObocomponentPartOnomy();
-
-	    // Build a Tree from all the Components in the Part-Onomy
-	    TreeAnatomy treeanatomyPartOnomy = new TreeAnatomy(obofactory.getMsgLevel(), arraylistOBOComponent);
 	    
         Iterator<OBOComponent> iteratorArraylistOBOComponent = arraylistOBOComponent.iterator();
 
@@ -227,7 +229,9 @@ public class RealisePathsFromDatabase {
 
                     derivedpartof.setParentFK(longNodeFkPrev);
 
-                    System.out.println(derivedpartof.toString());
+                    derivedpartofDAO.create(derivedpartof);
+                    
+                    //System.out.println(derivedpartof.toString());
                 	
                 	longRowCount++;
                 	/*

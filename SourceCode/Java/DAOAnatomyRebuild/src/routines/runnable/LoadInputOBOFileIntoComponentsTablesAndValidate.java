@@ -40,20 +40,29 @@ import java.util.List;
 
 import utility.Wrapper;
 import utility.ObjectConverter;
+
+import anatomy.TreeAnatomy;
+
 import oboaccess.OBOComponentAccess;
+
 import obolayer.OBOFactory;
+
 import obomodel.OBOComponent;
+
 import oboroutines.GenerateEditorPDF;
 import oboroutines.GenerateEditorReport;
 import oboroutines.ValidateComponents;
-import oboroutines.archive.MapBuilder;
-import oboroutines.archive.TreeBuilder;
+
 import routines.aggregated.ListOBOComponentsFromComponentsTables;
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 import routines.aggregated.LoadOBOFileIntoComponentsTables;
+
 import daolayer.DAOFactory;
+
 import daointerface.OBOFileDAO;
+
 import daomodel.OBOFile;
+
 
 public class LoadInputOBOFileIntoComponentsTablesAndValidate {
 
@@ -94,20 +103,28 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
 	    //import Obo File from obo.properties, file.oboinfile
         LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, obocomponents);
         
-        //import Obo File from obo.properties, file.oboinfile
-        ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
-        MapBuilder newmapbuilder = new MapBuilder( daofactory.getMsgLevel(), importcomponents.getTermList());
-        TreeBuilder newtreebuilder = new TreeBuilder( daofactory.getMsgLevel(), newmapbuilder);
+	    ListOBOComponentsFromComponentsTables importcomponents = new ListOBOComponentsFromComponentsTables( daofactory, obofactory );
+	    
+	    // Get all the Components in the Components Tables
+	    ArrayList<OBOComponent> arraylistComponentsTables = importcomponents.getTermList();
 
-        //import Database from dao.properties, anatomy008.url
-        ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true );
+	    // Build a Tree from all the Components in the Part-Onomy
+	    TreeAnatomy treeanatomyComponentsTables = new TreeAnatomy(obofactory.getMsgLevel(), arraylistComponentsTables);
+
+	    
+	    // import Database from dao.properties
+	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
+	    
+	    // Get all the Components in the Part-Onomy
+	    ArrayList<OBOComponent> arraylistOBOComponentExistingDB = importdatabase.getObocomponentAllOnomy();
+
 
         //check for rules violation
-	    ValidateComponents validatecomponents =
+        ValidateComponents validatecomponents =
             new ValidateComponents( obofactory, 
-            		importcomponents.getTermList(), 
-            		importdatabase.getTermList(), 
-            		newtreebuilder);
+            		arraylistComponentsTables, 
+            		arraylistOBOComponentExistingDB,
+            		treeanatomyComponentsTables);
         
         String validation = "";
 
@@ -163,7 +180,7 @@ public class LoadInputOBOFileIntoComponentsTablesAndValidate {
         GenerateEditorReport generateeditorreport = new GenerateEditorReport( daofactory.getMsgLevel(), validatecomponents, inputFile, summaryReport);
         
         //generate pdf summary report
-        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, newtreebuilder, inputFile, summaryReportPdf);
+        GenerateEditorPDF generateeditorpdf = new GenerateEditorPDF( daofactory.getMsgLevel(), validatecomponents, treeanatomyComponentsTables, inputFile, summaryReportPdf);
         
         File infile = new File(inputFile);
         InputStream inputstreamin = new FileInputStream(infile);

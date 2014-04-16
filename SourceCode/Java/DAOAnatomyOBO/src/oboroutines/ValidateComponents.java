@@ -41,7 +41,7 @@ import utility.Wrapper;
 
 import obomodel.OBOComponent;
 
-import oboroutines.archive.TreeBuilder;
+import anatomy.TreeAnatomy;
 
 import obolayer.OBOFactory;
 import obolayer.OBOException;
@@ -106,7 +106,7 @@ public class ValidateComponents {
     public ValidateComponents(OBOFactory obofactory,
     		ArrayList<OBOComponent> newTermList, 
             ArrayList<OBOComponent> oldTermList, 
-            TreeBuilder treebuilder ) {
+            TreeAnatomy treeanatomy ) {
     	
     	this.obofactory = obofactory;
 
@@ -171,10 +171,10 @@ public class ValidateComponents {
             this.abstractRootList = new ArrayList<OBOComponent>();
 
             // A-3
-            validateConfiguredRoots(treebuilder);
+            validateConfiguredRoots(treeanatomy);
 
             // A-4
-            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
+            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treeanatomy);
 
             /*
             System.out.println("this.abstractTermList.size() = " + this.abstractTermList.size());
@@ -184,7 +184,7 @@ public class ValidateComponents {
             
             // A-5
             //set and validate primary + alternate paths to abstract anatomy terms
-            validatePaths(treebuilder);
+            validatePaths(treeanatomy);
 
             //perform checks on abstract anatomy terms
             if ( this.proceed ){
@@ -195,7 +195,7 @@ public class ValidateComponents {
 
                 // A-7
                 //check for only one primary parent
-                checkAbstractAnatomyParents( treebuilder );
+                checkAbstractAnatomyParents( treeanatomy );
 
                 // A-8
                 //check that component is within life time of primary parent
@@ -221,7 +221,7 @@ public class ValidateComponents {
     //  B - 1 List of Terms
     public ValidateComponents(OBOFactory obofactory, 
     		ArrayList<OBOComponent> newTermList, 
-    		TreeBuilder treebuilder) {
+    		TreeAnatomy treeanatomy) {
     	
     	this.obofactory = obofactory;
 
@@ -279,14 +279,14 @@ public class ValidateComponents {
             this.abstractRootList = new ArrayList<OBOComponent>();
             
             // B-3
-            validateConfiguredRoots(treebuilder);
+            validateConfiguredRoots(treeanatomy);
             
             // B-4
-            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treebuilder);
+            this.abstractTermList = (ArrayList<OBOComponent>) getAbstractAnatomyChildren(treeanatomy);
 
             //set and validate primary + alternate paths to abstract anatomy terms
             // B-5
-            validatePaths(treebuilder);
+            validatePaths(treeanatomy);
 
             //perform checks on abstract anatomy terms
             if ( this.proceed ){
@@ -347,7 +347,7 @@ public class ValidateComponents {
      * 
      * match all roots of the tree to the configured roots
      */
-    private void validateConfiguredRoots(TreeBuilder treebuilder ) throws Exception{
+    private void validateConfiguredRoots(TreeAnatomy treeanatomy ) throws Exception{
 
     	/*
     	 * This routine examines the roots in the tree
@@ -361,13 +361,15 @@ public class ValidateComponents {
         String rootName = "";
         ArrayList<String> rootComments;
 
-        Vector<String> roots = treebuilder.getTreeRoots();
+        //Vector<String> roots = treeanatomy.getTreeRoots();
+        Vector<String> roots = treeanatomy.getVectorRootNodes();
         
         //System.out.println("roots.size():" + roots.size());
 
         for(String emapID: roots){
         	
-            OBOComponent rootobocomponent = treebuilder.getComponent(emapID);
+            //OBOComponent rootobocomponent = treeanatomy.getComponent(emapID);
+            OBOComponent rootobocomponent = treeanatomy.getOBOComponentInHashmapTreeProperties(emapID);
             
             rootNameSpace = rootobocomponent.getNamespace();
             rootName = rootobocomponent.getName();
@@ -499,13 +501,14 @@ public class ValidateComponents {
      *  does not include abstract terms that are tree roots (eg. mouse, 
      *   human or abstract terms whose parent link has been deleted)
      */
-    private ArrayList<OBOComponent> getAbstractAnatomyChildren(TreeBuilder treebuilder) throws Exception{
+    private ArrayList<OBOComponent> getAbstractAnatomyChildren(TreeAnatomy treeanatomy) throws Exception{
 
         Wrapper.printMessage("validatecomponents.getAbstractAnatomyChildren", "***", this.obofactory.getMsgLevel());
         
         ArrayList<OBOComponent> abstractAnatomyChildren = new ArrayList<OBOComponent>();
         
-        Vector<String> vRoots = treebuilder.getTreeRoots();
+        //Vector<String> vRoots = treeanatomy.getTreeRoots();
+        Vector<String> vRoots = treeanatomy.getVectorRootNodes();
 
         //if ( this.abstractRootList.isEmpty() ){
         if ( vRoots.isEmpty() ){
@@ -617,7 +620,7 @@ public class ValidateComponents {
      * 
      * validate the paths in the tree
      */
-    private void validatePaths(TreeBuilder treebuilder) throws Exception{
+    private void validatePaths(TreeAnatomy treeanatomy) throws Exception{
 
         Wrapper.printMessage("validatecomponents.validatePaths", "***", this.obofactory.getMsgLevel());
         
@@ -638,14 +641,15 @@ public class ValidateComponents {
 
         	obocomponent.setPrimaryPath(null);
             obocomponent.setPaths( new Vector< DefaultMutableTreeNode[] >() );
-            paths = treebuilder.getPaths( obocomponent.getID() );
+            //paths = treeanatomy.getPaths( obocomponent.getID() );
+            paths = treeanatomy.getTreePaths( obocomponent.getID() );
 
             for (DefaultMutableTreeNode[] path: paths){
             	
-                isPrimaryPath = !( treebuilder.hasGroupNodeAsAncestor(
-                        path, obocomponent) );
+                //isPrimaryPath = !( treeanatomy.hasGroupNodeAsAncestor( path, obocomponent) );
+                isPrimaryPath = !( treeanatomy.hasComponentGroupNodeAsAncestorInPath(path, obocomponent) );
                 //try first one 
-                //isPrimaryPath = !( treebuilder.isPrimaryPath(pathTo) );
+                //isPrimaryPath = !( treeanatomy.isPrimaryPath(pathTo) );
                 
                 if ( isPrimaryPath ){
                 	
@@ -664,7 +668,8 @@ public class ValidateComponents {
                 }
                 else {
                 	
-                    if ( treebuilder.isPathInNamespace(path, abstractclassobocomponent) ) {
+                    //if ( treeanatomy.isPathInNamespace(path, abstractclassobocomponent) ) {
+                    if ( treeanatomy.hasComponentNamespanceInPath(path, abstractclassobocomponent) ) {
                     	
     		            obocomponent.addPaths(path);
                     }
@@ -900,7 +905,7 @@ public class ValidateComponents {
      * Check the abstract anatomy parents
      *  There must only be 1 Primary Parent
      */
-    private void checkAbstractAnatomyParents(TreeBuilder tree) throws Exception{
+    private void checkAbstractAnatomyParents(TreeAnatomy treeanatomy) throws Exception{
         
         Wrapper.printMessage("validatecomponents.checkAbstractAnatomyParents", "***", this.obofactory.getMsgLevel());
         
@@ -921,7 +926,7 @@ public class ValidateComponents {
             
             for ( String parent: parents ) {
             
-                OBOComponent parentcomponent = tree.getComponent(parent);
+                OBOComponent parentcomponent = treeanatomy.getOBOComponentInHashmapTreeProperties(parent);
                 
                 if ( parentcomponent.isPrimary() ) {
 

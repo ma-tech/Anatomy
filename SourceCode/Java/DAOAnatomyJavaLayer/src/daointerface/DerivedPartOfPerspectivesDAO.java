@@ -41,8 +41,17 @@ import daointerface.BaseDAO;
 
 import daomodel.DerivedPartOfPerspectives;
 
+
 public interface DerivedPartOfPerspectivesDAO extends BaseDAO {
     // Actions ------------------------------------------------------------------------------------
+
+    /*
+     * Create the given derivedpartofperspectives in the database. 
+     * 
+     */
+    public void create(DerivedPartOfPerspectives derivedpartofperspectives) throws IllegalArgumentException, Exception;
+    
+    
     /*
      * Returns list of DerivedPartOfPerspectivess for Display purposes
      *  starting at the given first index with the given row count,
@@ -56,4 +65,16 @@ public interface DerivedPartOfPerspectivesDAO extends BaseDAO {
      */
     public long count(String searchTerm, String searchPerspective) throws Exception;
 
+
+    /*
+     * Returns total amount of rows in table.
+     */
+    public long countAll() throws Exception;
+
+    
+    /*
+     *  Empty the DerivedPartOfPerspective table.
+     */
+    public void empty() throws Exception;
+    
 }

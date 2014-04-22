@@ -73,9 +73,24 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
     	"FROM ANAD_RELATIONSHIP_TRANSITIVE " +
     	"WHERE RTR_OID = ?";
 
+    private static final String SQL_EXIST_ANCESTOR_DESCENDENT =
+        "SELECT RTR_OID " +
+        "FROM ANAD_RELATIONSHIP_TRANSITIVE " +
+        "WHERE RTR_ANCESTOR_FK = ? " + 
+        "AND RTR_DESCENDENT_FK = ? " +
+        "AND RTR_RELATIONSHIP_TYPE_FK = 'part-of' ";  
+
+
     private static final String SQL_LIST_ALL =
 	    "SELECT RTR_OID, RTR_RELATIONSHIP_TYPE_FK, RTR_ANCESTOR_FK, RTR_DESCENDENT_FK " +
 	    "FROM ANAD_RELATIONSHIP_TRANSITIVE ";
+
+    
+    private static final String SQL_LIST_ALL_BY_ANCESTOR =
+        "SELECT RTR_OID, RTR_RELATIONSHIP_TYPE_FK, RTR_ANCESTOR_FK, RTR_DESCENDENT_FK " +
+        "FROM ANAD_RELATIONSHIP_TRANSITIVE " +
+        "WHERE RTR_ANCESTOR_FK = ? ";
+
 
     private static final String SQL_FIND_BY_OID =
         "SELECT RTR_OID, RTR_RELATIONSHIP_TYPE_FK, RTR_ANCESTOR_FK, RTR_DESCENDENT_FK " +
@@ -436,12 +451,31 @@ public final class DerivedRelationshipTransitiveDAOJDBC implements DerivedRelati
         return list(SQL_LIST_ALL);
     }
     
+
+    /*
+     * Returns a list of ALL DerivedRelationshipTransitive for a given Ancestor, otherwise null.
+     */
+    public List<DerivedRelationshipTransitive> listAllByAncestor(long ancestor) throws Exception {
+    	
+        return list(SQL_LIST_ALL_BY_ANCESTOR, ancestor);
+    }
+    
+
     /*
      * Returns true if the given DerivedRelationshipTransitive OID exists in the database.
      */
     public boolean existOid(long oid) throws Exception {
     	
         return exist(SQL_EXIST_OID, oid);
+    }
+    
+    
+    /*
+     * Returns true if the given DerivedRelationshipTransitive OID exists in the database.
+     */
+    public boolean existAncestorDescendent(long ancestor, long descendent) throws Exception {
+    	
+        return exist(SQL_EXIST_ANCESTOR_DESCENDENT, ancestor, descendent);
     }
     
     

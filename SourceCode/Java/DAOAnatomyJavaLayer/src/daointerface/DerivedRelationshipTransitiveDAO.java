@@ -58,9 +58,21 @@ public interface DerivedRelationshipTransitiveDAO extends BaseDAO {
     
     
     /*
+     * Returns a list of ALL DerivedRelationshipTransitive, otherwise null.
+     */
+    public List<DerivedRelationshipTransitive> listAllByAncestor(long ancestor) throws Exception;
+    
+    
+    /*
      * Returns true if the given derivedrelationshiptransitive OID exists in the database.
      */
     public boolean existOid(long oid) throws Exception;
+
+    
+    /*
+     * Returns true if the given derivedrelationshiptransitive OID exists in the database.
+     */
+    public boolean existAncestorDescendent(long ancestor, long descendent) throws Exception;
 
     
     /*

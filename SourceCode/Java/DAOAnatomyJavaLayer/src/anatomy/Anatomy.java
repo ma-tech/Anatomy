@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import utility.ObjectConverter;
 import daointerface.EditorDAO;
 import daointerface.EvidenceDAO;
 import daointerface.NodeDAO;
@@ -58,10 +59,8 @@ import daointerface.ThingDAO;
 import daointerface.TimedNodeDAO;
 import daointerface.TimedNodeFKDAO;
 import daointerface.VersionDAO;
-
 import daolayer.DAOException;
 import daolayer.DAOFactory;
-
 import daomodel.Editor;
 import daomodel.Evidence;
 import daomodel.Node;
@@ -655,6 +654,30 @@ public class Anatomy {
 
 
 	/*
+     * update the  Anatomy DB Table from 16 Lists of Objects
+     */
+	public void updateDatabaseWithObjects() throws Exception {
+		
+    	try {
+
+    		splitArrayIntoNodeObjectLists();
+
+    		convertObjectStringListsIntoObjectLists();
+        	
+    		updateDatabaseNodeObjects();
+    	}
+        catch ( DAOException dao ) {
+        	
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+            ex.printStackTrace();
+        } 
+	}
+
+
+	/*
      * Sort the Mega 2D Array into 16 Sub 2D Arrays for Each Anatomy DB Table
      */
     public void splitArrayIntoLists() {
@@ -720,6 +743,26 @@ public class Anatomy {
      	}
     }
     
+
+	/*
+     * Sort the Mega 2D Array into 16 Sub 2D Arrays for Each Anatomy DB Table
+     */
+    public void splitArrayIntoNodeObjectLists() {
+    	
+        //Process each Row into Lists for Each Table
+    	Iterator<List<String>> iteratorRow = this.csv2DStringArray.iterator();
+
+    	List<String> listRow = new ArrayList<String>();
+    	
+     	while (iteratorRow.hasNext()) {
+
+     		listRow = iteratorRow.next();
+     	
+     		this.listStringNode.add(listRow);
+     	}
+    }
+    
+
     /*
      * Convert the 16 Sub List of Strings into 16 Lists of Objects for Each Anatomy DB Table
      */
@@ -742,6 +785,16 @@ public class Anatomy {
     	createObjectsFromTimedNodeFKStrings();
     	createObjectsFromPerspectiveAmbitFKStrings();
     }
+    
+    
+    /*
+     * Convert the 16 Sub List of Strings into 16 Lists of Objects for Each Anatomy DB Table
+     */
+    public void convertObjectStringListsIntoObjectLists() {
+    	
+    	createObjectsFromNodeObjectStrings();
+    }
+    
     
     /*
      * Convert the 2D Array of Species Strings into a list of Species Objects
@@ -1199,6 +1252,77 @@ public class Anatomy {
      			}
      			if ( i == 5 ) {
      				node.setGroup(column);
+     			}
+     			if ( i == 6 ) {
+     				node.setPublicId(column);
+     			}
+     			if ( i == 7 ) {
+     				node.setDescription(column);
+     			}
+     			if ( i == 8 ) {
+     				node.setDisplayId(column);
+     			}
+            	
+     			i++;
+     		}
+
+ 			//System.out.println(node.toString());
+            this.listObjectNode.add(node);
+     	}        		
+    }
+
+  
+    /*
+     * Convert the 2D Array of Node Strings into a list of Node Objects
+     */
+    private void createObjectsFromNodeObjectStrings() {
+    	
+     	Iterator<List<String>> iteratorRow = this.listStringNode.iterator();
+     	
+        while (iteratorRow.hasNext()) {
+        		
+        	List<String> row = iteratorRow.next();
+
+        	Node node = new Node();
+
+     		int i = 1;
+            
+         	Iterator<String> iteratorColumn = row.iterator();
+         	
+     		while (iteratorColumn.hasNext()) {
+
+     			String column = iteratorColumn.next();
+            	
+     			if ( i == 1 ) {
+     				node.setOid(ObjectConverter.convert(column, Long.class));
+     			}
+     			if ( i == 2 ) {
+     				node.setSpeciesFK(column);
+     			}
+     			if ( i == 3 ) {
+     				node.setComponentName(column);
+     			}
+     			if ( i == 4 ) {
+     				
+     				if ( column.equals("1") ) {
+     					
+     					node.setPrimary("true");
+     				}
+     				if ( column.equals("0") ) {
+     					
+     					node.setPrimary("false");
+     				}
+     			}
+     			if ( i == 5 ) {
+
+     				if ( column.equals("1") ) {
+     					
+     					node.setGroup("true");
+     				}
+     				if ( column.equals("0") ) {
+     					
+     					node.setGroup("false");
+     				}
      			}
      			if ( i == 6 ) {
      				node.setPublicId(column);
@@ -1753,7 +1877,7 @@ public class Anatomy {
 
 
 	/*
-     * update the Node Anatomy DB Table from the Node List
+     * update the Node Anatomy DB Table from the Version List
      */
 	private void updateDatabaseNode() throws Exception {
 		
@@ -1775,12 +1899,41 @@ public class Anatomy {
          		longMaxOid++;
          		
          		node.setOid(longMaxOid);
-                //System.out.println(node.toString());
+                //System.out.println(version.toString());
                 nodeDAO.create(node);
 
                 Thing thing = new Thing(longMaxOid, strDatetime, longSysadmin, node.toStringThing(), strCalledFromTable);
                 //System.out.println(thing.toString());
                 thingDAO.create(thing);
+         	}        		
+        }
+        catch ( DAOException dao ) {
+        	
+            dao.printStackTrace();
+        } 
+        catch ( Exception ex ) {
+        	
+            ex.printStackTrace();
+        } 
+	}
+
+
+	/*
+     * update the Node Anatomy DB Table from the Node List
+     */
+	private void updateDatabaseNodeObjects() throws Exception {
+		
+    	try {
+        	
+    	    NodeDAO nodeDAO = this.daofactory.getDAOImpl(NodeDAO.class);
+
+    	    Iterator<Node> iteratorNode = this.listObjectNode.iterator();
+            
+         	while (iteratorNode.hasNext()) {
+
+         		Node node = iteratorNode.next();
+
+                nodeDAO.save(node);
          	}        		
         }
         catch ( DAOException dao ) {

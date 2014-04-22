@@ -90,6 +90,10 @@ public final class NodeDAOJDBC implements NodeDAO {
         "FROM ANA_NODE " +
         "WHERE ANO_OID = ? ";
     
+    private static final String SQL_FIND_MIN_OID =
+        "SELECT MIN(ANO_OID) AS MAXIMUM " +
+        "FROM ANA_NODE ";
+        
     private static final String SQL_FIND_BY_PUBLIC_ID =
         "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
@@ -109,6 +113,11 @@ public final class NodeDAOJDBC implements NodeDAO {
         "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE ";
     
+    private static final String SQL_LIST_ALL_NO_GROUPS =
+        "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
+        "FROM ANA_NODE " + 
+        "WHERE ANO_IS_GROUP IS FALSE AND ANO_IS_PRIMARY IS TRUE ";
+        
     private static final String SQL_LIST_ALL_ORDER_BY_PUBLIC_ID =
         "SELECT ANO_OID, ANO_SPECIES_FK, ANO_COMPONENT_NAME, ANO_IS_PRIMARY, ANO_IS_GROUP, ANO_PUBLIC_ID, ANO_DESCRIPTION, ANO_DISPLAY_ID " +
         "FROM ANA_NODE " +
@@ -187,6 +196,14 @@ public final class NodeDAOJDBC implements NodeDAO {
     }
     
     /*
+     * Returns the minimum OID.
+     */
+    public long minimumOID() throws Exception {
+    	
+        return maximum(SQL_FIND_MIN_OID);
+    }
+    
+    /*
      * Returns the node from the database matching the given OID, otherwise null.
      */
     public Node findByOid(long oid) throws Exception {
@@ -224,6 +241,14 @@ public final class NodeDAOJDBC implements NodeDAO {
     public List<Node> listAll() throws Exception {
     	
         return list(SQL_LIST_ALL);
+    }
+    
+    /*
+     * Returns a list of ALL nodes, otherwise null.
+     */
+    public List<Node> listAllNoGroups() throws Exception {
+    	
+        return list(SQL_LIST_ALL_NO_GROUPS);
     }
     
     /*

@@ -53,6 +53,18 @@ public interface DerivedPartOfDAO extends BaseDAO {
     
     
     /*
+     * Returns the DerivedPartOf from the database matching the given node FK and in a Primary Path, otherwise null.
+     */
+    public DerivedPartOf findByNodeFKInPrimaryPath(long nodeFK) throws Exception;
+    
+    
+    /*
+     * Returns the DerivedPartOf from the database matching the given OID Pathway, otherwise null.
+     */
+    public DerivedPartOf findByOidPath(String path) throws Exception;
+    
+    
+    /*
      * Returns a list of ALL derivedpartofs, otherwise null.
      */
     public List<DerivedPartOf> listAll() throws Exception;
@@ -75,9 +87,15 @@ public interface DerivedPartOfDAO extends BaseDAO {
     
     
     /*
-     * Returns a list of relationship matching the given Node FK, otherwise null.
+     * Returns a list of derivedpartof matching the given Node FK, otherwise null.
      */
     public List<DerivedPartOf> listAllByNodeFK(String nodeFK) throws Exception;
+    
+    
+    /*
+     * Returns a list of derivedpartof matching the given Node FK in the APO_FULL_PATH_OIDS column, otherwise null.
+     */
+    public List<DerivedPartOf> listByOidInPath(long oid) throws Exception;
     
     
     /*

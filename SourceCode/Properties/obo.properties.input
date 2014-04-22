@@ -1,11 +1,12 @@
 -- EMPTY MOUSE 012 OBO FILE
--- mouse012OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/mouseBASE.obo
+mouse012OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/mouseBASE.obo
+mouse012OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/INPUT.obo
 -- mouse012OBOfile.obobasefile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/2014-04-03-10-15-42_OUTPUT_Abstract.obo
 -- mouse012OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/SAUSAGES.obo
 -- mouse012OBOfile.oboinfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO/TERRYH_EMAPA_2014-13-21.obo
 -- mouse012OBOfile.oboinfile=/Users/mwicks/Downloads/EMAPA_21_Mar.obo
-mouse012OBOfile.oboinfile=/Users/mwicks/Desktop/Ontology/INPUT.obo
-mouse012OBOfile.obobasefile=/Users/mwicks/Desktop/Ontology/BASE.obo
+-- mouse012OBOfile.oboinfile=/Users/mwicks/Desktop/Ontology/INPUT.obo
+-- mouse012OBOfile.obobasefile=/Users/mwicks/Desktop/Ontology/BASE.obo
 mouse012OBOfile.obooutfile=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/OBO
 mouse012OBOfile.summaryreport=/Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/Reports
 mouse012OBOfile.obooutfileremark=Version 012

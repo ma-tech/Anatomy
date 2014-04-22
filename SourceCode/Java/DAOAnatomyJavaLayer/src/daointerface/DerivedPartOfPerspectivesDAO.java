@@ -38,7 +38,7 @@ package daointerface;
 import java.util.List;
 
 import daointerface.BaseDAO;
-
+import daomodel.DerivedPartOf;
 import daomodel.DerivedPartOfPerspectives;
 
 
@@ -73,8 +73,26 @@ public interface DerivedPartOfPerspectivesDAO extends BaseDAO {
 
     
     /*
+     * Returns the DerivedPartOf from the database matching the given node FK and in a Primary Path, otherwise null.
+     */
+    public  DerivedPartOfPerspectives findByNodeFKAndPerspective(long nodefk, String perspective) throws Exception;
+    
+    
+
+    /*
      *  Empty the DerivedPartOfPerspective table.
      */
     public void empty() throws Exception;
+    
+    
+    /*
+     * Delete the given derivedpartof from the database. 
+     * 
+     *  After deleting, the Data Access Object will set the ID of the given derivedpartof to null.
+     */
+    public void delete(DerivedPartOfPerspectives derivedpartofperspectives) throws Exception;
+    
+    
+
     
 }

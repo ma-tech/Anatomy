@@ -50,6 +50,11 @@ public interface NodeDAO extends BaseDAO {
     public long maximumEmapa() throws Exception; 
     
     /*
+     * Returns the minimum Oid.
+     */
+    public long minimumOID() throws Exception; 
+    
+    /*
      * Returns the node from the database matching the given OID, otherwise null.
      */
     public Node findByOid(long oid) throws Exception;
@@ -73,6 +78,11 @@ public interface NodeDAO extends BaseDAO {
      * Returns a list of ALL nodes, otherwise null.
      */
     public List<Node> listAll() throws Exception;
+    
+    /*
+     * Returns a list of ALL nodes, No Groups, otherwise null.
+     */
+    public List<Node> listAllNoGroups() throws Exception;
     
     /*
      * Returns a list of ALL timednodes, otherwise null.

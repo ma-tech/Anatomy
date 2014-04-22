@@ -44,9 +44,10 @@ import daolayer.DAOFactory;
 
 import routines.aggregated.ListOBOComponentsFromExistingDatabase;
 
-import routines.aggregated.RebuildAnadPartOf;
-
 import routines.aggregated.EmptyDerivedTables;
+import routines.aggregated.RebuildAnadPartOf;
+import routines.aggregated.RebuildAnadRelationshipTransitive;
+import routines.aggregated.RebuildAnadPartOfPerspective;
 
 
 public class RebuildDerivedDataTables {
@@ -71,9 +72,11 @@ public class RebuildDerivedDataTables {
 	    // rebuild ANAD_PART_OF
 	    RebuildAnadPartOf.run(daofactory, obofactory, treeanatomyPartOnomy, arraylistOBOComponent);
 
-	    // rebuild ANAD_PART_OF_PERSPECTIVE
-
 	    // rebuild ANAD_RELATIONSHIP_TRANSITIVE
+	    RebuildAnadRelationshipTransitive.run(daofactory, obofactory);
+
+	    // rebuild ANAD_PART_OF_PERSPECTIVE
+	    RebuildAnadPartOfPerspective.run(daofactory, obofactory);
 
 	}
 }

@@ -85,6 +85,23 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         "FROM ANAD_PART_OF " +
         "WHERE APO_OID = ?";
     
+    private static final String SQL_FIND_BY_OID_PATH =
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "FROM ANAD_PART_OF " +
+        "WHERE APO_FULL_PATH_OIDS = ? ";
+        
+    private static final String SQL_LIST_ALL_BY_OID_IN_PATH =
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "FROM ANAD_PART_OF " +
+        "WHERE APO_FULL_PATH_OIDS LIKE ? " +
+        "ORDER BY APO_FULL_PATH_OIDS ";
+
+    private static final String SQL_FIND_BY_NODE_FK_IN_PRIMARY_PATH =
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "FROM ANAD_PART_OF " +
+        "WHERE APO_NODE_FK = ? " +
+        "AND APO_IS_PRIMARY_PATH IS TRUE ";
+
     private static final String SQL_LIST_ALL =
         "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF ";
@@ -164,6 +181,25 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         return find(SQL_FIND_BY_OID, oid);
     }
     
+    
+    /*
+     * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
+     */
+    public DerivedPartOf findByNodeFKInPrimaryPath(long nodeFK) throws Exception {
+    	
+        return find(SQL_FIND_BY_NODE_FK_IN_PRIMARY_PATH, nodeFK);
+    }
+    
+    
+    /*
+     * Returns the DerivedPartOf from the database matching the given Pathway , otherwise null.
+     */
+    public DerivedPartOf findByOidPath(String path) throws Exception {
+    	
+        return find(SQL_FIND_BY_OID_PATH, path);
+    }
+    
+
     /*
      * Returns a list of ALL derivedpartofs, otherwise null.
      */
@@ -649,6 +685,19 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
             return dataList;
         }
     }
+    
+
+    /*
+     * Returns list of DerivedPartOfs for a given OID in the Pathway
+     */
+    public List<DerivedPartOf> listByOidInPath(long oid)
+        throws Exception {
+    	
+        String searchPath = "%" + oid + ".%";
+
+        return list(SQL_LIST_ALL_BY_OID_IN_PATH, searchPath);
+    }
+
     
     /*
      * Returns total amount of rows in table.

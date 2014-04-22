@@ -43,19 +43,13 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import utility.ObjectConverter;
 import utility.Wrapper;
-
 import obolayer.OBOFactory;
-
 import obomodel.OBOComponent;
-
 import anatomy.TreeAnatomy;
-
 import daointerface.DerivedPartOfDAO;
 import daointerface.NodeDAO;
 import daointerface.StageDAO;
-
 import daolayer.DAOFactory;
-
 import daomodel.DerivedPartOf;
 import daomodel.Node;
 import daomodel.Stage;
@@ -67,7 +61,7 @@ public class RebuildAnadPartOf {
             new String[] 
         	    {"EMAPA:0", "group_term", "Tmp_new_group", "TS:0", "TS01", "TS02", "TS03", "TS04", "TS05", "TS06", "TS07", "TS08", "TS09", 
             		"TS10", "TS11", "TS12", "TS13", "TS14", "TS15", "TS16", "TS17", "TS18", "TS19", "TS20", "TS21", "TS22", "TS23", "TS24", 
-            		"TS25", "TS26", "TS27", "TS28", "EMAPA:35577"}
+            		"TS25", "TS26", "TS27", "TS28", "EMAPA:35577", "EMAPA:25765"}
             ));
 
 
@@ -83,9 +77,49 @@ public class RebuildAnadPartOf {
 	    StageDAO stageDAO = daofactory.getDAOImpl(StageDAO.class);
 	    NodeDAO nodeDAO = daofactory.getDAOImpl(NodeDAO.class);
 	    
-        Iterator<OBOComponent> iteratorArraylistOBOComponent = arraylistOBOComponent.iterator();
+	    Long longMinOid = nodeDAO.minimumOID();
+	    
+	    Node node = nodeDAO.findByOid(longMinOid);
+	    
+	    String strRootOID = ObjectConverter.convert(node.getOid(), String.class);
+	    String strRootID = node.getPublicId();
+	    String strRootName = node.getComponentName();
 
         long longRowCount = 1;
+
+	    DerivedPartOf derivedpartof = new DerivedPartOf();
+
+	    derivedpartof.setOid(longRowCount);
+	    derivedpartof.setSpeciesFK(obofactory.getOBOComponentAccess().species());
+	    
+	    Stage stageStart = stageDAO.findBySequence(0); 
+	    derivedpartof.setNodeStartFK(stageStart.getOid());
+	    Stage stageEnd = stageDAO.findBySequence(27); 
+	    derivedpartof.setNodeStopFK(stageEnd.getOid());
+	    Stage stageStartPath = stageDAO.findBySequence(0); 
+	    derivedpartof.setPathStartFK(stageStartPath.getOid());
+	    Stage stageEndPath = stageDAO.findBySequence(27); 
+	    derivedpartof.setPathStopFK(stageEndPath.getOid());
+	    
+	    derivedpartof.setPrimaryPath(true);
+	    derivedpartof.setNodeFK(node.getOid());
+	    derivedpartof.setSequence(1);
+	    derivedpartof.setDepth(1);
+	    derivedpartof.setFullPath(node.getComponentName());
+	    derivedpartof.setFullPathOids(ObjectConverter.convert(node.getOid(), String.class));
+	    derivedpartof.setFullPathEmapas(node.getPublicId());
+	    /*
+	    derivedpartof.setFullPathJsonHead(String fullPathJsonHead);
+	    derivedpartof.setFullPathJsonTail(String fullPathJsonTail);
+	    */
+	    derivedpartof.setPrimary(true);
+	    derivedpartof.setParentFK(0);
+	    
+	    derivedpartofDAO.create(derivedpartof);
+	    
+	    longRowCount++;
+	    
+	    Iterator<OBOComponent> iteratorArraylistOBOComponent = arraylistOBOComponent.iterator();
         
         // For every componeont in the Part-Onomy ...
       	while (iteratorArraylistOBOComponent.hasNext()) {
@@ -108,9 +142,9 @@ public class RebuildAnadPartOf {
               		String strPathwayID = "";
               		String strPathwayName = "";
               		
-            		Node node = nodeDAO.findByPublicId("EMAPA:25765");
-
-                	strPathwayOID = ObjectConverter.convert(node.getOid(), String.class);
+                	strPathwayOID = strRootOID + ".";
+                	strPathwayID = strRootID + ".";
+                	strPathwayName = strRootName + ".";
 
               		long longNodeStart = 0;
               		long longNodeEnd = 0;
@@ -122,10 +156,11 @@ public class RebuildAnadPartOf {
               		long longDepth = defaultmutabletreenodearray.length - 2;
               		
               		boolean boolPrimary = true;
-              		boolean boolPrimaryPath = true;
               		
               		List<Long> startSequences = new ArrayList<Long>();
               		List<Long> endSequences = new ArrayList<Long>();
+
+              		List<Boolean> groupPath = new ArrayList<Boolean>();
 
               		for (DefaultMutableTreeNode defaultmutabletreenode: defaultmutabletreenodearray){
 
@@ -137,36 +172,22 @@ public class RebuildAnadPartOf {
                         	
                         	OBOComponent obocomponentInstance = (OBOComponent) nodeInfo;
                         	
-                        	//strPathway = strPathway + obocomponent.getID() + "(" + obocomponent.getName() + ")";
-                        	
                         	if ( !VALID_VALUES.contains(obocomponentInstance.getID() ) ) {
                         		
                             	strPathwayOID = strPathwayOID + obocomponentInstance.getDBID();
                             	strPathwayID = strPathwayID + obocomponentInstance.getID();
                             	strPathwayName = strPathwayName + obocomponentInstance.getName();
-                            	
-                            	if ( obocomponentInstance.getID().equals("EMAPA:25765") ) {
-                            		
-                                	longNodeFk = node.getOid();
-                                	longNodeStart = 27;
-                                	longNodeEnd = 0;
-                            	}
-                            	else {
-                            		
-                                	longNodeFk = ObjectConverter.convert(obocomponentInstance.getDBID(), Long.class);
-                                	longNodeStart = obocomponentInstance.getStartSequence();
-                                	longNodeEnd = obocomponentInstance.getEndSequence();
-                            	}
-                            	
+                                	
+                            	longNodeFk = ObjectConverter.convert(obocomponentInstance.getDBID(), Long.class);
+                            	longNodeStart = obocomponentInstance.getStartSequence();
+                            	longNodeEnd = obocomponentInstance.getEndSequence();
+                                
+                            	boolPrimary = obocomponentInstance.isPrimary();
+                                
                             	startSequences.add(longNodeStart);
                             	endSequences.add(longNodeEnd);
                             	
-                            	boolPrimary = obocomponentInstance.isPrimary();
-                            	
-                            	if ( boolPrimary != boolPrimaryPath) {
-                            		
-                            		boolPrimaryPath = boolPrimary;
-                            	}
+                            	groupPath.add(boolPrimary);
                             	
                             	if ( longCount < defaultmutabletreenodearray.length) {
                             		
@@ -180,38 +201,28 @@ public class RebuildAnadPartOf {
                         longCount++;
                     }
                     
-                    DerivedPartOf derivedpartof = new DerivedPartOf();
+                    derivedpartof = new DerivedPartOf();
                     
                     derivedpartof.setOid(longRowCount);
                     derivedpartof.setSpeciesFK(obofactory.getOBOComponentAccess().species());
 
-                    if ( strPathwayID.equals("EMAPA:25765")) {
-                    	
-                        Stage stageStart = stageDAO.findBySequence(0); 
-                        derivedpartof.setNodeStartFK(stageStart.getOid());
-                        
-                        Stage stageEnd = stageDAO.findBySequence(27); 
-                        derivedpartof.setNodeStopFK(stageEnd.getOid());
-                        
-                        Stage stageStartPath = stageDAO.findBySequence(0); 
-                        derivedpartof.setPathStartFK(stageStartPath.getOid());
-                        
-                        Stage stageEndPath = stageDAO.findBySequence(27); 
-                        derivedpartof.setPathStopFK(stageEndPath.getOid());
+                    stageStart = stageDAO.findBySequence(longNodeStart); 
+                    derivedpartof.setNodeStartFK(stageStart.getOid());
+                    stageEnd = stageDAO.findBySequence(longNodeEnd); 
+                    derivedpartof.setNodeStopFK(stageEnd.getOid());
+                    stageStartPath = stageDAO.findBySequence(Collections.min(startSequences)); 
+                    derivedpartof.setPathStartFK(stageStartPath.getOid());
+                    stageEndPath = stageDAO.findBySequence(Collections.max(endSequences)); 
+                    derivedpartof.setPathStopFK(stageEndPath.getOid());
+
+
+                    if (groupPath.contains(false)) {
+                    
+                    	derivedpartof.setPrimaryPath(false);
                     }
                     else {
-                    	
-                        Stage stageStart = stageDAO.findBySequence(longNodeStart); 
-                        derivedpartof.setNodeStartFK(stageStart.getOid());
-                        
-                        Stage stageEnd = stageDAO.findBySequence(longNodeEnd); 
-                        derivedpartof.setNodeStopFK(stageEnd.getOid());
-                        
-                        Stage stageStartPath = stageDAO.findBySequence(Collections.min(startSequences)); 
-                        derivedpartof.setPathStartFK(stageStartPath.getOid());
-                        
-                        Stage stageEndPath = stageDAO.findBySequence(Collections.max(endSequences)); 
-                        derivedpartof.setPathStopFK(stageEndPath.getOid());
+                    
+                    	derivedpartof.setPrimaryPath(true);
                     }
 
                     derivedpartof.setNodeFK(longNodeFk);
@@ -225,23 +236,37 @@ public class RebuildAnadPartOf {
                     derivedpartof.setFullPathJsonTail(String fullPathJsonTail);
                     */
                     derivedpartof.setPrimary(boolPrimary);
-                    derivedpartof.setPrimaryPath(boolPrimaryPath);
 
                     derivedpartof.setParentFK(longNodeFkPrev);
 
                     derivedpartofDAO.create(derivedpartof);
                     
-                    //System.out.println(derivedpartof.toString());
-                	
                 	longRowCount++;
-                	/*
-                	if ( longRowCount == 100) {
-                		
-                    	System.exit(0);
-                	}
-                	*/
                 }
         	}
       	}
+
+
+        // For every row in ANA_PART_OF we need to update the Parent Part Of column ...
+      	ArrayList<DerivedPartOf> arraylistDerivedPartOf = (ArrayList<DerivedPartOf>) derivedpartofDAO.listAll();
+
+        Iterator<DerivedPartOf> iteratorArraylistDerivedPartOf = arraylistDerivedPartOf.iterator();
+        
+      	while (iteratorArraylistDerivedPartOf.hasNext()) {
+      		
+      		DerivedPartOf derivedpartofUpdate = iteratorArraylistDerivedPartOf.next();
+      			
+      		if ( derivedpartofUpdate.getFullPathOids().lastIndexOf('.') != -1 ) {
+      			
+          		String parentPath = derivedpartofUpdate.getFullPathOids().substring(0, derivedpartofUpdate.getFullPathOids().lastIndexOf('.'));
+          		
+          		DerivedPartOf derivedpartofParent = derivedpartofDAO.findByOidPath(parentPath);
+          		
+          		derivedpartofUpdate.setParentFK(derivedpartofParent.getOid());
+          		
+          		derivedpartofDAO.save(derivedpartofUpdate);
+      		}
+      	}
 	}
+
 }

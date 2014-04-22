@@ -43,14 +43,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import utility.Wrapper;
-
+import daomodel.DerivedPartOf;
 import daomodel.DerivedPartOfPerspectives;
-
 import daointerface.DerivedPartOfPerspectivesDAO;
-
 import daolayer.DAOFactory;
 import daolayer.DAOException;
-
 import static daolayer.DAOUtil.*;
 
 
@@ -60,6 +57,10 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         "INSERT INTO ANAD_PART_OF_PERSPECTIVE " +
         "( POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK ) " +
         "VALUES (?, ?, ?, ?)";
+
+    private static final String SQL_DELETE =
+        "DELETE FROM ANAD_PART_OF_PERSPECTIVE " +
+        "WHERE POP_NODE_FK = ?";
 
     private static final String SQL_ROW_COUNT =
         "SELECT COUNT(*) AS VALUE " +
@@ -76,6 +77,12 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         "WHERE POP_PERSPECTIVE_FK = ? " +
         "AND POP_NODE_FK = ? ";
 
+    private static final String SQL_FIND_BY_NODE_FK_AND_PERSPECTIVE =
+        "SELECT POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK " +
+        "FROM ANAD_PART_OF_PERSPECTIVE " +
+        "WHERE POP_NODE_FK = ? " + 
+        "AND POP_PERSPECTIVE_FK = ? ";
+        
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE =
         "SELECT POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +
@@ -427,6 +434,103 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         finally {
         	
             close(daoFactory.getMsgLevel(), connection, preparedStatement, generatedKeys);
+        }
+    }
+	
+    
+	/*
+     * Returns the DerivedPartOfPerspectives from the database matching the given Pathway , otherwise null.
+     */
+    public DerivedPartOfPerspectives findByNodeFKAndPerspective(long nodefk, String perspective) throws Exception {
+    	
+        return find(SQL_FIND_BY_NODE_FK_AND_PERSPECTIVE, nodefk, perspective);
+    }
+    
+    
+    /*
+     * Returns the derivedpartof from the database matching the given 
+     *  SQL query with the given values.
+     */
+    private DerivedPartOfPerspectives find(String sql, Object... values) throws Exception {
+    
+    	Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        DerivedPartOfPerspectives derivedpartofperspectives = null;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, sql, false, values);
+            resultSet = preparedStatement.executeQuery();
+        
+            if (resultSet.next()) {
+            	
+            	derivedpartofperspectives = mapDerivedPartOfPerspectives(resultSet);
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(), connection, preparedStatement, resultSet);
+        }
+
+        return derivedpartofperspectives;
+    }
+
+
+    /*
+     * Delete the given derivedpartof from the database. 
+     * 
+     *  After deleting, the Data Access Object will set the ID of the given derivedpartof to null.
+     */
+    public void delete(DerivedPartOfPerspectives derivedpartofperspectives) throws Exception {
+    	
+        Object[] values = { 
+        		derivedpartofperspectives.getNodeFK()
+        };
+
+        if (derivedpartofperspectives.getNodeFKAsString() == null) {
+        	
+            throw new IllegalArgumentException("DerivedPartOfPerspectives is not created yet, so the derivedpartofperspectives NodeFK cannot be null.");
+        }
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+        	
+            connection = daoFactory.getConnection();
+            preparedStatement = prepareStatement(daoFactory.getMsgLevel(), daoFactory.getSqloutput(), connection, SQL_DELETE, false, values);
+
+            if ( daoFactory.isUpdate() ) {
+
+            	int affectedRows = preparedStatement.executeUpdate();
+                
+                if (affectedRows == 0) {
+                	
+                    throw new DAOException("Deleting derivedpartofperspectives failed, no rows affected.");
+                } 
+                else {
+                	
+                	derivedpartofperspectives.setNodeFK(0);
+                }
+            }
+            else {
+            	
+    		    Wrapper.printMessage("UPDATE: Delete ANAD_PART_OF_PERSPECTIVE Skipped", "***", daoFactory.getMsgLevel());
+            }
+        } 
+        catch (SQLException e) {
+        	
+            throw new DAOException(e);
+        } 
+        finally {
+        	
+            close(daoFactory.getMsgLevel(),connection, preparedStatement);
         }
     }
 

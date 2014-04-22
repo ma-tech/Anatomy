@@ -62,7 +62,7 @@ public class Main2UpdateDatabaseFromComponentsTables{
 
 		if (args.length != 6) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
@@ -84,8 +84,6 @@ public class Main2UpdateDatabaseFromComponentsTables{
             
             RebuildRelationshipProjectFromComponentsTables.run( daofactory );
             
-            //UpdateDatabaseWithPerspectiveAmbits.run( daofactory, obofactory, args[4] );
-
             //System.setOut(original);
         }
 

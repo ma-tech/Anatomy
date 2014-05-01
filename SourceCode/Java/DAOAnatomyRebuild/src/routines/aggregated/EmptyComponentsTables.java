@@ -44,7 +44,13 @@ import daolayer.DAOFactory;
 
 public class EmptyComponentsTables {
 
-	public static void run( DAOFactory daofactory ) throws Exception {
+	public static void run( DAOFactory daofactory,
+			boolean boolAnaOboComponent, 
+			boolean boolAnaOboComponentRelationship, 
+			boolean boolAnaOboComponentComment,
+			boolean boolAnaOboComponentOrder, 
+			boolean boolAnaOboComponentSynonym, 
+			boolean boolAnaOboComponentAlternative ) throws Exception {
 
 	    Wrapper.printMessage("emptycomponentstables.run", "***", daofactory.getMsgLevel());
 
@@ -59,59 +65,82 @@ public class EmptyComponentsTables {
 
         Wrapper.printMessage("emptycomponentstables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());
 
-        if ( componentDAO.countAll() > 0 ) {
+        if ( boolAnaOboComponent ) {
+        	
+            if ( componentDAO.countAll() > 0 ) {
 
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT", "***", daofactory.getMsgLevel());
-        	componentDAO.empty();    
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT", "***", daofactory.getMsgLevel());
+            	componentDAO.empty();    
+            }
+            else {
+            
+            	Wrapper.printMessage("emptycomponentstables.run : ANA_OBO_COMPONENT IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
-        else {
+
+        if (boolAnaOboComponentRelationship) {
+        	
+            if ( componentrelationshipDAO.countAll() > 0 ) {
+
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_RELATIONSHIP", "***", daofactory.getMsgLevel());
+            	componentrelationshipDAO.empty();
+            }
+            else {
+
+            	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_RELATIONSHIP IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
+        }
         
-        	Wrapper.printMessage("emptycomponentstables.run : ANA_OBO_COMPONENT IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
-        }
-        if ( componentrelationshipDAO.countAll() > 0 ) {
+        if ( boolAnaOboComponentComment ) {
+        	
+            if ( componentcommentDAO.countAll() > 0 ) {
 
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_RELATIONSHIP", "***", daofactory.getMsgLevel());
-        	componentrelationshipDAO.empty();
-        }
-        else {
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_COMMENT", "***", daofactory.getMsgLevel());
+            	componentcommentDAO.empty();
+            }
+            else {
 
-        	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_RELATIONSHIP IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_COMMENT IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
-        if ( componentcommentDAO.countAll() > 0 ) {
-
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_COMMENT", "***", daofactory.getMsgLevel());
-        	componentcommentDAO.empty();
-        }
-        else {
-
-        	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_COMMENT IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
-        }
-        if ( componentorderDAO.countAll() > 0 ) {
         
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_ORDER", "***", daofactory.getMsgLevel());
-        	componentorderDAO.empty();
+        if ( boolAnaOboComponentOrder ) {
+        	
+            if ( componentorderDAO.countAll() > 0 ) {
+                
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_ORDER", "***", daofactory.getMsgLevel());
+            	componentorderDAO.empty();
+            }
+            else {
+            
+            	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_ORDER IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
-        else {
         
-        	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_ORDER IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
-        }
-        if ( componentsynonymDAO.countAll() > 0 ) {
+        if ( boolAnaOboComponentSynonym ) {
+        	
+            if ( componentsynonymDAO.countAll() > 0 ) {
 
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_SYNONYM", "***", daofactory.getMsgLevel());
-        	componentsynonymDAO.empty();
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_SYNONYM", "***", daofactory.getMsgLevel());
+            	componentsynonymDAO.empty();
+            }
+            else {
+            
+            	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_SYNONYM IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
-        else {
         
-        	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_SYNONYM IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
-        }
-        if ( componentalternativeDAO.countAll() > 0 ) {
-        
-        	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_ALTERNATIVE", "***", daofactory.getMsgLevel());
-        	componentalternativeDAO.empty();
-        }
-        else {
+        if ( boolAnaOboComponentAlternative ) {
+        	
+            if ( componentalternativeDAO.countAll() > 0 ) {
+                
+            	Wrapper.printMessage("emptycomponentstables.run : EMPTYING ANA_OBO_COMPONENT_ALTERNATIVE", "***", daofactory.getMsgLevel());
+            	componentalternativeDAO.empty();
+            }
+            else {
 
-        	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_ALTERNATIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            	Wrapper.printMessage("emptycomponentstables.run : ==> ANA_OBO_COMPONENT_ALTERNATIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
         
         Wrapper.printMessage("emptycomponentstables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());

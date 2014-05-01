@@ -67,7 +67,8 @@ public class RebuildAnadRelationshipTransitive {
 	    DerivedPartOfDAO derivedpartofDAO = daofactory.getDAOImpl(DerivedPartOfDAO.class);
 	    DerivedRelationshipTransitiveDAO derivedrelationshiptransitiveDAO = daofactory.getDAOImpl(DerivedRelationshipTransitiveDAO.class);
 
-	    ArrayList<Node> nodes = (ArrayList<Node>) nodeDAO.listAllNoGroups();
+	    //ArrayList<Node> nodes = (ArrayList<Node>) nodeDAO.listAllNoGroups();
+	    ArrayList<Node> nodes = (ArrayList<Node>) nodeDAO.listAll();
 	    
         Iterator<Node> iteratorNodes = nodes.iterator();
         
@@ -87,7 +88,8 @@ public class RebuildAnadRelationshipTransitive {
       			
       			DerivedPartOf derivedpartof = iteratorDerivedPartOf.next();
 
-      			if ( derivedpartof.isPrimary() && derivedpartof.isPrimaryPath()) {
+      			//if ( derivedpartof.isPrimary() && derivedpartof.isPrimaryPath()) {
+      			//if ( derivedpartof.isPrimaryPath()) {
       				
           			DerivedRelationshipTransitive derivedrelationshiptransitive = new DerivedRelationshipTransitive();
           			
@@ -110,7 +112,7 @@ public class RebuildAnadRelationshipTransitive {
                   			rowCount++;
               			}
               		}
-      			}
+      			//}
                 
         	}
       	}

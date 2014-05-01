@@ -1,0 +1,38 @@
+
+============================================================
+===== Anatomy Database Version 12, 2014-04-28 10:39:41.0=====
+============================================================
+
+
+
+
+===== Urogenital Anatomy =====
+
+
+
+Stage TS13
+
+
+TS13 Urogenital Excluding Groups
+
+EMAPA:16367   - - - genitourinary system (syn: urogenital system)
+EMAPA:16368   - - - - nephric cord
+EMAPA:16369   - - - - presumptive nephric duct (syn: Wolffian duct)
+
+
+
+============================================================
+
+
+
+TS13 Urogenital Showing Only Groups  =====
+
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+

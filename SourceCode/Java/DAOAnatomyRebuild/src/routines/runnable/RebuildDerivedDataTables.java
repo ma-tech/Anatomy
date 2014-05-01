@@ -57,9 +57,6 @@ public class RebuildDerivedDataTables {
     	
 	    Wrapper.printMessage("RebuildAnadPartOf.run", "***", obofactory.getMsgLevel());
 	    
-        // Empty Derived Tables
-	    EmptyDerivedTables.run(daofactory);
-	    
         // import Database from dao.properties
 	    ListOBOComponentsFromExistingDatabase importdatabase = new ListOBOComponentsFromExistingDatabase( daofactory, obofactory, true, "" );
 	    
@@ -70,12 +67,15 @@ public class RebuildDerivedDataTables {
 	    TreeAnatomy treeanatomyPartOnomy = new TreeAnatomy(obofactory.getMsgLevel(), arraylistOBOComponent);
 	    
 	    // rebuild ANAD_PART_OF
+	    EmptyDerivedTables.run(daofactory, true, false, false);
 	    RebuildAnadPartOf.run(daofactory, obofactory, treeanatomyPartOnomy, arraylistOBOComponent);
 
 	    // rebuild ANAD_RELATIONSHIP_TRANSITIVE
+	    EmptyDerivedTables.run(daofactory, false, true, false);
 	    RebuildAnadRelationshipTransitive.run(daofactory, obofactory);
 
 	    // rebuild ANAD_PART_OF_PERSPECTIVE
+	    EmptyDerivedTables.run(daofactory, false, false, true);
 	    RebuildAnadPartOfPerspective.run(daofactory, obofactory);
 
 	}

@@ -83,6 +83,12 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
         "WHERE POP_NODE_FK = ? " + 
         "AND POP_PERSPECTIVE_FK = ? ";
         
+    private static final String SQL_FIND_BY_APO_FK_AND_PERSPECTIVE =
+    	"SELECT POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK " +
+    	"FROM ANAD_PART_OF_PERSPECTIVE " +
+        "WHERE POP_APO_FK = ? " + 
+        "AND POP_PERSPECTIVE_FK = ? ";
+            
     private static final String SQL_DISPLAY_BY_ORDER_AND_LIMIT_BY_PERSPECTIVE =
         "SELECT POP_PERSPECTIVE_FK, POP_APO_FK, POP_IS_ANCESTOR, POP_NODE_FK " +
         "FROM ANAD_PART_OF_PERSPECTIVE " +
@@ -444,6 +450,15 @@ public final class DerivedPartOfPerspectivesDAOJDBC implements DerivedPartOfPers
     public DerivedPartOfPerspectives findByNodeFKAndPerspective(long nodefk, String perspective) throws Exception {
     	
         return find(SQL_FIND_BY_NODE_FK_AND_PERSPECTIVE, nodefk, perspective);
+    }
+    
+    
+	/*
+     * Returns the DerivedPartOfPerspectives from the database matching the given Pathway , otherwise null.
+     */
+    public DerivedPartOfPerspectives findByApoFKAndPerspective(long apofk, String perspective) throws Exception {
+    	
+        return find(SQL_FIND_BY_APO_FK_AND_PERSPECTIVE, apofk, perspective);
     }
     
     

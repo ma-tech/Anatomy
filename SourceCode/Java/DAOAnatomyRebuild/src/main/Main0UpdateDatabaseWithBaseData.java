@@ -24,8 +24,15 @@
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
-*                   mouse011GudmapLocalhost"
+*                   mouse011GudmapLocalhost
+*                    /Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/CSV/setupMouse.csv"
 * 
+* Parameters:  1. The Location of the OBO Properties file
+*              2. The Key to the set selected OBO Properties 
+*              3. The Location of the DAO Properties file
+*              4. The Key to the set selected DAO Properties
+*              5. The Location of the CSV File containing the Base Anatomy Setup Data
+*              
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,10 +42,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package main;
-
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import utility.Wrapper;
 
@@ -50,15 +53,16 @@ import obolayer.OBOProperty;
 
 import routines.runnable.UpdateDatabaseWithBaseData;
 
+
 public class Main0UpdateDatabaseWithBaseData {
 
 	public static void main(String[] args) throws Exception {
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 6 ) {
+		if (args.length != 5 ) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
@@ -70,15 +74,9 @@ public class Main0UpdateDatabaseWithBaseData {
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            //PrintStream original = System.out;
-            
-            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[5]))));
-            
             char separator = ';';
 
             UpdateDatabaseWithBaseData.run( daofactory, obofactory, args[4], separator );
-            
-            //System.setOut(original);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

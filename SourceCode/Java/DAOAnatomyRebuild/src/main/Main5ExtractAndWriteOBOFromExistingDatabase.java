@@ -19,7 +19,7 @@
 * Version:      1
 *
 * Description:  A Main Executable Class that Extracts And Write OBOComponents From an 
-*                Existing Anatomy Database
+*                Existing Anatomy Database into an OBO file(s)
 * 
 * Usage:        "main.MainExtractAndWriteOBOFromExistingDatabase 
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
@@ -27,6 +27,11 @@
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
 *                   mouse011GudmapLocalhost"
 * 
+* Parameters:  1. The Location of the OBO Properties file
+*              2. The Key to the set selected OBO Properties 
+*              3. The Location of the DAO Properties file
+*              4. The Key to the set selected DAO Properties
+*              
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -46,6 +51,7 @@ import daolayer.DAOFactory;
 import daolayer.DAOProperty;
 
 import routines.runnable.ExtractAndWriteOBOFromExistingDatabase;
+
 
 public class Main5ExtractAndWriteOBOFromExistingDatabase {
 

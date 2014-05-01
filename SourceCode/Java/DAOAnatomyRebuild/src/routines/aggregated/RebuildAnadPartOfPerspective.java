@@ -103,7 +103,7 @@ public class RebuildAnadPartOfPerspective {
           			
           			derivedpartofperspectives.setPerspectiveFK(perspectiveambit.getPerspectiveFK());
           			
-          			DerivedPartOf derivedpartof = derivedpartofDAO.findByNodeFKInPrimaryPath( derivedrelationshiptransitive.getDescendantFK() );  
+          			DerivedPartOf derivedpartof = derivedpartofDAO.findByNodeFK( derivedrelationshiptransitive.getDescendantFK() );  
           					
           			derivedpartofperspectives.setPartOfFK(derivedpartof.getOid());
           			
@@ -177,7 +177,7 @@ public class RebuildAnadPartOfPerspective {
           		
           		DerivedPartOfPerspectives derivedpartofperspectives = new DerivedPartOfPerspectives();
           		
-          		DerivedPartOf derivedpartof = derivedpartofDAO.findByNodeFKInPrimaryPath( perspectiveambit.getNodeFK() );
+          		DerivedPartOf derivedpartof = derivedpartofDAO.findByNodeFK( perspectiveambit.getNodeFK() );
           		
           		if ( derivedpartof != null ) {
           			

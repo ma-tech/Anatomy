@@ -80,6 +80,13 @@ public interface DerivedPartOfPerspectivesDAO extends BaseDAO {
     
 
     /*
+     * Returns the DerivedPartOf from the database matching the given Part Of OID FK and in a Primary Path, otherwise null.
+     */
+    public  DerivedPartOfPerspectives findByApoFKAndPerspective(long apofk, String perspective) throws Exception;
+    
+    
+
+    /*
      *  Empty the DerivedPartOfPerspective table.
      */
     public void empty() throws Exception;

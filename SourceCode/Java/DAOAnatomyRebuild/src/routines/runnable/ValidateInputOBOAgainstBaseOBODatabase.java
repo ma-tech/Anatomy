@@ -74,7 +74,7 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         List<OBOComponent> inputobocomponents = new ArrayList<OBOComponent>();
         inputobocomponents = obocomponentaccess.listAllInput();
         
-        EmptyComponentsTables.run( daofactory );
+        EmptyComponentsTables.run( daofactory, true, true, true, true, true, true );
         
         LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, inputobocomponents) ;
         
@@ -90,7 +90,7 @@ public class ValidateInputOBOAgainstBaseOBODatabase {
         List<OBOComponent> baseobocomponents = new ArrayList<OBOComponent>();
         baseobocomponents = obocomponentaccess.listAllBase();
         
-        EmptyComponentsTables.run( daofactory );
+        EmptyComponentsTables.run( daofactory, true, true, true, true, true, true );
         
         LoadOBOFileIntoComponentsTables.run( daofactory, obofactory, baseobocomponents );
         

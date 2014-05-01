@@ -130,10 +130,20 @@ def apoOidInPerspective(apoOid, perspectiveName):
     """
     Returns True if apoOid is in the given perspective.
     """
+    print "PartOfPerspectives - apoOidInPerspective"
+    print "apoOid"
+    print apoOid
+    print "perspectiveName"
+    print perspectiveName
+
     inPerspective = False
     if apoOid in _byApoOid:
         if perspectiveName in _byApoOid[apoOid]:
             inPerspective = True
+            
+    print "inPerspective"
+    print inPerspective
+            
     return inPerspective
 
 

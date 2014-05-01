@@ -1248,10 +1248,26 @@ public class Anatomy {
      				node.setComponentName(column);
      			}
      			if ( i == 4 ) {
-     				node.setPrimary(column);
+     				
+     				if ( column.equals("1") ) {
+     					
+     					node.setPrimary("true");
+     				}
+     				if ( column.equals("0") ) {
+     					
+     					node.setPrimary("false");
+     				}
      			}
      			if ( i == 5 ) {
-     				node.setGroup(column);
+
+     				if ( column.equals("1") ) {
+     					
+     					node.setGroup("true");
+     				}
+     				if ( column.equals("0") ) {
+     					
+     					node.setGroup("false");
+     				}
      			}
      			if ( i == 6 ) {
      				node.setPublicId(column);

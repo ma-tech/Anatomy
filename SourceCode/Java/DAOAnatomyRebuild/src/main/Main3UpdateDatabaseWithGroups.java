@@ -2,7 +2,7 @@
 *----------------------------------------------------------------------------------------------
 * Project:      DAOAnatomyRebuild
 *
-* Title:        MainUpdateDatabaseWithPerspectiveAmbits.java
+* Title:        MainUpdateDatabaseWithGroups.java
 *
 * Date:         2012
 *
@@ -24,8 +24,15 @@
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
-*                   mouse011GudmapLocalhost"
+*                   mouse011GudmapLocalhost
+*                    /Users/mwicks/GitMahost/Anatomy/Database/Tasks/CreateMouse012/Work/CSV/groupTerms.csv "
 * 
+* Parameters:  1. The Location of the OBO Properties file
+*              2. The Key to the set selected OBO Properties 
+*              3. The Location of the DAO Properties file
+*              4. The Key to the set selected DAO Properties
+*              5. The Location of the CSV File containing the Group Nodes rows
+*              
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -53,9 +60,9 @@ public class Main3UpdateDatabaseWithGroups{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 6 ) {
+		if (args.length != 5 ) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 6 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         

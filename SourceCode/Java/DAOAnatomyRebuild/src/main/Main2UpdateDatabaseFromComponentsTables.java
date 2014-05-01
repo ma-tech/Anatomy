@@ -26,6 +26,11 @@
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
 *                   mouse011GudmapLocalhost"
 * 
+* Parameters:  1. The Location of the OBO Properties file
+*              2. The Key to the set selected OBO Properties 
+*              3. The Location of the DAO Properties file
+*              4. The Key to the set selected DAO Properties
+*              
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -35,10 +40,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package main;
-
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import utility.Wrapper;
 
@@ -52,7 +53,7 @@ import obolayer.OBOFactory;
 import obolayer.OBOProperty;
 
 import routines.runnable.UpdateDatabaseFromComponentsTables;
-import routines.runnable.UpdateDatabaseWithPerspectiveAmbits;
+
 
 public class Main2UpdateDatabaseFromComponentsTables{
 
@@ -60,9 +61,9 @@ public class Main2UpdateDatabaseFromComponentsTables{
 
     	long startTime = Wrapper.printPrologue("*", Wrapper.getExecutingClass());
 
-		if (args.length != 6) {
+		if (args.length != 4) {
 			
-		    Wrapper.printMessage("ERROR! There MUST be 5 Command Line Arguments passed to this program!", "*", "*");
+		    Wrapper.printMessage("ERROR! There MUST be 4 Command Line Arguments passed to this program!", "*", "*");
         }
         else {
         
@@ -74,17 +75,11 @@ public class Main2UpdateDatabaseFromComponentsTables{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
 
-            //PrintStream original = System.out;
-            
-            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
-            
             UpdateDatabaseFromComponentsTables.run( daofactory, obofactory );
             
             RunOBOResetComponentsOrderAlpha.run( daofactory );
             
             RebuildRelationshipProjectFromComponentsTables.run( daofactory );
-            
-            //System.setOut(original);
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

@@ -1,0 +1,325 @@
+
+============================================================
+===== Anatomy Database Version 12, 2014-04-28 10:39:41.0=====
+============================================================
+
+
+
+
+===== Urogenital Anatomy =====
+
+
+
+Stage TS23
+
+
+TS23 Urogenital Excluding Groups
+
+EMAPA:17862   - - - - - renal artery
+EMAPA:17381   - - - reproductive system
+EMAPA:35249   - - - - coelomic epithelium of reproductive system
+EMAPA:17959   - - - - female reproductive system
+EMAPA:35341   - - - - - female paramesonephric duct
+EMAPA:35319   - - - - - - epithelium of paramesonephric duct of female
+EMAPA:35559   - - - - - - mesenchyme of paramesonephric duct of female
+EMAPA:35962   - - - - - female reproductive system epithelium
+EMAPA:35974   - - - - - female reproductive system mesenchyme
+EMAPA:18680   - - - - - genital tubercle of female
+EMAPA:31503   - - - - - - developing vasculature of female genital tubercle
+EMAPA:30484   - - - - - - distal genital tubercle of female (syn: glans of female)
+EMAPA:30487   - - - - - - - mesenchyme of distal genital tubercle of female
+EMAPA:30490   - - - - - - - surface epithelium of distal genital tubercle of female
+EMAPA:35045   - - - - - - nerve of genital tubercle of female
+EMAPA:30478   - - - - - - preputial swelling of female (syn: prepuce of female)
+EMAPA:30493   - - - - - - - mesenchyme of female preputial swelling
+EMAPA:30499   - - - - - - - preputial gland of female
+EMAPA:30496   - - - - - - - surface epithelium of female preputial swelling
+EMAPA:30470   - - - - - - urethral epithelium of female (syn: urethral plate; urethral seam)
+EMAPA:31536   - - - - - - - distal urethral epithelium of female
+EMAPA:31530   - - - - - - - proximal urethral epithelium of female
+EMAPA:31531   - - - - - - - urethral opening of female
+EMAPA:28909   - - - - - mesonephros of female
+EMAPA:28934   - - - - - - coelomic epithelium of female mesonephros
+EMAPA:28981   - - - - - - degenerating mesonephric portion of nephric duct of female
+EMAPA:28978   - - - - - - degenerating mesonephric tubule of female
+EMAPA:31538   - - - - - - developing vasculature of female mesonephros
+EMAPA:28914   - - - - - - mesonephric mesenchyme of female
+EMAPA:28929   - - - - - - rete ovarii of mesonephros
+EMAPA:17961   - - - - - mesovarium
+EMAPA:18328   - - - - - Mullerian tubercle
+EMAPA:28945   - - - - - nephric duct of female, rest of
+EMAPA:28949   - - - - - - epithelium of rest of nephric duct of female
+EMAPA:28953   - - - - - - mesenchyme of rest of nephric duct of female
+EMAPA:35946   - - - - - nerve of female reproductive system
+EMAPA:17962   - - - - - ovary (syn: female gonad)
+EMAPA:28888   - - - - - - developing vasculature of ovary
+EMAPA:17965   - - - - - - germ cell of ovary (syn: oogonia; premeiotic germ cell)
+EMAPA:28965   - - - - - - - meiotic germ cell of ovary (syn: oocyte)
+EMAPA:28971   - - - - - - - premeiotic germ cell of ovary (syn: oogonia)
+EMAPA:28880   - - - - - - mesenchymal stroma of ovary
+EMAPA:29009   - - - - - - - cortical component of mesenchymal stroma
+EMAPA:29014   - - - - - - - medullary component of mesenchymal stroma
+EMAPA:17966   - - - - - - rete ovarii of ovary
+EMAPA:17963   - - - - - - surface epithelium of ovary (syn: coelomic epithelium; ovary surface epithelium)
+EMAPA:35660   - - - - - paramesonephric duct of female
+EMAPA:28937   - - - - - - paramesonephric duct of female, mesonephric portion (syn: Mullerian duct of female)
+EMAPA:30070   - - - - - - - epithelium of paramesonephric duct of female, mesonephric portion
+EMAPA:30072   - - - - - - - mesenchyme of paramesonephric duct of female, mesonephric portion
+EMAPA:28940   - - - - - - paramesonephric duct of female, rest of (syn: Mullerian duct of female; rest of)
+EMAPA:28957   - - - - - - - epithelium of rest of paramesonephric duct of female
+EMAPA:28961   - - - - - - - mesenchyme of rest of paramesonephric duct of female
+EMAPA:19085   - - - - - suspensory ligament of ovary
+EMAPA:17382   - - - - genital tubercle
+EMAPA:31518   - - - - - urethral epithelium (syn: urethral plate; urethral seam)
+EMAPA:35288   - - - - - - distal urethral epithelium
+EMAPA:35964   - - - - - - proximal urethral epithelium
+EMAPA:35965   - - - - - - urethral opening
+EMAPA:17383   - - - - gonad
+EMAPA:36000   - - - - - germ cell of gonad
+EMAPA:17968   - - - - male reproductive system
+EMAPA:30068   - - - - - cranial suspensory ligament
+EMAPA:35273   - - - - - degenerating paramesonephric duct of male
+EMAPA:35318   - - - - - - epithelium of degenerating paramesonephric duct of male
+EMAPA:35558   - - - - - - mesenchyme of degenerating paramesonephric duct of male
+EMAPA:18681   - - - - - ductus deferens (syn: vas deferens)
+EMAPA:31188   - - - - - - developing vasculature of ductus deferens
+EMAPA:29274   - - - - - - epithelium of ductus deferens
+EMAPA:19290   - - - - - epididymis
+EMAPA:31182   - - - - - - developing vasculature of epididymis
+EMAPA:30747   - - - - - - muscle layer of epididymis
+EMAPA:30749   - - - - - - outer layer of epididymis
+EMAPA:30745   - - - - - - surface epithelium of epididymis
+EMAPA:17969   - - - - - genital tubercle of male (syn: penis anlage)
+EMAPA:31510   - - - - - - developing vasculature of male genital tubercle
+EMAPA:29252   - - - - - - glans of male genital tubercle (syn: distal genital tubercle of male; penis anlage)
+EMAPA:29254   - - - - - - - mesenchyme of glans of male genital tubercle
+EMAPA:29256   - - - - - - - surface epithelium of glans of male genital tubercle
+EMAPA:35056   - - - - - - nerve of genital tubercle of male
+EMAPA:29220   - - - - - - preputial swelling of male (syn: prepuce of male)
+EMAPA:29226   - - - - - - - mesenchyme of male preputial swelling
+EMAPA:30502   - - - - - - - preputial gland of male
+EMAPA:29223   - - - - - - - surface epithelium of male preputial swelling
+EMAPA:30467   - - - - - - urethral epithelium of male (syn: urethral plate; urethral seam)
+EMAPA:31507   - - - - - - - distal urethral epithelium of male
+EMAPA:31508   - - - - - - - proximal urethral epithelium of male
+EMAPA:31505   - - - - - - - urethral opening of male
+EMAPA:19089   - - - - - gubernaculum (syn: caudal suspensory ligament)
+EMAPA:35963   - - - - - male reproductive system epithelium
+EMAPA:35975   - - - - - male reproductive system mesenchyme
+EMAPA:29138   - - - - - mesonephros of male
+EMAPA:30460   - - - - - - coelomic epithelium of male mesonephros
+EMAPA:30556   - - - - - - cranial mesonephric tubule of male
+EMAPA:30560   - - - - - - - mesonephric glomerulus of male
+EMAPA:30558   - - - - - - - rest of cranial mesonephric tubule
+EMAPA:29161   - - - - - - degenerating mesonephric portion of male paramesonephric duct (syn: Mullerian duct)
+EMAPA:31537   - - - - - - developing vasculature of male mesonephros
+EMAPA:29143   - - - - - - mesonephric mesenchyme of male
+EMAPA:17970   - - - - - - nephric duct of male, mesonephric portion
+EMAPA:17971   - - - - - mesorchium (syn: testis mesentery)
+EMAPA:29173   - - - - - nephric duct of male, rest of
+EMAPA:29181   - - - - - - epithelium of rest of nephric duct of male
+EMAPA:29177   - - - - - - mesenchyme of rest of nephric duct of male
+EMAPA:35947   - - - - - nerve of male reproductive system
+EMAPA:35661   - - - - - paramesonephric duct of male
+EMAPA:29196   - - - - - - degenerating rest of paramesonephric duct of male (syn: degenerating Mullerian duct)
+EMAPA:29199   - - - - - - - epithelium of degenerating rest of paramesonephric duct of male
+EMAPA:29202   - - - - - - - mesenchyme of degenerating rest of paramesonephric duct of male
+EMAPA:35320   - - - - - - epithelium of paramesonephric duct of male
+EMAPA:17972   - - - - - testis (syn: male gonad; testes)
+EMAPA:17973   - - - - - - coelomic epithelium of testis
+EMAPA:29114   - - - - - - developing vasculature of the testis
+EMAPA:29122   - - - - - - - coelomic vessel
+EMAPA:29130   - - - - - - - interstitial vessel
+EMAPA:18687   - - - - - - interstitium of the testis (syn: testis interstitial tissue)
+EMAPA:19175   - - - - - - - fetal Leydig cell
+EMAPA:19176   - - - - - - - rest of interstitium of the testis (syn: testis non-specific mesenchyme)
+EMAPA:18331   - - - - - - mediastinum testis
+EMAPA:18332   - - - - - - rete testis
+EMAPA:18685   - - - - - - seminiferous cord (syn: seminiferous tubule)
+EMAPA:18686   - - - - - - - germ cell of testis
+EMAPA:29244   - - - - - - - peritubular myoid cell
+EMAPA:19177   - - - - - - - Sertoli cell
+EMAPA:35856   - - - - - - testis cortical region
+EMAPA:35857   - - - - - - testis medullary region
+EMAPA:35858   - - - - - - testis mesenchyme
+EMAPA:27644   - - - - mesonephros
+EMAPA:27665   - - - - paramesonephric duct (syn: Mullerian duct)
+EMAPA:35951   - - - - reproductive system epithelium
+EMAPA:35728   - - - - reproductive system mesenchyme
+EMAPA:17366   - - - urinary system
+EMAPA:18321   - - - - bladder
+EMAPA:28826   - - - - - adventitia of bladder
+EMAPA:28831   - - - - - - adventitia of fundus
+EMAPA:30144   - - - - - - adventitia of neck
+EMAPA:28836   - - - - - - adventitia of trigone
+EMAPA:35173   - - - - - bladder fundus region
+EMAPA:35175   - - - - - bladder wall
+EMAPA:28637   - - - - - detrusor muscle of bladder
+EMAPA:28643   - - - - - - detrusor muscle of fundus
+EMAPA:30123   - - - - - - detrusor muscle of neck
+EMAPA:28649   - - - - - - detrusor muscle of trigone
+EMAPA:30088   - - - - - lamina propria of bladder
+EMAPA:30102   - - - - - - lamina propria of fundus
+EMAPA:30116   - - - - - - lamina propria of neck
+EMAPA:30109   - - - - - - lamina propria of trigone
+EMAPA:28619   - - - - - muscularis mucosa of bladder
+EMAPA:28625   - - - - - - muscularis mucosa of fundus
+EMAPA:30137   - - - - - - muscularis mucosa of neck
+EMAPA:28631   - - - - - - muscularis mucosa of trigone
+EMAPA:31526   - - - - - nerve of bladder
+EMAPA:28661   - - - - - serosa of bladder
+EMAPA:28667   - - - - - - serosa of fundus
+EMAPA:30130   - - - - - - serosa of neck
+EMAPA:28673   - - - - - - serosa of trigone
+EMAPA:32275   - - - - - submucosa of bladder
+EMAPA:32277   - - - - - - submucosa of fundus
+EMAPA:32276   - - - - - - submucosa of neck
+EMAPA:32304   - - - - - - submucosa of trigone
+EMAPA:28601   - - - - - urothelium of bladder (syn: epithelium of bladder)
+EMAPA:32274   - - - - - - basal cell layer of bladder
+EMAPA:32273   - - - - - - superficial cell layer of bladder
+EMAPA:28607   - - - - - - urothelium of fundus
+EMAPA:30081   - - - - - - urothelium of neck
+EMAPA:28613   - - - - - - urothelium of trigone
+EMAPA:28679   - - - - - vasculature of bladder (syn: blood vessel of bladder)
+EMAPA:17373   - - - - metanephros (syn: kidney)
+EMAPA:28407   - - - - - collecting duct (syn: ureteric tree)
+EMAPA:18676   - - - - - kidney calyx
+EMAPA:17948   - - - - - kidney pelvis (syn: renal pelvis)
+EMAPA:28120   - - - - - - pelvic smooth muscle (syn: kidney pelvis smooth muscle; renal pelvis smooth muscle)
+EMAPA:28077   - - - - - - pelvic urothelial lining (syn: pelvic urothelium)
+EMAPA:28083   - - - - - - perihilar interstitium
+EMAPA:17375   - - - - - metanephric mesenchyme (syn: kidney mesenchyme)
+EMAPA:35457   - - - - - metanephros epithelium (syn: kidney epithelium; renal epithelium)
+EMAPA:35969   - - - - - metanephros parietal epithelium (syn: kidney parietal epithelium)
+EMAPA:35970   - - - - - metanephros visceral epithelium (syn: kidney visceral epithelium)
+EMAPA:27721   - - - - - nephrogenic zone
+EMAPA:27735   - - - - - - cap mesenchyme (syn: condensed mesenchyme)
+EMAPA:17953   - - - - - - nephrogenic interstitium (syn: peripheral blastema)
+EMAPA:27742   - - - - - - pretubular aggregate (syn: pretubular condensate)
+EMAPA:27749   - - - - - - ureteric tip (syn: ampulla of ureter; ureteric ampulla)
+EMAPA:31045   - - - - - - ureteric tree terminal branch excluding tip itself
+EMAPA:18679   - - - - - renal capsule (syn: kidney capsule)
+EMAPA:35726   - - - - - renal corpuscle
+EMAPA:17952   - - - - - renal cortex (syn: kidney cortex)
+EMAPA:28136   - - - - - - renal cortical interstitium (syn: cortical stroma)
+EMAPA:31288   - - - - - - - renal cortical fibroblasts
+EMAPA:31296   - - - - - - - resident macrophages of the cortex (syn: renal monocytes of the cortex)
+EMAPA:31304   - - - - - - - rest of renal cortical interstitium
+EMAPA:31312   - - - - - - renal cortical lymphatics
+EMAPA:31319   - - - - - - renal cortical nerves
+EMAPA:28142   - - - - - - renal cortical vasculature
+EMAPA:28147   - - - - - - - renal cortical arterial system
+EMAPA:30037   - - - - - - - renal cortical capillary
+EMAPA:28152   - - - - - - - renal cortical venous system
+EMAPA:19279   - - - - - renal medulla (syn: kidney medulla)
+EMAPA:35557   - - - - - - medullary tubule
+EMAPA:31347   - - - - - - renal medullary lymphatics
+EMAPA:31354   - - - - - - renal medullary nerves
+EMAPA:28157   - - - - - - renal medullary vasculature
+EMAPA:27782   - - - - - renal tubule
+EMAPA:35948   - - - - nerve of urinary system
+EMAPA:31522   - - - - pelvic ganglion
+EMAPA:18323   - - - - urachus
+EMAPA:17950   - - - - ureter
+EMAPA:27711   - - - - - ureteral mesenchyme
+EMAPA:28570   - - - - - - ureteral mesenchyme outer layer (syn: presumptive adventitia)
+EMAPA:28561   - - - - - - ureteral mesenchyme subepithelial layer (syn: presumptive lamina propria)
+EMAPA:28811   - - - - - - ureteral smooth muscle layer (syn: presumptive ureteral smooth muscle layer)
+EMAPA:30150   - - - - - - - ureteral smooth muscle layer interstitium (syn: Cajal cell)
+EMAPA:28814   - - - - - - - ureteral smooth muscle layer smooth muscle component
+EMAPA:30850   - - - - - ureteral vasculature
+EMAPA:28089   - - - - - urothelium of ureter (syn: transitional epithelium)
+EMAPA:28806   - - - - - - basal cell layer of ureter
+EMAPA:28801   - - - - - - intermediate cell layer of ureter
+EMAPA:28588   - - - - - - superficial cell layer of ureter (syn: umbrella cell)
+EMAPA:30901   - - - - urethra
+EMAPA:28747   - - - - urethra of female
+EMAPA:28753   - - - - - pelvic urethra of female
+EMAPA:28765   - - - - - - mesenchymal layer of pelvic urethra of female
+EMAPA:31554   - - - - - - - mesenchymal layer of dorsal pelvic urethra of female
+EMAPA:31553   - - - - - - - mesenchymal layer of ventral pelvic urethra of female
+EMAPA:28771   - - - - - - muscle layer of pelvic urethra of female
+EMAPA:31560   - - - - - - - muscle layer of dorsal pelvic urethra of female
+EMAPA:31559   - - - - - - - muscle layer of ventral pelvic urethra of female
+EMAPA:31567   - - - - - - nerve of pelvic urethra of female
+EMAPA:28759   - - - - - - urothelium of pelvic urethra of female
+EMAPA:32264   - - - - - - - urothelium of dorsal pelvic urethra of female
+EMAPA:32267   - - - - - - - - basal cell layer of dorsal pelvic urethra of female
+EMAPA:32306   - - - - - - - - intermediate cell layer of dorsal pelvic urethra of female
+EMAPA:32266   - - - - - - - - superficial cell layer of dorsal pelvic urethra of female
+EMAPA:32282   - - - - - - - urothelium of ventral pelvic urethra of female
+EMAPA:32292   - - - - - - - - basal cell layer of ventral pelvic urethra of female
+EMAPA:32305   - - - - - - - - intermediate cell layer of ventral pelvic urethra of female
+EMAPA:32291   - - - - - - - - superficial cell layer of ventral pelvic urethra of female
+EMAPA:30917   - - - - - phallic urethra of female (syn: external urethra of female)
+EMAPA:31551   - - - - - - nerve of phallic urethra of female
+EMAPA:30927   - - - - - - urethral fold of female
+EMAPA:30924   - - - - - - urethral plate of female
+EMAPA:18692   - - - - urethra of male
+EMAPA:18995   - - - - - pelvic urethra of male
+EMAPA:28703   - - - - - - mesenchymal layer of pelvic urethra of male
+EMAPA:31552   - - - - - - - mesenchymal layer of dorsal pelvic urethra of male
+EMAPA:31550   - - - - - - - mesenchymal layer of ventral pelvic urethra of male
+EMAPA:28709   - - - - - - muscle layer of pelvic urethra of male
+EMAPA:31556   - - - - - - - muscle layer of dorsal pelvic urethra of male
+EMAPA:31555   - - - - - - - muscle layer of ventral pelvic urethra of male
+EMAPA:31565   - - - - - - nerve of pelvic urethra of male
+EMAPA:28697   - - - - - - urothelium of pelvic urethra of male
+EMAPA:32300   - - - - - - - urothelium of dorsal pelvic urethra of male
+EMAPA:32260   - - - - - - - - basal cell layer of dorsal pelvic urethra of male
+EMAPA:32307   - - - - - - - - intermediate cell layer of dorsal pelvic urethra of male
+EMAPA:32263   - - - - - - - - superficial cell layer of dorsal pelvic urethra of male
+EMAPA:32258   - - - - - - - urothelium of ventral pelvic urethra of male
+EMAPA:32261   - - - - - - - - basal cell layer of ventral pelvic urethra of male
+EMAPA:32314   - - - - - - - - intermediate cell layer of ventral pelvic urethra of male
+EMAPA:32284   - - - - - - - - superficial cell layer of ventral pelvic urethra of male
+EMAPA:17956   - - - - - phallic urethra of male (syn: external urethra of male)
+EMAPA:31568   - - - - - - nerve of phallic urethra of male
+EMAPA:18693   - - - - - - urethral fold of male
+EMAPA:18998   - - - - - - urethral plate of male
+EMAPA:35896   - - - - - urethra urothelium
+EMAPA:35953   - - - - urinary system epithelium
+EMAPA:35898   - - - - urinary system mesenchyme
+EMAPA:17367   - - - - urinary system mesentery
+EMAPA:29609   - - - - - rest of mesentery
+EMAPA:17368   - - - - - urogenital mesentery
+EMAPA:17379   - - - - urogenital sinus
+EMAPA:31509   - - - - - epithelium of urogenital sinus
+EMAPA:31500   - - - - - mesenchyme of urogenital sinus
+EMAPA:17380   - - - - urorectal septum
+
+
+
+============================================================
+
+
+
+TS23 Urogenital Showing Only Groups  =====
+
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAPA:31564 G - - - - developing vasculature of reproductive system group
+EMAPA:28540 G - - - - - female associated reproductive structure
+EMAPA:30984 G - - - - - female external genitalia
+EMAPA:28533 G - - - - - male associated reproductive structure
+EMAPA:30977 G - - - - - male external genitalia
+EMAPA:31563 G - - - - developing vasculature of urinary system group
+EMAPA:17954 G - - - - - early nephron group
+EMAPA:31443 G - - - - - renal capillary (syn: kidney capillary)
+EMAPA:28518 G - - - - - renal interstitium group (syn: kidney interstitium group)
+EMAPA:31469 G - - - - - renal small blood vessel (syn: kidney small blood vessel)
+EMAPA:31414 G - - - - - - - medullary renal tubule
+EMAPA:28494 G - - - - - ureteric trunk (syn: ureteric stalk)
+EMAPA:31569 G - - - - nerves of urethra
+EMAPA:31436 G - - - - renal arterial system (syn: kidney arterial system)
+EMAPA:28457 G - - - - renal vasculature
+EMAPA:31464 G - - - - - renal large blood vessel (syn: kidney large blood vessel)
+EMAPA:31450 G - - - - renal venous system (syn: kidney venous system)

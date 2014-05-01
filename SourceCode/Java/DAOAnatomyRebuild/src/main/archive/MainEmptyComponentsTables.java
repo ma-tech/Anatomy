@@ -50,7 +50,7 @@ public class MainEmptyComponentsTables {
         
             DAOFactory daofactory = DAOFactory.getInstance(args[0]);
 
-            EmptyComponentsTables.run( daofactory );
+            EmptyComponentsTables.run( daofactory, true, true, true, true, true, true );
         }
         
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

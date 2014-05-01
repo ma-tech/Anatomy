@@ -104,8 +104,8 @@ def _addToKnowledge(anatApo, deferReverse = False ):
             _byParentOid[parentOid] = []
         _byParentOid[parentOid].append(anatApo)
 
-    #if anatApo.isPrimaryPath():
-    nodeOid = anatApo.getNodeOid()
+    if anatApo.isPrimaryPath():
+        nodeOid = anatApo.getNodeOid()
         #if nodeOid == 4916:
         #    print nodeOid
         #    print anatApo.isPrimaryPath()
@@ -115,7 +115,7 @@ def _addToKnowledge(anatApo, deferReverse = False ):
         #    Util.fatalError([
         #        "Node OID " + str(nodeOid) + " occurs more than once " +
         #        "in " + AnadPartOfDb.TABLE_NAME])
-    _primaryPathByNodeOid[nodeOid] = anatApo
+        _primaryPathByNodeOid[nodeOid] = anatApo
 
     if not deferReverse:
         global _partOfInReverseSequence
@@ -135,7 +135,7 @@ def _initialise(initMethod):
     global _partOfInReverseSequence
     _initialiseGlobals()
 
-    #print "Method = " + initMethod
+    print "Method = " + initMethod
 
     if initMethod == __READ_TABLE:
         # Read in everything, ignoring perspective for time being.
@@ -154,20 +154,20 @@ def _initialise(initMethod):
         Util.fatalError([
             "Unrecognised initMethod: " + initMethod])
 
-    #print "Method = " + initMethod + "; Going through Existing ANAD_PART_OF rows now!"
+    print "Method = " + initMethod + "; Going through Existing ANAD_PART_OF rows now!"
 
     # Verify that sequence starts at 0, and is dense.  Otherwise
     # this code will fail.
     #for index, partOf in enumerate(_partOfBySequence):
-        #print "Method = " + initMethod + "; Idx = " + str(index) + "; Seq = " + str(partOf.getSequence())
-        #if index != partOf.getSequence():
-        #    Util.fatalError([
-        #        AnadPartOfDb.TABLE_NAME + " sequence does not start at 0, " +
-        #        "and/or is not dense.",
-        #        "Record has index " + str(index) +
-        #        " but has sequence " + str(partOf.getSequence()) + ".",
-        #        "Code requires 0-relative, dense " + AnadPartOfDb.TABLE_NAME +
-        #        " sequences."])
+    #    print "Method = " + initMethod + "; Idx = " + str(index) + "; Seq = " + str(partOf.getSequence())
+    #    if index != partOf.getSequence():
+    #        Util.fatalError([
+    #            AnadPartOfDb.TABLE_NAME + " sequence does not start at 0, " +
+    #            "and/or is not dense.",
+    #            "Record has index " + str(index) +
+    #            " but has sequence " + str(partOf.getSequence()) + ".",
+    #            "Code requires 0-relative, dense " + AnadPartOfDb.TABLE_NAME +
+    #            " sequences."])
 
     _partOfInReverseSequence = _partOfBySequence[:]
     _partOfInReverseSequence.reverse()
@@ -180,12 +180,12 @@ def _processNode(node, parentApo, rank, depth, isPrimaryPath):
     Generate part of records for an anatomy node, and all its children.
     """
 
-    #if Util.debugging():
-    #Util.debugMessage([
-    #        "In _processnode.",
-    #        "Node: " + node.getPublicId() + " '" +
-    #        node.getComponentName() + "'",
-    #        "Rank: " + str(rank) + "  Depth: " + str(depth)])
+    if Util.debugging():
+        Util.debugMessage([
+            "In _processnode.",
+            "Node: " + node.getPublicId() + " '" +
+            node.getComponentName() + "'",
+            "Rank: " + str(rank) + "  Depth: " + str(depth)])
 
     # Generate record for this node.
     anatApo = AnadPartOfDb.AnadPartOfDbRecord()
@@ -343,6 +343,13 @@ class PerspectiveSequenceIterator:
         Get the next ANAD_PART_OF record in this iterator's perspective.
         """
         apo = self.__seqIter.next() # may raise a StopIteration
+        
+        print "PartOfs - PerspectiveSequenceIterator - next()"
+        print "apo.getOid()"
+        print apo.getOid()
+        print "self.__perspectiveName"
+        print self.__perspectiveName
+        
         while not PartOfPerspectives.apoOidInPerspective(apo.getOid(),
                                                          self.__perspectiveName):
             apo = self.__seqIter.next() # may raise a StopIteration

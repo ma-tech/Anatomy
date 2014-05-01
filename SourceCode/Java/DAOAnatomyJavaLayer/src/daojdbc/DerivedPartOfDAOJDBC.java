@@ -96,11 +96,25 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         "WHERE APO_FULL_PATH_OIDS LIKE ? " +
         "ORDER BY APO_FULL_PATH_OIDS ";
 
+    private static final String SQL_LIST_ALL_BY_STAGE_SEQUENCE =
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "FROM ANAD_PART_OF " +
+        "JOIN ANA_STAGE a ON APO_NODE_START_STAGE_FK = a.STG_OID " +
+        "JOIN ANA_STAGE b ON APO_NODE_END_STAGE_FK = b.STG_OID " +
+        "WHERE a.STG_SEQUENCE <= ? " +
+        "AND b.STG_SEQUENCE >= ? " +
+        "ORDER BY APO_FULL_PATH ";
+
     private static final String SQL_FIND_BY_NODE_FK_IN_PRIMARY_PATH =
         "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
         "FROM ANAD_PART_OF " +
         "WHERE APO_NODE_FK = ? " +
         "AND APO_IS_PRIMARY_PATH IS TRUE ";
+
+    private static final String SQL_FIND_BY_NODE_FK =
+        "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
+        "FROM ANAD_PART_OF " +
+        "WHERE APO_NODE_FK = ? ";
 
     private static final String SQL_LIST_ALL =
         "SELECT APO_OID, APO_SPECIES_FK, APO_NODE_START_STAGE_FK, APO_NODE_END_STAGE_FK, APO_PATH_START_STAGE_FK, APO_PATH_END_STAGE_FK, APO_NODE_FK, APO_SEQUENCE, APO_DEPTH, APO_FULL_PATH, APO_FULL_PATH_OIDS, APO_FULL_PATH_EMAPAS, APO_FULL_PATH_JSON_HEAD, APO_FULL_PATH_JSON_TAIL, APO_IS_PRIMARY, APO_IS_PRIMARY_PATH, APO_PARENT_APO_FK  " +
@@ -188,6 +202,15 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
     public DerivedPartOf findByNodeFKInPrimaryPath(long nodeFK) throws Exception {
     	
         return find(SQL_FIND_BY_NODE_FK_IN_PRIMARY_PATH, nodeFK);
+    }
+    
+    
+    /*
+     * Returns the DerivedPartOf from the database matching the given OID, otherwise null.
+     */
+    public DerivedPartOf findByNodeFK(long nodeFK) throws Exception {
+    	
+        return find(SQL_FIND_BY_NODE_FK, nodeFK);
     }
     
     
@@ -696,6 +719,16 @@ public final class DerivedPartOfDAOJDBC implements DerivedPartOfDAO {
         String searchPath = "%" + oid + ".%";
 
         return list(SQL_LIST_ALL_BY_OID_IN_PATH, searchPath);
+    }
+
+    
+    /*
+     * Returns list of DerivedPartOfs for a range of Stage Sequences
+     */
+    public List<DerivedPartOf> listAllByStageSequence(long stageStart, long stageEnd)
+        throws Exception {
+    	
+        return list(SQL_LIST_ALL_BY_STAGE_SEQUENCE, stageStart, stageEnd);
     }
 
     

@@ -1,0 +1,28 @@
+
+============================================================
+===== Anatomy Database Version 12, 2014-04-28 10:39:41.0=====
+============================================================
+
+
+
+
+===== Urogenital Anatomy =====
+
+
+
+Stage TS14
+
+
+Second column indicates the path's group status.
+
+' ' : Term is not a group nor is it contained in a group.
+'G' : Term is a group.
+'>' : Term is directly contained in a group term.
+'~' : Term is indirectly contained in a group term.
+
+EMAPA:16367   - - - genitourinary system (syn: urogenital system)
+EMAPA:16576   - - - - genitourinary system mesenchyme
+EMAPA:16368   - - - - nephric cord
+EMAPA:16577   - - - - nephric duct (syn: mesonephric duct; Wolffian duct)
+EMAPA:16578   - - - - primordial germ cell
+EMAPA:16579   - - - - pronephros

@@ -23,12 +23,17 @@
 *                - ANAD_PART_OF_PERSPECTIVE
 *                - ANAD_RELATIONSHIP_TRANSITIVE
 *
-* Usage:        "main.Main5RebuildDerivedDataTables 
+* Usage:        "main.Main6RebuildDerivedDataTables 
 *                /Users/mwicks/GitMahost/Anatomy/Properties/obo.properties.input 
 *                 mouse011JenkinsOBOfile 
 *                  /Users/mwicks/GitMahost/Anatomy/Properties/dao.properties.input 
 *                   mouse011GudmapLocalhost"
 * 
+* Parameters:  1. The Location of the OBO Properties file
+*              2. The Key to the set selected OBO Properties 
+*              3. The Location of the DAO Properties file
+*              4. The Key to the set selected DAO Properties
+*              
 * Maintenance:  Log changes below, with most recent at top of list.
 *
 * Who; When; What;
@@ -38,10 +43,6 @@
 *----------------------------------------------------------------------------------------------
 */
 package main;
-
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import utility.Wrapper;
 
@@ -74,14 +75,7 @@ public class Main6RebuildDerivedDataTables{
         	daoproperty.setDAOProperty(args[2], args[3]);
             DAOFactory daofactory = DAOFactory.getInstance(args[3]);
             
-            //PrintStream original = System.out;
-            
-            //System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(args[4]))));
-            
             RebuildDerivedDataTables.run( daofactory, obofactory );
-            
-            //System.setOut(original);
-
         }
 
         Wrapper.printEpilogue("*", Wrapper.getExecutingClass(), startTime);

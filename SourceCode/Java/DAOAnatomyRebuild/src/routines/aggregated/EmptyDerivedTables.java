@@ -41,7 +41,10 @@ import daolayer.DAOFactory;
 
 public class EmptyDerivedTables {
 
-	public static void run( DAOFactory daofactory ) throws Exception {
+	public static void run( DAOFactory daofactory, 
+			boolean boolAnadPartOf, 
+			boolean boolAnadRelationshipTransitive, 
+			boolean boolAnadPartOfPerspective ) throws Exception {
 
 	    Wrapper.printMessage("EmptyDerivedTables.run", "***", daofactory.getMsgLevel());
 
@@ -52,34 +55,43 @@ public class EmptyDerivedTables {
 
         Wrapper.printMessage("EmptyDerivedTables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());
 
-        if ( derivedpartofDAO.countAll() > 0 ) {
+        if ( boolAnadPartOf ) {
+        	
+            if ( derivedpartofDAO.countAll() > 0 ) {
 
-        	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_PART_OF", "***", daofactory.getMsgLevel());
-        	derivedpartofDAO.empty();    
-        }
-        else {
-        
-        	Wrapper.printMessage("EmptyDerivedTables.run : ANAD_PART_OF IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
-        }
-        
-        if ( derivedrelationshiptransitiveDAO.countAll() > 0 ) {
-
-        	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_RELATIONSHIP_TRANSITIVE", "***", daofactory.getMsgLevel());
-        	derivedrelationshiptransitiveDAO.empty();
-        }
-        else {
-
-        	Wrapper.printMessage("EmptyDerivedTables.run : ==> ANAD_RELATIONSHIP_TRANSITIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_PART_OF", "***", daofactory.getMsgLevel());
+            	derivedpartofDAO.empty();    
+            }
+            else {
+            
+            	Wrapper.printMessage("EmptyDerivedTables.run : ANAD_PART_OF IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
 
-        if ( derivedpartofperspectivesDAO.countAll() > 0 ) {
+        if ( boolAnadRelationshipTransitive ) {
+        	
+            if ( derivedrelationshiptransitiveDAO.countAll() > 0 ) {
 
-        	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_PART_OF_PRESPECTIVE", "***", daofactory.getMsgLevel());
-        	derivedpartofperspectivesDAO.empty();
+            	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_RELATIONSHIP_TRANSITIVE", "***", daofactory.getMsgLevel());
+            	derivedrelationshiptransitiveDAO.empty();
+            }
+            else {
+
+            	Wrapper.printMessage("EmptyDerivedTables.run : ==> ANAD_RELATIONSHIP_TRANSITIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
-        else {
 
-        	Wrapper.printMessage("EmptyDerivedTables.run : ==> ANAD_PART_OF_PRESPECTIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+        if ( boolAnadPartOfPerspective ) {
+        	
+            if ( derivedpartofperspectivesDAO.countAll() > 0 ) {
+
+            	Wrapper.printMessage("EmptyDerivedTables.run : EMPTYING ANAD_PART_OF_PRESPECTIVE", "***", daofactory.getMsgLevel());
+            	derivedpartofperspectivesDAO.empty();
+            }
+            else {
+
+            	Wrapper.printMessage("EmptyDerivedTables.run : ==> ANAD_PART_OF_PRESPECTIVE IS ALREADY EMPTY!", "***", daofactory.getMsgLevel());
+            }
         }
         
         Wrapper.printMessage("EmptyDerivedTables.run : ---------------------------------------------------------------", "***", daofactory.getMsgLevel());

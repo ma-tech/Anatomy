@@ -1,6 +1,0 @@
-delete from ANAD_PART_OF_PERSPECTIVE;
-
-delete from ANAD_PART_OF;
-
-delete from ANAD_RELATIONSHIP_TRANSITIVE;
-

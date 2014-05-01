@@ -1,9 +1,0 @@
-mysql -uroot -pbanana anatomy008 < update/AAAupdateObjectMisc.sql
-mysql -uroot -pbanana anatomy008 < update/001updateObjectNode.sql
-mysql -uroot -pbanana anatomy008 < update/001updateObjectNode.sql
-mysql -uroot -pbanana anatomy008 < update/002updateObjectTimedNode.sql
-mysql -uroot -pbanana anatomy008 < update/003updateObjectRelationship.sql
-mysql -uroot -pbanana anatomy008 < update/004updateObjectStage.sql
-mysql -uroot -pbanana anatomy008 < update/005updateObjectSynonym.sql
-mysql -uroot -pbanana anatomy008 < update/006updateObjectVersion.sql
-mysql -uroot -pbanana anatomy008 < update/007updateObjectPerspective.sql
